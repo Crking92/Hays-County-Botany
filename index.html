@@ -8,18 +8,49 @@
 </head>
 <body>
 <header>
-  <h1>Hays Botany ID</h1>
-  <div class="sub">Central Texas native flora curation + field identification dashboard</div>
+  <div>
+    <h1>Hays Botany ID</h1>
+    <div class="sub">Visual field tutor · browse Family → Genus → Species and study diagnostic photos</div>
+  </div>
+  <button id="studyToggle" class="study-toggle">Study Mode: OFF</button>
 </header>
-<section class="controls">
-  <input id="search" placeholder="Search species, common name, tag...">
-  <select id="familyFilter"></select>
+
+<section class="taxonomy-browser" aria-label="Taxonomy browser">
+  <div class="browser-heading">
+    <div>
+      <strong>Browse taxonomy</strong>
+      <span>Choose a family, narrow to a genus, then a species.</span>
+    </div>
+    <button id="clearTaxonomy" class="secondary-button" type="button">Clear taxonomy</button>
+  </div>
+
+  <div class="taxonomy-controls">
+    <label>
+      <span>Family</span>
+      <select id="familyFilter"></select>
+    </label>
+    <div class="tax-arrow" aria-hidden="true">→</div>
+    <label>
+      <span>Genus</span>
+      <select id="genusFilter"></select>
+    </label>
+    <div class="tax-arrow" aria-hidden="true">→</div>
+    <label>
+      <span>Species</span>
+      <select id="speciesFilter"></select>
+    </label>
+  </div>
+</section>
+
+<section class="utility-controls">
+  <input id="search" placeholder="Search scientific/common name...">
   <select id="countyFilter"></select>
   <select id="tagFilter"></select>
-  <button id="studyToggle">Study Mode: OFF</button>
 </section>
+
 <div id="stats" class="stats">Loading…</div>
 <main id="grid" class="grid"></main>
+
 <script src="assets/js/app.js"></script>
 </body>
 </html>
