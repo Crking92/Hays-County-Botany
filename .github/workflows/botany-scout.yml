@@ -1,13 +1,6 @@
 name: Night Botany Scout
 
 on:
-  push:
-    branches:
-      - botany-scout-v1
-    paths:
-      - "scripts/botany_scout.py"
-      - "research-queue.json"
-      - ".github/workflows/botany-scout.yml"
   schedule:
     - cron: "15 8 * * *"
     - cron: "15 18 * * *"
