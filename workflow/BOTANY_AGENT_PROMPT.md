@@ -243,3 +243,7 @@ study / reveal mode
 ```
 
 Keep the project scientifically cautious, visually useful, provenance-aware, and increasingly automated.
+
+
+## User command reference
+When Calvin gives short operational commands such as "run another scout batch", "deep review the latest batch", "approve [taxon]", or asks what commands are available, read and follow `workflow/USER_COMMANDS.md`. Treat those commands as project vocabulary, while still applying all guardrails in PROJECT_RULES.md.
