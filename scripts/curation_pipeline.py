@@ -187,13 +187,17 @@ def process_image_csv(species_dir: Path, require_exact_images: bool, report: dic
         return
 
     downloaded_any = False
-    for index, row in enumerate(rows):
+    image_records = []
+
+    for row in rows:
         file_name = (row.get("file_name") or "").strip()
         role = first_nonempty(row, IMAGE_ROLE_COLUMNS)
         creator = (row.get("creator") or row.get("photographer") or row.get("observer") or "").strip()
         license_value = (row.get("license") or "").strip()
         source_page = (row.get("source_page") or row.get("source_url") or "").strip()
         direct_url = first_nonempty(row, IMAGE_URL_COLUMNS)
+        study_use = (row.get("study_use") or "").strip()
+        public_reuse = (row.get("public_reuse") or "").strip()
 
         if not file_name:
             raise ValueError(f"{csv_path}: a row is missing file_name")
@@ -205,6 +209,16 @@ def process_image_csv(species_dir: Path, require_exact_images: bool, report: dic
             report["warnings"].append(f"{species_dir.name}/{file_name}: license is blank")
         if not source_page:
             report["warnings"].append(f"{species_dir.name}/{file_name}: source_page is blank")
+
+        image_records.append({
+            "file": f"images/{file_name}",
+            "role": role,
+            "creator": creator,
+            "license": license_value,
+            "source_page": source_page,
+            "study_use": study_use,
+            "public_reuse": public_reuse,
+        })
 
         if not direct_url:
             msg = f"{species_dir.name}/{file_name}: exact direct image URL not recorded yet"
@@ -225,6 +239,17 @@ def process_image_csv(species_dir: Path, require_exact_images: bool, report: dic
         downloaded_any = True
         report["images_downloaded"].append(str(out.relative_to(ROOT)))
 
+    # Make the species JSON point at the exact curated image set.
+    species_json = species_dir / "species.json"
+    sp = load_json(species_json)
+    sp["images"] = image_records
+    status = dict(sp.get("curation_status") or {})
+    status["photo_metadata_count"] = len(image_records)
+    status["photo_files_present"] = sum(
+        1 for rec in image_records if (species_dir / rec["file"]).exists()
+    )
+    sp["curation_status"] = status
+    write_json(species_json, sp)
 
 def copy_species_package(src_species_dir: Path, dst_species_dir: Path) -> None:
     dst_species_dir.mkdir(parents=True, exist_ok=True)
