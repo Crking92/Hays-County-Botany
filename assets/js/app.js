@@ -1,333 +1,550 @@
 const state = {
-  species: [],
+  project: null,
+  learning: null,
   manifestSpecies: [],
-  targetCounties: [],
-  studyMode: false,
-  photoIndex: {}
+  species: [],
+  speciesById: new Map(),
+  familyCache: new Map(),
+  genusCache: new Map(),
+  difficulty: readLocal("hays-botany-difficulty") || "terms",
+  quizMode: readLocal("hays-botany-quiz") === "true",
+  quizRevealed: false,
+  view: "home",
+  selectedSpeciesId: null,
+  selectedFamily: null,
+  browseFamily: "",
+  browseGenus: "",
+  photoIndex: {},
+  glossaryQuery: ""
 };
 
+const els = {
+  app: document.getElementById("app"),
+  modal: document.getElementById("modalRoot"),
+  search: document.getElementById("globalSearch"),
+  results: document.getElementById("searchResults"),
+  clear: document.getElementById("clearSearch"),
+  quiz: document.getElementById("quizToggle")
+};
+
+function readLocal(key){ try { return localStorage.getItem(key); } catch(e) { return null; } }
+function writeLocal(key,value){ try { localStorage.setItem(key,value); } catch(e) {} }
+function esc(value){
+  return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[ch];
+  });
+}
+function titleCase(value){
+  return String(value || "").replaceAll("_"," ").replace(/\b\w/g,function(c){ return c.toUpperCase(); });
+}
+function norm(value){ return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g," ").trim(); }
+
 async function loadJSON(path){
-  const r = await fetch(path);
-  if(!r.ok) throw new Error(`${r.status} ${path}`);
+  const r = await fetch(path,{cache:"no-store"});
+  if(!r.ok) throw new Error(r.status + " " + path);
   return r.json();
 }
-
-async function boot(){
-  try{
-    const manifest = await loadJSON("data/manifest.json");
-    const project = await loadJSON(manifest.project);
-    state.targetCounties = project.target_zone_counties || [];
-    state.manifestSpecies = manifest.species || [];
-    state.species = await Promise.all(state.manifestSpecies.map(x => loadJSON(x.path)));
-    state.species.sort((a,b) =>
-      (a.family || "").localeCompare(b.family || "") ||
-      (a.genus || "").localeCompare(b.genus || "") ||
-      scientificName(a).localeCompare(scientificName(b))
-    );
-    buildFilters();
-    render();
-  }catch(err){
-    document.querySelector("#grid").innerHTML =
-      `<div class="empty warning"><b>Could not load JSON files.</b><br>
-      Open this folder through a local web server (see START-HERE.txt).<br><br>${err.message}</div>`;
-  }
-}
-
 function scientificName(sp){
   if(sp.scientific_name) return sp.scientific_name;
-  const bits = [sp.genus, sp.species].filter(Boolean);
-  if(sp.subspecies) bits.push("subsp.", sp.subspecies);
-  if(sp.variety) bits.push("var.", sp.variety);
+  const bits=[sp.genus,sp.species].filter(Boolean);
+  if(sp.subspecies) bits.push("subsp.",sp.subspecies);
+  if(sp.variety) bits.push("var.",sp.variety);
   return bits.join(" ") || sp.accepted_name || sp.id || "Unnamed taxon";
 }
-
-function countyList(sp){
-  let counties = [];
-  if(Array.isArray(sp.county_occurrences_target_zone)) counties = sp.county_occurrences_target_zone;
-  else if(Array.isArray(sp.target_zone_range?.confirmed_target_zone_counties)) counties = sp.target_zone_range.confirmed_target_zone_counties;
-  else if(typeof sp.verified_target_counties === "string") counties = sp.verified_target_counties.split(";").map(x => x.trim());
-  else if(Array.isArray(sp.county_occurrences_reported)) counties = sp.county_occurrences_reported;
-
-  return [...new Set(counties.filter(x => state.targetCounties.includes(x)))];
+function commonName(sp){ return sp.common_name || sp.common_group || ""; }
+function speciesBase(sp){
+  const entry=state.manifestSpecies.find(function(x){ return x.id===sp.id; });
+  return entry && entry.path ? entry.path.replace(/\/species\.json$/,"") : "";
 }
+function imagesFor(sp){ return (Array.isArray(sp.images)?sp.images:[]).filter(function(x){ return x && x.file; }); }
+function imagePath(sp,img){
+  if(!img || !img.file) return "";
+  if(img.file.startsWith("content/")) return encodeURI(img.file);
+  return encodeURI(speciesBase(sp)+"/"+img.file);
+}
+function firstImage(sp){ return imagesFor(sp)[0] || null; }
+function thumb(sp,cls){
+  const img=firstImage(sp);
+  if(img) return '<img class="'+cls+'" src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+'" loading="lazy">';
+  return '<div class="'+cls+' thumb-empty" aria-hidden="true">✣</div>';
+}
+function familyProfile(name){ return state.learning && state.learning.family_profiles ? state.learning.family_profiles[name] : null; }
+function callout(sp){ return state.learning && state.learning.species_callouts ? state.learning.species_callouts[sp.id] : null; }
 
+function formatValue(value){
+  if(Array.isArray(value)) return value.map(formatValue).join(" · ");
+  if(value && typeof value==="object"){
+    return Object.entries(value).map(function(pair){ return titleCase(pair[0])+": "+formatValue(pair[1]); }).join(" | ");
+  }
+  return String(value == null ? "" : value);
+}
+function countyList(sp){
+  let counties=[];
+  if(Array.isArray(sp.county_occurrences_target_zone)) counties=sp.county_occurrences_target_zone;
+  else if(Array.isArray(sp.target_zone_range && sp.target_zone_range.confirmed_target_zone_counties)) counties=sp.target_zone_range.confirmed_target_zone_counties;
+  else if(typeof sp.verified_target_counties==="string") counties=sp.verified_target_counties.split(";").map(function(x){ return x.trim(); });
+  else if(Array.isArray(sp.county_occurrences_reported)) counties=sp.county_occurrences_reported;
+  const allowed=(state.project && state.project.target_zone_counties) || [];
+  return Array.from(new Set(counties.filter(function(x){ return allowed.includes(x); })));
+}
 function rangeSummary(sp){
-  const counties = countyList(sp);
-  const directStatus = sp.target_zone_range?.meets_three_county_rule;
-  const trackerStatus = sp.project_inclusion?.target_zone_status;
-
-  if(directStatus === true || trackerStatus === "PASS" || sp.native_target_zone_calculated === true){
-    return `PASS · ${counties.length || sp.target_zone_count || sp.target_zone_range?.target_zone_count_confirmed || sp.target_zone_range?.target_zone_count_confirmed_minimum || "3+"} supported target-zone counties`;
+  const counties=countyList(sp);
+  const direct=sp.target_zone_range && sp.target_zone_range.meets_three_county_rule;
+  const tracker=sp.project_inclusion && sp.project_inclusion.target_zone_status;
+  if(direct===true || tracker==="PASS" || sp.native_target_zone_calculated===true){
+    const n=counties.length || sp.target_zone_count || (sp.target_zone_range && (sp.target_zone_range.target_zone_count_confirmed || sp.target_zone_range.target_zone_count_confirmed_minimum)) || "3+";
+    return "PASS · "+n+" supported target-zone counties";
   }
-  if(directStatus === false || trackerStatus === "UNRESOLVED"){
-    return `UNRESOLVED · ${counties.length} supported target-zone counties`;
-  }
-  if(sp.project_inclusion?.strict_native_filter_deferred){
-    return "Native-range audit deferred · local-occurrence-first study taxon";
-  }
-  if(counties.length){
-    return `${counties.length} target-zone county records in current file`;
-  }
+  if(direct===false || tracker==="UNRESOLVED") return "UNRESOLVED · "+counties.length+" supported target-zone counties";
+  if(sp.project_inclusion && sp.project_inclusion.strict_native_filter_deferred) return "Native-range audit deferred · local-occurrence-first study taxon";
+  if(counties.length) return counties.length+" target-zone county records in current file";
   return "Range status not normalized yet";
 }
 
-function formatValue(value){
-  if(Array.isArray(value)) return value.join(" · ");
-  if(value && typeof value === "object"){
-    return Object.entries(value).map(([k,v]) => `${k.replaceAll("_"," ")}: ${formatValue(v)}`).join(" | ");
-  }
-  return value ?? "";
+function lookHereFirst(sp){
+  const c=callout(sp);
+  if(c && c.standout) return c.standout;
+  const m=sp.morphology_keys || {};
+  const best=m.best_field_traits || m.high_value_field_traits;
+  if(Array.isArray(best) && best.length) return formatValue(best[0]);
+  const keys=["leaf_arrangement","phyllotaxy","sap_type","leaves","leaf_morphology","phyllaries","flower","heads","inflorescence","fruit","habit","growth_habit","bark","acorn"];
+  for(let i=0;i<keys.length;i++) if(m[keys[i]]) return titleCase(keys[i])+": "+formatValue(m[keys[i]]);
+  const first=Object.entries(m)[0];
+  return first ? titleCase(first[0])+": "+formatValue(first[1]) : ((familyProfile(sp.family)||{}).look_here_first || "Start with overall architecture, then inspect reproductive structures.");
 }
-
-function countBy(values){
-  const counts = new Map();
-  values.forEach(v => counts.set(v, (counts.get(v) || 0) + 1));
+function fieldCues(sp,max){
+  const m=sp.morphology_keys || {};
+  const cues=[];
+  const best=m.best_field_traits || m.high_value_field_traits;
+  if(Array.isArray(best)) best.forEach(function(v){ if(v && cues.length<max) cues.push(formatValue(v)); });
+  const keys=["leaf_arrangement","phyllotaxy","sap_type","leaves","leaf_morphology","phyllaries","flower","flower_color","heads","inflorescence","fruit","habit","growth_habit","bark","acorn"];
+  keys.forEach(function(k){
+    if(cues.length>=max || !m[k]) return;
+    const value=titleCase(k)+": "+formatValue(m[k]);
+    if(!cues.includes(value)) cues.push(value);
+  });
+  if(!cues.length) Object.entries(m).slice(0,max).forEach(function(p){ cues.push(titleCase(p[0])+": "+formatValue(p[1])); });
+  return cues.slice(0,max);
+}
+function termMatches(entry,text){
+  const hay=norm(text);
+  return [entry.term].concat(entry.aliases||[]).map(norm).filter(function(x){ return x.length>=4; }).some(function(x){ return hay.includes(x); });
+}
+function termsForSpecies(sp,max){
+  const profile=familyProfile(sp.family) || {};
+  const found=[];
+  function add(id){ if(state.learning.terms[id] && !found.includes(id)) found.push(id); }
+  (profile.key_terms||[]).forEach(add);
+  const body=JSON.stringify({morphology:sp.morphology_keys,callout:callout(sp),family:profile});
+  Object.entries(state.learning.terms).forEach(function(pair){ if(termMatches(pair[1],body)) add(pair[0]); });
+  return found.slice(0,max);
+}
+function termChip(id){
+  const t=state.learning.terms[id];
+  if(!t) return "";
+  return '<button class="term-chip" type="button" data-term="'+esc(id)+'"><span>'+esc(t.term)+'</span><b>?</b></button>';
+}
+function familySpecies(family){ return state.species.filter(function(sp){ return sp.family===family; }); }
+function generaForFamily(family){
+  const counts=new Map();
+  familySpecies(family).forEach(function(sp){ counts.set(sp.genus,(counts.get(sp.genus)||0)+1); });
+  return Array.from(counts.entries()).sort(function(a,b){ return a[0].localeCompare(b[0]); });
+}
+function familyCounts(){
+  const counts=new Map();
+  state.species.forEach(function(sp){ counts.set(sp.family,(counts.get(sp.family)||0)+1); });
   return counts;
 }
+function selectedSpecies(){ return state.speciesById.get(state.selectedSpeciesId) || null; }
 
-function setOptions(select, options, placeholder, selectedValue=""){
-  select.innerHTML = [
-    `<option value="">${placeholder}</option>`,
-    ...options.map(o => `<option value="${o.value}">${o.label}</option>`)
-  ].join("");
-  if(options.some(o => o.value === selectedValue)) select.value = selectedValue;
-}
-
-function buildFilters(){
-  const family = document.getElementById("familyFilter");
-  const familyCounts = countBy(state.species.map(x => x.family).filter(Boolean));
-  const families = [...familyCounts.keys()].sort().map(name => ({
-    value: name,
-    label: `${name} (${familyCounts.get(name)})`
-  }));
-  setOptions(family, families, "All families");
-
-  fillSimple("countyFilter", ["All counties", ...state.targetCounties]);
-  const tags = [...new Set(state.species.flatMap(x => x.tags || []))].sort();
-  fillSimple("tagFilter", ["All tags", ...tags]);
-
-  refreshTaxonomyChildren();
-}
-
-function fillSimple(id, values){
-  const sel = document.getElementById(id);
-  sel.innerHTML = values.map(v => `<option value="${v.startsWith("All ") ? "" : v}">${v}</option>`).join("");
-}
-
-function refreshTaxonomyChildren({preserveGenus=false, preserveSpecies=false}={}){
-  const familySel = document.getElementById("familyFilter");
-  const genusSel = document.getElementById("genusFilter");
-  const speciesSel = document.getElementById("speciesFilter");
-
-  const family = familySel.value;
-  const oldGenus = preserveGenus ? genusSel.value : "";
-  const oldSpecies = preserveSpecies ? speciesSel.value : "";
-
-  const familySpecies = family
-    ? state.species.filter(sp => sp.family === family)
-    : [];
-
-  const genusCounts = countBy(familySpecies.map(sp => sp.genus).filter(Boolean));
-  const genera = [...genusCounts.keys()].sort().map(name => ({
-    value: name,
-    label: `${name} (${genusCounts.get(name)})`
-  }));
-
-  setOptions(genusSel, genera, family ? "All genera" : "Choose family first", oldGenus);
-  genusSel.disabled = !family;
-
-  const genus = genusSel.value;
-  const speciesPool = genus
-    ? familySpecies.filter(sp => sp.genus === genus)
-    : familySpecies;
-
-  const speciesOptions = speciesPool.map(sp => ({
-    value: sp.id,
-    label: `${scientificName(sp)}${sp.common_name ? " — " + sp.common_name : ""}`
-  }));
-
-  setOptions(speciesSel, speciesOptions, family ? "All species" : "Choose family first", oldSpecies);
-  speciesSel.disabled = !family;
-}
-
-function filteredSpecies(){
-  const q = document.getElementById("search").value.trim().toLowerCase();
-  const family = document.getElementById("familyFilter").value;
-  const genus = document.getElementById("genusFilter").value;
-  const speciesId = document.getElementById("speciesFilter").value;
-  const county = document.getElementById("countyFilter").value;
-  const tag = document.getElementById("tagFilter").value;
-
-  return state.species.filter(sp => {
-    const text = [
-      scientificName(sp),
-      sp.authority,
-      sp.common_name,
-      ...(sp.other_common_names || []),
-      ...(sp.tags || [])
-    ].filter(Boolean).join(" ").toLowerCase();
-
-    return (!q || text.includes(q))
-      && (!family || sp.family === family)
-      && (!genus || sp.genus === genus)
-      && (!speciesId || sp.id === speciesId)
-      && (!county || countyList(sp).includes(county))
-      && (!tag || (sp.tags || []).includes(tag));
-  });
-}
-
-function findSpeciesBase(sp){
-  const entry = state.manifestSpecies.find(x => x.id === sp.id);
-  if(!entry?.path) return "";
-  return entry.path.replace(/\/species\.json$/, "");
-}
-
-function imagePath(sp, image){
-  if(!image?.file) return "";
-  if(image.file.startsWith("content/")) return encodeURI(image.file);
-  return encodeURI(`${findSpeciesBase(sp)}/${image.file}`);
-}
-
-function validImages(sp){
-  return (Array.isArray(sp.images) ? sp.images : []).filter(img => img && img.file);
-}
-
-function photoMarkup(sp){
-  const images = validImages(sp);
-  if(!images.length){
-    return `<div class="photo-missing">No curated photo installed yet</div>`;
+function similarCandidates(sp){
+  const ids=[], reasons=new Map();
+  function add(id,reason){
+    if(!id || id===sp.id || ids.includes(id) || !state.speciesById.has(id)) return;
+    ids.push(id); reasons.set(id,reason);
   }
-
-  const rawIndex = state.photoIndex[sp.id] || 0;
-  const index = ((rawIndex % images.length) + images.length) % images.length;
-  state.photoIndex[sp.id] = index;
-  const img = images[index];
-  const role = img.role || img.view || "Curated study image";
-  const creator = img.creator || img.credit || "";
-  const license = img.license || "";
-  const credit = [creator, license].filter(Boolean).join(" · ");
-
-  return `<figure class="card-photo" data-photo-card="${sp.id}">
-    <div class="photo-stage">
-      <button type="button" class="photo-image-button" data-photo-action="next" aria-label="Next photo for ${scientificName(sp)}">
-        <img src="${imagePath(sp, img)}" alt="${scientificName(sp)} — ${role}" loading="lazy">
-      </button>
-      <div class="photo-role">${role}</div>
-      <div class="photo-counter">${index + 1} / ${images.length}</div>
-      ${images.length > 1 ? `
-        <button type="button" class="photo-nav photo-prev" data-photo-action="prev" aria-label="Previous photo">‹</button>
-        <button type="button" class="photo-nav photo-next" data-photo-action="next" aria-label="Next photo">›</button>
-      ` : ""}
-    </div>
-    <figcaption>
-      <span>${credit || "Source metadata retained in species record"}</span>
-      ${images.length > 1 ? "<span class=\"cycle-hint\">Click photo or arrows to cycle</span>" : ""}
-    </figcaption>
-  </figure>`;
+  const overrides=(state.learning.comparison_overrides && state.learning.comparison_overrides[sp.id]) || [];
+  overrides.forEach(function(id){ add(id,"Useful comparison"); });
+  state.species.filter(function(x){ return x.genus===sp.genus && x.id!==sp.id; }).forEach(function(x){ add(x.id,"Same genus"); });
+  if(ids.length<5) state.species.filter(function(x){ return x.family===sp.family && x.id!==sp.id; }).forEach(function(x){ add(x.id,"Same family"); });
+  return ids.slice(0,5).map(function(id){ return {sp:state.speciesById.get(id),reason:reasons.get(id)}; });
 }
 
-function card(sp){
-  const sci = scientificName(sp);
-  const traits = Object.entries(sp.morphology_keys || {}).map(([k,v]) =>
-    `<div class="trait"><b>${k.replaceAll("_"," ")}</b>${formatValue(v)}</div>`
-  ).join("");
-
-  return `<article class="card ${state.studyMode ? "hidden-study" : ""}" data-species-id="${sp.id}">
-    ${photoMarkup(sp)}
-    <div class="identity answer">
-      <div class="taxonomy-line">${sp.family || ""} › ${sp.genus || ""}</div>
-      <h2><span class="latin">${sci}</span> ${sp.authority || ""}</h2>
-      <div class="common">${sp.common_name || ""}</div>
-    </div>
-    <div class="tags">${(sp.tags || []).map(t => `<span class="tag">${t}</span>`).join("")}</div>
-    <div class="traits answer">${traits}</div>
-    <p class="answer range-line"><b>Project range:</b> ${rangeSummary(sp)}</p>
-    <button class="reveal" type="button" data-reveal>Reveal / Hide ID + traits</button>
-  </article>`;
+async function ensureFamilyData(family){
+  if(state.familyCache.has(family)) return state.familyCache.get(family);
+  try{
+    const data=await loadJSON("content/taxa/"+encodeURIComponent(family)+"/family.json");
+    state.familyCache.set(family,data); return data;
+  }catch(e){ state.familyCache.set(family,null); return null; }
+}
+async function ensureGenusData(sp){
+  const key=sp.family+"/"+sp.genus;
+  if(state.genusCache.has(key)) return state.genusCache.get(key);
+  try{
+    const data=await loadJSON("content/taxa/"+encodeURIComponent(sp.family)+"/"+encodeURIComponent(sp.genus)+"/genus.json");
+    state.genusCache.set(key,data); return data;
+  }catch(e){ state.genusCache.set(key,null); return null; }
 }
 
-function taxonomyTrail(){
-  const family = document.getElementById("familyFilter").value;
-  const genus = document.getElementById("genusFilter").value;
-  const speciesId = document.getElementById("speciesFilter").value;
-  const sp = speciesId ? state.species.find(x => x.id === speciesId) : null;
-  return [family, genus, sp ? scientificName(sp) : ""].filter(Boolean).join(" → ");
+function updateHeader(){
+  document.body.dataset.view=state.view;
+  document.querySelectorAll("[data-difficulty]").forEach(function(btn){
+    const on=btn.dataset.difficulty===state.difficulty;
+    btn.classList.toggle("active",on); btn.setAttribute("aria-pressed",String(on));
+  });
+  document.querySelectorAll(".main-nav [data-nav]").forEach(function(btn){
+    const on=btn.dataset.nav===state.view || (btn.dataset.nav==="home" && (state.view==="family" || state.view==="plant"));
+    btn.classList.toggle("active",on);
+  });
+  els.quiz.classList.toggle("active",state.quizMode);
+  els.quiz.textContent=state.quizMode ? "Quiz: on" : "Quiz: off";
+}
+function setView(view){
+  state.view=view; state.quizRevealed=false;
+  if(view!=="plant") state.selectedSpeciesId=null;
+  closeModal(); render(); window.scrollTo({top:0,behavior:"smooth"});
+}
+function openFamily(family){
+  state.selectedFamily=family; state.view="family"; state.quizRevealed=false; render();
+  ensureFamilyData(family).then(function(){ if(state.view==="family" && state.selectedFamily===family) render(); });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function openPlant(id){
+  if(!state.speciesById.has(id)) return;
+  state.selectedSpeciesId=id; state.view="plant"; state.quizRevealed=false;
+  els.search.value=""; hideResults(); render();
+  const sp=selectedSpecies();
+  Promise.all([ensureFamilyData(sp.family),ensureGenusData(sp)]).then(function(){ if(state.view==="plant" && state.selectedSpeciesId===id) render(); });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function randomQuiz(){
+  if(!state.species.length) return;
+  state.quizMode=true; writeLocal("hays-botany-quiz","true");
+  const sp=state.species[Math.floor(Math.random()*state.species.length)];
+  openPlant(sp.id);
+}
+function setDifficulty(level){
+  if(!state.learning.difficulty_levels[level]) return;
+  state.difficulty=level; writeLocal("hays-botany-difficulty",level); render();
 }
 
+function familyCard(family){
+  const p=familyProfile(family)||{};
+  const members=familySpecies(family);
+  const imgs=members.map(function(sp){ return {sp:sp,img:firstImage(sp)}; }).filter(function(x){ return x.img; }).slice(0,3);
+  let mosaic='<span class="family-mosaic">';
+  if(imgs.length) imgs.forEach(function(x){ mosaic+='<img src="'+imagePath(x.sp,x.img)+'" alt="" loading="lazy">'; });
+  else mosaic+='<span class="family-mosaic-empty">✣</span>';
+  mosaic+='</span>';
+  return '<button class="family-card" type="button" data-family="'+esc(family)+'">'+mosaic+
+    '<span class="family-card-body"><span class="family-count">'+members.length+' curated taxa</span><strong>'+esc(family)+'</strong>'+
+    '<em>'+esc(p.common_name||"")+'</em><span class="family-clue">'+esc(p.plain_signature||"Open this family to see recurring field characters.")+'</span></span></button>';
+}
+function homeView(){
+  const counts=familyCounts();
+  const preferred=state.learning.home_families || Array.from(counts.keys());
+  const families=Array.from(new Set(preferred.concat(Array.from(counts.keys())))).filter(function(f){ return counts.has(f); });
+  const level=state.learning.difficulty_levels[state.difficulty];
+  let out='<section class="home-hero"><div class="eyebrow">Structure-first field botany</div>'+
+    '<h1>Learn what to look at, then learn what it is called.</h1>'+
+    '<p>Start with a plant or a family. The first screen stays simple; deeper botany is always one tap away.</p>'+
+    '<div class="home-actions"><button class="primary-button" type="button" data-random-quiz>Quiz me with a random plant</button>'+
+    '<button class="secondary-button" type="button" data-nav="browse">Browse Family → Genus → Species</button></div>'+
+    '<div class="difficulty-explainer"><span>'+esc(level.label)+'</span><strong>'+esc(level.mantra)+'</strong><p>'+esc(level.description)+'</p></div></section>';
+  out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Start broad</div><h2>Plant families</h2></div>'+
+    '<button class="text-button" type="button" data-nav="browse">See all '+state.species.length+' taxa →</button></div><div class="family-grid">';
+  families.forEach(function(f){ out+=familyCard(f); });
+  out+='</div></section><section class="method-strip"><div><b>1</b><span><strong>See it</strong>Start with the structure.</span></div>'+
+    '<div><b>2</b><span><strong>Name it</strong>Tap terms as they appear.</span></div>'+
+    '<div><b>3</b><span><strong>Compare it</strong>Put relatives side by side.</span></div></section>';
+  return out;
+}
+function speciesTile(sp,showFamily){
+  return '<button class="species-tile" type="button" data-species="'+sp.id+'">'+thumb(sp,"species-tile-img")+
+    '<span>'+(showFamily?'<small>'+esc(sp.genus)+'</small>':'')+'<strong><i>'+esc(scientificName(sp))+'</i></strong>'+
+    '<em>'+esc(commonName(sp))+'</em></span></button>';
+}
+function familyView(){
+  const family=state.selectedFamily, p=familyProfile(family)||{}, members=familySpecies(family), genera=generaForFamily(family);
+  const canon=state.familyCache.get(family);
+  const signature=state.difficulty==="field" ? (p.field_signature||p.plain_signature) : (p.plain_signature||p.field_signature);
+  let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button><span>›</span><strong>'+esc(family)+'</strong></section>'+
+    '<section class="family-hero"><div class="family-hero-copy"><div class="eyebrow">Family · '+members.length+' curated taxa</div><h1>'+esc(family)+'</h1>'+
+    '<p class="family-common">'+esc(p.common_name || (canon&&canon.common_name) || "")+'</p>'+
+    '<div class="look-card"><span>LOOK HERE FIRST</span><strong>'+esc(p.look_here_first||"Recognize the family structure before species-level details.")+'</strong></div>'+
+    '<p class="family-signature">'+esc(signature||"")+'</p><div class="term-row">';
+  (p.key_terms||[]).slice(0,state.difficulty==="simple"?4:9).forEach(function(id){ out+=termChip(id); });
+  out+='</div><div class="button-row"><button class="primary-button" type="button" data-family-info="'+esc(family)+'">Why is this a family?</button>'+
+    '<button class="secondary-button" type="button" data-nav="glossary">Open botanical terms</button></div></div><div class="family-photo-stack">';
+  members.slice(0,4).forEach(function(sp){ out+='<button type="button" data-species="'+sp.id+'">'+thumb(sp,"family-stack-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
+  out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Narrow it down</div><h2>Genera in this learner</h2></div></div><div class="genus-buttons">';
+  genera.forEach(function(g){ out+='<button type="button" data-browse-family="'+esc(family)+'" data-browse-genus="'+esc(g[0])+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
+  out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Recognize individuals</div><h2>Species</h2></div></div><div class="species-tile-grid">';
+  members.forEach(function(sp){ out+=speciesTile(sp,true); });
+  return out+'</div></section>';
+}
+function photoCarousel(sp){
+  const imgs=imagesFor(sp);
+  if(!imgs.length) return '<div class="focus-photo-empty">No curated photo installed yet.</div>';
+  let idx=state.photoIndex[sp.id]||0; idx=((idx%imgs.length)+imgs.length)%imgs.length; state.photoIndex[sp.id]=idx;
+  const img=imgs[idx], role=img.role||img.view||"Curated study image", credit=[img.creator||img.credit,img.license].filter(Boolean).join(" · ");
+  let out='<figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'"></button>'+
+    '<div class="photo-topline"><span>'+esc(role)+'</span><b>'+(idx+1)+' / '+imgs.length+'</b></div>';
+  if(imgs.length>1) out+='<button class="photo-arrow prev" type="button" data-photo-step="-1" aria-label="Previous photo">‹</button><button class="photo-arrow next" type="button" data-photo-step="1" aria-label="Next photo">›</button>';
+  out+='<figcaption><span>'+esc(credit||"Source metadata retained in species record")+'</span>'+(img.source_page?'<a href="'+esc(img.source_page)+'" target="_blank" rel="noreferrer">source ↗</a>':'')+'</figcaption></figure>';
+  return out;
+}
+function identityPanel(sp){
+  if(state.quizMode && !state.quizRevealed){
+    return '<div class="identity-panel mystery"><div class="eyebrow">Quiz mode</div><h1>Mystery plant</h1><p>Use the photo sequence and field characters before revealing the name.</p>'+
+      '<button class="primary-button" type="button" data-reveal-quiz>Reveal identification</button></div>';
+  }
+  return '<div class="identity-panel"><div class="eyebrow">'+esc(sp.family)+' › '+esc(sp.genus)+'</div><h1><i>'+esc(scientificName(sp))+'</i></h1>'+
+    '<p class="plant-common">'+esc(commonName(sp))+'</p>'+(sp.authority?'<p class="authority">'+esc(sp.authority)+'</p>':'')+
+    (state.quizMode?'<button class="text-button" type="button" data-next-quiz>Next mystery plant →</button>':'')+'</div>';
+}
+function similarCard(base,other,reason){
+  return '<article class="similar-card"><button class="similar-open" type="button" data-species="'+other.id+'">'+thumb(other,"similar-thumb")+
+    '<span class="comparison-reason">'+esc(reason)+'</span><strong><i>'+esc(scientificName(other))+'</i></strong><em>'+esc(commonName(other))+'</em></button>'+
+    '<button class="compare-button" type="button" data-compare="'+base.id+'|'+other.id+'">Compare side by side</button></article>';
+}
+function structuredTeachingHTML(value){
+  if(Array.isArray(value)) return '<ul>'+value.map(function(v){ return '<li>'+esc(formatValue(v))+'</li>'; }).join("")+'</ul>';
+  if(value && typeof value==="object"){
+    return '<div class="structured-list">'+Object.entries(value).map(function(p){ return '<div><b>'+esc(titleCase(p[0]))+'</b><span>'+esc(formatValue(p[1]))+'</span></div>'; }).join("")+'</div>';
+  }
+  return '<p>'+esc(formatValue(value))+'</p>';
+}
+function termsInText(text,max){
+  const out=[];
+  Object.entries(state.learning.terms).forEach(function(pair){ if(out.length<max && termMatches(pair[1],text)) out.push(pair[0]); });
+  return out;
+}
+function fieldBotanySection(sp,genusData){
+  const rows=Object.entries(sp.morphology_keys||{}).filter(function(p){ return !["best_field_traits","high_value_field_traits"].includes(p[0]); });
+  const strategy=genusData && (genusData.study_strategy || genusData.genus_diagnostics || genusData.high_value_field_traits);
+  let out='<section class="section-block technical-section"><div class="section-heading"><div><div class="eyebrow">Field botany</div><h2>Technical morphology</h2></div><span class="range-badge">'+esc(rangeSummary(sp))+'</span></div><div class="morphology-grid">';
+  rows.forEach(function(p){
+    const ids=termsInText(titleCase(p[0])+" "+formatValue(p[1]),3);
+    out+='<article class="morph-card"><b>'+esc(titleCase(p[0]))+'</b><p>'+esc(formatValue(p[1]))+'</p>'+(ids.length?'<div class="mini-terms">'+ids.map(termChip).join("")+'</div>':'')+'</article>';
+  });
+  out+='</div>';
+  if(strategy) out+='<details class="genus-strategy"><summary>How to study <i>'+esc(sp.genus)+'</i> as a genus</summary><div>'+structuredTeachingHTML(strategy)+'</div></details>';
+  out+='<details class="range-details"><summary>Project range evidence summary</summary><p>'+esc(rangeSummary(sp))+'</p>'+
+    (countyList(sp).length?'<p><b>Supported target-zone counties in this file:</b> '+esc(countyList(sp).join(", "))+'</p>':'')+'</details></section>';
+  return out;
+}
+function plantView(){
+  const sp=selectedSpecies(); if(!sp) return homeView();
+  const p=familyProfile(sp.family)||{}, c=callout(sp)||{}, terms=termsForSpecies(sp,state.difficulty==="simple"?3:(state.difficulty==="terms"?7:12));
+  const similar=similarCandidates(sp), genusData=state.genusCache.get(sp.family+"/"+sp.genus);
+  const familyConnection=c.family_connection || p.plain_signature || "";
+  const cues=fieldCues(sp,state.difficulty==="simple"?3:5);
+  let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button>';
+  if(!state.quizMode) out+='<span>›</span><button type="button" data-family="'+esc(sp.family)+'">'+esc(sp.family)+'</button><span>›</span><strong><i>'+esc(sp.genus)+'</i></strong>';
+  out+='</section><section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
+    '<div class="look-card emphasis"><span>LOOK HERE FIRST</span><strong>'+esc(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
+  cues.forEach(function(x){ out+='<div><b aria-hidden="true">→</b><span>'+esc(x)+'</span></div>'; });
+  out+='</div><div class="study-actions"><button class="primary-button" type="button" data-family-info="'+esc(sp.family)+'">Why '+esc(sp.family)+'?</button>'+
+    (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
+    (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
+  if(state.difficulty!=="simple"){
+    out+='<section class="section-block learning-panel"><div class="section-heading"><div><div class="eyebrow">See it → name it → use it</div><h2>Botanical words on this plant</h2></div>'+
+      '<button class="text-button" type="button" data-nav="glossary">Full glossary →</button></div><div class="term-row large">'+terms.map(termChip).join("")+'</div>'+
+      '<p class="teaching-note">Tap a term for plain language, the formal definition, where to look, why it matters, and a labeled diagram.</p></section>';
+  }
+  out+='<section class="two-column-learning"><article class="learning-card"><div class="eyebrow">Family pattern</div><h2>Why does this fit '+esc(sp.family)+'?</h2><p>'+esc(familyConnection)+'</p>'+
+    '<button class="text-button" type="button" data-family-info="'+esc(sp.family)+'">Open family lesson →</button></article>'+
+    '<article class="learning-card"><div class="eyebrow">Species-level clue</div><h2>What makes this one stand out?</h2><p>'+esc(c.standout || lookHereFirst(sp))+'</p><p class="muted">'+esc(p.caveat||"")+'</p></article></section>';
+  out+='<section id="similarSection" class="section-block"><div class="section-heading"><div><div class="eyebrow">Train your eye</div><h2>Compare with look-alikes and relatives</h2></div></div>'+
+    '<p class="section-intro">“Same genus” means close taxonomic relatives. “Useful comparison” is a hand-picked study pairing. “Same family” shares family structure but may not look alike overall.</p><div class="similar-grid">';
+  if(similar.length) similar.forEach(function(x){ out+=similarCard(sp,x.sp,x.reason); }); else out+='<div class="empty-panel">No comparison plants are curated yet.</div>';
+  out+='</div></section>';
+  if(state.difficulty==="field") out+=fieldBotanySection(sp,genusData);
+  return out;
+}
+function browseView(){
+  const families=Array.from(new Set(state.species.map(function(sp){ return sp.family; }))).sort();
+  const genera=state.browseFamily ? generaForFamily(state.browseFamily).map(function(x){ return x[0]; }) : [];
+  let list=state.species.slice();
+  if(state.browseFamily) list=list.filter(function(sp){ return sp.family===state.browseFamily; });
+  if(state.browseGenus) list=list.filter(function(sp){ return sp.genus===state.browseGenus; });
+  let out='<section class="page-intro"><div class="eyebrow">Taxonomy browser</div><h1>Family → Genus → Species</h1><p>Use this when you want to learn the hierarchy instead of searching by name.</p></section>'+
+    '<section class="taxonomy-picker"><label><span>1 · Family</span><select data-browse-select="family"><option value="">All families</option>';
+  families.forEach(function(f){ out+='<option value="'+esc(f)+'" '+(f===state.browseFamily?"selected":"")+'>'+esc(f)+'</option>'; });
+  out+='</select></label><div class="tax-arrow">→</div><label><span>2 · Genus</span><select data-browse-select="genus" '+(!state.browseFamily?"disabled":"")+'><option value="">All genera</option>';
+  genera.forEach(function(g){ out+='<option value="'+esc(g)+'" '+(g===state.browseGenus?"selected":"")+'>'+esc(g)+'</option>'; });
+  out+='</select></label><div class="tax-arrow">→</div><div class="picker-result"><span>3 · Species</span><strong>'+list.length+' taxa</strong></div></section>'+
+    '<section class="section-block"><div class="species-tile-grid">';
+  list.forEach(function(sp){ out+=speciesTile(sp,true); });
+  return out+'</div></section>';
+}
+function glossaryView(){
+  const q=norm(state.glossaryQuery);
+  const entries=Object.entries(state.learning.terms).filter(function(pair){
+    if(!q) return true;
+    const t=pair[1]; return norm([pair[0],t.term,t.plain,t.formal,(t.aliases||[]).join(" ")].join(" ")).includes(q);
+  });
+  let out='<section class="page-intro"><div class="eyebrow">Botanical vocabulary</div><h1>Learn the word while looking at the structure.</h1>'+
+    '<p>Plain language first, formal botany second. Every term opens a labeled visual.</p><input id="glossarySearch" class="glossary-search" value="'+esc(state.glossaryQuery)+'" placeholder="Search phyllary, opposite, cupule…"></section><section class="glossary-grid">';
+  entries.forEach(function(pair){
+    const id=pair[0], t=pair[1];
+    out+='<button class="glossary-card" type="button" data-term="'+esc(id)+'"><img src="'+esc(t.visual)+'" alt="" loading="lazy"><span><strong>'+esc(t.term)+'</strong>'+
+      '<em>'+esc(t.pronunciation||"")+'</em><p>'+esc(t.plain)+'</p></span></button>';
+  });
+  if(!entries.length) out+='<div class="empty-panel">No matching term.</div>';
+  return out+'</section>';
+}
 function render(){
-  const list = filteredSpecies();
-  const trail = taxonomyTrail();
-  const familyCount = new Set(list.map(x => x.family).filter(Boolean)).size;
-  const genusCount = new Set(list.map(x => x.genus).filter(Boolean)).size;
-  document.getElementById("stats").innerHTML =
-    `<strong>${list.length}</strong> of ${state.species.length} taxa shown · ${familyCount} families · ${genusCount} genera`
-    + (trail ? `<span class="active-trail">${trail}</span>` : "");
-
-  document.getElementById("grid").innerHTML = list.length
-    ? list.map(card).join("")
-    : `<div class="empty">No matches. Try clearing a taxonomy level or search filter.</div>`;
+  updateHeader();
+  if(state.view==="home") els.app.innerHTML=homeView();
+  else if(state.view==="family") els.app.innerHTML=familyView();
+  else if(state.view==="plant") els.app.innerHTML=plantView();
+  else if(state.view==="browse") els.app.innerHTML=browseView();
+  else if(state.view==="glossary") els.app.innerHTML=glossaryView();
+  else els.app.innerHTML=homeView();
 }
 
-function updateSinglePhoto(speciesId, delta){
-  const sp = state.species.find(x => x.id === speciesId);
-  if(!sp) return;
-  const images = validImages(sp);
-  if(images.length < 2) return;
-
-  const current = state.photoIndex[speciesId] || 0;
-  state.photoIndex[speciesId] = (current + delta + images.length) % images.length;
-
-  const cardEl = document.querySelector(`[data-species-id="${speciesId}"]`);
-  const photoEl = cardEl?.querySelector("[data-photo-card]");
-  if(photoEl) photoEl.outerHTML = photoMarkup(sp);
+function searchMatches(query){
+  const q=norm(query); if(!q) return [];
+  return state.species.map(function(sp){
+    const sci=scientificName(sp), common=commonName(sp), body=norm([sci,common,sp.genus,sp.family].concat(sp.other_common_names||[]).join(" "));
+    let score=0;
+    if(norm(sci)===q || norm(common)===q) score+=100;
+    if(norm(sci).startsWith(q) || norm(common).startsWith(q)) score+=50;
+    if(norm(sp.genus).startsWith(q)) score+=30;
+    if(body.includes(q)) score+=10;
+    return {sp:sp,score:score};
+  }).filter(function(x){ return x.score>0; }).sort(function(a,b){ return b.score-a.score || scientificName(a.sp).localeCompare(scientificName(b.sp)); }).slice(0,8);
 }
+function renderResults(){
+  const q=els.search.value.trim(); els.clear.classList.toggle("visible",Boolean(q));
+  if(!q){ hideResults(); return; }
+  const matches=searchMatches(q);
+  const fmatch=Object.keys(state.learning.family_profiles).find(function(f){ return norm(f).includes(norm(q)) || norm(state.learning.family_profiles[f].common_name).includes(norm(q)); });
+  let out="";
+  if(fmatch){
+    out+='<button class="search-family-result" type="button" data-family="'+esc(fmatch)+'"><b>Family</b><span><strong>'+esc(fmatch)+'</strong><em>'+esc(familyProfile(fmatch).common_name)+'</em></span></button>';
+  }
+  matches.forEach(function(x){
+    const sp=x.sp; out+='<button class="search-species-result" type="button" data-species="'+sp.id+'">'+thumb(sp,"search-thumb")+'<span><strong><i>'+esc(scientificName(sp))+'</i></strong>'+
+      '<em>'+esc(commonName(sp))+'</em><small>'+esc(sp.family)+' › '+esc(sp.genus)+'</small></span></button>';
+  });
+  if(!fmatch && !matches.length) out='<div class="search-empty">No matching curated plant yet.</div>';
+  els.results.innerHTML=out; els.results.hidden=false;
+}
+function hideResults(){ els.results.hidden=true; }
 
-document.getElementById("familyFilter").addEventListener("change", () => {
-  refreshTaxonomyChildren();
-  render();
-});
+function openTermModal(id){
+  const t=state.learning.terms[id]; if(!t) return;
+  els.modal.innerHTML='<div class="modal-backdrop" data-close-modal><section class="modal-card term-modal" role="dialog" aria-modal="true" aria-labelledby="termTitle">'+
+    '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button><div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"></div>'+
+    '<div class="term-copy"><div class="eyebrow">Botanical term</div><h2 id="termTitle">'+esc(t.term)+'</h2><p class="pronunciation">rough pronunciation · '+esc(t.pronunciation||"—")+'</p>'+
+    '<div class="definition plain"><b>Plain language</b><p>'+esc(t.plain)+'</p></div><div class="definition"><b>Botanical definition</b><p>'+esc(t.formal)+'</p></div>'+
+    '<div class="term-lesson"><div><b>Where do I look?</b><p>'+esc(t.where)+'</p></div><div><b>Why does it matter?</b><p>'+esc(t.why)+'</p></div></div></div></section></div>';
+}
+async function openFamilyModal(family){
+  const p=familyProfile(family)||{}, canon=await ensureFamilyData(family), diagnostics=canon && (canon.family_diagnostics || canon.diagnostic_traits);
+  let out='<div class="modal-backdrop" data-close-modal><section class="modal-card family-modal" role="dialog" aria-modal="true" aria-labelledby="familyTitle">'+
+    '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button><div class="eyebrow">Family lesson</div><h2 id="familyTitle">'+esc(family)+'</h2>'+
+    '<p class="family-common">'+esc(p.common_name || (canon&&canon.common_name) || "")+'</p><div class="look-card"><span>FAMILY SIGNATURE</span><strong>'+esc(p.plain_signature||"")+'</strong></div>'+
+    '<div class="definition"><b>Where should I look first?</b><p>'+esc(p.look_here_first||"")+'</p></div><div class="definition"><b>Field-botany version</b><p>'+esc(p.field_signature||"")+'</p></div>';
+  if(p.field_question) out+='<div class="field-question"><b>Ask yourself in the field:</b><p>'+esc(p.field_question)+'</p></div>';
+  out+='<div class="term-row large">'+(p.key_terms||[]).map(termChip).join("")+'</div>';
+  if(diagnostics && state.difficulty==="field") out+='<div class="canonical-diagnostics"><h3>Canonical family diagnostics</h3>'+structuredTeachingHTML(diagnostics)+'</div>';
+  if(p.caveat) out+='<p class="modal-caveat"><b>Important:</b> '+esc(p.caveat)+'</p>';
+  els.modal.innerHTML=out+'</section></div>';
+}
+function compareKeys(a,b){
+  const ma=a.morphology_keys||{}, mb=b.morphology_keys||{}, keys=[];
+  const priority=["life_cycle","habit","growth_habit","sap_type","leaf_arrangement","phyllotaxy","leaves","leaf_morphology","inflorescence","flower","flower_color","heads","phyllaries","fruit","bark","acorn"];
+  priority.forEach(function(k){ if((ma[k]!=null || mb[k]!=null) && !keys.includes(k)) keys.push(k); });
+  Object.keys(ma).forEach(function(k){ if(mb[k]!=null && !keys.includes(k) && !["best_field_traits","high_value_field_traits"].includes(k)) keys.push(k); });
+  return keys.slice(0,8);
+}
+function compareHead(sp){
+  return '<article>'+thumb(sp,"compare-photo")+'<h3><i>'+esc(scientificName(sp))+'</i></h3><p>'+esc(commonName(sp))+'</p><div class="mini-look"><b>Look first</b><span>'+esc(lookHereFirst(sp))+'</span></div></article>';
+}
+function openCompareModal(aid,bid){
+  const a=state.speciesById.get(aid), b=state.speciesById.get(bid); if(!a||!b) return;
+  const keys=compareKeys(a,b);
+  let out='<div class="modal-backdrop" data-close-modal><section class="modal-card compare-modal" role="dialog" aria-modal="true" aria-labelledby="compareTitle">'+
+    '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button><div class="eyebrow">Side-by-side field comparison</div><h2 id="compareTitle">What should I look at differently?</h2>';
+  if(a.family===b.family) out+='<p class="shared-family">Both are <b>'+esc(a.family)+'</b>. First recognize the shared family pattern, then separate them with the characters below.</p>';
+  out+='<div class="compare-heads">'+compareHead(a)+compareHead(b)+'</div><div class="compare-table"><div class="compare-row compare-header"><b>Character</b><b><i>'+esc(scientificName(a))+'</i></b><b><i>'+esc(scientificName(b))+'</i></b></div>';
+  keys.forEach(function(k){
+    out+='<div class="compare-row"><strong>'+esc(titleCase(k))+'</strong><span>'+esc(formatValue((a.morphology_keys||{})[k] ?? "—"))+'</span><span>'+esc(formatValue((b.morphology_keys||{})[k] ?? "—"))+'</span></div>';
+  });
+  out+='</div><div class="compare-actions"><button class="secondary-button" type="button" data-species="'+a.id+'">Study '+esc(commonName(a)||a.genus)+'</button>'+
+    '<button class="secondary-button" type="button" data-species="'+b.id+'">Study '+esc(commonName(b)||b.genus)+'</button></div></section></div>';
+  els.modal.innerHTML=out;
+}
+function closeModal(){ els.modal.innerHTML=""; }
 
-document.getElementById("genusFilter").addEventListener("change", () => {
-  refreshTaxonomyChildren({preserveGenus:true});
-  render();
-});
-
-document.getElementById("speciesFilter").addEventListener("change", render);
-
-["search","countyFilter","tagFilter"].forEach(id => {
-  document.getElementById(id).addEventListener("input", render);
-  document.getElementById(id).addEventListener("change", render);
-});
-
-document.getElementById("clearTaxonomy").addEventListener("click", () => {
-  document.getElementById("familyFilter").value = "";
-  refreshTaxonomyChildren();
-  render();
-});
-
-document.getElementById("studyToggle").addEventListener("click", e => {
-  state.studyMode = !state.studyMode;
-  e.currentTarget.classList.toggle("on", state.studyMode);
-  e.currentTarget.textContent = state.studyMode ? "Study Mode: ON" : "Study Mode: OFF";
-  render();
-});
-
-document.getElementById("grid").addEventListener("click", e => {
-  const photoAction = e.target.closest("[data-photo-action]");
-  if(photoAction){
-    const cardEl = photoAction.closest("[data-species-id]");
-    const speciesId = cardEl?.dataset.speciesId;
-    if(speciesId){
-      updateSinglePhoto(speciesId, photoAction.dataset.photoAction === "prev" ? -1 : 1);
-    }
+function handleClick(e){
+  const close=e.target.closest("[data-close-modal]");
+  if(close && (e.target.classList.contains("modal-backdrop") || close.classList.contains("modal-close"))){ closeModal(); return; }
+  const nav=e.target.closest("[data-nav]"); if(nav){ setView(nav.dataset.nav); return; }
+  if(e.target.closest("#brandHome")){ setView("home"); return; }
+  const diff=e.target.closest("[data-difficulty]"); if(diff){ setDifficulty(diff.dataset.difficulty); return; }
+  const setDiff=e.target.closest("[data-set-difficulty]"); if(setDiff){ setDifficulty(setDiff.dataset.setDifficulty); return; }
+  const term=e.target.closest("[data-term]"); if(term){ e.stopPropagation(); openTermModal(term.dataset.term); return; }
+  const comp=e.target.closest("[data-compare]"); if(comp){ const ids=comp.dataset.compare.split("|"); openCompareModal(ids[0],ids[1]); return; }
+  const species=e.target.closest("[data-species]"); if(species){ closeModal(); openPlant(species.dataset.species); return; }
+  const fam=e.target.closest("[data-family]"); if(fam){ closeModal(); openFamily(fam.dataset.family); return; }
+  const famInfo=e.target.closest("[data-family-info]"); if(famInfo){ openFamilyModal(famInfo.dataset.familyInfo); return; }
+  const photo=e.target.closest("[data-photo-step]");
+  if(photo){
+    const sp=selectedSpecies(), imgs=sp?imagesFor(sp):[];
+    if(sp && imgs.length){ const cur=state.photoIndex[sp.id]||0; state.photoIndex[sp.id]=(cur+Number(photo.dataset.photoStep)+imgs.length)%imgs.length; render(); }
     return;
   }
-
-  const reveal = e.target.closest("[data-reveal]");
-  if(reveal){
-    const cardEl = reveal.closest(".card");
-    cardEl?.querySelectorAll(".answer").forEach(x => x.classList.toggle("revealed"));
+  if(e.target.closest("[data-reveal-quiz]")){ state.quizRevealed=true; render(); return; }
+  if(e.target.closest("[data-next-quiz]") || e.target.closest("[data-random-quiz]")){ randomQuiz(); return; }
+  const jump=e.target.closest("[data-jump]"); if(jump){ const target=document.getElementById(jump.dataset.jump+"Section"); if(target) target.scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  const gb=e.target.closest("[data-browse-genus]");
+  if(gb){ state.browseFamily=gb.dataset.browseFamily; state.browseGenus=gb.dataset.browseGenus; state.view="browse"; render(); window.scrollTo({top:0,behavior:"smooth"}); }
+}
+function handleChange(e){
+  if(e.target.matches("[data-browse-select='family']")){ state.browseFamily=e.target.value; state.browseGenus=""; render(); }
+  if(e.target.matches("[data-browse-select='genus']")){ state.browseGenus=e.target.value; render(); }
+}
+function handleInput(e){
+  if(e.target.id==="glossarySearch"){
+    state.glossaryQuery=e.target.value; const pos=e.target.selectionStart; render();
+    const input=document.getElementById("glossarySearch"); if(input){ input.focus(); try{ input.setSelectionRange(pos,pos); }catch(err){} }
   }
-});
-
+}
+function bind(){
+  document.addEventListener("click",handleClick);
+  document.addEventListener("change",handleChange);
+  document.addEventListener("input",handleInput);
+  els.search.addEventListener("input",renderResults);
+  els.search.addEventListener("focus",renderResults);
+  els.search.addEventListener("keydown",function(e){
+    if(e.key==="Enter"){ const first=searchMatches(els.search.value)[0]; if(first){ e.preventDefault(); openPlant(first.sp.id); } }
+    if(e.key==="Escape") hideResults();
+  });
+  els.clear.addEventListener("click",function(){ els.search.value=""; renderResults(); els.search.focus(); });
+  els.results.addEventListener("click",function(e){
+    const sp=e.target.closest("[data-species]"); if(sp){ openPlant(sp.dataset.species); return; }
+    const fam=e.target.closest("[data-family]"); if(fam) openFamily(fam.dataset.family);
+  });
+  els.quiz.addEventListener("click",function(){ state.quizMode=!state.quizMode; state.quizRevealed=false; writeLocal("hays-botany-quiz",String(state.quizMode)); render(); });
+  document.addEventListener("click",function(e){ if(!e.target.closest(".search-wrap")) hideResults(); });
+  document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeModal(); });
+}
+async function boot(){
+  try{
+    const loaded=await Promise.all([loadJSON("data/manifest.json"),loadJSON("data/project.json"),loadJSON("data/learning-layer.json")]);
+    const manifest=loaded[0]; state.project=loaded[1]; state.learning=loaded[2]; state.manifestSpecies=manifest.species||[];
+    state.species=await Promise.all(state.manifestSpecies.map(function(x){ return loadJSON(x.path); }));
+    state.species.sort(function(a,b){ return (a.family||"").localeCompare(b.family||"") || (a.genus||"").localeCompare(b.genus||"") || scientificName(a).localeCompare(scientificName(b)); });
+    state.species.forEach(function(sp){ state.speciesById.set(sp.id,sp); });
+    if(!state.learning.difficulty_levels[state.difficulty]) state.difficulty="terms";
+    bind(); render();
+  }catch(err){
+    els.app.innerHTML='<section class="error-card"><h1>Could not load the learner.</h1><p>'+esc(err.message)+'</p><p>Make sure this folder is running through <code>RUN_LOCAL_SERVER.bat</code>.</p></section>';
+  }
+}
 boot();

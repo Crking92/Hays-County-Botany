@@ -3,54 +3,48 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Hays Botany ID</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="theme-color" content="#101512">
+  <title>Hays Botany Visual Learner</title>
+  <link rel="stylesheet" href="assets/css/styles.css?v=5">
 </head>
 <body>
-<header>
-  <div>
-    <h1>Hays Botany ID</h1>
-    <div class="sub">Visual field tutor · browse Family → Genus → Species and study diagnostic photos</div>
+<header class="topbar">
+  <button id="brandHome" class="brand" type="button" aria-label="Hays Botany home">
+    <span class="brand-mark" aria-hidden="true">✣</span>
+    <span><strong>Hays Botany</strong><small>visual field learner</small></span>
+  </button>
+  <nav class="main-nav" aria-label="Main navigation">
+    <button type="button" data-nav="home">Home</button>
+    <button type="button" data-nav="browse">Browse</button>
+    <button type="button" data-nav="glossary">Terms</button>
+  </nav>
+  <div class="header-tools">
+    <div class="difficulty" role="group" aria-label="Learning difficulty">
+      <button type="button" data-difficulty="simple">Simple</button>
+      <button type="button" data-difficulty="terms">Learn terms</button>
+      <button type="button" data-difficulty="field">Field botany</button>
+    </div>
+    <button id="quizToggle" class="quiz-toggle" type="button">Quiz: off</button>
   </div>
-  <button id="studyToggle" class="study-toggle">Study Mode: OFF</button>
 </header>
 
-<section class="taxonomy-browser" aria-label="Taxonomy browser">
-  <div class="browser-heading">
-    <div>
-      <strong>Browse taxonomy</strong>
-      <span>Choose a family, narrow to a genus, then a species.</span>
-    </div>
-    <button id="clearTaxonomy" class="secondary-button" type="button">Clear taxonomy</button>
-  </div>
-
-  <div class="taxonomy-controls">
-    <label>
-      <span>Family</span>
-      <select id="familyFilter"></select>
-    </label>
-    <div class="tax-arrow" aria-hidden="true">→</div>
-    <label>
-      <span>Genus</span>
-      <select id="genusFilter"></select>
-    </label>
-    <div class="tax-arrow" aria-hidden="true">→</div>
-    <label>
-      <span>Species</span>
-      <select id="speciesFilter"></select>
-    </label>
+<section class="search-dock" aria-label="Plant search">
+  <div class="search-wrap">
+    <span class="search-icon" aria-hidden="true">⌕</span>
+    <input id="globalSearch" autocomplete="off" placeholder="Search a plant, genus, common name, or family…" aria-label="Search plants">
+    <button id="clearSearch" class="search-clear" type="button" aria-label="Clear search">×</button>
+    <div id="searchResults" class="search-results" hidden></div>
   </div>
 </section>
 
-<section class="utility-controls">
-  <input id="search" placeholder="Search scientific/common name...">
-  <select id="countyFilter"></select>
-  <select id="tagFilter"></select>
-</section>
+<main id="app" class="app-shell" tabindex="-1">
+  <section class="loading-card">
+    <strong>Loading the visual learner…</strong>
+    <span>Building your local plant library.</span>
+  </section>
+</main>
 
-<div id="stats" class="stats">Loading…</div>
-<main id="grid" class="grid"></main>
-
-<script src="assets/js/app.js"></script>
+<div id="modalRoot"></div>
+<script src="assets/js/app.js?v=5"></script>
 </body>
 </html>
