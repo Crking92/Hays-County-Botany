@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hays Botany species package",
+  "type": "object",
+  "required": [
+    "id",
+    "family",
+    "genus",
+    "common_name"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "family": {
+      "type": "string",
+      "minLength": 1
+    },
+    "genus": {
+      "type": "string",
+      "minLength": 1
+    },
+    "species": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scientific_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authority": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "common_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "morphology_keys": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "curation_status": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "species"
+      ]
+    },
+    {
+      "required": [
+        "scientific_name"
+      ]
+    }
+  ],
+  "additionalProperties": true
+}
