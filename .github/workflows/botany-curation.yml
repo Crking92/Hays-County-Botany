@@ -1,0 +1,54 @@
+name: Botany curation pipeline
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - botany-automation-test
+    paths:
+      - "curation-inbox/**"
+      - "scripts/curation_pipeline.py"
+      - "schemas/**"
+      - ".github/workflows/botany-curation.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: botany-curation-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  curate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install image optimizer
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Run Hays Botany curation pipeline
+        run: python scripts/curation_pipeline.py --apply
+
+      - name: Commit automated changes
+        shell: bash
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No repository changes to commit."
+            exit 0
+          fi
+          git config user.name "hays-botany-automation"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "botany(auto): process curation inbox [skip ci]"
+          git push origin "HEAD:${{ github.ref_name }}"
