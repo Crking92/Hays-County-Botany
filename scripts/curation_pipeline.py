@@ -335,6 +335,10 @@ def main() -> int:
         if p.is_dir() and (p / "batch.json").exists()
     )
 
+    if not batch_dirs:
+        print("No curation batches found; nothing to do.")
+        return 0
+
     report = {
         "started_at": datetime.now(timezone.utc).isoformat(),
         "apply": args.apply,
