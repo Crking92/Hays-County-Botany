@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_RESEARCH_ONLY",
+  "created_at": "2026-10-01T04:49:59.188669+00:00",
+  "queue_item": {
+    "id": "bouteloua-curtipendula",
+    "scientific_name": "Bouteloua curtipendula",
+    "family": "Poaceae",
+    "genus": "Bouteloua",
+    "status": "queued",
+    "priority": 1,
+    "research_goals": [
+      "taxonomy_candidates",
+      "supporting_target_county_occurrences",
+      "diagnostic_photo_candidates"
+    ],
+    "notes": "First Botany Scout v1 test taxon. No automatic range decision."
+  },
+  "guardrail": "This file contains research leads only. Do not install it into canonical content without human/ChatGPT curation under PROJECT_RULES.md.",
+  "taxonomy_candidates": {
+    "iNaturalist": {
+      "id": 75858,
+      "rank": "species",
+      "rank_level": 10,
+      "iconic_taxon_id": 47126,
+      "ancestor_ids": [
+        48460,
+        47126,
+        211194,
+        47125,
+        47163,
+        47162,
+        47434,
+        975051,
+        975052,
+        1136753,
+        71258,
+        75858
+      ],
+      "is_active": true,
+      "name": "Bouteloua curtipendula",
+      "parent_id": 71258,
+      "ancestry": "48460/47126/211194/47125/47163/47162/47434/975051/975052/1136753/71258",
+      "extinct": false,
+      "provisional": false,
+      "default_photo": {
+        "id": 5329132,
+        "license_code": "cc-by-sa",
+        "attribution": "(c) psweet, some rights reserved (CC BY-SA), uploaded by psweet",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5329132/square.jpeg",
+        "original_dimensions": {
+          "height": 666,
+          "width": 1000
+        },
+        "flags": [],
+        "attribution_name": "psweet",
+        "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5329132/square.jpeg",
+        "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/5329132/medium.jpeg"
+      },
+      "taxon_changes_count": 0,
+      "taxon_schemes_count": 5,
+      "observations_count": 18979,
+      "flag_counts": {
+        "resolved": 1,
+        "unresolved": 0
+      },
+      "current_synonymous_taxon_ids": null,
+      "atlas_id": null,
+      "complete_species_count": null,
+      "wikipedia_url": "http://en.wikipedia.org/wiki/Bouteloua_curtipendula",
+      "matched_term": "Bouteloua curtipendula",
+      "iconic_taxon_name": "Plantae",
+      "preferred_common_name": "sideoats grama"
+    },
+    "GBIF": {
+      "usageKey": 5289861,
+      "scientificName": "Bouteloua curtipendula (Michx.) Torr.",
+      "canonicalName": "Bouteloua curtipendula",
+      "rank": "SPECIES",
+      "status": "ACCEPTED",
+      "confidence": 99,
+      "matchType": "EXACT",
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "order": "Poales",
+      "family": "Poaceae",
+      "genus": "Bouteloua",
+      "species": "Bouteloua curtipendula",
+      "kingdomKey": 6,
+      "phylumKey": 7707728,
+      "classKey": 196,
+      "orderKey": 1369,
+      "familyKey": 3073,
+      "genusKey": 7557664,
+      "speciesKey": 5289861,
+      "class": "Liliopsida"
+    }
+  },
+  "target_zone_occurrence_leads": {
+    "warning": "These are supporting research-grade iNaturalist occurrence leads only. They do NOT establish native county range or PASS/FAIL status.",
+    "counties_with_leads": [
+      {
+        "county": "Edwards",
+        "inat_place_id": 232300,
+        "research_grade_observation_count": 1,
+        "status": "SUPPORTING_OCCURRENCE_LEAD_ONLY"
+      },
+      {
+        "county": "Real",
+        "inat_place_id": 201775,
+        "research_grade_observation_count": 2,
+        "status": "SUPPORTING_OCCURRENCE_LEAD_ONLY"
+      }
+    ]
+  },
+  "diagnostic_image_roles_needed": [
+    "habit / whole plant",
+    "inflorescence architecture",
+    "spikelet close-up",
+    "glumes / lemmas / awns",
+    "ligule / collar",
+    "leaf sheath / node",
+    "leaf blade",
+    "fruit / seed if useful",
+    "diagnostic look-alike comparison"
+  ],
+  "photo_candidates": {
+    "count": 36,
+    "csv": "photo-candidates.csv",
+    "contact_sheet": "contact-sheet.jpg",
+    "selection_status": "UNREVIEWED"
+  },
+  "curator_checklist": [
+    "Confirm accepted taxonomy and important synonyms.",
+    "Confirm target-zone native range using project source priority.",
+    "Write morphology-first 'Where should I look first?' guidance.",
+    "Identify realistic local look-alikes and structural separators.",
+    "Inspect photo contact sheet and exact-source CSV.",
+    "Select exact diagnostic photos and assign image roles.",
+    "Create a normal curation-inbox package only after review."
+  ],
+  "errors": []
+}
