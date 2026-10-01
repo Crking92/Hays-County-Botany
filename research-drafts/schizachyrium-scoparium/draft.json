@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_RESEARCH_ONLY",
+  "created_at": "2026-10-01T04:50:17.592888+00:00",
+  "queue_item": {
+    "id": "schizachyrium-scoparium",
+    "scientific_name": "Schizachyrium scoparium",
+    "family": "Poaceae",
+    "genus": "Schizachyrium",
+    "status": "queued",
+    "priority": 2,
+    "research_goals": [
+      "taxonomy_candidates",
+      "supporting_target_county_occurrences",
+      "diagnostic_photo_candidates"
+    ],
+    "notes": "Scout draft only."
+  },
+  "guardrail": "This file contains research leads only. Do not install it into canonical content without human/ChatGPT curation under PROJECT_RULES.md.",
+  "taxonomy_candidates": {
+    "iNaturalist": {
+      "id": 122603,
+      "rank": "species",
+      "rank_level": 10,
+      "iconic_taxon_id": 47126,
+      "ancestor_ids": [
+        48460,
+        47126,
+        211194,
+        47125,
+        47163,
+        47162,
+        47434,
+        326013,
+        635417,
+        1138097,
+        118748,
+        122603
+      ],
+      "is_active": true,
+      "name": "Schizachyrium scoparium",
+      "parent_id": 118748,
+      "ancestry": "48460/47126/211194/47125/47163/47162/47434/326013/635417/1138097/118748",
+      "extinct": false,
+      "provisional": false,
+      "default_photo": {
+        "id": 163915824,
+        "license_code": "cc-by-nc",
+        "attribution": "(c) Scott E Severs, some rights reserved (CC BY-NC), uploaded by Scott E Severs",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/163915824/square.jpg",
+        "original_dimensions": {
+          "height": 1536,
+          "width": 2048
+        },
+        "flags": [],
+        "attribution_name": "Scott E Severs",
+        "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/163915824/square.jpg",
+        "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/163915824/medium.jpg"
+      },
+      "taxon_changes_count": 1,
+      "taxon_schemes_count": 5,
+      "observations_count": 33764,
+      "flag_counts": {
+        "resolved": 0,
+        "unresolved": 1
+      },
+      "current_synonymous_taxon_ids": null,
+      "atlas_id": null,
+      "complete_species_count": null,
+      "wikipedia_url": "http://en.wikipedia.org/wiki/Schizachyrium_scoparium",
+      "matched_term": "Schizachyrium scoparium",
+      "iconic_taxon_name": "Plantae",
+      "preferred_common_name": "little bluestem"
+    },
+    "GBIF": {
+      "usageKey": 2704432,
+      "scientificName": "Schizachyrium scoparium (Michx.) Nash",
+      "canonicalName": "Schizachyrium scoparium",
+      "rank": "SPECIES",
+      "status": "ACCEPTED",
+      "confidence": 99,
+      "matchType": "EXACT",
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "order": "Poales",
+      "family": "Poaceae",
+      "genus": "Schizachyrium",
+      "species": "Schizachyrium scoparium",
+      "kingdomKey": 6,
+      "phylumKey": 7707728,
+      "classKey": 196,
+      "orderKey": 1369,
+      "familyKey": 3073,
+      "genusKey": 2704427,
+      "speciesKey": 2704432,
+      "class": "Liliopsida"
+    }
+  },
+  "target_zone_occurrence_leads": {
+    "warning": "These are supporting research-grade iNaturalist occurrence leads only. They do NOT establish native county range or PASS/FAIL status.",
+    "counties_with_leads": [
+      {
+        "county": "Real",
+        "inat_place_id": 201775,
+        "research_grade_observation_count": 1,
+        "status": "SUPPORTING_OCCURRENCE_LEAD_ONLY"
+      }
+    ]
+  },
+  "diagnostic_image_roles_needed": [
+    "habit / whole plant",
+    "inflorescence architecture",
+    "spikelet close-up",
+    "glumes / lemmas / awns",
+    "ligule / collar",
+    "leaf sheath / node",
+    "leaf blade",
+    "fruit / seed if useful",
+    "diagnostic look-alike comparison"
+  ],
+  "photo_candidates": {
+    "count": 36,
+    "csv": "photo-candidates.csv",
+    "contact_sheet": "contact-sheet.jpg",
+    "selection_status": "UNREVIEWED"
+  },
+  "curator_checklist": [
+    "Confirm accepted taxonomy and important synonyms.",
+    "Confirm target-zone native range using project source priority.",
+    "Write morphology-first 'Where should I look first?' guidance.",
+    "Identify realistic local look-alikes and structural separators.",
+    "Inspect photo contact sheet and exact-source CSV.",
+    "Select exact diagnostic photos and assign image roles.",
+    "Create a normal curation-inbox package only after review."
+  ],
+  "errors": []
+}
