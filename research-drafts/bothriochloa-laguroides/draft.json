@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_RESEARCH_ONLY",
+  "created_at": "2026-10-01T13:42:14.950307+00:00",
+  "queue_item": {
+    "id": "bothriochloa-laguroides",
+    "scientific_name": "Bothriochloa laguroides",
+    "family": "Poaceae",
+    "genus": "Bothriochloa",
+    "status": "queued",
+    "priority": 3,
+    "research_goals": [
+      "taxonomy_candidates",
+      "supporting_target_county_occurrences",
+      "diagnostic_photo_candidates"
+    ],
+    "notes": "Scout draft only."
+  },
+  "guardrail": "This file contains research leads only. Do not install it into canonical content without human/ChatGPT curation under PROJECT_RULES.md.",
+  "taxonomy_candidates": {
+    "iNaturalist": {
+      "id": 75843,
+      "rank": "species",
+      "rank_level": 10,
+      "iconic_taxon_id": 47126,
+      "ancestor_ids": [
+        48460,
+        47126,
+        211194,
+        47125,
+        47163,
+        47162,
+        47434,
+        326013,
+        635417,
+        1138103,
+        72016,
+        75843
+      ],
+      "is_active": true,
+      "name": "Bothriochloa laguroides",
+      "parent_id": 72016,
+      "ancestry": "48460/47126/211194/47125/47163/47162/47434/326013/635417/1138103/72016",
+      "extinct": false,
+      "provisional": false,
+      "default_photo": {
+        "id": 1997812,
+        "license_code": "cc-by-nc",
+        "attribution": "(c) Nicholas Cowey, alguns direitos reservados (CC BY-NC), carregado por Nicholas Cowey",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1997812/square.jpg",
+        "original_dimensions": {
+          "height": 1745,
+          "width": 1581
+        },
+        "flags": [],
+        "attribution_name": "Nicholas Cowey",
+        "square_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1997812/square.jpg",
+        "medium_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/1997812/medium.jpg"
+      },
+      "taxon_changes_count": 1,
+      "taxon_schemes_count": 4,
+      "observations_count": 869,
+      "flag_counts": {
+        "resolved": 2,
+        "unresolved": 0
+      },
+      "current_synonymous_taxon_ids": null,
+      "atlas_id": 88054,
+      "complete_species_count": null,
+      "wikipedia_url": "https://en.wikipedia.org/wiki/Bothriochloa_laguroides",
+      "matched_term": "Bothriochloa laguroides",
+      "iconic_taxon_name": "Plantae",
+      "preferred_common_name": "Silver beard grass"
+    },
+    "GBIF": {
+      "usageKey": 2704111,
+      "scientificName": "Bothriochloa laguroides (DC.) Herter",
+      "canonicalName": "Bothriochloa laguroides",
+      "rank": "SPECIES",
+      "status": "ACCEPTED",
+      "confidence": 97,
+      "matchType": "EXACT",
+      "kingdom": "Plantae",
+      "phylum": "Tracheophyta",
+      "order": "Poales",
+      "family": "Poaceae",
+      "genus": "Bothriochloa",
+      "species": "Bothriochloa laguroides",
+      "kingdomKey": 6,
+      "phylumKey": 7707728,
+      "classKey": 196,
+      "orderKey": 1369,
+      "familyKey": 3073,
+      "genusKey": 2704089,
+      "speciesKey": 2704111,
+      "class": "Liliopsida"
+    }
+  },
+  "target_zone_occurrence_leads": {
+    "warning": "These are supporting research-grade iNaturalist occurrence leads only. They do NOT establish native county range or PASS/FAIL status.",
+    "counties_with_leads": []
+  },
+  "diagnostic_image_roles_needed": [
+    "habit / whole plant",
+    "inflorescence architecture",
+    "spikelet close-up",
+    "glumes / lemmas / awns",
+    "ligule / collar",
+    "leaf sheath / node",
+    "leaf blade",
+    "fruit / seed if useful",
+    "diagnostic look-alike comparison"
+  ],
+  "photo_candidates": {
+    "count": 0,
+    "csv": "photo-candidates.csv",
+    "contact_sheet": null,
+    "selection_status": "UNREVIEWED"
+  },
+  "curator_checklist": [
+    "Confirm accepted taxonomy and important synonyms.",
+    "Confirm target-zone native range using project source priority.",
+    "Write morphology-first 'Where should I look first?' guidance.",
+    "Identify realistic local look-alikes and structural separators.",
+    "Inspect photo contact sheet and exact-source CSV.",
+    "Select exact diagnostic photos and assign image roles.",
+    "Create a normal curation-inbox package only after review."
+  ],
+  "errors": []
+}
