@@ -1,12 +1,16 @@
 const state = { species: [], targetCounties: [], studyMode: false };
 
-async function loadJSON(path){ const r = await fetch(path); if(!r.ok) throw new Error(`${r.status} ${path}`); return r.json(); }
+async function loadJSON(path){
+  const r = await fetch(path);
+  if(!r.ok) throw new Error(`${r.status} ${path}`);
+  return r.json();
+}
 
 async function boot(){
   try{
     const manifest = await loadJSON("data/manifest.json");
     const project = await loadJSON(manifest.project);
-    state.targetCounties = project.target_zone_counties;
+    state.targetCounties = project.target_zone_counties || [];
     state.species = await Promise.all(manifest.species.map(x => loadJSON(x.path)));
     buildFilters();
     render();
@@ -17,8 +21,54 @@ async function boot(){
   }
 }
 
+function scientificName(sp){
+  if(sp.scientific_name) return sp.scientific_name;
+  const bits = [sp.genus, sp.species].filter(Boolean);
+  if(sp.subspecies) bits.push("subsp.", sp.subspecies);
+  if(sp.variety) bits.push("var.", sp.variety);
+  return bits.join(" ") || sp.accepted_name || sp.id || "Unnamed taxon";
+}
+
+function countyList(sp){
+  let counties = [];
+  if(Array.isArray(sp.county_occurrences_target_zone)) counties = sp.county_occurrences_target_zone;
+  else if(Array.isArray(sp.target_zone_range?.confirmed_target_zone_counties)) counties = sp.target_zone_range.confirmed_target_zone_counties;
+  else if(typeof sp.verified_target_counties === "string") counties = sp.verified_target_counties.split(";").map(x=>x.trim());
+  else if(Array.isArray(sp.county_occurrences_reported)) counties = sp.county_occurrences_reported;
+
+  return [...new Set(counties.filter(x => state.targetCounties.includes(x)))];
+}
+
+function rangeSummary(sp){
+  const counties = countyList(sp);
+  const directStatus = sp.target_zone_range?.meets_three_county_rule;
+  const trackerStatus = sp.project_inclusion?.target_zone_status;
+
+  if(directStatus === true || trackerStatus === "PASS" || sp.native_target_zone_calculated === true){
+    return `PASS · ${counties.length || sp.target_zone_count || sp.target_zone_range?.target_zone_count_confirmed || sp.target_zone_range?.target_zone_count_confirmed_minimum || "3+"} supported target-zone counties`;
+  }
+  if(directStatus === false || trackerStatus === "UNRESOLVED"){
+    return `UNRESOLVED · ${counties.length} supported target-zone counties`;
+  }
+  if(sp.project_inclusion?.strict_native_filter_deferred){
+    return `Native-range audit deferred · local-occurrence-first study taxon`;
+  }
+  if(counties.length){
+    return `${counties.length} target-zone county records in current file`;
+  }
+  return "Range status not normalized yet";
+}
+
+function formatValue(value){
+  if(Array.isArray(value)) return value.join(" · ");
+  if(value && typeof value === "object"){
+    return Object.entries(value).map(([k,v]) => `${k.replaceAll("_"," ")}: ${formatValue(v)}`).join(" | ");
+  }
+  return value ?? "";
+}
+
 function buildFilters(){
-  const families = [...new Set(state.species.map(x=>x.family))].sort();
+  const families = [...new Set(state.species.map(x=>x.family).filter(Boolean))].sort();
   const tags = [...new Set(state.species.flatMap(x=>x.tags||[]))].sort();
   fill("familyFilter", ["All families", ...families]);
   fill("countyFilter", ["All counties", ...state.targetCounties]);
@@ -37,18 +87,25 @@ function filteredSpecies(){
   const tag = document.getElementById("tagFilter").value;
 
   return state.species.filter(sp => {
-    const text = `${sp.genus} ${sp.species} ${sp.common_name} ${(sp.tags||[]).join(" ")}`.toLowerCase();
+    const text = [
+      scientificName(sp),
+      sp.authority,
+      sp.common_name,
+      ...(sp.other_common_names||[]),
+      ...(sp.tags||[])
+    ].filter(Boolean).join(" ").toLowerCase();
+
     return (!q || text.includes(q))
       && (!fam || sp.family === fam)
-      && (!county || (sp.county_occurrences_target_zone||[]).includes(county))
+      && (!county || countyList(sp).includes(county))
       && (!tag || (sp.tags||[]).includes(tag));
   });
 }
 
 function card(sp){
-  const sci = `${sp.genus} ${sp.species}`;
+  const sci = scientificName(sp);
   const traits = Object.entries(sp.morphology_keys||{}).map(([k,v]) =>
-    `<div class="trait"><b>${k.replaceAll("_"," ")}</b>${v}</div>`
+    `<div class="trait"><b>${k.replaceAll("_"," ")}</b>${formatValue(v)}</div>`
   ).join("");
 
   return `<article class="card ${state.studyMode ? "hidden-study" : ""}">
@@ -58,7 +115,7 @@ function card(sp){
     </div>
     <div class="tags">${(sp.tags||[]).map(t=>`<span class="tag">${t}</span>`).join("")}</div>
     <div class="traits answer">${traits}</div>
-    <p class="answer"><b>Target-zone county records:</b> ${sp.target_zone_count || 0}</p>
+    <p class="answer"><b>Project range:</b> ${rangeSummary(sp)}</p>
     <button class="reveal" onclick="this.parentElement.querySelectorAll('.answer').forEach(x=>x.classList.toggle('revealed'))">
       Reveal / Hide
     </button>
@@ -67,7 +124,7 @@ function card(sp){
 
 function render(){
   const list = filteredSpecies();
-  document.getElementById("stats").textContent = `${list.length} species shown`;
+  document.getElementById("stats").textContent = `${list.length} of ${state.species.length} taxa shown`;
   document.getElementById("grid").innerHTML = list.length ? list.map(card).join("") : `<div class="empty">No matches.</div>`;
 }
 
