@@ -62,12 +62,27 @@
   "next_batch_candidates": [
     {
       "scientific_name": "Yucca rupicola",
-      "reason": "Priority 1; 50 wild encounters; four source flags; candidate for a Yucca comparison batch."
+      "sheet_row": 1248,
+      "priority": 1,
+      "wild_observations": 50,
+      "source_count": 4,
+      "status": "planned_next",
+      "reason": "Highest-frequency coherent Yucca candidate; iNat + Hays + NPSOT + Personal."
     },
     {
       "scientific_name": "Yucca constricta",
-      "reason": "Priority 1; 16 wild encounters; three source flags; pairs coherently with Y. rupicola."
+      "sheet_row": 1246,
+      "priority": 1,
+      "wild_observations": 16,
+      "source_count": 3,
+      "status": "planned_next",
+      "reason": "Pairs with Y. rupicola for a useful local Yucca comparison; iNat + Hays + Personal."
     }
   ],
-  "guardrail": "No curation-inbox package created. User approval required before installation."
+  "guardrail": "No curation-inbox package created. User approval required before installation.",
+  "execution_notes": {
+    "scout_mode": "On-demand live-source Scout equivalent performed in-chat because the current GitHub connector does not expose workflow_dispatch. Diagnostic image-role sources were verified; final exact image locking remains behind user approval.",
+    "tracker_sync": "Master Plant Pool rows 375 and 585 updated only in safe editable fields. ARRAYFORMULA-controlled Curated, Queued, Priority, Curation Status, and NPSOT Scout Status columns were preserved/restored.",
+    "approval_gate": "No curation-inbox package created and no learner installation performed."
+  }
 }
