@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-002-common-woody",
+  "created_at": "2026-10-01T16:30:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 375,
+    "scientific_name": "Diospyros texana",
+    "common_name": "Texas Persimmon",
+    "wild_observations": 86,
+    "source_count": 4,
+    "source_summary": "iNat; Hays; NPSOT; Personal;"
+  },
+  "taxonomy": {
+    "accepted_name": "Diospyros texana Scheele",
+    "rank": "species",
+    "order": "Ericales",
+    "family": "Ebenaceae",
+    "genus": "Diospyros",
+    "species": "texana",
+    "synonyms": [
+      "Brayodendron texanum (Scheele) Small",
+      "Diospyros cuneifolia Hiern",
+      "Diospyros mexicana Scheele ex Hiern"
+    ],
+    "status": "VERIFIED"
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      {
+        "county": "Hays",
+        "evidence": "UT Plant Resources Center Natural Purola flora explicitly lists Diospyros texana in the North Hays County flora; JACQ also preserves Hays County wild seed provenance."
+      },
+      {
+        "county": "Travis",
+        "evidence": "UC Davis Saratoga horticultural report records wild Diospyros texana provenance from Travis County; Travis County BCP monitoring also records it in natural preserve vegetation."
+      },
+      {
+        "county": "Williamson",
+        "evidence": "UT Plant Resources Center Vascular Plants of Williamson County explicitly treats Diospyros texana."
+      }
+    ],
+    "native_context": "Kew treats the species as native from Texas to northeastern Mexico; BONAP has a Texas county-distribution map.",
+    "guardrail": "No county presence inferred from source-pool membership or iNaturalist counts."
+  },
+  "morphology": {
+    "look_here_first": "Start with the trunk and leaf underside: smooth pale gray to reddish-gray bark that peels/mottles, plus small thick obovate leaves with a densely hairy lower surface. In fruit, black pubescent berries are highly diagnostic.",
+    "habit": "Shrub to small tree, often multi-stemmed; tardily deciduous to semi-evergreen depending on site.",
+    "leaves": "Alternate, simple, small (about 2–5 cm in FNA), usually obovate; upper surface dark/glossy, lower surface tomentose.",
+    "reproductive": "White urn-shaped flowers; FNA separates it by flowers on previous-season twigs, pubescent ovaries, and black berries that remain pubescent.",
+    "fruit": "Black berry about 1.5–2.5 cm, generally 3–8 seeded, with persistent calyx."
+  },
+  "confusers": [
+    {
+      "taxon": "Diospyros virginiana",
+      "common_name": "American persimmon",
+      "separator": "FNA key: D. texana has much smaller 2–5 cm leaves with tomentose lower surfaces, flowers on previous-season twigs, pubescent ovaries, and pubescent black fruit; D. virginiana usually has 6–15 cm leaves, current-season flowers and glabrous yellow-orange to dark-red fruit."
+    }
+  ],
+  "photo_verification": {
+    "status": "SUFFICIENT_FOR_APPROVAL",
+    "final_exact_selection_pending_user_approval": true,
+    "diagnostic_roles_verified": [
+      "habit / small-tree architecture",
+      "smooth peeling bark",
+      "leaf form / lower-surface texture",
+      "white flowers",
+      "green immature fruit",
+      "black mature fruit"
+    ],
+    "note": "USFS FEIS provides credited CC BY-NC field images for habit and leaf/unripe fruit; Texas A&M Rangelands provides a slideshow; iNaturalist guide material and Central Texas photo sources provide flower/fruit coverage."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not create curation-inbox package or install until Calvin explicitly approves."
+}

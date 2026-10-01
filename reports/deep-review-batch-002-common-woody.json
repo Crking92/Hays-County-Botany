@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "batch_id": "deep-review-batch-002-common-woody",
+  "reviewed_at": "2026-10-01T16:30:00-05:00",
+  "selection": {
+    "established_batch_size": 2,
+    "source": "Master Plant Pool",
+    "rules": [
+      "Priority 1",
+      "not curated",
+      "not queued/active",
+      "wild iNaturalist encounters > 0",
+      "multiple source flags",
+      "prefer coherent/local comparison value"
+    ],
+    "taxa": [
+      {
+        "id": "juniperus-ashei",
+        "sheet_row": 585,
+        "wild_observations": 118,
+        "source_count": 4
+      },
+      {
+        "id": "diospyros-texana",
+        "sheet_row": 375,
+        "wild_observations": 86,
+        "source_count": 4
+      }
+    ]
+  },
+  "reconciliation": {
+    "canonical_species_count_before": 57,
+    "grass_batch_confirmed_curated": true,
+    "duplicate_active_work": false
+  },
+  "results": [
+    {
+      "id": "juniperus-ashei",
+      "taxonomy": "PASS",
+      "range": "PASS",
+      "morphology": "PASS",
+      "confusers": "PASS",
+      "photos": "PASS_FOR_APPROVAL",
+      "final_status": "READY_FOR_APPROVAL"
+    },
+    {
+      "id": "diospyros-texana",
+      "taxonomy": "PASS",
+      "range": "PASS",
+      "morphology": "PASS",
+      "confusers": "PASS",
+      "photos": "PASS_FOR_APPROVAL",
+      "final_status": "READY_FOR_APPROVAL"
+    }
+  ],
+  "counts": {
+    "passed": 2,
+    "held": 0,
+    "failed": 0,
+    "approval_ready": 2
+  },
+  "next_batch_candidates": [
+    {
+      "scientific_name": "Yucca rupicola",
+      "reason": "Priority 1; 50 wild encounters; four source flags; candidate for a Yucca comparison batch."
+    },
+    {
+      "scientific_name": "Yucca constricta",
+      "reason": "Priority 1; 16 wild encounters; three source flags; pairs coherently with Y. rupicola."
+    }
+  ],
+  "guardrail": "No curation-inbox package created. User approval required before installation."
+}

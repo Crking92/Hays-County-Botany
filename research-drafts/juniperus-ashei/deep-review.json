@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-002-common-woody",
+  "created_at": "2026-10-01T16:30:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 585,
+    "scientific_name": "Juniperus ashei",
+    "common_name": "Ashe juniper",
+    "wild_observations": 118,
+    "source_count": 4,
+    "source_summary": "iNat; Hays; NPSOT; Personal;"
+  },
+  "taxonomy": {
+    "accepted_name": "Juniperus ashei J.Buchholz",
+    "rank": "species",
+    "order": "Pinales",
+    "family": "Cupressaceae",
+    "genus": "Juniperus",
+    "species": "ashei",
+    "synonyms": [
+      "Sabina ashei (J.Buchholz) Y.Yang & K.S.Mao"
+    ],
+    "infraspecific_note": "Kew currently recognizes Juniperus ashei var. ashei and Juniperus ashei var. ovata. This review remains at species rank; do not assign a variety without separate evidence.",
+    "status": "VERIFIED"
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      {
+        "county": "Hays",
+        "evidence": "UT Plant Resources Center Natural Purola flora explicitly lists Juniperus ashei in the North Hays County flora."
+      },
+      {
+        "county": "Travis",
+        "evidence": "Travis County Balcones Canyonlands Preserve plant list explicitly lists Ashe juniper."
+      },
+      {
+        "county": "Comal",
+        "evidence": "USGS Honey Creek State Natural Area study explicitly documents Ashe juniper in Comal County."
+      }
+    ],
+    "native_context": "Kew and Flora of North America treat Juniperus ashei as native in Texas.",
+    "guardrail": "No county presence inferred from source-pool membership or iNaturalist counts."
+  },
+  "morphology": {
+    "look_here_first": "On adult foliage, look for tiny scale leaves with raised, nearly hemispheric dorsal glands; on female plants, confirm 6–9 mm dark-blue glaucous seed cones and shredding strip-like bark.",
+    "habit": "Evergreen dioecious shrub or tree, commonly irregular to rounded; bark brown to gray and exfoliating in thin shredding strips.",
+    "leaves": "Adult leaves scale-like, dark green, with finely denticulate margins; the abaxial gland is raised and hemispheric, especially obvious on whip leaves. Juvenile leaves are awl-like.",
+    "reproductive": "Female seed cones mature in one year, ovoid to nearly globose, 6–9 mm, dark blue and glaucous, usually with one seed.",
+    "habitat": "Limestone glades, bluffs, rocky shallow soils, oak-juniper woodland and savanna of Central Texas."
+  },
+  "confusers": [
+    {
+      "taxon": "Juniperus virginiana",
+      "common_name": "Eastern redcedar",
+      "separator": "FNA: J. virginiana has elliptic/elongate leaf glands and entire scale-leaf margins; its cones are usually smaller (3–6[–7] mm). Ashe juniper has raised hemispheric glands and denticulate margins."
+    },
+    {
+      "taxon": "Juniperus pinchotii",
+      "common_name": "Redberry juniper",
+      "separator": "FNA/Texas A&M: J. pinchotii has copper to copper-red nonglaucous cones and often white crystalline wax flecks on yellow-green leaves; Ashe juniper has deep blue glaucous cones and no such exudate."
+    }
+  ],
+  "photo_verification": {
+    "status": "SUFFICIENT_FOR_APPROVAL",
+    "final_exact_selection_pending_user_approval": true,
+    "diagnostic_roles_verified": [
+      "habit / architecture",
+      "shredding bark",
+      "adult scale foliage",
+      "raised leaf glands",
+      "female blue glaucous seed cones",
+      "male cones / scales"
+    ],
+    "note": "UT Austin has a dedicated Juniperus ashei structures page with scanned glands, cones, seeds, juvenile leaves, adult leaves and whorls. UT BIO406D adds habit, bark and male/female cone views; USFS FEIS supplies a credited CC BY-NC cone/foliage field photo."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not create curation-inbox package or install until Calvin explicitly approves."
+}
