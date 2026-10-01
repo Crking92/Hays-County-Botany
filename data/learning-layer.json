@@ -1,0 +1,631 @@
+{
+  "version": "1.0",
+  "purpose": "Presentation-only teaching layer for the Hays Botany visual learner. Canonical taxonomy/range/morphology remains in content/taxa.",
+  "difficulty_levels": {
+    "simple": {
+      "label": "Simple",
+      "description": "Recognize the plant using a few high-value field cues.",
+      "mantra": "What should I notice first?"
+    },
+    "terms": {
+      "label": "Learn Terms",
+      "description": "Learn the botanical vocabulary while looking at the structure it names.",
+      "mantra": "See it → name it → use it."
+    },
+    "field": {
+      "label": "Field Botany",
+      "description": "Use technical morphology, family structure, range evidence, and comparisons.",
+      "mantra": "Describe the structure precisely."
+    }
+  },
+  "home_families": [
+    "Asteraceae",
+    "Apocynaceae",
+    "Convolvulaceae",
+    "Fagaceae",
+    "Papaveraceae"
+  ],
+  "family_profiles": {
+    "Asteraceae": {
+      "common_name": "Sunflower / aster family",
+      "plain_signature": "What looks like one flower is usually a whole flower head made of many tiny florets.",
+      "look_here_first": "Turn the flower head sideways. Inspect the green bracts underneath—the phyllaries—and notice whether the head has ray florets, disc florets, or both.",
+      "field_signature": "A capitulum of many florets on a receptacle, subtended by an involucre of phyllaries; fruit is a cypsela, often with a pappus.",
+      "key_terms": [
+        "capitulum",
+        "phyllary",
+        "involucre",
+        "ray-floret",
+        "disc-floret",
+        "receptacle",
+        "pappus",
+        "cypsela"
+      ],
+      "field_question": "Before looking at flower color, what do the phyllaries and floret types look like?",
+      "caveat": "Asteraceae is extremely diverse. Not every member has showy ray florets."
+    },
+    "Apocynaceae": {
+      "common_name": "Dogbane family · milkweed group emphasized",
+      "plain_signature": "For the milkweeds in this learner, leaf arrangement, sap, and the strange central flower structure do most of the work.",
+      "look_here_first": "Check leaf arrangement and sap first, then look closely at the corona and gynostegium in the flower center.",
+      "field_signature": "Current project emphasis is Asclepias: umbel-like clusters, a corona of five hoods, and a gynostegium containing the pollination apparatus.",
+      "key_terms": [
+        "phyllotaxy",
+        "latex",
+        "umbel",
+        "corona",
+        "gynostegium",
+        "hood",
+        "horn",
+        "pollinium",
+        "follicle"
+      ],
+      "field_question": "Are the leaves alternate, opposite, or whorled—and what do the hoods and horns do?",
+      "caveat": "These cues are strongest for the Asclepias set currently curated, not every member of Apocynaceae."
+    },
+    "Convolvulaceae": {
+      "common_name": "Morning-glory / bindweed family",
+      "plain_signature": "Many local members are vines with a funnel-shaped fused corolla, but the leaves, sepals, hairs, and fruit often separate the species.",
+      "look_here_first": "Do not stop at the flower. Check leaf shape, hairiness, sepals, and whether the plant twines or trails.",
+      "field_signature": "Usually alternate leaves and a sympetalous, often funnelform corolla; fruit commonly a capsule. Calyx and vegetative characters are often diagnostic.",
+      "key_terms": [
+        "corolla",
+        "calyx",
+        "sympetalous",
+        "petiole",
+        "pubescent",
+        "glabrous",
+        "capsule"
+      ],
+      "field_question": "What do the leaves and sepals look like when the flower is ignored?",
+      "caveat": "Growth habit and flower shape vary; use several characters together."
+    },
+    "Fagaceae": {
+      "common_name": "Oak / beech family",
+      "plain_signature": "For the oaks in this learner, the acorn, its cup, the leaves, twigs, buds, and bark are far more useful than the flowers.",
+      "look_here_first": "Start with a mature leaf, then check the twig/bud and the acorn cup if fruit is present.",
+      "field_signature": "Woody plants with nut fruits associated with a cupule; in Quercus the fruit is the acorn.",
+      "key_terms": [
+        "cupule",
+        "catkin",
+        "pubescent",
+        "glabrous",
+        "petiole"
+      ],
+      "field_question": "What is the leaf surface like, and how much of the acorn is enclosed by the cupule?",
+      "caveat": "Leaf shape can vary on one tree. Use mature leaves plus twigs, buds, bark, and acorns."
+    },
+    "Papaveraceae": {
+      "common_name": "Poppy family",
+      "plain_signature": "Showy flowers and capsules are common. In the prickly poppies here, latex and prickles are high-value clues.",
+      "look_here_first": "For Argemone, check latex color, prickles, sepal horns, and the fruit capsule—not flower color alone.",
+      "field_signature": "Flowers commonly have separate petals and numerous stamens; ovary superior and fruit often a capsule. Latex is frequent in the family.",
+      "key_terms": [
+        "latex",
+        "capsule",
+        "sepal",
+        "corolla",
+        "glabrous",
+        "pubescent"
+      ],
+      "field_question": "What color is the latex, and where are the prickles?",
+      "caveat": "The learner currently emphasizes Argemone, so some cues are genus-specific."
+    }
+  },
+  "species_callouts": {
+    "asclepias-tuberosa": {
+      "standout": "A major milkweed exception in this set: the sap is clear/watery rather than milky.",
+      "family_connection": "It still has the specialized milkweed flower architecture—corona, hoods, and gynostegium."
+    },
+    "asclepias-verticillata": {
+      "standout": "The needle-thin leaves are arranged in obvious whorls around the stem.",
+      "family_connection": "Leaf phyllotaxy narrows the milkweeds quickly before you even inspect the flower."
+    },
+    "asclepias-viridis": {
+      "standout": "The broad leaves plus green flowers and hood structure make this milkweed distinctive.",
+      "family_connection": "The corona and gynostegium are still the high-value milkweed structures."
+    },
+    "helianthus-maximiliani": {
+      "standout": "Look for the tall perennial colony with many narrow, often drooping leaves.",
+      "family_connection": "Then confirm Asteraceae structure at the head: phyllaries outside, florets packed on the receptacle."
+    },
+    "helianthus-annuus": {
+      "standout": "Usually broader leaves and more branching than Maximilian sunflower.",
+      "family_connection": "Use the involucre and phyllaries to move beyond the generic 'yellow sunflower' impression."
+    },
+    "argemone-albiflora-subsp-texana": {
+      "standout": "Do not rely on white petals alone—latex, sepal horns, leaf prickles, and capsule prickles matter more.",
+      "family_connection": "The showy petals and many stamens fit the poppy-family pattern, while the prickly vegetative parts help at species level."
+    }
+  },
+  "comparison_overrides": {
+    "helianthus-annuus": [
+      "helianthus-maximiliani",
+      "simsia-calva"
+    ],
+    "helianthus-maximiliani": [
+      "helianthus-annuus",
+      "simsia-calva"
+    ],
+    "ipomoea-hederacea": [
+      "ipomoea-triloba",
+      "ipomoea-nil",
+      "ipomoea-cordatotriloba",
+      "convolvulus-equitans"
+    ],
+    "ipomoea-triloba": [
+      "ipomoea-hederacea",
+      "ipomoea-cordatotriloba",
+      "ipomoea-lacunosa"
+    ],
+    "argemone-albiflora-subsp-texana": [
+      "argemone-aurantiaca"
+    ],
+    "argemone-aurantiaca": [
+      "argemone-albiflora-subsp-texana"
+    ],
+    "solidago-altissima": [
+      "solidago-canadensis"
+    ],
+    "solidago-canadensis": [
+      "solidago-altissima"
+    ],
+    "coreopsis-basalis": [
+      "coreopsis-tinctoria",
+      "thelesperma-filifolium"
+    ],
+    "coreopsis-tinctoria": [
+      "coreopsis-basalis",
+      "thelesperma-filifolium"
+    ],
+    "baccharis-neglecta": [
+      "baccharis-salicifolia"
+    ],
+    "baccharis-salicifolia": [
+      "baccharis-neglecta"
+    ],
+    "cirsium-texanum": [
+      "cirsium-undulatum"
+    ],
+    "cirsium-undulatum": [
+      "cirsium-texanum"
+    ],
+    "verbesina-encelioides": [
+      "verbesina-virginica"
+    ],
+    "verbesina-virginica": [
+      "verbesina-encelioides"
+    ]
+  },
+  "terms": {
+    "phyllotaxy": {
+      "term": "Phyllotaxy",
+      "aliases": [
+        "leaf arrangement"
+      ],
+      "pronunciation": "fill-oh-TAK-see",
+      "plain": "The pattern of leaves around a stem.",
+      "formal": "The arrangement of leaves on an axis.",
+      "where": "Trace one stem and look at where successive leaves attach.",
+      "why": "Alternate, opposite, and whorled leaves can immediately narrow an ID.",
+      "visual": "assets/diagrams/phyllotaxy.svg"
+    },
+    "alternate": {
+      "term": "Alternate",
+      "aliases": [
+        "alternate leaves"
+      ],
+      "pronunciation": "ALL-ter-nit",
+      "plain": "One leaf per node, switching sides as you move up the stem.",
+      "formal": "A phyllotactic pattern with a single leaf at each node.",
+      "where": "Follow the stem node by node.",
+      "why": "A fast vegetative character that often separates close relatives.",
+      "visual": "assets/diagrams/phyllotaxy.svg"
+    },
+    "opposite": {
+      "term": "Opposite",
+      "aliases": [
+        "opposite leaves"
+      ],
+      "pronunciation": "OP-uh-zit",
+      "plain": "Two leaves emerge from the same node on opposite sides.",
+      "formal": "A phyllotactic pattern with paired leaves at each node.",
+      "where": "Look for leaf pairs sharing one level on the stem.",
+      "why": "Useful before flowers or fruit are present.",
+      "visual": "assets/diagrams/phyllotaxy.svg"
+    },
+    "whorled": {
+      "term": "Whorled",
+      "aliases": [
+        "whorl",
+        "whorled leaves"
+      ],
+      "pronunciation": "WORLD",
+      "plain": "Three or more leaves emerge around the stem at one node.",
+      "formal": "A phyllotactic pattern with three or more appendages at a node.",
+      "where": "Look straight at a node and count the leaves radiating from it.",
+      "why": "Very distinctive in plants such as whorled milkweeds.",
+      "visual": "assets/diagrams/phyllotaxy.svg"
+    },
+    "petiole": {
+      "term": "Petiole",
+      "aliases": [
+        "petiolate"
+      ],
+      "pronunciation": "PET-ee-ohl",
+      "plain": "The little stalk connecting a leaf blade to the stem.",
+      "formal": "The stalk attaching a leaf blade to the stem.",
+      "where": "Look between the blade base and the stem.",
+      "why": "Presence, absence, length, and hairiness can be diagnostic.",
+      "visual": "assets/diagrams/leaf-attachment.svg"
+    },
+    "sessile": {
+      "term": "Sessile",
+      "aliases": [
+        "sessile leaf"
+      ],
+      "pronunciation": "SESS-ile",
+      "plain": "Attached directly—no little leaf stalk.",
+      "formal": "Lacking a petiole or stalk.",
+      "where": "Check whether the leaf blade meets the stem directly.",
+      "why": "Separates many similar species.",
+      "visual": "assets/diagrams/leaf-attachment.svg"
+    },
+    "pubescent": {
+      "term": "Pubescent",
+      "aliases": [
+        "pubescence",
+        "hairy"
+      ],
+      "pronunciation": "pyoo-BESS-ent",
+      "plain": "Covered with hairs.",
+      "formal": "Bearing trichomes or hairs on a plant surface.",
+      "where": "Use side light on leaves, stems, buds, or fruit.",
+      "why": "Hair density, position, and texture are often diagnostic.",
+      "visual": "assets/diagrams/surface-hairs.svg"
+    },
+    "glabrous": {
+      "term": "Glabrous",
+      "aliases": [
+        "hairless"
+      ],
+      "pronunciation": "GLAY-brus",
+      "plain": "Smooth-looking and without hairs.",
+      "formal": "Lacking pubescence.",
+      "where": "Check leaf surfaces, stems, buds, and fruit under side light.",
+      "why": "The contrast with pubescent surfaces can separate species.",
+      "visual": "assets/diagrams/surface-hairs.svg"
+    },
+    "lanceolate": {
+      "term": "Lanceolate",
+      "aliases": [
+        "lance-shaped"
+      ],
+      "pronunciation": "LAN-see-uh-lit",
+      "plain": "Longer than wide, widest below the middle, tapering toward the tip.",
+      "formal": "Lance-shaped; narrowly ovate with the widest portion below the midpoint.",
+      "where": "Look at a mature, undamaged leaf.",
+      "why": "Leaf shape is useful when combined with arrangement and surface characters.",
+      "visual": "assets/diagrams/leaf-shapes.svg"
+    },
+    "ovate": {
+      "term": "Ovate",
+      "aliases": [
+        "egg-shaped"
+      ],
+      "pronunciation": "OH-vayt",
+      "plain": "Egg-shaped, with the broader end toward the base.",
+      "formal": "Broadly egg-shaped in outline, widest below the middle.",
+      "where": "Use a mature leaf and compare width from base to tip.",
+      "why": "A common leaf-shape term used in keys.",
+      "visual": "assets/diagrams/leaf-shapes.svg"
+    },
+    "rhizome": {
+      "term": "Rhizome",
+      "aliases": [
+        "rhizomatous"
+      ],
+      "pronunciation": "RYE-zohm",
+      "plain": "A horizontal underground stem that can send up new shoots.",
+      "formal": "A usually horizontal subterranean stem bearing nodes, buds, and roots.",
+      "where": "Look at how shoots form colonies; do not excavate unnecessarily.",
+      "why": "Explains perennial colony-forming growth such as Maximilian sunflower.",
+      "visual": "assets/diagrams/rhizome.svg"
+    },
+    "capitulum": {
+      "term": "Capitulum",
+      "aliases": [
+        "flower head",
+        "head"
+      ],
+      "pronunciation": "kuh-PIT-yuh-lum",
+      "plain": "The 'one flower' in a sunflower is actually a packed head of many tiny flowers.",
+      "formal": "A compact inflorescence of sessile florets on a common receptacle.",
+      "where": "Look at the whole composite head.",
+      "why": "Recognizing the capitulum is the first big step in learning Asteraceae.",
+      "visual": "assets/diagrams/asteraceae-head.svg"
+    },
+    "phyllary": {
+      "term": "Phyllary",
+      "aliases": [
+        "phyllaries"
+      ],
+      "pronunciation": "FIL-uh-ree",
+      "plain": "One of the green bracts wrapping the base of a sunflower-family flower head.",
+      "formal": "A modified bract forming part of the involucre beneath a capitulum.",
+      "where": "Turn the head sideways and look directly underneath the florets.",
+      "why": "Shape, number of rows, texture, and tip orientation can separate similar Asteraceae.",
+      "visual": "assets/diagrams/asteraceae-head.svg"
+    },
+    "involucre": {
+      "term": "Involucre",
+      "aliases": [
+        "involucral"
+      ],
+      "pronunciation": "IN-vuh-loo-ker",
+      "plain": "The whole ring or set of phyllaries around the base of a flower head.",
+      "formal": "A whorl or series of bracts subtending an inflorescence.",
+      "where": "Look at the outside/base of an Asteraceae head.",
+      "why": "Its architecture is often more diagnostic than petal color.",
+      "visual": "assets/diagrams/asteraceae-head.svg"
+    },
+    "ray-floret": {
+      "term": "Ray floret",
+      "aliases": [
+        "ray florets",
+        "ray flower"
+      ],
+      "pronunciation": "RAY FLOR-et",
+      "plain": "A small flower with a strap-like blade that looks like a petal.",
+      "formal": "A zygomorphic floret with an expanded ligulate corolla, often at the margin of an Asteraceae head.",
+      "where": "Look around the outer edge of a daisy-like head.",
+      "why": "Presence, absence, number, and color can help identify genera and species.",
+      "visual": "assets/diagrams/asteraceae-head.svg"
+    },
+    "disc-floret": {
+      "term": "Disc floret",
+      "aliases": [
+        "disk floret",
+        "disc florets",
+        "disk florets"
+      ],
+      "pronunciation": "DISK FLOR-et",
+      "plain": "One of the tiny tubular flowers packed into the center of many Asteraceae heads.",
+      "formal": "A usually actinomorphic tubular floret of the disc portion of a capitulum.",
+      "where": "Look closely at the center of a sunflower-like head.",
+      "why": "Disc-floret structure and color can be useful characters.",
+      "visual": "assets/diagrams/asteraceae-head.svg"
+    },
+    "receptacle": {
+      "term": "Receptacle",
+      "aliases": [
+        "floral receptacle"
+      ],
+      "pronunciation": "ree-SEP-tuh-kul",
+      "plain": "The platform the tiny florets sit on.",
+      "formal": "The expanded axis bearing floral organs or, in Asteraceae, the florets of the capitulum.",
+      "where": "In a composite head, it is underneath the florets.",
+      "why": "Whether it bears scales or paleae can help identify Asteraceae.",
+      "visual": "assets/diagrams/asteraceae-head.svg"
+    },
+    "pappus": {
+      "term": "Pappus",
+      "aliases": [
+        "pappi"
+      ],
+      "pronunciation": "PAP-us",
+      "plain": "The bristles, scales, or awns attached to the fruit in many Asteraceae.",
+      "formal": "A modified calyx borne at the apex of an Asteraceae cypsela.",
+      "where": "Inspect mature fruits after flowering.",
+      "why": "Pappus form is often important in keys.",
+      "visual": "assets/diagrams/asteraceae-fruit.svg"
+    },
+    "cypsela": {
+      "term": "Cypsela",
+      "aliases": [
+        "cypselae"
+      ],
+      "pronunciation": "SIP-suh-luh",
+      "plain": "The dry one-seeded fruit produced by an Asteraceae floret.",
+      "formal": "A dry indehiscent one-seeded fruit derived from an inferior ovary.",
+      "where": "Look at mature Asteraceae fruits below the pappus.",
+      "why": "Fruit shape and pappus characters often confirm difficult IDs.",
+      "visual": "assets/diagrams/asteraceae-fruit.svg"
+    },
+    "latex": {
+      "term": "Latex",
+      "aliases": [
+        "sap"
+      ],
+      "pronunciation": "LAY-teks",
+      "plain": "Plant sap that may be milky, clear, colored, or sticky.",
+      "formal": "A complex cellular exudate produced in laticifers.",
+      "where": "Only observe from existing damage when possible; avoid injuring plants unnecessarily.",
+      "why": "Sap type can be extremely diagnostic in milkweeds and prickly poppies.",
+      "visual": "assets/diagrams/latex.svg"
+    },
+    "umbel": {
+      "term": "Umbel",
+      "aliases": [
+        "umbel-like"
+      ],
+      "pronunciation": "UM-bul",
+      "plain": "A flower cluster whose stalks spread from about the same point, like umbrella ribs.",
+      "formal": "An inflorescence with pedicels arising from a common point.",
+      "where": "Look at the architecture of the entire flower cluster.",
+      "why": "Milkweed clusters are commonly described as umbel-like.",
+      "visual": "assets/diagrams/umbel.svg"
+    },
+    "corona": {
+      "term": "Corona",
+      "aliases": [
+        "floral corona"
+      ],
+      "pronunciation": "kuh-ROH-nuh",
+      "plain": "An extra crown-like floral structure inside the corolla; in milkweeds it includes the five hoods.",
+      "formal": "An appendage or series of appendages between the corolla and stamens.",
+      "where": "Look in the center of a milkweed flower around the reproductive column.",
+      "why": "Its hood and horn structure is highly diagnostic in Asclepias.",
+      "visual": "assets/diagrams/milkweed-flower.svg"
+    },
+    "gynostegium": {
+      "term": "Gynostegium",
+      "aliases": [
+        "gynostegia"
+      ],
+      "pronunciation": "guy-no-STEE-jee-um",
+      "plain": "The fused central reproductive column of a milkweed flower.",
+      "formal": "A reproductive complex formed by fusion/close union of anthers with the stigmatic head.",
+      "where": "Look at the very center of a milkweed flower, inside the corona.",
+      "why": "Its slits and associated pollinia are central to milkweed identification and pollination.",
+      "visual": "assets/diagrams/milkweed-flower.svg"
+    },
+    "hood": {
+      "term": "Hood",
+      "aliases": [
+        "hoods",
+        "corona hood"
+      ],
+      "pronunciation": "HOOD",
+      "plain": "One of the five cup- or hood-shaped parts of a milkweed corona.",
+      "formal": "A cucullate corona segment in Asclepias, often associated with an internal horn.",
+      "where": "Look around the gynostegium in the flower center.",
+      "why": "Hood length, shape, and relation to the column help separate milkweed species.",
+      "visual": "assets/diagrams/milkweed-flower.svg"
+    },
+    "horn": {
+      "term": "Horn",
+      "aliases": [
+        "horns",
+        "corona horn"
+      ],
+      "pronunciation": "HORN",
+      "plain": "A narrow projection that may rise from inside a milkweed hood.",
+      "formal": "A cornu arising from the interior of a corona hood in many Asclepias.",
+      "where": "Look into each hood from above or from the side.",
+      "why": "Presence, absence, and length of horns can be decisive.",
+      "visual": "assets/diagrams/milkweed-flower.svg"
+    },
+    "pollinium": {
+      "term": "Pollinium",
+      "aliases": [
+        "pollinia"
+      ],
+      "pronunciation": "puh-LIN-ee-um",
+      "plain": "A whole packet of pollen moved as one unit.",
+      "formal": "A coherent mass of pollen grains transferred together during pollination.",
+      "where": "In milkweeds, pollinia are connected to a central clip-like corpusculum.",
+      "why": "Understanding pollinia explains the unusual milkweed flower structure.",
+      "visual": "assets/diagrams/milkweed-flower.svg"
+    },
+    "follicle": {
+      "term": "Follicle",
+      "aliases": [
+        "follicles"
+      ],
+      "pronunciation": "FOL-ih-kul",
+      "plain": "A dry fruit that splits open along one side; milkweed pods are follicles.",
+      "formal": "A dry dehiscent fruit derived from one carpel and opening along a single suture.",
+      "where": "Look at mature milkweed fruits after flowering.",
+      "why": "Fruit shape and surface can support identification.",
+      "visual": "assets/diagrams/milkweed-fruit.svg"
+    },
+    "cupule": {
+      "term": "Cupule",
+      "aliases": [
+        "acorn cup"
+      ],
+      "pronunciation": "KYOO-pyool",
+      "plain": "The cup or cap surrounding the base of an acorn.",
+      "formal": "A cup-like involucre of fused/bract-derived structures subtending or enclosing a nut.",
+      "where": "Inspect the acorn base and the scales on the cup.",
+      "why": "Cup depth, shape, and scale characters help separate oaks.",
+      "visual": "assets/diagrams/oak-acorn.svg"
+    },
+    "catkin": {
+      "term": "Catkin",
+      "aliases": [
+        "ament"
+      ],
+      "pronunciation": "KAT-kin",
+      "plain": "A dangling cluster of many tiny, usually unshowy flowers.",
+      "formal": "A usually pendent spike-like inflorescence of small unisexual flowers.",
+      "where": "Look for hanging flower clusters on oaks in season.",
+      "why": "Useful for understanding oak reproduction, though often weaker for species-level ID.",
+      "visual": "assets/diagrams/oak-catkin.svg"
+    },
+    "cyathium": {
+      "term": "Cyathium",
+      "aliases": [
+        "cyathia"
+      ],
+      "pronunciation": "sye-ATH-ee-um",
+      "plain": "A tiny cup-like Euphorbia structure that looks like one flower but contains highly reduced male and female flowers.",
+      "formal": "A specialized pseudanthium with a central female flower and reduced male flowers enclosed by an involucre with glands.",
+      "where": "Use a macro view of a Euphorbia flower-like unit.",
+      "why": "Recognizing the cyathium unlocks Euphorbia morphology.",
+      "visual": "assets/diagrams/cyathium.svg"
+    },
+    "corolla": {
+      "term": "Corolla",
+      "aliases": [
+        "petals",
+        "corolla lobes"
+      ],
+      "pronunciation": "kuh-ROL-uh",
+      "plain": "All the petals of a flower considered together.",
+      "formal": "The inner, usually showy whorl of the perianth, composed of petals.",
+      "where": "Look inside the sepals/calyx.",
+      "why": "Fusion, shape, lobing, and symmetry are common family-level characters.",
+      "visual": "assets/diagrams/flower-basics.svg"
+    },
+    "calyx": {
+      "term": "Calyx",
+      "aliases": [
+        "sepals"
+      ],
+      "pronunciation": "KAY-liks",
+      "plain": "All the sepals together—the outer floral covering below the petals.",
+      "formal": "The outer whorl of the perianth, composed of sepals.",
+      "where": "Look directly below or outside the corolla.",
+      "why": "Sepal shape and surface are important in morning-glories and many other groups.",
+      "visual": "assets/diagrams/flower-basics.svg"
+    },
+    "sepal": {
+      "term": "Sepal",
+      "aliases": [
+        "sepals"
+      ],
+      "pronunciation": "SEE-pul",
+      "plain": "One individual part of the calyx.",
+      "formal": "A member of the outer perianth whorl.",
+      "where": "Look beneath the petals/corolla.",
+      "why": "Shape, length, horns, hairs, and persistence can be diagnostic.",
+      "visual": "assets/diagrams/flower-basics.svg"
+    },
+    "sympetalous": {
+      "term": "Sympetalous",
+      "aliases": [
+        "fused petals"
+      ],
+      "pronunciation": "sim-PET-uh-lus",
+      "plain": "Petals are fused together for at least part of their length.",
+      "formal": "Having connate petals forming a corolla tube.",
+      "where": "Look for a continuous corolla tube rather than separate petals.",
+      "why": "The funnel-shaped fused corolla is a strong clue in many Convolvulaceae.",
+      "visual": "assets/diagrams/flower-basics.svg"
+    },
+    "capsule": {
+      "term": "Capsule",
+      "aliases": [
+        "capsular fruit"
+      ],
+      "pronunciation": "KAP-syool",
+      "plain": "A dry fruit that opens to release seeds.",
+      "formal": "A dry dehiscent fruit derived from a compound ovary.",
+      "where": "Look at mature fruit after petals fall.",
+      "why": "Opening pattern, prickles, and shape can be diagnostic.",
+      "visual": "assets/diagrams/capsule.svg"
+    }
+  }
+}
