@@ -18,3 +18,7 @@ button{cursor:pointer}.toggle.on{outline:2px solid var(--accent)}
 .traits{display:grid;grid-template-columns:1fr 1fr;gap:8px}.trait{background:var(--panel2);border-radius:8px;padding:8px;font-size:.84rem}.trait b{display:block;color:var(--accent);font-size:.75rem;text-transform:uppercase;margin-bottom:3px}
 .hidden-study .answer{filter:blur(7px);user-select:none}.hidden-study .answer.revealed{filter:none;user-select:auto}
 .reveal{width:100%;margin-top:10px}.warning{color:#f2c17f}.empty{padding:20px}
+.card-photo{margin:-16px -16px 14px;overflow:hidden;border-radius:12px 12px 0 0;background:#0d120f;border-bottom:1px solid var(--line)}
+.card-photo img{display:block;width:100%;height:230px;object-fit:cover}
+.card-photo figcaption{padding:8px 12px;color:var(--muted);font-size:.74rem;line-height:1.35}
+.photo-missing{margin:-16px -16px 14px;padding:28px 16px;background:#111813;color:var(--muted);border-bottom:1px dashed var(--line);text-align:center;font-size:.82rem}
