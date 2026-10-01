@@ -11,7 +11,8 @@ async function boot(){
     const manifest = await loadJSON("data/manifest.json");
     const project = await loadJSON(manifest.project);
     state.targetCounties = project.target_zone_counties || [];
-    state.species = await Promise.all(manifest.species.map(x => loadJSON(x.path)));
+    state.manifestSpecies = manifest.species || [];
+    state.species = await Promise.all(state.manifestSpecies.map(x => loadJSON(x.path)));
     buildFilters();
     render();
   }catch(err){
@@ -107,8 +108,17 @@ function card(sp){
   const traits = Object.entries(sp.morphology_keys||{}).map(([k,v]) =>
     `<div class="trait"><b>${k.replaceAll("_"," ")}</b>${formatValue(v)}</div>`
   ).join("");
+  const images = Array.isArray(sp.images) ? sp.images : [];
+  const firstImage = images.find(img => img && img.file);
+  const imageBlock = firstImage
+    ? `<figure class="card-photo">
+        <img src="${encodeURI(firstImage.file.startsWith("content/") ? firstImage.file : findSpeciesBase(sp) + "/" + firstImage.file)}" alt="${sci} — ${firstImage.role || firstImage.view || "curated study image"}" loading="lazy">
+        <figcaption>${firstImage.role || firstImage.view || "Curated image"} · ${firstImage.creator || firstImage.credit || "source recorded"}${firstImage.license ? " · " + firstImage.license : ""}</figcaption>
+      </figure>`
+    : `<div class="photo-missing">No curated photo installed yet</div>`;
 
   return `<article class="card ${state.studyMode ? "hidden-study" : ""}">
+    ${imageBlock}
     <div class="answer">
       <h2><span class="latin">${sci}</span> ${sp.authority||""}</h2>
       <div class="common">${sp.common_name||""}</div>
@@ -120,6 +130,12 @@ function card(sp){
       Reveal / Hide
     </button>
   </article>`;
+}
+
+function findSpeciesBase(sp){
+  const entry = state.manifestSpecies?.find(x => x.id === sp.id);
+  if(!entry?.path) return "";
+  return entry.path.replace(/\/species\.json$/, "");
 }
 
 function render(){
