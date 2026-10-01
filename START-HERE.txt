@@ -1,0 +1,30 @@
+HAYS BOTANY ID — START HERE
+
+1. Extract this ZIP directly into your empty "Hays Botany ID" folder.
+2. Keep the folder structure intact.
+3. Species information lives here:
+   content\taxa\FAMILY\GENUS\SPECIES-ID\species.json
+4. Save that species' photos inside its "images" folder.
+5. Record every downloaded image in:
+   sources\image-sources.csv
+6. Use sources\photo-checklist.csv to track which diagnostic photos are still needed.
+
+TO VIEW THE WEBPAGE
+Because browsers block local JSON fetches when you double-click index.html,
+run a tiny local web server.
+
+Easiest choices:
+A) VS Code + Live Server extension
+B) If Python is installed, double-click RUN_LOCAL_SERVER.bat
+
+Then open:
+http://localhost:8000
+
+IMPORTANT ORGANIZATION RULE
+Use folders for FAMILY and GENUS.
+Use one species.json as the main source-of-truth file for each SPECIES.
+Do not duplicate the same species facts in family/genus files.
+
+Family files should hold family-level traits.
+Genus files should hold genus-level traits.
+Species files should hold species-level traits, county evidence, comparisons, ecology, and image references.
