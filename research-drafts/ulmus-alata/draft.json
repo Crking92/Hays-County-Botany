@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NEEDS_MANUAL_REVIEW",
+  "batch_id": "deep-review-batch-016-ulmus-b012",
+  "created_at": "2026-10-02T16:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1194,
+    "source_scientific_name": "Ulmus alata",
+    "wild_observations": 1,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Ulmus alata Michx.",
+    "rank": "species",
+    "order": "Rosales",
+    "family": "Ulmaceae",
+    "genus": "Ulmus",
+    "species": "alata",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO accepts Ulmus alata and lists Texas in its native range.",
+      "Texas A&M Rangelands explicitly treats winged elm as native and maps it to several Texas ecoregions including the Blackland Prairies, Cross Timbers, and Edwards Plateau.",
+      "Texas Forest Service describes its Texas range from eastern Texas south to the Guadalupe River valley.",
+      "The project source pool contains one research-grade wild user observation, but its county is not being inferred from the source-pool row."
+    ],
+    "blocking_issue": "B012 did not recover three exact project target counties with sufficiently explicit native/wild documentation. Regional/eccoregional evidence shows that the species reaches the broader project region, so FAIL would overstate the evidence.",
+    "guardrail": "Do not convert ecoregion presence, a broad Guadalupe-valley statement, or an unlocated iNaturalist observation into three county records."
+  },
+  "morphology": {
+    "look_here_first": "Look at young and older branches first: regular corky wings are the signature. Then check that the wings usually stop abruptly at the leaf node, the leaves are pointed, and reproduction is in spring.",
+    "diagnostic_traits": [
+      "deciduous small-to-medium elm",
+      "prominent regular corky wings commonly present on young and older branches",
+      "wings generally terminate abruptly at leaf nodes",
+      "leaves generally small, lanceolate to oblanceolate/elliptic, pointed, double-serrate",
+      "flowers before or around leaf-out in spring",
+      "spring samara oblong with white cilia/hairs",
+      "wings may be weak or absent on rapidly growing trees, so fruit and season remain useful"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Ulmus crassifolia",
+      "separator": "Cedar elm may also be winged, but its wings can continue around nodes, its leaves tend to be blunter/rougher, and it flowers/fruits in fall."
+    },
+    {
+      "taxon": "Ulmus americana",
+      "separator": "American elm has much larger asymmetric leaves and normally smooth unwinged branches."
+    },
+    {
+      "taxon": "Liquidambar styraciflua",
+      "separator": "Sweetgum can have corky twig growth, but the leaves are palmately lobed rather than simple pinnately veined elm leaves."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tree",
+      "regular corky branch wings",
+      "wing ending at node macro",
+      "pointed leaf",
+      "lower leaf",
+      "spring flowers",
+      "spring samara",
+      "cedar-elm twig comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/356856510"
+  },
+  "approval_status": "NEEDS_MANUAL_REVIEW",
+  "installation_guardrail": "Do not install as a project-native until three target-zone counties are documented or Calvin explicitly approves a range-evidence exception."
+}
