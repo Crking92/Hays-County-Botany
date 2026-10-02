@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-018-fraxinus-b014",
+  "created_at": "2026-10-02T16:55:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 476,
+    "source_scientific_name": "Fraxinus pennsylvanica",
+    "wild_observations": 2,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Fraxinus pennsylvanica Marshall",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Oleaceae",
+    "genus": "Fraxinus",
+    "species": "pennsylvanica",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Bell",
+      "Comal"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Fraxinus pennsylvanica and lists Texas within its native range.",
+      "Hays County — the project Hays County native-source list includes F. pennsylvanica; UT PRC documents naturally occurring green ash in north Hays County.",
+      "USDA PLANTS-derived county native-status data records F. pennsylvanica as native in Bell County.",
+      "The same USDA-derived county data records it as native in Comal County."
+    ],
+    "blocking_issue": null,
+    "guardrail": "The Central Texas F. albicans/F. pennsylvanica boundary can be messy and UT PRC notes possible hybridization; fruit plus leaf scar plus lower-leaf surface should outweigh leaf silhouette alone."
+  },
+  "morphology": {
+    "look_here_first": "Look at the samara first: green ash has a larger seed body with the wing decurrent well down the body before abruptly broadening; then confirm a broad shield-shaped leaf scar and usually non-glaucous lower leaflet surface.",
+    "diagnostic_traits": [
+      "deciduous medium-to-large riparian/bottomland ash",
+      "opposite branches and odd-pinnate leaves, usually 5–7(–9) leaflets",
+      "leaflet margins subentire to inconspicuously dentate-serrulate",
+      "abaxial leaflet surface generally glabrous rather than densely white-waxy",
+      "leaf scar shield-shaped to broadly oblong-ovate, upper edge truncate to only shallowly concave",
+      "samara consistently 2-winged in the Central Texas key",
+      "samara body >1.5 cm; wing runs down the proximal portion of the body then broadens distally"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Fraxinus albicans",
+      "separator": "Priority comparison. Texas ash has a glaucous/waxy lower leaflet surface, smaller fruit body, and wing only slightly decurrent; green ash has a larger body and more strongly decurrent wing."
+    },
+    {
+      "taxon": "Fraxinus berlandieriana",
+      "separator": "Mexican ash tends toward 3–5 leaflets, coarse sharp distal serration, smaller shallower leaf scars, and occasional 3-winged fruits."
+    },
+    {
+      "taxon": "Fraxinus americana",
+      "separator": "White ash typically has more strongly stalked leaflets and a deeply U-notched leaf scar embracing the bud."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole riparian tree",
+      "full leaf",
+      "upper leaflet",
+      "lower leaflet",
+      "leaf margin",
+      "twig/bud/shield-shaped leaf scar",
+      "bark",
+      "samara cluster",
+      "samara wing-body macro",
+      "direct F. albicans comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/274807263"
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B014 pass taxa."
+}
