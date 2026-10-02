@@ -1,0 +1,26 @@
+# Deep Review sources — Nassella leucotricha
+Reviewed: 2026-10-02
+Batch: deep-review-batch-011-poaceae-family-sampler-b007
+Status: READY_FOR_APPROVAL
+
+## Taxonomy
+Accepted: Nassella leucotricha (Trin. & Rupr.) R.W.Pohl
+Important synonym: Stipa leucotricha Trin. & Rupr.
+Kew/POWO: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A948400-1
+
+## Strict target-zone range
+Hays — https://w3.biosci.utexas.edu/prc/HaysFlora/pages/NALE3.html
+Travis — Travis County FM 969 environmental assessment documents Nassella leucotricha in site vegetation: https://www2.traviscountytx.gov/tnr/publicworks/cip/files/27/documents/20160422_FM969_Draft-EA.pdf
+Williamson — UT PRC treatment under Stipa leucotricha: https://w3.biosci.utexas.edu/prc/K12/pdf/Stipa%20leucotricha
+Decision: PASS
+
+## Morphology
+Texas A&M Rangelands: https://rangeplants.tamu.edu/plant/texas-wintergrass/
+NPSOT: https://www.npsot.org/posts/native-plant/nassella-leucotricha/
+Key structure: cool-season wispy bunch; loose panicle; hairy narrow blades; one long twisted awn per fertile floret.
+
+## Exact reusable photo candidates
+Fruit / single long awn, Tracey Slotta / USDA-ARS, Public Domain:
+https://commons.wikimedia.org/wiki/File:Nassella_leucotricha.jpg
+NPSOT field reference, photo credit Sam C. Strickland:
+https://www.npsot.org/posts/native-plant/nassella-leucotricha/
