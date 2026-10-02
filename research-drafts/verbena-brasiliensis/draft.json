@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NON_NATIVE_COMPARISON_RECOMMENDED",
+  "batch_id": "deep-review-batch-017-verbena-b013",
+  "created_at": "2026-10-02T16:44:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1212,
+    "source_scientific_name": "Verbena brasiliensis",
+    "wild_observations": 7,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Verbena brasiliensis Vell.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Verbenaceae",
+    "genus": "Verbena",
+    "species": "brasiliensis",
+    "status": "VERIFIED",
+    "note": "Accepted species; South American native and introduced in Texas."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO accepts Verbena brasiliensis and gives its native range in South America; Texas is explicitly listed as introduced.",
+      "TexasInvasives.org identifies Brazilian vervain as introduced to the U.S., reports it throughout central/east/north Texas, and describes it as a significant invasive species.",
+      "NPSOT classifies Verbena brasiliensis as an invasive plant and notes its threat of displacing native plants.",
+      "The project source pool contains seven user observations marked wild, supporting strong local encounter value but not native status."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Native status remains FAIL regardless of local abundance. Invasive comparison retention is a separate learner decision and is excluded from native totals."
+  },
+  "morphology": {
+    "look_here_first": "Look at the architecture: a tall plant with long bare internodes and an open candelabra-like panicle made of many short compact flower spikes; the leaves are simple, narrow, sharply serrate, and not lobed.",
+    "diagnostic_traits": [
+      "introduced South American annual or short-lived perennial, often 0.9–2.3 m tall",
+      "erect strongly 4-sided green stems with long internodes",
+      "opposite simple elliptic to oblanceolate leaves, sharply serrate above midblade",
+      "leaves sessile/subsessile and not deeply lobed",
+      "open panicle with several orders of opposite branching",
+      "many short compact terminal spikelets rather than a few long spikes",
+      "tiny violet-purple flowers and prolific small mericarps/seeds"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Verbena scabra",
+      "separator": "V. scabra has broad harsh sandpaper leaves and very long slender spikes; Brazilian vervain has narrow simple serrate leaves and many short compact spikes in an open panicle."
+    },
+    {
+      "taxon": "Verbena xutha",
+      "separator": "V. xutha has deeply 3-lobed leaves and coarse hispid/glandular foliage; Brazilian vervain leaves are simple and unlobed."
+    },
+    {
+      "taxon": "Verbena bonariensis",
+      "separator": "A separate introduced ornamental/naturalized Verbena with dense rounded flower heads on long peduncles; do not collapse it into V. brasiliensis."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tall invasive habit",
+      "long-internode square stem",
+      "simple serrate leaf",
+      "open branching panicle",
+      "short compact spike",
+      "flower/calyx",
+      "fruit/mericarps",
+      "scabra comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/289579392",
+    "reusable_or_reference_candidate": "https://w3.biosci.utexas.edu/prc/K12/pdf/Verbena%20brasiliensis"
+  },
+  "approval_status": "READY_FOR_COMPARISON_APPROVAL",
+  "learner_role": {
+    "role": "INVASIVE_COMPARISON_RECOMMENDED",
+    "retained": false,
+    "native_metrics_excluded": true,
+    "reason": "Regional invasive source plus seven user wild observations make Brazilian vervain highly relevant for crew identification. Requires explicit batch/comparison approval before installation."
+  },
+  "installation_guardrail": "Native status remains FAIL. Install only if Calvin explicitly approves retention as a labeled invasive/non-native comparison; exclude from native totals."
+}
