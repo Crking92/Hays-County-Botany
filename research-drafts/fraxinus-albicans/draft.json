@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-018-fraxinus-b014",
+  "created_at": "2026-10-02T16:55:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 473,
+    "source_scientific_name": "Fraxinus albicans",
+    "wild_observations": 8,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Fraxinus albicans Buckley",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Oleaceae",
+    "genus": "Fraxinus",
+    "species": "albicans",
+    "status": "VERIFIED",
+    "note": "Accepted name; F. texensis and F. americana var./subsp. texensis are synonyms."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Fraxinus albicans and lists Texas within its native range.",
+      "Hays County — the project Hays County native-source list includes F. albicans; UT Plant Resources Center also documents naturally occurring Texas ash in north Hays County.",
+      "Travis County — a wild-provenance collection documents F. albicans in Travis County above Collier Hollow.",
+      "Williamson County — a county environmental/archaeological survey describes Texas ash as prevalent in the historic/natural vegetation of the Limestone Cut Plain."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Do not collapse older F. texensis / F. americana var. texensis records into a separate learner taxon; Kew treats them as synonyms of F. albicans. User iNaturalist observations support field/photo coverage but are not needed for the range decision."
+  },
+  "morphology": {
+    "look_here_first": "Once you know it is an ash, go to the lower leaflet surface and the samara: Texas ash usually has a glaucous white-reticulate waxy underside, relatively small fruit body, and a wing that is terminal or only slightly decurrent down the seed body.",
+    "diagnostic_traits": [
+      "deciduous small-to-medium ash of rocky limestone slopes, bluffs and canyons",
+      "opposite branching and odd-pinnate leaves, usually 5–7 leaflets",
+      "leaflets relatively short/broad; margins entire to distally crenulate or crenulate-serrate",
+      "abaxial leaflet surface characteristically glaucous with a dense white-reticulate wax overlay; hairs may also occur",
+      "leaf scar depressed-obovate with a shallowly concave/notched upper margin and somewhat flaring sides",
+      "samara body about 1 cm long; wing terminal or only slightly decurrent on distal quarter",
+      "gray bark becoming furrowed with interlocking flattened ridges"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Fraxinus pennsylvanica",
+      "separator": "Priority Hays County comparison. Green ash has larger fruit bodies and the wing runs much farther down the body; Texas ash has glaucous/waxy leaflet undersides and a more terminal wing."
+    },
+    {
+      "taxon": "Fraxinus berlandieriana",
+      "separator": "Mexican ash usually has 3–5 leaflets with coarser sharp distal serration and may mix 3-winged fruits among normal 2-winged fruits."
+    },
+    {
+      "taxon": "Fraxinus americana",
+      "separator": "White ash has a deeply notched U-shaped leaf scar surrounding the bud and is primarily an eastern-Texas/eastern-North-American species."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole limestone-habitat tree",
+      "full odd-pinnate leaf",
+      "upper leaflet",
+      "glaucous/waxy lower leaflet macro",
+      "leaf margin",
+      "twig/bud/leaf scar",
+      "bark",
+      "samara cluster",
+      "samara wing-body macro",
+      "direct F. pennsylvanica comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/317617573"
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B014 pass taxa."
+}
