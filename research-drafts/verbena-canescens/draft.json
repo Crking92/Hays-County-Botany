@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-017-verbena-b013",
+  "created_at": "2026-10-02T16:44:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1213,
+    "source_scientific_name": "Verbena canescens",
+    "wild_observations": 5,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Verbena canescens Kunth",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Verbenaceae",
+    "genus": "Verbena",
+    "species": "canescens",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Kerr"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Verbena canescens and lists Texas within its native range.",
+      "Hays County — the project Hays County native-source list includes Verbena canescens.",
+      "Travis County — the UT Plant Resources Center Travis County Verbenaceae index includes a Verbena canescens specimen.",
+      "Kerr County — the Kerr WMA vascular flora documents Verbena canescens repeatedly without an introduced marker."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Regional Edwards Plateau distribution alone is not used as a county substitute; the three listed counties have explicit local records."
+  },
+  "morphology": {
+    "look_here_first": "Look for the gray cast before anything else: this is the short, low vervain whose stems and leaves are densely covered in stiff whitish hairs, giving the entire plant a canescent or dusty-gray appearance.",
+    "diagnostic_traits": [
+      "low perennial, commonly under about 30 cm in the Williamson County treatment",
+      "stems and leaves densely hirsute/canescent, producing a gray-green appearance",
+      "opposite sessile to subsessile leaves, elliptic to oblong or nearly linear",
+      "leaf margins with only a few teeth or short lobes rather than deep major divisions",
+      "terminal many-flowered slender spikes",
+      "calyx and rachis conspicuously hairy, including pustulate-based hairs",
+      "four one-seeded mericarps with strongly pitted outer faces"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Verbena halei",
+      "separator": "V. halei is greener and much less densely hairy, with lower leaves often deeply pinnatifid; V. canescens is uniformly gray/canescent and low."
+    },
+    {
+      "taxon": "Verbena xutha",
+      "separator": "V. xutha is taller/coarser, usually with obvious 3-lobed leaves and stronger pustulate/glandular hairiness."
+    },
+    {
+      "taxon": "Verbena scabra",
+      "separator": "V. scabra is far larger, with broad sandpaper-textured leaves and long panicles of spikes."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole low gray habit",
+      "stem-and-leaf hair macro",
+      "leaf outline",
+      "terminal spike",
+      "calyx/bract hairs",
+      "flower front",
+      "mericarp macro",
+      "halei comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/273570578",
+    "reusable_or_reference_candidate": "https://www.bio.utexas.edu/courses/bio406d/images/pics/vrb/verbena_canescens.htm"
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B013 pass taxa."
+}
