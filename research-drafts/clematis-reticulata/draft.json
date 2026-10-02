@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_OR_TAXONOMY_FAIL",
+  "batch_id": "deep-review-batch-010-clematis-b006",
+  "created_at": "2026-10-02T14:43:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 265,
+    "source_scientific_name": "Clematis reticulata",
+    "wild_observations": 0,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Clematis reticulata Walter",
+    "rank": "species",
+    "order": "Ranunculales",
+    "family": "Ranunculaceae",
+    "genus": "Clematis",
+    "species": "reticulata",
+    "synonyms": [
+      "Viorna reticulata (Walter) Small",
+      "Coriflora reticulata (Walter) W.A.Weber"
+    ],
+    "status": "VERIFIED",
+    "note": "The source-pool Texas concept is outdated after the 2022 Clematis reticulata-complex revision. Current C. reticulata s.s. is not a Texas native in Kew's backbone. Historical East Texas records may resolve to C. arenicola, but no Hays/target-zone occurrence is inferred."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Current Kew/POWO re-circumscribes Clematis reticulata sensu stricto to the southeastern U.S. and lists Alabama, Florida, Georgia, Mississippi, and South Carolina — not Texas.",
+      "Murphy, Harris & Estes (2022) demonstrated that the former broad Clematis reticulata complex contains six species and described Clematis arenicola for the West Gulf Coastal Plain lineage occurring into eastern Texas.",
+      "The source pool's Hays-local flag under Clematis reticulata is not counted: Hays County lies well outside the modern East-Texas/West-Gulf concept of C. arenicola and the current Kew range of C. reticulata s.s.; this record requires source-level re-identification rather than automatic synonym transfer."
+    ],
+    "blocking_issue": "Modern taxonomy/range no longer supports Clematis reticulata sensu stricto as Texas native; source-pool Hays record requires re-identification.",
+    "guardrail": "No county inferred from statewide range, ecoregion, cultivation, plant sales, or an unreconciled historical taxonomic concept."
+  },
+  "morphology": {
+    "look_here_first": "Do not learn the old Texas 'reticulata' card as a Central Texas species. First verify geography and modern taxonomy; true C. reticulata s.s. is an southeastern Coastal Plain species east of Texas, while Texas members of the old complex require re-identification.",
+    "diagnostic_traits": [
+      "historical broad concept: nodding urn-shaped leatherflower",
+      "finely and prominently reticulate leathery leaflets were a key old-field character",
+      "modern species limits require geography plus quantitative leaf venation, pubescence, pedicel and reproductive characters",
+      "true C. reticulata s.s. is re-circumscribed away from Texas",
+      "West Gulf Coastal Plain Texas material formerly called C. reticulata may belong to C. arenicola"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Clematis arenicola",
+      "separator": "C. arenicola is the 2022-recognized West Gulf Coastal Plain lineage extending into eastern Texas; it is not automatically a synonym for every historical Texas/Hays C. reticulata record."
+    },
+    {
+      "taxon": "Clematis pitcheri",
+      "separator": "Pitcheri remains the locally relevant Central Texas reticulate-leaved leatherflower; use flower/sepal characters, achene beak, and geography rather than the old broad 'reticulata' label."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "historical herbarium/old-concept reference",
+      "fine leaf-reticulation macro",
+      "urn flower",
+      "modern C. arenicola comparison",
+      "distribution/taxonomic-revision teaching graphic"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "joey_media_note": "No exact Clematis Joey media package was present in the canonical repo at B006 review time; Joey index lists Clematis drummondii/texensis recovery as upcoming work."
+  },
+  "approval_status": "RANGE_OR_TAXONOMY_FAIL",
+  "installation_guardrail": "Do not install as a project target-zone native unless later evidence changes the decision or Calvin explicitly approves an exception."
+}
