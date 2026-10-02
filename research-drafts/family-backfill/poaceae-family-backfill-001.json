@@ -1,0 +1,303 @@
+{
+  "module_id": "family-backfill-poaceae-001",
+  "family": "Poaceae",
+  "created_at": "2026-10-02",
+  "status": "authoritative_backfill_in_progress",
+  "local_scope": {
+    "family_study_index_species": 42,
+    "priority_1_species": 10,
+    "curated_anchors": [
+      "Bothriochloa torreyana",
+      "Bouteloua curtipendula",
+      "Bouteloua dactyloides",
+      "Bouteloua gracilis",
+      "Bouteloua rigidiseta",
+      "Schizachyrium scoparium"
+    ],
+    "priority_1_queue": [
+      "Andropogon gerardii",
+      "Aristida purpurea",
+      "Bothriochloa laguroides",
+      "Eragrostis intermedia",
+      "Muhlenbergia lindheimeri",
+      "Nassella leucotricha",
+      "Panicum virgatum",
+      "Sorghastrum nutans",
+      "Sporobolus compositus",
+      "Tripsacum dactyloides"
+    ]
+  },
+  "learner_core": {
+    "where_to_look_first": {
+      "flowering": "Start with inflorescence architecture, then isolate one spikelet and inspect glumes, florets, lemma/palea, awns/bristles and attachment.",
+      "vegetative": "Go directly to the collar region where blade meets sheath. Pull the blade gently away from the culm and inspect ligule, auricles, collar, sheath, hairs and node."
+    },
+    "family_characters": [
+      "Culms are jointed into nodes and internodes; internodes are commonly hollow or pith-filled, while nodes are solid.",
+      "Leaves are typically 2-ranked and consist of sheath + blade with a collar region at their junction.",
+      "The sheath usually wraps around the culm and is commonly open/split rather than completely fused.",
+      "A ligule is commonly present at the inner blade-sheath junction; it may be membranous, hairy, very short or occasionally absent.",
+      "Auricles may be present or absent and can be highly diagnostic when present.",
+      "The basic reproductive unit is the spikelet.",
+      "One or two glumes usually occur at the base of a spikelet; each floret is typically enclosed by a lemma and palea.",
+      "Awns or bristles may arise from spikelet/floret structures and are often diagnostic.",
+      "The fruit is a caryopsis (grain), with the seed coat fused to the fruit wall."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not assume every grass has a hollow round internode; flattened or pith-filled culms occur.",
+      "Do not identify grasses by leaf width or color alone.",
+      "Do not call every grass-like plant Poaceae; sedges and rushes require explicit comparison.",
+      "Do not wait for seedheads if vegetative collar characters are available."
+    ],
+    "grass_sedge_rush": {
+      "Poaceae": {
+        "stem": "Usually round/flattened, jointed, with obvious nodes; internodes often hollow.",
+        "leaves": "Usually 2-ranked; sheath commonly open/split.",
+        "key_confirmation": "Nodes + collar region; reproductive units are spikelets with glumes and florets."
+      },
+      "Cyperaceae": {
+        "stem": "Usually solid and often triangular; no grass-like jointed nodes.",
+        "leaves": "Commonly 3-ranked; sheath typically closed.",
+        "key_confirmation": "Triangular solid culm plus sedge spike/scale architecture; Carex uses perigynia."
+      },
+      "Juncaceae": {
+        "stem": "Usually round and solid, without obvious grass nodes.",
+        "leaves": "Often basal or reduced.",
+        "key_confirmation": "Small but recognizable flowers commonly with 6 tepals and a capsule rather than grass spikelets."
+      }
+    },
+    "terminology_learning_order": [
+      "culm",
+      "node",
+      "internode",
+      "blade",
+      "sheath",
+      "collar",
+      "ligule",
+      "auricle",
+      "inflorescence",
+      "rachis",
+      "spikelet",
+      "glume",
+      "floret",
+      "lemma",
+      "palea",
+      "awn",
+      "lodicule",
+      "caryopsis",
+      "tiller",
+      "stolon",
+      "rhizome"
+    ]
+  },
+  "local_practice_groups": [
+    {
+      "group": "Bluestem / Andropogoneae-style grasses",
+      "taxa": [
+        "Andropogon gerardii",
+        "Bothriochloa laguroides",
+        "Bothriochloa torreyana",
+        "Schizachyrium scoparium",
+        "Sorghastrum nutans"
+      ],
+      "look_for": [
+        "paired or specialized spikelets",
+        "hairy rachis/pedicel structures",
+        "awn patterns",
+        "raceme arrangement"
+      ],
+      "note": "Use curated Bothriochloa torreyana and Schizachyrium scoparium as anchors."
+    },
+    {
+      "group": "Gramas",
+      "taxa": [
+        "Bouteloua curtipendula",
+        "Bouteloua dactyloides",
+        "Bouteloua gracilis",
+        "Bouteloua hirsuta",
+        "Bouteloua rigidiseta",
+        "Bouteloua trifida"
+      ],
+      "look_for": [
+        "distinct comb/flag-like spike branches or reduced specialized heads",
+        "branch orientation",
+        "spikelet arrangement"
+      ],
+      "note": "Several curated anchors already exist."
+    },
+    {
+      "group": "Threeawns / needlegrasses",
+      "taxa": [
+        "Aristida purpurea",
+        "Nassella leucotricha"
+      ],
+      "look_for": [
+        "Aristida typically 3 awns vs Nassella one conspicuous twisted awn",
+        "lemma/awn architecture"
+      ],
+      "note": "High-value side-by-side learner pair."
+    },
+    {
+      "group": "Lovegrasses / dropseeds / muhlys",
+      "taxa": [
+        "Eragrostis intermedia",
+        "Sporobolus compositus",
+        "Muhlenbergia lindheimeri"
+      ],
+      "look_for": [
+        "panicle architecture",
+        "spikelet size/flower number",
+        "ligule type",
+        "branching pattern"
+      ]
+    },
+    {
+      "group": "Panic grasses",
+      "taxa": [
+        "Panicum virgatum",
+        "Panicum capillare",
+        "Panicum hallii",
+        "Hopia obtusa"
+      ],
+      "look_for": [
+        "panicle architecture",
+        "ligule/collar",
+        "hairiness",
+        "stolons/rhizomes when present"
+      ]
+    },
+    {
+      "group": "Gamagrass",
+      "taxa": [
+        "Tripsacum dactyloides"
+      ],
+      "look_for": [
+        "thick corn-like inflorescence",
+        "male spikelets above",
+        "hard bead-like female joints below"
+      ]
+    }
+  ],
+  "visual_backfill_targets": [
+    {
+      "role": "whole_grass_anatomy_diagram",
+      "source": "USDA NRCS Typical Grass Structures",
+      "source_page": "https://www.nrcs.usda.gov/plantmaterials/etpmcpu8052.pdf",
+      "rights": "reference/study use; diagram credits South African National Biodiversity Institute, so do not assume U.S.-government public domain",
+      "public_reuse": false
+    },
+    {
+      "role": "collar_region_ligule_auricle_sheath",
+      "source": "Illinois Extension Grass Identification",
+      "source_page": "https://extension.illinois.edu/grasses/grass-identification",
+      "rights": "educational reference; public reuse permission not established",
+      "public_reuse": false
+    },
+    {
+      "role": "spikelet_glume_lemma_palea_opened",
+      "source": "Wikimedia Commons — Bromus inermis sl1.jpg",
+      "creator": "Stefan.lefnaer",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Bromus_inermis_sl1.jpg",
+      "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bromus%20inermis%20sl1.jpg",
+      "license": "CC BY-SA 4.0",
+      "public_reuse": true
+    },
+    {
+      "role": "flowering_spikelet_reproductive_parts",
+      "source": "Wikimedia Commons — Arrhenatherum spikelets.jpg",
+      "creator": "Kostka Martin",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Arrhenatherum_spikelets.jpg",
+      "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arrhenatherum%20spikelets.jpg",
+      "license": "CC BY-SA 4.0",
+      "public_reuse": true,
+      "labels": [
+        "lower glume",
+        "upper glume",
+        "lemma",
+        "palea",
+        "stigma",
+        "stamens",
+        "awn",
+        "lodicules"
+      ]
+    },
+    {
+      "role": "opened_spikelet_with_caryopsis",
+      "source": "Wikimedia Commons — En Aperta.png",
+      "creator": "Aelwyn",
+      "source_page": "https://commons.wikimedia.org/wiki/File:En_Aperta.png",
+      "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/En%20Aperta.png",
+      "license": "CC BY-SA 3.0 / 2.5 (multi-license)",
+      "public_reuse": true
+    }
+  ],
+  "authoritative_sources": [
+    {
+      "authority": "Illinois Extension",
+      "url": "https://extension.illinois.edu/grasses/grass-identification",
+      "supports": [
+        "collar region",
+        "ligule",
+        "auricle",
+        "inflorescence",
+        "spikelet",
+        "awn"
+      ]
+    },
+    {
+      "authority": "Oklahoma State University Extension",
+      "url": "https://extension.okstate.edu/fact-sheets/how-to-identify-common-grasses",
+      "supports": [
+        "grass ID vocabulary",
+        "collar",
+        "ligule",
+        "auricle",
+        "nodes",
+        "sheath"
+      ]
+    },
+    {
+      "authority": "USDA NRCS Plant Materials",
+      "url": "https://www.nrcs.usda.gov/plantmaterials/etpmcpu8052.pdf",
+      "supports": [
+        "whole grass structure",
+        "spikelet/floret terminology",
+        "inflorescence types"
+      ]
+    },
+    {
+      "authority": "Texas 4-H / Texas A&M AgriLife",
+      "url": "https://texas4-h.tamu.edu/wp-content/uploads/range_pasture_grass_id_plant_descriptions.pdf",
+      "supports": [
+        "Texas grass terminology",
+        "local spikelet illustrations",
+        "Texas species context"
+      ]
+    },
+    {
+      "authority": "Illinois Extension",
+      "url": "https://extension.illinois.edu/blogs/grasses-glance/2023-04-17-telling-apart-grasses-sedges-rushes",
+      "supports": [
+        "grass vs sedge vs rush comparison"
+      ]
+    },
+    {
+      "authority": "Oregon State University Forage Information System",
+      "url": "https://forages.oregonstate.edu/regrowth/how-does-grass-grow/grass-structures",
+      "supports": [
+        "collar region",
+        "culm/nodes",
+        "tillers",
+        "stolons",
+        "rhizomes"
+      ]
+    }
+  ],
+  "next_actions": [
+    "Acquire/reuse the three open-license spikelet images and create learner labels.",
+    "Find or create public-reuse/local macro images for ligule, collar, sheath, auricles and nodes.",
+    "Build the first priority-1 species batch around Andropogon gerardii, Aristida purpurea, Eragrostis intermedia, Muhlenbergia lindheimeri and Panicum virgatum.",
+    "Build a grass-vs-sedge-vs-rush visual comparison module using local examples.",
+    "Promote family module only after local example images cover both vegetative and reproductive ID."
+  ]
+}
