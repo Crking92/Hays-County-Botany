@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "reconciled_at": "2026-10-02",
+  "canonical_species_count": 59,
+  "installed_this_pass": [
+    "Juniperus ashei",
+    "Diospyros texana"
+  ],
+  "canonical_tracker_backfill": [
+    "Bothriochloa torreyana",
+    "Bouteloua curtipendula",
+    "Schizachyrium scoparium",
+    "Juniperus ashei",
+    "Diospyros texana"
+  ],
+  "sheet_updates": {
+    "species_tracker": "Added five missing canonical records so Master Plant Pool spill formulas can resolve Curated status from upstream tracker data.",
+    "master_plant_pool": "Verified all five now calculate Curated=Yes, Queued=No, Priority=0; safe review/notes fields updated.",
+    "npsot_backlog": "Marked exact installed taxa Done; retained Bothriochloa laguroides as provenance-only and Skip because the canonical accepted learner taxon is Bothriochloa torreyana.",
+    "family_study_index": {
+      "Poaceae": {
+        "curated": 3,
+        "remaining": 39,
+        "priority_1_remaining": 12
+      },
+      "Cupressaceae": {
+        "curated": 1,
+        "remaining": 2,
+        "priority_1_remaining": 2
+      },
+      "Ebenaceae": {
+        "curated": 1,
+        "remaining": 1,
+        "priority_1_remaining": 0
+      }
+    },
+    "genus_study_index": {
+      "Bothriochloa": {
+        "curated": 1,
+        "anchor": "Bothriochloa torreyana"
+      },
+      "Bouteloua": {
+        "curated": 1,
+        "anchor": "Bouteloua curtipendula"
+      },
+      "Schizachyrium": {
+        "curated": 1,
+        "remaining": 0,
+        "status": "Complete",
+        "anchor": "Schizachyrium scoparium"
+      },
+      "Juniperus": {
+        "curated": 1,
+        "remaining": 1,
+        "anchor": "Juniperus ashei"
+      },
+      "Diospyros": {
+        "curated": 1,
+        "remaining": 1,
+        "anchor": "Diospyros texana"
+      }
+    },
+    "study_batches": {
+      "B002": "Bouteloua curtipendula promoted to curated anchor; 3 new species remain.",
+      "B007": "Schizachyrium scoparium promoted to curated anchor; 2 new species remain.",
+      "B024": "Juniperus ashei promoted to curated anchor; Juniperus virginiana remains.",
+      "B027": "Bothriochloa torreyana promoted to anchor; batch held for taxonomy cleanup because source-pool Bothriochloa laguroides must not be silently merged.",
+      "B036": "Diospyros texana promoted to curated anchor; Diospyros virginiana remains."
+    }
+  },
+  "canonical_not_exact_matched_in_master_pool": [
+    "Asclepias verticillata",
+    "Cirsium undulatum",
+    "Solidago canadensis",
+    "Convolvulus arvensis",
+    "Ipomoea coccinea",
+    "Ipomoea hederacea",
+    "Ipomoea lacunosa",
+    "Ipomoea nil",
+    "Ipomoea triloba",
+    "Quercus vaseyana",
+    "Argemone albiflora subsp. texana"
+  ],
+  "exception_policy": "These canonical taxa were not silently inserted or merged into source-pool rows. They remain canonical GitHub learner taxa and should be reconciled only after confirming whether the Master Plant Pool lacks the taxon entirely or contains a source-name/rank variant.",
+  "batching_policy": {
+    "primary_human_queue": "Google Sheet — Study Batches",
+    "canonical_status_source": "GitHub data/manifest.json and canonical content/taxa species packages",
+    "rule": "Already-curated taxa become comparison anchors. New work is selected in coherent same-genus or family batches; genus/family learner material should be created or expanded with each batch."
+  },
+  "next_batch_hint": "B001 Salvia is the first Study Batches sequence item currently marked Ready; use live canonical reconciliation before starting it."
+}
