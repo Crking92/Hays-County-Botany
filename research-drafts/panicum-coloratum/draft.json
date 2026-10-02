@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NATIVE_STATUS_FAIL",
+  "batch_id": "deep-review-batch-013-panicum-hopia-b009",
+  "created_at": "2026-10-02T15:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 793,
+    "source_scientific_name": "Panicum coloratum",
+    "wild_observations": 2,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Panicum coloratum L.",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Panicum",
+    "species": "coloratum",
+    "synonyms": [],
+    "status": "VERIFIED",
+    "note": "Accepted species but non-native in Texas."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO accepts Panicum coloratum but gives its native range as Egypt to southern Africa and explicitly lists Texas as introduced.",
+      "Texas A&M Rangelands describes Kleingrass as an introduced warm-season perennial brought from Africa.",
+      "Texas specimen records, including Hays County, are introduced/naturalized occurrences and therefore do not count toward the project native threshold."
+    ],
+    "blocking_issue": "Introduced in Texas; naturalized county records do not satisfy native-range criteria.",
+    "guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold."
+  },
+  "morphology": {
+    "look_here_first": "Treat provenance as diagnostic context: a warm-season bunchgrass with a fine open fan-shaped panicle that can resemble switchgrass, but arising from a firm knotty base and introduced from Africa.",
+    "diagnostic_traits": [
+      "perennial tufted bunchgrass",
+      "firm often knotty basal crown",
+      "open fan-shaped finely branched panicle",
+      "small rounded spikelets",
+      "widely planted forage grass",
+      "Texas occurrences are introduced/naturalized"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Panicum virgatum",
+      "separator": "Switchgrass is native, rhizomatous, and has a characteristic hairy collar; Kleingrass is introduced and typically has a firm knotty base."
+    },
+    {
+      "taxon": "Panicum hallii",
+      "separator": "Hall's panicum is smaller, glaucous and native, with a more compact stiff-branched panicle."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole bunch",
+      "knotty base",
+      "ligule/collar",
+      "open fan-shaped panicle",
+      "switchgrass comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "NATIVE_STATUS_FAIL",
+  "installation_guardrail": "Do not install as a target-zone native unless Calvin explicitly approves a non-native comparison exception."
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-013-panicum-hopia-b009",
+  "created_at": "2026-10-02T15:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 792,
+    "source_scientific_name": "Panicum capillare",
+    "wild_observations": 2,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Panicum capillare L.",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Panicum",
+    "species": "capillare",
+    "synonyms": [],
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Williamson",
+      "Bell"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Panicum capillare, describes it as an annual, and lists Texas in its native range.",
+      "Hagenbuch & Lemke explicitly record Hays County (Breckenridge 518, SWT).",
+      "UT Plant Resources Center provides a detailed Williamson County treatment.",
+      "USDA ARS Biocollections specimen NA0083935 records Bell County, Texas, Belton Dam Site."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold."
+  },
+  "morphology": {
+    "look_here_first": "Look for hair plus chaos: witchgrass is an annual with conspicuously hairy sheaths/nodes and an enormous, extremely open many-branched panicle that can look like a tumbleweed.",
+    "diagnostic_traits": [
+      "annual tufted grass",
+      "culms often 20–80+ cm",
+      "nodes bearded and sheaths hispid with tubercle-based hairs",
+      "ligule a ciliate membrane",
+      "very open many-branched panicle",
+      "small spikelets at ends of fine branchlets"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Panicum hallii",
+      "separator": "Witchgrass is annual, hairy, and has a huge diffuse panicle; Hall's is a perennial glaucous bunchgrass with a smaller stiff-branched panicle."
+    },
+    {
+      "taxon": "Dichanthelium spp.",
+      "separator": "Witchgrass is annual and lacks the characteristic spring/fall rosette-grass flowering pattern."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole annual",
+      "hairy sheath/node",
+      "ligule",
+      "huge open panicle",
+      "spikelet close-up"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B009 pass taxa."
+}

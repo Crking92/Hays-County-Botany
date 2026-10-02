@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-013-panicum-hopia-b009",
+  "created_at": "2026-10-02T15:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 795,
+    "source_scientific_name": "Panicum obtusum",
+    "wild_observations": 0,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Hopia obtusa (Kunth) Zuloaga & Morrone",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Hopia",
+    "species": "obtusa",
+    "synonyms": [
+      "Panicum obtusum Kunth",
+      "Brachiaria obtusa (Kunth) Nash",
+      "Oplismenus obtusus (Kunth) Smyth"
+    ],
+    "status": "VERIFIED",
+    "note": "Canonical genus corrected from source-pool Panicum obtusum to current Hopia obtusa. Panicum obtusum remains an important field-guide synonym."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Blanco"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Hopia obtusa and lists Texas in its native range; Panicum obtusum is a homotypic synonym.",
+      "The project Hays County native source pool records the taxon under Panicum obtusum.",
+      "The Balcones Canyonlands Preserve plant list explicitly records vine mesquite (Panicum obtusum) in Travis County.",
+      "The Texas Hill Country grass treatment documents Hopia obtusa as a widespread Hill Country species; Blanco County is retained from the project's reviewed Hill Country source set."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold."
+  },
+  "morphology": {
+    "look_here_first": "Ignore the old Panicum label and look at the runners: long wiry stolons with swollen woolly nodes root to make new plants, while narrow upright seedheads rise from the sod.",
+    "diagnostic_traits": [
+      "warm-season perennial sod former",
+      "long tough stolons",
+      "stolon nodes swollen, villous/woolly and rooting",
+      "culms 20–60 cm from a hard knotty base",
+      "glaucous blades",
+      "ligule an eciliate membrane",
+      "inflorescence with 1–4 short appressed raceme-like branches"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Panicum virgatum",
+      "separator": "Switchgrass forms tall rhizomatous clumps and lacks the long rooting stolons with woolly nodes."
+    },
+    {
+      "taxon": "Bouteloua dactyloides",
+      "separator": "Both spread vegetatively, but buffalograss is much shorter and has very different male/female inflorescences."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole sod",
+      "long stolon",
+      "woolly rooting node",
+      "ligule/collar",
+      "narrow inflorescence"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B009 pass taxa."
+}

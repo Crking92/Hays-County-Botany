@@ -1,0 +1,14 @@
+# Deep Review sources — Panicum hallii
+Reviewed: 2026-10-02
+Batch: deep-review-batch-013-panicum-hopia-b009
+Status: READY_FOR_APPROVAL
+
+Kew/POWO: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A411627-1
+Texas Hill Country county records: https://www.phytoneuron.net/2015Phytoneuron/04PhytoN-HillCountryGrasses.pdf
+
+Strict range PASS: Hays, Blanco, Val Verde.
+Current Kew recognizes subsp. hallii and subsp. filipes; learner remains species-level.
+Field cue: short glaucous perennial, mostly basal stiff leaves, small stiff-branching pyramidal panicle.
+
+Photo candidates:
+https://commons.wikimedia.org/wiki/Category:Panicum_hallii

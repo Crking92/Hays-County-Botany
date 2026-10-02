@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-013-panicum-hopia-b009",
+  "created_at": "2026-10-02T15:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 794,
+    "source_scientific_name": "Panicum hallii",
+    "wild_observations": 1,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Panicum hallii Vasey",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Panicum",
+    "species": "hallii",
+    "synonyms": [],
+    "status": "VERIFIED",
+    "note": "Current Kew recognizes subsp. hallii and subsp. filipes; B009 remains species-level pending a need for subspecies-level field instruction."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Blanco",
+      "Val Verde"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Panicum hallii, lists Texas as native, and recognizes subsp. hallii and subsp. filipes.",
+      "Hagenbuch & Lemke explicitly record multiple Hays County specimens.",
+      "The same appendix records Blanco County (Lackey 777, SWT).",
+      "The same appendix records Val Verde County (Labus 301, 326, 352, SWT)."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold."
+  },
+  "morphology": {
+    "look_here_first": "Look for a short blue-gray bunch: mostly basal stiff glaucous leaves and a relatively small open pyramidal panicle whose branches are stiff and ascending.",
+    "diagnostic_traits": [
+      "perennial 20–80 cm",
+      "glaucous internodes and stiff glaucous leaves",
+      "leaves mostly basal",
+      "ligule a fringe of hairs",
+      "open pyramidal panicle only about 6–20 cm",
+      "primary panicle branches stiff and ascending"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Panicum virgatum",
+      "separator": "Switchgrass is much taller and rhizomatous with a much larger diffuse panicle."
+    },
+    {
+      "taxon": "Panicum capillare",
+      "separator": "Witchgrass is annual and strongly hairy with a huge lax panicle; Hall's is perennial, glaucous and stiffer."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole blue-gray bunch",
+      "basal leaves",
+      "ligule/collar",
+      "small ascending panicle",
+      "spikelets"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B009 pass taxa."
+}

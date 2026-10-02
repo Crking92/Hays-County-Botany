@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-013-panicum-hopia-b009",
+  "created_at": "2026-10-02T15:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 796,
+    "source_scientific_name": "Panicum virgatum",
+    "wild_observations": 15,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Panicum virgatum L.",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Panicum",
+    "species": "virgatum",
+    "synonyms": [],
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Blanco",
+      "Val Verde"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Panicum virgatum and lists Texas in its native range.",
+      "Hagenbuch & Lemke's Texas Hill Country grass appendix explicitly records Hays County (Bierner 90-208, TEX-LL).",
+      "The same appendix explicitly records Blanco County (Breckenridge 559, SWT).",
+      "The same appendix explicitly records Val Verde County (Smith & Butterwick 202, TEX-LL)."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold."
+  },
+  "morphology": {
+    "look_here_first": "Look at the base/collar and then the seedhead: a tall warm-season rhizomatous clump with a broad airy pyramidal panicle and a conspicuously hairy ligule/collar zone.",
+    "diagnostic_traits": [
+      "robust perennial 60–300 cm",
+      "elongated scaly rhizomes",
+      "large open ovate/pyramidal panicle",
+      "broad grass blades",
+      "ligule a ciliolate membrane with conspicuous collar hairs",
+      "spikelets 3–5 mm, solitary and pedicelled"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Panicum coloratum",
+      "separator": "Kleingrass can resemble switchgrass in the panicle, but is an introduced African bunchgrass with a firm knotty base; switchgrass is native and rhizomatous."
+    },
+    {
+      "taxon": "Panicum hallii",
+      "separator": "Hall's panicum is much shorter, glaucous, mostly basal-leaved, and has a smaller stiffer panicle."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole clump",
+      "rhizome/base",
+      "collar/ligule hairs",
+      "open panicle",
+      "spikelet close-up"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B009 pass taxa."
+}
