@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NEEDS_MANUAL_REVIEW",
+  "batch_id": "deep-review-batch-018-fraxinus-b014",
+  "created_at": "2026-10-02T16:55:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 474,
+    "source_scientific_name": "Fraxinus berlandieriana",
+    "wild_observations": 9,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Fraxinus berlandieriana A.DC.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Oleaceae",
+    "genus": "Fraxinus",
+    "species": "berlandieriana",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Comal"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Fraxinus berlandieriana and lists Texas within its native range.",
+      "Travis County — modern taxonomic work documents both F. berlandieriana and F. pennsylvanica collected in Travis County and discusses the Travis/Bastrop disjunction.",
+      "Comal County — Nesom's treatment designates Lindheimer 653 from Comal County as the lectotype of a synonym now within F. berlandieriana.",
+      "Regional sources place the species on the eastern/southern Edwards Plateau and in San Antonio/Nueces watershed riparian systems, but those broader statements are not converted into extra counties."
+    ],
+    "blocking_issue": "Only two target counties are firm enough under the project's exact-county rule. Regional evidence strongly indicates additional target-zone occurrence, but B014 does not infer Bexar, Medina or Uvalde without county-level documentation.",
+    "guardrail": "Historic confusion with F. pennsylvanica and F. velutina is well documented. Identification should rely on leaflet number/serration, leaf scar, and especially samara structure, including occasional 3-winged fruits."
+  },
+  "morphology": {
+    "look_here_first": "Count leaflets and inspect the fruit: Mexican ash usually has 3–5 leaflets with coarse sharp serration on the distal half, plus a samara whose wings gradually expand from near the base; some trees produce a few distinctive 3-winged fruits.",
+    "diagnostic_traits": [
+      "medium riparian/bottomland ash of southern and central Texas",
+      "usually 3–5(–7) leaflets, fewer on average than green ash",
+      "leaflet margins coarsely and sharply serrate on distal half to two-thirds",
+      "lower leaflet surface glabrous in the Central Texas comparison key",
+      "leaf scar shallowly hemispheric, about 2.2–3 mm wide, apex shallowly concave",
+      "samaras usually 2-winged but occasional 3-winged fruits may occur on the same tree",
+      "wings gradually expand from the base toward distal third and narrowly flange the fruit body"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Fraxinus pennsylvanica",
+      "separator": "Green ash generally has 5–7(9) less-coarsely-serrate leaflets, a broader shield-shaped scar, and consistently 2-winged samaras whose wings broaden more abruptly."
+    },
+    {
+      "taxon": "Fraxinus albicans",
+      "separator": "Texas ash usually has 5–7 leaflets, a glaucous white-waxy lower surface, and a much smaller samara body with a mostly terminal wing."
+    },
+    {
+      "taxon": "Fraxinus velutina",
+      "separator": "Velvet ash has a western distribution and can overlap morphologically; taxonomic history contains misidentified/intermediate material, so locality and reproductive characters matter."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole riparian tree",
+      "full 3–5 leaflet leaf",
+      "coarsely serrate leaflet margin",
+      "lower leaflet surface",
+      "twig/bud/leaf scar",
+      "bark",
+      "normal 2-winged samara",
+      "3-winged samara if available",
+      "direct F. pennsylvanica comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/273215182"
+  },
+  "approval_status": "NEEDS_MANUAL_REVIEW",
+  "installation_guardrail": "Do not install as a project-native until the three-county evidence requirement is met or Calvin explicitly approves a documented exception."
+}
