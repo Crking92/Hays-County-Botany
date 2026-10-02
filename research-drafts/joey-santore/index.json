@@ -75,6 +75,13 @@
       "status": "researched_and_persisted",
       "records": 26,
       "exact_media_locked": 26
+    },
+    {
+      "batch_id": "joey-deep-009",
+      "file": "batch-009-velloziaceae-cactus-pollination.json",
+      "status": "researched_and_persisted",
+      "records": 26,
+      "exact_media_locked_or_url_confirmed": 26
     }
   ],
   "video_extractions": [
@@ -90,22 +97,37 @@
     }
   ],
   "totals": {
-    "source_records": 195,
-    "exact_media_locked": 128,
-    "exact_media_url_confirmed": 109,
+    "source_records": 221,
+    "exact_media_locked": 153,
+    "exact_media_url_confirmed": 135,
     "video_frame_records": 10,
     "video_frame_assets_persisted": 10
   },
   "next_focus": [
-    "continue direct Joey iNaturalist discovery for Master Plant Pool overlaps",
-    "continue exact YouTube frame extraction for Central Texas / Edwards Plateau videos supplied by the user",
+    "keep searching exact Joey material for Master Plant Pool priority genera",
+    "build family-recognition coverage while harvesting media",
     "Matelea reticulata/biflora/edwardsensis",
     "Clematis drummondii/texensis",
     "Yucca rupicola/constricta/torreyi",
     "Croton monanthogynus/fruticulosus",
     "Bouteloua rigidiseta/trifida/hirsuta",
     "Oenothera speciosa/triloba/suffulta/curtiflora",
-    "build visual glossary mappings from exact Joey media already locked"
+    "final family-characteristics/distinguishing-features audit after Joey extraction completion"
   ],
-  "promotion_target": "Approved exact Joey media and source notes should be merged into the matching species curation package, especially image-sources.csv and SOURCES.txt, before canonical installation. Extracted video frames may also promote into term/family teaching modules when morphology is independently verified."
+  "promotion_target": "Approved exact Joey media and source notes should be merged into the matching species curation package, especially image-sources.csv and SOURCES.txt, before canonical installation. Extracted video frames may also promote into term/family teaching modules when morphology is independently verified.",
+  "final_audits": {
+    "family_characteristics": {
+      "required": true,
+      "status": "pending_until_joey_extraction_complete",
+      "checklist": [
+        "Every represented family has a concise family-character summary.",
+        "Every family has a 'where to look first' identification cue.",
+        "Every family has the strongest reproductive/morphological characters documented.",
+        "Every family has enough exact visual examples for those characters where available.",
+        "Each locally relevant family is compared against the most likely confusing local families.",
+        "Family distinctions use structural/measurable characters rather than color or vague gestalt.",
+        "Any gaps are backfilled from authoritative botany sources if Joey material alone is insufficient."
+      ]
+    }
+  }
 }
