@@ -168,6 +168,15 @@
       "records": 25,
       "exact_media_locked": 22,
       "external_recovery_leads": 3
+    },
+    {
+      "batch_id": "joey-deep-021",
+      "file": "batch-021-borderlands-podcast-hard-targets.json",
+      "status": "researched_and_persisted",
+      "records": 25,
+      "exact_media_locked": 0,
+      "podcast_transcript_records": 22,
+      "external_media_recovery_records": 3
     }
   ],
   "video_extractions": [
@@ -236,24 +245,22 @@
     }
   ],
   "totals": {
-    "source_records": 615,
+    "source_records": 640,
     "exact_media_locked": 330,
     "exact_media_url_confirmed": 313,
     "video_frame_records": 117,
     "video_frame_assets_persisted": 117,
-    "external_reuse_or_publication_records": 108,
-    "exact_observation_records": 2
+    "external_reuse_or_publication_records": 111,
+    "exact_observation_records": 2,
+    "podcast_transcript_records": 22
   },
   "next_focus": [
-    "recover original iNaturalist photo IDs for Isachne rigidifolia, Streptanthus barbiger and Streptanthus vernalis",
-    "continue exact Joey hunt for Matelea reticulata/biflora/edwardsensis",
-    "continue exact Joey hunt for Clematis drummondii/texensis",
-    "continue exact Joey hunt for Yucca rupicola/constricta/torreyi",
-    "continue exact Joey hunt for Croton monanthogynus/fruticulosus",
-    "continue exact Joey hunt for Bouteloua rigidiseta/hirsuta and Oenothera speciosa/triloba/suffulta/curtiflora",
-    "close Ranunculaceae and Poaceae family-character gaps",
-    "start family coverage sufficiency matrix: Joey-sufficient vs authoritative backfill needed",
-    "final family-characteristics/distinguishing-features audit after extraction"
+    "audio-verify Clematis 'Tramundi' mention and normalize only after confirmation",
+    "recover original iNaturalist photo IDs for Matelea tristiflora Joey media set",
+    "recover original iNaturalist photo ID for Isachne rigidifolia",
+    "recover exact Joey images for remaining local Matelea/Clematis/Yucca/Croton/Bouteloua/Oenothera targets if available",
+    "build family coverage sufficiency matrix and identify authoritative non-Joey backfill needs",
+    "run final family-characteristics/distinguishing-features audit after extraction closes"
   ],
   "promotion_target": "Approved exact Joey media and source notes should be merged into the matching species curation package, especially image-sources.csv and SOURCES.txt, before canonical installation. Extracted video frames may also promote into term/family teaching modules when morphology is independently verified.",
   "final_audits": {
