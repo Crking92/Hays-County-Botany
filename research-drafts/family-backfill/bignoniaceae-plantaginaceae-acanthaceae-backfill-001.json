@@ -1,0 +1,255 @@
+{
+  "module_id": "lamiales-tubular-flower-families-backfill-001",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "focus": "Three-way Central Texas comparison: Bignoniaceae vs Plantaginaceae/Penstemon vs Acanthaceae",
+  "comparison_rule": "Do not stop at opposite leaves + tubular/bilabiate flower. Move to habit, leaf architecture, staminodes, and especially fruit/seed morphology.",
+  "families": {
+    "Bignoniaceae": {
+      "where_to_look_first": "Ask whether the plant is woody and inspect the leaves; local members are vines/trees/shrubs with opposite leaves, often compound. Then find the long capsule and flat winged seeds.",
+      "core_characters": [
+        "Trees, shrubs or lianas; herbs rare.",
+        "Leaves usually opposite and often compound; stipules absent.",
+        "Flowers showy, tubular/campanulate, usually zygomorphic.",
+        "Typically 4 didynamous fertile stamens plus a staminode.",
+        "Ovary superior.",
+        "Fruit commonly a 2-valved capsule.",
+        "Seeds numerous, flattened and commonly winged."
+      ],
+      "best_tie_breaker": "Woody habit + long bivalved capsule + many flat winged seeds."
+    },
+    "Plantaginaceae": {
+      "local_focus_genus": "Penstemon",
+      "where_to_look_first": "On Penstemon, look inside the flower: four fertile stamens plus the distinctive sterile fifth stamen (staminode/beardtongue), then confirm the ordinary many-seeded capsule.",
+      "core_characters": [
+        "Mostly herbs; leaves simple, opposite or alternate, stipules absent.",
+        "Corolla fused, commonly zygomorphic and bilabiate.",
+        "Usually 2 or 4 fertile stamens; staminodes may occur.",
+        "Penstemon characteristically has 4 fertile stamens plus 1 staminode.",
+        "Ovary superior, 2-carpellate with axile placentation.",
+        "Fruit usually a many-seeded capsule.",
+        "No Acanthaceae retinacula."
+      ],
+      "best_tie_breaker": "Herbaceous Penstemon + 4 fertile stamens + prominent sterile beardtongue/staminode + ordinary capsule."
+    },
+    "Acanthaceae": {
+      "local_focus_genera": [
+        "Ruellia",
+        "Anisacanthus"
+      ],
+      "where_to_look_first": "If fruit is available, open the capsule: seeds are often held on woody hook-like retinacula/jaculators. That character is far stronger than flower shape.",
+      "core_characters": [
+        "Herbs, shrubs or climbers; leaves usually opposite and simple; stipules absent.",
+        "Stems often angular or swollen above nodes; cystoliths often present.",
+        "Flowers tubular, often zygomorphic/bilabiate.",
+        "Stamens usually 2 or 4(5), sometimes with staminodes.",
+        "Ovary superior and typically 2-locular.",
+        "Fruit usually a 2-locular loculicidal capsule, often explosively dehiscent.",
+        "Seeds are commonly cradled on hook-like retinacula arising from the funicle."
+      ],
+      "best_tie_breaker": "Explosive capsule + retinacula/hooks under the seeds.",
+      "ecology_note": "Ruellia ciliatiflora fruits can explosively launch seeds, and published biomechanics studies describe woody retinacula guiding seed release."
+    }
+  },
+  "quick_key": [
+    "Woody vine/tree/shrub + opposite often compound leaves + long capsule + flat winged seeds → Bignoniaceae.",
+    "Herb + Penstemon-type flower + 4 fertile stamens + sterile beardtongue/staminode + ordinary capsule → Plantaginaceae.",
+    "Opposite simple leaves + capsule with seed-launching retinacula/hooks → Acanthaceae.",
+    "If fruit is unavailable, keep the ID provisional rather than using tubular flower color alone."
+  ],
+  "priority_cards": [
+    {
+      "taxon": "Campsis radicans",
+      "common_name": "American trumpet vine",
+      "family": "Bignoniaceae",
+      "priority": 1,
+      "status": "training_card_backfill_complete",
+      "look_here_first": "Confirm a woody climbing vine with opposite pinnately compound leaves; then look for the long capsule and thin winged seeds.",
+      "confirm": [
+        "Woody liana/climber.",
+        "Leaves opposite and pinnately compound.",
+        "Large tubular zygomorphic flowers.",
+        "Four fertile stamens plus one staminode.",
+        "Fruit long, dry and 2-valved.",
+        "Seeds numerous, flattened and winged."
+      ],
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000204-2/general-information",
+        "https://www.npsot.org/posts/native-plant/campsis-radicans/",
+        "https://tpwd.texas.gov/landwater/land/private/agricultural_land/pobl2010/Appendix%20X%20Wildscapes%20Plant%20Lists.pdf"
+      ],
+      "images": [
+        {
+          "role": "winged_seeds",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Campsis_radicans_seeds.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Campsis%20radicans%20seeds.jpg",
+          "creator": "Gmihail",
+          "license": "CC BY-SA 3.0 RS",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "whole_botanical_illustration",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Campsis_radicans.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Campsis%20radicans.jpg",
+          "license": "Public Domain historical botanical illustration",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ]
+    },
+    {
+      "taxon": "Chilopsis linearis",
+      "common_name": "desert willow",
+      "family": "Bignoniaceae",
+      "priority": 1,
+      "status": "family_anchor_framework_complete",
+      "look_here_first": "Do not let the willow-like simple leaves fool you: confirm the large tubular flower and then the long narrow capsule full of winged seeds.",
+      "confirm": [
+        "Shrub/small tree rather than willow-family member.",
+        "Leaves simple and narrow, showing that Bignoniaceae is not always compound-leaved.",
+        "Tubular zygomorphic corolla.",
+        "Long narrow capsule with numerous winged seeds."
+      ],
+      "note": "Useful exception card so learners do not overgeneralize 'Bignoniaceae = compound leaves.'",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000204-2/general-information"
+      ]
+    },
+    {
+      "taxon": "Penstemon cobaea",
+      "common_name": "prairie penstemon",
+      "family": "Plantaginaceae",
+      "priority": 1,
+      "status": "training_card_backfill_complete",
+      "look_here_first": "Look inside the large bilabiate flower for four fertile stamens and the sterile fifth stamen/staminode; then confirm a dry capsule.",
+      "confirm": [
+        "Herbaceous perennial.",
+        "Leaves simple and opposite in the local plant.",
+        "Large zygomorphic fused corolla.",
+        "Four fertile stamens; Penstemon also carries a sterile fifth stamen (staminode/beardtongue).",
+        "Fruit is a capsule opening along lines of dehiscence."
+      ],
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30001136-2/general-information",
+        "https://www.sbs.utexas.edu/bio406d/images/pics/vrn/penstemon_cobaea.htm"
+      ],
+      "images": [
+        {
+          "role": "whole_habit_and_flower",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Penstemon_cobaea.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Penstemon%20cobaea.jpg",
+          "creator": "Clarence A. Rechenthin / USDA NRCS Texas State Office",
+          "license": "Public Domain — U.S. federal work",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "flower_stamens_and_capsule_sequence",
+          "source_page": "https://www.sbs.utexas.edu/bio406d/images/pics/vrn/penstemon_cobaea.htm",
+          "creator": "UT Austin BIO 406D",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Penstemon triflorus",
+      "common_name": "Hill Country penstemon",
+      "family": "Plantaginaceae",
+      "priority": 1,
+      "status": "family_anchor_framework_complete_local_visuals_pending",
+      "look_here_first": "Use the Penstemon reproductive plan first—four fertile stamens + staminode + capsule—then move to species-level calyx/corolla and leaf characters.",
+      "visual_gaps": [
+        "rights-safe local flower interior",
+        "staminode close-up",
+        "mature capsule and seeds"
+      ]
+    },
+    {
+      "accepted_taxon": "Ruellia ciliatiflora",
+      "source_pool_names": [
+        "Ruellia nudiflora",
+        "Ruellia nudiflora var. nudiflora",
+        "Ruellia occidentalis"
+      ],
+      "common_name": "hairyflower/common wild petunia complex in source pool",
+      "family": "Acanthaceae",
+      "priority_source_pool": 1,
+      "status": "training_card_framework_complete_taxonomy_cleanup_required",
+      "look_here_first": "If capsules are present, split one open and look for the woody hook-like retinacula beneath the flattened seeds.",
+      "confirm": [
+        "Opposite simple leaves.",
+        "Tubular violet/purple zygomorphic flowers.",
+        "Capsule 2-locular and explosively dehiscent.",
+        "Flattened seeds are cradled by retinacula/jaculators.",
+        "Wet-triggered explosive dispersal is documented in R. ciliatiflora."
+      ],
+      "taxonomy_note": "Current POWO accepts Ruellia ciliatiflora and treats Ruellia nudiflora and Ruellia occidentalis (plus several R. nudiflora varieties) as synonyms. Preserve tracker source names but do not build duplicate canonical species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:53920-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:224214-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000618-2/general-information",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5908531/",
+        "https://canotia.org/volumes/Canotia12-Acanthaceae-Daniel-8-13-16.pdf"
+      ],
+      "images": [
+        {
+          "role": "flower_habit",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ruellia_ciliatiflora_(4611089716).jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ruellia%20ciliatiflora%20%284611089716%29.jpg",
+          "creator": "Dinesh Valke",
+          "license": "Creative Commons Attribution-ShareAlike (exact version on Commons file page)",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "opened_capsule_retinacula_seed_mechanics",
+          "source_page": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5908531/",
+          "creator": "Erin Tripp / Jeremy Wright et al.",
+          "license": "reuse_terms_require_article-level verification before public reuse",
+          "study_use": true,
+          "public_reuse": false
+        },
+        {
+          "role": "botanical_figure_capsule_retinacula_seed",
+          "source_page": "https://canotia.org/volumes/Canotia12-Acanthaceae-Daniel-8-13-16.pdf",
+          "creator": "N. Strasser; modified from prior publication",
+          "license": "reuse_not_established",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    }
+  ],
+  "taxonomy_cleanup": [
+    {
+      "rows": [
+        982,
+        983,
+        984
+      ],
+      "source_names": [
+        "Ruellia nudiflora",
+        "Ruellia nudiflora var. nudiflora",
+        "Ruellia occidentalis"
+      ],
+      "accepted_name": "Ruellia ciliatiflora Hook.",
+      "authority": "Plants of the World Online 2026",
+      "action": "Mark synonym/taxonomy hold. Preserve source provenance and observations, but canonical learner should ultimately resolve under accepted R. ciliatiflora unless project taxonomy chooses a documented alternative authority."
+    }
+  ],
+  "image_learning_targets": [
+    "Bignoniaceae winged seed next to capsule",
+    "Penstemon flower interior with four fertile stamens + staminode labeled",
+    "Acanthaceae opened capsule with retinacula labeled",
+    "single 3-column comparison card showing the three fruit/seed systems"
+  ],
+  "next_actions": [
+    "Apply Ruellia synonym cleanup in Master Plant Pool.",
+    "Acquire rights-safe retinacula macro if possible.",
+    "Build the visual three-family comparison card.",
+    "Then proceed to Apiaceae."
+  ]
+}
