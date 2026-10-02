@@ -1,0 +1,26 @@
+# Deep Review sources — Quercus marilandica
+Reviewed: 2026-10-02
+Batch: deep-review-batch-015-quercus-b011
+Status: READY_FOR_APPROVAL
+
+## Taxonomy
+Kew/POWO accepts Quercus marilandica Münchh., Texas native; accepted varieties are var. ashei and var. marilandica:
+https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A284111-2
+
+## Strict target-zone range
+USDA PLANTS-derived county native-status record:
+https://rootfast.org/plants/QUMA3
+
+Texas counties explicitly marked native include Bell, Blanco, and Burnet, plus additional project counties.
+
+Decision: PASS — Bell, Blanco, Burnet.
+
+## Morphology
+Flora of North America:
+https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501060
+
+Texas A&M Forest Service:
+https://texastreeid.tfs.tamu.edu/content/TreeDetails/?id=99
+
+## Image coverage
+https://commons.wikimedia.org/wiki/Category:Quercus_marilandica
