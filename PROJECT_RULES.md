@@ -18,6 +18,18 @@ Every curated species must be assigned one of:
 
 Never infer county occurrence. Do not promote an incomplete or uncertain species package to final status.
 
+## Encounter-value comparison species
+The learner is not limited to project-native plants. A species may be retained as a **comparison/encounter species** when it is non-native, invasive, naturalized, weedy, escaped from cultivation, or simply common enough in the target area that crews are likely to encounter and need to identify it.
+
+This role is **orthogonal to native-range status**:
+- a comparison species may still be **FAIL** for project-native status;
+- never relabel a non-native plant as PASS just to keep it in the learner;
+- record a separate learner role such as `NON_NATIVE_COMPARISON`, `INVASIVE_COMPARISON`, `COMMON_WEED_COMPARISON`, or `LOOKALIKE_COMPARISON`;
+- invasive status must be sourced and must not be inferred merely from non-native status;
+- comparison species do not count toward native-species totals or native-range completion metrics.
+
+Prioritize comparison species that are locally frequent, management-relevant, invasive/problematic, or easily confused with project-native plants. Give them the same morphology-first treatment, diagnostic image roles, provenance, and look-alike separation as native learner species.
+
 ## Range authority priority
 1. BONAP / NAPA
 2. USDA PLANTS

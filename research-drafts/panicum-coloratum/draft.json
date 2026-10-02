@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "DEEP_REVIEW_COMPLETE_NATIVE_STATUS_FAIL",
+  "draft_status": "DEEP_REVIEW_COMPLETE_NON_NATIVE_COMPARISON_RETAINED",
   "batch_id": "deep-review-batch-013-panicum-hopia-b009",
   "created_at": "2026-10-02T15:32:00-05:00",
   "source_pool": {
@@ -65,6 +65,14 @@
     ],
     "exact_final_selection_pending_user_approval": true
   },
-  "approval_status": "NATIVE_STATUS_FAIL",
-  "installation_guardrail": "Do not install as a target-zone native unless Calvin explicitly approves a non-native comparison exception."
+  "approval_status": "USER_APPROVED_FOR_COMPARISON_RETENTION",
+  "installation_guardrail": "Retain as a clearly labeled non-native/invasive-comparison learner species. Do not count as project-native. Canonical installation still follows the normal batch approval/install handoff.",
+  "learner_role": {
+    "role": "INVASIVE_COMPARISON",
+    "retained": true,
+    "user_decision_date": "2026-10-02",
+    "reason": "Calvin explicitly wants Kleingrass retained because it is widespread/common and important for field identification. Native-range FAIL remains unchanged.",
+    "native_metrics_excluded": true,
+    "label": "NON-NATIVE / INTRODUCED — retain for ID training"
+  }
 }
