@@ -1,0 +1,119 @@
+{
+  "module_id": "apiaceae-family-backfill-001",
+  "family": "Apiaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "local_scope": {
+    "pool_taxa": [
+      "Eryngium leavenworthii",
+      "Eryngium yuccifolium"
+    ],
+    "priority_1": [
+      "Eryngium leavenworthii"
+    ]
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start at the inflorescence, but do not demand a classic compound umbel. Then confirm an inferior 2-carpellate ovary, usually sheathing leaf bases, and a dry schizocarp that separates into two mericarps.",
+    "core_characters": [
+      "Mostly herbs, often aromatic.",
+      "Leaves usually alternate, often compound or deeply lobed; petiole base commonly expanded into a sheath.",
+      "Inflorescences commonly simple or compound umbels, but some lineages such as Eryngium compress flowers into dense heads.",
+      "Flowers usually 5-merous with 5 stamens.",
+      "Ovary inferior and 2-carpellate.",
+      "Two styles often arise from a swollen stylopodium/nectar disk.",
+      "Fruit is typically a dry schizocarp splitting into 2 one-seeded mericarps.",
+      "Mericarps often bear ribs and oil canals (vittae), which can be important in technical identification."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not define Apiaceae as 'white umbrella flowers.' Eryngium is a local counterexample.",
+      "Do not call every umbel-bearing plant Apiaceae; inspect ovary position and fruit.",
+      "Do not confuse a schizocarp with a capsule."
+    ],
+    "confusions": {
+      "Asteraceae": {
+        "confusion": "Dense heads can make Eryngium look thistle-like or composite-like.",
+        "tie_breaker": "Apiaceae flowers retain the inferior bicarpellate ovary and split into two mericarps; Asteraceae has a capitulum of florets with an involucre and cypsela/pappus system."
+      },
+      "Araliaceae": {
+        "confusion": "Related family with umbels and inferior ovaries.",
+        "tie_breaker": "Apiaceae is mostly herbaceous and has a dry 2-merous schizocarp; Araliaceae is more often woody with fleshy drupe-like fruits."
+      }
+    }
+  },
+  "cards": [
+    {
+      "taxon": "Eryngium leavenworthii",
+      "common_name": "Leavenworth's eryngo",
+      "priority": 1,
+      "status": "training_card_backfill_complete",
+      "look_here_first": "Look at the flower cluster as a whole: it is a dense elongated head/spike wrapped in stiff spiny bracts, not a thistle and not a classic carrot-family umbel.",
+      "confirm": [
+        "Annual, usually single-stemmed below the branched flowering canopy.",
+        "Leaves become deeply lobed and strongly spinose upward; many cauline leaves sheath the stem substantially at the node.",
+        "Inflorescences are dense headlike spikes with an involucre of spreading spiny bracts.",
+        "Individual flowers are tiny, 5-merous and sit on an inferior ovary.",
+        "Fruit belongs to the Apiaceae schizocarp/mericarp system; do not label it a true capsule."
+      ],
+      "teaching_value": "Excellent exception card demonstrating why family ID must use ovary/fruit/leaf-base characters, not inflorescence gestalt alone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000180-2/general-information",
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Eryngium%20leavenworthii",
+        "https://powo.science.kew.org/taxon/841878-1"
+      ],
+      "source_disagreement_note": "Some horticultural/native-plant summaries casually call the fruit a capsule. For the canonical family lesson, use the authoritative Apiaceae morphology: dry schizocarp dividing into two mericarps.",
+      "images": [
+        {
+          "role": "whole_flowering_habit",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Prairie_Wildflowers.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prairie%20Wildflowers.jpg",
+          "creator": "Amy Coffman / U.S. Fish and Wildlife Service",
+          "license": "Public Domain U.S. FWS; also mirrored under CC BY 2.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "hill_country_flower_head",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Eryngium-leavenworthii.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eryngium-leavenworthii.jpg",
+          "creator": "Sprittibee",
+          "license": "CC BY-SA 3.0 / GFDL",
+          "locality": "Texas Hill Country",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "detailed_local_morphology",
+          "source_page": "https://w3.biosci.utexas.edu/prc/K12/pdf/Eryngium%20leavenworthii",
+          "creator": "UT Austin Plant Resources Center",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ],
+      "visual_gaps": [
+        "rights-safe mature schizocarp/mericarps macro",
+        "close-up showing inferior ovary and stylopodium"
+      ]
+    },
+    {
+      "taxon": "Eryngium yuccifolium",
+      "common_name": "rattlesnake master",
+      "priority": 3,
+      "status": "comparison_framework_complete",
+      "look_here_first": "Use it as the second Eryngium form: long yucca-like leaves plus globose/ovoid flower heads, reinforcing that Apiaceae can be head-forming.",
+      "teaching_value": "Broadens Eryngium form without adding another classic umbel example."
+    }
+  ],
+  "generic_family_visual_needs": [
+    "compound umbel with umbel/umbellet/involucre/involucel labels",
+    "sheathing petiole base",
+    "inferior ovary with stylopodium",
+    "schizocarp splitting into two mericarps",
+    "mericarp ribs and vittae"
+  ],
+  "next_actions": [
+    "Lock one open-license textbook compound-umbel example for the family page.",
+    "Lock one open-license schizocarp/mericarp macro.",
+    "Then proceed to Papaveraceae/Argemone."
+  ]
+}
