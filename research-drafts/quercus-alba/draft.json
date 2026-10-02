@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NATIVE_STATUS_FAIL",
+  "batch_id": "deep-review-batch-015-quercus-b011",
+  "created_at": "2026-10-02T16:12:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 930,
+    "source_scientific_name": "Quercus alba",
+    "wild_observations": 1,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Quercus alba L.",
+    "rank": "species",
+    "order": "Fagales",
+    "family": "Fagaceae",
+    "genus": "Quercus",
+    "species": "alba",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO accepts Q. alba and lists Texas in its native range at the state level.",
+      "US Forest Service describes the species as an eastern North American oak reaching Texas at the western edge of its range.",
+      "Texas vegetation/community sources place Q. alba in East Texas / West Gulf Coastal Plain forest communities rather than the project's Central/West Texas target zone.",
+      "No authoritative native record in three project target counties was located during B011 review."
+    ],
+    "blocking_issue": null,
+    "guardrail": "The source-pool iNaturalist observation is not sufficient native-range evidence; Q. alba is commonly planted and oaks are frequently misidentified. A Texas-native state label does not satisfy the project's three-target-county rule."
+  },
+  "morphology": {
+    "look_here_first": "Look for rounded lobes distributed along most of the blade plus pale gray flaky/scaly bark; unlike bur oak, there is no deep midleaf waist and no mossy-fringed acorn cup.",
+    "diagnostic_traits": [
+      "large deciduous white-oak-group tree",
+      "leaves obovate to elliptic with typically 5–7 rounded lobes",
+      "sinuses often deep but distributed along much of blade rather than concentrated as a bur-oak waist",
+      "lobes lack bristle tips",
+      "bark characteristically light gray, scaly/flaky",
+      "acorn cup shallow, often enclosing roughly one-quarter of nut",
+      "acorns mature in one season"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Quercus macrocarpa",
+      "separator": "Bur oak has huge leaves with deep middle sinuses and a strongly fringed cup; white oak has regular rounded lobes and a shallow non-fringed cup."
+    },
+    {
+      "taxon": "Quercus stellata",
+      "separator": "Post oak often has thick cruciform leaves with broad squared middle lobes and darker blockier bark; white oak usually shows a more evenly lobed blade."
+    },
+    {
+      "taxon": "Quercus muehlenbergii",
+      "separator": "Chinkapin oak has chestnut-like teeth rather than deep rounded lobes."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tree",
+      "upper leaf",
+      "lower leaf",
+      "light gray bark",
+      "twig/buds",
+      "mature acorn and shallow cupule",
+      "bur-oak/post-oak comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "reusable_candidate": "https://commons.wikimedia.org/wiki/Category:Quercus_alba"
+  },
+  "approval_status": "NATIVE_STATUS_FAIL",
+  "installation_guardrail": "Do not install as a target-zone native; retain review evidence for comparison/reference."
+}
