@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-016-ulmus-b012",
+  "created_at": "2026-10-02T16:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1196,
+    "source_scientific_name": "Ulmus crassifolia",
+    "wild_observations": 34,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Ulmus crassifolia Nutt.",
+    "rank": "species",
+    "order": "Rosales",
+    "family": "Ulmaceae",
+    "genus": "Ulmus",
+    "species": "crassifolia",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Comal",
+      "Travis"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Ulmus crassifolia as native to Texas.",
+      "Hays County — the project Hays County native-source list includes U. crassifolia.",
+      "USDA PLANTS-derived county native-status data explicitly marks U. crassifolia native in Comal County.",
+      "The same USDA-derived county data explicitly marks U. crassifolia native in Travis County."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Use county records explicitly carrying native status. User iNaturalist observations are useful for learner/photo coverage but are not substituted for native-range evidence."
+  },
+  "morphology": {
+    "look_here_first": "Look at the calendar and the twig before the leaf: cedar elm is a fall-flowering elm with very small rough leaves; corky twig wings, when present, can continue around the leaf node.",
+    "diagnostic_traits": [
+      "deciduous Texas elm; often common on limestone and clay",
+      "leaves small, generally under about 5 cm, often obovate/elliptic and bluntish",
+      "upper leaf surface dark and distinctly rough/scabrous",
+      "lower surface and petiole hairy",
+      "young twigs may develop thin corky wings continuous around nodes",
+      "flowers in late summer to fall rather than spring",
+      "small oval samara hairy over the body/edge and deeply notched at apex"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Ulmus alata",
+      "separator": "Both can have corky wings. Winged elm usually has persistent regular wings ending abruptly at the node, pointed leaves, and spring flowers/fruit; cedar elm wings can continue around the node and reproduction is in fall."
+    },
+    {
+      "taxon": "Ulmus parvifolia",
+      "separator": "Both can reproduce late in the year and have small leaves, but Chinese elm has smoother/lustrous mostly singly serrate leaves and exfoliating mottled bark; cedar elm leaves are rough and its samara/calyx are hairy."
+    },
+    {
+      "taxon": "Ulmus americana",
+      "separator": "American elm has much larger strongly asymmetric leaves, no regular corky branch wings, and spring fruit."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tree/habit",
+      "small rough upper leaf",
+      "lower leaf/petiole hairs",
+      "corky twig crossing node",
+      "bark",
+      "fall flowers",
+      "hairy samara",
+      "winged-elm comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/313231993"
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B012 pass taxa."
+}
