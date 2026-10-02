@@ -1,0 +1,29 @@
+# Deep Review sources — Ulmus crassifolia
+Reviewed: 2026-10-02
+Batch: deep-review-batch-016-ulmus-b012
+Status: READY_FOR_APPROVAL
+
+## Taxonomy
+Kew/POWO — accepted Ulmus crassifolia Nutt.; Texas native:
+https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A302278-2
+
+## Strict target-zone range
+Project Hays County native-source list: Hays.
+USDA PLANTS-derived county native-status data explicitly includes Comal, Hays, Travis, Burnet, Kimble, Kinney, and San Saba:
+https://rootfast.org/plants/ULCR
+
+Decision: PASS — Hays, Comal, Travis.
+
+## Morphology / field separation
+Texas Forest Service, Forest Trees of Texas:
+https://www.gutenberg.org/files/52651/52651-h/52651-h.htm
+
+NPSOT:
+https://www.npsot.org/posts/native-plant/ulmus-crassifolia/
+
+Key: very small rough leaves; fall flowering/fruiting; corky wings when present may continue around the node; hairy deeply notched samara.
+
+## Photo lead
+User/source-pool example observation:
+https://www.inaturalist.org/observations/313231993
+Exact photo IDs/roles remain pending approval.
