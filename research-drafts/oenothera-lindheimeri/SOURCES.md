@@ -1,0 +1,20 @@
+# Deep Review sources — Oenothera lindheimeri
+Reviewed: 2026-10-02
+Batch: deep-review-batch-007-oenothera-b003
+Status: NEEDS_MANUAL_REVIEW
+
+## Taxonomy
+Accepted: Oenothera lindheimeri (Engelm. & A.Gray) W.L.Wagner & Hoch
+Former name: Gaura lindheimeri Engelm. & A.Gray
+Kew/POWO: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A77092955-1
+
+## Strict project-range evidence
+- Kew native range: southeastern Texas to southwestern Louisiana.
+- Texas Wildbuds notes Austin/Travis photographed plants are outside the native range: https://www.texaswildbuds.com/oenothera-lindheimeri.html
+- NPSOT/BONAP reference: https://www.npsot.org/posts/native-plant/oenothera-lindheimeri/
+Decision: UNRESOLVED
+Hold: no project-target county has yet been proven as native to the project standard. Hays wild observations are not counted because this species is widely cultivated outside its native range.
+
+## Morphology
+- NPSOT: https://www.npsot.org/posts/native-plant/oenothera-lindheimeri/
+- Kew/POWO: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A77092955-1/general-information

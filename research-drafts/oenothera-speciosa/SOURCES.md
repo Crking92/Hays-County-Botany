@@ -1,0 +1,19 @@
+# Deep Review sources — Oenothera speciosa
+Reviewed: 2026-10-02
+Batch: deep-review-batch-007-oenothera-b003
+Status: READY_FOR_APPROVAL
+
+## Taxonomy
+Accepted: Oenothera speciosa Nutt.
+Kew/POWO: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A173411-2
+NPSOT/BONAP reference: https://www.npsot.org/posts/native-plant/oenothera-speciosa/
+
+## Strict project-range evidence
+- Hays — https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html
+- Travis — https://w3.biosci.utexas.edu/prc/specimens/Onagraceae.html
+- Williamson — https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20speciosa.html
+Decision: PASS
+
+## Morphology
+- Williamson County treatment: https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20speciosa.html
+- UT Wildflowers of Texas: https://w3.biosci.utexas.edu/prc/wildflowers/flower/oenothera-speciosa

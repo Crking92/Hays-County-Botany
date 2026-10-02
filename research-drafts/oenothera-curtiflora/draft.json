@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-007-oenothera-b003",
+  "created_at": "2026-10-02T11:20:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 756,
+    "source_scientific_name": "oenothera curtiflora",
+    "wild_observations": 7,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Oenothera curtiflora W.L.Wagner & Hoch",
+    "rank": "species",
+    "order": "Myrtales",
+    "family": "Onagraceae",
+    "genus": "Oenothera",
+    "species": "curtiflora",
+    "synonyms": [
+      "Gaura parviflora Douglas ex Lehm.",
+      "Gaura hirsuta Scheele",
+      "Gaura mollis E.James"
+    ],
+    "status": "VERIFIED",
+    "note": "Older field guides and nursery sources may still use the former genus Gaura; preserve those names as synonyms but use current Oenothera placement canonically."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — project Hays-local source pool contains 7 wild/noncultivated observations and flags the species as Hays Local; this is supporting occurrence evidence rather than a herbarium voucher.",
+      "Travis — UT Plant Resources Center Travis County herbarium index includes Gaura parviflora, the homotypic synonym of Oenothera curtiflora.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a detailed treatment under the accepted name Oenothera curtiflora."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county occurrence inferred from statewide native status; named counties are supported by explicit local/herbarium/project occurrence evidence."
+  },
+  "morphology": {
+    "look_here_first": "Look for the mismatch between plant size and flower size: a tall, densely velveteen annual carries a long crowded wand of extremely tiny flowers—only about 3 mm across.",
+    "diagnostic_traits": [
+      "annual or biennial, taprooted, not rosetted at flowering",
+      "30–90+ cm tall",
+      "foliage and stems densely soft/velveteen hairy with glandular hairs",
+      "long terminal many-flowered spike/raceme",
+      "flowers only about 3 mm across",
+      "4 tiny white petals aging light rose",
+      "narrow hard indehiscent fruit around 8 mm long"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Oenothera suffulta",
+      "separator": "Both are annual former-gauras. O. curtiflora is much more densely velveteen and its flowers are tiny (~3 mm); O. suffulta has 12–19 mm white flowers, a largely glabrous inflorescence, and a short chunky 4-lobed fruit."
+    },
+    {
+      "taxon": "Oenothera lindheimeri",
+      "separator": "O. lindheimeri is a showy perennial with much larger flowers and an airy arching habit; O. curtiflora is a hairy annual with minute flowers."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tall habit",
+      "velveteen stem/leaf close-up",
+      "full crowded inflorescence",
+      "tiny flower close-up with scale",
+      "narrow indehiscent fruit"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B003."
+}
