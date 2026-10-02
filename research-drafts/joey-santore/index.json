@@ -20,7 +20,7 @@
   "rights_profile": {
     "inaturalist_creator_profile": "https://www.inaturalist.org/people/joeysantore",
     "profile_permission": "non-commercial and educational use with credit",
-    "rule": "Retain per-photo license when available; study-use and public-reuse remain separate fields."
+    "rule": "Retain per-photo license when available; study-use and public-reuse remain separate fields. Extracted YouTube frames are private-study assets unless separate reuse permission is established."
   },
   "batches": [
     {
@@ -77,13 +77,28 @@
       "exact_media_locked": 26
     }
   ],
+  "video_extractions": [
+    {
+      "extraction_id": "joey-video-emV8NAIgttg",
+      "file": "video-emV8NAIgttg-smoke-tree.json",
+      "source_video_id": "emV8NAIgttg",
+      "title": "The Texas Smoke Tree & the Edwards Plateau",
+      "status": "video_frames_extracted_and_persisted",
+      "records": 10,
+      "frame_assets": 10,
+      "binary_staging": "/Hays Botany ID/Joey Santore/video-frames/emV8NAIgttg/"
+    }
+  ],
   "totals": {
-    "source_records": 185,
+    "source_records": 195,
     "exact_media_locked": 128,
-    "exact_media_url_confirmed": 109
+    "exact_media_url_confirmed": 109,
+    "video_frame_records": 10,
+    "video_frame_assets_persisted": 10
   },
   "next_focus": [
     "continue direct Joey iNaturalist discovery for Master Plant Pool overlaps",
+    "continue exact YouTube frame extraction for Central Texas / Edwards Plateau videos supplied by the user",
     "Matelea reticulata/biflora/edwardsensis",
     "Clematis drummondii/texensis",
     "Yucca rupicola/constricta/torreyi",
@@ -92,5 +107,5 @@
     "Oenothera speciosa/triloba/suffulta/curtiflora",
     "build visual glossary mappings from exact Joey media already locked"
   ],
-  "promotion_target": "Approved exact Joey media and source notes should be merged into the matching species curation package, especially image-sources.csv and SOURCES.txt, before canonical installation."
+  "promotion_target": "Approved exact Joey media and source notes should be merged into the matching species curation package, especially image-sources.csv and SOURCES.txt, before canonical installation. Extracted video frames may also promote into term/family teaching modules when morphology is independently verified."
 }
