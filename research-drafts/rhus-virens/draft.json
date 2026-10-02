@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-012-rhus-b008",
+  "created_at": "2026-10-02T15:14:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 961,
+    "source_scientific_name": "Rhus virens",
+    "wild_observations": 10,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Rhus virens Lindh. ex A.Gray",
+    "rank": "species",
+    "order": "Sapindales",
+    "family": "Anacardiaceae",
+    "genus": "Rhus",
+    "species": "virens",
+    "synonyms": [
+      "Schmaltzia virens (Lindh. ex A.Gray) Small",
+      "Rhus sempervirens Scheele"
+    ],
+    "status": "VERIFIED",
+    "note": "Current Kew accepts Rhus virens and recognizes var. virens and var. australis. The Central Texas evidence used here corresponds to the typical virens concept; the learner remains species-level unless an infraspecific distinction becomes field-useful."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Comal"
+    ],
+    "evidence": [
+      "Hays — UT Plant Resources Center Purola Preserve records Rhus virens among naturally occurring species and provides local flower/fruit images.",
+      "Travis — UT Plant Resources Center Travis County herbarium index includes Rhus virens var. virens.",
+      "Comal — the Harvard University Herbaria isotype specimen of Rhus virens was collected by F. J. Lindheimer at New Braunfels, Comal County, and is currently determined as R. virens subsp./var. virens."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county inferred from statewide distribution or nursery/horticultural availability. Synonym-based county evidence is counted only where the synonym maps unambiguously to the current taxon concept."
+  },
+  "morphology": {
+    "look_here_first": "Look for leathery evergreen foliage: alternate compound leaves usually have only 5–9 thick, smooth-edged leaflets that are glossy dark green above. This immediately separates it from the many-leafleted flameleaf and the 3-leaflet fragrant sumac.",
+    "diagnostic_traits": [
+      "large evergreen to semi-evergreen shrub or small tree",
+      "odd-pinnate leaves usually with 5–9 thick leathery leaflets",
+      "leaflets entire, glossy dark green above and duller beneath",
+      "young rachises/stems often reddish",
+      "small creamy-white flowers in compact branched clusters",
+      "flattened red drupes covered with red hairs",
+      "foliage may bronze/orange after frost but typically persists"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Rhus copallinum var. lanceolata",
+      "separator": "Flameleaf has many narrow leaflets and a strongly winged rachis, then drops leaves after brilliant red fall color; evergreen sumac has fewer, thicker, mostly entire glossy leaflets and retains foliage."
+    },
+    {
+      "taxon": "Rhus aromatica",
+      "separator": "Fragrant sumac has only 3 often lobed/coarsely toothed leaflets and is low/deciduous; evergreen sumac has 5–9 entire leathery leaflets and is a larger evergreen shrub."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole evergreen shrub",
+      "5–9 leaflet compound leaf",
+      "glossy upper vs dull lower leaflet",
+      "flower cluster",
+      "hairy red fruit cluster",
+      "winter foliage"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "joey_media_note": "No persisted exact Joey Rhus record was found in the repo search during B008 review."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B008."
+}
