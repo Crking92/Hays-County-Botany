@@ -103,5 +103,12 @@ The curation layer must choose and document the photographs before automation ru
 ## Google tracker role
 Google Sheets is a coordination/status view only. It may summarize taxonomy, range status, curation progress, image status, and GitHub sync status, but it is not the canonical data store.
 
+### Standing sync permission
+As of 2026-10-02, Calvin has explicitly authorized ChatGPT/OpenAI curation chats to keep the Google tracker synchronized as normal project maintenance after deep review, approval, installation, taxonomy corrections, photo/provenance updates, and batch-status changes.
+
+GitHub remains authoritative. Sheet synchronization may update the Species Tracker, Study Batches, Master Plant Pool status/notes, Family Study Index, Genus Study Index, Project Rules, and supporting lookup data as needed to mirror canonical/review state. Do not let a Sheet value override a conflicting canonical GitHub record.
+
+Never store API keys, tokens, passwords, or other credentials in the tracker.
+
 ## Incomplete work
 If taxonomy, county range, morphology, look-alikes, or image provenance is incomplete or uncertain, keep the package clearly flagged as incomplete/UNRESOLVED and do not install it as final.
