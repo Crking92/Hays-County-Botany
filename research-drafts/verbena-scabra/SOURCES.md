@@ -1,0 +1,26 @@
+# Deep Review sources — Verbena scabra
+Reviewed: 2026-10-02
+Batch: deep-review-batch-017-verbena-b013
+Status: READY_FOR_APPROVAL
+
+## Taxonomy
+Kew/POWO — accepted Verbena scabra Vahl; native to the southern/central U.S. through Mexico and the Caribbean:
+https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:330552-2
+
+## Strict target-zone range
+USDA PLANTS-derived native county record:
+https://rootfast.org/plants/VESC
+
+The source explicitly marks Hays, Comal, Travis, Blanco, Kerr, Kimble, Real, Uvalde, and Val Verde native in Texas.
+
+Decision: PASS — Hays, Comal, Travis.
+
+Supporting Hays source: project Hays County native-source list.
+Supporting Travis herbarium:
+https://w3.biosci.utexas.edu/prc/specimens/Verbenaceae.html
+
+## Morphology
+UT Williamson County:
+https://w3.biosci.utexas.edu/prc/K12/pdf/Verbena%20scabra
+
+Key: robust plant; broad ovate harsh/scabrous leaves; very long slender spikes often arranged in a panicle; can form adventitious roots from wet lower nodes.
