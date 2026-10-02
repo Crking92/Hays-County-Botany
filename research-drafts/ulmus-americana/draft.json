@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-016-ulmus-b012",
+  "created_at": "2026-10-02T16:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1195,
+    "source_scientific_name": "Ulmus americana",
+    "wild_observations": 0,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Ulmus americana L.",
+    "rank": "species",
+    "order": "Rosales",
+    "family": "Ulmaceae",
+    "genus": "Ulmus",
+    "species": "americana",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Bell",
+      "Travis"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Ulmus americana and lists Texas in its native range.",
+      "Hays County — the project Hays County native-source list includes U. americana.",
+      "Bell County — USDA ARS Biocollections preserves multiple 2014 specimens collected at the Little River near Little River-Academy.",
+      "Travis County — USDA ARS Biocollections preserves a 2014 U. americana specimen from Redbud Island, Austin."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Bell and Travis are herbarium collection records interpreted within a source-confirmed native Texas range; planted street-tree records are not used."
+  },
+  "morphology": {
+    "look_here_first": "Start with the big asymmetric leaf and the spring samara: American elm has relatively large double-serrate leaves with a strongly uneven base, then a flat oval samara with a ciliate margin and a deep apical notch.",
+    "diagnostic_traits": [
+      "large deciduous elm, often developing a vase-shaped crown",
+      "leaves mostly >7 cm, ovate to elliptic with strongly oblique base",
+      "margins coarsely double-serrate",
+      "lower leaf surface glabrous to pubescent, often with tufts in vein axils",
+      "branchlets normally not corky-winged",
+      "flowers before leaf-out in spring on slender pedicels",
+      "oval spring samara with seed near center, ciliate margin, and a deep apical notch"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Ulmus rubra",
+      "separator": "Slippery elm has red-tomentose bud-scale margins, much rougher thick leaves, and a samara pubescent on the body rather than a ciliate margin."
+    },
+    {
+      "taxon": "Ulmus alata",
+      "separator": "Winged elm has smaller leaves and conspicuous regular corky wings on branches; American elm lacks those wings."
+    },
+    {
+      "taxon": "Ulmus crassifolia",
+      "separator": "Cedar elm has much smaller rough leaves and reproduces in fall rather than spring."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole vase-shaped crown",
+      "large asymmetric upper leaf",
+      "lower leaf/vein axils",
+      "twig and buds",
+      "bark",
+      "spring flowers",
+      "samara front",
+      "samara margin/notch",
+      "slippery-elm comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B012 pass taxa."
+}
