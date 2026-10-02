@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-014-dalea-b010",
+  "created_at": "2026-10-02T15:39:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 332,
+    "source_scientific_name": "Dalea enneandra",
+    "wild_observations": 1,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Dalea enneandra Nutt.",
+    "rank": "species",
+    "order": "Fabales",
+    "family": "Fabaceae",
+    "genus": "Dalea",
+    "species": "enneandra",
+    "synonyms": [
+      "Parosela enneandra",
+      "Dalea laxiflora",
+      "Dalea enneandra var. pumila"
+    ],
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO; Texas is within the native range. Historical var. pumila is included in the species concept."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Bell",
+      "Burnet",
+      "Comal"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Dalea enneandra as native in Texas.",
+      "USDA PLANTS-derived county native-status data records Dalea enneandra as native in Bell County.",
+      "The same USDA county dataset records it as native in Burnet County.",
+      "The same USDA county dataset records it as native in Comal County; additional target-zone native counties include Gillespie, Kerr, San Saba, Travis, and Williamson."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County entries are used only where the source explicitly carries native status; generic occurrence-only records are not substituted."
+  },
+  "morphology": {
+    "look_here_first": "Look at spacing along the flower spike: D. enneandra has a long slender, often nodding or drooping spike where the flowers and broad bracts are visibly separated instead of packed into a dense cone.",
+    "diagnostic_traits": [
+      "erect herbaceous perennial, usually with one to a few stems branching above",
+      "odd-pinnate leaves with narrow linear to narrowly oblong leaflets",
+      "leaflet undersides gland-dotted",
+      "terminal slender spike, commonly elongate and looser than the dense-headed Dalea in this batch",
+      "flowers sessile or nearly sessile and visibly spaced along the rachis",
+      "broad conspicuous bracts remain an important spike-level cue",
+      "nine stamens provide a technical reproductive confirmation"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Dalea compacta",
+      "separator": "D. compacta packs flowers into a dense swollen cylindrical/ovoid head; D. enneandra shows open spacing along a slender spike."
+    },
+    {
+      "taxon": "Dalea aurea",
+      "separator": "D. aurea has a densely villous fuzzy head and silky leaves; D. enneandra has a much looser spike and narrower less-silky leaflets."
+    },
+    {
+      "taxon": "Dalea purpurea",
+      "separator": "D. purpurea forms a compact dense prairie-clover spike; D. enneandra's widely separated flowers/bracts make the rachis much more obvious."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole upright habit",
+      "narrow leaf/gland detail",
+      "entire loose spike",
+      "bract close-up",
+      "flower/reproductive detail",
+      "fruit/pod"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "reusable_candidate": "https://commons.wikimedia.org/wiki/Category:Dalea_enneandra",
+    "candidate_note": "Commons coverage exists; exact file/role locking remains for post-approval curation."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B010."
+}
