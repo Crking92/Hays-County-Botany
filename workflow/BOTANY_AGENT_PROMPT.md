@@ -42,6 +42,18 @@ Range-source priority:
 
 Do not infer county presence. Clearly distinguish documented range evidence from local-occurrence-first study inclusion.
 
+### Encounter-value comparison layer
+
+The learner should also teach plants crews are likely to encounter even when they are not project-native. During deep review, keep native-range PASS / FAIL / UNRESOLVED unchanged, but separately evaluate whether a non-native, invasive, naturalized, weedy, escaped, or otherwise common taxon has strong identification value.
+
+If retained, assign a clear learner role such as:
+- `NON_NATIVE_COMPARISON`
+- `INVASIVE_COMPARISON`
+- `COMMON_WEED_COMPARISON`
+- `LOOKALIKE_COMPARISON`
+
+Never count comparison species toward native totals. Never call a species invasive without a supporting source. Prioritize locally common/problematic taxa and taxa likely to be confused with natives.
+
 ## Curation philosophy
 
 Prioritize morphology and diagnostic separation:
