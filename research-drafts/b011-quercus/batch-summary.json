@@ -1,0 +1,61 @@
+{
+  "batch_id": "deep-review-batch-015-quercus-b011",
+  "family": "Fagaceae",
+  "batch_type": "same_genus_comparison",
+  "genus": "Quercus",
+  "taxa": [
+    "quercus-muehlenbergii",
+    "quercus-macrocarpa",
+    "quercus-marilandica",
+    "quercus-virginiana",
+    "quercus-alba"
+  ],
+  "result": "3 approval-ready native taxa; 1 taxon-concept/range UNRESOLVED; 1 target-zone range FAIL",
+  "study_strategy": {
+    "look_here_first": "Start with white-oak vs red-oak characters, then leaf architecture, then acorn cupule/nut, bark, and twig/buds. Never identify an oak from leaf silhouette alone.",
+    "quick_key": [
+      {
+        "if": "huge leaf with deep middle waist + enormous mossy/fringed acorn cup",
+        "then": "Quercus macrocarpa"
+      },
+      {
+        "if": "chestnut-like leaf with many regular forward teeth and parallel veins + gray flaky bark",
+        "then": "Quercus muehlenbergii"
+      },
+      {
+        "if": "thick duck-foot/spatula leaf with 3–5 broad bristle-tipped distal lobes + black blocky bark",
+        "then": "Quercus marilandica"
+      },
+      {
+        "if": "rounded lobes along most of blade + pale gray scaly bark + shallow non-fringed cup",
+        "then": "Quercus alba — target-zone FAIL"
+      },
+      {
+        "if": "evergreen leathery live-oak leaf",
+        "then": "Do not stop there: compare acorn shape + leaf width/underside + geography against canonical Quercus fusiformis; Q. virginiana remains UNRESOLVED"
+      }
+    ],
+    "canonical_anchors": [
+      "Quercus fusiformis",
+      "Quercus buckleyi",
+      "Quercus stellata"
+    ],
+    "family_terms_to_reinforce": [
+      "white-oak group",
+      "red-oak group",
+      "bristle tip",
+      "sinus",
+      "secondary vein",
+      "abaxial",
+      "stellate hairs",
+      "bud cluster",
+      "acorn",
+      "cupule",
+      "cupule scale",
+      "one-season acorn",
+      "two-season acorn",
+      "introgression"
+    ]
+  },
+  "status": "DEEP_REVIEW_COMPLETE_AWAITING_APPROVAL_WITH_MANUAL_ITEMS"
+}
