@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-003-salvia-b001",
+  "created_at": "2026-10-02T08:34:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1005,
+    "wild_observations": 2,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Salvia texana (Scheele) Torr.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Salvia",
+    "species": "texana",
+    "synonyms": [
+      "Salviastrum texanum Scheele",
+      "Salvia texana var. canescens A.Gray",
+      "Salviastrum canescens (A.Gray) I.M.Johnst.",
+      "Salviastrum texanum var. canescens (A.Gray) Cory"
+    ],
+    "note": "Accepted by Kew as Salvia texana (Scheele) Torr.",
+    "status": "VERIFIED"
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — UT Plant Resources Center Natural Purola native flora explicitly lists Salvia texana.",
+      "Travis — Balcones Canyonlands Preserve plant list explicitly lists Salvia texana.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County treatment."
+    ],
+    "guardrail": "Source-pool membership and iNaturalist counts were not used by themselves as proof."
+  },
+  "morphology": {
+    "look_here_first": "Start low on the plant: look for basal leaves plus narrower cauline leaves on a short perennial. Then inspect the sharply pointed, strongly ribbed calyx and relatively small deep-violet flowers.",
+    "diagnostic_traits": [
+      "taprooted perennial with woody caudex",
+      "usually 14–40 cm tall",
+      "both basal and cauline opposite leaves",
+      "basal leaves narrow oblanceolate to elliptic",
+      "leaf surfaces with sunken/pitted glandular hairs",
+      "terminal raceme with conspicuous leaflike bracts",
+      "strongly ribbed sharply pointed calyx"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Salvia engelmannii",
+      "separator": "S. texana has basal leaves and sunken/pitted glandular hairs; S. engelmannii has only cauline leaves and conspicuous tack-shaped glandular hairs."
+    },
+    {
+      "taxon": "Salvia azurea",
+      "separator": "S. texana is a low sage; S. azurea is much taller with a long flowering axis and green calyces."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_SUFFICIENT_FOR_APPROVAL",
+    "diagnostic_roles": [
+      "low habit",
+      "basal + cauline leaves",
+      "leaf surface / gland type",
+      "bracts + inflorescence",
+      "calyx close-up",
+      "flower side / front"
+    ],
+    "candidate_sources": [
+      {
+        "source_page": "https://www.gbif.org/es/species/2926988",
+        "direct_image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/263469396/original.jpeg",
+        "roles": "field habit; leaves; inflorescence / flowers",
+        "reuse": "exact creator/license must be resolved before install"
+      },
+      {
+        "source_page": "https://w3.biosci.utexas.edu/prc/K12/pages/Salvia%20texana.html",
+        "roles": "detailed diagnostic morphology",
+        "reuse": "reference only"
+      },
+      {
+        "source_page": "https://www.npsot.org/posts/native-plant/salvia-texana/",
+        "roles": "habit / flower comparison context",
+        "reuse": "exact image licenses to verify"
+      }
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not create curation-inbox package or install until Calvin explicitly approves."
+}

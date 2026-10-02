@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-003-salvia-b001",
+  "created_at": "2026-10-02T08:34:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 998,
+    "wild_observations": 5,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Salvia coccinea Buc'hoz ex Etl.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Salvia",
+    "species": "coccinea",
+    "synonyms": [
+      "Salvia pseudococcinea Jacq."
+    ],
+    "note": "Accepted by Kew as Salvia coccinea Buc'hoz ex Etl.; Salvia coccinea L.f. is a later illegitimate homonym and should not be treated as a separate learner taxon.",
+    "status": "VERIFIED"
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — Wildflower Center printable Hays County native list (verified Hays County Natives source tab).",
+      "Travis — Balcones Canyonlands Preserve plant list explicitly lists Salvia coccinea.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County treatment."
+    ],
+    "guardrail": "Source-pool membership and iNaturalist counts were not used by themselves as proof."
+  },
+  "morphology": {
+    "look_here_first": "Start with leaf shape and petiole before flower color: broad triangular to ovate/deltoid serrate leaves on conspicuous petioles. Then confirm the verticillate inflorescence and long bilabiate corolla.",
+    "diagnostic_traits": [
+      "annual to short-lived perennial/subshrub tendency",
+      "4-sided stems",
+      "opposite decussate broad triangular/ovate-deltoid serrate leaves",
+      "interrupted verticillate inflorescence",
+      "persistent ribbed calyx",
+      "long bilabiate corolla"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Salvia roemeriana",
+      "separator": "Both can be red-flowered, but S. coccinea is generally taller with broad deltoid/ovate leaves and conspicuous petioles."
+    },
+    {
+      "taxon": "Salvia azurea",
+      "separator": "S. azurea has narrow linear-lanceolate leaves and a much taller, more open flowering axis."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_SUFFICIENT_FOR_APPROVAL",
+    "diagnostic_roles": [
+      "habit",
+      "opposite broad leaves / petioles",
+      "verticillate inflorescence",
+      "flower side + calyx",
+      "persistent calyx / developing nutlets"
+    ],
+    "candidate_sources": [
+      {
+        "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/lam/Salvia_coccinea.htm",
+        "roles": "habit; flowers; inflorescence; developing fruits; leaf arrangement",
+        "reuse": "license not verified — study reference"
+      },
+      {
+        "source_page": "https://w3.biosci.utexas.edu/prc/K12/pdf/Salvia%20coccinea",
+        "roles": "detailed morphology",
+        "reuse": "reference only"
+      }
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not create curation-inbox package or install until Calvin explicitly approves."
+}

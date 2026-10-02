@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-003-salvia-b001",
+  "created_at": "2026-10-02T08:34:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 999,
+    "wild_observations": 0,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Salvia engelmannii A.Gray",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Salvia",
+    "species": "engelmannii",
+    "synonyms": [
+      "Salviastrum engelmannii (A.Gray) Briq."
+    ],
+    "note": "Accepted species; retained at species rank.",
+    "status": "VERIFIED"
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson",
+      "Comal"
+    ],
+    "evidence": [
+      "Hays — Wildflower Center printable Hays County native list (verified Hays County Natives source tab).",
+      "Travis — Balcones Canyonlands Preserve plant list explicitly lists Salvia engelmannii.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County treatment.",
+      "Comal — herbarium material documents Salvia engelmannii near Fischer, Comal County."
+    ],
+    "guardrail": "Source-pool membership and iNaturalist counts were not used by themselves as proof."
+  },
+  "morphology": {
+    "look_here_first": "Look closely at foliage and calyx: low dense clumps with narrow cauline leaves and conspicuous tack-shaped glandular hairs; the calyx is strongly ribbed with tiny awned tips.",
+    "diagnostic_traits": [
+      "perennial low dense clump with many stems",
+      "only cauline leaves rather than a basal-leaf set",
+      "linear leaves with paired bases forming a short sheath across the node",
+      "conspicuous tack-shaped subsessile glandular hairs",
+      "3-flowered cymes repeated at closely spaced nodes",
+      "strongly 10-ridged calyx with short awned lobe tips",
+      "pale blue-violet flower with broad white/violet-marked lower lip"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Salvia texana",
+      "separator": "Engelmann sage lacks the basal-leaf pattern of S. texana and has obvious tack-shaped glands, 3-flowered cymes, and a paler strongly marked lower lip."
+    },
+    {
+      "taxon": "Salvia azurea",
+      "separator": "Engelmann sage is much shorter and bushier, with a compact terminal series of verticils rather than Azure sage's tall open flowering axis."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_SUFFICIENT_FOR_APPROVAL",
+    "diagnostic_roles": [
+      "dense low habit",
+      "narrow cauline leaves / fused node bases",
+      "tack-shaped glandular hairs",
+      "3-flowered cymes",
+      "strongly ribbed awned calyx",
+      "lower-lip markings"
+    ],
+    "candidate_sources": [
+      {
+        "source_page": "https://structurelandscapes.com/plant/salvia-engelmannii/",
+        "direct_image_url": "https://structurelandscapes.com/wp-content/uploads/2024/02/Salvia-engelmannii-5.jpg",
+        "roles": "flowering spike / flower shape",
+        "reuse": "study candidate; license not verified"
+      },
+      {
+        "source_page": "https://lonestarnursery.com/products/sage-engelmanns-blue",
+        "direct_image_url": "https://lonestarnursery.com/cdn/shop/products/original.jpg?v=1650324950&width=1445",
+        "roles": "whole-plant habit",
+        "reuse": "study candidate; public reuse not verified"
+      },
+      {
+        "source_page": "https://w3.biosci.utexas.edu/prc/K12/pages/Salvia%20engelmannii.html",
+        "roles": "glands; nodes; cymes; calyx diagnostic description",
+        "reuse": "reference only"
+      }
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not create curation-inbox package or install until Calvin explicitly approves."
+}

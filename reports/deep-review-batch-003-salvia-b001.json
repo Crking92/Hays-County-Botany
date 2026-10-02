@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "batch_id": "deep-review-batch-003-salvia-b001",
+  "reviewed_at": "2026-10-02T08:34:00-05:00",
+  "study_batch_id": "B001",
+  "family": "Lamiaceae",
+  "genus": "Salvia",
+  "canonical_reconciliation": {
+    "canonical_species_count": 59,
+    "canonical_salvia_count": 0,
+    "stale_sheet_anchors": [
+      "Salvia farinacea",
+      "Salvia roemeriana"
+    ]
+  },
+  "results": [
+    {
+      "id": "salvia-coccinea",
+      "scientific_name": "Salvia coccinea",
+      "taxonomy": "PASS",
+      "range": "PASS",
+      "morphology": "PASS",
+      "confusers": "PASS",
+      "photos": "SOURCE_COVERAGE_SUFFICIENT; exact creator/license lock required before install",
+      "final_status": "READY_FOR_APPROVAL"
+    },
+    {
+      "id": "salvia-azurea",
+      "scientific_name": "Salvia azurea",
+      "taxonomy": "PASS",
+      "range": "PASS",
+      "morphology": "PASS",
+      "confusers": "PASS",
+      "photos": "SOURCE_COVERAGE_SUFFICIENT; exact creator/license lock required before install",
+      "final_status": "READY_FOR_APPROVAL"
+    },
+    {
+      "id": "salvia-texana",
+      "scientific_name": "Salvia texana",
+      "taxonomy": "PASS",
+      "range": "PASS",
+      "morphology": "PASS",
+      "confusers": "PASS",
+      "photos": "SOURCE_COVERAGE_SUFFICIENT; exact creator/license lock required before install",
+      "final_status": "READY_FOR_APPROVAL"
+    },
+    {
+      "id": "salvia-engelmannii",
+      "scientific_name": "Salvia engelmannii",
+      "taxonomy": "PASS",
+      "range": "PASS",
+      "morphology": "PASS",
+      "confusers": "PASS",
+      "photos": "SOURCE_COVERAGE_SUFFICIENT; exact creator/license lock required before install",
+      "final_status": "READY_FOR_APPROVAL"
+    }
+  ],
+  "counts": {
+    "passed": 4,
+    "held": 0,
+    "failed": 0,
+    "approval_ready": 4
+  },
+  "genus_comparison": {
+    "rank": "genus-review",
+    "family": "Lamiaceae",
+    "genus": "Salvia",
+    "batch_id": "deep-review-batch-003-salvia-b001",
+    "shared_traits": [
+      "opposite decussate leaves",
+      "glandular/aromatic foliage common",
+      "bilateral two-lipped corolla",
+      "two fertile stamens with elongate connective/lever architecture",
+      "deeply 4-lobed ovary with gynobasic style",
+      "fruit separating into nutlets",
+      "flowers grouped in cymes/verticils along a flowering axis"
+    ],
+    "look_here_first_key": [
+      {
+        "if": "broad triangular/deltoid leaves on conspicuous petioles",
+        "then": "Salvia coccinea"
+      },
+      {
+        "if": "tall plant + narrow linear leaves + long open flowering axis + green non-mealy calyx",
+        "then": "Salvia azurea"
+      },
+      {
+        "if": "low plant with basal leaves + pitted glandular hairs + sharply pointed calyx",
+        "then": "Salvia texana"
+      },
+      {
+        "if": "low dense clump + only cauline narrow leaves + tack-shaped glands + 3-flowered cymes",
+        "then": "Salvia engelmannii"
+      }
+    ],
+    "comparison_references_not_canonical": [
+      "Salvia farinacea",
+      "Salvia roemeriana"
+    ],
+    "note": "The Study Batches sheet previously labeled S. farinacea and S. roemeriana as curated anchors, but the live canonical GitHub manifest contains no Salvia. Treat them as comparison references only until separately installed."
+  },
+  "guardrail": "No curation-inbox package created. Calvin approval required. Exact photos must be locked with creator/license/provenance before installation."
+}

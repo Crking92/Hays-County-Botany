@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-003-salvia-b001",
+  "created_at": "2026-10-02T08:34:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 996,
+    "wild_observations": 3,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Salvia azurea Michx. ex Vahl",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Salvia",
+    "species": "azurea",
+    "synonyms": [
+      "Salvia pitcheri Torr. ex Benth.",
+      "Salvia azurea var. grandiflora Benth."
+    ],
+    "note": "Current Kew accepts Salvia azurea at species rank. Central Texas material is often treated regionally as var. grandiflora; preserve that as infraspecific/historical context rather than a duplicate learner taxon.",
+    "status": "VERIFIED"
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — documented on a Hays County native-plant inventory and in the Hays source pool.",
+      "Travis — Balcones Canyonlands Preserve list and Travis County herbarium material.",
+      "Williamson — UT Plant Resources Center county treatment under Salvia azurea var. grandiflora."
+    ],
+    "guardrail": "Source-pool membership and iNaturalist counts were not used by themselves as proof."
+  },
+  "morphology": {
+    "look_here_first": "Look at stature and leaves: a tall perennial with narrow linear-lanceolate leaves and an elongated flowering axis. Then inspect the green, hairy but not mealy/felted calyx.",
+    "diagnostic_traits": [
+      "perennial from woody rootstock",
+      "often much taller than the small spring sages",
+      "opposite narrow linear-lanceolate to linear-oblanceolate leaves",
+      "long terminal interrupted panicle of verticils",
+      "green ribbed glandular-hairy calyx",
+      "large bilabiate corolla"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Salvia farinacea",
+      "separator": "Azure sage has a green, normally hairy calyx; mealy blue sage has conspicuously mealy/felty whitish or purplish calyces."
+    },
+    {
+      "taxon": "Salvia engelmannii",
+      "separator": "S. azurea is usually much taller with a long open flowering axis; S. engelmannii is a low dense clump with many short stems."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_SUFFICIENT_FOR_APPROVAL",
+    "diagnostic_roles": [
+      "whole-plant stature",
+      "narrow leaves",
+      "long flowering axis",
+      "green calyx close-up",
+      "flower front / side"
+    ],
+    "candidate_sources": [
+      {
+        "source_page": "https://www.npsot.org/posts/native-plant/salvia-azurea/",
+        "roles": "habit; flower; ecoregion context",
+        "reuse": "credits supplied; exact image license to verify at curation"
+      },
+      {
+        "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/2685",
+        "direct_image_url": "https://warcapps.usgs.gov/PlantID/Image/GivenFile?file=Salvia+azurea+var.+grandiflora_leaf.JPG&id=2685",
+        "roles": "leaf detail",
+        "reuse": "verify exact reuse before install"
+      },
+      {
+        "source_page": "https://w3.biosci.utexas.edu/prc/K12/pdf/Salvia%20azurea%20grandiflora",
+        "roles": "detailed morphology",
+        "reuse": "reference only"
+      }
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not create curation-inbox package or install until Calvin explicitly approves."
+}
