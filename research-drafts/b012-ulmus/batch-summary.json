@@ -1,0 +1,59 @@
+{
+  "batch_id": "deep-review-batch-016-ulmus-b012",
+  "family": "Ulmaceae",
+  "batch_type": "same_genus_comparison",
+  "genus": "Ulmus",
+  "taxa": [
+    "ulmus-crassifolia",
+    "ulmus-americana",
+    "ulmus-rubra",
+    "ulmus-alata",
+    "ulmus-parvifolia"
+  ],
+  "result": "3 approval-ready native taxa; 1 native-range UNRESOLVED; 1 native-status FAIL recommended for invasive/non-native comparison retention",
+  "study_strategy": {
+    "look_here_first": "Start with reproductive season and twig architecture, then leaf size/texture and the samara. Elm leaves overlap too much to identify these reliably from leaf silhouette alone.",
+    "quick_key": [
+      {
+        "if": "tiny rough leaves + fall flowers/fruit + corky wing may continue around node",
+        "then": "Ulmus crassifolia"
+      },
+      {
+        "if": "regular corky branch wings usually ending at node + pointed small leaves + spring fruit",
+        "then": "Ulmus alata — range UNRESOLVED"
+      },
+      {
+        "if": "large strongly asymmetric leaf + smooth/unwinged branch + spring samara with ciliate margin",
+        "then": "Ulmus americana"
+      },
+      {
+        "if": "large sandpaper-rough leaf + red-hairy bud scales + pubescent samara body",
+        "then": "Ulmus rubra"
+      },
+      {
+        "if": "mottled exfoliating lacebark + small glossy leaves + fall reproduction + glabrous samara",
+        "then": "Ulmus parvifolia — non-native/invasive comparison candidate"
+      }
+    ],
+    "family_terms_to_reinforce": [
+      "oblique leaf base",
+      "double serration",
+      "scabrous",
+      "pubescent",
+      "ciliate",
+      "corky wing",
+      "node",
+      "bud scale",
+      "samara",
+      "samara margin",
+      "pedicel",
+      "spring-fruiting vs fall-fruiting"
+    ],
+    "priority_comparisons": [
+      "Ulmus crassifolia vs Ulmus alata — wing continuity at node + season",
+      "Ulmus americana vs Ulmus rubra — bud hairs + leaf texture + samara pubescence",
+      "Ulmus crassifolia vs Ulmus parvifolia — rough/hairy native vs glossy lacebark introduced"
+    ]
+  },
+  "status": "DEEP_REVIEW_COMPLETE_AWAITING_APPROVAL_WITH_MANUAL_AND_COMPARISON_ITEMS"
+}
