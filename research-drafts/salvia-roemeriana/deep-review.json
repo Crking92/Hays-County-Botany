@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-005-salvia-catchup",
+  "created_at": "2026-10-02T09:10:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1004,
+    "source_scientific_name": "Salvia roemeriana",
+    "wild_observations": 0,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Salvia roemeriana Scheele",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Salvia",
+    "species": "roemeriana",
+    "synonyms": [
+      "Salvia engelmannii Schltdl. (not validly published)",
+      "Salvia porphyrantha Decne."
+    ],
+    "status": "VERIFIED",
+    "note": ""
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — Wildflower Center printable Hays County native list / local Hays flora sources.",
+      "Travis — Balcones Canyonlands Preserve plant list explicitly includes Salvia roemeriana.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County detailed treatment."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county presence inferred from source-pool membership or cultivated records."
+  },
+  "morphology": {
+    "look_here_first": "Start with the basal rosette and habitat: rounded to cordate/lyrate leaves on long petioles in shaded Ashe-juniper woodland, then confirm the red tubular flower.",
+    "diagnostic_traits": [
+      "taprooted rosetted perennial",
+      "basal plus cauline leaves",
+      "leaves rounded/cordate to lyrate-pinnatifid",
+      "red long-exserted corolla",
+      "late-season cleistogamous flowers can occur",
+      "shade/cedar-duff association"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Salvia coccinea",
+      "separator": "Both can be red. Cedar sage is rosetted and usually low in shaded juniper habitat; S. coccinea is taller with broad deltoid/ovate leaves along the stem."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "basal rosette",
+      "leaf shape",
+      "red flower side",
+      "calyx",
+      "Ashe-juniper habitat",
+      "cleistogamous flower/nutlets"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves."
+}

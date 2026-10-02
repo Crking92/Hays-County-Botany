@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-005-salvia-catchup",
+  "created_at": "2026-10-02T09:10:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1000,
+    "source_scientific_name": "Salvia farinacea",
+    "wild_observations": 45,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Salvia farinacea Benth.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Salvia",
+    "species": "farinacea",
+    "synonyms": [
+      "Salvia amabilis Kunth & C.D.Bouché",
+      "Salvia earlei Wooton & Standl.",
+      "Salvia farinacea var. heteranthera Brandegee",
+      "Salvia farinacea var. latifolia Shinners"
+    ],
+    "status": "VERIFIED",
+    "note": ""
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — Wildflower Center printable Hays County native list / NPSOT Hill Country compilation.",
+      "Travis — Balcones Canyonlands Preserve plant list explicitly includes Salvia farinacea.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County detailed treatment."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county presence inferred from source-pool membership or cultivated records."
+  },
+  "morphology": {
+    "look_here_first": "Look at the calyx first: the conspicuous white/blue-violet mealy or farinose coating is the fastest separator from Azure Sage.",
+    "diagnostic_traits": [
+      "rhizomatous clonal perennial",
+      "not rosetted; only cauline opposite leaves",
+      "linear-lanceolate to lanceolate leaves",
+      "calyx densely farinose/mealy",
+      "erect repeated verticils"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Salvia azurea",
+      "separator": "S. farinacea has the characteristic mealy/farinose calyx; S. azurea has a green normally hairy calyx and a taller, more open flowering axis."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "clonal habit",
+      "cauline leaves",
+      "mealy calyx close-up",
+      "flower side",
+      "flowering axis"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves."
+}
