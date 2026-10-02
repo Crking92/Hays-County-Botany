@@ -1,0 +1,130 @@
+{
+  "module_id": "juglandaceae-fagaceae-backfill-001",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "focus": "Paired Fagales lesson: Juglandaceae/Juglans versus Fagaceae/Quercus",
+  "family_pair": {
+    "Juglandaceae": {
+      "where_to_look_first": "Start with the leaves: local walnuts have alternate pinnately compound aromatic leaves. Then confirm male catkins and a one-seeded nut enclosed by a husk.",
+      "core_characters": [
+        "Trees with pinnately compound leaves; stipules absent.",
+        "Leaves often aromatic/resinous when crushed and may bear glandular scales/hairs.",
+        "Flowers unisexual; male flowers commonly in catkins.",
+        "Juglans female flowers occur in short terminal clusters/spikes on current growth.",
+        "Fruit contains one seed/nut, surrounded by a fleshy or fibrous husk/perianth-derived outer layer.",
+        "Juglans twigs may show chambered pith."
+      ],
+      "best_tie_breaker": "Compound leaf + husked walnut/nut."
+    },
+    "Fagaceae": {
+      "local_focus_genus": "Quercus",
+      "where_to_look_first": "Start with the fruit: a nut/acorn subtended or partly enclosed by a scaly cupule. Leaves are simple, not pinnately compound.",
+      "core_characters": [
+        "Trees/shrubs with alternate simple leaves and stipules.",
+        "Flowers unisexual; male flowers commonly borne in catkins.",
+        "Fruit is a nut associated with a cupule.",
+        "Quercus is especially recognizable by an acorn with a scaly cup.",
+        "Leaf undersides commonly have stellate hairs in many species."
+      ],
+      "best_tie_breaker": "Simple leaf + acorn/cupule."
+    }
+  },
+  "fast_key": [
+    "Pinnately compound leaf + aromatic walnut foliage + husked nut → Juglandaceae.",
+    "Simple leaf + acorn/nut sitting in a cupule → Fagaceae.",
+    "Both can have male catkins, so catkins alone do not separate them."
+  ],
+  "cards": [
+    {
+      "taxon": "Juglans microcarpa",
+      "common_name": "little walnut / Texas walnut",
+      "family": "Juglandaceae",
+      "priority": 1,
+      "status": "training_card_backfill_complete",
+      "look_here_first": "Start with the long odd-pinnately compound leaf with many narrow leaflets; then look for the marble-sized husked walnut.",
+      "confirm": [
+        "Alternate odd-pinnately compound leaves with many narrow lanceolate leaflets.",
+        "Leaves aromatic when crushed in Forest Service descriptions.",
+        "Monoecious: slender male catkins arise on previous-year wood.",
+        "Female flowers occur singly or in short terminal clusters on current year's growth.",
+        "Fruit is small and globose with a fibrous outer husk and a hard deeply grooved nut.",
+        "Twigs and buds are useful secondary characters."
+      ],
+      "confusions": [
+        "Juglans major",
+        "Quercus spp. at a distance"
+      ],
+      "tie_breaker": "Against oaks: compound leaf and husked walnut. Against J. major: use leaflet count/width, fruit size and overlap-zone caution.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77126720-1/general-information",
+        "https://research.fs.usda.gov/feis/species-reviews/jugmic",
+        "https://www.treesandshrubsonline.org/articles/juglans/juglans-microcarpa/"
+      ],
+      "images": [
+        {
+          "role": "bud_and_twig",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Juglans_microcarpa.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Juglans%20microcarpa.jpg",
+          "creator": "Jerry Friedman",
+          "license": "CC BY-SA 2.0",
+          "locality": "Carlsbad Caverns National Park, New Mexico",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "local_or_near_local_whole_plant_or_foliage",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Juglans_microcarpa_300812335.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Juglans%20microcarpa%20300812335.jpg",
+          "creator": "James H. Thomas",
+          "license": "CC0",
+          "inaturalist_photo_id": "300812335",
+          "inaturalist_observation_id": "173231862",
+          "coordinates_note": "Texas Hill Country coordinates embedded on Commons",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "second_texas_reference",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Juglans_microcarpa_436522536.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Juglans%20microcarpa%20436522536.jpg",
+          "creator": "Jim",
+          "license": "CC0",
+          "inaturalist_photo_id": "436522536",
+          "inaturalist_observation_id": "244695767",
+          "coordinates_note": "Texas",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ],
+      "visual_gaps": [
+        "rights-safe open husk + exposed nut side-by-side",
+        "male catkin + female flower comparison"
+      ]
+    },
+    {
+      "taxon_group": "Quercus spp.",
+      "family": "Fagaceae",
+      "status": "existing_joey_and_canonical_coverage_sufficient",
+      "look_here_first": "If fruit is present, find the scaly cupule beneath the nut/acorn. Then use leaf, bud, bark and cupule details for species-level ID.",
+      "canonical_anchors": [
+        "Quercus buckleyi",
+        "Quercus fusiformis",
+        "Quercus laceyi",
+        "Quercus sinuata var. breviloba",
+        "Quercus stellata"
+      ],
+      "note": "Fagaceae already passed the Joey audit as sufficient; this paired module exists mainly so Juglandaceae is taught against a strong familiar oak reference."
+    }
+  ],
+  "common_mistakes": [
+    "Calling any tree with catkins an oak or walnut—both families can have catkins.",
+    "Using nut shape alone without checking whether there is a cupule versus a husk.",
+    "Forgetting that Juglandaceae leaves are compound while local Quercus leaves are simple."
+  ],
+  "next_actions": [
+    "Acquire a public-reuse Juglans microcarpa husk/nut macro.",
+    "Add male-catkin/female-flower image pair.",
+    "Build one annotated visual: compound walnut leaf + husked nut vs simple oak leaf + acorn cupule.",
+    "Then move to Sapotaceae / Ebenaceae / Aquifoliaceae."
+  ]
+}
