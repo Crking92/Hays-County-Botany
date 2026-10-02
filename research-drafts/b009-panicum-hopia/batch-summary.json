@@ -17,7 +17,7 @@
     "Panicum coloratum",
     "Hopia obtusa"
   ],
-  "result": "4 approval-ready native taxa; 1 introduced/native-status fail",
+  "result": "4 approval-ready native taxa; 1 native-status FAIL retained by user as a non-native/invasive comparison",
   "quick_key": [
     {
       "if": "very tall rhizomatous clump + broad airy panicle + hairy collar",
@@ -40,5 +40,8 @@
       "then": "Hopia obtusa (source-pool Panicum obtusum)"
     }
   ],
-  "status": "DEEP_REVIEW_COMPLETE_AWAITING_APPROVAL"
+  "status": "DEEP_REVIEW_COMPLETE_AWAITING_BATCH_APPROVAL_WITH_NON_NATIVE_COMPARISON_RETAINED",
+  "comparison_policy": {
+    "Panicum coloratum": "Native-range FAIL is preserved. User explicitly retained it for encounter-value/invasive identification training; it is excluded from native totals."
+  }
 }
