@@ -1,0 +1,110 @@
+{
+  "module_id": "papaveraceae-family-backfill-001",
+  "family": "Papaveraceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "local_focus": "Argemone / prickly poppies",
+  "family_lesson": {
+    "where_to_look_first": "Break or scratch a noncritical tissue only when appropriate and observe the latex, then inspect the flower base and fruit: 2–3 quickly falling sepals, free showy petals, many free stamens, and a superior syncarpous capsule are the core sequence.",
+    "core_characters": [
+      "Mostly herbs; sap/latex commonly white, yellow, orange or watery.",
+      "Leaves usually alternate and without stipules; often lobed or divided.",
+      "Sepals commonly 2–3 and caducous, falling as the flower opens.",
+      "Petals commonly 4–6, free, often crumpled or pleated in bud.",
+      "Stamens usually numerous and free.",
+      "Ovary superior, syncarpous, usually 1-locular with parietal placentation.",
+      "Fruit usually a capsule dehiscing by valves or pores.",
+      "Seeds usually numerous and small."
+    ],
+    "local_argemone_pattern": [
+      "Glaucous, prickly annual/biennial herbs with colored latex.",
+      "Flowers radial and large.",
+      "Argemone typically has 2–3 horned, caducous sepals, commonly 6 petals, numerous stamens and a prickly capsule.",
+      "Capsule-prickle architecture is more useful than petal color for species separation."
+    ],
+    "confusions": {
+      "Ranunculaceae": {
+        "confusion": "Both can have many free stamens and showy flowers.",
+        "tie_breaker": "Papaveraceae has syncarpous capsule + parietal placentation + caducous 2–3 sepals + latex; Ranunculaceae more often has several free carpels/aggregate fruits."
+      },
+      "Malvaceae": {
+        "confusion": "Many stamens can dominate the flower center.",
+        "tie_breaker": "Malvaceae commonly organizes stamens into a staminal column/tube; Papaveraceae stamens are generally free and surrounds a syncarpous capsule-forming ovary."
+      }
+    }
+  },
+  "cards": [
+    {
+      "taxon": "Argemone aurantiaca",
+      "common_name": "Texas pricklypoppy",
+      "priority": "canonical anchor",
+      "status": "existing_canonical_learner_family_integration_complete",
+      "look_here_first": "Ignore the white petals. Inspect the capsule prickles: the longest are very unequal and commonly branched, reaching roughly 15–35 mm in Flora of North America descriptions.",
+      "confirm": [
+        "Accepted Texas endemic species under current POWO.",
+        "Annual/biennial with prickly stems and deeply lobed prickly leaves.",
+        "Sepal horns 8–12 mm, prickly.",
+        "Capsule ovoid with very unequal herbaceous prickles; longest often branched and 15–35 mm.",
+        "Original species description identifies red-orange latex; use latex as supporting evidence, not the only character."
+      ],
+      "confusions": [
+        "Argemone albiflora",
+        "Argemone polyanthemos"
+      ],
+      "tie_breaker": "A. aurantiaca: branched, very long unequal capsule prickles. A. albiflora: capsule prickles generally much shorter/simple in FNA keying; local A. albiflora subsp. texana descriptions also show a different mixed but shorter fruit-prickle architecture.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18790-2",
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=233500126",
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=102532"
+      ]
+    },
+    {
+      "taxon": "Argemone albiflora",
+      "common_name": "white/bluestem prickly poppy",
+      "priority": 2,
+      "status": "training_card_framework_complete_infraspecific_review_pending",
+      "look_here_first": "Inspect the flower bud/sepals and capsule rather than relying on white petals. In the FNA key, A. albiflora falls with simple shorter capsule prickles rather than the very long branched prickles of A. aurantiaca.",
+      "confirm": [
+        "Accepted species under current POWO.",
+        "Current POWO recognizes subsp. albiflora and subsp. texana.",
+        "UT's detailed Texas treatment of the taxon called A. albiflora var. texana corresponds nomenclaturally to accepted A. albiflora subsp. texana.",
+        "Detailed Texas material has light-yellow latex, glaucous stems/leaves, caducous horned sepals, hundreds of stamens and a prickly capsule."
+      ],
+      "taxonomy_note": "Do not automatically convert every Texas/Hays A. albiflora record to subsp. texana. The Master Pool remains species-level until the observation/source specimens are reviewed under the accepted infraspecific treatment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:671680-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18786-2",
+        "https://w3.biosci.utexas.edu/prc/K12/pages/Argemone%20albiflora%20texana.html",
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=102532"
+      ],
+      "images": [
+        {
+          "role": "species_media_pool",
+          "source_page": "https://commons.wikimedia.org/wiki/Category:Argemone_albiflora",
+          "license": "per-file licensing varies; inspect individual file before reuse",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    }
+  ],
+  "visual_learning_targets": [
+    "flower bud showing horned sepals before they fall",
+    "freshly opened flower with caducous sepals absent",
+    "free numerous stamens around stigma/ovary",
+    "prickly capsule opened by valves",
+    "side-by-side capsule prickles: A. aurantiaca vs A. albiflora",
+    "latex color reference only when safely/ethically observable"
+  ],
+  "taxonomy_guardrails": [
+    "Argemone albiflora var. texana is a synonym of accepted A. albiflora subsp. texana under current POWO.",
+    "Keep the Master Pool A. albiflora species-level row until individual records are audited for subspecies.",
+    "A. aurantiaca remains accepted and Texas-endemic under current POWO."
+  ],
+  "next_actions": [
+    "Attach the existing canonical A. aurantiaca assets to the family lesson.",
+    "Recover rights-safe A. albiflora fruit/bud macros and verify subspecies for the user's local observation.",
+    "Build one capsule-prickle comparison card.",
+    "Then move to Juglandaceae vs Fagaceae."
+  ]
+}
