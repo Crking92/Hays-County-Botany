@@ -2,26 +2,32 @@
   "updated_at": "2026-10-02",
   "families": {
     "Poaceae": {
-      "status": "in_progress",
+      "status": "priority_backfill_complete_visual_polish_pending",
       "packages": [
         "poaceae-family-backfill-001.json",
-        "poaceae-family-backfill-002-priority-grasses.json"
+        "poaceae-family-backfill-002-priority-grasses.json",
+        "poaceae-family-backfill-003-priority-grasses.json"
       ],
       "priority_1_total": 10,
-      "priority_1_cards_completed": 5,
+      "priority_1_species_cards_completed": 9,
+      "priority_1_taxonomy_resolutions": 1,
+      "priority_1_queue_resolved": 10,
       "completed_taxa": [
         "Andropogon gerardii",
         "Aristida purpurea",
         "Eragrostis intermedia",
         "Muhlenbergia lindheimeri",
-        "Panicum virgatum"
-      ],
-      "next_taxa": [
-        "Bothriochloa laguroides",
+        "Panicum virgatum",
         "Nassella leucotricha",
         "Sorghastrum nutans",
         "Sporobolus compositus",
         "Tripsacum dactyloides"
+      ],
+      "taxonomy_resolution": "Bothriochloa laguroides priority item resolves to existing curated Bothriochloa torreyana anchor under current POWO treatment.",
+      "next_actions": [
+        "visual comparison cards",
+        "public-reuse collar-region macros",
+        "grass-vs-sedge-vs-rush local visual module"
       ]
     }
   }
