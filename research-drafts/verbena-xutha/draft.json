@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-017-verbena-b013",
+  "created_at": "2026-10-02T16:44:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1216,
+    "source_scientific_name": "Verbena xutha",
+    "wild_observations": 11,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Verbena xutha Lehm.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Verbenaceae",
+    "genus": "Verbena",
+    "species": "xutha",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Williamson",
+      "Kerr"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Verbena xutha and lists Texas within its native range.",
+      "Travis County — UT Plant Resources Center has multiple Travis County Verbena xutha herbarium specimens.",
+      "Williamson County — the UT Plant Resources Center field treatment documents Verbena xutha as part of the county flora.",
+      "Kerr County — the Kerr WMA vascular flora documents Verbena xutha without an introduced marker."
+    ],
+    "blocking_issue": null,
+    "guardrail": "The project Hays native-source list does not include V. xutha, so Hays is not assumed from nearby Travis/Williamson occurrence."
+  },
+  "morphology": {
+    "look_here_first": "Start with the leaves: most are conspicuously 3-lobed or deeply cut, with a long central lobe and smaller lateral lobes; then notice the coarse hispid/glandular plant and multiple terminal or axillary spikes.",
+    "diagnostic_traits": [
+      "coarse perennial, one to several stems, commonly taller than V. canescens",
+      "stems and foliage hispid-hirsute with swollen/pustulate hair bases plus short glandular hairs",
+      "opposite leaves mostly 3-lobed or deeply cut, with the central lobe conspicuously dominant",
+      "leaf margins toothed and principal veins strongly raised below",
+      "terminal and axillary many-flowered spikes",
+      "flowers unevenly spaced along a ridged hairy rachis",
+      "fruit a four-part schizocarp"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Verbena halei",
+      "separator": "Both can have divided leaves, but V. xutha is coarse and strongly hispid/glandular with a repeated 3-lobed leaf pattern; V. halei is more slender with highly variable lower pinnatifid leaves and very narrow upper leaves."
+    },
+    {
+      "taxon": "Verbena canescens",
+      "separator": "V. canescens is short and uniformly gray-canescent with only short lobes; V. xutha is taller, greener/coarser, and strongly 3-lobed."
+    },
+    {
+      "taxon": "Verbena brasiliensis",
+      "separator": "Brazilian vervain has simple narrow serrate leaves and an open many-branched panicle of short spikes rather than strongly lobed leaves."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole coarse habit",
+      "3-lobed leaf",
+      "pustulate stem hairs",
+      "terminal plus axillary spikes",
+      "rachis/bract detail",
+      "flower close-up",
+      "fruit",
+      "halei comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/275173430",
+    "reusable_or_reference_candidate": "https://www.bio.utexas.edu/courses/bio406d/images/pics/vrb/verbena_xutha.htm"
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B013 pass taxa."
+}
