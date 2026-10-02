@@ -1,0 +1,14 @@
+# Deep Review sources — Panicum virgatum
+Reviewed: 2026-10-02
+Batch: deep-review-batch-013-panicum-hopia-b009
+Status: READY_FOR_APPROVAL
+
+Kew/POWO: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A413537-1
+Texas Hill Country county records: https://www.phytoneuron.net/2015Phytoneuron/04PhytoN-HillCountryGrasses.pdf
+Texas A&M morphology: https://rangeplants.tamu.edu/plant/switchgrass/
+
+Strict range PASS: Hays, Blanco, Val Verde.
+Field cue: tall rhizomatous clump + large open panicle + hairy ligule/collar.
+
+Photo candidates:
+Wikimedia gallery: https://commons.wikimedia.org/wiki/Category:Panicum_virgatum

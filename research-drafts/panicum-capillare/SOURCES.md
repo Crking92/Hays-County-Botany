@@ -1,0 +1,19 @@
+# Deep Review sources — Panicum capillare
+Reviewed: 2026-10-02
+Batch: deep-review-batch-013-panicum-hopia-b009
+Status: READY_FOR_APPROVAL
+
+Kew/POWO: https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A181618-2
+Hays record: https://www.phytoneuron.net/2015Phytoneuron/04PhytoN-HillCountryGrasses.pdf
+Williamson treatment: https://w3.biosci.utexas.edu/prc/K12/pdf/Panicum%20capillare
+Bell specimen: https://biocollections.ars.usda.gov/collections/list.php?db=1&page=176&taxa=Poaceae&taxontype=3
+
+Strict range PASS: Hays, Williamson, Bell.
+Field cue: hairy annual + huge airy many-branched panicle.
+
+Exact reusable photo:
+https://commons.wikimedia.org/wiki/File:Panicum_capillare_NPS-1.jpg
+Jim Pisarowicz / National Park Service — Public Domain.
+
+Diagnostic collar/sheath image:
+https://commons.wikimedia.org/wiki/File:Panicum_capillare_(3812305589).jpg
