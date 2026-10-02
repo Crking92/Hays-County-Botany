@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NEEDS_MANUAL_REVIEW",
+  "batch_id": "deep-review-batch-009-former-matelea-b005",
+  "created_at": "2026-10-02T13:04:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 678,
+    "source_scientific_name": "Matelea gonocarpos",
+    "wild_observations": 0,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Gonolobus suberosus var. granulatus (Scheele) Krings & Q.Y.Xiang",
+    "rank": "variety",
+    "order": "Gentianales",
+    "family": "Apocynaceae",
+    "genus": "Gonolobus",
+    "species": "suberosus var. granulatus",
+    "synonyms": [
+      "Matelea gonocarpos (Walter) Shinners (legacy name applied to differing concepts)"
+    ],
+    "status": "VERIFIED",
+    "note": "Current Kew/FNA/ITIS place the Texas anglepod concept in Gonolobus suberosus var. granulatus. Texas sources often synonymize Matelea gonocarpos with this variety, but NatureServe notes the legacy name has been applied to differing concepts."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Travis — UT PRC herbarium explicitly lists Gonolobus suberosus var. granulatus.",
+      "Williamson — UT PRC county treatment explicitly treats G. suberosus var. granulatus and gives Matelea gonocarpos as a synonym.",
+      "Kerr — older TPWD Kerr WMA flora lists Matelea gonocarpos, but the legacy name has been applied to differing concepts; Kerr is not counted until concept reconciliation.",
+      "Hays — project source pool flags Hays Local under Matelea gonocarpos, but the underlying record has not yet been reconciled to var. granulatus and is not counted."
+    ],
+    "blocking_issue": "Two target counties are firm; legacy Matelea gonocarpos records in Kerr/Hays require taxonomic-concept reconciliation before a third county can be counted.",
+    "guardrail": "No county inferred from statewide or ecoregion range. Legacy names are counted only where taxonomic concept is reconciled."
+  },
+  "morphology": {
+    "look_here_first": "Look for the big green anglepod: a vigorous climber with large cordate leaves, clusters of relatively large uniformly olive-green star flowers, and a smooth long follicle with sharp longitudinal angles.",
+    "diagnostic_traits": [
+      "vigorous perennial twiner climbing several meters",
+      "large opposite cordate leaves",
+      "axillary multi-flowered clusters",
+      "flowers roughly 16–25 mm across in Williamson treatment",
+      "uniform olive-green glabrous corolla lobes in var. granulatus",
+      "yellow dorsal anther appendages",
+      "non-reticulate corolla",
+      "large smooth angular follicle rather than a muricate pod"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Gonolobus suberosus var. suberosus",
+      "separator": "Var. granulatus has uniformly olive-green glabrous lobes and yellow dorsal anther appendages; var. suberosus usually has maroon/brown lobe bases with green/yellow tips and dark purple/maroon appendages."
+    },
+    {
+      "taxon": "Matelea reticulata",
+      "separator": "Pearl milkvine has smaller strongly reticulate flowers, a silvery center, and a muricate follicle; anglepod has larger uniform-green flowers and smooth sharply angled fruit."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole climbing habit",
+      "large cordate leaves",
+      "uniform olive-green flower front",
+      "anther appendage/gynostegium macro",
+      "smooth sharply angled follicle",
+      "variety comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "NEEDS_MANUAL_REVIEW",
+  "installation_guardrail": "Do not install until range ambiguity is resolved or Calvin explicitly approves an exception."
+}

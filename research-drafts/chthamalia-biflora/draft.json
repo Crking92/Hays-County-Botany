@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-009-former-matelea-b005",
+  "created_at": "2026-10-02T13:04:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 676,
+    "source_scientific_name": "Matelea biflora",
+    "wild_observations": 2,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Chthamalia biflora Decne.",
+    "rank": "species",
+    "order": "Gentianales",
+    "family": "Apocynaceae",
+    "genus": "Chthamalia",
+    "species": "biflora",
+    "synonyms": [
+      "Matelea biflora (Raf.) Woodson",
+      "Gonolobus biflorus Raf.",
+      "Gonolobus biflorus var. wrightii A.Gray"
+    ],
+    "status": "VERIFIED",
+    "note": "Current Kew/POWO accepts Chthamalia biflora and treats Matelea biflora as a synonym. FNA 2023 uses Matelea biflora as an alternative accepted taxonomy; canonical project name follows current Kew."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Kerr"
+    ],
+    "evidence": [
+      "Hays — UT PRC Purola Preserve records Matelea biflora, a synonym of current Kew Chthamalia biflora, as naturally occurring.",
+      "Travis — UT PRC Travis County herbarium records Matelea biflora under the FNA treatment of this same species concept.",
+      "Kerr — TPWD Kerr Wildlife Management Area flora records Matelea biflora."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county inferred from statewide or ecoregion range. Legacy names are counted only where taxonomic concept is reconciled."
+  },
+  "morphology": {
+    "look_here_first": "Look for a low hairy plant with dark maroon-to-brown star flowers, commonly in pairs, sitting close to the stems and heart-shaped leaves.",
+    "diagnostic_traits": [
+      "low decumbent/trailing herb, often 7–40 cm",
+      "stems and leaves densely hirsute with long and minute glandular hairs",
+      "sessile/subsessile inflorescences usually 1–2-flowered",
+      "maroon to dark-brown non-reticulate rotate-campanulate corolla",
+      "3–6 mm lobes often reflexed and hairy adaxially",
+      "five-part ring corona with incurved appendages arching over anthers",
+      "densely muricate hairy follicle",
+      "plant often malodorous when touched"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Matelea reticulata",
+      "separator": "Star milkvine is low and hairy with paired dark non-reticulate flowers; pearl milkvine is a longer twining vine with green netted flowers and a silvery center."
+    },
+    {
+      "taxon": "Matelea parvifolia",
+      "separator": "Spearleaf is a wiry desert twiner with tiny 0.5–2 cm leaves and tiny 2–3 mm corolla lobes; C. biflora has larger leaves, very hairy stems, and larger paired dark flowers."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole low/trailing habit",
+      "hairy leaf/stem",
+      "paired dark flowers",
+      "corona/gynostegium macro",
+      "dense muricate follicle"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves the B005 pass set."
+}
