@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NEEDS_MANUAL_REVIEW",
+  "batch_id": "deep-review-batch-015-quercus-b011",
+  "created_at": "2026-10-02T16:12:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 947,
+    "source_scientific_name": "Quercus virginiana",
+    "wild_observations": 0,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Quercus virginiana Mill.",
+    "rank": "species",
+    "order": "Fagales",
+    "family": "Fagaceae",
+    "genus": "Quercus",
+    "species": "virginiana",
+    "status": "VERIFIED",
+    "note": "Accepted species; Central Texas records require modern separation from Quercus fusiformis."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [
+      "Bell"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Q. virginiana and lists Texas in its native range.",
+      "Current Flora of North America treatment states typical Q. virginiana extends into Texas only as far west as the Brazos River drainage and along the coast to the Edwards Plateau escarpment; farther-west live-oak populations are commonly intermediate or closer to Q. fusiformis.",
+      "Bell County has modern agency/USDA-derived references using Q. virginiana, but Fort Cavazos material also illustrates the historic Q. fusiformis / Q. virginiana concept overlap."
+    ],
+    "blocking_issue": "Only one target county is firm enough for the current species concept. Hays/Travis/other Central Texas 'live oak' records cannot be automatically transferred to Q. virginiana because modern treatments recognize Q. fusiformis and extensive intergradation.",
+    "guardrail": "Do not count a generic 'live oak' label or an older Q. virginiana record from the Edwards Plateau as current Q. virginiana without specimen-level evidence. Canonical Q. fusiformis already covers the plateau live-oak concept."
+  },
+  "morphology": {
+    "look_here_first": "Do not start with 'evergreen oak.' First compare the leaf and acorn to Texas live oak: typical southern live oak tends toward broader leathery leaves and blunt/rounded barrel-shaped acorns, while Q. fusiformis often has narrower leaves and acute to subfusiform acorns; introgression can blur both.",
+    "diagnostic_traits": [
+      "evergreen to subevergreen white-oak-group tree",
+      "leathery simple leaves with entire to variably toothed/revolute margins",
+      "lower leaf surface pale and stellate-hairy",
+      "acorns mature in one season",
+      "typical nuts broadly ovoid/barrel-shaped with blunt or rounded apex",
+      "cupule hemispheric to deeply goblet-shaped",
+      "species separation from Q. fusiformis is geographic plus morphological, not one-trait identification"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Quercus fusiformis",
+      "separator": "Priority comparison. Q. fusiformis is the canonical Central/Edwards Plateau live oak; it often has narrower blades and more acute/subfusiform nuts. FNA explicitly documents intergradation, so ambiguous trees should stay unresolved."
+    },
+    {
+      "taxon": "Quercus oleoides",
+      "separator": "South Texas material can show introgression toward Q. oleoides; broader rounded leaves and blunt barrel-shaped acorns alone are not enough to force Q. virginiana."
+    },
+    {
+      "taxon": "Quercus laurifolia",
+      "separator": "Laurel oak may be semi-evergreen with narrow leaves, but belongs to the red-oak group and has bristle-tipped/mucronate leaf characters and two-season acorns."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole coastal/live-oak habit",
+      "upper leaf",
+      "lower leaf hairs",
+      "leaf-margin variation",
+      "twig/buds",
+      "mature acorn side profile",
+      "cupule",
+      "side-by-side Q. fusiformis comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "reusable_candidate": "https://commons.wikimedia.org/wiki/Category:Quercus_virginiana"
+  },
+  "approval_status": "NEEDS_MANUAL_REVIEW",
+  "installation_guardrail": "Do not install as a target-zone native unless the taxon-concept/range hold is resolved or Calvin explicitly approves a documented exception."
+}
