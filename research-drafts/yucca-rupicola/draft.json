@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-008-yucca-b004",
+  "created_at": "2026-10-02T11:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1248,
+    "source_scientific_name": "Yucca rupicola",
+    "wild_observations": 50,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Yucca rupicola Scheele",
+    "rank": "species",
+    "order": "Asparagales",
+    "family": "Asparagaceae",
+    "genus": "Yucca",
+    "species": "rupicola",
+    "synonyms": [
+      "Yucca rupicola var. tortifolia Engelm.",
+      "Yucca tortifolia Lindh. & G.M.Ross",
+      "Yucca lutescens Carrière",
+      "Yucca tortilis Carrière"
+    ],
+    "status": "VERIFIED",
+    "note": "Kew accepts Yucca rupicola; native range is south-central Texas (southeastern Edwards Plateau) to northeastern Mexico. FNA describes it as endemic to the southeastern Edwards Plateau within its U.S. range."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — UT Plant Resources Center Flora of Purola Preserve lists Yucca rupicola among naturally occurring, non-introduced plants of northern Hays County.",
+      "Travis — Balcones Canyonlands Preserve plant list for Travis County includes twist-leaf yucca (Yucca rupicola).",
+      "Williamson — UT Plant Resources Center provides a detailed Vascular Plants of Williamson County treatment for Yucca rupicola."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County decision uses explicit county/local records alongside BONAP/NPSOT/Kew range context. No county is inferred from ecoregion membership alone."
+  },
+  "morphology": {
+    "look_here_first": "Look at the leaves before the flower: a low, essentially trunkless colony with flexible dark-green leaves that twist helically and have wavy/denticulate orange to reddish-brown margins.",
+    "diagnostic_traits": [
+      "acaulescent/trunkless open colonies of 2–15 rosettes",
+      "flexible lanceolate leaves, 35–60 cm long and 1.7–4 cm wide",
+      "leaves conspicuously twisted and strongly concave",
+      "leaf margins wavy or minutely toothed, dark orange to reddish brown",
+      "inflorescence rises well beyond the rosette",
+      "fruit erect, dry, dehiscent capsule rather than a fleshy berry"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Yucca constricta",
+      "separator": "Both are low colony-forming yuccas, but Y. rupicola has broader flexible twisted leaves with orange/red wavy-toothed margins; Y. constricta has much narrower mostly straight leaves with whitish filiferous margins and a deeply waist-constricted capsule."
+    },
+    {
+      "taxon": "Yucca pallida",
+      "separator": "Pale yucca is usually glaucous blue-green with straighter leaves and flatter yellowish margins; Y. rupicola is darker green, visibly twisted, and has wavy orange/red margins."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole low colony",
+      "twisted leaf and rosette",
+      "orange/red wavy leaf margin close-up",
+      "flowering stalk",
+      "erect dry capsule"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B004."
+}

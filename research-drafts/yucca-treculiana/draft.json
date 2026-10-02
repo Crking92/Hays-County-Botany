@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-008-yucca-b004",
+  "created_at": "2026-10-02T11:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1250,
+    "source_scientific_name": "Yucca treculeana",
+    "wild_observations": 0,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Yucca treculiana Carrière",
+    "rank": "species",
+    "order": "Asparagales",
+    "family": "Asparagaceae",
+    "genus": "Yucca",
+    "species": "treculiana",
+    "synonyms": [
+      "Yucca treculeana auct./orthographic usage",
+      "Yucca australis (Engelm.) Trel.",
+      "Yucca treculiana var. succulenta McKelvey",
+      "Yucca undulata K.Koch"
+    ],
+    "status": "VERIFIED",
+    "note": "Canonical spelling corrected to Yucca treculiana Carrière following the current Kew/POWO 2026 backbone. Many Texas floras, databases, and the source pool use Yucca treculeana. Current Kew separately accepts Y. torreyi; older FNA lumped Y. torreyi into Y. treculeana."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Bexar",
+      "Travis",
+      "Burnet"
+    ],
+    "evidence": [
+      "Bexar — a 2025 TCEQ Edwards Aquifer site assessment in Bexar County records Yucca treculeana on the project site; this is the widespread older spelling of the currently accepted Y. treculiana.",
+      "Travis — Balcones Canyonlands Preserve plant list for Travis County includes Trecul yucca under Yucca treculeana.",
+      "Burnet — field documentation from Double Eagle Ranch in Burnet County records several wild communities of Yucca treculeana/treculiana."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County decision uses explicit county/local records alongside BONAP/NPSOT/Kew range context. No county is inferred from ecoregion membership alone."
+  },
+  "morphology": {
+    "look_here_first": "This is the other large tree yucca in the batch. Look for a branched or few-trunked crown of broad rigid leaves that are traditionally mostly without marginal threads and not rolled inward at the tip, then confirm with the stouter ovary and fleshy pendant fruit.",
+    "diagnostic_traits": [
+      "arborescent/tree-like, often several meters tall and sometimes branched",
+      "broad thick rigid leaves forming terminal crowns",
+      "traditional Texas key: leaf margins mostly without marginal threads and leaf tips not strongly inrolled",
+      "traditional key: stout ovary about 7–12 mm diameter at flowering",
+      "dense cream to greenish-cream flower panicle",
+      "large pendant fleshy succulent indehiscent fruit"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Yucca torreyi",
+      "separator": "Traditional Texas keys separate Y. treculiana by mostly non-filiferous, non-inrolled leaf tips and a stouter ovary, versus Y. torreyi with marginal threads, inrolled apical leaf margins, and a more slender ovary. Use multiple characters because older FNA lumped the taxa and historical hybridization has been reported."
+    },
+    {
+      "taxon": "Yucca aloifolia",
+      "separator": "Both are tree yuccas with dagger leaves, but Y. treculiana belongs to the Texas/Mexico fleshy-fruited complex and should be checked by fruit, leaf margin architecture, flower morphology, and geographic range rather than generic 'Spanish dagger' appearance."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tree habit and branching",
+      "leaf crown",
+      "leaf-margin close-up showing lack/sparsity of threads",
+      "flower / stout ovary close-up",
+      "pendant fleshy fruit",
+      "side-by-side treculiana vs torreyi"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B004."
+}

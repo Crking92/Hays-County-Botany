@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-008-yucca-b004",
+  "created_at": "2026-10-02T11:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1246,
+    "source_scientific_name": "Yucca constricta",
+    "wild_observations": 16,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Yucca constricta Buckley",
+    "rank": "species",
+    "order": "Asparagales",
+    "family": "Asparagaceae",
+    "genus": "Yucca",
+    "species": "constricta",
+    "synonyms": [
+      "Yucca albospica Van Houtte",
+      "Yucca angustifolia Carrière (illegitimate later homonym)",
+      "Yucca polyphylla Baker"
+    ],
+    "status": "VERIFIED",
+    "note": "Kew accepts Yucca constricta. FNA provides an especially useful field character: the dry capsule is deeply constricted near the middle."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Val Verde"
+    ],
+    "evidence": [
+      "Hays — UT Plant Resources Center Flora of Purola Preserve lists Yucca constricta among naturally occurring, non-introduced plants of northern Hays County.",
+      "Travis — Balcones Canyonlands Preserve plant list for Travis County includes Buckley yucca (Yucca constricta).",
+      "Val Verde — Laughlin Air Force Base Integrated Natural Resources Management Plan, Del Rio/Val Verde County, lists Yucca constricta among observed woody plants."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County decision uses explicit county/local records alongside BONAP/NPSOT/Kew range context. No county is inferred from ecoregion membership alone."
+  },
+  "morphology": {
+    "look_here_first": "Start with the narrow straight leaves and the fruit: Buckley’s yucca makes low colonies of small rosettes with narrow whitish-threaded leaves, an unusually tall naked scape, and dry capsules pinched deeply at the middle.",
+    "diagnostic_traits": [
+      "small to large open colonies, mostly acaulescent or with only a short stem",
+      "mostly straight linear leaves, usually about 0.7–1.5 cm wide",
+      "leaf margins whitish/light green and filiferous, shredding into threads",
+      "flowering stalk rises far above the leaves on a long naked scape",
+      "pale greenish-white pendent flowers",
+      "erect dry dehiscent capsule deeply constricted near the middle"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Yucca rupicola",
+      "separator": "Y. constricta has narrow mostly straight white-threaded leaves and a deeply constricted capsule; Y. rupicola has broader flexible twisted leaves with orange/red denticulate margins."
+    },
+    {
+      "taxon": "Yucca tenuistyla",
+      "separator": "Both have narrow filiferous leaves, but FNA separates Y. constricta by the deeply waist-constricted capsule; Y. tenuistyla capsules are not constricted and its leaves tend to recurve."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole low colony",
+      "narrow straight filiferous leaves",
+      "white marginal threads close-up",
+      "very tall scape above rosette",
+      "deeply constricted dry capsule"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B004."
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-008-yucca-b004",
+  "created_at": "2026-10-02T11:32:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1249,
+    "source_scientific_name": "Yucca torreyi",
+    "wild_observations": 2,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Yucca torreyi Shafer",
+    "rank": "species",
+    "order": "Asparagales",
+    "family": "Asparagaceae",
+    "genus": "Yucca",
+    "species": "torreyi",
+    "synonyms": [
+      "Yucca baccata var. macrocarpa Torr.",
+      "Yucca macrocarpa (Torr.) Merriam, nom. illeg.",
+      "Yucca torreyi f. parviflora McKelvey"
+    ],
+    "status": "VERIFIED",
+    "note": "Current Kew/POWO (2026 backbone) accepts Yucca torreyi as a distinct species and cites the 2025 Phytotaxa Yucca phylogeny. Flora of North America (2002) instead included it within Yucca treculeana/treculiana, so older sources and labels may conflict."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Burnet",
+      "Bexar",
+      "Val Verde"
+    ],
+    "evidence": [
+      "Burnet — Illustrated Flora of North Central Texas records Yucca torreyi from Burnet County; contemporary field documentation also records flowering plants at Longhorn Cavern State Park, Burnet County.",
+      "Bexar — Government Canyon State Natural Area vegetation documentation for Bexar County includes Yucca torreyi among local succulents.",
+      "Val Verde — Amistad National Recreation Area vascular-plant inventory in Val Verde County lists Yucca torreyi; Lower Pecos sources likewise describe it as a common yucca of the study area."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County decision uses explicit county/local records alongside BONAP/NPSOT/Kew range context. No county is inferred from ecoregion membership alone."
+  },
+  "morphology": {
+    "look_here_first": "First decide whether you have a tree yucca with fleshy fruit. If yes, look for Torrey’s traditional field combination: rigid spear-like leaves with marginal threads, the leaf tip portion often rolled inward, versus the mostly non-threaded, non-inrolled leaves of Trecul’s yucca.",
+    "diagnostic_traits": [
+      "arborescent/tree-like yucca with a trunk and crown of rigid dagger leaves",
+      "leaves commonly with marginal threads in the traditional Texas field key",
+      "apical leaf portion often inrolled so margins approach each other",
+      "traditional key gives a relatively slender ovary, not over about 7 mm diameter at flowering",
+      "flowers cream to whitish, often in a dense panicle",
+      "fruit fleshy, indehiscent, berry-like rather than a dry splitting capsule"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Yucca treculiana",
+      "separator": "This is the critical pair. Traditional Texas keys use marginal threads + inrolled leaf tips + a slender ovary for Y. torreyi, versus mostly non-threaded, non-inrolled leaves + a stouter 7–12 mm ovary for Y. treculiana. Geographic context and fruit/flower details should be used because historical lumping and possible hybridization make leaf-only IDs risky."
+    },
+    {
+      "taxon": "Yucca rupicola",
+      "separator": "Both may occur on the Edwards Plateau, but Y. torreyi is trunk-forming with rigid dagger leaves and fleshy fruit; Y. rupicola stays low/trunkless with flexible twisted leaves and a dry dehiscent capsule."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole arborescent habit",
+      "leaf crown and trunk",
+      "marginal threads / inrolled leaf tip close-up",
+      "flower and ovary close-up",
+      "fleshy indehiscent fruit",
+      "side-by-side torreyi vs treculiana"
+    ],
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B004."
+}
