@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NON_NATIVE_COMPARISON_RECOMMENDED",
+  "batch_id": "deep-review-batch-016-ulmus-b012",
+  "created_at": "2026-10-02T16:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1197,
+    "source_scientific_name": "Ulmus parvifolia",
+    "wild_observations": 2,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Ulmus parvifolia Jacq.",
+    "rank": "species",
+    "order": "Rosales",
+    "family": "Ulmaceae",
+    "genus": "Ulmus",
+    "species": "parvifolia",
+    "status": "VERIFIED",
+    "note": "Accepted taxon; Asian native and introduced/naturalized in North America."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO accepts Ulmus parvifolia but gives its native range in East Asia, not North America.",
+      "Flora of North America treats it as introduced and notes that it naturalizes readily in disturbed woods/sites.",
+      "Texas regional invasive-species material (Quiet Invasion, Houston-Galveston region) treats Chinese elm as invasive and describes natural/spread impacts.",
+      "The project source pool contains two user observations marked wild, supporting encounter value but not native status."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Native-range status remains FAIL regardless of how commonly the species is encountered. Retention is a separate learner-role recommendation."
+  },
+  "morphology": {
+    "look_here_first": "Look at bark and leaf texture together: Chinese elm has distinctive exfoliating mottled tan/orange/gray bark and small glossy, mostly singly serrate leaves; it flowers and fruits in late summer-fall.",
+    "diagnostic_traits": [
+      "introduced Asian elm, often planted and sometimes naturalized",
+      "mature bark exfoliates in irregular plates creating mottled tan, orange, gray and olive patches",
+      "leaves small, dark, lustrous/glabrous above, mostly singly serrate",
+      "twigs generally not corky-winged",
+      "flowers in late summer to early fall",
+      "small glabrous samara; seed nearly fills samara",
+      "disturbed-site escape/naturalization makes it a useful field comparison"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Ulmus crassifolia",
+      "separator": "Both can have small leaves and fall reproduction. Cedar elm has rough hairy leaves, often corky twigs, and hairy samaras; Chinese elm has exfoliating mottled bark, glossy smoother leaves, and glabrous samaras."
+    },
+    {
+      "taxon": "Ulmus pumila",
+      "separator": "Siberian elm also has small leaves but lacks Chinese elm's distinctive lacebark exfoliation and has different samara/flowering timing."
+    },
+    {
+      "taxon": "Ulmus alata",
+      "separator": "Winged elm has regular corky wings and spring reproduction rather than mottled exfoliating bark and fall reproduction."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole naturalized/urban habit",
+      "exfoliating mottled bark",
+      "small glossy upper leaf",
+      "lower leaf",
+      "twig",
+      "late-season flowers",
+      "glabrous samara",
+      "cedar-elm comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/325635771"
+  },
+  "approval_status": "READY_FOR_COMPARISON_APPROVAL",
+  "learner_role": {
+    "role": "INVASIVE_COMPARISON_RECOMMENDED",
+    "retained": false,
+    "native_metrics_excluded": true,
+    "reason": "Non-native/invasive regional species with clear field-confusion value against cedar elm; source pool also shows user wild encounters. Requires Calvin's approval before learner retention."
+  },
+  "installation_guardrail": "Native status remains FAIL. Install only if Calvin explicitly approves retention as a labeled non-native/invasive comparison; exclude from native totals."
+}
