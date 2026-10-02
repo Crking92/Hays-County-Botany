@@ -11,3 +11,11 @@ Kew gives the native range as Egypt to southern Africa and explicitly lists Texa
 Decision: FAIL under the project native threshold.
 
 Field cue: introduced perennial bunchgrass with knotty base and fine open fan-shaped panicle; compare directly to switchgrass.
+
+## Learner retention decision
+2026-10-02 — Calvin explicitly requested that Kleingrass remain in the visual learner because it is commonly encountered and needs to be identified.
+Native status remains FAIL. Learner role: INVASIVE_COMPARISON / NON_NATIVE_COMPARISON.
+
+Supporting encounter/invasive context:
+- Texas A&M Rangelands describes Kleingrass as an introduced African forage grass in Texas: https://rangeplants.tamu.edu/plant/kleingrass/
+- Texas invasive-species educational literature identifies Kleingrass among introduced forage grasses that have come to dominate large acreages in Texas: https://www.texasinvasives.org/resources/publications/UOC_texasinvasives.pdf
