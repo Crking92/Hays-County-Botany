@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-014-dalea-b010",
+  "created_at": "2026-10-02T15:39:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 333,
+    "source_scientific_name": "Dalea frutescens",
+    "wild_observations": 3,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Dalea frutescens A.Gray",
+    "rank": "species",
+    "order": "Fabales",
+    "family": "Fabaceae",
+    "genus": "Dalea",
+    "species": "frutescens",
+    "synonyms": [
+      "Parosela frutescens",
+      "Dalea frutescens var. laxa",
+      "Dalea laxa",
+      "Parosela laxa"
+    ],
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO; Texas is within the native range. Historical laxa names are synonymized."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Kerr",
+      "Val Verde"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Dalea frutescens as native in Texas.",
+      "Hays County — University of Texas Purola Preserve flora lists Dalea frutescens among plants occurring naturally rather than introduced.",
+      "Kerr County — Barneby's Dalea monograph explicitly discusses Kerr County material and the species as common on the Edwards Plateau.",
+      "Val Verde County — Barneby documents the type of the synonym Parosela laxa from Devils River, Val Verde County, within the current D. frutescens concept."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Cultivated pollinator-garden records are not counted toward the three-county threshold; the decision uses natural/herbarium/floristic evidence."
+  },
+  "morphology": {
+    "look_here_first": "First decide whether the plant is woody: D. frutescens is the low intricately branched shrub in this batch, with many tiny leaflets on pale gray/straw branchlets and short terminal flower spikes.",
+    "diagnostic_traits": [
+      "low woody shrub/subshrub, usually under about 1 m, intricately branched",
+      "older stems pale brown and furrowed; younger twigs greenish to gray/straw and glandular",
+      "odd-pinnate leaves with usually 4–9 pairs of tiny obovate to oblanceolate leaflets plus a terminal leaflet",
+      "leaflets brighter above, paler and gland-punctate beneath",
+      "terminal or leaf-opposed short spikes, usually subcapitate to moderately dense",
+      "calyx short-toothed and glossy/glabrous externally, but silky-ciliate around the mouth",
+      "flower sessile; bicolored petals are a supporting cue rather than the primary identifier"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Dalea formosa",
+      "separator": "D. frutescens has a short-toothed shiny calyx that is nearly hairless outside and silky mainly around the mouth; D. formosa is separated by its conspicuously plumose/feathery calyx-lobe treatment."
+    },
+    {
+      "taxon": "Dalea aurea",
+      "separator": "D. aurea is an herbaceous perennial with a fuzzy dense head and only a few larger silky leaflets; D. frutescens is woody and many-leafleted."
+    },
+    {
+      "taxon": "Dalea compacta",
+      "separator": "D. compacta is herbaceous with linear leaflets and a dense terminal head; D. frutescens remains visibly woody and intricately branched."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole shrub habit",
+      "woody branch/stem",
+      "many tiny leaflets",
+      "terminal spike",
+      "calyx mouth/exterior close-up",
+      "fruit/pod"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "reusable_candidate": "https://commons.wikimedia.org/wiki/File:Dalea-frutescens-20080325.JPG",
+    "candidate_note": "Reusable cultivated morphology reference only; final curation should prefer a wild Texas/Edwards Plateau image for habit."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B010."
+}
