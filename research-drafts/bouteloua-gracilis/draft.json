@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-006-bouteloua-b002",
+  "created_at": "2026-10-02T10:29:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 147,
+    "source_scientific_name": "Bouteloua gracilis",
+    "wild_observations": 1,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Bouteloua gracilis (Kunth) Lag. ex Griffiths",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Bouteloua",
+    "species": "gracilis",
+    "synonyms": [
+      "Chondrosum gracile Kunth"
+    ],
+    "status": "VERIFIED",
+    "note": "Kew/POWO accepted name used canonically. Some regional sources show an expanded author citation; the taxon concept is the same."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Uvalde",
+      "Crockett"
+    ],
+    "evidence": [
+      "Hays — Beautiful Hays County documents volunteer Bouteloua gracilis thriving on an unmanaged dry slope and treats it within the local native-grass context; BONAP is retained as the primary native-range authority.",
+      "Uvalde — Texas A&M/OakTrust Uvalde vascular-plant survey records Bouteloua gracilis collected in Uvalde (collection 824, 25 Oct 2002).",
+      "Crockett — USDA-NRCS Plant Materials Center blue grama evaluation lists accession 9093104 with origin Crockett County, Texas."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Blue grama is less strongly represented in the local source pool than the other B002 species. The Hays record is local field evidence rather than a herbarium voucher, so that evidence strength is preserved explicitly; BONAP county mapping is the primary distribution authority and no county is inferred from ecoregion mapping."
+  },
+  "morphology": {
+    "look_here_first": "Look at the number and shape of the flowering branches: blue grama usually has 1–3 conspicuous unilateral racemes shaped like curved eyebrows or rooster combs, with spikelets packed all the way to the branch tip.",
+    "diagnostic_traits": [
+      "perennial tufted/caespitose warm-season grass with short stout rhizomes",
+      "leaves concentrated mainly near the base",
+      "usually 1–3 conspicuous curved unilateral pectinate racemes",
+      "racemes about 1.5–5 cm long and spreading to arcuate",
+      "many crowded spikelets continue to the end of the raceme",
+      "no long naked rachis tip or 'stinger' beyond the spikelets"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Bouteloua rigidiseta",
+      "separator": "Blue grama usually presents 1–3 longer curved comb-like racemes; Texas grama has roughly 5–9 much shorter fuzzy/awned branches."
+    },
+    {
+      "taxon": "Bouteloua hirsuta",
+      "separator": "Blue grama's spikelets run to the branch tip; hairy/tall grama relatives can leave the rachis projecting beyond the spikelets as a distinct 'stinger'."
+    },
+    {
+      "taxon": "Bouteloua curtipendula",
+      "separator": "Sideoats grama has numerous short racemes spaced along a long central axis; blue grama has only a few longer curved combs near the top."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tuft/mat habit",
+      "1–3 curved eyebrow racemes",
+      "raceme close-up",
+      "branch tip showing no projecting stinger",
+      "basal leaves/rhizome context"
+    ],
+    "exact_reusable_candidate_found": true,
+    "exact_final_selection_pending_user_approval": true
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B002."
+}
