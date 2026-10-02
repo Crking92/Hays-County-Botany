@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-015-quercus-b011",
+  "created_at": "2026-10-02T16:12:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 937,
+    "source_scientific_name": "Quercus marilandica",
+    "wild_observations": 0,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Quercus marilandica Münchh.",
+    "rank": "species",
+    "order": "Fagales",
+    "family": "Fagaceae",
+    "genus": "Quercus",
+    "species": "marilandica",
+    "status": "VERIFIED",
+    "note": "Kew recognizes var. ashei and var. marilandica; B011 remains species-level."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Bell",
+      "Blanco",
+      "Burnet"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Q. marilandica, lists Texas as native, and recognizes var. ashei and var. marilandica.",
+      "USDA PLANTS-derived county/native-status data records Q. marilandica as native in Bell County.",
+      "The same USDA-derived data records it as native in Blanco County.",
+      "The same USDA-derived data records it as native in Burnet County."
+    ],
+    "blocking_issue": null,
+    "guardrail": "The learner remains species-level for B011 while preserving Kew's accepted infraspecific structure; flower/leaf variation should not be used to assign a variety without stronger evidence."
+  },
+  "morphology": {
+    "look_here_first": "Look for the 'duck-foot' or spatula-shaped leaf and the bark together: the leaf narrows toward the base and ends in 3–5 broad bristle-tipped lobes, while mature bark becomes very dark and blocky.",
+    "diagnostic_traits": [
+      "deciduous red-oak-group tree, often small to medium sized on poor uplands",
+      "leaf strongly obovate/obtrullate, narrow below and broad toward tip",
+      "usually 3–5 broad shallow lobes concentrated in distal half",
+      "lobe tips carry bristles/awns",
+      "upper surface dark glossy green; lower surface paler and often tawny-pubescent",
+      "mature bark nearly black to dark gray, breaking into thick squarish blocks",
+      "acorns mature in two seasons"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Quercus stellata",
+      "separator": "Post oak is a white-oak-group species with rounded, non-bristle lobes and often a cruciform leaf; blackjack has bristle-tipped lobes and very dark blocky bark."
+    },
+    {
+      "taxon": "Quercus nigra",
+      "separator": "Water oak can develop spatulate three-lobed leaves but usually has smaller, thinner leaves and lacks blackjack's thick leathery 'duck-foot' form and blocky black bark."
+    },
+    {
+      "taxon": "Quercus buckleyi",
+      "separator": "Texas red oak has deeper pointed sinuses and more classically red-oak lobed leaves; blackjack is broader and more top-heavy with shallow distal lobes."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tree/upland habit",
+      "full upper leaf",
+      "lower leaf pubescence",
+      "bristle-tipped lobe macro",
+      "dark blocky bark",
+      "twig/buds",
+      "acorn/cupule"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "reusable_candidate": "https://commons.wikimedia.org/wiki/Category:Quercus_marilandica"
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B011 pass taxa."
+}
