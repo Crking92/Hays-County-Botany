@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-010-clematis-b006",
+  "created_at": "2026-10-02T14:43:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 267,
+    "source_scientific_name": "Clematis texensis",
+    "wild_observations": 2,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Clematis texensis Buckley",
+    "rank": "species",
+    "order": "Ranunculales",
+    "family": "Ranunculaceae",
+    "genus": "Clematis",
+    "species": "texensis",
+    "synonyms": [
+      "Clematis coccinea Engelm. ex A.Gray",
+      "Coriflora texensis (Buckley) W.A.Weber",
+      "Viorna coccinea (Engelm. ex A.Gray) Small"
+    ],
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO and Flora of North America; Texas endemic."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Bandera",
+      "Real"
+    ],
+    "evidence": [
+      "Travis — Texas Parks & Wildlife annotated Travis County rare-species list explicitly records scarlet leather-flower (Clematis texensis); Travis County preserve reports also document conservation collections.",
+      "Bandera — TPWD annotated Bandera County rare-species list records Clematis texensis; public-domain Wikimedia field photographs also document wild plants at Lost Maples State Natural Area in Bandera County.",
+      "Real — recent documented field observations and TPWD element-occurrence materials record Clematis texensis in Real County."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county inferred from statewide range, ecoregion, cultivation, plant sales, or an unreconciled historical taxonomic concept."
+  },
+  "morphology": {
+    "look_here_first": "Look for the only truly scarlet leatherflower in this set: a nodding ovoid-to-urn-shaped flower with thick rose-red to scarlet sepals and sharply recurved tips.",
+    "diagnostic_traits": [
+      "low perennial climbing vine to roughly 3 m",
+      "1-pinnate leaves with 6–10 leaflets plus a tendril-like terminal leaflet",
+      "leaflets leathery, often glaucous beneath and visibly reticulate",
+      "flowers axillary and ovoid-to-urn-shaped",
+      "four thick rose-red to scarlet sepals; margins not expanded and not crispate",
+      "acute to acuminate sepal tips recurved outward",
+      "achenes with 4–7 cm plumose beaks"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Clematis pitcheri",
+      "separator": "C. texensis is genuinely rose-red/scarlet, with non-expanded non-crispate sepal margins; C. pitcheri is usually blue/reddish purple with narrow expanded, crisped distal margins."
+    },
+    {
+      "taxon": "Clematis drummondii",
+      "separator": "C. drummondii has small open white/cream unisexual flowers with thin spreading sepals; C. texensis has a thick scarlet urn-shaped bisexual flower."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole vine in limestone habitat",
+      "1-pinnate leaf",
+      "scarlet flower side profile",
+      "recurved sepal-tip macro",
+      "plumose fruit head"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "joey_media_note": "No exact Clematis Joey media package was present in the canonical repo at B006 review time; Joey index lists Clematis drummondii/texensis recovery as upcoming work."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B006 pass taxa."
+}

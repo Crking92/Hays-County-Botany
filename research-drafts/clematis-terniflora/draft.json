@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_OR_TAXONOMY_FAIL",
+  "batch_id": "deep-review-batch-010-clematis-b006",
+  "created_at": "2026-10-02T14:43:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 266,
+    "source_scientific_name": "Clematis terniflora",
+    "wild_observations": 1,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Clematis terniflora DC.",
+    "rank": "species",
+    "order": "Ranunculales",
+    "family": "Ranunculaceae",
+    "genus": "Clematis",
+    "species": "terniflora",
+    "synonyms": [
+      "Clematis recta subsp. terniflora (DC.) Kuntze",
+      "Clematis dioscoreifolia H.Lév. & Vaniot"
+    ],
+    "status": "VERIFIED",
+    "note": "Accepted species, but non-native in Texas. Cultivated and naturalized records must not be interpreted as project native-range evidence."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Current Kew/POWO accepts Clematis terniflora but gives its native range as East Asia and explicitly lists Texas as introduced.",
+      "Flora of North America likewise treats it as introduced/naturalized in Texas and the eastern United States.",
+      "The project's single wild iNaturalist observation therefore cannot be used as native target-zone evidence."
+    ],
+    "blocking_issue": "Species is introduced in Texas, so target-zone native threshold cannot be met.",
+    "guardrail": "No county inferred from statewide range, ecoregion, cultivation, plant sales, or an unreconciled historical taxonomic concept."
+  },
+  "morphology": {
+    "look_here_first": "Look for a cloud of many small white star-like flowers rather than a leatherflower urn: the vine carries branched cymes/panicles of open flowers above mostly entire 3–5-foliolate leaves.",
+    "diagnostic_traits": [
+      "vigorous woody climber 3–6 m",
+      "opposite pinnately 3- or 5-foliolate leaves with mostly entire leaflet margins",
+      "many-flowered axillary cymes or compound/paniculate clusters",
+      "small white flowers with four thin widely spreading sepals",
+      "flowers bisexual, often with some staminate flowers in the same inflorescence",
+      "only about 5–10 pistils per flower; broad flattened conspicuously rimmed achenes"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Clematis drummondii",
+      "separator": "Both may appear as white-flowered vines, but terniflora forms dense masses of many small bisexual flowers with mostly entire leaflets; drummondii is dioecious, has more deeply divided leaflets, and later forms dramatic long-plumed fruit masses."
+    },
+    {
+      "taxon": "Native leatherflowers (C. pitcheri / C. texensis)",
+      "separator": "The native leatherflowers have solitary/few nodding thick-sepaled urns, not masses of small open white flowers."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole invasive/naturalized vine",
+      "3–5-foliolate entire leaf",
+      "dense white flower cluster",
+      "single open flower",
+      "flat rimmed achene/seed head"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "joey_media_note": "No exact Clematis Joey media package was present in the canonical repo at B006 review time; Joey index lists Clematis drummondii/texensis recovery as upcoming work."
+  },
+  "approval_status": "RANGE_OR_TAXONOMY_FAIL",
+  "installation_guardrail": "Do not install as a project target-zone native unless later evidence changes the decision or Calvin explicitly approves an exception."
+}
