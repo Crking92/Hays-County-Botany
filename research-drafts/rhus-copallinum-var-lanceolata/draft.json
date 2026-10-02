@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-012-rhus-b008",
+  "created_at": "2026-10-02T15:14:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 957,
+    "source_scientific_name": "Rhus lanceolata",
+    "wild_observations": 9,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Rhus copallinum var. lanceolata A.Gray",
+    "rank": "variety",
+    "order": "Sapindales",
+    "family": "Anacardiaceae",
+    "genus": "Rhus",
+    "species": "copallinum var. lanceolata",
+    "synonyms": [
+      "Rhus lanceolata (A.Gray) Britton",
+      "Schmaltzia lanceolata (A.Gray) Small"
+    ],
+    "status": "VERIFIED",
+    "note": "Current Kew/POWO and Flora of North America accept Rhus copallinum var. lanceolata. The familiar Texas name Rhus lanceolata is a homotypic synonym and should remain prominent in the learner."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — UT Plant Resources Center Flora of Purola Preserve lists Rhus lanceolata among naturally occurring Anacardiaceae; current Kew treats that name as a homotypic synonym of R. copallinum var. lanceolata.",
+      "Travis — UT Plant Resources Center Travis County herbarium index includes Rhus lanceolata; the homotypic synonym maps unambiguously to current R. copallinum var. lanceolata.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a detailed field treatment under Rhus lanceolata."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county inferred from statewide distribution or nursery/horticultural availability. Synonym-based county evidence is counted only where the synonym maps unambiguously to the current taxon concept."
+  },
+  "morphology": {
+    "look_here_first": "Start with the compound leaf: many narrow lance-shaped leaflets sit along a conspicuously winged rachis. Then confirm the deciduous, clonal shrub/small-tree habit and vivid red fall color.",
+    "diagnostic_traits": [
+      "deciduous clonal shrub or small tree, often thicket-forming",
+      "odd-pinnate leaves with usually about 13–21 narrow lanceolate leaflets",
+      "rachis conspicuously winged between leaflet pairs",
+      "leaflets glossy/darker above and paler to hairy below",
+      "dioecious; dense terminal branched flower panicles",
+      "dark red hairy flattened drupes in dense pyramidal clusters",
+      "foliage characteristically turns vivid red/orange in fall"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Rhus virens",
+      "separator": "Evergreen sumac has far fewer (usually 5–9), thicker glossy leaflets and retains foliage through winter; flameleaf has many narrow leaflets, a strongly winged rachis, and is deciduous."
+    },
+    {
+      "taxon": "Rhus aromatica",
+      "separator": "Fragrant sumac has only 3 leaflets and is a low suckering shrub; flameleaf has many leaflets on a long winged rachis and usually develops into a tall shrub/small tree."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole thicket/small-tree habit",
+      "compound leaf showing winged rachis",
+      "leaflet upper/lower surfaces",
+      "flower panicle",
+      "red fruit cluster",
+      "red autumn foliage"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "joey_media_note": "No persisted exact Joey Rhus record was found in the repo search during B008 review."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B008."
+}

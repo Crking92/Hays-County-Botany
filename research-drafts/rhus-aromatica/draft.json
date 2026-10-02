@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-012-rhus-b008",
+  "created_at": "2026-10-02T15:14:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 956,
+    "source_scientific_name": "Rhus aromatica",
+    "wild_observations": 6,
+    "source_count": 3
+  },
+  "taxonomy": {
+    "accepted_name": "Rhus aromatica Aiton",
+    "rank": "species",
+    "order": "Sapindales",
+    "family": "Anacardiaceae",
+    "genus": "Rhus",
+    "species": "aromatica",
+    "synonyms": [
+      "Rhus trilobata Nutt.",
+      "Rhus aromatica var. flabelliformis Shinners",
+      "Rhus aromatica subsp. flabelliformis (Shinners) R.E.Brooks"
+    ],
+    "status": "VERIFIED",
+    "note": "Current Kew accepts Rhus aromatica with three accepted varieties. Older Texas literature frequently uses Rhus trilobata or R. aromatica var./subsp. flabelliformis; current Kew places those names within R. aromatica var. aromatica. The learner stays species-level while preserving this local name history."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays — UT Plant Resources Center Purola Preserve lists Rhus aromatica among naturally occurring plants.",
+      "Travis — UT Plant Resources Center Travis County herbarium index includes Rhus aromatica var. flabelliformis; current Kew synonymizes that name under R. aromatica var. aromatica.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a detailed field treatment of Rhus aromatica."
+    ],
+    "blocking_issue": null,
+    "guardrail": "No county inferred from statewide distribution or nursery/horticultural availability. Synonym-based county evidence is counted only where the synonym maps unambiguously to the current taxon concept."
+  },
+  "morphology": {
+    "look_here_first": "Count leaflets first: fragrant sumac has exactly 3. The leaflets are often fan-shaped, lobed or coarsely toothed, and the low suckering deciduous shrub is strongly aromatic when crushed.",
+    "diagnostic_traits": [
+      "low winter-deciduous clump-forming/suckering shrub",
+      "leaves exactly 3-foliolate",
+      "leaflets ovate to obovate/fan-shaped, often shallowly to deeply lobed and crenate/coarsely toothed",
+      "twigs and foliage strongly aromatic/resinous when crushed",
+      "yellowish compact catkin-like flower clusters appear before or with new leaves",
+      "often dioecious; female plants produce dark-red hairy drupes",
+      "fall color can include orange, red, purple and yellow"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Rhus virens",
+      "separator": "Evergreen sumac has 5–9 entire leathery leaflets and evergreen habit; fragrant sumac has exactly 3 usually lobed/toothed leaflets and is deciduous."
+    },
+    {
+      "taxon": "Toxicodendron radicans",
+      "separator": "Both can have 3 leaflets, but fragrant sumac is a free-standing low shrub with aromatic often lobed/crenate leaflets and compact sumac flower/fruit clusters; poison ivy is commonly a vine or trailing plant and has a different inflorescence/fruit architecture."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole low suckering habit",
+      "three-leaflet leaf front",
+      "lobed/toothed leaflet close-up",
+      "early flower/catkin cluster",
+      "red fruit cluster",
+      "autumn foliage"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "joey_media_note": "No persisted exact Joey Rhus record was found in the repo search during B008 review."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B008."
+}
