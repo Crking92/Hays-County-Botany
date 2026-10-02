@@ -1,0 +1,27 @@
+# Deep Review sources — Ulmus americana
+Reviewed: 2026-10-02
+Batch: deep-review-batch-016-ulmus-b012
+Status: READY_FOR_APPROVAL
+
+## Taxonomy
+Kew/POWO — accepted Ulmus americana L.; Texas native:
+https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A304464-2
+
+## Strict target-zone range
+Project Hays County native-source list: Hays.
+
+USDA ARS Biocollections, Alan Whittemore 2014 collections:
+- Bell County — multiple vouchers at Little River / Hwy 95, south of Temple.
+- Travis County — Redbud Island, Austin.
+https://biocollections.ars.usda.gov/collections/list.php?country=United+States%3BUSA%3BU.S.A.%3BUnited+States+of+America&db=1&page=3422
+
+Decision: PASS — Hays, Bell, Travis.
+
+## Morphology
+Flora of North America Ulmus key:
+https://www.efloras.org/florataxon.aspx?flora_id=1&key_no=2&taxon_id=134116
+
+NPSOT:
+https://www.npsot.org/posts/native-plant/ulmus-americana/
+
+Key: large strongly asymmetric double-serrate leaves; unwinged branches; spring pendulous flowers; ciliate-margined deeply notched samara.
