@@ -25,7 +25,7 @@ At the beginning of a curation session:
 3. Read `data/project.json` and `data/manifest.json`.
 4. Inspect the relevant existing family/genus/species folders before creating or replacing anything.
 5. Prefer newer canonical repository files over stale tracker or chat copies.
-6. Do not update the Google Sheet unless the user explicitly asks. GitHub-side curation should work independently.
+6. Calvin granted standing permission on 2026-10-02 to keep the Google tracker synchronized during normal project work. Update the relevant tracker tabs after deep review, approval, installation, taxonomy corrections, and meaningful status changes. GitHub remains canonical; Sheet values mirror GitHub/review state and never override it.
 
 ## Project target zone
 
