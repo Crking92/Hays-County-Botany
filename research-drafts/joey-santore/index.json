@@ -275,18 +275,17 @@
     "podcast_transcript_records": 22
   },
   "next_focus": [
-    "one final recovery/cleanup pass only if it materially improves exact local-target coverage",
-    "audio-verify Clematis drummondii candidate from Batch 21",
-    "recover original Joey/iNaturalist photo IDs for Matelea tristiflora and Isachne rigidifolia if possible",
-    "run family coverage sufficiency matrix: Joey-sufficient vs authoritative backfill needed",
-    "run final family-characteristics/distinguishing-features audit",
-    "promote approved Joey assets into canonical species/family/glossary packages"
+    "authoritative backfill for the 18 families marked backfill-required",
+    "targeted diagnostic backfill for the 10 Joey-plus families",
+    "highest priority: Poaceae exact macro morphology, Ranunculaceae/Clematis, Cannabaceae-vs-Ulmaceae, Convolvulaceae/Ipomoea, Passifloraceae-vs-Vitaceae",
+    "build family comparison modules using the audit's 'where to look first' and confusable-family fields",
+    "promote exact Joey assets into canonical family/species/glossary packages once each module passes authoritative verification"
   ],
   "promotion_target": "Approved exact Joey media and source notes should be merged into the matching species curation package, especially image-sources.csv and SOURCES.txt, before canonical installation. Extracted video frames may also promote into term/family teaching modules when morphology is independently verified.",
   "final_audits": {
     "family_characteristics": {
       "required": true,
-      "status": "pending_until_joey_extraction_complete",
+      "status": "first_pass_complete_backfill_pending",
       "checklist": [
         "Every represented family has a concise family-character summary.",
         "Every family has a 'where to look first' identification cue.",
@@ -295,7 +294,15 @@
         "Each locally relevant family is compared against the most likely confusing local families.",
         "Family distinctions use structural/measurable characters rather than color or vague gestalt.",
         "Any gaps are backfilled from authoritative botany sources if Joey material alone is insufficient."
-      ]
+      ],
+      "audit_file": "family-coverage-audit-001.json",
+      "human_readable_file": "FAMILY_COVERAGE_AUDIT.md",
+      "summary": {
+        "total_local_families": 39,
+        "joey_sufficient": 11,
+        "joey_plus_authoritative_backfill": 10,
+        "authoritative_backfill_required": 18
+      }
     }
   }
 }
