@@ -3052,18 +3052,83 @@
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_hold",
       "last_hold_reviewed_at": "2026-10-03T15:15:00-05:00"
+    },
+    {
+      "id": "eragrostis-trichodes",
+      "scientific_name": "Eragrostis trichodes",
+      "common_name": "Sand lovegrass",
+      "family": "Poaceae",
+      "genus": "Eragrostis",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "queue_group": "B018 Eragrostis part 2",
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 421,
+        "source_scientific_name": "Eragrostis trichodes",
+        "wild_observations": 0,
+        "source_count": 2,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-027-eragrostis-b018-part2",
+      "last_deep_reviewed_at": "2026-10-03T15:25:00-05:00",
+      "notes": "B018 part 2 strict-range PASS — Hays, Williamson, Kerr. Diagnostic priority: long sheath-throat/collar hairs + huge diffuse panicle.",
+      "approval_status": "ready_for_approval"
+    },
+    {
+      "id": "eragrostis-cilianensis",
+      "scientific_name": "Eragrostis cilianensis",
+      "common_name": "Stinkgrass",
+      "family": "Poaceae",
+      "genus": "Eragrostis",
+      "status": "reviewed_comparison_recommended",
+      "priority": 1,
+      "queue_group": "B018 Eragrostis part 2",
+      "research_goals": [
+        "taxonomy_candidates",
+        "native_status",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 415,
+        "source_scientific_name": "Eragrostis cilianensis",
+        "wild_observations": 1,
+        "source_count": 1,
+        "hays_local": false
+      },
+      "batch_id": "deep-review-batch-027-eragrostis-b018-part2",
+      "last_deep_reviewed_at": "2026-10-03T15:25:00-05:00",
+      "notes": "B018 part 2 native-range FAIL — Old World species introduced in Texas. Recommended NON_NATIVE_INVASIVE_COMPARISON due encounter value and user's wild observation.",
+      "approval_status": "ready_for_comparison_approval",
+      "learner_role": "NON_NATIVE_INVASIVE_COMPARISON_RECOMMENDED",
+      "native_range_status": "FAIL",
+      "native_metrics_excluded": true
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
-    "reviewed_at": "2026-10-03T15:15:00-05:00",
-    "status": "part1_complete",
+    "batch_id": "deep-review-batch-027-eragrostis-b018-part2",
+    "reviewed_at": "2026-10-03T15:25:00-05:00",
+    "status": "b018_complete_awaiting_approval",
     "taxa": [
       "eragrostis-intermedia",
-      "eragrostis-hirsuta"
+      "eragrostis-hirsuta",
+      "eragrostis-trichodes",
+      "eragrostis-cilianensis"
     ],
-    "note": "B018 split for smaller grass reviews. Part 1: E. intermedia PASS and approval-ready; E. hirsuta UNRESOLVED range hold. E. trichodes + E. cilianensis remain part 2."
+    "note": "B018 complete: E. intermedia PASS approval-ready; E. hirsuta UNRESOLVED hold; E. trichodes PASS approval-ready; E. cilianensis native-range FAIL recommended as non-native comparison."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:00:00-05:00",
