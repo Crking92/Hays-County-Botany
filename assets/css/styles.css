@@ -171,3 +171,31 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
   .taxonomy-ladder{grid-template-columns:1fr}.taxonomy-step{display:none}.taxonomy-rank strong{white-space:normal}
   .family-compare-panel{grid-template-columns:1fr}.family-compare-controls{grid-template-columns:1fr}.compare-vs{padding:0;text-align:center}
 }
+
+
+/* Genus learning + global compare workspace */
+.search-genus-result{width:100%;display:grid;grid-template-columns:58px 1fr;gap:11px;align-items:center;padding:8px;border:0;border-radius:11px;background:transparent;color:var(--text);text-align:left;border-bottom:1px solid var(--line-soft)}
+.search-genus-result:hover{background:var(--panel2)}.search-genus-result>b{display:grid;place-items:center;width:50px;height:50px;border-radius:10px;background:#253228;color:var(--accent);font-size:.68rem;text-transform:uppercase}
+.search-genus-result strong,.search-genus-result em{display:block}.search-genus-result em{color:var(--muted);font-style:normal;font-size:.8rem}
+.genus-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:18px;align-items:stretch}
+.genus-hero>div:first-child{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}.genus-hero h1{margin:5px 0 8px;font-size:clamp(2.3rem,4vw,3.8rem)}
+.genus-warning{margin:14px 0 0;padding:11px 13px;border-left:3px solid var(--accent);background:var(--panel3);color:var(--muted);font-size:.82rem}
+.genus-photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.genus-photo-strip button{position:relative;min-width:0;padding:0;overflow:hidden;border:1px solid var(--line);border-radius:13px;background:var(--panel3);color:var(--text)}
+.genus-hero-img{display:block;width:100%;height:100%;min-height:250px;object-fit:cover;background:#0a0e0b}.genus-photo-strip button span{position:absolute;left:7px;right:7px;bottom:7px;padding:6px 7px;border-radius:8px;background:rgba(7,10,8,.85);font-size:.68rem;text-align:left}
+.trait-list{margin:10px 0 0;padding-left:18px;color:#cbd5cd}.trait-list li{margin:7px 0;line-height:1.4;font-size:.84rem}
+.diagnostic-chip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:8px}.diagnostic-chip-grid>div{padding:11px 12px;border:1px solid var(--line);border-radius:11px;background:var(--panel);font-size:.82rem;line-height:1.4}
+.genus-key{display:grid;gap:7px}.genus-key>div{display:grid;grid-template-columns:minmax(0,1.4fr) auto minmax(180px,.6fr);gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--line);border-radius:11px;background:var(--panel)}
+.genus-key span{color:#cbd5cd;font-size:.83rem}.genus-key b{color:var(--accent)}.genus-key strong{font-size:.82rem}
+.global-compare-picker{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:end;padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--panel);margin-bottom:16px}
+.global-compare-picker label span{display:block;margin-bottom:6px;color:var(--accent);font-size:.68rem;font-weight:900;text-transform:uppercase}.global-compare-picker select{width:100%;min-height:46px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel3);color:var(--text)}
+.swap-compare{width:46px;height:46px;border:1px solid var(--line);border-radius:10px;background:var(--panel3);color:var(--accent);font-size:1.25rem}
+.compare-relationship{margin:14px 0;padding:15px;border:1px solid var(--line);border-radius:13px;background:var(--panel3)}.compare-relationship>strong{display:block;margin-top:4px;line-height:1.45}.compare-relationship>p{margin:8px 0 0;color:var(--muted)}
+.cross-family-signatures{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.cross-family-signatures>div{padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)}
+.cross-family-signatures b,.cross-family-signatures span{display:block}.cross-family-signatures b{color:var(--accent)}.cross-family-signatures span{margin-top:5px;color:#cbd5cd;font-size:.82rem;line-height:1.4}
+.compare-workspace{padding:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}
+@media(max-width:980px){.genus-hero{grid-template-columns:1fr}.genus-photo-strip{min-height:220px}.genus-hero-img{min-height:220px}}
+@media(max-width:760px){
+  .genus-photo-strip{grid-template-columns:1fr}.genus-photo-strip button:nth-child(n+3){display:none}.genus-hero-img{height:260px;min-height:0}
+  .genus-key>div{grid-template-columns:1fr;gap:4px}.genus-key b{display:none}
+  .global-compare-picker{grid-template-columns:1fr}.swap-compare{width:100%}.cross-family-signatures{grid-template-columns:1fr}
+}

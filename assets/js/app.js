@@ -12,6 +12,10 @@ const state = {
   view: "home",
   selectedSpeciesId: null,
   selectedFamily: null,
+  selectedGenusFamily: null,
+  selectedGenus: null,
+  compareA: null,
+  compareB: null,
   browseFamily: "",
   browseGenus: "",
   photoIndex: {},
@@ -169,7 +173,7 @@ function taxonomyLadder(family,genus,sp){
   let out='<nav class="taxonomy-ladder" aria-label="Taxonomy path">';
   out+='<button type="button" class="taxonomy-rank '+(!genus?"current":"")+'" data-family="'+esc(family)+'"><span>Family</span><strong>'+esc(family)+'</strong></button>';
   out+='<b class="taxonomy-step" aria-hidden="true">→</b>';
-  if(genus) out+='<button type="button" class="taxonomy-rank '+(!sp?"current":"")+'" data-browse-family="'+esc(family)+'" data-browse-genus="'+esc(genus)+'"><span>Genus</span><strong><i>'+esc(genus)+'</i></strong></button>';
+  if(genus) out+='<button type="button" class="taxonomy-rank '+(!sp?"current":"")+'" data-genus="'+esc(genus)+'" data-genus-family="'+esc(family)+'"><span>Genus</span><strong><i>'+esc(genus)+'</i></strong></button>';
   else out+='<div class="taxonomy-rank pending"><span>Genus</span><strong>Choose below</strong></div>';
   out+='<b class="taxonomy-step" aria-hidden="true">→</b>';
   if(sp) out+='<div class="taxonomy-rank current"><span>Species</span><strong><i>'+esc(scientificName(sp))+'</i></strong></div>';
@@ -184,6 +188,42 @@ function familyComparePanel(family,members){
     '<div class="family-compare-controls"><label><span>Species A</span><select id="familyCompareA">'+opts+'</select></label>'+
     '<span class="compare-vs">vs</span><label><span>Species B</span><select id="familyCompareB">'+opts.replace('value="'+esc(second)+'"','value="'+esc(second)+'" selected')+'</select></label>'+
     '<button type="button" class="primary-button" data-family-compare>Compare</button></div></section>';
+}
+function genusSpecies(family,genus){
+  return state.species.filter(function(sp){ return sp.family===family && sp.genus===genus; });
+}
+function genusSharedTraits(data){
+  if(!data) return [];
+  if(data.study_strategy && Array.isArray(data.study_strategy.shared_traits)) return data.study_strategy.shared_traits;
+  if(data.genus_diagnostics && typeof data.genus_diagnostics==="object"){
+    return Object.entries(data.genus_diagnostics).map(function(pair){ return titleCase(pair[0])+": "+formatValue(pair[1]); });
+  }
+  return [];
+}
+function genusPriorityTraits(data){
+  if(!data) return [];
+  if(data.study_strategy && Array.isArray(data.study_strategy.priority)) return data.study_strategy.priority;
+  if(Array.isArray(data.high_value_diagnostics)) return data.high_value_diagnostics;
+  if(Array.isArray(data.high_value_field_traits)) return data.high_value_field_traits;
+  return [];
+}
+function genusQuickRows(data){
+  if(!data) return [];
+  const rows=data.quick_key || data.central_texas_quick_key;
+  if(Array.isArray(rows)) return rows.map(function(row){ return {if:row.if||row.look_for||"",then:row.then||row.id||""}; });
+  if(data.quick_comparison && typeof data.quick_comparison==="object"){
+    return Object.entries(data.quick_comparison).map(function(pair){ return {if:pair[1],then:(data.name||"")+" "+pair[0]}; });
+  }
+  return [];
+}
+function genusComparePanel(genus,members){
+  if(!members || members.length<2) return "";
+  const opts=members.map(function(sp){ return '<option value="'+esc(sp.id)+'">'+esc(scientificName(sp))+(commonName(sp)?' — '+esc(commonName(sp)):'')+'</option>'; }).join("");
+  const second=members[1].id;
+  return '<section class="family-compare-panel genus-compare-panel"><div><div class="eyebrow">Species separation drill</div><h2>Compare two '+esc(genus)+' species</h2><p>The family and genus characters should stay stable. Focus on the smaller characters that actually split these species.</p></div>'+
+    '<div class="family-compare-controls"><label><span>Species A</span><select id="genusCompareA">'+opts+'</select></label>'+
+    '<span class="compare-vs">vs</span><label><span>Species B</span><select id="genusCompareB">'+opts.replace('value="'+esc(second)+'"','value="'+esc(second)+'" selected')+'</select></label>'+
+    '<button type="button" class="primary-button" data-genus-compare>Compare</button></div></section>';
 }
 function selectedSpecies(){ return state.speciesById.get(state.selectedSpeciesId) || null; }
 
@@ -207,14 +247,15 @@ async function ensureFamilyData(family){
     state.familyCache.set(family,data); return data;
   }catch(e){ state.familyCache.set(family,null); return null; }
 }
-async function ensureGenusData(sp){
-  const key=sp.family+"/"+sp.genus;
+async function ensureGenusByName(family,genus){
+  const key=family+"/"+genus;
   if(state.genusCache.has(key)) return state.genusCache.get(key);
   try{
-    const data=await loadJSON("content/taxa/"+encodeURIComponent(sp.family)+"/"+encodeURIComponent(sp.genus)+"/genus.json");
+    const data=await loadJSON("content/taxa/"+encodeURIComponent(family)+"/"+encodeURIComponent(genus)+"/genus.json");
     state.genusCache.set(key,data); return data;
   }catch(e){ state.genusCache.set(key,null); return null; }
 }
+async function ensureGenusData(sp){ return ensureGenusByName(sp.family,sp.genus); }
 
 function updateHeader(){
   document.body.dataset.view=state.view;
@@ -223,7 +264,7 @@ function updateHeader(){
     btn.classList.toggle("active",on); btn.setAttribute("aria-pressed",String(on));
   });
   document.querySelectorAll(".main-nav [data-nav]").forEach(function(btn){
-    const on=btn.dataset.nav===state.view || (btn.dataset.nav==="home" && (state.view==="family" || state.view==="plant"));
+    const on=btn.dataset.nav===state.view || (btn.dataset.nav==="home" && (state.view==="family" || state.view==="genus" || state.view==="plant"));
     btn.classList.toggle("active",on);
   });
   els.quiz.classList.toggle("active",state.quizMode);
@@ -240,6 +281,15 @@ function setView(view){
 function openFamily(family){
   state.selectedFamily=family; state.view="family"; state.quizRevealed=false; render();
   ensureFamilyData(family).then(function(){ if(state.view==="family" && state.selectedFamily===family) render(); });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function openGenus(family,genus){
+  if(!family || !genus) return;
+  state.selectedFamily=family; state.selectedGenusFamily=family; state.selectedGenus=genus; state.view="genus"; state.quizRevealed=false;
+  closeModal(); render();
+  Promise.all([ensureFamilyData(family),ensureGenusByName(family,genus)]).then(function(){
+    if(state.view==="genus" && state.selectedGenusFamily===family && state.selectedGenus===genus) render();
+  });
   window.scrollTo({top:0,behavior:"smooth"});
 }
 function openPlant(id){
@@ -681,13 +731,49 @@ function familyView(){
   if(members.length) members.slice(0,4).forEach(function(sp){ out+='<button type="button" data-species="'+sp.id+'">'+thumb(sp,"family-stack-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Family lesson ready. Canonical species anchors are still being installed.</div>';
   out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Narrow it down</div><h2>Genera in this learner</h2></div></div><div class="genus-buttons">';
-  if(genera.length) genera.forEach(function(g){ out+='<button type="button" data-browse-family="'+esc(family)+'" data-browse-genus="'+esc(g[0])+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
+  if(genera.length) genera.forEach(function(g){ out+='<button type="button" data-genus="'+esc(g[0])+'" data-genus-family="'+esc(family)+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
   else out+='<div class="empty-panel">No canonical genus anchors are installed yet. The family-level lesson above is still available.</div>';
   out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Recognize individuals</div><h2>Species</h2></div></div><div class="species-tile-grid">';
   if(members.length) members.forEach(function(sp){ out+=speciesTile(sp,true); });
   else out+='<div class="empty-panel">No canonical species anchors are installed for this family yet.</div>';
   out+='</div></section>';
   out+=familyComparePanel(family,members);
+  return out;
+}
+function genusView(){
+  const family=state.selectedGenusFamily, genus=state.selectedGenus;
+  if(!family || !genus) return browseView();
+  const members=genusSpecies(family,genus), data=state.genusCache.get(family+"/"+genus), p=familyProfile(family)||{};
+  const shared=genusSharedTraits(data), priority=genusPriorityTraits(data), quick=genusQuickRows(data);
+  const common=(data&&data.common_group)||genus;
+  const warning=(data&&data.study_strategy&&data.study_strategy.warning) || (data&&Array.isArray(data.study_notes)&&data.study_notes[0]) || "";
+  let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button><span>›</span><button type="button" data-family="'+esc(family)+'">'+esc(family)+'</button><span>›</span><strong><i>'+esc(genus)+'</i></strong></section>'+
+    taxonomyLadder(family,genus,null)+
+    '<section class="genus-hero"><div><div class="eyebrow">Genus · '+members.length+' curated species</div><h1><i>'+esc(genus)+'</i></h1><p class="family-common">'+esc(common)+'</p>'+
+    '<div class="look-card"><span>GENUS QUESTION</span><strong>What stays the same across '+esc(genus)+', and which smaller characters separate the species?</strong></div>'+
+    (warning?'<p class="genus-warning">'+esc(warning)+'</p>':'')+'</div><div class="genus-photo-strip">';
+  if(members.length) members.slice(0,3).forEach(function(sp){ out+='<button type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"genus-hero-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
+  else out+='<div class="empty-panel">Species anchors for this genus are still being installed.</div>';
+  out+='</div></section>'+
+    '<section class="two-column-learning genus-levels"><article class="learning-card"><div class="eyebrow">Family characters</div><h2>Why '+esc(family)+'?</h2><p>'+esc(p.plain_signature||p.field_signature||"Use the family lesson to recognize the broader structural pattern.")+'</p><button class="text-button" type="button" data-family="'+esc(family)+'">Open family →</button></article>'+
+    '<article class="learning-card"><div class="eyebrow">Genus characters</div><h2>What makes <i>'+esc(genus)+'</i> hang together?</h2>';
+  if(shared.length) out+='<ul class="trait-list">'+shared.slice(0,8).map(function(x){ return '<li>'+esc(formatValue(x))+'</li>'; }).join("")+'</ul>';
+  else out+='<p>The genus-level diagnostic module is still being expanded. Use the species set and comparison key below in the meantime.</p>';
+  out+='</article></section>';
+  if(priority.length){
+    out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Species-level characters</div><h2>Look here to separate '+esc(genus)+' species</h2></div></div><div class="diagnostic-chip-grid">';
+    priority.slice(0,10).forEach(function(x){ out+='<div>'+esc(formatValue(x))+'</div>'; });
+    out+='</div></section>';
+  }
+  if(quick.length){
+    out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Quick separation key</div><h2>Character → likely species</h2></div></div><div class="genus-key">';
+    quick.slice(0,12).forEach(function(row){ out+='<div><span>'+esc(row.if)+'</span><b>→</b><strong><i>'+esc(row.then)+'</i></strong></div>'; });
+    out+='</div></section>';
+  }
+  out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Drill down</div><h2>'+esc(genus)+' species in the learner</h2></div></div><div class="species-tile-grid">';
+  if(members.length) members.forEach(function(sp){ out+=speciesTile(sp,true); });
+  else out+='<div class="empty-panel">No canonical species are installed for this genus yet.</div>';
+  out+='</div></section>'+genusComparePanel(genus,members);
   return out;
 }
 function photoCarousel(sp){
@@ -837,6 +923,50 @@ function plantView(){
   if(state.difficulty==="field") out+=fieldBotanySection(sp,genusData);
   return out;
 }
+function compareSpeciesOptions(selectedId){
+  const grouped=new Map();
+  state.species.forEach(function(sp){ if(!grouped.has(sp.family)) grouped.set(sp.family,[]); grouped.get(sp.family).push(sp); });
+  let out='<option value="">Choose a species…</option>';
+  Array.from(grouped.keys()).sort().forEach(function(family){
+    out+='<optgroup label="'+esc(family)+'">';
+    grouped.get(family).forEach(function(sp){ out+='<option value="'+esc(sp.id)+'" '+(sp.id===selectedId?"selected":"")+'>'+esc(scientificName(sp))+(commonName(sp)?' — '+esc(commonName(sp)):'')+'</option>'; });
+    out+='</optgroup>';
+  });
+  return out;
+}
+function ensureComparePair(){
+  if(state.compareA && state.compareB && state.compareA!==state.compareB && state.speciesById.has(state.compareA) && state.speciesById.has(state.compareB)) return;
+  const groups=new Map();
+  state.species.forEach(function(sp){ const k=sp.family+"/"+sp.genus; if(!groups.has(k)) groups.set(k,[]); groups.get(k).push(sp); });
+  const pair=Array.from(groups.values()).find(function(xs){ return xs.length>=2; }) || state.species.slice(0,2);
+  if(pair[0]) state.compareA=pair[0].id;
+  if(pair[1]) state.compareB=pair[1].id;
+}
+function compareRelationshipHTML(a,b){
+  if(a.genus===b.genus && a.family===b.family){
+    return '<div class="compare-relationship same-genus"><div class="eyebrow">Same genus</div><strong>Start with shared '+esc(a.family)+' structure, then shared <i>'+esc(a.genus)+'</i> structure. Species-level characters should do the final separation.</strong><button class="text-button" type="button" data-genus="'+esc(a.genus)+'" data-genus-family="'+esc(a.family)+'">Open '+esc(a.genus)+' genus lesson →</button></div>';
+  }
+  if(a.family===b.family){
+    const p=familyProfile(a.family)||{};
+    return '<div class="compare-relationship same-family"><div class="eyebrow">Same family · different genera</div><strong>Both should first fit '+esc(a.family)+'. Then ask which genus-level architecture each plant follows.</strong><p>'+esc(p.plain_signature||p.field_signature||"")+'</p><button class="text-button" type="button" data-family="'+esc(a.family)+'">Open '+esc(a.family)+' family lesson →</button></div>';
+  }
+  const pa=familyProfile(a.family)||{}, pb=familyProfile(b.family)||{};
+  return '<div class="compare-relationship cross-family"><div class="eyebrow">Different families</div><strong>Do not start with species details. First decide which family architecture the unknown plant matches.</strong><div class="cross-family-signatures"><div><b>'+esc(a.family)+'</b><span>'+esc(pa.plain_signature||pa.field_signature||lookHereFirst(a))+'</span></div><div><b>'+esc(b.family)+'</b><span>'+esc(pb.plain_signature||pb.field_signature||lookHereFirst(b))+'</span></div></div></div>';
+}
+function compareView(){
+  ensureComparePair();
+  const a=state.speciesById.get(state.compareA), b=state.speciesById.get(state.compareB);
+  let out='<section class="page-intro compare-intro"><div class="eyebrow">Botanical compare & contrast</div><h1>Compare any two plants in the learner.</h1><p>Move from broad characters to narrow ones: family first, genus second, species last.</p></section>'+
+    '<section class="global-compare-picker"><label><span>Plant A</span><select data-global-compare="a">'+compareSpeciesOptions(state.compareA)+'</select></label><button class="swap-compare" type="button" data-swap-compare aria-label="Swap plants">⇄</button><label><span>Plant B</span><select data-global-compare="b">'+compareSpeciesOptions(state.compareB)+'</select></label></section>';
+  if(!a || !b || a.id===b.id) return out+'<div class="empty-panel">Choose two different curated species to compare.</div>';
+  const keys=compareKeys(a,b);
+  out+=compareRelationshipHTML(a,b);
+  out+='<section class="compare-workspace"><div class="compare-heads">'+compareHead(a)+compareHead(b)+'</div>'+
+    '<div class="compare-table"><div class="compare-row compare-header"><b>Character</b><b><i>'+esc(scientificName(a))+'</i></b><b><i>'+esc(scientificName(b))+'</i></b></div>';
+  keys.forEach(function(k){ out+='<div class="compare-row"><strong>'+esc(titleCase(k))+'</strong><span>'+esc(formatValue((a.morphology_keys||{})[k] ?? "—"))+'</span><span>'+esc(formatValue((b.morphology_keys||{})[k] ?? "—"))+'</span></div>'; });
+  out+='</div><div class="compare-actions"><button class="secondary-button" type="button" data-species="'+esc(a.id)+'">Study '+esc(commonName(a)||a.genus)+'</button><button class="secondary-button" type="button" data-species="'+esc(b.id)+'">Study '+esc(commonName(b)||b.genus)+'</button></div></section>';
+  return out;
+}
 function browseView(){
   const families=Array.from(new Set(state.species.map(function(sp){ return sp.family; }).concat(Object.keys((state.learning&&state.learning.family_profiles)||{})))).sort();
   const genera=state.browseFamily ? generaForFamily(state.browseFamily).map(function(x){ return x[0]; }) : [];
@@ -848,7 +978,7 @@ function browseView(){
   families.forEach(function(f){ const n=familySpecies(f).length; out+='<option value="'+esc(f)+'" '+(f===state.browseFamily?"selected":"")+'>'+esc(f)+' — '+(n?n+' species':'family lesson')+'</option>'; });
   out+='</select></label><div class="tax-arrow">→</div><label><span>2 · Genus</span><select data-browse-select="genus" '+(!state.browseFamily?"disabled":"")+'><option value="">All genera</option>';
   genera.forEach(function(g){ out+='<option value="'+esc(g)+'" '+(g===state.browseGenus?"selected":"")+'>'+esc(g)+'</option>'; });
-  out+='</select></label><div class="tax-arrow">→</div><div class="picker-result"><span>3 · Species</span><strong>'+list.length+' taxa</strong>'+(state.browseFamily?'<button class="text-button" type="button" data-family="'+esc(state.browseFamily)+'">Open family lesson →</button>':'')+'</div></section>'+
+  out+='</select></label><div class="tax-arrow">→</div><div class="picker-result"><span>3 · Species</span><strong>'+list.length+' taxa</strong>'+(state.browseGenus?'<button class="text-button" type="button" data-genus="'+esc(state.browseGenus)+'" data-genus-family="'+esc(state.browseFamily)+'">Open genus lesson →</button>':(state.browseFamily?'<button class="text-button" type="button" data-family="'+esc(state.browseFamily)+'">Open family lesson →</button>':''))+'</div></section>'+
     '<section class="section-block"><div class="species-tile-grid">';
   if(list.length) list.forEach(function(sp){ out+=speciesTile(sp,true); });
   else if(state.browseFamily) out+='<div class="empty-panel">This family lesson is ready, but canonical species anchors are still being installed. Open the family lesson above to study its diagnostic characters now.</div>';
@@ -874,7 +1004,9 @@ function render(){
   updateHeader();
   if(state.view==="home") els.app.innerHTML=homeView();
   else if(state.view==="family") els.app.innerHTML=familyView();
+  else if(state.view==="genus") els.app.innerHTML=genusView();
   else if(state.view==="plant") els.app.innerHTML=plantView();
+  else if(state.view==="compare") els.app.innerHTML=compareView();
   else if(state.view==="browse") els.app.innerHTML=browseView();
   else if(state.view==="glossary") els.app.innerHTML=glossaryView();
   else if(state.view==="approvals") els.app.innerHTML=approvalsView();
@@ -882,6 +1014,19 @@ function render(){
   if(state.view==="approvals") requestAnimationFrame(hydrateVisibleApprovalPhotos);
 }
 
+function genusMatches(query){
+  const q=norm(query); if(!q) return [];
+  const seen=new Set(), rows=[];
+  state.species.forEach(function(sp){
+    const key=sp.family+"/"+sp.genus; if(seen.has(key)) return; seen.add(key);
+    let score=0;
+    if(norm(sp.genus)===q) score=100;
+    else if(norm(sp.genus).startsWith(q)) score=60;
+    else if(norm(sp.genus).includes(q)) score=25;
+    if(score) rows.push({family:sp.family,genus:sp.genus,score:score,count:genusSpecies(sp.family,sp.genus).length});
+  });
+  return rows.sort(function(a,b){ return b.score-a.score || a.genus.localeCompare(b.genus); }).slice(0,4);
+}
 function searchMatches(query){
   const q=norm(query); if(!q) return [];
   return state.species.map(function(sp){
@@ -897,17 +1042,20 @@ function searchMatches(query){
 function renderResults(){
   const q=els.search.value.trim(); els.clear.classList.toggle("visible",Boolean(q));
   if(!q){ hideResults(); return; }
-  const matches=searchMatches(q);
+  const matches=searchMatches(q), gmatches=genusMatches(q);
   const fmatch=Object.keys(state.learning.family_profiles).find(function(f){ return norm(f).includes(norm(q)) || norm(state.learning.family_profiles[f].common_name).includes(norm(q)); });
   let out="";
   if(fmatch){
     out+='<button class="search-family-result" type="button" data-family="'+esc(fmatch)+'"><b>Family</b><span><strong>'+esc(fmatch)+'</strong><em>'+esc(familyProfile(fmatch).common_name)+'</em></span></button>';
   }
+  gmatches.forEach(function(g){
+    out+='<button class="search-genus-result" type="button" data-genus="'+esc(g.genus)+'" data-genus-family="'+esc(g.family)+'"><b>Genus</b><span><strong><i>'+esc(g.genus)+'</i></strong><em>'+esc(g.family)+' · '+g.count+' species</em></span></button>';
+  });
   matches.forEach(function(x){
     const sp=x.sp; out+='<button class="search-species-result" type="button" data-species="'+sp.id+'">'+thumb(sp,"search-thumb")+'<span><strong><i>'+esc(scientificName(sp))+'</i></strong>'+
       '<em>'+esc(commonName(sp))+'</em><small>'+esc(sp.family)+' › '+esc(sp.genus)+'</small></span></button>';
   });
-  if(!fmatch && !matches.length) out='<div class="search-empty">No matching curated plant yet.</div>';
+  if(!fmatch && !gmatches.length && !matches.length) out='<div class="search-empty">No matching curated plant yet.</div>';
   els.results.innerHTML=out; els.results.hidden=false;
 }
 function hideResults(){ els.results.hidden=true; }
@@ -956,7 +1104,8 @@ function openCompareModal(aid,bid){
     out+='<div class="compare-row"><strong>'+esc(titleCase(k))+'</strong><span>'+esc(formatValue((a.morphology_keys||{})[k] ?? "—"))+'</span><span>'+esc(formatValue((b.morphology_keys||{})[k] ?? "—"))+'</span></div>';
   });
   out+='</div><div class="compare-actions"><button class="secondary-button" type="button" data-species="'+a.id+'">Study '+esc(commonName(a)||a.genus)+'</button>'+
-    '<button class="secondary-button" type="button" data-species="'+b.id+'">Study '+esc(commonName(b)||b.genus)+'</button></div></section></div>';
+    '<button class="secondary-button" type="button" data-species="'+b.id+'">Study '+esc(commonName(b)||b.genus)+'</button>'+
+    '<button class="primary-button" type="button" data-full-compare="'+esc(a.id)+'|'+esc(b.id)+'">Open full Compare workspace</button></div></section></div>';
   els.modal.innerHTML=out;
 }
 function closeModal(){ els.modal.innerHTML=""; }
@@ -988,6 +1137,27 @@ function handleClick(e){
     }
     return;
   }
+  if(e.target.closest("[data-genus-compare]")){
+    const a=document.getElementById("genusCompareA"), b=document.getElementById("genusCompareB");
+    if(a && b){
+      if(a.value===b.value){
+        const alternatives=genusSpecies(state.selectedGenusFamily,state.selectedGenus).filter(function(sp){ return sp.id!==a.value; });
+        if(alternatives.length) b.value=alternatives[0].id;
+      }
+      if(a.value && b.value && a.value!==b.value) openCompareModal(a.value,b.value);
+    }
+    return;
+  }
+  const fullComp=e.target.closest("[data-full-compare]");
+  if(fullComp){
+    const ids=fullComp.dataset.fullCompare.split("|");
+    state.compareA=ids[0]; state.compareB=ids[1]; closeModal(); setView("compare"); return;
+  }
+  if(e.target.closest("[data-swap-compare]")){
+    const tmp=state.compareA; state.compareA=state.compareB; state.compareB=tmp; render(); return;
+  }
+  const genus=e.target.closest("[data-genus]");
+  if(genus){ closeModal(); openGenus(genus.dataset.genusFamily,genus.dataset.genus); return; }
   const comp=e.target.closest("[data-compare]"); if(comp){ const ids=comp.dataset.compare.split("|"); openCompareModal(ids[0],ids[1]); return; }
   const species=e.target.closest("[data-species]"); if(species){ closeModal(); openPlant(species.dataset.species); return; }
   const fam=e.target.closest("[data-family]"); if(fam){ closeModal(); openFamily(fam.dataset.family); return; }
@@ -1007,6 +1177,8 @@ function handleClick(e){
 function handleChange(e){
   if(e.target.matches("[data-browse-select='family']")){ state.browseFamily=e.target.value; state.browseGenus=""; render(); }
   if(e.target.matches("[data-browse-select='genus']")){ state.browseGenus=e.target.value; render(); }
+  if(e.target.matches("[data-global-compare='a']")){ state.compareA=e.target.value; if(state.compareA===state.compareB) state.compareB=""; render(); }
+  if(e.target.matches("[data-global-compare='b']")){ state.compareB=e.target.value; if(state.compareA===state.compareB) state.compareA=""; render(); }
 }
 function handleInput(e){
   if(e.target.id==="glossarySearch"){
@@ -1027,6 +1199,7 @@ function bind(){
   els.clear.addEventListener("click",function(){ els.search.value=""; renderResults(); els.search.focus(); });
   els.results.addEventListener("click",function(e){
     const sp=e.target.closest("[data-species]"); if(sp){ openPlant(sp.dataset.species); return; }
+    const genus=e.target.closest("[data-genus]"); if(genus){ openGenus(genus.dataset.genusFamily,genus.dataset.genus); return; }
     const fam=e.target.closest("[data-family]"); if(fam) openFamily(fam.dataset.family);
   });
   els.quiz.addEventListener("click",function(){ state.quizMode=!state.quizMode; state.quizRevealed=false; writeLocal("hays-botany-quiz",String(state.quizMode)); render(); });
