@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T18:09:00-05:00",
+  "updated_at": "2026-10-03T18:23:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -92,6 +92,25 @@
       "release_when": "All six Euphorbia taxa are durably represented in research-queue.json and research-drafts, or the test is explicitly aborted.",
       "notes": "Second live high-throughput Scout test. Euphorbia visual comparison set: snow-on-the-prairie, snow-on-the-mountain, wild/green/painted poinsettias, and David's spurge. Research-only. Durable drafts + queue records created successfully; temporary claim released.",
       "released_at": "2026-10-03T18:09:00-05:00"
+    },
+    {
+      "claim_id": "manual-scout-test-acanthaceae-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "ruellia-metziae",
+        "ruellia-nudiflora",
+        "ruellia-nudiflora-var-nudiflora",
+        "ruellia-occidentalis",
+        "justicia-americana",
+        "justicia-pilosella"
+      ],
+      "lane": "unfinished-plant-scout",
+      "owner": "manual-test-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T18:23:00-05:00",
+      "expires_at": "2026-10-04T00:23:00-05:00",
+      "release_when": "All six Acanthaceae records are durably represented in research-queue.json and research-drafts, or the test is explicitly aborted.",
+      "notes": "Third live high-throughput Scout test. Four unfinished Ruellia records plus two Justicia replacements after R. drummondiana and R. humilis were detected as already canonical. Includes a parent/variety duplicate-reconciliation test for R. nudiflora."
     }
   ]
 }
