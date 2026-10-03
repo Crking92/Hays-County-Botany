@@ -1,6 +1,79 @@
 {
-  "rank":"family","name":"Papaveraceae","common_name":"Poppy family",
-  "project_scope":{"selection_mode":"local-occurrence-first","strict_native_filtering":false,"genera_currently_curated":["Argemone"],"note":"This is the initial Papaveraceae family file for Hays Botany ID. Future Papaveraceae genera should be merged into this file rather than replacing it from scratch."},
-  "family_diagnostics":{"habit":"Herbs in the current local study set.","sap":"Latex is a high-value character in Argemone and should be observed cautiously without unnecessary damage.","flowers":"Typically showy, radially symmetric flowers with separate petals and numerous stamens.","ovary":"Superior; fruits are capsules.","field_tip":"In Argemone, flower color alone is weak. Latex color, sepal-horn structure, leaf prickles, and capsule prickles are much more diagnostic."},
-  "curation_status":{"version":"1.0-starter","last_reviewed":"2026-09-30"}
+  "rank": "family",
+  "name": "Papaveraceae",
+  "common_name": "Poppy family",
+  "project_scope": {
+    "selection_mode": "local-occurrence-first",
+    "strict_native_filtering": false,
+    "genera_currently_curated": [
+      "Argemone"
+    ],
+    "note": "This is the initial Papaveraceae family file for Hays Botany ID. Future Papaveraceae genera should be merged into this file rather than replacing it from scratch."
+  },
+  "family_diagnostics": {
+    "where_to_look_first": "For local Argemone, inspect the flower base and developing capsule: quickly falling sepals, free petals, many free stamens, superior ovary and prickly capsule. Latex is supporting evidence, not a reason to injure a plant.",
+    "leaves": "Alternate, exstipulate and commonly lobed/divided; local prickly poppies are strongly armed and glaucous.",
+    "flowers": "Radial; 2–3 sepals commonly caducous; petals free; stamens numerous and free.",
+    "ovary": "Superior and syncarpous; local Argemone develops a prickly capsule with many seeds.",
+    "field_tip": "White/yellow petal color is weak. Capsule-prickle architecture is much more useful for local Argemone."
+  },
+  "curation_status": {
+    "version": "2.0-visual-family-module",
+    "last_reviewed": "2026-10-03",
+    "visual_lock": "first_pass_complete"
+  },
+  "visual_lesson": {
+    "status": "first_visual_lock",
+    "teaching_order": "whole plant → diagnostic structure → reproductive confirmation → tie-breaker",
+    "intro": "Prickly poppies are a great lesson in ignoring petal color and looking at sepals, free stamens and the capsule.",
+    "steps": [
+      {
+        "title": "1 · Recognize the armed habit",
+        "photo_role": "whole plant / leaves",
+        "anchor_species_id": "argemone-aurantiaca",
+        "look_for": "Glaucous, prickly lobed leaves and armed stems.",
+        "why_it_matters": "Gets you to Argemone quickly before fruiting.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "2 · Watch the sepals disappear",
+        "photo_role": "bud and caducous sepals",
+        "anchor_species_id": "argemone-albiflora-subsp-texana",
+        "look_for": "Horned sepals on the bud that fall as the flower opens.",
+        "why_it_matters": "Caducous 2–3 sepals are a strong Papaveraceae clue.",
+        "status": "species_anchor_photo_polish_pending"
+      },
+      {
+        "title": "3 · Count the free stamens",
+        "photo_role": "flower center",
+        "anchor_species_id": "argemone-aurantiaca",
+        "look_for": "Numerous free stamens surrounding a syncarpous central ovary.",
+        "why_it_matters": "Separates the poppy pattern from Malvaceae's fused staminal column.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "4 · Read the capsule prickles",
+        "photo_role": "capsule",
+        "anchor_species_id": "argemone-aurantiaca",
+        "look_for": "Very unequal long prickles, commonly branched in A. aurantiaca.",
+        "why_it_matters": "Capsule armature is a much stronger local species character than petal color.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "5 · Compare the other prickly poppy",
+        "photo_role": "capsule comparison",
+        "anchor_species_id": "argemone-albiflora-subsp-texana",
+        "look_for": "Shorter/simpler fruit-prickle architecture relative to A. aurantiaca.",
+        "why_it_matters": "This is the high-value local two-species comparison.",
+        "status": "photo_lock_pending"
+      }
+    ],
+    "comparisons": [
+      {
+        "title": "Papaveraceae vs Malvaceae",
+        "rule": "Both can have many stamens. Papaveraceae keeps them mostly free around a capsule-forming ovary; local Malvoideae commonly fuses stamens into a staminal column."
+      }
+    ],
+    "caveat": "Observe latex only from existing damage when possible; do not injure plants solely for a field test."
+  }
 }
