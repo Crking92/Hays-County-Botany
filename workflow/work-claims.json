@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T18:23:00-05:00",
+  "updated_at": "2026-10-03T18:30:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -98,19 +98,19 @@
       "scope_kind": "species_batch",
       "taxa": [
         "ruellia-metziae",
-        "ruellia-nudiflora",
-        "ruellia-nudiflora-var-nudiflora",
-        "ruellia-occidentalis",
         "justicia-americana",
-        "justicia-pilosella"
+        "justicia-pilosella",
+        "dyschoriste-linearis",
+        "dicliptera-brachiata",
+        "anisacanthus-quadrifidus"
       ],
       "lane": "unfinished-plant-scout",
       "owner": "manual-test-chat",
       "status": "active",
       "claimed_at": "2026-10-03T18:23:00-05:00",
       "expires_at": "2026-10-04T00:23:00-05:00",
-      "release_when": "All six Acanthaceae records are durably represented in research-queue.json and research-drafts, or the test is explicitly aborted.",
-      "notes": "Third live high-throughput Scout test. Four unfinished Ruellia records plus two Justicia replacements after R. drummondiana and R. humilis were detected as already canonical. Includes a parent/variety duplicate-reconciliation test for R. nudiflora."
+      "release_when": "All six current Acanthaceae work items are durably represented in research-queue.json and research-drafts, or the test is explicitly aborted.",
+      "notes": "Third live high-throughput Scout test. Collision gate skipped canonical Ruellia drummondiana/humilis and taxonomy-reconciled Ruellia nudiflora/nudiflora var. nudiflora/occidentalis because current Kew folds the latter names into already-canonical Ruellia ciliatiflora. Batch refilled with unfinished Acanthaceae: Ruellia metziae, Justicia americana, Justicia pilosella, Dyschoriste linearis, Dicliptera brachiata, and Anisacanthus quadrifidus."
     }
   ]
 }
