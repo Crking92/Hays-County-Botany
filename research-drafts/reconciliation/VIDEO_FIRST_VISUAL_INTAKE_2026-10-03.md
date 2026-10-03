@@ -12,8 +12,8 @@ The project is intentionally prioritizing **broad visual coverage from Joey vide
 ## Current intake
 
 - Named taxa across the current video feed: **66**
-- Already canonical with usable video assets: **24**
-- Not yet canonical: **42**
+- Already canonical with usable video assets: **26**
+- Not yet canonical: **40**
 
 ## First canonical media batch
 
@@ -44,3 +44,13 @@ The project is intentionally prioritizing **broad visual coverage from Joey vide
 - *Taxodium mucronatum* — preserve Joey/source interpretation as attributed until taxonomy/range reconciliation is complete
 
 This queue should grow as the video-extraction chat lands additional manifests.
+
+
+## Current closure status
+
+- **26/26 canonical video-fed species have their current Joey study-media merge accounted for.**
+- **40 noncanonical taxa remain intentionally outside canonical installation:** 12 strong next-curation candidates, 2 special reconciliation cases, and 26 lower-priority teaching/backfill taxa.
+- *Grindelia lanceolata var. texana* is attached to canonical *Grindelia lanceolata*.
+- Joey/source *Ruellia nudiflora* is attached to canonical *Ruellia ciliatiflora*, with the source name preserved.
+- Family/terminology assets are handed off separately in `JOEY_FAMILY_TERM_HANDOFF_2026-10-03.md`.
+- No additional user video packages are pending; this video-first lane is **caught up / waiting for new videos**.
