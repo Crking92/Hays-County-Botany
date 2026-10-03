@@ -2989,18 +2989,81 @@
       "curated_at": "2026-10-03",
       "reconciliation_status": "resolved_installed",
       "reconciliation_note": "Strict review PASS and installed under user's explicit blanket approval through species-merge-022-commelinaceae-local-pair."
+    },
+    {
+      "id": "eragrostis-intermedia",
+      "scientific_name": "Eragrostis intermedia",
+      "common_name": "Plains lovegrass",
+      "family": "Poaceae",
+      "genus": "Eragrostis",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "queue_group": "B018 Eragrostis part 1",
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 417,
+        "source_scientific_name": "Eragrostis intermedia",
+        "wild_observations": 5,
+        "source_count": 3,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
+      "last_deep_reviewed_at": "2026-10-03T15:15:00-05:00",
+      "notes": "B018 part 1 strict-range PASS — Hays, Gillespie, Val Verde; Bandera/Medina also voucher-supported. Diagnostic priority: airy panicle + mostly smooth sheaths versus hirsute E. hirsuta.",
+      "approval_status": "ready_for_approval"
+    },
+    {
+      "id": "eragrostis-hirsuta",
+      "scientific_name": "Eragrostis hirsuta",
+      "common_name": "Bigtop lovegrass",
+      "family": "Poaceae",
+      "genus": "Eragrostis",
+      "status": "range_hold_reviewed",
+      "priority": 0,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "queue_group": "B018 Eragrostis part 1",
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 416,
+        "source_scientific_name": "Eragrostis hirsuta",
+        "wild_observations": 0,
+        "source_count": 2,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
+      "last_deep_reviewed_at": "2026-10-03T15:15:00-05:00",
+      "notes": "B018 part 1 UNRESOLVED — Uvalde exact county locked; no second/third target-zone counties inferred from broad Texas nativity.",
+      "approval_status": "hold_documented",
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_hold",
+      "last_hold_reviewed_at": "2026-10-03T15:15:00-05:00"
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-025-commelinaceae-local-pair",
-    "reviewed_at": "2026-10-03T15:03:00-05:00",
-    "status": "approved_and_installed",
+    "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
+    "reviewed_at": "2026-10-03T15:15:00-05:00",
+    "status": "part1_complete",
     "taxa": [
-      "commelina-erecta",
-      "tinantia-anomala"
+      "eragrostis-intermedia",
+      "eragrostis-hirsuta"
     ],
-    "note": "Both final queued taxa PASS and installed canonically; manifest count 140."
+    "note": "B018 split for smaller grass reviews. Part 1: E. intermedia PASS and approval-ready; E. hirsuta UNRESOLVED range hold. E. trichodes + E. cilianensis remain part 2."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:00:00-05:00",

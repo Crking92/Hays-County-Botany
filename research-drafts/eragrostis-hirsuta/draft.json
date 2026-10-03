@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
+  "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
+  "created_at": "2026-10-03T15:15:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 416,
+    "source_scientific_name": "Eragrostis hirsuta",
+    "wild_observations": 0,
+    "source_count": 2,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Eragrostis hirsuta (Michx.) Nees",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Eragrostis",
+    "species": "hirsuta",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO; native range includes Texas. Kew lists Poa hirsuta, E. hirsuta var. laevivaginata, E. sporoboloides, and Poa simplex as synonyms."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [
+      "Uvalde"
+    ],
+    "evidence": [
+      "Kew/POWO confirms the species is native in Texas but does not provide county-level proof.",
+      "A documented field account places E. hirsuta in northern Uvalde County along the Dry Frio River.",
+      "Targeted searches did not lock two additional exact target-zone native counties from authoritative county/specimen sources."
+    ],
+    "blocking_issue": "Only one exact target-zone county is locked. Statewide Texas nativity and broad distribution are insufficient for the project's three-county rule.",
+    "guardrail": "Do not infer Hays/Hill Country counties from the Master Pool Hays-local flag, ecoregion maps, or statewide native status."
+  },
+  "morphology": {
+    "look_here_first": "Look for hairiness before the airy panicle. Bigtop lovegrass has conspicuously hirsute leaf sheaths and distinctly bearded panicle branch axils. That shaggy sheath-plus-bearded-node combination is much more useful than panicle shape alone.",
+    "diagnostic_traits": [
+      "perennial caespitose grass",
+      "culms commonly about 45–100 cm",
+      "leaf sheaths conspicuously hirsute with hairy outer margins",
+      "sheath mouth/oral region ciliate; ligule a fringe of hairs",
+      "leaf blades relatively broad for the group, about 4–8 mm wide",
+      "large open ovate panicle, often 25–60 cm long",
+      "panicle branches ascending to spreading",
+      "panicle branch axils conspicuously bearded",
+      "small spikelets with few fertile florets"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Eragrostis intermedia",
+      "separator": "E. intermedia has mostly glabrous leaf sheaths and only sparse panicle-axil hairs. E. hirsuta is much hairier on both the sheath surface and panicle branch nodes."
+    },
+    {
+      "taxon": "Eragrostis trichodes",
+      "separator": "E. trichodes has long hairs concentrated at the sheath apex/collar but the sheath surface itself is generally smooth; E. hirsuta is hirsute across the sheaths and has bearded panicle axils."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tufted habit",
+      "full large open panicle",
+      "hirsute leaf sheath macro",
+      "sheath mouth/ligule hair macro",
+      "bearded panicle branch axil macro",
+      "spikelet close-up",
+      "direct E. intermedia sheath comparison"
+    ],
+    "exact_final_selection_pending_user_approval": false,
+    "user_inaturalist_example_observation": null,
+    "reference_candidates": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2",
+      "https://www.backyardnature.net/n/h/lovegras.htm"
+    ],
+    "provenance_note": "Hold canonical native install until the third exact target-zone county is established; morphology package is otherwise usable for future comparison training."
+  },
+  "approval_status": "HOLD_DOCUMENTED",
+  "installation_guardrail": "Do not install as a target-zone native while fewer than three exact native target counties are documented."
+}

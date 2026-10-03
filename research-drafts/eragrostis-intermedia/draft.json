@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
+  "created_at": "2026-10-03T15:15:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 417,
+    "source_scientific_name": "Eragrostis intermedia",
+    "wild_observations": 5,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Eragrostis intermedia Hitchc.",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Eragrostis",
+    "species": "intermedia",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Kew treats Eragrostis intermedia var. appressa and Eragrostis lugens var. major as synonyms of the species; learner remains species-level."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Gillespie",
+      "Val Verde"
+    ],
+    "additional_supported_target_counties": [
+      "Bandera",
+      "Medina"
+    ],
+    "evidence": [
+      "Kew/POWO accepts E. intermedia and lists Texas in its native range.",
+      "Hagenbuch & Lemke's Texas Hill Country grass treatment cites multiple Hays County specimens (Breckenridge 457, Jessup 57, Lemke 674, Lyday 281, Ruiseco 11).",
+      "The same treatment cites Gillespie County specimen Sanchez 960.",
+      "The same treatment cites Val Verde County specimens Labus 129 and 197; it also cites a Bandera/Medina County collection."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County PASS is based on cited herbarium vouchers in a regional grass treatment, not broad ecoregion presence or seeded roadside/landscape occurrences."
+  },
+  "morphology": {
+    "look_here_first": "Start at the panicle and sheath collar. Plains lovegrass is a tufted perennial with an extremely open, airy panicle whose tiny spikelets sit on long divergent pedicels. Leaf sheaths are mostly glabrous, with hairs concentrated near the sheath apex/collar rather than being shaggy throughout.",
+    "diagnostic_traits": [
+      "perennial, caespitose/tufted grass with erect culms commonly around 30–75 cm",
+      "leaves basal and cauline; blades narrow, roughly 1–5 mm wide",
+      "leaf sheaths mostly glabrous to only sparsely papillose, with hairs near the apex/collar",
+      "ligule a very short fringe/line of hairs",
+      "panicle very open and broadly ovoid, often occupying a large fraction of plant height",
+      "panicle branch axils only sparsely hairy, especially at lower nodes",
+      "primary panicle branches bare for a distance near their bases",
+      "pedicels mostly much longer than the small spikelets and divergent",
+      "spikelets small, green to purple-tinged, generally with only a few florets"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Eragrostis hirsuta",
+      "separator": "Bigtop lovegrass is conspicuously hairier: its leaf sheaths are hirsute and panicle branch axils are bearded. It is commonly taller with a larger panicle. E. intermedia has mostly smooth sheaths and only sparse axillary hairs."
+    },
+    {
+      "taxon": "Eragrostis trichodes",
+      "separator": "Sand lovegrass often shows conspicuous long hair tufts at the sheath apex/collar and a taller, narrow-based plant with a large diffuse panicle; use sheath/collar hair placement and spikelet/panicle architecture rather than overall airiness alone."
+    },
+    {
+      "taxon": "Eragrostis cilianensis",
+      "separator": "Stinkgrass is an annual with a much coarser, denser-looking panicle and gland-dotted lemmas; crushed young plants may have a strong odor. It is introduced in Texas."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tufted habit",
+      "full open panicle silhouette",
+      "lower panicle branch node showing sparse axil hairs",
+      "leaf sheath apex/collar macro",
+      "ligule macro",
+      "spikelet on long pedicel",
+      "mature spikelet close-up",
+      "direct E. hirsuta sheath/axil comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/350174001",
+    "reference_candidates": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+      "https://www.phytoneuron.net/2015Phytoneuron/04PhytoN-HillCountryGrasses.pdf",
+      "https://www.npsot.org/posts/native-plant/eragrostis-intermedia/"
+    ],
+    "provenance_note": "For a grass learner, prioritize sheath/collar and panicle-node close-ups over generic whole-plant images."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves this new B018 species batch."
+}
