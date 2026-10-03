@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-022-monarda-b039-reconciled",
+  "created_at": "2026-10-03T14:17:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 714,
+    "source_scientific_name": "Monarda punctata",
+    "wild_observations": 2,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Monarda punctata L.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Monarda",
+    "species": "punctata",
+    "status": "VERIFIED",
+    "note": "Accepted by Kew/POWO. Texas has substantial infraspecific complexity; the learner remains species-level but preserves the need to check local varieties and segregate species such as M. stanfieldii.",
+    "accepted_infraspecific_count": 8,
+    "texas_taxonomic_note": "Turner's Texas treatment recognized five M. punctata varieties in Texas and treated former varieties fruticulosa, maritima, and stanfieldii as distinct species."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Tom Green",
+      "Bexar"
+    ],
+    "evidence": [
+      "BONAP/NAPA provides a county-level native distribution map for Monarda punctata and is the project's primary range cross-check.",
+      "Travis County — UT Plant Resources Center's Travis County Lamiaceae herbarium index explicitly includes Monarda punctata var. intermedia.",
+      "Tom Green County — a peer-reviewed Texas field study lists Monarda punctata as a sampled host plant in Tom Green County among naturally collected host-associated populations.",
+      "Bexar County — Smithsonian entomological records document females of Mesoxaea texana collected at flowers of M. punctata in sand dunes of southeast Bexar County."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Because M. punctata has multiple Texas varieties and overlaps with the Texas endemic M. stanfieldii complex, ambiguous garden/seed-mix observations are not used for county proof. PASS is based on BONAP plus independent regional specimen/field records from three target-zone counties."
+  },
+  "morphology": {
+    "look_here_first": "Look for the combination of pale cream-to-yellow flowers densely spotted purple plus pale white/pink/lavender bracts that are pointed but NOT long-bristle-tipped. Then inspect the calyx mouth: in M. punctata it remains open and is only ciliate, rather than being plugged by dense white hairs as in M. stanfieldii.",
+    "diagnostic_traits": [
+      "aromatic annual, short-lived perennial, or perennial depending on variety; stems four-angled and usually hairy",
+      "leaves opposite, generally lanceolate to linear-lanceolate, with low serrations",
+      "inflorescence usually 1–4 or up to several separated dense flower whorls/verticils",
+      "showy subtending bracts are white to pinkish or purplish, often with green toward the tip",
+      "bract tips acute to acuminate but not drawn into the long bristles characteristic of M. citriodora",
+      "calyx tubular; teeth short, deltoid/triangular to triangular-lanceolate and ciliate rather than long-bristle-tipped",
+      "calyx mouth in typical M. punctata is open and ciliate, an important separator from M. stanfieldii",
+      "corolla cream or pale yellow, strongly bilabiate, usually conspicuously spotted purple/reddish-purple",
+      "fruit divides into four smooth nutlets"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Monarda citriodora",
+      "separator": "M. citriodora usually has purple bracts and long bristle tips on both floral bracts and calyx teeth; M. punctata has pale bracts without long terminal bristles and short triangular/lanceolate calyx teeth."
+    },
+    {
+      "taxon": "Monarda stanfieldii",
+      "separator": "Critical Central Texas confuser: M. stanfieldii has the calyx mouth closed by a dense plug of white/silvery hairs, while M. punctata has an open calyx mouth that is merely ciliate. This character remains useful on dried material."
+    },
+    {
+      "taxon": "Monarda fistulosa",
+      "separator": "M. fistulosa has pink/lavender flowers in a more conventional dense terminal head and lacks the signature cream/yellow, heavily spotted corollas plus tiered pale bracts of M. punctata."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole plant and branching habit",
+      "side view of stacked flower whorls",
+      "cream/yellow purple-spotted corolla macro",
+      "pale floral bract macro showing pointed non-bristle tip",
+      "calyx-tooth macro showing short triangular/ciliate teeth",
+      "calyx-mouth macro showing open ciliate opening",
+      "opposite leaves and square stem node",
+      "dry calyx/nutlets",
+      "direct Monarda citriodora comparison",
+      "direct Monarda stanfieldii calyx-mouth comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/285823858",
+    "reference_candidates": [
+      "https://www.npsot.org/posts/native-plant/monarda-punctata/",
+      "https://www.texaswildbuds.com/monarda-punctata.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Monarda%20punctata%20intermedia",
+      "https://onlinelibrary.wiley.com/doi/full/10.1111/curt.12541"
+    ],
+    "provenance_note": "Prefer diagnostic macro views that show the calyx mouth and bract tips. The user's iNaturalist example is a study-photo lead; public-reuse licensing must be verified photo-by-photo."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves the reconciled Monarda batch."
+}
