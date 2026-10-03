@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_COMPARISON_RECOMMENDED",
+  "batch_id": "deep-review-batch-036-bothriochloa-b027",
+  "created_at": "2026-10-03T17:25:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 141,
+    "source_scientific_name": "Bothriochloa ischaemum",
+    "wild_observations": 3,
+    "source_count": 1,
+    "hays_local": false
+  },
+  "taxonomy": {
+    "accepted_name": "Bothriochloa ischaemum (L.) Keng",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Bothriochloa",
+    "species": "ischaemum",
+    "status": "VERIFIED",
+    "synonyms": [
+      "Bothriochloa ischaemum var. songarica (Rupr. ex Fisch. & C.A.Mey.) Celarier & J.R.Harlan",
+      "Andropogon ischaemum var. songaricus Rupr. ex Fisch. & C.A.Mey."
+    ],
+    "note": "Current Kew/POWO accepts Bothriochloa ischaemum at species rank and treats var. songarica, the Texas King Ranch bluestem name, as a synonym. Kew lists Texas as introduced, not native."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_native_counties": [],
+    "evidence": [
+      "Kew/POWO lists the native range in temperate Eurasia and northwestern Africa and explicitly lists Texas among introduced regions.",
+      "Texas A&M AgriLife describes King Ranch bluestem as an introduced, aggressive warm-season perennial.",
+      "Texas Invasives evaluates the songarica concept and documents strong impacts on native plant community richness, including near-monocultures."
+    ],
+    "blocking_issue": "Non-native to Texas.",
+    "guardrail": "Wild roadside or prairie occurrence in Texas does not count as native-range evidence."
+  },
+  "morphology": {
+    "look_here_first": "Start with the seedhead and nodes. King Ranch bluestem has smooth/glabrous nodes and a loose terminal head of only about 3–8 long fingerlike branches. The stems often kink/change angle at nodes and branch freely from a broad crown. That is very different from silver bluestem's dense cottony mass and cane bluestem's hairy nodes.",
+    "diagnostic_traits": [
+      "perennial warm-season introduced bunchgrass, commonly to about 120 cm",
+      "broad flattened crown; can become stoloniferous under close grazing/mowing",
+      "light-green stems often change angle at nodes and branch freely",
+      "nodes glabrous in the familiar songarica/King Ranch form",
+      "leaves generally to about 20 cm long and 5 mm wide",
+      "upper culm relatively naked beneath inflorescence",
+      "terminal seedhead loose, often silvery-purple",
+      "inflorescence composed of about 3–8 long spicate fingerlike branches",
+      "both fertile and sterile spikelets may have slender bent/twisted awns"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Bothriochloa torreyana",
+      "separator": "Silver bluestem forms a dense silver-white cottony contracted panicle with many short rames; KR bluestem has only a few long fingerlike branches."
+    },
+    {
+      "taxon": "Bothriochloa barbinodis",
+      "separator": "Cane bluestem has dense hairy rings at stem nodes and a fanlike inflorescence; KR bluestem's nodes are glabrous and head is more digitate/fingerlike."
+    }
+  ],
+  "learner_role": "NON_NATIVE_INVASIVE_COMPARISON_RECOMMENDED",
+  "native_metrics_excluded": true,
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole spreading bunchgrass",
+      "glabrous stem node macro",
+      "kinked/branching culm architecture",
+      "full 3–8-branched fingerlike seedhead",
+      "single long inflorescence branch",
+      "awned spikelet macro",
+      "roadside or invaded-grassland context",
+      "direct silver/cane bluestem comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/311757660",
+    "reference_candidates": [
+      "https://rangeplants.tamu.edu/plant/king-ranch-bluestem/",
+      "https://texasinvasives.org/professionals/assessment_detail.php?symbol=BOISS",
+      "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A1191417-2"
+    ]
+  },
+  "approval_status": "READY_FOR_COMPARISON_APPROVAL",
+  "installation_guardrail": "Install only as a labeled non-native comparison excluded from native metrics."
+}

@@ -65,9 +65,9 @@
       "curated_at": "2026-10-01",
       "canonical_status": "installed",
       "canonical_id": "bothriochloa-torreyana",
-      "reconciliation_status": "resolved_against_canonical_manifest",
-      "reconciled_at": "2026-10-03T13:41:00-05:00",
-      "reconciliation_note": "Queue-only reconciliation: bothriochloa-torreyana is already present in canonical data/manifest.json; historical approval/review fields preserved and execution priority cleared."
+      "reconciliation_status": "resolved_installed_taxonomy_refreshed",
+      "reconciled_at": "2026-10-03T17:25:00-05:00",
+      "reconciliation_note": "B027 stale Bothriochloa laguroides row folded into existing canonical B. torreyana. Older Texas B. laguroides subsp./var. torreyana retained as synonyms; current B. laguroides sensu stricto is not counted as a Texas native learner taxon."
     },
     {
       "id": "juniperus-ashei",
@@ -3883,19 +3883,86 @@
       "curated_at": "2026-10-03",
       "reconciliation_status": "resolved_installed",
       "reconciliation_note": "Installed under blanket approval through species-merge-032-ruellia-b026."
+    },
+    {
+      "id": "bothriochloa-barbinodis",
+      "scientific_name": "Bothriochloa barbinodis",
+      "common_name": "cane bluestem",
+      "family": "Poaceae",
+      "genus": "Bothriochloa",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "queue_group": "B027 Bothriochloa",
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 140,
+        "source_scientific_name": "Bothriochloa barbinodis",
+        "wild_observations": 1,
+        "source_count": 2,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-036-bothriochloa-b027",
+      "last_deep_reviewed_at": "2026-10-03T17:25:00-05:00",
+      "notes": "B027 PASS — Williamson, Val Verde, Uvalde. Diagnostic priority: hairy nodal beard + broad fanlike silver panicle.",
+      "approval_status": "ready_for_approval",
+      "native_range_status": "PASS"
+    },
+    {
+      "id": "bothriochloa-ischaemum",
+      "scientific_name": "Bothriochloa ischaemum",
+      "common_name": "King Ranch bluestem",
+      "family": "Poaceae",
+      "genus": "Bothriochloa",
+      "status": "reviewed_comparison_recommended",
+      "priority": 1,
+      "queue_group": "B027 Bothriochloa",
+      "research_goals": [
+        "taxonomy_candidates",
+        "native_status",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 141,
+        "source_scientific_name": "Bothriochloa ischaemum",
+        "wild_observations": 3,
+        "source_count": 1,
+        "hays_local": false
+      },
+      "batch_id": "deep-review-batch-036-bothriochloa-b027",
+      "last_deep_reviewed_at": "2026-10-03T17:25:00-05:00",
+      "notes": "B027 native-range FAIL — Kew lists Texas as introduced. Retain as NON_NATIVE_INVASIVE_COMPARISON because it is common and ecologically important in Central Texas. Diagnostic priority: glabrous nodes + 3–8 long fingerlike seedhead branches.",
+      "approval_status": "ready_for_comparison_approval",
+      "native_range_status": "FAIL",
+      "learner_role": "NON_NATIVE_INVASIVE_COMPARISON_RECOMMENDED",
+      "native_metrics_excluded": true,
+      "aliases": [
+        "Bothriochloa ischaemum var. songarica"
+      ]
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-035-ruellia-b026",
-    "reviewed_at": "2026-10-03T17:05:00-05:00",
-    "status": "approved_and_installed",
+    "batch_id": "deep-review-batch-036-bothriochloa-b027",
+    "reviewed_at": "2026-10-03T17:25:00-05:00",
+    "status": "blanket_approved_for_install",
     "taxa": [
-      "ruellia-ciliatiflora",
-      "ruellia-drummondiana",
-      "ruellia-humilis"
+      "bothriochloa-torreyana",
+      "bothriochloa-barbinodis",
+      "bothriochloa-ischaemum"
     ],
-    "note": "B026 closed: all three PASS and installed; familiar R. nudiflora reconciled to current Kew R. ciliatiflora. Canonical count 173."
+    "note": "B027 taxonomy cleanup complete. Existing silver bluestem B. torreyana refreshed; stale B. laguroides row merged as synonym concept. B. barbinodis PASS. B. ischaemum installed only as non-native invasive comparison."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
