@@ -15,7 +15,7 @@ Teach field identification by showing **where to look first**, which structures 
 - **Google AI** — terminology, definitions and text-heavy comparison wording
 - **Master tracker** — coordination source
 
-See `PROJECT_RULES.md` and `workflow/`.
+See `PROJECT_RULES.md`, `workflow/COORDINATION.md`, and `workflow/work-claims.json`. The coordination files are the shared cross-chat reservation layer used to minimize duplicate work.
 
 ## Run locally
 
