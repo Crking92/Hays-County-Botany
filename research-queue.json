@@ -1296,9 +1296,9 @@
         "wild_observations": 6,
         "source_count": 3
       },
-      "batch_id": "deep-review-batch-012-rhus-b008",
-      "last_deep_reviewed_at": "2026-10-02T15:14:00-05:00",
-      "notes": "B008 strict-range PASS: Hays, Travis, Williamson.",
+      "batch_id": "deep-review-batch-068-rhus-b066",
+      "last_deep_reviewed_at": "2026-10-03T23:40:00-05:00",
+      "notes": "B066 existing canonical retained; Hays, Travis, Williamson. Rhus trilobata merged as synonym.",
       "approval_status": "user_approved",
       "user_decision": {
         "decision": "approve_for_curation",
@@ -1309,7 +1309,9 @@
       "canonical_id": "rhus-aromatica",
       "reconciliation_status": "resolved_against_canonical_manifest",
       "reconciled_at": "2026-10-03T13:41:00-05:00",
-      "reconciliation_note": "Queue-only reconciliation: rhus-aromatica is already present in canonical data/manifest.json; historical approval/review fields preserved and execution priority cleared."
+      "reconciliation_note": "Queue-only reconciliation: rhus-aromatica is already present in canonical data/manifest.json; historical approval/review fields preserved and execution priority cleared.",
+      "native_range_status": "PASS",
+      "queue_group": "B066 Rhus"
     },
     {
       "id": "panicum-virgatum",
@@ -6059,20 +6061,59 @@
       "canonical_status": "not_installed_target_zone_fail",
       "reconciliation_status": "preserved_nonlocal_comparison",
       "last_deep_reviewed_at": "2026-10-03T23:20:00-05:00"
+    },
+    {
+      "id": "rhus-trilobata",
+      "scientific_name": "Rhus trilobata",
+      "family": "Anacardiaceae",
+      "genus": "Rhus",
+      "status": "merged_synonym_reviewed",
+      "native_range_status": "MERGED",
+      "canonical_status": "represented_by_rhus-aromatica",
+      "notes": "B066 merged synonym under current Rhus aromatica.",
+      "queue_group": "B066 Rhus",
+      "batch_id": "deep-review-batch-068-rhus-b066",
+      "last_deep_reviewed_at": "2026-10-03T23:40:00-05:00"
+    },
+    {
+      "id": "rhus-trilobata-var-trilobata",
+      "scientific_name": "Rhus trilobata var. trilobata",
+      "family": "Anacardiaceae",
+      "genus": "Rhus",
+      "status": "merged_synonym_reviewed",
+      "native_range_status": "MERGED",
+      "canonical_status": "represented_by_rhus-aromatica",
+      "notes": "B066 duplicate variety row merged into Rhus aromatica.",
+      "queue_group": "B066 Rhus",
+      "batch_id": "deep-review-batch-068-rhus-b066",
+      "last_deep_reviewed_at": "2026-10-03T23:40:00-05:00"
+    },
+    {
+      "id": "rhus-microphylla",
+      "scientific_name": "Rhus microphylla",
+      "family": "Anacardiaceae",
+      "genus": "Rhus",
+      "status": "range_hold_reviewed",
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_range_hold",
+      "notes": "B066 HOLD: Val Verde locked; Hays source is introduced and excluded; two more target-zone counties needed.",
+      "queue_group": "B066 Rhus",
+      "batch_id": "deep-review-batch-068-rhus-b066",
+      "last_deep_reviewed_at": "2026-10-03T23:40:00-05:00"
     }
   ],
   "last_scout_run_at": "2026-10-03T21:21:32.917154+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-067-quercus-b065",
-    "reviewed_at": "2026-10-03T23:20:00-05:00",
-    "status": "four_target_zone_fails",
+    "batch_id": "deep-review-batch-068-rhus-b066",
+    "reviewed_at": "2026-10-03T23:40:00-05:00",
+    "status": "rhus_reconciled",
     "taxa": [
-      "quercus-lyrata",
-      "quercus-michauxii",
-      "quercus-nigra",
-      "quercus-phellos"
+      "rhus-aromatica",
+      "rhus-trilobata",
+      "rhus-trilobata-var-trilobata",
+      "rhus-microphylla"
     ],
-    "note": "B065 closed: all four taxa are valid Texas natives but fail the project target-zone rule; no canonical installs. Canonical species count 222."
+    "note": "Rhus aromatica retained canonical; trilobata rows merged; Rhus microphylla retained as range hold."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
