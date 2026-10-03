@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-033-juniperus-b024",
+  "created_at": "2026-10-03T16:15:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 587,
+    "source_scientific_name": "Juniperus virginiana",
+    "wild_observations": 4,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Juniperus virginiana L.",
+    "rank": "species",
+    "order": "Pinales",
+    "family": "Cupressaceae",
+    "genus": "Juniperus",
+    "species": "virginiana",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Kew also accepts Juniperus virginiana var. virginiana; the Central Texas/Williamson treatment uses var. virginiana. The learner remains at species rank for consistency."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Williamson",
+      "Bexar"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Juniperus virginiana as native to Texas.",
+      "Travis County — the Travis County flora treats J. virginiana as a native tree, common in the eastern half of the county, with numerous TEX-LL sheets.",
+      "Williamson County — UT Plant Resources Center provides a detailed local treatment of J. virginiana var. virginiana.",
+      "Bexar County — a U.S. EPA ecological risk assessment for Live Oak, Bexar County describes an adjacent wooded area of native trees and grasses and explicitly lists eastern red cedar (J. virginiana) among the larger trees."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Eastern redcedar is widely planted. County proof uses county flora/local ecological documentation, not ornamental plantings or the user's observations."
+  },
+  "morphology": {
+    "look_here_first": "If a female tree has cones, start there: eastern redcedar has small glaucous blue-black cones about 4.5–5 mm across, commonly with 1–2(–3) seeds. Then inspect an adult scale leaf: the resin gland is pit-like/depressed near the base rather than a raised rounded mid-blade gland. Ashe juniper usually has larger 6.5–9.6 mm cones with one seed and a raised circular-to-hemispheric gland.",
+    "diagnostic_traits": [
+      "evergreen dioecious small to medium tree, often with a single trunk and conic/columnar crown when young",
+      "adult foliage shoots slender, approximately four-sided, with closely appressed opposite scale leaves",
+      "adult scale leaves about 1 mm long, dark green and often slightly glossy",
+      "resin gland expressed as a small pit/depression near the basal-central part of the scale leaf",
+      "vigorous juvenile/whip shoots may carry longer sharp awl-shaped leaves",
+      "bark red-brown, thin and exfoliating/shredding in strips",
+      "mature berrylike seed cones small, about 4.5–5 mm, glaucous blue-black",
+      "seed cones commonly 1–2(–3)-seeded, often with one seed larger",
+      "more associated with Blackland Prairie/Post Oak/eastern or mesic sites than the dry limestone cedar-break dominance of Ashe juniper"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Juniperus ashei",
+      "separator": "Best split: J. virginiana has a pit-like scale-leaf gland and smaller 4.5–5 mm cones commonly with 1–2(–3) seeds; J. ashei has a raised rounded/hemispheric gland and larger 6.5–9.6 mm cones usually with one seed. Habit/ecology support the ID: redcedar is often single-trunked/conic and more eastern/mesic, while Ashe juniper dominates dry Edwards Plateau limestone."
+    },
+    {
+      "taxon": "Juniperus ashei var. ovata",
+      "separator": "Kew currently treats var. ovata within J. ashei. It can be multi-seeded and complicates seed-count-only IDs, so confirm leaf-gland form and the full cone/foliage package rather than using seed number alone."
+    },
+    {
+      "taxon": "Juniperus pinchotii",
+      "separator": "Redberry juniper has coppery to reddish-brown mature cones rather than the dark glaucous blue-black cones of eastern redcedar and Ashe juniper."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole conic/single-trunk habit",
+      "adult four-sided foliage spray",
+      "adult scale-leaf gland macro showing pit/depression",
+      "juvenile awl-shaped leaf",
+      "small blue-black female cone with scale",
+      "opened cone/seeds showing 1–2(3) seeds",
+      "red-brown shredding bark",
+      "direct J. ashei cone-size and leaf-gland comparison",
+      "eastern/mesic or Blackland/Post Oak habitat context"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/334552577",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Juniperus%20virginiana%20virginiana.html",
+      "https://www.npsot.org/posts/native-plant/juniperus-virginiana/",
+      "https://plants.usda.gov/DocumentLibrary/factsheet/pdf/fs_juvi.pdf"
+    ],
+    "provenance_note": "The most valuable learner photos are a macro of the scale-leaf gland and a measured mature cone opened to show seed number; generic tree-shape photos are secondary."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "May install under the user's standing blanket approval because strict PASS is complete."
+}

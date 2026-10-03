@@ -1,0 +1,33 @@
+JUNIPERUS VIRGINIANA — DEEP REVIEW SOURCES
+Reviewed: 2026-10-03
+Status: PASS / BLANKET APPROVED
+
+TAXONOMY
+Kew Plants of the World Online — accepted Juniperus virginiana L.; Texas native:
+https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A132551-2
+Kew — accepted var. virginiana:
+https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A77169224-1
+
+STRICT TARGET-ZONE RANGE
+Travis — Travis County flora: native tree, common in eastern half, numerous TEX-LL sheets:
+https://docsbay.net/doc/1005242/division-1-pteridophyta
+Williamson — UT Plant Resources Center county treatment:
+https://w3.biosci.utexas.edu/prc/K12/pages/Juniperus%20virginiana%20virginiana.html
+Bexar — U.S. EPA ecological assessment, Live Oak, Bexar County; native wooded area includes eastern red cedar:
+https://semspub.epa.gov/work/06/100020540.pdf
+
+Decision: PASS — Travis, Williamson, Bexar.
+
+MORPHOLOGY / COMPARISON
+UT PRC Williamson treatment:
+https://w3.biosci.utexas.edu/prc/K12/pages/Juniperus%20virginiana%20virginiana.html
+UT PRC Ashe juniper treatment:
+https://w3.biosci.utexas.edu/prc/K12/pdf/Juniperus%20ashei
+Texas A&M Forest Service — Ashe juniper comparison context:
+https://texastreeid.tfs.tamu.edu/content/TreeDetails/?id=53&t=J
+NPSOT eastern redcedar:
+https://www.npsot.org/posts/native-plant/juniperus-virginiana/
+
+LOOK HERE FIRST
+Eastern redcedar: pit-like adult scale-leaf gland + small 4.5–5 mm blue-black cone commonly 1–2(–3) seeded.
+Ashe juniper: raised circular/hemispheric scale-leaf gland + larger 6.5–9.6 mm cone usually one-seeded.
