@@ -1,0 +1,121 @@
+{
+  "checkpoint_id": "family-anchor-promotion-2026-10-03",
+  "created_at": "2026-10-03",
+  "canonical_species_count_after_pass": 145,
+  "purpose": "Persist the first canonical species anchors for research-complete family modules that previously relied only on reference visuals.",
+  "installed": [
+    {
+      "family": "Aristolochiaceae",
+      "taxon": "Aristolochia serpentaria",
+      "id": "aristolochia-serpentaria",
+      "decision": "PASS",
+      "target_zone_counties": [
+        "Hays",
+        "Travis",
+        "Kerr"
+      ],
+      "batch": "species-merge-023-aristolochiaceae-serpentaria"
+    },
+    {
+      "family": "Ericaceae",
+      "taxon": "Arbutus xalapensis",
+      "id": "arbutus-xalapensis",
+      "decision": "PASS",
+      "target_zone_counties": [
+        "Hays",
+        "Bandera",
+        "Real"
+      ],
+      "batch": "species-merge-024-ericaceae-arbutus"
+    },
+    {
+      "family": "Sapindaceae",
+      "taxon": "Ungnadia speciosa",
+      "id": "ungnadia-speciosa",
+      "decision": "PASS",
+      "target_zone_counties": [
+        "Travis",
+        "Williamson",
+        "Kerr"
+      ],
+      "batch": "species-merge-025-sapindaceae-ungnadia"
+    },
+    {
+      "family": "Cactaceae",
+      "taxon": "Opuntia engelmannii var. lindheimeri",
+      "id": "opuntia-engelmannii-var-lindheimeri",
+      "decision": "PASS",
+      "target_zone_counties": [
+        "Hays",
+        "Travis",
+        "Williamson",
+        "Kerr"
+      ],
+      "batch": "species-merge-026-cactaceae-lindheimeri",
+      "taxonomy_guardrail": "Opuntia lindheimeri is retained as a synonym/source-row alias and must not be curated as a second canonical species."
+    },
+    {
+      "family": "Rosaceae",
+      "taxon": "Rubus trivialis",
+      "id": "rubus-trivialis",
+      "decision": "PASS",
+      "target_zone_counties": [
+        "Travis",
+        "Williamson",
+        "Val Verde"
+      ],
+      "batch": "species-merge-027-rosaceae-rubus-trivialis"
+    }
+  ],
+  "held_or_next": [
+    {
+      "family": "Aristolochiaceae",
+      "taxon": "Aristolochia erecta",
+      "state": "HOLD",
+      "reason": "Two strict target-zone counties are locked (Hays + Travis); require a third exact county before canonical install."
+    },
+    {
+      "family": "Ericaceae",
+      "taxon": "Vaccinium arboreum",
+      "state": "REVIEW",
+      "reason": "Keep as family breadth/reference taxon until strict target-zone county evidence is independently sufficient."
+    },
+    {
+      "family": "Rosaceae",
+      "taxon": "Prunus mexicana",
+      "state": "HIGH_PRIORITY_REVIEW",
+      "reason": "Travis + Williamson are strong; do not promote until a third strict wild target-zone county is locked. Purola/Hays record is introduced and cannot count."
+    },
+    {
+      "family": "Sapindaceae",
+      "taxon": "Acer negundo",
+      "state": "REVIEW",
+      "reason": "Hays/Williamson support is strong; seek a cleaner third exact-county occurrence before install."
+    },
+    {
+      "family": "Sapindaceae",
+      "taxon": "Sapindus saponaria var. drummondii",
+      "state": "REVIEW",
+      "reason": "Useful local comparison/anchor candidate; needs its own accepted-taxonomy and strict county pass."
+    },
+    {
+      "family": "Cactaceae",
+      "taxon_group": "remaining Opuntia",
+      "state": "IN_PROGRESS",
+      "candidates": [
+        "Opuntia macrorhiza",
+        "Opuntia phaeacantha",
+        "other batch taxa"
+      ],
+      "reason": "Continue after the lindheimeri synonym reconciliation; do not reintroduce O. lindheimeri as a duplicate."
+    }
+  ],
+  "integration": {
+    "family_modules_linked_to_canonical_anchors": true,
+    "sheet_tabs_updated": [
+      "Family Study Index",
+      "Study Batches"
+    ],
+    "photo_policy": "Exact reusable photo polish remains nonblocking; existing rights-cleared family reference images are retained where useful."
+  }
+}
