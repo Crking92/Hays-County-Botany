@@ -603,19 +603,22 @@ async function submitApprovalDecision(itemId,decision){
 function familyCard(family){
   const p=familyProfile(family)||{};
   const members=familySpecies(family);
+  const countLabel=members.length ? members.length+" curated taxa" : "Family lesson ready";
   const imgs=members.map(function(sp){ return {sp:sp,img:firstImage(sp)}; }).filter(function(x){ return x.img; }).slice(0,3);
   let mosaic='<span class="family-mosaic">';
   if(imgs.length) imgs.forEach(function(x){ mosaic+='<img src="'+imagePath(x.sp,x.img)+'" alt="" loading="lazy">'; });
   else mosaic+='<span class="family-mosaic-empty">✣</span>';
   mosaic+='</span>';
   return '<button class="family-card" type="button" data-family="'+esc(family)+'">'+mosaic+
-    '<span class="family-card-body"><span class="family-count">'+members.length+' curated taxa</span><strong>'+esc(family)+'</strong>'+
+    '<span class="family-card-body"><span class="family-count">'+esc(countLabel)+'</span><strong>'+esc(family)+'</strong>'+
     '<em>'+esc(p.common_name||"")+'</em><span class="family-clue">'+esc(p.plain_signature||"Open this family to see recurring field characters.")+'</span></span></button>';
 }
 function homeView(){
   const counts=familyCounts();
-  const preferred=state.learning.home_families || Array.from(counts.keys());
-  const families=Array.from(new Set(preferred.concat(Array.from(counts.keys())))).filter(function(f){ return counts.has(f); });
+  const profiles=Object.keys((state.learning&&state.learning.family_profiles)||{});
+  const preferred=state.learning.home_families || [];
+  const discovered=Array.from(new Set(profiles.concat(Array.from(counts.keys())))).sort(function(a,b){ return a.localeCompare(b); });
+  const families=preferred.concat(discovered.filter(function(f){ return !preferred.includes(f); }));
   const level=state.learning.difficulty_levels[state.difficulty];
   let out='<section class="home-hero"><div class="eyebrow">Structure-first field botany</div>'+
     '<h1>Learn what to look at, then learn what it is called.</h1>'+
@@ -624,7 +627,7 @@ function homeView(){
     '<button class="secondary-button" type="button" data-nav="browse">Browse Family → Genus → Species</button></div>'+
     '<div class="difficulty-explainer"><span>'+esc(level.label)+'</span><strong>'+esc(level.mantra)+'</strong><p>'+esc(level.description)+'</p></div></section>';
   out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Start broad</div><h2>Plant families</h2></div>'+
-    '<button class="text-button" type="button" data-nav="browse">See all '+state.species.length+' taxa →</button></div><div class="family-grid">';
+    '<button class="text-button" type="button" data-nav="browse">Explore '+families.length+' family lessons · '+state.species.length+' taxa →</button></div><div class="family-grid">';
   families.forEach(function(f){ out+=familyCard(f); });
   out+='</div></section><section class="method-strip"><div><b>1</b><span><strong>See it</strong>Start with the structure.</span></div>'+
     '<div><b>2</b><span><strong>Name it</strong>Tap terms as they appear.</span></div>'+
@@ -648,11 +651,14 @@ function familyView(){
   (p.key_terms||[]).slice(0,state.difficulty==="simple"?4:9).forEach(function(id){ out+=termChip(id); });
   out+='</div><div class="button-row"><button class="primary-button" type="button" data-family-info="'+esc(family)+'">Why is this a family?</button>'+
     '<button class="secondary-button" type="button" data-nav="glossary">Open botanical terms</button></div></div><div class="family-photo-stack">';
-  members.slice(0,4).forEach(function(sp){ out+='<button type="button" data-species="'+sp.id+'">'+thumb(sp,"family-stack-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
+  if(members.length) members.slice(0,4).forEach(function(sp){ out+='<button type="button" data-species="'+sp.id+'">'+thumb(sp,"family-stack-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
+  else out+='<div class="empty-panel">Family lesson ready. Canonical species anchors are still being installed.</div>';
   out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Narrow it down</div><h2>Genera in this learner</h2></div></div><div class="genus-buttons">';
-  genera.forEach(function(g){ out+='<button type="button" data-browse-family="'+esc(family)+'" data-browse-genus="'+esc(g[0])+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
+  if(genera.length) genera.forEach(function(g){ out+='<button type="button" data-browse-family="'+esc(family)+'" data-browse-genus="'+esc(g[0])+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
+  else out+='<div class="empty-panel">No canonical genus anchors are installed yet. The family-level lesson above is still available.</div>';
   out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Recognize individuals</div><h2>Species</h2></div></div><div class="species-tile-grid">';
-  members.forEach(function(sp){ out+=speciesTile(sp,true); });
+  if(members.length) members.forEach(function(sp){ out+=speciesTile(sp,true); });
+  else out+='<div class="empty-panel">No canonical species anchors are installed for this family yet.</div>';
   return out+'</div></section>';
 }
 function photoCarousel(sp){
@@ -811,9 +817,10 @@ function browseView(){
   families.forEach(function(f){ out+='<option value="'+esc(f)+'" '+(f===state.browseFamily?"selected":"")+'>'+esc(f)+'</option>'; });
   out+='</select></label><div class="tax-arrow">→</div><label><span>2 · Genus</span><select data-browse-select="genus" '+(!state.browseFamily?"disabled":"")+'><option value="">All genera</option>';
   genera.forEach(function(g){ out+='<option value="'+esc(g)+'" '+(g===state.browseGenus?"selected":"")+'>'+esc(g)+'</option>'; });
-  out+='</select></label><div class="tax-arrow">→</div><div class="picker-result"><span>3 · Species</span><strong>'+list.length+' taxa</strong></div></section>'+
+  out+='</select></label><div class="tax-arrow">→</div><div class="picker-result"><span>3 · Species</span><strong>'+list.length+' taxa</strong>'+(state.browseFamily?'<button class="text-button" type="button" data-family="'+esc(state.browseFamily)+'">Open family lesson →</button>':'')+'</div></section>'+
     '<section class="section-block"><div class="species-tile-grid">';
-  list.forEach(function(sp){ out+=speciesTile(sp,true); });
+  if(list.length) list.forEach(function(sp){ out+=speciesTile(sp,true); });
+  else if(state.browseFamily) out+='<div class="empty-panel">This family lesson is ready, but canonical species anchors are still being installed. Open the family lesson above to study its diagnostic characters now.</div>';
   return out+'</div></section>';
 }
 function glossaryView(){
