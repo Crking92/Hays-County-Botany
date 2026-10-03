@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-019-bignoniaceae-b015",
+  "created_at": "2026-10-02T19:36:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 178,
+    "source_scientific_name": "Campsis radicans",
+    "wild_observations": 3,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Campsis radicans (L.) Bureau",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Bignoniaceae",
+    "genus": "Campsis",
+    "species": "radicans",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Bell",
+      "San Saba",
+      "Travis"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Campsis radicans and lists Texas within its native range.",
+      "USDA PLANTS-derived county data records C. radicans as native in Bell, San Saba, Travis, and Sutton Counties, all inside the current project target zone.",
+      "The project Hays County source list also includes C. radicans, but Hays is not needed to meet the threshold because the USDA-derived county layer already provides three firm target counties.",
+      "UT Plant Resources Center independently documents the species in Travis County and the Williamson County flora."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Trumpet creeper is widely planted and can escape cultivation, so ornamental observations should not be used to manufacture new native counties. The PASS rests on counties explicitly marked native in the USDA-derived layer."
+  },
+  "morphology": {
+    "look_here_first": "Look at how the vine climbs and then count leaflets: trumpet creeper clings with aerial rootlets and has large odd-pinnate leaves with many sharply serrated leaflets.",
+    "diagnostic_traits": [
+      "vigorous deciduous woody liana/vine",
+      "climbs by short aerial rootlets produced along stems rather than by tendrils",
+      "leaves opposite, odd-pinnately compound, commonly 7–11 leaflets",
+      "leaflets ovate to lanceolate with conspicuous serrate margins and pointed tips",
+      "large orange to reddish-orange tubular/funnelform flowers in terminal clusters",
+      "four fertile didynamous stamens plus a staminode, fitting the family pattern",
+      "fruit a long narrow 2-valved capsule containing numerous flattened winged seeds",
+      "extraloral nectary pits occur near the petiole/leaf axil in the detailed Williamson County treatment"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Bignonia capreolata",
+      "separator": "Crossvine climbs by branched tendrils with adhesive pads and usually has only two leaflets per leaf; trumpet creeper has many leaflets and aerial rootlets."
+    },
+    {
+      "taxon": "Lonicera sempervirens",
+      "separator": "Coral honeysuckle has simple entire opposite leaves and berries, not pinnate leaves and a long dry capsule."
+    },
+    {
+      "taxon": "Dolichandra unguis-cati",
+      "separator": "Catclaw vine has paired leaflets plus a claw-like tendril and is non-native; trumpet creeper has many serrated leaflets and rootlet climbing."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole climbing habit",
+      "aerial rootlets on stem",
+      "full odd-pinnate opposite leaf",
+      "serrated leaflet margin",
+      "flower cluster",
+      "corolla/stamen interior",
+      "green capsule",
+      "mature split capsule with winged seeds",
+      "direct crossvine comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/269871281",
+    "reference_candidates": [
+      "https://www.npsot.org/resources/marie-theres-herz-herbarium-sheets/",
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Campsis%20radicans.html"
+    ]
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B015 pass taxa."
+}
