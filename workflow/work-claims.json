@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T16:58:00-05:00",
+  "updated_at": "2026-10-03T17:20:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -13,8 +13,8 @@
     ],
     "manual_active_lease_hours": 6,
     "automation_active_lease_hours": 2,
-    "scout_backpressure_max_unreviewed_batches": 2,
-    "scout_backpressure_max_unreviewed_species": 10,
+    "scout_backpressure_max_unreviewed_batches": 5,
+    "scout_backpressure_max_unreviewed_species": 30,
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
@@ -52,6 +52,25 @@
       "expires_at": null,
       "release_when": "Taxonomy reconciliation is recorded in a durable research/reconciliation artifact or canonical state.",
       "notes": "Reserved because the Joey/video lane already identified these as reconciliation cases."
+    },
+    {
+      "claim_id": "manual-scout-test-croton-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "croton-capitatus",
+        "croton-fruticulosus",
+        "croton-lindheimeri",
+        "croton-lindheimerianus",
+        "croton-monanthogynus",
+        "croton-texensis"
+      ],
+      "lane": "unfinished-plant-scout",
+      "owner": "manual-test-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T17:20:00-05:00",
+      "expires_at": "2026-10-03T23:20:00-05:00",
+      "release_when": "All six taxa are durably represented in research-queue.json and research-drafts, or the test batch is explicitly aborted.",
+      "notes": "Live test of the overnight high-throughput Scout protocol. Research-only; no curation-inbox or canonical installation."
     }
   ]
 }
