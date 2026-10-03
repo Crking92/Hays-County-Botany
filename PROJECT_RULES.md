@@ -5,6 +5,21 @@ GitHub repository `Crking92/Hays-County-Botany` is the canonical home for botany
 
 Google Sheets is a coordination/status view. ZIP files and local BAT downloaders are not the primary finished product.
 
+## Work coordination and duplicate prevention
+
+Every chat, automation, and local workflow must check `workflow/COORDINATION.md` and the current `workflow/work-claims.json` before selecting new work.
+
+The required duplicate-prevention gate is:
+1. refresh `data/manifest.json`;
+2. check `workflow/work-claims.json`;
+3. check `research-queue.json` and existing `research-drafts/`;
+4. check `curation-inbox/` and current curation Actions when relevant;
+5. skip any taxon/scope already canonical, durably queued/drafted, or actively claimed by another lane.
+
+Create or refresh a short-lived claim before beginning substantial work that is not yet represented by a durable project artifact. Release or supersede the claim as soon as the queue, draft, review artifact, curation batch, or canonical install records the work.
+
+Never overwrite another process merely because its tracker status looks stale. Canonical GitHub state wins; if ownership is ambiguous, skip the target.
+
 ## Target zone
 Hays, Bell, Blanco, Burnet, Comal, Concho, Crockett, Edwards, Frio, Gillespie, Bandera, Kimble, Kinney, Maverick, McCulloch, Medina, Menard, Real, San Saba, Tom Green, Travis, Uvalde, Val Verde, Williamson, Kerr.
 
