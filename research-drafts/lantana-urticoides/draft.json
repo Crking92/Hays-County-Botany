@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-024-verbenaceae-local-pair",
+  "created_at": "2026-10-03T14:55:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 603,
+    "source_scientific_name": "Lantana urticoides",
+    "wild_observations": 32,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Lantana urticoides Hayek",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Verbenaceae",
+    "genus": "Lantana",
+    "species": "urticoides",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Older Texas usage often misapplied Lantana horrida to this species; learner uses L. urticoides."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Williamson",
+      "Val Verde"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Lantana urticoides and lists Texas in the native range.",
+      "Travis County — UT Plant Resources Center's Travis County Verbenaceae herbarium index includes four L. urticoides specimens.",
+      "Williamson County — UT Plant Resources Center provides a full county treatment of naturally occurring L. urticoides.",
+      "Val Verde County — the Amistad National Recreation Area vascular flora documents L. urticoides on rocky slopes, flats, bluffs, and rock outcrops."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Texas lantana is heavily cultivated. Nursery/landscape plants and garden escapes are not used as native-county evidence."
+  },
+  "morphology": {
+    "look_here_first": "Ignore flower color at first. Check the woody shrub habit, opposite rough leaves, and stems: Texas lantana is a winter-deciduous, non-spinescent shrub with stiff-hairy/scabrous 4-sided young stems and coarse serrate leaves. Then inspect the flower-head bracts and confirm the axillary pedunculate head.",
+    "diagnostic_traits": [
+      "winter-deciduous aromatic shrub, commonly around 0.5–1 m in regional treatments",
+      "young stems four-sided, stiff-hairy/scabrous, aging woody",
+      "stems normally not spinescent",
+      "leaves opposite and decussate, broadly ovate to ovate, short-petiolate",
+      "leaf blades rough/cobblestone-textured above with stiff hairs and strongly raised veins below",
+      "margins coarsely serrate to serrate-crenate",
+      "dense axillary flower heads borne on distinct peduncles",
+      "flowers commonly open yellow and age through orange to red, but color is secondary to vegetative/bract characters",
+      "fleshy drupes mature dark purple-black"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Lantana camara",
+      "separator": "A common non-native/invasive landscape escape. L. camara often has small prickles on the square stems and commonly larger leaves. Use inflorescence-bract structure and stem armature rather than flower color alone; absence of prickles by itself is not enough for a final ID."
+    },
+    {
+      "taxon": "Lantana achyranthifolia",
+      "separator": "Native desert lantana has much more slender branches, narrower hairy leaves, and typically white-to-pink flowers with yellow centers rather than the robust broad-leaved Texas-lantana look."
+    },
+    {
+      "taxon": "Lantana montevidensis",
+      "separator": "A common cultivated trailing lantana; habit is low/trailing rather than an upright woody Texas-lantana shrub, and flowers are usually lavender-purple."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole winter-deciduous shrub habit",
+      "young four-sided stem showing absence of prickles",
+      "opposite leaf pair",
+      "upper leaf rough surface macro",
+      "lower leaf venation/hair macro",
+      "axillary peduncle and flower head",
+      "involucral bract macro",
+      "fruit cluster",
+      "direct Lantana camara stem/bract comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/273471471",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Lantana%20urticoides.html",
+      "https://w3.biosci.utexas.edu/prc/wildflowers/flower/lantana-urticoides"
+    ],
+    "provenance_note": "Prefer user's wild observations when they show stem armature, leaf texture, and head/bract structure. Public reuse remains photo-license dependent."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves this Verbenaceae pair."
+}

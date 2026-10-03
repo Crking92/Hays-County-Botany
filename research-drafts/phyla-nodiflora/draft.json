@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-024-verbenaceae-local-pair",
+  "created_at": "2026-10-03T14:55:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 862,
+    "source_scientific_name": "Phyla nodiflora",
+    "wild_observations": 22,
+    "source_count": 4,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Phyla nodiflora (L.) Greene",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Verbenaceae",
+    "genus": "Phyla",
+    "species": "nodiflora",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Three accepted varieties are recognized globally; learner stays species-level.",
+    "accepted_infraspecifics": [
+      "Phyla nodiflora var. minor",
+      "Phyla nodiflora var. nodiflora",
+      "Phyla nodiflora var. reptans"
+    ]
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "BONAP/NAPA maps Phyla nodiflora at county level and treats it as native in Texas.",
+      "Hays County — UT Plant Resources Center's Purola Preserve flora lists P. nodiflora among plants occurring naturally and not introduced.",
+      "Travis County — UT Plant Resources Center's Travis County Verbenaceae herbarium index includes P. nodiflora; additional wild Travis records are documented at Emma Long and Reimers Ranch.",
+      "Williamson County — UT Plant Resources Center provides a detailed county treatment for P. nodiflora."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Frogfruit is widely planted as a groundcover. County proof uses native-flora/herbarium treatments, not landscape plantings."
+  },
+  "morphology": {
+    "look_here_first": "Look at the leaf before the flower head. Frogfruit has opposite oblanceolate-to-elliptic leaves that are usually widest beyond the middle, with the teeth concentrated on the upper/distal half. Then confirm the creeping stems rooting at nodes and the dense cylindrical flower spike on a long axillary peduncle.",
+    "diagnostic_traits": [
+      "perennial clonal groundcover with prostrate to procumbent stems",
+      "creeping stems root at buried or contacting nodes",
+      "leaves opposite and decussate, short-petiolate",
+      "leaf blades oblanceolate to elliptic, commonly widest beyond the middle",
+      "leaf margins serrate mainly above the midpoint, often fewer than six teeth per side",
+      "surfaces bear appressed two-armed/T-shaped hairs",
+      "single dense spherical-to-cylindrical flower spikes arise on axillary peduncles",
+      "tiny white to pink/purplish flowers open around the spike, often with yellow/orange/purple throats",
+      "fruit separates into two nutlets"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Phyla lanceolata",
+      "separator": "The best leaf split: P. nodiflora is usually widest beyond the middle and its teeth are concentrated in the distal half; P. lanceolata is widest nearer the middle and the teeth extend farther down the blade."
+    },
+    {
+      "taxon": "Phyla cuneifolia",
+      "separator": "Wedgeleaf frogfruit has a more distinctly wedge-shaped leaf architecture. Use several mature leaves rather than one odd leaf, because Phyla leaf shape varies along a shoot."
+    },
+    {
+      "taxon": "Glandularia spp.",
+      "separator": "Glandularia can also form low mats with verbena-like flowers, but its flowers are much larger and borne in more open terminal heads/spikes; Phyla has tiny flowers packed into a compact button/cylinder on a naked axillary peduncle."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole creeping mat and rooting nodes",
+      "single mature leaf showing widest point and tooth position",
+      "opposite leaf pair at a node",
+      "leaf hair macro if possible",
+      "axillary peduncle attachment",
+      "side view of compact cylindrical flower spike",
+      "flower-spike face showing tiny corollas",
+      "fruit/nutlet stage",
+      "direct Phyla lanceolata leaf comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/271552892",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Phyla%20nodiflora",
+      "https://www.npsot.org/posts/native-plant/phyla-nodiflora/",
+      "https://www.texaswildbuds.com/phyla-nodiflora.html"
+    ],
+    "provenance_note": "The highest-value training image is a mature leaf laid flat enough to see where the blade is widest and where serrations begin."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves this Verbenaceae pair."
+}
