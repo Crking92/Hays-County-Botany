@@ -1,0 +1,343 @@
+{
+  "module_id": "asteraceae-family-verification-001",
+  "family": "Asteraceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "verification_type": "joey_sufficient_authoritative_verification",
+  "scope_note": "Light verification/polish pass. Joey coverage is already exceptionally strong. This package verifies terminology, restores Asterales/Asteraceae to all 88 live source rows, and locks the head-type and reproductive exceptions most likely to cause learner overgeneralization.",
+  "joey_coverage": {
+    "audit_records": 60,
+    "exact_media_records": 32,
+    "audit_summary": "Extremely strong coverage of heads, phyllaries, dissected capitula, ray/disk florets, styles, pappus and composite-head architecture.",
+    "inspected_examples": [
+      {
+        "source_file": "research-drafts/joey-santore/batch-004-exact-photo-locking.json",
+        "taxon": "Thelesperma burridgeanum",
+        "record_id": "j004-007",
+        "strengths": [
+          "capitulum underside",
+          "phyllaries",
+          "involucre",
+          "head base"
+        ],
+        "teaching_note": "Source caption explicitly emphasizes photographing phyllaries."
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-004-exact-photo-locking.json",
+        "taxon": "Silphium albiflorum",
+        "record_ids": [
+          "j004-010",
+          "j004-011",
+          "j004-015",
+          "j004-016",
+          "j004-017"
+        ],
+        "strengths": [
+          "radiate capitulum",
+          "ray florets",
+          "disk florets",
+          "styles/anthers",
+          "phyllaries",
+          "involucre"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-007-gypsum-badlands-exact-morphology.json",
+        "taxon_label": "Thelesperma megapotanicum hybrid",
+        "record_id": "j007-002",
+        "strengths": [
+          "dissected flower head",
+          "individual disk florets",
+          "style/anther detail",
+          "involucre base"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-014-sandsheet-florida-exact-morphology.json",
+        "taxon": "Palafoxia feayi",
+        "record_id": "j014-015",
+        "strengths": [
+          "discoid capitulum",
+          "tubular florets",
+          "styles",
+          "involucre"
+        ]
+      }
+    ],
+    "assessment": "Joey coverage is more than sufficient. No further broad family extraction is needed."
+  },
+  "live_pool_cleanup": {
+    "actions": [
+      "Restored Asterales / Asteraceae to all 88 live Master Plant Pool source rows represented by the 28 mapped genera.",
+      "No new hidden genus-family mapping was required; all 28 current tracker genera were already mapped.",
+      "Preserved existing Family Study Index counts rather than recomputing curation status from the Master Pool's older Curated field."
+    ],
+    "pool_genera_count": 28,
+    "pool_source_rows": 88,
+    "family_index_counts": {
+      "curated": 38,
+      "remaining": 50,
+      "priority_1_remaining": 6,
+      "priority_2_remaining": 17,
+      "priority_3_remaining": 27,
+      "my_inat_source_rows": 51,
+      "three_plus_source_rows": 20,
+      "wild_observations": 388
+    }
+  },
+  "family_lesson": {
+    "where_to_look_first": "Ask whether the apparent 'flower' is actually a capitulum. Find the involucre and its phyllaries, then separate the individual florets on the receptacle. Confirm fused anthers around the style, an inferior one-ovule ovary, and a 1-seeded cypsela often crowned by a pappus.",
+    "strongest_field_confirmation": "Capitulum of many florets on one receptacle + surrounding involucre of phyllaries + usually 5 syngenesious anthers forming a tube around the style + inferior 1-ovule ovary + cypsela with pappus or pappus reduced/absent.",
+    "authoritative_framework": [
+      "The primary inflorescence is a head/capitulum, not one flower.",
+      "The involucre is the complete set of phyllaries surrounding the head.",
+      "The receptacle supports the florets and may be paleate, bristly, hairy, pitted or naked.",
+      "Corollas are fused and may be tubular, ray-like, ligulate, bilabiate or reduced depending on floret type.",
+      "Five anthers are usually united into a cylinder around the style.",
+      "The style elongates through the anther tube and often presents/sweeps pollen before the stigmatic surfaces become receptive.",
+      "Each fertile floret has an inferior, 1-locular ovary with one ovule.",
+      "The fruit is more precisely a cypsela because it develops from an inferior ovary, although 'achene' is common in older botanical treatments.",
+      "The pappus represents the calyx and may be bristles, hairs, awns, scales, a crown, or absent."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not call the ray florets petals; each ray is an individual flower.",
+      "Do not assume every head has both ray and disk florets.",
+      "Do not assume ray florets are always sterile or always fertile; sexuality varies by genus and even within genera such as Coreopsis.",
+      "Do not assume disk florets are always bisexual/fertile; Silphium provides a local counterexample with functionally staminate disk florets.",
+      "Do not assume every cypsela has a feathery pappus; pappus form varies widely and may be absent.",
+      "Do not identify Asteraceae from a daisy-like outline alone; verify phyllaries, individual florets, anther tube and fruit."
+    ]
+  },
+  "terminology_lock": {
+    "capitulum": "The whole composite flower head.",
+    "involucre": "The collective ring/basket of bracts around the head.",
+    "phyllary": "One bract of the involucre.",
+    "receptacle": "The shared platform bearing the florets.",
+    "palea": "A small receptacular bract subtending an individual floret in paleate heads.",
+    "ray_floret": "A marginal floret with a strap/ray-like zygomorphic corolla; may be pistillate, sterile, or neuter.",
+    "disk_floret": "Usually a central tubular/actinomorphic floret; may be bisexual, functionally staminate, or otherwise specialized.",
+    "ligulate_floret": "A 5-toothed strap-shaped bisexual floret characteristic of liguliflorous Cichorieae heads.",
+    "cypsela": "The 1-seeded indehiscent fruit produced from the inferior ovary.",
+    "pappus": "Modified calyx atop the ovary/cypsela; hairs/bristles/scales/awns/crown or absent.",
+    "synantherous": "Anthers united into a tube around the style."
+  },
+  "head_type_cards": [
+    {
+      "type": "radiate",
+      "definition": "Outer ray florets plus central disk florets.",
+      "local_examples": [
+        "Helianthus",
+        "Thelesperma",
+        "Rudbeckia",
+        "Ratibida",
+        "Echinacea",
+        "many Coreopsis",
+        "usually Solidago"
+      ],
+      "teaching_note": "This is the familiar 'daisy/sunflower' appearance, but each apparent petal is a ray floret."
+    },
+    {
+      "type": "discoid",
+      "definition": "No ray florets; all florets have roughly actinomorphic tubular corollas.",
+      "local_examples": [
+        "Liatris",
+        "Cirsium",
+        "Conoclinium",
+        "Eupatorium",
+        "Vernonia",
+        "Baccharis"
+      ],
+      "teaching_note": "Asteraceae does not need to look daisy-like."
+    },
+    {
+      "type": "disciform",
+      "definition": "No showy rays; outer pistillate florets are slender/filiform and surround inner tubular bisexual or functionally staminate florets.",
+      "local_example": "Pluchea",
+      "teaching_note": "This head contains two floret types even though it looks eradiate."
+    },
+    {
+      "type": "liguliflorous",
+      "definition": "All florets ligulate, bisexual and usually fertile; characteristic of tribe Cichorieae.",
+      "local_pool_note": "No classic Cichorieae genus is currently among the 28 mapped Asteraceae genera, so use this as a family-breadth comparison rather than a primary local anchor.",
+      "teaching_note": "A dandelion-type head is many strap-shaped florets, not one flower with petals."
+    }
+  ],
+  "exception_cards": [
+    {
+      "taxon": "Ambrosia",
+      "lesson": "ragweed breaks the daisy mental model",
+      "key_points": [
+        "Heads are unisexual and plants usually monoecious.",
+        "Staminate heads occur in spikes/racemes.",
+        "Pistillate heads are reduced, often 1-flowered and axillary below male heads.",
+        "Female corolla is absent.",
+        "The pistillate involucre hardens around the cypsela and may become spiny/tuberculate.",
+        "Pappus absent."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327075-2/general-information"
+    },
+    {
+      "taxon": "Baccharis",
+      "lesson": "dioecious discoid heads",
+      "key_points": [
+        "Woody/shrubby Asteraceae.",
+        "Usually dioecious: staminate and pistillate heads occur on separate plants.",
+        "Heads are discoid.",
+        "Only pistillate heads mature cypselae.",
+        "Pappus is especially conspicuous in fruiting female plants."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:331378-2/general-information"
+    },
+    {
+      "taxon": "Silphium",
+      "lesson": "fertile rays, male-function disk",
+      "key_points": [
+        "Radiate head.",
+        "Ray florets are pistillate and fertile.",
+        "Disk florets are functionally staminate in FNA treatment.",
+        "Only the ray florets produce cypselae.",
+        "This is a powerful warning against assuming the center of a sunflower-like head makes all the seeds."
+      ],
+      "authoritative_source": "https://efloras.org/florataxon.aspx?flora_id=1&key_no=4&taxon_id=10074"
+    },
+    {
+      "taxon": "Coreopsis",
+      "lesson": "ray-floret sexuality varies",
+      "key_points": [
+        "Across the genus, ray florets may be neuter, styliferous/sterile, or pistillate/fertile.",
+        "Disk florets are typically bisexual/fertile.",
+        "Pappus may be absent or reduced to cusps/scales.",
+        "Do not teach 'ray = sterile petal' as a rule."
+      ],
+      "authoritative_source": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=108000"
+    },
+    {
+      "taxon": "Cirsium",
+      "lesson": "thistle = discoid Asteraceae",
+      "key_points": [
+        "Heads discoid.",
+        "Many series of often spine-tipped phyllaries.",
+        "Receptacle bristly but epaleate.",
+        "Cypselae topped by a conspicuous plumose pappus."
+      ],
+      "authoritative_source": "https://www.efloras.org/florataxon.aspx?flora_id=1&key_no=7&taxon_id=107139"
+    },
+    {
+      "taxon": "Solidago",
+      "lesson": "head type can vary even within a familiar genus",
+      "key_points": [
+        "Heads are usually radiate but can be discoid.",
+        "Ray florets, when present, are pistillate/fertile.",
+        "Disk florets are bisexual/fertile."
+      ],
+      "authoritative_source": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=130659"
+    }
+  ],
+  "pollen_presentation_lesson": {
+    "key_point": "The fused anther tube and advancing style are one of the family's best microscopic recognition characters.",
+    "sequence": [
+      "Isolate one disk floret.",
+      "Label five fused corolla lobes/tube.",
+      "Label anther cylinder around the style.",
+      "Show style elongating through the tube and pushing/sweeping pollen upward.",
+      "Show bifid style arms opening with stigmatic surfaces."
+    ],
+    "teaching_value": "This explains why Asteraceae looks so different from superficially head-forming families with free anthers."
+  },
+  "fruit_pappus_lesson": {
+    "key_point": "Trace one fertile floret from inferior ovary to mature cypsela.",
+    "sequence": [
+      "floret attached to receptacle",
+      "inferior ovary below corolla",
+      "pappus above ovary",
+      "mature cypsela",
+      "compare bristly, scaly/awned, reduced and absent pappus forms"
+    ],
+    "caution": "Use 'cypsela' in the learner, while noting that many floras still call the same fruit an achene."
+  },
+  "fast_key": [
+    "Apparent flower surrounded by phyllaries -> ask if it is a capitulum of many florets.",
+    "Radiate head -> isolate one ray and one disk floret; each is a separate flower.",
+    "No rays -> inspect whether head is discoid or disciform rather than abandoning Asteraceae.",
+    "Five anthers united into a tube around a bifid style + inferior one-ovule ovary -> very strong Asteraceae confirmation.",
+    "Mature 1-seeded cypsela + pappus or pappus scar -> strong reproductive confirmation.",
+    "Compound umbel with no involucre/phyllary basket and a 2-part schizocarp -> Apiaceae instead.",
+    "Head of many tiny flowers but stamens free and no Asteraceae-style pappus/cypsela -> reconsider non-Asteraceae head-forming families."
+  ],
+  "confusable_families": {
+    "Apiaceae": {
+      "tie_breaker": "Apiaceae organizes separate flowers into umbels and matures a 2-part schizocarp. Asteraceae packs florets on a common receptacle inside an involucre and produces 1-seeded cypselae."
+    },
+    "Caprifoliaceae_Dipsacaceae_like": {
+      "tie_breaker": "Teasel/scabious-like heads can look composite, but their flowers retain a different calyx/epicalyx architecture and do not have the Asteraceae synantherous anther tube + cypsela/pappus system."
+    },
+    "Amaranthaceae": {
+      "tie_breaker": "Papery bracted heads/spikes may look composite, but individual flowers have free stamens and lack the Asteraceae involucre/floret/anther-tube/cypsela package."
+    }
+  },
+  "best_visual_sequence": [
+    "Whole sunflower-like radiate head with label: THIS IS AN INFLORESCENCE.",
+    "Underside: involucre and individual phyllaries.",
+    "Cut/dissected capitulum showing common receptacle.",
+    "One ray floret isolated and labeled as one flower.",
+    "One disk floret isolated and labeled as one flower.",
+    "Anther tube + style pollen-presentation macro.",
+    "Inferior ovary + pappus below/above corolla relationship.",
+    "Mature cypsela + several pappus types.",
+    "Four head types: radiate / discoid / disciform / liguliflorous.",
+    "Ambrosia male vs female head exception.",
+    "Baccharis male vs female plant/head exception.",
+    "Silphium diagram showing fertile rays vs functionally staminate disk."
+  ],
+  "terminology_to_reinforce": [
+    "capitulum",
+    "involucre",
+    "phyllary",
+    "receptacle",
+    "palea",
+    "ray floret",
+    "disk floret",
+    "ligulate floret",
+    "radiate",
+    "discoid",
+    "disciform",
+    "liguliflorous",
+    "synantherous",
+    "inferior ovary",
+    "cypsela",
+    "pappus",
+    "style arms",
+    "pollen presentation",
+    "capitulescence / synflorescence"
+  ],
+  "visual_gaps": [
+    "Local isolated ray-floret and disk-floret side-by-side macro.",
+    "Local inferior-ovary-to-cypsela development sequence.",
+    "Rights-safe anther-tube/style pollen-presentation diagram.",
+    "Local Ambrosia staminate versus pistillate head macro.",
+    "Local Baccharis male versus fruiting female head comparison.",
+    "Silphium fertile-ray versus male-function disk diagram.",
+    "One local Pluchea disciform-head dissection.",
+    "One family-breadth liguliflorous comparison card."
+  ],
+  "completion_assessment": {
+    "joey_coverage": "verified exceptionally sufficient",
+    "family_framework": "authoritatively verified",
+    "terminology": "locked",
+    "head_types": "radiate, discoid, disciform and liguliflorous locked",
+    "local_exceptions": "Ambrosia, Baccharis, Silphium, Coreopsis, Cirsium and Solidago locked",
+    "tracker_cleanup": "28 genera / 88 live source rows; all order/family cells repaired",
+    "remaining": "visual locking only; no further broad family research required",
+    "recommended_status": "verified_ready_for_visual_locking"
+  },
+  "authoritative_sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:319342-2/general-information",
+    "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=10074",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327075-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:331378-2/general-information",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=107139",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=118496",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=126103",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=108000"
+  ]
+}
