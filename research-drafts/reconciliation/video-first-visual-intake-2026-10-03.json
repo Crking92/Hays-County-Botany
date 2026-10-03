@@ -19,8 +19,8 @@
   ],
   "totals": {
     "named_taxa": 66,
-    "canonical_taxa_with_video_assets": 24,
-    "noncanonical_taxa_with_video_assets": 42
+    "canonical_taxa_with_video_assets": 26,
+    "noncanonical_taxa_with_video_assets": 40
   },
   "lanes": {
     "attach_now_canonical": [
@@ -265,6 +265,27 @@
         "roles": [
           "three-lobed capsule / seed"
         ]
+      },
+      {
+        "taxon": "Grindelia lanceolata var. texana",
+        "family": "Asteraceae",
+        "canonical_id": "grindelia-lanceolata",
+        "frame_count": 2,
+        "roles": [
+          "leaf shape / resin glands",
+          "achenes / chaff"
+        ],
+        "note": "Source in video is var. texana; attached to canonical Grindelia lanceolata package pending any future infraspecific handling."
+      },
+      {
+        "taxon": "Ruellia nudiflora",
+        "family": "Acanthaceae",
+        "canonical_id": "ruellia-ciliatiflora",
+        "frame_count": 1,
+        "roles": [
+          "persistent calyx / capsule / opposite foliage"
+        ],
+        "note": "Source/familiar name reconciled to current canonical Ruellia ciliatiflora; source name preserved in study_media."
       }
     ],
     "curate_next": [
@@ -433,15 +454,6 @@
         ]
       },
       {
-        "taxon": "Grindelia lanceolata var. texana",
-        "family": "Asteraceae",
-        "frame_count": 2,
-        "roles": [
-          "leaf shape / resin glands",
-          "achenes / chaff"
-        ]
-      },
-      {
         "taxon": "Oenothera glaucifolia",
         "family": "Onagraceae",
         "frame_count": 2,
@@ -599,14 +611,6 @@
         ]
       },
       {
-        "taxon": "Ruellia nudiflora",
-        "family": "Acanthaceae",
-        "frame_count": 1,
-        "roles": [
-          "persistent calyx / capsule / opposite foliage"
-        ]
-      },
-      {
         "taxon": "Senna lindheimeriana",
         "family": "Fabaceae",
         "frame_count": 1,
@@ -646,5 +650,19 @@
     "Penstemon cobaea",
     "Diospyros texana",
     "Tetraneuris linearifolia"
-  ]
+  ],
+  "completion": {
+    "status": "caught_up_waiting_for_new_videos",
+    "completed_at": "2026-10-03",
+    "canonical_media_merges_complete": true,
+    "canonical_species_with_video_assets": 26,
+    "curate_next_taxa": 12,
+    "special_reconciliation_taxa": 2,
+    "teaching_asset_backlog_taxa": 26,
+    "noncanonical_total": 40,
+    "candidate_backfill_sorted": true,
+    "family_term_handoff_file": "research-drafts/reconciliation/JOEY_FAMILY_TERM_HANDOFF_2026-10-03.md",
+    "collision_policy": "Family-audit chat remains authoritative for family-module editing; this file only hands off exact Joey assets and terminology.",
+    "note": "No additional user video packages are pending. Resume this lane when new video manifests arrive."
+  }
 }
