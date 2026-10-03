@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-euphorbiaceae-05",
+  "created_at": "2026-10-03T18:11:51-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 7,
+    "priority": 1,
+    "wild_observations": 5
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Acalypha persimilis Müll.Arg.",
+    "family": "Euphorbiaceae",
+    "genus": "Acalypha",
+    "order": "Malpighiales",
+    "status_candidate": "accepted_or_candidate_pending_deep_review",
+    "notes": [
+      "Kew POWO accepts Acalypha persimilis; WFO/FNA-style morphology should be checked during Deep Review."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout collects leads only; Deep Review must verify exact target-zone counties before PASS/FAIL/HOLD.",
+    "leads": [
+      "Master Plant Pool: Hays Local=Yes; 5 personal wild observations.",
+      "POWO reports a native range from central/southern U.S. through Central America and Caribbean.",
+      "BONAP/NAPA county map still required for exact target-zone county evidence."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with the inflorescence architecture and pistillate bracts: annual Acalypha with axillary staminate spikes and terminal/short-lateral pistillate spikes; normal pistillate bracts are loosely arranged and deeply divided into narrow lobes.",
+    "diagnostic_traits": [
+      "annual herb, usually low to ~75 cm",
+      "alternate ovate serrate leaves, often 3–5-nerved from base",
+      "staminate and pistillate inflorescences separated in position",
+      "pistillate bracts loosely spaced with narrow lobes",
+      "3-lobed capsule"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Acalypha phleoides",
+      "separator": "perennial, terminal bisexual spikes with conspicuous red styles and broader toothed pistillate bracts."
+    },
+    {
+      "taxon": "Acalypha radians",
+      "separator": "perennial and often functionally dioecious; deeply divided foliage/bracts need comparison."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "Kew POWO / linked herbarium imagery where available",
+      "source_page": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:337688-1",
+      "creator": null,
+      "license": "verify per individual image",
+      "roles": [
+        "habit",
+        "leaf shape",
+        "inflorescence/reproductive structures"
+      ],
+      "reuse": "candidate only; verify image-specific rights before public lock"
+    },
+    {
+      "source": "iNaturalist observation search",
+      "source_page": "https://www.inaturalist.org/observations?taxon_name=Acalypha%20persimilis",
+      "creator": null,
+      "license": "observation-specific; select CC-licensed candidate later",
+      "roles": [
+        "local habit",
+        "leaf",
+        "inflorescence",
+        "fruit"
+      ],
+      "reuse": "photo polish needed; prefer Texas/Hays observations and diagnostic structures"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf shape and venation",
+    "entire inflorescence",
+    "pistillate bract and styles macro",
+    "staminate section macro",
+    "mature capsule/seed"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:337688-1",
+    "https://levypreserve.org/plant-listings/acalypha-persimilis/",
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Acalypha"
+  ],
+  "scout_flags": {
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  },
+  "notes": [
+    "Photo perfection is nonblocking. Current photo entries are source candidates; exact diagnostic image selection/license confirmation remains a later photo-polish task."
+  ]
+}
