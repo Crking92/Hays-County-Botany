@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-029-callirhoe-b020-part1",
+  "created_at": "2026-10-03T16:02:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 169,
+    "source_scientific_name": "Callirhoe involucrata",
+    "wild_observations": 0,
+    "source_count": 4,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Callirhoe involucrata (Torr. & A.Gray) A.Gray",
+    "rank": "species",
+    "order": "Malvales",
+    "family": "Malvaceae",
+    "genus": "Callirhoe",
+    "species": "involucrata",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Multiple varieties are recognized in regional treatments; the learner remains species-level and does not assign a variety from flower color alone."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Tom Green",
+      "Williamson"
+    ],
+    "evidence": [
+      "Travis County — UT Plant Resources Center and COLO herbarium records document Callirhoe involucrata.",
+      "Tom Green County — COLO herbarium has a non-cultivated Texas specimen explicitly from Tom Green County.",
+      "Williamson County — UT Plant Resources Center provides field-based treatments for C. involucrata var. involucrata and var. lineariloba."
+    ],
+    "guardrail": "Cultivated winecups are common. The user's current iNaturalist records are cultivated and are not used for native-county proof."
+  },
+  "morphology": {
+    "look_here_first": "Check growth habit and the structures immediately below the calyx. Winecup is a perennial with low trailing/decumbent stems and an involucel of 3 bractlets beneath the flower. The calyx lobes are already divergent in bud rather than meeting to form a pointed bud.",
+    "diagnostic_traits": [
+      "perennial taprooted herb, often several-stemmed",
+      "stems decumbent/trailing to weakly erect, generally much lower than tall poppymallow",
+      "leaves alternate, roundish in outline and deeply 3–5(–7)-lobed",
+      "foliage hairy with stellate and simple hairs",
+      "three involucellar/epicalyx bractlets immediately below calyx",
+      "calyx lobes divergent in bud, not forming an apiculate point",
+      "flowers cup-shaped; petal color variable and secondary for ID",
+      "schizocarp with 10–28 indehiscent mericarps; beaks not strongly prominent"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Callirhoe leiocarpa",
+      "separator": "C. leiocarpa is annual/biennial and tall/erect, lacks involucellar bractlets, has calyx lobes meeting into a pointed bud, and has glabrous dehiscent mericarps with prominent beaks."
+    },
+    {
+      "taxon": "Callirhoe pedata",
+      "separator": "C. pedata is an erect/ascending perennial and lacks the low trailing winecup habit; fruit and leaf architecture should be checked when flowers are absent."
+    },
+    {
+      "taxon": "Callirhoe scabriuscula",
+      "separator": "Texas poppy-mallow is stiffly erect, densely stellate-hairy and taller; winecup is low/trailing and has different hair/habit characters."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole low trailing habit",
+      "deeply lobed leaf",
+      "stem/leaf hair macro",
+      "flower underside showing 3 involucellar bractlets",
+      "flower bud side showing divergent calyx tips",
+      "mature schizocarp",
+      "direct C. leiocarpa habit/involucel comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/348744780",
+    "user_photo_note": "Current tracker observations are cultivated, so useful for morphology only—not range.",
+    "reference_candidates": [
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416215",
+      "https://w3.biosci.utexas.edu/prc/specimens/Malvaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Callirhoe%20involucrata%20lineariloba"
+    ]
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until explicit approval."
+}
