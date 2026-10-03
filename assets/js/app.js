@@ -686,6 +686,15 @@ function structuredTeachingHTML(value){
   }
   return '<p>'+esc(formatValue(value))+'</p>';
 }
+function familyVisualThumb(sp,step,cls){
+  const imgs=imagesFor(sp);
+  let idx=Number(step && step.anchor_image_index);
+  if(!Number.isInteger(idx) || idx<0 || idx>=imgs.length) idx=0;
+  const img=imgs[idx] || null;
+  if(img) return '<img class="'+cls+'" src="'+imagePath(sp,img)+'" alt="'+esc((step&&step.photo_role)||scientificName(sp))+'" loading="lazy">';
+  return '<div class="'+cls+' thumb-empty" aria-hidden="true">✣</div>';
+}
+
 function familyVisualLessonHTML(canon){
   const lesson=canon && canon.visual_lesson;
   if(!lesson || !Array.isArray(lesson.steps) || !lesson.steps.length) return "";
@@ -696,7 +705,7 @@ function familyVisualLessonHTML(canon){
     const sp=step.anchor_species_id ? state.species.find(function(x){ return x.id===step.anchor_species_id; }) : null;
     out+='<article class="family-visual-step">';
     if(sp){
-      out+='<button class="family-visual-photo" type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"family-visual-img")+
+      out+='<button class="family-visual-photo" type="button" data-species="'+esc(sp.id)+'">'+familyVisualThumb(sp,step,"family-visual-img")+
         '<span><b>'+esc(commonName(sp)||scientificName(sp))+'</b><i>'+esc(scientificName(sp))+'</i></span></button>';
     }else{
       out+='<div class="family-visual-photo family-visual-placeholder"><span>Diagram / photo lock pending</span></div>';
