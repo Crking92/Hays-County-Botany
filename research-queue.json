@@ -4520,19 +4520,73 @@
       "canonical_id": "juglans-nigra",
       "curated_at": "2026-10-03",
       "reconciliation_status": "resolved_installed"
+    },
+    {
+      "id": "diospyros-virginiana",
+      "scientific_name": "Diospyros virginiana",
+      "common_name": "American Persimmon",
+      "family": "Ebenaceae",
+      "genus": "Diospyros",
+      "status": "range_hold_reviewed",
+      "priority": 0,
+      "queue_group": "B036 Diospyros",
+      "batch_id": "deep-review-batch-045-diospyros-b036",
+      "last_deep_reviewed_at": "2026-10-03T21:40:00-05:00",
+      "notes": "B036 UNRESOLVED — Travis and Williamson locked; third exact target-zone county still needed. Diagnostic comparison to D. texana complete.",
+      "approval_status": "hold_range_evidence",
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_range_hold",
+      "reconciliation_status": "preserved_range_hold"
+    },
+    {
+      "id": "forestiera-pubescens",
+      "scientific_name": "Forestiera pubescens",
+      "common_name": "Elbowbush / Desert Olive / Downy Forestiera",
+      "family": "Oleaceae",
+      "genus": "Forestiera",
+      "status": "curated_installed",
+      "priority": 0,
+      "queue_group": "B037 Forestiera",
+      "batch_id": "deep-review-batch-046-forestiera-b037",
+      "last_deep_reviewed_at": "2026-10-03T21:55:00-05:00",
+      "notes": "B037 PASS — Hays, Travis, Williamson. Broad-leaved/winter-deciduous Forestiera concept installed.",
+      "approval_status": "approved_and_installed",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "forestiera-pubescens",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed"
+    },
+    {
+      "id": "forestiera-angustifolia",
+      "scientific_name": "Forestiera angustifolia",
+      "common_name": "Narrowleaf Elbowbush / Texas Swamp-privet",
+      "family": "Oleaceae",
+      "genus": "Forestiera",
+      "status": "curated_installed",
+      "priority": 0,
+      "queue_group": "B037 Forestiera",
+      "batch_id": "deep-review-batch-046-forestiera-b037",
+      "last_deep_reviewed_at": "2026-10-03T21:55:00-05:00",
+      "notes": "B037 PASS — Travis, Uvalde, Bexar. Narrow linear-leaved Forestiera concept installed.",
+      "approval_status": "approved_and_installed",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "forestiera-angustifolia",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed"
     }
   ],
   "last_scout_run_at": "2026-10-03T21:21:32.917154+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-044-juglans-b035",
-    "reviewed_at": "2026-10-03T21:10:00-05:00",
-    "status": "three_pass_installed",
+    "batch_id": "deep-review-batch-046-forestiera-b037",
+    "reviewed_at": "2026-10-03T21:55:00-05:00",
+    "status": "two_pass_installed_one_prior_batch_hold",
     "taxa": [
-      "juglans-microcarpa",
-      "juglans-major",
-      "juglans-nigra"
+      "forestiera-pubescens",
+      "forestiera-angustifolia"
     ],
-    "note": "B035 closed: all three Juglans PASS and installed. Canonical species count 195."
+    "note": "B037 closed after B036 comparison review. Forestiera pair installed; Diospyros virginiana remains range HOLD. Canonical species count 197."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
