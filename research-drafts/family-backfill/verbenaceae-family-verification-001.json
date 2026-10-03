@@ -1,0 +1,273 @@
+{
+  "module_id": "verbenaceae-family-verification-001",
+  "family": "Verbenaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "verification_type": "joey_sufficient_authoritative_verification",
+  "scope_note": "Light verification/polish pass. Joey coverage already spans Lantana/Verbena habit and floral architecture. This package verifies the modern family circumscription, repairs missing Aloysia/Lantana mappings, and adds the fruit/style characters needed to distinguish Verbenaceae from Lamiaceae.",
+  "joey_coverage": {
+    "audit_records": 7,
+    "exact_media_records": 4,
+    "audit_summary": "Lantana, Verbena and Lippia material gives habit, leaf arrangement, flowers and ecology.",
+    "inspected_examples": [
+      {
+        "source_file": "research-drafts/joey-santore/batch-014-sandsheet-florida-exact-morphology.json",
+        "taxon": "Lantana camara",
+        "exact_media_records_rechecked": 1,
+        "strengths": [
+          "whole flowering habit",
+          "opposite leaves",
+          "capitate flower clusters",
+          "pubescence"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-005-texas-exact-media.json",
+        "taxon": "Verbena neomexicana",
+        "exact_media_records_rechecked": 2,
+        "strengths": [
+          "flower side",
+          "calyx/bracts",
+          "inflorescence axis",
+          "leaf dissection",
+          "stem pubescence"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-020-south-texas-backfill-recovery.json",
+        "taxon": "Verbena neomexicana",
+        "exact_media_records_rechecked": 1,
+        "strengths": [
+          "whole habit",
+          "long slender inflorescences",
+          "branching architecture"
+        ]
+      }
+    ],
+    "assessment": "Joey coverage is sufficient for habit/leaf/flower recognition. The missing teaching piece was fruit plus the terminal-style/indeterminate-inflorescence distinction from Lamiaceae."
+  },
+  "live_pool_cleanup": {
+    "actions": [
+      "Restored Lamiales / Verbenaceae to all 14 live source rows.",
+      "Added Aloysia and Lantana to the hidden genus-family map.",
+      "Flagged Aloysia virgata as a non-native local/ornamental comparison under current POWO.",
+      "Flagged Lantana camara as a non-native cultivated comparison for Texas.",
+      "Flagged Lantana strigocamara source row as current accepted hybrid Lantana × strigocamara and non-native/introduced in Texas.",
+      "Flagged Verbena brasiliensis as introduced in Texas.",
+      "Preserved all comparison rows for field recognition while excluding them from native metrics."
+    ],
+    "pool_genera": [
+      "Aloysia",
+      "Glandularia",
+      "Lantana",
+      "Phyla",
+      "Verbena"
+    ],
+    "pool_source_rows": 14,
+    "curated_rows": 0,
+    "remaining_rows": 14,
+    "priority_1_remaining": 9,
+    "priority_2_remaining": 3,
+    "priority_3_remaining": 2,
+    "my_inat_source_rows": 12,
+    "three_plus_source_rows": 5,
+    "wild_observations": 139,
+    "non_native_or_comparison_rows": [
+      "Aloysia virgata",
+      "Lantana camara",
+      "Lantana strigocamara (current POWO: Lantana × strigocamara)",
+      "Verbena brasiliensis"
+    ]
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start with opposite/decussate simple leaves without stipules, then look at the inflorescence: modern Verbenaceae is strongly associated with indeterminate racemose spikes or heads rather than the cymose/verticillaster architecture typical of many Lamiaceae. Confirm with a tubular flower, superior ovary, terminal style, and genus-specific dry or drupaceous fruit.",
+    "strongest_field_confirmation": "Opposite exstipulate leaves + racemose/spicate/capitate inflorescence + tubular usually zygomorphic corolla + superior ovary with terminal style + fruit that is a dry/fleshy schizocarp or drupe/pyrene system.",
+    "authoritative_framework": [
+      "Herbs, shrubs or small trees; branchlets may be terete or quadrangular.",
+      "Leaves usually opposite/decussate or whorled; stipules absent.",
+      "Inflorescences indeterminate and racemose, often spikes or compact heads.",
+      "Flowers usually 4- or 5-merous and zygomorphic to weakly bilabiate.",
+      "Stamens usually 4 and didynamous, sometimes 2.",
+      "Ovary superior, syncarpous, often entire or only slightly/moderately 4-lobed.",
+      "Style terminal rather than characteristically gynobasic.",
+      "Fruit highly informative: dry/fleshy schizocarps, 2- or 4-part mericarps, or drupaceous fruits with pyrenes."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not use square stems as a family separator; both Verbenaceae and Lamiaceae may have quadrangular stems.",
+      "Do not use aromatic foliage as a family separator; both families can be aromatic.",
+      "Do not assume all Verbenaceae fruits are dry; Lantana is drupaceous.",
+      "Do not assume all fruits split into four units; Phyla commonly resolves to two pyrenes/mericarps.",
+      "Do not treat terminal style versus gynobasic style as an absolute across all Lamiaceae; use it as a strong local/common-pattern distinction.",
+      "Do not count introduced/cultivated comparison rows as project-native species."
+    ]
+  },
+  "lamiaceae_comparison": {
+    "Verbenaceae": [
+      "Inflorescences usually indeterminate/racemose, often spikes or heads.",
+      "Ovary often entire or only shallowly/moderately lobed.",
+      "Style terminal.",
+      "Fruit may be a dry schizocarp, fleshy schizocarp, or drupe with pyrenes."
+    ],
+    "Lamiaceae": [
+      "Inflorescences commonly cymose/verticillaster/thyrsoid.",
+      "Ovary commonly deeply 4-lobed in the classic local herbaceous pattern.",
+      "Style commonly gynobasic in that classic pattern.",
+      "Fruit commonly four nutlets, though drupaceous exceptions such as Callicarpa exist."
+    ],
+    "field_rule": "If the stem and opposite leaves say 'mint-like', stop using stem shape. Move to inflorescence architecture, ovary/style position and mature fruit."
+  },
+  "genus_anchor_cards": [
+    {
+      "genus": "Lantana",
+      "local_anchor": "Lantana urticoides",
+      "role": "drupaceous-fruit / capitate-head anchor",
+      "status": "Current POWO accepted; native Texas species.",
+      "fastest_cues": [
+        "Woody aromatic shrub.",
+        "Opposite rough/toothed leaves.",
+        "Dense pedunculate flower heads.",
+        "Small tubular weakly bilabiate flowers with 4 included stamens.",
+        "Superior 2-chambered ovary with terminal/short style.",
+        "Fleshy purple-black drupe with hard 2-seeded stone."
+      ],
+      "authoritative_sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:135351-2",
+        "https://w3.biosci.utexas.edu/prc/K12/pages/Lantana%20urticoides.html"
+      ]
+    },
+    {
+      "genus": "Verbena",
+      "local_anchor": "Verbena halei",
+      "role": "dry four-mericarpy / spike anchor",
+      "status": "Current POWO accepted; native Texas species.",
+      "fastest_cues": [
+        "Herb/subshrub with opposite leaves.",
+        "Long simple or branched spikes.",
+        "Small tubular 5-lobed flowers.",
+        "Superior ovary with terminal style.",
+        "Dry fruit splitting into 4 one-seeded nutlets/mericarps inside persistent calyx."
+      ],
+      "authoritative_sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:330551-2/general-information",
+        "https://powo.science.kew.org/taxon/263072-2"
+      ]
+    },
+    {
+      "genus": "Glandularia",
+      "local_anchors": [
+        "Glandularia bipinnatifida",
+        "Glandularia pumila"
+      ],
+      "role": "contracted-head dry-mericarpy anchor",
+      "status": "Both current POWO accepted Texas-native concepts.",
+      "fastest_cues": [
+        "Low herb/subshrub.",
+        "Contracted head rather than the elongated simple/panicled spike typical of Verbena.",
+        "Longer style relative to ovary than Verbena in the Neotropical key.",
+        "Dry fruit maturing into four 1-seeded mericarps."
+      ],
+      "authoritative_sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:862854-1",
+        "https://powo.science.kew.org/taxon/110644-2"
+      ]
+    },
+    {
+      "genus": "Phyla",
+      "local_anchor": "Phyla nodiflora",
+      "role": "creeping two-pyrene / compact-spike anchor",
+      "status": "Current POWO accepted.",
+      "fastest_cues": [
+        "Creeping perennial rooting at nodes.",
+        "Opposite leaves, often toothed mainly toward the tip.",
+        "Short dense pedunculate heads/spikes.",
+        "Tiny tubular flowers.",
+        "Fruit divides into 2 pyrenes/mericarps rather than 4."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:194567-2/general-information"
+    },
+    {
+      "genus": "Aloysia",
+      "local_anchor": "Aloysia gratissima",
+      "role": "woody raceme/spike anchor",
+      "status": "Current POWO accepted and native Arizona-to-Texas species.",
+      "fastest_cues": [
+        "Strongly aromatic woody shrub.",
+        "Opposite small leaves.",
+        "Dense axillary white fragrant racemes/spikes.",
+        "Useful woody-family counterpoint to herbaceous Verbena/Glandularia."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:9643-2"
+    }
+  ],
+  "fruit_lesson": {
+    "key_point": "Fruit is the best final separator because the local family spans several architectures.",
+    "sequence": [
+      "Verbena/Glandularia: persistent calyx opened to show four dry one-seeded mericarps.",
+      "Phyla: tiny fruit split into two pyrenes/mericarps.",
+      "Lantana: fleshy purple-black drupe cut open to show hard endocarp/stone.",
+      "Place all three beside a classic Lamiaceae four-nutlet fruit."
+    ],
+    "rights_safe_visuals": [
+      {
+        "role": "drupaceous Verbenaceae fruit example",
+        "taxon": "Lantana camara",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Lantana_camara_fruits.jpg",
+        "creator": "Alvesgaspar",
+        "license": "CC BY 2.5 / CC BY-SA 3.0 / GFDL",
+        "public_reuse": true,
+        "note": "Use strictly as family fruit anatomy/comparison; L. camara is not a Texas-native metric."
+      },
+      {
+        "role": "Texas lantana flower/habit reference",
+        "taxon": "Lantana urticoides",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Lantana_urticoides.jpg",
+        "creator": "Clinton & Charles Robertson",
+        "license": "CC BY 2.0",
+        "public_reuse": true
+      }
+    ]
+  },
+  "taxonomy_and_native_status_notes": [
+    "Aloysia gratissima is accepted by POWO and native Arizona to Texas southward.",
+    "Aloysia virgata is accepted but native South America; comparison only.",
+    "Glandularia bipinnatifida and G. pumila are accepted by POWO and native in Texas.",
+    "Lantana urticoides is accepted and native Texas.",
+    "Lantana camara is accepted but its native range is Mexico to Tropical America; project row is cultivated-only.",
+    "Lantana × strigocamara is an accepted hybrid and listed as introduced in Texas.",
+    "Verbena halei is accepted and native in Texas.",
+    "Verbena brasiliensis is accepted but introduced in Texas."
+  ],
+  "fast_key": [
+    "Opposite exstipulate leaves + racemose spike/head + terminal style -> strongly supports Verbenaceae.",
+    "Long slender simple/panicled spikes + dry four-mericarpy fruit -> Verbena.",
+    "Contracted flower head + dry four-mericarpy fruit -> Glandularia.",
+    "Creeping mat rooting at nodes + tiny compact heads + two-pyrene fruit -> Phyla.",
+    "Woody rough-leaved colorful head + fleshy dark drupe -> Lantana.",
+    "Woody aromatic shrub + narrow axillary white racemes -> Aloysia.",
+    "Opposite leaves + interpetiolar stipules + inferior ovary -> Rubiaceae, not Verbenaceae.",
+    "Deeply 4-lobed ovary + gynobasic style + cymose/verticillaster inflorescence -> classic Lamiaceae pattern."
+  ],
+  "visual_gaps": [
+    "Local Verbena/Glandularia fruit opened to four mericarps.",
+    "Local Phyla fruit macro showing the two-part fruit.",
+    "Local Lantana urticoides ripe drupe and cut stone.",
+    "Terminal-style versus gynobasic-style ovary diagram.",
+    "Racemose/spicate Verbenaceae versus verticillaster/cymose Lamiaceae inflorescence card.",
+    "Equal-scale Glandularia-head versus Verbena-spike comparison."
+  ],
+  "completion_assessment": {
+    "joey_coverage": "verified sufficient",
+    "family_framework": "authoritatively verified",
+    "missing_fruit_requirement": "filled with authoritative morphology and rights-safe Lantana fruit candidate",
+    "tracker_cleanup": "5 genera / 14 live source rows",
+    "remaining": "visual locking only; no further broad family research required",
+    "recommended_status": "verified_ready_for_visual_locking"
+  },
+  "authoritative_sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000070-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:330551-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:194567-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:330561-2/general-information",
+    "https://w3.biosci.utexas.edu/prc/K12/pages/Lantana%20urticoides.html"
+  ]
+}
