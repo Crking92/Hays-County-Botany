@@ -1,0 +1,101 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-10-03",
+  "purpose": "Track family-level visual learner construction separately from family research/backfill status.",
+  "rules": {
+    "module_built": "A canonical content/taxa/<Family>/family.json contains a visual_lesson and all referenced anchor species exist in the manifest.",
+    "visual_ready": "At least one canonical species anchor has a locked image; photo-specific steps may still be marked polish_pending.",
+    "photo_blocked": "Family research is sufficient but current canonical website species lack locked images or no species are promoted."
+  },
+  "built": [
+    "Asteraceae",
+    "Poaceae",
+    "Fabaceae",
+    "Lamiaceae",
+    "Apocynaceae",
+    "Fagaceae",
+    "Convolvulaceae",
+    "Papaveraceae",
+    "Malvaceae",
+    "Asparagaceae",
+    "Ranunculaceae",
+    "Anacardiaceae",
+    "Cupressaceae",
+    "Onagraceae",
+    "Ebenaceae"
+  ],
+  "priority_photo_blocked": [
+    {
+      "family": "Oleaceae",
+      "reason": "Fraxinus albicans and F. pennsylvanica are canonical but their species files currently contain no locked images.",
+      "next": "Lock Texas-ash and green-ash leaf/samara images, then build opposite-node → compound-leaf → samara family sequence."
+    },
+    {
+      "family": "Verbenaceae",
+      "reason": "Five canonical Verbena species exist but their species files currently contain no locked images.",
+      "next": "Lock Verbena habit/spike/flower/fruit images, then build Verbenaceae-vs-Lamiaceae sequence."
+    },
+    {
+      "family": "Rosaceae",
+      "reason": "Family research is complete but no Rosaceae species are currently present in the website manifest.",
+      "next": "Promote the existing curated Prunus/Rubus/Geum packages with images; build hypanthium + fruit-architecture module."
+    },
+    {
+      "family": "Sapindaceae",
+      "reason": "Family research is complete but no Sapindaceae species are currently present in the website manifest.",
+      "next": "Promote Acer negundo, Sapindus drummondii and/or Ungnadia speciosa with images; build fruit-diversity module."
+    },
+    {
+      "family": "Aquifoliaceae",
+      "reason": "Three canonical Ilex species exist but their species files currently contain no locked images.",
+      "next": "Lock Ilex decidua/yaupon habit, flower-sex and drupe images; then build holly family module."
+    },
+    {
+      "family": "Ulmaceae",
+      "reason": "Four canonical Ulmus species exist but their species files currently contain no locked images.",
+      "next": "Lock leaf-asymmetry, buds, bark and samara images; then build elm-vs-hackberry module."
+    }
+  ],
+  "lower_priority_photo_blocked": [
+    {
+      "family": "Bignoniaceae",
+      "reason": "Canonical species exist but current species files contain no locked images."
+    },
+    {
+      "family": "Plantaginaceae",
+      "reason": "Canonical species exists but current species file contains no locked images."
+    },
+    {
+      "family": "Alismataceae",
+      "reason": "Canonical species exists but current species file contains no locked images."
+    },
+    {
+      "family": "Cabombaceae",
+      "reason": "Canonical species exists but current species file contains no locked images."
+    },
+    {
+      "family": "Pontederiaceae",
+      "reason": "Canonical species exists but current species file contains no locked images."
+    },
+    {
+      "family": "Potamogetonaceae",
+      "reason": "Canonical species exists but current species file contains no locked images."
+    }
+  ],
+  "research_complete_no_promoted_visual_anchor": [
+    "Cactaceae",
+    "Aristolochiaceae",
+    "Ericaceae"
+  ],
+  "recommended_next_order": [
+    "Oleaceae",
+    "Verbenaceae",
+    "Aquifoliaceae",
+    "Ulmaceae",
+    "Rosaceae",
+    "Sapindaceae",
+    "Cactaceae",
+    "Aristolochiaceae",
+    "Ericaceae"
+  ]
+}
