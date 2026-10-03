@@ -3298,18 +3298,48 @@
       "curated_at": "2026-10-03",
       "reconciliation_status": "resolved_installed",
       "reconciliation_note": "Installed under user's blanket approval of all current PASS/approval-ready taxa on 2026-10-03."
+    },
+    {
+      "id": "callirhoe-digitata",
+      "scientific_name": "Callirhoe digitata",
+      "common_name": "fringed poppy mallow",
+      "family": "Malvaceae",
+      "genus": "Callirhoe",
+      "status": "reviewed_comparison_recommended",
+      "priority": 1,
+      "batch_id": "deep-review-batch-030-callirhoe-b020-part2",
+      "last_deep_reviewed_at": "2026-10-03T15:35:00-05:00",
+      "notes": "B020 part 2 current-range FAIL — current Kew/FNA distribution excludes Texas. Retain as OUT_OF_RANGE_TAXONOMIC_COMPARISON because older references/common names can create confusion.",
+      "approval_status": "ready_for_comparison_approval",
+      "learner_role": "OUT_OF_RANGE_TAXONOMIC_COMPARISON_RECOMMENDED",
+      "native_range_status": "FAIL",
+      "native_metrics_excluded": true
+    },
+    {
+      "id": "callirhoe-pedata",
+      "scientific_name": "Callirhoe pedata",
+      "common_name": "palmleaf poppymallow",
+      "family": "Malvaceae",
+      "genus": "Callirhoe",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "batch_id": "deep-review-batch-030-callirhoe-b020-part2",
+      "last_deep_reviewed_at": "2026-10-03T15:35:00-05:00",
+      "notes": "B020 part 2 PASS — Hays, Travis, Williamson. Diagnostic priority: persistent stipules + racemose flowers + no involucellar bractlets.",
+      "approval_status": "ready_for_approval",
+      "native_range_status": "PASS"
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-029-callirhoe-b020-part1",
-    "reviewed_at": "2026-10-03T16:02:00-05:00",
-    "status": "part1_complete",
+    "batch_id": "deep-review-batch-030-callirhoe-b020-part2",
+    "reviewed_at": "2026-10-03T15:35:00-05:00",
+    "status": "blanket_approved_for_install",
     "taxa": [
-      "callirhoe-involucrata",
-      "callirhoe-leiocarpa"
+      "callirhoe-digitata",
+      "callirhoe-pedata"
     ],
-    "note": "B020 split into two small reviews. Part 1 complete: C. involucrata PASS; C. leiocarpa PASS. C. digitata + C. pedata remain part 2."
+    "note": "B020 part 2 complete. C. pedata PASS (Hays, Travis, Williamson). C. digitata current-range FAIL and retained as an out-of-range taxonomic comparison. User blanket approval applies; unresolved taxa remain excluded."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",

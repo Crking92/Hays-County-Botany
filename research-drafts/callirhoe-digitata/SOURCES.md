@@ -1,17 +1,18 @@
 CALLIRHOE DIGITATA — DEEP REVIEW SOURCES
 Reviewed: 2026-10-03
-Status: TEXAS NATIVE-RANGE FAIL / TAXONOMIC COMPARISON RECOMMENDED
+Status: TARGET-ZONE FAIL / OUT-OF-RANGE COMPARISON
 
-Kew accepted species:
-https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30067326-2
+Taxonomy and current range
+Kew/POWO:
+https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A30067326-2
 Flora of North America:
 https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=220002157
-FNA distribution: Arkansas, Kansas, Missouri, Oklahoma — Texas excluded.
 
-Historical Texas name correction:
-https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=532809
-C. digitata var. stipulata is accepted as C. pedata.
+Decision
+FAIL for project-native metrics. Current Kew/FNA distribution excludes Texas, despite older literature sometimes extending the name into Texas.
 
-Decision: FAIL as a Texas native.
-Recommended role: TAXONOMIC_COMPARISON.
-LOOK HERE FIRST: 5–10 narrow lobes + caducous stipules + paniculate inflorescence; do not apply old Texas name uncritically.
+LOOK HERE FIRST
+Tall glaucous perennial + deeply 5–10-lobed fingerlike leaves + caducous stipules + paniculate inflorescence + no involucellar bractlets.
+
+Learner role
+OUT_OF_RANGE_TAXONOMIC_COMPARISON; excluded from native metrics.

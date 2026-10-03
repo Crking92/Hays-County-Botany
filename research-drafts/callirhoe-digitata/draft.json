@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_FAIL_TAXONOMIC_COMPARISON_RECOMMENDED",
+  "draft_status": "DEEP_REVIEW_COMPLETE_COMPARISON_RECOMMENDED",
   "batch_id": "deep-review-batch-030-callirhoe-b020-part2",
-  "created_at": "2026-10-03T16:15:00-05:00",
+  "created_at": "2026-10-03T15:35:00-05:00",
   "source_pool": {
     "sheet": "Master Plant Pool",
     "row": 168,
@@ -19,63 +19,68 @@
     "genus": "Callirhoe",
     "species": "digitata",
     "status": "VERIFIED",
-    "note": "Accepted by Kew/POWO and Flora of North America. Modern FNA distribution is Arkansas, Kansas, Missouri, and Oklahoma—not Texas. Some older Texas literature used C. digitata or C. digitata var. stipulata for material now treated as Callirhoe pedata."
+    "note": "Accepted by current Kew/POWO and Flora of North America, but current distributions place it in Arkansas, Kansas, Missouri and Oklahoma rather than Texas. Older literature has sometimes extended it into Texas, creating a useful taxonomic/range-confusion lesson."
   },
   "target_zone_range": {
     "decision": "FAIL",
     "threshold": 3,
     "documented_native_counties": [],
     "evidence": [
-      "Flora of North America gives the modern native distribution as Arkansas, Kansas, Missouri, and Oklahoma, excluding Texas.",
-      "ITIS treats Callirhoe digitata var. stipulata as a synonym of Callirhoe pedata, explaining a major source of older Texas records/names.",
-      "A modern Texas Callirhoe review likewise notes that true C. digitata is no longer treated as occurring in Texas."
+      "Kew/POWO currently lists the native range as Alabama, Arkansas, Kansas, Missouri and Oklahoma, with no Texas.",
+      "Flora of North America lists Callirhoe digitata from Arkansas, Kansas, Missouri and Oklahoma and describes it as an Ozark/Ouachita/Cherokee Plains species."
     ],
-    "blocking_issue": "True Callirhoe digitata is not native to Texas under the current species concept.",
-    "guardrail": "Do not convert historical Texas uses of the name C. digitata into modern C. digitata occurrence. Re-identify those records against C. pedata."
+    "blocking_issue": "Current authoritative distribution does not include Texas.",
+    "guardrail": "Do not preserve legacy Texas-range claims as native evidence when current Kew/FNA treatments exclude Texas."
   },
   "morphology": {
-    "look_here_first": "If a supposed Texas 'digitata' appears, first suspect the name rather than the plant. True C. digitata is a tall perennial with 5–10 very narrow fingerlike leaf lobes, caducous stipules, and a PANICULATE inflorescence. C. pedata has persistent stipules, usually 3–5 lobes, and RACEMOSE flowers.",
+    "look_here_first": "Think tall, glaucous perennial with highly dissected fingerlike leaves and NO involucellar bractlets. The inflorescence is paniculate, stipules are usually shed early, and the calyx lobes meet into a pointed bud.",
     "diagnostic_traits": [
-      "perennial",
-      "erect stems commonly 0.5–2 m",
-      "leaves (3–)5–10-lobed with narrow linear to lanceolate lobes",
-      "stipules caducous",
-      "involucellar bractlets absent",
+      "perennial from thickened root, usually erect rather than trailing",
+      "stems glaucous and nearly glabrous, commonly 0.5–2 m in FNA",
+      "leaves deeply 5–10-lobed with very narrow linear to lanceolate ultimate segments",
+      "stipules caducous, often absent by flowering",
       "inflorescence paniculate rather than racemose",
-      "calyx lobes valvate in bud and pointed",
-      "mericarps indehiscent with weak/absent collars"
+      "involucellar bractlets absent",
+      "calyx lobes valvate in bud and form an apiculate/acuminate point",
+      "flowers reddish-purple, but color is not diagnostic",
+      "mericarps glabrous and indehiscent, beaks not prominent"
     ]
   },
   "confusers": [
     {
       "taxon": "Callirhoe pedata",
-      "separator": "The crucial Texas correction: C. pedata has persistent linear-lanceolate stipules, usually 3–5 lobed leaves and racemose flowers; older Texas C. digitata var. stipulata is now C. pedata."
+      "separator": "C. pedata is Texas-native, usually has persistent stipules and a racemose inflorescence; its leaves are 3–5-lobed rather than typically 5–10-lobed, though both can be strongly dissected."
     },
     {
       "taxon": "Callirhoe leiocarpa",
-      "separator": "C. leiocarpa is annual/biennial with auriculate stipules and dehiscent fruits; true C. digitata is perennial with caducous stipules."
+      "separator": "C. leiocarpa is annual/biennial, with dehiscent mericarps and prominent beaks/collars; C. digitata is perennial with indehiscent fruit."
+    },
+    {
+      "taxon": "Callirhoe involucrata",
+      "separator": "Winecup has 3 involucellar bractlets and a low trailing habit; C. digitata lacks the involucel and is tall/erect."
     }
   ],
-  "learner_role": "TAXONOMIC_COMPARISON_RECOMMENDED",
+  "learner_role": "OUT_OF_RANGE_TAXONOMIC_COMPARISON_RECOMMENDED",
   "native_metrics_excluded": true,
   "photo_verification": {
     "status": "SOURCE_COVERAGE_VERIFIED",
     "diagnostic_roles": [
-      "whole tall erect habit",
-      "leaf with 5–10 narrow lobes",
-      "stipule/node showing caducous stipule state",
+      "whole erect glaucous plant",
+      "deeply dissected leaf with narrow fingerlike segments",
+      "node showing caducous/absent stipule",
       "paniculate inflorescence",
-      "bud/calyx",
-      "fruit",
-      "direct C. pedata leaf/inflorescence comparison"
+      "flower underside proving no involucel",
+      "pointed calyx bud",
+      "mature mericarps",
+      "direct C. pedata leaf/stipule/inflorescence comparison"
     ],
     "exact_final_selection_pending_user_approval": true,
-    "user_inaturalist_example_observation": null,
     "reference_candidates": [
       "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=220002157",
-      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30067326-2"
-    ]
+      "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A30067326-2"
+    ],
+    "provenance_note": "Use current-range references in the learner so older Texas-range claims do not silently re-enter the native pool."
   },
   "approval_status": "READY_FOR_COMPARISON_APPROVAL",
-  "installation_guardrail": "Do not install as a Texas native. If retained, label only as a taxonomic/historical-name comparison and exclude from native metrics."
+  "installation_guardrail": "Install only as an out-of-range/taxonomic comparison excluded from native metrics."
 }
