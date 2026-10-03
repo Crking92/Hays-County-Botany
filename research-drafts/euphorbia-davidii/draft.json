@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-euphorbia-test-02",
+  "created_at": "2026-10-03T18:05:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 442,
+    "priority": 2,
+    "wild_observations": 1
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Euphorbia davidii Subils",
+    "family": "Euphorbiaceae",
+    "genus": "Euphorbia",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America recognize Euphorbia davidii as accepted.",
+      "This species was historically entangled with Euphorbia dentata var. cuphosperma / E. cuphosperma concepts."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Range evidence is conflicting. Deep Review must resolve Texas nativity carefully and should not force a PASS/FAIL from this Scout draft.",
+    "leads": [
+      "Master Plant Pool has 1 personal wild observation.",
+      "POWO currently lists Texas as introduced.",
+      "FNA includes Texas and describes E. davidii as native from the southwestern United States and northern Mexico through the southern Great Plains, adventive elsewhere.",
+      "Montana Field Guide notes that some database treatments have historically misinterpreted E. davidii's native status.",
+      "BONAP county maps should be checked, but county presence alone does not resolve native versus introduced status."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Separate it from E. dentata using texture and seed/fruit, not casual habit. E. davidii tends to have shorter, stiffer hairs with tiny pustular bases, larger capsules and seeds, often more elliptic leaves, and angular irregularly lumpy seeds.",
+    "diagnostic_traits": [
+      "annual taprooted herb",
+      "mostly opposite leaves with irregular coarse teeth",
+      "leaf undersides with relatively stout short hairs, often on minute pustular bases",
+      "capsules broadly ovoid and generally larger than E. dentata",
+      "seeds larger, angular in cross section, irregularly low-tuberculate or wrinkled",
+      "small but developed caruncle"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Euphorbia dentata",
+      "separator": "E. davidii generally has larger fruit/seeds, more elliptic leaves, shorter stiffer pustule-based hairs, and angular irregular seeds; E. dentata has smaller, more uniformly ovoid finely pebbled seeds and longer/less-stiff hairs."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "MissouriPlants",
+      "source_page": "https://missouriplants.com/Euphorbia_davidii_page.html",
+      "origin_url": "https://www.missouriplants.com/images/Euphorbia_davidii_plant.jpg",
+      "creator": "S.R. Turner",
+      "license": "copyrighted / public reuse not assumed",
+      "role": "whole habit + upper leaves",
+      "reuse": "private-study candidate only unless permission/license found"
+    },
+    {
+      "source": "polyploid.net SW Plants",
+      "source_page": "https://www.polyploid.net/swplants/pages/Euphorbia_dav.html",
+      "origin_url": "https://www.polyploid.net/swplants/images/Euphorbia_dav_22Sep06_8547.jpg",
+      "creator": null,
+      "license": "unverified",
+      "role": "fruit/cyathia close-up",
+      "reuse": "private-study candidate until rights verified"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf underside pustular hairs",
+    "capsule size comparison",
+    "seed macro",
+    "direct dentata seed/hair comparison"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A276643-2",
+    "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416542",
+    "https://missouriplants.com/Euphorbia_davidii_page.html",
+    "https://fieldguide.mt.gov/speciesDetail.aspx?elcode=PDEUP0Q310",
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Euphorbia"
+  ],
+  "scout_flags": {
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true,
+    "range_conflict": true
+  }
+}
