@@ -842,8 +842,10 @@ function hideResults(){ els.results.hidden=true; }
 
 function openTermModal(id){
   const t=state.learning.terms[id]; if(!t) return;
+  const visual=t.visual ? '<div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"></div>' :
+    '<div class="term-visual term-visual-empty"><span>Diagram lock pending</span></div>';
   els.modal.innerHTML='<div class="modal-backdrop" data-close-modal><section class="modal-card term-modal" role="dialog" aria-modal="true" aria-labelledby="termTitle">'+
-    '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button><div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"></div>'+
+    '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>'+visual+
     '<div class="term-copy"><div class="eyebrow">Botanical term</div><h2 id="termTitle">'+esc(t.term)+'</h2><p class="pronunciation">rough pronunciation · '+esc(t.pronunciation||"—")+'</p>'+
     '<div class="definition plain"><b>Plain language</b><p>'+esc(t.plain)+'</p></div><div class="definition"><b>Botanical definition</b><p>'+esc(t.formal)+'</p></div>'+
     '<div class="term-lesson"><div><b>Where do I look?</b><p>'+esc(t.where)+'</p></div><div><b>Why does it matter?</b><p>'+esc(t.why)+'</p></div></div></div></section></div>';
