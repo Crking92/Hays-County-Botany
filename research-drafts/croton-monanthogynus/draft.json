@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-croton-test-01",
+  "created_at": "2026-10-03T17:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 304,
+    "priority": 1,
+    "note": "Selected after manifest/claims/queue/draft collision checks."
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Croton monanthogynus Michx.",
+    "family": "Euphorbiaceae",
+    "genus": "Croton",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America treat Croton monanthogynus as accepted.",
+      "Older generic combinations include Gynamblosis monanthogyna."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Deep Review must verify exact target-zone counties.",
+    "leads": [
+      "Master Plant Pool records 31 personal wild observations and Hays Local status; occurrence lead only.",
+      "POWO lists Texas in the native range.",
+      "BONAP Croton county maps require exact target-zone county extraction."
+    ],
+    "primary_map_source": "https://bonap.net/Napa/TaxonMaps/Genus/County/Croton"
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start under the leaf and then count style branches: dark-centered stellate hairs make the lower leaf surface look brown-dotted, and the plant has two deeply divided styles (four terminal branches) with a one-seeded fruit.",
+    "diagnostic_traits": [
+      "small annual often branching near the base",
+      "dark-centered stellate hairs create brown-dotted abaxial leaf appearance",
+      "short congested racemes",
+      "two styles each bifid to base = four terminal style branches",
+      "ovary with only one fertile locule",
+      "capsule effectively one-seeded"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Croton lindheimerianus",
+      "separator": "C. lindheimerianus lacks the dark-centered brown-dot hairs and has three styles with six terminal segments and a normal three-seeded capsule."
+    },
+    {
+      "taxon": "Croton texensis",
+      "separator": "C. texensis is taller, dioecious, narrow-leaved, and has verrucose fruit plus more highly divided styles."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "iNaturalist guide / Flickr",
+      "source_page": "https://www.inaturalist.org/guide_taxa/503491",
+      "origin_url": "https://www.flickr.com/photos/gravitywave/1382395916/",
+      "creator": "Josh*m",
+      "license": "CC BY-NC-SA (per guide credit)",
+      "role": "whole plant habit",
+      "reuse": "private study; NC restriction for public-commercial use"
+    },
+    {
+      "source": "MissouriPlants",
+      "source_page": "https://www.missouriplants.com/Croton_monanthogynus_page.html",
+      "origin_url": "https://www.missouriplants.com/images/Croton_monanthogynus_plant.jpg",
+      "creator": null,
+      "license": "unverified",
+      "role": "whole branching habit",
+      "reuse": "private-study candidate"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "abaxial brown-dotted hairs macro",
+    "styles showing four terminal branches",
+    "one-seeded mature fruit",
+    "whole low branching habit"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
