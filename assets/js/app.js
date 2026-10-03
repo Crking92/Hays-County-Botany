@@ -696,6 +696,26 @@ function familyVisualThumb(sp,step,cls){
   return '<div class="'+cls+' thumb-empty" aria-hidden="true">✣</div>';
 }
 
+function familyExternalImageUrl(step){
+  if(!step) return "";
+  if(step.image_url) return step.image_url;
+  const src=step.source_page||"";
+  if(/^https?:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(src)){
+    return src.replace("/wiki/File:","/wiki/Special:Redirect/file/");
+  }
+  return "";
+}
+
+function familyExternalVisual(step){
+  const url=familyExternalImageUrl(step);
+  if(!url) return "";
+  const label=step.image_label||step.photo_role||"Reference image";
+  const img='<img class="family-visual-img" src="'+esc(url)+'" alt="'+esc(step.image_alt||label)+'" loading="lazy">';
+  const caption='<span><b>'+esc(label)+'</b><i>'+esc(step.image_credit||"rights-cleared reference")+'</i></span>';
+  if(step.source_page) return '<a class="family-visual-photo" href="'+esc(step.source_page)+'" target="_blank" rel="noopener noreferrer">'+img+caption+'</a>';
+  return '<div class="family-visual-photo">'+img+caption+'</div>';
+}
+
 function familyVisualLessonHTML(canon){
   const lesson=canon && canon.visual_lesson;
   if(!lesson || !Array.isArray(lesson.steps) || !lesson.steps.length) return "";
@@ -708,6 +728,8 @@ function familyVisualLessonHTML(canon){
     if(sp){
       out+='<button class="family-visual-photo" type="button" data-species="'+esc(sp.id)+'">'+familyVisualThumb(sp,step,"family-visual-img")+
         '<span><b>'+esc(commonName(sp)||scientificName(sp))+'</b><i>'+esc(scientificName(sp))+'</i></span></button>';
+    }else if(familyExternalImageUrl(step)){
+      out+=familyExternalVisual(step);
     }else{
       out+='<div class="family-visual-photo family-visual-placeholder"><span>Diagram / photo lock pending</span></div>';
     }
