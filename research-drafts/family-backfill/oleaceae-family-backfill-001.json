@@ -1,0 +1,325 @@
+{
+  "module_id": "oleaceae-family-backfill-001",
+  "family": "Oleaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "scope_note": "Family-recognition backfill for the six Oleaceae taxa in the Master Plant Pool. This module preserves the user's explicit native-range holds for Fraxinus berlandieriana and Fraxinus greggii.",
+  "local_scope": {
+    "sheet": "Hays_Botany_ID_Master_Curation_Tracker / Master Plant Pool",
+    "taxa": [
+      {
+        "taxon": "Forestiera angustifolia",
+        "priority": 2,
+        "pool_row": 469,
+        "role": "local/near-local Forestiera structural anchor; species curation still pending"
+      },
+      {
+        "taxon": "Forestiera pubescens",
+        "priority": 1,
+        "pool_row": 470,
+        "role": "primary Forestiera family anchor; Hays Local + NPSOT + Personal List"
+      },
+      {
+        "taxon": "Fraxinus albicans",
+        "priority": 1,
+        "pool_row": 473,
+        "role": "primary ash anchor; user-approved native curation"
+      },
+      {
+        "taxon": "Fraxinus berlandieriana",
+        "priority": 1,
+        "pool_row": 474,
+        "role": "same-genus comparison only; native-range status explicitly held UNRESOLVED"
+      },
+      {
+        "taxon": "Fraxinus greggii",
+        "priority": 2,
+        "pool_row": 475,
+        "role": "same-genus comparison only; native-range status explicitly held UNRESOLVED"
+      },
+      {
+        "taxon": "Fraxinus pennsylvanica",
+        "priority": 1,
+        "pool_row": 476,
+        "role": "primary ash anchor; user-approved native curation"
+      }
+    ],
+    "user_holds": [
+      "Fraxinus berlandieriana — keep UNRESOLVED until a third exact project-county native record is verified.",
+      "Fraxinus greggii — keep UNRESOLVED until strict project-county range threshold is met."
+    ]
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start at the node: Oleaceae is woody and usually has opposite or subopposite leaves/branching with no stipules. Then read the leaf architecture and fruit. Local Fraxinus has odd-pinnate compound leaves plus a samara; local Forestiera has simple leaves plus a one-seeded drupe.",
+    "core_characters": [
+      "Trees or shrubs in the local flora.",
+      "Leaves usually opposite or subopposite and exstipulate; they may be simple or odd-pinnately compound.",
+      "Flowers are usually radial and often small. A 4-merous corolla is common in the family, but the local Fraxinus and Forestiera lineages can be apetalous, so petals are not required.",
+      "Oleaceae commonly has 2 stamens, but do not use exact stamen count alone: Forestiera can depart from the simple two-stamen rule, and the Williamson County Forestiera pubescens treatment reports 4–6 stamens in staminate flowers.",
+      "Ovary is superior, syncarpous and typically 2-carpellate/2-loculed.",
+      "Fruit is highly useful locally: Fraxinus = winged samara; Forestiera = fleshy one-seeded drupe."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not teach Oleaceae as 'opposite leaves + four white petals.' The two local focal genera often lack a corolla.",
+      "Do not teach 'exactly two stamens' as an absolute family rule. It is a strong family tendency, not a safe local absolute.",
+      "Do not identify Oleaceae from opposite leaves alone; Rubiaceae, Verbenaceae, Lamiaceae, Bignoniaceae and other families can also be opposite-leaved.",
+      "Do not use fruit type as a single family-wide character because Oleaceae includes samaras, drupes, berries and capsules."
+    ],
+    "likely_confusions": {
+      "Rubiaceae": {
+        "confusion": "Opposite leaves and small flowers can overlap.",
+        "tie_breaker": "Rubiaceae usually has interpetiolar stipules and an inferior ovary; Oleaceae lacks stipules and has a superior ovary."
+      },
+      "Bignoniaceae": {
+        "confusion": "Opposite leaves are common and some taxa can be woody.",
+        "tie_breaker": "Bignoniaceae usually has large bilaterally symmetric tubular flowers and a long capsule with flat winged seeds; local Oleaceae has tiny flowers and either ash samaras or Forestiera drupes."
+      },
+      "Lamiaceae / Verbenaceae": {
+        "confusion": "Opposite leaves and small clustered flowers.",
+        "tie_breaker": "Check woody habit, exstipulate nodes, flower symmetry, ovary/fruit architecture and especially samara-versus-drupe in the local Oleaceae genera."
+      }
+    }
+  },
+  "fast_key": [
+    "Opposite woody plant + odd-pinnate compound leaves → inspect for a single-winged samara → Fraxinus.",
+    "Opposite/subopposite woody plant + simple leaves → inspect for small dark fleshy drupes and tiny often apetalous flowers → Forestiera.",
+    "If opposite leaves are present but interpetiolar stipules are obvious → reconsider Rubiaceae.",
+    "If opposite leaves accompany a large showy bilateral trumpet flower and long capsule → reconsider Bignoniaceae."
+  ],
+  "cards": [
+    {
+      "taxon": "Forestiera pubescens",
+      "common_name": "Downy Forestiera / stretchberry",
+      "priority": 1,
+      "status": "family_training_anchor_complete",
+      "look_here_first": "Look at the branch architecture: opposite to subopposite simple leaves and opposite branchlets. Then look for very early, apetalous flowers before leaf-out or dark bluish-purple drupes later.",
+      "confirm": [
+        "Leaves simple, usually opposite/subopposite, without stipules.",
+        "Flowers functionally unisexual and the plants are dioecious.",
+        "Corolla absent; the tiny flowers can appear as exposed stamens or pistils on bare twigs.",
+        "Williamson County treatment reports 4–6 stamens in staminate flowers, a useful warning against overlearning the usual Oleaceae two-stamen rule.",
+        "Fruit is a fleshy dark drupe with one stone."
+      ],
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:608873-1",
+        "https://w3.biosci.utexas.edu/prc/K12/pages/Forestiera%20pubescens%20pubescens.html",
+        "https://www.bio.utexas.edu/courses/bio406d/images/pics/ole/forestiera_pubescens.htm"
+      ],
+      "images": [
+        {
+          "role": "opposite_branching_and_foliage",
+          "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ole/forestiera_pubescens.htm",
+          "direct_image_url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ole/forestiera.pubescens.foliage.jpg",
+          "creator": "UT Austin BIO 406D / PlantPics",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        },
+        {
+          "role": "staminate_apetalous_flowers_before_leafout",
+          "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ole/forestiera_pubescens.htm",
+          "direct_image_url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ole/Forestiera%20pubescens%20maleflowers.jpg",
+          "creator": "UT Austin BIO 406D / PlantPics",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        },
+        {
+          "role": "mature_drupe_and_simple_leaves",
+          "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ole/forestiera_pubescens.htm",
+          "direct_image_url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ole/forestiera.pubescens.frt.jpg",
+          "creator": "UT Austin BIO 406D / PlantPics",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        },
+        {
+          "role": "rights_safe_species_reference",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Forestiera_pubescens_var._pubescens.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Forestiera%20pubescens%20var.%20pubescens.jpg",
+          "creator": "Petrified Forest National Park",
+          "license": "CC BY 2.0",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ]
+    },
+    {
+      "taxon": "Fraxinus albicans",
+      "common_name": "Texas ash",
+      "priority": 1,
+      "status": "user_approved_family_anchor",
+      "look_here_first": "Opposite branching and odd-pinnate leaves establish ash; in fruit, look for the smaller samara whose wing is terminal or only slightly decurrent onto the seed body.",
+      "confirm": [
+        "Usually 5–7 leaflets in the Central Texas comparison.",
+        "Lower leaflet surface often pale/glaucous and useful in comparison with green ash.",
+        "Samara body is relatively small; wing is terminal or only slightly decurrent.",
+        "Leaf-scar/bud form is useful when fruit is unavailable."
+      ],
+      "taxonomy_note": "Current POWO accepts Fraxinus albicans; Fraxinus texensis is a synonym. Some reusable image sources remain filed under F. texensis.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:608909-1",
+        "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html",
+        "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/Hays-ash.html"
+      ],
+      "images": [
+        {
+          "role": "compound_leaves_and_samara_cluster",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fraxinus_texensis.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fraxinus%20texensis.jpg",
+          "creator": "sonnia hill",
+          "license": "CC BY 2.0",
+          "taxon_name_on_source": "Fraxinus texensis",
+          "taxon_mapping": "POWO synonym of Fraxinus albicans",
+          "locality": "LBJ National Grasslands, Wise County, Texas",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "central_texas_samara_and_leaf_scar_comparison",
+          "source_page": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/Hays-ash.html",
+          "creator": "UT Austin Plant Resources Center",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Fraxinus pennsylvanica",
+      "common_name": "green ash",
+      "priority": 1,
+      "status": "user_approved_family_anchor",
+      "look_here_first": "Opposite branching and odd-pinnate leaves establish ash; then look for the larger green-ash samara whose wing runs distinctly down the seed body and for denser samara clusters.",
+      "confirm": [
+        "Commonly 5–7(9) leaflets in the Central Texas comparison.",
+        "Samara wing is clearly decurrent down the fruit body, unlike Texas ash's mostly terminal wing.",
+        "Samaras often occur in denser clusters than Texas ash.",
+        "Leaf-scar shape and bud position are important on non-fruiting trees."
+      ],
+      "sources": [
+        "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html",
+        "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/Hays-ash.html",
+        "https://plants.ces.ncsu.edu/plants/fraxinus-pennsylvanica/"
+      ],
+      "images": [
+        {
+          "role": "opposite_compound_leaf",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fraxinus_pennsylvanica_(5107486573).jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fraxinus%20pennsylvanica%20(5107486573).jpg",
+          "creator": "Matt Lavin",
+          "license": "CC BY-SA 2.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "developing_samaras",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Fraxinus_pennsylvanica_(5107485857).jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fraxinus%20pennsylvanica%20(5107485857).jpg",
+          "creator": "Matt Lavin",
+          "license": "CC BY-SA 2.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "central_texas_samara_and_leaf_scar_comparison",
+          "source_page": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/Hays-ash.html",
+          "creator": "UT Austin Plant Resources Center",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Forestiera angustifolia",
+      "common_name": "Narrowleaf Forestiera / elbowbush",
+      "priority": 2,
+      "status": "family_comparison_framework_complete_species_curation_pending",
+      "look_here_first": "A densely branched shrub with opposite elbow-like branchlets and very narrow, leathery, mostly opposite simple leaves; confirm with apetalous early flowers and a black one-seeded drupe.",
+      "confirm": [
+        "Opposite branch architecture is conspicuous.",
+        "Leaves are narrow/linear, entire, leathery and somewhat revolute.",
+        "Flowers are tiny, dioecious and lack petals.",
+        "Fruit is a small black one-seeded drupe."
+      ],
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:608846-1",
+        "https://rangeplants.tamu.edu/plant/elbowbush/"
+      ],
+      "images": [
+        {
+          "role": "texas_habit_leaf_flower_fruit_reference",
+          "source_page": "https://rangeplants.tamu.edu/plant/elbowbush/",
+          "creator": "Texas A&M AgriLife / Plants of Texas Rangelands",
+          "license": "all_rights_reserved_or_not_reuse_cleared",
+          "study_use": true,
+          "public_reuse": false
+        },
+        {
+          "role": "herbarium_specimen_reference",
+          "source_page": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:608846-1/images",
+          "creator": "Royal Botanic Gardens, Kew Herbarium Catalogue",
+          "license": "CC BY 3.0 for Herbarium Catalogue digital images per POWO source note",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ],
+      "visual_gap": "Still want a rights-safe living close-up showing the narrow leaves and mature black drupe together."
+    },
+    {
+      "taxon": "Fraxinus berlandieriana",
+      "common_name": "Mexican ash / Berlandier ash",
+      "priority": 1,
+      "status": "range_hold_unresolved",
+      "look_here_first": "For same-genus learning only: 3–5(–7) leaflets, coarse sharp distal serration and distinctive samara morphology can separate it from Texas and green ash.",
+      "rule": "Do not promote to the canonical native learner until the user's strict range threshold is resolved.",
+      "source_package": "research-drafts/b014-fraxinus/batch-summary.json"
+    },
+    {
+      "taxon": "Fraxinus greggii",
+      "common_name": "Gregg's ash",
+      "priority": 2,
+      "status": "range_hold_unresolved",
+      "look_here_first": "For same-genus learning only: xeric shrub/small-tree habit with very small leathery leaflets, commonly three.",
+      "rule": "Do not promote to the canonical native learner until the user's strict range threshold is resolved.",
+      "source_package": "research-drafts/b014-fraxinus/batch-summary.json"
+    }
+  ],
+  "strongest_visual_sequence": [
+    "1. Node/branch architecture: opposite or subopposite, no stipules.",
+    "2. Fraxinus leaf: odd-pinnate compound leaf with rachis and leaflets.",
+    "3. Fraxinus fruit: single-winged samara; compare Texas ash vs green ash wing decurrence.",
+    "4. Forestiera leaf: simple opposite leaf.",
+    "5. Forestiera flower: tiny, early and apetalous on bare twigs.",
+    "6. Forestiera fruit: one-seeded dark drupe.",
+    "7. Look-alike card: Oleaceae exstipulate node vs Rubiaceae interpetiolar stipule."
+  ],
+  "visual_gaps": [
+    "Annotated Oleaceae-vs-Rubiaceae node close-up (stipules absent vs interpetiolar stipules).",
+    "Rights-safe living Forestiera angustifolia leaf + mature drupe close-up.",
+    "Rights-safe Texas-local Fraxinus albicans leaf-scar/bud macro.",
+    "One clean side-by-side Texas ash vs green ash mature samara image with the wing/body boundary labeled."
+  ],
+  "completion_assessment": {
+    "family_characters": "complete for first family lesson",
+    "local_genus_contrast": "complete",
+    "approved_priority_1_family_anchors": [
+      "Forestiera pubescens",
+      "Fraxinus albicans",
+      "Fraxinus pennsylvanica"
+    ],
+    "unresolved_priority_1_hold": "Fraxinus berlandieriana",
+    "unresolved_priority_2_hold": "Fraxinus greggii",
+    "remaining": "visual polish plus unresolved range items; no need to delay first family module",
+    "recommended_status": "ready_for_first_family_module_build_with_range_holds"
+  },
+  "sources_summary": [
+    "Kew POWO Oleaceae family morphology and similar-family contrasts",
+    "Kew POWO accepted taxonomy for Fraxinus albicans, Forestiera pubescens and Forestiera angustifolia",
+    "UT Austin Plant Resources Center Central Texas Fraxinus key and North Hays ash comparison",
+    "UT Austin Williamson County / BIO 406D Forestiera pubescens morphology and diagnostic images",
+    "Texas A&M Plants of Texas Rangelands Forestiera angustifolia morphology",
+    "Wikimedia Commons rights-safe species images with explicit licenses"
+  ]
+}
