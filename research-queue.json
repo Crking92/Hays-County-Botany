@@ -3636,8 +3636,8 @@
       "common_name": "mustang grape",
       "family": "Vitaceae",
       "genus": "Vitis",
-      "status": "reviewed_ready_for_approval",
-      "priority": 1,
+      "status": "curated_installed",
+      "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
         "strict_target_zone_range",
@@ -3658,8 +3658,13 @@
       "batch_id": "deep-review-batch-034-vitis-b025",
       "last_deep_reviewed_at": "2026-10-03T16:45:00-05:00",
       "notes": "B025 PASS — Hays, Travis, Williamson. Diagnostic priority: Flip the leaf first. Mustang grape has a dense white-to-rusty woolly tomentum on the lower surface that essentially hides the blade surface and veins. Then confirm broad heart- to kidney-shaped leaves and large dark berries usually 12 mm or more.",
-      "approval_status": "ready_for_approval",
-      "native_range_status": "PASS"
+      "approval_status": "approved_and_installed",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "vitis-mustangensis",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed",
+      "reconciliation_note": "Installed under blanket approval through species-merge-031-vitis-b025."
     },
     {
       "id": "vitis-berlandieri",
@@ -3667,8 +3672,8 @@
       "common_name": "Berlandier's grape / Heller's grape",
       "family": "Vitaceae",
       "genus": "Vitis",
-      "status": "reviewed_ready_for_approval",
-      "priority": 1,
+      "status": "curated_installed",
+      "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
         "strict_target_zone_range",
@@ -3689,13 +3694,17 @@
       "batch_id": "deep-review-batch-034-vitis-b025",
       "last_deep_reviewed_at": "2026-10-03T16:45:00-05:00",
       "notes": "B025 PASS — Hays, Kerr, Bexar. Diagnostic priority: Start with the lower leaf surface and fruit bloom. Berlandier/Heller's grape has a lower leaf surface that remains visible—sparsely webby/hairy to nearly glabrous—not a solid white felt. Branchlets are slightly angled and usually lack red-banded nodes; ripe berries are conspicuously glaucous and the fruiting clusters are comparatively short and compact.",
-      "approval_status": "ready_for_approval",
+      "approval_status": "approved_and_installed",
       "native_range_status": "PASS",
       "aliases": [
         "Vitis cinerea var. helleri",
         "Vitis helleri"
       ],
-      "reconciliation_note": "Master Plant Pool row Vitis cinerea var. helleri reconciled to current Kew accepted Vitis berlandieri; old name preserved as alias."
+      "reconciliation_note": "Old tracker Vitis cinerea var. helleri reconciled to current Kew accepted Vitis berlandieri; installed under blanket approval through species-merge-031-vitis-b025; aliases preserved.",
+      "canonical_status": "installed",
+      "canonical_id": "vitis-berlandieri",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed"
     },
     {
       "id": "vitis-cinerea",
@@ -3726,7 +3735,9 @@
       "last_deep_reviewed_at": "2026-10-03T16:45:00-05:00",
       "notes": "B025 UNRESOLVED — current taxon concept does not have 3 exact target-zone counties locked. Diagnostic priority: Treat this as a concept-check species. In the strict var. cinerea morphology, branchlets are distinctly angled and densely short-hairy plus cobwebby; leaf undersides stay visibly gray/green with both webby and short hairs, and berries are small and only slightly glaucous. Do not call a Central Texas Heller's grape V. cinerea solely because an app uses a broad species concept.",
       "approval_status": "hold_range_evidence",
-      "native_range_status": "UNRESOLVED"
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_range_hold",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "vitis-palmata",
@@ -3757,21 +3768,23 @@
       "last_deep_reviewed_at": "2026-10-03T16:45:00-05:00",
       "notes": "B025 UNRESOLVED — current taxon concept does not have 3 exact target-zone counties locked. Diagnostic priority: Look at the stem before the fruit. Catbird grape has uniformly red, purplish-red or chestnut branchlets and usually deeply 3(–5)-lobed leaves with long-pointed lobes. The lower leaf surface is essentially glabrous, and it is a riverbank/slough/floodplain grape.",
       "approval_status": "hold_range_evidence",
-      "native_range_status": "UNRESOLVED"
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_range_hold",
+      "reconciliation_status": "preserved_range_hold"
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
     "batch_id": "deep-review-batch-034-vitis-b025",
     "reviewed_at": "2026-10-03T16:45:00-05:00",
-    "status": "blanket_approved_pass_install",
+    "status": "approved_passes_installed_two_holds",
     "taxa": [
       "vitis-mustangensis",
       "vitis-berlandieri",
       "vitis-cinerea",
       "vitis-palmata"
     ],
-    "note": "B025 complete: V. mustangensis PASS; V. berlandieri (current accepted name for old V. cinerea var. helleri row) PASS; V. cinerea and V. palmata retained as range/taxon-concept HOLDS. User blanket approval applies only to the two PASS taxa."
+    "note": "B025 closed: V. mustangensis and current Kew V. berlandieri installed; V. cinerea and V. palmata remain reviewed holds. Canonical count 169."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
