@@ -2089,7 +2089,7 @@
       "scientific_name": "Conoclinium coelestinum",
       "family": "Asteraceae",
       "genus": "Conoclinium",
-      "status": "reviewed_ready_for_approval",
+      "status": "approved_pending_curation",
       "priority": 1,
       "research_goals": [
         "taxonomy_candidates",
@@ -2109,14 +2109,19 @@
       "batch_id": "deep-review-batch-020-asteraceae-b016",
       "last_deep_reviewed_at": "2026-10-02T19:29:00-05:00",
       "notes": "B016 strict-range PASS: Hays, Travis, Williamson. Purola site-introduced occurrence explicitly excluded.",
-      "approval_status": "ready_for_approval"
+      "approval_status": "user_approved",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-02T19:34:00-05:00",
+        "note": "Calvin approved B016 and requested the completed review be moved forward."
+      }
     },
     {
       "id": "echinacea-angustifolia",
       "scientific_name": "Echinacea angustifolia",
       "family": "Asteraceae",
       "genus": "Echinacea",
-      "status": "needs_manual_review",
+      "status": "approved_exception_pending_curation",
       "priority": 1,
       "research_goals": [
         "taxonomy_candidates",
@@ -2136,14 +2141,20 @@
       "batch_id": "deep-review-batch-020-asteraceae-b016",
       "last_deep_reviewed_at": "2026-10-02T19:29:00-05:00",
       "notes": "B016 UNRESOLVED: Texas native, but only Hays is firm enough under current exact-county review; planted/transplant/seed-mix records excluded.",
-      "approval_status": "needs_manual_review"
+      "approval_status": "user_approved_range_exception",
+      "user_decision": {
+        "decision": "approve_with_range_exception",
+        "decided_at": "2026-10-02T19:34:00-05:00",
+        "note": "Calvin explicitly approved this B016 taxon despite unresolved 3-county documentation. Preserve UNRESOLVED target-zone range status; do not fabricate counties."
+      },
+      "native_metrics_excluded": true
     },
     {
       "id": "pluchea-camphorata",
       "scientific_name": "Pluchea camphorata",
       "family": "Asteraceae",
       "genus": "Pluchea",
-      "status": "needs_manual_review",
+      "status": "approved_exception_pending_curation",
       "priority": 1,
       "research_goals": [
         "taxonomy_candidates",
@@ -2163,14 +2174,20 @@
       "batch_id": "deep-review-batch-020-asteraceae-b016",
       "last_deep_reviewed_at": "2026-10-02T19:29:00-05:00",
       "notes": "B016 UNRESOLVED: Hays and Travis firm; third exact target county not locked without inference.",
-      "approval_status": "needs_manual_review"
+      "approval_status": "user_approved_range_exception",
+      "user_decision": {
+        "decision": "approve_with_range_exception",
+        "decided_at": "2026-10-02T19:34:00-05:00",
+        "note": "Calvin explicitly approved this B016 taxon despite unresolved 3-county documentation. Preserve UNRESOLVED target-zone range status; do not fabricate counties."
+      },
+      "native_metrics_excluded": true
     },
     {
       "id": "ageratina-altissima",
       "scientific_name": "Ageratina altissima",
       "family": "Asteraceae",
       "genus": "Ageratina",
-      "status": "reviewed_ready_for_approval",
+      "status": "approved_pending_curation",
       "priority": 1,
       "research_goals": [
         "taxonomy_candidates",
@@ -2190,24 +2207,29 @@
       "batch_id": "deep-review-batch-020-asteraceae-b016",
       "last_deep_reviewed_at": "2026-10-02T19:29:00-05:00",
       "notes": "B016 strict-range PASS: Bandera, Comal, Kerr; Medina and Travis also native in USDA-derived county data.",
-      "approval_status": "ready_for_approval"
+      "approval_status": "user_approved",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-02T19:34:00-05:00",
+        "note": "Calvin approved B016 and requested the completed review be moved forward."
+      }
     }
   ],
   "last_scout_run_at": "2026-10-02T22:17:31.325607+00:00",
   "last_deep_review_batch": {
     "batch_id": "deep-review-batch-020-asteraceae-b016",
     "reviewed_at": "2026-10-02T19:29:00-05:00",
-    "status": "awaiting_batch_approval_with_manual_items",
+    "status": "review_complete_all_user_approved",
     "taxa": [
       "conoclinium-coelestinum",
       "echinacea-angustifolia",
       "pluchea-camphorata",
       "ageratina-altissima"
     ],
-    "note": "B016 Asteraceae: Conoclinium coelestinum and Ageratina altissima ready; Echinacea angustifolia and Pluchea camphorata UNRESOLVED."
+    "note": "B016: Conoclinium coelestinum and Ageratina altissima user-approved normally; Echinacea angustifolia and Pluchea camphorata user-approved as documented range exceptions with UNRESOLVED range status preserved."
   },
   "approval_state": {
-    "last_user_decision_at": "2026-10-02T17:02:00-05:00",
-    "last_user_decision_note": "Calvin approved all prior reviewed batches according to their reviewed role; B014 Texas ash and green ash approved, Mexican ash and Gregg's ash held unresolved."
+    "last_user_decision_at": "2026-10-02T19:34:00-05:00",
+    "last_user_decision_note": "Calvin approved all B016 taxa; Echinacea angustifolia and Pluchea camphorata move forward as explicit range exceptions with UNRESOLVED status preserved."
   }
 }
