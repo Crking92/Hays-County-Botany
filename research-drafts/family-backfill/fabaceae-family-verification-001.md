@@ -224,18 +224,20 @@ But:
 
 ## Master Plant Pool note
 
-The **Master Plant Pool currently has a separate #REF spill problem**:
+The earlier **#REF spill collision has been repaired**.
 
-array formulas in A-D and F cannot expand because manually populated lower rows are blocking them.
+Master Plant Pool A:Z is now formula-owned below the header. Manual species-specific corrections/statuses/notes were migrated into hidden **_Master Pool Overrides**, keyed by scientific name. Genus→family assignments remain in **_Genus Family Map**, and family→order assignments now live in **_Family Order Map**.
 
-I did **not** manually write Fabaceae Order/Family cells into that damaged spill range during this pass.
+Verification after repair:
 
-Fabaceae counts remain grounded in the intact:
+- 1,261 Master Plant Pool species
+- 100 species with keyed manual overrides
+- 0 override mismatches
+- 0 formula errors
+- 0 mapped-family mismatches
+- 0 mapped-order mismatches
 
-- Family Study Index
-- Genus Study Index
-
-Row-level Fabales/Fabaceae synchronization should happen after the spill collision is repaired.
+Fabaceae row-level synchronization may now continue through the normal maps/override tables; do not type directly into the Master Plant Pool spill rows.
 
 ## Best visual sequence
 
