@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-croton-test-01",
+  "created_at": "2026-10-03T17:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 305,
+    "priority": 2,
+    "note": "Selected after manifest/claims/queue/draft collision checks."
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Croton texensis (Klotzsch) Müll.Arg.",
+    "family": "Euphorbiaceae",
+    "genus": "Croton",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America treat Croton texensis as accepted.",
+      "Flora of North America treats it as strictly dioecious."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Deep Review must verify exact target-zone counties.",
+    "leads": [
+      "Master Plant Pool marks Hays Local and Personal List; source-pool leads only.",
+      "POWO lists Texas within the native range.",
+      "BONAP Croton county maps require exact target-zone county extraction."
+    ],
+    "primary_map_source": "https://bonap.net/Napa/TaxonMaps/Genus/County/Croton"
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with sex system, leaf width, and fruit: C. texensis is dioecious with separate male/female plants, narrow leaves, unisexual inflorescences, and a distinctly verrucose/warty capsule.",
+    "diagnostic_traits": [
+      "annual herb with loose distal branching",
+      "strictly dioecious",
+      "narrowly ovate-oblong to linear-lanceolate leaves",
+      "abaxial surface densely appressed stellate-hairy",
+      "unisexual inflorescences",
+      "verrucose capsules with a 3-winged columella",
+      "styles more highly divided than the six-branch pattern of several local Crotons"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Croton monanthogynus",
+      "separator": "C. monanthogynus is monoecious, low and basal-branching with brown-dotted leaf undersides and a one-seeded capsule."
+    },
+    {
+      "taxon": "Croton lindheimerianus",
+      "separator": "C. lindheimerianus is monoecious with bisexual racemes and smooth capsules rather than separate male/female plants."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "Native Plant Society of New Mexico",
+      "source_page": "https://www.npsnm.org/wildflowersnm/Croton_texensis.html",
+      "origin_url": "https://www.npsnm.org/wildflowersnm/Croton_texensis_files/shapeimage_6.png",
+      "creator": null,
+      "license": "unverified",
+      "role": "leaf + inflorescence close-up",
+      "reuse": "private-study candidate"
+    },
+    {
+      "source": "iNaturalist guide / Flickr",
+      "source_page": "https://www.inaturalist.org/guide_taxa/715472",
+      "origin_url": "http://www.flickr.com/photos/26246711@N00/2307409206",
+      "creator": "Patrick Alexander",
+      "license": "CC BY-NC-ND (per guide credit)",
+      "role": "general habit/detail candidate",
+      "reuse": "private study; derivative/public reuse restrictions require care"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "separate male plant habit",
+    "separate female plant habit",
+    "narrow leaf close-up",
+    "warty/verrucose fruit",
+    "highly divided styles"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
