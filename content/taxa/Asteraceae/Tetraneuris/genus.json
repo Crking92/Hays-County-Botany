@@ -5,24 +5,42 @@
   "authority": "Greene",
   "common_group": "Four-nerve daisies",
   "project_scope": {
-    "selection_mode": "Asteraceae batch 3 \u2014 ragweeds, thistles, and common roadside species",
+    "selection_mode": "B051 same-genus comparison",
     "species_ids": [
+      "tetraneuris-linearifolia",
       "tetraneuris-scaposa"
     ],
-    "species_count": 1
+    "species_count": 2,
+    "nonlocal_comparisons": [
+      "tetraneuris-acaulis"
+    ]
   },
   "study_strategy": {
     "priority": [
-      "whole-plant habit",
-      "leaf arrangement and texture",
-      "head architecture",
-      "phyllaries/involucre",
-      "fruit/pappus when available"
+      "annual vs perennial",
+      "basal rosette vs stem leaves",
+      "peduncle/scape architecture",
+      "phyllaries",
+      "pappus scales"
     ],
-    "warning": "This batch includes several groups where flower color alone is weak; use leaf and involucre characters."
+    "warning": "Do not treat T. acaulis as an equal Central Texas native. In this project, T. scaposa var. scaposa is the local perennial rosette/scape comparison; T. linearifolia is the annual species."
   },
   "curation_status": {
-    "version": "1.0-batch3",
-    "last_reviewed": "2026-09-30"
-  }
+    "version": "1.1-b051",
+    "last_reviewed": "2026-10-03"
+  },
+  "quick_key": [
+    {
+      "if": "annual with slender stems and narrow stem leaves",
+      "then": "Tetraneuris linearifolia"
+    },
+    {
+      "if": "perennial basal rosette with long mostly leafless peduncles",
+      "then": "Tetraneuris scaposa var. scaposa"
+    },
+    {
+      "if": "stemless perennial rosette but source points to Panhandle/Great Plains T. acaulis",
+      "then": "nonlocal comparison — verify range before local assignment"
+    }
+  ]
 }
