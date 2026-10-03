@@ -6,9 +6,9 @@
   "verification_type": "joey_sufficient_authoritative_verification",
   "scope_note": "Light verification/polish pass. Joey coverage is already strong. This package updates the learner from the traditional three-subfamily shorthand to the modern six-subfamily framework while preserving papilionoid/caesalpinioid/mimosoid as useful flower-architecture terms.",
   "sheet_health_note": {
-    "issue": "Master Plant Pool array formulas in A-D and F are currently #REF because manually populated lower rows block expansion (first reported collision at row 179).",
-    "action_taken": "No Fabaceae Master Plant Pool rows were manually rewritten during this pass. Family-level counts remain grounded in Family Study Index and Genus Study Index until the pool formula collision is repaired.",
-    "deferred": "Row-level Fabales/Fabaceae synchronization in Master Plant Pool should be done only after the array spill problem is reconciled."
+    "status": "resolved_2026-10-03",
+    "repair": "Master Plant Pool A:Z was converted back to clean formula-owned spill columns. One hundred species-specific manual overrides were migrated to hidden _Master Pool Overrides keyed by scientific name; family-to-order values moved to hidden _Family Order Map; Canna was added to _Genus Family Map.",
+    "verification": "1261 species; 100 override species; 0 override mismatches; 0 formula errors; 0 mapped-family mismatches; 0 mapped-order mismatches."
   },
   "tracker_scope": {
     "family_study_index": {
@@ -393,8 +393,8 @@
     "family_framework": "authoritatively verified",
     "modern_taxonomy": "six-subfamily framework locked; old Mimosoideae corrected to mimosoid clade within Caesalpinioideae",
     "local_tracker_scope": "7 genera / 24 source rows retained from Family Study Index",
-    "sheet_sync": "Master Plant Pool row-level synchronization deferred due existing array #REF spill collision",
-    "remaining": "visual locking only plus separate Master Plant Pool formula repair",
+    "sheet_sync": "Master Plant Pool formula spill repaired and verified 2026-10-03; row-level synchronization can resume through lookup maps/overrides without direct writes into spill rows.",
+    "remaining": "visual locking only",
     "recommended_status": "verified_ready_for_visual_locking"
   },
   "authoritative_sources": [
