@@ -3,77 +3,133 @@
   "name": "Poaceae",
   "common_name": "Grass family",
   "project_scope": {
-    "selection_mode": "Central Texas field-learning set",
-    "note": "First visual family module prioritizes structures that transfer across local grasses rather than memorizing inflorescence color or overall fuzziness."
+    "selection_mode": "Central Texas field-learning set with B030 canonical bluestem anchors",
+    "note": "The family lesson still teaches transferable grass anatomy first. B030 adds a local inflorescence-architecture comparison using canonical big bluestem and bushy bluestem, while broomsedge remains comparison-only on a project range HOLD."
   },
   "family_diagnostics": {
-    "where_to_look_first": "Start at the culm and leaf collar. Confirm obvious nodes, a sheath wrapped around the culm, and a ligule at the blade-sheath junction. When flowering, move to spikelet architecture.",
-    "vegetative": "Culms are usually round or flattened with obvious nodes; leaves typically have a sheath, collar and ligule.",
-    "reproductive": "Flowers are reduced into florets inside spikelets; glumes subtend the spikelet and each floret is enclosed by lemma and palea.",
-    "fruit": "Caryopsis (grain), usually enclosed or associated with persistent floral bracts.",
-    "field_tip": "If it is not flowering, inspect node, sheath, collar, ligule, hairs and growth habit. If it is flowering, read the inflorescence and then one spikelet."
+    "where_to_look_first": "Start at the culm and collar zone: find a true node, a leaf sheath wrapped around the culm, and a ligule where sheath becomes blade. In flower, read the whole inflorescence before dissecting a spikelet.",
+    "vegetative": "Grass culms usually have conspicuous solid nodes with internodes between them; leaves are typically two-ranked and differentiated into sheath, collar/ligule zone and blade.",
+    "reproductive": "The basic reproductive unit is the spikelet. One or more florets sit above one or more glumes; each floret is subtended/enclosed by a lemma and palea, with awns or hairs useful in many genera.",
+    "fruit": "Caryopsis (grain), often retained with surrounding lemma/palea or other persistent spikelet parts.",
+    "field_tip": "Use two doors. Vegetative plant: node → sheath → collar/ligule → hairs → growth form. Flowering plant: whole inflorescence → branch/raceme arrangement → one spikelet → glumes → lemma/palea → awn/hairs."
   },
   "visual_lesson": {
-    "status": "first_visual_lock",
-    "teaching_order": "whole plant → high-value structure → reproductive confirmation → exception/tie-breaker",
-    "intro": "Learn grasses from the joints and the spikelet, not from color. The same workflow works on prairie grasses, lawn-like grasses and many roadside grasses.",
+    "status": "b030_canonical_bluestem_upgrade",
+    "teaching_order": "node/collar → inflorescence silhouette → spikelet anatomy → local bluestem architecture → vegetative tie-breakers",
+    "intro": "Learn a grass twice: first as a whole plant and again as a spikelet. The B030 bluestems make the middle step—inflorescence architecture—especially visual.",
     "steps": [
       {
-        "title": "1 · Find a node",
-        "photo_role": "culm and node",
+        "title": "1 · Find a real grass node",
+        "photo_role": "culm + node + sheath",
         "anchor_species_id": "bouteloua-curtipendula",
-        "look_for": "A jointed culm with a real node where the leaf sheath originates.",
-        "why_it_matters": "Obvious nodes strongly favor Poaceae over sedges and rushes.",
+        "look_for": "A jointed culm with a leaf sheath originating at a conspicuous node.",
+        "why_it_matters": "This puts you into the grass workflow before you ever name the species.",
         "status": "locked_existing_photo"
       },
       {
-        "title": "2 · Pull the blade away",
-        "photo_role": "leaf collar",
+        "title": "2 · Read the collar zone",
+        "photo_role": "sheath / collar / ligule macro",
         "anchor_species_id": "bouteloua-curtipendula",
-        "look_for": "The blade-sheath junction: collar, ligule and any hairs or auricles.",
-        "why_it_matters": "The collar region is one of the best vegetative grass-ID zones.",
+        "look_for": "Where the sheath ends and the blade begins: inspect the ligule, collar, hairs and any auricles.",
+        "why_it_matters": "For nonflowering grasses, this is one of the highest-value identification zones.",
         "status": "locked_existing_photo"
       },
       {
-        "title": "3 · Read the inflorescence",
-        "photo_role": "inflorescence architecture",
-        "anchor_species_id": "bouteloua-curtipendula",
-        "look_for": "How branches or lateral spikes attach to the main axis before zooming into tiny parts.",
-        "why_it_matters": "Architecture narrows the genus quickly.",
-        "status": "locked_existing_photo"
+        "title": "3 · Read the whole inflorescence before zooming in",
+        "photo_role": "inflorescence architecture comparison",
+        "anchor_species_ids": [
+          "andropogon-gerardi",
+          "anatherum-glomeratum"
+        ],
+        "look_for": "Big bluestem = a few exposed fingerlike racemes; bushy bluestem = a dense, broad, fluffy crown of many clustered units.",
+        "why_it_matters": "Architecture can separate these local bluestems at arm's length before tiny spikelet characters are visible.",
+        "status": "two_canonical_b030_anchors_live_photo_polish_pending"
       },
       {
         "title": "4 · Isolate one spikelet",
-        "photo_role": "spikelet / floret anatomy",
+        "photo_role": "spikelet anatomy",
         "anchor_species_id": "bouteloua-curtipendula",
-        "look_for": "Glumes outside; lemma and palea around the floret; awns or bristles if present.",
-        "why_it_matters": "Spikelet parts are the reproductive language of grass identification.",
+        "look_for": "Glumes outside the florets; lemma and palea around an individual floret; then note awns, hairs and fertility.",
+        "why_it_matters": "Spikelet structure is the reproductive language that transfers across Poaceae.",
         "status": "locked_existing_photo"
       },
       {
-        "title": "5 · Use a tie-breaker",
+        "title": "5 · Compare three bluestem silhouettes",
+        "photo_role": "big vs bushy vs broomsedge architecture",
+        "anchor_species_ids": [
+          "andropogon-gerardi",
+          "anatherum-glomeratum"
+        ],
+        "comparison_taxon": "Anatherum virginicum",
+        "look_for": "Turkey-foot fingers vs broad fluffy crown vs narrower silky sheath-enclosed racemes.",
+        "why_it_matters": "This teaches a repeatable architecture-first split while keeping the broomsedge HOLD visibly distinct from the two canonical anchors.",
+        "status": "canonical_pair_plus_hold_comparison"
+      },
+      {
+        "title": "6 · Use collar and habit as tie-breakers",
         "photo_role": "vegetative comparison",
         "anchor_species_id": "panicum-virgatum",
-        "look_for": "Switchgrass has a conspicuous white-hairy collar zone; compare that with other warm-season grasses.",
-        "why_it_matters": "A single collar character can separate similar grasses before flowering.",
+        "look_for": "After architecture, return to ligule/collar hairs, blade width, sheath hairiness, tillering and rhizome/stolon habit.",
+        "why_it_matters": "These characters keep the learner from relying on fall color, fluffiness or one distant silhouette.",
         "status": "anchor_present_photo_polish_pending"
       }
     ],
     "comparisons": [
       {
         "title": "Grass vs sedge vs rush",
-        "rule": "Grass = obvious nodes + sheath/collar/ligule + spikelets. Sedge = often solid triangular culm and no grass-like nodes. Rush = usually round solid node-less culm with small 6-tepaled flowers."
+        "rule": "Grass: conspicuous nodes plus sheath/collar/ligule and spikelets built from glumes, lemma and palea. Sedge: commonly solid culms, often 3-ranked leaves and spikelets without the grass floret architecture. Rush: commonly round solid node-poor stems with small flowers bearing 6 tepals. Treat these as field doors, not exception-free laws."
+      },
+      {
+        "title": "Big bluestem vs bushy bluestem",
+        "rule": "Andropogon gerardi has a few exposed digitate racemes—the turkey-foot pattern. Anatherum glomeratum has a dense fluffy broomlike crown formed by many short silky racemes."
+      },
+      {
+        "title": "Bushy bluestem vs broomsedge",
+        "rule": "A. glomeratum is broader and more densely clustered at the summit; A. virginicum has narrower silky racemes that remain more individually enclosed by flattened upper sheaths. A. virginicum is currently comparison-only in this project."
       },
       {
         "title": "Flowering vs vegetative doors",
-        "rule": "Flowering: inflorescence → spikelet → glumes → lemma/palea → awn. Vegetative: node → sheath → collar → ligule → hairs → tiller/rhizome/stolon."
+        "rule": "Flowering: silhouette → branch/raceme pattern → spikelet → glumes → lemma/palea → awn/hairs. Vegetative: node → sheath → collar → ligule → hairs → blade width → tiller/rhizome/stolon."
       }
     ],
-    "caveat": "Field heuristics have exceptions. Reproductive structures are the final confirmation."
+    "caveat": "Do not identify grasses from fall color or 'fuzziness' alone. Inflorescence architecture is a fast first split, but close species work still needs spikelet and vegetative characters. Familiar historical genus names may differ from the project's current accepted taxonomy."
   },
   "curation_status": {
-    "version": "2.0-visual-family-module",
+    "version": "3.0-b030-canonical-bluestem-anchor-set",
     "last_reviewed": "2026-10-03",
-    "visual_lock": "first_pass_complete"
+    "visual_lock": "b030_two_canonical_bluestem_anchors_live",
+    "b030_closed": true
+  },
+  "canonical_anchor_set": {
+    "batch": "B030",
+    "theme": "bluestem inflorescence architecture",
+    "canonical_species": [
+      {
+        "species_id": "andropogon-gerardi",
+        "scientific_name": "Andropogon gerardi",
+        "familiar_alias": "Andropogon gerardii",
+        "common_name": "Big Bluestem / Turkeyfoot",
+        "role": "exposed digitate-raceme anchor",
+        "look_for": "Tall prairie bunchgrass with usually 2–6 exposed fingerlike racemes radiating near the culm tip; the classic three-raceme form makes a turkey-foot."
+      },
+      {
+        "species_id": "anatherum-glomeratum",
+        "scientific_name": "Anatherum glomeratum",
+        "familiar_alias": "Andropogon glomeratus",
+        "common_name": "Bushy Bluestem",
+        "role": "dense fluffy clustered-raceme anchor",
+        "look_for": "Dense broad broomlike or cottony clusters near the top, built from many short paired rames with long silky hairs and partly enclosed by upper sheaths."
+      }
+    ],
+    "comparison_only_hold": [
+      {
+        "scientific_name": "Anatherum virginicum",
+        "familiar_alias": "Andropogon virginicus",
+        "common_name": "Broomsedge",
+        "status": "range HOLD — not a canonical project anchor",
+        "look_for": "Narrower silky racemes more individually tucked within flattened spathe-like upper sheaths; useful as a visual tie-breaker but not yet promoted."
+      }
+    ],
+    "taxonomy_note": "Current project taxonomy follows the B030 Kew/POWO reconciliation: big bluestem remains Andropogon, while bushy bluestem and broomsedge are treated in Anatherum. Familiar Andropogon names remain searchable aliases."
   }
 }
