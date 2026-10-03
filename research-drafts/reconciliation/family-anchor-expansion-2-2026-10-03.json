@@ -1,0 +1,56 @@
+{
+  "checkpoint_id": "family-anchor-expansion-2-2026-10-03",
+  "created_at": "2026-10-03",
+  "canonical_species_count_immediately_after_acer_install": 148,
+  "canonical_species_count_observed_at_checkpoint_commit": 154,
+  "concurrency_note": "Other approved curation workflows completed after the Acer install. Their species are preserved; this checkpoint records only the family-anchor work from this lane.",
+  "newly_installed": {
+    "family": "Sapindaceae",
+    "taxon": "Acer negundo",
+    "id": "acer-negundo",
+    "decision": "PASS",
+    "target_zone_counties": [
+      "Williamson",
+      "Travis",
+      "Bexar"
+    ],
+    "batch": "species-merge-030-sapindaceae-acer-negundo",
+    "evidence_note": "Williamson county flora; non-cultivated Travis specimen at Hornsby Bend; Bexar native voucher at San Antonio Missions under accepted infraspecific A. negundo var. texanum."
+  },
+  "sapindaceae_canonical_anchors": [
+    "ungnadia-speciosa",
+    "sapindus-drummondii",
+    "acer-negundo"
+  ],
+  "teaching_model": [
+    "Ungnadia speciosa — 3-lobed woody capsule",
+    "Sapindus drummondii — round translucent one-seeded drupe",
+    "Acer negundo — paired samaras"
+  ],
+  "prior_same_lane_additions": [
+    "sapindus-drummondii",
+    "opuntia-macrorhiza"
+  ],
+  "unresolved_high_priority": [
+    {
+      "taxon": "Prunus mexicana",
+      "state": "HOLD",
+      "reason": "Travis + Williamson strong; Purola Hays record is introduced; no third strict wild target-zone county locked."
+    },
+    {
+      "taxon": "Aristolochia erecta",
+      "state": "HOLD",
+      "reason": "Travis specimen evidence is strong; Bexar direct occurrence is supportive, but authoritative exact target-zone county package remains insufficient."
+    },
+    {
+      "taxon": "Opuntia orbiculata",
+      "state": "HOLD",
+      "reason": "Accepted concept behind O. senilis source row; strict county review still needed."
+    },
+    {
+      "taxon": "Opuntia phaeacantha",
+      "state": "HOLD",
+      "reason": "Strict target-zone county evidence still incomplete."
+    }
+  ]
+}
