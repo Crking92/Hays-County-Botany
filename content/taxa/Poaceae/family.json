@@ -1,0 +1,79 @@
+{
+  "rank": "family",
+  "name": "Poaceae",
+  "common_name": "Grass family",
+  "project_scope": {
+    "selection_mode": "Central Texas field-learning set",
+    "note": "First visual family module prioritizes structures that transfer across local grasses rather than memorizing inflorescence color or overall fuzziness."
+  },
+  "family_diagnostics": {
+    "where_to_look_first": "Start at the culm and leaf collar. Confirm obvious nodes, a sheath wrapped around the culm, and a ligule at the blade-sheath junction. When flowering, move to spikelet architecture.",
+    "vegetative": "Culms are usually round or flattened with obvious nodes; leaves typically have a sheath, collar and ligule.",
+    "reproductive": "Flowers are reduced into florets inside spikelets; glumes subtend the spikelet and each floret is enclosed by lemma and palea.",
+    "fruit": "Caryopsis (grain), usually enclosed or associated with persistent floral bracts.",
+    "field_tip": "If it is not flowering, inspect node, sheath, collar, ligule, hairs and growth habit. If it is flowering, read the inflorescence and then one spikelet."
+  },
+  "visual_lesson": {
+    "status": "first_visual_lock",
+    "teaching_order": "whole plant → high-value structure → reproductive confirmation → exception/tie-breaker",
+    "intro": "Learn grasses from the joints and the spikelet, not from color. The same workflow works on prairie grasses, lawn-like grasses and many roadside grasses.",
+    "steps": [
+      {
+        "title": "1 · Find a node",
+        "photo_role": "culm and node",
+        "anchor_species_id": "bouteloua-curtipendula",
+        "look_for": "A jointed culm with a real node where the leaf sheath originates.",
+        "why_it_matters": "Obvious nodes strongly favor Poaceae over sedges and rushes.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "2 · Pull the blade away",
+        "photo_role": "leaf collar",
+        "anchor_species_id": "bouteloua-curtipendula",
+        "look_for": "The blade-sheath junction: collar, ligule and any hairs or auricles.",
+        "why_it_matters": "The collar region is one of the best vegetative grass-ID zones.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "3 · Read the inflorescence",
+        "photo_role": "inflorescence architecture",
+        "anchor_species_id": "bouteloua-curtipendula",
+        "look_for": "How branches or lateral spikes attach to the main axis before zooming into tiny parts.",
+        "why_it_matters": "Architecture narrows the genus quickly.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "4 · Isolate one spikelet",
+        "photo_role": "spikelet / floret anatomy",
+        "anchor_species_id": "bouteloua-curtipendula",
+        "look_for": "Glumes outside; lemma and palea around the floret; awns or bristles if present.",
+        "why_it_matters": "Spikelet parts are the reproductive language of grass identification.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "5 · Use a tie-breaker",
+        "photo_role": "vegetative comparison",
+        "anchor_species_id": "panicum-virgatum",
+        "look_for": "Switchgrass has a conspicuous white-hairy collar zone; compare that with other warm-season grasses.",
+        "why_it_matters": "A single collar character can separate similar grasses before flowering.",
+        "status": "anchor_present_photo_polish_pending"
+      }
+    ],
+    "comparisons": [
+      {
+        "title": "Grass vs sedge vs rush",
+        "rule": "Grass = obvious nodes + sheath/collar/ligule + spikelets. Sedge = often solid triangular culm and no grass-like nodes. Rush = usually round solid node-less culm with small 6-tepaled flowers."
+      },
+      {
+        "title": "Flowering vs vegetative doors",
+        "rule": "Flowering: inflorescence → spikelet → glumes → lemma/palea → awn. Vegetative: node → sheath → collar → ligule → hairs → tiller/rhizome/stolon."
+      }
+    ],
+    "caveat": "Field heuristics have exceptions. Reproductive structures are the final confirmation."
+  },
+  "curation_status": {
+    "version": "2.0-visual-family-module",
+    "last_reviewed": "2026-10-03",
+    "visual_lock": "first_pass_complete"
+  }
+}
