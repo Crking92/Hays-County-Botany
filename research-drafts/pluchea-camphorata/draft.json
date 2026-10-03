@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_NEEDS_MANUAL_REVIEW",
+  "batch_id": "deep-review-batch-020-asteraceae-b016",
+  "created_at": "2026-10-02T19:29:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 885,
+    "source_scientific_name": "Pluchea camphorata",
+    "wild_observations": 2,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Pluchea camphorata (L.) DC.",
+    "rank": "species",
+    "order": "Asterales",
+    "family": "Asteraceae",
+    "genus": "Pluchea",
+    "species": "camphorata",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Pluchea camphorata and lists Texas within its native range.",
+      "Hays County — Purola Preserve lists P. camphorata among naturally occurring plants, separate from its introduced-species list.",
+      "Travis County — the University of Texas Plant Resources Center Travis County Asteraceae herbarium index includes a P. camphorata specimen.",
+      "Regional Texas flora material places the species in eastern and central Texas westward to the Edwards Plateau, but B016 did not recover a third exact target county from an authoritative occurrence source."
+    ],
+    "blocking_issue": "Two project counties are firm. Broad 'central Texas to Edwards Plateau' distribution is not converted into a third county without an exact county record.",
+    "guardrail": "Common-name confusion is high: Heterotheca subaxillaris is also called camphorweed and has yellow radiate heads. Pluchea camphorata has pink-purple discoid heads and should not be identified from odor alone."
+  },
+  "morphology": {
+    "look_here_first": "Start with the leaf arrangement and head type: alternate, resinous/gland-dotted, usually petiolate leaves below a rounded cluster of many tiny pink-purple heads with no ray florets.",
+    "diagnostic_traits": [
+      "annual to short-lived perennial herb of moist to wet nonsaline soils",
+      "leaves alternate, simple, elliptic to oblong/lanceolate, usually visibly petiolate to subsessile",
+      "leaf margins usually serrate; surfaces resinous/gland-dotted",
+      "crushed foliage may have a camphor-like odor, useful only as a secondary cue",
+      "inflorescence a rounded or corymbiform/paniculiform mass of numerous small heads",
+      "heads discoid with pink to purple florets and no ray florets",
+      "phyllaries cream to purplish, largely granular-glandular to nearly glabrous",
+      "fruit a cypsela with a capillary pappus"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Pluchea odorata",
+      "separator": "P. odorata usually has less distinctly petiolate leaves and more puberulent involucral parts; P. camphorata has more obvious petioles and inner phyllaries that are thin and comparatively glabrous."
+    },
+    {
+      "taxon": "Heterotheca subaxillaris",
+      "separator": "Both may be called camphorweed, but Heterotheca has conspicuous yellow ray florets; Pluchea camphorata has only small pink-purple disk florets."
+    },
+    {
+      "taxon": "Conoclinium coelestinum",
+      "separator": "Blue mistflower has opposite triangular 3-veined leaves and blue-violet heads; Pluchea has alternate resinous leaves and pink-purple heads."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole moist-habitat habit",
+      "alternate petiolate leaf",
+      "gland/resin leaf close-up",
+      "rounded inflorescence array",
+      "single discoid head",
+      "involucre/phyllaries macro",
+      "cypsela/pappus",
+      "Pluchea odorata comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/308766862"
+  },
+  "approval_status": "NEEDS_MANUAL_REVIEW",
+  "installation_guardrail": "Do not install as a project-native until three target-zone counties are documented or Calvin explicitly approves a documented exception."
+}
