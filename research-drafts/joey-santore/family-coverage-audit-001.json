@@ -552,18 +552,36 @@
     },
     {
       "family": "Commelinaceae",
-      "local_species": 6,
-      "priority_1_remaining": 1,
+      "local_species": 11,
+      "priority_1_remaining": 3,
       "joey_records": 0,
       "joey_exact_media_records": 0,
       "audit_status": "authoritative_backfill_required",
-      "where_to_look_first": "Look for fleshy/sheathing leaves and 3-petaled flowers, often with strongly differentiated fertile stamens and staminodes.",
+      "where_to_look_first": "Start at the node: jointed/somewhat succulent stems and parallel-veined leaves with a conspicuous sheath around the stem. In flower confirm 3 sepals + 3 petals, differentiated stamens/staminodes, a superior ovary and capsule.",
       "likely_confusions": [
         "Iridaceae",
         "Poaceae in vegetative state"
       ],
       "joey_coverage_summary": "No Joey coverage.",
-      "backfill_action": "Backfill Tradescantia/Commelina flower, sheath, node, stamens/staminodes and capsule."
+      "backfill_action": "Build the first family module around the sheathing node and the three-way stamen comparison: Tradescantia 6 fertile hairy stamens; Commelina 3 fertile + 3 staminodes; Tinantia 6 fertile heteromorphic hairy stamens.",
+      "pool_count_note": "11 source rows after restoring missing Commelina and Tinantia family mappings; three Commelina erecta infraspecific rows are duplicate/synonym source concepts and should not be counted as distinct first-pass learner taxa.",
+      "backfill_status": "ready_for_first_family_module_build_visual_polish_pending",
+      "backfill_packages": [
+        "research-drafts/family-backfill/commelinaceae-family-backfill-001.json"
+      ],
+      "backfill_progress": [
+        "Commelina and Tinantia restored to the family map; Tradescantia mapping preserved",
+        "Master Plant Pool order/family cells repaired for all 11 Commelinaceae source rows",
+        "Commelina erecta old variety/source rows flagged as duplicate/synonym concepts",
+        "closed/sheathing leaf base + jointed node established as primary vegetative cue",
+        "3 sepals + 3 petals + superior ovary + capsule established as reproductive family framework",
+        "Tradescantia gigantea 6-fertile hairy-stamen anchor established",
+        "Commelina erecta folded spathe + 3 fertile stamens/3 staminodes anchor established",
+        "Tinantia anomala six heteromorphic fertile hairy-stamens bridge anchor established",
+        "Poaceae and Iridaceae field tie-breakers established",
+        "Tradescantia pedicellata conservation/provenance caution recorded",
+        "rights-safe node/sheath, Tinantia stamen, and capsule-opening visuals remain to polish"
+      ]
     },
     {
       "family": "Ulmaceae",
