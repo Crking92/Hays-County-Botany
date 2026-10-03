@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-euphorbiaceae-05",
+  "created_at": "2026-10-03T18:11:51-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 8,
+    "priority": 1,
+    "wild_observations": 8
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Acalypha phleoides Cav.",
+    "family": "Euphorbiaceae",
+    "genus": "Acalypha",
+    "order": "Malpighiales",
+    "status_candidate": "accepted_or_candidate_pending_deep_review",
+    "notes": [
+      "Kew POWO accepts Acalypha phleoides; Acalypha rubra and Ricinocarpus lindheimeri are listed as synonyms."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout collects leads only; Deep Review must verify exact target-zone counties before PASS/FAIL/HOLD.",
+    "leads": [
+      "Master Plant Pool: Hays Local=Yes; 8 personal wild observations.",
+      "UT Purola Preserve Hays flora explicitly documents Acalypha phleoides in north Hays County.",
+      "POWO reports southern U.S. to Guatemala; exact target-zone county count remains for Deep Review/BONAP."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Look first at the terminal bisexual spike: pistillate flowers/bracts below and staminate section above, with long red multifid styles making the lower spike look fuzzy-red.",
+    "diagnostic_traits": [
+      "perennial erect herb ~20–50 cm",
+      "stems short-pubescent/hirsute",
+      "rhombic-ovate to ovate serrate leaves",
+      "terminal bisexual spikes",
+      "pistillate bracts 5–7 lobed, loosely arranged",
+      "long scarlet/strawberry multifid styles",
+      "3-lobed capsule"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Acalypha persimilis",
+      "separator": "annual with separated axillary staminate and terminal pistillate spikes."
+    },
+    {
+      "taxon": "Acalypha radians",
+      "separator": "more deeply divided foliage and different sexual expression; verify with reproductive structures."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "Kew POWO / linked herbarium imagery where available",
+      "source_page": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1435-2/images",
+      "creator": null,
+      "license": "verify per individual image",
+      "roles": [
+        "habit",
+        "leaf shape",
+        "inflorescence/reproductive structures"
+      ],
+      "reuse": "candidate only; verify image-specific rights before public lock"
+    },
+    {
+      "source": "iNaturalist observation search",
+      "source_page": "https://www.inaturalist.org/observations?taxon_name=Acalypha%20phleoides",
+      "creator": null,
+      "license": "observation-specific; select CC-licensed candidate later",
+      "roles": [
+        "local habit",
+        "leaf",
+        "inflorescence",
+        "fruit"
+      ],
+      "reuse": "photo polish needed; prefer Texas/Hays observations and diagnostic structures"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf shape and venation",
+    "entire inflorescence",
+    "pistillate bract and styles macro",
+    "staminate section macro",
+    "mature capsule/seed"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1435-2/images",
+    "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/ACPH3.html",
+    "https://w3.biosci.utexas.edu/prc/K12/pages/Acalypha%20phleoides.html",
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Acalypha"
+  ],
+  "scout_flags": {
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  },
+  "notes": [
+    "Photo perfection is nonblocking. Current photo entries are source candidates; exact diagnostic image selection/license confirmation remains a later photo-polish task."
+  ]
+}
