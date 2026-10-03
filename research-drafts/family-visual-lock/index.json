@@ -22,40 +22,15 @@
     "Anacardiaceae",
     "Cupressaceae",
     "Onagraceae",
-    "Ebenaceae"
+    "Ebenaceae",
+    "Oleaceae",
+    "Rosaceae",
+    "Sapindaceae",
+    "Aquifoliaceae",
+    "Ulmaceae",
+    "Verbenaceae"
   ],
-  "priority_photo_blocked": [
-    {
-      "family": "Oleaceae",
-      "reason": "Fraxinus albicans and F. pennsylvanica are canonical but their species files currently contain no locked images.",
-      "next": "Lock Texas-ash and green-ash leaf/samara images, then build opposite-node → compound-leaf → samara family sequence."
-    },
-    {
-      "family": "Verbenaceae",
-      "reason": "Five canonical Verbena species exist but their species files currently contain no locked images.",
-      "next": "Lock Verbena habit/spike/flower/fruit images, then build Verbenaceae-vs-Lamiaceae sequence."
-    },
-    {
-      "family": "Rosaceae",
-      "reason": "Family research is complete but no Rosaceae species are currently present in the website manifest.",
-      "next": "Promote the existing curated Prunus/Rubus/Geum packages with images; build hypanthium + fruit-architecture module."
-    },
-    {
-      "family": "Sapindaceae",
-      "reason": "Family research is complete but no Sapindaceae species are currently present in the website manifest.",
-      "next": "Promote Acer negundo, Sapindus drummondii and/or Ungnadia speciosa with images; build fruit-diversity module."
-    },
-    {
-      "family": "Aquifoliaceae",
-      "reason": "Three canonical Ilex species exist but their species files currently contain no locked images.",
-      "next": "Lock Ilex decidua/yaupon habit, flower-sex and drupe images; then build holly family module."
-    },
-    {
-      "family": "Ulmaceae",
-      "reason": "Four canonical Ulmus species exist but their species files currently contain no locked images.",
-      "next": "Lock leaf-asymmetry, buds, bark and samara images; then build elm-vs-hackberry module."
-    }
-  ],
+  "priority_photo_blocked": [],
   "lower_priority_photo_blocked": [
     {
       "family": "Bignoniaceae",
@@ -88,14 +63,26 @@
     "Ericaceae"
   ],
   "recommended_next_order": [
-    "Oleaceae",
-    "Verbenaceae",
-    "Aquifoliaceae",
-    "Ulmaceae",
-    "Rosaceae",
-    "Sapindaceae",
     "Cactaceae",
     "Aristolochiaceae",
-    "Ericaceae"
+    "Ericaceae",
+    "Bignoniaceae",
+    "Plantaginaceae",
+    "Alismataceae",
+    "Cabombaceae",
+    "Pontederiaceae",
+    "Potamogetonaceae"
+  ],
+  "reference_only": [
+    "Rosaceae",
+    "Sapindaceae"
+  ],
+  "partial_visual": [
+    "Verbenaceae"
+  ],
+  "notes": [
+    "External rights-cleared reference images are allowed in family visual steps.",
+    "Canonical species steps remain clickable even when their family-card image is an external rights-cleared reference.",
+    "Reference-only family modules can precede species promotion but should be upgraded when canonical local species packages land."
   ]
 }
