@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T18:47:00-05:00",
+  "updated_at": "2026-10-03T18:58:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -112,6 +112,25 @@
       "release_when": "All six current Acanthaceae work items are durably represented in research-queue.json and research-drafts, or the test is explicitly aborted.",
       "notes": "Third live high-throughput Scout test. Collision gate skipped canonical Ruellia drummondiana/humilis and taxonomy-reconciled Ruellia nudiflora/nudiflora var. nudiflora/occidentalis because current Kew folds the latter names into already-canonical Ruellia ciliatiflora. Batch refilled with unfinished Acanthaceae: Ruellia metziae, Justicia americana, Justicia pilosella, Dyschoriste linearis, Dicliptera brachiata, and Anisacanthus quadrifidus. Durable drafts + queue records created successfully; temporary claim released.",
       "released_at": "2026-10-03T18:47:00-05:00"
+    },
+    {
+      "claim_id": "manual-scout-test-malvaceae-002",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "abutilon-fruticosum",
+        "abutilon-incanum",
+        "abutilon-theophrasti",
+        "sida-abutilifolia",
+        "sida-spinosa",
+        "sphaeralcea-lindheimeri"
+      ],
+      "lane": "unfinished-plant-scout",
+      "owner": "manual-test-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T18:58:00-05:00",
+      "expires_at": "2026-10-04T00:58:00-05:00",
+      "release_when": "All six Malvaceae taxa are durably represented in research-queue.json and research-drafts, or the test is explicitly aborted.",
+      "notes": "Fourth live high-throughput Scout test. Malvaceae comparison batch after Oenothera and Callirhoe candidates were skipped because concurrent/canonical state showed those lanes already handled them."
     }
   ]
 }
