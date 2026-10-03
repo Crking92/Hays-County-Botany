@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-028-passiflora-b019",
+  "created_at": "2026-10-03T15:42:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 818,
+    "source_scientific_name": "Passiflora lutea",
+    "wild_observations": 2,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Passiflora lutea L.",
+    "rank": "species",
+    "order": "Malpighiales",
+    "family": "Passifloraceae",
+    "genus": "Passiflora",
+    "species": "lutea",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Regional Texas treatments may use Passiflora lutea var. glabriflora; the learner remains species-level."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays County — UT Plant Resources Center's Purola Preserve natural flora lists Passiflora lutea among plants occurring naturally and not introduced.",
+      "Travis County — UT Plant Resources Center's Travis County Passifloraceae herbarium index includes Passiflora lutea.",
+      "Williamson County — UT Plant Resources Center provides a field-based treatment of Passiflora lutea var. glabriflora within the local flora."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Cultivated vines and garden escapes are not used as native-county evidence."
+  },
+  "morphology": {
+    "look_here_first": "Start with the petiole and leaf shape. Yellow passionflower has no petiole nectar glands, and its small 3-lobed leaves are usually wider than long with broad rounded/obtuse lobes and entire margins. Then confirm the very small greenish-yellow flower and small purple-black berry.",
+    "diagnostic_traits": [
+      "perennial climbing or trailing vine with axillary tendrils",
+      "petioles eglandular — no paired extrafloral nectary bumps",
+      "leaf blades shallowly to moderately 3-lobed, usually wider than long",
+      "lobes broad and rounded to obtuse; margins entire rather than serrate",
+      "fine veins prominently raised on the lower leaf surface",
+      "floral bracts absent",
+      "flowers small and inconspicuous, roughly 2–2.5 cm across in regional material",
+      "sepals green; petals pale green-yellow; corona pale green/white to yellow",
+      "ripe berries small, purple-black, roughly 8–15 mm"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Passiflora tenuiloba",
+      "separator": "P. tenuiloba has petiole glands and very narrow, deeply divided 3–9-lobed 'birdwing' leaves; P. lutea has glandless petioles and broad rounded 3-lobed leaves."
+    },
+    {
+      "taxon": "Passiflora incarnata",
+      "separator": "P. incarnata has two conspicuous petiole glands, deeply 3-lobed serrate leaves, much larger flowers, and large maypop fruits. P. lutea has glandless petioles, entire leaf margins and tiny flowers/fruits."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole vine habit",
+      "leaf face showing broad rounded three lobes",
+      "petiole macro demonstrating absence of nectar glands",
+      "lower leaf surface/raised veins",
+      "small flower face with scale",
+      "tendril at node",
+      "small ripe purple-black berry",
+      "direct P. tenuiloba and P. incarnata petiole/leaf comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/286547039",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Passifloraceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Passiflora%20lutea%20glabriflora",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416955"
+    ],
+    "provenance_note": "The highest-value learner image is a petiole/leaf close-up proving the absence of paired nectar glands."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B019."
+}
