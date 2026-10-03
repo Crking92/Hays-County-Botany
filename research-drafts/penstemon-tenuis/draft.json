@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
+  "batch_id": "deep-review-batch-032-penstemon-b022",
+  "created_at": "2026-10-03T15:58:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 837,
+    "source_scientific_name": "Penstemon Tenuis",
+    "wild_observations": 1,
+    "source_count": 3,
+    "hays_local": false
+  },
+  "taxonomy": {
+    "accepted_name": "Penstemon tenuis Small",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Plantaginaceae",
+    "genus": "Penstemon",
+    "species": "tenuis",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Native from the lower Mississippi region through Texas; regional treatments emphasize Gulf/coastal prairie and wet alluvial habitats."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO confirms Texas as part of the native range.",
+      "Flora of North America and USGS treatments describe the species as a wet-alluvial, low-prairie, marsh-margin/Gulf Coastal Plain species.",
+      "NPSOT describes it as relatively rare in the wild and native to coastal prairies and marshes.",
+      "The user's iNaturalist tracker has one wild observation, but user observations are not converted into county-native proof."
+    ],
+    "blocking_issue": "No set of three exact project target-zone counties has been independently verified.",
+    "guardrail": "Do not infer target-zone native counties from garden use in Austin/San Antonio or from a single wild observation."
+  },
+  "morphology": {
+    "look_here_first": "Start with scale and habitat. Gulf Coast penstemon has much smaller lavender-to-violet flowers, about 10–14 mm long, on slender branched stems in wet alluvial or coastal-prairie settings. The calyx lobes are small and sharply pointed, and the exserted staminode carries orange hairs distally.",
+    "diagnostic_traits": [
+      "perennial herb with slender erect branched stems",
+      "opposite sessile oblong to lanceolate leaves",
+      "calyx lobes ovate to lanceolate, about 3.1–6 mm, sharp-tipped",
+      "corolla small, about 10–14 mm, lavender to violet",
+      "inside lower corolla surface white-villous",
+      "staminode exserted with orange hairs toward the distal half",
+      "capsules small, about 4–5 mm"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Penstemon cobaea",
+      "separator": "P. cobaea has enormous 35–55 mm pale flowers and broad serrate leaves on dry prairie/limestone sites."
+    },
+    {
+      "taxon": "Penstemon triflorus",
+      "separator": "P. triflorus has larger 25–35 mm pink/red flowers and a dry Edwards Plateau limestone ecology."
+    },
+    {
+      "taxon": "Penstemon baccharifolius",
+      "separator": "P. baccharifolius is a woody-based cliff subshrub with thick leathery leaves and red flowers."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole slender habit",
+      "leaf pair",
+      "sharp calyx",
+      "small flower with scale",
+      "villous throat",
+      "orange-haired staminode",
+      "wet habitat",
+      "capsule"
+    ],
+    "exact_final_selection_pending_user_approval": false,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/259720864",
+    "reference_candidates": [
+      "https://floranorthamerica.org/Penstemon_tenuis",
+      "https://warcapps.usgs.gov/PlantID/Species/Details/2141",
+      "https://www.npsot.org/posts/native-plant/penstemon-tenuis/"
+    ]
+  },
+  "approval_status": "HOLD_RANGE_EVIDENCE",
+  "installation_guardrail": "Do not install as a project-native taxon until three exact target-zone counties are verified."
+}
