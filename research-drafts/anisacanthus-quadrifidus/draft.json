@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-acanthaceae-test-03",
+  "created_at": "2026-10-03T18:42:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 74,
+    "priority": 2,
+    "source_scientific_name": "Anisacanthus quadrifidus"
+  },
+  "taxonomy_candidate": {
+    "family": "Acanthaceae",
+    "order": "Lamiales",
+    "accepted_name": "Anisacanthus quadrifidus (Vahl) Nees",
+    "status_candidate": "accepted_species_infraspecific_review_needed",
+    "notes": [
+      "POWO accepts A. quadrifidus and three infraspecific taxa, including var. wrightii.",
+      "Central Texas horticultural/floristic references commonly use A. quadrifidus var. wrightii; Deep Review should decide whether the learner entry should be at species or variety rank."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Research-only. Deep Review must verify accepted taxonomy and exact target-zone native counties; no county inference.",
+    "leads": [
+      "POWO lists Texas within the native range of the species.",
+      "Master Plant Pool has one personal iNaturalist source but no current Hays Local flag.",
+      "NPSOT backlog separately lists var. wrightii.",
+      "Purola Hays Flora explicitly says its var. wrightii plant was introduced from seed, so that site record cannot establish native Hays occurrence."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with growth form: this is the woody shrub in the batch, with opposite lanceolate leaves and terminal spike-like panicles of long scarlet-orange tubular flowers.",
+    "diagnostic_traits": [
+      "fall-deciduous multi-stemmed shrub",
+      "opposite decussate lanceolate leaves",
+      "woody basal stems",
+      "terminal spike-like panicles of condensed cymes",
+      "scarlet to orange-red long tubular bilabiate flowers",
+      "local Central Texas material often treated as var. wrightii"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Ruellia metziae",
+      "separator": "Flame acanthus is a woody shrub with red tubular flowers; R. metziae is a small herb with large white petunia-like flowers."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "Green Acres Nursery",
+      "source_page": "https://idiggreenacres.com/products/flame-acanthus",
+      "image_url": "https://idiggreenacres.com/cdn/shop/files/Anisacanthus_FlameAcanthus_700x700.jpg?v=1722466903",
+      "license": "unverified",
+      "role": "woody habit + red tubular flowers"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "opposite leaves and node structure",
+    "inflorescence architecture",
+    "flower close-up",
+    "fruit/seed when diagnostic"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/13942-2",
+    "https://w3.biosci.utexas.edu/prc/K12/pdf/Anisacanthus%20quadrifidis%20wrightii",
+    "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/ANQUW.html"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
