@@ -6100,20 +6100,54 @@
       "queue_group": "B066 Rhus",
       "batch_id": "deep-review-batch-068-rhus-b066",
       "last_deep_reviewed_at": "2026-10-03T23:40:00-05:00"
+    },
+    {
+      "id": "coreopsis-wrightii",
+      "scientific_name": "Coreopsis wrightii",
+      "common_name": "Rock Tickseed",
+      "status": "curated_installed",
+      "notes": "B067 PASS — Hays, Travis, Mason. Current Kew accepts C. wrightii as distinct; older ITIS/FNA synonymy with C. basalis retained as a taxonomic note.",
+      "approval_status": "approved_and_installed",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "coreopsis-wrightii",
+      "reconciliation_status": "resolved_installed",
+      "family": "Asteraceae",
+      "genus": "Coreopsis",
+      "priority": 0,
+      "queue_group": "B067 Coreopsis",
+      "batch_id": "deep-review-batch-069-coreopsis-b067",
+      "last_deep_reviewed_at": "2026-10-03T23:58:00-05:00",
+      "curated_at": "2026-10-03"
+    },
+    {
+      "id": "coreopsis-lanceolata",
+      "scientific_name": "Coreopsis lanceolata",
+      "common_name": "Lance-leaved Coreopsis",
+      "status": "range_hold_reviewed",
+      "notes": "B067 HOLD — Travis and Williamson locked; third exact target-zone native county not confirmed. Plant-sale lists are not counted as wild county evidence.",
+      "approval_status": "hold_range_evidence",
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_range_hold",
+      "reconciliation_status": "preserved_range_hold",
+      "family": "Asteraceae",
+      "genus": "Coreopsis",
+      "priority": 0,
+      "queue_group": "B067 Coreopsis",
+      "batch_id": "deep-review-batch-069-coreopsis-b067",
+      "last_deep_reviewed_at": "2026-10-03T23:58:00-05:00"
     }
   ],
   "last_scout_run_at": "2026-10-03T21:21:32.917154+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-068-rhus-b066",
-    "reviewed_at": "2026-10-03T23:40:00-05:00",
-    "status": "rhus_reconciled",
+    "batch_id": "deep-review-batch-069-coreopsis-b067",
+    "reviewed_at": "2026-10-03T23:58:00-05:00",
+    "status": "one_pass_one_hold",
     "taxa": [
-      "rhus-aromatica",
-      "rhus-trilobata",
-      "rhus-trilobata-var-trilobata",
-      "rhus-microphylla"
+      "coreopsis-wrightii",
+      "coreopsis-lanceolata"
     ],
-    "note": "Rhus aromatica retained canonical; trilobata rows merged; Rhus microphylla retained as range hold."
+    "note": "B067 closed: C. wrightii installed; C. lanceolata retained as range HOLD. Canonical species count 223."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
