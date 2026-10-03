@@ -1,9 +1,14 @@
 {
   "version": 1,
   "settings": {
-    "max_items_per_run": 2,
+    "max_items_per_run": 5,
     "default_photo_candidates": 36,
-    "notes": "The scout creates research drafts only. Human/ChatGPT curation is required before anything enters curation-inbox."
+    "notes": "Scout creates research drafts only. Human/ChatGPT deep review and curation are required before anything enters curation-inbox. Scout must obey shared work claims, manifest-first duplicate checks, and backpressure.",
+    "min_items_per_run": 3,
+    "backpressure_max_unreviewed_batches": 2,
+    "backpressure_max_unreviewed_species": 10,
+    "coordination_file": "workflow/COORDINATION.md",
+    "claims_file": "workflow/work-claims.json"
   },
   "items": [
     {
