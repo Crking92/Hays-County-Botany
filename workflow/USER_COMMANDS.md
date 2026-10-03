@@ -3,6 +3,19 @@
 These are plain-language commands Calvin can use in any ChatGPT conversation working on this project.
 GitHub is the canonical project home. Scheduled Scout runs and the Deep Review automation may run automatically, but any of these can also be requested manually.
 
+## Global coordination gate
+
+Before any command below selects new work, refresh the current GitHub state and follow `workflow/COORDINATION.md`.
+
+At minimum, check:
+- `data/manifest.json`
+- `workflow/work-claims.json`
+- `research-queue.json`
+- existing `research-drafts/`
+- `curation-inbox/` / active curation state when relevant
+
+If another chat or automation is already working the same taxon/scope, skip it. Create a short-lived work claim before starting work that has not yet been durably represented. Canonical state always wins over stale queue/chat assumptions.
+
 ## Research / Scout commands
 
 ### "Run another scout batch"
