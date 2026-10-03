@@ -63,8 +63,33 @@
     "caveat": "Do not make hinged-valve anthers universal for all Berberidaceae."
   },
   "curation_status": {
-    "version": "1.0-visual-family-module",
+    "version": "1.0-visual-family-module-video-handoff",
     "last_reviewed": "2026-10-03",
     "visual_lock": "reference_first_pass"
+  },
+  "video_handoff": {
+    "source": "research-drafts/reconciliation/video-first-visual-intake-2026-10-03.json",
+    "policy": "Use exact video frames for family teaching now; do not convert either taxon into a canonical anchor until strict taxonomy/range review passes.",
+    "candidates": [
+      {
+        "taxon": "Berberis swaseyi",
+        "frame_count": 4,
+        "roles": [
+          "whole-plant habit / Edwards Plateau reference",
+          "immature fruit / fruit-size context",
+          "pinnate leaf / spiny leaflet margins",
+          "abaxial leaf surface / pale waxy coating"
+        ],
+        "status": "range_pending"
+      },
+      {
+        "taxon": "Berberis trifoliata",
+        "frame_count": 1,
+        "roles": [
+          "fruiting branch / spiny leaves"
+        ],
+        "status": "range_pending"
+      }
+    ]
   }
 }
