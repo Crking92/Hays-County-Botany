@@ -1,0 +1,57 @@
+{
+  "batch_id": "deep-review-batch-021-ilex-b017",
+  "family": "Aquifoliaceae",
+  "batch_type": "same_genus_comparison",
+  "genus": "Ilex",
+  "taxa": [
+    "ilex-decidua",
+    "ilex-vomitoria",
+    "ilex-opaca"
+  ],
+  "result": "2 approval-ready native taxa; 1 strict target-zone FAIL recommended as lookalike comparison",
+  "study_strategy": {
+    "family_look_here_first": "First ask evergreen or deciduous, then compare leaf size/texture and margin. Fruit color alone is weak because all three can carry red drupes. Confirm alternate simple leaves, dioecious flowers, and fleshy drupes with pyrenes.",
+    "quick_key": [
+      {
+        "if": "deciduous + larger thin crenate leaves + red fruit left on bare winter twigs",
+        "then": "Ilex decidua"
+      },
+      {
+        "if": "evergreen shrub/small tree + tiny leathery leaves with fine rounded crenate teeth",
+        "then": "Ilex vomitoria"
+      },
+      {
+        "if": "evergreen tree + much larger thick leaves with stiff sharp spine-tipped teeth",
+        "then": "Ilex opaca — strict target-zone FAIL / comparison candidate"
+      }
+    ],
+    "family_traits": [
+      "alternate simple leaves",
+      "small axillary flowers, usually 4- or 5-merous",
+      "plants usually dioecious, so only female plants fruit",
+      "superior ovary develops into a fleshy drupe",
+      "drupe contains several hard pyrenes rather than a single stone",
+      "fruit often persists into winter and is useful only when combined with leaf/twig characters"
+    ],
+    "family_terms_to_reinforce": [
+      "dioecious",
+      "staminate",
+      "pistillate",
+      "drupe",
+      "pyrene",
+      "crenate",
+      "serrate",
+      "spinose",
+      "coriaceous",
+      "deciduous",
+      "evergreen",
+      "axillary cyme"
+    ],
+    "priority_comparisons": [
+      "Ilex decidua vs Ilex vomitoria — deciduous larger thin leaves vs evergreen tiny leathery leaves",
+      "Ilex vomitoria vs Ilex opaca — small low-crenate leaves vs large spine-tipped leaves",
+      "wild Ilex vs landscape cultivars — do not infer nativity from ornamental occurrence"
+    ]
+  },
+  "status": "DEEP_REVIEW_COMPLETE_AWAITING_APPROVAL_WITH_COMPARISON_ITEM"
+}
