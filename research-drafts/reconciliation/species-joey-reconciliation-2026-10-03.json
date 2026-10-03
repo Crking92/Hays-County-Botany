@@ -1,0 +1,134 @@
+{
+  "reconciliation_id": "species-joey-reconciliation-2026-10-03",
+  "created_at": "2026-10-03T13:59:00-05:00",
+  "canonical_species_count": 132,
+  "joey_archive_totals": {
+    "source_records": 762,
+    "exact_media_locked": 351,
+    "exact_media_url_confirmed": 335,
+    "video_frame_records": 214,
+    "video_frame_assets_persisted": 214,
+    "external_reuse_or_publication_records": 111,
+    "exact_observation_records": 2,
+    "podcast_transcript_records": 22
+  },
+  "merge_batches_processed": [
+    "species-joey-merge-001-rhus",
+    "species-joey-merge-002-dalea",
+    "species-joey-merge-003-clematis",
+    "species-joey-merge-004-fraxinus",
+    "species-joey-merge-005-asteraceae",
+    "species-joey-merge-006-poaceae",
+    "species-joey-merge-007-quercus",
+    "species-joey-merge-008-ulmus",
+    "species-joey-merge-009-verbena",
+    "species-joey-merge-010-matelea",
+    "species-joey-merge-011-edwards-plateau-canonical-upgrades",
+    "species-joey-merge-012-west-texas-landscaping",
+    "species-joey-merge-013-final-canonical-overlaps",
+    "species-joey-merge-014-san-marcos-aquatics-1",
+    "species-joey-merge-015-san-marcos-aquatics-2",
+    "species-joey-merge-016-san-marcos-riparian-edge",
+    "species-merge-017-ilex-comparison",
+    "species-merge-018-bignoniaceae-comparison",
+    "species-joey-merge-019-final-canonical-leftovers",
+    "species-joey-merge-020-aliases-and-metadata-repair"
+  ],
+  "final_direct_leftovers_resolved": [
+    "Asclepias oenotheroides",
+    "Bouteloua curtipendula",
+    "Salvia ballotiflora",
+    "Solidago altissima",
+    "Yucca constricta"
+  ],
+  "alias_or_context_reconciliations": [
+    {
+      "source_name": "Rhus lanceolata",
+      "canonical": "Rhus copallinum var. lanceolata",
+      "status": "merged"
+    },
+    {
+      "source_name": "Matelea biflora",
+      "canonical": "Chthamalia biflora",
+      "status": "merged"
+    },
+    {
+      "source_name": "Conoclinium greggii",
+      "canonical": "Conoclinium dissectum",
+      "status": "merged"
+    },
+    {
+      "source_name": "Malvaviscus arboreus",
+      "canonical": "Malvaviscus arboreus var. drummondii",
+      "status": "merged as local infraspecific learner target"
+    },
+    {
+      "source_name": "Salvia tex aana",
+      "canonical": "Salvia texana",
+      "status": "high-confidence transcript normalization preserved as attributed context; audio check still noted"
+    }
+  ],
+  "metadata_repairs": [
+    "Asclepias oenotheroides image-sources.csv upgraded to full provenance/reuse schema",
+    "Solidago altissima image-sources.csv upgraded to full provenance/reuse schema",
+    "Conoclinium dissectum image-sources.csv upgraded to full provenance/reuse schema"
+  ],
+  "current_audit_result": "No remaining direct or reconciled Joey species overlap was found in the current canonical 132-species manifest after exact-name, recent video, and known synonym/name-change checks.",
+  "research_only_examples": [
+    "Zizania texana",
+    "Canna glauca",
+    "Leersia oryzoides",
+    "Myriophyllum heterophyllum",
+    "Schoenoplectus tabernaemontani",
+    "Taxodium mucronatum"
+  ],
+  "rights_guardrail": "Joey exact iNaturalist/blog media may be stored as attributed study media according to recorded rights context. Extracted YouTube frames remain private-study assets unless separate reuse permission/license is established.",
+  "caveats": [
+    "Yucca constricta currently has Joey field-documentation context but no exact Joey species photo locked.",
+    "Salvia texana podcast taxon normalization is high-confidence but retains the archive's audio-check recommendation.",
+    "Research-only Joey taxa are not silently promoted; they enter normal source-pool/range/approval workflow when curated."
+  ],
+  "next_phase": "Family-level QC and canonical family-module reconciliation. Avoid duplicating modules already being authored by concurrent project chats.",
+  "latest_commits": [
+    {
+      "sha": "255ccf38d1acade649c08f592c9ef6b91df87235",
+      "message": "web: bump visual learner assets",
+      "created_at": "2026-10-03T18:59:55Z"
+    },
+    {
+      "sha": "807c5d39df453e027f7f75e4442847c66c6e2672",
+      "message": "web: style visual family lessons",
+      "created_at": "2026-10-03T18:59:53Z"
+    },
+    {
+      "sha": "45ddb638757c937652e7c9614831658ab346d3c7",
+      "message": "web: render visual family lessons",
+      "created_at": "2026-10-03T18:59:50Z"
+    },
+    {
+      "sha": "325e9d6104addc2adcbfe5bf3c2be79f5a5d8f5c",
+      "message": "botany: upgrade Apocynaceae visual family module",
+      "created_at": "2026-10-03T18:58:51Z"
+    },
+    {
+      "sha": "1e1f6cc25d10e9d76029c005fb81e7af0b9f8d18",
+      "message": "botany: add Lamiaceae visual family module",
+      "created_at": "2026-10-03T18:58:49Z"
+    },
+    {
+      "sha": "318d99cb51ce9088b513a1e7f5277188db70f3ce",
+      "message": "botany(auto): process curation inbox [skip ci]",
+      "created_at": "2026-10-03T18:58:43Z"
+    },
+    {
+      "sha": "f352554998c60d90b5059c95ecb2453be31e08cd",
+      "message": "botany: add Fabaceae visual family module",
+      "created_at": "2026-10-03T18:58:41Z"
+    },
+    {
+      "sha": "a4ef3a5cef3dd046b251e8b8a983e000ecc140b1",
+      "message": "botany: upgrade Asteraceae visual family module",
+      "created_at": "2026-10-03T18:58:39Z"
+    }
+  ]
+}
