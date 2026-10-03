@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-malvaceae-test-04",
+  "created_at": "2026-10-03T19:08:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1055,
+    "priority": 2,
+    "source_scientific_name": "Sida spinosa"
+  },
+  "taxonomy_candidate": {
+    "family": "Malvaceae",
+    "order": "Malvales",
+    "accepted_name": "Sida spinosa L.",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and FNA accept Sida spinosa.",
+      "The 'spine' cue is a small spinelike tubercle just below the petiole and can occasionally be absent."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout research only. Deep Review must verify exact target-zone counties and resolve any nativity/re-identification conflict.",
+    "leads": [
+      "Master Plant Pool has 2 personal wild observations and marks Hays Local.",
+      "POWO lists Texas as native.",
+      "FNA documents Texas within its range.",
+      "Exact target-zone county threshold remains for Deep Review."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start at the leaf base, not the flower: look for the small spinelike tubercle on the stem immediately below a short petiole, then confirm an erect plant with narrow toothed leaves and small yellow flowers.",
+    "diagnostic_traits": [
+      "erect annual/perennial herb or subshrub",
+      "minute stellate hairs",
+      "ovate to lanceolate leaves, serrate to base",
+      "small spinelike tubercle often present below petiole",
+      "yellow flowers solitary or clustered in axils",
+      "five style branches",
+      "five spined mericarps"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Sida abutilifolia",
+      "separator": "S. spinosa is erect and often shows a petiole-base tubercle; S. abutilifolia is procumbent and mat-forming."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "Clemson Weed ID",
+      "page": "https://www.clemson.edu/cafls/research/weeds/weed-id-bio/broadleaf-weeds-parent/broadleaf-pages/prickly-sida.html",
+      "image": "https://www.clemson.edu/cafls/research/weeds/weed-id-bio/broadleaf-weeds-parent/broadleaflfs/prickly-sida-fruit.jpg",
+      "license": "unverified",
+      "role": "leaf axil + petiole-base tubercle + fruit"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf shape and pubescence",
+    "flower close-up",
+    "fruit/mericarps",
+    "look-alike comparison"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A235838-2",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242348923"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
