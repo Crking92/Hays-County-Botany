@@ -1,0 +1,355 @@
+{
+  "module_id": "sapindaceae-family-backfill-001",
+  "family": "Sapindaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "scope_note": "Family-recognition backfill for the Hays/Central Texas learner. Restores Acer to the family map, reconciles old western-soapberry names, and builds a local three-genus visual framework around Acer, Sapindus, and Ungnadia.",
+  "live_pool_cleanup": {
+    "actions": [
+      "Restored Sapindales / Sapindaceae to Acer grandidentatum, A. negundo, A. palmatum, and A. saccharinum.",
+      "Added Acer -> Sapindaceae to the hidden genus-family map.",
+      "Restored Sapindales / Sapindaceae to the four Sapindus source rows and Ungnadia speciosa.",
+      "Flagged Acer palmatum as a cultivated non-native comparison; all project observations are cultivated.",
+      "Confirmed current POWO accepts Sapindus drummondii as a species.",
+      "Flagged Sapindus saponaria var. drummondii and subsp. drummondii concepts as synonyms of accepted S. drummondii.",
+      "Flagged the source-pool Sapindus saponaria Hays-local row for manual taxonomy/range review because S. saponaria sensu stricto is distinct and POWO does not list Texas in its native range."
+    ],
+    "pool_source_rows": 9,
+    "genera": [
+      "Acer",
+      "Sapindus",
+      "Ungnadia"
+    ],
+    "source_taxa": [
+      "Acer grandidentatum",
+      "Acer negundo",
+      "Acer palmatum",
+      "Acer saccharinum",
+      "Sapindus drummondii",
+      "Sapindus saponaria",
+      "Sapindus saponaria var. drummondii",
+      "Sapindus saponaria vsr. Drummondii",
+      "Ungnadia speciosa"
+    ],
+    "taxonomy_guardrail": "Raw source rows overstate distinct local concepts. Two Sapindus drummondii synonym/typo rows duplicate the accepted S. drummondii concept; S. saponaria sensu stricto remains a separate range/taxonomy question."
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start with fruit and leaf arrangement, not a single leaf shape. In the local learner, Acer has opposite leaves and paired samaras; Sapindus has alternate pinnate leaves and amber/orange drupe-like soapberries; Ungnadia has alternate pinnate leaves and a 3-lobed, 3-valved woody capsule.",
+    "strongest_family_confirmation": "Woody plant with stipules usually absent; flowers often small/functionally unisexual with a conspicuous floral disk; superior 2–3-carpellate ovary; fruit often conspicuously lobed or winged and may become a samara, drupe, or capsule.",
+    "core_characters": [
+      "Trees or shrubs in the local learner.",
+      "Stipules usually absent.",
+      "Leaves may be alternate or opposite and simple or compound; Sapindaceae cannot be learned from one leaf arrangement.",
+      "Flowers commonly 4–5-merous, often functionally unisexual, with a floral/nectar disk.",
+      "Stamens commonly 8, though the family is variable.",
+      "Ovary superior, commonly 2–3-carpellate/loculed.",
+      "Fruit exceptionally diverse: samaras/schizocarps, drupes, or capsules all occur in the local learner.",
+      "Modern Sapindaceae includes Acer (maples), which older sources may place in Aceraceae."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not teach Sapindaceae as always alternate-leaved: Acer is opposite-leaved.",
+      "Do not teach Sapindaceae as always compound-leaved: many Acer species have simple palmately lobed leaves.",
+      "Do not teach one fruit type as the family character; local fruit spans paired samaras, drupes, and capsules.",
+      "Do not treat every western-soapberry source using Sapindus saponaria var. drummondii as a separate taxon; current POWO accepts Sapindus drummondii.",
+      "Do not count cultivated Acer palmatum toward native metrics."
+    ]
+  },
+  "local_genus_split": {
+    "Acer": {
+      "fastest_cues": [
+        "Leaves opposite at the node.",
+        "Fruit a paired schizocarp splitting into two winged samaras.",
+        "Acer negundo is unusual among maples in having odd-pinnate compound leaves."
+      ],
+      "field_teaching": "Opposite compound leaves can suggest ash, but paired maple samaras immediately separate boxelder from Fraxinus."
+    },
+    "Sapindus": {
+      "fastest_cues": [
+        "Leaves alternate and pinnate.",
+        "Small flowers in terminal/axillary panicles.",
+        "Fruit becomes a translucent amber/orange-brown 1–2(–3)-lobed drupe/mericarp with a hard dark seed.",
+        "Aborted carpels can remain visible at the base of the developed fruit."
+      ],
+      "field_teaching": "The soapberry fruit is the fastest visual anchor; pair it with the pinnate leaf and panicle."
+    },
+    "Ungnadia": {
+      "fastest_cues": [
+        "Alternate pinnately compound leaves.",
+        "Showy rosy-pink flowers appear before or with new leaves on older wood.",
+        "Fruit is a distinctive pear-shaped 3-lobed/3-valved woody capsule.",
+        "Capsule opens to expose glossy dark buckeye-like seeds."
+      ],
+      "field_teaching": "Mexican buckeye looks nothing like a maple fruit or soapberry fruit; the woody 3-valved capsule is the genus-level giveaway."
+    }
+  },
+  "fast_key": [
+    "Opposite leaves + paired winged samaras -> Acer.",
+    "Opposite odd-pinnate leaf with 3–5 leaflets + paired samaras -> Acer negundo.",
+    "Alternate pinnate leaves + translucent orange/amber drupe-like fruits -> Sapindus drummondii framework.",
+    "Alternate pinnate leaves + pink flowers + woody 3-valved pear-shaped capsule -> Ungnadia speciosa.",
+    "Compound leaves plus resinous sap drying black -> reconsider Anacardiaceae.",
+    "Compound aromatic leaves with pellucid oil dots -> reconsider Rutaceae."
+  ],
+  "anchor_cards": [
+    {
+      "taxon": "Acer negundo",
+      "role": "opposite-leaved maple and paired-samara anchor",
+      "status": "priority-1 family framework; species deep review pending",
+      "local_pool": "Hays Local yes; 12 wild project observations; source count 3",
+      "look_here_first": "Do not look for a classic maple-shaped leaf. Boxelder has opposite, odd-pinnately compound leaves, usually 3 or 5 leaflets. Confirm Acer with paired winged samaras.",
+      "confirms": [
+        "Winter-deciduous tree.",
+        "Opposite/decussate leaves.",
+        "Odd-pinnately compound leaves, commonly 3 or 5 leaflets.",
+        "Dioecious.",
+        "Female flowers in pendulous clusters.",
+        "Fruit a paired schizocarp of two samaras."
+      ],
+      "authoritative_sources": [
+        "https://w3.biosci.utexas.edu/prc/K12/pages/Acer%20negundo.html",
+        "https://powo.science.kew.org/"
+      ],
+      "images": [
+        {
+          "role": "compound leaf + samara context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Acer_negundo.jpg",
+          "creator": "Wikimedia Commons file contributor",
+          "license": "CC BY-SA 3.0 / GFDL",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "paired samara close-up",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Negundo_samaras.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Negundo_samaras.jpg",
+          "creator": "Gmihail",
+          "license": "CC BY-SA 3.0 Serbia",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "node, opposite leaves, flowers and fruit morphology",
+          "source_page": "https://w3.biosci.utexas.edu/prc/K12/pages/Acer%20negundo.html",
+          "creator": "UT Austin Plant Resources Center",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Sapindus drummondii",
+      "role": "western-soapberry fruit anchor",
+      "status": "priority-1 family framework; species deep review pending",
+      "local_pool": "32 wild project observations",
+      "taxonomy_note": "Current POWO accepts Sapindus drummondii. Sapindus saponaria var. drummondii and subsp. drummondii are synonyms.",
+      "look_here_first": "Find the hanging clusters of translucent yellow-orange to brown soapberries, then confirm alternate pinnate leaves.",
+      "confirms": [
+        "Deciduous shrub/tree.",
+        "Alternate pinnate leaves with entire leaflets.",
+        "Small flowers in terminal/axillary panicles.",
+        "Flowers typically 5-merous with a disk; stamens commonly 8.",
+        "Ovary 3-lobed.",
+        "Fruit develops as 1–2(–3) drupe-like lobes/mericarps, often with aborted carpels visible.",
+        "Mature fruit contains a hard dark seed visible through the translucent pericarp."
+      ],
+      "authoritative_sources": [
+        "https://powo.science.kew.org/taxon/227434-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:331930-2/general-information",
+        "https://www.sbs.utexas.edu/bio406d/images/pics/sap/sapindus_saponaria.htm"
+      ],
+      "images": [
+        {
+          "role": "whole plant / foliage",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Sapindus_drummondii.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sapindus_drummondii.jpg",
+          "creator": "James Steakley",
+          "license": "CC BY-SA 4.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "wild diagnostic candidate",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Sapindus_drummondii_12740865.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sapindus_drummondii_12740865.jpg",
+          "creator": "Alex Abair",
+          "license": "CC BY 4.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "mature soapberry fruit, fruit close-up, petioles/buds",
+          "source_page": "https://www.sbs.utexas.edu/bio406d/images/pics/sap/sapindus_saponaria.htm",
+          "creator": "UT Austin BIO406D",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false,
+          "note": "Page uses the older/broader S. saponaria var. drummondii treatment; map these images to current S. drummondii only after confirming the photographed Texas concept."
+        }
+      ]
+    },
+    {
+      "taxon": "Ungnadia speciosa",
+      "role": "woody-capsule and showy-flower anchor",
+      "status": "priority-1 family framework; species deep review pending",
+      "local_pool": "Hays Local yes; NPSOT yes; Personal List yes; 6 wild project observations; source count 4",
+      "look_here_first": "Pink flowers before or with leaf-out are distinctive, but the strongest structural cue is the rough pear-shaped 3-lobed woody capsule that opens in 3 valves around glossy dark seeds.",
+      "confirms": [
+        "Deciduous shrub/small tree.",
+        "Alternate pinnately compound leaves, usually several serrate leaflets.",
+        "Rosy-pink fragrant flowers on older/bare wood before or with leaves.",
+        "Calyx 5-lobed; petals usually 4–5.",
+        "Stamens about 7–10 and exserted.",
+        "Fruit a rough 3-valved pear-shaped capsule.",
+        "Seeds dark brown/black, glossy, rounded and buckeye-like."
+      ],
+      "authoritative_sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:785564-1",
+        "https://research.fs.usda.gov/feis/species-reviews/ungspe"
+      ],
+      "images": [
+        {
+          "role": "pink flowers",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ungnadia_speciosa_flowers.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ungnadia_speciosa_flowers.jpg",
+          "creator": "Stan Shebs",
+          "license": "CC BY-SA 3.0 / CC BY-SA 2.5 / GFDL",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "whole shrub habit",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ungnadia_speciosa_form.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ungnadia_speciosa_form.jpg",
+          "creator": "Stan Shebs",
+          "license": "CC BY-SA 3.0 / CC BY-SA 2.5 / GFDL",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "fruit/capsule candidate",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ungnadia_speciosa_12862967.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ungnadia_speciosa_12862967.jpg",
+          "creator": "Alex Abair",
+          "license": "CC BY 4.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "seed with centimeter scale",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ungnadia_speciosa_seed_with_cm_scale_13011465.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ungnadia_speciosa_seed_with_cm_scale_13011465.jpg",
+          "creator": "Alex Abair",
+          "license": "CC BY 4.0",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ]
+    },
+    {
+      "taxon": "Acer grandidentatum",
+      "role": "simple-leaved Acer comparison",
+      "status": "priority-2 family framework; strict target-zone review pending",
+      "look_here_first": "Use as the visual correction that not all maples are compound: opposite simple palmately lobed leaves plus paired samaras still point to Acer.",
+      "teaching_value": "Pairs with A. negundo to show how much leaf architecture can vary within one genus while opposite nodes + paired samaras remain stable."
+    },
+    {
+      "taxon": "Acer palmatum",
+      "role": "cultivated non-native comparison",
+      "status": "exclude from native metrics",
+      "note": "Asian ornamental; all three project observations are cultivated."
+    }
+  ],
+  "taxonomic_reconciliation": {
+    "western_soapberry": {
+      "accepted": "Sapindus drummondii Hook. & Arn.",
+      "synonyms_in_pool": [
+        "Sapindus saponaria var. drummondii (Hook. & Arn.) L.D.Benson",
+        "Sapindus saponaria subsp. drummondii (Hook. & Arn.) A.E.Murray",
+        "Sapindus saponaria vsr. Drummondii [typographic source row]"
+      ],
+      "note": "Do not create three learner cards for these names."
+    },
+    "sapindus_saponaria_sensu_stricto": {
+      "status": "manual taxonomy/range review",
+      "reason": "POWO treats S. saponaria as a separate accepted tropical/subtropical species and does not list Texas among its native areas. The project Hays-local flag may reflect older Texas use of a broad S. saponaria concept that included western soapberry.",
+      "action": "Keep source row, but do not promote as a distinct Hays-native species until source concept is reconciled."
+    }
+  },
+  "confusable_families": {
+    "Anacardiaceae": {
+      "confusion": "Both can be woody with alternate compound leaves and small flowers; some fruits are drupe-like.",
+      "tie_breaker": "Kew notes Sapindaceae trees/shrubs generally lack resinous sap, whereas Anacardiaceae often has resin that dries brown/black. Sapindaceae also commonly has lobed/winged fruit and a floral disk."
+    },
+    "Rutaceae": {
+      "confusion": "Compound leaves and small flowers can overlap.",
+      "tie_breaker": "Rutaceae has regular pellucid oil-gland dots and strong citrus/rank odor; Sapindaceae lacks those regular translucent gland dots."
+    },
+    "Fraxinus_Oleaceae": {
+      "confusion": "Acer negundo has opposite compound leaves and can look ash-like.",
+      "tie_breaker": "Acer produces paired samaras; Fraxinus produces single samaras. Boxelder also has maple-type paired fruit clusters rather than ash keys."
+    },
+    "Juglandaceae": {
+      "confusion": "Sapindus and Ungnadia can look generally walnut-like in leaf silhouette.",
+      "tie_breaker": "Juglandaceae reproductive structures are catkins plus a husked nut; local Sapindaceae uses panicles/showy flowers and samara/drupe/capsule fruits."
+    }
+  },
+  "best_family_visual_sequence": [
+    "Family opener: paired maple samaras, translucent soapberries, and Mexican-buckeye capsule side by side.",
+    "Acer negundo opposite node; label opposite/decussate.",
+    "Acer negundo compound leaf; explain that boxelder is a maple despite ash-like leaves.",
+    "Acer paired samara; label two mericarps/wings.",
+    "Sapindus alternate pinnate leaf and terminal panicle.",
+    "Sapindus mature translucent drupe with dark seed.",
+    "Ungnadia pink flower on nearly bare wood.",
+    "Ungnadia pinnate leaf.",
+    "Ungnadia closed 3-lobed capsule.",
+    "Ungnadia open 3-valved capsule + glossy black seed.",
+    "Comparison card: Sapindaceae vs Anacardiaceae vs Rutaceae.",
+    "Comparison card: boxelder vs ash — paired samaras vs single samaras."
+  ],
+  "terminology_to_reinforce": [
+    "opposite",
+    "alternate",
+    "decussate",
+    "odd-pinnate",
+    "rachis",
+    "petiolule",
+    "samara",
+    "schizocarp",
+    "mericarp",
+    "drupe",
+    "capsule",
+    "valve",
+    "floral disk",
+    "functionally unisexual",
+    "superior ovary",
+    "carpel",
+    "locule"
+  ],
+  "visual_gaps": [
+    "Rights-safe local Acer negundo opposite-node macro with buds visible.",
+    "Rights-safe Acer negundo male vs female flower comparison.",
+    "Rights-safe Sapindus drummondii mature translucent fruit close-up with dark seed visible.",
+    "Rights-safe local Sapindus flower/panicle macro.",
+    "Rights-safe Ungnadia closed vs open 3-valved capsule pair from the same plant.",
+    "Local Acer negundo vs Fraxinus paired-samara/single-samara comparison card.",
+    "Dedicated deep reviews for Acer negundo, Sapindus drummondii, and Ungnadia speciosa."
+  ],
+  "completion_assessment": {
+    "family_characters": "complete for first family lesson",
+    "local_genus_coverage": "Acer, Sapindus and Ungnadia represented",
+    "taxonomy_cleanup": "Acer family mapping restored; western-soapberry synonym rows reconciled without deleting source history",
+    "strongest_teaching_hook": "fruit diversity — paired samara vs drupe vs 3-valved capsule",
+    "remaining": "visual polish plus species-level deep reviews/range reconciliation",
+    "recommended_status": "ready_for_first_family_module_build_visual_polish_pending"
+  },
+  "source_summary": [
+    "Kew POWO Sapindaceae family morphology and modern inclusion of Acer",
+    "Kew POWO current Sapindus drummondii / S. saponaria taxonomy",
+    "UT Austin Williamson County Acer negundo treatment",
+    "UT BIO406D western-soapberry morphology page under older S. saponaria var. drummondii treatment",
+    "US Forest Service Ungnadia speciosa morphology",
+    "Wikimedia Commons rights-safe diagnostic candidates"
+  ]
+}
