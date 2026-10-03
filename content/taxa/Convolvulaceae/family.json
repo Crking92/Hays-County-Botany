@@ -1,3 +1,80 @@
 {
-  "rank":"family","name":"Convolvulaceae","common_name":"Morning-glory family / bindweed family","curation_status":{"status":"starter","note":"Family-level diagnostics will be expanded after more local genera are curated."}
+  "rank": "family",
+  "name": "Convolvulaceae",
+  "common_name": "Morning-glory family / bindweed family",
+  "curation_status": {
+    "status": "visual_module_first_pass_complete",
+    "version": "2.0-visual-family-module",
+    "last_reviewed": "2026-10-03"
+  },
+  "project_scope": {
+    "selection_mode": "Central Texas vine/forb learning set",
+    "note": "First visual module emphasizes the normal leafy family pattern; Cuscuta remains an exception card for later."
+  },
+  "family_diagnostics": {
+    "where_to_look_first": "Look behind the flower: five usually free persistent sepals, then a fused 5-part corolla with conspicuous folds/pleats. Confirm alternate exstipulate leaves and a superior ovary/capsule.",
+    "habit": "Often twining or trailing herbs/vines, but not universally.",
+    "leaves": "Typically alternate, simple and without stipules; shape can vary from heart-shaped to hastate or deeply dissected.",
+    "flower": "Usually radial and 5-merous; corolla fused and commonly funnel/bell-shaped with plicate folds or visible mid-petaline bands.",
+    "fruit": "Common local pattern is a dry capsule with relatively few seeds.",
+    "field_tip": "Do not identify a morning-glory from a heart-shaped leaf alone; sepals, corolla folds, capsule and seeds are much stronger."
+  },
+  "visual_lesson": {
+    "status": "first_visual_lock",
+    "teaching_order": "whole plant → diagnostic structure → reproductive confirmation → tie-breaker",
+    "intro": "Morning-glories become much easier when you treat the free sepals and folded fused corolla as the family signature, then use leaf/sepal/seed differences for species.",
+    "steps": [
+      {
+        "title": "1 · Follow the vine",
+        "photo_role": "habit and leaf arrangement",
+        "anchor_species_id": "ipomoea-lindheimeri",
+        "look_for": "Twining/trailing habit with alternate leaves and no stipules.",
+        "why_it_matters": "This gets you into the right family neighborhood before flowering.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "2 · Look behind the corolla",
+        "photo_role": "persistent sepals",
+        "anchor_species_id": "ipomoea-hederacea",
+        "look_for": "Five separate or nearly separate persistent sepals.",
+        "why_it_matters": "The sepals are among the best species-level morning-glory characters.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "3 · Read the folds",
+        "photo_role": "plicate fused corolla",
+        "anchor_species_id": "convolvulus-equitans",
+        "look_for": "A fused funnel/bell corolla with five fold lines or mid-petaline bands.",
+        "why_it_matters": "Plicate corolla architecture is a strong family cue.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "4 · Expect weird leaves",
+        "photo_role": "dissected leaf exception",
+        "anchor_species_id": "distimake-dissectus",
+        "look_for": "Deeply divided foliage paired with the same family flower plan.",
+        "why_it_matters": "Stops the learner from requiring heart-shaped leaves.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "5 · Confirm the capsule",
+        "photo_role": "fruit and seed",
+        "anchor_species_id": "ipomoea-cordatotriloba",
+        "look_for": "A superior ovary maturing into a dry capsule with a few seeds.",
+        "why_it_matters": "Fruit helps separate Convolvulaceae from milkvines and other twining families.",
+        "status": "species_anchor_photo_polish_pending"
+      }
+    ],
+    "comparisons": [
+      {
+        "title": "Convolvulaceae vs Apocynaceae",
+        "rule": "Morning-glories commonly have alternate leaves, free persistent sepals, plicate fused corolla and capsule. Milkweed-side Apocynaceae has gynostegium/corona/pollinarium machinery and follicles."
+      },
+      {
+        "title": "Convolvulaceae vs Passifloraceae",
+        "rule": "Passiflora climbs with axillary tendrils and has corona + elevated reproductive column; morning-glories usually twine by the stem and lack that architecture."
+      }
+    ],
+    "caveat": "Cuscuta/dodders are parasitic leafless Convolvulaceae and intentionally break the normal leafy-vine pattern."
+  }
 }
