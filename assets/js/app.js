@@ -68,6 +68,7 @@ function speciesBase(sp){
 function imagesFor(sp){ return (Array.isArray(sp.images)?sp.images:[]).filter(function(x){ return x && x.file; }); }
 function imagePath(sp,img){
   if(!img || !img.file) return "";
+  if(/^https?:\/\//i.test(img.file)) return img.file;
   if(img.file.startsWith("content/")) return encodeURI(img.file);
   return encodeURI(speciesBase(sp)+"/"+img.file);
 }
