@@ -86,3 +86,22 @@ B029 Tradescantia closed and the family hold was released.
 - Family Study Index updated to 3 curated / 8 remaining; Priority 1 remaining 2, Priority 2 remaining 0, Priority 3 remaining 6.
 - Genus Study Index updated to 3 curated / 3 remaining; all current Priority 1 and Priority 2 Tradescantia are complete, leaving three Priority 3 pool taxa for a future batch.
 - Master Plant Pool species formulas were intentionally not overridden from this family lane; species-level Sheet synchronization remains owned by the species workflow.
+
+
+## Poaceae B030 integration — completed
+
+B030 taxonomy-reconciled bluestem review closed and the family module was upgraded.
+
+- Canonical anchors:
+  - *Andropogon gerardi* — big bluestem / turkeyfoot; 2–6 exposed digitate racemes
+  - *Anatherum glomeratum* — bushy bluestem; dense broad fluffy/broomlike crown
+- Comparison-only HOLD:
+  - *Anatherum virginicum* — broomsedge; narrower silky racemes more individually enclosed by flattened upper sheaths; range HOLD, not canonical
+- Family lesson now teaches node/sheath/collar/ligule first, then whole-inflorescence architecture, then spikelet anatomy.
+- Familiar historical names (*Andropogon gerardii*, *A. glomeratus*, *A. virginicus*) remain part of the learner's taxonomy/search context.
+- Family Study Index updated to 8 curated / 34 remaining; P1 9, P2 13, P3 12.
+- Genus Study Index reconciled:
+  - Andropogon = 1 total / 1 curated / 0 remaining
+  - Anatherum B030 subset = 2 total / 1 curated / 1 HOLD remaining
+- The separate *Anatherum tenuispatheum* Master Plant Pool record remains outside this B030 subset pending its own taxonomy/range review.
+- Master Plant Pool raw-name rows were intentionally not rewritten from the family lane.
