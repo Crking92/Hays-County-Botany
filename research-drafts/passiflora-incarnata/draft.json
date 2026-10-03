@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
+  "batch_id": "deep-review-batch-028-passiflora-b019",
+  "created_at": "2026-10-03T15:42:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 816,
+    "source_scientific_name": "Passiflora incarnata",
+    "wild_observations": 1,
+    "source_count": 2,
+    "hays_local": false
+  },
+  "taxonomy": {
+    "accepted_name": "Passiflora incarnata L.",
+    "rank": "species",
+    "order": "Malpighiales",
+    "family": "Passifloraceae",
+    "genus": "Passiflora",
+    "species": "incarnata",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO; Texas is within the native state-level range."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Travis County — UT Plant Resources Center's Travis County Passifloraceae herbarium index includes two Passiflora incarnata specimens.",
+      "Williamson County — UT Plant Resources Center provides a detailed field-based county treatment of Passiflora incarnata.",
+      "Targeted searches did not establish a third exact project target-zone county from authoritative native-flora/specimen sources."
+    ],
+    "blocking_issue": "Only two exact target-zone counties are locked. Texas statewide nativity, cultivation history, or a wild-looking observation cannot substitute for a third county.",
+    "guardrail": "Do not count horticultural plantings, seed introductions, or broad eastern-Texas distribution as exact target-zone native evidence."
+  },
+  "morphology": {
+    "look_here_first": "Check the petiole glands and leaf margin before the giant flower. Maypop has two conspicuous nectar glands on the petiole, large deeply 3-lobed leaves with serrated margins, and much broader lobes than birdwing passionflower. The huge corona flower and large maypop fruit then make confirmation easy.",
+    "diagnostic_traits": [
+      "vigorous perennial climbing/trailing vine with annual above-ground stems and axillary tendrils",
+      "petiole with two conspicuous sessile extrafloral nectary glands",
+      "leaf blades large, deeply 3(–5)-lobed",
+      "lobes broad, pointed and distinctly serrate",
+      "flower solitary and very large, commonly around 5–6 cm or more across",
+      "five sepals and five petals surround a showy multi-whorled purple/white corona",
+      "large ovoid to subglobose berry/maypop, green becoming pale yellow/orange-yellow when mature",
+      "fruit much larger than P. lutea or P. tenuiloba"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Passiflora lutea",
+      "separator": "P. lutea has no petiole glands, entire broad-rounded lobes and tiny greenish flowers/berries. P. incarnata has paired petiole glands, serrate pointed lobes and huge flowers/fruits."
+    },
+    {
+      "taxon": "Passiflora tenuiloba",
+      "separator": "P. tenuiloba also has petiole glands but its leaf lobes are extremely narrow and entire; flowers are tiny, green and petal-less. P. incarnata has broad serrate lobes and a huge corona flower."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole vine habit",
+      "large three-lobed serrate leaf",
+      "petiole macro showing two nectar glands",
+      "leaf-margin serration close-up",
+      "large flower face",
+      "flower side showing corona/androgynophore",
+      "large maypop fruit",
+      "three-species Passiflora leaf/petiole comparison"
+    ],
+    "exact_final_selection_pending_user_approval": false,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/308766815",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/specimens/Passifloraceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Passiflora%20incarnata",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=220009998"
+    ],
+    "provenance_note": "Morphology package is usable now, but canonical native installation remains blocked until a third exact target-zone county is documented."
+  },
+  "approval_status": "HOLD_DOCUMENTED",
+  "installation_guardrail": "Do not install as a target-zone native while fewer than three exact native target-zone counties are documented."
+}
