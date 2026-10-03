@@ -358,7 +358,7 @@ function approvalCard(item){
   return out+'</article>';
 }
 function approvalsView(){
-  if(state.approvalsError){
+  if(state.approvalsError && !state.approvals){
     return '<section class="page-intro"><div class="eyebrow">Curation gate</div><h1>Approvals</h1><p class="error-card">Could not load the approval queue: '+esc(state.approvalsError)+'</p></section>';
   }
   if(!state.approvals){
@@ -396,6 +396,9 @@ function approvalsView(){
       '<button type="button" data-approval-filter="decided" class="'+(state.approvalsFilter==="decided"?"active":"")+'">My decisions</button>'+
       '<button type="button" data-approval-filter="all" class="'+(state.approvalsFilter==="all"?"active":"")+'">All</button>'+
     '</div><button class="secondary-button" type="button" data-approval-refresh>Refresh queue</button></section>';
+  if(state.approvalsError){
+    out+='<div class="approval-save-error"><strong>Decision not saved.</strong><span>'+esc(state.approvalsError)+'</span><button class="secondary-button" type="button" data-approval-refresh>Refresh queue</button></div>';
+  }
   out+='<div class="approval-mode-banner '+(state.approvalsWriteEnabled?"writable":"readonly")+'">'+
     (state.approvalsWriteEnabled
       ? '<strong>Decision mode is active.</strong><span>Changes are written locally to <code>research-queue.json</code> with revision checking and an audit log.</span>'
