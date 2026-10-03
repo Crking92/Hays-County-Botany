@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-malvaceae-test-04",
+  "created_at": "2026-10-03T19:08:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1054,
+    "priority": 2,
+    "source_scientific_name": "Sida abutilifolia"
+  },
+  "taxonomy_candidate": {
+    "family": "Malvaceae",
+    "order": "Malvales",
+    "accepted_name": "Sida abutilifolia Mill.",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and FNA accept Sida abutilifolia.",
+      "Older synonyms include S. diffusa, S. filicaulis, S. procumbens, and S. supina."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout research only. Deep Review must verify exact target-zone counties and resolve any nativity/re-identification conflict.",
+    "leads": [
+      "Master Plant Pool has 2 personal wild observations but no current Hays Local flag.",
+      "POWO lists Texas as native.",
+      "FNA considers it apparently native from the southern U.S. to northern South America.",
+      "Exact project-county threshold remains for Deep Review."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with posture: this is the mat-forming Sida, with long flexible procumbent stems creeping across the ground and small pale/white-yellow flowers.",
+    "diagnostic_traits": [
+      "perennial herb",
+      "procumbent/prostrate freely branched flexible stems",
+      "stellate hairs plus simple hairs",
+      "small ovate to oblong leaves",
+      "leaf margins crenate to base",
+      "small pale flowers",
+      "mat-forming habit is highly distinctive in FNA"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Sida spinosa",
+      "separator": "S. abutilifolia sprawls/prostrates and lacks the classic erect habit with petiole-base tubercles; S. spinosa is erect and often has a small spinelike tubercle just below the petiole."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "USF Plant Atlas",
+      "page": "https://florida.plantatlas.usf.edu/plant/species/608",
+      "image": "https://cdn.plantatlas.org/img/plants/USF/Sida_abutifolia.jpg",
+      "creator": "Roger Hammer",
+      "license": "verify reuse",
+      "role": "flowers + crenate leaves + trailing stem"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf shape and pubescence",
+    "flower close-up",
+    "fruit/mericarps",
+    "look-alike comparison"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A563387-1",
+    "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101098"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
