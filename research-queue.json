@@ -3115,20 +3115,112 @@
       "learner_role": "NON_NATIVE_INVASIVE_COMPARISON_RECOMMENDED",
       "native_range_status": "FAIL",
       "native_metrics_excluded": true
+    },
+    {
+      "id": "passiflora-lutea",
+      "scientific_name": "Passiflora lutea",
+      "common_name": "yellow passionflower",
+      "family": "Passifloraceae",
+      "genus": "Passiflora",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "queue_group": "B019 Passiflora",
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 818,
+        "source_scientific_name": "Passiflora lutea",
+        "wild_observations": 2,
+        "source_count": 3,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-028-passiflora-b019",
+      "last_deep_reviewed_at": "2026-10-03T15:42:00-05:00",
+      "notes": "B019 strict-range PASS — Hays, Travis, Williamson. Diagnostic priority: glandless petiole + broad rounded entire 3-lobed leaf + tiny green-yellow flower.",
+      "approval_status": "ready_for_approval"
+    },
+    {
+      "id": "passiflora-tenuiloba",
+      "scientific_name": "Passiflora tenuiloba",
+      "common_name": "birdwing passionflower",
+      "family": "Passifloraceae",
+      "genus": "Passiflora",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "queue_group": "B019 Passiflora",
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 819,
+        "source_scientific_name": "Passiflora tenuiloba",
+        "wild_observations": 2,
+        "source_count": 3,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-028-passiflora-b019",
+      "last_deep_reviewed_at": "2026-10-03T15:42:00-05:00",
+      "notes": "B019 strict-range PASS — Hays, Travis, Val Verde. Diagnostic priority: paired cuplike petiole glands + narrow deeply divided birdwing leaves.",
+      "approval_status": "ready_for_approval"
+    },
+    {
+      "id": "passiflora-incarnata",
+      "scientific_name": "Passiflora incarnata",
+      "common_name": "purple passionflower / maypop",
+      "family": "Passifloraceae",
+      "genus": "Passiflora",
+      "status": "range_hold_reviewed",
+      "priority": 0,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "queue_group": "B019 Passiflora",
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 816,
+        "source_scientific_name": "Passiflora incarnata",
+        "wild_observations": 1,
+        "source_count": 2,
+        "hays_local": false
+      },
+      "batch_id": "deep-review-batch-028-passiflora-b019",
+      "last_deep_reviewed_at": "2026-10-03T15:42:00-05:00",
+      "notes": "B019 UNRESOLVED — Travis and Williamson exact target-zone counties locked; no third authoritative target-zone county inferred from Texas-wide nativity, cultivation, or user observation.",
+      "approval_status": "hold_documented",
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_hold",
+      "last_hold_reviewed_at": "2026-10-03T15:42:00-05:00"
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-027-eragrostis-b018-part2",
-    "reviewed_at": "2026-10-03T15:25:00-05:00",
-    "status": "b018_complete_awaiting_approval",
+    "batch_id": "deep-review-batch-028-passiflora-b019",
+    "reviewed_at": "2026-10-03T15:42:00-05:00",
+    "status": "b019_complete_awaiting_approval",
     "taxa": [
-      "eragrostis-intermedia",
-      "eragrostis-hirsuta",
-      "eragrostis-trichodes",
-      "eragrostis-cilianensis"
+      "passiflora-lutea",
+      "passiflora-tenuiloba",
+      "passiflora-incarnata"
     ],
-    "note": "B018 complete: E. intermedia PASS approval-ready; E. hirsuta UNRESOLVED hold; E. trichodes PASS approval-ready; E. cilianensis native-range FAIL recommended as non-native comparison."
+    "note": "B019 complete: P. lutea PASS approval-ready; P. tenuiloba PASS approval-ready; P. incarnata UNRESOLVED hold at Travis + Williamson only."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:00:00-05:00",
