@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-croton-test-01",
+  "created_at": "2026-10-03T17:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 301,
+    "priority": 1,
+    "note": "Selected after manifest/claims/queue/draft collision checks."
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Croton fruticulosus Torr.",
+    "family": "Euphorbiaceae",
+    "genus": "Croton",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America treat Croton fruticulosus as accepted.",
+      "Do not confuse this name with Croton fruticosus."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Deep Review must verify exact target-zone counties; no county inference from state/ecoregion presence.",
+    "leads": [
+      "Master Plant Pool records 57 personal wild observations and Hays Local status; occurrence lead only.",
+      "POWO lists Texas in the native range.",
+      "Flora of North America describes the U.S. range reaching trans-Pecos Texas to the Edwards Plateau.",
+      "BONAP Croton county maps require exact county extraction in Deep Review."
+    ],
+    "primary_map_source": "https://bonap.net/Napa/TaxonMaps/Genus/County/Croton"
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with growth form and leaf margin: this is the shrubby/subshrubby Croton in the batch, with ovate to ovate-lanceolate leaves and fine serrulation rather than an entire margin.",
+    "diagnostic_traits": [
+      "subshrub or shrub about 0.2–1 m",
+      "much-branched stems with stellate hairs",
+      "ovate to ovate-lanceolate serrulate leaves",
+      "short petioles relative to blade",
+      "bisexual racemes typically 3–12 cm",
+      "three styles bifid to six terminal segments"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Croton lindheimeri",
+      "separator": "C. fruticulosus is woody/shrubby with serrulate leaves; C. lindheimeri is an annual herb with entire leaves."
+    },
+    {
+      "taxon": "Croton texensis",
+      "separator": "C. texensis is an annual, strictly dioecious, with narrow mostly entire leaves and unisexual inflorescences."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "UT Austin BIO406D PlantPics",
+      "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/eup/croton_fruticulosus.htm",
+      "origin_url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/eup/Croton%20fruticulosus%20maleflw.jpg",
+      "creator": null,
+      "license": "unverified",
+      "role": "male flowers + leaf/stem close-up",
+      "reuse": "private-study candidate; verify public reuse rights"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole shrubby habit",
+    "serrulate leaf margin close-up",
+    "male flowers",
+    "pistillate flower/styles",
+    "fruit"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
