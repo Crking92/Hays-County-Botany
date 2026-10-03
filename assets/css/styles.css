@@ -113,3 +113,20 @@ img{max-width:100%}i{font-family:Georgia,"Times New Roman",serif;font-weight:500
 
 .approval-save-error{display:flex;align-items:center;gap:8px 12px;flex-wrap:wrap;margin:10px 0;padding:12px 14px;border:1px solid #7c4949;border-radius:12px;background:#352020;color:#efaaaa;font-size:.82rem}
 .approval-save-error span{flex:1 1 320px}.approval-save-error .secondary-button{margin-left:auto}
+
+.approval-photo-block{margin:13px 0;padding:12px;border:1px solid var(--line);border-radius:12px;background:#111914}
+.approval-photo-loading,.approval-photo-empty{padding:18px;border:1px dashed var(--line);border-radius:9px;color:var(--muted);font-size:.79rem;text-align:center;background:var(--panel3)}
+.approval-photo-heading{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-bottom:9px}
+.approval-photo-heading b,.approval-photo-heading span{display:block}.approval-photo-heading b{font-size:.84rem}.approval-photo-heading span{margin-top:2px;color:var(--muted);font-size:.69rem}
+.approval-photo-heading strong{flex:0 0 auto;padding:4px 7px;border-radius:999px;background:var(--accent-bg);color:var(--accent);font-size:.65rem}
+.approval-role-label{margin:5px 0;color:var(--accent);font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.06em}
+.approval-role-chips{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+.approval-role-chips span{padding:4px 7px;border:1px solid var(--line);border-radius:999px;background:var(--panel3);color:#c9d5cc;font-size:.65rem}
+.approval-photo-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.approval-photo-candidate{position:relative;display:block;overflow:hidden;border:1px solid var(--line);border-radius:9px;background:var(--panel3);color:var(--text)}
+.approval-photo-candidate img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;background:#0a0e0b}
+.approval-photo-candidate>span{display:block;padding:6px 7px;min-height:45px}.approval-photo-candidate b{display:block;color:#dce6de;font-size:.65rem}
+.approval-photo-candidate small{display:block;margin-top:2px;color:var(--muted);font-size:.56rem;line-height:1.25;overflow-wrap:anywhere}
+.approval-photo-candidate:hover{border-color:#607963}
+.approval-photo-sources{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.approval-photo-sources a{padding:4px 6px;border-radius:7px;background:var(--panel3);color:var(--accent);font-size:.63rem}
+@media(max-width:760px){.approval-photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
