@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-023-scutellaria-b041-reconciled",
+  "created_at": "2026-10-03T14:36:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1029,
+    "source_scientific_name": "Scutellaria drummondii",
+    "wild_observations": 17,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Scutellaria drummondii Benth.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Lamiaceae",
+    "genus": "Scutellaria",
+    "species": "drummondii",
+    "status": "VERIFIED",
+    "note": "Accepted by Kew/POWO. Three accepted infraspecific taxa are preserved in review while the learner remains species-level.",
+    "accepted_infraspecifics": [
+      "Scutellaria drummondii var. drummondii",
+      "Scutellaria drummondii var. edwardsiana B.L.Turner",
+      "Scutellaria drummondii var. runyonii B.L.Turner"
+    ]
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "BONAP/NAPA includes Scutellaria drummondii in its county-level Scutellaria atlas.",
+      "Hays County — UT Plant Resources Center's Purola Preserve natural flora lists S. drummondii among naturally occurring plants.",
+      "Travis County — UT Plant Resources Center's Travis County Lamiaceae specimen index includes S. drummondii var. drummondii and var. edwardsiana.",
+      "Williamson County — UT Plant Resources Center publishes a dedicated Williamson County treatment for S. drummondii."
+    ],
+    "blocking_issue": null,
+    "guardrail": "The species includes multiple accepted varieties. The learner stays species-level and does not infer a variety from photographs unless diagnostic evidence supports it."
+  },
+  "morphology": {
+    "look_here_first": "First check the plant base and leaf tips. Drummond's skullcap is a small taprooted annual with visibly glandular-hairy stems/calyces; its leaves are acute-tipped, and lower stem leaves may be shallowly crenate. Then confirm the small blue-violet corolla and the visorlike Scutellaria calyx appendage.",
+    "diagnostic_traits": [
+      "annual, taprooted, usually 15–30 cm tall with one to several stems from the base",
+      "stems four-sided and densely short glandular-hairy",
+      "leaves opposite and decussate, generally ovate, with acute tips",
+      "lower cauline leaves shallowly crenate; upper leaves becoming entire",
+      "leafy raceme with paired opposite axillary flowers",
+      "pedicel very short at anthesis, about 1–1.2 mm",
+      "calyx two-lipped with the diagnostic projecting visorlike scutellum/appendage",
+      "calyx and scutellum visibly glandular short-pilose, often with longer marginal hairs",
+      "corolla about 5.5–10 mm long, blue-violet to blue; lower lip may have a white center with violet/blue spots",
+      "fruit produces four small tuberculate nutlets"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Scutellaria wrightii",
+      "separator": "S. wrightii is a bushy perennial with several-many stems from a persistent base, rounded/obtuse entire leaves, minute pubescence and a smoother-looking calyx; its corolla is larger (mostly 13–18 mm) and its pedicel longer (3–3.5 mm). S. drummondii is annual, acute-leaved, visibly glandular-hairy and smaller-flowered."
+    },
+    {
+      "taxon": "Scutellaria ovata",
+      "separator": "S. ovata is a much taller rhizomatous perennial (about 35–70 cm in the Williamson treatment) with much larger triangular-ovate, crenate leaves and much larger corollas (about 21–25 mm)."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole annual habit and basal branching",
+      "opposite leaf pair showing acute tips",
+      "lower leaf margin macro showing shallow crenation",
+      "four-sided stem and glandular hairs",
+      "flower side showing small corolla and short pedicel",
+      "calyx/scutellum macro showing glandular hairs and visor",
+      "fruiting calyx and nutlets",
+      "direct Scutellaria wrightii comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/273266785",
+    "reference_candidates": [
+      "https://www.sbs.utexas.edu/bio406d/images/pics/lam/scutellaria_drummondii.htm",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Scutellaria%20drummondii"
+    ],
+    "provenance_note": "UT PlantPics is a strong diagnostic-image source for close structural views. Exact public-reuse permissions and final image roles still require photo-by-photo locking."
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves the reconciled Scutellaria batch."
+}

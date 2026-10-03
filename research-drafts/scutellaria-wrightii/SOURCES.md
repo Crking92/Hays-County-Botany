@@ -1,0 +1,52 @@
+# Deep Review sources — Scutellaria wrightii
+Reviewed: 2026-10-03
+Batch: deep-review-batch-023-scutellaria-b041-reconciled
+Status: READY_FOR_APPROVAL
+
+## Taxonomy
+Kew Plants of the World Online — accepted Scutellaria wrightii A.Gray; native Oklahoma to Texas:
+https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A303249-2
+
+## Strict target-zone range
+BONAP/NAPA county map:
+http://bonap.net/TDC/Image/Map?taxonType=Species&taxonId=13724&locationType=County&mapType=Normal
+
+Hays — UT Plant Resources Center Purola Preserve natural flora:
+https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html
+
+Travis — UT Plant Resources Center Travis County Lamiaceae herbarium index:
+https://w3.biosci.utexas.edu/prc/specimens/Lamiaceae.html
+
+Williamson — UT Plant Resources Center county treatment:
+https://w3.biosci.utexas.edu/prc/K12/pdf/Scutellaria%20wrightii
+
+Decision: PASS — Hays, Travis, Williamson.
+
+## Morphology
+UT PRC Williamson County treatment above.
+NPSOT:
+https://www.npsot.org/posts/native-plant/scutellaria-wrightii/
+Texas Wildbuds:
+https://www.texaswildbuds.com/scutellaria-wrightii.html
+
+Key measurements:
+- perennial, bushy, 10–20 cm
+- entire leaves with rounded/obtuse tips
+- minute pubescence; calyx can appear smooth to the naked eye
+- pedicel ca. 3–3.5 mm
+- corolla mostly 13–18 mm
+
+## Look-alikes
+Scutellaria drummondii Williamson treatment:
+https://w3.biosci.utexas.edu/prc/K12/pdf/Scutellaria%20drummondii
+
+Scutellaria ovata subsp. bracteata:
+https://w3.biosci.utexas.edu/prc/K12/pdf/Scutellaria%20ovata%20bracteata
+
+LOOK HERE FIRST: bushy perennial habit + rounded entire leaf tips + minute pubescence + larger upward-curving corolla.
+
+## Photo lead
+User iNaturalist example:
+https://www.inaturalist.org/observations/396666678
+
+Exact final diagnostic selections remain pending approval.
