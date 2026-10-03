@@ -1,0 +1,223 @@
+{
+  "module_id": "sapotaceae-family-backfill-001",
+  "family": "Sapotaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "scope_note": "Authoritative family-recognition backfill for the Hays/Central Texas learner. Corrects the older audit action that referenced Sideroxylon celastrinum: the live project pool contains Sideroxylon lanuginosum, which becomes the actual local anchor. S. celastrinum is not promoted because it is not currently in the Master Plant Pool.",
+  "live_pool_cleanup": {
+    "actions": [
+      "Restored Ericales / Sapotaceae to Sideroxylon lanuginosum in the Master Plant Pool.",
+      "Confirmed Sideroxylon was already present in the hidden genus-family map.",
+      "Corrected the family lesson target from the stale Sideroxylon celastrinum note to the actual live-pool anchor Sideroxylon lanuginosum.",
+      "Recorded an infraspecific taxonomy hold: Hays material is listed as subsp. albicans in the UT Hays flora; current POWO and FNA place that old name differently, while Williamson material is treated as subsp. oblongifolium."
+    ],
+    "pool_genus": "Sideroxylon",
+    "pool_source_rows": 1,
+    "canonical_family_anchor": "Sideroxylon lanuginosum",
+    "infraspecific_rule": "Teach at species level until the Hays/Williamson subspecies-name conflict is explicitly reconciled."
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start with a woody plant with alternate simple entire leaves, often with latex, then inspect the axillary flower clusters. Sapotaceae flowers are small and regular with a fused corolla; in Sideroxylon the fertile stamens stand opposite the corolla lobes and alternate with petaloid staminodes. Confirm with a superior multi-loculed ovary and a fleshy berry containing a hard glossy seed.",
+    "strongest_field_confirmation": "Woody habit + sticky/milky latex when naturally exposed + alternate entire leaves + small axillary fascicles + sympetalous radial flowers with stamens opposite corolla lobes and alternating staminodes + fleshy berry + hard shiny seed.",
+    "core_characters": [
+      "Trees or shrubs, sometimes spiny.",
+      "Latex nearly always present in bark, twigs, petioles and/or fruit; often white and sticky.",
+      "Leaves simple, usually alternate/spiral and entire; stipules absent or short-lived.",
+      "Inflorescences commonly compact axillary fascicles/clusters.",
+      "Flowers bisexual and radial in the local Sideroxylon anchor.",
+      "Calyx usually 5-part in Sideroxylon.",
+      "Corolla fused; in Sideroxylon each corolla lobe may carry lateral appendages.",
+      "Fertile stamens are opposite the corolla lobes.",
+      "Petaloid staminodes alternate with the fertile stamens.",
+      "Ovary superior and multi-loculed, with one ovule per locule.",
+      "Fruit fleshy, commonly berry-like.",
+      "Seeds are hard, often shiny, with a conspicuous hilum/scar."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not make thorns mandatory: Sideroxylon lanuginosum can be armed or unarmed.",
+      "Do not injure trees solely to test latex; use already-broken twigs, fruit, or minimal diagnostic damage only when appropriate.",
+      "Do not confuse the family with Ebenaceae based on black fruit alone.",
+      "Do not assume local Sideroxylon fruit contains several seeds; S. lanuginosum commonly matures a single large seed.",
+      "Do not force a subspecies ID for local S. lanuginosum until the conflicting albicans/oblongifolium treatments are reconciled."
+    ]
+  },
+  "anchor_card": {
+    "taxon": "Sideroxylon lanuginosum",
+    "common_name": "gum bumelia / chittamwood / gum bully",
+    "role": "sole live-pool Sapotaceae anchor",
+    "status": "Priority 1; Hays Local + NPSOT + Personal List; 17 wild observations; species curation pending",
+    "taxonomy": "Current POWO and FNA accept Sideroxylon lanuginosum with three accepted subspecies.",
+    "look_here_first": "Look for a semi-evergreen/deciduous woody plant with alternate entire leaves, woolly or hairy leaf undersides, short spur shoots that may end in sharp spines, small pale axillary flower clusters, and black berries.",
+    "confirms": [
+      "Shrub or small/medium tree.",
+      "Branches may be thorn-tipped/spinescent, but armature is variable.",
+      "Leaves alternate, simple and entire.",
+      "Leaf underside commonly villous/tomentose or woolly, often much paler than the upper surface.",
+      "Small axillary fascicles of numerous flowers.",
+      "Five sepals and usually five pale cream/white/yellowish corolla lobes.",
+      "Five fertile stamens opposite the corolla lobes.",
+      "Five petaloid staminodes alternating with the fertile stamens.",
+      "Superior 5(-8)-loculed ovary, each locule with one ovule.",
+      "Purplish-black to black berry about 7–12 mm in FNA.",
+      "Usually one hard large glossy seed in the local Williamson treatment."
+    ],
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:236052-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250092166",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Sideroxylon%20lanuginosum%20oblongifolium",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html"
+    ],
+    "image_candidates": [
+      {
+        "role": "habit/leaf/fruit reference",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sideroxylon_lanuginosum_kz01.jpg",
+        "creator": "Krzysztof Ziarnek, Kenraiz",
+        "license": "CC BY-SA 4.0",
+        "study_use": true,
+        "public_reuse": true
+      },
+      {
+        "role": "second plant detail reference",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sideroxylon_lanuginosum_kz02.jpg",
+        "creator": "Krzysztof Ziarnek, Kenraiz",
+        "license": "CC BY-SA 4.0",
+        "study_use": true,
+        "public_reuse": true
+      },
+      {
+        "role": "local morphology: thorn, leaf underside, flower, staminodes, fruit and seed",
+        "source_page": "https://w3.biosci.utexas.edu/prc/K12/pdf/Sideroxylon%20lanuginosum%20oblongifolium",
+        "creator": "UT Austin Plant Resources Center",
+        "license": "reuse_not_stated",
+        "study_use": true,
+        "public_reuse": false
+      }
+    ]
+  },
+  "flower_lesson": {
+    "key_point": "Sideroxylon is excellent for teaching staminodes because the flower alternates five fertile stamens with five petaloid sterile staminodes.",
+    "sequence": [
+      "whole axillary flower cluster",
+      "single flower front view",
+      "label one corolla lobe",
+      "label fertile stamen opposite that lobe",
+      "label petaloid staminode between adjacent stamens",
+      "label central style/ovary"
+    ],
+    "memory_line": "stamen opposite petal lobe; staminode in between"
+  },
+  "latex_lesson": {
+    "key_point": "Sticky white latex is a powerful Sapotaceae clue, but it should be treated as supporting evidence rather than an excuse to damage the plant.",
+    "field_rule": "Prefer naturally broken tissue, fallen fruit, an already-cut twig, or an incidental scratch. Do not routinely cut healthy woody plants just to prove the family.",
+    "comparison_value": "Latex is particularly useful against Diospyros and Ilex, which can overlap in leaf and fruit appearance but do not use the same classic Sapotaceae latex cue."
+  },
+  "thorn_lesson": {
+    "key_point": "Short shoots/stems may terminate in sharp spines in Sideroxylon lanuginosum.",
+    "caution": "FNA explicitly describes stems as armed or unarmed, so a thorn is strong supporting evidence when present but its absence does not rule the species out."
+  },
+  "fruit_seed_lesson": {
+    "key_point": "The local gum-bumelia fruit is a small black berry surrounding a disproportionately large, hard, glossy seed.",
+    "local_detail": "Williamson material is described as a roughly 10 mm black berry with a glossy black seed around 7–9 mm long.",
+    "visual_sequence": [
+      "green immature fruit",
+      "ripe black berry",
+      "berry cut open",
+      "single large glossy seed",
+      "seed hilum/scar macro"
+    ],
+    "family_value": "The hard shiny seed with a conspicuous scar is a useful Sapotaceae trait and separates the fruit anatomy from Ilex pyrenes and Diospyros multi-seeded berries."
+  },
+  "infraspecific_taxonomy_hold": {
+    "issue": "Local-source names are not fully concordant.",
+    "Hays_source": "UT Hays flora lists Sideroxylon lanuginosum subsp. albicans.",
+    "Williamson_source": "UT Williamson treatment uses Sideroxylon lanuginosum subsp. oblongifolium.",
+    "POWO": "POWO treats Sideroxylon lanuginosum subsp. albicans as a synonym of subsp. lanuginosum.",
+    "FNA": "FNA lists the old albicans name in synonymy under subsp. oblongifolium and recognizes oblongifolium by white/gray abaxial hairs.",
+    "learner_rule": "Do not resolve individual Central Texas plants below species in the first learner module. Teach Sideroxylon lanuginosum first and flag subspecies as a dedicated later review."
+  },
+  "stale_audit_correction": {
+    "old_action": "Backfill Sideroxylon celastrinum flower, fruit/seed, latex, thorn/twig and leaf architecture.",
+    "corrected_action": "Backfill live-pool Sideroxylon lanuginosum. Sideroxylon celastrinum is a valid Texas-native species but is not currently a Master Plant Pool row and therefore should not replace the actual project anchor.",
+    "comparison_note": "Sideroxylon celastrinum may be useful later as a Sideroxylon species comparison; FNA separates it partly by a glabrate leaf underside lacking prominent tertiary venation versus the hairy/strongly veined S. lanuginosum complex."
+  },
+  "fast_key": [
+    "Woody shrub/tree + alternate entire leaves + sticky/milky latex -> strongly consider Sapotaceae.",
+    "Axillary tiny pale flower fascicles + 5 fertile stamens alternating with 5 petaloid staminodes -> Sideroxylon/Sapotaceae strongly supported.",
+    "Hairy/woolly lower leaf surface + black berry + possible thorn-tipped shoots -> Sideroxylon lanuginosum framework.",
+    "Black berry with one large hard glossy seed -> supports local gum bumelia.",
+    "Large persistent calyx beneath berry + no latex cue -> reconsider Diospyros/Ebenaceae.",
+    "Small drupe with several hard pyrenes + interpetiolar/holly architecture -> reconsider Ilex/Aquifoliaceae."
+  ],
+  "confusable_families": {
+    "Ebenaceae": {
+      "confusion": "Alternate entire leaves, small pale flowers and dark fleshy fruit overlap.",
+      "tie_breaker": "Diospyros has a conspicuous persistent/accrescent calyx under the fruit and lacks the classic sticky milky Sapotaceae latex; local Sideroxylon fruit typically has one large glossy seed."
+    },
+    "Aquifoliaceae": {
+      "confusion": "Woody plants with alternate leaves and small axillary flowers/fruits.",
+      "tie_breaker": "Ilex fruit is a drupe with several hard pyrenes and plants lack the Sapotaceae latex/staminode pattern; Sideroxylon has sympetalous flowers with stamens opposite corolla lobes and alternating staminodes."
+    },
+    "Rhamnaceae": {
+      "confusion": "Thorny woody shrubs with small flowers and dark drupaceous fruit.",
+      "tie_breaker": "Rhamnaceae often has stipules and characteristic venation and lacks sticky milky Sapotaceae latex; Sapotaceae Sideroxylon flowers also show opposite stamens + alternating petaloid staminodes."
+    }
+  },
+  "best_family_visual_sequence": [
+    "Whole gum-bumelia shrub/tree.",
+    "Alternate entire leaf + woolly underside.",
+    "Thorn-tipped short shoot with note: useful, not mandatory.",
+    "Natural latex exposure on twig/fruit.",
+    "Dense axillary flower fascicle.",
+    "Single flower macro labeling 5 corolla lobes.",
+    "Label fertile stamens opposite lobes.",
+    "Label alternating petaloid staminodes.",
+    "Superior multi-loculed ovary diagram.",
+    "Ripe black berry.",
+    "Fruit cut open around one large glossy seed.",
+    "Ebenaceae vs Aquifoliaceae vs Sapotaceae fruit/anatomy comparison."
+  ],
+  "terminology_to_reinforce": [
+    "latex",
+    "fascicle",
+    "sympetalous",
+    "actinomorphic",
+    "stamen",
+    "staminode",
+    "opposite the corolla lobe",
+    "superior ovary",
+    "locule",
+    "villous",
+    "tomentose",
+    "lanuginose",
+    "glabrescent",
+    "spinescent",
+    "berry",
+    "hilum"
+  ],
+  "visual_gaps": [
+    "Rights-safe local thorn/short-shoot macro.",
+    "Rights-safe local underside-leaf wool/hair macro.",
+    "Rights-safe live flower macro clearly separating fertile stamens from staminodes.",
+    "Rights-safe naturally exposed latex image.",
+    "Local ripe-fruit cutaway showing the single glossy seed and hilum.",
+    "Equal-scale Sapotaceae vs Ebenaceae vs Aquifoliaceae fruit anatomy card.",
+    "Dedicated Central Texas S. lanuginosum subspecies reconciliation."
+  ],
+  "completion_assessment": {
+    "family_characters": "complete for first family lesson",
+    "local_anchor_coverage": "Sideroxylon lanuginosum fully represented",
+    "stale_audit_fix": "replaced non-pool Sideroxylon celastrinum target with actual live-pool S. lanuginosum",
+    "infraspecific_guardrail": "Hays albicans vs Williamson oblongifolium / POWO-FNA disagreement preserved; species-level learner only for now",
+    "strongest_teaching_hook": "latex + stamen/staminode alternation + black berry with one large glossy seed",
+    "remaining": "visual polish plus subspecies reconciliation and eventual species-level curation",
+    "recommended_status": "ready_for_first_family_module_build_visual_polish_pending"
+  },
+  "authoritative_sources": [
+    "Kew POWO Sapotaceae family morphology and current Sideroxylon lanuginosum taxonomy",
+    "Flora of North America Sideroxylon genus and S. lanuginosum complex",
+    "UT Austin Hays Flora local Sideroxylon record",
+    "UT Austin Williamson County S. lanuginosum subsp. oblongifolium detailed morphology",
+    "Texas A&M Plants of Texas Rangelands",
+    "Wikimedia Commons CC diagnostic images"
+  ]
+}
