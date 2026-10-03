@@ -199,3 +199,12 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
   .genus-key>div{grid-template-columns:1fr;gap:4px}.genus-key b{display:none}
   .global-compare-picker{grid-template-columns:1fr}.swap-compare{width:100%}.cross-family-signatures{grid-template-columns:1fr}
 }
+
+/* Real-photo bridge for botanical term lessons */
+.term-media-stack{display:grid;gap:10px;align-self:start}
+.term-visual{position:relative}.term-media-label{display:block;padding:7px 9px;border-top:1px solid var(--line);color:var(--muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;background:var(--panel2)}
+.term-real-photo{margin:0;overflow:hidden;border:1px solid var(--line);border-radius:14px;background:var(--panel3)}
+.term-real-photo>img{display:block;width:100%;max-height:360px;object-fit:contain;background:#090d0b}
+.term-real-photo figcaption{display:grid;gap:3px;padding:10px 11px}.term-real-photo figcaption b{color:var(--accent);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em}
+.term-real-photo figcaption span{font-weight:800}.term-real-photo figcaption em{color:#cbd5cd;font-style:normal;font-size:.78rem;line-height:1.4}.term-real-photo figcaption small{color:var(--muted);font-size:.68rem}.term-real-photo figcaption a{width:max-content;color:var(--accent);font-size:.7rem}
+@media(max-width:760px){.term-real-photo>img{max-height:300px}}
