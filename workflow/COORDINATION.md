@@ -87,3 +87,10 @@ When two processes collide:
 - Joey/video extraction and reconciliation may feed species/family research but does not bypass taxonomy/range review.
 
 The goal is not perfect locking. The goal is to make duplicate effort and destructive overlap rare, obvious, and recoverable.
+
+## Higher-taxonomy family backfill
+
+As of 2026-10-03, the current Google Sheet Master Plant Pool has complete genus-to-family coverage: 612 distinct genera and 1,261 taxa resolve to 147 families. The workbook's hidden `_Genus Family Map` is the working genus→family lookup, and the visible `Taxonomy Progress` / `Taxonomy Hierarchy` tabs are the progress and filter views.
+
+Do not start a second blanket genus→family reconciliation for the current pool. Family Backfill should now focus on the 104 families not yet represented in the Family Study Index, while preserving the 36 family lessons already marked Ready unless specific contrary evidence appears. New taxa/genus additions should receive a family mapping when added so the 147-family baseline can change transparently rather than triggering a full re-audit.
+
