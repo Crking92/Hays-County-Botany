@@ -5885,21 +5885,72 @@
       "last_scouted_at": "2026-10-03T19:12:00-05:00",
       "approval_status": null,
       "notes": "Fourth live high-throughput Scout test. Research-only. Preserve range conflicts and non-native comparison roles for Deep Review."
+    },
+    {
+      "id": "passiflora-affinis",
+      "scientific_name": "Passiflora affinis",
+      "common_name": "Bracted Passionflower",
+      "status": "curated_installed",
+      "notes": "B063 PASS — Hays, Travis, Bexar. Edwards Plateau native bracted passionflower installed.",
+      "approval_status": "approved_and_installed",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "passiflora-affinis",
+      "reconciliation_status": "resolved_installed",
+      "family": "Passifloraceae",
+      "genus": "Passiflora",
+      "priority": 0,
+      "queue_group": "B063 Passiflora",
+      "batch_id": "deep-review-batch-065-passiflora-b063",
+      "last_deep_reviewed_at": "2026-10-03T22:30:00-05:00",
+      "curated_at": "2026-10-03"
+    },
+    {
+      "id": "passiflora-foetida",
+      "scientific_name": "Passiflora foetida",
+      "common_name": "Fetid Passionflower",
+      "status": "range_hold_reviewed",
+      "notes": "B063 HOLD — Bexar locked; native South Texas species but fewer than 3 exact target-zone counties locked. Strong confusion risk with introduced P. lanuginosa/ciliata-type plants in San Antonio.",
+      "approval_status": "hold_range_evidence",
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed_range_hold",
+      "reconciliation_status": "preserved_range_hold",
+      "family": "Passifloraceae",
+      "genus": "Passiflora",
+      "priority": 0,
+      "queue_group": "B063 Passiflora",
+      "batch_id": "deep-review-batch-065-passiflora-b063",
+      "last_deep_reviewed_at": "2026-10-03T22:30:00-05:00"
+    },
+    {
+      "id": "passiflora-lanuginosa",
+      "scientific_name": "Passiflora lanuginosa",
+      "common_name": "Scarletfruit Passionflower",
+      "status": "target_zone_fail_reviewed",
+      "notes": "B063 FAIL — current Kew native range E Mexico to Guatemala; Texas occurrences are introduced. Old P. foetida var. lanuginosa synonym reconciled.",
+      "approval_status": "target_zone_fail_not_installed",
+      "native_range_status": "FAIL_TARGET_ZONE",
+      "canonical_status": "not_installed_target_zone_fail",
+      "reconciliation_status": "preserved_nonlocal_comparison",
+      "family": "Passifloraceae",
+      "genus": "Passiflora",
+      "priority": 0,
+      "queue_group": "B063 Passiflora",
+      "batch_id": "deep-review-batch-065-passiflora-b063",
+      "last_deep_reviewed_at": "2026-10-03T22:30:00-05:00"
     }
   ],
   "last_scout_run_at": "2026-10-03T21:21:32.917154+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-064-grindelia-b062",
-    "reviewed_at": "2026-10-03T22:10:00-05:00",
-    "status": "one_pass_three_holds_one_synonym_merge",
+    "batch_id": "deep-review-batch-065-passiflora-b063",
+    "reviewed_at": "2026-10-03T22:30:00-05:00",
+    "status": "one_pass_one_hold_one_fail",
     "taxa": [
-      "grindelia-nuda",
-      "grindelia-adenodonta",
-      "grindelia-squarrosa",
-      "grindelia-ciliata",
-      "grindelia-papposa"
+      "passiflora-affinis",
+      "passiflora-foetida",
+      "passiflora-lanuginosa"
     ],
-    "note": "B062 closed: G. nuda installed; adenodonta/squarrosa/ciliata retained as holds; papposa merged to ciliata. Canonical species count 220."
+    "note": "B063 closed: P. affinis installed; P. foetida retained as range HOLD; P. lanuginosa target-zone FAIL/nonlocal comparison. Canonical species count 221."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
