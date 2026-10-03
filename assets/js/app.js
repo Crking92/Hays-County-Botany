@@ -688,6 +688,8 @@ function structuredTeachingHTML(value){
   return '<p>'+esc(formatValue(value))+'</p>';
 }
 function familyVisualThumb(sp,step,cls){
+  const external=familyExternalImageUrl(step);
+  if(external) return '<img class="'+cls+'" src="'+esc(external)+'" alt="'+esc((step&&step.photo_role)||scientificName(sp))+'" loading="lazy">';
   const imgs=imagesFor(sp);
   let idx=Number(step && step.anchor_image_index);
   if(!Number.isInteger(idx) || idx<0 || idx>=imgs.length) idx=0;
