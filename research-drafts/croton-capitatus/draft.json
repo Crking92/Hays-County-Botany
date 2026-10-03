@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-croton-test-01",
+  "created_at": "2026-10-03T17:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 300,
+    "priority": 3,
+    "note": "Selected from the current unfinished Master Plant Pool after manifest/claims/queue/draft collision checks."
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Croton capitatus Michx.",
+    "family": "Euphorbiaceae",
+    "genus": "Croton",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America treat Croton capitatus as an accepted species.",
+      "Older names/treatments include Croton capitatus var. genuinus and several generic combinations."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout may collect leads only. Deep Review must verify exact target-zone counties before PASS/FAIL/HOLD.",
+    "leads": [
+      "Master Plant Pool marks this taxon Hays Local; this is a source-pool lead, not final county nativity evidence.",
+      "POWO lists Texas within the native state-level range.",
+      "BONAP's Croton county-map page includes Croton capitatus; Deep Review must inspect the county map and record exact target-zone counties before any PASS/FAIL decision."
+    ],
+    "primary_map_source": "https://bonap.net/Napa/TaxonMaps/Genus/County/Croton"
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with the pistillate sepals and leaf tips: long pistillate sepals that flare/recurve outward after anthesis plus at least some blunt or mucronate leaves are strong C. capitatus cues.",
+    "diagnostic_traits": [
+      "annual monoecious herb",
+      "stems and leaves densely stellate-hairy with whitish to pale-yellow woolly pubescence",
+      "leaves ovate to lanceolate-elliptic; some tips obtuse/rounded or mucronate",
+      "pistillate sepals 6–9 and long, persistent, with tips spreading/recurving outward",
+      "3-locular capsule; three styles repeatedly divided"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Croton lindheimeri",
+      "separator": "C. lindheimeri tends toward ochraceous young pubescence, consistently acute leaf tips, and pistillate sepal tips that stay straight to slightly incurved rather than flaring outward."
+    },
+    {
+      "taxon": "Croton lindheimerianus",
+      "separator": "C. lindheimerianus is generally a lower, more dichotomously branched annual with smaller pistillate sepals and only six terminal style segments."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "iNaturalist guide credit / Vanderbilt Bioimages",
+      "source_page": "https://www.inaturalist.org/guide_taxa/276254",
+      "direct_or_origin_url": "http://bioimages.vanderbilt.edu/baskauf/36983",
+      "creator": "Steven J. Baskauf",
+      "license": "CC BY (as credited by iNaturalist guide)",
+      "role": "habit + woolly foliage",
+      "reuse": "candidate; verify original file/license before public reuse"
+    },
+    {
+      "source": "Kansas Native Plants",
+      "source_page": "https://kansasnativeplants.com/guide/plant_detail.php?plnt_id=280",
+      "direct_or_origin_url": "https://kansasnativeplants.com/guide/plant_image.php?file_id=1&plnt_id=280&size=640",
+      "creator": "not captured in Scout pass",
+      "license": "unverified",
+      "role": "inflorescence + leaves",
+      "reuse": "private-study candidate until license verified"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole plant habit",
+    "leaf-tip comparison",
+    "pistillate sepals at/after anthesis",
+    "mature fruit and persistent sepals"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
