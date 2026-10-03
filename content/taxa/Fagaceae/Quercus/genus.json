@@ -1,3 +1,96 @@
 {
-  "rank":"genus","family":"Fagaceae","name":"Quercus","authority":"L.","common_group":"Oaks","project_scope":{"core_species_count":6,"species_ids":["quercus-fusiformis","quercus-buckleyi","quercus-sinuata-var-breviloba","quercus-stellata","quercus-laceyi","quercus-vaseyana"],"note":"Core set follows the existing oak module in the Hays Botany ID tracker; expand later rather than forcing every Central Texas oak into the first pass."},"study_strategy":{"priority":["mature leaf shape AND underside texture","bristle tips vs rounded/mucronate tips","twig and bud pubescence","bark","acorn shape","cupule depth and scale texture","annual vs biennial acorn maturation when known"],"warning":"Leaf shape alone can be misleading, especially in juvenile shoots and hybridizing oak populations."},"quick_key":[{"if":"Subevergreen/live-oak habit + leathery narrow leaves + spindle-shaped acute acorn in a deep goblet/funnel cup","then":"Quercus fusiformis"},{"if":"Deeply lobed deciduous leaf with sharp bristle/awn tips","then":"Quercus buckleyi"},{"if":"Often cruciform leaf + thick yellowish hairy twigs + harsh stellate hairs beneath","then":"Quercus stellata"},{"if":"Blue-green/glaucous obovate-elliptic leaves + pale papery bark + flattened barrel-like acorn","then":"Quercus laceyi"},{"if":"Low thicket-forming limestone shrub/small tree + flaky papery bark + very shallow saucer cupule","then":"Quercus sinuata var. breviloba"},{"if":"Narrow leathery leaves with a few coarse teeth + dark bark exfoliating in strips + tuberculate cupule","then":"Quercus vaseyana"}],"curation_status":{"version":"1.0-core","last_reviewed":"2026-09-30"}
+  "rank": "genus",
+  "family": "Fagaceae",
+  "name": "Quercus",
+  "authority": "L.",
+  "common_group": "Oaks",
+  "project_scope": {
+    "core_species_count": 6,
+    "species_ids": [
+      "quercus-fusiformis",
+      "quercus-buckleyi",
+      "quercus-sinuata-var-breviloba",
+      "quercus-stellata",
+      "quercus-laceyi",
+      "quercus-vaseyana"
+    ],
+    "note": "Core set follows the existing oak module in the Hays Botany ID tracker; expand later rather than forcing every Central Texas oak into the first pass."
+  },
+  "study_strategy": {
+    "priority": [
+      "mature leaf shape AND underside texture",
+      "bristle tips vs rounded/mucronate tips",
+      "twig and bud pubescence",
+      "bark",
+      "acorn shape",
+      "cupule depth and scale texture",
+      "annual vs biennial acorn maturation when known"
+    ],
+    "warning": "Leaf shape alone can be misleading, especially in juvenile shoots and hybridizing oak populations."
+  },
+  "quick_key": [
+    {
+      "if": "Subevergreen/live-oak habit + leathery narrow leaves + spindle-shaped acute acorn in a deep goblet/funnel cup",
+      "then": "Quercus fusiformis"
+    },
+    {
+      "if": "Deeply lobed deciduous leaf with sharp bristle/awn tips",
+      "then": "Quercus buckleyi"
+    },
+    {
+      "if": "Often cruciform leaf + thick yellowish hairy twigs + harsh stellate hairs beneath",
+      "then": "Quercus stellata"
+    },
+    {
+      "if": "Blue-green/glaucous obovate-elliptic leaves + pale papery bark + flattened barrel-like acorn",
+      "then": "Quercus laceyi"
+    },
+    {
+      "if": "Low thicket-forming limestone shrub/small tree + flaky papery bark + very shallow saucer cupule",
+      "then": "Quercus sinuata var. breviloba"
+    },
+    {
+      "if": "Narrow leathery leaves with a few coarse teeth + dark bark exfoliating in strips + tuberculate cupule",
+      "then": "Quercus vaseyana"
+    }
+  ],
+  "curation_status": {
+    "version": "1.1-b065",
+    "last_reviewed": "2026-10-03"
+  },
+  "b065_eastern_comparison": {
+    "selection_mode": "B065 eastern-oak comparison cleanup",
+    "species_ids": [],
+    "species_count": 0,
+    "nonlocal_comparisons": [
+      "quercus-lyrata",
+      "quercus-michauxii",
+      "quercus-nigra",
+      "quercus-phellos"
+    ],
+    "anchors": [
+      "quercus-fusiformis",
+      "quercus-buckleyi",
+      "quercus-stellata"
+    ]
+  },
+  "b065_study_strategy": {
+    "priority": [
+      "white-oak vs red-oak group",
+      "leaf shape and bristle tips",
+      "leaf underside pubescence",
+      "acorn cup depth",
+      "acorn maturation timing",
+      "native habitat/range"
+    ],
+    "warning": "All four B065 taxa are Texas natives, but their native Texas ranges are eastern/coastal rather than the Central Texas target zone. Landscape occurrence around Austin/Hays does not make them target-zone native."
+  },
+  "b065_comparison_lesson": {
+    "quick_split": [
+      "Q. lyrata — overcup nearly encloses acorn; rounded-lobed white-oak leaf.",
+      "Q. michauxii — huge rounded-toothed leaf with gray pubescent underside; large sweet acorn.",
+      "Q. nigra — variable wedge/spatula-shaped leaf, often broad shallowly 3-lobed at tip.",
+      "Q. phellos — narrow willow-like entire leaves with a tiny bristle tip."
+    ]
+  }
 }
