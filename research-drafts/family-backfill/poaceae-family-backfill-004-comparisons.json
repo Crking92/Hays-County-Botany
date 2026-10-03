@@ -1,0 +1,165 @@
+{
+  "batch_id": "poaceae-family-backfill-004",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "focus": "visual comparison layer for Central Texas Poaceae",
+  "comparison_cards": [
+    {
+      "id": "poa-comp-01",
+      "title": "Three awns vs one awn",
+      "taxa": [
+        "Aristida purpurea",
+        "Nassella leucotricha"
+      ],
+      "look_first": "Pick one mature fertile floret and count the awns.",
+      "left": {
+        "taxon": "Aristida purpurea",
+        "diagnostic": "Lemma terminates in three awns.",
+        "supporting": [
+          "narrow commonly involute leaves",
+          "very short ciliate ligule"
+        ]
+      },
+      "right": {
+        "taxon": "Nassella leucotricha",
+        "diagnostic": "One conspicuous long twisted/bent awn on the fertile floret.",
+        "supporting": [
+          "cool-season bunchgrass",
+          "wispy open panicle"
+        ]
+      },
+      "tie_breaker": "Three awns = Aristida; one long twisted awn = Nassella leucotricha.",
+      "authoritative_sources": [
+        "https://research.fs.usda.gov/feis/species-reviews/aripur",
+        "https://www.nrcs.usda.gov/plantmaterials/txpmcpg13555.pdf"
+      ],
+      "visual_assets": [
+        {
+          "taxon": "Aristida purpurea",
+          "source_page": "https://commons.wikimedia.org/wiki/Category:Aristida",
+          "role": "three_awn_spikelet",
+          "public_reuse": true,
+          "license": "open Wikimedia asset; use exact file metadata before promotion"
+        },
+        {
+          "taxon": "Nassella leucotricha",
+          "source_page": "https://commons.wikimedia.org/wiki/Category:Nassella_leucotricha",
+          "role": "single_twisted_awn",
+          "public_reuse": true,
+          "license": "open Wikimedia asset; exact file metadata required before promotion"
+        }
+      ]
+    },
+    {
+      "id": "poa-comp-02",
+      "title": "Switchgrass vs Indiangrass before flowering",
+      "taxa": [
+        "Panicum virgatum",
+        "Sorghastrum nutans"
+      ],
+      "look_first": "Pull a leaf blade away from the culm and inspect the collar region.",
+      "left": {
+        "taxon": "Panicum virgatum",
+        "diagnostic": "Dense cluster/ring of long white hairs at the blade base/collar, with a membranous ligule.",
+        "supporting": [
+          "prominent pale midrib",
+          "large open airy panicle when flowering"
+        ]
+      },
+      "right": {
+        "taxon": "Sorghastrum nutans",
+        "diagnostic": "Paired upright 'rabbit-ear' / 'gun-sight' horns at the collar; nodes may be hairy.",
+        "supporting": [
+          "membranous ligule",
+          "more contracted silky awned panicle when flowering"
+        ]
+      },
+      "tie_breaker": "White hairy 'armpit' = switchgrass; upright collar horns = Indiangrass.",
+      "authoritative_sources": [
+        "https://extension.illinois.edu/blogs/grasses-glance/2023-08-07-identifying-switchgrass-warm-season-grass",
+        "https://extension.illinois.edu/blogs/grasses-glance/2022-09-12-identifying-warm-season-grasses-indiangrass",
+        "https://extension.okstate.edu/programs/plant-id/plant-profiles/indiangrass"
+      ]
+    },
+    {
+      "id": "poa-comp-03",
+      "title": "Grass vs sedge vs rush",
+      "taxa": [
+        "Poaceae",
+        "Cyperaceae",
+        "Juncaceae"
+      ],
+      "look_first": "Run your fingers down the stem and look for nodes before worrying about the flower head.",
+      "groups": {
+        "Poaceae": [
+          "usually round/flattened culm",
+          "obvious nodes/joints",
+          "leaf sheath ends at nodes",
+          "collar/ligule region",
+          "spikelets"
+        ],
+        "Cyperaceae": [
+          "usually solid and often triangular culm",
+          "no grass-like nodes",
+          "commonly 3-ranked leaves",
+          "closed sheath common"
+        ],
+        "Juncaceae": [
+          "usually round solid culm",
+          "no grass-like nodes",
+          "few/basal leaves common",
+          "small flowers with 6 tepals and a capsule"
+        ]
+      },
+      "tie_breaker": "Nodes strongly favor grass; triangular solid culm strongly favors sedge; round solid node-less culm plus 6-tepaled flowers favors rush.",
+      "caution": "These are field heuristics with exceptions; reproductive structures confirm the family.",
+      "authoritative_sources": [
+        "https://extension.illinois.edu/blogs/grasses-glance/2023-04-17-telling-apart-grasses-sedges-rushes"
+      ]
+    },
+    {
+      "id": "poa-comp-04",
+      "title": "Two-door grass ID workflow",
+      "taxa": [
+        "Poaceae"
+      ],
+      "look_first": "Choose the door based on whether the plant is flowering.",
+      "flowering_path": [
+        "inflorescence architecture",
+        "rachis/branches",
+        "spikelet attachment",
+        "glumes",
+        "floret",
+        "lemma/palea",
+        "awn/bristles",
+        "reproductive parts"
+      ],
+      "vegetative_path": [
+        "culm/node",
+        "blade",
+        "sheath",
+        "collar",
+        "ligule",
+        "auricles/horns",
+        "hairs",
+        "rhizome/stolon/tiller habit"
+      ],
+      "teaching_rule": "Do not identify a grass from panicle color or overall fuzziness alone.",
+      "authoritative_sources": [
+        "https://extension.illinois.edu/grasses/grass-identification",
+        "https://extension.illinois.edu/blogs/grasses-glance/2022-04-25-starting-basics-grass-identification"
+      ]
+    }
+  ],
+  "completion_assessment": {
+    "family_level_structure": "sufficient for first learner build",
+    "priority_1_queue": "resolved",
+    "remaining_visual_polish": [
+      "locally sourced/public-reuse collar macros for more genera",
+      "exact spikelet macro for Eragrostis intermedia",
+      "exact local wild-type spikelet for Panicum virgatum",
+      "optional local sedge/rush comparison photos"
+    ],
+    "recommended_status": "ready_for_first_family_module_build"
+  }
+}
