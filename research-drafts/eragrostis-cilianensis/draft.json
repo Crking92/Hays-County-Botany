@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_COMPARISON_RECOMMENDED",
+  "batch_id": "deep-review-batch-027-eragrostis-b018-part2",
+  "created_at": "2026-10-03T15:25:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 415,
+    "source_scientific_name": "Eragrostis cilianensis",
+    "wild_observations": 1,
+    "source_count": 1,
+    "hays_local": false
+  },
+  "taxonomy": {
+    "accepted_name": "Eragrostis cilianensis (All.) Vignolo ex Janch.",
+    "rank": "species",
+    "order": "Poales",
+    "family": "Poaceae",
+    "genus": "Eragrostis",
+    "species": "cilianensis",
+    "status": "VERIFIED",
+    "note": "Accepted by Kew/POWO; Old World native and introduced in Texas."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_native_counties": [],
+    "evidence": [
+      "Kew/POWO treats Texas as introduced.",
+      "ITIS/USDA-derived status treats continental U.S. populations as introduced."
+    ],
+    "blocking_issue": "Non-native to Texas.",
+    "guardrail": "Wild occurrence does not equal native status."
+  },
+  "morphology": {
+    "look_here_first": "Annual habit + coarse many-flowered spikelets + crater-like glands on panicle branches, pedicels, glumes or lemma keels.",
+    "diagnostic_traits": [
+      "annual tufted grass",
+      "10–90 cm culms",
+      "wart-like/crateriform glands often present",
+      "ligule a fringe of hairs",
+      "stiff/coarse panicle",
+      "glandular branches and pedicels",
+      "broad many-flowered spikelets",
+      "strong odor can support ID"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Eragrostis intermedia",
+      "separator": "Perennial with a finer transparent panicle and no conspicuous gland-dotted coarse spikelets."
+    },
+    {
+      "taxon": "Eragrostis trichodes",
+      "separator": "Tall perennial with huge effuse panicle and long sheath-throat hairs."
+    }
+  ],
+  "learner_role": "NON_NATIVE_INVASIVE_COMPARISON_RECOMMENDED",
+  "native_metrics_excluded": true,
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole annual tuft",
+      "coarse panicle",
+      "glandular stem/branches",
+      "many-flowered spikelet",
+      "lemma/glume gland macro",
+      "native comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/311605517",
+    "reference_candidates": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1104599-2/general-information"
+    ]
+  },
+  "approval_status": "READY_FOR_COMPARISON_APPROVAL",
+  "installation_guardrail": "Install only as a labeled non-native comparison excluded from native metrics."
+}
