@@ -1,0 +1,409 @@
+{
+  "module_id": "fabaceae-family-verification-001",
+  "family": "Fabaceae",
+  "created_at": "2026-10-03",
+  "status": "researched_and_persisted",
+  "verification_type": "joey_sufficient_authoritative_verification",
+  "scope_note": "Light verification/polish pass. Joey coverage is already strong. This package updates the learner from the traditional three-subfamily shorthand to the modern six-subfamily framework while preserving papilionoid/caesalpinioid/mimosoid as useful flower-architecture terms.",
+  "sheet_health_note": {
+    "issue": "Master Plant Pool array formulas in A-D and F are currently #REF because manually populated lower rows block expansion (first reported collision at row 179).",
+    "action_taken": "No Fabaceae Master Plant Pool rows were manually rewritten during this pass. Family-level counts remain grounded in Family Study Index and Genus Study Index until the pool formula collision is repaired.",
+    "deferred": "Row-level Fabales/Fabaceae synchronization in Master Plant Pool should be done only after the array spill problem is reconciled."
+  },
+  "tracker_scope": {
+    "family_study_index": {
+      "genera": 7,
+      "source_rows": 24,
+      "curated": 5,
+      "remaining": 19,
+      "priority_1_remaining": 3,
+      "priority_2_remaining": 7,
+      "priority_3_remaining": 9,
+      "my_inat_source_rows": 12,
+      "three_plus_source_rows": 8,
+      "wild_observations": 98
+    },
+    "mapped_genera": [
+      "Amorpha",
+      "Baptisia",
+      "Cercis",
+      "Dalea",
+      "Lupinus",
+      "Senna",
+      "Sophora"
+    ],
+    "genus_index": [
+      {
+        "genus": "Dalea",
+        "source_rows": 12,
+        "curated": 1,
+        "anchor": "Dalea purpurea"
+      },
+      {
+        "genus": "Senna",
+        "source_rows": 3,
+        "curated": 1,
+        "anchor": "Senna roemeriana"
+      },
+      {
+        "genus": "Amorpha",
+        "source_rows": 3,
+        "curated": 1,
+        "anchor": "Amorpha fruticosa"
+      },
+      {
+        "genus": "Cercis",
+        "source_rows": 3,
+        "curated": 1,
+        "anchor": "Cercis canadensis var. texensis"
+      },
+      {
+        "genus": "Sophora",
+        "source_rows": 1,
+        "curated": 0
+      },
+      {
+        "genus": "Lupinus",
+        "source_rows": 1,
+        "curated": 1,
+        "anchor": "Lupinus texensis"
+      },
+      {
+        "genus": "Baptisia",
+        "source_rows": 1,
+        "curated": 0
+      }
+    ]
+  },
+  "joey_coverage": {
+    "audit_records": 36,
+    "exact_media_records": 25,
+    "audit_summary": "Outstanding flower and fruit diversity: Tephrosia, Indigofera, Lupinus, Dalea, Mimosa, Senna, Aeschynomene, Inga and others.",
+    "inspected_exact_media": [
+      {
+        "source_file": "research-drafts/joey-santore/batch-014-sandsheet-florida-exact-morphology.json",
+        "taxon": "Tephrosia lindheimeri",
+        "record_ids": [
+          "j014-002",
+          "j014-004"
+        ],
+        "strengths": [
+          "compound foliage",
+          "papilionoid flower side",
+          "banner/wing/keel region",
+          "calyx",
+          "pubescence"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-014-sandsheet-florida-exact-morphology.json",
+        "taxon": "Indigofera sp.",
+        "record_ids": [
+          "j014-007",
+          "j014-008"
+        ],
+        "strengths": [
+          "papilionoid flower",
+          "banner/wings/keel",
+          "compound leaves",
+          "developing fruit"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-014-sandsheet-florida-exact-morphology.json",
+        "taxon": "Lupinus diffusus",
+        "record_ids": [
+          "j014-017",
+          "j014-018"
+        ],
+        "strengths": [
+          "papilionoid closeup",
+          "banner/wing/keel architecture",
+          "calyx",
+          "anthers/pollen",
+          "pubescence"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-007-gypsum-badlands-exact-morphology.json",
+        "taxon": "Senegalia greggii",
+        "record_id": "j007-003",
+        "strengths": [
+          "legume fruit",
+          "pod valves",
+          "seeds",
+          "bipinnate foliage"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-007-gypsum-badlands-exact-morphology.json",
+        "taxon": "Vachellia constricta",
+        "record_id": "j007-014",
+        "strengths": [
+          "paired spines",
+          "bipinnate leaves",
+          "globose flower heads",
+          "young fruits"
+        ]
+      }
+    ],
+    "assessment": "Joey coverage is sufficient for first family build. Remaining work is local visual locking and exception cards."
+  },
+  "modern_classification": {
+    "family_names": [
+      "Fabaceae",
+      "Leguminosae"
+    ],
+    "accepted_framework": "Six monophyletic subfamilies: Cercidoideae, Detarioideae, Duparquetioideae, Dialioideae, Caesalpinioideae, Papilionoideae.",
+    "mimosoid_note": "Traditional Mimosoideae is not treated as a separate subfamily in the modern six-subfamily system; it is the mimosoid clade nested within Caesalpinioideae.",
+    "local_tracker_subfamily_breadth": [
+      "Papilionoideae — Amorpha, Baptisia, Dalea, Lupinus, Sophora",
+      "Cercidoideae — Cercis",
+      "Caesalpinioideae — Senna",
+      "mimosoid-clade flower architecture represented strongly in Joey media by Senegalia and Vachellia even though those genera are not currently among the seven Family Study Index genera"
+    ],
+    "learner_rule": "Use papilionoid, caesalpinioid-like and mimosoid as visual flower architectures. Do not present them as the old three formal subfamilies."
+  },
+  "family_lesson": {
+    "where_to_look_first": "Find the fruit first. A one-carpel superior ovary that matures into a legume/pod or a modified legume is the strongest family thread. Then inspect alternate stipulate leaves, pulvini, and flower architecture.",
+    "strongest_field_confirmation": "Usually alternate stipulate leaves, often compound and pulvinus-bearing + one superior carpel/one locule + fruit derived from that single carpel, most commonly a legume/pod.",
+    "authoritative_framework": [
+      "Habit ranges from herbs to shrubs, trees, vines and lianas.",
+      "Stipules usually present, although sometimes small or early-deciduous and sometimes modified into spines.",
+      "Leaves usually alternate and may be simple, trifoliolate, pinnate, palmately compound or bipinnate.",
+      "Pulvini are common at petiole and/or leaflet bases and may drive leaf movement.",
+      "Flowers range from strongly bilateral pea flowers to weakly bilateral/irregular or radially symmetrical mimosoid flowers.",
+      "Ovary is superior and usually formed from one carpel, one locule.",
+      "Fruit is usually a legume, but may be indehiscent, winged, fleshy, coiled, lomentaceous or otherwise modified.",
+      "Seeds often have hard coats and little or no endosperm."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not teach Fabaceae as always having a pea flower.",
+      "Do not teach all legumes as dehiscent pods splitting cleanly into two valves.",
+      "Do not teach all leaves as pinnately compound; Cercis is simple-leaved and Lupinus is palmately compound.",
+      "Do not teach stipules as always obvious; they may be minute or caducous.",
+      "Do not use nitrogen-fixing nodules as a field ID test or uproot plants to look for them.",
+      "Do not teach Mimosoideae as a current formal subfamily.",
+      "Do not assume 10 stamens; number and fusion vary enormously across the family."
+    ]
+  },
+  "flower_architecture_cards": [
+    {
+      "architecture": "papilionoid",
+      "local_examples": [
+        "Lupinus",
+        "Baptisia",
+        "Sophora",
+        "many Dalea"
+      ],
+      "anatomy": [
+        "1 standard/banner petal",
+        "2 wing petals",
+        "2 keel petals",
+        "bilateral flower",
+        "stamens often 10 and commonly fused in various patterns",
+        "one superior carpel"
+      ],
+      "anchor": "Lupinus texensis",
+      "anchor_details": [
+        "Palmately compound 5–6 leaflet leaves with stipules.",
+        "Five petals: banner, two wings, two fused keel petals.",
+        "Ten monadelphous stamens in the UT Williamson treatment.",
+        "Superior 1-chambered ovary.",
+        "Dehiscent multi-seeded legume whose valves separate and twist."
+      ]
+    },
+    {
+      "architecture": "caesalpinioid / Cercis-like",
+      "local_examples": [
+        "Cercis",
+        "Senna"
+      ],
+      "anatomy": [
+        "Flowers bilateral to irregular but do not use the standard pea-flower overlap pattern.",
+        "Petals often free and unequal.",
+        "Stamens often free or heteromorphic depending on genus.",
+        "Single superior carpel still ties the architecture back to Fabaceae."
+      ],
+      "anchor": "Cercis canadensis var. texensis",
+      "anchor_details": [
+        "Simple heart-shaped leaves are a major leaf exception.",
+        "Flowers arise in clustered racemes on older woody twigs/short shoots.",
+        "Five unequal free petals; keel petals are not fused.",
+        "Ten free stamens.",
+        "Strongly flattened legume."
+      ]
+    },
+    {
+      "architecture": "mimosoid clade",
+      "role": "family-breadth visual architecture; modern Caesalpinioideae, not a separate subfamily",
+      "joey_examples": [
+        "Senegalia greggii",
+        "Vachellia constricta"
+      ],
+      "anatomy": [
+        "Usually bipinnate leaves.",
+        "Flowers tiny and radial in heads or spikes.",
+        "The showy part is frequently many long exserted stamens rather than large petals.",
+        "Legume fruit remains the family anchor."
+      ]
+    }
+  ],
+  "exception_cards": [
+    {
+      "taxon": "Amorpha",
+      "lesson": "papilionoid lineage with most of the pea corolla missing",
+      "key_points": [
+        "Corolla reduced to one standard/banner petal.",
+        "Wings and keel absent.",
+        "Ten stamens remain conspicuous.",
+        "Fruit is a small indehiscent legume, often one-seeded.",
+        "This prevents the learner from making 'banner + wings + keel' mandatory for Fabaceae."
+      ]
+    },
+    {
+      "taxon": "Dalea",
+      "lesson": "tiny one-seeded indehiscent legume",
+      "key_points": [
+        "Headlike spikes of small bilateral flowers.",
+        "Petal/stamen organization is highly specialized.",
+        "The fruit can be tiny, indehiscent and only one-seeded rather than a familiar bean pod.",
+        "UT Williamson Dalea treatments show the pod being shed within the persistent calyx."
+      ]
+    },
+    {
+      "taxon": "Cercis",
+      "lesson": "simple leaf + nonclassic legume flower",
+      "key_points": [
+        "Simple cordate leaves rather than compound leaves.",
+        "Flowers borne directly from woody twigs/short shoots.",
+        "Five unequal petals and ten free stamens.",
+        "Flattened legume makes family membership obvious after flowering."
+      ]
+    },
+    {
+      "taxon": "Senna",
+      "lesson": "caesalpinioid flower architecture",
+      "key_points": [
+        "Useful counterexample to the pea-flower pattern.",
+        "Yellow irregular flowers with unequal stamens/anthers in many Senna species.",
+        "Still resolves to one superior carpel and a legume fruit."
+      ]
+    },
+    {
+      "taxon": "Sophora",
+      "lesson": "woody papilionoid legume with conspicuous seeds",
+      "key_points": [
+        "Evergreen woody local form in S. secundiflora.",
+        "Pinnate leaves and pea-like flowers.",
+        "Woody necklace-like legume provides a strong fruit cue.",
+        "Red seeds are visually distinctive; do not use ingestion/taste as an ID test."
+      ]
+    }
+  ],
+  "fruit_lesson": {
+    "key_point": "The legume is the safest structural thread through the family's extreme floral diversity.",
+    "sequence": [
+      "one superior carpel in flower",
+      "young ovary elongating",
+      "mature classic two-valved pod",
+      "pod opened to show seeds along one suture",
+      "compare modified fruits: Dalea one-seeded indehiscent pod, Cercis flattened pod, Lupinus dehiscent twisting pod, Amorpha tiny indehiscent pod"
+    ],
+    "terminology": [
+      "legume",
+      "pod",
+      "valve",
+      "dorsal suture",
+      "ventral suture",
+      "loment",
+      "indehiscent",
+      "dehiscent",
+      "single carpel"
+    ]
+  },
+  "leaf_lesson": {
+    "key_point": "Compound leaves are common, but the family is too diverse for 'legume = pinnate leaf.'",
+    "comparison": [
+      "Lupinus — palmately compound",
+      "Dalea / Amorpha / Sophora — pinnate",
+      "Cercis — simple cordate",
+      "mimosoid clade — commonly bipinnate",
+      "stipules and pulvini remain useful supporting characters"
+    ]
+  },
+  "confusable_families": {
+    "Polygalaceae": {
+      "confusion": "Some milkworts have superficially pea-like bilateral flowers.",
+      "tie_breaker": "Polygalaceae usually has simple exstipulate leaves and a highly modified sepal/petal flower, then a capsule rather than a one-carpel legume. Fabaceae typically has stipules/pulvini and the single-carpel pod framework."
+    },
+    "Rosaceae": {
+      "confusion": "Both commonly have stipules and compound leaves.",
+      "tie_breaker": "Rosaceae commonly has a hypanthium and many free stamens/carpels or fused pome ovaries, with drupes/pomes/achenes. Fabaceae centers on one superior carpel producing a legume."
+    },
+    "Bignoniaceae": {
+      "confusion": "Some woody plants have compound leaves and showy bilateral flowers.",
+      "tie_breaker": "Bignoniaceae generally has opposite leaves, a fused corolla and a 2-carpellate capsule. Fabaceae usually has alternate stipulate leaves, free petals in its showy bilateral forms and a one-carpel legume."
+    }
+  },
+  "best_visual_sequence": [
+    "Open with four fruits: Lupinus pod, Cercis flattened pod, Dalea tiny indehiscent pod, Senegalia/Vachellia pod.",
+    "Leaf breadth card: simple Cercis / palmate Lupinus / pinnate Dalea-Amorpha / bipinnate mimosoid.",
+    "Papilionoid flower exploded: banner, wings, keel.",
+    "Lupinus flower + staminal column + one superior ovary.",
+    "Cercis flower showing unequal free petals and free stamens.",
+    "Mimosoid head showing tiny flowers and exserted stamens.",
+    "Amorpha one-petal exception.",
+    "Young single carpel becoming pod.",
+    "Classic pod opened along sutures.",
+    "Modified-legume fruit comparison.",
+    "Fabaceae vs Polygalaceae vs Rosaceae comparison."
+  ],
+  "terminology_to_reinforce": [
+    "stipule",
+    "pulvinus",
+    "pinnate",
+    "bipinnate",
+    "palmately compound",
+    "papilionoid",
+    "standard / banner / vexillum",
+    "wing",
+    "keel",
+    "monadelphous",
+    "diadelphous",
+    "single carpel",
+    "superior ovary",
+    "legume",
+    "loment",
+    "dehiscent",
+    "indehiscent"
+  ],
+  "visual_gaps": [
+    "Local Fabaceae one-carpel ovary-to-pod developmental sequence.",
+    "Local stipule + pulvinus macro.",
+    "Equal-scale local simple/palmate/pinnate/bipinnate leaf architecture card.",
+    "Amorpha one-banner-petal flower macro.",
+    "Dalea tiny one-seeded pod inside persistent calyx.",
+    "Cercis flower dissection beside flattened legume.",
+    "Modern six-subfamily diagram that labels mimosoid as a clade inside Caesalpinioideae.",
+    "Fabaceae-vs-Polygalaceae pea-like-flower comparison."
+  ],
+  "completion_assessment": {
+    "joey_coverage": "verified sufficient",
+    "family_framework": "authoritatively verified",
+    "modern_taxonomy": "six-subfamily framework locked; old Mimosoideae corrected to mimosoid clade within Caesalpinioideae",
+    "local_tracker_scope": "7 genera / 24 source rows retained from Family Study Index",
+    "sheet_sync": "Master Plant Pool row-level synchronization deferred due existing array #REF spill collision",
+    "remaining": "visual locking only plus separate Master Plant Pool formula repair",
+    "recommended_status": "verified_ready_for_visual_locking"
+  },
+  "authoritative_sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000147-2/general-information",
+    "https://www.legumedata.org/about/",
+    "https://onlinelibrary.wiley.com/doi/10.12705/661.3",
+    "https://w3.biosci.utexas.edu/prc/K12/pages/Lupinus%20texensis.html",
+    "https://w3.biosci.utexas.edu/prc/K12/pages/Cercis%20canadensis%20texensis.html",
+    "https://w3.biosci.utexas.edu/prc/K12/pages/Dalea%20tenuis.html",
+    "https://efloras.org/florataxon.aspx?flora_id=2&taxon_id=101403"
+  ]
+}
