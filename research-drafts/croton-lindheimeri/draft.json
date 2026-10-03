@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-croton-test-01",
+  "created_at": "2026-10-03T17:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 302,
+    "priority": 1,
+    "note": "Selected after manifest/claims/queue/draft collision checks."
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Croton lindheimeri (Engelm. & A.Gray) Alph.Wood",
+    "family": "Euphorbiaceae",
+    "genus": "Croton",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America treat Croton lindheimeri as a distinct accepted species.",
+      "Older Texas material may appear under Croton capitatus var. lindheimeri."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Deep Review must verify exact target-zone counties.",
+    "leads": [
+      "Master Plant Pool records 6 personal wild observations; location verification is still required.",
+      "POWO/FNA include Texas.",
+      "BONAP Croton county maps require exact county extraction during Deep Review."
+    ],
+    "primary_map_source": "https://bonap.net/Napa/TaxonMaps/Genus/County/Croton"
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with young pubescence, leaf tips, and pistillate sepals: ochraceous young growth, consistently acute leaf tips, and sepal tips staying straight to slightly incurved are strong cues.",
+    "diagnostic_traits": [
+      "annual monoecious herb",
+      "ochraceous yellow-brown pubescence on young growth",
+      "ovate-lanceolate leaves with acute tips",
+      "pistillate sepals 7–8, yellowish woolly-tomentose, tips not recurved outward",
+      "three styles repeatedly divided"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Croton capitatus",
+      "separator": "C. capitatus often has blunter/mucronate leaves and pistillate sepals whose tips flare or recurve outward."
+    },
+    {
+      "taxon": "Croton lindheimerianus",
+      "separator": "C. lindheimerianus is generally lower and more dichotomously branched with smaller pistillate sepals and six terminal style segments."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "iNaturalist observation 188665719",
+      "source_page": "https://www.inaturalist.org/observations/188665719",
+      "origin_url": "https://static.inaturalist.org/photos/330279675/large.jpeg",
+      "creator": "Lee Ann Thierry",
+      "license": "unverified in Scout pass",
+      "role": "inflorescence/fruit + leaf close-up",
+      "reuse": "private-study candidate"
+    },
+    {
+      "source": "iNaturalist observation 188712762",
+      "source_page": "https://www.inaturalist.org/observations/188712762",
+      "origin_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/330370055/large.jpeg",
+      "creator": "meganphillipslowery",
+      "license": "unverified in Scout pass",
+      "role": "whole-plant habit",
+      "reuse": "private-study candidate"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "young ochraceous pubescence",
+    "acute leaf tips and cordate bases",
+    "pistillate sepals at mature fruit",
+    "whole robust habit"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
