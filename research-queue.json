@@ -67,7 +67,8 @@
       "canonical_id": "bothriochloa-torreyana",
       "reconciliation_status": "resolved_installed_taxonomy_refreshed",
       "reconciled_at": "2026-10-03T17:25:00-05:00",
-      "reconciliation_note": "B027 stale Bothriochloa laguroides row folded into existing canonical B. torreyana. Older Texas B. laguroides subsp./var. torreyana retained as synonyms; current B. laguroides sensu stricto is not counted as a Texas native learner taxon."
+      "reconciliation_note": "B027 refreshed canonical silver bluestem comparison and folded stale Texas Bothriochloa laguroides concept into B. torreyana synonymy; no duplicate taxon created.",
+      "approval_status": "approved"
     },
     {
       "id": "juniperus-ashei",
@@ -3890,8 +3891,8 @@
       "common_name": "cane bluestem",
       "family": "Poaceae",
       "genus": "Bothriochloa",
-      "status": "reviewed_ready_for_approval",
-      "priority": 1,
+      "status": "curated_installed",
+      "priority": 0,
       "queue_group": "B027 Bothriochloa",
       "research_goals": [
         "taxonomy_candidates",
@@ -3912,8 +3913,13 @@
       "batch_id": "deep-review-batch-036-bothriochloa-b027",
       "last_deep_reviewed_at": "2026-10-03T17:25:00-05:00",
       "notes": "B027 PASS — Williamson, Val Verde, Uvalde. Diagnostic priority: hairy nodal beard + broad fanlike silver panicle.",
-      "approval_status": "ready_for_approval",
-      "native_range_status": "PASS"
+      "approval_status": "approved_and_installed",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "bothriochloa-barbinodis",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed",
+      "reconciliation_note": "B027 strict PASS installed under blanket approval through species-merge-033-bothriochloa-b027."
     },
     {
       "id": "bothriochloa-ischaemum",
@@ -3921,8 +3927,8 @@
       "common_name": "King Ranch bluestem",
       "family": "Poaceae",
       "genus": "Bothriochloa",
-      "status": "reviewed_comparison_recommended",
-      "priority": 1,
+      "status": "curated_comparison_installed",
+      "priority": 0,
       "queue_group": "B027 Bothriochloa",
       "research_goals": [
         "taxonomy_candidates",
@@ -3943,26 +3949,31 @@
       "batch_id": "deep-review-batch-036-bothriochloa-b027",
       "last_deep_reviewed_at": "2026-10-03T17:25:00-05:00",
       "notes": "B027 native-range FAIL — Kew lists Texas as introduced. Retain as NON_NATIVE_INVASIVE_COMPARISON because it is common and ecologically important in Central Texas. Diagnostic priority: glabrous nodes + 3–8 long fingerlike seedhead branches.",
-      "approval_status": "ready_for_comparison_approval",
+      "approval_status": "user_approved_comparison_installed",
       "native_range_status": "FAIL",
       "learner_role": "NON_NATIVE_INVASIVE_COMPARISON_RECOMMENDED",
       "native_metrics_excluded": true,
       "aliases": [
         "Bothriochloa ischaemum var. songarica"
-      ]
+      ],
+      "canonical_status": "installed_comparison",
+      "canonical_id": "bothriochloa-ischaemum",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_comparison_installed",
+      "reconciliation_note": "Installed as NON_NATIVE_INVASIVE_COMPARISON under blanket approval; excluded from native metrics."
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
     "batch_id": "deep-review-batch-036-bothriochloa-b027",
     "reviewed_at": "2026-10-03T17:25:00-05:00",
-    "status": "blanket_approved_for_install",
+    "status": "approved_and_installed",
     "taxa": [
       "bothriochloa-torreyana",
       "bothriochloa-barbinodis",
       "bothriochloa-ischaemum"
     ],
-    "note": "B027 taxonomy cleanup complete. Existing silver bluestem B. torreyana refreshed; stale B. laguroides row merged as synonym concept. B. barbinodis PASS. B. ischaemum installed only as non-native invasive comparison."
+    "note": "B027 closed: B. torreyana refreshed; B. barbinodis PASS installed; B. ischaemum installed only as non-native invasive comparison. Canonical count 179."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
