@@ -1,0 +1,71 @@
+{
+  "rank": "family",
+  "name": "Lamiaceae",
+  "common_name": "Mint family",
+  "project_scope": {
+    "selection_mode": "Central Texas field-learning set",
+    "note": "Current canonical website imagery is Salvia-heavy; the lesson explicitly protects against overfitting the whole family to Salvia."
+  },
+  "family_diagnostics": {
+    "where_to_look_first": "Start at a node: leaves are usually opposite/decussate and stipules are absent. Then inspect the tubular flower, ovary/style and fruit.",
+    "vegetative": "Herbaceous stems are often quadrangular and foliage often aromatic, but neither character is mandatory.",
+    "reproductive": "Corolla commonly bilabiate; stamens commonly 4 or 2; ovary often deeply 4-lobed with a gynobasic style.",
+    "fruit": "Commonly four nutlets inside a persistent calyx, with important exceptions such as drupaceous Callicarpa.",
+    "field_tip": "Square stem + opposite leaves is only a clue. The ovary/style/fruit pattern is much stronger."
+  },
+  "visual_lesson": {
+    "status": "first_visual_lock",
+    "teaching_order": "whole plant → high-value structure → reproductive confirmation → exception/tie-breaker",
+    "intro": "Use the node as the doorway, but let the flower center and fruit confirm the mint family.",
+    "steps": [
+      {
+        "title": "1 · Start at the node",
+        "photo_role": "opposite / decussate leaves",
+        "anchor_species_id": "salvia-farinacea",
+        "look_for": "Opposite leaves at a node; successive pairs often rotate 90° (decussate).",
+        "why_it_matters": "This is a fast first-pass cue shared by many local mints.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "2 · Check the flower tube",
+        "photo_role": "bilabiate corolla",
+        "anchor_species_id": "salvia-farinacea",
+        "look_for": "A fused tubular corolla with upper and lower lips.",
+        "why_it_matters": "Pairs the vegetative node cue with a common reproductive family pattern.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "3 · Notice the Salvia exception",
+        "photo_role": "two fertile stamens / lever",
+        "anchor_species_id": "salvia-farinacea",
+        "look_for": "Only two fertile stamens and the specialized connective/lever system.",
+        "why_it_matters": "Stops the learner from memorizing 'mint = four stamens.'",
+        "status": "diagram_pending_existing_species_anchor"
+      },
+      {
+        "title": "4 · Confirm fruit architecture",
+        "photo_role": "four-lobed ovary / nutlets",
+        "anchor_species_id": "salvia-roemeriana",
+        "look_for": "A deeply 4-lobed superior ovary and later four nutlets within a persistent calyx.",
+        "why_it_matters": "This is stronger than stem shape for separating Lamiaceae from lookalikes.",
+        "status": "photo_lock_pending"
+      }
+    ],
+    "comparisons": [
+      {
+        "title": "Lamiaceae vs Verbenaceae",
+        "rule": "Do not use square stems alone. The common mint pattern has a deeply 4-lobed ovary and often a gynobasic style with four nutlets; Verbenaceae commonly differs in style/ovary and fruit architecture."
+      },
+      {
+        "title": "Lamiaceae vs Rubiaceae",
+        "rule": "Rubiaceae has interpetiolar stipules and an inferior ovary; Lamiaceae lacks stipules and has a superior ovary."
+      }
+    ],
+    "caveat": "Salvia is an excellent local teaching genus, but Lamiaceae also includes woody, radial-flowered and drupaceous-fruited exceptions."
+  },
+  "curation_status": {
+    "version": "1.0-visual-family-module",
+    "last_reviewed": "2026-10-03",
+    "visual_lock": "first_pass_complete"
+  }
+}
