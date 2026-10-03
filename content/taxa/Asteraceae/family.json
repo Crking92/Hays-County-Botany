@@ -15,7 +15,66 @@
     "field_tip": "To learn Asteraceae well, do not stop at flower color. Look at phyllaries, receptacle/paleae, leaves, pappus, and overall architecture."
   },
   "curation_status": {
-    "version": "1.0-batch1",
-    "last_reviewed": "2026-09-30"
+    "version": "2.0-visual-family-module",
+    "last_reviewed": "2026-10-03",
+    "visual_lock": "first_pass_complete"
+  },
+  "visual_lesson": {
+    "status": "first_visual_lock",
+    "teaching_order": "whole plant → high-value structure → reproductive confirmation → exception/tie-breaker",
+    "intro": "The fastest upgrade in composite-family ID is realizing the 'flower' is usually a whole inflorescence.",
+    "steps": [
+      {
+        "title": "1 · Turn the head sideways",
+        "photo_role": "capitulum and involucre",
+        "anchor_species_id": "helianthus-annuus",
+        "look_for": "A head of many florets sitting above a basket of green phyllaries.",
+        "why_it_matters": "That turns one apparent flower into a capitulum and immediately points toward Asteraceae.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "2 · Separate ray from disk",
+        "photo_role": "ray and disk florets",
+        "anchor_species_id": "helianthus-annuus",
+        "look_for": "Each apparent yellow 'petal' is a ray floret; the center contains many disk florets.",
+        "why_it_matters": "This is the core mental-model shift for the family.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "3 · Inspect the underside",
+        "photo_role": "phyllaries",
+        "anchor_species_id": "solidago-altissima",
+        "look_for": "Phyllary number, shape, overlap, hairs and tips around the involucre.",
+        "why_it_matters": "Phyllaries are often more diagnostic than flower color.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "4 · See a family exception",
+        "photo_role": "discoid / dioecious head",
+        "anchor_species_id": "baccharis-neglecta",
+        "look_for": "No daisy rays; separate male and female plants carry discoid heads.",
+        "why_it_matters": "Prevents 'Asteraceae = sunflower-shaped flower' overfitting.",
+        "status": "locked_existing_photo"
+      },
+      {
+        "title": "5 · Follow one floret to fruit",
+        "photo_role": "inferior ovary → cypsela / pappus",
+        "anchor_species_id": "cirsium-texanum",
+        "look_for": "One inferior ovary under one floret becoming a 1-seeded cypsela, often with a pappus.",
+        "why_it_matters": "This confirms the family after the head architecture gets your attention.",
+        "status": "species_anchor_photo_polish_pending"
+      }
+    ],
+    "comparisons": [
+      {
+        "title": "Radiate vs discoid",
+        "rule": "Radiate heads have ray + disk florets. Discoid heads lack rays. Both are fully Asteraceae."
+      },
+      {
+        "title": "Ray floret ≠ petal",
+        "rule": "A ray is one whole flower, not one petal of a larger flower."
+      }
+    ],
+    "caveat": "Do not identify the family from a daisy-like outline alone; verify the involucre, individual florets and fruit."
   }
 }
