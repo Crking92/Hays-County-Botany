@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-malvaceae-test-04",
+  "created_at": "2026-10-03T19:08:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 3,
+    "priority": 1,
+    "source_scientific_name": "Abutilon fruticosum"
+  },
+  "taxonomy_candidate": {
+    "family": "Malvaceae",
+    "order": "Malvales",
+    "accepted_name": "Abutilon fruticosum Guill. & Perr.",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America accept A. fruticosum.",
+      "Abutilon texense is treated as a synonym in current sources."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout research only. Deep Review must verify exact target-zone counties and resolve any nativity/re-identification conflict.",
+    "leads": [
+      "Master Plant Pool has 20 personal wild observations, Hays Local, and Personal List flags.",
+      "POWO and FNA include Texas in the native range.",
+      "Exact target-zone county threshold still requires Deep Review/BONAP confirmation."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with growth form and fruit: an upright gray-green subshrub with ovate cordate leaves, small yellow flowers, and a compact cask-shaped schizocarp whose mericarps are only acute/apiculate rather than dramatically long-beaked.",
+    "diagnostic_traits": [
+      "subshrub about 1–1.5 m",
+      "erect stellate-tomentulose stems without long simple hairs",
+      "ovate cordate irregularly serrate leaves",
+      "yellow petals without dark center",
+      "style 6–9-branched",
+      "cask-shaped schizocarp about 8–9 mm"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Abutilon theophrasti",
+      "separator": "A. theophrasti is a tall annual with very large velvety heart-shaped leaves and a much larger wheel-like fruit with many long divergent beaks."
+    },
+    {
+      "taxon": "Abutilon incanum",
+      "separator": "A. incanum has smaller reflexed yellow/pink flowers often with a dark red center and only five style branches."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "BOTANY.cz",
+      "page": "https://botany.cz/cs/abutilon-fruticosum/",
+      "image": "https://botany.cz/foto3/abutfrutherb3.jpg",
+      "license": "unverified",
+      "role": "habit + gray velvety leaves + yellow flower"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf shape and pubescence",
+    "flower close-up",
+    "fruit/mericarps",
+    "look-alike comparison"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A326450-2",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250071371",
+    "https://powo.science.kew.org/taxon/323603-2"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
