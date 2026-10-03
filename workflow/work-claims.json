@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T17:36:00-05:00",
+  "updated_at": "2026-10-03T17:49:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -72,6 +72,25 @@
       "release_when": "All six taxa are durably represented in research-queue.json and research-drafts, or the test batch is explicitly aborted.",
       "notes": "Live test of the overnight high-throughput Scout protocol. Research-only; no curation-inbox or canonical installation. Durable Croton drafts and queue records were created successfully; temporary claim released.",
       "released_at": "2026-10-03T17:36:00-05:00"
+    },
+    {
+      "claim_id": "manual-scout-test-euphorbia-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "euphorbia-bicolor",
+        "euphorbia-cyathophora",
+        "euphorbia-davidii",
+        "euphorbia-dentata",
+        "euphorbia-heterophylla",
+        "euphorbia-marginata"
+      ],
+      "lane": "unfinished-plant-scout",
+      "owner": "manual-test-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T17:49:00-05:00",
+      "expires_at": "2026-10-03T23:49:00-05:00",
+      "release_when": "All six Euphorbia taxa are durably represented in research-queue.json and research-drafts, or the test is explicitly aborted.",
+      "notes": "Second live high-throughput Scout test. Euphorbia visual comparison set: snow-on-the-prairie, snow-on-the-mountain, wild/green/painted poinsettias, and David's spurge. Research-only."
     }
   ]
 }
