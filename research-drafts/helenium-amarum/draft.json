@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_EXISTING_CANONICAL_REFRESH",
+  "batch_id": "deep-review-batch-037-helenium-b028",
+  "created_at": "2026-10-03T17:50:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "rows": [
+      528,
+      529
+    ],
+    "source_scientific_names": [
+      "Helenium amarum var. amarum",
+      "Helenium amarum var. badium"
+    ],
+    "wild_observations": 8,
+    "source_count": 2,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Helenium amarum (Raf.) H.Rock",
+    "rank": "species",
+    "order": "Asterales",
+    "family": "Asteraceae",
+    "genus": "Helenium",
+    "species": "amarum",
+    "status": "VERIFIED",
+    "accepted_infraspecifics": [
+      "Helenium amarum var. amarum",
+      "Helenium amarum var. badium (A.Gray) Waterf."
+    ],
+    "note": "Current Kew/POWO accepts Helenium amarum as one species with two accepted varieties. The learner keeps one canonical species entry and teaches var. amarum versus var. badium inside that record rather than double-counting them as species."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays County — UT Plant Resources Center Purola Preserve lists Helenium amarum among naturally occurring plants.",
+      "Travis County — UT Plant Resources Center's Travis County Asteraceae index includes both H. amarum var. amarum and var. badium specimens.",
+      "Williamson County — UT Plant Resources Center provides a detailed local treatment of H. amarum var. amarum."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Variety-level geography is useful training context, but native PASS is species-level. Do not create separate native species counts for the two varieties."
+  },
+  "morphology": {
+    "look_here_first": "Check the stem before the flower head. Bitter sneezeweed is the B028 species with stems that are ridged but NOT winged. Then confirm the very narrow linear leaves and numerous small yellow heads. Variety-level support: var. amarum usually has yellow disc lobes, while var. badium has dark brown to purplish disc lobes.",
+    "diagnostic_traits": [
+      "annual, taprooted, often bushy-branched",
+      "stems ridged/striated but not winged by decurrent leaf tissue",
+      "leaves numerous, alternate and very narrow linear to threadlike; lower early leaves may be dissected",
+      "heads numerous and relatively small",
+      "rays usually 8–10, yellow and often reflexed/drooping",
+      "disc subglobose to globose",
+      "var. amarum: disc flowers/lobes yellow; more eastern/central Texas pattern",
+      "var. badium: distal disc lobes brown to purplish; more western/central Texas pattern",
+      "foliage aromatic/bitter when crushed"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Helenium elegans",
+      "separator": "H. elegans is also annual but has clearly winged stems from decurrent leaves and narrow entire leaves; H. amarum lacks stem wings."
+    },
+    {
+      "taxon": "Helenium autumnale",
+      "separator": "H. autumnale is perennial, strongly winged, and has much broader often toothed leaves."
+    },
+    {
+      "taxon": "Helenium quadridentatum",
+      "separator": "H. quadridentatum is a winged annual with ovoid/obconic heads, 10–15 rays, and 4-lobed disc corollas; H. amarum is unwinged."
+    }
+  ],
+  "infraspecific_training": {
+    "var. amarum": "Yellow disc flowers/lobes; eastern and central Texas expression in many field treatments. Travis and Williamson are well documented.",
+    "var. badium": "Dark brown to purplish disc lobes; more western/plains Texas expression. Travis specimens and Burnet/Llano field references show overlap into Central Texas.",
+    "guardrail": "Use disc color plus geography as supportive variety characters, not as a reason to split the species-level learner entry."
+  },
+  "photo_verification": {
+    "status": "EXISTING_CANONICAL_PHOTOS_PRESENT",
+    "diagnostic_roles": [
+      "whole branching annual",
+      "unwinged ridged stem macro",
+      "linear leaf",
+      "small drooping-rayed head",
+      "var. amarum yellow disk close-up",
+      "var. badium brown/purple disk close-up",
+      "direct winged-stem comparison"
+    ],
+    "exact_final_selection_pending_user_approval": false
+  },
+  "approval_status": "ALREADY_CANONICAL_REFRESH_APPROVED",
+  "installation_guardrail": "Refresh the existing canonical species under the standing blanket approval; do not create separate variety-level species records."
+}

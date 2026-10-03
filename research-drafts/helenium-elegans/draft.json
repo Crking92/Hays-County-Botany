@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-037-helenium-b028",
+  "created_at": "2026-10-03T17:50:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 531,
+    "source_scientific_name": "Helenium elegans",
+    "wild_observations": 8,
+    "source_count": 2,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Helenium elegans DC.",
+    "rank": "species",
+    "order": "Asterales",
+    "family": "Asteraceae",
+    "genus": "Helenium",
+    "species": "elegans",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. Flora of North America recognizes infraspecific variation, while Kew treats H. elegans at species rank; the learner stays species-level."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays County — Purola Preserve and Coleman Ranch natural-flora records document Helenium elegans as native/wild.",
+      "Travis County — UT Plant Resources Center's Travis County Asteraceae index includes Helenium elegans var. elegans.",
+      "Williamson County — UT Plant Resources Center provides a detailed local treatment of Helenium elegans var. elegans."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County PASS uses explicit natural-flora/herbarium/county-treatment records; no county is inferred from broad Edwards Plateau distribution."
+  },
+  "morphology": {
+    "look_here_first": "Start with the stem and head shape. Pretty sneezeweed is an annual with clearly winged stems—the narrow leaf bases run down the internode as green wings. Its distal leaves are narrow and entire, and the involucre/head is notably globose. This separates it from unwinged H. amarum and from the more ovoid/obconic H. quadridentatum.",
+    "diagnostic_traits": [
+      "annual, taprooted, branching above",
+      "stems moderately to strongly winged by decurrent leaf bases",
+      "narrow lanceolate to linear leaves, distal leaves entire",
+      "leaves and wing tissue conspicuously gland-dotted",
+      "globose involucres/heads",
+      "yellow rays, often with darker/reddish-brown basal tint in some material",
+      "multiple terminal heads on branched upper stems",
+      "non-aristate pappus scales in the FNA key"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Helenium amarum",
+      "separator": "H. amarum lacks stem wings entirely and has very narrow threadlike leaves with many small globose heads."
+    },
+    {
+      "taxon": "Helenium autumnale",
+      "separator": "H. autumnale is perennial with broader, often toothed leaves and larger heads; H. elegans is annual with narrow entire leaves."
+    },
+    {
+      "taxon": "Helenium quadridentatum",
+      "separator": "Both are winged annuals with entire distal leaves, but H. elegans has globose involucres; H. quadridentatum is usually ovoid to obconic and has 4-lobed disc corollas with 10–15 rays."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole annual habit",
+      "stem wing macro",
+      "narrow entire distal leaf",
+      "gland-dotted stem/leaf tissue",
+      "globose head side view",
+      "ray-base coloration",
+      "direct H. amarum stem comparison",
+      "direct H. quadridentatum head-shape comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/284571622",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Asteraceae3.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Helenium%20elegans%20elegans"
+    ]
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "May install under the user's standing blanket approval because strict PASS is complete."
+}

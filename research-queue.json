@@ -3961,19 +3961,131 @@
       "curated_at": "2026-10-03",
       "reconciliation_status": "resolved_comparison_installed",
       "reconciliation_note": "Installed as NON_NATIVE_INVASIVE_COMPARISON under blanket approval; excluded from native metrics."
+    },
+    {
+      "id": "helenium-amarum",
+      "scientific_name": "Helenium amarum",
+      "common_name": "bitter sneezeweed",
+      "family": "Asteraceae",
+      "genus": "Helenium",
+      "status": "curated_installed",
+      "priority": 0,
+      "queue_group": "B028 Helenium",
+      "batch_id": "deep-review-batch-037-helenium-b028",
+      "last_deep_reviewed_at": "2026-10-03T17:50:00-05:00",
+      "notes": "B028 existing anchor refreshed. Strict PASS — Hays, Travis, Williamson. One canonical species with accepted var. amarum and var. badium taught internally; no duplicate variety species counts.",
+      "approval_status": "approved",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "helenium-amarum",
+      "reconciliation_status": "resolved_installed_taxonomy_refreshed"
+    },
+    {
+      "id": "helenium-elegans",
+      "scientific_name": "Helenium elegans",
+      "common_name": "pretty sneezeweed",
+      "family": "Asteraceae",
+      "genus": "Helenium",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "queue_group": "B028 Helenium",
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 531,
+        "source_scientific_name": "Helenium elegans",
+        "wild_observations": 8,
+        "source_count": 2,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-037-helenium-b028",
+      "last_deep_reviewed_at": "2026-10-03T17:50:00-05:00",
+      "notes": "B028 PASS — Hays, Travis, Williamson. Diagnostic priority: winged annual + narrow entire distal leaves + globose involucre.",
+      "approval_status": "ready_for_approval",
+      "native_range_status": "PASS"
+    },
+    {
+      "id": "helenium-autumnale",
+      "scientific_name": "Helenium autumnale",
+      "common_name": "common/fall sneezeweed",
+      "family": "Asteraceae",
+      "genus": "Helenium",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "queue_group": "B028 Helenium",
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 530,
+        "source_scientific_name": "Helenium autumnale",
+        "wild_observations": 0,
+        "source_count": 2,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-037-helenium-b028",
+      "last_deep_reviewed_at": "2026-10-03T17:50:00-05:00",
+      "notes": "B028 PASS — Hays, Travis, Williamson, with Bell/Blanco/Gillespie/Kerr also supported. Diagnostic priority: perennial + strongly winged stem + broader often toothed leaves + larger heads.",
+      "approval_status": "ready_for_approval",
+      "native_range_status": "PASS"
+    },
+    {
+      "id": "helenium-quadridentatum",
+      "scientific_name": "Helenium quadridentatum",
+      "common_name": "longdisk sneezeweed",
+      "family": "Asteraceae",
+      "genus": "Helenium",
+      "status": "range_hold_reviewed",
+      "priority": 0,
+      "queue_group": "B028 Helenium",
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 532,
+        "source_scientific_name": "Helenium quadridentatum",
+        "wild_observations": 0,
+        "source_count": 1,
+        "hays_local": true
+      },
+      "batch_id": "deep-review-batch-037-helenium-b028",
+      "last_deep_reviewed_at": "2026-10-03T17:50:00-05:00",
+      "notes": "B028 UNRESOLVED — Texas/regional native status is clear, but three exact project target-zone counties are not yet locked. Diagnostic priority: winged annual + ovoid/obconic head + 10–15 rays + 4-lobed disc corollas.",
+      "approval_status": "hold_range_evidence",
+      "native_range_status": "UNRESOLVED"
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-036-bothriochloa-b027",
-    "reviewed_at": "2026-10-03T17:25:00-05:00",
-    "status": "approved_and_installed",
+    "batch_id": "deep-review-batch-037-helenium-b028",
+    "reviewed_at": "2026-10-03T17:50:00-05:00",
+    "status": "blanket_approved_pass_install",
     "taxa": [
-      "bothriochloa-torreyana",
-      "bothriochloa-barbinodis",
-      "bothriochloa-ischaemum"
+      "helenium-amarum",
+      "helenium-elegans",
+      "helenium-autumnale",
+      "helenium-quadridentatum"
     ],
-    "note": "B027 closed: B. torreyana refreshed; B. barbinodis PASS installed; B. ischaemum installed only as non-native invasive comparison. Canonical count 179."
+    "note": "B028 taxonomy cleanup complete. Existing H. amarum refreshed as one species with two accepted varieties taught internally. H. elegans PASS; H. autumnale PASS; H. quadridentatum held for exact target-county evidence."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
