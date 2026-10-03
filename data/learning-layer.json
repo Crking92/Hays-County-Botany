@@ -20,10 +20,10 @@
   },
   "home_families": [
     "Asteraceae",
-    "Apocynaceae",
-    "Convolvulaceae",
-    "Fagaceae",
-    "Papaveraceae"
+    "Poaceae",
+    "Fabaceae",
+    "Lamiaceae",
+    "Apocynaceae"
   ],
   "family_profiles": {
     "Asteraceae": {
@@ -46,22 +46,20 @@
     },
     "Apocynaceae": {
       "common_name": "Dogbane family · milkweed group emphasized",
-      "plain_signature": "For the milkweeds in this learner, leaf arrangement, sap, and the strange central flower structure do most of the work.",
-      "look_here_first": "Check leaf arrangement and sap first, then look closely at the corona and gynostegium in the flower center.",
-      "field_signature": "Current project emphasis is Asclepias: umbel-like clusters, a corona of five hoods, and a gynostegium containing the pollination apparatus.",
+      "plain_signature": "Broad dogbanes share a fused-flower plan; our local milkweed group adds the corona, gynostegium and pollinia machinery.",
+      "look_here_first": "Broad family: check latex, simple usually opposite/whorled leaves and a fused 5-lobed corolla. In milkweeds/milkvines, go straight to corona + gynostegium.",
+      "field_signature": "Broad family commonly has a fused corolla, five stamens and a superior two-carpel gynoecium. Derived Asclepiadoideae adds a corona, gynostegium, pollinia/pollinarium and commonly follicle fruit with comose seeds.",
       "key_terms": [
-        "phyllotaxy",
         "latex",
-        "umbel",
         "corona",
         "gynostegium",
-        "hood",
-        "horn",
         "pollinium",
-        "follicle"
+        "follicle",
+        "opposite",
+        "whorled"
       ],
-      "field_question": "Are the leaves alternate, opposite, or whorled—and what do the hoods and horns do?",
-      "caveat": "These cues are strongest for the Asclepias set currently curated, not every member of Apocynaceae."
+      "field_question": "Am I seeing the broad dogbane plan, or the more specialized milkweed reproductive machinery?",
+      "caveat": "Corona, gynostegium and pollinia are excellent milkweed-side characters, not mandatory across all Apocynaceae."
     },
     "Convolvulaceae": {
       "common_name": "Morning-glory / bindweed family",
@@ -110,6 +108,57 @@
       ],
       "field_question": "What color is the latex, and where are the prickles?",
       "caveat": "The learner currently emphasizes Argemone, so some cues are genus-specific."
+    },
+    "Poaceae": {
+      "common_name": "Grass family",
+      "plain_signature": "Jointed stems and a leaf sheath/collar/ligule lead you to the spikelet—the tiny unit that actually carries the grass flowers.",
+      "look_here_first": "Start at a node, then pull the leaf blade away from the culm and inspect the sheath, collar and ligule. If flowering, isolate one spikelet.",
+      "field_signature": "Usually jointed culms with obvious nodes; leaves with sheath + blade + ligule; reduced flowers arranged as florets inside spikelets with glumes, lemma and palea.",
+      "key_terms": [
+        "culm",
+        "node",
+        "leaf-sheath",
+        "collar",
+        "ligule",
+        "spikelet",
+        "glume",
+        "lemma",
+        "palea",
+        "awn"
+      ],
+      "field_question": "Is there a real node, and what does the collar/ligule look like before I even touch the flower head?",
+      "caveat": "Grass color and general fuzziness are weak ID characters. Use architecture and spikelet parts."
+    },
+    "Fabaceae": {
+      "common_name": "Pea / bean / legume family",
+      "plain_signature": "The flowers and leaves can look wildly different, but one superior carpel becoming a legume ties the family together.",
+      "look_here_first": "Look for a pod or developing ovary first. Then check stipules, pulvini and leaf architecture before judging the flower shape.",
+      "field_signature": "Usually alternate stipulate leaves, often with pulvini; one superior carpel/locule; fruit usually a legume or modified legume. Flowers may be papilionoid, caesalpinioid-like or mimosoid.",
+      "key_terms": [
+        "stipule",
+        "pulvinus",
+        "legume",
+        "superior-ovary",
+        "papilionoid"
+      ],
+      "field_question": "What does the single carpel become—and are stipules or pulvini supporting the ID?",
+      "caveat": "Do not require a classic pea flower or pinnately compound leaves."
+    },
+    "Lamiaceae": {
+      "common_name": "Mint family",
+      "plain_signature": "Opposite leaves get your attention; a deeply 4-lobed ovary and the fruit pattern do the real confirming.",
+      "look_here_first": "Start at the node for opposite/decussate leaves and no stipules. Then inspect the tubular flower, ovary/style and persistent calyx.",
+      "field_signature": "Common pattern: opposite exstipulate leaves, often quadrangular aromatic stem, tubular/bilabiate flower, 2 or 4 stamens, superior often 4-lobed ovary and usually four nutlets.",
+      "key_terms": [
+        "opposite",
+        "decussate",
+        "bilabiate",
+        "gynobasic-style",
+        "nutlet",
+        "persistent-calyx"
+      ],
+      "field_question": "After I notice opposite leaves, does the flower center resolve into the mint-family ovary/style/fruit pattern?",
+      "caveat": "Square stems, aroma, bilabiate flowers and four nutlets are common—not universal. Salvia has two fertile stamens; Callicarpa is drupaceous."
     }
   },
   "species_callouts": {
@@ -626,6 +675,226 @@
       "where": "Look at mature fruit after petals fall.",
       "why": "Opening pattern, prickles, and shape can be diagnostic.",
       "visual": "assets/diagrams/capsule.svg"
+    },
+    "culm": {
+      "term": "Culm",
+      "aliases": [
+        "grass stem"
+      ],
+      "pronunciation": "KULM",
+      "plain": "The stem of a grass or grass-like plant.",
+      "formal": "The aerial stem of a grass, commonly jointed with nodes and internodes.",
+      "where": "Follow the grass stem between leaf bases and flower head.",
+      "why": "Nodes and culm structure help separate grasses from sedges and rushes."
+    },
+    "node": {
+      "term": "Node",
+      "aliases": [
+        "joint"
+      ],
+      "pronunciation": "NOHD",
+      "plain": "A point on a stem where leaves, branches or buds attach.",
+      "formal": "A stem region from which one or more appendages arise.",
+      "where": "Run your fingers down a grass culm and feel/look for the joints.",
+      "why": "Obvious nodes are a major Poaceae field cue."
+    },
+    "leaf-sheath": {
+      "term": "Leaf sheath",
+      "aliases": [
+        "sheath"
+      ],
+      "pronunciation": "LEEF sheeth",
+      "plain": "The lower part of a grass leaf that wraps around the stem.",
+      "formal": "The basal, usually tubular or open portion of a leaf surrounding the culm.",
+      "where": "Below the blade, wrapped around the grass stem.",
+      "why": "Sheath characters are part of the standard vegetative grass-ID toolkit."
+    },
+    "collar": {
+      "term": "Collar",
+      "aliases": [
+        "grass collar"
+      ],
+      "pronunciation": "KAH-ler",
+      "plain": "The outside junction where a grass blade meets its sheath.",
+      "formal": "The external region at the blade-sheath junction, opposite the ligule.",
+      "where": "Pull a grass blade slightly away from the culm and inspect the junction.",
+      "why": "Hairs, shape and appendages at the collar can be highly diagnostic."
+    },
+    "ligule": {
+      "term": "Ligule",
+      "aliases": [
+        "grass ligule"
+      ],
+      "pronunciation": "LIG-yool",
+      "plain": "A tiny membrane, fringe of hairs or similar structure on the inside of a grass leaf where blade meets sheath.",
+      "formal": "An appendage at the adaxial blade-sheath junction in many grasses.",
+      "where": "Inside the leaf collar, between blade and culm.",
+      "why": "Ligule type and length are often species- or genus-level characters."
+    },
+    "spikelet": {
+      "term": "Spikelet",
+      "aliases": [
+        "grass spikelet"
+      ],
+      "pronunciation": "SPYKE-let",
+      "plain": "The small flowering unit you should isolate when identifying a grass.",
+      "formal": "A grass inflorescence unit containing one or more florets, usually subtended by glumes.",
+      "where": "Pick one unit from the grass inflorescence rather than studying the whole panicle at once.",
+      "why": "Most reproductive grass characters live at the spikelet/floret scale."
+    },
+    "glume": {
+      "term": "Glume",
+      "aliases": [
+        "glumes"
+      ],
+      "pronunciation": "GLOOM",
+      "plain": "One of the bracts at the base of many grass spikelets.",
+      "formal": "A sterile bract, commonly one of a basal pair, subtending the florets of a grass spikelet.",
+      "where": "At the outside/base of an isolated spikelet.",
+      "why": "Glume size, veins, keels and awns are important grass characters."
+    },
+    "lemma": {
+      "term": "Lemma",
+      "aliases": [
+        "lemmas"
+      ],
+      "pronunciation": "LEM-uh",
+      "plain": "The outer of the two main bracts enclosing a grass floret.",
+      "formal": "The lower/outer bract of a grass floret, often bearing an awn.",
+      "where": "Inside the glumes, around each floret.",
+      "why": "Lemma shape, texture and awns are central to grass identification."
+    },
+    "palea": {
+      "term": "Palea",
+      "aliases": [
+        "paleas"
+      ],
+      "pronunciation": "PAY-lee-uh",
+      "plain": "The inner bract paired with the lemma around a grass floret.",
+      "formal": "The upper/inner bract enclosing the grass flower opposite the lemma.",
+      "where": "Inside a floret, tucked against the lemma.",
+      "why": "Lemma + palea define the floret envelope used in technical grass ID."
+    },
+    "awn": {
+      "term": "Awn",
+      "aliases": [
+        "awns"
+      ],
+      "pronunciation": "AWN",
+      "plain": "A stiff bristle attached to a grass floral bract or fruiting structure.",
+      "formal": "A slender bristle-like extension, commonly arising from a lemma or glume.",
+      "where": "Look for straight, bent, twisted or multiple bristles on mature spikelets.",
+      "why": "Awn number, position and shape can instantly separate similar grasses."
+    },
+    "stipule": {
+      "term": "Stipule",
+      "aliases": [
+        "stipules"
+      ],
+      "pronunciation": "STIP-yool",
+      "plain": "A small appendage at the base of a leaf stalk.",
+      "formal": "One of a pair of appendages associated with the leaf base in many angiosperms.",
+      "where": "Look where the petiole meets the stem.",
+      "why": "Presence, absence and form of stipules are important family-level characters."
+    },
+    "pulvinus": {
+      "term": "Pulvinus",
+      "aliases": [
+        "pulvini"
+      ],
+      "pronunciation": "PUL-vih-nus",
+      "plain": "A swollen joint-like area at the base of a leaf or leaflet.",
+      "formal": "A specialized motor or flexible swelling at the base of a petiole, petiolule or leaflet.",
+      "where": "Check the base of legume petioles and leaflets.",
+      "why": "Pulvini are common supporting characters in Fabaceae and help explain leaf movement."
+    },
+    "legume": {
+      "term": "Legume",
+      "aliases": [
+        "pod"
+      ],
+      "pronunciation": "LEG-yoom",
+      "plain": "A fruit made from one carpel—the basic pod plan behind the pea family.",
+      "formal": "A dry or modified fruit derived from a single carpel, classically dehiscing along two sutures.",
+      "where": "Follow the flower ovary into the developing fruit.",
+      "why": "The single-carpel legume is the strongest structural thread through Fabaceae diversity."
+    },
+    "superior-ovary": {
+      "term": "Superior ovary",
+      "aliases": [
+        "ovary superior"
+      ],
+      "pronunciation": "soo-PEER-ee-er OH-vuh-ree",
+      "plain": "An ovary positioned above where the petals, sepals and stamens attach.",
+      "formal": "An ovary with the other floral whorls inserted below it.",
+      "where": "Look at a flower in side view or section and locate the swollen ovary relative to the perianth.",
+      "why": "Ovary position is one of the strongest family-level floral characters."
+    },
+    "papilionoid": {
+      "term": "Papilionoid",
+      "aliases": [
+        "pea flower"
+      ],
+      "pronunciation": "puh-PIL-ee-uh-noyd",
+      "plain": "The classic pea-flower layout with a banner, two wings and a keel.",
+      "formal": "A zygomorphic corolla architecture typical of many Papilionoideae, with standard, wing and keel petals.",
+      "where": "Look at a side/front view of a legume flower.",
+      "why": "Useful within Fabaceae, but not all legumes have this flower form."
+    },
+    "decussate": {
+      "term": "Decussate",
+      "aliases": [
+        "decussate leaves"
+      ],
+      "pronunciation": "DEK-uh-sayt",
+      "plain": "Opposite leaf pairs rotated about 90° from the pair above and below.",
+      "formal": "An opposite phyllotactic pattern in which successive pairs are arranged at right angles.",
+      "where": "Look down several nodes of a mint stem.",
+      "why": "A common vegetative pattern in Lamiaceae and other opposite-leaved families."
+    },
+    "bilabiate": {
+      "term": "Bilabiate",
+      "aliases": [
+        "two-lipped"
+      ],
+      "pronunciation": "bye-LAY-bee-it",
+      "plain": "A flower shaped into an upper lip and lower lip.",
+      "formal": "A zygomorphic perianth or corolla divided into two lip-like portions.",
+      "where": "View a tubular flower from the side/front.",
+      "why": "Common in Lamiaceae and several lookalike families, so it is useful with ovary/fruit characters."
+    },
+    "gynobasic-style": {
+      "term": "Gynobasic style",
+      "aliases": [
+        "gynobasic"
+      ],
+      "pronunciation": "guy-no-BAY-sik style",
+      "plain": "A style that appears to rise from low between the lobes of the ovary.",
+      "formal": "A style inserted near the base or between lobes of a deeply divided ovary.",
+      "where": "Inspect the center of a mature mint-family flower after the corolla is moved aside.",
+      "why": "A powerful common-pattern distinction between Lamiaceae and several similar families."
+    },
+    "nutlet": {
+      "term": "Nutlet",
+      "aliases": [
+        "nutlets"
+      ],
+      "pronunciation": "NUT-let",
+      "plain": "A small dry one-seeded fruit segment.",
+      "formal": "A small indehiscent one-seeded unit, often one of several produced by a schizocarpic ovary.",
+      "where": "Inside the persistent calyx after a mint-family flower matures.",
+      "why": "Four nutlets are a classic Lamiaceae fruit pattern."
+    },
+    "persistent-calyx": {
+      "term": "Persistent calyx",
+      "aliases": [
+        "persistent sepals"
+      ],
+      "pronunciation": "per-SIS-tent KAY-liks",
+      "plain": "Sepals that stay attached after the petals fall and often remain around the developing fruit.",
+      "formal": "A calyx retained through fruit development.",
+      "where": "Look beneath/around the fruit after flowering.",
+      "why": "It is a useful clue in Lamiaceae and many other families."
     }
   }
 }
