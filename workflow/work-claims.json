@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T18:33:06-05:00",
+  "updated_at": "2026-10-03T19:15:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -171,6 +171,21 @@
       "expires_at": "2026-10-03T20:33:06-05:00",
       "release_when": "Durable deep-review results are written for all six Croton taxa, or the batch is explicitly aborted.",
       "notes": "High-throughput deep review of coherent Croton scout batch. Review-only; no curation-inbox or canonical promotion."
+    },
+    {
+      "claim_id": "family-euphorbiaceae-recognition-001",
+      "scope_kind": "family_module",
+      "families": [
+        "Euphorbiaceae"
+      ],
+      "scope_key": "content/taxa/Euphorbiaceae/family.json",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T19:15:00-05:00",
+      "expires_at": "2026-10-04T01:15:00-05:00",
+      "release_when": "Euphorbiaceae family recognition upgrade and Family Study Index reconciliation are durably written, or work is explicitly aborted.",
+      "notes": "Family-level recognition only. Do not promote/overwrite concurrent Euphorbia, Croton, Acalypha, or Tragia species research/review."
     }
   ]
 }
