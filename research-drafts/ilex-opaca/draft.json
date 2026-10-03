@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_TARGET_ZONE_FAIL_COMPARISON_RECOMMENDED",
+  "batch_id": "deep-review-batch-021-ilex-b017",
+  "created_at": "2026-10-02T19:44:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 565,
+    "source_scientific_name": "Ilex opaca",
+    "wild_observations": 1,
+    "source_count": 1
+  },
+  "taxonomy": {
+    "accepted_name": "Ilex opaca Aiton",
+    "rank": "species",
+    "order": "Aquifoliales",
+    "family": "Aquifoliaceae",
+    "genus": "Ilex",
+    "species": "opaca",
+    "status": "VERIFIED",
+    "note": "Accepted species; Texas-native at state level but target-zone range fails."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO accepts Ilex opaca and lists Texas within its native range at the state level.",
+      "USDA PLANTS-derived county data records 38 native Texas counties, but none are in the project's current target-zone county list.",
+      "The Texas county layer is concentrated in eastern/southeastern Texas, including Anderson, Angelina, Brazos, Cherokee, Harris, Nacogdoches, Polk, Walker, Wood and others.",
+      "NPSOT likewise maps American holly to East Central Texas Plains, Gulf Coast Prairies/Marshes, and Western Gulf Coastal Plain rather than the project's core Central/West target counties.",
+      "The user's one wild iNaturalist observation is encounter evidence only and cannot override the county-native range layer."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Texas-native at the state level does not satisfy the project's target-zone rule. Do not count planted American hollies or a single iNaturalist observation as proof of Central Texas nativity."
+  },
+  "morphology": {
+    "look_here_first": "Look at the leaf immediately: American holly is the big-leaved evergreen tree, with thick dark-green leaves bearing prominent stiff spine-tipped teeth—dramatically larger and sharper than yaupon foliage.",
+    "diagnostic_traits": [
+      "evergreen tree, commonly with a pyramidal crown when young",
+      "leaves alternate, simple, thick and leathery, substantially larger than yaupon leaves",
+      "leaf margins often armed with several sharp stiff spine-tipped teeth; upper-canopy leaves can be less spiny",
+      "leaf upper surface dark glossy green, lower surface paler",
+      "small pale greenish-white unisexual flowers; species is dioecious",
+      "female trees produce bright red drupes that persist into winter",
+      "gray bark becomes rougher with age",
+      "native Texas distribution is principally eastern and southeastern"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Ilex vomitoria",
+      "separator": "Yaupon has tiny evergreen leaves with low crenate teeth; American holly has much larger, thicker leaves with stiff spines."
+    },
+    {
+      "taxon": "Ilex decidua",
+      "separator": "Possumhaw is deciduous with thinner, non-spiny leaves and bare fruiting twigs in winter; American holly remains leafy and evergreen."
+    },
+    {
+      "taxon": "Ilex cornuta",
+      "separator": "Chinese holly is a common introduced ornamental with strongly horned/spiny leaves; landscape plants should be separated using leaf shape, fruiting, provenance, and horticultural context."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole pyramidal tree habit",
+      "large evergreen leaf",
+      "sharp spine-tipped margin macro",
+      "leaf underside",
+      "bark",
+      "male flower",
+      "female flower",
+      "red drupe cluster",
+      "drupe/pyrene",
+      "direct yaupon comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/328933443",
+    "reference_candidates": [
+      "https://www.npsot.org/posts/native-plant/ilex-opaca/",
+      "https://plants.ces.ncsu.edu/plants/ilex-opaca/"
+    ]
+  },
+  "approval_status": "READY_FOR_COMPARISON_APPROVAL",
+  "learner_role": {
+    "role": "LOOKALIKE_COMPARISON_RECOMMENDED",
+    "retained": false,
+    "native_metrics_excluded": true,
+    "reason": "Texas-native but outside the project's strict 3-county target-zone rule; useful evergreen holly comparison and common landscape encounter. Requires explicit approval for comparison retention."
+  },
+  "installation_guardrail": "Do not install as a project-native. May be retained only if Calvin explicitly approves its labeled comparison role; exclude from native totals."
+}
