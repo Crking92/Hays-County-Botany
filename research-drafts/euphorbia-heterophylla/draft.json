@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-euphorbia-test-02",
+  "created_at": "2026-10-03T18:02:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 446,
+    "priority": 2,
+    "wild_observations": 4
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Euphorbia heterophylla L.",
+    "family": "Euphorbiaceae",
+    "genus": "Euphorbia",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America recognize Euphorbia heterophylla as accepted.",
+      "Older literature may use Poinsettia heterophylla."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Do not assign project-native status from state occurrence. Deep Review must resolve native-versus-introduced evidence and exact counties.",
+    "leads": [
+      "Master Plant Pool records 4 personal wild observations.",
+      "POWO lists Texas as introduced rather than native.",
+      "FNA treats the species as introduced/naturalized in Texas and notes uncertainty around its broader tropical native range.",
+      "This may still be valuable as a locally encountered comparison species even if it fails the native threshold."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Inspect the upper bracts and the cyathial gland. E. heterophylla usually keeps its floral bracts green or only pale at the base and has a stipitate gland with a circular opening and an annular rim.",
+    "diagnostic_traits": [
+      "annual herb with highly polymorphic leaves",
+      "leaves can be lanceolate, elliptic, broad-obovate, pandurate, or lobed",
+      "upper floral bracts green or only paler at base rather than sharply red/pink/orange",
+      "cyathial gland stipitate and clavate",
+      "gland opening circular with annular rim",
+      "capsules broadly ovoid and usually glabrous"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Euphorbia cyathophora",
+      "separator": "E. cyathophora usually has strongly colored upper-bract bases and an oblong gland opening lacking an annular rim; E. heterophylla has green/pale bracts and a circular-rimmed gland."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "A. Sergeev photo archive, Texas A&M Holistic Garden",
+      "source_page": "https://www.asergeev.com/pictures/archives/compress/2011/976/05.htm",
+      "origin_url": "https://www.asergeev.com/pictures/archives/2011/976/jpeg/05b.jpg",
+      "creator": "A. Sergeev",
+      "license": "unverified",
+      "role": "cyathia + upper bracts",
+      "reuse": "private-study candidate until rights verified"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf-shape polymorphism",
+    "green/pale upper bracts",
+    "cyathium macro",
+    "circular gland opening with annular rim",
+    "direct cyathophora comparison"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A30062970-2",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200012563",
+    "https://keyserver.lucidcentral.org/weeds/data/media/Html/euphorbia_cyathophora.htm",
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Euphorbia"
+  ],
+  "scout_flags": {
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true,
+    "comparison_candidate": true,
+    "range_conflict_or_non_native_flag": true
+  }
+}
