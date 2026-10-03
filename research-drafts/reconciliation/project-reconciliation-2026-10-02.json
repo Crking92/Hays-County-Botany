@@ -1,0 +1,130 @@
+{
+  "reconciliation_id": "project-reconciliation-2026-10-02-family-joey",
+  "created_at": "2026-10-02T19:52:00-05:00",
+  "purpose": "Reconcile Joey Santore family-audit/backfill work, species deep-review queue, canonical learner family support, learning-layer coverage, and tracker state before continuing additional species batches.",
+  "joey_archive": {
+    "deep_batches": 22,
+    "video_extractions": 10,
+    "source_records": 731,
+    "exact_media_locked": 351,
+    "exact_media_url_confirmed": 335,
+    "video_frame_records": 183,
+    "video_frame_assets_persisted": 183,
+    "external_reuse_or_publication_records": 111,
+    "audit_families": 39,
+    "audit_counts": {
+      "joey_sufficient": 11,
+      "joey_plus_authoritative_backfill": 10,
+      "authoritative_backfill_required": 18
+    },
+    "family_backfill_indexed": 17,
+    "note": "Extracted YouTube frames remain private-study assets unless reuse permission/license is separately established. Exact Joey media/source notes should merge into species/family/glossary packages only after authoritative verification."
+  },
+  "canonical_learner": {
+    "species_count": 81,
+    "represented_families": 11,
+    "family_json_present": [
+      "Apocynaceae",
+      "Asteraceae",
+      "Convolvulaceae",
+      "Fagaceae",
+      "Papaveraceae"
+    ],
+    "family_json_missing": [
+      "Asparagaceae",
+      "Cupressaceae",
+      "Ebenaceae",
+      "Lamiaceae",
+      "Onagraceae",
+      "Poaceae"
+    ],
+    "family_json_stale_or_needs_refresh": [
+      "Asteraceae — initial 2026-09-30 batch file predates current Joey/family audit",
+      "Convolvulaceae — starter family file predates completed family backfill",
+      "Fagaceae — starter 2026-09-30 file predates Juglandaceae/Fagaceae paired backfill",
+      "Papaveraceae — starter 2026-09-30 file predates Papaveraceae family backfill",
+      "Apocynaceae — existing file should be broadened beyond Asclepias using Joey/Matelea-Gonolobinae work"
+    ]
+  },
+  "presentation_layer": {
+    "family_profiles_count": 5,
+    "family_profiles": [
+      "Asteraceae",
+      "Apocynaceae",
+      "Convolvulaceae",
+      "Fagaceae",
+      "Papaveraceae"
+    ],
+    "glossary_terms_count": 35,
+    "gap": "Many verified 'where to look first', family tie-breakers, confusable-family rules, and Joey morphology terms remain in research-drafts rather than data/learning-layer.json."
+  },
+  "approved_curation_backlog": {
+    "approved_native_pending_curation": 33,
+    "approved_comparison_pending_curation": 3,
+    "approved_range_exception_pending_curation": 2,
+    "total_ready_to_move_forward": 38,
+    "comparison_examples": [
+      "Ulmus parvifolia",
+      "Verbena brasiliensis",
+      "Ilex opaca"
+    ],
+    "range_exception_examples": [
+      "Echinacea angustifolia",
+      "Pluchea camphorata"
+    ]
+  },
+  "stable_family_backfills_ready_or_nearly_ready": [
+    "Poaceae",
+    "Ranunculaceae",
+    "Cannabaceae/Ulmaceae comparison",
+    "Convolvulaceae",
+    "Passifloraceae/Vitaceae comparison",
+    "Bignoniaceae/Plantaginaceae/Acanthaceae comparison",
+    "Apiaceae",
+    "Papaveraceae",
+    "Juglandaceae/Fagaceae comparison",
+    "Oleaceae",
+    "Onagraceae",
+    "Anacardiaceae"
+  ],
+  "family_backfills_still_active_or_needed": [
+    "Cupressaceae",
+    "Sapindaceae",
+    "Aquifoliaceae",
+    "Orobanchaceae",
+    "Pteridaceae",
+    "Rubiaceae",
+    "Rosaceae",
+    "Commelinaceae",
+    "Berberidaceae",
+    "Ebenaceae",
+    "Platanaceae",
+    "Sapotaceae"
+  ],
+  "merge_actions": [
+    {
+      "priority": 1,
+      "action": "Promote completed/verified family lessons into canonical content/taxa/<Family>/family.json and data/learning-layer.json, merging rather than replacing existing family files.",
+      "constraint": "Only completed authoritative/Joey-verified family packages; preserve active family-backfill work."
+    },
+    {
+      "priority": 1,
+      "action": "Process approved species backlog through curation-inbox in manageable batches, merging relevant exact Joey media/source notes into SOURCES.txt and image-sources.csv before install.",
+      "constraint": "Do not install private-study YouTube frames as public-reuse assets without reuse clearance."
+    },
+    {
+      "priority": 2,
+      "action": "Promote verified morphology vocabulary and family tie-breakers from Joey/family backfills into the learning-layer glossary and family_profiles.",
+      "constraint": "Canonical terminology must be independently verified; source overlay wording is not automatically canonical."
+    },
+    {
+      "priority": 2,
+      "action": "Build comparison cards where family backfills explicitly call for them (e.g. grass/sedge/rush; hackberry/elm; Passifloraceae/Vitaceae; Bignoniaceae/Plantaginaceae/Acanthaceae; Rhus/Toxicodendron)."
+    },
+    {
+      "priority": 3,
+      "action": "Continue unfinished family backfills in parallel, but do not block promotion of already stable completed families."
+    }
+  ],
+  "decision": "Pause creation of additional species deep-review batches until the stable family/backfill information and approved curation backlog are reconciled into the learner."
+}
