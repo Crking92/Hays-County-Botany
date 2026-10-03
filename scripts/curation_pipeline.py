@@ -192,9 +192,9 @@ def process_image_csv(species_dir: Path, require_exact_images: bool, report: dic
     for row in rows:
         file_name = (row.get("file_name") or "").strip()
         role = first_nonempty(row, IMAGE_ROLE_COLUMNS)
-        creator = (row.get("creator") or row.get("photographer") or row.get("observer") or "").strip()
-        license_value = (row.get("license") or "").strip()
-        source_page = (row.get("source_page") or row.get("source_url") or "").strip()
+        creator = (row.get("creator") or row.get("photographer") or row.get("observer") or row.get("attribution") or "").strip()
+        license_value = (row.get("license") or row.get("license_code") or "").strip()
+        source_page = (row.get("source_page") or row.get("source_url") or row.get("observation_url") or "").strip()
         direct_url = first_nonempty(row, IMAGE_URL_COLUMNS)
         study_use = (row.get("study_use") or "").strip()
         public_reuse = (row.get("public_reuse") or "").strip()
