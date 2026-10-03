@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-021-ilex-b017",
+  "created_at": "2026-10-02T19:44:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 564,
+    "source_scientific_name": "Ilex decidua",
+    "wild_observations": 22,
+    "source_count": 4
+  },
+  "taxonomy": {
+    "accepted_name": "Ilex decidua Walter",
+    "rank": "species",
+    "order": "Aquifoliales",
+    "family": "Aquifoliaceae",
+    "genus": "Ilex",
+    "species": "decidua",
+    "status": "VERIFIED",
+    "note": "Accepted species; two accepted varieties preserved in review while learner remains species-level.",
+    "accepted_infraspecifics": [
+      "Ilex decidua var. decidua",
+      "Ilex decidua var. mulleri Edwin ex T.R.Dudley"
+    ]
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Ilex decidua and lists Texas in its native range.",
+      "Hays County — the project Hays County native-source list includes I. decidua, and Purola Preserve separately documents naturally occurring possumhaw.",
+      "Travis County — Travis County's Pace Bend Park plant inventory documents deciduous holly as a characteristic understory shrub in native woodland, and Texas Wildbuds documents natural central-Texas material.",
+      "Williamson County — the University of Texas Plant Resources Center provides a dedicated Williamson County treatment and includes I. decidua in the county flora."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Possumhaw is widely used in landscaping, so county decisions rely on native-flora/park/herbarium context rather than ornamental plantings. Kew recognizes var. decidua and var. mulleri; B017 stays species-level."
+  },
+  "morphology": {
+    "look_here_first": "First ask whether the holly is deciduous: possumhaw drops its leaves and leaves dense red/orange drupes exposed along pale gray twigs in winter. In leaf, its blades are larger and thinner than yaupon and usually elliptic to obovate with shallow crenate teeth.",
+    "diagnostic_traits": [
+      "deciduous shrub or small tree, often with pale gray twiggy branches",
+      "leaves alternate, simple, thin-textured, elliptic to obovate/spatulate",
+      "leaf margin shallowly crenate to crenate-serrate, not stiffly spiny",
+      "small inconspicuous white flowers are axillary; plants are primarily dioecious",
+      "female plants bear red to orange-red drupes in clusters along twigs",
+      "fruits commonly persist after leaf drop, making winter fruiting twigs highly diagnostic",
+      "tiny stipules may be present at petiole bases in detailed regional treatments",
+      "typically associated with moist woods, creek bottoms, floodplains and low areas"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Ilex vomitoria",
+      "separator": "Yaupon is evergreen with much smaller leathery leaves and fine crenate teeth; possumhaw is deciduous with larger thinner leaves and famously bare fruit-covered twigs in winter."
+    },
+    {
+      "taxon": "Ilex opaca",
+      "separator": "American holly is an evergreen tree with much larger thick leaves bearing sharp spine-tipped teeth; possumhaw leaves are thinner, non-spiny, and deciduous."
+    },
+    {
+      "taxon": "Ilex verticillata",
+      "separator": "Winterberry is also deciduous and red-fruited but is primarily an eastern/northern wetland species; use verified range plus leaf/fruiting details before applying the name in Texas."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole summer habit",
+      "winter leafless fruiting habit",
+      "full leaf upper surface",
+      "leaf margin macro",
+      "twig/bark",
+      "male flower",
+      "female flower/ovary",
+      "red drupe cluster",
+      "drupe/pyrene detail",
+      "direct yaupon comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/273549103",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Ilex%20decidua",
+      "https://www.npsot.org/posts/native-plant/ilex-decidua/"
+    ]
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "Do not install until Calvin explicitly approves B017 pass taxa."
+}
