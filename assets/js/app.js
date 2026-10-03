@@ -22,7 +22,9 @@ const state = {
   approvalsError: "",
   approvalsFilter: "action",
   approvalsBusy: null,
-  approvalArtifacts: {}
+  approvalArtifacts: {},
+  approvalDraftCache: new Map(),
+  approvalPhotoCache: new Map()
 };
 
 const els = {
@@ -314,6 +316,161 @@ function approvalBatchNumber(label){
   const m=String(label).match(/B(\d+)/i);
   return m ? Number(m[1]) : -1;
 }
+
+function mediumInatPhoto(url){
+  return String(url||"").replace(/\/(square|small|medium|large)\./,"/medium.");
+}
+async function approvalDraft(item){
+  if(state.approvalDraftCache.has(item.id)) return state.approvalDraftCache.get(item.id);
+  const promise=loadJSON("research-drafts/"+encodeURIComponent(item.id)+"/draft.json").catch(function(){ return null; });
+  state.approvalDraftCache.set(item.id,promise);
+  return promise;
+}
+async function inatObservationPhotos(observationUrl){
+  const match=String(observationUrl||"").match(/\/observations\/(\d+)/);
+  if(!match) return [];
+  const r=await fetch("https://api.inaturalist.org/v1/observations/"+match[1],{cache:"no-store"});
+  if(!r.ok) throw new Error("iNaturalist observation request failed");
+  const data=await r.json();
+  const obs=(data.results||[])[0];
+  if(!obs) return [];
+  return (obs.photos||[]).map(function(photo){
+    return {
+      url:mediumInatPhoto(photo.url),
+      source:obs.uri || observationUrl,
+      attribution:photo.attribution || "",
+      license:photo.license_code || "",
+      label:"Reference observation"
+    };
+  });
+}
+async function inatTaxonPhotos(name,limit){
+  const params=new URLSearchParams({
+    taxon_name:name,
+    quality_grade:"research",
+    photos:"true",
+    per_page:"12",
+    order_by:"votes",
+    order:"desc"
+  });
+  const r=await fetch("https://api.inaturalist.org/v1/observations?"+params.toString(),{cache:"no-store"});
+  if(!r.ok) throw new Error("iNaturalist photo search failed");
+  const data=await r.json(), out=[];
+  (data.results||[]).some(function(obs){
+    (obs.photos||[]).forEach(function(photo){
+      if(out.length>=limit) return;
+      const url=mediumInatPhoto(photo.url);
+      if(out.some(function(x){ return x.url===url; })) return;
+      out.push({
+        url:url,
+        source:obs.uri || ("https://www.inaturalist.org/observations/"+obs.id),
+        attribution:photo.attribution || "",
+        license:photo.license_code || "",
+        label:"Species photo candidate"
+      });
+    });
+    return out.length>=limit;
+  });
+  return out;
+}
+async function approvalPhotoPackage(item){
+  if(state.approvalPhotoCache.has(item.id)) return state.approvalPhotoCache.get(item.id);
+  const promise=(async function(){
+    const draft=await approvalDraft(item);
+    const pv=(draft && draft.photo_verification) || {};
+    const roles=Array.isArray(pv.diagnostic_roles) ? pv.diagnostic_roles : [];
+    const refs=Array.isArray(pv.reference_candidates) ? pv.reference_candidates : [];
+    let photos=[];
+    if(pv.user_inaturalist_example_observation){
+      try{ photos=await inatObservationPhotos(pv.user_inaturalist_example_observation); }catch(err){}
+    }
+    if(photos.length<6){
+      try{
+        const extra=await inatTaxonPhotos(item.scientific_name||item.id,6-photos.length);
+        extra.forEach(function(p){ if(!photos.some(function(x){ return x.url===p.url; })) photos.push(p); });
+      }catch(err){}
+    }
+    return {
+      roles:roles,
+      photos:photos.slice(0,6),
+      references:refs,
+      example:pv.user_inaturalist_example_observation || ""
+    };
+  })();
+  state.approvalPhotoCache.set(item.id,promise);
+  return promise;
+}
+function approvalPhotoPlaceholder(item){
+  return '<section class="approval-photo-block" data-approval-photos="'+esc(item.id)+'"><div class="approval-photo-loading">Loading diagnostic photo candidates…</div></section>';
+}
+function approvalPhotosHTML(item,pkg){
+  let out='<div class="approval-photo-heading"><div><b>Diagnostic photo review</b><span>Reference candidates — not the final locked image set.</span></div>'+
+    (pkg.photos.length?'<strong>'+pkg.photos.length+' photos</strong>':'')+'</div>';
+  if(pkg.roles.length){
+    out+='<div class="approval-role-label">This package needs:</div><div class="approval-role-chips">'+
+      pkg.roles.map(function(role){ return '<span>'+esc(role)+'</span>'; }).join("")+'</div>';
+  }
+  if(pkg.photos.length){
+    out+='<div class="approval-photo-gallery">';
+    pkg.photos.forEach(function(photo,index){
+      const credit=[photo.attribution,photo.license].filter(Boolean).join(" · ");
+      out+='<a class="approval-photo-candidate" href="'+esc(photo.source)+'" target="_blank" rel="noreferrer" title="Open source observation">'+
+        '<img src="'+esc(photo.url)+'" alt="'+esc((item.scientific_name||item.id)+" photo candidate "+(index+1))+'" loading="lazy">'+
+        '<span><b>'+esc(photo.label)+'</b>'+(credit?'<small>'+esc(credit)+'</small>':'')+'</span></a>';
+    });
+    out+='</div>';
+  }else{
+    out+='<div class="approval-photo-empty">No live candidate thumbnails loaded. The diagnostic roles are still shown so the missing photo package is obvious.</div>';
+  }
+  const sourceLinks=[];
+  if(pkg.example) sourceLinks.push({url:pkg.example,label:"iNaturalist reference observation"});
+  pkg.references.forEach(function(url,i){ sourceLinks.push({url:url,label:"Reference source "+(i+1)}); });
+  if(sourceLinks.length){
+    out+='<div class="approval-photo-sources">'+sourceLinks.map(function(x){ return '<a href="'+esc(x.url)+'" target="_blank" rel="noreferrer">'+esc(x.label)+' ↗</a>'; }).join("")+'</div>';
+  }
+  return out;
+}
+async function hydrateApprovalPhotoBlock(el){
+  if(!el || el.dataset.loaded==="true" || el.dataset.loading==="true") return;
+  const id=el.dataset.approvalPhotos;
+  const item=(state.approvals && state.approvals.items || []).find(function(x){ return x.id===id; });
+  if(!item) return;
+  el.dataset.loading="true";
+  try{
+    const pkg=await approvalPhotoPackage(item);
+    const current=document.querySelector('[data-approval-photos="'+CSS.escape(id)+'"]');
+    if(current){
+      current.innerHTML=approvalPhotosHTML(item,pkg);
+      current.dataset.loaded="true";
+      current.dataset.loading="false";
+    }
+  }catch(err){
+    const current=document.querySelector('[data-approval-photos="'+CSS.escape(id)+'"]');
+    if(current){
+      current.innerHTML='<div class="approval-photo-empty">Photo candidates could not be loaded. Open the review files below for the source leads.</div>';
+      current.dataset.loaded="true";
+      current.dataset.loading="false";
+    }
+  }
+}
+function hydrateVisibleApprovalPhotos(){
+  const blocks=Array.from(document.querySelectorAll("[data-approval-photos]"));
+  if(!blocks.length) return;
+  if("IntersectionObserver" in window){
+    const observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          observer.unobserve(entry.target);
+          hydrateApprovalPhotoBlock(entry.target);
+        }
+      });
+    },{rootMargin:"300px 0px"});
+    blocks.forEach(function(block){ observer.observe(block); });
+  }else{
+    blocks.slice(0,20).forEach(hydrateApprovalPhotoBlock);
+  }
+}
+
 function approvalArtifactLinks(item){
   const paths=state.approvalArtifacts[item.id] || [];
   if(!paths.length) return "";
@@ -332,6 +489,7 @@ function approvalCard(item){
     '<div class="approval-card-top"><div><div class="eyebrow">'+esc(item.family||"")+" › "+esc(item.genus||"")+'</div><h3><i>'+esc(item.scientific_name||item.id)+'</i></h3></div>'+
     '<span class="approval-range '+approvalStatusClass(range)+'">'+esc(range)+'</span></div>'+
     '<p class="approval-notes">'+esc(item.notes||"No review note recorded.")+'</p>'+
+    approvalPhotoPlaceholder(item)+
     '<div class="approval-meta">'+
       '<span><b>Status</b>'+esc(titleCase(item.status||"unknown"))+'</span>'+
       '<span><b>Approval</b>'+esc(titleCase(item.approval_status||"not set"))+'</span>'+
@@ -617,6 +775,7 @@ function render(){
   else if(state.view==="glossary") els.app.innerHTML=glossaryView();
   else if(state.view==="approvals") els.app.innerHTML=approvalsView();
   else els.app.innerHTML=homeView();
+  if(state.view==="approvals") requestAnimationFrame(hydrateVisibleApprovalPhotos);
 }
 
 function searchMatches(query){
