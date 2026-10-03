@@ -11,7 +11,7 @@
   <title>Hays Botany Visual Learner</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=5">
+  <link rel="stylesheet" href="assets/css/styles.css?v=6">
 </head>
 <body>
 <header class="topbar">
@@ -23,6 +23,7 @@
     <button type="button" data-nav="home">Home</button>
     <button type="button" data-nav="browse">Browse</button>
     <button type="button" data-nav="glossary">Terms</button>
+    <button type="button" data-nav="approvals">Approvals</button>
   </nav>
   <div class="header-tools">
     <div class="difficulty" role="group" aria-label="Learning difficulty">
@@ -51,7 +52,7 @@
 </main>
 
 <div id="modalRoot"></div>
-<script src="assets/js/app.js?v=5"></script>
+<script src="assets/js/app.js?v=6"></script>
 <script>
   if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
     window.addEventListener("load", function(){
