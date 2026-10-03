@@ -1,0 +1,74 @@
+{
+  "module_id": "asparagaceae-family-verification-001",
+  "family": "Asparagaceae",
+  "created_at": "2026-10-03",
+  "status": "researched_and_persisted",
+  "verification_type": "joey_sufficient_authoritative_verification",
+  "scope_note": "Light verification pass. Broad Asparagaceae is morphologically heterogeneous under APG/Kew circumscription. The project's live local pool is Yucca-only, while Joey provides useful Agave/Yucca/Hesperaloe family-context material. Teach Yucca as a local Agavoideae-style anchor, not as the definition of all Asparagaceae.",
+  "joey_coverage": {
+    "audit_records": 22,
+    "exact_media_records": 7,
+    "audit_summary": "Strong Agave/Yucca/Hesperaloe morphology, rosettes, teeth, terminal spines, inflorescences and flowers.",
+    "assessment": "Joey coverage sufficient; classification/overfit protection is the main task."
+  },
+  "tracker_scope": {
+    "pool_source_rows": 7,
+    "pool_genera": [
+      "Yucca"
+    ],
+    "curated_rows": 5,
+    "wild_observations": 69,
+    "canonical_reuse": [
+      "Yucca constricta",
+      "Yucca rupicola",
+      "Yucca torreyi",
+      "Yucca treculiana"
+    ]
+  },
+  "family_lesson": {
+    "broad_family_rule": "Asparagaceae in the modern APG/Kew sense is heterogeneous. Flowers often have 6 tepals and 6 stamens, a 3-locular ovary that may be superior or inferior, and capsule or berry fruit, but vegetative form varies dramatically.",
+    "local_yucca_rule": "For the local Yucca lesson, start with a basal/terminal rosette of stiff fibrous leaves, margin fibers and/or terminal spine, then inspect the large terminal panicle, 3+3 fleshy tepals, 6 stamens and 3-carpellate fruit.",
+    "avoid_overgeneralizing": [
+      "Do not teach rosette + spine as universal Asparagaceae.",
+      "Do not assume ovary position is fixed across broad Asparagaceae.",
+      "Do not use Agave/Yucca/Hesperaloe as separate families; the broad modern family includes former Agavaceae.",
+      "Do not treat the audit's Agave/Hesperaloe context as live local source-pool genera when the current pool is Yucca-only."
+    ]
+  },
+  "taxonomy_cleanup": {
+    "issue": "Live pool contains both Yucca treculeana and Yucca treculiana spellings.",
+    "current_kew": "Yucca treculiana Carrière is accepted by current Kew/POWO.",
+    "action": "Flag Yucca treculeana for source-row orthographic/taxonomic reconciliation; do not create a duplicate learner species."
+  },
+  "local_yucca_visual_key": [
+    "rosette/trunk architecture",
+    "leaf rigidity and width",
+    "terminal spine",
+    "leaf-margin fibers/threads",
+    "inflorescence position and branching",
+    "flower shape and tepal posture",
+    "capsule/fruit form"
+  ],
+  "confusable_families": {
+    "Amaryllidaceae": "Often bulbous with pseudoumbellate inflorescences enclosed by spathaceous bracts; compare reproductive architecture rather than leaf shape alone.",
+    "Liliaceae": "Both may show 3+3 tepals and 6 stamens; local Yucca is distinguished by woody/rosette architecture and genus-level flower/fruit characters.",
+    "Cactaceae": "Yucca has true fibrous leaves in a rosette and lacks cactus areoles."
+  },
+  "visual_gaps": [
+    "equal-scale Yucca leaf architecture card",
+    "margin-fiber/terminal-spine macros",
+    "Yucca flower dissection",
+    "fruit/capsule comparison",
+    "broad Asparagaceae vs local Yucca hierarchy card"
+  ],
+  "completion_assessment": {
+    "joey_coverage": "verified sufficient",
+    "family_framework": "authoritatively verified",
+    "remaining": "Yucca visual locking plus treculeana/treculiana source-row cleanup",
+    "recommended_status": "verified_ready_for_visual_locking"
+  },
+  "authoritative_sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30275682-2/general-information",
+    "https://powo.science.kew.org/taxon/543799-1"
+  ]
+}
