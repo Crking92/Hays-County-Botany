@@ -2846,8 +2846,8 @@
       "common_name": "Texas lantana",
       "family": "Verbenaceae",
       "genus": "Lantana",
-      "status": "reviewed_ready_for_approval",
-      "priority": 3,
+      "status": "curated_installed",
+      "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
         "strict_target_zone_range",
@@ -2870,7 +2870,12 @@
       "batch_id": "deep-review-batch-024-verbenaceae-local-pair",
       "last_deep_reviewed_at": "2026-10-03T14:55:00-05:00",
       "notes": "Verbenaceae local pair: strict-range PASS — Travis, Williamson, Val Verde. Diagnostic priority: native non-spinescent rough-leaved shrub versus L. camara/other nursery lantanas.",
-      "approval_status": "ready_for_approval"
+      "approval_status": "approved_and_installed",
+      "canonical_status": "installed",
+      "canonical_id": "lantana-urticoides",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed",
+      "reconciliation_note": "User approved the Verbenaceae pair on 2026-10-03; canonical install completed through species-merge-021-verbenaceae-local-pair."
     },
     {
       "id": "phyla-nodiflora",
@@ -2878,8 +2883,8 @@
       "common_name": "turkey tangle frogfruit",
       "family": "Verbenaceae",
       "genus": "Phyla",
-      "status": "reviewed_ready_for_approval",
-      "priority": 3,
+      "status": "curated_installed",
+      "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
         "strict_target_zone_range",
@@ -2902,7 +2907,12 @@
       "batch_id": "deep-review-batch-024-verbenaceae-local-pair",
       "last_deep_reviewed_at": "2026-10-03T14:55:00-05:00",
       "notes": "Verbenaceae local pair: strict-range PASS — Hays, Travis, Williamson. Diagnostic priority: creeping rooting stems and leaf widest beyond middle with serrations concentrated distally.",
-      "approval_status": "ready_for_approval"
+      "approval_status": "approved_and_installed",
+      "canonical_status": "installed",
+      "canonical_id": "phyla-nodiflora",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed",
+      "reconciliation_note": "User approved the Verbenaceae pair on 2026-10-03; canonical install completed through species-merge-021-verbenaceae-local-pair."
     },
     {
       "id": "commelina-erecta",
@@ -2910,7 +2920,7 @@
       "common_name": "whitemouth dayflower",
       "family": "Commelinaceae",
       "genus": "Commelina",
-      "status": "queued",
+      "status": "approved_pending_install",
       "priority": 4,
       "research_goals": [
         "taxonomy_candidates",
@@ -2930,7 +2940,12 @@
         "hays_local": true
       },
       "queued_at": "2026-10-03T13:41:00-05:00",
-      "queue_reason": "Post-reconciliation seed from formula-owned Master Plant Pool: Hays-local Priority-1 species chosen for coherent visual-comparison scouting."
+      "queue_reason": "Post-reconciliation seed from formula-owned Master Plant Pool: Hays-local Priority-1 species chosen for coherent visual-comparison scouting.",
+      "batch_id": "deep-review-batch-025-commelinaceae-local-pair",
+      "last_deep_reviewed_at": "2026-10-03T15:03:00-05:00",
+      "approval_status": "blanket_approved_pending_install",
+      "native_range_status": "PASS",
+      "notes": "Final queued pair: strict-range PASS — Travis, Williamson, Val Verde. Key split: folded/fused spathe pocket enclosing buds/fruits."
     },
     {
       "id": "tinantia-anomala",
@@ -2938,7 +2953,7 @@
       "common_name": "false dayflower",
       "family": "Commelinaceae",
       "genus": "Tinantia",
-      "status": "queued",
+      "status": "approved_pending_install",
       "priority": 4,
       "research_goals": [
         "taxonomy_candidates",
@@ -2958,23 +2973,28 @@
         "hays_local": true
       },
       "queued_at": "2026-10-03T13:41:00-05:00",
-      "queue_reason": "Post-reconciliation seed from formula-owned Master Plant Pool: Hays-local Priority-1 species chosen for coherent visual-comparison scouting."
+      "queue_reason": "Post-reconciliation seed from formula-owned Master Plant Pool: Hays-local Priority-1 species chosen for coherent visual-comparison scouting.",
+      "batch_id": "deep-review-batch-025-commelinaceae-local-pair",
+      "last_deep_reviewed_at": "2026-10-03T15:03:00-05:00",
+      "approval_status": "blanket_approved_pending_install",
+      "native_range_status": "PASS",
+      "notes": "Final queued pair: strict-range PASS — Travis, Williamson, Val Verde. Key split: open leaflike bract + exposed one-sided cyme + clasping upper leaves."
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-024-verbenaceae-local-pair",
-    "reviewed_at": "2026-10-03T14:55:00-05:00",
-    "status": "awaiting_batch_approval",
+    "batch_id": "deep-review-batch-025-commelinaceae-local-pair",
+    "reviewed_at": "2026-10-03T15:03:00-05:00",
+    "status": "blanket_approved_installing",
     "taxa": [
-      "lantana-urticoides",
-      "phyla-nodiflora"
+      "commelina-erecta",
+      "tinantia-anomala"
     ],
-    "note": "Verbenaceae local pair complete: L. urticoides PASS (Travis, Williamson, Val Verde); P. nodiflora PASS (Hays, Travis, Williamson). Both ready for approval."
+    "note": "Both final queued Commelinaceae taxa PASS with Travis, Williamson, Val Verde and are being installed under the user's blanket approval."
   },
   "approval_state": {
-    "last_user_decision_at": "2026-10-03T14:43:00-05:00",
-    "last_user_decision_note": "Approved Scutellaria drummondii and Scutellaria wrightii; both installed canonically in species-merge-020-scutellaria-comparison."
+    "last_user_decision_at": "2026-10-03T15:00:00-05:00",
+    "last_user_decision_note": "User said 'approve them all, continue'; applied to the presented Verbenaceae pair and the explicitly identified final queued Commelinaceae pair after both final taxa independently passed strict review."
   },
   "reconciliation": {
     "reconciled_at": "2026-10-03T13:41:00-05:00",

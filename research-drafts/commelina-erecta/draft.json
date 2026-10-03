@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_BLANKET_APPROVED_PENDING_INSTALL",
+  "batch_id": "deep-review-batch-025-commelinaceae-local-pair",
+  "created_at": "2026-10-03T15:03:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 274,
+    "source_scientific_name": "Commelina erecta",
+    "wild_observations": 9,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Commelina erecta L.",
+    "rank": "species",
+    "order": "Commelinales",
+    "family": "Commelinaceae",
+    "genus": "Commelina",
+    "species": "erecta",
+    "status": "VERIFIED",
+    "note": "Accepted by current Kew/POWO. The species is highly variable; older North American treatments often recognized varieties such as var. erecta, var. angustifolia, and var. deamiana. The learner remains species-level."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis",
+      "Williamson",
+      "Val Verde"
+    ],
+    "evidence": [
+      "BONAP/NAPA maps Commelina erecta at county level and Kew/POWO accepts Texas in the native range.",
+      "Travis County — UT Plant Resources Center's Travis County Commelinaceae herbarium index includes three Commelina erecta specimens.",
+      "Williamson County — UT Plant Resources Center provides a detailed county treatment for Commelina erecta.",
+      "Val Verde County — the Amistad National Recreation Area vascular flora documents Commelina erecta near Devil's Cave at the mouth of the Devil's River."
+    ],
+    "blocking_issue": null,
+    "guardrail": "The species is widespread, morphologically variable, and often cultivated or weedy. County evidence comes from herbarium/floristic sources, not garden occurrences."
+  },
+  "morphology": {
+    "look_here_first": "Look for the folded green spathe pocket before looking at flower color. Commelina erecta has alternate sheathing leaves and a strongly folded, partly fused leaflike spathe that encloses the buds and developing fruits. The flower then shows two large blue petals and one much smaller pale/white petal.",
+    "diagnostic_traits": [
+      "perennial herb with fibrous roots and several to many stems from the base",
+      "stems often decumbent or geniculate and capable of rooting at low nodes",
+      "leaves alternate, simple, parallel-veined and sheathing at the stem",
+      "leaf blades variable from narrow lanceolate to broader lanceolate/ovate forms",
+      "leaf sheaths may show rounded auricles near the blade base",
+      "inflorescence enclosed by a conspicuous green spathe that is strongly folded along the midline and fused along part of its margins into a pocket",
+      "buds develop inside the mucilage-lined spathe and flowers emerge sequentially",
+      "flower bilaterally symmetric with two large blue lateral petals and a much smaller pale or colorless lower petal",
+      "androecium includes fertile stamens plus conspicuous yellow staminodes",
+      "capsule develops hidden within the spathe"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Tinantia anomala",
+      "separator": "Tinantia lacks the closed Commelina-style spathe pocket. Its terminal one-sided cyme is subtended by a broad leaflike bract that is mostly flat/open, and its upper leaves often clasp the stem with cordate lobes. The flower still has two large blue petals and a smaller white petal, so the inflorescence bract is the better first character."
+    },
+    {
+      "taxon": "Commelina communis",
+      "separator": "The introduced Asiatic dayflower also has two large blue petals, but its spathe is open rather than fused into the more pocketlike Commelina erecta spathe. Use spathe architecture and regional flora evidence rather than petal color."
+    },
+    {
+      "taxon": "Tradescantia spp.",
+      "separator": "Spiderworts have three comparably showy petals and lack the Commelina dayflower spathe pocket. Their flowers sit in terminal clusters rather than emerging from the folded spathe."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole decumbent/branching habit",
+      "rooting or swollen low node",
+      "alternate sheathing leaf and auricles",
+      "closed/folded spathe pocket side view",
+      "spathe opened to show enclosed buds/fruit",
+      "flower face showing two large blue petals plus small pale petal",
+      "stamen/staminode macro",
+      "direct Tinantia anomala inflorescence-bract comparison"
+    ],
+    "exact_final_selection_pending_user_approval": false,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/316362707",
+    "reference_candidates": [
+      "https://w3.biosci.utexas.edu/prc/wildflowers/flower/commelina-erecta",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Commelina%20erecta",
+      "https://www.npsot.org/posts/native-plant/commelina-erecta/"
+    ],
+    "provenance_note": "Highest-value training image is a side view of the folded/fused spathe; flower-only images are insufficient."
+  },
+  "approval_status": "BLANKET_APPROVED_BY_USER",
+  "installation_guardrail": "User said 'approve them all, continue' after this pair was identified as the final queued batch; install if strict review remains PASS."
+}
