@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_FAIL_TAXONOMIC_COMPARISON_RECOMMENDED",
+  "batch_id": "deep-review-batch-030-callirhoe-b020-part2",
+  "created_at": "2026-10-03T16:15:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 168,
+    "source_scientific_name": "Callirhoe digitata",
+    "wild_observations": 0,
+    "source_count": 1,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Callirhoe digitata Nutt.",
+    "rank": "species",
+    "order": "Malvales",
+    "family": "Malvaceae",
+    "genus": "Callirhoe",
+    "species": "digitata",
+    "status": "VERIFIED",
+    "note": "Accepted by Kew/POWO and Flora of North America. Modern FNA distribution is Arkansas, Kansas, Missouri, and Oklahoma—not Texas. Some older Texas literature used C. digitata or C. digitata var. stipulata for material now treated as Callirhoe pedata."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_native_counties": [],
+    "evidence": [
+      "Flora of North America gives the modern native distribution as Arkansas, Kansas, Missouri, and Oklahoma, excluding Texas.",
+      "ITIS treats Callirhoe digitata var. stipulata as a synonym of Callirhoe pedata, explaining a major source of older Texas records/names.",
+      "A modern Texas Callirhoe review likewise notes that true C. digitata is no longer treated as occurring in Texas."
+    ],
+    "blocking_issue": "True Callirhoe digitata is not native to Texas under the current species concept.",
+    "guardrail": "Do not convert historical Texas uses of the name C. digitata into modern C. digitata occurrence. Re-identify those records against C. pedata."
+  },
+  "morphology": {
+    "look_here_first": "If a supposed Texas 'digitata' appears, first suspect the name rather than the plant. True C. digitata is a tall perennial with 5–10 very narrow fingerlike leaf lobes, caducous stipules, and a PANICULATE inflorescence. C. pedata has persistent stipules, usually 3–5 lobes, and RACEMOSE flowers.",
+    "diagnostic_traits": [
+      "perennial",
+      "erect stems commonly 0.5–2 m",
+      "leaves (3–)5–10-lobed with narrow linear to lanceolate lobes",
+      "stipules caducous",
+      "involucellar bractlets absent",
+      "inflorescence paniculate rather than racemose",
+      "calyx lobes valvate in bud and pointed",
+      "mericarps indehiscent with weak/absent collars"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Callirhoe pedata",
+      "separator": "The crucial Texas correction: C. pedata has persistent linear-lanceolate stipules, usually 3–5 lobed leaves and racemose flowers; older Texas C. digitata var. stipulata is now C. pedata."
+    },
+    {
+      "taxon": "Callirhoe leiocarpa",
+      "separator": "C. leiocarpa is annual/biennial with auriculate stipules and dehiscent fruits; true C. digitata is perennial with caducous stipules."
+    }
+  ],
+  "learner_role": "TAXONOMIC_COMPARISON_RECOMMENDED",
+  "native_metrics_excluded": true,
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole tall erect habit",
+      "leaf with 5–10 narrow lobes",
+      "stipule/node showing caducous stipule state",
+      "paniculate inflorescence",
+      "bud/calyx",
+      "fruit",
+      "direct C. pedata leaf/inflorescence comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": null,
+    "reference_candidates": [
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=220002157",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30067326-2"
+    ]
+  },
+  "approval_status": "READY_FOR_COMPARISON_APPROVAL",
+  "installation_guardrail": "Do not install as a Texas native. If retained, label only as a taxonomic/historical-name comparison and exclude from native metrics."
+}
