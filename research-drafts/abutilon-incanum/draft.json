@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-malvaceae-test-04",
+  "created_at": "2026-10-03T19:08:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 4,
+    "priority": 3,
+    "source_scientific_name": "Abutilon incanum"
+  },
+  "taxonomy_candidate": {
+    "family": "Malvaceae",
+    "order": "Malvales",
+    "accepted_name": "Abutilon incanum (Link) Sweet",
+    "status_candidate": "accepted_but_texas_range_conflict",
+    "notes": [
+      "POWO and FNA accept A. incanum.",
+      "Both current POWO and FNA list its U.S. native range west of Texas (Arizona/Colorado/New Mexico), making the Hays-local pool record a likely re-ID or range-conflict target."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout research only. Deep Review must verify exact target-zone counties and resolve any nativity/re-identification conflict.",
+    "leads": [
+      "Master Plant Pool marks Hays Local, but this conflicts with current POWO/FNA distribution.",
+      "POWO lists Arizona, Colorado, New Mexico and western/northern Mexico, not Texas.",
+      "FNA likewise excludes Texas; do not count it as native without contrary authoritative evidence."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with the small reflexed flower and style count: densely gray-tomentose subshrub, yellow or pink petals often with a dark red center, and only five style branches.",
+    "diagnostic_traits": [
+      "subshrub 1–2 m",
+      "densely tomentulose ovate cordate leaves",
+      "petals 4–6 mm, yellow or pink, often dark red at center",
+      "corolla often reflexed",
+      "pubescent staminal column",
+      "style 5-branched",
+      "cask-shaped fruit 7–9 mm"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Abutilon fruticosum",
+      "separator": "A. fruticosum has plain yellow flowers, 6–9 style branches, and is currently documented native in Texas; A. incanum often has a dark-centered smaller reflexed corolla and five styles."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "Tumamoc Hill / Firefly Forest",
+      "page": "https://www.tumamoc.org/Fireflyforest/abutilon-incanum.html",
+      "image": "https://www.tumamoc.org/Fireflyforest/Abutilon_inc_Y_400.jpg",
+      "license": "unverified",
+      "role": "yellow flower with dark red center + buds"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf shape and pubescence",
+    "flower close-up",
+    "fruit/mericarps",
+    "look-alike comparison"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/1196159-2",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101016"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
