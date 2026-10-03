@@ -165,6 +165,26 @@ function familyCounts(){
   state.species.forEach(function(sp){ counts.set(sp.family,(counts.get(sp.family)||0)+1); });
   return counts;
 }
+function taxonomyLadder(family,genus,sp){
+  let out='<nav class="taxonomy-ladder" aria-label="Taxonomy path">';
+  out+='<button type="button" class="taxonomy-rank '+(!genus?"current":"")+'" data-family="'+esc(family)+'"><span>Family</span><strong>'+esc(family)+'</strong></button>';
+  out+='<b class="taxonomy-step" aria-hidden="true">→</b>';
+  if(genus) out+='<button type="button" class="taxonomy-rank '+(!sp?"current":"")+'" data-browse-family="'+esc(family)+'" data-browse-genus="'+esc(genus)+'"><span>Genus</span><strong><i>'+esc(genus)+'</i></strong></button>';
+  else out+='<div class="taxonomy-rank pending"><span>Genus</span><strong>Choose below</strong></div>';
+  out+='<b class="taxonomy-step" aria-hidden="true">→</b>';
+  if(sp) out+='<div class="taxonomy-rank current"><span>Species</span><strong><i>'+esc(scientificName(sp))+'</i></strong></div>';
+  else out+='<div class="taxonomy-rank pending"><span>Species</span><strong>Compare or open one</strong></div>';
+  return out+'</nav>';
+}
+function familyComparePanel(family,members){
+  if(!members || members.length<2) return "";
+  const opts=members.map(function(sp){ return '<option value="'+esc(sp.id)+'">'+esc(scientificName(sp))+(commonName(sp)?' — '+esc(commonName(sp)):'')+'</option>'; }).join("");
+  const second=members[1] ? members[1].id : members[0].id;
+  return '<section class="family-compare-panel"><div><div class="eyebrow">Compare within '+esc(family)+'</div><h2>Put two species side by side</h2><p>Start with what they share as family members, then use the differing characters to separate them.</p></div>'+
+    '<div class="family-compare-controls"><label><span>Species A</span><select id="familyCompareA">'+opts+'</select></label>'+
+    '<span class="compare-vs">vs</span><label><span>Species B</span><select id="familyCompareB">'+opts.replace('value="'+esc(second)+'"','value="'+esc(second)+'" selected')+'</select></label>'+
+    '<button type="button" class="primary-button" data-family-compare>Compare</button></div></section>';
+}
 function selectedSpecies(){ return state.speciesById.get(state.selectedSpeciesId) || null; }
 
 function similarCandidates(sp){
@@ -603,6 +623,7 @@ async function submitApprovalDecision(itemId,decision){
 function familyCard(family){
   const p=familyProfile(family)||{};
   const members=familySpecies(family);
+  const genera=generaForFamily(family).length;
   const countLabel=members.length ? members.length+" curated taxa" : "Family lesson ready";
   const imgs=members.map(function(sp){ return {sp:sp,img:firstImage(sp)}; }).filter(function(x){ return x.img; }).slice(0,3);
   let mosaic='<span class="family-mosaic">';
@@ -611,7 +632,8 @@ function familyCard(family){
   mosaic+='</span>';
   return '<button class="family-card" type="button" data-family="'+esc(family)+'">'+mosaic+
     '<span class="family-card-body"><span class="family-count">'+esc(countLabel)+'</span><strong>'+esc(family)+'</strong>'+
-    '<em>'+esc(p.common_name||"")+'</em><span class="family-clue">'+esc(p.plain_signature||"Open this family to see recurring field characters.")+'</span></span></button>';
+    '<em>'+esc(p.common_name||"")+'</em><span class="family-card-meta">'+(members.length?genera+' genera · '+members.length+' species anchors':'lesson built · species anchors pending')+'</span>'+
+    '<span class="family-clue">'+esc(p.plain_signature||"Open this family to see recurring field characters.")+'</span></span></button>';
 }
 function homeView(){
   const counts=familyCounts();
@@ -619,6 +641,7 @@ function homeView(){
   const preferred=state.learning.home_families || [];
   const discovered=Array.from(new Set(profiles.concat(Array.from(counts.keys())))).sort(function(a,b){ return a.localeCompare(b); });
   const families=preferred.concat(discovered.filter(function(f){ return !preferred.includes(f); }));
+  const anchoredFamilies=families.filter(function(f){ return familySpecies(f).length; }).length;
   const level=state.learning.difficulty_levels[state.difficulty];
   let out='<section class="home-hero"><div class="eyebrow">Structure-first field botany</div>'+
     '<h1>Learn what to look at, then learn what it is called.</h1>'+
@@ -626,8 +649,11 @@ function homeView(){
     '<div class="home-actions"><button class="primary-button" type="button" data-random-quiz>Quiz me with a random plant</button>'+
     '<button class="secondary-button" type="button" data-nav="browse">Browse Family → Genus → Species</button></div>'+
     '<div class="difficulty-explainer"><span>'+esc(level.label)+'</span><strong>'+esc(level.mantra)+'</strong><p>'+esc(level.description)+'</p></div></section>';
-  out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Start broad</div><h2>Plant families</h2></div>'+
-    '<button class="text-button" type="button" data-nav="browse">Explore '+families.length+' family lessons · '+state.species.length+' taxa →</button></div><div class="family-grid">';
+  out+='<section class="section-block family-library"><div class="section-heading"><div><div class="eyebrow">Start broad, then drill down</div><h2>Family Library</h2></div>'+
+    '<button class="text-button" type="button" data-nav="browse">Open taxonomy browser →</button></div>'+
+    '<p class="section-intro">Learn the recurring family pattern first, choose a genus, open a species, then compare it with close relatives and look-alikes.</p>'+
+    '<div class="library-summary"><div><strong>'+families.length+'</strong><span>family lessons</span></div><div><strong>'+anchoredFamilies+'</strong><span>families with species anchors</span></div><div><strong>'+state.species.length+'</strong><span>curated species</span></div></div>'+
+    '<div class="family-grid">';
   families.forEach(function(f){ out+=familyCard(f); });
   out+='</div></section><section class="method-strip"><div><b>1</b><span><strong>See it</strong>Start with the structure.</span></div>'+
     '<div><b>2</b><span><strong>Name it</strong>Tap terms as they appear.</span></div>'+
@@ -644,6 +670,7 @@ function familyView(){
   const canon=state.familyCache.get(family);
   const signature=state.difficulty==="field" ? (p.field_signature||p.plain_signature) : (p.plain_signature||p.field_signature);
   let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button><span>›</span><strong>'+esc(family)+'</strong></section>'+
+    taxonomyLadder(family,null,null)+
     '<section class="family-hero"><div class="family-hero-copy"><div class="eyebrow">Family · '+members.length+' curated taxa</div><h1>'+esc(family)+'</h1>'+
     '<p class="family-common">'+esc(p.common_name || (canon&&canon.common_name) || "")+'</p>'+
     '<div class="look-card"><span>LOOK HERE FIRST</span><strong>'+esc(p.look_here_first||"Recognize the family structure before species-level details.")+'</strong></div>'+
@@ -659,7 +686,9 @@ function familyView(){
   out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Recognize individuals</div><h2>Species</h2></div></div><div class="species-tile-grid">';
   if(members.length) members.forEach(function(sp){ out+=speciesTile(sp,true); });
   else out+='<div class="empty-panel">No canonical species anchors are installed for this family yet.</div>';
-  return out+'</div></section>';
+  out+='</div></section>';
+  out+=familyComparePanel(family,members);
+  return out;
 }
 function photoCarousel(sp){
   const imgs=imagesFor(sp);
@@ -785,7 +814,9 @@ function plantView(){
   const cues=fieldCues(sp,state.difficulty==="simple"?3:5);
   let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button>';
   if(!state.quizMode) out+='<span>›</span><button type="button" data-family="'+esc(sp.family)+'">'+esc(sp.family)+'</button><span>›</span><strong><i>'+esc(sp.genus)+'</i></strong>';
-  out+='</section><section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
+  out+='</section>';
+  if(!state.quizMode) out+=taxonomyLadder(sp.family,sp.genus,sp);
+  out+='<section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
     '<div class="look-card emphasis"><span>LOOK HERE FIRST</span><strong>'+esc(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
   cues.forEach(function(x){ out+='<div><b aria-hidden="true">→</b><span>'+esc(x)+'</span></div>'; });
   out+='</div><div class="study-actions"><button class="primary-button" type="button" data-family-info="'+esc(sp.family)+'">Why '+esc(sp.family)+'?</button>'+
@@ -814,7 +845,7 @@ function browseView(){
   if(state.browseGenus) list=list.filter(function(sp){ return sp.genus===state.browseGenus; });
   let out='<section class="page-intro"><div class="eyebrow">Taxonomy browser</div><h1>Family → Genus → Species</h1><p>Use this when you want to learn the hierarchy instead of searching by name.</p></section>'+
     '<section class="taxonomy-picker"><label><span>1 · Family</span><select data-browse-select="family"><option value="">All families</option>';
-  families.forEach(function(f){ out+='<option value="'+esc(f)+'" '+(f===state.browseFamily?"selected":"")+'>'+esc(f)+'</option>'; });
+  families.forEach(function(f){ const n=familySpecies(f).length; out+='<option value="'+esc(f)+'" '+(f===state.browseFamily?"selected":"")+'>'+esc(f)+' — '+(n?n+' species':'family lesson')+'</option>'; });
   out+='</select></label><div class="tax-arrow">→</div><label><span>2 · Genus</span><select data-browse-select="genus" '+(!state.browseFamily?"disabled":"")+'><option value="">All genera</option>';
   genera.forEach(function(g){ out+='<option value="'+esc(g)+'" '+(g===state.browseGenus?"selected":"")+'>'+esc(g)+'</option>'; });
   out+='</select></label><div class="tax-arrow">→</div><div class="picker-result"><span>3 · Species</span><strong>'+list.length+' taxa</strong>'+(state.browseFamily?'<button class="text-button" type="button" data-family="'+esc(state.browseFamily)+'">Open family lesson →</button>':'')+'</div></section>'+
@@ -946,6 +977,17 @@ function handleClick(e){
   const diff=e.target.closest("[data-difficulty]"); if(diff){ setDifficulty(diff.dataset.difficulty); return; }
   const setDiff=e.target.closest("[data-set-difficulty]"); if(setDiff){ setDifficulty(setDiff.dataset.setDifficulty); return; }
   const term=e.target.closest("[data-term]"); if(term){ e.stopPropagation(); openTermModal(term.dataset.term); return; }
+  if(e.target.closest("[data-family-compare]")){
+    const a=document.getElementById("familyCompareA"), b=document.getElementById("familyCompareB");
+    if(a && b){
+      if(a.value===b.value){
+        const alternatives=familySpecies(state.selectedFamily).filter(function(sp){ return sp.id!==a.value; });
+        if(alternatives.length) b.value=alternatives[0].id;
+      }
+      if(a.value && b.value && a.value!==b.value) openCompareModal(a.value,b.value);
+    }
+    return;
+  }
   const comp=e.target.closest("[data-compare]"); if(comp){ const ids=comp.dataset.compare.split("|"); openCompareModal(ids[0],ids[1]); return; }
   const species=e.target.closest("[data-species]"); if(species){ closeModal(); openPlant(species.dataset.species); return; }
   const fam=e.target.closest("[data-family]"); if(fam){ closeModal(); openFamily(fam.dataset.family); return; }
