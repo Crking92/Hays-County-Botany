@@ -2,27 +2,40 @@
   "rank": "genus",
   "family": "Asteraceae",
   "name": "Grindelia",
-  "authority": "Willd.",
   "common_group": "Gumweeds",
   "project_scope": {
-    "selection_mode": "common local-learning batch 1",
+    "selection_mode": "B062 same-genus comparison",
     "species_ids": [
-      "grindelia-lanceolata"
+      "grindelia-nuda"
     ],
-    "species_count": 1
+    "species_count": 1,
+    "holds": [
+      "grindelia-adenodonta",
+      "grindelia-squarrosa",
+      "grindelia-ciliata"
+    ]
   },
   "study_strategy": {
     "priority": [
-      "whole-plant architecture",
-      "leaf arrangement and dissection",
-      "phyllaries",
-      "ray vs disc makeup",
-      "pappus/fruit when available"
+      "rays present vs absent",
+      "phyllary posture",
+      "gland/resin pattern",
+      "stem/leaf pubescence",
+      "pappus structure",
+      "current synonym concept"
     ],
-    "warning": "Many Asteraceae look similar from a distance. Use head structure and involucre details, not just a yellow flower photo."
+    "warning": "Historical Grindelia names in Central Texas overlap heavily. Always reconcile old var./synonym names before counting counties."
+  },
+  "comparison_lesson": {
+    "quick_split": [
+      "G. nuda — rayless curlytop gumweed; gland-dotted aromatic foliage; PASS.",
+      "G. adenodonta — radiate, hairy/glandular-stemmed, hooked/recurved phyllaries; range HOLD.",
+      "G. squarrosa — radiate, squarrose/recurved phyllaries; current-concept range HOLD.",
+      "G. ciliata — accepted name for old G. papposa; annual, radiate, many-bristled pappus; range HOLD."
+    ]
   },
   "curation_status": {
-    "version": "1.0-batch1",
-    "last_reviewed": "2026-09-30"
+    "version": "1.0-b062",
+    "last_reviewed": "2026-10-03"
   }
 }
