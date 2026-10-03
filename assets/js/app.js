@@ -1068,8 +1068,12 @@ function openTermModal(id){
   if(t.real_photo){
     const src=familyExternalImageUrl(t.real_photo);
     if(src){
-      real='<figure class="term-real-photo"><img src="'+esc(src)+'" alt="'+esc(t.real_photo.alt||("Real example of "+t.term))+'" loading="lazy"><figcaption><b>Real example</b><span>'+esc(t.real_photo.label||t.term)+'</span>'+
+      const photoKind=t.real_photo.kind==="annotated" ? "Annotated real photo" : "Real example";
+      real='<figure class="term-real-photo '+(t.real_photo.kind==="annotated"?"is-annotated":"")+'"><div class="term-photo-wrap"><img src="'+esc(src)+'" alt="'+esc(t.real_photo.alt||("Real example of "+t.term))+'" loading="lazy">'+
+        (t.real_photo.kind==="annotated"?'<span class="term-photo-badge">labels / arrows in photo</span>':'')+
+        '</div><figcaption><b>'+photoKind+'</b><span>'+esc(t.real_photo.label||t.term)+'</span>'+
         (t.real_photo.focus?'<em>'+esc(t.real_photo.focus)+'</em>':'')+
+        (t.real_photo.annotation_note?'<em class="annotation-note">'+esc(t.real_photo.annotation_note)+'</em>':'')+
         '<small>'+esc(t.real_photo.credit||"")+'</small>'+
         (t.real_photo.source_page?'<a href="'+esc(t.real_photo.source_page)+'" target="_blank" rel="noopener noreferrer">source ↗</a>':'')+'</figcaption></figure>';
     }
