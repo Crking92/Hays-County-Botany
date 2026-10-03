@@ -1,0 +1,106 @@
+{
+  "module_id": "cannabaceae-ulmaceae-comparison-001",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "scope": [
+    "Cannabaceae",
+    "Ulmaceae"
+  ],
+  "taxonomy_note": "Older Flora of North America treatment places Celtis in Ulmaceae; current Kew/POWO places Celtis in Cannabaceae. The learner follows current Cannabaceae placement while retaining older source context.",
+  "where_to_look_first": "Start with the leaf base and venation, then confirm with fruit. Hackberries (Celtis) often have a strongly 3-nerved/asymmetric leaf base and make fleshy drupes; elms (Ulmus) have pinnate venation and make flat winged samaras.",
+  "comparison": {
+    "Cannabaceae_Celtis": {
+      "cues": [
+        "Leaves commonly unequal-sided/asymmetric at base.",
+        "Many Celtis leaves are 3-nerved from near the base, though exact venation varies by species.",
+        "Surface may feel scabrous due to cystoliths.",
+        "Fruit is a fleshy drupe with one hard stone.",
+        "Some local Celtis species may be thorny/spinescent."
+      ],
+      "strongest_confirmation": "Fleshy drupe + Celtis-type leaf venation/asymmetry.",
+      "current_family": "Cannabaceae"
+    },
+    "Ulmaceae_Ulmus": {
+      "cues": [
+        "Leaves usually oblique/asymmetric at base.",
+        "Venation is pinnate; secondary veins run toward the serrated margin and often terminate at teeth.",
+        "Margins commonly serrate to doubly serrate.",
+        "Fruit is a flattened membranous winged samara.",
+        "Some species/twigs may develop corky wings."
+      ],
+      "strongest_confirmation": "Flat winged samara + pinnate serrated elm leaf.",
+      "current_family": "Ulmaceae"
+    }
+  },
+  "local_priority_cards": [
+    {
+      "taxon": "Celtis laevigata",
+      "family": "Cannabaceae",
+      "priority": 1,
+      "look_here_first": "Smooth/light-gray often corky-warty bark plus mostly entire to sparsely toothed narrow leaves; confirm with orange/red/brown drupes.",
+      "confirm": [
+        "Leaves elliptic-lanceolate to ovate-lanceolate.",
+        "Margins mostly entire or only sparsely toothed.",
+        "Branches unarmed.",
+        "Fruit a nearly round fleshy drupe."
+      ],
+      "sources": [
+        "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233500332",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:836997-1"
+      ]
+    },
+    {
+      "taxon": "Celtis reticulata",
+      "family": "Cannabaceae",
+      "priority": 1,
+      "look_here_first": "Strongly netted/reticulate leaf venation on a small hackberry leaf; confirm with fleshy drupe.",
+      "note": "Canonical learner should use Celtis reticulata; Celtis laevigata var. reticulata is retained only as a historical/source synonym row."
+    },
+    {
+      "taxon": "Ulmus crassifolia",
+      "family": "Ulmaceae",
+      "priority": 1,
+      "look_here_first": "Small rough cedar-elm leaf with an oblique base and serrate-to-doubly-serrate margin; confirm with samara fruit.",
+      "confirm": [
+        "Leaves are usually under about 7 cm in the FNA vegetative key.",
+        "Upper leaf surface is harshly pubescent/scabrous.",
+        "Margin crenate to doubly serrate.",
+        "Fruit is a flat winged samara."
+      ],
+      "sources": [
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&key_no=2&taxon_id=134116",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:302278-2"
+      ]
+    }
+  ],
+  "other_local_taxa": {
+    "Cannabaceae": [
+      "Celtis ehrenbergiana",
+      "Celtis laevigata var. laevigata",
+      "Celtis lindheimeri",
+      "Celtis pallida"
+    ],
+    "Ulmaceae": [
+      "Ulmus alata",
+      "Ulmus americana",
+      "Ulmus rubra",
+      "Ulmus parvifolia (introduced comparison)"
+    ]
+  },
+  "visual_targets": [
+    "Celtis leaf showing asymmetric base and 3 basal veins",
+    "Celtis drupe with stone",
+    "Celtis laevigata bark/corky warts",
+    "Ulmus crassifolia rough leaf with oblique base and double serration",
+    "Ulmus samara",
+    "Ulmus alata corky twig wings",
+    "side-by-side Celtis drupe vs Ulmus samara"
+  ],
+  "learner_rule": "If the leaves look vaguely elm-like, do not stop at the leaf. Fruit type is the fastest family-level tie breaker.",
+  "completion_assessment": {
+    "structural_comparison": "complete",
+    "local_priority_taxa": "covered",
+    "remaining": "rights-safe visual locking",
+    "recommended_status": "ready_for_visual_locking"
+  }
+}
