@@ -2213,20 +2213,103 @@
         "decided_at": "2026-10-02T19:34:00-05:00",
         "note": "Calvin approved B016 and requested the completed review be moved forward."
       }
+    },
+    {
+      "id": "ilex-decidua",
+      "scientific_name": "Ilex decidua",
+      "family": "Aquifoliaceae",
+      "genus": "Ilex",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 564,
+        "source_scientific_name": "Ilex decidua",
+        "wild_observations": 22,
+        "source_count": 4
+      },
+      "batch_id": "deep-review-batch-021-ilex-b017",
+      "last_deep_reviewed_at": "2026-10-02T19:44:00-05:00",
+      "notes": "B017 strict-range PASS: Hays, Travis, Williamson.",
+      "approval_status": "ready_for_approval"
+    },
+    {
+      "id": "ilex-vomitoria",
+      "scientific_name": "Ilex vomitoria",
+      "family": "Aquifoliaceae",
+      "genus": "Ilex",
+      "status": "reviewed_ready_for_approval",
+      "priority": 1,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 566,
+        "source_scientific_name": "Ilex vomitoria",
+        "wild_observations": 20,
+        "source_count": 3
+      },
+      "batch_id": "deep-review-batch-021-ilex-b017",
+      "last_deep_reviewed_at": "2026-10-02T19:44:00-05:00",
+      "notes": "B017 strict-range PASS: Hays, Travis, Williamson. Purola site's introduced occurrence excluded.",
+      "approval_status": "ready_for_approval"
+    },
+    {
+      "id": "ilex-opaca",
+      "scientific_name": "Ilex opaca",
+      "family": "Aquifoliaceae",
+      "genus": "Ilex",
+      "status": "reviewed_comparison_recommended",
+      "priority": 1,
+      "research_goals": [
+        "taxonomy_candidates",
+        "strict_target_zone_range",
+        "diagnostic_morphology",
+        "local_confusers",
+        "diagnostic_photo_candidates",
+        "same_genus_comparison"
+      ],
+      "source_pool": {
+        "sheet": "Master Plant Pool",
+        "row": 565,
+        "source_scientific_name": "Ilex opaca",
+        "wild_observations": 1,
+        "source_count": 1
+      },
+      "batch_id": "deep-review-batch-021-ilex-b017",
+      "last_deep_reviewed_at": "2026-10-02T19:44:00-05:00",
+      "notes": "B017 target-zone FAIL: USDA-derived Texas county layer has 38 native counties but 0 inside current project target zone. Recommended LOOKALIKE_COMPARISON.",
+      "approval_status": "ready_for_comparison_approval",
+      "learner_role": "LOOKALIKE_COMPARISON_RECOMMENDED",
+      "native_range_status": "FAIL",
+      "native_metrics_excluded": true
     }
   ],
   "last_scout_run_at": "2026-10-02T22:17:31.325607+00:00",
   "last_deep_review_batch": {
-    "batch_id": "deep-review-batch-020-asteraceae-b016",
-    "reviewed_at": "2026-10-02T19:29:00-05:00",
-    "status": "review_complete_all_user_approved",
+    "batch_id": "deep-review-batch-021-ilex-b017",
+    "reviewed_at": "2026-10-02T19:44:00-05:00",
+    "status": "awaiting_batch_approval_with_comparison_item",
     "taxa": [
-      "conoclinium-coelestinum",
-      "echinacea-angustifolia",
-      "pluchea-camphorata",
-      "ageratina-altissima"
+      "ilex-decidua",
+      "ilex-vomitoria",
+      "ilex-opaca"
     ],
-    "note": "B016: Conoclinium coelestinum and Ageratina altissima user-approved normally; Echinacea angustifolia and Pluchea camphorata user-approved as documented range exceptions with UNRESOLVED range status preserved."
+    "note": "B017 Ilex: I. decidua and I. vomitoria ready; I. opaca strict target-zone FAIL recommended as lookalike comparison."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-02T19:34:00-05:00",
