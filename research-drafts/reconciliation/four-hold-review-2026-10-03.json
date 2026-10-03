@@ -1,0 +1,65 @@
+{
+  "checkpoint_id": "four-hold-review-2026-10-03",
+  "created_at": "2026-10-03",
+  "canonical_species_count_observed_at_checkpoint_build": 165,
+  "requested_taxa": [
+    {
+      "taxon": "Prunus mexicana",
+      "family": "Rosaceae",
+      "decision": "PASS_AND_INSTALLED",
+      "canonical_id": "prunus-mexicana",
+      "exact_target_zone_counties": [
+        "Travis",
+        "Williamson",
+        "Comal"
+      ],
+      "guardrail": "Hays Purola record is introduced and is not counted."
+    },
+    {
+      "taxon": "Aristolochia erecta",
+      "family": "Aristolochiaceae",
+      "decision": "MIXED_SOURCE_PASS_AND_INSTALLED",
+      "canonical_id": "aristolochia-erecta",
+      "exact_target_zone_counties": [
+        "Travis",
+        "Bexar",
+        "Kendall"
+      ],
+      "evidence_class": "Travis herbarium + photographed south-Bexar field occurrence + research-grade near-Sisterdale occurrence independently mapped to Kendall County",
+      "guardrail": "Hays is not counted."
+    },
+    {
+      "taxon": "Opuntia orbiculata",
+      "source_row": "Opuntia senilis",
+      "family": "Cactaceae",
+      "decision": "HOLD",
+      "taxonomy": "O. senilis remaps to accepted O. orbiculata",
+      "reason": "Current Central Texas delimitation and exact-county evidence are not clean enough for a strict canonical PASS."
+    },
+    {
+      "taxon": "Opuntia phaeacantha",
+      "family": "Cactaceae",
+      "decision": "HOLD",
+      "taxonomy": "accepted species",
+      "reason": "Current-concept three-county package remains insufficient. Historical O. phaeacantha var. major records cannot count because current Kew treats var. major under O. gilvescens."
+    }
+  ],
+  "learner_integration": {
+    "Rosaceae": [
+      "rubus-trivialis",
+      "prunus-mexicana"
+    ],
+    "Aristolochiaceae": [
+      "aristolochia-serpentaria",
+      "aristolochia-erecta"
+    ],
+    "Cactaceae_installed": [
+      "opuntia-engelmannii-var-lindheimeri",
+      "opuntia-macrorhiza"
+    ],
+    "Cactaceae_holds": [
+      "opuntia-orbiculata",
+      "opuntia-phaeacantha"
+    ]
+  }
+}

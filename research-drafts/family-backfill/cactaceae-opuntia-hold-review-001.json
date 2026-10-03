@@ -1,0 +1,56 @@
+{
+  "module_id": "cactaceae-opuntia-hold-review-001",
+  "family": "Cactaceae",
+  "created_at": "2026-10-03",
+  "status": "review_complete_holds_persist",
+  "purpose": "Resolve the final B072 Opuntia source-row names under current taxonomy and record why two concepts remain HOLD rather than forcing them into the canonical learner.",
+  "canonical_context": [
+    "Opuntia engelmannii var. lindheimeri — installed canonical anchor",
+    "Opuntia macrorhiza — installed canonical anchor"
+  ],
+  "reviews": [
+    {
+      "source_row": "Opuntia senilis",
+      "current_accepted_concept": "Opuntia orbiculata",
+      "taxonomy_status": "synonym remap",
+      "decision": "HOLD",
+      "reason": "Current Kew/POWO treats Opuntia senilis as a synonym of accepted O. orbiculata. Regional Central Texas treatments are not cleanly aligned on the O. orbiculata / O. engelmannii complex, and the project does not yet have a sufficiently clean three-county current-concept package. Preserve the source observation and remap note; do not install O. senilis as a separate species.",
+      "learner_guardrail": "If O. orbiculata is later installed, use current accepted-name morphology and range evidence; source-row O. senilis becomes provenance/synonym metadata only."
+    },
+    {
+      "source_row": "Opuntia phaeacantha",
+      "current_accepted_concept": "Opuntia phaeacantha",
+      "taxonomy_status": "accepted species",
+      "decision": "HOLD",
+      "reason": "The accepted species is valid, but the apparent Central Texas evidence is taxonomically mixed. In particular, historical O. phaeacantha var. major cannot be counted toward current O. phaeacantha because current Kew/POWO treats that name as a synonym under Opuntia gilvescens. Remaining exact target-zone records are not yet strong enough as a three-county present-day concept package.",
+      "learner_guardrail": "Do not convert older broad O. phaeacantha usage into a modern county PASS without checking the current accepted concept."
+    }
+  ],
+  "authoritative_sources": [
+    {
+      "label": "Kew POWO — Opuntia orbiculata accepted",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A136867-1"
+    },
+    {
+      "label": "Kew POWO — Opuntia phaeacantha accepted",
+      "url": "https://powo.science.kew.org/taxon/175409-2"
+    },
+    {
+      "label": "Kew POWO — Opuntia phaeacantha var. major synonym treatment",
+      "url": "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A175419-2"
+    }
+  ],
+  "outcome": {
+    "batch_id": "B072",
+    "review_status": "complete",
+    "installed": [
+      "Opuntia engelmannii var. lindheimeri",
+      "Opuntia macrorhiza"
+    ],
+    "hold": [
+      "Opuntia orbiculata (source row O. senilis)",
+      "Opuntia phaeacantha"
+    ],
+    "next_action": "Do not spend family-module time forcing these names. Revisit only when current-concept county vouchers/records close the range gaps."
+  }
+}
