@@ -70,3 +70,19 @@ At verification time the species lane had moved into **B029 Tradescantia**, incl
 2. Convert video-fed reference families to canonical clickable anchors only when a strict target-zone species passes the normal species workflow.
 3. Keep harvesting exact diagnostic video structures into family lessons even when a source taxon never becomes canonical.
 4. Continue prioritizing broad diagnostic visual coverage before personal-photo replacement; personal/licensed photo upgrades remain a later quality layer.
+
+
+## Commelinaceae B029 integration — completed
+
+B029 Tradescantia closed and the family hold was released.
+
+- Commelinaceae family module upgraded to a canonical three-anchor Tradescantia lesson.
+- Canonical anchors:
+  - *Tradescantia gigantea* — robust/tall, relatively broad foliage, lower stem nearly glabrous
+  - *Tradescantia humilis* — low, many-stemmed, bushy and hairy
+  - *Tradescantia occidentalis* — narrow-leaved prairie form with conspicuous long-stalked glandular hairs
+- Family lesson now leads with jointed stem + sheathing leaf base, then 3 sepals + 3 petals, then the six-fertile-stamen Tradescantia pattern.
+- *Commelina* is retained as the family-breadth contrast for differentiated fertile stamens/staminodes.
+- Family Study Index updated to 3 curated / 8 remaining; Priority 1 remaining 2, Priority 2 remaining 0, Priority 3 remaining 6.
+- Genus Study Index updated to 3 curated / 3 remaining; all current Priority 1 and Priority 2 Tradescantia are complete, leaving three Priority 3 pool taxa for a future batch.
+- Master Plant Pool species formulas were intentionally not overridden from this family lane; species-level Sheet synchronization remains owned by the species workflow.
