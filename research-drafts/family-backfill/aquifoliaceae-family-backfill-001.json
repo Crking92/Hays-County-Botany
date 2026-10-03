@@ -1,0 +1,269 @@
+{
+  "module_id": "aquifoliaceae-family-backfill-001",
+  "family": "Aquifoliaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "scope_note": "Family-recognition backfill using B017 Ilex deep review. Preserves species decisions: Ilex decidua and I. vomitoria are strict-range PASS but still awaiting explicit species approval; I. opaca is an approved labeled lookalike/nursery-trade comparison and remains excluded from native metrics.",
+  "live_pool_cleanup": {
+    "actions": [
+      "Restored Aquifoliales / Aquifoliaceae to Ilex decidua, I. opaca, and I. vomitoria in Master Plant Pool.",
+      "Added B017 taxonomy/range notes and curation-status labels to all three source rows.",
+      "Preserved Ilex opaca strict target-zone FAIL while retaining it as the user-approved lookalike comparison."
+    ],
+    "genera": [
+      "Ilex"
+    ],
+    "source_rows": 3
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start with a woody plant bearing alternate simple leaves and tiny axillary flowers. Then ask whether the plant is deciduous or evergreen, compare leaf texture/margins, and confirm a superior ovary developing into a fleshy drupe with several hard pyrenes.",
+    "strongest_field_confirmation": "Alternate simple leaves + tiny mostly 4–5-merous unisexual flowers on dioecious plants + superior ovary + berry-like drupe containing several pyrenes.",
+    "core_characters": [
+      "Trees or shrubs; local learner taxa are woody.",
+      "Leaves simple and alternate; texture ranges from thin/deciduous to thick/coriaceous evergreen.",
+      "Margins may be crenate, serrate, entire, or spinose depending on species.",
+      "Stipules are minute and easy to miss; do not teach their absence as absolute.",
+      "Flowers are small, actinomorphic, usually 4–5-merous and axillary.",
+      "Plants are usually dioecious.",
+      "Staminate flowers have functional stamens plus a reduced pistillode.",
+      "Pistillate flowers have a superior multi-loculed ovary plus staminodes.",
+      "The style is very short or absent and the broad/discoid stigma often persists on the fruit.",
+      "Fruit is a drupe, not a true botanical berry, and typically contains several hard 1-seeded pyrenes."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not identify hollies by red fruit alone; all three project Ilex can show red drupes.",
+      "Do not teach holly leaves as always spiny; yaupon and possumhaw are not strongly spine-toothed.",
+      "Do not teach the family as always evergreen; Ilex decidua is a major local deciduous exception.",
+      "Do not call the fruits true berries in the botanical lesson; they are drupes with multiple pyrenes.",
+      "Do not infer Central Texas nativity from nursery/landscape occurrence, especially Ilex opaca."
+    ]
+  },
+  "local_key": [
+    "Deciduous + larger thin crenate leaves + red/orange drupes on bare winter twigs -> Ilex decidua.",
+    "Evergreen + tiny leathery leaves with low rounded crenate teeth + multi-stem shrub/small tree -> Ilex vomitoria.",
+    "Evergreen tree + much larger thick leaves with stiff spine-tipped teeth -> Ilex opaca comparison; strict target-zone FAIL."
+  ],
+  "anchor_cards": [
+    {
+      "taxon": "Ilex decidua",
+      "role": "deciduous native family anchor",
+      "status": "B017 strict-range PASS; species approval still pending",
+      "range": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "look_here_first": "Possumhaw becomes easiest in winter: the leaves drop, leaving red/orange drupes packed along pale gray twigs. In leaf, the blades are larger and thinner than yaupon and shallowly crenate to crenate-serrate.",
+      "confirms": [
+        "Deciduous shrub/small tree.",
+        "Alternate simple thin-textured leaves.",
+        "Elliptic to obovate/spatulate leaf shape.",
+        "Shallow crenate to crenate-serrate margin; not stiffly spiny.",
+        "Tiny axillary unisexual flowers; plants primarily dioecious.",
+        "Red to orange-red drupes persisting after leaf drop."
+      ],
+      "sources": [
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Ilex%20decidua",
+        "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html"
+      ],
+      "images": [
+        {
+          "role": "winter red-drupe cluster",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ilex_decidua_4.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ilex_decidua_4.jpg",
+          "creator": "Eric Hunt",
+          "license": "CC BY-SA 4.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "whole plant / botanical structure reference",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ilex_decidua_(USDA).jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ilex_decidua_(USDA).jpg",
+          "creator": "USDA NRCS",
+          "license": "Public Domain",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "leaf margin, male/female flower, fruit anatomy reference",
+          "source_page": "https://w3.biosci.utexas.edu/prc/K12/pdf/Ilex%20decidua",
+          "creator": "UT Austin Plant Resources Center",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Ilex vomitoria",
+      "role": "evergreen native family anchor",
+      "status": "B017 strict-range PASS; species approval still pending",
+      "range": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "infraspecific_note": "Texas native material corresponds to Ilex vomitoria subsp. vomitoria.",
+      "look_here_first": "Yaupon is the small-leaved evergreen holly: tiny leathery elliptic/obovate leaves with fine low rounded crenate teeth on a pale-gray multi-stem shrub or small tree.",
+      "confirms": [
+        "Evergreen multi-stem shrub/small tree.",
+        "Alternate simple coriaceous leaves usually about 1–4 cm long.",
+        "Fine low crenate teeth, not stiff spines.",
+        "Small axillary white unisexual flowers.",
+        "Dioecious; only pistillate/female plants produce fruit.",
+        "Abundant persistent red drupes."
+      ],
+      "sources": [
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Ilex%20vomitoria",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:83863-1"
+      ],
+      "images": [
+        {
+          "role": "pistillate flower macro",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ilex_vomitoria,_Yaupon_Holly,_pistillate_flowers,_Green_Farmacy_Garden,_Fulton,_Md,_Helen_Lowe_Metzman_2019-10-23-17.20.38_ZS_PMax_UDR_(49426959648).jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ilex_vomitoria,_Yaupon_Holly,_pistillate_flowers,_Green_Farmacy_Garden,_Fulton,_Md,_Helen_Lowe_Metzman_2019-10-23-17.20.38_ZS_PMax_UDR_(49426959648).jpg",
+          "creator": "Helen Lowe Metzman / USGS Bee Inventory and Monitoring Lab",
+          "license": "Public Domain",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "stem with red fruit",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ilex_vomitoria_366737061.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ilex_vomitoria_366737061.jpg",
+          "creator": "Alex Abair",
+          "license": "CC BY 4.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "leaf margin, male/female flower, fruit anatomy reference",
+          "source_page": "https://w3.biosci.utexas.edu/prc/K12/pdf/Ilex%20vomitoria",
+          "creator": "UT Austin Plant Resources Center",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Ilex opaca",
+      "role": "approved lookalike / nursery-trade comparison",
+      "status": "strict target-zone FAIL; user-approved comparison; exclude from native metrics",
+      "look_here_first": "American holly is the large-leaved evergreen tree: thick dark-green leaves with prominent stiff spine-tipped teeth, dramatically larger and sharper than yaupon.",
+      "confirms": [
+        "Evergreen tree.",
+        "Large thick coriaceous alternate leaves.",
+        "Conspicuous stiff spine-tipped teeth on many leaves.",
+        "Small unisexual flowers; dioecious.",
+        "Bright red persistent drupes.",
+        "Texas-native at state level but centered east/southeast of the project target zone."
+      ],
+      "images": [
+        {
+          "role": "staminate flower macro / sex-comparison reference",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ilex_opaca,_American_Holly,_staminate_flowers,_Howard_County,_Md,_Helen_Lowe_Metzman_2019-10-23-17.07.05_ZS_PMax_UDR_(49426959028).jpg",
+          "creator": "Helen Lowe Metzman / USGS Bee Inventory and Monitoring Lab",
+          "license": "Public Domain",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ]
+    }
+  ],
+  "sex_comparison": {
+    "lesson": "This family is ideal for teaching dioecy visually.",
+    "staminate_male": "Flowers show conspicuous functional stamens/anthers around a reduced central pistillode; these plants do not set normal drupes.",
+    "pistillate_female": "Flowers show a broad superior ovary with a conspicuous sessile/discoid stigma and reduced staminodes; these are the plants that later bear drupes.",
+    "visual_plan": [
+      "staminate flower macro with anthers labeled",
+      "pistillate flower macro with ovary + stigma labeled",
+      "same female twig later carrying drupes if available"
+    ]
+  },
+  "fruit_lesson": {
+    "key_point": "The red 'berry' is botanically a drupe with multiple hard pyrenes.",
+    "terms": [
+      "drupe",
+      "pyrene",
+      "endocarp",
+      "superior ovary",
+      "persistent stigma"
+    ],
+    "visual_plan": [
+      "whole red drupe",
+      "cross-section or dissected fruit",
+      "several separate hard pyrenes",
+      "persistent stigma at fruit apex"
+    ]
+  },
+  "confusable_families": {
+    "Ebenaceae": {
+      "confusion": "Alternate simple leaves, unisexual flowers and fleshy fruit can overlap.",
+      "tie_breaker": "Diospyros fruit carries a very conspicuous enlarged persistent calyx and generally larger seeds; Ilex has small axillary flowers and a small drupe with several pyrenes and often a persistent discoid stigma."
+    },
+    "Sapotaceae": {
+      "confusion": "Woody evergreen plants with alternate leaves and fleshy fruit can overlap.",
+      "tie_breaker": "Sapotaceae commonly has milky latex and fruit with a few large glossy seeds; Ilex lacks the milky-latex cue and has several hard pyrenes."
+    },
+    "Rhamnaceae": {
+      "confusion": "Woody plants with small flowers and drupaceous fruit can overlap.",
+      "tie_breaker": "Rhamnaceae often has evident stipules and characteristic arcuate/strong basal venation; Ilex has tiny axillary unisexual flowers, dioecy, and several pyrenes."
+    }
+  },
+  "best_family_visual_sequence": [
+    "Possumhaw winter fruiting twig vs evergreen yaupon twig.",
+    "Leaf side-by-side: I. decidua larger/thinner/crenate vs I. vomitoria tiny/leathery/fine-crenate vs I. opaca large/spiny.",
+    "Alternate node/twig architecture.",
+    "Staminate Ilex flower macro — label functional stamens and pistillode.",
+    "Pistillate Ilex flower macro — label ovary, stigma and staminodes.",
+    "Red drupe whole.",
+    "Drupe dissection showing multiple pyrenes.",
+    "Bare possumhaw winter twig loaded with fruit.",
+    "Aquifoliaceae vs Ebenaceae vs Sapotaceae comparison."
+  ],
+  "terminology_to_reinforce": [
+    "dioecious",
+    "staminate",
+    "pistillate",
+    "pistillode",
+    "staminode",
+    "actinomorphic",
+    "crenate",
+    "serrate",
+    "spinose",
+    "coriaceous",
+    "superior ovary",
+    "drupe",
+    "pyrene",
+    "persistent stigma",
+    "axillary cyme",
+    "deciduous",
+    "evergreen"
+  ],
+  "visual_gaps": [
+    "Rights-safe local Ilex decidua staminate-flower macro.",
+    "Rights-safe local Ilex decidua pistillate-flower macro.",
+    "Rights-safe local Ilex vomitoria staminate-flower macro.",
+    "One labeled drupe dissection showing several pyrenes.",
+    "Local side-by-side leaf card for possumhaw vs yaupon.",
+    "Same-sex-sequence card showing pistillate flower to red drupe."
+  ],
+  "completion_assessment": {
+    "family_characters": "complete for first family lesson",
+    "local_anchor_coverage": "Ilex decidua and Ilex vomitoria fully integrated from B017",
+    "comparison_coverage": "Ilex opaca retained as approved target-zone-fail comparison",
+    "sex_morphology": "male-vs-female flower teaching framework complete",
+    "fruit_morphology": "drupe-with-multiple-pyrenes framework complete",
+    "remaining": "visual polish plus explicit species approval for B017 PASS taxa",
+    "recommended_status": "ready_for_first_family_module_build_visual_polish_pending"
+  },
+  "authoritative_sources": [
+    "Kew POWO Aquifoliaceae family morphology",
+    "Kew POWO Ilex genus morphology",
+    "B017 Ilex deep-review package",
+    "UT Austin Plant Resources Center Williamson/Hays references",
+    "Wikimedia Commons public-domain/CC diagnostic visual candidates"
+  ]
+}
