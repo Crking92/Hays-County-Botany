@@ -1,0 +1,257 @@
+{
+  "module_id": "lamiaceae-family-verification-001",
+  "family": "Lamiaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "verification_type": "joey_sufficient_authoritative_verification",
+  "scope_note": "Light verification/polish pass. Joey coverage is already strong enough for the first family module, so this package verifies the family framework, adds local exceptions, and repairs the live family pool rather than rebuilding morphology from scratch.",
+  "joey_coverage": {
+    "audit_records": 39,
+    "exact_media_records": 24,
+    "audit_summary": "Excellent Salvia sets plus Scutellaria, Dicerandra, Trichostema and Ocimum cover habit, nodes, calyx, corolla and reproductive structures.",
+    "inspected_examples": [
+      {
+        "source_file": "research-drafts/joey-santore/batch-006-salvia-milkweed-west-texas-exact-media.json",
+        "taxon": "Salvia whitehousei",
+        "exact_media_records": 14,
+        "strengths": [
+          "whole habit",
+          "opposite leaves/nodes",
+          "calyx",
+          "bilabiate corolla",
+          "corolla tube",
+          "pubescence",
+          "internal floral structures"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-004-exact-photo-locking.json",
+        "taxon": "Monarda fruticulosa",
+        "exact_media_records": 4,
+        "strengths": [
+          "stem/nodes",
+          "leaf arrangement",
+          "bilabiate corolla",
+          "anthers",
+          "bracts",
+          "calyces",
+          "pubescence"
+        ]
+      },
+      {
+        "source_file": "research-drafts/joey-santore/batch-011-external-family-and-local-overlap.json",
+        "taxon": "Hedeoma ciliolata",
+        "media_status": "external comparison set",
+        "strengths": [
+          "small-mint morphology",
+          "genus comparison"
+        ]
+      }
+    ],
+    "assessment": "Joey coverage is sufficient. Remaining work is local visual locking and exception cards, not another broad extraction pass."
+  },
+  "live_pool_cleanup": {
+    "actions": [
+      "Restored Lamiales / Lamiaceae to 29 live Master Plant Pool source rows.",
+      "Added Warnockia, Hedeoma, Teucrium and Stachys to the hidden genus-family map.",
+      "Retained the historical Brazoria map entry while mapping the live accepted Warnockia source row.",
+      "Expanded the Family Study Index view from 5 genera / 20 rows to 9 genera / 29 rows."
+    ],
+    "source_genera": [
+      "Warnockia",
+      "Callicarpa",
+      "Monarda",
+      "Physostegia",
+      "Salvia",
+      "Scutellaria",
+      "Hedeoma",
+      "Teucrium",
+      "Stachys"
+    ],
+    "source_rows": 29,
+    "curated_rows": 10,
+    "remaining_rows": 19,
+    "priority_1_remaining": 9,
+    "priority_2_remaining": 6,
+    "priority_3_remaining": 4,
+    "my_inat_source_rows": 20,
+    "three_plus_source_rows": 14,
+    "wild_observations": 129
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start at the node: leaves are usually opposite/decussate and stipules are absent; herbaceous stems are often square and foliage often aromatic. Then inspect the flower and fruit: a tubular often bilabiate corolla, 2 or 4 stamens, a superior ovary often deeply 4-lobed, and usually a schizocarp of four nutlets.",
+    "strongest_field_confirmation": "Opposite exstipulate leaves + square-ish aromatic herbaceous stem + tubular/bilabiate flower + superior deeply 4-lobed ovary/gynobasic style + four nutlets. Use this as the common pattern, not an absolute family definition.",
+    "authoritative_framework": [
+      "Leaves usually opposite/decussate or whorled; stipules absent.",
+      "Herbaceous stems usually quadrangular, but woody members and exceptions make stem shape non-absolute.",
+      "Flowers commonly tubular and zygomorphic/bilabiate, but actinomorphic flowers occur.",
+      "Stamens commonly 4 or 2.",
+      "Ovary superior, unlobed to deeply 4-lobed; style may be gynobasic or terminal.",
+      "Fruit commonly splits into four 1-seeded nutlets, but drupaceous fruits occur in some lineages such as Callicarpa.",
+      "Persistent calyx is common."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not teach square stems as mandatory.",
+      "Do not teach aromatic foliage as mandatory.",
+      "Do not teach every Lamiaceae flower as bilabiate.",
+      "Do not teach every Lamiaceae fruit as four dry nutlets; Callicarpa is a major local drupaceous exception.",
+      "Do not teach four stamens as absolute; Salvia has only two fertile stamens.",
+      "Do not use opposite leaves alone; several confusable Lamiales and Rubiaceae share that condition."
+    ]
+  },
+  "exception_cards": [
+    {
+      "taxon": "Salvia",
+      "lesson": "two-stamen lever mechanism",
+      "key_points": [
+        "Only 2 fertile stamens.",
+        "Elongated connective separates fertile and reduced/sterile thecae.",
+        "The connective frequently functions as a lever that places pollen on a visiting pollinator.",
+        "Deeply 4-lobed ovary and 4 nutlets retain the core mint-family fruit framework."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000096-2/general-information",
+      "joey_value": "Exceptional exact Salvia media already covers corolla tube, lips, calyx, pubescence and internal reproductive structures."
+    },
+    {
+      "taxon": "Scutellaria",
+      "lesson": "scutellum on the calyx",
+      "key_points": [
+        "Bilabiate calyx.",
+        "Upper calyx lip carries a transverse rounded shield-like appendage called the scutellum.",
+        "Calyx closes around developing fruit and later releases the nutlets.",
+        "The scutellum is more diagnostic than generic 'square stem + opposite leaves'."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30003498-2/general-information"
+    },
+    {
+      "taxon": "Callicarpa americana",
+      "lesson": "woody actinomorphic drupaceous exception",
+      "key_points": [
+        "Woody shrub, not a classic small aromatic mint herb.",
+        "Opposite leaves still fit the family.",
+        "Flowers are actinomorphic rather than strongly bilabiate.",
+        "Fruit is drupaceous and contains 4 stony pyrenes rather than four exposed dry nutlets."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30044566-2/general-information"
+    },
+    {
+      "taxon": "Warnockia scutellarioides",
+      "lesson": "prairie brazoria taxonomy",
+      "key_points": [
+        "Current POWO accepts Warnockia scutellarioides in Lamiaceae.",
+        "Brazoria scutellarioides is a homotypic synonym.",
+        "Keep the familiar common name prairie brazoria while teaching current accepted genus Warnockia."
+      ],
+      "authoritative_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:992283-1"
+    }
+  ],
+  "local_visual_anchors": [
+    {
+      "taxon": "Salvia farinacea",
+      "role": "high-frequency local Salvia anchor",
+      "note": "45 wild observations; already canonical."
+    },
+    {
+      "taxon": "Monarda citriodora",
+      "role": "verticillaster/bract + aromatic mint anchor",
+      "note": "16 wild observations and strong three-source support."
+    },
+    {
+      "taxon": "Scutellaria drummondii",
+      "role": "scutellum/skullcap anchor",
+      "note": "17 wild observations."
+    },
+    {
+      "taxon": "Callicarpa americana",
+      "role": "woody drupaceous family exception",
+      "note": "7 wild observations."
+    },
+    {
+      "taxon": "Teucrium canadense",
+      "role": "one-lipped/atypical-corolla mint-family breadth",
+      "note": "12 wild observations."
+    },
+    {
+      "taxon": "Stachys crenata",
+      "role": "classic hairy herbaceous mint comparison",
+      "note": "6 wild observations."
+    }
+  ],
+  "fast_key": [
+    "Opposite leaves + no stipules + square-ish aromatic herb -> inspect flower/fruit for Lamiaceae.",
+    "Bilabiate tubular flower + deeply 4-lobed superior ovary + 4 nutlets -> classic Lamiaceae pattern.",
+    "Only 2 fertile stamens with lever-like connective -> Salvia.",
+    "Upper calyx lip with shield-like scutellum -> Scutellaria.",
+    "Woody shrub + opposite leaves + radial flowers + purple drupaceous clusters -> Callicarpa.",
+    "Opposite leaves + interpetiolar stipules + inferior ovary -> Rubiaceae, not Lamiaceae.",
+    "Tubular bilateral flower + many-seeded capsule -> reconsider Plantaginaceae/Acanthaceae/Orobanchaceae."
+  ],
+  "confusable_families": {
+    "Verbenaceae": {
+      "tie_breaker": "Do not use square stems alone. In the common local Lamiaceae pattern, the ovary is deeply 4-lobed with a gynobasic style and fruit becomes 4 nutlets; Verbenaceae more often retains a less deeply lobed ovary/terminal style and different fruit architecture. Verify genus-level exceptions."
+    },
+    "Rubiaceae": {
+      "tie_breaker": "Rubiaceae has interpetiolar stipules and an inferior ovary; Lamiaceae lacks stipules and has a superior ovary."
+    },
+    "Plantaginaceae": {
+      "tie_breaker": "Plantaginaceae commonly has a many-seeded capsule; local Penstemon adds a staminode. Lamiaceae commonly matures 4 nutlets or a drupaceous fruit."
+    },
+    "Acanthaceae": {
+      "tie_breaker": "Acanthaceae commonly has a capsule with retinacula/jaculators; Lamiaceae lacks that explosive seed-hook mechanism."
+    }
+  },
+  "best_visual_sequence": [
+    "Classic opposite decussate node on a square stem.",
+    "Cross-section of square herbaceous stem.",
+    "Glandular/aromatic leaf surface close-up.",
+    "Bilabiate flower labeled upper lip/lower lip/tube.",
+    "Deeply 4-lobed ovary + gynobasic style.",
+    "Persistent calyx containing four nutlets.",
+    "Salvia two-stamen lever macro/diagram.",
+    "Scutellaria calyx with scutellum labeled.",
+    "Monarda verticillaster/glomerule + bracts.",
+    "Callicarpa radial flower + purple drupaceous fruit as exception.",
+    "Lamiaceae vs Verbenaceae vs Rubiaceae node/ovary/fruit comparison."
+  ],
+  "terminology_to_reinforce": [
+    "decussate",
+    "quadrangular",
+    "exstipulate",
+    "bilabiate",
+    "zygomorphic",
+    "verticillaster",
+    "thyrse",
+    "didynamous",
+    "gynobasic style",
+    "4-lobed ovary",
+    "schizocarp",
+    "nutlet",
+    "persistent calyx",
+    "staminal connective",
+    "scutellum",
+    "pyrene"
+  ],
+  "visual_gaps": [
+    "Local 4-lobed ovary + gynobasic-style macro.",
+    "Local four-nutlet fruit inside persistent calyx.",
+    "Local Scutellaria scutellum macro.",
+    "Rights-safe Salvia lever-mechanism diagram suitable for learner use.",
+    "Callicarpa flower-to-drupaceous-fruit exception card.",
+    "Lamiaceae-vs-Verbenaceae ovary/style/fruit side-by-side."
+  ],
+  "completion_assessment": {
+    "joey_coverage": "verified sufficient",
+    "family_framework": "authoritatively verified",
+    "local_exceptions": "Salvia, Scutellaria, Callicarpa and Warnockia locked",
+    "tracker_cleanup": "9 genera / 29 live source rows",
+    "remaining": "visual locking only; no further broad family research required",
+    "recommended_status": "verified_ready_for_visual_locking"
+  },
+  "authoritative_sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000097-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000096-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30003498-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30044566-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:992283-1"
+  ]
+}
