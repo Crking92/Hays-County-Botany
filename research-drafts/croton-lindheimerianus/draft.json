@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-croton-test-01",
+  "created_at": "2026-10-03T17:28:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 303,
+    "priority": 3,
+    "note": "Selected after manifest/claims/queue/draft collision checks."
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Croton lindheimerianus Scheele",
+    "family": "Euphorbiaceae",
+    "genus": "Croton",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO, ITIS, and Flora of North America recognize this species.",
+      "Two varieties are recognized in current treatments; Scout does not assign local material below species."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Deep Review must verify exact target-zone counties.",
+    "leads": [
+      "Master Plant Pool marks Hays Local; source-pool lead only.",
+      "UT Plant Resources Center documents var. lindheimerianus in Williamson County, one exact target-zone county lead.",
+      "IPNI type locality is New Braunfels, Texas; useful historical locality context but not sufficient for threshold.",
+      "BONAP Croton county maps require additional exact county extraction."
+    ],
+    "primary_map_source": "https://bonap.net/Napa/TaxonMaps/Genus/County/Croton"
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with low branching habit and the female flower: a small annual often branching from the base, with sepals distinct to the base and broadest toward their tips; leaves lack the brown-dot effect of C. monanthogynus.",
+    "diagnostic_traits": [
+      "annual monoecious herb, commonly low and dichotomously branched",
+      "dense stellate-tomentose pubescence",
+      "leaves lanceolate to suborbiculate and not brown-dotted beneath",
+      "pistillate sepals usually 5–6, about 3 mm, tips incurved",
+      "three styles bifid to six terminal segments"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Croton monanthogynus",
+      "separator": "C. monanthogynus has dark-centered stellate hairs producing a brown-dotted lower leaf surface, two styles/four terminal segments, and a one-seeded fruit."
+    },
+    {
+      "taxon": "Croton lindheimeri",
+      "separator": "C. lindheimeri is generally more robust with acute leaves and much larger yellowish-woolly pistillate sepals."
+    }
+  ],
+  "photo_candidates": [],
+  "diagnostic_image_needs": [
+    "HIGH PRIORITY PHOTO GAP: whole low branching habit",
+    "abaxial leaf surface showing absence of brown-dot effect",
+    "pistillate sepals broadest near tips",
+    "mature capsule/style structure"
+  ],
+  "scout_flags": {
+    "photo_perfection_blocking": false,
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true,
+    "photo_gap": true
+  }
+}
