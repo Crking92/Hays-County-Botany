@@ -102,9 +102,9 @@
       "approval_status": "approved",
       "canonical_status": "installed",
       "canonical_id": "juniperus-ashei",
-      "reconciliation_status": "resolved_against_canonical_manifest",
-      "reconciled_at": "2026-10-03T13:41:00-05:00",
-      "reconciliation_note": "Queue-only reconciliation: juniperus-ashei is already present in canonical data/manifest.json; historical approval/review fields preserved and execution priority cleared."
+      "reconciliation_status": "resolved_installed_comparison_refreshed",
+      "reconciled_at": "2026-10-03T16:20:00-05:00",
+      "reconciliation_note": "Already canonical; B024 refreshed the J. virginiana / J. ashei comparison metadata without changing native counts."
     },
     {
       "id": "diospyros-texana",
@@ -3600,8 +3600,8 @@
       "common_name": "eastern redcedar",
       "family": "Cupressaceae",
       "genus": "Juniperus",
-      "status": "reviewed_ready_for_approval",
-      "priority": 1,
+      "status": "curated_installed",
+      "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
         "strict_target_zone_range",
@@ -3622,19 +3622,24 @@
       "batch_id": "deep-review-batch-033-juniperus-b024",
       "last_deep_reviewed_at": "2026-10-03T16:15:00-05:00",
       "notes": "B024 strict-range PASS — Travis, Williamson, Bexar. Diagnostic priority: pit-like adult scale-leaf gland + small 4.5–5 mm cone commonly 1–2(3)-seeded versus Ashe juniper's raised rounded gland + larger usually one-seeded cone.",
-      "approval_status": "ready_for_approval",
-      "native_range_status": "PASS"
+      "approval_status": "approved_and_installed",
+      "native_range_status": "PASS",
+      "canonical_status": "installed",
+      "canonical_id": "juniperus-virginiana",
+      "curated_at": "2026-10-03",
+      "reconciliation_status": "resolved_installed",
+      "reconciliation_note": "B024 strict PASS and installed under blanket approval through species-merge-030-juniperus-b024."
     }
   ],
   "last_scout_run_at": "2026-10-03T13:25:42.751778+00:00",
   "last_deep_review_batch": {
     "batch_id": "deep-review-batch-033-juniperus-b024",
     "reviewed_at": "2026-10-03T16:15:00-05:00",
-    "status": "blanket_approved_for_install",
+    "status": "approved_and_installed",
     "taxa": [
       "juniperus-virginiana"
     ],
-    "note": "B024 complete: existing J. ashei anchor retained; J. virginiana PASS (Travis, Williamson, Bexar) and covered by user's blanket approval."
+    "note": "B024 complete: existing Ashe juniper anchor refreshed; eastern redcedar PASS (Travis, Williamson, Bexar) installed. Canonical species count 166."
   },
   "approval_state": {
     "last_user_decision_at": "2026-10-03T15:20:00-05:00",
