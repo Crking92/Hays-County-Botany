@@ -1062,8 +1062,19 @@ function hideResults(){ els.results.hidden=true; }
 
 function openTermModal(id){
   const t=state.learning.terms[id]; if(!t) return;
-  const visual=t.visual ? '<div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"></div>' :
+  const diagram=t.visual ? '<div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"><span class="term-media-label">Labeled diagram</span></div>' :
     '<div class="term-visual term-visual-empty"><span>Diagram lock pending</span></div>';
+  let real="";
+  if(t.real_photo){
+    const src=familyExternalImageUrl(t.real_photo);
+    if(src){
+      real='<figure class="term-real-photo"><img src="'+esc(src)+'" alt="'+esc(t.real_photo.alt||("Real example of "+t.term))+'" loading="lazy"><figcaption><b>Real example</b><span>'+esc(t.real_photo.label||t.term)+'</span>'+
+        (t.real_photo.focus?'<em>'+esc(t.real_photo.focus)+'</em>':'')+
+        '<small>'+esc(t.real_photo.credit||"")+'</small>'+
+        (t.real_photo.source_page?'<a href="'+esc(t.real_photo.source_page)+'" target="_blank" rel="noopener noreferrer">source ↗</a>':'')+'</figcaption></figure>';
+    }
+  }
+  const visual='<div class="term-media-stack">'+diagram+real+'</div>';
   els.modal.innerHTML='<div class="modal-backdrop" data-close-modal><section class="modal-card term-modal" role="dialog" aria-modal="true" aria-labelledby="termTitle">'+
     '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button>'+visual+
     '<div class="term-copy"><div class="eyebrow">Botanical term</div><h2 id="termTitle">'+esc(t.term)+'</h2><p class="pronunciation">rough pronunciation · '+esc(t.pronunciation||"—")+'</p>'+
