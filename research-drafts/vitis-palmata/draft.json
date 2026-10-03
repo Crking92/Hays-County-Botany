@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
+  "batch_id": "deep-review-batch-034-vitis-b025",
+  "created_at": "2026-10-03T16:45:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1238,
+    "source_scientific_name": "Vitis palmata",
+    "wild_observations": 1,
+    "source_count": 1,
+    "hays_local": false
+  },
+  "taxonomy": {
+    "accepted_name": "Vitis palmata Vahl",
+    "rank": "species",
+    "order": "Vitales",
+    "family": "Vitaceae",
+    "genus": "Vitis",
+    "species": "palmata",
+    "status": "VERIFIED",
+    "synonyms": [
+      "Vitis rubra Michx. ex Planch.",
+      "Vitis riparia var. palmata (Vahl) Planch."
+    ],
+    "note": "Accepted by current Kew/POWO and ITIS. Texas is part of the native range, but current review recovered only one exact project target-zone county."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [
+      "Travis"
+    ],
+    "evidence": [
+      "Kew/POWO and ITIS accept Vitis palmata as native in Texas.",
+      "Travis County — Delta State University Herbarium documents a Vitis palmata specimen collected in Austin at the University of Texas.",
+      "Texas floristic records confirm the species elsewhere in eastern Texas, but those counties are outside the project's target-zone list."
+    ],
+    "blocking_issue": "Fewer than three exact target-zone counties are verified under the current taxon concept.",
+    "guardrail": "A single Travis specimen plus broad Texas nativity does not satisfy the three-target-county rule. Do not infer Hays/Williamson occurrence from proximity."
+  },
+  "morphology": {
+    "look_here_first": "Look at the stem before the fruit. Catbird grape has uniformly red, purplish-red or chestnut branchlets and usually deeply 3(–5)-lobed leaves with long-pointed lobes. The lower leaf surface is essentially glabrous, and it is a riverbank/slough/floodplain grape.",
+    "diagnostic_traits": [
+      "high-climbing woody vine",
+      "branchlets uniformly red, purplish red or chestnut",
+      "branchlets glabrous or only very sparsely cobwebby",
+      "leaves usually deeply 3(–5)-lobed with long-acuminate tips",
+      "leaf undersides glabrous or nearly so",
+      "young tendrils often red-pigmented",
+      "berries bluish black to black, 8–10 mm, slightly or not glaucous",
+      "associated with riverbanks, sloughs and alluvial floodplain woods"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Vitis berlandieri",
+      "separator": "V. berlandieri usually lacks uniformly red branchlets and has less deeply lobed leaves with some sparse lower-surface webbing plus more heavily glaucous fruit."
+    },
+    {
+      "taxon": "Vitis cinerea",
+      "separator": "V. cinerea has hairy/cobwebby angled branchlets and hairier leaf undersides; V. palmata is much glabrier and red-stemmed."
+    },
+    {
+      "taxon": "Vitis mustangensis",
+      "separator": "Mustang grape has a dense white woolly leaf underside and generally broader, less consistently deeply lobed mature leaves."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole floodplain vine",
+      "uniform red/purple branchlet",
+      "deeply 3–5-lobed leaf",
+      "glabrous leaf underside",
+      "red young tendril",
+      "8–10 mm berry cluster",
+      "habitat context"
+    ],
+    "exact_final_selection_pending_user_approval": false,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/308768011",
+    "reference_candidates": [
+      "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A311399-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242417484",
+      "https://ntweb.deltastate.edu/jtift/dsuherbarium/fam-pages/vitaceae.html"
+    ]
+  },
+  "approval_status": "HOLD_RANGE_EVIDENCE",
+  "installation_guardrail": "Do not install as a project-native taxon until three exact target-zone counties are verified under the current taxonomic concept."
+}

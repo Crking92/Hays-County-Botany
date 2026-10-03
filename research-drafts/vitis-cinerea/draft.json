@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
+  "batch_id": "deep-review-batch-034-vitis-b025",
+  "created_at": "2026-10-03T16:45:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 1235,
+    "source_scientific_name": "Vitis cinerea",
+    "wild_observations": 1,
+    "source_count": 1,
+    "hays_local": false
+  },
+  "taxonomy": {
+    "accepted_name": "Vitis cinerea (Engelm.) Millardet",
+    "rank": "species",
+    "order": "Vitales",
+    "family": "Vitaceae",
+    "genus": "Vitis",
+    "species": "cinerea",
+    "status": "VERIFIED",
+    "synonyms": [
+      "Vitis aestivalis var. cinerea Engelm."
+    ],
+    "note": "Current Kew/POWO accepts Vitis cinerea but excludes the Heller/berlandieri concept as the separate species Vitis berlandieri. Flora of North America uses a broader V. cinerea concept with var. helleri included. This mismatch makes older Central Texas county records unsafe for direct transfer to current V. cinerea."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": [],
+    "evidence": [
+      "Kew/POWO accepts Vitis cinerea and recognizes Texas in the native range, but does not include var. helleri among its accepted infraspecifics.",
+      "Flora of North America states var. cinerea is found in Texas only in the eastern part of the state and intergrades with var. helleri southwest of the Brazos River.",
+      "USDA-derived species-level county data include Central Texas counties, but those records may aggregate the older helleri/berlandieri concept and are therefore not used to satisfy the three-county rule."
+    ],
+    "blocking_issue": "Fewer than three exact target-zone counties are verified under the current taxon concept.",
+    "guardrail": "Do not count Central Texas species-level Vitis cinerea records until they are reconciled against the current Kew concept and separated from V. berlandieri."
+  },
+  "morphology": {
+    "look_here_first": "Treat this as a concept-check species. In the strict var. cinerea morphology, branchlets are distinctly angled and densely short-hairy plus cobwebby; leaf undersides stay visibly gray/green with both webby and short hairs, and berries are small and only slightly glaucous. Do not call a Central Texas Heller's grape V. cinerea solely because an app uses a broad species concept.",
+    "diagnostic_traits": [
+      "high-climbing woody vine",
+      "branchlets slightly to distinctly angled",
+      "strict var. cinerea branchlets densely hirtellous and arachnoid",
+      "leaves cordate, usually unlobed to shallowly 3-shouldered",
+      "lower leaf surface visible through sparse-to-moderate webby/short hairs",
+      "berries black, 4–8 mm, slightly or not glaucous",
+      "strict var. cinerea favors floodplains, lowland woods and stream margins and is primarily eastern in Texas"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Vitis berlandieri",
+      "separator": "The Central Texas Heller/berlandieri concept has much sparser lower-surface hair, strongly glaucous fruit and Edwards Plateau limestone affinity; current Kew treats it as a separate species."
+    },
+    {
+      "taxon": "Vitis mustangensis",
+      "separator": "Mustang grape has a dense opaque white-felted leaf underside and much larger berries."
+    },
+    {
+      "taxon": "Vitis palmata",
+      "separator": "V. palmata has uniformly red branchlets and deeply lobed glabrous leaves."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole vine",
+      "angled hairy branchlet",
+      "lower leaf surface showing webby plus short hairs",
+      "cordate leaf",
+      "small slightly-glaucous berry cluster",
+      "direct berlandieri branchlet/leaf comparison"
+    ],
+    "exact_final_selection_pending_user_approval": false,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/354881887",
+    "reference_candidates": [
+      "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A1038332-2",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242417482",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101312"
+    ]
+  },
+  "approval_status": "HOLD_RANGE_EVIDENCE",
+  "installation_guardrail": "Do not install as a project-native taxon until three exact target-zone counties are verified under the current taxonomic concept."
+}
