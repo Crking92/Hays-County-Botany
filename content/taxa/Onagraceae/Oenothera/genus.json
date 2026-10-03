@@ -5,34 +5,41 @@
   "authority": "L.",
   "common_group": "Evening primroses and former gauras",
   "project_scope": {
-    "selection_mode": "comparison-first",
+    "selection_mode": "comparison-first across canonical local Oenothera plus B061 expansion",
     "species_ids": [
       "oenothera-speciosa",
       "oenothera-lindheimeri",
       "oenothera-curtiflora",
       "oenothera-suffulta",
-      "oenothera-triloba"
+      "oenothera-triloba",
+      "oenothera-laciniata",
+      "oenothera-capillifolia",
+      "oenothera-calcicola"
     ],
-    "species_count": 5,
-    "note": "B003 includes four strict target-zone PASS species plus O. lindheimeri as an explicit user-approved range exception. Former Gaura names are retained as synonyms."
+    "species_count": 8,
+    "holds": [
+      "oenothera-biennis",
+      "oenothera-filiformis"
+    ],
+    "note": "Modern Oenothera includes former Gaura and Calylophus concepts. B061 adds three strict target-zone PASS species and retains O. biennis + O. filiformis as range HOLDs."
   },
   "study_strategy": {
     "shared_traits": [
       "inferior ovary",
       "4-parted flowers common",
-      "elongated floral tube/hypanthium important",
-      "capsule or indehiscent fruit useful diagnostically"
+      "hypanthium/floral tube often diagnostic",
+      "fruit morphology important"
     ],
     "priority": [
-      "radial primrose flower versus former-Gaura flower architecture",
-      "annual versus perennial habit",
-      "basal rosette versus caulescent stems",
-      "hairiness of stems and inflorescence",
-      "flower size",
-      "fruit shape and lobing",
-      "length and shape of floral tube"
+      "flower symmetry",
+      "flower color",
+      "annual/biennial/perennial habit",
+      "leaf width and lobing",
+      "former Gaura/Calylophus architecture",
+      "floral tube",
+      "fruit/capsule shape"
     ],
-    "warning": "Do not rely on petal color alone. In this group, habit, floral symmetry/orientation, hairiness, hypanthium, and fruit are more diagnostic."
+    "warning": "Do not rely on petal color alone. Modern Oenothera contains very different-looking former Gaura and Calylophus lineages."
   },
   "quick_key": [
     {
@@ -40,24 +47,44 @@
       "then": "Oenothera speciosa"
     },
     {
-      "if": "tall airy perennial with former-Gaura flowers, petals held mainly upward/one side and long exserted stamens",
+      "if": "tall airy perennial with former-Gaura flowers and long exserted stamens",
       "then": "Oenothera lindheimeri"
     },
     {
-      "if": "tall densely velveteen annual with extremely tiny flowers around 3 mm",
+      "if": "tall densely velveteen annual with extremely tiny flowers",
       "then": "Oenothera curtiflora"
     },
     {
-      "if": "annual with larger white former-Gaura flowers, crimson anthers, cleaner inflorescence, chunky 4-lobed fruit",
+      "if": "annual with larger white former-Gaura flowers and chunky 4-lobed fruit",
       "then": "Oenothera suffulta"
     },
     {
       "if": "flat stemless rosette with large yellow flower on an extremely long sharply 4-angled tube",
       "then": "Oenothera triloba"
+    },
+    {
+      "if": "low yellow evening primrose with broader cut-lobed leaves",
+      "then": "Oenothera laciniata"
+    },
+    {
+      "if": "very narrow linear leaves + yellow sundrop flowers + strongly 4-angled buds",
+      "then": "Oenothera capillifolia"
+    },
+    {
+      "if": "perennial limestone gaura with white flowers fading pink/red",
+      "then": "Oenothera calcicola"
+    },
+    {
+      "if": "tall yellow biennial",
+      "then": "compare Oenothera biennis — target-zone HOLD"
+    },
+    {
+      "if": "tall airy white-to-pink former-Gaura annual/biennial",
+      "then": "compare Oenothera filiformis — target-zone HOLD"
     }
   ],
   "curation_status": {
-    "version": "1.0-b003",
-    "last_reviewed": "2026-10-02"
+    "version": "1.1-b061",
+    "last_reviewed": "2026-10-03"
   }
 }
