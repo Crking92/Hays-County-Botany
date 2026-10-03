@@ -1,0 +1,264 @@
+{
+  "module_id": "rosaceae-family-backfill-001",
+  "family": "Rosaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "scope_note": "Final substantial family backfill for the Hays/Central Texas learner. Integrates existing curated Prunus, Geum and Rubus material, restores missing Rosaceae mappings including Malus, and deliberately broadens the lesson beyond Prunus using drupe, aggregate-drupelet, aggregate-achene and pome fruit architectures.",
+  "live_pool_cleanup": {
+    "actions": [
+      "Restored Rosales / Rosaceae to Crataegus viridis, Geum canadense, Malus ioensis var. texana, six Prunus rows and Rubus trivialis.",
+      "Added Malus -> Rosaceae to the hidden genus-family map.",
+      "Recorded current POWO treatment: Malus ioensis var. texana is a synonym within accepted Malus ioensis; preserve the Blanco Crabapple source row for provenance.",
+      "Confirmed current POWO acceptance of Prunus serotina var. eximia as a Texas-native variety while noting broader FNA treatment within P. serotina.",
+      "Preserved existing curated Rosaceae rows rather than reopening species-level work."
+    ],
+    "pool_genera": [
+      "Crataegus",
+      "Geum",
+      "Malus",
+      "Prunus",
+      "Rubus"
+    ],
+    "pool_source_rows": 10,
+    "curated_source_rows": [
+      "Geum canadense",
+      "Prunus mexicana",
+      "Prunus rivularis",
+      "Prunus serotina var. eximia",
+      "Rubus trivialis"
+    ],
+    "current_taxonomy_guardrails": [
+      "Malus ioensis var. texana source row maps to accepted Malus ioensis under current POWO.",
+      "Prunus serotina var. eximia remains an accepted POWO variety; its presence alongside the species row is hierarchical, not necessarily a duplicate error."
+    ]
+  },
+  "family_lesson": {
+    "where_to_look_first": "Look for stipules, then inspect the flower for a hypanthium and usually 5 free sepals/5 free petals with several to many stamens. Do not stop there: the decisive next question is fruit architecture—drupe, pome, aggregate drupelets, or aggregate achenes.",
+    "strongest_field_confirmation": "Usually alternate stipulate leaves + actinomorphic flower + obvious hypanthium/receptacle cup + usually 5 sepals and 5 petals + often numerous free stamens + one to many carpels, followed by highly diagnostic fruit architecture.",
+    "core_characters": [
+      "Trees, shrubs, brambles or herbs.",
+      "Leaves usually alternate; simple or compound; margins commonly serrate.",
+      "Paired stipules usually present, sometimes conspicuous and sometimes early-caducous.",
+      "Flowers usually radial and bisexual.",
+      "Hypanthium/receptacular cup usually present and varies from shallow/flat to deep/urn-shaped.",
+      "Sepals usually 5 and petals usually 5, but exceptions occur.",
+      "Stamens often numerous and inserted around/on the rim of the hypanthium.",
+      "Carpels range from one to many, free or fused.",
+      "Ovary position ranges from superior to inferior depending on lineage.",
+      "Fruit architecture is exceptionally diverse: drupes, pomes, aggregate drupelets, aggregate achenes and more."
+    ],
+    "avoid_overgeneralizing": [
+      "Do not teach Rosaceae as 'five petals + many stamens' only; other families can do that too.",
+      "Do not teach all Rosaceae ovaries as superior or all as inferior.",
+      "Do not assume every family member has persistent obvious stipules; woody taxa may shed them early.",
+      "Do not equate Rosaceae with Prunus/drupes; the local pool includes pomes, aggregate drupelets and aggregate achenes.",
+      "Do not call a blackberry/dewberry one berry; it is an aggregate fruit made of many drupelets."
+    ]
+  },
+  "hypanthium_lesson": {
+    "key_point": "The hypanthium is the Rosaceae structural thread, but its relationship to the ovary changes across genera.",
+    "sequence": [
+      "Prunus flower side view: shallow cup around a single superior ovary.",
+      "Rubus flower: shallow receptacular/hypanthial structure surrounding many free carpels on a raised receptacle.",
+      "Geum flower: many free carpels above the receptacle, later becoming many achenes.",
+      "Malus/Crataegus flower: hypanthium adnate to the ovary, producing an inferior pome-type fruit."
+    ],
+    "caution": "Hypanthium presence does not automatically tell you ovary position; teach the ovary-hypanthium relationship per fruit type."
+  },
+  "fruit_architecture_key": [
+    "One fleshy fruit + one hard stone/endocarp -> drupe -> Prunus.",
+    "Many tiny fleshy one-seeded units clustered together -> aggregate of drupelets -> Rubus.",
+    "Many dry one-seeded achenes on a receptacle, often with persistent styles -> Geum.",
+    "Fleshy pome with several carpels forming a central core -> Malus / Crataegus."
+  ],
+  "genus_anchor_cards": [
+    {
+      "genus": "Prunus",
+      "local_anchors": [
+        "Prunus mexicana",
+        "Prunus rivularis",
+        "Prunus serotina var. eximia"
+      ],
+      "role": "single-carpel drupe / classic Rosaceae hypanthium anchor",
+      "fastest_cues": [
+        "Woody tree/shrub with alternate simple often serrate leaves.",
+        "Stipules present but often caducous.",
+        "Petiolar or marginal glands common in many species.",
+        "Five sepals, five petals, many stamens around a cup-shaped hypanthium.",
+        "One superior carpel/ovary.",
+        "Fruit a drupe with fleshy mesocarp surrounding a single hard stone."
+      ],
+      "flagship_species": {
+        "taxon": "Prunus mexicana",
+        "status": "Curated local anchor",
+        "look_here_first": "Flowers before leaf-out, coarse doubly serrate leaves, glandular petiole, then a purple-red/blue plum with one flattened stone.",
+        "authoritative_note": "FNA documents an obconic hypanthium, 5 white petals, hairy leaves, petiolar glands and a 15–30 mm drupe.",
+        "public_visuals": [
+          {
+            "role": "flowers",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Prunus_mexicana.jpg",
+            "license": "Public Domain"
+          },
+          {
+            "role": "fruit + leaves",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Prunus_mexicana-fruits-leaves.jpg",
+            "license": "Public Domain"
+          }
+        ]
+      }
+    },
+    {
+      "genus": "Rubus",
+      "local_anchor": "Rubus trivialis",
+      "role": "aggregate-drupelet anchor",
+      "fastest_cues": [
+        "Low trailing/brambling cane.",
+        "Recurved prickles common.",
+        "Leaves compound/trifoliolate with stipules.",
+        "Five petals and many stamens.",
+        "Many free carpels, each becoming one tiny drupelet.",
+        "Mature fruit is an aggregate drupetum, not a single berry."
+      ],
+      "species_detail": "FNA describes southern dewberry as frequently creeping, prickly and often glandular-bristly, with black fruits made of about 10–50 coherent drupelets. The torus/receptacle comes away with the ripe fruit, so it is not hollow like a raspberry.",
+      "status": "Curated local anchor"
+    },
+    {
+      "genus": "Geum",
+      "local_anchor": "Geum canadense",
+      "role": "aggregate-achene anchor",
+      "fastest_cues": [
+        "Herbaceous perennial/short-lived herb rather than woody shrub/tree.",
+        "Alternate leaves with stipules; basal and cauline leaves differ.",
+        "Five small white petals and many stamens.",
+        "Many free carpels.",
+        "Fruit an aggregate of dry achenes.",
+        "Persistent styles become hooked/jointed on the mature achenes."
+      ],
+      "species_detail": "FNA describes G. canadense fruiting styles as geniculate-jointed with a persistent proximal segment ending in a hook.",
+      "status": "Curated local anchor"
+    },
+    {
+      "genus": "Crataegus",
+      "local_anchor": "Crataegus viridis",
+      "role": "thorny pome anchor",
+      "status": "Priority 2 family framework; strict target-zone review pending",
+      "fastest_cues": [
+        "Shrub/tree with short shoots and often stout thorns.",
+        "Alternate simple serrate/lobed leaves with stipules.",
+        "Corymbose clusters of 5-petaled flowers with many stamens.",
+        "Inferior ovary fused/adnate with hypanthium.",
+        "Small pome with several hard pyrenes/stone-like units."
+      ],
+      "species_detail": "FNA describes C. viridis pomes as orange to deep red, usually 5–8 mm, with 3–5 styles/pyrenes in its series.",
+      "teaching_value": "Shows that a pome can contain multiple hard pyrene-like units rather than a papery apple-style core."
+    },
+    {
+      "genus": "Malus",
+      "source_taxon": "Malus ioensis var. texana",
+      "current_taxonomy": "Malus ioensis",
+      "role": "classic apple-type pome anchor",
+      "status": "Priority 3 source concept; strict target-zone review pending",
+      "fastest_cues": [
+        "Woody tree/shrub with alternate simple leaves and stipules.",
+        "Five showy petals and many stamens.",
+        "Inferior ovary adnate to hypanthium/receptacle.",
+        "Pome with fleshy exterior surrounding a multi-carpellate core."
+      ],
+      "taxonomy_note": "Current POWO accepts Malus ioensis and lists var. texana as a synonym rather than an accepted variety.",
+      "teaching_value": "Best fruit-anatomy contrast against Prunus: apple/crabapple pome core versus plum/cherry stone."
+    }
+  ],
+  "local_prunus_notes": {
+    "Prunus mexicana": "Curated; strongest local family anchor and public-landscape teaching species.",
+    "Prunus rivularis": "Curated local plum concept; useful shrub/suckering plum comparison.",
+    "Prunus serotina var. eximia": "Curated Edwards Plateau black-cherry concept. Current POWO accepts the variety as Texas-native.",
+    "Prunus serotina": "Accepted species with several accepted varieties; source row remains pending deeper local/infraspecific review.",
+    "Prunus angustifolia": "Priority 3 source concept; family/species review pending.",
+    "Prunus caroliniana": "Priority 3 source concept; family/species/range review pending."
+  },
+  "fast_key": [
+    "Stipules + hypanthium + many stamens -> strong Rosaceae signal; then identify fruit type.",
+    "Single stone inside fleshy fruit -> Prunus.",
+    "Black aggregate fruit made of many drupelets on trailing prickly cane -> Rubus.",
+    "Dry burr-like aggregate of hooked achenes on herb -> Geum.",
+    "Small thorny tree/shrub + small pome with several hard pyrenes -> Crataegus.",
+    "Apple/crabapple-like pome with multi-carpellate core -> Malus.",
+    "Many free stamens/carpels but no stipules/hypanthium -> reconsider Ranunculaceae.",
+    "Stipulate compound leaves + legume pod -> reconsider Fabaceae."
+  ],
+  "confusable_families": {
+    "Ranunculaceae": {
+      "confusion": "Both can have many free stamens and multiple free carpels/achenes.",
+      "tie_breaker": "Rosaceae usually has stipules and a distinct hypanthium/receptacular cup. Ranunculaceae usually lacks stipules and lacks the characteristic Rosaceae hypanthium; floral-part numbers/forms are often less fixed."
+    },
+    "Fabaceae": {
+      "confusion": "Both often have stipules and compound leaves.",
+      "tie_breaker": "Fabaceae ultimately gives a legume pod from a single carpel and characteristic papilionoid/mimosoid/caesalpinioid flowers. Rosaceae has a hypanthium and Rosaceae fruit types rather than a legume."
+    },
+    "Rhamnaceae": {
+      "confusion": "Woody stipulate plants with small 4–5-part flowers and a floral cup can overlap.",
+      "tie_breaker": "Rhamnaceae usually has a conspicuous disk and stamens opposite the petals, generally few rather than a many-stamen Rosaceae ring; local Rosaceae fruit architecture is also distinctive."
+    }
+  },
+  "best_family_visual_sequence": [
+    "Family opener: Prunus plum, Rubus dewberry, Geum hooked achenes and Malus/Crataegus pomes side by side.",
+    "Node macro showing paired stipules on a Rosaceae leaf.",
+    "Generic side-view Rosaceae flower labeling hypanthium, sepals, petals, stamens and carpels.",
+    "Prunus mexicana flower: cup-shaped hypanthium + many stamens + one ovary.",
+    "Prunus fruit cutaway: flesh + hard stone.",
+    "Rubus flower: many free carpels.",
+    "Rubus ripe fruit zoomed into individual drupelets.",
+    "Geum flower and later hooked achene aggregate.",
+    "Malus pome cross-section showing core/carpels.",
+    "Crataegus pome cross-section showing multiple hard pyrenes.",
+    "Rosaceae vs Ranunculaceae vs Fabaceae comparison."
+  ],
+  "terminology_to_reinforce": [
+    "stipule",
+    "hypanthium",
+    "receptacle",
+    "perigynous",
+    "epigynous",
+    "carpel",
+    "drupe",
+    "stone / endocarp",
+    "drupelet",
+    "aggregate fruit",
+    "achene",
+    "pome",
+    "pyrene",
+    "superior ovary",
+    "inferior ovary",
+    "adnate",
+    "torus",
+    "mericarp"
+  ],
+  "visual_gaps": [
+    "Rights-safe stipule macro from a local Rosaceae taxon.",
+    "Clean side-view hypanthium diagram that can be reused across Prunus/Rubus/Geum/Malus.",
+    "Local Rubus trivialis flower-to-drupelet sequence.",
+    "Local Geum canadense flower-to-hooked-achene sequence.",
+    "Malus/Crataegus pome cross-sections at equal scale.",
+    "One four-fruit comparison card: drupe vs aggregate drupelets vs aggregate achenes vs pome."
+  ],
+  "completion_assessment": {
+    "family_characters": "complete for first family lesson",
+    "live_pool_coverage": "5 genera / 10 source rows after restoring Malus mapping",
+    "curated_anchors": "Geum canadense, Prunus mexicana, Prunus rivularis, Prunus serotina var. eximia, Rubus trivialis",
+    "taxonomy_cleanup": "Malus var. texana reconciled to accepted M. ioensis; P. serotina var. eximia current POWO acceptance preserved",
+    "strongest_teaching_hook": "hypanthium + stipules, then fruit architecture",
+    "heavy_backfill_phase": "complete after this family",
+    "remaining": "visual polish plus species-level work for uncurated Rosaceae concepts",
+    "recommended_status": "ready_for_first_family_module_build_visual_polish_pending"
+  },
+  "authoritative_sources": [
+    "Kew POWO Rosaceae family morphology",
+    "Flora of North America Prunus mexicana",
+    "Flora of North America Rubus trivialis",
+    "Flora of North America Geum canadense",
+    "Flora of North America Crataegus viridis",
+    "Kew POWO Malus ioensis current taxonomy",
+    "Kew POWO Prunus serotina var. eximia current taxonomy",
+    "Wikimedia Commons public-domain Prunus mexicana flower and fruit images"
+  ]
+}
