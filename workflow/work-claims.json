@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-03T16:58:00-05:00",
+  "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
+  "policy": {
+    "canonical_manifest_wins": true,
+    "check_before_claiming": [
+      "data/manifest.json",
+      "workflow/work-claims.json",
+      "research-queue.json",
+      "research-drafts/",
+      "curation-inbox/ and active GitHub Actions"
+    ],
+    "manual_active_lease_hours": 6,
+    "automation_active_lease_hours": 2,
+    "scout_backpressure_max_unreviewed_batches": 2,
+    "scout_backpressure_max_unreviewed_species": 10,
+    "queued_claims_are_superseded_by_durable_state": true
+  },
+  "claims": [
+    {
+      "claim_id": "joey-san-marcos-local-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "zizania-texana",
+        "canna-glauca",
+        "leersia-oryzoides",
+        "schoenoplectus-tabernaemontani",
+        "ceratopteris-thalictroides",
+        "malvaviscus-arboreus",
+        "myriophyllum-heterophyllum"
+      ],
+      "lane": "joey-species-reconciliation",
+      "owner": "manual-project-chat",
+      "status": "queued",
+      "claimed_at": "2026-10-03T16:58:00-05:00",
+      "expires_at": null,
+      "release_when": "Each taxon becomes durably represented in research-queue.json/research-drafts, becomes canonical, or is explicitly closed/held in the Joey reconciliation lane.",
+      "notes": "Known remaining San Marcos/Joey local queue. Myriophyllum heterophyllum has an existing range concern and should remain a hold/review target rather than be silently promoted."
+    },
+    {
+      "claim_id": "joey-taxonomy-reconciliation-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "agave-univittata",
+        "taxodium-mucronatum"
+      ],
+      "lane": "joey-species-reconciliation",
+      "owner": "manual-project-chat",
+      "status": "queued",
+      "claimed_at": "2026-10-03T16:58:00-05:00",
+      "expires_at": null,
+      "release_when": "Taxonomy reconciliation is recorded in a durable research/reconciliation artifact or canonical state.",
+      "notes": "Reserved because the Joey/video lane already identified these as reconciliation cases."
+    }
+  ]
+}
