@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_TARGET_ZONE_FAIL_COMPARISON_RECOMMENDED",
+  "batch_id": "deep-review-batch-019-bignoniaceae-b015",
+  "created_at": "2026-10-02T19:36:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 134,
+    "source_scientific_name": "Bignonia capreolata",
+    "wild_observations": 1,
+    "source_count": 2
+  },
+  "taxonomy": {
+    "accepted_name": "Bignonia capreolata L.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Bignoniaceae",
+    "genus": "Bignonia",
+    "species": "capreolata",
+    "status": "VERIFIED",
+    "note": "Accepted species; Anisostichus capreolata and Doxantha capreolata retained as synonyms."
+  },
+  "target_zone_range": {
+    "decision": "FAIL",
+    "threshold": 3,
+    "documented_counties": [
+      "Bandera"
+    ],
+    "evidence": [
+      "Kew/POWO accepts Bignonia capreolata and lists Texas within its native range.",
+      "USDA PLANTS-derived county data records 22 Texas native counties; only Bandera lies inside the project's current target-zone list.",
+      "Texas Wildbuds explicitly notes that Travis County occurrences are cultivated rather than native, reinforcing the need not to count Austin landscape records.",
+      "NPSOT maps the species into East Central Texas Plains, Edwards Plateau/Balcones Canyonlands, and Western Gulf Coastal Plain contexts, but this regional layer does not supply the two additional exact target counties required by the project rule."
+    ],
+    "blocking_issue": null,
+    "guardrail": "Texas-native does not equal project-target-zone native. Do not count cultivated Austin/Hill Country crossvine or broad ecoregion polygons as exact county nativity. Current strict result is 1 firm target county."
+  },
+  "morphology": {
+    "look_here_first": "Look at the leaf and climbing organ together: crossvine usually has two broad leaflets, with the missing third leaflet replaced by a branched tendril ending in adhesive pads.",
+    "diagnostic_traits": [
+      "evergreen to semi-evergreen woody climbing vine",
+      "leaves opposite and typically bifoliolate: two broad leaflets per leaf",
+      "a third leaflet position is modified into a branched tendril",
+      "tendril branches terminate in adhesive discs/pads that cling to bark, stone, or walls",
+      "leaflets mostly entire and glossy, often turning reddish-purple in cool weather",
+      "showy orange-red to reddish/yellow trumpet-shaped flowers in small clusters",
+      "fruit a long, flattened, brown 2-valved capsule with winged seeds",
+      "does not use the dense aerial-rootlet climbing system of Campsis"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Campsis radicans",
+      "separator": "Trumpet creeper has 7–11 serrated leaflets and climbs by aerial rootlets; crossvine has two leaflets plus adhesive tendrils."
+    },
+    {
+      "taxon": "Dolichandra unguis-cati",
+      "separator": "Catclaw vine also has paired leaflets plus tendrils, but its tendril terminates in conspicuous claw-like hooks rather than crossvine's adhesive discs; catclaw vine is non-native."
+    },
+    {
+      "taxon": "Lonicera sempervirens",
+      "separator": "Coral honeysuckle has simple opposite leaves and berry fruits, not bifoliolate tendril leaves and flattened capsules."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole climbing habit",
+      "opposite bifoliolate leaf",
+      "branched tendril",
+      "adhesive pad macro",
+      "winter/reddish foliage if useful",
+      "flower cluster",
+      "flattened capsule",
+      "winged seeds",
+      "direct Campsis comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/354735184",
+    "reference_candidates": [
+      "https://www.bio.utexas.edu/courses/bio406d/images/pics/big/bignonia_capreolata.htm",
+      "https://www.npsot.org/resources/marie-theres-herz-herbarium-sheets/"
+    ]
+  },
+  "approval_status": "READY_FOR_COMPARISON_APPROVAL",
+  "learner_role": {
+    "role": "LOOKALIKE_COMPARISON_RECOMMENDED",
+    "retained": false,
+    "native_metrics_excluded": true,
+    "reason": "Texas-native species that fails the project's 3-target-county threshold but is commonly cultivated/encountered and is the most useful family-level comparison to Campsis. Requires explicit approval before learner retention."
+  },
+  "installation_guardrail": "Do not install as a project-native. May be retained only if Calvin explicitly approves its labeled comparison role; exclude from native totals."
+}
