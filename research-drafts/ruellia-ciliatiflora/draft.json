@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
+  "batch_id": "deep-review-batch-035-ruellia-b026",
+  "created_at": "2026-10-03T17:05:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 983,
+    "source_scientific_name": "Ruellia nudiflora",
+    "wild_observations": 17,
+    "source_count": 3,
+    "hays_local": true
+  },
+  "taxonomy": {
+    "accepted_name": "Ruellia ciliatiflora Hook.",
+    "rank": "species",
+    "order": "Lamiales",
+    "family": "Acanthaceae",
+    "genus": "Ruellia",
+    "species": "ciliatiflora",
+    "status": "VERIFIED",
+    "synonyms": [
+      "Ruellia nudiflora (Engelm. & A.Gray) Urb.",
+      "Ruellia nudiflora var. nudiflora",
+      "Ruellia occidentalis (A.Gray) Tharp & F.A.Barkley"
+    ],
+    "note": "Current Kew/POWO accepts Ruellia ciliatiflora and places the familiar Texas name Ruellia nudiflora in synonymy. Texas field literature still widely uses R. nudiflora; learner preserves that name as a primary alias."
+  },
+  "target_zone_range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence": [
+      "Hays County — UT Plant Resources Center Purola Preserve documents Ruellia nudiflora in the natural flora.",
+      "Travis County — UT Plant Resources Center's Travis County Acanthaceae specimen index includes three Ruellia nudiflora var. nudiflora specimens.",
+      "Williamson County — UT Plant Resources Center provides a detailed local treatment of Ruellia nudiflora var. nudiflora."
+    ],
+    "blocking_issue": null,
+    "guardrail": "County records under R. nudiflora are accepted for the current R. ciliatiflora concept because Kew explicitly synonymizes that name; preserve the alias rather than duplicating the taxon."
+  },
+  "morphology": {
+    "look_here_first": "Start with where the flowers are. Common wild petunia sends a conspicuous peduncled, branching terminal flower stalk above the leaves; the flowers are not sitting directly in the leaf axils. Then confirm mostly glabrous/glabrescent oval-ovate leaves with wavy to low-dentate margins.",
+    "diagnostic_traits": [
+      "perennial herb/subshrub with woody or persistent base",
+      "stems usually erect to ascending and relatively sparsely branched",
+      "opposite oval to ovate leaves, usually rounded to subacute at tip",
+      "foliage essentially glabrous to only inconspicuously short-hairy",
+      "leaf margins commonly wavy, subentire or low-dentate",
+      "inflorescences terminal and upper-axillary, distinctly pedunculate and branching into cymes",
+      "purple to violet funnel-shaped flowers elevated above foliage",
+      "calyx and fruit usually glandular-pubescent",
+      "capsule pubescent and explosively dehiscent"
+    ]
+  },
+  "confusers": [
+    {
+      "taxon": "Ruellia drummondiana",
+      "separator": "R. drummondiana bears flowers/cymes directly from leaf axils with essentially no peduncle and has short fine pubescence; its capsules contain only 2–4 seeds."
+    },
+    {
+      "taxon": "Ruellia humilis",
+      "separator": "R. humilis also has axillary nearly sessile flowers but is conspicuously long-pilose, especially on stems and leaf margins."
+    },
+    {
+      "taxon": "Ruellia metziae",
+      "separator": "R. metziae also has terminal pedunculate flowers but is typically white to pale purple and has somewhat narrower leaves; preserve as a later local comparison."
+    }
+  ],
+  "photo_verification": {
+    "status": "SOURCE_COVERAGE_VERIFIED",
+    "diagnostic_roles": [
+      "whole plant showing terminal flowering stalk",
+      "leaf face and margin",
+      "mostly glabrous stem/leaf macro",
+      "terminal peduncle attachment",
+      "branching terminal cyme",
+      "flower side view",
+      "pubescent capsule",
+      "direct axillary-flower comparison"
+    ],
+    "exact_final_selection_pending_user_approval": true,
+    "user_inaturalist_example_observation": "https://www.inaturalist.org/observations/274154571",
+    "reference_candidates": [
+      "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A53920-1",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/RUNU.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Ruellia%20nudiflora%20nudiflora",
+      "https://www.inaturalist.org/posts/70116-ruellias-in-central-texas"
+    ]
+  },
+  "approval_status": "READY_FOR_APPROVAL",
+  "installation_guardrail": "May install under the user's standing blanket approval because strict PASS is complete."
+}
