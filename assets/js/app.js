@@ -15,7 +15,14 @@ const state = {
   browseFamily: "",
   browseGenus: "",
   photoIndex: {},
-  glossaryQuery: ""
+  glossaryQuery: "",
+  approvals: null,
+  approvalRevision: null,
+  approvalsWriteEnabled: false,
+  approvalsError: "",
+  approvalsFilter: "action",
+  approvalsBusy: null,
+  approvalArtifacts: {}
 };
 
 const els = {
@@ -203,6 +210,9 @@ function setView(view){
   state.view=view; state.quizRevealed=false;
   if(view!=="plant") state.selectedSpeciesId=null;
   closeModal(); render(); window.scrollTo({top:0,behavior:"smooth"});
+  if(view==="approvals" && !state.approvals){
+    loadApprovals().then(function(){ if(state.view==="approvals") render(); });
+  }
 }
 function openFamily(family){
   state.selectedFamily=family; state.view="family"; state.quizRevealed=false; render();
@@ -226,6 +236,209 @@ function randomQuiz(){
 function setDifficulty(level){
   if(!state.learning.difficulty_levels[level]) return;
   state.difficulty=level; writeLocal("hays-botany-difficulty",level); render();
+}
+
+
+async function loadApprovals(force){
+  if(state.approvals && !force) return;
+  state.approvalsError="";
+  const localHost=location.hostname==="127.0.0.1" || location.hostname==="localhost";
+  if(localHost){
+    try{
+      const r=await fetch("/api/approvals",{cache:"no-store"});
+      if(r.ok){
+        const data=await r.json();
+        state.approvals=data.queue || {items:[]};
+        state.approvalRevision=data.revision || null;
+        state.approvalsWriteEnabled=Boolean(data.write_enabled);
+        state.approvalArtifacts=data.artifacts || {};
+        return;
+      }
+    }catch(err){}
+  }
+  try{
+    state.approvals=await loadJSON("research-queue.json");
+    state.approvalRevision=null;
+    state.approvalsWriteEnabled=false;
+    state.approvalArtifacts={};
+  }catch(err){
+    state.approvalsError=err.message || String(err);
+  }
+}
+function approvalBatchLabel(item){
+  const raw=item.batch_id || "unbatched";
+  const match=raw.match(/-b(\d{3})$/i);
+  if(match) return "B"+match[1];
+  const direct=raw.match(/\bB(\d{3})\b/i);
+  return direct ? "B"+direct[1] : raw;
+}
+function approvalRangeStatus(item){
+  const explicit=item.native_range_status || item.range_status || item.target_zone_status || (item.project_inclusion && item.project_inclusion.target_zone_status);
+  if(explicit) return String(explicit).toUpperCase();
+  const notes=String(item.notes||"").toUpperCase();
+  if(notes.includes("UNRESOLVED")) return "UNRESOLVED";
+  if(notes.includes("RANGE FAIL") || notes.includes("NATIVE-STATUS FAIL") || notes.includes("TARGET-ZONE FAIL") || notes.includes("STRICT TARGET-ZONE FAIL")) return "FAIL";
+  if(notes.includes("PASS")) return "PASS";
+  return "UNKNOWN";
+}
+function approvalNeedsAction(item){
+  if(item.user_decision && item.user_decision.decision) return false;
+  const a=item.approval_status || "";
+  const s=item.status || "";
+  return ["ready_for_approval","ready_for_comparison_approval","needs_manual_review"].includes(a)
+    || ["reviewed_ready_for_approval","reviewed_comparison_recommended","needs_manual_review"].includes(s);
+}
+function approvalDecisionText(item){
+  const d=item.user_decision && item.user_decision.decision;
+  if(!d) return "";
+  const labels={
+    approve_for_curation:"Approved for curation",
+    approve_as_comparison:"Approved as comparison",
+    approve_with_range_exception:"Approved with range exception",
+    hold_unresolved:"Held unresolved",
+    needs_more_review:"Needs more review",
+    reject:"Rejected",
+    accept_range_fail:"Range fail accepted",
+    accept_review_keep_unresolved:"Review accepted; unresolved held"
+  };
+  return labels[d] || titleCase(d);
+}
+function approvalStatusClass(value){
+  const v=String(value||"").toUpperCase();
+  if(v==="PASS") return "status-pass";
+  if(v==="FAIL") return "status-fail";
+  if(v==="UNRESOLVED") return "status-unresolved";
+  return "status-neutral";
+}
+function approvalBatchNumber(label){
+  const m=String(label).match(/B(\d+)/i);
+  return m ? Number(m[1]) : -1;
+}
+function approvalArtifactLinks(item){
+  const paths=state.approvalArtifacts[item.id] || [];
+  if(!paths.length) return "";
+  return '<details class="approval-artifacts"><summary>Review files ('+paths.length+')</summary><div>'+
+    paths.map(function(path){ return '<a href="'+encodeURI(path)+'" target="_blank" rel="noreferrer">'+esc(path.split("/").pop())+' ↗</a>'; }).join("")+
+    '</div></details>';
+}
+function approvalCard(item){
+  const range=approvalRangeStatus(item);
+  const decided=approvalDecisionText(item);
+  const artifacts=approvalArtifactLinks(item);
+  const pool=item.source_pool || {};
+  const busy=state.approvalsBusy===item.id;
+  const comparisonSuggested=(item.approval_status==="ready_for_comparison_approval") || range==="FAIL" || String(item.learner_role||"").includes("COMPARISON");
+  let out='<article class="approval-card" data-approval-item="'+esc(item.id)+'">'+
+    '<div class="approval-card-top"><div><div class="eyebrow">'+esc(item.family||"")+" › "+esc(item.genus||"")+'</div><h3><i>'+esc(item.scientific_name||item.id)+'</i></h3></div>'+
+    '<span class="approval-range '+approvalStatusClass(range)+'">'+esc(range)+'</span></div>'+
+    '<p class="approval-notes">'+esc(item.notes||"No review note recorded.")+'</p>'+
+    '<div class="approval-meta">'+
+      '<span><b>Status</b>'+esc(titleCase(item.status||"unknown"))+'</span>'+
+      '<span><b>Approval</b>'+esc(titleCase(item.approval_status||"not set"))+'</span>'+
+      (pool.wild_observations!=null?'<span><b>Wild obs</b>'+esc(pool.wild_observations)+'</span>':'')+
+      (pool.source_count!=null?'<span><b>Source points</b>'+esc(pool.source_count)+'</span>':'')+
+      (item.last_deep_reviewed_at?'<span><b>Reviewed</b>'+esc(String(item.last_deep_reviewed_at).replace("T"," ").slice(0,16))+'</span>':'')+
+    '</div>'+artifacts;
+  if(decided){
+    const decisionNote=(item.user_decision && item.user_decision.note) || "";
+    out+='<div class="approval-decision-record"><strong>'+esc(decided)+'</strong>'+(decisionNote?'<span>'+esc(decisionNote)+'</span>':'')+'</div>';
+  }else if(state.approvalsWriteEnabled){
+    out+='<label class="approval-note"><span>Optional decision note</span><textarea data-approval-note="'+esc(item.id)+'" rows="2" placeholder="Why you approved, held, or rejected this one…"></textarea></label>'+
+      '<div class="approval-actions">'+
+      (range!=="UNRESOLVED" && range!=="FAIL"?'<button class="approval-action approve" type="button" data-approval-decision="approve_for_curation" data-approval-id="'+esc(item.id)+'">Approve</button>':'')+
+      '<button class="approval-action review" type="button" data-approval-decision="needs_more_review" data-approval-id="'+esc(item.id)+'">Needs more review</button>'+
+      (comparisonSuggested?'<button class="approval-action compare" type="button" data-approval-decision="approve_as_comparison" data-approval-id="'+esc(item.id)+'">Keep as comparison</button>':'')+
+      (range==="UNRESOLVED"?'<button class="approval-action exception" type="button" data-approval-decision="approve_with_range_exception" data-approval-id="'+esc(item.id)+'">Approve exception</button>':'')+
+      '<button class="approval-action reject" type="button" data-approval-decision="reject" data-approval-id="'+esc(item.id)+'">Reject</button>'+
+      '</div>';
+    if(busy) out+='<div class="approval-saving">Saving decision…</div>';
+  }else{
+    out+='<div class="approval-readonly">Open this site with <code>RUN_LOCAL_SERVER.bat</code> to make approval decisions. This view is read-only on the static site.</div>';
+  }
+  return out+'</article>';
+}
+function approvalsView(){
+  if(state.approvalsError && !state.approvals){
+    return '<section class="page-intro"><div class="eyebrow">Curation gate</div><h1>Approvals</h1><p class="error-card">Could not load the approval queue: '+esc(state.approvalsError)+'</p></section>';
+  }
+  if(!state.approvals){
+    return '<section class="page-intro"><div class="eyebrow">Curation gate</div><h1>Approvals</h1><p>Loading review decisions…</p></section>';
+  }
+  const all=(state.approvals.items||[]).slice();
+  const action=all.filter(approvalNeedsAction);
+  const decided=all.filter(function(x){ return Boolean(x.user_decision && x.user_decision.decision); });
+  const pendingCuration=all.filter(function(x){ return ["approved_pending_curation","approved_comparison_pending_curation"].includes(x.status); });
+  const held=all.filter(function(x){ const d=x.user_decision && x.user_decision.decision; return d==="hold_unresolved" || d==="needs_more_review" || d==="accept_review_keep_unresolved"; });
+  let list=all;
+  if(state.approvalsFilter==="action") list=action;
+  else if(state.approvalsFilter==="decided") list=decided;
+  else if(state.approvalsFilter==="pending") list=pendingCuration;
+
+  const groups=new Map();
+  list.forEach(function(item){
+    const label=approvalBatchLabel(item);
+    if(!groups.has(label)) groups.set(label,[]);
+    groups.get(label).push(item);
+  });
+  const ordered=Array.from(groups.entries()).sort(function(a,b){ return approvalBatchNumber(b[0])-approvalBatchNumber(a[0]); });
+
+  let out='<section class="page-intro approval-intro"><div class="eyebrow">Human approval gate</div><h1>Review before curation.</h1>'+
+    '<p>Scout and deep-review work can collect evidence, but nothing should move into final curation until you make the call here.</p></section>'+
+    '<section class="approval-summary">'+
+      '<div><strong>'+action.length+'</strong><span>need a decision</span></div>'+
+      '<div><strong>'+pendingCuration.length+'</strong><span>approved, awaiting curation</span></div>'+
+      '<div><strong>'+held.length+'</strong><span>held / more review</span></div>'+
+      '<div><strong>'+all.length+'</strong><span>queue records</span></div>'+
+    '</section>'+
+    '<section class="approval-toolbar"><div class="approval-filters" role="group" aria-label="Approval filters">'+
+      '<button type="button" data-approval-filter="action" class="'+(state.approvalsFilter==="action"?"active":"")+'">Needs decision</button>'+
+      '<button type="button" data-approval-filter="pending" class="'+(state.approvalsFilter==="pending"?"active":"")+'">Awaiting curation</button>'+
+      '<button type="button" data-approval-filter="decided" class="'+(state.approvalsFilter==="decided"?"active":"")+'">My decisions</button>'+
+      '<button type="button" data-approval-filter="all" class="'+(state.approvalsFilter==="all"?"active":"")+'">All</button>'+
+    '</div><button class="secondary-button" type="button" data-approval-refresh>Refresh queue</button></section>';
+  if(state.approvalsError){
+    out+='<div class="approval-save-error"><strong>Decision not saved.</strong><span>'+esc(state.approvalsError)+'</span><button class="secondary-button" type="button" data-approval-refresh>Refresh queue</button></div>';
+  }
+  out+='<div class="approval-mode-banner '+(state.approvalsWriteEnabled?"writable":"readonly")+'">'+
+    (state.approvalsWriteEnabled
+      ? '<strong>Decision mode is active.</strong><span>Changes are written locally to <code>research-queue.json</code> with revision checking and an audit log.</span>'
+      : '<strong>Read-only queue view.</strong><span>Use <code>RUN_LOCAL_SERVER.bat</code> on your computer to approve, hold, compare, or reject records.</span>')+
+    '</div>';
+  if(!ordered.length) return out+'<div class="empty-panel">Nothing matches this filter.</div>';
+  ordered.forEach(function(entry){
+    const label=entry[0], items=entry[1];
+    const family=Array.from(new Set(items.map(function(x){ return x.family; }).filter(Boolean))).join(" / ");
+    out+='<section class="approval-batch"><div class="approval-batch-head"><div><div class="eyebrow">'+esc(label)+'</div><h2>'+esc(family||"Review batch")+'</h2></div><span>'+items.length+' record'+(items.length===1?"":"s")+'</span></div><div class="approval-grid">';
+    items.forEach(function(item){ out+=approvalCard(item); });
+    out+='</div></section>';
+  });
+  return out;
+}
+async function submitApprovalDecision(itemId,decision){
+  if(!state.approvalsWriteEnabled || state.approvalsBusy) return;
+  if(decision==="reject" && !window.confirm("Reject this record from the current curation path?")) return;
+  if(decision==="approve_with_range_exception" && !window.confirm("Approve this UNRESOLVED record as an explicit range exception? The unresolved evidence will remain documented.")) return;
+  const noteEl=document.querySelector('[data-approval-note="'+CSS.escape(itemId)+'"]');
+  const note=noteEl ? noteEl.value.trim() : "";
+  state.approvalsBusy=itemId; render();
+  try{
+    const r=await fetch("/api/approvals/decision",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({item_id:itemId,decision:decision,note:note,expected_revision:state.approvalRevision})
+    });
+    const data=await r.json().catch(function(){ return {}; });
+    if(!r.ok) throw new Error(data.error || ("Decision failed with HTTP "+r.status));
+    state.approvals=data.queue;
+    state.approvalRevision=data.revision;
+    state.approvalArtifacts=data.artifacts || state.approvalArtifacts;
+    state.approvalsWriteEnabled=Boolean(data.write_enabled);
+    state.approvalsError="";
+  }catch(err){
+    state.approvalsError=err.message || String(err);
+  }finally{
+    state.approvalsBusy=null; render();
+  }
 }
 
 function familyCard(family){
@@ -402,6 +615,7 @@ function render(){
   else if(state.view==="plant") els.app.innerHTML=plantView();
   else if(state.view==="browse") els.app.innerHTML=browseView();
   else if(state.view==="glossary") els.app.innerHTML=glossaryView();
+  else if(state.view==="approvals") els.app.innerHTML=approvalsView();
   else els.app.innerHTML=homeView();
 }
 
@@ -486,6 +700,14 @@ function handleClick(e){
   if(close && (e.target.classList.contains("modal-backdrop") || close.classList.contains("modal-close"))){ closeModal(); return; }
   const nav=e.target.closest("[data-nav]"); if(nav){ setView(nav.dataset.nav); return; }
   if(e.target.closest("#brandHome")){ setView("home"); return; }
+  const approvalFilter=e.target.closest("[data-approval-filter]");
+  if(approvalFilter){ state.approvalsFilter=approvalFilter.dataset.approvalFilter; render(); return; }
+  if(e.target.closest("[data-approval-refresh]")){
+    state.approvals=null; state.approvalsError=""; render();
+    loadApprovals(true).then(function(){ if(state.view==="approvals") render(); }); return;
+  }
+  const approvalDecision=e.target.closest("[data-approval-decision]");
+  if(approvalDecision){ submitApprovalDecision(approvalDecision.dataset.approvalId,approvalDecision.dataset.approvalDecision); return; }
   const diff=e.target.closest("[data-difficulty]"); if(diff){ setDifficulty(diff.dataset.difficulty); return; }
   const setDiff=e.target.closest("[data-set-difficulty]"); if(setDiff){ setDifficulty(setDiff.dataset.setDifficulty); return; }
   const term=e.target.closest("[data-term]"); if(term){ e.stopPropagation(); openTermModal(term.dataset.term); return; }
