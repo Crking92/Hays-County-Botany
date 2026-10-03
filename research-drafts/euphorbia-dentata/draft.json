@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-euphorbia-test-02",
+  "created_at": "2026-10-03T18:04:00-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "row": 443,
+    "priority": 1,
+    "wild_observations": 8,
+    "hays_local": true
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Euphorbia dentata Michx.",
+    "family": "Euphorbiaceae",
+    "genus": "Euphorbia",
+    "order": "Malpighiales",
+    "status_candidate": "accepted",
+    "notes": [
+      "POWO and Flora of North America recognize Euphorbia dentata as accepted.",
+      "This species belongs to the difficult E. dentata species group and should be compared directly with E. davidii."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Deep Review must verify exact target-zone counties.",
+    "leads": [
+      "Master Plant Pool has 8 personal wild observations and marks Hays Local.",
+      "POWO lists Texas in the native range.",
+      "FNA treats E. dentata as native from northern Mexico through the south-central United States including Texas.",
+      "BONAP county maps should provide exact county documentation."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "If it looks like E. davidii, go straight to the hairs, capsule size, and especially mature seed. E. dentata tends to have longer/less-stiff hairs, smaller capsules and seeds, and more uniformly ovoid, finely tuberculate seeds.",
+    "diagnostic_traits": [
+      "annual herb",
+      "leaves opposite, toothed, often less elliptic than E. davidii",
+      "stems and leaf undersides with hairs generally longer and less stiff than E. davidii",
+      "capsules about 2.5–2.8 × 3.5–4 mm",
+      "seeds about 2.1–2.7 mm, rounded in cross section and evenly minute-tuberculate",
+      "one or occasionally two green cyathial glands"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Euphorbia davidii",
+      "separator": "E. davidii generally has larger capsules/seeds, more elliptic leaves, shorter stiffer hairs with pustular bases, and more angular irregular/lumpy seeds."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "iNaturalist Plants of Dallas/Fort Worth guide",
+      "source_page": "https://www.inaturalist.org/guide_taxa/503464",
+      "origin_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/255838/large.jpg",
+      "creator": null,
+      "license": "unverified in Scout pass",
+      "role": "upper leaves + developing cyathia",
+      "reuse": "private-study candidate until exact attribution/license verified"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf underside hairs",
+    "toothed leaves",
+    "mature capsule",
+    "seed macro",
+    "side-by-side seed comparison with E. davidii"
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn%3Alsid%3Aipni.org%3Anames%3A30169241-2",
+    "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242321404",
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Euphorbia"
+  ],
+  "scout_flags": {
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  }
+}
