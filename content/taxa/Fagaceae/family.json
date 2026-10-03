@@ -1,6 +1,70 @@
 {
-  "rank":"family","name":"Fagaceae","common_name":"Beech / oak family",
-  "project_scope":{"selection_mode":"core-local-learning set","genera_currently_curated":["Quercus"],"note":"This is the initial Fagaceae family file for the current Hays Botany ID build. Future genera should be merged into it, not blindly replace it."},
-  "family_diagnostics":{"habit":"Woody trees or shrubs.","flowers":"Wind-pollinated; oak staminate flowers occur in catkins and are usually not the best species-level ID feature.","fruit":"Nut subtended or surrounded by a cupule; in Quercus this is the acorn and acorn cup.","field_tip":"For oaks, mature leaves, twig/bud vestiture, bark, acorns, and cupules are much more reliable than flowers alone."},
-  "curation_status":{"version":"1.0-starter","last_reviewed":"2026-09-30"}
+  "rank": "family",
+  "name": "Fagaceae",
+  "common_name": "Beech / oak family",
+  "project_scope": {
+    "selection_mode": "core-local-learning set",
+    "genera_currently_curated": [
+      "Quercus"
+    ],
+    "note": "This is the initial Fagaceae family file for the current Hays Botany ID build. Future genera should be merged into it, not blindly replace it."
+  },
+  "family_diagnostics": {
+    "where_to_look_first": "If fruit is present, find the nut and cupule first. In local Quercus this means an acorn sitting in a scaly cup. Then read mature leaves, buds/twigs, bark and cupule details.",
+    "leaves": "Alternate simple leaves with stipules; local oak species vary strongly in lobing, margins, underside hairs and persistence.",
+    "flowers": "Unisexual; staminate flowers commonly in catkins. Flowers are less useful than fruit/vegetative characters for routine local oak ID.",
+    "fruit": "A nut associated with a cupule; in Quercus the acorn/cup is decisive family confirmation.",
+    "field_tip": "Simple leaf + acorn/cupule is the fast family pattern. Use leaf, bud, bark and cupule for species."
+  },
+  "curation_status": {
+    "version": "2.0-visual-family-module",
+    "last_reviewed": "2026-10-03",
+    "visual_lock": "first_pass_complete"
+  },
+  "visual_lesson": {
+    "status": "first_visual_lock",
+    "teaching_order": "whole plant → diagnostic structure → reproductive confirmation → tie-breaker",
+    "intro": "Oaks are easiest when the acorn teaches the family and the leaf/bud/cup teaches the species.",
+    "steps": [
+      {
+        "title": "1 · Find the cupule",
+        "photo_role": "acorn and cup",
+        "anchor_species_id": "quercus-fusiformis",
+        "look_for": "A nut seated in a scaly cupule.",
+        "why_it_matters": "The acorn + cupule combination is the strongest local Fagaceae cue.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "2 · Read the mature leaf",
+        "photo_role": "leaf architecture",
+        "anchor_species_id": "quercus-buckleyi",
+        "look_for": "Simple alternate leaf; note lobes, tips, margin and underside.",
+        "why_it_matters": "Leaf architecture narrows local oak groups quickly.",
+        "status": "locked_existing_species_anchor"
+      },
+      {
+        "title": "3 · Check the twig and bud",
+        "photo_role": "buds and twig",
+        "anchor_species_id": "quercus-laceyi",
+        "look_for": "Bud size/shape, clustering and twig pubescence.",
+        "why_it_matters": "Bud/twig traits remain useful when acorns are absent.",
+        "status": "species_anchor_photo_polish_pending"
+      },
+      {
+        "title": "4 · Compare bark + leaf + cup",
+        "photo_role": "whole-tree integration",
+        "anchor_species_id": "quercus-stellata",
+        "look_for": "Use several characters together instead of forcing one leaf shape.",
+        "why_it_matters": "Oaks hybridize and vary; multi-character ID is safer.",
+        "status": "locked_existing_species_anchor"
+      }
+    ],
+    "comparisons": [
+      {
+        "title": "Fagaceae vs Juglandaceae",
+        "rule": "Local oaks have simple leaves + acorn/cupule. Walnuts have pinnately compound leaves + a husked nut. Both can have catkins."
+      }
+    ],
+    "caveat": "Catkins alone do not distinguish oaks from walnuts; use leaf architecture and fruit."
+  }
 }
