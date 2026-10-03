@@ -2,11 +2,12 @@
   "updated_at": "2026-10-02",
   "families": {
     "Poaceae": {
-      "status": "priority_backfill_complete_visual_polish_pending",
+      "status": "ready_for_first_family_module_build",
       "packages": [
         "poaceae-family-backfill-001.json",
         "poaceae-family-backfill-002-priority-grasses.json",
-        "poaceae-family-backfill-003-priority-grasses.json"
+        "poaceae-family-backfill-003-priority-grasses.json",
+        "poaceae-family-backfill-004-comparisons.json"
       ],
       "priority_1_total": 10,
       "priority_1_species_cards_completed": 9,
@@ -31,21 +32,24 @@
       ]
     },
     "Ranunculaceae": {
-      "status": "first_pass_complete_visual_gap_cleanup_pending",
+      "status": "ready_for_visual_locking_and_first_family_module",
       "packages": [
         "ranunculaceae-family-backfill-001.json"
       ],
-      "priority_1_total": 3,
-      "priority_1_cards_completed": 3,
-      "completed_taxa": [
+      "core_taxa": [
         "Aquilegia canadensis",
         "Clematis drummondii",
-        "Clematis texensis"
+        "Clematis texensis",
+        "Clematis pitcheri"
+      ],
+      "cautions": [
+        "Clematis reticulata taxonomy/range hold",
+        "Clematis terniflora non-native comparison"
       ],
       "next_actions": [
-        "Aquilegia mature follicle macro",
-        "Clematis drummondii labeled male/female/fruit sequence",
-        "Clematis texensis vs C. pitcheri comparison"
+        "lock rights-safe Aquilegia spur and follicle images",
+        "lock diagnostic side views for Clematis texensis and C. pitcheri",
+        "audio-verify Joey podcast Clematis mention before linking to C. drummondii"
       ]
     },
     "Cannabaceae": {
