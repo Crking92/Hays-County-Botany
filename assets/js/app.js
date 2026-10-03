@@ -686,6 +686,38 @@ function structuredTeachingHTML(value){
   }
   return '<p>'+esc(formatValue(value))+'</p>';
 }
+function familyVisualLessonHTML(canon){
+  const lesson=canon && canon.visual_lesson;
+  if(!lesson || !Array.isArray(lesson.steps) || !lesson.steps.length) return "";
+  let out='<section class="family-visual-lesson"><div class="family-visual-heading"><div><div class="eyebrow">Visual family lesson</div><h3>See the pattern in local plants</h3></div><span>'+esc(lesson.status||"visual lesson")+'</span></div>';
+  if(lesson.intro) out+='<p class="family-visual-intro">'+esc(lesson.intro)+'</p>';
+  out+='<div class="family-visual-steps">';
+  lesson.steps.forEach(function(step){
+    const sp=step.anchor_species_id ? state.species.find(function(x){ return x.id===step.anchor_species_id; }) : null;
+    out+='<article class="family-visual-step">';
+    if(sp){
+      out+='<button class="family-visual-photo" type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"family-visual-img")+
+        '<span><b>'+esc(commonName(sp)||scientificName(sp))+'</b><i>'+esc(scientificName(sp))+'</i></span></button>';
+    }else{
+      out+='<div class="family-visual-photo family-visual-placeholder"><span>Diagram / photo lock pending</span></div>';
+    }
+    out+='<div class="family-visual-copy"><div class="family-visual-step-title">'+esc(step.title||step.photo_role||"Look here")+'</div>';
+    if(step.photo_role) out+='<small>'+esc(step.photo_role)+'</small>';
+    if(step.look_for) out+='<p><b>Look for:</b> '+esc(step.look_for)+'</p>';
+    if(step.why_it_matters) out+='<p><b>Why it matters:</b> '+esc(step.why_it_matters)+'</p>';
+    if(step.status && /pending/i.test(step.status)) out+='<em class="visual-lock-status">Visual polish pending</em>';
+    out+='</div></article>';
+  });
+  out+='</div>';
+  if(Array.isArray(lesson.comparisons) && lesson.comparisons.length){
+    out+='<div class="family-visual-comparisons"><h4>Fast tie-breakers</h4>';
+    lesson.comparisons.forEach(function(c){ out+='<div><b>'+esc(c.title||"Compare")+'</b><span>'+esc(c.rule||"")+'</span></div>'; });
+    out+='</div>';
+  }
+  if(lesson.caveat) out+='<p class="modal-caveat"><b>Visual lesson note:</b> '+esc(lesson.caveat)+'</p>';
+  return out+'</section>';
+}
+
 function termsInText(text,max){
   const out=[];
   Object.entries(state.learning.terms).forEach(function(pair){ if(out.length<max && termMatches(pair[1],text)) out.push(pair[0]); });
@@ -825,6 +857,7 @@ async function openFamilyModal(family){
   if(p.field_question) out+='<div class="field-question"><b>Ask yourself in the field:</b><p>'+esc(p.field_question)+'</p></div>';
   out+='<div class="term-row large">'+(p.key_terms||[]).map(termChip).join("")+'</div>';
   if(diagnostics && state.difficulty==="field") out+='<div class="canonical-diagnostics"><h3>Canonical family diagnostics</h3>'+structuredTeachingHTML(diagnostics)+'</div>';
+  if(canon && canon.visual_lesson) out+=familyVisualLessonHTML(canon);
   if(p.caveat) out+='<p class="modal-caveat"><b>Important:</b> '+esc(p.caveat)+'</p>';
   els.modal.innerHTML=out+'</section></div>';
 }
