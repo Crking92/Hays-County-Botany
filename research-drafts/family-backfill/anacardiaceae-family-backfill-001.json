@@ -1,0 +1,337 @@
+{
+  "module_id": "anacardiaceae-family-backfill-001",
+  "family": "Anacardiaceae",
+  "created_at": "2026-10-02",
+  "status": "researched_and_persisted",
+  "scope_note": "Family-recognition backfill for the Hays/Central Texas learner. Incorporates existing B008 Rhus deep review plus the Master Plant Pool Toxicodendron rows that were missing family assignment.",
+  "live_pool_cleanup": {
+    "actions": [
+      "Assigned Toxicodendron radicans and Toxicodendron rydbergii source rows to order Sapindales, family Anacardiaceae.",
+      "Added Toxicodendron -> Anacardiaceae to the hidden genus-family map.",
+      "Flagged source-pool Rhus lanceolata as the synonym of accepted Rhus copallinum var. lanceolata.",
+      "Flagged Rhus trilobata and R. trilobata var. trilobata as taxonomy duplicates under current Rhus aromatica var. aromatica treatment.",
+      "Flagged source-pool Toxicodendron rydbergii as the synonym of accepted Toxicodendron radicans subsp. rydbergii."
+    ],
+    "source_rows_after_family_mapping": 8,
+    "genera_after_family_mapping": [
+      "Rhus",
+      "Toxicodendron"
+    ],
+    "accepted_concept_warning": "Source-row totals overstate distinct current taxonomic concepts because Rhus trilobata rows fold into Rhus aromatica var. aromatica and Toxicodendron rydbergii is currently treated as Toxicodendron radicans subsp. rydbergii by POWO/FNA."
+  },
+  "family_lesson": {
+    "where_to_look_first": "Start with a woody shrub, small tree, or woody vine with alternate, exstipulate leaves. Then look for resinous/aromatic tissues and small 5-part flowers. The most useful family confirmation in the local genera is a superior ovary followed by a 1-seeded drupe, often with resinous tissue in the fruit.",
+    "strongest_field_confirmation": "Woody habit + alternate exstipulate leaves + resinous tissue + small 5-merous flowers with a nectar disk + superior ovary + drupaceous fruit.",
+    "core_characters": [
+      "Trees, shrubs, or woody vines; local learner taxa are woody.",
+      "Resin canals occur in bark, petioles, major veins, flowers and/or fruit; sap may dry brown or black.",
+      "Leaves alternate in the local Rhus/Toxicodendron set and lack stipules.",
+      "Leaves may be trifoliolate or odd-pinnately compound; leaflet number and rachis form are highly useful within Rhus.",
+      "Flowers small, usually 5-merous, commonly unisexual or functionally unisexual; plants may be dioecious or otherwise sexually variable.",
+      "A nectar disk is typically present.",
+      "Ovary superior in the local teaching set, with one ovule per locule.",
+      "Fruit drupaceous and usually 1-seeded in the local genera.",
+      "Fruit surface/color and cluster position are among the best local genus-level field characters."
+    ],
+    "safety_note": "Do not use sap contact as an identification test. Toxicodendron contains dermatitis-causing resin/urushiol; use visible morphology only.",
+    "avoid_overgeneralizing": [
+      "Do not teach 'leaves of three = poison ivy.' Rhus aromatica also has exactly three leaflets.",
+      "Do not teach Anacardiaceae as always pinnately compound; the family includes simple and trifoliolate leaves.",
+      "Do not teach red fruit as a family character. Rhus commonly has red hairy drupes, while local poison ivy has pale whitish drupes.",
+      "Do not rely on fall color; multiple local Rhus and Toxicodendron can turn red/orange.",
+      "Do not crush unknown Anacardiaceae material to check odor/resin because Toxicodendron contact can cause dermatitis."
+    ]
+  },
+  "local_genus_split": {
+    "Rhus": {
+      "fastest_cues": [
+        "Free-standing shrub or small tree rather than a climbing rootlet-bearing vine.",
+        "Fruit commonly red to red-orange and hairy/glandular.",
+        "Fruit/flower clusters often terminal and dense.",
+        "Leaf architecture varies strongly by species and is ideal for species-level separation."
+      ],
+      "caution": "Rhus aromatica has three leaflets and can therefore be mistaken for poison ivy if the learner stops at leaflet count."
+    },
+    "Toxicodendron": {
+      "fastest_cues": [
+        "Leaves trifoliolate in the local poison-ivy complex.",
+        "Toxicodendron radicans can climb using dense adventitious/aerial rootlets or trail/scramble as a shrub.",
+        "Inflorescences and fruit clusters are axillary rather than the dense terminal pyramidal clusters typical of the local sumacs.",
+        "Drupes mature pale cream/white to grayish rather than red."
+      ],
+      "safety": "All visible parts should be treated as contact hazards; do not handle for teaching demonstrations."
+    }
+  },
+  "fast_key": [
+    "Woody plant, alternate leaves, no stipules, resinous family look, drupe fruit -> consider Anacardiaceae.",
+    "Exactly 3 leaflets -> do NOT stop. Check habit and fruit.",
+    "3 leaflets + climbing/trailing stem, aerial rootlets, axillary pale/white drupes -> Toxicodendron radicans complex.",
+    "3 aromatic often lobed/coarsely toothed leaflets + low free-standing suckering shrub + red hairy drupes -> Rhus aromatica.",
+    "Many narrow leaflets + conspicuously winged rachis + deciduous tall shrub/small tree -> Rhus copallinum var. lanceolata.",
+    "5–9 thick glossy entire leaflets + evergreen/semi-evergreen large shrub -> Rhus virens.",
+    "Small odd-pinnate leaves on densely branched shrub + winged rachis + small red-orange fruit -> Rhus microphylla."
+  ],
+  "anchor_cards": [
+    {
+      "taxon": "Rhus copallinum var. lanceolata",
+      "source_pool_name": "Rhus lanceolata",
+      "role": "winged-rachis sumac anchor",
+      "approval_status": "B008 user-approved pending curation",
+      "look_here_first": "Count many narrow leaflets, then look at the rachis itself: the tissue between leaflet pairs forms conspicuous wings.",
+      "confirms": [
+        "Odd-pinnate alternate leaf.",
+        "Usually many narrow lanceolate leaflets.",
+        "Strongly winged rachis.",
+        "Terminal branched flower panicles.",
+        "Dense terminal red hairy drupes.",
+        "Deciduous clonal shrub/small tree."
+      ],
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:219758-2",
+        "https://www.npsot.org/posts/native-plant/rhus-lanceolata/",
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Rhus%20lanceolata"
+      ],
+      "images": [
+        {
+          "role": "Texas habit / compound leaf context",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Rhus_lanceolata.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rhus_lanceolata.jpg",
+          "creator": "Mike Tilley",
+          "license": "CC BY 4.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "winged rachis close-up",
+          "source_page": "https://www.npsot.org/posts/native-plant/rhus-lanceolata/",
+          "license": "reuse_not_locked",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Rhus virens",
+      "role": "evergreen sumac anchor",
+      "approval_status": "B008 user-approved pending curation",
+      "look_here_first": "The leaves feel visually 'evergreen': only 5–9 thick, glossy, mostly entire leaflets on a large evergreen/semi-evergreen shrub.",
+      "confirms": [
+        "Alternate odd-pinnate leaves.",
+        "5–9 thick leathery glossy leaflets.",
+        "Leaflet margins mostly entire.",
+        "Compact creamy flower clusters.",
+        "Flattened hairy red drupes.",
+        "Evergreen to semi-evergreen habit."
+      ],
+      "sources": [
+        "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/RHVI3.html",
+        "https://rangeplants.tamu.edu/plant/evergreen-sumac/"
+      ],
+      "images": [
+        {
+          "role": "evergreen habit / compound leaves",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Evergreen-Sumac-c_(4487584824).jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Evergreen-Sumac-c_(4487584824).jpg",
+          "creator": "Homer Edward Price",
+          "license": "CC BY 2.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "Hays-local flowers and fruit",
+          "source_page": "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/RHVI3.html",
+          "license": "reuse_not_stated",
+          "study_use": true,
+          "public_reuse": false
+        }
+      ]
+    },
+    {
+      "taxon": "Rhus aromatica",
+      "role": "three-leaflet poison-ivy confuser anchor",
+      "approval_status": "B008 user-approved pending curation",
+      "taxonomy_note": "Current POWO/FNA treatment absorbs Rhus trilobata into Rhus aromatica var. aromatica; preserve trilobata as an important older/local name but do not double-count it as a separate current species in the learner.",
+      "look_here_first": "Exactly three leaflets on a low free-standing suckering shrub; leaflets often lobed or coarsely toothed. Confirm with terminal red hairy fruit rather than pale poison-ivy fruit.",
+      "confirms": [
+        "Alternate trifoliolate leaves.",
+        "Low suckering/clonal shrub.",
+        "Leaflets frequently lobed/crenate/coarsely toothed.",
+        "Early compact flower clusters often before or with leaf emergence.",
+        "Red hairy drupes.",
+        "No climbing aerial-rootlet habit."
+      ],
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:284262-2",
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Rhus%20aromatica"
+      ],
+      "images": [
+        {
+          "role": "three-leaflet habit / flower cluster",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Rhus-aromatica-flowers.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rhus-aromatica-flowers.jpg",
+          "creator": "Sten Porse",
+          "license": "CC BY-SA 3.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "red hairy fruit close-up",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Rhus_aromatica_fruit.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Rhus_aromatica_fruit.jpg",
+          "creator": "SyGrnwd",
+          "license": "CC BY-SA 4.0",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ]
+    },
+    {
+      "taxon": "Rhus microphylla",
+      "role": "small-leaf western sumac comparison",
+      "approval_status": "family-framework-only; species deep review not complete",
+      "look_here_first": "Dense twiggy deciduous shrub with much smaller odd-pinnate leaves; the rachis is winged and fruit forms tight reddish-orange clusters.",
+      "confirms": [
+        "Dense clump-forming shrub.",
+        "Small odd-pinnate leaves.",
+        "Winged rachis.",
+        "Whitish flower clusters before leaf-out.",
+        "Tight slightly hairy reddish-orange fruit clusters."
+      ],
+      "sources": [
+        "https://rangeplants.tamu.edu/plant/littleleaf-sumac/"
+      ],
+      "visual_note": "The project Hays/Purola source lists this as an introduced-site plant rather than a naturally occurring Hays taxon; keep it as a useful regional comparison until strict target-zone curation is complete."
+    },
+    {
+      "taxon": "Toxicodendron radicans",
+      "role": "poison-ivy genus and safety anchor",
+      "approval_status": "family-framework-only; species deep review not complete",
+      "look_here_first": "A trifoliolate woody vine, trailer, or shrub. If climbing, look for a ropey/hairy stem with dense aerial rootlets; then confirm axillary clusters of pale whitish drupes.",
+      "confirms": [
+        "Alternate trifoliolate leaves.",
+        "Terminal leaflet often on a longer petiolule; lateral leaflet bases commonly asymmetric.",
+        "Leaflet margins highly variable from nearly entire to coarsely toothed/lobed.",
+        "Axillary branched flower/fruit clusters.",
+        "Pale cream/white drupes rather than red sumac fruit.",
+        "Adventitious/aerial rootlets on climbing stems.",
+        "Resin ducts with dermatitis-causing chemicals."
+      ],
+      "safety": "Do not touch or crush for ID training.",
+      "local_evidence": "UT Purola Preserve lists Toxicodendron radicans among naturally occurring Anacardiaceae in north Hays County; UT Travis County herbarium also lists it.",
+      "sources": [
+        "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html",
+        "https://w3.biosci.utexas.edu/prc/specimens/Anacardiaceae.html",
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Toxicodendron%20radicans%20verrucosum",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:255769-2"
+      ],
+      "images": [
+        {
+          "role": "aerial rootlets on climbing stem",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Toxicodendron_roots.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toxicodendron_roots.jpg",
+          "creator": "Cillas",
+          "license": "CC BY-SA 4.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "inflorescence",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Toxicodendron_radicans_003.JPG",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toxicodendron_radicans_003.JPG",
+          "creator": "Llez",
+          "license": "CC BY-SA 3.0",
+          "study_use": true,
+          "public_reuse": true
+        },
+        {
+          "role": "pale drupes",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Toxicodendron_radicans4.jpg",
+          "direct_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toxicodendron_radicans4.jpg",
+          "creator": "Wikimedia Commons contributor",
+          "license": "CC BY-SA 4.0",
+          "study_use": true,
+          "public_reuse": true
+        }
+      ]
+    },
+    {
+      "taxon": "Toxicodendron radicans subsp. rydbergii",
+      "source_pool_name": "Toxicodendron rydbergii",
+      "role": "taxonomic poison-ivy comparison",
+      "approval_status": "taxonomy/range review pending",
+      "taxonomy_note": "Current POWO/FNA accepts Toxicodendron radicans subsp. rydbergii and treats Toxicodendron rydbergii as a synonym.",
+      "look_here_first": "Keep as a poison-ivy-complex comparison, not as a separate species card yet. It is generally shrubby/scrambling rather than an aggressively aerial-rooted climbing vine, but final local separation needs a dedicated review.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:255781-2"
+      ]
+    }
+  ],
+  "confusable_families": {
+    "Sapindaceae": {
+      "confusion": "Alternate compound leaves and small flowers can overlap with sumacs; fruits are extremely variable.",
+      "tie_breaker": "Kew notes Anacardiaceae typically has resinous sap/tissues, while Sapindaceae usually lacks sap. In local study, fruit architecture is also useful: maples have samaras, soapberry has translucent drupes, and Mexican buckeye has a capsule rather than the red hairy sumac drupe."
+    },
+    "Rutaceae": {
+      "confusion": "Woody plants with compound leaves and strong odor can look similar.",
+      "tie_breaker": "Rutaceae has visible pellucid oil-gland dots and a citrus/rank-citrus scent but no resinous sap. Anacardiaceae lacks those pellucid gland dots and may show resin that darkens."
+    },
+    "Rhamnaceae": {
+      "confusion": "Small flowers and drupaceous fruits can overlap.",
+      "tie_breaker": "Rhamnaceae usually has simple leaves with stipules present; local Rhus/Toxicodendron is exstipulate and typically compound. Rhamnaceae stamens are characteristically opposite the petals."
+    }
+  },
+  "best_family_visual_sequence": [
+    "Whole woody habit: shrub/tree/vine.",
+    "Alternate leaf attachment at twig.",
+    "No stipules at node.",
+    "Trifoliolate vs odd-pinnate leaf architecture.",
+    "Rhus copallinum var. lanceolata: label leaflet, rachis and rachis wing.",
+    "Rhus aromatica vs Toxicodendron radicans: both 3 leaflets.",
+    "Toxicodendron climbing stem: label aerial rootlets.",
+    "Rhus red hairy drupe cluster vs Toxicodendron pale whitish drupe cluster.",
+    "Tiny 5-merous flower close-up showing nectar disk / stamens / superior ovary.",
+    "Sapindaceae/Rutaceae/Rhamnaceae tie-breaker card."
+  ],
+  "terminology_to_reinforce": [
+    "trifoliolate",
+    "odd-pinnate / imparipinnate",
+    "rachis",
+    "winged rachis",
+    "petiolule",
+    "stipule / exstipulate",
+    "panicle",
+    "dioecious",
+    "nectar disk",
+    "superior ovary",
+    "drupe",
+    "mesocarp",
+    "endocarp",
+    "resin canal",
+    "adventitious root / aerial rootlet"
+  ],
+  "visual_gaps": [
+    "Rights-safe macro of Rhus copallinum var. lanceolata showing the rachis wing clearly labeled.",
+    "Rights-safe local Rhus virens red-hairy drupe macro.",
+    "Rights-safe flower macro from a local Rhus showing the 5-merous flower and nectar disk.",
+    "Side-by-side Rhus aromatica versus Toxicodendron radicans three-leaflet card with fruit and habit visible.",
+    "Local Toxicodendron radicans leaflet-petiolule macro showing asymmetric lateral leaflet bases.",
+    "Dedicated strict-range/taxonomy review for Toxicodendron radicans subsp. rydbergii before any separate species/subspecies learner promotion."
+  ],
+  "completion_assessment": {
+    "family_characters": "complete for first family lesson",
+    "local_genus_coverage": "Rhus and Toxicodendron both represented",
+    "local_taxonomy_cleanup": "completed at family-map level; duplicate/synonym rows flagged, not destructively merged",
+    "B008_integration": "three user-approved Rhus anchors integrated",
+    "safety_training": "poison ivy explicitly included without recommending contact tests",
+    "remaining": "visual polish plus later Toxicodendron subspecies review",
+    "recommended_status": "ready_for_first_family_module_build_visual_polish_pending"
+  },
+  "source_summary": [
+    "Kew Plants of the World Online Anacardiaceae family morphology and family-comparison characters",
+    "POWO/FNA 2024 taxonomy for Rhus trilobata and Toxicodendron radicans subsp. rydbergii",
+    "UT Austin Plant Resources Center Hays, Travis and Williamson County treatments",
+    "Texas A&M Plants of Texas Rangelands for Rhus microphylla",
+    "existing B008 Rhus deep-review package",
+    "Wikimedia Commons CC/public-reuse visual candidates for Rhus and Toxicodendron"
+  ]
+}
