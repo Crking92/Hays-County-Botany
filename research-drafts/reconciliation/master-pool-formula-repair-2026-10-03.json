@@ -1,0 +1,35 @@
+{
+  "repair_id": "master-pool-formula-repair-2026-10-03",
+  "spreadsheet_id": "15dcpbk3msvOiGtAo2GRQkCfdhBR9iav-yQ0HoTjS6wM",
+  "sheet": "Master Plant Pool",
+  "status": "complete_verified",
+  "cause": "Spill formulas in Master Plant Pool were blocked by row-positioned manual values. One explicit species row (Canna glauca) blocked A-D; 198 manually written family values blocked F; additional row-positioned overrides existed in formula-managed status/source columns.",
+  "architecture_after_repair": {
+    "master_pool": "A:Z formula-owned below row 1",
+    "species_overrides": "_Master Pool Overrides — hidden, keyed by Scientific Name",
+    "genus_family_map": "_Genus Family Map — hidden",
+    "family_order_map": "_Family Order Map — hidden",
+    "rule": "Never type manual row data directly into Master Plant Pool spill rows."
+  },
+  "migrated": {
+    "keyed_override_species": 100,
+    "family_order_pairs": 17,
+    "explicit_manual_pool_species": [
+      "Canna glauca"
+    ]
+  },
+  "canna": {
+    "inclusion": "preserved through _Master Pool Overrides",
+    "genus_family_map": "Canna -> Cannaceae",
+    "order": "Zingiberales",
+    "authority_note": "Current POWO accepted Canna glauca; family Cannaceae; order Zingiberales."
+  },
+  "verification": {
+    "master_species": 1261,
+    "override_species": 100,
+    "override_mismatches": 0,
+    "formula_errors": 0,
+    "mapped_family_mismatches": 0,
+    "mapped_order_mismatches": 0
+  }
+}
