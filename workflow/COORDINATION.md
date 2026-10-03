@@ -65,8 +65,8 @@ The unattended Scout stops at research drafts. Deep Review stops at review statu
 ## Backpressure
 
 The unattended Scout must not create an unlimited backlog. It should pause when either:
-- 2 or more coherent scout batches are still awaiting deep review, or
-- 10 or more noncanonical species are waiting for deep review.
+- 5 or more coherent scout batches are still awaiting deep review, or
+- 30 or more noncanonical species are waiting for deep review.
 
 ## Conflict rule
 
