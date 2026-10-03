@@ -801,7 +801,7 @@ function plantView(){
   return out;
 }
 function browseView(){
-  const families=Array.from(new Set(state.species.map(function(sp){ return sp.family; }))).sort();
+  const families=Array.from(new Set(state.species.map(function(sp){ return sp.family; }).concat(Object.keys((state.learning&&state.learning.family_profiles)||{})))).sort();
   const genera=state.browseFamily ? generaForFamily(state.browseFamily).map(function(x){ return x[0]; }) : [];
   let list=state.species.slice();
   if(state.browseFamily) list=list.filter(function(sp){ return sp.family===state.browseFamily; });
