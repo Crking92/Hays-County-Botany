@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T20:18:00-05:00",
+  "updated_at": "2026-10-05T05:25:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1538,6 +1538,26 @@
       "expires_at": "2026-10-05T02:18:00-05:00",
       "release_when": "Leucobryaceae, Leucodontaceae and Pottiaceae modules, durable batch/index records, Study Index rows, order mappings and progress bookkeeping are verified, or the batch is explicitly aborted.",
       "notes": "Residual moss-family comparison. Joey routing checked: no saved moss target frames. Preserve Tortella squarrosa as source provenance while explicitly flagging the FNA New World Pleurochaete luteola conflict for species-level review; no species promotion."
+    },
+    {
+      "claim_id": "automation-small-genus-fabaceae-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "lupinus-texensis",
+        "sophora-secundiflora",
+        "baptisia-bracteata"
+      ],
+      "families": [
+        "Fabaceae"
+      ],
+      "scope_key": "small-genus-fabaceae-lupinus-sophora-baptisia",
+      "lane": "small-genus-backfill",
+      "owner": "automation-small-genus-backfill",
+      "status": "active",
+      "claimed_at": "2026-10-05T05:25:00-05:00",
+      "expires_at": "2026-10-05T07:25:00-05:00",
+      "release_when": "Genus modules and tracker checkpoints are written or the batch is aborted.",
+      "notes": "Small-end coherent Fabaceae genus-learning batch. Genus work only; no species promotion."
     }
   ]
 }
