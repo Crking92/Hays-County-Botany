@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "draft_status": "DEEP_REVIEW_COMPLETE_TAXONOMY_RANGE_HOLD",
+  "batch_id": "b091-celtis",
+  "created_at": "2026-10-03T20:05:00-05:00",
+  "taxonomy": {
+    "source_name": "Celtis lindheimeri Engelm. ex K.Koch",
+    "family": "Cannabaceae",
+    "status": "CONFLICTING_AUTHORITIES",
+    "note": "Kew POWO and ITIS currently accept Celtis lindheimeri as a species, while USDA GRIN (verified 2026) treats it as a synonym of Celtis reticulata and notes that the type corresponds to the central Texas form of C. reticulata."
+  },
+  "target_zone_range": {
+    "decision": "UNRESOLVED",
+    "threshold": 3,
+    "documented_counties": ["Bexar"],
+    "evidence_basis": "NatureServe documents southeastern Bexar County as a known Texas occurrence. Broader sources describe central/southern Texas or Edwards Plateau presence, but B091 did not lock two additional exact target-zone counties under a stable taxonomic concept.",
+    "blocking_issue": "Need both a project taxonomy decision and at least two more exact target-zone counties if retained as a distinct species.",
+    "guardrail": "Do not silently merge into C. reticulata while Kew/ITIS still accept the species; do not count broad Balcones/Edwards Plateau range statements as county records."
+  },
+  "morphology": {
+    "look_here_first": "Lindheimer hackberry is the white-under-leaf hackberry: lower leaf surfaces are densely white-tomentose, upper surfaces dark and rough, and mature fruits are usually light brown.",
+    "diagnostic_traits": [
+      "unarmed tree",
+      "leaf blades ovate to lanceolate",
+      "upper leaf surface dark green and rough",
+      "lower leaf surface densely white-tomentose",
+      "margins entire or with few teeth",
+      "light-brown fruit"
+    ],
+    "comparison_training": "C. laevigata has smoother thinner foliage without the dense white tomentum beneath. C. reticulata has strongly raised netlike veins beneath but is not uniformly white-tomentose."
+  },
+  "approval_status": "HOLD_TAXONOMY_AND_RANGE"
+}
