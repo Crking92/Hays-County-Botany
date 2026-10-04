@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T19:25:00-05:00",
+  "updated_at": "2026-10-03T19:35:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -237,6 +237,18 @@
       "expires_at": "2026-10-04T01:25:00-05:00",
       "release_when": "All four Caryophyllales family modules, batch research package, Family Study Index rows, and progress bookkeeping are durably written, or the batch is explicitly aborted.",
       "notes": "Lineage-first family batch. Family/genus recognition only; do not promote species."
+    },
+    {
+      "claim_id": "website-glossary-visual-batch-002",
+      "scope_kind": "website_glossary",
+      "scope_key": "data/learning-layer.json::collar+culm+node+awn+cupule;PROJECT_RULES.md::visual-learning-standard",
+      "lane": "website-ui",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T19:35:00-05:00",
+      "expires_at": "2026-10-04T01:35:00-05:00",
+      "release_when": "Five-term visual glossary upgrade and durable visual-learning standard are written and verified, or work is explicitly aborted.",
+      "notes": "Website/UI glossary work only. Preserve family/species/research lanes. Priority: real photos, specific arrows/labels, and same-image part-vs-whole teaching when useful."
     }
   ]
 }
