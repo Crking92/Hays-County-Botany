@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-croton-test-01",
   "created_at": "2026-10-03T17:28:00-05:00",
   "source_pool": {
@@ -72,5 +72,47 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Croton batch in chat and said they liked all displayed/current candidates. Keep current candidates; later diagnostic photo polish may add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:48:54-05:00",
+    "batch_id": "manual-deep-review-croton-002",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Croton lindheimerianus Scheele",
+      "family": "Euphorbiaceae",
+      "genus": "Croton",
+      "notes": "Flora of North America recognizes C. lindheimerianus with two varieties; this review remains at species rank unless local material can be assigned confidently below species."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Travis — UT Plant Resources Center herbarium index documents Croton lindheimerianus var. lindheimerianus.",
+        "Williamson — UT Vascular Plants of Williamson County includes Croton lindheimerianus var. lindheimerianus.",
+        "The source-pool Hays-local flag was not treated as authoritative county evidence.",
+        "A third exact project target-zone county was not locked."
+      ],
+      "blocking_issue": "Need one more exact target-zone county and, if possible, explicit local variety assignment."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Low/dichotomously branched annual with no brown-dot effect beneath the leaves; pistillate sepals about 3 mm and three bifid styles yielding six terminal segments.",
+      "key_separator": "C. monanthogynus has dark-centered hairs, four terminal style branches and a one-seeded fruit; C. lindheimeri is more robust with larger yellowish-woolly pistillate sepals."
+    },
+    "photo_review": {
+      "decision": "PHOTO_GAP_NONBLOCKING_FOR_REVIEW",
+      "note": "Diagnostic images remain weak, especially whole low habit, lower leaf surface, pistillate sepals and fruit. This does not prevent a reviewed range hold."
+    },
+    "sources": [
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416381",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/search.php"
+    ],
+    "next_action": "Hold for one additional exact target-zone county; later improve diagnostic photos."
   }
 }
