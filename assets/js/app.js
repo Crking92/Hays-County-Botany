@@ -1054,6 +1054,54 @@ function openTermDrill(ids){
   chooseTermDrill(); renderTermDrillModal();
 }
 
+function termCompareSets(){
+  return [
+    {title:"Sepal vs calyx",ids:["sepal","calyx"],rule:"one part vs the whole outer whorl"},
+    {title:"Phyllary vs involucre",ids:["phyllary","involucre"],rule:"one bract vs the complete bract set"},
+    {title:"Ray vs disc florets",ids:["ray-floret","disc-floret","capitulum"],rule:"outer flower vs central flower vs the whole head"},
+    {title:"Pappus vs cypsela",ids:["pappus","cypsela"],rule:"dispersal structure vs dry fruit body"},
+    {title:"Glume vs lemma vs palea",ids:["glume","lemma","palea"],rule:"spikelet bracts at different structural levels"},
+    {title:"Corona vs hood vs horn",ids:["corona","hood","horn"],rule:"whole milkweed crown vs one cup-like part vs inner projection"},
+    {title:"Pollinium vs pollinarium",ids:["pollinium","pollinarium","corpusculum"],rule:"pollen mass vs whole transfer unit vs central clip"},
+    {title:"Pinna vs pinnule",ids:["pinna","pinnule"],rule:"primary fern division vs subdivision of a pinna"},
+    {title:"Schizocarp vs mericarp",ids:["schizocarp","mericarp"],rule:"whole splitting fruit vs one segment"},
+    {title:"Aggregate fruit vs drupelet",ids:["aggregate-fruit","drupelet"],rule:"whole fruit cluster vs one tiny drupe"},
+    {title:"Superior vs inferior ovary",ids:["superior-ovary","inferior-ovary"],rule:"other flower parts attach below vs above the ovary"},
+    {title:"Staminate vs pistillate",ids:["staminate","pistillate"],rule:"functional male flower vs functional female flower"},
+    {title:"Dioecious vs monoecious",ids:["dioecious","monoecious"],rule:"sexes on separate plants vs both flower sexes on one plant"}
+  ];
+}
+function termCompareMedia(id){
+  const t=state.learning.terms[id]; if(!t) return "";
+  const real=t.real_photo||null;
+  const src=real ? familyExternalImageUrl(real) : (t.visual||"");
+  if(!src) return '<div class="term-compare-empty">No visual.</div>';
+  return '<div class="term-compare-image"><img src="'+esc(src)+'" alt="'+esc((real&&real.alt)||("Visual for "+t.term))+'" loading="eager">'+
+    (real?termPhotoAnnotations(real):"")+'</div>';
+}
+function openTermCompare(ids,title,rule){
+  const valid=(ids||[]).filter(function(id){ return state.learning.terms[id]; });
+  if(valid.length<2) return;
+  let cards="";
+  valid.forEach(function(id){
+    const t=state.learning.terms[id];
+    cards+='<article class="term-compare-card">'+termCompareMedia(id)+'<div class="term-compare-copy"><h3>'+esc(t.term)+'</h3><p>'+esc(t.plain)+'</p>'+
+      '<button class="text-button" type="button" data-term="'+esc(id)+'">Open full lesson →</button></div></article>';
+  });
+  els.modal.innerHTML='<div class="modal-backdrop" data-close-modal><section class="modal-card term-compare-modal" role="dialog" aria-modal="true" aria-labelledby="termCompareTitle">'+
+    '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button><div class="eyebrow">Commonly confused structures</div><h2 id="termCompareTitle">'+esc(title||"Compare botanical terms")+'</h2>'+
+    (rule?'<p class="term-compare-rule">'+esc(rule)+'</p>':'')+'<div class="term-compare-grid count-'+valid.length+'">'+cards+'</div></section></div>';
+}
+function confusionSetsHTML(){
+  const sets=termCompareSets().filter(function(set){ return set.ids.every(function(id){ return state.learning.terms[id]; }); });
+  let out='<section class="section-block term-confusion-section"><div class="section-heading"><div><div class="eyebrow">Train the differences</div><h2>Commonly confused visual terms</h2></div></div>'+
+    '<p class="section-intro">These pairs and small groups are easier to learn side by side than as separate definitions.</p><div class="term-confusion-grid">';
+  sets.forEach(function(set,index){
+    out+='<button class="term-confusion-card" type="button" data-term-compare="'+index+'"><strong>'+esc(set.title)+'</strong><span>'+esc(set.rule)+'</span></button>';
+  });
+  return out+'</div></section>';
+}
+
 function glossaryView(){
   const q=norm(state.glossaryQuery);
   const entries=Object.entries(state.learning.terms).filter(function(pair){
@@ -1063,7 +1111,8 @@ function glossaryView(){
   let out='<section class="page-intro"><div class="eyebrow">Botanical vocabulary · '+Object.keys(state.learning.terms).length+' visual terms</div><h1>Learn the word while looking at the structure.</h1>'+
     '<p>Real photos first, learner arrows and labels on the exact structure, and diagrams where a photo cannot show the anatomy clearly.</p>'+
     '<div class="glossary-actions"><button class="primary-button" type="button" data-term-drill-start>Start visual term drill</button><span>Photo first → name it → reveal the labeled structure.</span></div>'+
-    '<input id="glossarySearch" class="glossary-search" value="'+esc(state.glossaryQuery)+'" placeholder="Search phyllary, opposite, cupule…"></section><section class="glossary-grid">';
+    '<input id="glossarySearch" class="glossary-search" value="'+esc(state.glossaryQuery)+'" placeholder="Search phyllary, opposite, cupule…"></section>'+
+    (!q?confusionSetsHTML():"")+'<section class="glossary-grid">';
   entries.forEach(function(pair){
     const id=pair[0], t=pair[1];
     out+='<button class="glossary-card" type="button" data-term="'+esc(id)+'">'+termPreviewMedia(t)+'<span><strong>'+esc(t.term)+'</strong>'+
@@ -1236,6 +1285,12 @@ function handleClick(e){
   if(e.target.closest("[data-family-term-drill]")){
     const p=familyProfile(state.selectedFamily)||{};
     openTermDrill((p.key_terms||[]).filter(function(id){ return state.learning.terms[id]; })); return;
+  }
+  const termCompare=e.target.closest("[data-term-compare]");
+  if(termCompare){
+    const set=termCompareSets()[Number(termCompare.dataset.termCompare)];
+    if(set) openTermCompare(set.ids,set.title,set.rule);
+    return;
   }
   if(e.target.closest("[data-term-drill-reveal]")){ state.termDrillRevealed=true; renderTermDrillModal(); return; }
   if(e.target.closest("[data-term-drill-next]")){ chooseTermDrill(); renderTermDrillModal(); return; }
