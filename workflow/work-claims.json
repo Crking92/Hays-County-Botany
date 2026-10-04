@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T16:45:00-05:00",
+  "updated_at": "2026-10-04T17:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1095,6 +1095,22 @@
       "expires_at": "2026-10-04T22:28:00-05:00",
       "release_when": "Both Salviniales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Lineage-first aquatic-fern batch. Teach heterospory and sporocarps; Marsileaceae project genus Marsilea vs Salviniaceae project genus Azolla. Family/genus recognition only; no species promotion."
+    },
+    {
+      "claim_id": "family-batch-020-zygophyllales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Zygophyllaceae",
+        "Krameriaceae"
+      ],
+      "scope_key": "family-recognition-batch-020-zygophyllales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:00:00-05:00",
+      "expires_at": "2026-10-04T23:00:00-05:00",
+      "release_when": "Both Zygophyllales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first sister-family batch. No species promotion. Emphasize dryland architecture, fruit, secretory petals, and hemiparasitism."
     }
   ]
 }
