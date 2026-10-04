@@ -14,6 +14,9 @@ Primary responsibilities:
 - preserve and merge existing genus/family data rather than rebuilding it blindly
 - sync completed curation batches to `Crking92/Hays-County-Botany`
 - keep incomplete or uncertain work explicitly flagged instead of treating it as final
+- treat visual evidence as part of the species/genus deliverable: new learner pages should include displayable real photos, not text-only placeholders
+- prioritize local/Texas diagnostic images, macro/close-up structures, and look-alike comparisons; use arrows/labels when they materially improve learning
+- do not call a new species/genus learner-complete when images[] is empty; mark it visual-incomplete/provisional if photo work is still pending
 
 GitHub is the canonical project home.
 
