@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "NEEDS_MANUAL_REVIEW",
   "batch_id": "scout-2026-10-03-euphorbiaceae-06",
   "created_at": "2026-10-03T23:09:39-05:00",
   "source_pool": {
@@ -89,5 +89,68 @@
   },
   "notes": [
     "Open diagnostic imagery is sparse; field habit + reproductive macro photos remain a gap."
-  ]
+  ],
+  "deep_review": {
+    "reviewed_at": "2026-10-04T20:18:00-05:00",
+    "owner": "automation-botany-deep-review-b",
+    "result": "NEEDS MANUAL REVIEW",
+    "taxonomy": {
+      "accepted_name": "Argythamnia humilis",
+      "authority": "(Engelm. & A.Gray) Müll.Arg.",
+      "accepted": true,
+      "synonyms": [
+        "Aphora humilis Engelm. & A.Gray",
+        "Ditaxis humilis (Engelm. & A.Gray) Pax",
+        "Argythamnia humilis var. laevis (A.Gray ex Torr.) Shinners",
+        "Argythamnia humilis var. leiosperma Waterf."
+      ],
+      "notes": "POWO/WCVP accepts A. humilis and sinks var. laevis and var. leiosperma; FNA likewise does not recognize the former glabrous or smooth-seeded segregates."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "evidence": [
+        "Exact Blanco County listing found in a BONAP-derived county dataset, but this run did not lock an independent primary herbarium/BONAP county record for Blanco.",
+        "MICH specimen 1667872 verifies Texas occurrence in Tarrant County, outside the target zone.",
+        "FNA verifies native occurrence in Texas but is not county-specific."
+      ],
+      "guardrail": "Do not infer target-zone nativity from statewide Texas or Edwards-region occurrence. Keep manual review until an authoritative exact target-zone county record is locked."
+    },
+    "morphology": {
+      "diagnostic": [
+        "Perennial, usually monoecious, to about 3 dm; stems erect or prostrate; malpighiaceous hairs may be present but are not silvery.",
+        "Leaves petiolate, obovate to linear, margins entire; surfaces hairy or glabrous.",
+        "Short axillary bisexual racemes; staminate petals free from the androphore is an important FNA key character.",
+        "Stamens usually 10; pistillate petals very small, elliptic to filiform; styles glabrous with flattened stigmas.",
+        "Capsules hispidulous/strigillose or glabrous; seeds smooth to rugose/papillate."
+      ],
+      "confusers": [
+        "Argythamnia aphoroides",
+        "Argythamnia simulans"
+      ],
+      "learner_note": "Prioritize inflorescence and floral characters over low habit or pubescence, which vary."
+    },
+    "photos": {
+      "assessment": "Current herbarium specimen can support whole-plant/specimen morphology, but diagnostic field macros of staminate/pistillate flowers, capsule, and seed are still needed; iNaturalist candidates require observation-level ID/license checks.",
+      "diagnostic_structures_needed": [
+        "staminate flower/androphore",
+        "pistillate flower/styles",
+        "capsule",
+        "seed"
+      ]
+    },
+    "sources": [
+      "POWO/WCVP: https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18922-2",
+      "Flora of North America: https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101524",
+      "UT Austin Plant Resources Center species account: https://w3.biosci.utexas.edu/prc/K12/pdf/Argythamnia%20humilis",
+      "MICH specimen 1667872: https://quod.lib.umich.edu/h/herb00ic/x-1667872/mich-v-1667872"
+    ],
+    "conflicts": [
+      "Exact target-zone county evidence is not yet independently locked to the preferred authoritative standard."
+    ],
+    "missing_pieces": [
+      "Authoritative exact target-zone county voucher/map evidence",
+      "Diagnostic reproductive photo lock and license verification"
+    ],
+    "next_action": "Manually verify an exact target-zone county record (prefer BONAP/NAPA or TEX/LL/TAES/TAMU/authoritative flora). If confirmed, range can move to PASS; otherwise retain unresolved."
+  }
 }
