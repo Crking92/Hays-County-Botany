@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T19:50:00-05:00",
+  "updated_at": "2026-10-04T17:59:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1467,6 +1467,24 @@
       "expires_at": "2026-10-05T01:50:00-05:00",
       "release_when": "Arecaceae, Smilacaceae, and Nartheciaceae modules, durable records, Study Index rows, order mappings, and progress bookkeeping are verified, or the batch is explicitly aborted.",
       "notes": "Remaining-monocot comparison batch. Joey routing checked: no direct Sabal/Smilax/Aletris frame, but exact Schoenocaulon texanum Melanthiaceae frames D1qCiiaMJ_I-25/26 are useful private-study comparison anchors for Aletris/Nartheciaceae. Preserve current Nartheciaceae/Dioscoreales placement while noting older FNA Aletris treatment under Liliaceae. No species promotion."
+    },
+    {
+      "claim_id": "manual-genus-dalea-b122-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "dalea-candida",
+        "dalea-greggii",
+        "dalea-neomexicana",
+        "dalea-purpurea"
+      ],
+      "scope_key": "study-batch-b122-dalea-closeout",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:59:00-05:00",
+      "expires_at": "2026-10-04T23:59:00-05:00",
+      "release_when": "Four remaining Dalea source concepts are durably reconciled in research drafts/queue/_Master Pool Overrides/Study Batches, or the batch is explicitly aborted.",
+      "notes": "Continuation after B121 Solidago. Review Dalea candida, D. greggii, D. neomexicana, and D. purpurea under the current info+diagnostic-photos standard. Reuse canonical media/Joey frames/backlog before new image searches; no silent canonical install."
     }
   ]
 }
