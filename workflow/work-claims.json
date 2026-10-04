@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T23:59:00-05:00",
+  "updated_at": "2026-10-04T00:15:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -550,6 +550,18 @@
       "expires_at": "2026-10-04T05:59:00-05:00",
       "release_when": "All five Malpighiales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Lineage-first family/genus recognition only. Use existing Euphorbiaceae, Malpighiaceae, and Passifloraceae as comparison anchors. Keep species promotion and strict-range judgments in species lanes."
+    },
+    {
+      "claim_id": "website-glossary-visual-grid-001",
+      "scope_kind": "website_ui",
+      "scope_key": "assets/js/app.js::glossaryView;assets/css/styles.css::glossary-card;workflow/term-visual-queue.json",
+      "lane": "website-ui",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T00:15:00-05:00",
+      "expires_at": "2026-10-04T06:15:00-05:00",
+      "release_when": "Glossary grid uses the new annotated real-photo library and the term visual queue is reconciled to complete, or work is explicitly aborted.",
+      "notes": "Presentation-only follow-through after 147/147 term visual completion. No family/species scientific source-of-truth edits."
     }
   ]
 }
