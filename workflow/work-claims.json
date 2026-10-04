@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T01:50:00-05:00",
+  "updated_at": "2026-10-04T02:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -637,6 +637,23 @@
       "release_when": "Both Dipsacales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Caprifoliaceae and Viburnaceae family modules, Family Study Index rows, Family Order Map entries, durable batch/index records, lineage plan, visual index, and Taxonomy Progress bookkeeping are complete. Valerianella→Valeriana and Sambucus canadensis duplicate reconciliation are explicit; macro visual polish remains future work.",
       "released_at": "2026-10-04T01:50:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-010-sapindales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Rutaceae",
+        "Meliaceae",
+        "Simaroubaceae"
+      ],
+      "scope_key": "family-recognition-batch-010-sapindales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T02:00:00-05:00",
+      "expires_at": "2026-10-04T08:00:00-05:00",
+      "release_when": "All three Sapindales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first family/genus recognition only. Use Anacardiaceae and Sapindaceae as anchors. Reconcile Zanthoxylum hirsutum to current Zanthoxylum clava-herculis subsp. fruticosum. Treat Melia azedarach and Ailanthus altissima as introduced comparison families in the local learner. Keep species promotion independent."
     }
   ]
 }
