@@ -1,0 +1,135 @@
+name: One-off Joey photo recovery 004
+
+on:
+  push:
+    paths:
+      - ".github/workflows/joey-photo-recovery-004.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: joey-photo-recovery-004
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install yt-dlp
+        run: python -m pip install --disable-pip-version-check --quiet yt-dlp
+
+      - name: Recover exact source frames
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/joey-videos
+
+          download_video () {
+            id="$1"
+            url="https://www.youtube.com/watch?v=$id"
+            echo "Downloading $id"
+            yt-dlp --no-playlist \
+              --retries 5 --fragment-retries 5 \
+              -f "bv*[height<=1080]+ba/b[height<=1080]/best" \
+              --merge-output-format mp4 \
+              -o "/tmp/joey-videos/\${id}.%(ext)s" \
+              "$url"
+            found="$(find /tmp/joey-videos -maxdepth 1 -type f -name "\${id}.*" | head -n 1)"
+            test -n "$found"
+            if [ "$found" != "/tmp/joey-videos/\${id}.mp4" ]; then
+              ffmpeg -hide_banner -loglevel error -y -i "$found" -c copy "/tmp/joey-videos/\${id}.mp4"
+            fi
+          }
+
+          download_video mA0uMKVyswA
+          download_video m1rrQfljKAo
+          download_video Y7A530PjEbU
+          download_video N4yq5Z1_0Eo
+
+          frame () {
+            id="$1"
+            ts="$2"
+            out="$3"
+            mkdir -p "$(dirname "$out")"
+            ffmpeg -hide_banner -loglevel error -y \
+              -ss "$ts" -i "/tmp/joey-videos/\${id}.mp4" \
+              -frames:v 1 -q:v 2 "$out"
+            test -s "$out"
+          }
+
+          frame mA0uMKVyswA 00:21:44.0 "content/taxa/Fabaceae/Dermatophyllum/dermatophyllum-secundiflorum/images/dermatophyllum-secundiflorum_silvery-foliage_00-21-44.0.jpg"
+          frame m1rrQfljKAo 00:13:30 "content/taxa/Fabaceae/Dermatophyllum/dermatophyllum-secundiflorum/images/dermatophyllum-secundiflorum_habit-source-label_13-30.jpg"
+          frame m1rrQfljKAo 00:15:00 "content/taxa/Fabaceae/Dermatophyllum/dermatophyllum-secundiflorum/images/dermatophyllum-secundiflorum_swollen-ovaries-forming-legumes_15-00.jpg"
+
+          frame Y7A530PjEbU 00:08:16 "content/taxa/Asteraceae/Tetraneuris/tetraneuris-linearifolia/images/tetraneuris-linearifolia_habit-source-label_08-16.jpg"
+          frame Y7A530PjEbU 00:08:20 "content/taxa/Asteraceae/Tetraneuris/tetraneuris-linearifolia/images/tetraneuris-linearifolia_linear-woolly-leaves_08-20.jpg"
+          frame m1rrQfljKAo 00:07:30 "content/taxa/Asteraceae/Tetraneuris/tetraneuris-linearifolia/images/tetraneuris-linearifolia_phyllaries-id-cue_07-30.jpg"
+
+          frame N4yq5Z1_0Eo 00:08:56 "content/taxa/Plantaginaceae/Penstemon/penstemon-cobaea/images/penstemon-cobaea_seed-capsules-source-label_08-56.jpg"
+          frame N4yq5Z1_0Eo 00:09:04 "content/taxa/Plantaginaceae/Penstemon/penstemon-cobaea/images/penstemon-cobaea_capsule-seeds_09-04.jpg"
+
+          frame Y7A530PjEbU 00:01:25 "content/taxa/Lamiaceae/Scutellaria/scutellaria-drummondii/images/scutellaria-drummondii_habit-source-label_01-25.jpg"
+          frame N4yq5Z1_0Eo 00:01:56 "content/taxa/Lamiaceae/Scutellaria/scutellaria-drummondii/images/scutellaria-drummondii_zygomorphic-flower-source-label_01-56.jpg"
+
+          frame N4yq5Z1_0Eo 00:16:20 "content/taxa/Apiaceae/Eryngium/eryngium-leavenworthii/images/eryngium-leavenworthii_flowering-head-source-label_16-20.jpg"
+          frame N4yq5Z1_0Eo 00:17:20 "content/taxa/Apiaceae/Eryngium/eryngium-leavenworthii/images/eryngium-leavenworthii_seed-collection_17-20.jpg"
+
+          frame Y7A530PjEbU 00:03:40 "content/taxa/Asteraceae/Chrysactinia/chrysactinia-mexicana/images/chrysactinia-mexicana_habit-source-label_03-40.jpg"
+          frame Y7A530PjEbU 00:04:00 "content/taxa/Asteraceae/Chrysactinia/chrysactinia-mexicana/images/chrysactinia-mexicana_flower-head-leaves_04-00.jpg"
+
+      - name: Record binary stage manifest
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          dirs = [
+            Path("content/taxa/Fabaceae/Dermatophyllum/dermatophyllum-secundiflorum/images"),
+            Path("content/taxa/Asteraceae/Tetraneuris/tetraneuris-linearifolia/images"),
+            Path("content/taxa/Plantaginaceae/Penstemon/penstemon-cobaea/images"),
+            Path("content/taxa/Lamiaceae/Scutellaria/scutellaria-drummondii/images"),
+            Path("content/taxa/Apiaceae/Eryngium/eryngium-leavenworthii/images"),
+            Path("content/taxa/Asteraceae/Chrysactinia/chrysactinia-mexicana/images"),
+          ]
+          files = sorted(p for d in dirs for p in d.glob("*.jpg"))
+          payload = {
+            "date": "2026-10-04",
+            "batch": "photo-recovery-joey-004",
+            "status": "binary-stage-complete",
+            "frame_count": len(files),
+            "method": "Re-extracted from the exact source-video timestamps and visually prechecked against the persisted Library frames; gallery metadata is added separately.",
+            "files": [
+              {
+                "path": p.as_posix(),
+                "size_bytes": p.stat().st_size,
+                "sha256": hashlib.sha256(p.read_bytes()).hexdigest(),
+              }
+              for p in files
+            ],
+          }
+          Path("workflow/photo-recovery-joey-004-binary-stage.json").write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(payload, indent=2))
+          PY
+
+      - name: Commit recovered frames
+        run: |
+          set -euo pipefail
+          git config user.name "hays-botany-automation"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add \
+            content/taxa/Fabaceae/Dermatophyllum/dermatophyllum-secundiflorum/images \
+            content/taxa/Asteraceae/Tetraneuris/tetraneuris-linearifolia/images \
+            content/taxa/Plantaginaceae/Penstemon/penstemon-cobaea/images \
+            content/taxa/Lamiaceae/Scutellaria/scutellaria-drummondii/images \
+            content/taxa/Apiaceae/Eryngium/eryngium-leavenworthii/images \
+            content/taxa/Asteraceae/Chrysactinia/chrysactinia-mexicana/images \
+            workflow/photo-recovery-joey-004-binary-stage.json
+          git commit -m "Stage fourth Joey saved-photo recovery images"
+          git pull --rebase origin main
+          git push origin HEAD:main
