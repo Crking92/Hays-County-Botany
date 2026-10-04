@@ -122,6 +122,32 @@ Whenever practical, a botanical term lesson should include:
 
 This visual standard applies to glossary terms, family lessons, genus comparisons, species pages, and future teaching modules.
 
+## Visual-learner completion gate — standing rule as of 2026-10-04
+
+The primary product is a visual learner, not a text database. For all new species/genus curation work, information and photos are one deliverable.
+
+A new species page is not visual-learner complete until it has:
+- usable morphology-first text and a clear “Where should I look first?” cue;
+- realistic local look-alikes and exact separating structures;
+- at least one displayable real photograph wired through species.json -> images[];
+- a diagnostic photo plan that covers the structures actually needed for ID;
+- photo provenance/reuse metadata for every selected image.
+
+Target photo coverage is normally 3–5 diagnostic views per species when feasible, adapted to the taxon. Prefer:
+1. real photographs over generic illustrations;
+2. Hays/Central Texas/Texas material when diagnostically reliable;
+3. whole-plant/habit plus diagnostic close-ups;
+4. reproductive structures, fruit/seed, bark/twig/bud, ligule/calyx/phyllary/awn/etc. as required;
+5. side-by-side or annotated comparisons for commonly confused taxa.
+
+A whole-plant glamour shot alone does not satisfy the visual gate when the ID depends on a small structure.
+
+If exact/licensed final images cannot yet be secured, the page may be installed only as provisional / visual-incomplete with that status explicit. Do not call it learner-complete.
+
+Existing canonical pages that predate this rule may remain scientifically valid while visually incomplete. They belong in the photo-recovery backlog and should be repaired opportunistically without reopening settled taxonomy/range work.
+
+This rule applies across species curation, genus batching, Scout, Deep Review, family/genus teaching modules, video reconciliation, and UI work. Each lane should gather or preserve visual evidence appropriate to its role rather than assuming a later chat will add the pictures.
+
 ## Image provenance
 Whenever possible, select exact source photographs rather than relying on a generic search-based downloader.
 
