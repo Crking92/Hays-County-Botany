@@ -1,0 +1,35 @@
+{
+  "id": "family-recognition-batch-012",
+  "lineage": "Alismatales",
+  "created_at": "2026-10-04",
+  "status": "complete_family_recognition_visual_polish_pending",
+  "families": {
+    "Araceae": {
+      "source_genera": 6,
+      "source_taxa": 6,
+      "current_concepts": 6,
+      "key_door": "two-door family: ordinary spathe/spadix aroids vs highly reduced duckweeds; Lemna 1 root, Spirodela many roots, Wolffia rootless"
+    },
+    "Hydrocharitaceae": {
+      "source_genera": 1,
+      "source_taxa": 1,
+      "current_concepts": 1,
+      "key_door": "Vallisneria: submerged ribbon rosette + floating detached male flowers + female surface flower on long coiling peduncle + inferior ovary"
+    }
+  },
+  "anchor_families": {
+    "Alismataceae": "basal aquatic rosette + emergent 3-part flowers + achene heads",
+    "Potamogetonaceae": "leafy submerged stems + axillary stipule/prophyll + emergent flower spike"
+  },
+  "taxonomy_notes": [
+    "Modern Kew places Lemna, Spirodela and Wolffia in Araceae; older FNA treats them under Lemnaceae and remains useful for morphological keys.",
+    "Source Spirodela polyrrhiza is normalized to current accepted spelling Spirodela polyrhiza.",
+    "Amorphophallus titanum is accepted but a western-Sumatran nonlocal comparison.",
+    "Vallisneria americana remains accepted; FNA and current Kew display different distribution treatments, so Texas/Hays range resolution remains in the species workflow."
+  ],
+  "guardrails": [
+    "Family/genus recognition only; no species promotion.",
+    "Do not require an obvious spathe/spadix in duckweeds because that lineage is extremely reduced.",
+    "Do not use family-level work to settle Pistia or Vallisneria native/invasive status."
+  ]
+}
