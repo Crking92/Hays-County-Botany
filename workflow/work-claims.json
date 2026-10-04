@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:50:00-05:00",
+  "updated_at": "2026-10-04T17:49:54-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1392,6 +1392,25 @@
       "release_when": "Five remaining Oenothera source concepts are durably reconciled in _Master Pool Overrides and Study Batches, or the batch is explicitly aborted.",
       "notes": "Reuse B061/B087 review decisions. Fresh taxonomy check: current POWO accepts O. macrocarpa with accepted infraspecifics; plain parent row should not duplicate canonical O. macrocarpa subsp. macrocarpa. Source row O. xerogaura is treated as malformed/typo for O. xenogaura, which Wagner et al. 2015 placed in synonymy under canonical O. hispida. B119 complete: five remaining source concepts reconciled; live Genus Study Index now 20/20 reviewed, 0 remaining. No new canonical install.",
       "released_at": "2026-10-04T17:50:00-05:00"
+    },
+    {
+      "claim_id": "manual-genus-symphyotrichum-b120-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "symphyotrichum-drummondii-var-texanum",
+        "symphyotrichum-ericoides-var-ericoides",
+        "symphyotrichum-lanceolatum-subsp-lanceolatum",
+        "symphyotrichum-oblongifolium",
+        "symphyotrichum-praealtum"
+      ],
+      "scope_key": "study-batch-b120-symphyotrichum-closeout",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:49:54-05:00",
+      "expires_at": "2026-10-04T23:49:54-05:00",
+      "release_when": "Five remaining Symphyotrichum source concepts are durably reconciled in drafts/_Master Pool Overrides/Study Batches, or the batch is explicitly aborted.",
+      "notes": "Preserve B071 varietal folding and lanceolatum HOLD. Old Batch 4 for S. oblongifolium/S. praealtum was cancelled before submission. Re-review those two now; no silent canonical install."
     }
   ]
 }
