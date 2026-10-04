@@ -63,14 +63,54 @@
     "Visual learner"
   ],
   "curation_status": {
-    "version": "1.0-cactaceae-anchor",
+    "version": "1.0-cactaceae-anchor+b117-visual",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "user_approved": true,
     "synonym_reconciled": true,
-    "last_reviewed": "2026-10-03"
+    "last_reviewed": "2026-10-03",
+    "visual_reviewed": true,
+    "visual_status": "usable-core",
+    "photo_metadata_count": 3,
+    "last_visual_reviewed": "2026-10-04"
   },
-  "photo_note": "Family-level reference imagery is already live. Exact reusable local areole/glochid and fruit macros remain later visual polish."
+  "photo_note": "B117 visual lock adds three licensed real-photo views: Texas flowering habit, pad/spine architecture, and fruit. Still desirable later: a tight local areole/glochid macro.",
+  "photo_strategy": {
+    "method": "B117 existing-material-first visual lock; no matching Joey/video frame was available",
+    "target_count": 3,
+    "diagnostic_roles": "habit/pad architecture + reproductive structure + fruit/spine context",
+    "public_release_guardrail": "Use only according to recorded license; retain attribution and noncommercial restriction where applicable."
+  },
+  "images": [
+    {
+      "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Opuntia_lindheimeri_in_bloom,_Llano_County,_TX_IMG_1921.jpg",
+      "role": "whole clump / pad architecture / flowering habit",
+      "creator": "Billy Hathorn",
+      "license": "CC BY 3.0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Opuntia_lindheimeri_in_bloom,_Llano_County,_TX_IMG_1921.jpg",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Opuntia_lindheimeri_(4484872655).jpg",
+      "role": "pad and spine architecture / field habit",
+      "creator": "Homer Edward Price",
+      "license": "CC BY 2.0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Opuntia_lindheimeri_(4484872655).jpg",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Flickr_-_ggallice_-_Prickly_pear_fruit.jpg",
+      "role": "ripe fruit / fruiting pad reference within the O. engelmannii–lindheimeri complex",
+      "creator": "Geoff Gallice",
+      "license": "CC BY 2.0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Flickr_-_ggallice_-_Prickly_pear_fruit.jpg",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "taxon_guardrail": "Use primarily for fruit form. The source identifies O. engelmannii and Commons currently categorizes it under var. lindheimeri; do not use this image alone to separate infraspecific concepts."
+    }
+  ]
 }
