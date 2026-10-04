@@ -65,8 +65,8 @@ The unattended Scout stops at research drafts. Deep Review stops at review statu
 ## Backpressure
 
 The unattended Scout must not create an unlimited backlog. It should pause when either:
-- 3 or more coherent noncanonical scout batches are still awaiting deep review, or
-- 18 or more noncanonical species are waiting for deep review.
+- 5 or more coherent noncanonical scout batches are still awaiting deep review, or
+- 30 or more noncanonical species are waiting for deep review.
 
 ## Master Pool write rule
 
@@ -153,3 +153,9 @@ After the family-recognition backlog is adequate, genus-level completion should 
 - The two lanes meet in the middle. Once no eligible genus remains between them, report the genus backlog exhausted rather than recycling completed work.
 
 Known collision examples at the time this rule was written: `Taxodium` and `Malvaviscus` have Joey reconciliation reservations and must be skipped by the small-genus lane until durable state releases/supersedes those reservations.
+
+## Audit checkpoint — 2026-10-04
+
+Queue and claims share the 5-batch/30-species unreviewed Scout ceiling. Count only genuinely noncanonical work awaiting independent review; reviewed approval/curation backlog is tracked separately. Completed draft reviews outrank stale pending queue labels. Installed provisional entries retain scientific holds but must not be installed twice. Historical reconciliation counts must not be used as live backlog counts.
+
+Four completed PASS reviews (Acalypha phleoides, Acalypha radians, Tragia betonicifolia, Argythamnia aphoroides) were explicitly user-approved in the audit chat and now await curation. Exact image licensing/diagnostic polish remains explicit and approval does not convert unresolved taxa to PASS.
