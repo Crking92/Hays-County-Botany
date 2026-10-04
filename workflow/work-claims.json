@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:48:00-05:00",
+  "updated_at": "2026-10-04T17:46:12-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1371,6 +1371,25 @@
       "release_when": "Reviewed Quercus HOLD/FAIL/alias source concepts are durably reconciled in _Master Pool Overrides and Study Batches, or the batch is explicitly aborted.",
       "notes": "Bookkeeping/scientific-closeout only. Reuse existing B011/B065/B077 review decisions; do not change taxonomy/range conclusions or create duplicate species pages. B116 already handled zero-image canonical oak visual lock. B118 complete: _Master Pool Overrides reconciled six reviewed HOLD/FAIL oaks plus the misspelled Q. muhlenbergii alias; live Genus Study Index now 19/19 reviewed, 0 remaining.",
       "released_at": "2026-10-04T17:48:00-05:00"
+    },
+    {
+      "claim_id": "manual-genus-oenothera-b119-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "oenothera-biennis",
+        "oenothera-filiformis",
+        "oenothera-macrocarpa-parent",
+        "oenothera-macrocarpa-missouriensis-alias",
+        "oenothera-xerogaura-source-row"
+      ],
+      "scope_key": "study-batch-b119-oenothera-scientific-closeout",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:46:12-05:00",
+      "expires_at": "2026-10-04T23:46:12-05:00",
+      "release_when": "Five remaining Oenothera source concepts are durably reconciled in _Master Pool Overrides and Study Batches, or the batch is explicitly aborted.",
+      "notes": "Reuse B061/B087 review decisions. Fresh taxonomy check: current POWO accepts O. macrocarpa with accepted infraspecifics; plain parent row should not duplicate canonical O. macrocarpa subsp. macrocarpa. Source row O. xerogaura is treated as malformed/typo for O. xenogaura, which Wagner et al. 2015 placed in synonymy under canonical O. hispida."
     }
   ]
 }
