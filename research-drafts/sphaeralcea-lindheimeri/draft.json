@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-malvaceae-test-04",
   "created_at": "2026-10-03T19:08:00-05:00",
   "source_pool": {
@@ -82,5 +82,42 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Malvaceae contact sheet and approved all displayed current candidates. Preserve diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:45:57-05:00",
+    "batch_id": "manual-deep-review-malvaceae-002",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Sphaeralcea lindheimeri A.Gray",
+      "family": "Malvaceae",
+      "genus": "Sphaeralcea",
+      "notes": "Current POWO and Flora of North America accept the species. POWO places it in Texas; FNA describes it as usually coastal/near-coastal in Texas."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [],
+      "evidence_basis": [
+        "POWO confirms Texas as the native range at state scale.",
+        "Flora of North America describes Sphaeralcea lindheimeri as usually near the Texas coast in sandy soils, open thickets, and roadsides.",
+        "The Master Pool Hays-local signal was not supported by an authoritative Hays/nearby voucher in this pass and is therefore not counted."
+      ],
+      "blocking_issue": "Need voucher-backed target-zone occurrence and re-check the Hays source identification before any Central Texas PASS."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Decumbent whitish stems, very soft long pubescence, distinctly white/silvery lower leaf surfaces, and red to red-pink flowers.",
+      "key_separator": "Distribution plus the unusually soft long hairs and silvery abaxial leaf surface are important; do not identify a Central Texas plant from flower color alone."
+    },
+    "photo_review": {
+      "decision": "USABLE_FOR_HOLD_REVIEW",
+      "note": "Current approved candidate is useful for woolly foliage/flower appearance, but a voucher-backed local source is more important than additional photos right now."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:564543-1",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101191"
+    ],
+    "next_action": "Hold; verify the Hays source observation/voucher and locate exact target-zone records before promotion."
   }
 }
