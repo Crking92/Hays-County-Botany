@@ -53,3 +53,9 @@ Extracted Joey YouTube frames are private-study assets unless separate reuse per
 ## Recommendation
 
 Do the merge/reconciliation pass now, then resume new species batches from a cleaner baseline.
+
+## Follow-up — 2026-10-04
+
+The counts and missing-file list above are historical. Current manifest: 337 entries; learning layer: 44 family profiles and 147 terms. All six originally missing family files and all named stable family modules are now live (23 distinct family files checked). The prior explicitly approved noncanonical queue backlog is drained. The original blanket pause is therefore superseded at the usable family-module/backlog level; this does not certify every archived media/source merge or visual-polish task as complete.
+
+The user has now approved Acalypha phleoides, Acalypha radians, Tragia betonicifolia, and Argythamnia aphoroides. These four PASS reviews are approved_pending_curation and should take priority. Tragia brevispica remains UNRESOLVED/manual review. Installed provisional range holds remain scientific holds and must not be installed again. Scout ceiling is consistently 5 unreviewed batches or 30 species. Resume independent review only after refreshed collision checks; photo polish remains separate.
