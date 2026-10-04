@@ -196,3 +196,7 @@ Routing is not installation: verify the actual binary, taxon identity, diagnosti
 Study-only images may be organized in the private repository's research/workflow area. Before moving them into learner-facing content/, data/, or assets/, confirm local/private delivery or authenticated Cloudflare Access. The existing Cloudflare build publishes these directories; a private GitHub repository and an unshared URL do not establish private hosting. Public-cleared images may continue through the normal learner pipeline.
 
 Reuse exact existing images first; gather new material only for the diagnostic roles that remain missing. This index does not modify automation schedules or install images automatically.
+
+### Saved-frame recovery and privacy confirmation — 2026-10-04
+
+Calvin confirms the learner is private. Proceed with authorized private-study media installation while retaining original credits and public-reuse restrictions. Do not repeatedly block this work on hosting confirmation. All 338 expected frames from 15 indexed videos were located by exact filename in persistent storage, with nonzero file sizes; see `workflow/saved-video-frame-locations-2026-10-04.json` for exact file IDs and paths. Reuse these saved images before any re-extraction. The routing index now handles file_name/filename/asset and taxon/source_taxon/taxon_or_group schema differences: 125 records match 65 installed species. Counts do not establish visual verification or installation; full binary decoding remains part of installation.
