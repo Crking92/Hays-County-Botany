@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T20:50:33-05:00",
+  "updated_at": "2026-10-04T03:25:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -822,11 +822,12 @@
       "scope_key": "family-recognition-batch-012-alismatales",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T03:05:00-05:00",
       "expires_at": "2026-10-04T09:05:00-05:00",
       "release_when": "Both Alismatales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first family/genus recognition only. Use Alismataceae and Potamogetonaceae as comparison anchors. Modern Araceae includes duckweeds historically treated as Lemnaceae; reconcile source Spirodela polyrrhiza spelling to accepted Spirodela polyrhiza. Keep Vallisneria range conflicts in species workflow rather than family promotion."
+      "notes": "Araceae and Hydrocharitaceae family modules, Family Study Index rows, Family Order Map entries, durable batch/index records, lineage plan, visual index, and Taxonomy Progress bookkeeping are complete. Modern Araceae/Lemnaceae reconciliation, Spirodela spelling normalization, and Vallisneria distribution-source conflict are explicit; macro visual polish remains future work.",
+      "released_at": "2026-10-04T03:25:00-05:00"
     }
   ]
 }
