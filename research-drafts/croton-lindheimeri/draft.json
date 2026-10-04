@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-croton-test-01",
   "created_at": "2026-10-03T17:28:00-05:00",
   "source_pool": {
@@ -89,5 +89,51 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Croton batch in chat and said they liked all displayed/current candidates. Keep current candidates; later diagnostic photo polish may add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:46:55-05:00",
+    "batch_id": "manual-deep-review-croton-001",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Croton lindheimeri (Engelm. & A.Gray) Alph.Wood",
+      "family": "Euphorbiaceae",
+      "genus": "Croton",
+      "aliases": [
+        "Croton capitatus var. lindheimeri (Engelm. & A.Gray) Müll.Arg."
+      ],
+      "notes": "POWO and Flora of North America accept C. lindheimeri as a distinct species; older Central Texas sources commonly use C. capitatus var. lindheimeri."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Travis — UT Plant Resources Center documents Croton capitatus var. lindheimeri, a current synonym of accepted C. lindheimeri.",
+        "Williamson — UT Vascular Plants of Williamson County documents C. capitatus var. lindheimeri; this is reconciled to current C. lindheimeri.",
+        "POWO and Flora of North America confirm Texas within the native range.",
+        "A third exact project target-zone county was not independently locked in this pass."
+      ],
+      "blocking_issue": "Need one more exact target-zone county under the current species concept."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Ochraceous young pubescence, consistently acute leaf tips, and pistillate sepals whose tips stay straight to slightly incurved rather than recurving outward.",
+      "key_separator": "Separates from true C. capitatus, whose pistillate sepals tend to flare/recurve after anthesis and which may show blunter/mucronate leaves."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current user-approved habit/fruit candidates are useful; a strong sepal-posture comparison with true C. capitatus remains the highest-value photo addition."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60450445-2",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250102011",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Croton%20capitatus%20lindheimeri.html"
+    ],
+    "next_action": "Hold for one additional exact target-zone county."
   }
 }
