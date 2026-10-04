@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_REJECT_RESCOUT",
   "batch_id": "scout-2026-10-03-malvaceae-test-04",
   "created_at": "2026-10-03T19:08:00-05:00",
   "source_pool": {
@@ -79,5 +79,40 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Malvaceae contact sheet and approved all displayed current candidates. Preserve diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:42:25-05:00",
+    "batch_id": "manual-deep-review-malvaceae-001",
+    "result": "REJECT_RE-SCOUT",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Abutilon incanum (Link) Sweet",
+      "family": "Malvaceae",
+      "genus": "Abutilon",
+      "notes": "The species is accepted, but current FNA distribution excludes Texas; the Master Pool Hays-local signal conflicts with authoritative range data."
+    },
+    "target_zone_range": {
+      "decision": "FAIL_TARGET_ZONE",
+      "documented_counties": [],
+      "evidence_basis": [
+        "Flora of North America gives the U.S. range as Arizona, Colorado, and New Mexico and does not include Texas.",
+        "The current Hays-local pool record therefore should not be promoted as a Texas native without a voucher-backed contrary determination."
+      ],
+      "blocking_issue": "Likely source-row misidentification or cultivated/escaped record; re-check the original observation against A. fruticosum and other Abutilon."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Small often reflexed yellow/pink corolla with dark red center, five style branches, and dense gray tomentum.",
+      "key_separator": "A. fruticosum is the expected Texas-native look-alike and usually has plain yellow flowers plus 6–9 style branches."
+    },
+    "photo_review": {
+      "decision": "USABLE_FOR_RESCOUT",
+      "note": "Current approved candidate is useful as a comparison, but the local source observation itself needs re-identification before any learner promotion."
+    },
+    "sources": [
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101016",
+      "https://powo.science.kew.org/taxon/1196159-2"
+    ],
+    "next_action": "Re-scout/re-identify the Hays source observation; do not install as a target-zone native."
   }
 }
