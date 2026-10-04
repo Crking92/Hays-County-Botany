@@ -68,6 +68,10 @@ The unattended Scout must not create an unlimited backlog. It should pause when 
 - 5 or more coherent scout batches are still awaiting deep review, or
 - 30 or more noncanonical species are waiting for deep review.
 
+## Master Pool write rule
+
+- `Master Plant Pool` is a derived spill/output sheet. Never write review, curation, taxonomy, or species metadata directly into its body rows. Write species-level overrides/status into `_Master Pool Overrides` (or the canonical workflow artifact) and let the Master Pool formulas derive the row. Direct writes into the spill range cause `#REF!` failures and break taxonomy dashboards.
+
 ## Conflict rule
 
 When two processes collide:
