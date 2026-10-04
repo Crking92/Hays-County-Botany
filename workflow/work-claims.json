@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:26:00-05:00",
+  "updated_at": "2026-10-04T17:36:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1156,11 +1156,12 @@
       "scope_key": "family-recognition-batch-022-asterales-campanulaceae",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T17:26:00-05:00",
       "expires_at": "2026-10-04T23:26:00-05:00",
       "release_when": "Campanulaceae family module, durable batch/index records, Family Study Index row, Family Order Map entry, and progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first Asterales residual family; use existing Asteraceae as comparison anchor. Family/genus recognition only; no species promotion."
+      "notes": "Campanulaceae batch complete: canonical module, durable batch/backfill records, Family Study Index row, Asterales order mapping, lineage/visual indexes and Taxonomy Progress verified. Triodanis biflora→T. perfoliata subsp. biflora reconciliation is explicit; visual polish remains future work.",
+      "released_at": "2026-10-04T17:36:00-05:00"
     },
     {
       "claim_id": "photo-recovery-san-marcos-001",
