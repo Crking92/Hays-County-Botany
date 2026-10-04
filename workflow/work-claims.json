@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T20:34:33-05:00",
+  "updated_at": "2026-10-03T20:35:13-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -13,8 +13,8 @@
     ],
     "manual_active_lease_hours": 6,
     "automation_active_lease_hours": 2,
-    "scout_backpressure_max_unreviewed_batches": 5,
-    "scout_backpressure_max_unreviewed_species": 30,
+    "scout_backpressure_max_unreviewed_batches": 3,
+    "scout_backpressure_max_unreviewed_species": 18,
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
