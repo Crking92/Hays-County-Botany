@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T16:00:00-05:00",
+  "updated_at": "2026-10-04T16:10:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1043,6 +1043,23 @@
       "expires_at": "2026-10-04T22:00:00-05:00",
       "release_when": "All four Saxifragales family modules, batch record, Family Study Index rows, Family Order Map entries, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Lineage-first family/genus recognition only. Preserve Sedum nuttallianum as synonym provenance for accepted Sedum nuttallii; keep Myriophyllum aquaticum as introduced Texas comparison."
+    },
+    {
+      "claim_id": "family-batch-018-polypodiales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Aspleniaceae",
+        "Polypodiaceae",
+        "Thelypteridaceae"
+      ],
+      "scope_key": "family-recognition-batch-018-polypodiales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T16:10:00-05:00",
+      "expires_at": "2026-10-04T22:10:00-05:00",
+      "release_when": "All three Polypodiales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first fern batch. Use Pteridaceae as comparison anchor. Preserve regional/FNA Thelypteridaceae as a teaching family while explicitly documenting that current Kew broad-family treatment synonymizes Thelypteridaceae under Aspleniaceae; do not silently rewrite the project universe during this batch."
     }
   ]
 }
