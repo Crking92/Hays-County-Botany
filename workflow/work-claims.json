@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T15:30:00-05:00",
+  "updated_at": "2026-10-04T15:50:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1018,11 +1018,12 @@
       "scope_key": "family-recognition-batch-016-cornales",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T15:30:00-05:00",
       "expires_at": "2026-10-04T21:30:00-05:00",
       "release_when": "All three Cornales family modules, batch record, Family Study Index rows, Family Order Map entries, and progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first family/genus recognition only. No species promotion. Use ovary position, hair type, stamen count and fruit architecture as the shared-order comparison."
+      "notes": "All three Cornales modules, Family Study Index rows, order mappings, batch/index records, visual index, and lineage plan are durable. Visual polish remains future work.",
+      "released_at": "2026-10-04T15:50:00-05:00"
     }
   ]
 }
