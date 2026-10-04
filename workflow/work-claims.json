@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T19:02:00-05:00",
+  "updated_at": "2026-10-04T17:44:21-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1349,6 +1349,27 @@
       "expires_at": "2026-10-05T01:02:00-05:00",
       "release_when": "Equisetaceae and Selaginellaceae modules, durable batch/index records, Family Study Index rows, order mappings, and progress bookkeeping are verified, or the batch is explicitly aborted.",
       "notes": "Early vascular-plant comparison batch. Joey routing checked: no direct Equisetum/Selaginella target frames. Existing Joey Adiantum pseudoindusium frame may be used only as a true-fern comparison. Reconcile North American source Equisetum hyemale to current Equisetum praealtum; no species promotion."
+    },
+    {
+      "claim_id": "manual-genus-quercus-b118-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "quercus-alba",
+        "quercus-lyrata",
+        "quercus-michauxii",
+        "quercus-nigra",
+        "quercus-phellos",
+        "quercus-virginiana",
+        "quercus-muhlenbergii-source-alias"
+      ],
+      "scope_key": "study-batch-b118-quercus-scientific-closeout",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:44:21-05:00",
+      "expires_at": "2026-10-04T23:44:21-05:00",
+      "release_when": "Reviewed Quercus HOLD/FAIL/alias source concepts are durably reconciled in _Master Pool Overrides and Study Batches, or the batch is explicitly aborted.",
+      "notes": "Bookkeeping/scientific-closeout only. Reuse existing B011/B065/B077 review decisions; do not change taxonomy/range conclusions or create duplicate species pages. B116 already handled zero-image canonical oak visual lock."
     }
   ]
 }
