@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
   "batch_id": "scout-2026-10-03-euphorbia-test-02",
   "created_at": "2026-10-03T17:58:00-05:00",
   "source_pool": {
@@ -94,5 +94,50 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Euphorbia contact sheet and approved all displayed current candidates. Preserve any existing diagnostic-photo-gap notes so later photo polish can still add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:38:17-05:00",
+    "batch_id": "manual-deep-review-euphorbia-test-002",
+    "result": "READY_FOR_CURATION",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Euphorbia marginata Pursh",
+      "family": "Euphorbiaceae",
+      "genus": "Euphorbia",
+      "notes": "POWO and Flora of North America both accept E. marginata and place Texas in the native range."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Hays — Bill Carr's Coleman Ranch survey in Hays County lists Euphorbia marginata as native.",
+        "Travis — UT Plant Resources Center Travis County herbarium specimen index documents Euphorbia marginata.",
+        "Williamson — UT's Vascular Plants of Williamson County treatment documents Euphorbia marginata.",
+        "POWO and Flora of North America independently support Texas as native."
+      ],
+      "guardrail": "Exact county evidence only; no statewide-to-county inference."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Broad white-margined distal leaves/bracts with mostly glabrous leaf surfaces, contrasted with the narrower, hairier E. bicolor.",
+      "key_separator": "E. marginata has broader ovate/elliptic distal leaves and mostly glabrous surfaces; E. bicolor has much narrower white-margined bracts and conspicuous hairiness."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved study candidates are sufficient; close-up capsule/cyathium polish remains useful but nonblocking."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:101724-2",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=200012570",
+      "https://watershedassociation.org/wp-content/uploads/2021/06/Colemans_PlantSpeciesObserved_BillCarr2021-05-21.pdf",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Euphorbia%20marginata"
+    ],
+    "next_action": "Await normal user approval before canonical curation."
   }
 }
