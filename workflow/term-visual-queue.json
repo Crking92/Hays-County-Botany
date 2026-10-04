@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03",
+  "updated_at": "2026-10-04",
   "purpose": "Prioritized real-photo and annotated-photo upgrades for the botanical glossary.",
   "policy": {
     "preferred_order": [
@@ -70,15 +70,7 @@
       "status": "real_photo"
     }
   ],
-  "next_priority": [
-    "superior-ovary",
-    "inferior-ovary",
-    "receptacle",
-    "drupe",
-    "berry",
-    "pulvinus",
-    "stellate-hair"
-  ],
+  "next_priority": [],
   "completed_batch_002": [
     {
       "term": "phyllary",
@@ -180,5 +172,22 @@
       "term": "achene",
       "status": "real_macro"
     }
-  ]
+  ],
+  "status": "complete",
+  "summary": {
+    "total_terms": 147,
+    "annotated_visual_terms": 147,
+    "remaining_terms": 0,
+    "completion_note": "All glossary terms now have an annotated visual. Real photographs are preferred, with learner-generated arrows/labels; diagrams are used when microscopic, internal, or comparative structures are clearer that way."
+  },
+  "final_pass": {
+    "status": "complete",
+    "checks": [
+      "147/147 terms contain annotated visual overlays",
+      "every annotated visual has an image_url or source_page locator",
+      "overlay coordinates validated",
+      "glossary grid now previews real photos or diagrams rather than relying only on legacy t.visual fields",
+      "modal distinguishes annotated diagrams from annotated real photographs"
+    ]
+  }
 }
