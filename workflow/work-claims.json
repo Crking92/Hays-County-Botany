@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T19:42:00-05:00",
+  "updated_at": "2026-10-04T17:57:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1431,6 +1431,24 @@
       "release_when": "Nymphaeaceae, Nelumbonaceae, and Ceratophyllaceae modules, durable batch/index records, Family Study Index rows, order mappings, and progress bookkeeping are verified, or the batch is explicitly aborted.",
       "notes": "Batch 027 complete: Nymphaeaceae, Nelumbonaceae, and Ceratophyllaceae modules, durable records, Study Index rows, order mappings, visual/lineage indexes and formula-safe tracker bookkeeping verified. Nuphar lutea subsp. advena→Nuphar advena reconciliation explicit; Joey routing checked with no direct target-family frames.",
       "released_at": "2026-10-04T19:42:00-05:00"
+    },
+    {
+      "claim_id": "manual-genus-solidago-b121-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "solidago-mexicana",
+        "solidago-rugosa",
+        "solidago-nemoralis",
+        "solidago-radula"
+      ],
+      "scope_key": "study-batch-b121-solidago-closeout",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:57:00-05:00",
+      "expires_at": "2026-10-04T23:57:00-05:00",
+      "release_when": "Four remaining Solidago source concepts are durably reconciled in research drafts/queue/_Master Pool Overrides/Study Batches, or the batch is explicitly aborted.",
+      "notes": "Preserve B070 decisions: S. mexicana target-zone FAIL, S. rugosa range HOLD. Old Batch 4 containing S. nemoralis and S. radula never submitted; re-review them now. Fresh evidence supports S. nemoralis PASS and S. radula PASS; create visual-first research handoffs, no silent canonical install."
     }
   ]
 }
