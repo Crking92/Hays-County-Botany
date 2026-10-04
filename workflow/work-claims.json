@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T01:30:00-05:00",
+  "updated_at": "2026-10-04T01:35:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -620,6 +620,22 @@
       "release_when": "Both Asparagales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Amaryllidaceae and Iridaceae family modules, Family Study Index rows, Family Order Map entries, durable batch/index records, lineage plan, visual index, and Taxonomy Progress bookkeeping are complete. Amaryllidaceae internal ovary-position split and Iridaceae 3-stamen rule are explicit; macro visual polish remains future work.",
       "released_at": "2026-10-04T01:30:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-009-dipsacales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Caprifoliaceae",
+        "Viburnaceae"
+      ],
+      "scope_key": "family-recognition-batch-009-dipsacales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T01:35:00-05:00",
+      "expires_at": "2026-10-04T07:35:00-05:00",
+      "release_when": "Both Dipsacales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first family/genus recognition only. Explicitly reconcile Valerianella source names into current Valeriana concepts and Sambucus nigra subsp. canadensis into Sambucus canadensis. Keep species promotion and strict range judgments in species lanes."
     }
   ]
 }
