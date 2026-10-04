@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
   "batch_id": "scout-2026-10-03-euphorbia-test-02",
   "created_at": "2026-10-03T18:00:00-05:00",
   "source_pool": {
@@ -86,5 +86,50 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Euphorbia contact sheet and approved all displayed current candidates. Preserve any existing diagnostic-photo-gap notes so later photo polish can still add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:33:03-05:00",
+    "batch_id": "manual-deep-review-euphorbia-test-001",
+    "result": "READY_FOR_CURATION",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Euphorbia cyathophora Murray",
+      "family": "Euphorbiaceae",
+      "genus": "Euphorbia",
+      "notes": "POWO and Flora of North America both accept E. cyathophora; Poinsettia cyathophora is a synonym."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Hays",
+        "Travis",
+        "Bexar"
+      ],
+      "evidence_basis": [
+        "Hays — UT Purola Preserve natural flora lists Euphorbia cyathophora.",
+        "Travis — UT Plant Resources Center Travis County specimen index documents Poinsettia cyathophora, a synonym of accepted Euphorbia cyathophora.",
+        "Bexar — a published UTSA archaeological report's local northern Bexar County flora lists Euphorbia cyathophora.",
+        "POWO and Flora of North America both place Texas within the native range."
+      ],
+      "guardrail": "Exact county presence was paired with species-level Texas native status; no statewide-to-county inference used."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Colored upper bract bases and the cyathial gland opening.",
+      "key_separator": "E. cyathophora typically has white/pink/red bract bases and a sessile to substipitate gland with an oblong opening lacking an annular rim; E. heterophylla usually has green/pale bracts and a stipitate gland with a round opening and annular rim."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved study candidate shows the colored bracts; gland macro and direct E. heterophylla comparison remain desirable but nonblocking."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:101468-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242321403",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://colfa.utsa.edu/_documents/car/asr-200/asr-211-redacted.pdf"
+    ],
+    "next_action": "Await normal user approval before canonical curation."
   }
 }
