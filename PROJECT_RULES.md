@@ -101,6 +101,27 @@ Choose image roles from the actual diagnostic needs of the species, for example:
 
 Do not assume every species needs the same generic five-photo set.
 
+## Visual learner standard
+The project is intentionally optimized for a visual learner. When choosing or building teaching visuals, use this priority order:
+
+1. **Real photographs first** whenever the structure can be shown clearly.
+2. Add **learner-generated arrows and labels** that point to the exact diagnostic structure.
+3. Pair the real photograph with a **simple drawing or diagram** when the real structure is hard to understand in isolation.
+4. Prefer **specific part labels** over generic captions: name the exact sepal, calyx, ligule, node, cupule, phyllary, awn, etc.
+5. When two concepts are commonly confused, prefer using the **same underlying image with different overlays** to teach the relationship (for example: one sepal vs. the whole calyx; node vs. culm; ligule vs. collar).
+6. Use close-ups or macro views for small structures. A beautiful whole-plant image does not substitute for a diagnostic close-up.
+7. Preserve source provenance and licensing. Learner overlays must be described as overlays and must not imply that the original source image contained the added arrows or labels.
+8. For visual teaching, prioritize clarity over aesthetics. If the diagnostic structure is not obvious at a glance, the image is not finished.
+
+Whenever practical, a botanical term lesson should include:
+- one real photo,
+- one clearly labeled target structure,
+- a “where do I look?” cue,
+- a “why does it matter for ID?” cue,
+- and a diagram only when it improves understanding.
+
+This visual standard applies to glossary terms, family lessons, genus comparisons, species pages, and future teaching modules.
+
 ## Image provenance
 Whenever possible, select exact source photographs rather than relying on a generic search-based downloader.
 
