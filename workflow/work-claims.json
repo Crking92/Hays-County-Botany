@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:30:21-05:00",
+  "updated_at": "2026-10-04T17:31:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1244,6 +1244,24 @@
       "expires_at": "2026-10-04T23:45:00-05:00",
       "release_when": "Pinaceae, Ginkgoaceae, and Ephedraceae family modules, batch record, Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Higher-lineage gymnosperm comparison batch. Use built Cupressaceae as anchor and prefer saved Joey Santore Juniperus virginiana scale-foliage frame for the private-study Cupressaceae comparison. No species promotion."
+    },
+    {
+      "claim_id": "manual-genus-opuntia-b117-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "opuntia-phaeacantha",
+        "opuntia-senilis",
+        "opuntia-engelmannii-var-lindheimeri",
+        "opuntia-macrorhiza"
+      ],
+      "scope_key": "study-batch-b117-opuntia-closeout-visual-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:31:00-05:00",
+      "expires_at": "2026-10-04T23:31:00-05:00",
+      "release_when": "B117 Opuntia remaining source-concept review plus canonical visual lock are durably recorded in GitHub/Study Batches, or explicitly aborted.",
+      "notes": "Continuation lane after B116. Preserve B031 decisions for O. lindheimeri/engelmannii/rufida/azurea/gilvescens. Resolve only unreviewed O. phaeacantha and O. senilis; visually repair the two canonical Opuntia pages using existing material first."
     }
   ]
 }
