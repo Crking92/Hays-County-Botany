@@ -90,7 +90,28 @@ The goal is not perfect locking. The goal is to make duplicate effort and destru
 
 ## Higher-taxonomy family backfill
 
-As of 2026-10-03, the current Google Sheet Master Plant Pool has complete genus-to-family coverage: 612 distinct genera and 1,261 taxa resolve to 147 families. The workbook's hidden `_Genus Family Map` is the working genus→family lookup, and the visible `Taxonomy Progress` / `Taxonomy Hierarchy` tabs are the progress and filter views.
+As of 2026-10-03, the current Google Sheet Master Plant Pool has complete genus-to-family coverage: 612 distinct genera and 1,262 taxa resolve to 147 families. The workbook's hidden `_Genus Family Map` is the working genus→family lookup, and the visible `Taxonomy Progress` / `Taxonomy Hierarchy` tabs are the progress and filter views.
 
-Do not start a second blanket genus→family reconciliation for the current pool. Family Backfill should now focus on the 104 families not yet represented in the Family Study Index, while preserving the 36 family lessons already marked Ready unless specific contrary evidence appears. New taxa/genus additions should receive a family mapping when added so the 147-family baseline can change transparently rather than triggering a full re-audit.
+Do not start a second blanket genus→family reconciliation for the current pool. Family Backfill should now focus on the remaining family-recognition/index backlog, while preserving the 36 family lessons already marked Ready unless specific contrary evidence appears. New taxa/genus additions should receive a family mapping when added so the 147-family baseline can change transparently rather than triggering a full re-audit.
 
+## Family batch strategy — lineage first
+
+Family Backfill should prefer batches that share an order or close evolutionary lineage before simply taking the largest remaining families. The teaching goal is to learn both the shared inherited architecture and the characters that split related families.
+
+Priority sequence:
+1. Same order / close lineage, 3–5 families when practical.
+2. Use already-built related families as comparison anchors rather than rebuilding them.
+3. If an order has only 1–2 unfinished families, keep the batch smaller or pair with an immediately adjacent lineage only when the comparison is botanically useful.
+4. Do not force unrelated families together solely to hit a batch size.
+5. Every family lesson should state the lineage/order context and include at least one close-family tie-breaker.
+
+Current lineage queue:
+- Caryophyllales A: Amaranthaceae, Polygonaceae, Nyctaginaceae, Caryophyllaceae.
+- Caryophyllales B: Portulacaceae, Talinaceae, Phytolaccaceae, Petiveriaceae, Plumbaginaceae, Tamaricaceae as present in the live pool.
+- Brassicales: Brassicaceae + Cleomaceae, using the two-family contrast as the lesson.
+- Gentianales: Gentianaceae + Loganiaceae + Gelsemiaceae, with existing Apocynaceae/Rubiaceae as anchors.
+- Rosales: Rhamnaceae + Moraceae + Urticaceae, with Rosaceae/Ulmaceae/Cannabaceae as anchors.
+- Malpighiales: Linaceae + Salicaceae + Violaceae + Hypericaceae + Phyllanthaceae, anchored against Euphorbiaceae/Malpighiaceae/Passifloraceae.
+- Asparagales: Amaryllidaceae + Iridaceae plus any unfinished small Asparagales families, anchored against Asparagaceae/Orchidaceae.
+- Dipsacales: Caprifoliaceae + Viburnaceae.
+- Lamiales cleanup: Scrophulariaceae + Lentibulariaceae and any other unfinished Lamiales, anchored against the already-built Lamiaceae/Verbenaceae/Acanthaceae/Plantaginaceae/Orobanchaceae/Bignoniaceae/Oleaceae.
