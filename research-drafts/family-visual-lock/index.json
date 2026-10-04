@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-10-03",
+  "updated_at": "2026-10-04",
   "purpose": "Track family-level visual learner construction separately from family research/backfill status.",
   "rules": {
     "module_built": "A canonical content/taxa/<Family>/family.json contains a visual_lesson and all referenced anchor species exist in the manifest.",
@@ -26,6 +26,7 @@
     "Cabombaceae",
     "Cactaceae",
     "Cannabaceae",
+    "Caprifoliaceae",
     "Caryophyllaceae",
     "Cleomaceae",
     "Commelinaceae",
@@ -83,6 +84,7 @@
     "Ulmaceae",
     "Urticaceae",
     "Verbenaceae",
+    "Viburnaceae",
     "Violaceae",
     "Vitaceae"
   ],
@@ -144,21 +146,21 @@
     "Canonical species steps remain clickable even when their family-card image is an external rights-cleared reference.",
     "Reference-only family modules can precede species promotion but should be upgraded when canonical local species packages land."
   ],
-  "family_research_count": 77,
-  "visual_module_count": 77,
+  "family_research_count": 79,
+  "visual_module_count": 79,
   "family_visual_layer_complete": false,
   "next_phase": {
     "name": "lineage_first_family_expansion",
-    "last_completed_batch": "Asparagales — Amaryllidaceae + Iridaceae (anchored by Asparagaceae + Orchidaceae)",
-    "next_planned_batch": "Dipsacales — Caprifoliaceae + Viburnaceae"
+    "last_completed_batch": "Dipsacales — Caprifoliaceae + Viburnaceae",
+    "next_planned_batch": "Select next coherent lineage from the remaining 68 unbuilt families after live tracker scan"
   },
   "taxonomy_universe": {
     "source": "Google Sheet Master Plant Pool / Taxonomy Hierarchy",
     "families": 147,
     "genera": 612,
     "taxa": 1266,
-    "family_json_modules_present": 77,
-    "family_modules_remaining": 70,
+    "family_json_modules_present": 79,
+    "family_modules_remaining": 68,
     "note": "Lineage-first family expansion; live taxon count may rise as species workflows complete."
   }
 }
