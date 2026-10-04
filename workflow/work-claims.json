@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T20:10:00-05:00",
+  "updated_at": "2026-10-04T20:18:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1521,6 +1521,23 @@
       "expires_at": "2026-10-04T22:10:00-05:00",
       "release_when": "Durable deep-review results are checkpointed for both remaining Argythamnia taxa or batch is explicitly aborted.",
       "notes": "Resume-first stranded remainder of the earlier Deep Review B Argythamnia batch. Review-only; no curation inbox or canonical installation."
+    },
+    {
+      "claim_id": "family-batch-029-moss-residuals-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Leucobryaceae",
+        "Leucodontaceae",
+        "Pottiaceae"
+      ],
+      "scope_key": "family-recognition-batch-029-moss-residuals",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T20:18:00-05:00",
+      "expires_at": "2026-10-05T02:18:00-05:00",
+      "release_when": "Leucobryaceae, Leucodontaceae and Pottiaceae modules, durable batch/index records, Study Index rows, order mappings and progress bookkeeping are verified, or the batch is explicitly aborted.",
+      "notes": "Residual moss-family comparison. Joey routing checked: no saved moss target frames. Preserve Tortella squarrosa as source provenance while explicitly flagging the FNA New World Pleurochaete luteola conflict for species-level review; no species promotion."
     }
   ]
 }
