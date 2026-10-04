@@ -175,3 +175,15 @@ Real photos, local material, diagnostic closeups, arrows/labels, and side-by-sid
 Queue and claims share the 5-batch/30-species unreviewed Scout ceiling. Count only genuinely noncanonical work awaiting independent review; reviewed approval/curation backlog is tracked separately. Completed draft reviews outrank stale pending queue labels. Installed provisional entries retain scientific holds but must not be installed twice. Historical reconciliation counts must not be used as live backlog counts.
 
 Four completed PASS reviews (Acalypha phleoides, Acalypha radians, Tragia betonicifolia, Argythamnia aphoroides) were explicitly user-approved in the audit chat and now await curation. Exact image licensing/diagnostic polish remains explicit and approval does not convert unresolved taxa to PASS.
+
+## Existing material reuse and private-study media — 2026-10-04
+
+Before collecting new images or repeating Joey research, consult `workflow/existing-material-routing-2026-10-04.json` and `workflow/photo-recovery-audit-2026-10-04.json`, then read the referenced original archive records. The routing index preserves all 886 currently indexed Joey records and provides exact-name/string-synonym species targets, family candidates, term candidates, diagnostic roles, filenames, timestamps, and original source metadata.
+
+Calvin has authorized sorting and using existing material for his own private study, with replacement/review before a future public release. This is project direction, not a change to source licenses or public-reuse permissions. Preserve creator credits, source pages, license/rights notes, and study-use/public-reuse flags. Do not ask for another batch approval merely to organize existing private-study source material.
+
+Routing is not installation: verify the actual binary, taxon identity, diagnostic structure and destination before setting images[]. Do not mark a page visually complete from archive pointers alone. Preserve settled taxonomy/range decisions and active claims. A family/term candidate is a routing lead, not proof the current module exists or the teaching claim is verified.
+
+Study-only images may be organized in the private repository's research/workflow area. Before moving them into learner-facing content/, data/, or assets/, confirm local/private delivery or authenticated Cloudflare Access. The existing Cloudflare build publishes these directories; a private GitHub repository and an unshared URL do not establish private hosting. Public-cleared images may continue through the normal learner pipeline.
+
+Reuse exact existing images first; gather new material only for the diagnostic roles that remain missing. This index does not modify automation schedules or install images automatically.
