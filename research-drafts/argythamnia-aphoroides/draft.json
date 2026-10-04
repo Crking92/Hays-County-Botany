@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-euphorbiaceae-06",
+  "created_at": "2026-10-03T23:09:39-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "priority": 1
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Argythamnia aphoroides",
+    "family": "Euphorbiaceae",
+    "genus": "Argythamnia",
+    "order": "Malpighiales",
+    "status_candidate": "accepted_or_candidate_pending_deep_review",
+    "notes": [
+      "Current-name candidate Argythamnia aphoroides Müll.Arg.; Ditaxis aphoroides is a documented synonym/alternate treatment. Deep Review should verify current POWO acceptance."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "Scout collects leads only; Deep Review must verify exact target-zone counties before PASS/FAIL/HOLD.",
+    "leads": [
+      "Master Plant Pool candidate in Euphorbiaceae.",
+      "TPWD rare-plant material describes it as a Texas endemic of limestone-derived Edwards Plateau grassland/oak-juniper settings.",
+      "Federal environmental review records historical Hays County occurrence near San Marcos; treat as a lead, not a final county/range decision."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Start with the low perennial habit on limestone, then inspect the tiny unisexual flowers/inflorescences and silvery-pubescent vegetative surfaces; reproductive details are needed to separate Argythamnia species.",
+    "diagnostic_traits": [
+      "herbaceous perennial / low subshrub candidate",
+      "Edwards Plateau limestone grassland and open oak-juniper habitat",
+      "small unisexual euphorb flowers rather than showy petals",
+      "fruit expected as a 3-part capsule; verify key characters in Deep Review"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Argythamnia humilis",
+      "separator": "Verify using reproductive structures and authoritative key characters during Deep Review."
+    },
+    {
+      "taxon": "Argythamnia simulans",
+      "separator": "Verify using reproductive structures and authoritative key characters during Deep Review."
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "iNaturalist observation search",
+      "source_page": "https://www.inaturalist.org/observations?taxon_name=Argythamnia%20aphoroides",
+      "creator": null,
+      "license": "observation-specific; select CC-licensed candidate later",
+      "roles": [
+        "habit",
+        "leaf",
+        "flower/inflorescence",
+        "fruit"
+      ],
+      "reuse": "candidate only; prioritize Texas/local observations and diagnostic structures"
+    },
+    {
+      "source": "authoritative/source pages in sources list",
+      "source_page": "https://ecos.fws.gov/docs/plan_documents/neis/neis_2133.pdf",
+      "creator": null,
+      "license": "verify per individual image",
+      "roles": [
+        "reference morphology",
+        "distribution/habitat context"
+      ],
+      "reuse": "research reference; image rights require later verification"
+    }
+  ],
+  "diagnostic_image_needs": [
+    "whole habit",
+    "leaf/stem close-up",
+    "reproductive structure macro",
+    "mature fruit/seed when available"
+  ],
+  "sources": [
+    "https://ecos.fws.gov/docs/plan_documents/neis/neis_2133.pdf",
+    "https://ftp.dot.state.tx.us/pub/txdot/get-involved/sat/i-10-sh46-fm3351/100219-biological-report.pdf",
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Argythamnia"
+  ],
+  "scout_flags": {
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  },
+  "notes": [
+    "Diagnostic public photo coverage appears weak; prioritize flower/fruit macros and a verified Texas specimen/habit image.",
+    "Photo perfection is nonblocking; candidate evidence only."
+  ]
+}
