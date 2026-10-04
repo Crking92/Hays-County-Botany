@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T15:00:00-05:00",
+  "updated_at": "2026-10-04T15:10:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -965,11 +965,12 @@
       "scope_key": "family-recognition-batch-014-zingiberales",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T14:55:00-05:00",
       "expires_at": "2026-10-04T20:55:00-05:00",
       "release_when": "Existing Cannaceae/Marantaceae modules are reconciled into durable batch/index records, Family Study Index, Family Order Map, visual index, lineage plan, and Taxonomy Progress, or reconciliation is explicitly aborted.",
-      "notes": "Reconciliation claim only: both canonical family modules already exist. Do not overwrite species-lane decisions. Preserve Canna glauca exact-county HOLD and keep Thalia geniculata local-range status separate from family recognition."
+      "notes": "Reconciliation complete: existing Cannaceae/Marantaceae modules, Family Study Index rows, batch record, backfill index, lineage plan, visual index, and Taxonomy Progress are consistent. Species-level Canna glauca HOLD and Thalia range questions remain untouched.",
+      "released_at": "2026-10-04T15:10:00-05:00"
     },
     {
       "claim_id": "family-batch-015-lamiales-residual-001",
@@ -988,6 +989,22 @@
       "expires_at": "2026-10-04T21:05:00-05:00",
       "release_when": "All four Lamiales residual family modules, batch record, Family Study Index rows, Family Order Map entries, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Lineage-first family/genus recognition only. Use existing Lamiaceae, Plantaginaceae, Orobanchaceae, Acanthaceae, Verbenaceae, Bignoniaceae and Oleaceae as comparison anchors."
+    },
+    {
+      "claim_id": "family-batch-015-myrtales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Lythraceae",
+        "Myrtaceae"
+      ],
+      "scope_key": "family-recognition-batch-015-myrtales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T15:10:00-05:00",
+      "expires_at": "2026-10-04T21:10:00-05:00",
+      "release_when": "Lythraceae and Myrtaceae family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and Taxonomy Progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first Myrtales batch. Use existing Onagraceae as comparison anchor. Family/genus recognition only; preserve species/range decisions in species lanes."
     }
   ]
 }
