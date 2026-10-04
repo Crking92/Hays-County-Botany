@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "DEEP_REVIEWED_REJECT_RE_SCOUT",
+  "draft_status": "DEEP_REVIEW_COMPLETE_REJECT_RESCOUT",
   "batch_id": "scout-2026-10-03-croton-test-01",
   "created_at": "2026-10-03T17:28:00-05:00",
   "source_pool": {
@@ -91,18 +91,19 @@
     "note": "User reviewed the Croton batch in chat and said they liked all displayed/current candidates. Keep current candidates; later diagnostic photo polish may add stronger structure-specific images."
   },
   "deep_review": {
-    "reviewed_at": "2026-10-03T19:25:00-05:00",
-    "batch_id": "deep-review-croton-001",
+    "reviewed_at": "2026-10-03T20:46:55-05:00",
+    "batch_id": "manual-deep-review-croton-001",
     "result": "REJECT/RE-SCOUT",
     "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
-    "taxonomy": "Croton capitatus Michx. is accepted, but Central Texas evidence historically filed as C. capitatus var. lindheimeri belongs under current accepted Croton lindheimeri (Engelm. & A.Gray) Alph.Wood.",
+    "taxonomy": "Croton capitatus Michx. is accepted, but Central Texas material historically filed as C. capitatus var. lindheimeri belongs to accepted Croton lindheimeri. Do not count those records toward true C. capitatus.",
     "range_evidence": [
-      "Texas is native for true C. capitatus, but Williamson/Travis records encountered under C. capitatus var. lindheimeri cannot be counted for true C. capitatus.",
-      "Three exact target-zone counties for true C. capitatus were not locked in this review."
+      "Texas is within the native range of true C. capitatus at state scale.",
+      "Williamson and Travis records encountered as C. capitatus var. lindheimeri map to current C. lindheimeri and are excluded from true C. capitatus.",
+      "Three exact target-zone counties for true C. capitatus were not established."
     ],
-    "morphology": "Rebuild comparison around current C. lindheimeri taxonomy; true C. capitatus cues include long outward/recurving pistillate sepals and some blunt/mucronate leaves.",
-    "photo_audit": "Current candidates do not establish the species concept; diagnostic pistillate sepal posture, leaf tips, and mature fruit remain missing.",
-    "next_action": "Re-scout true C. capitatus under current Kew concept, explicitly excluding records identified only as C. capitatus var. lindheimeri; then re-audit exact counties and diagnostic photos.",
+    "morphology": "True C. capitatus should be re-scouted around long pistillate sepals that spread/recurve after anthesis and at least some blunt or mucronate leaf tips, explicitly separated from C. lindheimeri.",
+    "photo_audit": "Current images do not securely establish the true species concept; pistillate sepal posture, leaf-tip characters, and mature fruit need a new diagnostic set.",
+    "next_action": "Re-scout true C. capitatus under current taxonomy, excluding old var. lindheimeri records.",
     "canonical_promotion": false
   }
 }
