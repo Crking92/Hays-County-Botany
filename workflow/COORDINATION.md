@@ -119,3 +119,20 @@ Current lineage queue:
 - Asparagales: Amaryllidaceae + Iridaceae plus any unfinished small Asparagales families, anchored against Asparagaceae/Orchidaceae.
 - Dipsacales: Caprifoliaceae + Viburnaceae.
 - Lamiales cleanup: Scrophulariaceae + Lentibulariaceae and any other unfinished Lamiales, anchored against the already-built Lamiaceae/Verbenaceae/Acanthaceae/Plantaginaceae/Orobanchaceae/Bignoniaceae/Oleaceae.
+
+
+## Family audit completion semantics
+
+Family-level audit completion is independent from species/genus curation counts and from visual/photo polish.
+
+For Family Backfill target selection, use this order:
+1. Refresh the family's current `content/taxa/<Family>/family.json` (or other durable family-module artifact) and the live `Family Study Index` row.
+2. A family is **family-audit adequate / module live** when durable family material already covers the recognition lesson at a usable level: where to look first, shared characters, important local exceptions, confusable families/tie-breakers, diagnostic reproductive and vegetative structures, useful genus/species anchors, and remaining visual needs.
+3. `Remaining`, `Priority 1/2/3 Remaining`, and other species/genus curation counts do **not** reopen a completed family audit. Those belong to species/genus lanes.
+4. Photo perfection does **not** reopen a completed family audit. Exact missing macros, annotated comparisons, and better local images belong to visual-lock/photo-polish follow-up.
+5. A `Backfill Status` stating that a visual/family recognition module is live, built, or a canonical family upgrade is live outranks legacy `Study Status` wording such as “Ready for family/genus batching.”
+6. Joey coverage labels describe source sufficiency, not completion state: `Joey-sufficient`, `Joey + authoritative backfill`, and `authoritative-backfill-required` may all be family-audit complete once the required authoritative backfill is durably incorporated.
+7. Reopen a family only for a real content gap, a taxonomy/circumscription change that affects the family lesson, a documented scientific correction, or a missing durable family artifact—not merely because species remain uncurated or photos need polish.
+8. When all tracked families meet the adequate/module-live test, Family Backfill should report the audit backlog complete and make no unnecessary family changes. Remaining visual polish should be tracked separately.
+
+Target selection must therefore prefer a genuinely missing/inadequate family module, not the family with the largest species backlog.
