@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:00:00-05:00",
+  "updated_at": "2026-10-04T17:20:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1106,11 +1106,12 @@
       "scope_key": "family-recognition-batch-020-zygophyllales",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T17:00:00-05:00",
       "expires_at": "2026-10-04T23:00:00-05:00",
       "release_when": "Both Zygophyllales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first sister-family batch. No species promotion. Emphasize dryland architecture, fruit, secretory petals, and hemiparasitism."
+      "notes": "Both Zygophyllales modules, Family Study Index rows, order mappings, batch/index records, visual index, and lineage plan are durable. Visual polish remains future work.",
+      "released_at": "2026-10-04T17:20:00-05:00"
     },
     {
       "claim_id": "photo-recovery-joey-001",
