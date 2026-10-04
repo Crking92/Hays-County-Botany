@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:50:00-05:00",
+  "updated_at": "2026-10-04T18:28:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1291,11 +1291,12 @@
       "scope_key": "family-recognition-batch-024-magnoliids",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T18:12:00-05:00",
       "expires_at": "2026-10-05T00:12:00-05:00",
       "release_when": "Lauraceae, Magnoliaceae, and Saururaceae modules, batch/index records, Family Study Index rows, order mappings, and progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first magnoliid comparison batch spanning Laurales, Magnoliales, and Piperales. Joey-first rule checked: no direct target-family Joey frames among current saved intake, so do not force unrelated media. Family/genus recognition only; no species promotion."
+      "notes": "Magnoliid batch complete: Lauraceae, Magnoliaceae, and Saururaceae modules, batch/backfill records, Study Index rows, order mappings, visual/lineage indexes and formula-safe tracker bookkeeping verified. Joey-first routing checked with no direct target-family frames found.",
+      "released_at": "2026-10-04T18:28:00-05:00"
     }
   ]
 }
