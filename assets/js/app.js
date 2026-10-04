@@ -984,17 +984,27 @@ function browseView(){
   else if(state.browseFamily) out+='<div class="empty-panel">This family lesson is ready, but canonical species anchors are still being installed. Open the family lesson above to study its diagnostic characters now.</div>';
   return out+'</div></section>';
 }
+function termPreviewMedia(t){
+  const real=t && t.real_photo ? t.real_photo : null;
+  const src=real ? familyExternalImageUrl(real) : "";
+  if(src){
+    const mediaType=real.media_type==="diagram" ? "diagram" : "real photo";
+    return '<span class="glossary-card-media"><img src="'+esc(src)+'" alt="'+esc(real.alt||("Visual example of "+t.term))+'" loading="lazy"><b>'+mediaType+'</b></span>';
+  }
+  if(t && t.visual) return '<span class="glossary-card-media"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'" loading="lazy"><b>diagram</b></span>';
+  return '<span class="glossary-card-media glossary-card-media-empty" aria-hidden="true">✣</span>';
+}
 function glossaryView(){
   const q=norm(state.glossaryQuery);
   const entries=Object.entries(state.learning.terms).filter(function(pair){
     if(!q) return true;
     const t=pair[1]; return norm([pair[0],t.term,t.plain,t.formal,(t.aliases||[]).join(" ")].join(" ")).includes(q);
   });
-  let out='<section class="page-intro"><div class="eyebrow">Botanical vocabulary</div><h1>Learn the word while looking at the structure.</h1>'+
-    '<p>Plain language first, formal botany second. Every term opens a labeled visual.</p><input id="glossarySearch" class="glossary-search" value="'+esc(state.glossaryQuery)+'" placeholder="Search phyllary, opposite, cupule…"></section><section class="glossary-grid">';
+  let out='<section class="page-intro"><div class="eyebrow">Botanical vocabulary · '+Object.keys(state.learning.terms).length+' visual terms</div><h1>Learn the word while looking at the structure.</h1>'+
+    '<p>Real photos first, learner arrows and labels on the exact structure, and diagrams where a photo cannot show the anatomy clearly.</p><input id="glossarySearch" class="glossary-search" value="'+esc(state.glossaryQuery)+'" placeholder="Search phyllary, opposite, cupule…"></section><section class="glossary-grid">';
   entries.forEach(function(pair){
     const id=pair[0], t=pair[1];
-    out+='<button class="glossary-card" type="button" data-term="'+esc(id)+'"><img src="'+esc(t.visual)+'" alt="" loading="lazy"><span><strong>'+esc(t.term)+'</strong>'+
+    out+='<button class="glossary-card" type="button" data-term="'+esc(id)+'">'+termPreviewMedia(t)+'<span><strong>'+esc(t.term)+'</strong>'+
       '<em>'+esc(t.pronunciation||"")+'</em><p>'+esc(t.plain)+'</p></span></button>';
   });
   if(!entries.length) out+='<div class="empty-panel">No matching term.</div>';
@@ -1077,8 +1087,10 @@ function termPhotoAnnotations(photo){
 
 function openTermModal(id){
   const t=state.learning.terms[id]; if(!t) return;
-  const diagram=t.visual ? '<div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"><span class="term-media-label">Labeled diagram</span></div>' :
-    '<div class="term-visual term-visual-empty"><span>Diagram lock pending</span></div>';
+  const realMedia=t.real_photo||null;
+  const duplicateDiagram=Boolean(t.visual && realMedia && realMedia.image_url===t.visual);
+  const diagram=t.visual && !duplicateDiagram ? '<div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"><span class="term-media-label">Labeled diagram</span></div>' :
+    (!realMedia?'<div class="term-visual term-visual-empty"><span>Visual pending</span></div>':'');
   let real="";
   if(t.real_photo){
     const src=familyExternalImageUrl(t.real_photo);
