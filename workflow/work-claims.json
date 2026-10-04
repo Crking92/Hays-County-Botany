@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T11:36:00-05:00",
+  "updated_at": "2026-10-04T11:46:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -882,6 +882,20 @@
       "release_when": "All five taxa become durably represented in research-queue.json and research-drafts, or are explicitly skipped.",
       "notes": "Coherent Euphorbiaceae continuation from current Master Plant Pool: Argythamnia comparison set plus Bernardia and Chinese tallow comparison candidate. Research-only. Lease expired before this coordination reconciliation; released as stale on 2026-10-04. Durable queue/draft/canonical state must be checked before any future reclaim; release does not discard existing research.",
       "released_at": "2026-10-04T11:36:00-05:00"
+    },
+    {
+      "claim_id": "manual-deep-review-recovery-acalypha-radians-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "acalypha-radians"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T11:46:00-05:00",
+      "expires_at": "2026-10-04T17:46:00-05:00",
+      "release_when": "Acalypha radians has a durable deep-review result and its queue row is checkpointed, or the recovery is explicitly aborted.",
+      "notes": "Resume-first recovery of the one stranded Acalypha taxon after Deep Review B completed A. persimilis and A. phleoides. Review-only; no curation-inbox or canonical installation."
     }
   ]
 }
