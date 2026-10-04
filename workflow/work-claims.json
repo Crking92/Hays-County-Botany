@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:29:00-05:00",
+  "updated_at": "2026-10-04T19:02:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1333,6 +1333,22 @@
       "release_when": "Schizaeaceae and Ophioglossaceae modules, batch/index records, Study Index rows, order mappings, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Fern residual batch complete: Schizaeaceae and Ophioglossaceae modules, durable records, Study Index rows, order mappings, visual/lineage indexes and formula-safe tracker bookkeeping verified. Joey Santore Adiantum frame D1qCiiaMJ_I-20 at 15:55 is wired as the preferred private-study Pteridaceae comparison. Sceptridium biternatum→Botrychium biternatum and FNA family-split provenance are explicit.",
       "released_at": "2026-10-04T18:50:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-026-early-vascular-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Equisetaceae",
+        "Selaginellaceae"
+      ],
+      "scope_key": "family-recognition-batch-026-early-vascular",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T19:02:00-05:00",
+      "expires_at": "2026-10-05T01:02:00-05:00",
+      "release_when": "Equisetaceae and Selaginellaceae modules, durable batch/index records, Family Study Index rows, order mappings, and progress bookkeeping are verified, or the batch is explicitly aborted.",
+      "notes": "Early vascular-plant comparison batch. Joey routing checked: no direct Equisetum/Selaginella target frames. Existing Joey Adiantum pseudoindusium frame may be used only as a true-fern comparison. Reconcile North American source Equisetum hyemale to current Equisetum praealtum; no species promotion."
     }
   ]
 }
