@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T00:08:00-05:00",
+  "updated_at": "2026-10-03T23:59:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -531,6 +531,25 @@
       "release_when": "Final 12 visual glossary terms are written and verified, or work is explicitly aborted.",
       "notes": "Website/UI glossary work only. Finish remaining visual terms with real photos where possible and scientific diagrams where microscopic/internal structures require them. Completed and verified. Full glossary visual pass now has 147/147 terms with annotated visuals; JSON parses, app JS syntax passes, every annotated term has a valid image locator, and no malformed overlay coordinates were found.",
       "released_at": "2026-10-04T00:08:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-007-malpighiales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Linaceae",
+        "Salicaceae",
+        "Violaceae",
+        "Hypericaceae",
+        "Phyllanthaceae"
+      ],
+      "scope_key": "family-recognition-batch-007-malpighiales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T23:59:00-05:00",
+      "expires_at": "2026-10-04T05:59:00-05:00",
+      "release_when": "All five Malpighiales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first family/genus recognition only. Use existing Euphorbiaceae, Malpighiaceae, and Passifloraceae as comparison anchors. Keep species promotion and strict-range judgments in species lanes."
     }
   ]
 }
