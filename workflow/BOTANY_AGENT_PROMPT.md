@@ -105,6 +105,22 @@ images/              optional in the inbox; GitHub may download exact selected i
 
 Genus and family metadata may accompany the batch when needed.
 
+## Visual-first completion rule
+
+As of 2026-10-04, Calvin explicitly requires every project lane to prioritize information + photos together for the visual learner.
+
+For new species/genus work:
+- do not treat a text-only species page as learner-complete;
+- wire at least one real displayable image through species.json images[] before calling the learner page complete;
+- target 3–5 diagnostic views when feasible, chosen from the actual ID characters rather than a fixed generic template;
+- prefer Hays/Central Texas/Texas photos when trustworthy;
+- prioritize diagnostic macros and structure views over pretty habit shots;
+- preserve creator/license/source/study-use/public-reuse metadata;
+- add arrows/labels or paired comparisons when they improve learning;
+- if exact photos remain unavailable, mark the page provisional / visual-incomplete instead of silently deferring photos.
+
+Existing older canonicals may be scientifically complete but visually incomplete. Do not redo settled taxonomy/range solely for missing photos; send those pages to the photo-recovery workflow.
+
 ## Exact image standard
 
 Prefer images that directly teach identification. Useful roles include:
