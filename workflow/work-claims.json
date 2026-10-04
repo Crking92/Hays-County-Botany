@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:49:54-05:00",
+  "updated_at": "2026-10-04T19:26:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1411,6 +1411,23 @@
       "expires_at": "2026-10-04T23:49:54-05:00",
       "release_when": "Five remaining Symphyotrichum source concepts are durably reconciled in drafts/_Master Pool Overrides/Study Batches, or the batch is explicitly aborted.",
       "notes": "Preserve B071 varietal folding and lanceolatum HOLD. Old Batch 4 for S. oblongifolium/S. praealtum was cancelled before submission. Re-review those two now; no silent canonical install."
+    },
+    {
+      "claim_id": "family-batch-027-aquatic-angiosperms-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Nymphaeaceae",
+        "Nelumbonaceae",
+        "Ceratophyllaceae"
+      ],
+      "scope_key": "family-recognition-batch-027-aquatic-angiosperms",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T19:26:00-05:00",
+      "expires_at": "2026-10-05T01:26:00-05:00",
+      "release_when": "Nymphaeaceae, Nelumbonaceae, and Ceratophyllaceae modules, durable batch/index records, Family Study Index rows, order mappings, and progress bookkeeping are verified, or the batch is explicitly aborted.",
+      "notes": "Aquatic early-angiosperm comparison batch. Joey routing checked: no direct target-family frames. Reconcile Nuphar lutea subsp. advena→Nuphar advena. Emphasize convergent aquatic habit but distinct Nymphaeales/Proteales/Ceratophyllales architecture. No species promotion."
     }
   ]
 }
