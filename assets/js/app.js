@@ -22,6 +22,7 @@ const state = {
   glossaryQuery: "",
   termDrillId: null,
   termDrillRevealed: false,
+  termDrillPool: null,
   approvals: null,
   approvalRevision: null,
   approvalsWriteEnabled: false,
@@ -717,6 +718,18 @@ function speciesTile(sp,showFamily){
     '<span>'+(showFamily?'<small>'+esc(sp.genus)+'</small>':'')+'<strong><i>'+esc(scientificName(sp))+'</i></strong>'+
     '<em>'+esc(commonName(sp))+'</em></span></button>';
 }
+function familyVisualVocabulary(p){
+  const ids=(p && Array.isArray(p.key_terms) ? p.key_terms : []).filter(function(id){ return state.learning.terms[id]; });
+  if(!ids.length) return "";
+  let out='<section class="section-block family-vocab"><div class="section-heading"><div><div class="eyebrow">Visual family vocabulary</div><h2>See the structures that define this family</h2></div>'+
+    '<button class="secondary-button" type="button" data-family-term-drill>Drill these terms</button></div><p class="section-intro">These are the family words worth being able to recognize in a photograph before worrying about species-level details.</p><div class="family-vocab-grid">';
+  ids.slice(0,9).forEach(function(id){
+    const t=state.learning.terms[id];
+    out+='<button class="family-vocab-card" type="button" data-term="'+esc(id)+'">'+termPreviewMedia(t)+'<span><strong>'+esc(t.term)+'</strong><small>'+esc(t.plain)+'</small></span></button>';
+  });
+  return out+'</div></section>';
+}
+
 function familyView(){
   const family=state.selectedFamily, p=familyProfile(family)||{}, members=familySpecies(family), genera=generaForFamily(family);
   const canon=state.familyCache.get(family);
@@ -732,7 +745,9 @@ function familyView(){
     '<button class="secondary-button" type="button" data-nav="glossary">Open botanical terms</button></div></div><div class="family-photo-stack">';
   if(members.length) members.slice(0,4).forEach(function(sp){ out+='<button type="button" data-species="'+sp.id+'">'+thumb(sp,"family-stack-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Family lesson ready. Canonical species anchors are still being installed.</div>';
-  out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Narrow it down</div><h2>Genera in this learner</h2></div></div><div class="genus-buttons">';
+  out+='</div></section>';
+  out+=familyVisualVocabulary(p);
+  out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Narrow it down</div><h2>Genera in this learner</h2></div></div><div class="genus-buttons">';
   if(genera.length) genera.forEach(function(g){ out+='<button type="button" data-genus="'+esc(g[0])+'" data-genus-family="'+esc(family)+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
   else out+='<div class="empty-panel">No canonical genus anchors are installed yet. The family-level lesson above is still available.</div>';
   out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Recognize individuals</div><h2>Species</h2></div></div><div class="species-tile-grid">';
@@ -1007,7 +1022,9 @@ function termDrillMedia(id,revealed){
     '<span class="term-drill-kind">'+esc(kind)+'</span>'+(revealed?'<span class="term-drill-revealed">labels revealed</span>':'')+'</div></figure>';
 }
 function chooseTermDrill(){
-  const ids=Object.keys(state.learning.terms||{});
+  const allIds=Object.keys(state.learning.terms||{});
+  let ids=Array.isArray(state.termDrillPool) && state.termDrillPool.length ? state.termDrillPool.filter(function(id){ return state.learning.terms[id]; }) : allIds;
+  if(!ids.length) ids=allIds;
   if(!ids.length) return null;
   let pool=ids;
   if(state.termDrillId && ids.length>1) pool=ids.filter(function(id){ return id!==state.termDrillId; });
@@ -1032,7 +1049,8 @@ function renderTermDrillModal(){
     (revealed?'<button class="secondary-button" type="button" data-term-drill-open="'+esc(id)+'">Open full lesson</button>':'<button class="primary-button" type="button" data-term-drill-reveal>Reveal answer + labels</button>')+
     '<button class="'+(revealed?'primary-button':'secondary-button')+'" type="button" data-term-drill-next>Next visual →</button></div></div></div></section></div>';
 }
-function openTermDrill(){
+function openTermDrill(ids){
+  state.termDrillPool=Array.isArray(ids) && ids.length ? ids.slice() : null;
   chooseTermDrill(); renderTermDrillModal();
 }
 
@@ -1214,7 +1232,11 @@ function handleClick(e){
   if(approvalDecision){ submitApprovalDecision(approvalDecision.dataset.approvalId,approvalDecision.dataset.approvalDecision); return; }
   const diff=e.target.closest("[data-difficulty]"); if(diff){ setDifficulty(diff.dataset.difficulty); return; }
   const setDiff=e.target.closest("[data-set-difficulty]"); if(setDiff){ setDifficulty(setDiff.dataset.setDifficulty); return; }
-  if(e.target.closest("[data-term-drill-start]")){ openTermDrill(); return; }
+  if(e.target.closest("[data-term-drill-start]")){ openTermDrill(null); return; }
+  if(e.target.closest("[data-family-term-drill]")){
+    const p=familyProfile(state.selectedFamily)||{};
+    openTermDrill((p.key_terms||[]).filter(function(id){ return state.learning.terms[id]; })); return;
+  }
   if(e.target.closest("[data-term-drill-reveal]")){ state.termDrillRevealed=true; renderTermDrillModal(); return; }
   if(e.target.closest("[data-term-drill-next]")){ chooseTermDrill(); renderTermDrillModal(); return; }
   const drillOpen=e.target.closest("[data-term-drill-open]"); if(drillOpen){ openTermModal(drillOpen.dataset.termDrillOpen); return; }
