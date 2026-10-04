@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "READY_FOR_CURATION",
   "batch_id": "scout-2026-10-03-euphorbiaceae-05",
   "created_at": "2026-10-03T18:11:51-05:00",
   "source_pool": {
@@ -96,5 +96,79 @@
   },
   "notes": [
     "Photo perfection is nonblocking. Current photo entries are source candidates; exact diagnostic image selection/license confirmation remains a later photo-polish task."
-  ]
+  ],
+  "deep_review": {
+    "status": "READY FOR CURATION",
+    "reviewed_at": "2026-10-04T11:52:00-05:00",
+    "owner": "manual-project-chat",
+    "taxonomy": {
+      "accepted_name": "Acalypha radians Torr.",
+      "family": "Euphorbiaceae",
+      "genus": "Acalypha",
+      "order": "Malpighiales",
+      "status": "ACCEPTED",
+      "authority_verified": true,
+      "synonyms": [
+        "Ricinocarpus radians (Torr.) Kuntze",
+        "Acalypha radians var. geraniifolia Müll.Arg.",
+        "Acalypha radians var. genuina Müll.Arg. — not validly published"
+      ],
+      "evidence": [
+        "Kew POWO/WCVP 2026 accepts Acalypha radians Torr. in Acalypha, Euphorbiaceae.",
+        "Flora of North America treats Acalypha radians as a distinct accepted species."
+      ]
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Bexar",
+        "Medina"
+      ],
+      "evidence": [
+        "UT Plant Resources Center Travis County Euphorbiaceae index includes Acalypha radians.",
+        "Travis County Fritz Hughes Park botanical survey records radiant copperleaf (Acalypha radians).",
+        "Texas Parks & Wildlife ecological-system documentation lists Acalypha radians-associated sandyland system in Bexar and Medina counties among known counties."
+      ],
+      "bonap_note": "BONAP NAPA county-map index includes Acalypha radians; exact county decisions here are supported independently by UT/Travis County and TPWD evidence rather than inferred from a statewide map.",
+      "guardrail": "No Hays County presence was inferred from the Master Plant Pool or statewide/ecoregional occurrence."
+    },
+    "morphology": {
+      "look_here_first": "Confirm the perennial dioecious habit and the combination of small reniform/suborbiculate leaves with deeply crenate margins plus unisexual spikes; on pistillate material, inspect the crowded, broad, deeply lobed bracts and multifid styles.",
+      "diagnostic_traits": [
+        "perennial herb or subshrub, prostrate to ascending",
+        "dioecious rather than monoecious",
+        "reniform to suborbiculate leaves with rounded/cordate bases and deeply crenate margins",
+        "unisexual inflorescences; staminate terminal, pistillate terminal and/or axillary",
+        "pistillate bracts crowded so the axis is not visible between them, with about 8–10(–13) spatulate lobes",
+        "3-carpellate pistil with multifid/laciniate styles",
+        "pubescent-hirsute capsule"
+      ],
+      "source_basis": "Flora of North America treatment."
+    },
+    "look_alikes": [
+      "Acalypha phleoides — monoecious perennial with terminal bisexual spikes; pistillate flowers below and staminate portion above on the same spike.",
+      "Acalypha persimilis / historical A. ostryifolia concept — annual, monoecious plant with different reproductive architecture and less diagnostic rounded/deeply crenate foliage.",
+      "Acalypha monostachya — local copperleaf confuser; distinguish by leaf and pistillate-bract architecture, not red coloration alone."
+    ],
+    "photo_review": {
+      "status": "SCIENTIFICALLY_SUFFICIENT_BUT_EXACT_PHOTO_LOCK_STILL_NEEDED",
+      "finding": "The scout gathered source pages rather than a finalized diagnostic image set. Kew provides herbarium imagery and the iNaturalist lead can supply field habit, but the current draft does not yet prove one selected image for each required structure.",
+      "required_structures": [
+        "whole prostrate/ascending habit",
+        "reniform/suborbiculate deeply crenate leaf",
+        "male inflorescence",
+        "female inflorescence",
+        "crowded lobed pistillate bracts and multifid styles macro",
+        "mature capsule/seed"
+      ],
+      "curation_gate_note": "Photo polish remains required before learner-facing image lock, but it does not invalidate the taxonomy/range/morphology review result."
+    },
+    "conflicts": [],
+    "missing_pieces": [
+      "Select and license-lock exact diagnostic photographs before learner-facing publication."
+    ],
+    "next_action": "Await normal user approval for curation eligibility; curation worker may later build the package, but this review worker must not create curation-inbox content or install canonical species."
+  }
 }
