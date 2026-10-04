@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T15:05:00-05:00",
+  "updated_at": "2026-10-04T15:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -13,8 +13,8 @@
     ],
     "manual_active_lease_hours": 6,
     "automation_active_lease_hours": 2,
-    "scout_backpressure_max_unreviewed_batches": 3,
-    "scout_backpressure_max_unreviewed_species": 18,
+    "scout_backpressure_max_unreviewed_batches": 5,
+    "scout_backpressure_max_unreviewed_species": 30,
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
@@ -23,12 +23,8 @@
       "scope_kind": "species_batch",
       "taxa": [
         "zizania-texana",
-        "canna-glauca",
-        "leersia-oryzoides",
-        "schoenoplectus-tabernaemontani",
         "ceratopteris-thalictroides",
-        "malvaviscus-arboreus",
-        "myriophyllum-heterophyllum"
+        "malvaviscus-arboreus"
       ],
       "lane": "joey-species-reconciliation",
       "owner": "manual-project-chat",
@@ -36,7 +32,13 @@
       "claimed_at": "2026-10-03T16:58:00-05:00",
       "expires_at": null,
       "release_when": "Each taxon becomes durably represented in research-queue.json/research-drafts, becomes canonical, or is explicitly closed/held in the Joey reconciliation lane.",
-      "notes": "Known remaining San Marcos/Joey local queue. Myriophyllum heterophyllum has an existing range concern and should remain a hold/review target rather than be silently promoted."
+      "notes": "Known remaining San Marcos/Joey local queue. Myriophyllum heterophyllum has an existing range concern and should remain a hold/review target rather than be silently promoted.",
+      "superseded_taxa": [
+        "canna-glauca",
+        "leersia-oryzoides",
+        "schoenoplectus-tabernaemontani",
+        "myriophyllum-heterophyllum"
+      ]
     },
     {
       "claim_id": "joey-taxonomy-reconciliation-001",
@@ -909,11 +911,13 @@
       ],
       "lane": "botany-deep-review",
       "owner": "automation-botany-deep-review",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T12:05:00-05:00",
       "expires_at": "2026-10-04T14:05:00-05:00",
       "release_when": "Durable deep-review results are checkpointed for all four Tragia taxa or batch is explicitly aborted.",
-      "notes": "Oldest coherent genuinely noncanonical pending scout group; review-only, no curation inbox or canonical installation."
+      "notes": "Oldest coherent genuinely noncanonical pending scout group; review-only, no curation inbox or canonical installation.",
+      "released_at": "2026-10-04T15:00:00-05:00",
+      "release_note": "Expired lease reconciled during user-authorized audit; durable queue/draft state remains reserved and must be checked before reassignment."
     },
     {
       "claim_id": "automation-deep-review-b-argythamnia-001",
@@ -925,11 +929,13 @@
       ],
       "lane": "botany-deep-review-b",
       "owner": "automation-botany-deep-review-b",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T12:30:00-05:00",
       "expires_at": "2026-10-04T14:30:00-05:00",
       "release_when": "Durable deep-review results are checkpointed for all three Argythamnia taxa or batch is explicitly aborted.",
-      "notes": "Second staggered scientific review lane. Oldest coherent unclaimed noncanonical pending scout subset; review-only, no curation inbox or canonical installation."
+      "notes": "Second staggered scientific review lane. Oldest coherent unclaimed noncanonical pending scout subset; review-only, no curation inbox or canonical installation.",
+      "released_at": "2026-10-04T15:00:00-05:00",
+      "release_note": "Expired lease reconciled during user-authorized audit; durable queue/draft state remains reserved and must be checked before reassignment."
     },
     {
       "claim_id": "automation-scout-vitaceae-001",
@@ -943,10 +949,11 @@
       "lane": "unfinished-plant-scout",
       "owner": "automation-unfinished-plant-scout",
       "status": "active",
-      "claimed_at": "2026-10-05T00:00:00-05:00",
-      "expires_at": "2026-10-05T02:00:00-05:00",
+      "claimed_at": "2026-10-04T14:06:18-05:00",
+      "expires_at": "2026-10-04T16:06:18-05:00",
       "release_when": "All four Vitaceae taxa are durably represented in research-queue.json and research-drafts, or explicitly skipped after refreshed canonical/collision checks.",
-      "notes": "Research-only Vitaceae vine-ID comparison batch selected from current Master Plant Pool after canonical reconciliation; no curation or canonical promotion."
+      "notes": "Research-only Vitaceae vine-ID comparison batch selected from current Master Plant Pool after canonical reconciliation; no curation or canonical promotion.",
+      "timestamp_correction_note": "Lease aligned to actual claim commit aeb193a at 19:06:18 UTC October 4; active owner retained."
     },
     {
       "claim_id": "family-batch-014-zingiberales-reconcile-001",
