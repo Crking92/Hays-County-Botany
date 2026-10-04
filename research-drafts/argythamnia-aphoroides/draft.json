@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "READY_FOR_CURATION",
   "batch_id": "scout-2026-10-03-euphorbiaceae-06",
   "created_at": "2026-10-03T23:09:39-05:00",
   "source_pool": {
@@ -81,7 +81,10 @@
   "sources": [
     "https://ecos.fws.gov/docs/plan_documents/neis/neis_2133.pdf",
     "https://ftp.dot.state.tx.us/pub/txdot/get-involved/sat/i-10-sh46-fm3351/100219-biological-report.pdf",
-    "https://bonap.net/Napa/TaxonMaps/Genus/State/Argythamnia"
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Argythamnia",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:339338-1",
+    "https://www.nbutexas.com/wp-content/uploads/2021/01/NBU-SWTP-Expansion-Project-EID-Form-TWDB-0801.pdf",
+    "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=102575"
   ],
   "scout_flags": {
     "final_range_assigned": false,
@@ -92,5 +95,35 @@
   "notes": [
     "Diagnostic public photo coverage appears weak; prioritize flower/fruit macros and a verified Texas specimen/habit image.",
     "Photo perfection is nonblocking; candidate evidence only."
-  ]
+  ],
+  "deep_review": {
+    "status": "READY FOR CURATION",
+    "reviewed_at": "2026-10-04T12:38:00-05:00",
+    "owner": "automation-botany-deep-review-b",
+    "taxonomy": "Accepted Argythamnia aphoroides Müll.Arg.; Kew POWO accepts the species and treats Ditaxis aphoroides (Müll.Arg.) Pax as a homotypic synonym.",
+    "range": "PASS: exact target-zone evidence independently supports Hays County (historical record in federal environmental review), Comal County (TPWD annotated county list reproduced in NBU environmental review), and Bexar County (TPWD annotated county list reproduced in current regional/environmental documents). State/ecoregion evidence was not substituted for county evidence.",
+    "diagnostics": [
+      "perennial low herb/subshrub of limestone-derived Edwards Plateau grassland and oak-juniper openings",
+      "Argythamnia-type axillary racemes with proximal pistillate and distal staminate flowers; reproductive structures should drive identification",
+      "fruit a non-muricate 3-carpellate capsule and seeds lacking a caruncle",
+      "habitat association is supportive but not diagnostic by itself"
+    ],
+    "look_alikes": [
+      "Argythamnia humilis",
+      "Argythamnia simulans"
+    ],
+    "photos": "Kew provides herbarium imagery and the Scout identified iNaturalist/local candidate searches, but current candidates do not yet lock all fine reproductive separators; retain flower/fruit macro as photo-polish need.",
+    "evidence": [
+      "Kew Plants of the World Online: Argythamnia aphoroides accepted; Ditaxis aphoroides synonym",
+      "USFWS/federal environmental review: historical Hays County record and Edwards Plateau habitat",
+      "TPWD annotated county list reproduced in NBU environmental review: Comal County",
+      "TPWD annotated county-list/environmental records: Bexar County",
+      "Flora of North America Argythamnia generic reproductive characters"
+    ],
+    "conflicts": [],
+    "missing_pieces": [
+      "final diagnostic flower/fruit image selection and image-specific reuse/license verification"
+    ],
+    "next_action": "Await normal user approval; no canonical install or curation-inbox action by review worker."
+  }
 }
