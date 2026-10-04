@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T21:40:00-05:00",
+  "updated_at": "2026-10-03T21:25:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -360,11 +360,12 @@
       "scope_key": "family-recognition-batch-004-brassicales",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T21:05:00-05:00",
       "expires_at": "2026-10-04T03:05:00-05:00",
       "release_when": "Both Brassicales family modules, batch record, Family Study Index rows, Family Order Map entries, and progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first pair. Family/genus recognition only; no species promotion. Preserve current Kew Polanisia→Cleome taxonomy notes rather than silently rewriting source rows."
+      "notes": "Brassicaceae and Cleomaceae family modules, Family Study Index rows, Family Order Map entries, durable batch/index records, lineage plan, and visual index are complete. Macro visual polish remains future work.",
+      "released_at": "2026-10-03T21:25:00-05:00"
     },
     {
       "claim_id": "website-glossary-visual-batch-009",
