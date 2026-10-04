@@ -166,11 +166,12 @@
       ],
       "lane": "botany-deep-review",
       "owner": "automation-botany-deep-review",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T18:33:06-05:00",
       "expires_at": "2026-10-03T20:33:06-05:00",
       "release_when": "Durable deep-review results are written for all six Croton taxa, or the batch is explicitly aborted.",
-      "notes": "High-throughput deep review of coherent Croton scout batch. Review-only; no curation-inbox or canonical promotion."
+      "notes": "High-throughput deep review of coherent Croton scout batch. Review-only; no curation-inbox or canonical promotion. Lease expired without durable queue/draft review output; manually reclaimed after authoritative-state check.",
+      "released_at": "2026-10-03T20:46:55-05:00"
     },
     {
       "claim_id": "family-euphorbiaceae-recognition-001",
@@ -776,6 +777,22 @@
       "release_when": "Durable deep-review results are written for all three taxa, or this manual batch is explicitly aborted.",
       "notes": "Completed: Sida abutilifolia READY; Sida spinosa range HOLD; Sphaeralcea lindheimeri target-zone/range HOLD.",
       "released_at": "2026-10-03T20:46:55-05:00"
+    },
+    {
+      "claim_id": "manual-deep-review-croton-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "croton-capitatus",
+        "croton-fruticulosus",
+        "croton-lindheimeri"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T20:46:55-05:00",
+      "expires_at": "2026-10-04T02:46:55-05:00",
+      "release_when": "Durable deep-review results are written for all three Croton taxa, or this manual batch is explicitly aborted.",
+      "notes": "Manual backlog-reduction review after expired automated Croton lease; first Croton subgroup."
     }
   ]
 }
