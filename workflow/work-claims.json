@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T12:30:00-05:00",
+  "updated_at": "2026-10-05T00:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -930,6 +930,23 @@
       "expires_at": "2026-10-04T14:30:00-05:00",
       "release_when": "Durable deep-review results are checkpointed for all three Argythamnia taxa or batch is explicitly aborted.",
       "notes": "Second staggered scientific review lane. Oldest coherent unclaimed noncanonical pending scout subset; review-only, no curation inbox or canonical installation."
+    },
+    {
+      "claim_id": "automation-scout-vitaceae-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "cissus-trifoliata",
+        "nekemias-arborea",
+        "parthenocissus-heptaphylla",
+        "parthenocissus-quinquefolia"
+      ],
+      "lane": "unfinished-plant-scout",
+      "owner": "automation-unfinished-plant-scout",
+      "status": "active",
+      "claimed_at": "2026-10-05T00:00:00-05:00",
+      "expires_at": "2026-10-05T02:00:00-05:00",
+      "release_when": "All four Vitaceae taxa are durably represented in research-queue.json and research-drafts, or explicitly skipped after refreshed canonical/collision checks.",
+      "notes": "Research-only Vitaceae vine-ID comparison batch selected from current Master Plant Pool after canonical reconciliation; no curation or canonical promotion."
     }
   ]
 }
