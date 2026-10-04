@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-euphorbia-test-02",
   "created_at": "2026-10-03T18:04:00-05:00",
   "source_pool": {
@@ -84,5 +84,49 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Euphorbia contact sheet and approved all displayed current candidates. Preserve any existing diagnostic-photo-gap notes so later photo polish can still add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:33:03-05:00",
+    "batch_id": "manual-deep-review-euphorbia-test-001",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Euphorbia dentata Michx.",
+      "family": "Euphorbiaceae",
+      "genus": "Euphorbia",
+      "notes": "POWO and Flora of North America both accept E. dentata; Poinsettia dentata is a synonym."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "evidence_basis": [
+        "Hays — UT Purola Preserve flora explicitly lists Euphorbia dentata.",
+        "Travis — UT Plant Resources Center Travis County specimen index documents Poinsettia dentata, a synonym of accepted Euphorbia dentata.",
+        "POWO and Flora of North America both place Texas within the native range.",
+        "Supporting checklist evidence suggests additional target-zone counties such as Bexar/Blanco, but supporting occurrence sources are not being promoted to authoritative county proof in this pass."
+      ],
+      "blocking_issue": "Need one more exact target-zone county from an authoritative county/specimen source before PASS."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "If confused with E. davidii, inspect mature seed, capsule size, and abaxial leaf hairs.",
+      "key_separator": "E. dentata has smaller capsules, smaller rounded-in-cross-section evenly minute-tuberculate seeds, and weaker filiform abaxial hairs; E. davidii has larger angular unevenly tuberculate seeds and stiffer strongly tapered hairs."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved study image is adequate as a habit/upper-leaf reference; seed and abaxial-hair macros remain the most important diagnostic additions."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30169241-2",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242321404",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/EUDE4.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=318100"
+    ],
+    "next_action": "Hold for one additional exact target-zone county."
   }
 }
