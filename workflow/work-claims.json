@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T00:22:00-05:00",
+  "updated_at": "2026-10-04T00:25:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -563,6 +563,18 @@
       "release_when": "Glossary grid uses the new annotated real-photo library and the term visual queue is reconciled to complete, or work is explicitly aborted.",
       "notes": "Presentation-only follow-through after 147/147 term visual completion. No family/species scientific source-of-truth edits. Completed and verified: glossary cards now preview the real-photo/diagram visual library, duplicate local diagrams are suppressed in modals, JS parses, CSS selectors are present, and term-visual queue is reconciled to 147/147 complete.",
       "released_at": "2026-10-04T00:22:00-05:00"
+    },
+    {
+      "claim_id": "website-term-visual-drill-001",
+      "scope_kind": "website_ui",
+      "scope_key": "assets/js/app.js::visual-term-drill;assets/css/styles.css::visual-term-drill",
+      "lane": "website-ui",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T00:25:00-05:00",
+      "expires_at": "2026-10-04T06:25:00-05:00",
+      "release_when": "Visual term drill is implemented and verified, or work is explicitly aborted.",
+      "notes": "Presentation/study-mode only. Uses existing 147-term annotated visual library; no taxonomy or species/family scientific data changes."
     }
   ]
 }
