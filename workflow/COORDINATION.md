@@ -78,6 +78,8 @@ Treat these Google Sheet ranges as formula-owned derived state unless a delibera
 - `Genus Study Index` columns C:M are live derived counts/anchors/status from `Master Plant Pool`. Genus workflows may add/repair family+genus keys in A:B, but must not overwrite C:M with static values.
 - `Taxonomy Progress` live metrics and family detail B:E are derived; do not replace them with manual snapshots. The GitHub family-module count is the one external snapshot and should carry its sync date.
 - `Species Tracker` summary canonical-count and accepted-name/synonym-note metrics are formula-driven; GitHub pipeline counts are dated snapshots.
+- `Species Tracker` body rows A:Q are a one-row-per-canonical-concept mirror of `data/manifest.json`. Columns O:Q (`Canonical ID`, `Source Pool Name`, `Manifest Path`) are identity keys for reconciliation. Preserve detailed range/photo/license notes in E:N when refreshing the body; fold aliases into the accepted canonical row instead of adding duplicate tracker rows.
+- Master Plant Pool formulas that consult `Species Tracker` must use expansion-safe tracker ranges (currently through row 1000), not the old row-300 cap.
 
 ## Master Pool write rule
 
