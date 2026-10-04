@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
   "batch_id": "scout-2026-10-03-acanthaceae-test-03",
   "created_at": "2026-10-03T18:42:00-05:00",
   "source_pool": {
@@ -79,5 +79,51 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Acanthaceae contact sheet and approved all displayed current candidates. Preserve any diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:39:30-05:00",
+    "batch_id": "manual-deep-review-acanthaceae-001",
+    "result": "READY_FOR_CURATION",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Justicia pilosella (Nees) Hilsenb.",
+      "family": "Acanthaceae",
+      "genus": "Justicia",
+      "aliases": [
+        "Siphonoglossa pilosella (Nees) Torr."
+      ],
+      "notes": "Current POWO accepts Justicia pilosella."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Williamson",
+        "Bexar"
+      ],
+      "evidence_basis": [
+        "Travis — UT Plant Resources Center specimen index documents Justicia pilosella.",
+        "Williamson — UT Vascular Plants of Williamson County provides a full Justicia pilosella treatment.",
+        "Bexar — National Park Service/San Antonio Missions vegetation inventory documents Justicia pilosella in the Bexar County park unit.",
+        "POWO confirms Texas in the native range."
+      ]
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Very low hairy mound, conspicuously ciliate opposite leaves, and paired axillary pale tubular flowers.",
+      "key_separator": "Unlike water-willow, J. pilosella is tiny, dry-site, suffrutescent, and conspicuously hairy."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "UT/field candidate shows habit and flowers well; fruit/seed macro remains optional polish."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/962380-1",
+      "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Justicia%20%20pilosella",
+      "https://www.nps.gov/im/guln/upload/saan-nrca.pdf"
+    ],
+    "next_action": "Await normal user approval before canonical curation."
   }
 }
