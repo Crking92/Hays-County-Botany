@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "batch_id": "scout-2026-10-03-euphorbiaceae-06",
+  "created_at": "2026-10-03T23:09:39-05:00",
+  "source_pool": {
+    "sheet": "Master Plant Pool",
+    "priority": 1
+  },
+  "taxonomy_candidate": {
+    "accepted_name": "Argythamnia simulans",
+    "family": "Euphorbiaceae",
+    "genus": "Argythamnia",
+    "order": "Malpighiales",
+    "status_candidate": "candidate_pending_deep_review",
+    "notes": [
+      "Working candidate; Ditaxis simulans appears as alternate treatment. Authoritative current acceptance and Texas distribution need Deep Review because web sources conflict."
+    ]
+  },
+  "target_zone_range_leads": {
+    "final_decision": null,
+    "guardrail": "No final range decision in Scout.",
+    "leads": [
+      "Master Plant Pool candidate.",
+      "Conflicting generic web distribution claims are not trusted.",
+      "Require BONAP/NAPA plus Texas herbarium evidence before any target-zone conclusion."
+    ]
+  },
+  "morphology_candidate": {
+    "look_here_first": "Prioritize reproductive structures, capsule and seed characters over general gray-green habit.",
+    "diagnostic_traits": [
+      "small Euphorbiaceae herb/subshrub candidate",
+      "pubescent foliage candidate",
+      "unisexual flowers",
+      "capsule/seed microcharacters may be decisive"
+    ],
+    "status": "candidate_for_deep_review"
+  },
+  "confusers": [
+    {
+      "taxon": "Argythamnia aphoroides",
+      "separator": "flower/fruit/key characters"
+    },
+    {
+      "taxon": "Argythamnia humilis",
+      "separator": "flower/fruit/key characters"
+    }
+  ],
+  "photo_candidates": [
+    {
+      "source": "iNaturalist",
+      "source_page": "https://www.inaturalist.org/observations?taxon_name=Argythamnia%20simulans",
+      "creator": null,
+      "license": "observation-specific; verify later",
+      "roles": [
+        "habit",
+        "leaf",
+        "flower",
+        "fruit"
+      ]
+    }
+  ],
+  "diagnostic_image_needs": [
+    "habit",
+    "leaf/stem",
+    "flower macro",
+    "capsule/seed"
+  ],
+  "sources": [
+    "https://bonap.net/Napa/TaxonMaps/Genus/State/Argythamnia",
+    "https://www.ipni.org/",
+    "https://powo.science.kew.org/"
+  ],
+  "scout_flags": {
+    "final_range_assigned": false,
+    "county_presence_inferred": false,
+    "needs_deep_review": true,
+    "needs_user_photo_confirmation_later": true
+  },
+  "notes": [
+    "Major evidence gap: authoritative Texas distribution and diagnostic reproductive imagery."
+  ]
+}
