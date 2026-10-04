@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T20:32:00-05:00",
+  "updated_at": "2026-10-04T20:40:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1559,6 +1559,25 @@
       "expires_at": "2026-10-05T07:25:00-05:00",
       "release_when": "Genus modules and tracker checkpoints are written or the batch is aborted.",
       "notes": "Small-end coherent Fabaceae genus-learning batch. Genus work only; no species promotion."
+    },
+    {
+      "claim_id": "family-batch-030-rosid-residuals-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Oxalidaceae",
+        "Celastraceae",
+        "Elaeagnaceae",
+        "Bixaceae",
+        "Koeberliniaceae"
+      ],
+      "scope_key": "family-recognition-batch-030-rosid-residuals",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T20:40:00-05:00",
+      "expires_at": "2026-10-05T02:40:00-05:00",
+      "release_when": "All five rosid residual family modules, durable records, Study Index rows, order mappings and progress bookkeeping are verified, or the batch is explicitly aborted.",
+      "notes": "Residual rosid-side comparison batch. Joey routing checked: no direct target-family frames. Use built Malvaceae/Brassicaceae/Rhamnaceae/Geraniaceae modules as comparison anchors where useful. Preserve Russian olive as introduced Texas comparison. No species promotion."
     }
   ]
 }
