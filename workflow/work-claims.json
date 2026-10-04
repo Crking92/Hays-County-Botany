@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T03:25:00-05:00",
+  "updated_at": "2026-10-03T20:55:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -828,6 +828,22 @@
       "release_when": "Both Alismatales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "Araceae and Hydrocharitaceae family modules, Family Study Index rows, Family Order Map entries, durable batch/index records, lineage plan, visual index, and Taxonomy Progress bookkeeping are complete. Modern Araceae/Lemnaceae reconciliation, Spirodela spelling normalization, and Vallisneria distribution-source conflict are explicit; macro visual polish remains future work.",
       "released_at": "2026-10-04T03:25:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-013-poales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Bromeliaceae",
+        "Typhaceae"
+      ],
+      "scope_key": "family-recognition-batch-013-poales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T20:55:00-05:00",
+      "expires_at": "2026-10-04T02:55:00-05:00",
+      "release_when": "Both Poales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first family/genus recognition only. Use Poaceae, Cyperaceae, and Juncaceae as comparison anchors. Bromeliaceae project pool = Tillandsia recurvata, Tillandsia usneoides, Hechtia texensis. Typhaceae project pool = Typha domingensis + T. latifolia. Keep species promotion and detailed Typha hybrid calls independent."
     }
   ]
 }
