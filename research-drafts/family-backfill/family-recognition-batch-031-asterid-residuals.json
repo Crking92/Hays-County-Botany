@@ -1,0 +1,45 @@
+{
+  "id": "family-recognition-batch-031-asterid-residuals",
+  "lineage": "Asterid residuals",
+  "created_at": "2026-10-04",
+  "status": "complete_family_recognition_visual_polish_pending",
+  "families": {
+    "Araliaceae": {
+      "source_genera": 1,
+      "source_taxa": 2,
+      "current_concepts": 2,
+      "key_door": "creeping Hydrocotyle + peltate round leaf + tiny umbel/verticillate inflorescence + compressed ribbed fruit"
+    },
+    "Garryaceae": {
+      "source_genera": 1,
+      "source_rows": 2,
+      "current_species_concepts": 1,
+      "key_door": "opposite leathery leaves + dioecious petal-less aments + dark berries"
+    },
+    "Cordiaceae": {
+      "source_genera": 1,
+      "source_taxa": 1,
+      "current_concepts": 1,
+      "key_door": "rough broad leaf + large white yellow-throated sympetalous flower + pale drupe; narrow Cordiaceae family treatment explicit"
+    },
+    "Balsaminaceae": {
+      "source_genera": 1,
+      "source_taxa": 1,
+      "current_concepts": 1,
+      "key_door": "translucent succulent stem + orange spurred zygomorphic flower + fused anther cap + explosive capsule"
+    }
+  },
+  "taxonomy_notes": [
+    "Current Kew places Hydrocotyle in Araliaceae, while older floras commonly used Apiaceae/Umbelliferae; older placement retained as provenance.",
+    "Source Garrya ovata subsp. lindheimeri collapses to accepted Garrya lindheimeri.",
+    "Project recognizes Cordiaceae under a narrow modern Boraginales family treatment; Kew POWO currently stores Cordia in broad Boraginaceae sensu lato.",
+    "Impatiens capensis remains accepted and native-range treatment includes Texas.",
+    "Joey routing checked first; no direct target-family frames were indexed."
+  ],
+  "guardrails": [
+    "Family/genus recognition only; no species promotion.",
+    "Do not split Hydrocotyle species from leaf shape alone; use inflorescence architecture.",
+    "Do not double-count Garrya lindheimeri from the older subspecies source row.",
+    "Do not overwrite Cordiaceae with Boraginaceae solely because Kew uses the broad-family backbone; preserve both treatments explicitly."
+  ]
+}
