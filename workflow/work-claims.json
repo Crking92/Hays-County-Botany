@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T01:10:00-05:00",
+  "updated_at": "2026-10-04T01:15:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -603,6 +603,22 @@
       "release_when": "Commonly confused botanical term comparison UI is implemented and verified, or work is explicitly aborted.",
       "notes": "UI-only use of existing annotated glossary visuals. No taxonomy/family/species source edits. Completed and verified: 13 side-by-side comparison sets render from the existing annotated term library; comparison modal and responsive CSS are present; JS parses; glossary remains 147/147 annotated.",
       "released_at": "2026-10-04T01:10:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-008-asparagales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Amaryllidaceae",
+        "Iridaceae"
+      ],
+      "scope_key": "family-recognition-batch-008-asparagales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T01:15:00-05:00",
+      "expires_at": "2026-10-04T07:15:00-05:00",
+      "release_when": "Both Asparagales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first family/genus recognition only. Use existing Asparagaceae and Orchidaceae as comparison anchors. Preserve species promotion and strict-range judgments in species lanes."
     }
   ]
 }
