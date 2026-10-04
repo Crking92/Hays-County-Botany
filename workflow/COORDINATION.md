@@ -70,6 +70,15 @@ The unattended Scout must not create an unlimited backlog. It should pause when 
 
 Deep Review should prefer coherent groups of 3–4 taxa, but may take a smaller 1–2 taxon remainder when that safely closes an otherwise stranded scout batch.
 
+## Google Sheet derived-column ownership
+
+Treat these Google Sheet ranges as formula-owned derived state unless a deliberate formula repair is being performed:
+- `Master Plant Pool` body is spill/formula driven; do not hand-write its rows. Use source tabs and `_Master Pool Overrides`.
+- `Family Study Index` columns B:K are live derived counts from `Master Plant Pool`. Family-content work may edit column A plus study-content columns L:Q, but must not replace B:K with snapshots.
+- `Genus Study Index` columns C:M are live derived counts/anchors/status from `Master Plant Pool`. Genus workflows may add/repair family+genus keys in A:B, but must not overwrite C:M with static values.
+- `Taxonomy Progress` live metrics and family detail B:E are derived; do not replace them with manual snapshots. The GitHub family-module count is the one external snapshot and should carry its sync date.
+- `Species Tracker` summary canonical-count and accepted-name/synonym-note metrics are formula-driven; GitHub pipeline counts are dated snapshots.
+
 ## Master Pool write rule
 
 - `Master Plant Pool` is a derived spill/output sheet. Never write review, curation, taxonomy, or species metadata directly into its body rows. Write species-level overrides/status into `_Master Pool Overrides` (or the canonical workflow artifact) and let the Master Pool formulas derive the row. Direct writes into the spill range cause `#REF!` failures and break taxonomy dashboards.
