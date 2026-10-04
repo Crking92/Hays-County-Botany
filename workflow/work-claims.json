@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T23:04:40-05:00",
+  "updated_at": "2026-10-03T23:09:39-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -861,6 +861,24 @@
       "expires_at": "2026-10-04T01:04:40-05:00",
       "release_when": "Durable deep-review results are written for all three Acalypha taxa, or the batch is explicitly aborted.",
       "notes": "Review-only; no curation-inbox or canonical installation."
+    },
+    {
+      "claim_id": "automation-scout-euphorbiaceae-002",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "argythamnia-aphoroides",
+        "argythamnia-humilis",
+        "argythamnia-simulans",
+        "bernardia-myricifolia",
+        "triadica-sebifera"
+      ],
+      "lane": "unfinished-plant-scout",
+      "owner": "automation-unfinished-plant-scout",
+      "status": "active",
+      "claimed_at": "2026-10-03T23:09:39-05:00",
+      "expires_at": "2026-10-04T01:09:39-05:00",
+      "release_when": "All five taxa become durably represented in research-queue.json and research-drafts, or are explicitly skipped.",
+      "notes": "Coherent Euphorbiaceae continuation from current Master Plant Pool: Argythamnia comparison set plus Bernardia and Chinese tallow comparison candidate. Research-only."
     }
   ]
 }
