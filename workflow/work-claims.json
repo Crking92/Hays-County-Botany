@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T21:12:00-05:00",
+  "updated_at": "2026-10-04T21:28:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1612,11 +1612,12 @@
       "scope_key": "family-recognition-batch-031-asterid-residuals",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T21:12:00-05:00",
       "expires_at": "2026-10-05T03:12:00-05:00",
       "release_when": "All four asterid residual modules, durable records, Study Index rows, order mappings and progress bookkeeping are verified, or the batch is explicitly aborted.",
-      "notes": "Final asterid-side residual batch. Joey routing checked: no direct target-family frames. Hydrocotyle current Araliaceae placement should note older Apiaceae/Hydrocotyloideae provenance; Cordiaceae uses modern narrow Boraginales family treatment while Kew POWO currently stores Cordia under Boraginaceae sensu lato. Collapse Garrya ovata subsp. lindheimeri into current Garrya lindheimeri. No species promotion."
+      "notes": "Batch 031 complete: Araliaceae, Garryaceae, Cordiaceae and Balsaminaceae modules, durable records, Study Index rows, order mappings and formula-safe tracker bookkeeping verified. Hydrocotyle older Apiaceae placement, Garrya synonym collapse, and Cordiaceae-vs-broad-Boraginaceae circumscription are explicit.",
+      "released_at": "2026-10-04T21:28:00-05:00"
     }
   ]
 }
