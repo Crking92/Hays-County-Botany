@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
   "batch_id": "scout-2026-10-03-malvaceae-test-04",
   "created_at": "2026-10-03T19:08:00-05:00",
   "source_pool": {
@@ -83,5 +83,52 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Malvaceae contact sheet and approved all displayed current candidates. Preserve diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:42:25-05:00",
+    "batch_id": "manual-deep-review-malvaceae-001",
+    "result": "READY_FOR_CURATION",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Abutilon fruticosum Guill. & Perr.",
+      "family": "Malvaceae",
+      "genus": "Abutilon",
+      "aliases": [
+        "Abutilon texense Torr. & A.Gray"
+      ],
+      "notes": "POWO and FNA accept A. fruticosum; A. texense is treated as a synonym."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Hays — UT Purola Preserve natural flora records Abutilon fruticosum.",
+        "Travis — UT Plant Resources Center Malvaceae specimen index documents Abutilon fruticosum.",
+        "Williamson — UT Vascular Plants of Williamson County provides a full A. fruticosum treatment.",
+        "POWO and FNA both include Texas in the native range."
+      ]
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Gray-green subshrub, cordate velvety leaves, plain yellow flowers, and a compact cask-shaped fruit without long divergent beaks.",
+      "key_separator": "Unlike A. theophrasti, it is a woody-based subshrub with smaller leaves and compact fruit; unlike A. incanum, it has more style branches and lacks the small dark-centered reflexed corolla."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved candidate supports habit/flower learning; fruit close-up remains the highest-value polish."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:326450-2",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250071371",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/ABFR3.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Malvaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Abutilon%20fruticosum"
+    ],
+    "next_action": "Await normal user approval before canonical curation."
   }
 }
