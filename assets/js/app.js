@@ -1060,6 +1060,21 @@ function renderResults(){
 }
 function hideResults(){ els.results.hidden=true; }
 
+function termPhotoAnnotations(photo){
+  const items=photo && Array.isArray(photo.annotations) ? photo.annotations.filter(function(a){
+    return a && Number.isFinite(Number(a.x)) && Number.isFinite(Number(a.y)) && Number.isFinite(Number(a.label_x)) && Number.isFinite(Number(a.label_y)) && a.label;
+  }) : [];
+  if(!items.length) return "";
+  const lines=items.map(function(a){
+    return '<line x1="'+Number(a.label_x)+'" y1="'+Number(a.label_y)+'" x2="'+Number(a.x)+'" y2="'+Number(a.y)+'" marker-end="url(#termArrow)"></line>'+
+      '<circle cx="'+Number(a.x)+'" cy="'+Number(a.y)+'" r="1.2"></circle>';
+  }).join("");
+  const labels=items.map(function(a){
+    return '<span class="term-annotation-label" style="left:'+Number(a.label_x)+'%;top:'+Number(a.label_y)+'%">'+esc(a.label)+'</span>';
+  }).join("");
+  return '<svg class="term-annotation-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="termArrow" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 z"></path></marker></defs>'+lines+'</svg>'+labels;
+}
+
 function openTermModal(id){
   const t=state.learning.terms[id]; if(!t) return;
   const diagram=t.visual ? '<div class="term-visual"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'"><span class="term-media-label">Labeled diagram</span></div>' :
@@ -1069,8 +1084,10 @@ function openTermModal(id){
     const src=familyExternalImageUrl(t.real_photo);
     if(src){
       const photoKind=t.real_photo.kind==="annotated" ? "Annotated real photo" : "Real example";
+      const overlay=termPhotoAnnotations(t.real_photo);
+      const badge=t.real_photo.kind==="annotated" ? (overlay?'<span class="term-photo-badge">learner labels / arrows</span>':'<span class="term-photo-badge">labels / arrows in photo</span>') : "";
       real='<figure class="term-real-photo '+(t.real_photo.kind==="annotated"?"is-annotated":"")+'"><div class="term-photo-wrap"><img src="'+esc(src)+'" alt="'+esc(t.real_photo.alt||("Real example of "+t.term))+'" loading="lazy">'+
-        (t.real_photo.kind==="annotated"?'<span class="term-photo-badge">labels / arrows in photo</span>':'')+
+        overlay+badge+
         '</div><figcaption><b>'+photoKind+'</b><span>'+esc(t.real_photo.label||t.term)+'</span>'+
         (t.real_photo.focus?'<em>'+esc(t.real_photo.focus)+'</em>':'')+
         (t.real_photo.annotation_note?'<em class="annotation-note">'+esc(t.real_photo.annotation_note)+'</em>':'')+
