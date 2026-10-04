@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-acanthaceae-test-03",
   "created_at": "2026-10-03T18:42:00-05:00",
   "source_pool": {
@@ -78,5 +78,48 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Acanthaceae contact sheet and approved all displayed current candidates. Preserve any diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:39:30-05:00",
+    "batch_id": "manual-deep-review-acanthaceae-001",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Dyschoriste linearis (Torr. & A.Gray) Kuntze",
+      "family": "Acanthaceae",
+      "genus": "Dyschoriste",
+      "notes": "Species accepted; do not use the introduced Purola Preserve plant as native Hays evidence."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Travis — UT Plant Resources Center specimen index documents Dyschoriste linearis var. linearis.",
+        "Williamson — UT Vascular Plants of Williamson County provides a full Dyschoriste linearis treatment.",
+        "Purola Preserve's Hays County record is explicitly introduced from east Travis/Williamson material and is excluded from native Hays evidence.",
+        "Bexar-area horticultural/native-plant lists support regional suitability but are not treated as exact wild county occurrence."
+      ],
+      "blocking_issue": "Need one more exact native target-zone county from an authoritative flora/specimen source."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Low rhizomatous habit, very narrow opposite leaves, and solitary axillary lavender flowers.",
+      "key_separator": "D. linearis is shorter and much narrower-leaved than Dicliptera brachiata, with solitary axillary flowers instead of paired condensed cymes."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current candidate is adequate for habit; fruit/calyx and node close-ups remain useful polish."
+    },
+    "sources": [
+      "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Dyschoriste%20linearis.html",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/IntroSpecs.html",
+      "https://w3.biosci.utexas.edu/prc/pdfs/Henrickson_Lundellia02.pdf"
+    ],
+    "next_action": "Hold for one additional exact target-zone native county."
   }
 }
