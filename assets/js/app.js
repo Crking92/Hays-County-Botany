@@ -20,6 +20,8 @@ const state = {
   browseGenus: "",
   photoIndex: {},
   glossaryQuery: "",
+  termDrillId: null,
+  termDrillRevealed: false,
   approvals: null,
   approvalRevision: null,
   approvalsWriteEnabled: false,
@@ -994,6 +996,46 @@ function termPreviewMedia(t){
   if(t && t.visual) return '<span class="glossary-card-media"><img src="'+esc(t.visual)+'" alt="Labeled diagram for '+esc(t.term)+'" loading="lazy"><b>diagram</b></span>';
   return '<span class="glossary-card-media glossary-card-media-empty" aria-hidden="true">✣</span>';
 }
+function termDrillMedia(id,revealed){
+  const t=state.learning.terms[id]; if(!t) return "";
+  const real=t.real_photo||null;
+  const src=real ? familyExternalImageUrl(real) : (t.visual||"");
+  if(!src) return '<div class="term-drill-empty">No visual available.</div>';
+  const overlay=revealed && real ? termPhotoAnnotations(real) : "";
+  const kind=real && real.media_type==="diagram" ? "diagram" : "real photo";
+  return '<figure class="term-drill-figure"><div class="term-drill-image"><img src="'+esc(src)+'" alt="'+esc((real&&real.alt)||("Visual clue for botanical term"))+'" loading="eager">'+overlay+
+    '<span class="term-drill-kind">'+esc(kind)+'</span>'+(revealed?'<span class="term-drill-revealed">labels revealed</span>':'')+'</div></figure>';
+}
+function chooseTermDrill(){
+  const ids=Object.keys(state.learning.terms||{});
+  if(!ids.length) return null;
+  let pool=ids;
+  if(state.termDrillId && ids.length>1) pool=ids.filter(function(id){ return id!==state.termDrillId; });
+  const id=pool[Math.floor(Math.random()*pool.length)];
+  state.termDrillId=id; state.termDrillRevealed=false; return id;
+}
+function renderTermDrillModal(){
+  const id=state.termDrillId || chooseTermDrill();
+  const t=id ? state.learning.terms[id] : null; if(!t) return;
+  const revealed=state.termDrillRevealed;
+  let answer="";
+  if(revealed){
+    answer='<div class="term-drill-answer"><div class="eyebrow">Answer</div><h2>'+esc(t.term)+'</h2><p class="pronunciation">rough pronunciation · '+esc(t.pronunciation||"—")+'</p>'+
+      '<div class="definition plain"><b>Plain language</b><p>'+esc(t.plain)+'</p></div>'+
+      '<div class="term-lesson"><div><b>Where do I look?</b><p>'+esc(t.where)+'</p></div><div><b>Why does it matter?</b><p>'+esc(t.why)+'</p></div></div></div>';
+  }else{
+    answer='<div class="term-drill-question"><div class="eyebrow">Visual term drill</div><h2>What structure are you looking at?</h2><p>Use the photo or diagram first. Say the botanical term before revealing the labels.</p></div>';
+  }
+  els.modal.innerHTML='<div class="modal-backdrop" data-close-modal><section class="modal-card term-drill-modal" role="dialog" aria-modal="true" aria-labelledby="termDrillTitle">'+
+    '<button class="modal-close" type="button" data-close-modal aria-label="Close">×</button><div class="term-drill-layout">'+termDrillMedia(id,revealed)+
+    '<div class="term-drill-copy" id="termDrillTitle">'+answer+'<div class="term-drill-actions">'+
+    (revealed?'<button class="secondary-button" type="button" data-term-drill-open="'+esc(id)+'">Open full lesson</button>':'<button class="primary-button" type="button" data-term-drill-reveal>Reveal answer + labels</button>')+
+    '<button class="'+(revealed?'primary-button':'secondary-button')+'" type="button" data-term-drill-next>Next visual →</button></div></div></div></section></div>';
+}
+function openTermDrill(){
+  chooseTermDrill(); renderTermDrillModal();
+}
+
 function glossaryView(){
   const q=norm(state.glossaryQuery);
   const entries=Object.entries(state.learning.terms).filter(function(pair){
@@ -1001,7 +1043,9 @@ function glossaryView(){
     const t=pair[1]; return norm([pair[0],t.term,t.plain,t.formal,(t.aliases||[]).join(" ")].join(" ")).includes(q);
   });
   let out='<section class="page-intro"><div class="eyebrow">Botanical vocabulary · '+Object.keys(state.learning.terms).length+' visual terms</div><h1>Learn the word while looking at the structure.</h1>'+
-    '<p>Real photos first, learner arrows and labels on the exact structure, and diagrams where a photo cannot show the anatomy clearly.</p><input id="glossarySearch" class="glossary-search" value="'+esc(state.glossaryQuery)+'" placeholder="Search phyllary, opposite, cupule…"></section><section class="glossary-grid">';
+    '<p>Real photos first, learner arrows and labels on the exact structure, and diagrams where a photo cannot show the anatomy clearly.</p>'+
+    '<div class="glossary-actions"><button class="primary-button" type="button" data-term-drill-start>Start visual term drill</button><span>Photo first → name it → reveal the labeled structure.</span></div>'+
+    '<input id="glossarySearch" class="glossary-search" value="'+esc(state.glossaryQuery)+'" placeholder="Search phyllary, opposite, cupule…"></section><section class="glossary-grid">';
   entries.forEach(function(pair){
     const id=pair[0], t=pair[1];
     out+='<button class="glossary-card" type="button" data-term="'+esc(id)+'">'+termPreviewMedia(t)+'<span><strong>'+esc(t.term)+'</strong>'+
@@ -1170,6 +1214,10 @@ function handleClick(e){
   if(approvalDecision){ submitApprovalDecision(approvalDecision.dataset.approvalId,approvalDecision.dataset.approvalDecision); return; }
   const diff=e.target.closest("[data-difficulty]"); if(diff){ setDifficulty(diff.dataset.difficulty); return; }
   const setDiff=e.target.closest("[data-set-difficulty]"); if(setDiff){ setDifficulty(setDiff.dataset.setDifficulty); return; }
+  if(e.target.closest("[data-term-drill-start]")){ openTermDrill(); return; }
+  if(e.target.closest("[data-term-drill-reveal]")){ state.termDrillRevealed=true; renderTermDrillModal(); return; }
+  if(e.target.closest("[data-term-drill-next]")){ chooseTermDrill(); renderTermDrillModal(); return; }
+  const drillOpen=e.target.closest("[data-term-drill-open]"); if(drillOpen){ openTermModal(drillOpen.dataset.termDrillOpen); return; }
   const term=e.target.closest("[data-term]"); if(term){ e.stopPropagation(); openTermModal(term.dataset.term); return; }
   if(e.target.closest("[data-family-compare]")){
     const a=document.getElementById("familyCompareA"), b=document.getElementById("familyCompareB");
