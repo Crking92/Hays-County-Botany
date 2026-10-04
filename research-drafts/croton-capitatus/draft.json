@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEWED_REJECT_RE_SCOUT",
   "batch_id": "scout-2026-10-03-croton-test-01",
   "created_at": "2026-10-03T17:28:00-05:00",
   "source_pool": {
@@ -89,5 +89,20 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Croton batch in chat and said they liked all displayed/current candidates. Keep current candidates; later diagnostic photo polish may add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T19:25:00-05:00",
+    "batch_id": "deep-review-croton-001",
+    "result": "REJECT/RE-SCOUT",
+    "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
+    "taxonomy": "Croton capitatus Michx. is accepted, but Central Texas evidence historically filed as C. capitatus var. lindheimeri belongs under current accepted Croton lindheimeri (Engelm. & A.Gray) Alph.Wood.",
+    "range_evidence": [
+      "Texas is native for true C. capitatus, but Williamson/Travis records encountered under C. capitatus var. lindheimeri cannot be counted for true C. capitatus.",
+      "Three exact target-zone counties for true C. capitatus were not locked in this review."
+    ],
+    "morphology": "Rebuild comparison around current C. lindheimeri taxonomy; true C. capitatus cues include long outward/recurving pistillate sepals and some blunt/mucronate leaves.",
+    "photo_audit": "Current candidates do not establish the species concept; diagnostic pistillate sepal posture, leaf tips, and mature fruit remain missing.",
+    "next_action": "Re-scout true C. capitatus under current Kew concept, explicitly excluding records identified only as C. capitatus var. lindheimeri; then re-audit exact counties and diagnostic photos.",
+    "canonical_promotion": false
   }
 }
