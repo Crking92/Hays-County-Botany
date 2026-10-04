@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T19:45:00-05:00",
+  "updated_at": "2026-10-03T20:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -187,6 +187,24 @@
       "release_when": "Euphorbiaceae family recognition upgrade and Family Study Index reconciliation are durably written, or work is explicitly aborted.",
       "notes": "Euphorbiaceae family recognition upgrade, durable research package, Family Study Index row, and 147-family visual-phase bookkeeping are written. Macro visual polish remains future work; species lanes remain independent.",
       "released_at": "2026-10-03T19:45:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-001-cyper-junc-borag-solan-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Cyperaceae",
+        "Juncaceae",
+        "Boraginaceae",
+        "Solanaceae"
+      ],
+      "scope_key": "family-recognition-batch-001",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T20:00:00-05:00",
+      "expires_at": "2026-10-04T02:00:00-05:00",
+      "release_when": "All four family modules, research packages, Family Study Index rows, and family visual index updates are durably written, or the batch is explicitly aborted.",
+      "notes": "Family/genus recognition only. Do not promote species; Schoenoplectus tabernaemontani remains in Joey reconciliation lane."
     }
   ]
 }
