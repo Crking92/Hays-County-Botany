@@ -1,0 +1,65 @@
+{
+  "id": "family-recognition-batch-001",
+  "created_at": "2026-10-03",
+  "status": "four_family_recognition_modules_written_visual_polish_pending",
+  "families": {
+    "Cyperaceae": {
+      "genera": 8,
+      "taxa": 30,
+      "priority_remaining": {
+        "p1": 0,
+        "p2": 14,
+        "p3": 15,
+        "p0": 1
+      },
+      "key_door": "minute flower under one scale → one-seeded nutlet; Carex adds the perigynium",
+      "visual_anchor": "public-domain Carex diagnostic plate"
+    },
+    "Juncaceae": {
+      "genera": 2,
+      "taxa": 4,
+      "priority_remaining": {
+        "p1": 0,
+        "p2": 1,
+        "p3": 3
+      },
+      "key_door": "6 persistent tepals → capsule with several seeds",
+      "visual_anchor": "public-domain Juncus flower close-up"
+    },
+    "Boraginaceae": {
+      "genera": 14,
+      "taxa": 24,
+      "priority_remaining": {
+        "p1": 4,
+        "p2": 7,
+        "p3": 13
+      },
+      "key_door": "broad family: fused 5-part flower, then choose classic four-nutlet / hydrophylloid capsule / heliotrope / Ehretia door",
+      "taxonomy_note": "Project follows broad POWO Boraginaceae including former Hydrophyllaceae.",
+      "visual_anchor": "CC BY scorpioid-cyme reference"
+    },
+    "Solanaceae": {
+      "genera": 7,
+      "taxa": 23,
+      "priority_remaining": {
+        "p1": 7,
+        "p2": 12,
+        "p3": 4
+      },
+      "key_door": "fused 5-part flower + superior many-ovuled ovary → many-seeded berry or capsule",
+      "visual_anchor": "CC BY-SA Solanum anther and Physalis calyx references"
+    }
+  },
+  "cross_family_lessons": [
+    "Cyperaceae vs Juncaceae vs Poaceae",
+    "Boraginaceae vs Solanaceae",
+    "Classic Boraginaceae vs hydrophylloid Boraginaceae",
+    "Solanum vs Physalis vs Chamaesaracha"
+  ],
+  "guardrails": [
+    "Family/genus recognition only; no species promotion from this batch.",
+    "Schoenoplectus tabernaemontani remains in separate Joey reconciliation.",
+    "Treat stem shape mnemonics as clues, not absolute family definitions.",
+    "Boraginaceae module follows broad current project/POWO family placement; preserve older Hydrophyllaceae/Heliotropiaceae names as historical field-guide context."
+  ]
+}
