@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T00:51:00-05:00",
+  "updated_at": "2026-10-04T00:55:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -590,6 +590,18 @@
       "release_when": "Family pages show visual vocabulary cards and family-scoped term drills, or work is explicitly aborted.",
       "notes": "UI-only bridge from existing family key_terms into the completed 147-term visual library. No family.json scientific edits. Completed and verified: all 44 learning-layer family profiles have valid visual key terms, family pages render photo/diagram vocabulary cards, family-scoped term drills work, and JS/CSS checks pass.",
       "released_at": "2026-10-04T00:51:00-05:00"
+    },
+    {
+      "claim_id": "website-term-compare-001",
+      "scope_kind": "website_ui",
+      "scope_key": "assets/js/app.js::term-comparison-drills;assets/css/styles.css::term-comparison-drills",
+      "lane": "website-ui",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T00:55:00-05:00",
+      "expires_at": "2026-10-04T06:55:00-05:00",
+      "release_when": "Commonly confused botanical term comparison UI is implemented and verified, or work is explicitly aborted.",
+      "notes": "UI-only use of existing annotated glossary visuals. No taxonomy/family/species source edits."
     }
   ]
 }
