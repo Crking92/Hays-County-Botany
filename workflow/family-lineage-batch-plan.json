@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-10-03",
+  "updated_at": "2026-10-04",
   "strategy": "Prefer same-order or close-lineage family batches; use built families as comparison anchors.",
   "rules": [
     "Do not force unrelated families together merely to reach a target batch size.",
@@ -92,6 +92,15 @@
         "Iridaceae"
       ],
       "note": "Asparagales pair complete; Asparagaceae and Orchidaceae retained as comparison anchors."
+    },
+    {
+      "batch": "family-recognition-batch-009",
+      "lineage": "Dipsacales",
+      "families": [
+        "Caprifoliaceae",
+        "Viburnaceae"
+      ],
+      "note": "Dipsacales pair complete; Valerianella→Valeriana and Sambucus duplicate reconciliation explicit."
     }
   ],
   "queued": [
@@ -194,7 +203,7 @@
         "Caprifoliaceae",
         "Viburnaceae"
       ],
-      "status": "next"
+      "status": "complete"
     }
   ]
 }
