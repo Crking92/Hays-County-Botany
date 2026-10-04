@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T20:00:00-05:00",
+  "updated_at": "2026-10-03T20:30:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -200,11 +200,12 @@
       "scope_key": "family-recognition-batch-001",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T20:00:00-05:00",
       "expires_at": "2026-10-04T02:00:00-05:00",
       "release_when": "All four family modules, research packages, Family Study Index rows, and family visual index updates are durably written, or the batch is explicitly aborted.",
-      "notes": "Family/genus recognition only. Do not promote species; Schoenoplectus tabernaemontani remains in Joey reconciliation lane."
+      "notes": "All four family modules, durable batch research package, Family Study Index rows, visual index update, and dashboard refresh are complete. Visual macro polish remains future work; species lanes remain independent.",
+      "released_at": "2026-10-03T20:30:00-05:00"
     }
   ]
 }
