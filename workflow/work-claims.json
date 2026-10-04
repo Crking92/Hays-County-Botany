@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T00:15:00-05:00",
+  "updated_at": "2026-10-04T00:22:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -557,11 +557,12 @@
       "scope_key": "assets/js/app.js::glossaryView;assets/css/styles.css::glossary-card;workflow/term-visual-queue.json",
       "lane": "website-ui",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T00:15:00-05:00",
       "expires_at": "2026-10-04T06:15:00-05:00",
       "release_when": "Glossary grid uses the new annotated real-photo library and the term visual queue is reconciled to complete, or work is explicitly aborted.",
-      "notes": "Presentation-only follow-through after 147/147 term visual completion. No family/species scientific source-of-truth edits."
+      "notes": "Presentation-only follow-through after 147/147 term visual completion. No family/species scientific source-of-truth edits. Completed and verified: glossary cards now preview the real-photo/diagram visual library, duplicate local diagrams are suppressed in modals, JS parses, CSS selectors are present, and term-visual queue is reconciled to 147/147 complete.",
+      "released_at": "2026-10-04T00:22:00-05:00"
     }
   ]
 }
