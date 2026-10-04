@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T23:09:39-05:00",
+  "updated_at": "2026-10-04T11:36:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -147,11 +147,12 @@
       ],
       "lane": "unfinished-plant-scout",
       "owner": "automation-unfinished-plant-scout",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T18:11:51-05:00",
       "expires_at": "2026-10-03T20:11:51-05:00",
       "release_when": "All seven taxa become durably represented in research-queue.json and research-drafts, or the batch is explicitly aborted.",
-      "notes": "Fifth coherent Scout batch: unfinished Euphorbiaceae comparison set from current Master Plant Pool, centered on local Acalypha and Tragia. Research-only."
+      "notes": "Fifth coherent Scout batch: unfinished Euphorbiaceae comparison set from current Master Plant Pool, centered on local Acalypha and Tragia. Research-only. Lease expired before this coordination reconciliation; released as stale on 2026-10-04. Durable queue/draft/canonical state must be checked before any future reclaim; release does not discard existing research.",
+      "released_at": "2026-10-04T11:36:00-05:00"
     },
     {
       "claim_id": "automation-deep-review-croton-001",
@@ -856,11 +857,12 @@
       ],
       "lane": "botany-deep-review-b",
       "owner": "automation-botany-deep-review-b",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T23:04:40-05:00",
       "expires_at": "2026-10-04T01:04:40-05:00",
       "release_when": "Durable deep-review results are written for all three Acalypha taxa, or the batch is explicitly aborted.",
-      "notes": "Review-only; no curation-inbox or canonical installation."
+      "notes": "Review-only; no curation-inbox or canonical installation. Lease expired before this coordination reconciliation; released as stale on 2026-10-04. Durable queue/draft/canonical state must be checked before any future reclaim; release does not discard existing research.",
+      "released_at": "2026-10-04T11:36:00-05:00"
     },
     {
       "claim_id": "automation-scout-euphorbiaceae-002",
@@ -874,11 +876,12 @@
       ],
       "lane": "unfinished-plant-scout",
       "owner": "automation-unfinished-plant-scout",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T23:09:39-05:00",
       "expires_at": "2026-10-04T01:09:39-05:00",
       "release_when": "All five taxa become durably represented in research-queue.json and research-drafts, or are explicitly skipped.",
-      "notes": "Coherent Euphorbiaceae continuation from current Master Plant Pool: Argythamnia comparison set plus Bernardia and Chinese tallow comparison candidate. Research-only."
+      "notes": "Coherent Euphorbiaceae continuation from current Master Plant Pool: Argythamnia comparison set plus Bernardia and Chinese tallow comparison candidate. Research-only. Lease expired before this coordination reconciliation; released as stale on 2026-10-04. Durable queue/draft/canonical state must be checked before any future reclaim; release does not discard existing research.",
+      "released_at": "2026-10-04T11:36:00-05:00"
     }
   ]
 }
