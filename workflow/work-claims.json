@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T15:50:00-05:00",
+  "updated_at": "2026-10-04T15:25:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1001,11 +1001,12 @@
       "scope_key": "family-recognition-batch-015-myrtales",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T15:10:00-05:00",
       "expires_at": "2026-10-04T21:10:00-05:00",
       "release_when": "Lythraceae and Myrtaceae family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and Taxonomy Progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first Myrtales batch. Use existing Onagraceae as comparison anchor. Family/genus recognition only; preserve species/range decisions in species lanes."
+      "notes": "Myrtales batch complete and reconciled alongside concurrent Lamiales/Cornales work. Lythraceae and Myrtaceae canonical modules, batch/backfill records, Family Study Index rows, Myrtales order mappings, and Taxonomy Progress bookkeeping are durable. Feijoa/Acca synonym treatment and nonlocal status are explicit; visual macro polish remains future work.",
+      "released_at": "2026-10-04T15:25:00-05:00"
     },
     {
       "claim_id": "family-batch-016-cornales-001",
