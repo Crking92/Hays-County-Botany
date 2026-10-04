@@ -136,3 +136,20 @@ For Family Backfill target selection, use this order:
 8. When all tracked families meet the adequate/module-live test, Family Backfill should report the audit backlog complete and make no unnecessary family changes. Remaining visual polish should be tracked separately.
 
 Target selection must therefore prefer a genuinely missing/inadequate family module, not the family with the largest species backlog.
+
+
+## Two-ended genus backlog strategy
+
+After the family-recognition backlog is adequate, genus-level completion should use two complementary ends of the same live Genus Study Index instead of multiple workers independently choosing the same high-value genera.
+
+- **Large-genus/manual lane:** manual project chats may work from the largest/high-complexity genera downward, especially coherent confusing groups that benefit from sustained attention.
+- **Small-genus automation lane:** the former Family Backfill automation works from the smallest eligible genera upward, prioritizing genera with 1 remaining taxon, then 2, then 3, etc.
+- Before every batch, both lanes must refresh `workflow/work-claims.json`, `data/manifest.json`, `research-queue.json`, relevant drafts/inbox artifacts, and the live Genus Study Index. Durable state or a claim always beats size ordering.
+- Skip any genus/taxon actively or durably reserved by Joey/video reconciliation, Scout, Deep Review, curation, another genus worker, or a manual chat.
+- Small-end batches should be coherent rather than random: prefer 3–5 related genera in the same family/order/close lineage, or a compact family-completion batch. Target roughly 3–8 unresolved taxa per run; smaller batches are acceptable when they close a family/genus cleanly.
+- Within the same remaining-count tier, rank Priority-1 remaining first, then local observation/source strength, then whether the batch closes a genus/family teaching set.
+- Do not promote species merely to complete a genus. Preserve PASS/FAIL/HOLD/UNRESOLVED and hand species-level work to the appropriate species lane.
+- Genus completion and visual polish are separate. A genus can be structurally/audit complete while exact photo polish remains queued.
+- The two lanes meet in the middle. Once no eligible genus remains between them, report the genus backlog exhausted rather than recycling completed work.
+
+Known collision examples at the time this rule was written: `Taxodium` and `Malvaviscus` have Joey reconciliation reservations and must be skipped by the small-genus lane until durable state releases/supersedes those reservations.
