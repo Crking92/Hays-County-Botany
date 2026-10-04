@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:36:00-05:00",
+  "updated_at": "2026-10-04T17:24:23-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1180,6 +1180,32 @@
       "release_when": "13 saved frames checked and installed with provenance or specific failures recorded.",
       "notes": "Existing species media only; private study authorized. Do not duplicate these four gallery edits. Installed 12 local JPEGs with captions and provenance; rejected 1 blurred canna fruit frame. Commit e82a9e45c8b30d2c9ba1075cba3df1b8ca8a74a0",
       "released_at": "2026-10-04T17:27:00-05:00"
+    },
+    {
+      "claim_id": "manual-genus-quercus-b116-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "quercus-alba",
+        "quercus-lyrata",
+        "quercus-michauxii",
+        "quercus-nigra",
+        "quercus-phellos",
+        "quercus-virginiana",
+        "quercus-muehlenbergii",
+        "quercus-macrocarpa",
+        "quercus-marilandica",
+        "quercus-shumardii",
+        "quercus-canbyi",
+        "quercus-polymorpha"
+      ],
+      "scope_key": "study-batch-b116-quercus-closeout-visual-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:24:23-05:00",
+      "expires_at": "2026-10-04T23:24:23-05:00",
+      "release_when": "B116 Quercus scientific source-concept reconciliation and opportunistic visual lock are durably recorded in GitHub/Study Batches, or the batch is explicitly aborted.",
+      "notes": "Continuation lane after B115. Preserve existing canonical taxonomy/range decisions. Reuse existing Joey/video/archive media first; do not re-research settled B011/B065/B077 decisions. Focus remaining source concepts plus zero-image canonical oak pages without duplicating photo-recovery claims."
     }
   ]
 }
