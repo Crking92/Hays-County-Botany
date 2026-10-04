@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-malvaceae-test-04",
   "created_at": "2026-10-03T19:08:00-05:00",
   "source_pool": {
@@ -80,5 +80,47 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Malvaceae contact sheet and approved all displayed current candidates. Preserve diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:45:57-05:00",
+    "batch_id": "manual-deep-review-malvaceae-002",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Sida spinosa L.",
+      "family": "Malvaceae",
+      "genus": "Sida",
+      "notes": "Current POWO and Flora of North America accept Sida spinosa and include Texas in its native North American range."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Travis — UT Plant Resources Center Malvaceae specimen index documents Sida spinosa.",
+        "Williamson — UT Vascular Plants of Williamson County documents Sida spinosa.",
+        "Current authoritative species-level sources support Texas nativity, but a third exact project target-zone county was not locked in this pass."
+      ],
+      "blocking_issue": "Need one more exact target-zone county from an authoritative county flora or voucher source before PASS."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Inspect the stem immediately below the petiole for the small spinelike tubercle, then confirm an erect plant with toothed leaves and small yellow axillary flowers.",
+      "key_separator": "S. spinosa is erect and often has the petiole-base tubercle; S. abutilifolia is procumbent and mat-forming."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved candidate highlights the petiole-base region/fruit; a whole-habit comparison with S. abutilifolia remains useful polish."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235838-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242348923",
+      "https://w3.biosci.utexas.edu/prc/specimens/Malvaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/"
+    ],
+    "next_action": "Hold for one additional exact target-zone county."
   }
 }
