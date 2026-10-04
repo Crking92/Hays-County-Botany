@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
   "batch_id": "scout-2026-10-03-acanthaceae-test-03",
   "created_at": "2026-10-03T18:42:00-05:00",
   "source_pool": {
@@ -81,5 +81,51 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Acanthaceae contact sheet and approved all displayed current candidates. Preserve any diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:39:30-05:00",
+    "batch_id": "manual-deep-review-acanthaceae-001",
+    "result": "READY_FOR_CURATION",
+    "taxonomy": {
+      "decision": "VERIFIED_RECONCILIATION",
+      "accepted_name": "Dianthera americana L.",
+      "family": "Acanthaceae",
+      "genus": "Dianthera",
+      "aliases": [
+        "Justicia americana (L.) Vahl"
+      ],
+      "notes": "Current POWO accepts Dianthera americana; Texas and many U.S. field sources still commonly use Justicia americana. Preserve Justicia americana as a prominent alias/search term."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Hays — UT Purola Preserve natural flora records Justicia americana.",
+        "Travis — UT Plant Resources Center Travis County Acanthaceae index documents Justicia americana.",
+        "Williamson — UT Vascular Plants of Williamson County includes Justicia americana.",
+        "POWO confirms Texas is within the native range of accepted Dianthera americana."
+      ]
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Aquatic/riparian colony-forming habit, long narrow opposite leaves, and peduncled axillary flower spikes.",
+      "key_separator": "Distinct from Justicia pilosella by its tall glabrous rhizomatous water-edge habit and much longer narrow leaves."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved candidate is sufficient; a stronger node/fruit image would improve the learner later."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/78915-2",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/Other_Families.html"
+    ],
+    "next_action": "Await normal user approval before canonical curation under Dianthera americana, retaining Justicia americana alias."
   }
 }
