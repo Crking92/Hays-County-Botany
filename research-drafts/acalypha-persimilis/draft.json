@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_NEEDS_MANUAL_REVIEW",
   "batch_id": "scout-2026-10-03-euphorbiaceae-05",
   "created_at": "2026-10-03T18:11:51-05:00",
   "source_pool": {
@@ -97,5 +97,63 @@
   },
   "notes": [
     "Photo perfection is nonblocking. Current photo entries are source candidates; exact diagnostic image selection/license confirmation remains a later photo-polish task."
-  ]
+  ],
+  "deep_review": {
+    "reviewer": "automation-botany-deep-review-b",
+    "reviewed_at": "2026-10-03T23:18:00-05:00",
+    "result": "NEEDS MANUAL REVIEW",
+    "taxonomy": {
+      "accepted_name": "Acalypha persimilis Müll.Arg.",
+      "status": "CURRENTLY_ACCEPTED_WITH_NOMENCLATURAL_CONFLICT",
+      "evidence": [
+        "Kew POWO/WCVP 2026 accepts Acalypha persimilis Müll.Arg. and treats A. ostryifolia Riddell ex J.M.Coult. as a heterotypic synonym.",
+        "A 2025 TAXON proposal seeks conservation of Acalypha ostryifolia against A. persimilis; nomenclatural outcome could change the preferred name."
+      ],
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:337688-1",
+        "https://onlinelibrary.wiley.com/doi/10.1002/tax.13337"
+      ]
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Uvalde"
+      ],
+      "evidence_basis": "A Texas A&M floristic record from Uvalde County is filed under Acalypha ostryaefolia/ostryifolia, which current Kew places under A. persimilis. Texas nativity is secure at state level, but three exact target-zone native counties were not independently locked in this pass.",
+      "guardrail": "Do not infer county nativity from statewide or ecoregion occurrence."
+    },
+    "morphology": {
+      "look_here_first": "Annual Acalypha; confirm the reproductive architecture and pistillate bracts rather than relying on leaf shape alone.",
+      "diagnostic_traits": [
+        "annual herb",
+        "alternate ovate serrate leaves, commonly 3–5-nerved from the base",
+        "monoecious reproductive system",
+        "small apetalous flowers in spikes",
+        "3-lobed capsule"
+      ],
+      "conflict": "Scout wording about separated axillary staminate versus terminal pistillate spikes should be checked against a modern North American key before learner-facing use."
+    },
+    "look_alikes": [
+      "Acalypha phleoides — perennial with terminal bisexual spikes and conspicuous red multifid styles.",
+      "Acalypha radians — perennial, much more deeply divided foliage, often sexually separated plants.",
+      "Other Acalypha formerly keyed as A. ostryifolia — nomenclatural synonymy makes old field guides potentially confusing."
+    ],
+    "photo_review": {
+      "status": "INSUFFICIENT_FOR_DIAGNOSTIC_LOCK",
+      "finding": "Current candidates are generic POWO/iNaturalist search pages, not selected images proven to show the diagnostic pistillate bracts, staminate portion, capsule, and whole habit.",
+      "next_action": "Select rights-cleared images that visibly show reproductive spikes/bracts plus habit; label older A. ostryifolia imagery as synonym material."
+    },
+    "conflicts": [
+      "Current accepted-name usage conflicts with long-standing North American use of A. ostryifolia and a pending 2025 conservation proposal.",
+      "Exact target-zone county threshold not met."
+    ],
+    "missing_pieces": [
+      "Outcome/status of the A. ostryifolia conservation proposal.",
+      "Two additional exact target-zone native counties.",
+      "Modern-key confirmation of spike/bract characters.",
+      "Diagnostic photo selection."
+    ],
+    "next_action": "Keep out of curation until nomenclature and exact target-zone range are reconciled; then re-key against phleoides/radians."
+  }
 }
