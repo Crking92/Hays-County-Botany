@@ -5357,9 +5357,9 @@
       "common_name": "David's spurge",
       "family": "Euphorbiaceae",
       "genus": "Euphorbia",
-      "status": "scouted_pending_deep_review",
-      "priority": 2,
-      "batch_id": "scout-2026-10-03-euphorbia-test-02",
+      "status": "needs_manual_review",
+      "priority": 0,
+      "batch_id": "manual-deep-review-euphorbia-test-001",
       "research_goals": [
         "accepted_taxonomy",
         "strict_target_zone_range",
@@ -5372,8 +5372,12 @@
         "row": 442
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
-      "approval_status": null,
-      "notes": "Second live high-throughput Scout test. Research-only draft created; no final range decision. Preserve range conflicts/comparison roles for Deep Review."
+      "approval_status": "hold_native_status_conflict",
+      "notes": "Manual Deep Review HOLD — taxonomy and E. dentata separation verified, but POWO treats Texas as introduced while FNA describes the southern Great Plains/Texas occurrence as native. Do not force native PASS.",
+      "native_range_status": "CONFLICT",
+      "canonical_status": "not_installed_source_conflict",
+      "queue_group": "Manual Euphorbia Deep Review Test",
+      "last_deep_reviewed_at": "2026-10-03T20:33:03-05:00"
     },
     {
       "id": "euphorbia-dentata",
