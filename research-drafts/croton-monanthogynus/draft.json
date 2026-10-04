@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
   "batch_id": "scout-2026-10-03-croton-test-01",
   "created_at": "2026-10-03T17:28:00-05:00",
   "source_pool": {
@@ -92,19 +92,48 @@
     "note": "User reviewed the Croton batch in chat and said they liked all displayed/current candidates. Keep current candidates; later diagnostic photo polish may add stronger structure-specific images."
   },
   "deep_review": {
-    "reviewed_at": "2026-10-03T18:33:06-05:00",
-    "batch_id": "deep-review-croton-001",
-    "result": "NEEDS MANUAL REVIEW",
+    "reviewed_at": "2026-10-03T20:48:54-05:00",
+    "batch_id": "manual-deep-review-croton-002",
+    "result": "READY_FOR_CURATION",
     "native_range_status": "PASS",
-    "taxonomy": "Accepted Croton monanthogynus Michx.; genus placement confirmed.",
-    "range_evidence": [
-      "Hays: UT Hays flora",
-      "Travis: UT herbarium index",
-      "Williamson: NPSOT Williamson County Garey Park list marks native annual"
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Croton monanthogynus Michx.",
+      "family": "Euphorbiaceae",
+      "genus": "Croton",
+      "notes": "Flora of North America recognizes C. monanthogynus as an accepted species; Texas is within its native range."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Hays — UT Purola Preserve natural flora records Croton monanthogynus.",
+        "Travis — UT Plant Resources Center herbarium index documents Croton monanthogynus.",
+        "Williamson — UT Vascular Plants of Williamson County includes a dedicated Croton monanthogynus treatment."
+      ],
+      "guardrail": "Exact county evidence only."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Dark-centered stellate hairs create a brown-dotted underside; two deeply bifid styles yield four terminal branches, and the fruit is effectively one-seeded.",
+      "key_separator": "C. lindheimerianus lacks the brown-dot hairs and has three styles/six terminal segments plus a normal three-locular fruit."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current user-approved habit images are adequate for learning; macros of abaxial hairs, four style branches and one-seeded fruit remain high-value later additions but are nonblocking."
+    },
+    "sources": [
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416383",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/CRMO6.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/search.php"
     ],
-    "morphology": "Prioritize dark-centered stellate hairs producing a brown-dotted abaxial appearance, two bifid styles/four terminal branches, one fertile ovary locule, and one-seeded capsule; separates from C. lindheimerianus and C. texensis.",
-    "photo_audit": "Current candidates mainly show whole-plant habit; they do not adequately show abaxial hairs, four style branches, or one-seeded fruit.",
-    "next_action": "Add macro images of abaxial hairs, styles, and mature one-seeded fruit before curation approval.",
+    "next_action": "Await normal user approval before canonical curation.",
     "canonical_promotion": false
   }
 }
