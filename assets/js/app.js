@@ -1083,7 +1083,8 @@ function openTermModal(id){
   if(t.real_photo){
     const src=familyExternalImageUrl(t.real_photo);
     if(src){
-      const photoKind=t.real_photo.kind==="annotated" ? "Annotated real photo" : "Real example";
+      const mediaType=t.real_photo.media_type||"photo";
+      const photoKind=mediaType==="diagram" ? (t.real_photo.kind==="annotated" ? "Annotated diagram" : "Diagram") : (t.real_photo.kind==="annotated" ? "Annotated real photo" : "Real example");
       const overlay=termPhotoAnnotations(t.real_photo);
       const badge=t.real_photo.kind==="annotated" ? (overlay?'<span class="term-photo-badge">learner labels / arrows</span>':'<span class="term-photo-badge">labels / arrows in photo</span>') : "";
       real='<figure class="term-real-photo '+(t.real_photo.kind==="annotated"?"is-annotated":"")+'"><div class="term-photo-wrap"><img src="'+esc(src)+'" alt="'+esc(t.real_photo.alt||("Real example of "+t.term))+'" loading="lazy">'+
