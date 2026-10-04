@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-euphorbia-test-02",
   "created_at": "2026-10-03T17:56:00-05:00",
   "source_pool": {
@@ -94,5 +94,46 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Euphorbia contact sheet and approved all displayed current candidates. Preserve any existing diagnostic-photo-gap notes so later photo polish can still add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:33:03-05:00",
+    "batch_id": "manual-deep-review-euphorbia-test-001",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Euphorbia bicolor Engelm. & A.Gray",
+      "family": "Euphorbiaceae",
+      "genus": "Euphorbia",
+      "notes": "Flora of North America recognizes E. bicolor as an accepted species."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "evidence_basis": [
+        "Hays — UT Purola Preserve flora explicitly lists Euphorbia bicolor in north Hays County.",
+        "Travis — UT Plant Resources Center Travis County specimen index documents multiple Euphorbia bicolor specimens.",
+        "Flora of North America documents the species as native in Texas, but a third exact project target-zone county was not independently locked in this pass."
+      ],
+      "blocking_issue": "Need one more exact target-zone county from an authoritative county/specimen source before PASS."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Narrow white-margined upper bracts plus conspicuous hairiness across the plant.",
+      "key_separator": "E. bicolor differs from E. marginata by linear to narrowly oblanceolate bracts and hairs on essentially all plant parts."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved study candidates are adequate for learning; rights/structure-specific macro polish remains nonblocking."
+    },
+    "sources": [
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101532",
+      "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/EUBI2.html",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html"
+    ],
+    "next_action": "Hold for one additional exact target-zone county."
   }
 }
