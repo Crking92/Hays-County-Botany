@@ -261,7 +261,7 @@
       "id": "arbutus-xalapensis",
       "path": "content/taxa/Ericaceae/Arbutus/arbutus-xalapensis/species.json",
       "scientific_name": "Arbutus xalapensis",
-      "status": "existing_joey_material_needs_reconciliation",
+      "status": "partial_existing_reference_recovered",
       "csv": {
         "id": "arbutus-xalapensis",
         "exists": false,
@@ -347,7 +347,8 @@
           "timestamp": "00:13:21.0"
         }
       ],
-      "next_action": "Check remaining existing-source artifacts and asset rights before collecting or publishing new imagery."
+      "next_action": "Check remaining existing-source artifacts and asset rights before collecting or publishing new imagery.",
+      "recovered_at": "2026-10-04"
     },
     {
       "id": "argemone-albiflora",
@@ -463,14 +464,15 @@
       "id": "aristolochia-serpentaria",
       "path": "content/taxa/Aristolochiaceae/Aristolochia/aristolochia-serpentaria/species.json",
       "scientific_name": "Aristolochia serpentaria",
-      "status": "other_existing_sources_check_required",
+      "status": "partial_existing_reference_recovered",
       "csv": {
         "id": "aristolochia-serpentaria",
         "exists": false,
         "lines": 0
       },
       "joey_records": [],
-      "next_action": "Check remaining existing-source artifacts and asset rights before collecting or publishing new imagery."
+      "next_action": "Check remaining existing-source artifacts and asset rights before collecting or publishing new imagery.",
+      "recovered_at": "2026-10-04"
     },
     {
       "id": "asclepias-viridiflora",
@@ -3769,6 +3771,23 @@
       },
       "joey_records": [],
       "next_action": "Check remaining existing-source artifacts and asset rights before collecting or publishing new imagery."
+    }
+  ],
+  "recovery_runs": [
+    {
+      "run_id": "existing-family-reference-001",
+      "date": "2026-10-04",
+      "installed_image_references": [
+        "arbutus-xalapensis",
+        "aristolochia-serpentaria"
+      ],
+      "verification": "Both image URLs downloaded as JPEG and visually inspected. Both species images arrays wired using already-supported external URLs; metadata and provenance committed. Cloudflare deployment not verified.",
+      "local_binaries_installed": false,
+      "remaining_macros": "Explicitly retained in species diagnostic_image_needs",
+      "held": {
+        "aristolochia-erecta": "Exact Joey source URLs exist but blog-specific public reuse not established by current records. Preserve recovery pointers; do not publish private-study frames.",
+        "mimosa-texana": "Archived Puebla photo requires taxon/geographic identity confirmation before species promotion."
+      }
     }
   ]
 }
