@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T02:30:00-05:00",
+  "updated_at": "2026-10-04T02:55:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -703,11 +703,12 @@
       "scope_key": "family-recognition-batch-011-ericales",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T02:30:00-05:00",
       "expires_at": "2026-10-04T08:30:00-05:00",
       "release_when": "All five Ericales family modules, batch record, Family Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
-      "notes": "Lineage-first family/genus recognition only. Use Ericaceae and Sapotaceae as comparison anchors. Reconcile Samolus valerandi subsp. parviflorus into accepted Samolus parviflorus. Preserve species promotion and strict range judgments in species lanes."
+      "notes": "Polemoniaceae, Primulaceae, Styracaceae, Symplocaceae, and Fouquieriaceae family modules, Family Study Index rows, Family Order Map entries, durable batch/index records, lineage plan, visual index, and Taxonomy Progress bookkeeping are complete. Samolus duplicate reconciliation and Halesia-vs-Styrax five-character split are explicit; macro visual polish remains future work.",
+      "released_at": "2026-10-04T02:55:00-05:00"
     },
     {
       "claim_id": "manual-deep-review-acanthaceae-001",
