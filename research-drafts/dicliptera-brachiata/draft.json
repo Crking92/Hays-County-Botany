@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_RANGE_HOLD",
   "batch_id": "scout-2026-10-03-acanthaceae-test-03",
   "created_at": "2026-10-03T18:42:00-05:00",
   "source_pool": {
@@ -79,5 +79,47 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Acanthaceae contact sheet and approved all displayed current candidates. Preserve any diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:39:30-05:00",
+    "batch_id": "manual-deep-review-acanthaceae-002",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Dicliptera brachiata Spreng.",
+      "family": "Acanthaceae",
+      "genus": "Dicliptera",
+      "notes": "Current POWO accepts D. brachiata; historical var. glandulosa is synonymized into the species."
+    },
+    "target_zone_range": {
+      "decision": "UNRESOLVED",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Williamson"
+      ],
+      "evidence_basis": [
+        "Travis — UT Plant Resources Center specimen index documents Dicliptera brachiata.",
+        "Williamson — UT Vascular Plants of Williamson County documents Dicliptera brachiata.",
+        "POWO confirms Texas within the native range.",
+        "No third exact target-zone county was independently locked in this pass."
+      ],
+      "blocking_issue": "Need one more exact target-zone county from an authoritative flora/specimen source."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Conspicuously ridged stems, broader opposite leaves, and paired axillary condensed cymes with broad bracts.",
+      "key_separator": "Taller and broader-leaved than Dyschoriste linearis; paired bracted cymes rather than solitary axillary flowers."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved candidate shows paired bracted clusters well; fruit and node close-up remain useful polish."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79689-2",
+      "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Dicliptera%20brachiata"
+    ],
+    "next_action": "Hold for one additional exact target-zone county."
   }
 }
