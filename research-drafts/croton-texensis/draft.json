@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_APPROVAL",
   "batch_id": "scout-2026-10-03-croton-test-01",
   "created_at": "2026-10-03T17:28:00-05:00",
   "source_pool": {
@@ -92,5 +92,51 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Croton batch in chat and said they liked all displayed/current candidates. Keep current candidates; later diagnostic photo polish may add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:48:54-05:00",
+    "batch_id": "manual-deep-review-croton-002",
+    "result": "READY_FOR_CURATION",
+    "native_range_status": "PASS",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Croton texensis (Klotzsch) Müll.Arg.",
+      "family": "Euphorbiaceae",
+      "genus": "Croton",
+      "notes": "POWO and Flora of North America accept C. texensis; Texas is within the native range."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "threshold": 3,
+      "documented_counties": [
+        "Travis",
+        "Williamson",
+        "Kerr"
+      ],
+      "evidence_basis": [
+        "Travis — UT Plant Resources Center herbarium index documents Croton texensis.",
+        "Williamson — UT Vascular Plants of Williamson County includes Croton texensis.",
+        "Kerr — Texas Parks & Wildlife's Kerr Wildlife Management Area vegetation checklist records Croton texensis."
+      ],
+      "guardrail": "Exact county evidence only."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Separate male and female plants, narrow leaves, unisexual inflorescences, and a distinctly verrucose/warty capsule.",
+      "key_separator": "C. texensis is strictly dioecious; C. monanthogynus and C. lindheimerianus are monoecious. Its fruit is warty and styles are much more highly divided."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current user-approved candidates are adequate for study; separate male/female habit and a stronger warty-fruit macro remain valuable later additions but are nonblocking."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197425-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416384",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://w3.biosci.utexas.edu/prc/K12/search.php",
+      "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_bk_w7000_0002a.pdf"
+    ],
+    "next_action": "Await normal user approval before canonical curation.",
+    "canonical_promotion": false
   }
 }
