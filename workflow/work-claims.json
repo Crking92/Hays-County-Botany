@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T15:25:00-05:00",
+  "updated_at": "2026-10-04T16:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1025,6 +1025,24 @@
       "release_when": "All three Cornales family modules, batch record, Family Study Index rows, Family Order Map entries, and progress bookkeeping are durable, or the batch is explicitly aborted.",
       "notes": "All three Cornales modules, Family Study Index rows, order mappings, batch/index records, visual index, and lineage plan are durable. Visual polish remains future work.",
       "released_at": "2026-10-04T15:50:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-017-saxifragales-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Crassulaceae",
+        "Haloragaceae",
+        "Altingiaceae",
+        "Grossulariaceae"
+      ],
+      "scope_key": "family-recognition-batch-017-saxifragales",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T16:00:00-05:00",
+      "expires_at": "2026-10-04T22:00:00-05:00",
+      "release_when": "All four Saxifragales family modules, batch record, Family Study Index rows, Family Order Map entries, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Lineage-first family/genus recognition only. Preserve Sedum nuttallianum as synonym provenance for accepted Sedum nuttallii; keep Myriophyllum aquaticum as introduced Texas comparison."
     }
   ]
 }
