@@ -151,10 +151,24 @@ After the family-recognition backlog is adequate, genus-level completion should 
 - Small-end batches should be coherent rather than random: prefer 3–5 related genera in the same family/order/close lineage, or a compact family-completion batch. Target roughly 3–8 unresolved taxa per run; smaller batches are acceptable when they close a family/genus cleanly.
 - Within the same remaining-count tier, rank Priority-1 remaining first, then local observation/source strength, then whether the batch closes a genus/family teaching set.
 - Do not promote species merely to complete a genus. Preserve PASS/FAIL/HOLD/UNRESOLVED and hand species-level work to the appropriate species lane.
-- Genus completion and visual polish are separate. A genus can be structurally/audit complete while exact photo polish remains queued.
+- Scientific/genus audit completion and visual readiness remain separate status fields, but new genus batches must perform both in the same workflow whenever feasible. Do not label a new genus learner batch visual-complete if its species pages lack displayable images[]. Older canonicals may stay scientifically complete while entering the photo-recovery backlog.
 - The two lanes meet in the middle. Once no eligible genus remains between them, report the genus backlog exhausted rather than recycling completed work.
 
 Known collision examples at the time this rule was written: `Taxodium` and `Malvaviscus` have Joey reconciliation reservations and must be skipped by the small-genus lane until durable state releases/supersedes those reservations.
+
+## Shared visual-priority rule — 2026-10-04
+
+Every lane contributes to a visual learner. Before handing work downstream, preserve or gather the best available real-photo evidence for the diagnostic characters that lane has identified.
+
+- Scout: capture photo leads, exact source pages/IDs, and diagnostic roles alongside research.
+- Deep Review: verify that proposed images actually show the diagnostic structures and flag missing roles.
+- Species/genus curation: install/wire displayable images[] and provenance; new text-only pages are visual-incomplete.
+- Family Backfill: include real-photo anchors or explicit visual needs for recognition lessons; scientific audit status may remain separate from visual-ready status.
+- Joey/video reconciliation: preserve exact timestamp/frame roles and taxon confidence as visual assets.
+- Website/UI: render the canonical images[] and surface visual-incomplete status rather than hiding missing media.
+- Photo Recovery: repair older canonical pages that predate the visual gate without unnecessarily reopening settled taxonomy/range decisions.
+
+Real photos, local material, diagnostic closeups, arrows/labels, and side-by-side confuser comparisons are preferred in that order when they improve identification learning.
 
 ## Audit checkpoint — 2026-10-04
 
