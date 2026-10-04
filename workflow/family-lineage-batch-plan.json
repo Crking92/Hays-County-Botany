@@ -1,0 +1,126 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-10-03",
+  "strategy": "Prefer same-order or close-lineage family batches; use built families as comparison anchors.",
+  "rules": [
+    "Do not force unrelated families together merely to reach a target batch size.",
+    "Teach shared lineage architecture first, then family-level divergence.",
+    "Every new family module should name its order/lineage and at least one close-family tie-breaker.",
+    "Keep species promotion in species workflows."
+  ],
+  "completed": [
+    {
+      "batch": "family-recognition-batch-001",
+      "families": [
+        "Cyperaceae",
+        "Juncaceae",
+        "Boraginaceae",
+        "Solanaceae"
+      ],
+      "note": "Transitional batch created before lineage-first rule; Poales pair and lamiid comparison pair."
+    }
+  ],
+  "queued": [
+    {
+      "batch": "family-recognition-batch-002",
+      "lineage": "Caryophyllales",
+      "families": [
+        "Amaranthaceae",
+        "Polygonaceae",
+        "Nyctaginaceae",
+        "Caryophyllaceae"
+      ],
+      "status": "next"
+    },
+    {
+      "batch": "family-recognition-batch-003",
+      "lineage": "Caryophyllales",
+      "families": [
+        "Portulacaceae",
+        "Talinaceae",
+        "Phytolaccaceae",
+        "Petiveriaceae",
+        "Plumbaginaceae",
+        "Tamaricaceae"
+      ],
+      "status": "planned_if_present"
+    },
+    {
+      "batch": "family-recognition-batch-004",
+      "lineage": "Brassicales",
+      "families": [
+        "Brassicaceae",
+        "Cleomaceae"
+      ],
+      "status": "planned"
+    },
+    {
+      "batch": "family-recognition-batch-005",
+      "lineage": "Gentianales",
+      "families": [
+        "Gentianaceae",
+        "Loganiaceae",
+        "Gelsemiaceae"
+      ],
+      "anchor_families": [
+        "Apocynaceae",
+        "Rubiaceae"
+      ],
+      "status": "planned"
+    },
+    {
+      "batch": "family-recognition-batch-006",
+      "lineage": "Rosales",
+      "families": [
+        "Rhamnaceae",
+        "Moraceae",
+        "Urticaceae"
+      ],
+      "anchor_families": [
+        "Rosaceae",
+        "Ulmaceae",
+        "Cannabaceae"
+      ],
+      "status": "planned"
+    },
+    {
+      "batch": "family-recognition-batch-007",
+      "lineage": "Malpighiales",
+      "families": [
+        "Linaceae",
+        "Salicaceae",
+        "Violaceae",
+        "Hypericaceae",
+        "Phyllanthaceae"
+      ],
+      "anchor_families": [
+        "Euphorbiaceae",
+        "Malpighiaceae",
+        "Passifloraceae"
+      ],
+      "status": "planned"
+    },
+    {
+      "batch": "family-recognition-batch-008",
+      "lineage": "Asparagales",
+      "families": [
+        "Amaryllidaceae",
+        "Iridaceae"
+      ],
+      "anchor_families": [
+        "Asparagaceae",
+        "Orchidaceae"
+      ],
+      "status": "planned"
+    },
+    {
+      "batch": "family-recognition-batch-009",
+      "lineage": "Dipsacales",
+      "families": [
+        "Caprifoliaceae",
+        "Viburnaceae"
+      ],
+      "status": "planned"
+    }
+  ]
+}
