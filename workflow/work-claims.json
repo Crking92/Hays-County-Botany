@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T20:30:00-05:00",
+  "updated_at": "2026-10-03T19:21:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -206,6 +206,18 @@
       "release_when": "All four family modules, research packages, Family Study Index rows, and family visual index updates are durably written, or the batch is explicitly aborted.",
       "notes": "All four family modules, durable batch research package, Family Study Index rows, visual index update, and dashboard refresh are complete. Visual macro polish remains future work; species lanes remain independent.",
       "released_at": "2026-10-03T20:30:00-05:00"
+    },
+    {
+      "claim_id": "website-glossary-calyx-sepal-001",
+      "scope_kind": "website_glossary",
+      "scope_key": "data/learning-layer.json::terms.calyx+terms.sepal;assets/js/app.js::term-annotations;assets/css/styles.css::term-annotations",
+      "lane": "website-ui",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T19:21:00-05:00",
+      "expires_at": "2026-10-04T01:21:00-05:00",
+      "release_when": "Calyx/sepal annotated learner overlay is durably written and verified, or work is explicitly aborted.",
+      "notes": "Website/UI glossary polish only. Do not edit family modules, species JSON, research queue, or family/source-of-truth lanes."
     }
   ]
 }
