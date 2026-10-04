@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated_at": "2026-10-03",
+  "updated_at": "2026-10-04",
   "strategy": "Prefer same-order or close-lineage family batches; use built families as comparison anchors.",
   "rules": [
     "Do not force unrelated families together merely to reach a target batch size.",
@@ -141,6 +141,15 @@
         "Typhaceae"
       ],
       "note": "Poales residual batch complete; Poaceae, Cyperaceae, and Juncaceae retained as comparison anchors."
+    },
+    {
+      "batch": "family-recognition-batch-014",
+      "lineage": "Zingiberales",
+      "families": [
+        "Cannaceae",
+        "Marantaceae"
+      ],
+      "note": "Zingiberales pair complete; one-stamen families split by floral trigger/style and ovule/seed architecture."
     }
   ],
   "queued": [
@@ -309,7 +318,7 @@
         "Cannaceae",
         "Marantaceae"
       ],
-      "status": "next"
+      "status": "complete"
     }
   ]
 }
