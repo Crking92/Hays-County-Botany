@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T19:21:00-05:00",
+  "updated_at": "2026-10-03T19:29:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -213,11 +213,12 @@
       "scope_key": "data/learning-layer.json::terms.calyx+terms.sepal;assets/js/app.js::term-annotations;assets/css/styles.css::term-annotations",
       "lane": "website-ui",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T19:21:00-05:00",
       "expires_at": "2026-10-04T01:21:00-05:00",
       "release_when": "Calyx/sepal annotated learner overlay is durably written and verified, or work is explicitly aborted.",
-      "notes": "Website/UI glossary polish only. Do not edit family modules, species JSON, research queue, or family/source-of-truth lanes."
+      "notes": "Completed: calyx and sepal now use one rights-cleared Jasminum sambac real photo with learner-generated arrow/label overlays. Replaced the old Zinnia sepal example, which could confuse Asteraceae phyllaries with true sepals. JS syntax verified. No family/species/queue files changed.",
+      "released_at": "2026-10-03T19:29:00-05:00"
     }
   ]
 }
