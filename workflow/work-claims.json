@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T19:15:00-05:00",
+  "updated_at": "2026-10-03T19:45:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -181,11 +181,12 @@
       "scope_key": "content/taxa/Euphorbiaceae/family.json",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-03T19:15:00-05:00",
       "expires_at": "2026-10-04T01:15:00-05:00",
       "release_when": "Euphorbiaceae family recognition upgrade and Family Study Index reconciliation are durably written, or work is explicitly aborted.",
-      "notes": "Family-level recognition only. Do not promote/overwrite concurrent Euphorbia, Croton, Acalypha, or Tragia species research/review."
+      "notes": "Euphorbiaceae family recognition upgrade, durable research package, Family Study Index row, and 147-family visual-phase bookkeeping are written. Macro visual polish remains future work; species lanes remain independent.",
+      "released_at": "2026-10-03T19:45:00-05:00"
     }
   ]
 }
