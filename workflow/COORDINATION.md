@@ -202,3 +202,16 @@ Reuse exact existing images first; gather new material only for the diagnostic r
 ### Saved-frame recovery and privacy confirmation — 2026-10-04
 
 Calvin confirms the learner is private. Proceed with authorized private-study media installation while retaining original credits and public-reuse restrictions. Do not repeatedly block this work on hosting confirmation. All 338 expected frames from 15 indexed videos were located by exact filename in persistent storage, with nonzero file sizes; see `workflow/saved-video-frame-locations-2026-10-04.json` for exact file IDs and paths. Reuse these saved images before any re-extraction. The routing index now handles file_name/filename/asset and taxon/source_taxon/taxon_or_group schema differences: 125 records match 65 installed species. Counts do not establish visual verification or installation; full binary decoding remains part of installation.
+
+
+## Joey Santore visual-source priority — 2026-10-04
+
+For Calvin's private visual learner, Joey Santore video frames/screenshots are a preferred authoritative field-teaching source whenever the saved frame clearly shows the diagnostic structure, habit, comparison, or reproductive feature being taught.
+
+- Before gathering a new external image for a family/genus/species visual role, check the saved Joey routing/index files for an applicable existing frame.
+- Prefer an applicable Joey frame over a generic external photo when it shows the needed character more clearly.
+- Preserve exact video/source credit, timestamp/frame provenance, filename/file ID, and private-study/public-reuse status.
+- Joey's identification/context is high-value authoritative field evidence, but it does not bypass current taxonomy, accepted-name, provenance, or target-zone range verification.
+- A Joey frame from a related already-built family may be used as a comparison anchor for a new family lesson when that improves lineage learning.
+- Do not re-extract a frame that already exists in `workflow/saved-video-frame-locations-2026-10-04.json`; reuse the saved binary.
+- Public release remains a separate rights/licensing decision; this priority rule applies to Calvin's private-study learner.
