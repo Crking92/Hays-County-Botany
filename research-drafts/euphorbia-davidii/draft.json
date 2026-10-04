@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_SOURCE_CONFLICT_HOLD",
   "batch_id": "scout-2026-10-03-euphorbia-test-02",
   "created_at": "2026-10-03T18:05:00-05:00",
   "source_pool": {
@@ -95,5 +95,43 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Euphorbia contact sheet and approved all displayed current candidates. Preserve any existing diagnostic-photo-gap notes so later photo polish can still add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:33:03-05:00",
+    "batch_id": "manual-deep-review-euphorbia-test-001",
+    "result": "NEEDS_MANUAL_REVIEW",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Euphorbia davidii Subils",
+      "family": "Euphorbiaceae",
+      "genus": "Euphorbia",
+      "notes": "POWO and Flora of North America both accept E. davidii as a species."
+    },
+    "target_zone_range": {
+      "decision": "SOURCE_CONFLICT",
+      "threshold": 3,
+      "documented_counties": [],
+      "evidence_basis": [
+        "POWO currently treats Texas as introduced for E. davidii.",
+        "Flora of North America includes Texas in the species distribution and states that E. davidii is native from the southwestern United States/northern Mexico through the southern Great Plains, while adventive elsewhere.",
+        "Because the two top-level authorities conflict on Texas native status, county presence alone cannot resolve project-native status."
+      ],
+      "blocking_issue": "Resolve the POWO-vs-FNA native-status conflict before any PASS/native-metrics treatment."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Use mature seed/capsule and leaf-hair texture against E. dentata.",
+      "key_separator": "E. davidii has larger capsules/seeds, angular unevenly tuberculate seeds, and shorter stiffer strongly tapered abaxial hairs; E. dentata has smaller rounded evenly tuberculate seeds and weaker filiform hairs."
+    },
+    "photo_review": {
+      "decision": "USABLE_FOR_PRIVATE_STUDY_WITH_POLISH_GAPS",
+      "note": "Current habit/fruit candidates are useful for learning, but a seed macro and leaf-hair macro are still important diagnostic additions."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:276643-2",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416542",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=318100"
+    ],
+    "next_action": "Hold for manual resolution of Texas native/introduced status; do not curate as a native PASS."
   }
 }
