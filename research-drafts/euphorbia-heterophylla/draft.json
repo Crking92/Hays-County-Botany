@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_COMPARISON_APPROVAL",
   "batch_id": "scout-2026-10-03-euphorbia-test-02",
   "created_at": "2026-10-03T18:02:00-05:00",
   "source_pool": {
@@ -86,5 +86,40 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Euphorbia contact sheet and approved all displayed current candidates. Preserve any existing diagnostic-photo-gap notes so later photo polish can still add stronger structure-specific images."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:38:17-05:00",
+    "batch_id": "manual-deep-review-euphorbia-test-002",
+    "result": "READY_FOR_CURATION",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Euphorbia heterophylla L.",
+      "family": "Euphorbiaceae",
+      "genus": "Euphorbia",
+      "notes": "POWO and Flora of North America accept E. heterophylla; Poinsettia heterophylla is an important synonym."
+    },
+    "target_zone_range": {
+      "decision": "COMPARISON_NON_NATIVE",
+      "documented_counties": [],
+      "evidence_basis": [
+        "POWO lists Texas in the introduced range, not the native range.",
+        "Flora of North America treats Texas occurrence as introduced/naturalized and notes that the precise tropical/subtropical native range is uncertain."
+      ],
+      "guardrail": "Do not count this taxon in native project metrics; retain only as a locally encountered comparison taxon."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Green or merely pale upper bracts plus a stipitate cyathial gland with a circular opening and annular rim.",
+      "key_separator": "E. cyathophora usually has sharply colored bract bases and an oblong gland opening lacking an annular rim."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved candidate is adequate for private study; gland-macro and direct E. cyathophora comparison remain desirable."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30062970-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200012563"
+    ],
+    "next_action": "Await user approval for comparison-only curation; exclude from native metrics."
   }
 }
