@@ -1,0 +1,53 @@
+{
+  "id": "family-recognition-batch-030-rosid-residuals",
+  "lineage": "Rosid residuals",
+  "created_at": "2026-10-04",
+  "status": "complete_family_recognition_visual_polish_pending",
+  "families": {
+    "Oxalidaceae": {
+      "source_genera": 1,
+      "source_taxa": 5,
+      "current_concepts": 5,
+      "key_door": "trifoliolate Oxalis + 5 petals + 10 unequal stamens + 5-part capsule"
+    },
+    "Celastraceae": {
+      "source_genera": 2,
+      "source_taxa": 2,
+      "current_concepts": 2,
+      "key_door": "project pair: Mortonia narrow-leaved cymose shrub vs Schaefferia spinescent dioecious shrub with red drupes"
+    },
+    "Elaeagnaceae": {
+      "source_genera": 1,
+      "source_taxa": 1,
+      "current_concepts": 1,
+      "key_door": "silvery scales + petal-less 4-lobed floral tube + drupe-like one-seeded fruit"
+    },
+    "Bixaceae": {
+      "source_genera": 1,
+      "source_taxa": 1,
+      "current_concepts": 1,
+      "key_door": "tuberous/palmately lobed Cochlospermum + yellow 5-petaled flower + many free stamens + woolly seeds"
+    },
+    "Koeberliniaceae": {
+      "source_genera": 1,
+      "source_taxa": 1,
+      "current_concepts": 1,
+      "key_door": "green photosynthetic thorn branches + tiny ephemeral leaves + 4-merous flower + 8 stamens + berry"
+    }
+  },
+  "taxonomy_notes": [
+    "Project Oxalis names remain accepted current concepts; species-level Texas provenance remains independent, especially O. stricta.",
+    "Mortonia greggii and Schaefferia cuneifolia remain accepted and native to Texas/Mexico.",
+    "Elaeagnus angustifolia remains accepted but is introduced in Texas.",
+    "Cochlospermum wrightii is accepted and native from southwest Texas southward; Amoreuxia wrightii is homotypic synonym provenance.",
+    "Koeberlinia spinosa is accepted and native to Texas; variety resolution remains species-lane work.",
+    "Joey routing was checked first; no direct target-family frames were indexed."
+  ],
+  "guardrails": [
+    "Family/genus recognition only; no species promotion.",
+    "Do not use Oxalis flower color alone for yellow-woodsorrel species.",
+    "Do not export the Mortonia/Schaefferia project-pair morphology as a universal Celastraceae key.",
+    "Keep Russian olive explicitly introduced in Texas.",
+    "Do not identify Koeberlinia varieties from family-level thorn impressions."
+  ]
+}
