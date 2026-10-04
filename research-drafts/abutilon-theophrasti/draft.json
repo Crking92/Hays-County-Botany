@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "DEEP_REVIEW_COMPLETE_READY_FOR_COMPARISON_APPROVAL",
   "batch_id": "scout-2026-10-03-malvaceae-test-04",
   "created_at": "2026-10-03T19:08:00-05:00",
   "source_pool": {
@@ -80,5 +80,40 @@
     "reviewed_at": "2026-10-03",
     "reviewer": "user",
     "note": "User reviewed the Malvaceae contact sheet and approved all displayed current candidates. Preserve diagnostic-photo-gap notes for later polish."
+  },
+  "deep_review": {
+    "reviewed_at": "2026-10-03T20:42:25-05:00",
+    "batch_id": "manual-deep-review-malvaceae-001",
+    "result": "READY_FOR_CURATION",
+    "taxonomy": {
+      "decision": "VERIFIED",
+      "accepted_name": "Abutilon theophrasti Medik.",
+      "family": "Malvaceae",
+      "genus": "Abutilon",
+      "notes": "POWO and FNA accept the species; it is native to Central Asia/China and introduced in Texas."
+    },
+    "target_zone_range": {
+      "decision": "COMPARISON_NON_NATIVE",
+      "documented_counties": [],
+      "evidence_basis": [
+        "POWO lists Texas in the introduced range.",
+        "Flora of North America treats the species as introduced/naturalized in Texas and elsewhere in North America."
+      ],
+      "guardrail": "Retain only as an invasive/weed comparison; exclude from native metrics."
+    },
+    "morphology": {
+      "decision": "VERIFIED",
+      "look_here_first": "Huge soft heart-shaped leaves plus the conspicuous many-segmented wheel/crown fruit with long divergent beaks.",
+      "key_separator": "Much larger and more annual/weed-like than A. fruticosum, with a large 13–15-merous beaked schizocarp."
+    },
+    "photo_review": {
+      "decision": "USABLE_WITH_POLISH_GAPS",
+      "note": "Current approved candidate is strong for flower + beaked fruit; whole-habit image remains useful polish."
+    },
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1044174-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200013684"
+    ],
+    "next_action": "Await user approval for comparison-only curation; exclude from native metrics."
   }
 }
