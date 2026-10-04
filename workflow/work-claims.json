@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T17:24:23-05:00",
+  "updated_at": "2026-10-04T17:45:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1226,6 +1226,23 @@
       "expires_at": "2026-10-04T23:26:00-05:00",
       "release_when": "Eight saved frames reviewed and usable files installed; rejected images recorded.",
       "notes": "Media only; preserve provisional/native-range holds. No oak overlap."
+    },
+    {
+      "claim_id": "family-batch-023-gymnosperms-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Pinaceae",
+        "Ginkgoaceae",
+        "Ephedraceae"
+      ],
+      "scope_key": "family-recognition-batch-023-gymnosperms",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T17:45:00-05:00",
+      "expires_at": "2026-10-04T23:45:00-05:00",
+      "release_when": "Pinaceae, Ginkgoaceae, and Ephedraceae family modules, batch record, Study Index rows, Family Order Map entries, indexes, and progress bookkeeping are durable, or the batch is explicitly aborted.",
+      "notes": "Higher-lineage gymnosperm comparison batch. Use built Cupressaceae as anchor and prefer saved Joey Santore Juniperus virginiana scale-foliage frame for the private-study Cupressaceae comparison. No species promotion."
     }
   ]
 }
