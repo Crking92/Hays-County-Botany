@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-03T19:29:00-05:00",
+  "updated_at": "2026-10-03T19:25:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -219,6 +219,24 @@
       "release_when": "Calyx/sepal annotated learner overlay is durably written and verified, or work is explicitly aborted.",
       "notes": "Completed: calyx and sepal now use one rights-cleared Jasminum sambac real photo with learner-generated arrow/label overlays. Replaced the old Zinnia sepal example, which could confuse Asteraceae phyllaries with true sepals. JS syntax verified. No family/species/queue files changed.",
       "released_at": "2026-10-03T19:29:00-05:00"
+    },
+    {
+      "claim_id": "family-batch-002-caryophyllales-a-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Amaranthaceae",
+        "Polygonaceae",
+        "Nyctaginaceae",
+        "Caryophyllaceae"
+      ],
+      "scope_key": "family-recognition-batch-002-caryophyllales-a",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-03T19:25:00-05:00",
+      "expires_at": "2026-10-04T01:25:00-05:00",
+      "release_when": "All four Caryophyllales family modules, batch research package, Family Study Index rows, and progress bookkeeping are durably written, or the batch is explicitly aborted.",
+      "notes": "Lineage-first family batch. Family/genus recognition only; do not promote species."
     }
   ]
 }
