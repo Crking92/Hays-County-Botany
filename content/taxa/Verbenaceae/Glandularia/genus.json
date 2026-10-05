@@ -4,12 +4,17 @@
   "name": "Glandularia",
   "common_group": "Mock vervains / prairie verbenas",
   "project_scope": {
-    "selection_mode": "B032 same-genus comparison",
-    "species_ids": [
+    "selection_mode": "B032 science + B156 source-concept reconciliation",
+    "canonical_species_ids": [
       "glandularia-bipinnatifida",
       "glandularia-pumila"
     ],
-    "species_count": 2
+    "canonical_species_count": 2,
+    "represented_infraspecific": [
+      "glandularia-bipinnatifida-var-bipinnatifida"
+    ],
+    "source_concept_count": 3,
+    "note": "The accepted autonym Glandularia bipinnatifida var. bipinnatifida is taught inside canonical G. bipinnatifida rather than duplicated."
   },
   "study_strategy": {
     "priority": [
@@ -29,7 +34,26 @@
     "caveat": "Older regional treatments may show G. bipinnatifida var. bipinnatifida; this project does not count that autonym as a second canonical species."
   },
   "curation_status": {
-    "version": "1.0-b032",
-    "last_reviewed": "2026-10-03"
-  }
+    "version": "1.1-b156-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete",
+    "source_concepts_reconciled": true
+  },
+  "source_concept_status": [
+    {
+      "id": "glandularia-bipinnatifida",
+      "scientific_name": "Glandularia bipinnatifida",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "glandularia-bipinnatifida-var-bipinnatifida",
+      "scientific_name": "Glandularia bipinnatifida var. bipinnatifida",
+      "status": "REPRESENTED_IN_PARENT"
+    },
+    {
+      "id": "glandularia-pumila",
+      "scientific_name": "Glandularia pumila",
+      "status": "CANONICAL_PASS"
+    }
+  ]
 }
