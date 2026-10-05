@@ -4,8 +4,9 @@
   "name": "Eragrostis",
   "common_group": "Lovegrasses",
   "project_scope": {
-    "selection_mode": "small-genus structural learner batch",
-    "species_ids": [
+    "selection_mode": "structural learner batch / B135 source-status reconciliation",
+    "canonical_species_count": 6,
+    "canonical_species_ids": [
       "eragrostis-cilianensis",
       "eragrostis-intermedia",
       "eragrostis-lugens",
@@ -13,11 +14,11 @@
       "eragrostis-spectabilis",
       "eragrostis-trichodes"
     ],
-    "species_count": 6,
-    "remaining_source_taxa": [
-      "Eragrostis hirsuta"
+    "reviewed_hold_source_concepts": [
+      "eragrostis-hirsuta"
     ],
-    "note": "E. hirsuta remains species-lane Priority 2 and is used only as a comparison concept here; this genus lesson does not promote it."
+    "source_concept_count": 7,
+    "note": "E. hirsuta has completed independent scientific review but remains a range HOLD and is not installed. Genus-level processing is complete without promoting that HOLD."
   },
   "recognition": {
     "where_to_look_first": "Do not start with flower color. Start with panicle architecture and then inspect the sheath/collar: openness, branch angle, spikelet clustering, glands, and where the hairs sit are the fast field characters in the project set.",
@@ -39,7 +40,7 @@
       "E. spectabilis — broad airy purple cloud with widely spreading flexible branches; mature inflorescence can tumble.",
       "E. trichodes — tall perennial with long hairs concentrated at the sheath throat/collar and a huge diffuse fine-branched panicle."
     ],
-    "hold_comparison": "E. hirsuta is expected to be conspicuously hairier across the sheaths and at panicle branch axils; keep it comparison-only until species-lane taxonomy/range review is complete."
+    "hold_comparison": "E. hirsuta — REVIEWED RANGE HOLD, not an unfinished taxon. It is conspicuously hairy across the sheaths and at panicle branch axils; keep it as a comparison concept unless future exact target-zone evidence satisfies the range rule."
   },
   "visual_needs": [
     "one whole-panicle image for each canonical species at comparable scale",
@@ -51,10 +52,11 @@
   ],
   "visual_status": "fast_fill_coverage_live",
   "curation_status": {
-    "version": "1.0-small-genus-poaceae-002",
-    "genus_audit": "adequate",
+    "version": "1.1-b135-source-reconciliation",
+    "genus_audit": "complete_with_reviewed_hold",
     "species_work_independent": true,
-    "last_reviewed": "2026-10-04"
+    "last_reviewed": "2026-10-05",
+    "source_concepts_reconciled": true
   },
   "visual_anchors": [
     {
@@ -105,5 +107,44 @@
       ]
     }
   ],
-  "fast_fill_note": "All six canonical Eragrostis species now have learner galleries under FAST-FILL. E. cilianensis, E. intermedia, E. lugens, E. secundiflora, and E. spectabilis have 3 images each; E. trichodes has 2 clearly rights-verified exact-species real photos and remains intentionally below the ~3-image target pending a later easy third image. Scientific taxonomy/range status was not reopened."
+  "fast_fill_note": "All six canonical Eragrostis species now have learner galleries under FAST-FILL. E. cilianensis, E. intermedia, E. lugens, E. secundiflora, and E. spectabilis have 3 images each; E. trichodes has 2 clearly rights-verified exact-species real photos and remains intentionally below the ~3-image target pending a later easy third image. Scientific taxonomy/range status was not reopened.",
+  "source_concept_status": [
+    {
+      "id": "eragrostis-cilianensis",
+      "scientific_name": "Eragrostis cilianensis",
+      "status": "CANONICAL_NON_NATIVE_COMPARISON",
+      "native_metrics_excluded": true
+    },
+    {
+      "id": "eragrostis-hirsuta",
+      "scientific_name": "Eragrostis hirsuta",
+      "status": "REVIEWED_RANGE_HOLD",
+      "learner_action": "comparison-only in genus lesson; no canonical species install"
+    },
+    {
+      "id": "eragrostis-intermedia",
+      "scientific_name": "Eragrostis intermedia",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "eragrostis-lugens",
+      "scientific_name": "Eragrostis lugens",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "eragrostis-secundiflora",
+      "scientific_name": "Eragrostis secundiflora",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "eragrostis-spectabilis",
+      "scientific_name": "Eragrostis spectabilis",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "eragrostis-trichodes",
+      "scientific_name": "Eragrostis trichodes",
+      "status": "CANONICAL_PASS"
+    }
+  ]
 }
