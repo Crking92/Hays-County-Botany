@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T18:49:00-05:00",
+  "updated_at": "2026-10-06T01:05:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3848,6 +3848,24 @@
       "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
       "notes": "Manual near-PASS cleanup batch. Reuse prior review; focus on one missing exact target-zone county and current taxon concept. No curation bypass. Complete: no PASS promotions this batch. Corrected Williamson-count leakage for Diospyros virginiana, Grindelia ciliata, and Sida spinosa; Oenothera filiformis and Eryngium yuccifolium remain one-county-short holds.",
       "released_at": "2026-10-05T19:59:00-05:00"
+    },
+    {
+      "claim_id": "manual-deep-review-near-pass-cleanup-002",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "rudbeckia-amplexicaulis",
+        "dyschoriste-linearis",
+        "dicliptera-brachiata",
+        "coreopsis-lanceolata",
+        "symphyotrichum-lanceolatum-subsp-lanceolatum"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T20:05:00-05:00",
+      "expires_at": "2026-10-06T02:05:00-05:00",
+      "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
+      "notes": "Manual near-PASS cleanup batch 2. Reuse prior review, correct any out-of-zone county leakage, and seek exact target-zone voucher/county evidence. No curation bypass."
     }
   ]
 }
