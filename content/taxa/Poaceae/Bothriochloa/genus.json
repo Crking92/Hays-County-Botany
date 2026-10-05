@@ -4,24 +4,26 @@
   "name": "Bothriochloa",
   "common_group": "Bluestems / beardgrasses",
   "project_scope": {
-    "selection_mode": "small-genus structural learner batch",
-    "species_ids": [
+    "selection_mode": "B027 strict review + B146 source-concept reconciliation",
+    "canonical_species_ids": [
       "bothriochloa-barbinodis",
       "bothriochloa-ischaemum",
       "bothriochloa-torreyana"
     ],
-    "species_count": 3,
+    "canonical_species_count": 3,
+    "represented_source_concepts": [
+      "bothriochloa-laguroides"
+    ],
+    "source_concept_count": 4,
     "source_name_redirects": [
+      "Bothriochloa laguroides",
       "Bothriochloa laguroides subsp. torreyana",
       "Bothriochloa laguroides var. torreyana"
     ],
-    "unresolved_source_rows": [
-      "Bothriochloa laguroides"
-    ],
-    "note": "The stale Texas B. laguroides source concept is not a fourth learner species. Current project taxonomy represents the native silver bluestem concept as B. torreyana; species-lane reconciliation remains authoritative."
+    "note": "Texas project source usage of plain Bothriochloa laguroides is treated as legacy/broad silver-bluestem usage and represented by canonical B. torreyana. Current B. laguroides sensu stricto is a separate Mexico–South America concept and is not a fourth Texas learner species."
   },
   "recognition": {
-    "where_to_look_first": "Check the stem nodes first, then the architecture of the seedhead. In the project set, nodal hair and the number/length/arrangement of rames split the three species quickly.",
+    "where_to_look_first": "Check the stem nodes first, then the architecture of the seedhead. Nodal hair and the number/length/arrangement of rames split the three learner species quickly; old Texas 'B. laguroides' labels should be reconciled to B. torreyana before treating them as a separate species.",
     "priority": [
       "node hairs versus smooth nodes",
       "many short rames versus a few long fingerlike branches",
@@ -32,9 +34,9 @@
   },
   "comparison_lesson": {
     "quick_split": [
-      "B. barbinodis — conspicuous dense beard of hairs around the nodes; broader fanlike silvery panicle.",
-      "B. ischaemum — smooth nodes; loose terminal head with about 3–8 long fingerlike branches; introduced KR bluestem concept.",
-      "B. torreyana — smooth pale nodes; dense silver-white cottony contracted panicle made of many short fuzzy rames."
+      "B. barbinodis — native PASS; conspicuous dense beard of hairs around the nodes and a broader fanlike silvery panicle.",
+      "B. ischaemum — NON-NATIVE invasive comparison; smooth nodes and a loose terminal head with about 3–8 long fingerlike branches.",
+      "B. torreyana — native PASS; smooth pale nodes and a dense silver-white cottony contracted panicle made of many short fuzzy rames. Older Texas B. laguroides / subsp. torreyana source usage maps here."
     ],
     "close_family_tie": "Schizachyrium scoparium branches its upper culm into many short terminal fuzzy racemes rather than concentrating the seedhead into the Bothriochloa patterns above."
   },
@@ -72,10 +74,35 @@
   ],
   "visual_status": "fast_fill_coverage_live",
   "curation_status": {
-    "version": "1.0-small-genus-poaceae-002",
-    "genus_audit": "adequate",
+    "version": "1.1-b146-reconciliation",
+    "genus_audit": "complete",
     "species_work_independent": true,
-    "last_reviewed": "2026-10-04"
+    "last_reviewed": "2026-10-05",
+    "source_concepts_reconciled": true
   },
-  "fast_fill_note": "All three canonical Bothriochloa species now have learner galleries. B. barbinodis and B. ischaemum were FAST-FILLed to 3 images each; B. torreyana already had 3 images. Scientific taxonomy/range status was not reopened."
+  "fast_fill_note": "All three canonical Bothriochloa species now have learner galleries. B. barbinodis and B. ischaemum were FAST-FILLed to 3 images each; B. torreyana already had 3 images. Scientific taxonomy/range status was not reopened.",
+  "source_concept_status": [
+    {
+      "id": "bothriochloa-barbinodis",
+      "scientific_name": "Bothriochloa barbinodis",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "bothriochloa-ischaemum",
+      "scientific_name": "Bothriochloa ischaemum",
+      "status": "CANONICAL_NON_NATIVE_INVASIVE_COMPARISON",
+      "native_metrics_excluded": true
+    },
+    {
+      "id": "bothriochloa-laguroides",
+      "scientific_name": "Bothriochloa laguroides",
+      "status": "LEGACY_TEXAS_SOURCE_USAGE_REPRESENTED_BY_BOTHRIOCHLOA_TORREYANA",
+      "learner_action": "preserve source name for provenance; do not create duplicate learner"
+    },
+    {
+      "id": "bothriochloa-torreyana",
+      "scientific_name": "Bothriochloa torreyana",
+      "status": "CANONICAL_PASS"
+    }
+  ]
 }
