@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T10:46:00-05:00",
+  "updated_at": "2026-10-05T10:52:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2506,6 +2506,30 @@
       "notes": "Visual-only. Verbena brasiliensis excluded because target-zone FAIL/comparison-only.",
       "released_at": "2026-10-05T15:46:00Z",
       "release_note": "Verified native Verbena FAST-FILL anchors: V. canescens 1, V. halei 2, V. scabra 1. V. brasiliensis remains excluded as FAIL/comparison-only. Scientific state unchanged."
+    },
+    {
+      "claim_id": "manual-genus-yucca-b134-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "yucca-arkansana",
+        "yucca-constricta",
+        "yucca-pallida",
+        "yucca-rupicola",
+        "yucca-torreyi",
+        "yucca-treculeana",
+        "yucca-treculiana"
+      ],
+      "families": [
+        "Asparagaceae"
+      ],
+      "scope_key": "study-batch-b134-yucca-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T10:52:00-05:00",
+      "expires_at": "2026-10-05T16:52:00-05:00",
+      "release_when": "Yucca treculeana source spelling is durably reconciled to canonical Y. treculiana, the genus lesson reflects all installed/source concepts, and HOLD status is preserved accurately.",
+      "notes": "Reuse B004/B082 science. Do not duplicate Yucca treculeana. Expand old four-species genus module with Y. arkansana and Y. pallida; preserve Y. pallida range HOLD."
     }
   ]
 }
