@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T00:22:00-05:00",
+  "updated_at": "2026-10-05T00:26:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1834,6 +1834,26 @@
       "release_when": "Mimosa texana fast-fill gallery batch is installed and verified, or explicitly abandoned.",
       "notes": "LEARNER FAST-FILL media-only work. Do not change taxonomy/range state. Existing exact Joey image plus licensed exact-species learner imagery. Fast-fill gallery installed and verified with two exact-species images.",
       "released_at": "2026-10-05T00:26:00-05:00"
+    },
+    {
+      "claim_id": "manual-fast-fill-eragrostis-001",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "eragrostis-cilianensis",
+        "eragrostis-intermedia",
+        "eragrostis-lugens"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "fast-fill-eragrostis-cilianensis-intermedia-lugens",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T05:26:00Z",
+      "expires_at": "2026-10-05T11:26:00Z",
+      "release_when": "Usable FAST-FILL learner images and provenance are durably written and verified, or the batch is explicitly aborted.",
+      "notes": "Canonical-species visual fill only; taxonomy/range untouched. Exact-record reuse check found no saved Joey/project routing hits for these three species. Current learner supports remote HTTPS image URLs."
     }
   ]
 }
