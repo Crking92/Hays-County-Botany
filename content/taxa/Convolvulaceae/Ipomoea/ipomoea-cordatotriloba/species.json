@@ -30,11 +30,11 @@
     "Ipomoea lacunosa"
   ],
   "curation_status": {
-    "version": "1.1-b086-taxonomy-refresh",
+    "version": "1.2-b132-source-reconciliation",
     "taxonomy_and_morphology_reviewed": true,
     "strict_native_filter_deferred": true,
     "photo_set": "starter diagnostic set",
-    "last_reviewed": "2026-10-03",
+    "last_reviewed": "2026-10-05",
     "photo_metadata_count": 5,
     "photo_files_present": 5,
     "photo_backfill_source": "historical taxa.zip migration"
@@ -106,8 +106,13 @@
       "public_reuse": "review"
     }
   ],
-  "taxonomic_note": "Current Kew POWO accepts Ipomoea cordatotriloba at species rank and does not retain var. cordatotriloba as a separate accepted learner concept. Historical varietal treatments are folded into the species for this project.",
+  "taxonomic_note": "Current Kew/POWO accepts Ipomoea cordatotriloba at species rank. ITIS/GRIN still recognize the autonym var. cordatotriloba as an infraspecific treatment, while Kew folds var. torreyana into the species. For the learner, the Hays source row 'Ipomoea cordatotriloba var. cordatotriloba' is represented inside this canonical species page rather than duplicated.",
   "synonyms": [
-    "Ipomoea cordatotriloba var. cordatotriloba (historical infraspecific treatment)"
-  ]
+    "Ipomoea cordatotriloba var. cordatotriloba (source/infraspecific treatment represented in this species card)",
+    "Ipomoea cordatotriloba var. torreyana (A.Gray) D.F.Austin (Kew synonym of I. cordatotriloba)"
+  ],
+  "infraspecific_lesson": {
+    "Ipomoea cordatotriloba var. cordatotriloba": "Legacy/current-source autonym used by ITIS/GRIN and local source lists. The learner maps it to this species-level card so the same biological concept is not duplicated.",
+    "Ipomoea cordatotriloba var. torreyana": "Current Kew/POWO treats this name as a synonym of Ipomoea cordatotriloba."
+  }
 }
