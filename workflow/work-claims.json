@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T00:44:00-05:00",
+  "updated_at": "2026-10-05T00:35:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1878,6 +1878,23 @@
       "expires_at": "2026-10-05T11:44:00Z",
       "release_when": "Usable FAST-FILL learner images and provenance are durably written and verified, or the batch is explicitly aborted.",
       "notes": "Canonical-species visual fill only; taxonomy/range untouched. Existing-material, photo-recovery, and saved-Joey checks show no reusable routed assets for these taxa."
+    },
+    {
+      "claim_id": "manual-genus-rudbeckia-b128-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "rudbeckia-amplexicaulis",
+        "rudbeckia-hirta-var-pulcherrima",
+        "rudbeckia-maxima"
+      ],
+      "scope_key": "study-batch-b128-rudbeckia-fast-fill",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T00:35:00-05:00",
+      "expires_at": "2026-10-05T06:35:00-05:00",
+      "release_when": "B060 Rudbeckia source rows are reconciled and the canonical R. hirta learner page has usable fast-fill visual coverage or an explicit visual gap record.",
+      "notes": "LEARNER FAST-FILL. Reuse B060 science: R. amplexicaulis RANGE HOLD; R. maxima TARGET-ZONE FAIL; R. hirta var. pulcherrima represented inside canonical R. hirta. Do not create duplicate/nonlocal learner pages."
     }
   ]
 }
