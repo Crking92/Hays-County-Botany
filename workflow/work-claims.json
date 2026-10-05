@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T00:35:00-05:00",
+  "updated_at": "2026-10-05T00:30:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1895,6 +1895,22 @@
       "expires_at": "2026-10-05T06:35:00-05:00",
       "release_when": "B060 Rudbeckia source rows are reconciled and the canonical R. hirta learner page has usable fast-fill visual coverage or an explicit visual gap record.",
       "notes": "LEARNER FAST-FILL. Reuse B060 science: R. amplexicaulis RANGE HOLD; R. maxima TARGET-ZONE FAIL; R. hirta var. pulcherrima represented inside canonical R. hirta. Do not create duplicate/nonlocal learner pages."
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-aquatic-001",
+      "scope_kind": "species_media_batch",
+      "taxa": [
+        "bacopa-monnieri",
+        "cabomba-caroliniana"
+      ],
+      "scope_key": "photo-fast-fill-aquatic-001",
+      "lane": "learner-photo-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T00:30:00-05:00",
+      "expires_at": "2026-10-05T06:30:00-05:00",
+      "release_when": "Both galleries are installed and verified, or the batch is explicitly abandoned.",
+      "notes": "LEARNER FAST-FILL media-only batch. Preserve existing PASS science. Reuse Joey frames and add licensed exact-species imagery only."
     }
   ]
 }
