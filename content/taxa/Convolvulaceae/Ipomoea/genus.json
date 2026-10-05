@@ -1,3 +1,107 @@
 {
-  "rank":"genus","family":"Convolvulaceae","name":"Ipomoea","authority":"L.","common_group":"Morning glories","project_scope":{"selection_mode":"local-occurrence-first","strict_native_filtering":false,"core_species_count":7,"species_ids":["ipomoea-hederacea","ipomoea-triloba","ipomoea-cordatotriloba","ipomoea-lindheimeri","ipomoea-nil","ipomoea-lacunosa","ipomoea-coccinea"],"taxonomic_note":"The plant long treated locally as Ipomoea sinuata / Merremia dissecta is currently accepted by Kew as Distimake dissectus, so it is intentionally NOT stored in this Ipomoea genus folder."},"high_value_diagnostics":["sepal length, shape, awns/tips, and pubescence","corolla size and color","leaf arrangement and lobing","stem/leaf pubescence","flower number per cyme","annual vs perennial/rootstock habit"],"quick_comparison":{"hederacea":"long 12–24 mm sepals with very long narrow curved/spreading tips","triloba":"small flower + short ~6–7 mm sepals","cordatotriloba":"pink-purple flower, ciliate ~8–12 mm sepals, variable cordate/3-lobed leaves","lindheimeri":"large blue-violet flower, palmately lobed hairy leaves, 18–30 mm sepals","nil":"very large blue/purple flower, large hairy cordate/3-lobed leaves","lacunosa":"small white flower, 11–14 mm acuminate sepals","coccinea":"small scarlet flower, sepals with subterminal awnlike projection"},"curation_status":{"version":"1.0-core","core_set_defined":true,"last_reviewed":"2026-09-30"}
+  "rank": "genus",
+  "family": "Convolvulaceae",
+  "name": "Ipomoea",
+  "authority": "L.",
+  "common_group": "Morning glories",
+  "project_scope": {
+    "selection_mode": "local-occurrence-first / B132 source-concept reconciliation",
+    "strict_native_filtering": false,
+    "canonical_species_count": 8,
+    "canonical_species_ids": [
+      "ipomoea-batatas",
+      "ipomoea-coccinea",
+      "ipomoea-cordatotriloba",
+      "ipomoea-hederacea",
+      "ipomoea-lacunosa",
+      "ipomoea-lindheimeri",
+      "ipomoea-nil",
+      "ipomoea-triloba"
+    ],
+    "represented_source_concepts": [
+      "ipomoea-cordatotriloba-var-cordatotriloba"
+    ],
+    "source_concept_count": 9,
+    "taxonomic_note": "The source-pool row Ipomoea cordatotriloba var. cordatotriloba is taught inside canonical Ipomoea cordatotriloba rather than duplicated. Current Kew/POWO accepts I. cordatotriloba at species rank; ITIS/GRIN retain the autonym as an accepted/recognized infraspecific treatment. The project preserves the source name but uses one learner card. Distimake dissectus is intentionally outside this genus folder."
+  },
+  "high_value_diagnostics": [
+    "sepal length, shape, awns/tips, and pubescence",
+    "corolla size and color",
+    "leaf arrangement and lobing",
+    "stem/leaf pubescence",
+    "flower number per cyme",
+    "annual vs perennial/rootstock habit"
+  ],
+  "quick_comparison": {
+    "hederacea": "long 12–24 mm sepals with very long narrow curved/spreading tips",
+    "triloba": "small flower + short ~6–7 mm sepals",
+    "cordatotriloba": "pink-purple flower, ciliate ~8–12 mm sepals, variable cordate/3-lobed leaves; var. cordatotriloba source row is represented here",
+    "lindheimeri": "large blue-violet flower, palmately lobed hairy leaves, 18–30 mm sepals",
+    "nil": "very large blue/purple flower, large hairy cordate/3-lobed leaves",
+    "lacunosa": "small white flower, 11–14 mm acuminate sepals",
+    "coccinea": "small scarlet flower, sepals with subterminal awnlike projection",
+    "batatas": "cultivated/escaped sweet potato comparison; use swollen storage roots plus broader crop-context characters rather than treating it as a native morning-glory anchor"
+  },
+  "curation_status": {
+    "version": "1.1-b132-reconciliation",
+    "core_set_defined": true,
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  },
+  "source_concept_status": [
+    {
+      "id": "ipomoea-batatas",
+      "scientific_name": "Ipomoea batatas",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "ipomoea-coccinea",
+      "scientific_name": "Ipomoea coccinea",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "ipomoea-cordatotriloba",
+      "scientific_name": "Ipomoea cordatotriloba",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "ipomoea-cordatotriloba-var-cordatotriloba",
+      "scientific_name": "Ipomoea cordatotriloba var. cordatotriloba",
+      "status": "REPRESENTED_IN_PARENT",
+      "learner_action": "teach as source/infraspecific name inside I. cordatotriloba; no duplicate page"
+    },
+    {
+      "id": "ipomoea-hederacea",
+      "scientific_name": "Ipomoea hederacea",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "ipomoea-lacunosa",
+      "scientific_name": "Ipomoea lacunosa",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "ipomoea-lindheimeri",
+      "scientific_name": "Ipomoea lindheimeri",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "ipomoea-nil",
+      "scientific_name": "Ipomoea nil",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "ipomoea-triloba",
+      "scientific_name": "Ipomoea triloba",
+      "status": "CANONICAL",
+      "learner_action": "keep canonical species page"
+    }
+  ]
 }
