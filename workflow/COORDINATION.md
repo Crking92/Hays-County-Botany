@@ -261,3 +261,16 @@ When two priority lanes touch the same taxon or file, normal authoritative-state
 ## Learner FAST-FILL mode — active
 
 The project is currently operating in **LEARNER FAST-FILL** mode. Read and follow `workflow/LEARNER_FAST_FILL.md` before new learner-facing species/genus work. This mode prioritizes broad usable learner coverage and small durable commits while preserving strict scientific PASS/HOLD/FAIL decisions. Do not reopen settled taxonomy/range solely to improve photos, and do not run project-wide reconciliation before each small task.
+
+## Background automation layout — 2026-10-05
+
+During LEARNER FAST-FILL mode, unattended project work is intentionally reduced to three active lanes:
+
+1. **Learner Photo Backfill** — hourly at :05. Presentation/media only. Improve galleries on canonical/learner-ready taxa using existing project/Joey/user media first, then properly licensed exact-species iNaturalist images. Do not change taxonomy/range decisions.
+2. **Botany Deep Review** — every two hours at :25. Scientific review only for the small existing reviewed/scouted backlog. Do not create new scout batches and do not edit learner galleries.
+3. **Approved Species Installer** — hourly at :50. Drain explicitly approved noncanonical taxa through the existing curation pipeline. Reuse existing science and use provisional exact-species imagery when needed; do not wait for perfect galleries.
+
+The former **Unfinished Plant Scout** and **Small Genus Backfill** automations are paused during fast-fill mode so they do not create additional backlog or compete with the three priority manual lanes. Do not reactivate them unless Calvin explicitly changes the project mode or the current fast-fill/approved backlog is substantially exhausted.
+
+This staggered schedule is deliberate. Preserve the :05 / :25-every-two-hours / :50 separation unless a future coordination change explicitly replaces it.
+
