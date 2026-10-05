@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T12:36:00-05:00",
+  "updated_at": "2026-10-05T12:50:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2716,11 +2716,13 @@
       "scope_key": "study-batch-b139-matelea-reconciliation",
       "lane": "manual-large-genus-continuation",
       "owner": "manual-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T12:36:00-05:00",
       "expires_at": "2026-10-05T18:36:00-05:00",
       "release_when": "Legacy Matelea source concepts are mapped to current canonical/hold/fail concepts, genus lesson reflects those taxonomic moves, and live index treats reviewed outcomes as processed without promotion.",
-      "notes": "Reuse B005 science. M. biflora -> canonical Chthamalia biflora PASS. Legacy M. gonocarpos -> reviewed unresolved Gonolobus suberosus var. granulatus hold. M. parvifolia remains range FAIL. Canonical Matelea set remains M. edwardsensis + M. reticulata."
+      "notes": "Reuse B005 science. M. biflora -> canonical Chthamalia biflora PASS. Legacy M. gonocarpos -> reviewed unresolved Gonolobus suberosus var. granulatus hold. M. parvifolia remains range FAIL. Canonical Matelea set remains M. edwardsensis + M. reticulata.",
+      "released_at": "2026-10-05T12:50:00-05:00",
+      "release_note": "B139 complete. Legacy M. gonocarpos reconnected to the existing user-accepted unresolved Gonolobus suberosus var. granulatus hold; M. parvifolia preserved as target-zone FAIL; M. biflora remains represented by Chthamalia biflora; live Matelea index 5/5 Complete."
     }
   ]
 }
