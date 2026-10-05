@@ -1,0 +1,72 @@
+{
+  "batch_id": "B158",
+  "lane": "manual-large-genus-continuation",
+  "completed_at": "2026-10-05T22:50:07.368Z",
+  "scope": "Prunus tracker synchronization of existing B074/B131 decisions",
+  "status": "COMPLETE_TRACKER_SYNC_GENUS_REVIEW_STILL_PENDING",
+  "authoritative_sources": [
+    "data/manifest.json",
+    "research-queue.json",
+    "content/taxa/Rosaceae/Prunus/genus.json",
+    "research-drafts/prunus-rivularis/draft.json"
+  ],
+  "spreadsheet": {
+    "id": "15dcpbk3msvOiGtAo2GRQkCfdhBR9iav-yQ0HoTjS6wM",
+    "edited_ranges": [
+      "_Master Pool Overrides!O68:R68",
+      "_Master Pool Overrides!V68",
+      "_Master Pool Overrides!Y68:Z68",
+      "_Master Pool Overrides!O403:R403",
+      "_Master Pool Overrides!V403",
+      "_Master Pool Overrides!Y403:Z403",
+      "_Master Pool Overrides!A478:Z479"
+    ],
+    "verified_genus_row": "Genus Study Index!A92:M92",
+    "before": {
+      "source_concepts": 6,
+      "processed": 2,
+      "remaining": 4
+    },
+    "after": {
+      "source_concepts": 6,
+      "processed": 5,
+      "remaining": 1,
+      "priority_1_remaining": 1
+    },
+    "count_semantics": "Existing tracker Curated=Yes convention denotes processed source concepts, including reviewed holds and parent-represented varieties; it is NOT an installed species or native PASS count.",
+    "formulas_preserved": true
+  },
+  "taxa": [
+    {
+      "id": "prunus-serotina-var-eximia",
+      "decision": "PASS_REPRESENTED_IN_PARENT",
+      "canonical_parent": "prunus-serotina",
+      "tracker_processed": true
+    },
+    {
+      "id": "prunus-angustifolia",
+      "decision": "REVIEWED_RANGE_HOLD",
+      "installed": false,
+      "tracker_processed": true
+    },
+    {
+      "id": "prunus-caroliniana",
+      "decision": "REVIEWED_RANGE_HOLD",
+      "installed": false,
+      "tracker_processed": true
+    },
+    {
+      "id": "prunus-rivularis",
+      "decision": "PASS_CANDIDATE_PENDING_DEEP_REVIEW",
+      "installed": false,
+      "tracker_processed": false,
+      "queued": true,
+      "priority": 1
+    }
+  ],
+  "new_species_installed": 0,
+  "new_images": 0,
+  "scientific_decisions_changed": false,
+  "next_action": "Independent Deep Review should reuse the existing B131 Prunus rivularis draft/queue item. No duplicate research or installation until review and approval gates are met.",
+  "verification": "Read back each changed override and dependent Master Plant Pool rows 933:938; Genus Study Index row 92 recalculated to 5 processed and 1 remaining. Existing wrap/format settings preserved. No UI render was performed."
+}
