@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T12:08:00-05:00",
+  "updated_at": "2026-10-05T12:15:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2672,6 +2672,29 @@
       "release_when": "All five fast-fill galleries are installed and verified, or the batch is explicitly abandoned.",
       "notes": "LEARNER FAST-FILL media-only batch. Five existing PASS/approved zero-gallery taxa. Existing project/Joey routes checked first; use licensed exact-species iNaturalist where clean and other clearly licensed exact-species sources as fallback. Preserve settled taxonomy/range. Installed and verified: Campsis radicans 2/2; Cephalanthus occidentalis 2/2; Aquilegia canadensis 2/2; Castilleja indivisa 3/3; Ageratina altissima 2/2. Batch archived successfully.",
       "released_at": "2026-10-05T12:05:00-05:00"
+    },
+    {
+      "claim_id": "manual-genus-helenium-b138-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "helenium-amarum",
+        "helenium-amarum-var-amarum",
+        "helenium-amarum-var-badium",
+        "helenium-autumnale",
+        "helenium-elegans",
+        "helenium-quadridentatum"
+      ],
+      "families": [
+        "Asteraceae"
+      ],
+      "scope_key": "study-batch-b138-helenium-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T12:15:00-05:00",
+      "expires_at": "2026-10-05T18:15:00-05:00",
+      "release_when": "Helenium variety source rows are represented inside canonical H. amarum, genus lesson reflects all current learner concepts, and live index reaches processed completion without altering H. quadridentatum's range hold.",
+      "notes": "Reuse B028/B112 science. No duplicate variety pages. Preserve H. quadridentatum provisional/range-hold status."
     }
   ]
 }
