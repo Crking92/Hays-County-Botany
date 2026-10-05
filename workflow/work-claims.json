@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T10:24:00-05:00",
+  "updated_at": "2026-10-05T11:12:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3242,6 +3242,26 @@
       "notes": "Visual-only FAST-FILL; taxonomy/range settled and must not be reopened.",
       "released_at": "2026-10-05T15:24:00Z",
       "release_note": "Solidago juliae moved 0→1 with exact-species CC BY-NC iNaturalist guide photo. Thelesperma simplicifolium remains 0 but is explicitly visual_source_limited because individual Commons creator/license metadata was not cleanly retrievable; no weak-provenance media substituted."
+    },
+    {
+      "claim_id": "manual-genus-scutellaria-b153-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "scutellaria-drummondii",
+        "scutellaria-ovata",
+        "scutellaria-wrightii"
+      ],
+      "families": [
+        "Lamiaceae"
+      ],
+      "scope_key": "study-batch-b153-scutellaria-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T11:12:00-05:00",
+      "expires_at": "2026-10-05T17:12:00-05:00",
+      "release_when": "Scutellaria ovata is durably handed to strict review, a genus lesson exists, and the live index distinguishes the true open item from the two installed PASS species.",
+      "notes": "No durable S. ovata review exists. Reuse B041 science for S. drummondii and S. wrightii; do not self-install S. ovata."
     }
   ]
 }
