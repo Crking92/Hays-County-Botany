@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T08:46:00-05:00",
+  "updated_at": "2026-10-05T08:18:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2158,6 +2158,21 @@
       "expires_at": "2026-10-05T19:46:00Z",
       "release_when": "The three PASS Panicum pages have usable exact-species FAST-FILL galleries and are verified, or the batch is aborted.",
       "notes": "Visual-only. Panicum coloratum is deliberately excluded because its canonical record is target-zone FAIL/introduced comparison. Preserve all scientific state."
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-juglans-004",
+      "scope_kind": "species_media",
+      "taxa": [
+        "juglans-microcarpa"
+      ],
+      "scope_key": "photo-fast-fill-juglans-004",
+      "lane": "learner-photo-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T08:18:00-05:00",
+      "expires_at": "2026-10-05T14:18:00-05:00",
+      "release_when": "Juglans microcarpa fast-fill gallery is installed and verified, or the batch is explicitly abandoned.",
+      "notes": "LEARNER FAST-FILL media-only. Existing Joey/Spadefoot lead checked first but direct-image attribution/reuse mapping was ambiguous; use three exact-species iNaturalist photos with independently verified CC licenses. Preserve settled PASS taxonomy/range."
     }
   ]
 }
