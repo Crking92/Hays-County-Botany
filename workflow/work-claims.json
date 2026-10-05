@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T00:58:00-05:00",
+  "updated_at": "2026-10-05T00:42:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1915,6 +1915,24 @@
       "expires_at": "2026-10-05T06:30:00-05:00",
       "release_when": "Both galleries are installed and verified, or the batch is explicitly abandoned.",
       "notes": "LEARNER FAST-FILL media-only batch. Preserve existing PASS science. Reuse Joey frames and add licensed exact-species imagery only."
+    },
+    {
+      "claim_id": "manual-genus-silphium-b129-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "silphium-albiflorum",
+        "silphium-integrifolium",
+        "silphium-laciniatum",
+        "silphium-radula"
+      ],
+      "scope_key": "study-batch-b129-silphium-fast-fill",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T00:42:00-05:00",
+      "expires_at": "2026-10-05T06:42:00-05:00",
+      "release_when": "Silphium source concepts are reconciled, S. albiflorum PASS is durably reviewed/installed, and canonical S. radula receives usable fast-fill images.",
+      "notes": "LEARNER FAST-FILL. Reuse B064 science for S. integrifolium and S. laciniatum HOLDs. New S. albiflorum review has exact PASS evidence: Travis UT PRC specimen index, Burnet Doeskin Ranch occurrence, Mason Mountain WMA flora. Fast-fill exact licensed media for S. albiflorum + zero-photo S. radula; do not promote HOLD taxa."
     }
   ]
 }
