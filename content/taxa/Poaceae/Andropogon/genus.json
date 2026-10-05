@@ -5,12 +5,21 @@
   "authority": "L.",
   "common_group": "Bluestems / beardgrasses",
   "project_scope": {
-    "selection_mode": "B030 taxonomy-reconciled comparison",
-    "species_ids": [
-      "andropogon-gerardi"
+    "selection_mode": "B030 science + B155 source-concept reconciliation",
+    "canonical_ids": [
+      "andropogon-gerardi",
+      "anatherum-glomeratum"
     ],
-    "species_count": 1,
-    "note": "B030 split under current Kew taxonomy: bushy bluestem and broomsedge move to Anatherum; familiar Andropogon names remain aliases."
+    "represented_source_concepts": [
+      "andropogon-gerardii",
+      "andropogon-glomeratus",
+      "andropogon-virginicus"
+    ],
+    "reviewed_holds": [
+      "anatherum-virginicum"
+    ],
+    "source_concept_count": 3,
+    "note": "Older Texas source names remain searchable. Andropogon gerardii maps to canonical Andropogon gerardi; A. glomeratus maps to canonical Anatherum glomeratum; A. virginicus maps to reviewed Anatherum virginicum range HOLD."
   },
   "study_strategy": {
     "priority": [
@@ -24,16 +33,36 @@
   },
   "comparison_lesson": {
     "quick_split": [
-      "Andropogon gerardi — tall prairie grass with 2–6 exposed digitate racemes, often a turkey-foot.",
-      "Anatherum glomeratum — dense broad fluffy/broomlike clusters near the top.",
-      "Anatherum virginicum — narrower silky racemes partly tucked inside flattened spathe-like sheaths."
+      "Andropogon gerardi — canonical PASS; tall prairie grass with 2–6 exposed digitate racemes, often a turkey-foot. Source spelling A. gerardii maps here.",
+      "Anatherum glomeratum — canonical PASS; dense broad fluffy/broomlike clusters near the top. Familiar source name Andropogon glomeratus maps here.",
+      "Anatherum virginicum — reviewed range HOLD; narrower silky racemes partly tucked inside flattened spathe-like sheaths. Familiar source name Andropogon virginicus maps here."
     ],
     "caveat": "Older Texas floras place all three familiar plants in Andropogon; the learner keeps those aliases searchable while displaying the current accepted Kew names."
   },
   "curation_status": {
-    "version": "1.0-b030",
-    "last_reviewed": "2026-10-03"
+    "version": "1.1-b155-reconciliation",
+    "genus_audit": "complete_with_cross_genus_alias_and_reviewed_hold",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
   },
   "visual_status": "fast_fill_coverage_live",
-  "fast_fill_note": "Canonical Andropogon gerardii now has a 3-image FAST-FILL gallery covering tall habit and turkey-foot reproductive architecture."
+  "fast_fill_note": "Canonical Andropogon gerardii now has a 3-image FAST-FILL gallery covering tall habit and turkey-foot reproductive architecture.",
+  "source_concept_status": [
+    {
+      "id": "andropogon-gerardii",
+      "scientific_name": "Andropogon gerardii",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_ANDROPOGON_GERARDI"
+    },
+    {
+      "id": "andropogon-glomeratus",
+      "scientific_name": "Andropogon glomeratus",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_ANATHERUM_GLOMERATUM"
+    },
+    {
+      "id": "andropogon-virginicus",
+      "scientific_name": "Andropogon virginicus",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_ANATHERUM_VIRGINICUM_RANGE_HOLD",
+      "learner_action": "comparison-only; no canonical install while Anatherum virginicum remains range HOLD"
+    }
+  ]
 }
