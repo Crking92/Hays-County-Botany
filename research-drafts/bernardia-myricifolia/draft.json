@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "READY_FOR_CURATION",
   "batch_id": "scout-2026-10-03-euphorbiaceae-06",
   "created_at": "2026-10-03T23:09:39-05:00",
   "source_pool": {
@@ -91,5 +91,85 @@
   },
   "notes": [
     "Need separate diagnostic photos for sex-specific flowers and woolly capsule."
-  ]
+  ],
+  "deep_review": {
+    "result": "READY FOR CURATION",
+    "review_owner": "automation-botany-deep-review-b",
+    "reviewed_at": "2026-10-04T22:55:00-05:00",
+    "taxonomy": {
+      "accepted_name": "Bernardia myricifolia (Scheele) S.Watson",
+      "status": "PASS",
+      "synonyms": [
+        "Tyria myricifolia Scheele",
+        "Ricinella myricifolia (Scheele) Müll.Arg.",
+        "Bernardia myricifolia var. incanoides M.C.Johnst."
+      ],
+      "notes": "POWO/WCVP and Flora of North America accept Bernardia myricifolia. Older reports outside its southern-Texas range have sometimes involved B. incana or B. obovata; preserve modern concept."
+    },
+    "target_zone_range": {
+      "status": "PASS",
+      "exact_target_counties": [
+        "Travis",
+        "Uvalde",
+        "Medina"
+      ],
+      "evidence": [
+        "UT Plant Resources Center provides a Travis County herbarium specimen/index record.",
+        "Illinois herbarium portal exposes exact Travis and Uvalde specimens under Bernardia myricifolia/myricaefolia.",
+        "Bear Bluff Ranch botanical survey explicitly records Bernardia myricifolia in Medina County."
+      ],
+      "guardrail": "PASS uses exact county records; no statewide/ecoregion inference."
+    },
+    "morphology": {
+      "status": "PASS",
+      "diagnostics": [
+        "shrub to about 3 m",
+        "leaf blades broadly elliptic to orbiculate with revolute crenate margins",
+        "abaxial leaf surface grayish-white and densely stellate-pubescent with prominent veins",
+        "caducous green-to-straw stipules lacking dark resinous exudate",
+        "dioecious reproductive presentation; staminate thyrses 5–15 mm",
+        "usually 12–15 stamens, broader documented range 10–20",
+        "3-carpellate pistil with three styles densely penicillate adaxially",
+        "3-lobed capsule about 7–8 mm"
+      ],
+      "lookalikes": [
+        {
+          "taxon": "Bernardia incana",
+          "separator": "B. incana has persistent darkened/thickened stipule bases with resinous exudate and usually only 5–7 stamens; B. myricifolia has caducous non-resinous stipules and usually 12–15 stamens."
+        },
+        {
+          "taxon": "Bernardia obovata",
+          "separator": "B. obovata has greener, sparsely stellate-pubescent abaxial leaf surfaces and a 2-carpellate pistil; B. myricifolia is densely gray-white beneath and 3-carpellate."
+        },
+        {
+          "taxon": "Croton spp.",
+          "separator": "Do not rely on stellate hairs alone; confirm Bernardia reproductive architecture and 3-lobed capsule."
+        }
+      ]
+    },
+    "photos": {
+      "status": "NEEDS_POLISH",
+      "assessment": "Existing NPSOT habit/leaf lead is useful, but learner-complete imagery should separately lock abaxial stellate pubescence, male flowers/thyrse, female flower/styles, and mature 3-lobed capsule. Current leads do not yet prove every diagnostic role.",
+      "priority_roles": [
+        "abaxial stellate hairs and veins",
+        "stipule base if visible",
+        "staminate thyrse",
+        "pistillate flower/styles",
+        "3-lobed capsule"
+      ]
+    },
+    "evidence_urls": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30144516-2",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101931",
+      "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+      "https://biocoll.inhs.illinois.edu/portal/collections/list.php?comingFrom=harvestparams&db=67&page=325",
+      "https://downloads.regulations.gov/FWS-R2-ES-2021-0013-0003/attachment_26.pdf",
+      "https://www.npsot.org/posts/native-plant/bernardia-myricifolia/"
+    ],
+    "conflicts": [],
+    "missing_pieces": [
+      "Final image-specific reuse/license verification and diagnostic macro selection."
+    ],
+    "next_action": "Normal user approval, then curation lane; retain visual-polish requirement."
+  }
 }
