@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T08:58:00-05:00",
+  "updated_at": "2026-10-05T09:02:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2175,6 +2175,27 @@
       "expires_at": "2026-10-05T14:18:00-05:00",
       "release_when": "Juglans microcarpa fast-fill gallery is installed and verified, or the batch is explicitly abandoned.",
       "notes": "LEARNER FAST-FILL media-only. Existing Joey/Spadefoot lead checked first but direct-image attribution/reuse mapping was ambiguous; use three exact-species iNaturalist photos with independently verified CC licenses. Preserve settled PASS taxonomy/range."
+    },
+    {
+      "claim_id": "manual-fast-fill-poaceae-small-003",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "aristida-oligantha",
+        "aristida-purpurea",
+        "nassella-leucotricha",
+        "tripsacum-dactyloides"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "fast-fill-poaceae-aristida-nassella-tripsacum",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T14:02:00Z",
+      "expires_at": "2026-10-05T20:02:00Z",
+      "release_when": "The four PASS canonical grass pages have usable exact-species learner galleries or exact source limitations are documented.",
+      "notes": "Visual-only. Existing routing/Joey checks show no reusable project assets; preserve settled taxonomy/range."
     }
   ]
 }
