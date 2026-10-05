@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "batch_id": "B159",
+  "taxon_id": "prunus-rivularis",
+  "reviewed_at": "2026-10-05T23:00:25.350Z",
+  "reviewer": "manual-large-genus-continuation",
+  "decision": "PASS",
+  "review_type": "Fresh source check of prior B131 draft; user-approved closeout",
+  "approval": {
+    "status": "approved",
+    "user_instruction": "go ahead and pass the creek plum, keep going",
+    "date": "2026-10-05",
+    "scope": "Prunus rivularis curation; no broader range-rule waiver"
+  },
+  "taxonomy": {
+    "accepted_name": "Prunus rivularis Scheele",
+    "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:730196-1",
+    "synonym_used_for_county_mapping": "Prunus rivularis var. pubescens Enquist",
+    "note": "POWO explicitly lists var. pubescens as a heterotypic synonym. County evidence under that name is used at species rank. Do not automatically merge all Prunus murrayana records."
+  },
+  "range": {
+    "decision": "PASS",
+    "threshold": 3,
+    "counties": [
+      "Kerr",
+      "Concho",
+      "Edwards"
+    ],
+    "evidence": [
+      {
+        "county": "Kerr",
+        "source": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0157123",
+        "detail": "Zhao et al. 2016 Table 1 lists P. rivularis, Wen 11988, Texas Kerr Co., GenBank KU525426; table notes voucher deposited at US.",
+        "type": "published_herbarium_voucher"
+      },
+      {
+        "county": "Concho",
+        "source": "https://www.guynesom.com/Texendemicsweb.htm",
+        "detail": "William R. Carr, No Place but Texas (working draft, Nov 2009), lists Concho under P. rivularis var. pubescens, citing Enquist 1997, Phytologia 82(4):289–299.",
+        "type": "expert_county_flora_literature"
+      },
+      {
+        "county": "Edwards",
+        "source": "https://www.guynesom.com/Texendemicsweb.htm",
+        "detail": "Same Carr treatment explicitly lists Edwards County under var. pubescens.",
+        "type": "expert_county_flora_literature"
+      }
+    ],
+    "limitations": "Carr is an incomplete working draft; these county listings are literature evidence, not individually transcribed specimen records. Synonym mapping to current POWO is explicit.",
+    "bonap": {
+      "source": "https://bonap.net/MapGallery/County/Prunus%20rivularis.png",
+      "use": "Consulted as primary distribution reference; no unlabeled county polygon was used as the sole exact-county proof."
+    },
+    "excluded_previous_evidence": [
+      {
+        "county": "Williamson",
+        "reason": "Outside user target counties; may inform morphology only."
+      },
+      {
+        "county": "Hays",
+        "reason": "Not needed for threshold. Purola occurrence is introduced; no wild-native inference from that record."
+      },
+      {
+        "county": "Travis",
+        "reason": "Prior BCP PDF URL returned 404 during review; not relied upon for threshold."
+      }
+    ]
+  },
+  "morphology_review": {
+    "source": "https://w3.biosci.utexas.edu/prc/K12/pages/Prunus%20rivularis.html",
+    "author": "A. C. Gibson",
+    "confirmed": [
+      "clonal thicket-forming shrub with spreading shallow roots",
+      "alternate simple leaves with toothed margins and glands",
+      "small white flower clusters on short shoots",
+      "rounded single-stoned plum fruit"
+    ],
+    "correction": "The UT local treatment describes shoots as not spinescent; do not teach universal thorniness. Leaf glands can shed as leaves develop, so absence on older leaves is not decisive.",
+    "comparison_note": "Retain habit and flower arrangement comparison with P. mexicana and P. serotina. Do not reduce P. rivularis versus P. angustifolia to a range-only test."
+  },
+  "handoff": {
+    "status": "ready_for_curation",
+    "approved": true,
+    "canonical_status": "not_installed",
+    "visual_status": "exact-species images still require existing-material routing and license verification",
+    "owner": "approved-species-installer",
+    "instructions": "Reuse corrected draft and this review; build normal curation-inbox package with READY last. No further user approval is needed for this taxon."
+  }
+}
