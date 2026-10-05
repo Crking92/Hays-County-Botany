@@ -4638,12 +4638,28 @@
       "priority": 0,
       "queue_group": "B036 Diospyros",
       "batch_id": "deep-review-batch-045-diospyros-b036",
-      "last_deep_reviewed_at": "2026-10-03T21:40:00-05:00",
-      "notes": "B036 UNRESOLVED — Travis and Williamson locked; third exact target-zone county still needed. Diagnostic comparison to D. texana complete.",
+      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "notes": "Manual near-PASS cleanup CORRECTION — prior note counted Williamson, but Williamson is outside the project target zone and is removed from the threshold. Travis remains firm. NPSOT confirms native presence in relevant Central Texas ecoregions including Edwards Plateau/Blackland Prairie, but this pass did not lock two additional exact target-zone counties. HOLD; needs two more exact target-zone counties.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
-      "reconciliation_status": "preserved_range_hold"
+      "reconciliation_status": "preserved_range_hold",
+      "verified_target_counties": [
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "BONAP county map — Diospyros virginiana",
+          "url": "https://bonap.net/TDC/Image/Map?locationType=County&mapType=Normal&taxonId=9556&taxonType=Species",
+          "role": "county-distribution reference"
+        },
+        {
+          "label": "Native Plant Society of Texas — Diospyros virginiana",
+          "url": "https://www.npsot.org/posts/native-plant/diospyros-virginiana/",
+          "role": "Texas native ecoregion distribution and BONAP cross-reference"
+        }
+      ]
     },
     {
       "id": "forestiera-pubescens",
@@ -4749,13 +4765,25 @@
       "queue_group": "B040 Eryngium",
       "batch_id": "deep-review-batch-048-eryngium-b040",
       "status": "range_hold_reviewed",
-      "notes": "B040 HOLD — Bexar and Gillespie locked; third exact target-zone county still needed. Perennial with long yucca-like leaves and pale globose heads.",
+      "notes": "Manual near-PASS cleanup confirms HOLD — Bexar and Gillespie remain the only exact target-zone counties locked. USDA-derived county data show a broad eastern Texas distribution but no third county from the project target list in the available county set. Needs one additional exact target-zone county.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "reconciliation_status": "preserved_range_hold",
       "priority": 0,
-      "last_deep_reviewed_at": "2026-10-03T22:35:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "verified_target_counties": [
+        "Bexar",
+        "Gillespie"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Rootfast/USDA — Eryngium yuccifolium",
+          "url": "https://rootfast.org/plants/ERYU",
+          "role": "USDA-derived native county distribution showing Bexar and Gillespie as target-zone records"
+        }
+      ]
     },
     {
       "id": "sorghastrum-nutans",
@@ -5832,7 +5860,7 @@
       "family": "Onagraceae",
       "genus": "Oenothera",
       "status": "range_hold_reviewed",
-      "notes": "B061 HOLD — Hays and Travis locked; third exact target-zone county still needed. Old Gaura longiflora synonym reconciled.",
+      "notes": "Manual near-PASS cleanup confirms HOLD — Hays and Travis remain locked exact target-zone counties. NPSOT/BONAP confirm Texas nativity and Blackland Prairie distribution, but no third exact project county was securely recovered in this pass. Old Gaura longiflora/filiformis synonymy remains reconciled. Needs one additional exact target-zone county.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -5840,7 +5868,24 @@
       "priority": 0,
       "queue_group": "B061 Oenothera",
       "batch_id": "deep-review-batch-063-oenothera-b061",
-      "last_deep_reviewed_at": "2026-10-03T21:45:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "verified_target_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Native Plant Society of Texas — Oenothera filiformis",
+          "url": "https://www.npsot.org/posts/native-plant/oenothera-%EF%AC%81liformis/",
+          "role": "Texas native distribution, synonymy, BONAP cross-reference"
+        },
+        {
+          "label": "GRIN — Oenothera filiformis",
+          "url": "https://ausgenebank.agriculture.vic.gov.au/gringlobal/taxon/taxonomydetail?id=466816",
+          "role": "Texas native status and accepted taxon"
+        }
+      ]
     },
     {
       "id": "ruellia-metziae",
@@ -6083,7 +6128,7 @@
       "scientific_name": "Grindelia ciliata",
       "common_name": "Spanish Gold / Waxed Goldenweed",
       "status": "range_hold_reviewed",
-      "notes": "B062 HOLD — Hays + Williamson locked; current Kew treats old G. papposa as synonym of G. ciliata; third exact target-zone county still needed.",
+      "notes": "Manual near-PASS cleanup CORRECTION — prior hold counted Williamson, but Williamson is outside the project target zone. Hays remains the only locked target-zone county in the current record. Modern Texas flora treats Grindelia ciliata (including old G. papposa usage) as widespread in Texas, but broad statewide distribution is not enough for the project's exact-county threshold. HOLD; needs two more exact target-zone counties.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -6093,7 +6138,18 @@
       "priority": 0,
       "queue_group": "B062 Grindelia",
       "batch_id": "deep-review-batch-064-grindelia-b062",
-      "last_deep_reviewed_at": "2026-10-03T22:10:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "verified_target_counties": [
+        "Hays"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Asteraceae of East Texas",
+          "url": "https://fwbg.org/wp-content/uploads/2021/08/Asteraceae_East_Texas_download.pdf",
+          "role": "accepted Grindelia ciliata concept, G. papposa synonymy, Texas distribution"
+        }
+      ]
     },
     {
       "id": "abutilon-fruticosum",
@@ -6250,11 +6306,32 @@
       },
       "last_scouted_at": "2026-10-03T19:12:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual Deep Review HOLD — Travis + Williamson locked; Texas nativity and morphology verified. Need one more exact target-zone county.",
+      "notes": "Manual near-PASS cleanup CORRECTION — prior hold counted Williamson, but Williamson is outside the project target zone. Travis remains voucher-backed. Historical/local literature supports occurrence around the Comal/New Braunfels region, but this pass did not obtain sufficiently strong specimen-level Comal evidence to count it. HOLD; needs two more exact target-zone counties.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Malvaceae Deep Review",
-      "last_deep_reviewed_at": "2026-10-03T20:45:57-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "verified_target_counties": [
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "UT Plant Resources Center — Travis County Malvaceae specimens",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Malvaceae.html",
+          "role": "Travis County Sida spinosa voucher index"
+        },
+        {
+          "label": "Comal County Beekeepers Association — Texas honey-plant references",
+          "url": "https://comalcountybeekeepersassociation.org/ccba-resources/",
+          "role": "historical regional occurrence lead; not counted as voucher-quality threshold evidence"
+        },
+        {
+          "label": "West Cross Timbers vascular plant county records",
+          "url": "https://www.researchgate.net/publication/328184261_COUNTY_RECORDS_AND_MAJOR_RANGE_EXTENSIONS_FOR_VASCULAR_PLANTS_FROM_THE_WEST_CROSS_TIMBERS_IN_ERATH_COUNTY_TEXAS",
+          "role": "Texas range context; Erath outside target zone"
+        }
+      ]
     },
     {
       "id": "sphaeralcea-lindheimeri",
