@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T10:33:00-05:00",
+  "updated_at": "2026-10-05T10:38:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2482,6 +2482,26 @@
       "expires_at": "2026-10-05T16:31:00-05:00",
       "release_when": "Bouteloua hirsuta var. pectinata is durably reconciled to the accepted concept and the genus lesson/live index reflect all installed Bouteloua taxa.",
       "notes": "Reuse B002/B078 science. Do not create a duplicate learner under the older pectinata varietal name. Expand the outdated four-species genus lesson to include current installed hirsuta, pectinata, and trifida."
+    },
+    {
+      "claim_id": "manual-fast-fill-verbena-012",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "verbena-canescens",
+        "verbena-halei",
+        "verbena-scabra"
+      ],
+      "families": [
+        "Verbenaceae"
+      ],
+      "scope_key": "fast-fill-verbena-canescens-halei-scabra",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T15:38:00Z",
+      "expires_at": "2026-10-05T21:38:00Z",
+      "release_when": "The three PASS native Verbena pages receive verified exact-species learner anchors or remaining source limitations are documented.",
+      "notes": "Visual-only. Verbena brasiliensis excluded because target-zone FAIL/comparison-only."
     }
   ]
 }
