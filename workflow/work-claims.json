@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T13:45:00-05:00",
+  "updated_at": "2026-10-05T13:55:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2790,6 +2790,27 @@
       "expires_at": "2026-10-05T18:15:00-05:00",
       "release_when": "All six fast-fill galleries are installed and verified, or the batch is explicitly abandoned.",
       "notes": "LEARNER FAST-FILL media-only. Preserve settled PASS/PROVISIONAL science. Reuse existing canonical/Joey media first, then add rights-clear exact-species or exact-infraspecific images. Breadth-first: 1–3 strong views per page rather than padding with ambiguous taxa."
+    },
+    {
+      "claim_id": "manual-genus-sapindus-b142-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "sapindus-drummondii",
+        "sapindus-saponaria",
+        "sapindus-saponaria-var-drummondii",
+        "sapindus-saponaria-vsr-drummondii"
+      ],
+      "families": [
+        "Sapindaceae"
+      ],
+      "scope_key": "study-batch-b142-sapindus-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T13:55:00-05:00",
+      "expires_at": "2026-10-05T19:55:00-05:00",
+      "release_when": "Historical drummondii aliases are reconciled to canonical Sapindus drummondii and Sapindus saponaria s.s. is durably handed to strict taxonomy/range review.",
+      "notes": "Do not infer Hays-local Sapindus saponaria source flag as native S. saponaria s.s.; legacy broad concepts may underlie the record. Preserve aliases and route the distinct s.s. concept for review."
     }
   ]
 }
