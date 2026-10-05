@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "READY_FOR_CURATION",
   "batch_id": "scout-2026-10-03-euphorbiaceae-06",
   "created_at": "2026-10-03T23:09:39-05:00",
   "source_pool": {
@@ -79,5 +79,66 @@
   },
   "notes": [
     "Major evidence gap: authoritative Texas distribution and diagnostic reproductive imagery."
-  ]
+  ],
+  "deep_review": {
+    "reviewed_at": "2026-10-05",
+    "owner": "automation-botany-deep-review-b",
+    "result": "READY FOR CURATION",
+    "taxonomy": {
+      "accepted_name": "Argythamnia simulans",
+      "authority": "J.W.Ingram",
+      "accepted": true,
+      "synonyms": [
+        "Ditaxis simulans (J.W.Ingram) Radcl.-Sm. & Govaerts"
+      ],
+      "notes": "POWO/WCVP currently accepts Argythamnia simulans J.W.Ingram; Ditaxis simulans is a homotypic synonym. IPNI confirms the name and Texas type context."
+    },
+    "target_zone_range": {
+      "decision": "PASS",
+      "evidence": [
+        "University/agency Balcones Canyonlands Preserve flora documents Argythamnia simulans (also listed under legacy Ditaxis simulans) in Travis County, an exact target-zone county.",
+        "Prior Deep Review evidence from the UT Austin Plant Resources Center documents plateau silverbush in northern Hays County; Hays is an exact target-zone county.",
+        "POWO independently confirms the species is native to Texas and northeastern Mexico."
+      ],
+      "guardrail": "PASS rests on exact Hays/Travis target-zone evidence, not on statewide Texas or Edwards Plateau inference."
+    },
+    "morphology": {
+      "diagnostic": [
+        "Perennial or subshrub Argythamnia; reproductive structures should lead identification.",
+        "Sessile leaves are a useful vegetative cue within the local Argythamnia comparison set.",
+        "Axillary racemes are conspicuously long, about 3.5–12 cm in the Flora of North America treatment, separating it well from short-racemed A. humilis.",
+        "Use staminate/pistillate flower structure, styles, capsule and seed characters to confirm identity.",
+        "Staminate-petal attachment is variable in A. simulans and must not be taught as an absolute separator."
+      ],
+      "confusers": [
+        "Argythamnia humilis",
+        "Argythamnia aphoroides"
+      ],
+      "learner_note": "Start with sessile leaves plus the unusually long axillary raceme, then confirm with reproductive characters; avoid relying on general gray-green habit."
+    },
+    "photos": {
+      "assessment": "Existing broad habit candidates are insufficient by themselves. Final learner imagery should visibly show sessile leaf attachment and the long axillary raceme, with reproductive macros when available.",
+      "diagnostic_structures_needed": [
+        "sessile leaf attachment",
+        "long axillary raceme",
+        "staminate and pistillate flowers",
+        "capsule/seed"
+      ]
+    },
+    "sources": [
+      "POWO/WCVP: https://powo.science.kew.org/taxon/19032-2",
+      "IPNI: https://www.ipni.org/n/19032-2",
+      "Balcones Canyonlands Preserve flora: https://www.traviscountytx.gov/images/tnr/Docs/Plants.pdf",
+      "Flora of North America treatment (reviewed in prior B pass)",
+      "UT Austin Plant Resources Center Argythamnia simulans account (reviewed in prior B pass)"
+    ],
+    "conflicts": [
+      "Older literature may use Ditaxis simulans; current POWO/WCVP accepts Argythamnia simulans.",
+      "Staminate-petal attachment varies and is unsafe as a binary learner character."
+    ],
+    "missing_pieces": [
+      "Final diagnostic photo selection and image-specific reuse/license verification"
+    ],
+    "next_action": "Await normal user approval for curation; at curation/photo-polish stage lock images showing sessile leaves, long raceme, and reproductive structures."
+  }
 }
