@@ -2278,7 +2278,7 @@
       "scientific_name": "Fraxinus berlandieriana",
       "family": "Oleaceae",
       "genus": "Fraxinus",
-      "status": "needs_manual_review",
+      "status": "ready_for_approval",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -2296,9 +2296,9 @@
         "source_count": 1
       },
       "batch_id": "deep-review-batch-018-fraxinus-b014",
-      "last_deep_reviewed_at": "2026-10-02T16:55:00-05:00",
-      "notes": "B014 UNRESOLVED: Travis and Comal firm; broader Edwards Plateau/San Antonio/Nueces evidence not converted into a third county.",
-      "approval_status": "needs_manual_review",
+      "last_deep_reviewed_at": "2026-10-05T18:34:00-05:00",
+      "notes": "Manual unresolved-hold reconciliation PASS — existing Travis and Comal evidence retained; Bexar added from voucher-backed San Antonio Missions National Historical Park flora (Carr voucher). Nesom 2010 independently supports Travis and a Comal County lectotype/synonym collection under the modern F. berlandieriana concept. Three exact target-zone counties now locked. Ready for user approval.",
+      "approval_status": "ready_for_user_approval",
       "user_decision": {
         "decision": "hold_unresolved",
         "decided_at": "2026-10-02T17:02:00-05:00",
@@ -2306,7 +2306,32 @@
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
       "reconciliation_status": "preserved_noncanonical_hold",
-      "reconciled_at": "2026-10-03T13:41:00-05:00"
+      "reconciled_at": "2026-10-03T13:41:00-05:00",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed",
+      "verified_target_counties": [
+        "Travis",
+        "Comal",
+        "Bexar"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Nesom 2010, Taxonomic notes on Fraxinus berlandieriana and F. velutina",
+          "url": "https://www.phytoneuron.net/PhytoN-Fraxberlandieriana.pdf",
+          "role": "taxon concept, Travis occurrence, Comal voucher/synonym evidence"
+        },
+        {
+          "label": "San Antonio Missions National Historical Park flora",
+          "url": "https://downloads.regulations.gov/EPA-R06-OAR-2025-0197-0003/attachment_67.pdf",
+          "role": "Bexar County voucher-backed native occurrence"
+        },
+        {
+          "label": "BONAP Fraxinus county atlas",
+          "url": "https://bonap.net/Napa/TaxonMaps/Genus/County/Fraxinus",
+          "role": "county-distribution cross-check"
+        }
+      ]
     },
     {
       "id": "fraxinus-greggii",
@@ -2331,8 +2356,8 @@
         "source_count": 1
       },
       "batch_id": "deep-review-batch-018-fraxinus-b014",
-      "last_deep_reviewed_at": "2026-10-02T16:55:00-05:00",
-      "notes": "B014 UNRESOLVED: Val Verde firm; southwest Texas native range clear but fewer than 3 exact project counties verified. Species-level learner preserves var. greggii / var. nummularis structure.",
+      "last_deep_reviewed_at": "2026-10-05T18:34:00-05:00",
+      "notes": "Manual unresolved-hold reconciliation strengthened but remains HOLD — Val Verde is firm from direct ecological collections/studies. Bandera County now has a wild field-survey occurrence as an associated species in a documented canyon collection. Uvalde is mentioned in secondary habitat literature but is not strong enough to count as the third exact project county. Do not force PASS; one additional exact target-zone county still needed.",
       "approval_status": "needs_manual_review",
       "user_decision": {
         "decision": "hold_unresolved",
@@ -2341,7 +2366,36 @@
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
       "reconciliation_status": "preserved_noncanonical_hold",
-      "reconciled_at": "2026-10-03T13:41:00-05:00"
+      "reconciled_at": "2026-10-03T13:41:00-05:00",
+      "native_range_status": "UNRESOLVED",
+      "canonical_status": "not_installed",
+      "verified_target_counties": [
+        "Val Verde",
+        "Bandera"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plant Physiology Val Verde collection",
+          "url": "https://watermark02.silverchair.com/plphys_v74_3_557.pdf",
+          "role": "direct Val Verde County collection"
+        },
+        {
+          "label": "Dan A. Hughes Unit / Devils River vegetation report",
+          "url": "https://texashistory.unt.edu/ark:/67531/metapth902820/m1/46/",
+          "role": "Val Verde County vegetation occurrence"
+        },
+        {
+          "label": "UC Davis Saratoga Horticultural Research report",
+          "url": "https://ccuh.ucdavis.edu/sites/g/files/dgvnsk1376/files/inline-files/Griswold_Hart_Final_Report_2019-2020.pdf",
+          "role": "Bandera County wild field-survey occurrence as associated Fraxinus greggii"
+        },
+        {
+          "label": "BONAP Fraxinus county atlas",
+          "url": "https://bonap.net/Napa/TaxonMaps/Genus/County/Fraxinus",
+          "role": "county-distribution cross-check"
+        }
+      ]
     },
     {
       "id": "campsis-radicans",
