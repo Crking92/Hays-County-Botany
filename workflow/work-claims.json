@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T23:13:00Z",
+  "updated_at": "2026-10-05T23:20:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3753,6 +3753,21 @@
       "expires_at": "2026-10-06T05:09:30.975Z",
       "release_when": "Source-name review and western soapberry range correction are durably recorded; existing galleries preserved.",
       "notes": "B160: repair known out-of-target Williamson/Val Verde evidence and close B142 strict name/range review if sources permit."
+    },
+    {
+      "claim_id": "manual-deep-review-fraxinus-unresolved-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "fraxinus-berlandieriana",
+        "fraxinus-greggii"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T18:20:00-05:00",
+      "expires_at": "2026-10-06T00:20:00-05:00",
+      "release_when": "Durable reconciliation results are written for both Fraxinus taxa or the batch is explicitly aborted.",
+      "notes": "Manual unresolved-hold reconciliation batch. Reuse existing Deep Review; focus only on exact target-zone county evidence and taxon-concept reconciliation. No curation bypass."
     }
   ]
 }
