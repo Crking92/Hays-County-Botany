@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T12:50:00-05:00",
+  "updated_at": "2026-10-05T13:02:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2723,6 +2723,28 @@
       "notes": "Reuse B005 science. M. biflora -> canonical Chthamalia biflora PASS. Legacy M. gonocarpos -> reviewed unresolved Gonolobus suberosus var. granulatus hold. M. parvifolia remains range FAIL. Canonical Matelea set remains M. edwardsensis + M. reticulata.",
       "released_at": "2026-10-05T12:50:00-05:00",
       "release_note": "B139 complete. Legacy M. gonocarpos reconnected to the existing user-accepted unresolved Gonolobus suberosus var. granulatus hold; M. parvifolia preserved as target-zone FAIL; M. biflora remains represented by Chthamalia biflora; live Matelea index 5/5 Complete."
+    },
+    {
+      "claim_id": "manual-genus-thelesperma-b140-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "thelesperma-ambiguum",
+        "thelesperma-filifolium",
+        "thelesperma-filifolium-var-filifolium",
+        "thelesperma-megapotamicum-var-ambiguum",
+        "thelesperma-simplicifolium"
+      ],
+      "families": [
+        "Asteraceae"
+      ],
+      "scope_key": "study-batch-b140-thelesperma-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T13:02:00-05:00",
+      "expires_at": "2026-10-05T19:02:00-05:00",
+      "release_when": "Thelesperma source aliases/holds are reconciled, genus lesson reflects all current concepts, and live index shows processed completion without converting the taxonomy/range HOLD to PASS.",
+      "notes": "Reuse B076 science. T. ambiguum source row maps to provisional installed T. megapotamicum var. ambiguum with taxonomy/range HOLD preserved. T. filifolium var. filifolium folds into canonical T. filifolium."
     }
   ]
 }
