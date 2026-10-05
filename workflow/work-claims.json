@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T11:56:00-05:00",
+  "updated_at": "2026-10-05T11:18:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2628,6 +2628,26 @@
       "expires_at": "2026-10-05T17:56:00-05:00",
       "release_when": "Historical Ruellia source names are durably mapped to canonical R. ciliatiflora, a genus comparison lesson exists, and the live genus index reflects all processed source concepts.",
       "notes": "Reuse B026/B081 science. Do not create duplicate learners for R. nudiflora var. nudiflora or R. occidentalis. Build genus lesson around flower position, pubescence, and current accepted-name handling."
+    },
+    {
+      "claim_id": "manual-fast-fill-commelinaceae-014",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "commelina-erecta",
+        "tinantia-anomala",
+        "tradescantia-occidentalis"
+      ],
+      "families": [
+        "Commelinaceae"
+      ],
+      "scope_key": "fast-fill-commelina-tinantia-tradescantia-occidentalis",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T16:18:00Z",
+      "expires_at": "2026-10-05T22:18:00Z",
+      "release_when": "The three canonical PASS Commelinaceae pages have useful rights-clear exact-species FAST-FILL galleries and are verified.",
+      "notes": "Visual-only. Preserve settled taxonomy/range; prioritize spathe/sheath, flower, habit and stem/axillary diagnostic roles."
     }
   ]
 }
