@@ -5,13 +5,18 @@
   "authority": "L.",
   "common_group": "Tickseeds",
   "project_scope": {
-    "selection_mode": "common local-learning batch 1",
-    "species_ids": [
+    "selection_mode": "B067 science + B147 source-status reconciliation",
+    "canonical_species_ids": [
       "coreopsis-basalis",
-      "coreopsis-tinctoria"
+      "coreopsis-tinctoria",
+      "coreopsis-wrightii"
     ],
-    "species_count": 2,
-    "note": "Existing C. basalis and C. tinctoria anchors are retained; B067 adds canonical C. wrightii and keeps C. lanceolata as a range HOLD. Species-lane decisions remain authoritative."
+    "canonical_species_count": 3,
+    "reviewed_holds": [
+      "coreopsis-lanceolata"
+    ],
+    "source_concept_count": 4,
+    "note": "C. lanceolata completed independent review but remains a range HOLD. Genus-level processing is complete without installing it."
   },
   "study_strategy": {
     "priority": [
@@ -24,10 +29,11 @@
     "warning": "Many Asteraceae look similar from a distance. Use head structure and involucre details, not just a yellow flower photo."
   },
   "curation_status": {
-    "version": "1.2-b067-visual",
-    "last_reviewed": "2026-10-04",
-    "genus_audit": "adequate",
-    "species_work_independent": true
+    "version": "1.3-b147-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete_with_reviewed_hold",
+    "species_work_independent": true,
+    "source_concepts_reconciled": true
   },
   "b067_comparison": {
     "selection_mode": "B067 same-genus comparison",
@@ -106,5 +112,29 @@
     "Flora of North America notes broad variation in Coreopsis leaf arrangement and dissection and warns that early leaves can differ strongly from later leaves.",
     "FNA treats C. lanceolata as a perennial with simple or lightly lobed lanceolate-to-oblanceolate leaves, useful as a visual contrast but not a range-approved project species."
   ],
-  "fast_fill_note": "C. basalis and C. tinctoria retain existing image galleries; C. wrightii now has a 3-view private-study UT Austin BIO406D PlantPics diagnostic set (habit, flower head, leaf/stem arrangement). C. lanceolata remains comparison-only HOLD and is not promoted by visual work."
+  "fast_fill_note": "C. basalis and C. tinctoria retain existing image galleries; C. wrightii now has a 3-view private-study UT Austin BIO406D PlantPics diagnostic set (habit, flower head, leaf/stem arrangement). C. lanceolata remains comparison-only HOLD and is not promoted by visual work.",
+  "source_concept_status": [
+    {
+      "id": "coreopsis-basalis",
+      "scientific_name": "Coreopsis basalis",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "coreopsis-lanceolata",
+      "scientific_name": "Coreopsis lanceolata",
+      "status": "REVIEWED_RANGE_HOLD",
+      "note": "Travis and Williamson locked; third exact target-zone county not confirmed."
+    },
+    {
+      "id": "coreopsis-tinctoria",
+      "scientific_name": "Coreopsis tinctoria",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "coreopsis-wrightii",
+      "scientific_name": "Coreopsis wrightii",
+      "status": "CANONICAL_PASS",
+      "note": "Current Kew accepts as distinct; older ITIS/FNA synonymy with C. basalis retained as context."
+    }
+  ]
 }
