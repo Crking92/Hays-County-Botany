@@ -5,24 +5,81 @@
   "authority": "Less.",
   "common_group": "Greenthreads",
   "project_scope": {
-    "selection_mode": "Asteraceae batch 3 \u2014 ragweeds, thistles, and common roadside species",
-    "species_ids": [
-      "thelesperma-filifolium"
+    "selection_mode": "B076 science + B140 source-concept reconciliation",
+    "canonical_species_ids": [
+      "thelesperma-filifolium",
+      "thelesperma-megapotamicum-var-ambiguum",
+      "thelesperma-simplicifolium"
     ],
-    "species_count": 1
+    "canonical_species_count": 3,
+    "represented_source_concepts": [
+      "thelesperma-filifolium-var-filifolium",
+      "thelesperma-ambiguum"
+    ],
+    "source_concept_count": 5,
+    "note": "T. filifolium var. filifolium is represented by canonical T. filifolium. Source-name T. ambiguum maps to the provisional installed T. megapotamicum var. ambiguum concept; its taxonomy/range HOLD remains explicit and native metrics stay excluded."
   },
   "study_strategy": {
     "priority": [
-      "whole-plant habit",
-      "leaf arrangement and texture",
-      "head architecture",
-      "phyllaries/involucre",
-      "fruit/pappus when available"
+      "leaf dissection and segment width",
+      "head size and ray presence",
+      "disk color and head proportions",
+      "phyllary/involucre structure",
+      "growth habit and branching",
+      "taxonomic name handling for ambiguum"
     ],
-    "warning": "This batch includes several groups where flower color alone is weak; use leaf and involucre characters."
+    "warning": "Do not use the old T. ambiguum source name as proof of a separate species in the learner. The project currently teaches that source concept through provisional T. megapotamicum var. ambiguum while preserving the Kew/ITIS treatment split."
   },
   "curation_status": {
-    "version": "1.0-batch3",
-    "last_reviewed": "2026-09-30"
-  }
+    "version": "1.1-b140-reconciliation",
+    "genus_audit": "complete_with_provisional_taxonomy_range_hold",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  },
+  "source_concept_status": [
+    {
+      "id": "thelesperma-ambiguum",
+      "scientific_name": "Thelesperma ambiguum",
+      "status": "TAXONOMY_RANGE_HOLD_REPRESENTED_BY_PROVISIONAL_T_MEGAPOTAMICUM_VAR_AMBIGUUM"
+    },
+    {
+      "id": "thelesperma-filifolium",
+      "scientific_name": "Thelesperma filifolium",
+      "status": "CANONICAL"
+    },
+    {
+      "id": "thelesperma-filifolium-var-filifolium",
+      "scientific_name": "Thelesperma filifolium var. filifolium",
+      "status": "REPRESENTED_IN_PARENT"
+    },
+    {
+      "id": "thelesperma-megapotamicum-var-ambiguum",
+      "scientific_name": "Thelesperma megapotamicum var. ambiguum",
+      "status": "PROVISIONAL_CANONICAL_TAXONOMY_RANGE_HOLD",
+      "native_metrics_excluded": true
+    },
+    {
+      "id": "thelesperma-simplicifolium",
+      "scientific_name": "Thelesperma simplicifolium",
+      "status": "CANONICAL_PASS"
+    }
+  ],
+  "quick_key": [
+    {
+      "if": "threadlike finely divided leaves and typical yellow greenthread heads",
+      "then": "Thelesperma filifolium"
+    },
+    {
+      "if": "source literature says T. filifolium var. filifolium",
+      "then": "map to canonical Thelesperma filifolium; no duplicate page"
+    },
+    {
+      "if": "ambiguum concept; taxonomy sources disagree species vs variety and range threshold is unresolved",
+      "then": "Thelesperma megapotamicum var. ambiguum provisional learner / source alias T. ambiguum"
+    },
+    {
+      "if": "slender greenthread with the B076 PASS morphology and county set",
+      "then": "Thelesperma simplicifolium"
+    }
+  ]
 }
