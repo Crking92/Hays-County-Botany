@@ -7,6 +7,7 @@ A batch is any folder directly under curation-inbox/ that contains batch.json.
 Expected shape:
 curation-inbox/<batch-id>/
   batch.json
+  READY                       (created last; marks the batch complete and runnable)
   taxa/
     Family/
       family.json               (optional)
@@ -357,11 +358,11 @@ def main() -> int:
 
     batch_dirs = sorted(
         p for p in INBOX.iterdir()
-        if p.is_dir() and (p / "batch.json").exists()
+        if p.is_dir() and (p / "batch.json").exists() and (p / "READY").exists()
     )
 
     if not batch_dirs:
-        print("No curation batches found; nothing to do.")
+        print("No READY curation batches found; nothing to do.")
         return 0
 
     report = {
