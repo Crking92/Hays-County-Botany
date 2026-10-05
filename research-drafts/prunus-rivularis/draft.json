@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "draft_status": "GENUS_RECONCILIATION_READY_FOR_DEEP_REVIEW",
+  "batch_id": "manual-genus-prunus-b131-001",
+  "created_at": "2026-10-05T08:58:00-05:00",
+  "taxonomy": {
+    "accepted_name": "Prunus rivularis Scheele",
+    "rank": "species",
+    "family": "Rosaceae",
+    "genus": "Prunus",
+    "status": "ACCEPTED_NAME_CORROBORATED",
+    "note": "Current Plants of the World Online treats Prunus rivularis Scheele as an accepted species. Project reconciliation should not fold it into Prunus mexicana.",
+    "sources": [
+      {
+        "label": "Plants of the World Online — Prunus rivularis Scheele",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:730196-1/images",
+        "use": "accepted-name check"
+      }
+    ]
+  },
+  "target_zone_range": {
+    "decision": "PASS_CANDIDATE_AWAITING_INDEPENDENT_REVIEW",
+    "threshold": 3,
+    "documented_counties": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "evidence_basis": [
+      "Hays — live Hays County Natives source tab lists Prunus rivularis from the Wildflower Center printable Hays County list compiled/managed by NPSOT Hill Country Chapter.",
+      "Travis — Travis County Balcones Canyonlands Preserve vascular plant list includes creek plum, Prunus rivularis.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a full Prunus rivularis treatment."
+    ],
+    "sources": [
+      {
+        "label": "Travis County — Plants of the Balcones Canyonlands Preserve",
+        "url": "https://www.traviscountytx.gov/images/tnr/Docs/Plants.pdf",
+        "county": "Travis"
+      },
+      {
+        "label": "UT Plant Resources Center — Vascular Plants of Williamson County: Prunus rivularis",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Prunus%20rivularis.html",
+        "county": "Williamson"
+      },
+      {
+        "label": "Project Hays County Natives source row 571",
+        "source_location": "Google Sheet Hays_Botany_ID_Master_Curation_Tracker / Hays County Natives",
+        "county": "Hays"
+      }
+    ],
+    "guardrail": "This repairs a legacy bookkeeping gap only. Independent deep review should confirm the three-county evidence before canonical installation."
+  },
+  "morphology": {
+    "look_here_first": "Start with growth form and the flower/fruit-bearing shoots: creek plum is a low thicket-forming deciduous shrub rather than the small-tree habit typical of Mexican plum. Confirm narrow ovate-lanceolate serrate leaves with glandular teeth/glands, white flowers in small clusters along the branches, and round yellow-to-red plum fruits.",
+    "diagnostic_traits": [
+      "thicket-forming deciduous shrub, commonly about 2–4 m tall",
+      "shoots arise clonally from spreading shallow roots",
+      "alternate simple leaves, usually narrow ovate-lanceolate",
+      "serrate margins with glandular teeth, especially on developing leaves",
+      "petiole/blade-base glands can be present",
+      "white flowers in small clusters along the branches",
+      "round fleshy drupes ripening yellow to red"
+    ],
+    "sources": [
+      {
+        "label": "UT Plant Resources Center — Vascular Plants of Williamson County",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Prunus%20rivularis.html"
+      },
+      {
+        "label": "Native Plant Society of Texas — Creek Plum",
+        "url": "https://www.npsot.org/posts/native-plant/prunus-rivularis/"
+      }
+    ]
+  },
+  "comparisons": {
+    "key_distinctions": [
+      "vs. Prunus mexicana: P. rivularis is a smaller, strongly thicket-forming shrub; P. mexicana is usually a small tree with larger plum fruit and more tree-like bark/trunk development.",
+      "vs. Prunus serotina: P. rivularis has small branch-borne flower clusters and yellow-to-red plums; P. serotina is a tree with elongated racemes and dark purple-black cherries.",
+      "vs. Prunus angustifolia: both can form thickets, so use the existing B074 comparison material and independent review rather than range alone."
+    ]
+  },
+  "legacy_reconciliation": {
+    "previous_project_state": "Master Plant Pool marked the source concept 'Resolved/curated source concept — not a separate canonical install' / 'Curated – Text & Diagnostics Ready', while no canonical manifest entry, queue record, or research draft existed.",
+    "correction_needed": "Because the accepted species is distinct and the project already has three target-zone evidence paths, route it through independent deep review rather than suppressing it as a noncanonical duplicate."
+  },
+  "visual_status": {
+    "lane_owner": "learner-photo-backfill / curation after scientific approval",
+    "status": "NOT_COLLECTED_IN_THIS_BATCH",
+    "note": "Broad gallery work is intentionally not duplicated by the large-genus continuation lane."
+  },
+  "approval_status": "PENDING_INDEPENDENT_DEEP_REVIEW"
+}
