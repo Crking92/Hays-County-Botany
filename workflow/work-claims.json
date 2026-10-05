@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T13:18:00-05:00",
+  "updated_at": "2026-10-05T13:31:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2747,6 +2747,27 @@
       "notes": "Reuse B076 science. T. ambiguum source row maps to provisional installed T. megapotamicum var. ambiguum with taxonomy/range HOLD preserved. T. filifolium var. filifolium folds into canonical T. filifolium.",
       "released_at": "2026-10-05T13:18:00-05:00",
       "release_note": "B140 complete. T. filifolium var. filifolium represented in canonical T. filifolium; source T. ambiguum represented by provisional T. megapotamicum var. ambiguum with Kew/ITIS taxonomy split and range HOLD preserved; live index 5/5 Complete."
+    },
+    {
+      "claim_id": "manual-genus-vernonia-b141-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "vernonia-x-guadalupensis",
+        "vernonia-guadalupensis",
+        "vernonia-baldwinii",
+        "vernonia-lindheimeri"
+      ],
+      "families": [
+        "Asteraceae"
+      ],
+      "scope_key": "study-batch-b141-vernonia-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T13:31:00-05:00",
+      "expires_at": "2026-10-05T19:31:00-05:00",
+      "release_when": "Plain V. guadalupensis source row is reconciled to canonical V. × guadalupensis and V. baldwinii/V. lindheimeri are durably handed to strict deep review instead of being prematurely installed.",
+      "notes": "Existing Module 11 packages are local-occurrence-first and do not satisfy current strict 3-target-county gate. Preserve canonical natural hybrid. Do not install parents until independent strict review."
     }
   ]
 }
