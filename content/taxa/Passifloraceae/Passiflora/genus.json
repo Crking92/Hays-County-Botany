@@ -4,38 +4,85 @@
   "name": "Passiflora",
   "common_group": "Passionflowers",
   "project_scope": {
-    "selection_mode": "B063 same-genus comparison",
-    "species_ids": [
-      "passiflora-affinis"
+    "selection_mode": "B019/B063 science + B136 source-status reconciliation",
+    "canonical_species_ids": [
+      "passiflora-affinis",
+      "passiflora-lutea",
+      "passiflora-tenuiloba"
     ],
-    "species_count": 1,
-    "holds": [
-      "passiflora-foetida"
+    "canonical_species_count": 3,
+    "reviewed_holds": [
+      "passiflora-foetida",
+      "passiflora-incarnata"
     ],
-    "nonlocal_comparisons": [
+    "reviewed_target_zone_fails": [
       "passiflora-lanuginosa"
-    ]
+    ],
+    "source_concept_count": 6,
+    "note": "Genus-level processing is complete without promoting reviewed HOLD or FAIL taxa. Canonical learner pages remain limited to the three installed PASS species."
   },
   "study_strategy": {
     "priority": [
-      "leaf lobing",
+      "leaf lobing and margin",
+      "petiole glands",
       "presence/shape of floral bracts",
       "leaf pubescence and odor",
-      "corona color/length",
-      "fruit color and pubescence",
+      "corona color/length and flower size",
+      "fruit size, color, and pubescence",
       "native vs introduced range"
     ],
-    "warning": "San Antonio-area records are vulnerable to confusion between native P. foetida and introduced P. lanuginosa/ciliata-type plants. Use morphology plus provenance."
+    "warning": "Do not identify Passiflora from flower color alone. San Antonio-area records are especially vulnerable to confusion between native P. foetida and introduced P. lanuginosa/ciliata-type plants; use leaf/bract/fruit morphology plus provenance."
   },
   "comparison_lesson": {
     "quick_split": [
-      "P. affinis — broad cowboy-hat leaves, floral bracts present, greenish-yellow flower, purple-black berry; Edwards Plateau native PASS.",
-      "P. foetida — densely hairy/fetid foliage, finely divided sticky bract cage, pale flower with purple-blue corona, greenish mature fruit; range HOLD.",
-      "P. lanuginosa — introduced Mexico–Guatemala species, darker angular leaves, pinker flowers, smooth red fruit; target-zone FAIL."
+      "P. affinis — canonical PASS; broad cowboy-hat leaves, floral bracts present, greenish-yellow flower, purple-black berry.",
+      "P. lutea — canonical PASS; glandless petiole, broad rounded entire 3-lobed leaves, tiny green-yellow flower and small berry.",
+      "P. tenuiloba — canonical PASS; paired cuplike petiole glands and extremely narrow deeply divided birdwing leaves; tiny green petal-less-looking flower.",
+      "P. incarnata — reviewed range HOLD; paired petiole glands, large broad serrate 3-lobed leaves, enormous purple/white corona flower, large maypop fruit.",
+      "P. foetida — reviewed range HOLD; densely hairy fetid foliage, finely divided sticky bract cage, pale flower with purple-blue corona, greenish mature fruit.",
+      "P. lanuginosa — reviewed target-zone FAIL; introduced Mexico–Guatemala lookalike with darker angular leaves, pinker flowers, and smooth red fruit."
     ]
   },
   "curation_status": {
-    "version": "1.0-b063",
-    "last_reviewed": "2026-10-03"
-  }
+    "version": "1.1-b136-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete_with_reviewed_holds_and_fail",
+    "source_concepts_reconciled": true,
+    "species_installation_independent": true
+  },
+  "source_concept_status": [
+    {
+      "id": "passiflora-affinis",
+      "scientific_name": "Passiflora affinis",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "passiflora-foetida",
+      "scientific_name": "Passiflora foetida",
+      "status": "REVIEWED_RANGE_HOLD",
+      "learner_action": "comparison-only until exact target-zone range threshold is met"
+    },
+    {
+      "id": "passiflora-incarnata",
+      "scientific_name": "Passiflora incarnata",
+      "status": "REVIEWED_RANGE_HOLD",
+      "learner_action": "comparison-only until a third exact target-zone county is documented"
+    },
+    {
+      "id": "passiflora-lanuginosa",
+      "scientific_name": "Passiflora lanuginosa",
+      "status": "REVIEWED_TARGET_ZONE_FAIL",
+      "learner_action": "introduced lookalike comparison; no native install"
+    },
+    {
+      "id": "passiflora-lutea",
+      "scientific_name": "Passiflora lutea",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "passiflora-tenuiloba",
+      "scientific_name": "Passiflora tenuiloba",
+      "status": "CANONICAL_PASS"
+    }
+  ]
 }
