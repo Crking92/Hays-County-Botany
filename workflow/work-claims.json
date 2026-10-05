@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T23:45:00-05:00",
+  "updated_at": "2026-10-04T23:23:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1780,6 +1780,22 @@
       "expires_at": "2026-10-05T05:39:00-05:00",
       "release_when": "Three B069 Asclepias reviewed source concepts are reconciled in overrides/Study Batches and existing canonical milkweed visual state is verified.",
       "notes": "Reuse B069 rather than duplicate review. A. incarnata RANGE HOLD; A. speciosa target-zone FAIL; A. syriaca target-zone FAIL/non-Texas-native under current Kew. Do not install new native learner pages from these rows."
+    },
+    {
+      "claim_id": "manual-argemone-visual-fix-001",
+      "scope_kind": "website_genus_visual",
+      "taxa": [
+        "argemone-albiflora-subsp-texana",
+        "argemone-aurantiaca"
+      ],
+      "scope_key": "content/taxa/Papaveraceae/Argemone/genus.json + assets/js/app.js + assets/css/styles.css",
+      "lane": "website-ui",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T23:23:00-05:00",
+      "expires_at": "2026-10-05T05:23:00-05:00",
+      "release_when": "Argemone visual comparison with annotated real-photo diagnostics is durably written and verified on main.",
+      "notes": "iPhone learner repair: add real-photo capsule/bud comparison with learner-generated arrow overlays; preserve scientific source text and image provenance."
     }
   ]
 }
