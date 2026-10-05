@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T01:24:00-05:00",
+  "updated_at": "2026-10-05T01:31:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2030,6 +2030,30 @@
       "expires_at": "2026-10-05T12:24:00Z",
       "release_when": "Usable FAST-FILL learner images and provenance are durably written and verified, or the batch is explicitly aborted.",
       "notes": "Canonical-species visual fill only; taxonomy/range untouched. Existing routed/Joey image checks found no reusable assets. M. piniflora excluded because its source-name concept remains scientifically flagged."
+    },
+    {
+      "claim_id": "curation-euphorbiaceae-fast-fill-001",
+      "scope_kind": "species_curation_batch",
+      "taxa": [
+        "croton-monanthogynus",
+        "croton-texensis",
+        "euphorbia-cyathophora",
+        "euphorbia-heterophylla",
+        "euphorbia-marginata",
+        "acalypha-phleoides",
+        "acalypha-radians"
+      ],
+      "families": [
+        "Euphorbiaceae"
+      ],
+      "scope_key": "curation-euphorbiaceae-fast-fill-001",
+      "lane": "species-curation-install",
+      "owner": "curation-install-worker",
+      "status": "active",
+      "claimed_at": "2026-10-05T01:31:00-05:00",
+      "expires_at": "2026-10-05T03:31:00-05:00",
+      "release_when": "Batch is durably staged in curation-inbox or installed canonical, or explicitly aborted.",
+      "notes": "FAST-FILL installation of already-reviewed and explicitly approved taxa; no new deep research."
     }
   ]
 }
