@@ -921,7 +921,7 @@
       "scientific_name": "Gonolobus suberosus var. granulatus",
       "family": "Apocynaceae",
       "genus": "Gonolobus",
-      "status": "needs_manual_review",
+      "status": "ready_for_approval",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -938,9 +938,9 @@
         "source_count": 1
       },
       "batch_id": "deep-review-batch-009-former-matelea-b005",
-      "last_deep_reviewed_at": "2026-10-02T13:04:00-05:00",
-      "notes": "B005 UNRESOLVED: two firm target counties; legacy Matelea gonocarpos records need concept reconciliation.",
-      "approval_status": "user_accepted_unresolved_hold",
+      "last_deep_reviewed_at": "2026-10-05T19:02:00-05:00",
+      "notes": "Manual unresolved cleanup PASS — current accepted concept Gonolobus suberosus var. granulatus retained. Krings' specimen revision documents flowering material in Comal, Kendall, and Travis counties, all in the project target zone. Legacy Matelea gonocarpos usage is reconciled under the modern Gonolobus concept; do not transfer eastern var. suberosus records. Ready for user approval.",
+      "approval_status": "ready_for_user_approval",
       "user_decision": {
         "decision": "accept_review_keep_unresolved",
         "decided_at": "2026-10-02T17:02:00-05:00",
@@ -948,7 +948,32 @@
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
       "reconciliation_status": "preserved_noncanonical_hold",
-      "reconciled_at": "2026-10-03T13:41:00-05:00"
+      "reconciled_at": "2026-10-03T13:41:00-05:00",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed",
+      "verified_target_counties": [
+        "Comal",
+        "Kendall",
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Krings 2006 — Distribution and phenology of Gonolobus suberosus",
+          "url": "https://herbarium.ncsu.edu/vulpia/pdf/Krings2006.pdf",
+          "role": "annotated specimen revision; Comal, Kendall, Travis county evidence and variety concept"
+        },
+        {
+          "label": "ITIS — Gonolobus suberosus var. granulatus",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=894244",
+          "role": "accepted infraspecific name"
+        },
+        {
+          "label": "NatureServe — Gonolobus suberosus",
+          "url": "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.149963/Gonolobus_suberosus",
+          "role": "modern Gonolobus/Matelea synonymy context"
+        }
+      ]
     },
     {
       "id": "clematis-drummondii",
@@ -1778,8 +1803,8 @@
         "source_count": 2
       },
       "batch_id": "deep-review-batch-015-quercus-b011",
-      "last_deep_reviewed_at": "2026-10-02T16:12:00-05:00",
-      "notes": "B011 UNRESOLVED: modern Q. virginiana vs Q. fusiformis taxon-concept boundary leaves fewer than 3 firm target counties; do not transfer generic Central Texas live-oak records.",
+      "last_deep_reviewed_at": "2026-10-05T19:02:00-05:00",
+      "notes": "Manual unresolved cleanup confirms HOLD — do not count generic Central Texas live-oak records as Quercus virginiana. Modern sources accept Q. fusiformis separately (including former Q. virginiana var. fusiformis), and historical Travis/Central Texas material commonly falls in that plateau/Texas live-oak concept. Fewer than three exact target-zone counties remain defensible for strict Q. virginiana under the current project standard.",
       "approval_status": "user_accepted_unresolved_hold",
       "user_decision": {
         "decision": "accept_review_keep_unresolved",
@@ -1788,7 +1813,27 @@
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
       "reconciliation_status": "preserved_noncanonical_hold",
-      "reconciled_at": "2026-10-03T13:41:00-05:00"
+      "reconciled_at": "2026-10-03T13:41:00-05:00",
+      "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
+      "canonical_status": "not_installed",
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "ITIS — Quercus fusiformis",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=195175",
+          "role": "accepted Q. fusiformis and synonym Q. virginiana var. fusiformis"
+        },
+        {
+          "label": "USDA GRIN — Quercus fusiformis",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=413279",
+          "role": "accepted taxon concept and homotypic synonym"
+        },
+        {
+          "label": "Texas Oak Wilt symposium specimen discussion",
+          "url": "https://texasoakwilt.org/assets/studies/NOWS/conference_assets/NOWS_SECTION_I.pdf",
+          "role": "historical Central Texas Q. virginiana-labelled material interpreted as Q. fusiformis"
+        }
+      ]
     },
     {
       "id": "quercus-alba",
@@ -6955,7 +7000,7 @@
       "id": "tragia-brevispica",
       "scientific_name": "Tragia brevispica",
       "status": "needs_manual_review",
-      "notes": "Completed deep review exists in draft.json. Hold for BONAP/NAPA county-native reconciliation, modern key and diagnostic structural imagery; do not repeat initial deep review.",
+      "notes": "Manual unresolved cleanup strengthened but remains HOLD — accepted Tragia brevispica; exact target-zone voucher evidence locked for Travis and Bexar. Broader South-Central Texas floristic evidence supports regional nativity but does not identify a third exact project county, so it cannot satisfy the project threshold yet. Diagnostic imagery/key work remains useful but is not the blocker.",
       "family": "Euphorbiaceae",
       "genus": "Tragia",
       "priority": 1,
@@ -6963,7 +7008,30 @@
       "batch_id": "scout-2026-10-03-euphorbiaceae-05",
       "approval_status": "needs_manual_review",
       "native_range_status": "UNRESOLVED",
-      "last_deep_reviewed_at": "2026-10-04T12:30:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:02:00-05:00",
+      "canonical_status": "not_installed",
+      "verified_target_counties": [
+        "Travis",
+        "Bexar"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "University of Michigan Herbarium — Tragia brevispica MICH 1645723",
+          "url": "https://quod.lib.umich.edu/h/herb00ic/x-1645723/mich-v-1645723",
+          "role": "Travis County voucher"
+        },
+        {
+          "label": "SEINet/EcoFlora NY specimen results",
+          "url": "https://biokic3.rc.asu.edu/seinet/ecoflora/portal/collections/list.php?comingFrom=newsearch&page=12&taxa=4311&taxontype=2&usethes=1",
+          "role": "Bexar County NY specimens and additional Texas occurrence context"
+        },
+        {
+          "label": "ITIS — Tragia brevispica",
+          "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=28427",
+          "role": "accepted species concept"
+        }
+      ]
     },
     {
       "id": "tragia-nigricans",
