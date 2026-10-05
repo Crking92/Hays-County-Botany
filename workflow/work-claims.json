@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T09:36:00-05:00",
+  "updated_at": "2026-10-05T09:44:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2895,11 +2895,13 @@
       "scope_key": "fast-fill-symphyotrichum-drummondii-sericeum",
       "lane": "small-genus-backfill",
       "owner": "taxonomy-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T14:36:00Z",
       "expires_at": "2026-10-05T20:36:00Z",
       "release_when": "S. drummondii and S. sericeum receive verified exact-species FAST-FILL imagery or source limitations are documented.",
-      "notes": "Visual-only. Both are canonical PASS. Preserve existing scientific state. S. eulae deliberately not claimed because current exact-species image sourcing is source-limited; S. ericoides already has a Joey anchor."
+      "notes": "Visual-only. Both are canonical PASS. Preserve existing scientific state. S. eulae deliberately not claimed because current exact-species image sourcing is source-limited; S. ericoides already has a Joey anchor.",
+      "released_at": "2026-10-05T14:44:00Z",
+      "release_note": "Verified S. drummondii at 3 exact-species images and S. sericeum at 1 rights-clear exact-species image. S. eulae remains source-limited; S. ericoides retains existing Joey anchor. Scientific PROVISIONAL/FAIL asters untouched."
     }
   ]
 }
