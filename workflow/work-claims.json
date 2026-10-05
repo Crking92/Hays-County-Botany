@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T12:20:00-05:00",
+  "updated_at": "2026-10-05T12:30:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3395,6 +3395,25 @@
       "notes": "Reuse B032 science. No new taxonomy/range work; this is a source-row reconciliation.",
       "released_at": "2026-10-05T12:20:00-05:00",
       "release_note": "B156 complete. Glandularia bipinnatifida var. bipinnatifida represented inside canonical G. bipinnatifida; live index now 3/3 Complete."
+    },
+    {
+      "claim_id": "manual-genus-eryngium-b157-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "eryngium-leavenworthii",
+        "eryngium-yuccifolium"
+      ],
+      "families": [
+        "Apiaceae"
+      ],
+      "scope_key": "study-batch-b157-eryngium-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T12:30:00-05:00",
+      "expires_at": "2026-10-05T18:30:00-05:00",
+      "release_when": "E. yuccifolium reviewed range HOLD is synchronized as processed without installation and the live index reaches completion.",
+      "notes": "Reuse B040 science. E. yuccifolium remains range HOLD with Bexar and Gillespie locked; do not promote."
     }
   ]
 }
