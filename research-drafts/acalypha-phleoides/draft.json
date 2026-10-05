@@ -106,7 +106,7 @@
     "reviewed_at": "2026-10-04T00:03:34-05:00",
     "owner": "automation-botany-deep-review-b",
     "taxonomy": "Accepted Acalypha phleoides Cav.; Kew POWO accepted species.",
-    "range": "PASS: Hays, Travis, Williamson independently documented by UT Plant Resources Center county flora/herbarium resources.",
+    "range": "PASS: Hays, Travis, Kerr independently documented; Williamson removed because it is outside the project target-zone list.",
     "diagnostics": [
       "perennial monoecious herb",
       "rhombic-ovate to ovate serrate leaves",
@@ -123,12 +123,26 @@
       "UT PRC Hays flora",
       "UT PRC Travis herbarium index",
       "UT PRC Williamson flora",
-      "Flora of North America"
+      "Flora of North America",
+      "Singhurst et al. 2010 Kerr Wildlife Management Area vascular flora"
     ],
     "conflicts": [],
     "missing_pieces": [
       "final public photo/license lock"
     ],
-    "next_action": "Await normal user approval; no canonical install or curation-inbox action by review worker."
+    "next_action": "Await normal user approval; no canonical install or curation-inbox action by review worker.",
+    "range_correction": {
+      "corrected_at": "2026-10-05",
+      "reason": "Williamson is outside the project target-zone list.",
+      "documented_counties": [
+        "Hays",
+        "Travis",
+        "Kerr"
+      ],
+      "evidence": [
+        "Kerr — Singhurst et al. 2010 vascular flora of Kerr Wildlife Management Area records Acalypha phleoides with voucher collections.",
+        "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf"
+      ]
+    }
   }
 }
