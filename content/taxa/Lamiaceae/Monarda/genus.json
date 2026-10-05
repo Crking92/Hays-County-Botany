@@ -1,0 +1,67 @@
+{
+  "rank": "genus",
+  "family": "Lamiaceae",
+  "name": "Monarda",
+  "authority": "L.",
+  "common_group": "Bee balms / horsemints",
+  "project_scope": {
+    "selection_mode": "B039 canonical anchors + B152 strict-review handoff",
+    "canonical_species_ids": [
+      "monarda-citriodora",
+      "monarda-punctata"
+    ],
+    "pending_strict_review": [
+      "monarda-fistulosa"
+    ],
+    "source_concept_count": 3,
+    "note": "M. citriodora and M. punctata are installed PASS anchors. M. fistulosa remains a true open review task and is not installed until independent taxonomy/range review is complete."
+  },
+  "source_concept_status": [
+    {
+      "id": "monarda-citriodora",
+      "scientific_name": "Monarda citriodora",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "monarda-fistulosa",
+      "scientific_name": "Monarda fistulosa",
+      "status": "PENDING_STRICT_DEEP_REVIEW"
+    },
+    {
+      "id": "monarda-punctata",
+      "scientific_name": "Monarda punctata",
+      "status": "CANONICAL_PASS"
+    }
+  ],
+  "study_strategy": {
+    "priority": [
+      "stacked separated whorls versus more conventional dense terminal heads",
+      "floral-bract shape and color",
+      "length of bristle tips on bracts and calyx teeth",
+      "cream/yellow purple-spotted versus pink/lavender corollas",
+      "calyx-mouth hair pattern",
+      "whole-plant life history and habitat only after floral morphology"
+    ],
+    "warning": "Do not identify Monarda by flower color alone. For the installed anchors, long bristle-tipped bracts/calyx teeth point to M. citriodora; pale bracts plus cream/yellow heavily purple-spotted flowers and an open ciliate calyx mouth point to M. punctata. M. fistulosa is pending strict review and should not be treated as a local PASS yet."
+  },
+  "quick_key": [
+    {
+      "if": "tiered/interrupted flower whorls with purplish bracts narrowed into long bristle tips and long bristle-tipped calyx teeth",
+      "then": "Monarda citriodora — canonical PASS"
+    },
+    {
+      "if": "tiered whorls with pale white/pink bracts, cream-to-yellow purple-spotted corollas, and short triangular calyx teeth",
+      "then": "Monarda punctata — canonical PASS"
+    },
+    {
+      "if": "source says wild bergamot / Monarda fistulosa",
+      "then": "pending strict review; do not install or count as target-zone PASS until taxonomy/range review is complete"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-b152",
+    "genus_audit": "partial_pending_monarda_fistulosa_review",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  }
+}
