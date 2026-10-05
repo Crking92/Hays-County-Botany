@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T09:59:00-05:00",
+  "updated_at": "2026-10-05T09:28:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2945,6 +2945,26 @@
       "notes": "Visual-only. Canonical PASS. H. elegans remains scientifically eligible but is not claimed because quick exact-species image sourcing is provenance-limited; H. quadridentatum is scientifically PROVISIONAL.",
       "released_at": "2026-10-05T14:59:00Z",
       "release_note": "Verified H. autumnale at 3 exact-species rights-clear images. H. elegans left source-limited; H. quadridentatum remains scientifically PROVISIONAL."
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-mixed-007",
+      "scope_kind": "species_media_batch",
+      "taxa": [
+        "conoclinium-coelestinum",
+        "callirhoe-pedata",
+        "castilleja-purpurea",
+        "anisacanthus-quadrifidus-var-wrightii",
+        "chilopsis-linearis",
+        "chrysactinia-mexicana"
+      ],
+      "scope_key": "photo-fast-fill-mixed-007",
+      "lane": "learner-photo-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T09:28:00-05:00",
+      "expires_at": "2026-10-05T15:28:00-05:00",
+      "release_when": "All six gallery updates are installed and verified, or the batch is explicitly abandoned.",
+      "notes": "LEARNER FAST-FILL media-only. Use existing Joey/canonical material first, then rights-clear exact-taxonomon media. Preserve settled taxonomy/range and provisional scientific status."
     }
   ]
 }
