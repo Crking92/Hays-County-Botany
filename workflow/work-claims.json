@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T10:12:00-05:00",
+  "updated_at": "2026-10-05T10:18:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3006,6 +3006,24 @@
       "notes": "Visual-only top-off. Preserve existing two local image records and settled scientific status.",
       "released_at": "2026-10-05T15:12:00Z",
       "release_note": "Verified Ageratina altissima at 3 learner images after adding one rights-clear exact-species field reference. Scientific state unchanged."
+    },
+    {
+      "claim_id": "manual-fast-fill-solidago-011",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "solidago-gigantea"
+      ],
+      "families": [
+        "Asteraceae"
+      ],
+      "scope_key": "fast-fill-solidago-gigantea",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T15:18:00Z",
+      "expires_at": "2026-10-05T21:18:00Z",
+      "release_when": "Solidago gigantea receives a verified exact-species FAST-FILL gallery or the batch is explicitly aborted.",
+      "notes": "Visual-only. Canonical PASS. Solidago juliae is not claimed because current quick sourcing exposes only a licensed guide image without a clean direct photo record."
     }
   ]
 }
