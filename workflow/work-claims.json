@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T23:09:30.975Z",
+  "updated_at": "2026-10-05T23:13:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3717,11 +3717,12 @@
       ],
       "lane": "botany-deep-review",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T18:05:00-05:00",
       "expires_at": "2026-10-06T00:05:00-05:00",
       "release_when": "Durable deep-review result is written to research-queue.json/research draft, or the review is explicitly aborted.",
-      "notes": "Manual 1-species remainder batch selected after authoritative collision check. Deep-review only; do not bypass user approval or curation pipeline."
+      "notes": "Manual 1-species remainder batch selected after authoritative collision check. Deep-review only; do not bypass user approval or curation pipeline. Durable deep-review result written to research-queue.json as PASS / ready_for_approval.",
+      "released_at": "2026-10-05T18:13:00-05:00"
     },
     {
       "claim_id": "manual-photo-fast-fill-mixed-015",
