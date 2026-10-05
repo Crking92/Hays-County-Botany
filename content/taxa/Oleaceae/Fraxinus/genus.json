@@ -5,13 +5,18 @@
   "authority": "Tourn. ex L.",
   "common_group": "Ashes",
   "project_scope": {
-    "selection_mode": "approved-local-comparison",
-    "species_ids": [
+    "selection_mode": "B014 strict review + B143 source-status reconciliation",
+    "canonical_species_ids": [
       "fraxinus-albicans",
       "fraxinus-pennsylvanica"
     ],
-    "species_count": 2,
-    "note": "B014 approved Texas ash and green ash. Mexican ash and Gregg's ash remain explicit range holds."
+    "canonical_species_count": 2,
+    "reviewed_holds": [
+      "fraxinus-berlandieriana",
+      "fraxinus-greggii"
+    ],
+    "source_concept_count": 4,
+    "note": "F. berlandieriana and F. greggii completed independent review but remain user-accepted unresolved range HOLDs. Genus-level processing can be complete without installing them."
   },
   "study_strategy": {
     "shared_traits": [
@@ -20,25 +25,62 @@
       "winged samara fruit"
     ],
     "priority": [
-      "samara wing-to-body relationship",
+      "tree versus xeric shrub/small-tree habit",
+      "leaflet number",
       "lower leaflet surface",
+      "serration strength",
       "leaf scar shape",
-      "leaflet number and serration"
+      "samara wing-to-body relationship",
+      "occasional 3-winged fruit in Mexican ash"
     ],
-    "warning": "In Central Texas, do not separate Texas ash and green ash by leaf silhouette alone; UT PRC notes co-occurrence and possible hybridization."
+    "warning": "In Central Texas, do not identify ashes from leaf silhouette alone. Use leaflet undersides, scars, and especially samaras; historical confusion among F. albicans, F. pennsylvanica, and F. berlandieriana is well documented."
   },
   "quick_key": [
     {
       "if": "5–7 leaflets + glaucous/white-reticulate wax below + small samara with mostly terminal wing",
-      "then": "Fraxinus albicans"
+      "then": "Fraxinus albicans — canonical PASS"
     },
     {
       "if": "5–7(9) leaflets + broader shield-shaped scar + larger samara with wing extending well down body",
-      "then": "Fraxinus pennsylvanica"
+      "then": "Fraxinus pennsylvanica — canonical PASS"
+    },
+    {
+      "if": "usually 3–5 leaflets with coarse sharp distal serration + samara wings gradually expanding from near base; occasional 3-winged fruits",
+      "then": "Fraxinus berlandieriana — reviewed range HOLD"
+    },
+    {
+      "if": "xeric shrub/small tree with tiny thick leathery leaflets, often only 3 per leaf, on rocky slopes/washes",
+      "then": "Fraxinus greggii — reviewed range HOLD"
     }
   ],
   "curation_status": {
-    "version": "1.0-species-joey-merge-004",
-    "last_reviewed": "2026-10-02"
-  }
+    "version": "1.1-b143-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete_with_reviewed_holds",
+    "source_concepts_reconciled": true
+  },
+  "source_concept_status": [
+    {
+      "id": "fraxinus-albicans",
+      "scientific_name": "Fraxinus albicans",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "fraxinus-berlandieriana",
+      "scientific_name": "Fraxinus berlandieriana",
+      "status": "REVIEWED_RANGE_HOLD",
+      "note": "Travis and Comal firm; third exact target-zone county not locked."
+    },
+    {
+      "id": "fraxinus-greggii",
+      "scientific_name": "Fraxinus greggii",
+      "status": "REVIEWED_RANGE_HOLD",
+      "note": "Val Verde firm; fewer than three exact target-zone counties locked."
+    },
+    {
+      "id": "fraxinus-pennsylvanica",
+      "scientific_name": "Fraxinus pennsylvanica",
+      "status": "CANONICAL_PASS"
+    }
+  ]
 }
