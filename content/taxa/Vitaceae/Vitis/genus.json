@@ -1,0 +1,85 @@
+{
+  "rank": "genus",
+  "family": "Vitaceae",
+  "name": "Vitis",
+  "authority": "L.",
+  "common_group": "Grapes",
+  "project_scope": {
+    "selection_mode": "B025 strict review + B144 source-status reconciliation",
+    "canonical_species_ids": [
+      "vitis-berlandieri",
+      "vitis-mustangensis"
+    ],
+    "reviewed_holds": [
+      "vitis-cinerea",
+      "vitis-palmata"
+    ],
+    "represented_source_concepts": [
+      "vitis-cinerea-var-helleri"
+    ],
+    "source_pool_row_count": 4,
+    "note": "The Hays source row Vitis cinerea var. helleri is represented by canonical Vitis berlandieri. V. cinerea and V. palmata completed review but remain range HOLDs."
+  },
+  "source_concept_status": [
+    {
+      "id": "vitis-cinerea",
+      "scientific_name": "Vitis cinerea",
+      "status": "REVIEWED_RANGE_HOLD"
+    },
+    {
+      "id": "vitis-cinerea-var-helleri",
+      "scientific_name": "Vitis cinerea var. helleri",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_VITIS_BERLANDIERI"
+    },
+    {
+      "id": "vitis-berlandieri",
+      "scientific_name": "Vitis berlandieri",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "vitis-mustangensis",
+      "scientific_name": "Vitis mustangensis",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "vitis-palmata",
+      "scientific_name": "Vitis palmata",
+      "status": "REVIEWED_RANGE_HOLD"
+    }
+  ],
+  "study_strategy": {
+    "priority": [
+      "lower leaf-surface hairiness",
+      "branchlet color and angularity",
+      "leaf lobing",
+      "berry size and glaucous bloom",
+      "cluster length/compactness",
+      "riparian versus upland habit"
+    ],
+    "warning": "Do not call a Central Texas Heller's grape Vitis cinerea just because an app uses a broad species concept. Flip the leaf, inspect branchlets, and keep the berlandieri/helleri taxonomic reconciliation in mind."
+  },
+  "quick_key": [
+    {
+      "if": "broad heart- to kidney-shaped leaves with dense white-to-rusty wool hiding the lower surface; large dark berries",
+      "then": "Vitis mustangensis — canonical PASS"
+    },
+    {
+      "if": "lower leaf surface remains visible, sparsely webby/hairy to nearly glabrous; branchlets slightly angled; ripe berries conspicuously glaucous in short compact clusters",
+      "then": "Vitis berlandieri — canonical PASS; includes source-name V. cinerea var. helleri"
+    },
+    {
+      "if": "strict cinerea concept with angled branchlets densely short-hairy plus cobwebby; lower leaf remains visibly gray/green; small slightly glaucous berries",
+      "then": "Vitis cinerea — reviewed range HOLD"
+    },
+    {
+      "if": "uniformly red/purplish-red/chestnut branchlets and usually deeply 3–5-lobed leaves with long-pointed lobes; lower surface essentially glabrous",
+      "then": "Vitis palmata — reviewed range HOLD"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-b144",
+    "genus_audit": "complete_with_reviewed_holds",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  }
+}
