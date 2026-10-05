@@ -256,3 +256,8 @@ These three lanes outrank family polish, botanical-term polish, additional Joey 
 
 When two priority lanes touch the same taxon or file, normal authoritative-state and claim rules still win. If both are otherwise eligible, use the priority order above: photo/gallery fast-fill first for presentation-only edits, large-genus continuation for package/genus closeout, and taxonomy/recognition for scientific corrections. A scientific correction always blocks propagation of known-wrong content even when the visual lane is higher priority for ordinary presentation work.
 
+
+
+## Learner FAST-FILL mode — active
+
+The project is currently operating in **LEARNER FAST-FILL** mode. Read and follow `workflow/LEARNER_FAST_FILL.md` before new learner-facing species/genus work. This mode prioritizes broad usable learner coverage and small durable commits while preserving strict scientific PASS/HOLD/FAIL decisions. Do not reopen settled taxonomy/range solely to improve photos, and do not run project-wide reconciliation before each small task.
