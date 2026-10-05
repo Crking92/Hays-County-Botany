@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "GENUS_RECONCILIATION_READY_FOR_DEEP_REVIEW",
+  "draft_status": "REVIEWED_PASS_APPROVED_FOR_CURATION",
   "batch_id": "manual-genus-prunus-b131-001",
   "created_at": "2026-10-05T08:58:00-05:00",
   "taxonomy": {
@@ -19,36 +19,35 @@
     ]
   },
   "target_zone_range": {
-    "decision": "PASS_CANDIDATE_AWAITING_INDEPENDENT_REVIEW",
+    "decision": "PASS",
     "threshold": 3,
     "documented_counties": [
-      "Hays",
-      "Travis",
-      "Williamson"
+      "Kerr",
+      "Concho",
+      "Edwards"
     ],
     "evidence_basis": [
-      "Hays — live Hays County Natives source tab lists Prunus rivularis from the Wildflower Center printable Hays County list compiled/managed by NPSOT Hill Country Chapter.",
-      "Travis — Travis County Balcones Canyonlands Preserve vascular plant list includes creek plum, Prunus rivularis.",
-      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a full Prunus rivularis treatment."
-    ],
-    "sources": [
       {
-        "label": "Travis County — Plants of the Balcones Canyonlands Preserve",
-        "url": "https://www.traviscountytx.gov/images/tnr/Docs/Plants.pdf",
-        "county": "Travis"
+        "county": "Kerr",
+        "source": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0157123",
+        "detail": "Zhao et al. 2016 Table 1 lists P. rivularis, Wen 11988, Texas Kerr Co., GenBank KU525426; table notes voucher deposited at US.",
+        "type": "published_herbarium_voucher"
       },
       {
-        "label": "UT Plant Resources Center — Vascular Plants of Williamson County: Prunus rivularis",
-        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Prunus%20rivularis.html",
-        "county": "Williamson"
+        "county": "Concho",
+        "source": "https://www.guynesom.com/Texendemicsweb.htm",
+        "detail": "William R. Carr, No Place but Texas (working draft, Nov 2009), lists Concho under P. rivularis var. pubescens, citing Enquist 1997, Phytologia 82(4):289–299.",
+        "type": "expert_county_flora_literature"
       },
       {
-        "label": "Project Hays County Natives source row 571",
-        "source_location": "Google Sheet Hays_Botany_ID_Master_Curation_Tracker / Hays County Natives",
-        "county": "Hays"
+        "county": "Edwards",
+        "source": "https://www.guynesom.com/Texendemicsweb.htm",
+        "detail": "Same Carr treatment explicitly lists Edwards County under var. pubescens.",
+        "type": "expert_county_flora_literature"
       }
     ],
-    "guardrail": "This repairs a legacy bookkeeping gap only. Independent deep review should confirm the three-county evidence before canonical installation."
+    "guardrail": "Corrected B159: Williamson excluded; introduced Purola records excluded; var. pubescens mapped explicitly through current POWO synonymy.",
+    "review_file": "research-drafts/prunus-rivularis/review-b159.json"
   },
   "morphology": {
     "look_here_first": "Start with growth form and the flower/fruit-bearing shoots: creek plum is a low thicket-forming deciduous shrub rather than the small-tree habit typical of Mexican plum. Confirm narrow ovate-lanceolate serrate leaves with glandular teeth/glands, white flowers in small clusters along the branches, and round yellow-to-red plum fruits.",
@@ -59,7 +58,8 @@
       "serrate margins with glandular teeth, especially on developing leaves",
       "petiole/blade-base glands can be present",
       "white flowers in small clusters along the branches",
-      "round fleshy drupes ripening yellow to red"
+      "round fleshy drupes ripening yellow to red",
+      "Local UT treatment describes shoots as not spinescent; older leaf glands may have shed."
     ],
     "sources": [
       {
@@ -81,12 +81,14 @@
   },
   "legacy_reconciliation": {
     "previous_project_state": "Master Plant Pool marked the source concept 'Resolved/curated source concept — not a separate canonical install' / 'Curated – Text & Diagnostics Ready', while no canonical manifest entry, queue record, or research draft existed.",
-    "correction_needed": "Because the accepted species is distinct and the project already has three target-zone evidence paths, route it through independent deep review rather than suppressing it as a noncanonical duplicate."
+    "correction_needed": "B159 review and explicit user approval complete. Stage distinct species via normal curation pipeline."
   },
   "visual_status": {
     "lane_owner": "learner-photo-backfill / curation after scientific approval",
     "status": "NOT_COLLECTED_IN_THIS_BATCH",
     "note": "Broad gallery work is intentionally not duplicated by the large-genus continuation lane."
   },
-  "approval_status": "PENDING_INDEPENDENT_DEEP_REVIEW"
+  "approval_status": "approved",
+  "review_file": "research-drafts/prunus-rivularis/review-b159.json",
+  "reviewed_at": "2026-10-05T23:00:43.474Z"
 }
