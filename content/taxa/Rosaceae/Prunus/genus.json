@@ -4,19 +4,23 @@
   "name": "Prunus",
   "common_group": "Plums, cherries, and cherry-laurels",
   "project_scope": {
-    "selection_mode": "B074 same-genus comparison",
-    "species_ids": [
+    "selection_mode": "B074 science + B131 reconciliation",
+    "canonical_species_ids": [
+      "prunus-mexicana",
       "prunus-serotina"
     ],
-    "species_count": 1,
-    "holds": [
+    "represented_infraspecific": [
+      "prunus-serotina-var-eximia"
+    ],
+    "range_holds": [
       "prunus-caroliniana",
       "prunus-angustifolia"
     ],
-    "anchors": [
-      "prunus-mexicana",
+    "pending_independent_review": [
       "prunus-rivularis"
-    ]
+    ],
+    "source_concept_count": 6,
+    "note": "Do not treat source-row count as canonical-species count. B131 recovered P. rivularis as a distinct accepted PASS candidate requiring independent review before installation."
   },
   "study_strategy": {
     "priority": [
@@ -31,15 +35,58 @@
   },
   "comparison_lesson": {
     "quick_split": [
-      "P. serotina — deciduous tree, long white racemes, black drupes, dark scaly bark; local var. eximia taught internally.",
-      "P. caroliniana — evergreen glossy leaves, short axillary racemes, bitter-almond twig odor; range HOLD.",
-      "P. angustifolia — thicket-forming plum with narrow serrate leaves and red/yellow drupes; Hays record introduced, range HOLD.",
-      "P. mexicana — existing local plum anchor with showy early white flowers and larger plum fruit.",
-      "P. rivularis — existing creek-plum anchor, smaller thicket-forming shrub."
+      "P. mexicana — canonical PASS; small deciduous tree, showy early white flowers on short spur shoots, larger plum fruit.",
+      "P. rivularis — distinct creek plum; low thicket-forming shrub, small flower clusters along branches, yellow-to-red plums; B131 PASS candidate pending independent review.",
+      "P. serotina — canonical PASS; deciduous tree, long white racemes, black drupes, dark scaly bark; local var. eximia taught internally.",
+      "P. caroliniana — evergreen glossy leaves and short axillary racemes; range HOLD.",
+      "P. angustifolia — thicket-forming Chickasaw plum with narrow serrate leaves and red/yellow drupes; range HOLD."
     ]
   },
   "curation_status": {
-    "version": "1.0-b074",
-    "last_reviewed": "2026-10-04"
-  }
+    "version": "1.1-b131-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_reconciliation_status": "PARTIAL_PENDING_PRUNUS_RIVULARIS_DEEP_REVIEW",
+    "science_reused_from": [
+      "B074 Prunus"
+    ],
+    "visual_note": "Broad species gallery backfill remains owned by learner-photo lane."
+  },
+  "source_concept_status": [
+    {
+      "id": "prunus-mexicana",
+      "scientific_name": "Prunus mexicana",
+      "status": "CANONICAL_PASS",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "prunus-serotina",
+      "scientific_name": "Prunus serotina",
+      "status": "CANONICAL_PASS",
+      "learner_action": "keep canonical species page"
+    },
+    {
+      "id": "prunus-serotina-var-eximia",
+      "scientific_name": "Prunus serotina var. eximia",
+      "status": "PASS_REPRESENTED_IN_PARENT",
+      "learner_action": "teach inside Prunus serotina; do not duplicate"
+    },
+    {
+      "id": "prunus-caroliniana",
+      "scientific_name": "Prunus caroliniana",
+      "status": "RANGE_HOLD",
+      "learner_action": "comparison only until range evidence changes"
+    },
+    {
+      "id": "prunus-angustifolia",
+      "scientific_name": "Prunus angustifolia",
+      "status": "RANGE_HOLD",
+      "learner_action": "comparison only until range evidence changes"
+    },
+    {
+      "id": "prunus-rivularis",
+      "scientific_name": "Prunus rivularis",
+      "status": "PASS_CANDIDATE_PENDING_DEEP_REVIEW",
+      "learner_action": "B131 durable draft/queue created; install only after independent review"
+    }
+  ]
 }
