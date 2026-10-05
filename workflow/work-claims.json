@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T01:16:00-05:00",
+  "updated_at": "2026-10-05T01:24:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2010,6 +2010,26 @@
       "notes": "Canonical-species visual fill only; taxonomy/range untouched. No Joey/routed existing image assets found for these two pages. B. torreyana already has 3 images and is not part of this claim.",
       "released_at": "2026-10-05T06:16:00Z",
       "release_note": "Verified 3 images each for B. barbinodis and B. ischaemum; B. torreyana already had 3, so all canonical Bothriochloa pages now have learner galleries. Provenance/rights retained; taxonomy/range unchanged."
+    },
+    {
+      "claim_id": "manual-fast-fill-muhlenbergia-001",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "muhlenbergia-lindheimeri",
+        "muhlenbergia-reverchonii",
+        "muhlenbergia-schreberi"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "fast-fill-muhlenbergia-lindheimeri-reverchonii-schreberi",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T06:24:00Z",
+      "expires_at": "2026-10-05T12:24:00Z",
+      "release_when": "Usable FAST-FILL learner images and provenance are durably written and verified, or the batch is explicitly aborted.",
+      "notes": "Canonical-species visual fill only; taxonomy/range untouched. Existing routed/Joey image checks found no reusable assets. M. piniflora excluded because its source-name concept remains scientifically flagged."
     }
   ]
 }
