@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T09:22:00-05:00",
+  "updated_at": "2026-10-05T08:47:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2302,6 +2302,29 @@
       "expires_at": "2026-10-05T20:22:00Z",
       "release_when": "The three canonical PASS grass pages have usable exact-species FAST-FILL visuals or exact source limitations are documented.",
       "notes": "Visual-only. Anatherum synonym-based media are permitted only because the canonical page explicitly maps Andropogon glomeratus to Anatherum glomeratum. Preserve scientific state."
+    },
+    {
+      "claim_id": "manual-genus-prunus-b131-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "prunus-angustifolia",
+        "prunus-caroliniana",
+        "prunus-mexicana",
+        "prunus-rivularis",
+        "prunus-serotina",
+        "prunus-serotina-var-eximia"
+      ],
+      "families": [
+        "Rosaceae"
+      ],
+      "scope_key": "study-batch-b131-prunus-fast-fill",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T08:47:00-05:00",
+      "expires_at": "2026-10-05T14:47:00-05:00",
+      "release_when": "Prunus source concepts are durably reconciled, the genus lesson reflects canonical/HOLD/represented status accurately, and any legitimate learner-ready gap is handed to the correct install/photo lane.",
+      "notes": "LEARNER FAST-FILL continuation. Reuse B074 science; do not reopen settled P. angustifolia/P. caroliniana HOLDs or duplicate var. eximia. Canonical anchors are P. mexicana and P. serotina. Resolve P. rivularis bookkeeping before declaring genus complete; broad gallery backfill remains owned by learner-photo lane."
     }
   ]
 }
