@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T22:45:04.933Z",
+  "updated_at": "2026-10-05T22:47:11.253Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3635,6 +3635,22 @@
       "expires_at": "2026-10-05T19:32:00-05:00",
       "status": "active",
       "notes": "Recover stalled fast-fill-euphorbiaceae-001 package. Correct target-zone county evidence, preserve user approval, then create READY only after validation."
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-mixed-013",
+      "scope_kind": "species_media",
+      "taxa": [
+        "quercus-muehlenbergii",
+        "quercus-marilandica",
+        "quercus-shumardii"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-collect-missing-species-photos-continuation",
+      "status": "active",
+      "claimed_at": "2026-10-05T22:47:11.253Z",
+      "expires_at": "2026-10-06T04:47:11.253Z",
+      "release_when": "Batch installed and verified or targets explicitly skipped.",
+      "notes": "First licensed physical galleries for three PASS oaks. Replace unverified remote media; preserve settled science."
     }
   ]
 }
