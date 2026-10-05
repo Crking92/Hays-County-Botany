@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "READY_FOR_CURATION",
   "batch_id": "scout-2026-10-03-euphorbiaceae-05",
   "created_at": "2026-10-03T18:11:51-05:00",
   "source_pool": {
@@ -90,5 +90,46 @@
   },
   "notes": [
     "Photo perfection is nonblocking; exact diagnostic image selection and license confirmation remain a later photo-polish task."
-  ]
+  ],
+  "deep_review": {
+    "status": "READY FOR CURATION",
+    "reviewed_at": "2026-10-05T05:24:00-05:00",
+    "owner": "automation-botany-deep-review",
+    "taxonomy": "Accepted Tragia ramosa Torr.; Kew POWO/WCVP and FNA support the accepted species concept. Important synonyms include Tragia angustifolia Nutt. and Tragia nepetifolia var. ramosa (Torr.) Müll.Arg.",
+    "target_zone_range": {
+      "decision": "PASS",
+      "documented_counties": [
+        "Hays",
+        "Travis",
+        "Bexar"
+      ],
+      "evidence": [
+        "UT PRC Purola Preserve flora: Hays County.",
+        "UT PRC Travis County Euphorbiaceae herbarium index: Travis County specimen.",
+        "Bexar County vegetation documentation citing TPWD: Tragia ramosa among documented Balconian flora."
+      ],
+      "guardrail": "Exact county evidence used; no county inferred from statewide/ecoregion occurrence."
+    },
+    "diagnostics": [
+      "perennial subshrub with erect to trailing stems",
+      "linear-lanceolate to narrowly ovate serrate leaves with truncate to weakly cordate bases",
+      "terminal racemes often appearing leaf-opposed with 2–20 staminate flowers",
+      "staminate pedicels 0.7–2 mm with persistent bases 0.4–1.5 mm",
+      "styles connate about one-third to one-half their length",
+      "capsules 6–8 mm wide; seeds 2.5–3.5 mm"
+    ],
+    "look_alikes": [
+      "Tragia nigricans",
+      "Tragia brevispica",
+      "Tragia betonicifolia"
+    ],
+    "photo_review": "Current scout image lead is not a diagnostic gallery. Hand photo selection to Learner Photo Backfill; prioritize habit, leaf base, raceme, pedicel base, pistillate flower, capsule and seed.",
+    "conflicts": [
+      "Older treatments differ in synonym/infraspecific placement; current Kew/FNA concept used."
+    ],
+    "missing_pieces": [
+      "Learner-facing diagnostic photo selection belongs to Learner Photo Backfill."
+    ],
+    "next_action": "Await normal approval; no curation-inbox, canonical install, or gallery edits by Deep Review."
+  }
 }
