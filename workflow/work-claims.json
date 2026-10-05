@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T23:20:00-05:00",
+  "updated_at": "2026-10-04T23:28:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1740,6 +1740,23 @@
       "expires_at": "2026-10-05T10:25:00Z",
       "release_when": "Genus modules are durably written and verified or the batch is aborted.",
       "notes": "Small-end coherent Asteraceae genus-learning batch. Preserve species-lane PASS/FAIL/HOLD state; no species promotion. Visual roles should be retained or flagged explicitly."
+    },
+    {
+      "claim_id": "manual-genus-rhus-b125-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "rhus-microphylla",
+        "rhus-trilobata",
+        "rhus-trilobata-var-trilobata"
+      ],
+      "scope_key": "study-batch-b125-rhus-closeout",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T23:28:00-05:00",
+      "expires_at": "2026-10-05T05:28:00-05:00",
+      "release_when": "Rhus B066 reviewed hold/synonym source concepts are reconciled in overrides/Study Batches and existing canonical visual coverage is verified.",
+      "notes": "Continuation after B124. Reuse B066: R. microphylla remains range HOLD unless new exact-county evidence changes it; R. trilobata and var. trilobata fold into current R. aromatica var. aromatica. Verify existing canonical Rhus pages and Joey/photo material; no duplicate installs."
     }
   ]
 }
