@@ -4,14 +4,16 @@
   "name": "Eryngium",
   "common_group": "Eryngos / rattlesnake masters",
   "project_scope": {
-    "selection_mode": "B040 same-genus comparison",
-    "species_ids": [
+    "selection_mode": "B040 science + B157 source-status reconciliation",
+    "canonical_species_ids": [
       "eryngium-leavenworthii"
     ],
-    "species_count": 1,
-    "holds": [
+    "canonical_species_count": 1,
+    "reviewed_holds": [
       "eryngium-yuccifolium"
-    ]
+    ],
+    "source_concept_count": 2,
+    "note": "E. yuccifolium completed independent review but remains a range HOLD. Genus-level processing is complete without installing it."
   },
   "study_strategy": {
     "priority": [
@@ -31,7 +33,22 @@
     "caveat": "E. yuccifolium remains a range HOLD in this project until a third exact target-zone county is locked."
   },
   "curation_status": {
-    "version": "1.0-b040",
-    "last_reviewed": "2026-10-03"
-  }
+    "version": "1.1-b157-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete_with_reviewed_hold",
+    "source_concepts_reconciled": true
+  },
+  "source_concept_status": [
+    {
+      "id": "eryngium-leavenworthii",
+      "scientific_name": "Eryngium leavenworthii",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "eryngium-yuccifolium",
+      "scientific_name": "Eryngium yuccifolium",
+      "status": "REVIEWED_RANGE_HOLD",
+      "note": "Bexar and Gillespie locked; third exact target-zone county still needed."
+    }
+  ]
 }
