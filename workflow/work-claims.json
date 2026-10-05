@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T17:30:00Z",
+  "updated_at": "2026-10-05T22:28:36.297Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3440,6 +3440,21 @@
       "notes": "Visual-only FAST-FILL; preserve settled taxonomy/range and exact-species requirement.",
       "released_at": "2026-10-05T16:17:00Z",
       "release_note": "Gaillardia suavis moved 0→1 with exact-species public-domain USDA/Britton & Brown plate. G. amblyodon and Helenium elegans remain scientifically PASS but explicitly visual_source_limited pending clean individual reusable photo provenance."
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-mixed-010",
+      "scope_kind": "species_media",
+      "taxa": [
+        "monarda-citriodora",
+        "monarda-punctata"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-collect-missing-species-photos-continuation",
+      "status": "active",
+      "claimed_at": "2026-10-05T22:28:36.297Z",
+      "expires_at": "2026-10-06T04:28:36.297Z",
+      "release_when": "Batch installed and verified or explicitly skipped.",
+      "notes": "Materialize existing licensed Monarda galleries; media only, preserve settled science."
     }
   ]
 }
