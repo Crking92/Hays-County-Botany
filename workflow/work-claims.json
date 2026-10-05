@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T11:24:00-05:00",
+  "updated_at": "2026-10-05T11:32:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2579,6 +2579,29 @@
       "notes": "Reuse B018 science. Do not reopen range research or install E. hirsuta. This is status reconciliation only: reviewed HOLD must remain explicit while genus-level processing can close.",
       "released_at": "2026-10-05T11:24:00-05:00",
       "release_note": "B135 complete. Eragrostis hirsuta reviewed range HOLD synchronized into source bookkeeping without installation; genus module marks it as processed comparison-only; live Genus Study Index now 7/7 curated, 0 remaining, Complete."
+    },
+    {
+      "claim_id": "manual-genus-passiflora-b136-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "passiflora-affinis",
+        "passiflora-foetida",
+        "passiflora-incarnata",
+        "passiflora-lanuginosa",
+        "passiflora-lutea",
+        "passiflora-tenuiloba"
+      ],
+      "families": [
+        "Passifloraceae"
+      ],
+      "scope_key": "study-batch-b136-passiflora-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T11:32:00-05:00",
+      "expires_at": "2026-10-05T17:32:00-05:00",
+      "release_when": "All six Passiflora source concepts are durably classified as canonical PASS, reviewed HOLD, or reviewed FAIL/comparison and the live genus index reflects processed state without promoting holds/fails.",
+      "notes": "Reuse B019/B063 science. Do not reopen range research. P. incarnata and P. foetida remain HOLD; P. lanuginosa remains target-zone FAIL; expand genus lesson to include canonical P. lutea and P. tenuiloba."
     }
   ]
 }
