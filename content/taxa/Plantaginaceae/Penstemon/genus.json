@@ -1,0 +1,79 @@
+{
+  "rank": "genus",
+  "family": "Plantaginaceae",
+  "name": "Penstemon",
+  "authority": "Schmidel",
+  "common_group": "Beardtongues",
+  "project_scope": {
+    "selection_mode": "B022 strict review + B148 source-status reconciliation",
+    "canonical_species_ids": [
+      "penstemon-baccharifolius",
+      "penstemon-cobaea",
+      "penstemon-triflorus"
+    ],
+    "canonical_species_count": 3,
+    "reviewed_holds": [
+      "penstemon-tenuis"
+    ],
+    "source_concept_count": 4,
+    "note": "P. tenuis completed independent review but remains a range HOLD. Genus-level processing is complete without installing it."
+  },
+  "source_concept_status": [
+    {
+      "id": "penstemon-baccharifolius",
+      "scientific_name": "Penstemon baccharifolius",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "penstemon-cobaea",
+      "scientific_name": "Penstemon cobaea",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "penstemon-tenuis",
+      "scientific_name": "Penstemon tenuis",
+      "status": "REVIEWED_RANGE_HOLD",
+      "note": "Texas-native status accepted; fewer than three exact project target-zone counties verified."
+    },
+    {
+      "id": "penstemon-triflorus",
+      "scientific_name": "Penstemon triflorus",
+      "status": "CANONICAL_PASS"
+    }
+  ],
+  "study_strategy": {
+    "priority": [
+      "woody subshrub versus herbaceous perennial",
+      "flower length and color",
+      "leaf texture and serration",
+      "whether upper leaves are connate across the node",
+      "calyx shape and hairiness",
+      "wet-alluvial/coastal versus rocky-limestone habitat"
+    ],
+    "warning": "Flower color alone is weak. Start with growth form, flower size, and leaf-node structure; use habitat only after morphology."
+  },
+  "quick_key": [
+    {
+      "if": "low woody/subshrub habit in limestone cracks; thick leathery coarsely toothed leaves; red tubular flowers",
+      "then": "Penstemon baccharifolius — canonical PASS"
+    },
+    {
+      "if": "very large pale lavender-to-white flowers about 35–55 mm; opposite serrate leaves sessile and often fused across node",
+      "then": "Penstemon cobaea — canonical PASS"
+    },
+    {
+      "if": "glossy dark-green leaves and narrower pink-to-red flowers about 25–35 mm; Hill Country perennial",
+      "then": "Penstemon triflorus — canonical PASS"
+    },
+    {
+      "if": "small lavender-violet flowers about 10–14 mm on slender branched stems in wet alluvial/coastal settings; sharply pointed calyx lobes",
+      "then": "Penstemon tenuis — reviewed range HOLD"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-b148",
+    "genus_audit": "complete_with_reviewed_hold",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  }
+}
