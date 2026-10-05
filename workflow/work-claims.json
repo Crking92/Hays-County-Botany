@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T00:04:00Z",
+  "updated_at": "2026-10-06T00:15:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3788,6 +3788,24 @@
       "release_when": "Durable reconciliation results are written for all three unresolved taxa or the batch is explicitly aborted.",
       "notes": "Manual unresolved cleanup batch. Reuse existing deep-review evidence; focus on target-zone county proof, modern taxon concepts, and diagnostic reconciliation. No curation bypass. Cleanup complete: Gonolobus suberosus var. granulatus PASS/ready_for_approval; Tragia brevispica remains HOLD with Travis+Bexar locked; Quercus virginiana remains taxon-concept HOLD.",
       "released_at": "2026-10-05T19:03:00-05:00"
+    },
+    {
+      "claim_id": "manual-deep-review-euphorbiaceae-cleanup-002",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "croton-lindheimeri",
+        "croton-lindheimerianus",
+        "euphorbia-bicolor",
+        "euphorbia-dentata",
+        "tragia-brevispica"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T19:15:00-05:00",
+      "expires_at": "2026-10-06T01:15:00-05:00",
+      "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
+      "notes": "Manual Euphorbiaceae hold-cleanup batch. Reuse existing Deep Review; focus on exact target-zone county evidence and current taxon concepts. No curation bypass."
     }
   ]
 }
