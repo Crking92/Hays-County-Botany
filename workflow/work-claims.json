@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T23:01:18.281Z",
+  "updated_at": "2026-10-05T23:05:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3708,6 +3708,20 @@
       "release_when": "Batch installed and visually verified or targets explicitly skipped.",
       "notes": "First licensed physical galleries for bur oak and American sycamore; media only, preserve science. Six physical files installed and visually checked; captions refined, science unchanged, archive verified.",
       "released_at": "2026-10-05T23:03:02.561Z"
+    },
+    {
+      "claim_id": "manual-deep-review-cissus-trifoliata-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "cissus-trifoliata"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T18:05:00-05:00",
+      "expires_at": "2026-10-06T00:05:00-05:00",
+      "release_when": "Durable deep-review result is written to research-queue.json/research draft, or the review is explicitly aborted.",
+      "notes": "Manual 1-species remainder batch selected after authoritative collision check. Deep-review only; do not bypass user approval or curation pipeline."
     }
   ]
 }
