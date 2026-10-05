@@ -5,42 +5,76 @@
   "authority": "Greene",
   "common_group": "Four-nerve daisies",
   "project_scope": {
-    "selection_mode": "B051 same-genus comparison",
-    "species_ids": [
+    "selection_mode": "B051 science + B145 source-concept reconciliation",
+    "canonical_species_ids": [
       "tetraneuris-linearifolia",
       "tetraneuris-scaposa"
     ],
-    "species_count": 2,
-    "nonlocal_comparisons": [
+    "canonical_species_count": 2,
+    "represented_infraspecific": [
+      "tetraneuris-scaposa-var-scaposa"
+    ],
+    "reviewed_target_zone_fails": [
       "tetraneuris-acaulis"
-    ]
+    ],
+    "source_concept_count": 4,
+    "note": "The local Central Texas perennial concept is Tetraneuris scaposa var. scaposa, taught inside the stable canonical path tetraneuris-scaposa. T. acaulis is an accepted Texas-native species but is a reviewed target-zone FAIL and remains comparison-only."
   },
   "study_strategy": {
     "priority": [
-      "annual vs perennial",
-      "basal rosette vs stem leaves",
-      "peduncle/scape architecture",
+      "annual versus perennial habit",
+      "stem leaves versus basal rosette",
+      "leafless scape/peduncle architecture",
+      "leaf width and texture",
       "phyllaries",
-      "pappus scales"
+      "pappus scales",
+      "range context only after morphology"
     ],
-    "warning": "Do not treat T. acaulis as an equal Central Texas native. In this project, T. scaposa var. scaposa is the local perennial rosette/scape comparison; T. linearifolia is the annual species."
+    "warning": "Do not treat T. acaulis as an equal Central Texas native just because it occurs in Texas. In this project the local perennial rosette/scape learner is T. scaposa var. scaposa; T. linearifolia is the annual comparison."
   },
   "curation_status": {
-    "version": "1.1-b051",
-    "last_reviewed": "2026-10-03"
+    "version": "1.2-b145-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete_with_represented_variety_and_target_zone_fail",
+    "source_concepts_reconciled": true
   },
   "quick_key": [
     {
-      "if": "annual with slender stems and narrow stem leaves",
-      "then": "Tetraneuris linearifolia"
+      "if": "annual with slender flowering stems and narrow stem leaves",
+      "then": "Tetraneuris linearifolia — canonical PASS"
     },
     {
-      "if": "perennial basal rosette with long mostly leafless peduncles",
-      "then": "Tetraneuris scaposa var. scaposa"
+      "if": "perennial basal rosette with long mostly leafless peduncles and solitary yellow heads",
+      "then": "Tetraneuris scaposa var. scaposa — represented by canonical T. scaposa"
     },
     {
-      "if": "stemless perennial rosette but source points to Panhandle/Great Plains T. acaulis",
-      "then": "nonlocal comparison — verify range before local assignment"
+      "if": "stemless perennial rosette resembling the scaposa architecture but source/location points to Panhandle/Great Plains T. acaulis",
+      "then": "Tetraneuris acaulis — reviewed target-zone FAIL / nonlocal comparison"
+    }
+  ],
+  "source_concept_status": [
+    {
+      "id": "tetraneuris-acaulis",
+      "scientific_name": "Tetraneuris acaulis",
+      "status": "REVIEWED_TARGET_ZONE_FAIL",
+      "learner_action": "nonlocal Texas comparison only; no install"
+    },
+    {
+      "id": "tetraneuris-linearifolia",
+      "scientific_name": "Tetraneuris linearifolia",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "tetraneuris-scaposa",
+      "scientific_name": "Tetraneuris scaposa",
+      "status": "CANONICAL_PASS",
+      "note": "Stable canonical path teaches accepted local var. scaposa."
+    },
+    {
+      "id": "tetraneuris-scaposa-var-scaposa",
+      "scientific_name": "Tetraneuris scaposa var. scaposa",
+      "status": "REPRESENTED_IN_PARENT",
+      "learner_action": "teach inside tetraneuris-scaposa; no duplicate card"
     }
   ]
 }
