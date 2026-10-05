@@ -233,3 +233,26 @@ Current project priority is broad usable visual-learner coverage while Calvin is
 - Scientific status remains strict. "Provisional learner-ready" describes presentation polish only and never upgrades HOLD, FAIL, UNRESOLVED, uncertain taxonomy, or uncertain range to confirmed status.
 - Deep photo polishing, exhaustive citation cleanup, and specialized diagnostic imagery are follow-up phases after broad learner coverage is substantially filled.
 
+## Current manual-chat priority — 2026-10-05
+
+During LEARNER FAST-FILL mode, manual project work follows this priority order unless Calvin explicitly changes it:
+
+1. **Learner photo/gallery fast-fill lane** — missing-photo and photo-gallery continuation work. This is the highest-priority manual lane because visible learner usefulness is the current project goal. Work existing canonical/legitimately learner-ready taxa first, reuse project/Joey media before external collection, and add provisional exact-species imagery without reopening settled science.
+2. **Large-genus continuation lane** — the manual continuation/“Continue Workflow Estimate” style work that closes larger or confusing genera and moves legitimate species/genus packages toward usable learner state. Preserve active claims and let the photo lane own broad gallery backfill rather than duplicating image searches.
+3. **Taxonomy/recognition lane** — the “Continue Taxonomy Work” style work that improves accepted-name handling, recognition characters, comparisons, and taxonomy structure. It should correct real scientific issues but must not independently rebuild galleries already owned by the photo lane.
+
+These three lanes outrank family polish, botanical-term polish, additional Joey extraction, generalized audits, new scouting, and other optional/manual cleanup while fast-fill mode is active.
+
+### Secondary/manual chat behavior
+
+- A non-priority chat that is resumed should first refresh this file, `workflow/work-claims.json`, `data/manifest.json`, and the exact target records it intends to touch.
+- Existing durable state and active claims from the three priority lanes take precedence. Secondary chats must skip overlapping taxa/files rather than duplicate or overwrite work.
+- Do **not** require a project-wide reconstruction of old chat history before routine work. GitHub coordination files and durable project artifacts are the shared source of workflow state. Cross-chat review is only needed when Calvin explicitly requests it or when repository state contains a real ambiguity/conflict.
+- Do not start a new generalized audit/reconciliation merely because a secondary chat has been reopened. Continue only its clearly defined lane or remain idle.
+- If a secondary lane finds a problem belonging to one of the three priority lanes, record/flag the issue durably when practical and hand it off instead of expanding scope.
+- Fast-fill visual work may be provisional; scientific truth may not. HOLD/FAIL/UNRESOLVED status must never be silently upgraded to make a page look complete.
+
+### Collision rule within the three priority lanes
+
+When two priority lanes touch the same taxon or file, normal authoritative-state and claim rules still win. If both are otherwise eligible, use the priority order above: photo/gallery fast-fill first for presentation-only edits, large-genus continuation for package/genus closeout, and taxonomy/recognition for scientific corrections. A scientific correction always blocks propagation of known-wrong content even when the visual lane is higher priority for ordinary presentation work.
+
