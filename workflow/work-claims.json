@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T02:10:00-05:00",
+  "updated_at": "2026-10-05T05:20:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1270,16 +1270,15 @@
       "claim_id": "deep-review-tragia-remainder-2026-10-05-001",
       "scope_kind": "species_batch",
       "taxa": [
-        "tragia-nigricans",
         "tragia-ramosa"
       ],
       "lane": "botany-deep-review",
       "owner": "automation-botany-deep-review",
       "status": "active",
-      "claimed_at": "2026-10-05T03:10:00-05:00",
-      "expires_at": "2026-10-05T05:10:00-05:00",
+      "claimed_at": "2026-10-05T05:20:00-05:00",
+      "expires_at": "2026-10-05T07:20:00-05:00",
       "release_when": "Both Tragia remainder taxa have durable deep-review results and queue checkpoints, or are explicitly skipped.",
-      "notes": "Resume/close stranded Tragia scout batch remainder. Review-only; no curation-inbox or canonical install."
+      "notes": "Resume-first: T. nigricans is durably reviewed/checkpointed; only T. ramosa remains. Review-only."
     },
     {
       "claim_id": "family-batch-024-magnoliids-001",
