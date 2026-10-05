@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T00:33:00Z",
+  "updated_at": "2026-10-05T19:18:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3807,6 +3807,25 @@
       "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
       "notes": "Manual Euphorbiaceae hold-cleanup batch. Reuse existing Deep Review; focus on exact target-zone county evidence and current taxon concepts. No curation bypass. Complete: Croton lindheimerianus + Euphorbia dentata PASS/ready_for_approval; Croton lindheimeri, Euphorbia bicolor, and Tragia brevispica remain evidence holds.",
       "released_at": "2026-10-05T19:33:00-05:00"
+    },
+    {
+      "claim_id": "manual-genus-vernonia-b161",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "vernonia-baldwinii",
+        "vernonia-lindheimeri"
+      ],
+      "families": [
+        "Asteraceae"
+      ],
+      "scope_key": "B161-Vernonia-strict-review",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T19:18:00-05:00",
+      "expires_at": "2026-10-06T01:18:00-05:00",
+      "release_when": "Both pending Vernonia source concepts receive durable strict taxonomy/range dispositions and the live genus index is synchronized.",
+      "notes": "Reuse existing Module 11 morphology package and canonical Vernonia comparison anchors. Strict three-target-county review only; do not promote without PASS."
     }
   ]
 }
