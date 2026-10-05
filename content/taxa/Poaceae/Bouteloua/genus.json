@@ -5,15 +5,22 @@
   "authority": "Lag.",
   "common_group": "Grama grasses",
   "project_scope": {
-    "selection_mode": "comparison-first",
-    "species_ids": [
+    "selection_mode": "comparison-first / B133 source-concept reconciliation",
+    "canonical_species_count": 7,
+    "canonical_species_ids": [
       "bouteloua-curtipendula",
       "bouteloua-dactyloides",
+      "bouteloua-gracilis",
+      "bouteloua-hirsuta",
+      "bouteloua-pectinata",
       "bouteloua-rigidiseta",
-      "bouteloua-gracilis"
+      "bouteloua-trifida"
     ],
-    "species_count": 4,
-    "note": "B002 establishes a four-species Bouteloua comparison set using sideoats grama as the canonical anchor."
+    "represented_source_concepts": [
+      "bouteloua-hirsuta-var-pectinata"
+    ],
+    "source_concept_count": 8,
+    "note": "B002 established the original four-species comparison set; B078 added B. hirsuta, B. pectinata, and B. trifida. The older source name Bouteloua hirsuta var. pectinata is represented by canonical B. pectinata rather than duplicated."
   },
   "study_strategy": {
     "shared_traits": [
@@ -25,35 +32,93 @@
     "priority": [
       "stoloniferous sod versus tufted/bunchgrass habit",
       "number of inflorescence branches",
-      "branch length and curvature",
+      "branch length, width, curvature, and whether branches are appressed",
       "whether branches are spaced down a long axis or clustered near the top",
-      "awn/pubescence pattern",
+      "naked branch-tip projections beyond the spikelets",
+      "awn and pubescence pattern",
       "male versus female inflorescence differences in buffalograss"
     ],
-    "warning": "Do not try to identify these four from leaf color or overall 'grassiness.' Start with inflorescence architecture and growth form."
+    "warning": "Do not identify Bouteloua from leaf color or overall 'grassiness.' Start with growth form and inflorescence architecture, then use branch-tip, awn, and hair characters."
   },
   "quick_key": [
+    {
+      "if": "creeping stoloniferous sod; male and female inflorescences strongly different, with female clusters low and bur-like",
+      "then": "Bouteloua dactyloides"
+    },
     {
       "if": "many short oat-like racemes spaced down one side of a long central axis",
       "then": "Bouteloua curtipendula"
     },
     {
-      "if": "creeping stoloniferous sod; male and female inflorescences strongly different, with female clusters low and bur-like",
-      "then": "Bouteloua dactyloides"
+      "if": "usually 1–3 longer curved eyebrow/rooster-comb branches",
+      "then": "Bouteloua gracilis"
+    },
+    {
+      "if": "tufted perennial; usually 1–4 comb-like branches and conspicuous papillose-based hairs near leaf bases; branch tip continues naked beyond terminal spikelets",
+      "then": "Bouteloua hirsuta"
+    },
+    {
+      "if": "taller, more robust hairy-grama relative with usually 3–5 longer straight to slightly curved combs, roughly 2.5–4.5 cm; old source names include B. hirsuta var./subsp. pectinata",
+      "then": "Bouteloua pectinata"
     },
     {
       "if": "about 5–9 very short fuzzy/awned branches clustered near the top",
       "then": "Bouteloua rigidiseta"
     },
     {
-      "if": "usually 1–3 longer curved eyebrow/rooster-comb branches",
-      "then": "Bouteloua gracilis"
+      "if": "small wiry reddish plant with 2–7 narrow red/purplish branches held close to the main axis and three short awns on spikelets",
+      "then": "Bouteloua trifida"
     }
   ],
   "curation_status": {
-    "version": "1.0-b002",
-    "last_reviewed": "2026-10-02"
+    "version": "1.1-b133-reconciliation",
+    "source_concepts_reconciled": true,
+    "full_installed_set_in_genus_lesson": true,
+    "last_reviewed": "2026-10-05"
   },
   "visual_status": "fast_fill_mostly_live",
-  "fast_fill_note": "FAST-FILL status: B. curtipendula 4; B. dactyloides 3; B. gracilis 3; B. hirsuta 3; B. trifida 2; B. rigidiseta 1; B. pectinata 0. Remaining gaps are source-limited presentation gaps, not scientific uncertainty. Do not substitute older varietal imagery for current B. pectinata without exact-concept verification."
+  "fast_fill_note": "FAST-FILL status: B. curtipendula 4; B. dactyloides 3; B. gracilis 3; B. hirsuta 3; B. trifida 2; B. rigidiseta 1; B. pectinata 0. Remaining gaps are source-limited presentation gaps, not scientific uncertainty. Do not substitute older varietal imagery for current B. pectinata without exact-concept verification.",
+  "source_concept_status": [
+    {
+      "id": "bouteloua-curtipendula",
+      "scientific_name": "Bouteloua curtipendula",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "bouteloua-dactyloides",
+      "scientific_name": "Bouteloua dactyloides",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "bouteloua-gracilis",
+      "scientific_name": "Bouteloua gracilis",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "bouteloua-hirsuta",
+      "scientific_name": "Bouteloua hirsuta",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "bouteloua-hirsuta-var-pectinata",
+      "scientific_name": "Bouteloua hirsuta var. pectinata",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_BOUTELOUA_PECTINATA"
+    },
+    {
+      "id": "bouteloua-pectinata",
+      "scientific_name": "Bouteloua pectinata",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "bouteloua-rigidiseta",
+      "scientific_name": "Bouteloua rigidiseta",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "bouteloua-trifida",
+      "scientific_name": "Bouteloua trifida",
+      "status": "CANONICAL_PASS"
+    }
+  ],
+  "taxonomy_note": "Current Kew/POWO accepts Bouteloua pectinata Feath. as a species native from Oklahoma to Texas and Mexico. Older treatments use Bouteloua hirsuta var. pectinata or B. hirsuta subsp. pectinata; the project preserves those source names as aliases but uses one canonical B. pectinata learner."
 }
