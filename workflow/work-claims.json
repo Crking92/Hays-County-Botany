@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T00:26:00-05:00",
+  "updated_at": "2026-10-05T00:22:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -948,12 +948,13 @@
       ],
       "lane": "unfinished-plant-scout",
       "owner": "automation-unfinished-plant-scout",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-04T14:06:18-05:00",
       "expires_at": "2026-10-04T16:06:18-05:00",
       "release_when": "All four Vitaceae taxa are durably represented in research-queue.json and research-drafts, or explicitly skipped after refreshed canonical/collision checks.",
-      "notes": "Research-only Vitaceae vine-ID comparison batch selected from current Master Plant Pool after canonical reconciliation; no curation or canonical promotion.",
-      "timestamp_correction_note": "Lease aligned to actual claim commit aeb193a at 19:06:18 UTC October 4; active owner retained."
+      "notes": "Research-only Vitaceae vine-ID comparison batch selected from current Master Plant Pool after canonical reconciliation; no curation or canonical promotion. Released during LEARNER FAST-FILL cleanup because the lease had expired and Unfinished Plant Scout is being paused. Durable queue/draft state remains authoritative; release does not discard completed research.",
+      "timestamp_correction_note": "Lease aligned to actual claim commit aeb193a at 19:06:18 UTC October 4; active owner retained.",
+      "released_at": "2026-10-05T00:22:00-05:00"
     },
     {
       "claim_id": "family-batch-014-zingiberales-reconcile-001",
