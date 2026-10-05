@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T10:59:00-05:00",
+  "updated_at": "2026-10-05T10:24:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3235,11 +3235,13 @@
       "scope_key": "fast-fill-solidago-juliae-thelesperma-simplicifolium",
       "lane": "small-genus-backfill",
       "owner": "taxonomy-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T15:15:00Z",
       "expires_at": "2026-10-05T21:15:00Z",
       "release_when": "Both zero-image PASS species receive usable exact-species learner galleries or exact source limitations are documented.",
-      "notes": "Visual-only FAST-FILL; taxonomy/range settled and must not be reopened."
+      "notes": "Visual-only FAST-FILL; taxonomy/range settled and must not be reopened.",
+      "released_at": "2026-10-05T15:24:00Z",
+      "release_note": "Solidago juliae moved 0→1 with exact-species CC BY-NC iNaturalist guide photo. Thelesperma simplicifolium remains 0 but is explicitly visual_source_limited because individual Commons creator/license metadata was not cleanly retrievable; no weak-provenance media substituted."
     }
   ]
 }
