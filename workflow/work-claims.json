@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T10:25:00-05:00",
+  "updated_at": "2026-10-05T09:31:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2960,11 +2960,12 @@
       "scope_key": "photo-fast-fill-mixed-007",
       "lane": "learner-photo-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T09:28:00-05:00",
       "expires_at": "2026-10-05T15:28:00-05:00",
       "release_when": "All six gallery updates are installed and verified, or the batch is explicitly abandoned.",
-      "notes": "LEARNER FAST-FILL media-only. Use existing Joey/canonical material first, then rights-clear exact-taxonomon media. Preserve settled taxonomy/range and provisional scientific status."
+      "notes": "LEARNER FAST-FILL media-only. Use existing Joey/canonical material first, then rights-clear exact-taxonomon media. Preserve settled taxonomy/range and provisional scientific status. Released after live reconciliation: concurrent lanes already filled most of this scope; remaining work moved to batch 008.",
+      "released_at": "2026-10-05T09:31:00-05:00"
     },
     {
       "claim_id": "manual-genus-bothriochloa-b146-001",
@@ -3028,6 +3029,24 @@
       "notes": "Visual-only. Canonical PASS. Solidago juliae is not claimed because current quick sourcing exposes only a licensed guide image without a clean direct photo record.",
       "released_at": "2026-10-05T15:25:00Z",
       "release_note": "Verified Solidago gigantea at 3 exact-species rights-clear images, including leaf and stem diagnostics. S. juliae remains source-limited. Scientific state unchanged."
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-mixed-008",
+      "scope_kind": "species_media_batch",
+      "taxa": [
+        "callirhoe-pedata",
+        "salvia-coccinea",
+        "cirsium-horridulum",
+        "castilleja-purpurea"
+      ],
+      "scope_key": "photo-fast-fill-mixed-008",
+      "lane": "learner-photo-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T09:31:00-05:00",
+      "expires_at": "2026-10-05T15:31:00-05:00",
+      "release_when": "All four gallery updates are installed and verified, or batch is explicitly abandoned.",
+      "notes": "LEARNER FAST-FILL media-only. Underfilled PASS/provisional-learner pages. Replace ambiguous remote-only Callirhoe image with licensed physical files; top off Salvia and Castilleja; give provisional Cirsium exact-species diagnostic coverage. Preserve scientific status."
     }
   ]
 }
