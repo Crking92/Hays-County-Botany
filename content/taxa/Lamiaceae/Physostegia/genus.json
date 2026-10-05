@@ -1,0 +1,68 @@
+{
+  "rank": "genus",
+  "family": "Lamiaceae",
+  "name": "Physostegia",
+  "authority": "Benth.",
+  "common_group": "False dragonheads / obedient plants",
+  "project_scope": {
+    "selection_mode": "B095 canonical/provisional anchors + B154 strict-review handoff",
+    "canonical_species_ids": [
+      "physostegia-correllii",
+      "physostegia-virginiana"
+    ],
+    "pending_strict_review": [
+      "physostegia-angustifolia"
+    ],
+    "source_concept_count": 3,
+    "note": "P. correllii is a strict PASS. P. virginiana remains intentionally provisional and excluded from native metrics. P. angustifolia is a genuine open strict-review task."
+  },
+  "source_concept_status": [
+    {
+      "id": "physostegia-angustifolia",
+      "scientific_name": "Physostegia angustifolia",
+      "status": "PENDING_STRICT_DEEP_REVIEW"
+    },
+    {
+      "id": "physostegia-correllii",
+      "scientific_name": "Physostegia correllii",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "physostegia-virginiana",
+      "scientific_name": "Physostegia virginiana",
+      "status": "PROVISIONAL_CANONICAL",
+      "native_metrics_excluded": true
+    }
+  ],
+  "study_strategy": {
+    "priority": [
+      "wetland/riparian versus broader garden/landscape context",
+      "rhizomatous perennial habit",
+      "leaf width and serration",
+      "flower-spike length and density",
+      "corolla color and size",
+      "accepted taxon/subspecies concept before using range"
+    ],
+    "warning": "Do not infer native status from an obedient-plant occurrence near development or plantings. P. virginiana is explicitly provisional and the Hays record is introduced; P. angustifolia still needs strict review."
+  },
+  "quick_key": [
+    {
+      "if": "tall rhizomatous wetland perennial, often >1 m, narrow opposite leaves and long pink-purple flower spike on stream/river edges",
+      "then": "Physostegia correllii — canonical PASS"
+    },
+    {
+      "if": "upright rhizomatous obedient plant with opposite toothed leaves and dense pink-lavender spike but local taxon/range concept unresolved",
+      "then": "Physostegia virginiana — provisional learner, native metrics excluded"
+    },
+    {
+      "if": "source says Physostegia angustifolia / narrowleaf false dragonhead",
+      "then": "pending strict taxonomy + target-zone range review; no canonical install yet"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-b154",
+    "genus_audit": "partial_pending_physostegia_angustifolia_review",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  }
+}
