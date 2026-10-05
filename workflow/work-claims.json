@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T14:51:19.614Z",
+  "updated_at": "2026-10-05T10:31:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3175,6 +3175,26 @@
       "expires_at": "2026-10-05T20:51:07.234Z",
       "release_when": "Batch photo-fast-fill-mixed-009 installs and verifies, or targets are explicitly skipped.",
       "notes": "Media-only. Fill empty Ilex vomitoria and Ruellia humilis; materialize existing licensed remote galleries for Commelina erecta and Helenium autumnale; preserve all settled science."
+    },
+    {
+      "claim_id": "manual-genus-liatris-b151-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "liatris-mucronata",
+        "liatris-punctata",
+        "liatris-punctata-var-mucronata"
+      ],
+      "families": [
+        "Asteraceae"
+      ],
+      "scope_key": "study-batch-b151-liatris-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T10:31:00-05:00",
+      "expires_at": "2026-10-05T16:31:00-05:00",
+      "release_when": "Liatris mucronata and L. punctata var. mucronata source rows are durably represented inside canonical L. punctata and the live genus index reaches completion without duplicate installs.",
+      "notes": "Reuse B034 science. Canonical L. punctata species page already teaches accepted var. mucronata and var. punctata. Do not create separate species/variety pages."
     }
   ]
 }
