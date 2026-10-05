@@ -274,3 +274,17 @@ The former **Unfinished Plant Scout** and **Small Genus Backfill** automations a
 
 This staggered schedule is deliberate. Preserve the :05 / :25-every-two-hours / :50 separation unless a future coordination change explicitly replaces it.
 
+## Curation inbox READY-marker rule — 2026-10-05
+
+To avoid noisy/redundant GitHub Actions while a batch is still being assembled, curation-inbox packages now use a final READY marker.
+
+- Chats/automations may stage `batch.json`, species files, provenance, images, and other batch contents across multiple commits without triggering curation.
+- Create `curation-inbox/<batch-id>/READY` **last**, only after the entire batch is complete and safe to process.
+- The GitHub curation workflow triggers only on commits that add/change a `curation-inbox/**/READY` marker.
+- `scripts/curation_pipeline.py` processes only batch directories containing both `batch.json` and `READY`.
+- Never create READY early. If a batch is incomplete, leave READY absent.
+- After successful processing, the existing pipeline archives the whole batch, including READY, as before.
+- Manual chats and automations that use the curation inbox must follow this rule; direct canonical edits outside the inbox remain governed by their existing lane rules.
+
+This keeps rapid staging commits from creating/cancelling multiple redundant Actions and prevents one finished batch from accidentally processing another incomplete staged batch.
+
