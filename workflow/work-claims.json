@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T19:18:00-05:00",
+  "updated_at": "2026-10-06T00:45:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3826,6 +3826,24 @@
       "expires_at": "2026-10-06T01:18:00-05:00",
       "release_when": "Both pending Vernonia source concepts receive durable strict taxonomy/range dispositions and the live genus index is synchronized.",
       "notes": "Reuse existing Module 11 morphology package and canonical Vernonia comparison anchors. Strict three-target-county review only; do not promote without PASS."
+    },
+    {
+      "claim_id": "manual-deep-review-near-pass-cleanup-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "diospyros-virginiana",
+        "eryngium-yuccifolium",
+        "oenothera-filiformis",
+        "grindelia-ciliata",
+        "sida-spinosa"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T19:45:00-05:00",
+      "expires_at": "2026-10-06T01:45:00-05:00",
+      "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
+      "notes": "Manual near-PASS cleanup batch. Reuse prior review; focus on one missing exact target-zone county and current taxon concept. No curation bypass."
     }
   ]
 }
