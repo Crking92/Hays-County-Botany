@@ -5,24 +5,97 @@
   "authority": "L.",
   "common_group": "Sneezeweeds",
   "project_scope": {
-    "selection_mode": "common local-learning batch 1",
-    "species_ids": [
-      "helenium-amarum"
+    "selection_mode": "B028/B112 science + B138 source-concept reconciliation",
+    "canonical_species_count": 4,
+    "canonical_species_ids": [
+      "helenium-amarum",
+      "helenium-autumnale",
+      "helenium-elegans",
+      "helenium-quadridentatum"
     ],
-    "species_count": 1
+    "represented_infraspecific": [
+      "helenium-amarum-var-amarum",
+      "helenium-amarum-var-badium"
+    ],
+    "source_concept_count": 6,
+    "note": "The two accepted Helenium amarum varieties are taught inside the species-level learner and are not duplicate species pages. H. quadridentatum remains a provisional installed learner with its range HOLD preserved."
   },
   "study_strategy": {
     "priority": [
-      "whole-plant architecture",
-      "leaf arrangement and dissection",
-      "phyllaries",
-      "ray vs disc makeup",
-      "pappus/fruit when available"
+      "winged versus unwinged stem",
+      "annual versus perennial habit",
+      "leaf width and marginal teeth",
+      "disc/head shape",
+      "ray count and posture",
+      "disc-lobe color for H. amarum variety-level training"
     ],
-    "warning": "Many Asteraceae look similar from a distance. Use head structure and involucre details, not just a yellow flower photo."
+    "warning": "Start with the stem and leaf architecture before the yellow flower head. H. amarum is unwinged; H. elegans, H. autumnale, and H. quadridentatum are winged."
   },
   "curation_status": {
-    "version": "1.0-batch1",
-    "last_reviewed": "2026-09-30"
-  }
+    "version": "1.1-b138-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete_with_represented_varieties_and_provisional_hold",
+    "source_concepts_reconciled": true
+  },
+  "source_concept_status": [
+    {
+      "id": "helenium-amarum",
+      "scientific_name": "Helenium amarum",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "helenium-amarum-var-amarum",
+      "scientific_name": "Helenium amarum var. amarum",
+      "status": "REPRESENTED_IN_PARENT",
+      "learner_action": "teach yellow-disc variety cue inside H. amarum"
+    },
+    {
+      "id": "helenium-amarum-var-badium",
+      "scientific_name": "Helenium amarum var. badium",
+      "status": "REPRESENTED_IN_PARENT",
+      "learner_action": "teach brown/purplish-disc variety cue inside H. amarum"
+    },
+    {
+      "id": "helenium-autumnale",
+      "scientific_name": "Helenium autumnale",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "helenium-elegans",
+      "scientific_name": "Helenium elegans",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "helenium-quadridentatum",
+      "scientific_name": "Helenium quadridentatum",
+      "status": "CANONICAL_PROVISIONAL_RANGE_HOLD",
+      "note": "Installed for learner use; exclude from native PASS metrics until exact target-zone evidence is sufficient."
+    }
+  ],
+  "quick_key": [
+    {
+      "if": "annual; stems ridged but not winged; very narrow leaves; many small heads",
+      "then": "Helenium amarum"
+    },
+    {
+      "if": "H. amarum with yellow disc lobes",
+      "then": "Helenium amarum var. amarum — represented inside H. amarum"
+    },
+    {
+      "if": "H. amarum with dark brown to purplish disc lobes",
+      "then": "Helenium amarum var. badium — represented inside H. amarum"
+    },
+    {
+      "if": "annual with clearly winged stems, narrow mostly entire leaves, and globose involucre",
+      "then": "Helenium elegans"
+    },
+    {
+      "if": "perennial with strongly winged stems, broader often toothed leaves, and larger heads",
+      "then": "Helenium autumnale"
+    },
+    {
+      "if": "winged annual with elongated ovoid/obconic disk, roughly 10–15 rays, and 4-lobed disc corollas",
+      "then": "Helenium quadridentatum — provisional range HOLD"
+    }
+  ]
 }
