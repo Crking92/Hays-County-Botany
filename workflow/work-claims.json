@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T23:45:00Z",
+  "updated_at": "2026-10-06T00:03:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3780,11 +3780,12 @@
       ],
       "lane": "botany-deep-review",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T18:45:00-05:00",
       "expires_at": "2026-10-06T00:45:00-05:00",
       "release_when": "Durable reconciliation results are written for all three unresolved taxa or the batch is explicitly aborted.",
-      "notes": "Manual unresolved cleanup batch. Reuse existing deep-review evidence; focus on target-zone county proof, modern taxon concepts, and diagnostic reconciliation. No curation bypass."
+      "notes": "Manual unresolved cleanup batch. Reuse existing deep-review evidence; focus on target-zone county proof, modern taxon concepts, and diagnostic reconciliation. No curation bypass. Cleanup complete: Gonolobus suberosus var. granulatus PASS/ready_for_approval; Tragia brevispica remains HOLD with Travis+Bexar locked; Quercus virginiana remains taxon-concept HOLD.",
+      "released_at": "2026-10-05T19:03:00-05:00"
     }
   ]
 }
