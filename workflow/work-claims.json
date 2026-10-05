@@ -2054,11 +2054,12 @@
       "scope_key": "curation-euphorbiaceae-fast-fill-001",
       "lane": "species-curation-install",
       "owner": "curation-install-worker",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T01:31:00-05:00",
       "expires_at": "2026-10-05T03:31:00-05:00",
       "release_when": "Batch is durably staged in curation-inbox or installed canonical, or explicitly aborted.",
-      "notes": "FAST-FILL installation of already-reviewed and explicitly approved taxa; no new deep research."
+      "notes": "FAST-FILL installation of already-reviewed and explicitly approved taxa; no new deep research. Superseded by manual recovery after failed curation trigger; staged package preserved for correction/retry.",
+      "released_at": "2026-10-05T17:32:00-05:00"
     },
     {
       "claim_id": "manual-fast-fill-muhlenbergia-002",
@@ -3612,6 +3613,27 @@
       "expires_at": "2026-10-06T04:41:09.312Z",
       "release_when": "Install and verify batch or explicitly skip targets.",
       "notes": "First galleries for Taxodium distichum and Juglans nigra. Media only, preserve PASS science."
+    },
+    {
+      "claim_id": "manual-curation-euphorbiaceae-recovery-001",
+      "owner": "manual-project-chat",
+      "lane": "species-curation-install",
+      "taxa": [
+        "croton-monanthogynus",
+        "croton-texensis",
+        "euphorbia-cyathophora",
+        "euphorbia-heterophylla",
+        "euphorbia-marginata",
+        "acalypha-phleoides",
+        "acalypha-radians"
+      ],
+      "families": [
+        "Euphorbiaceae"
+      ],
+      "claimed_at": "2026-10-05T17:32:00-05:00",
+      "expires_at": "2026-10-05T19:32:00-05:00",
+      "status": "active",
+      "notes": "Recover stalled fast-fill-euphorbiaceae-001 package. Correct target-zone county evidence, preserve user approval, then create READY only after validation."
     }
   ]
 }
