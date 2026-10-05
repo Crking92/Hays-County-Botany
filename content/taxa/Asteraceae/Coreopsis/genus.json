@@ -10,7 +10,8 @@
       "coreopsis-basalis",
       "coreopsis-tinctoria"
     ],
-    "species_count": 2
+    "species_count": 2,
+    "note": "Existing C. basalis and C. tinctoria anchors are retained; B067 adds canonical C. wrightii and keeps C. lanceolata as a range HOLD. Species-lane decisions remain authoritative."
   },
   "study_strategy": {
     "priority": [
@@ -23,8 +24,10 @@
     "warning": "Many Asteraceae look similar from a distance. Use head structure and involucre details, not just a yellow flower photo."
   },
   "curation_status": {
-    "version": "1.1-b067",
-    "last_reviewed": "2026-10-03"
+    "version": "1.2-b067-visual",
+    "last_reviewed": "2026-10-04",
+    "genus_audit": "adequate",
+    "species_work_independent": true
   },
   "b067_comparison": {
     "selection_mode": "B067 same-genus comparison",
@@ -53,10 +56,54 @@
   },
   "b067_comparison_lesson": {
     "quick_split": [
-      "C. wrightii — annual, narrow linear foliage, yellow rays usually with rusty-red/maroon basal markings; local PASS.",
-      "C. lanceolata — rhizomatous perennial, broader lanceolate lower leaves, long nearly leafless peduncles, all-yellow heads; range HOLD.",
-      "C. basalis — existing annual golden-wave anchor; broader/divided foliage than typical C. wrightii.",
-      "C. tinctoria — existing annual plains coreopsis anchor with strongly bicolored yellow/maroon rays."
-    ]
-  }
+      "C. basalis — slender annual with finely divided leaves and yellow rays commonly showing a dark basal blotch.",
+      "C. tinctoria — branching annual with threadlike divided foliage and strongly bicolored yellow/red-brown rays.",
+      "C. wrightii — slender annual with narrow linear leaves; yellow rays usually have rusty-red to maroon basal markings and 3-toothed tips. Older treatments may merge it with C. basalis, so use the full character package.",
+      "C. lanceolata — comparison-only HOLD; perennial, with basal/proximal leaves that are simple or only lightly lobed and broadly lanceolate to oblanceolate relative to the finely divided annual project species."
+    ],
+    "hold_rule": "Do not use cultivated C. lanceolata or plant-sale records to satisfy the project's target-zone native-range threshold."
+  },
+  "recognition": {
+    "where_to_look_first": "For the project set, start with life cycle and leaf architecture before judging ray color. Then compare the distribution and intensity of red-brown basal ray markings, plant branching, and head size.",
+    "priority": [
+      "annual versus perennial habit",
+      "finely divided/threadlike versus narrow-linear versus broader simple/lobed leaves",
+      "where leaves are concentrated on the stem",
+      "ray color pattern, especially basal red-brown markings",
+      "ray-tip lobing and head proportions",
+      "cypsela characters only when vegetative and floral traits remain ambiguous"
+    ],
+    "warning": "Coreopsis is morphologically broad as a genus, and early versus later leaves can differ on the same plant. Use the complete character set rather than ray color alone."
+  },
+  "visual_anchors": [
+    {
+      "species_id": "coreopsis-basalis",
+      "roles": [
+        "curated taxon reference 1",
+        "curated taxon reference 2",
+        "same-observation field views"
+      ]
+    },
+    {
+      "species_id": "coreopsis-tinctoria",
+      "roles": [
+        "curated taxon reference 1",
+        "curated taxon reference 2",
+        "same-observation field views"
+      ]
+    }
+  ],
+  "visual_needs": [
+    "side-by-side whole plants of C. basalis, C. tinctoria, and C. wrightii at similar scale",
+    "leaf architecture comparison: finely divided basalis, threadlike-divided tinctoria, narrow-linear wrightii",
+    "ray-base comparison showing the dark/bicolored markings across the three annual anchors",
+    "exact displayable C. wrightii habit, leaf, and head closeups",
+    "C. lanceolata comparison image only as an explicitly labeled HOLD, emphasizing broader simple/lightly lobed leaves and perennial habit",
+    "annotated basalis-versus-wrightii comparison because historical treatments can blur that pair"
+  ],
+  "visual_status": "partial_species_image_anchors",
+  "source_notes": [
+    "Flora of North America notes broad variation in Coreopsis leaf arrangement and dissection and warns that early leaves can differ strongly from later leaves.",
+    "FNA treats C. lanceolata as a perennial with simple or lightly lobed lanceolate-to-oblanceolate leaves, useful as a visual contrast but not a range-approved project species."
+  ]
 }
