@@ -5003,7 +5003,7 @@
       "common_name": "Lindheimer's doveweed / woolly croton",
       "family": "Euphorbiaceae",
       "genus": "Croton",
-      "status": "range_hold_reviewed",
+      "status": "needs_manual_review",
       "priority": 0,
       "batch_id": "manual-deep-review-croton-001",
       "research_goals": [
@@ -5019,11 +5019,27 @@
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual Deep Review HOLD — current C. lindheimeri reconciles older C. capitatus var. lindheimeri records. Travis + Williamson locked; need one more target-zone county.",
+      "notes": "Manual Euphorbiaceae cleanup HOLD — accepted C. lindheimeri and legacy C. capitatus var. lindheimeri synonymy are secure, but only Travis remains firmly locked inside the project target zone after discarding Williamson. Do not transfer records from true C. capitatus or similarly named Croton concepts. Needs two more exact target-zone counties.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Croton Deep Review",
-      "last_deep_reviewed_at": "2026-10-03T20:46:55-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
+      "verified_target_counties": [
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "ITIS — Croton lindheimeri",
+          "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=511813",
+          "role": "accepted name and synonymy"
+        },
+        {
+          "label": "Van Ee et al. — Taxonomy and Phylogeny of Croton section Heptallon",
+          "url": "https://www.researchgate.net/publication/250056007_Taxonomy_and_Phylogeny_of_Croton_Section_Heptallon_Euphorbiaceae",
+          "role": "modern taxon concept and Travis voucher"
+        }
+      ]
     },
     {
       "id": "croton-lindheimerianus",
@@ -5031,7 +5047,7 @@
       "common_name": "Three-seed croton",
       "family": "Euphorbiaceae",
       "genus": "Croton",
-      "status": "range_hold_reviewed",
+      "status": "ready_for_approval",
       "priority": 0,
       "batch_id": "manual-deep-review-croton-002",
       "research_goals": [
@@ -5046,12 +5062,30 @@
         "row": 303
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
-      "approval_status": "hold_range_evidence",
-      "notes": "Manual Deep Review HOLD — Travis + Williamson locked; need one more exact target-zone county. Diagnostic photo gap recorded separately.",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "approval_status": "ready_for_user_approval",
+      "notes": "Manual Euphorbiaceae cleanup PASS — modern Croton section Heptallon revision documents representative C. lindheimerianus var. lindheimerianus specimens from Llano (Enchanted Rock), Medina (near Devine), and Travis (Austin/Colorado River), all within the project target zone. Prior Williamson reliance is discarded. Ready for user approval.",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed",
       "queue_group": "Manual Croton Deep Review",
-      "last_deep_reviewed_at": "2026-10-03T20:48:54-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
+      "verified_target_counties": [
+        "Llano",
+        "Medina",
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Van Ee et al. — Taxonomy and Phylogeny of Croton section Heptallon",
+          "url": "https://www.researchgate.net/publication/250056007_Taxonomy_and_Phylogeny_of_Croton_Section_Heptallon_Euphorbiaceae",
+          "role": "modern species/variety concept and Llano, Medina, Travis voucher citations"
+        },
+        {
+          "label": "IPNI — Croton lindheimerianus",
+          "url": "https://www.ipni.org/n/70436-2",
+          "role": "name and type verification"
+        }
+      ]
     },
     {
       "id": "croton-monanthogynus",
@@ -5475,7 +5509,7 @@
       "common_name": "snow-on-the-prairie",
       "family": "Euphorbiaceae",
       "genus": "Euphorbia",
-      "status": "range_hold_reviewed",
+      "status": "needs_manual_review",
       "priority": 0,
       "batch_id": "manual-deep-review-euphorbia-test-001",
       "research_goals": [
@@ -5491,11 +5525,24 @@
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual Deep Review HOLD — Hays + Travis locked; FNA confirms Texas-native, but one more exact target-zone county is required.",
+      "notes": "Manual Euphorbiaceae cleanup HOLD — Hays and Travis evidence retained, but the current authoritative evidence found in this pass does not provide a third exact target-zone native county. UT Texas distribution emphasizes eastern, central, and north-central Texas; do not infer a third county from regional shading alone.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Euphorbia Deep Review Test",
-      "last_deep_reviewed_at": "2026-10-03T20:33:03-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "UT Plant Resources Center — Euphorbia bicolor",
+          "url": "https://w3.biosci.utexas.edu/prc/wildflowers/flower/euphorbia-bicolor",
+          "role": "Texas distribution and morphology"
+        },
+        {
+          "label": "Flora of Purola Preserve — Euphorbia bicolor",
+          "url": "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/EUBI2.html",
+          "role": "Hays County occurrence"
+        }
+      ]
     },
     {
       "id": "euphorbia-cyathophora",
@@ -5569,7 +5616,7 @@
       "common_name": "green poinsettia",
       "family": "Euphorbiaceae",
       "genus": "Euphorbia",
-      "status": "range_hold_reviewed",
+      "status": "ready_for_approval",
       "priority": 0,
       "batch_id": "manual-deep-review-euphorbia-test-001",
       "research_goals": [
@@ -5584,12 +5631,35 @@
         "row": 443
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
-      "approval_status": "hold_range_evidence",
-      "notes": "Manual Deep Review HOLD — Hays + Travis locked; taxonomy/morphology verified and Texas is native, but one more exact target-zone county is required.",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "approval_status": "ready_for_user_approval",
+      "notes": "Manual Euphorbiaceae cleanup PASS — BONAP/NPSOT-backed county distribution confirms multiple exact target-zone counties; Hays, Bexar, and Burnet locked as the three-count threshold, with additional target-zone records including Edwards, Gillespie, Kerr, Kimble, Llano, Real, Schleicher, Sutton, Travis, and Uvalde. Ready for user approval.",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed",
       "queue_group": "Manual Euphorbia Deep Review Test",
-      "last_deep_reviewed_at": "2026-10-03T20:33:03-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
+      "verified_target_counties": [
+        "Hays",
+        "Bexar",
+        "Burnet"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "BONAP county map — Euphorbia dentata",
+          "url": "https://bonap.net/TDC/Image/Map?taxonType=Species&taxonId=10065&locationType=County&mapType=Normal",
+          "role": "primary county distribution"
+        },
+        {
+          "label": "Native Plant Society of Texas — Euphorbia dentata",
+          "url": "https://www.npsot.org/posts/native-plant/euphorbia-dentata/",
+          "role": "Texas native/ecoregion distribution and BONAP cross-reference"
+        },
+        {
+          "label": "Rootfast — Euphorbia dentata",
+          "url": "https://rootfast.org/plants/EUDE4",
+          "role": "machine-readable Texas county distribution cross-check"
+        }
+      ]
     },
     {
       "id": "euphorbia-heterophylla",
@@ -7000,7 +7070,7 @@
       "id": "tragia-brevispica",
       "scientific_name": "Tragia brevispica",
       "status": "needs_manual_review",
-      "notes": "Manual unresolved cleanup strengthened but remains HOLD — accepted Tragia brevispica; exact target-zone voucher evidence locked for Travis and Bexar. Broader South-Central Texas floristic evidence supports regional nativity but does not identify a third exact project county, so it cannot satisfy the project threshold yet. Diagnostic imagery/key work remains useful but is not the blocker.",
+      "notes": "Manual Euphorbiaceae cleanup recheck confirms HOLD — Travis voucher and Bexar specimen evidence remain solid, but no third exact target-zone county was found in this pass. Accepted species concept remains stable.",
       "family": "Euphorbiaceae",
       "genus": "Tragia",
       "priority": 1,
@@ -7008,7 +7078,7 @@
       "batch_id": "scout-2026-10-03-euphorbiaceae-05",
       "approval_status": "needs_manual_review",
       "native_range_status": "UNRESOLVED",
-      "last_deep_reviewed_at": "2026-10-05T19:02:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
       "canonical_status": "not_installed",
       "verified_target_counties": [
         "Travis",
@@ -7017,14 +7087,9 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "University of Michigan Herbarium — Tragia brevispica MICH 1645723",
+          "label": "University of Michigan Herbarium — Tragia brevispica",
           "url": "https://quod.lib.umich.edu/h/herb00ic/x-1645723/mich-v-1645723",
           "role": "Travis County voucher"
-        },
-        {
-          "label": "SEINet/EcoFlora NY specimen results",
-          "url": "https://biokic3.rc.asu.edu/seinet/ecoflora/portal/collections/list.php?comingFrom=newsearch&page=12&taxa=4311&taxontype=2&usethes=1",
-          "role": "Bexar County NY specimens and additional Texas occurrence context"
         },
         {
           "label": "ITIS — Tragia brevispica",
