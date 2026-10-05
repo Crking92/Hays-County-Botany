@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T09:28:00-05:00",
+  "updated_at": "2026-10-05T09:32:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2965,6 +2965,27 @@
       "expires_at": "2026-10-05T15:28:00-05:00",
       "release_when": "All six gallery updates are installed and verified, or the batch is explicitly abandoned.",
       "notes": "LEARNER FAST-FILL media-only. Use existing Joey/canonical material first, then rights-clear exact-taxonomon media. Preserve settled taxonomy/range and provisional scientific status."
+    },
+    {
+      "claim_id": "manual-genus-bothriochloa-b146-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "bothriochloa-barbinodis",
+        "bothriochloa-ischaemum",
+        "bothriochloa-laguroides",
+        "bothriochloa-torreyana"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "study-batch-b146-bothriochloa-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T09:32:00-05:00",
+      "expires_at": "2026-10-05T15:32:00-05:00",
+      "release_when": "Legacy Texas Bothriochloa laguroides source usage is reconciled to canonical B. torreyana, the genus lesson reflects all processed concepts, and the live index reaches completion without treating B. laguroides s.s. as a native Texas learner.",
+      "notes": "Reuse B027 science. Plain B. laguroides source row is legacy/broad Texas silver-bluestem usage; current project canonical is B. torreyana. B. ischaemum remains installed only as a NON_NATIVE_INVASIVE_COMPARISON."
     }
   ]
 }
