@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T01:55:00-05:00",
+  "updated_at": "2026-10-05T02:02:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2078,6 +2078,24 @@
       "notes": "Canonical-species visual fill only; taxonomy/range untouched. M. piniflora remains excluded. Prefer rights-cleared exact-species media; do not pad galleries with uncertain-rights images.",
       "released_at": "2026-10-05T06:55:00Z",
       "release_note": "Verified M. utilis and M. ×involuta each now have one exact-species learner image with clear rights/provenance. All secure canonical Muhlenbergia concepts have at least one gallery image. M. piniflora remains scientifically flagged and intentionally excluded; taxonomy/range unchanged."
+    },
+    {
+      "claim_id": "manual-fast-fill-pluchea-001",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "pluchea-camphorata"
+      ],
+      "families": [
+        "Asteraceae"
+      ],
+      "scope_key": "fast-fill-pluchea-camphorata",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T07:02:00Z",
+      "expires_at": "2026-10-05T13:02:00Z",
+      "release_when": "Usable FAST-FILL learner image(s) and provenance are durably written and verified, or the batch is explicitly aborted.",
+      "notes": "Canonical comparison learner under existing user-approved range exception; preserve underlying UNRESOLVED range status. No Joey/routed image assets. Use only exact-species licensed media."
     }
   ]
 }
