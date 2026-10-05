@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "effective_date": "2026-09-30",
+  "purpose": "Canonical project target-zone county definition for native-range threshold decisions.",
+  "threshold_rule": {
+    "minimum_target_counties": 3,
+    "operator": ">="
+  },
+  "counties": [
+    "Hays",
+    "Bell",
+    "Blanco",
+    "Burnet",
+    "Comal",
+    "Concho",
+    "Crockett",
+    "Edwards",
+    "Frio",
+    "Gillespie",
+    "Bandera",
+    "Kimble",
+    "Kinney",
+    "Maverick",
+    "McCulloch",
+    "Medina",
+    "Menard",
+    "Real",
+    "San Saba",
+    "Tom Green",
+    "Travis",
+    "Uvalde",
+    "Val Verde",
+    "Williamson",
+    "Kerr"
+  ],
+  "count": 25,
+  "guardrails": [
+    "Use only these counties when calculating target_zone_count.",
+    "Evidence from counties outside this list may be retained as context but must not count toward the threshold.",
+    "Taxon concept and synonym mapping must be resolved before county evidence is counted."
+  ],
+  "source_note": "Explicit project target-zone definition supplied by the user on 2026-09-30. Supersedes older or inferred county lists."
+}

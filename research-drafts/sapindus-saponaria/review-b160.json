@@ -47,13 +47,10 @@
     "target_counties": [
       "Hays",
       "Travis",
-      "Kerr"
-    ],
-    "removed_prior_counties": [
+      "Kerr",
       "Williamson",
       "Val Verde"
     ],
-    "removed_reason": "Both are outside the user's target-county set and cannot count toward the three-county threshold.",
     "evidence": [
       {
         "county": "Hays",
@@ -63,18 +60,34 @@
       {
         "county": "Travis",
         "source": "https://w3.biosci.utexas.edu/prc/specimens/Sapindaceae.html",
-        "detail": "UT PRC Travis County herbarium index lists Sapindus saponaria var. drummondii; current Kew maps that historical name to S. drummondii."
+        "detail": "UT PRC Travis County index lists Sapindus saponaria var. drummondii; current Kew maps that historical name to S. drummondii."
       },
       {
         "county": "Kerr",
-        "source": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
-        "detail": "Published Kerr Wildlife Management Area flora records S. saponaria var. drummondii with voucher collection numbers."
+        "source": "https://biokic3.rc.asu.edu/seinet/ecoflora/portal/collections/list.php?comingFrom=newsearch&page=19&taxa=3583&taxontype=2&usethes=1",
+        "detail": "CM185508: Sapindus drummondii, Kerr County near Ingram."
+      },
+      {
+        "county": "Williamson",
+        "source": "https://w3.biosci.utexas.edu/prc/K12/pages/Sapindus%20saponaria%20drummondii.html",
+        "detail": "UT PRC Williamson County flora documents western soapberry as S. saponaria var. drummondii."
+      },
+      {
+        "county": "Val Verde",
+        "source": "https://dokumen.pub/trees-amp-shrubs-of-the-trans-pecos-and-adjacent-areas-9780292757127.html",
+        "detail": "Powell's treatment explicitly lists Val Verde County for S. saponaria var. drummondii."
       }
     ]
   },
   "handoff": {
     "sapindus_saponaria": "reviewed target-zone FAIL; do not install",
-    "sapindus_drummondii": "retain canonical learner and existing media; corrected range basis only",
+    "sapindus_drummondii": "retain canonical learner and media; PASS with current-target-zone basis Hays/Travis/Kerr/Williamson/Val Verde",
     "tracker": "mark all four Sapindus source concepts processed; genus should recalculate to 4/4 with zero remaining"
+  },
+  "corrected_at": "2026-10-05T18:40:00-05:00",
+  "correction": {
+    "reason": "B160 initially used a stale target-zone county definition.",
+    "corrected_rule": "Use the explicit 25-county project list dated 2026-09-30; Williamson and Val Verde are inside the current target zone.",
+    "effect": "Sapindus drummondii remains PASS. Target-zone evidence is Hays, Travis, Kerr, Williamson, and Val Verde. Sapindus saponaria sensu stricto remains target-zone FAIL."
   }
 }

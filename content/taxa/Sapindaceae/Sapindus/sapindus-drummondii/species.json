@@ -16,14 +16,16 @@
   "county_occurrences_target_zone": [
     "Hays",
     "Travis",
-    "Kerr"
+    "Kerr",
+    "Williamson",
+    "Val Verde"
   ],
-  "target_zone_count": 3,
+  "target_zone_count": 5,
   "native_target_zone_calculated": true,
   "project_inclusion": {
     "target_zone_status": "PASS",
-    "range_basis": "Hays — UT Austin Plant Resources Center Hays flora lists western soapberry under the historical name Sapindus saponaria var. drummondii. Travis — UT PRC Travis County Sapindaceae herbarium index lists the same historical western-soapberry concept. Kerr — Singhurst et al. (2010), The Vascular Flora of the Kerr Wildlife Management Area, records Sapindus saponaria var. drummondii with voucher collections. Current Kew/POWO accepts these western-soapberry records as Sapindus drummondii.",
-    "range_guardrail": "Only project target-zone counties count toward the three-county threshold. Williamson and Val Verde were removed from the prior support because they are outside the user's target-county set. Historical var./subsp. drummondii records map to current accepted Sapindus drummondii; they must not be reassigned to Sapindus saponaria sensu stricto."
+    "range_basis": "Current 25-county target-zone support: Hays — UT PRC Hays flora lists western soapberry as Sapindus saponaria var. drummondii; Travis — UT PRC Travis County Sapindaceae index lists the same concept; Kerr — herbarium specimen from near Ingram under Sapindus drummondii; Williamson — UT PRC Williamson County flora documents S. saponaria var. drummondii; Val Verde — Powell's Trees and Shrubs of the Trans-Pecos explicitly lists Val Verde for S. saponaria var. drummondii. Current Kew/POWO accepts the historical var./subsp. drummondii concept as Sapindus drummondii.",
+    "range_guardrail": "Project threshold is >=3 counties from workflow/target-zone-counties.json. Williamson and Val Verde are valid target-zone counties under the current 2026-09-30 definition. B160's earlier outside-zone statement was corrected the same day. Historical var./subsp. drummondii records map to current Sapindus drummondii, not Sapindus saponaria sensu stricto."
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -61,7 +63,7 @@
     "Video-fed"
   ],
   "curation_status": {
-    "version": "1.1-b160-range-repair",
+    "version": "1.1-b160-range-correction",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,

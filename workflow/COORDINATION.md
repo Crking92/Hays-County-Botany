@@ -288,3 +288,8 @@ To avoid noisy/redundant GitHub Actions while a batch is still being assembled, 
 
 This keeps rapid staging commits from creating/cancelling multiple redundant Actions and prevents one finished batch from accidentally processing another incomplete staged batch.
 
+
+
+## Canonical target-zone county rule — 2026-10-05
+
+Before any taxonomy/range PASS, read `workflow/target-zone-counties.json`. It is the canonical county list for the project's >=3-county native-range threshold and supersedes older inferred county sets. Do not classify a county as inside or outside the target zone from memory.
