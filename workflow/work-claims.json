@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T00:26:00-05:00",
+  "updated_at": "2026-10-05T00:41:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1849,11 +1849,13 @@
       "scope_key": "fast-fill-eragrostis-cilianensis-intermedia-lugens",
       "lane": "small-genus-backfill",
       "owner": "taxonomy-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T05:26:00Z",
       "expires_at": "2026-10-05T11:26:00Z",
       "release_when": "Usable FAST-FILL learner images and provenance are durably written and verified, or the batch is explicitly aborted.",
-      "notes": "Canonical-species visual fill only; taxonomy/range untouched. Exact-record reuse check found no saved Joey/project routing hits for these three species. Current learner supports remote HTTPS image URLs."
+      "notes": "Canonical-species visual fill only; taxonomy/range untouched. Exact-record reuse check found no saved Joey/project routing hits for these three species. Current learner supports remote HTTPS image URLs.",
+      "released_at": "2026-10-05T05:41:00Z",
+      "release_note": "Verified 3 displayable learner images each for E. cilianensis, E. intermedia, and E. lugens; provenance/rights retained; scientific fields unchanged. Eragrostis genus marked partial fast-fill coverage."
     }
   ]
 }
