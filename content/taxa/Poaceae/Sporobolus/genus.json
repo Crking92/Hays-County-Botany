@@ -4,15 +4,17 @@
   "name": "Sporobolus",
   "common_group": "Dropseeds",
   "project_scope": {
-    "selection_mode": "B043 same-genus comparison",
-    "species_ids": [
+    "selection_mode": "B043 science + B149 source-status reconciliation",
+    "canonical_species_ids": [
       "sporobolus-clandestinus",
       "sporobolus-vaginiflorus"
     ],
-    "species_count": 2,
-    "holds": [
+    "canonical_species_count": 2,
+    "reviewed_holds": [
       "sporobolus-compositus"
-    ]
+    ],
+    "source_concept_count": 3,
+    "note": "S. compositus completed review but remains a taxonomy/range HOLD because Central Texas material in the compositus complex is historically unstable. Genus-level processing is complete without installing it."
   },
   "study_strategy": {
     "priority": [
@@ -23,7 +25,7 @@
       "cleistogamous sheath flowers",
       "grain/pericarp on difficult plants"
     ],
-    "warning": "The S. compositus complex is taxonomically messy in Central Texas; difficult plants may require mature grain/pericarp and lemma characters."
+    "warning": "The S. compositus complex is taxonomically messy in Central Texas. Do not promote a plant from the complex on habit alone; mature grain/pericarp, lemma characters, and reconciled specimen identity may be needed. Ambiguous Travis material is intentionally not counted as range evidence."
   },
   "comparison_lesson": {
     "quick_split": [
@@ -33,9 +35,29 @@
     ]
   },
   "curation_status": {
-    "version": "1.0-b043",
-    "last_reviewed": "2026-10-03"
+    "version": "1.1-b149-reconciliation",
+    "last_reviewed": "2026-10-05",
+    "genus_audit": "complete_with_reviewed_taxonomy_range_hold",
+    "source_concepts_reconciled": true
   },
   "visual_status": "partial_fast_fill_species_anchors",
-  "fast_fill_note": "Sporobolus clandestinus and S. vaginiflorus each now have an exact-species public-domain diagnostic reference. Both remain presentation-source-limited pending easy rights-clear field photos; scientific status is unchanged."
+  "fast_fill_note": "Sporobolus clandestinus and S. vaginiflorus each now have an exact-species public-domain diagnostic reference. Both remain presentation-source-limited pending easy rights-clear field photos; scientific status is unchanged.",
+  "source_concept_status": [
+    {
+      "id": "sporobolus-clandestinus",
+      "scientific_name": "Sporobolus clandestinus",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "sporobolus-compositus",
+      "scientific_name": "Sporobolus compositus",
+      "status": "REVIEWED_TAXONOMY_RANGE_HOLD",
+      "note": "Williamson clear; ambiguous Travis material not counted."
+    },
+    {
+      "id": "sporobolus-vaginiflorus",
+      "scientific_name": "Sporobolus vaginiflorus",
+      "status": "CANONICAL_PASS"
+    }
+  ]
 }
