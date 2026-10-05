@@ -215,3 +215,21 @@ For Calvin's private visual learner, Joey Santore video frames/screenshots are a
 - A Joey frame from a related already-built family may be used as a comparison anchor for a new family lesson when that improves lineage learning.
 - Do not re-extract a frame that already exists in `workflow/saved-video-frame-locations-2026-10-04.json`; reuse the saved binary.
 - Public release remains a separate rights/licensing decision; this priority rule applies to Calvin's private-study learner.
+
+## LEARNER FAST-FILL mode — 2026-10-05
+
+Current project priority is broad usable visual-learner coverage while Calvin is actively using the learner. This temporarily outranks final-quality photo polish for records that are already canonical or otherwise legitimately learner-ready.
+
+- Prioritize usable learner content over perfect final curation.
+- For learner-ready species, reuse existing project photos, Calvin's photos, and saved Joey Santore/video-frame material first.
+- If those are insufficient, use good exact-species iNaturalist photos whose licenses permit the project's noncommercial study use; retain photographer, license, source URL, and observation/photo source information.
+- Skip all-rights-reserved external images during fast-fill rather than spending time seeking permission.
+- Initial target is about three useful images when practical: whole plant/habit, reproductive structure, and an identification structure such as leaf, stem, bark, fruit, seedhead, or diagnostic macro.
+- Exact species is mandatory. Never substitute a related species merely to fill a gallery.
+- Photo perfection is not required in fast-fill; stronger diagnostic images can replace provisional learner images later.
+- Do not reopen settled taxonomy/range research merely because a canonical page needs photos.
+- Do not run a project-wide reconciliation before every small task. Refresh main, check data/manifest.json, workflow/work-claims.json, and the exact records being edited; consult queue/draft/inbox state when the target is not already settled.
+- Commit useful work in small durable batches and move on.
+- Scientific status remains strict. "Provisional learner-ready" describes presentation polish only and never upgrades HOLD, FAIL, UNRESOLVED, uncertain taxonomy, or uncertain range to confirmed status.
+- Deep photo polishing, exhaustive citation cleanup, and specialized diagnostic imagery are follow-up phases after broad learner coverage is substantially filled.
+
