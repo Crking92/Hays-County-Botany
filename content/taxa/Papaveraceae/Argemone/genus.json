@@ -17,7 +17,8 @@
         "common_name": "Crested / thistle pricklypoppy",
         "note": "Useful Texas look-alike, especially farther north/west. Hold as watchlist rather than core until it becomes locally relevant."
       }
-    ]
+    ],
+    "local_taxonomic_note": "Argemone albiflora is the parent species concept. For the Central Texas learner, the field-identification target is Argemone albiflora subsp. texana, so the generic species-level A. albiflora card is not presented as a separate local plant."
   },
   "genus_diagnostics": {
     "habit": "Spiny annual or biennial herbs with glaucous foliage.",
@@ -37,15 +38,15 @@
       "then": "Argemone aurantiaca"
     }
   ],
-  "study_warning": "Both core species can have large white flowers. Do not identify them by flower color alone.",
+  "study_warning": "Both core Central Texas species have large white flowers. Flower color does not separate A. albiflora subsp. texana from A. aurantiaca.",
   "curation_status": {
-    "version": "1.1-b073",
+    "version": "1.2-local-id-fix",
     "last_reviewed": "2026-10-04"
   },
   "b073_comparison": {
     "selection_mode": "B073 same-genus comparison",
     "species_ids": [
-      "argemone-albiflora"
+      "argemone-albiflora-subsp-texana"
     ],
     "species_count": 1,
     "holds": [
@@ -58,22 +59,40 @@
   },
   "b073_study_strategy": {
     "priority": [
-      "petal color",
-      "latex color",
-      "leaf glaucousness",
-      "bud/capsule armature",
-      "stigma/capsule characters",
-      "current subspecies concept",
-      "range"
+      "fresh latex color",
+      "mature capsule prickle length and branching",
+      "sepal-horn length and armature",
+      "leaf and stem prickliness",
+      "range and habitat"
     ],
-    "warning": "White-flowered Argemone can be deceptively similar. Do not separate A. albiflora from A. polyanthemos by flower color alone; use mature reproductive structures plus range."
+    "warning": "Do not separate the two local core species by petal color: both are white-flowered. Use fresh latex plus mature capsule and bud characters."
   },
   "b073_comparison_lesson": {
     "quick_split": [
-      "A. albiflora — large white flowers, glaucous prickly foliage, yellow latex; local PASS. Texas material commonly subsp. texana.",
-      "A. aurantiaca — existing south-central Texas anchor with yellow-orange flowers.",
-      "A. polyanthemos — white-flowered central/western plains species; target-zone range HOLD.",
-      "A. sanguinea — rose/red/lavender-flowered South Texas species; range HOLD pending 3 exact target counties."
+      "A. albiflora subsp. texana — white petals; fresh latex pale/light yellow; sepal horns usually 4–6(-10) mm and mostly unarmed; mature capsule prickles mostly simple and much shorter, with the longest about 6–10(-12) mm.",
+      "A. aurantiaca — white petals; fresh latex orange to reddish-orange; sepal horns 8–12 mm and prickly; mature capsule prickles very unequal, often branched, with the longest about 15–35 mm.",
+      "A. polyanthemos — white- to pale-lavender-flowered plains/west-central look-alike; HOLD for target-zone range and use mature fruit/bud characters.",
+      "A. sanguinea — rose/red/lavender-flowered South Texas look-alike; HOLD pending exact target-zone county evidence."
     ]
-  }
+  },
+  "local_field_key": [
+    {
+      "step": 1,
+      "character": "fresh latex",
+      "albiflora_subsp_texana": "pale/light yellow",
+      "aurantiaca": "orange to reddish-orange"
+    },
+    {
+      "step": 2,
+      "character": "mature capsule prickles",
+      "albiflora_subsp_texana": "mostly simple; longest about 6–10(-12) mm",
+      "aurantiaca": "very unequal, often branched; longest about 15–35 mm"
+    },
+    {
+      "step": 3,
+      "character": "sepal horns on buds",
+      "albiflora_subsp_texana": "about 4–6(-10) mm, usually unarmed",
+      "aurantiaca": "about 8–12 mm, prickly"
+    }
+  ]
 }
