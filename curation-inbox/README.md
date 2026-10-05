@@ -38,3 +38,11 @@ Example:
 Successful install runs move the original batch into `curation-archive/`, rebuild `data/manifest.json`, update the canonical species count, and write `reports/last-curation-run.json`.
 
 Do not place guessed county records or unidentified image files in the inbox.
+
+## READY marker
+
+A staged batch is not processed until it contains a file named `READY` at the batch root:
+
+`curation-inbox/<batch-id>/READY`
+
+Build the entire batch first. Add `READY` in the final commit only after `batch.json`, taxa packages, sources, photo provenance, and intended media are complete. The curation GitHub Action now triggers only on READY-marker commits, and the pipeline ignores incomplete folders that do not have READY.
