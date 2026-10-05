@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "batch_id": "B161",
+  "taxon_id": "vernonia-baldwinii",
+  "reviewed_at": "2026-10-05T18:49:00-05:00",
+  "reviewer": "manual-large-genus-continuation",
+  "decision": "PASS_READY_FOR_USER_APPROVAL",
+  "taxonomy": {
+    "accepted_name": "Vernonia baldwinii Torr.",
+    "status": "accepted",
+    "note": "Kew/POWO accepts Vernonia baldwinii and also recognizes two varieties. The Texas infraspecific treatment is Vernonia baldwinii var. interior; the project source concept remains at accepted species rank for the learner/review queue.",
+    "sources": [
+      {
+        "label": "Kew POWO — Vernonia baldwinii",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257916-1"
+      },
+      {
+        "label": "Kew POWO — Vernonia baldwinii var. interior",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1074401-2"
+      },
+      {
+        "label": "USDA GRIN — Vernonia baldwinii",
+        "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=60001"
+      }
+    ]
+  },
+  "range": {
+    "decision": "PASS",
+    "target_zone_counties": [
+      "Travis",
+      "Williamson",
+      "Kerr"
+    ],
+    "target_zone_count": 3,
+    "threshold": {
+      "minimum_target_counties": 3,
+      "operator": ">="
+    },
+    "evidence": [
+      {
+        "county": "Travis",
+        "source": "https://w3.biosci.utexas.edu/prc/specimens/Asteraceae5.html",
+        "detail": "UT Austin Plant Resources Center Travis County Asteraceae herbarium index lists both Vernonia baldwinii and Vernonia lindheimeri."
+      },
+      {
+        "county": "Williamson",
+        "source": "https://w3.biosci.utexas.edu/prc/K12/search.php",
+        "detail": "UT Austin Plant Resources Center Vascular Plants of Williamson County search includes both Vernonia baldwinii and Vernonia lindheimeri."
+      },
+      {
+        "county": "Kerr",
+        "source": "https://kiki.huh.harvard.edu/databases/specimen_search.php?id=1311078&mode=details",
+        "detail": "Harvard GH specimen 01925576, A. A. Heller 1927, collected about Kerrville, Kerr County, determined Vernonia baldwinii."
+      }
+    ],
+    "bonap_crosscheck": "https://bonap.net/Napa/TaxonMaps/Genus/County/Vernonia"
+  },
+  "morphology": {
+    "reused_project_source": "LLM Curated Modules row 80",
+    "learner_core": "Tall robust ironweed with broader rough leaves and broad terminal clusters of purple discoid heads; no rays.",
+    "refinement": "Texas plants belong to the broad-leaved western ironweed concept; leaves are much broader than in V. lindheimeri. Current FNA/WFO descriptions emphasize ovate to lance-ovate blades with hairy/tomentose undersides and flattened to irregular terminal arrays.",
+    "comparison": "V. lindheimeri has very narrow linear leaves, densely woolly beneath, usually glabrate above, and strongly revolute margins. V. × guadalupensis may be intermediate; do not force intermediate flowering plants to a parent."
+  },
+  "handoff": {
+    "approval_status": "ready_for_approval",
+    "canonical_status": "not_installed_pending_user_approval",
+    "media_status": "defer until approval/installation"
+  }
+}

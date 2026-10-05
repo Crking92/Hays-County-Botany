@@ -5,19 +5,20 @@
   "authority": "Schreb.",
   "common_group": "Ironweeds",
   "project_scope": {
-    "selection_mode": "B089 hybrid anchor + B141 strict-parent handoff",
+    "selection_mode": "B089 hybrid anchor + B161 strict parent review",
     "canonical_ids": [
       "vernonia-x-guadalupensis"
     ],
-    "pending_strict_review": [
-      "vernonia-baldwinii",
-      "vernonia-lindheimeri"
-    ],
+    "pending_strict_review": [],
     "represented_source_concepts": [
       "vernonia-guadalupensis"
     ],
     "source_concept_count": 4,
-    "note": "Canonical learner currently contains the natural hybrid Vernonia × guadalupensis. Parent species have older local-occurrence-first core packages but still require independent strict 3-target-county review."
+    "note": "All four current source concepts are scientifically dispositioned. Vernonia × guadalupensis is canonical; plain V. guadalupensis is its source alias; V. baldwinii and V. lindheimeri independently PASS the strict three-target-county gate (Travis, Williamson, Kerr) and await user approval before installation.",
+    "reviewed_pass_pending_approval": [
+      "vernonia-baldwinii",
+      "vernonia-lindheimeri"
+    ]
   },
   "source_concept_status": [
     {
@@ -33,12 +34,12 @@
     {
       "id": "vernonia-baldwinii",
       "scientific_name": "Vernonia baldwinii",
-      "status": "PENDING_STRICT_DEEP_REVIEW"
+      "status": "PASS_READY_FOR_USER_APPROVAL"
     },
     {
       "id": "vernonia-lindheimeri",
       "scientific_name": "Vernonia lindheimeri",
-      "status": "PENDING_STRICT_DEEP_REVIEW"
+      "status": "PASS_READY_FOR_USER_APPROVAL"
     }
   ],
   "study_strategy": {
@@ -50,16 +51,16 @@
       "discoid purple head clusters",
       "intermediate characters in the natural hybrid"
     ],
-    "warning": "Do not force intermediate plants into either parent. Vernonia × guadalupensis is an accepted natural hybrid between V. baldwinii and V. lindheimeri; mature flowering material and nearby parent populations are important."
+    "warning": "Do not force intermediate plants into either parent. Vernonia × guadalupensis is an accepted natural hybrid between V. baldwinii and V. lindheimeri. V. baldwinii is the much broader-leaved parent; V. lindheimeri has very narrow linear, strongly revolute leaves densely woolly beneath. Mature flowering material and nearby parent populations are important."
   },
   "quick_comparison": [
-    "V. baldwinii — broader rougher leaves and broad terminal clusters; strict target-zone review still pending.",
-    "V. lindheimeri — narrower leaves, typically woollier beneath and adapted to dry rocky sites; strict target-zone review still pending.",
-    "V. × guadalupensis — intermediate leaf width/hairiness and other traits where the parent concepts meet; canonical PASS hybrid."
+    "V. baldwinii — taller robust western ironweed; much broader ovate to lance-ovate foliage, hairy/tomentose beneath; B161 strict PASS (Travis, Williamson, Kerr), pending user approval.",
+    "V. lindheimeri — woolly ironweed; very narrow linear strongly revolute leaves, densely sericeo-tomentose beneath and usually glabrate above; B161 strict PASS (Travis, Williamson, Kerr), pending user approval.",
+    "V. × guadalupensis — accepted natural hybrid; intermediate characters can bridge the parents; canonical PASS."
   ],
   "curation_status": {
-    "version": "1.0-b141",
-    "genus_audit": "partial_pending_parent_strict_review",
+    "version": "1.1-b161",
+    "genus_audit": "complete_for_current_source_pool_parent_passes_pending_user_approval",
     "last_reviewed": "2026-10-05"
   }
 }

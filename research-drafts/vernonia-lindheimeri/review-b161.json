@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "batch_id": "B161",
+  "taxon_id": "vernonia-lindheimeri",
+  "reviewed_at": "2026-10-05T18:49:00-05:00",
+  "reviewer": "manual-large-genus-continuation",
+  "decision": "PASS_READY_FOR_USER_APPROVAL",
+  "taxonomy": {
+    "accepted_name": "Vernonia lindheimeri A.Gray & Engelm.",
+    "status": "accepted",
+    "note": "Kew/POWO accepts Vernonia lindheimeri; native range includes Texas, Arkansas, and northeastern Mexico.",
+    "sources": [
+      {
+        "label": "Kew POWO — Vernonia lindheimeri",
+        "url": "https://powo.science.kew.org/taxon/264215-2"
+      },
+      {
+        "label": "World Flora Online/FNA treatment",
+        "url": "https://www.worldfloraonline.org/taxon/wfo-0000096068"
+      }
+    ]
+  },
+  "range": {
+    "decision": "PASS",
+    "target_zone_counties": [
+      "Travis",
+      "Williamson",
+      "Kerr"
+    ],
+    "target_zone_count": 3,
+    "threshold": {
+      "minimum_target_counties": 3,
+      "operator": ">="
+    },
+    "evidence": [
+      {
+        "county": "Travis",
+        "source": "https://w3.biosci.utexas.edu/prc/specimens/Asteraceae5.html",
+        "detail": "UT Austin Plant Resources Center Travis County Asteraceae herbarium index lists both Vernonia baldwinii and Vernonia lindheimeri."
+      },
+      {
+        "county": "Williamson",
+        "source": "https://w3.biosci.utexas.edu/prc/K12/search.php",
+        "detail": "UT Austin Plant Resources Center Vascular Plants of Williamson County search includes both Vernonia baldwinii and Vernonia lindheimeri."
+      },
+      {
+        "county": "Kerr",
+        "source": "https://kiki.huh.harvard.edu/databases/specimen_search.php?id=1312906&mode=details",
+        "detail": "Harvard GH specimen 01925980, A. A. Heller 1908, collected about Kerrville, Kerr County, determined Vernonia lindheimeri."
+      }
+    ],
+    "bonap_crosscheck": "https://bonap.net/Napa/TaxonMaps/Genus/County/Vernonia"
+  },
+  "morphology": {
+    "reused_project_source": "LLM Curated Modules row 81",
+    "learner_core": "Narrow-leaved purple ironweed; upper leaf surfaces usually glabrate rather than densely silky; dry rocky-site species.",
+    "refinement": "FNA/WFO: linear cauline leaves about 5–8 cm × 2–4 mm, lower surfaces densely sericeo-tomentose, upper surfaces usually glabrate, margins strongly revolute; purple discoid heads in corymbiform arrays.",
+    "comparison": "V. baldwinii is taller and much broader-leaved. V. × guadalupensis can show intermediate leaf width/hairiness and head traits."
+  },
+  "handoff": {
+    "approval_status": "ready_for_approval",
+    "canonical_status": "not_installed_pending_user_approval",
+    "media_status": "defer until approval/installation"
+  }
+}
