@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "batch_id": "B160",
+  "taxon_id": "sapindus-saponaria",
+  "reviewed_at": "2026-10-06T00:04:00Z",
+  "reviewer": "manual-large-genus-continuation",
+  "decision": "FAIL_TARGET_ZONE",
+  "review_type": "Strict accepted-name and target-zone reconciliation of B142 handoff",
+  "taxonomy": {
+    "accepted_name": "Sapindus saponaria L.",
+    "status": "accepted_distinct_from_sapindus_drummondii",
+    "sources": [
+      {
+        "label": "Kew Plants of the World Online — Sapindus saponaria",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30035906-2",
+        "finding": "Accepted species; current native range does not include Texas."
+      },
+      {
+        "label": "Kew Plants of the World Online — Sapindus drummondii",
+        "url": "https://powo.science.kew.org/taxon/227434-2",
+        "finding": "Accepted western soapberry; native to Texas; historical S. saponaria var./subsp. drummondii are synonyms."
+      },
+      {
+        "label": "USDA GRIN — Sapindus saponaria var. saponaria",
+        "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=480572",
+        "finding": "Native U.S. range listed as Florida, Georgia, and South Carolina; Texas is not listed."
+      }
+    ]
+  },
+  "bonap": {
+    "source": "https://bonap.net/Napa/TaxonMaps/Genus/County/Sapindus",
+    "interpretation": "BONAP's county atlas is retained as the project's primary historical distribution cross-check, but its Sapindus saponaria map predates the 2024 sectional revision and does not separate current S. drummondii from old broad S. saponaria usage. It is therefore not used to override the current accepted-name range split."
+  },
+  "range": {
+    "decision": "FAIL",
+    "reason": "No current Texas-native treatment for Sapindus saponaria sensu stricto, so it cannot meet the project's three-target-county rule.",
+    "excluded_source_evidence": [
+      {
+        "source": "Hays-local Master Plant Pool flag",
+        "reason": "Older broad soapberry naming; Hays flora explicitly identifies western soapberry as S. saponaria var. drummondii, which maps to current S. drummondii."
+      }
+    ]
+  },
+  "western_soapberry_repair": {
+    "accepted_name": "Sapindus drummondii Hook. & Arn.",
+    "decision": "PASS",
+    "target_counties": [
+      "Hays",
+      "Travis",
+      "Kerr"
+    ],
+    "removed_prior_counties": [
+      "Williamson",
+      "Val Verde"
+    ],
+    "removed_reason": "Both are outside the user's target-county set and cannot count toward the three-county threshold.",
+    "evidence": [
+      {
+        "county": "Hays",
+        "source": "https://w3.biosci.utexas.edu/prc/HaysFlora/NaturalPlants.html",
+        "detail": "UT PRC Hays flora lists Sapindus saponaria var. drummondii; current Kew maps that historical name to S. drummondii."
+      },
+      {
+        "county": "Travis",
+        "source": "https://w3.biosci.utexas.edu/prc/specimens/Sapindaceae.html",
+        "detail": "UT PRC Travis County herbarium index lists Sapindus saponaria var. drummondii; current Kew maps that historical name to S. drummondii."
+      },
+      {
+        "county": "Kerr",
+        "source": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+        "detail": "Published Kerr Wildlife Management Area flora records S. saponaria var. drummondii with voucher collection numbers."
+      }
+    ]
+  },
+  "handoff": {
+    "sapindus_saponaria": "reviewed target-zone FAIL; do not install",
+    "sapindus_drummondii": "retain canonical learner and existing media; corrected range basis only",
+    "tracker": "mark all four Sapindus source concepts processed; genus should recalculate to 4/4 with zero remaining"
+  }
+}
