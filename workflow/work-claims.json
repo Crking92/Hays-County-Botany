@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T09:16:00-05:00",
+  "updated_at": "2026-10-05T09:20:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2216,6 +2216,25 @@
       "expires_at": "2026-10-05T10:30:00-05:00",
       "release_when": "Selected learner galleries are durably updated or explicitly skipped.",
       "notes": "Media-only fast-fill; preserve settled taxonomy/range."
+    },
+    {
+      "claim_id": "manual-fast-fill-prairie-grasses-004",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "andropogon-gerardi",
+        "sorghastrum-nutans"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "fast-fill-andropogon-gerardi-sorghastrum-nutans",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T14:20:00Z",
+      "expires_at": "2026-10-05T20:20:00Z",
+      "release_when": "Big bluestem and Indiangrass have usable FAST-FILL galleries or exact limitations are documented.",
+      "notes": "Visual-only prairie-grass batch. Reuse existing Joey Sorghastrum frame first, then licensed exact-species external images; no scientific changes."
     }
   ]
 }
