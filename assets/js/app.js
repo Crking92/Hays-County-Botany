@@ -219,6 +219,36 @@ function genusQuickRows(data){
   }
   return [];
 }
+function genusVisualComparison(data){
+  const v=data && data.visual_comparison;
+  if(!v || !Array.isArray(v.items) || !v.items.length) return "";
+  let out='<section class="section-block diagnostic-visual-section"><div class="section-heading"><div><div class="eyebrow">Visual field key</div><h2>'+esc(v.title||"Diagnostic comparison")+'</h2>'+(v.subtitle?'<p>'+esc(v.subtitle)+'</p>':'')+'</div></div>';
+  if(v.memory_rule) out+='<div class="diagnostic-memory-rule"><span>MEMORY RULE</span><strong>'+esc(v.memory_rule)+'</strong></div>';
+  out+='<div class="diagnostic-visual-grid">';
+  v.items.forEach(function(item,index){
+    const markers=Array.isArray(item.markers)?item.markers:[];
+    out+='<article class="diagnostic-visual-card"><div class="diagnostic-photo-wrap"><img src="'+esc(item.image_url||"")+'" alt="'+esc((item.label||item.scientific_name||"Diagnostic plant")+" — "+(item.image_role||"diagnostic view"))+'" loading="lazy">';
+    if(markers.length){
+      const arrowId="diagnosticArrow"+index;
+      out+='<svg class="diagnostic-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
+      markers.forEach(function(m){
+        const lx=Number(m.label_x||8), ly=Number(m.label_y||10), tx=Number(m.target_x||50), ty=Number(m.target_y||50);
+        out+='<line x1="'+lx+'" y1="'+ly+'" x2="'+tx+'" y2="'+ty+'" marker-end="url(#'+arrowId+')"></line>';
+      });
+      out+='</svg>';
+      markers.forEach(function(m){
+        out+='<span class="diagnostic-photo-label" style="left:'+Number(m.label_x||8)+'%;top:'+Number(m.label_y||10)+'%">'+esc(m.label||"look here")+'</span>';
+      });
+    }
+    out+='</div><div class="diagnostic-visual-copy"><div class="eyebrow">'+esc(item.label||"Diagnostic view")+'</div><h3><i>'+esc(item.scientific_name||"")+'</i></h3><p>'+esc(item.caption||"")+'</p>';
+    if(item.source_page) out+='<p class="diagnostic-photo-credit">'+esc(item.creator||"Source photo")+' · '+esc(item.license||"license review")+' · <a href="'+esc(item.source_page)+'" target="_blank" rel="noreferrer">source ↗</a></p>';
+    out+='</div></article>';
+  });
+  out+='</div>';
+  if(v.overlay_note) out+='<p class="diagnostic-overlay-note">'+esc(v.overlay_note)+'</p>';
+  out+='</section>';
+  return out;
+}
 function genusComparePanel(genus,members){
   if(!members || members.length<2) return "";
   const opts=members.map(function(sp){ return '<option value="'+esc(sp.id)+'">'+esc(scientificName(sp))+(commonName(sp)?' — '+esc(commonName(sp)):'')+'</option>'; }).join("");
@@ -782,6 +812,7 @@ function genusView(){
     priority.slice(0,10).forEach(function(x){ out+='<div>'+esc(formatValue(x))+'</div>'; });
     out+='</div></section>';
   }
+  out+=genusVisualComparison(data);
   if(quick.length){
     out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Quick separation key</div><h2>Character → likely species</h2></div></div><div class="genus-key">';
     quick.slice(0,12).forEach(function(row){ out+='<div><span>'+esc(row.if)+'</span><b>→</b><strong><i>'+esc(row.then)+'</i></strong></div>'; });
