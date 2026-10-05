@@ -4,32 +4,95 @@
   "name": "Matelea",
   "common_group": "Milkvines",
   "project_scope": {
-    "selection_mode": "comparison-first",
-    "species_ids": [
-      "matelea-reticulata",
-      "matelea-edwardsensis"
+    "selection_mode": "B005 science + B139 source-concept reconciliation",
+    "canonical_species_count": 2,
+    "canonical_species_ids": [
+      "matelea-edwardsensis",
+      "matelea-reticulata"
     ],
-    "species_count": 2,
-    "note": "Current Matelea set after reconciling former Matelea biflora to Chthamalia biflora."
+    "represented_elsewhere": [
+      {
+        "source_id": "matelea-biflora",
+        "represented_by": "chthamalia-biflora",
+        "status": "CANONICAL_PASS_IN_CHthamalia"
+      },
+      {
+        "source_id": "matelea-gonocarpos",
+        "represented_by": "gonolobus-suberosus-var-granulatus",
+        "status": "REVIEWED_UNRESOLVED_HOLD"
+      }
+    ],
+    "reviewed_fails": [
+      "matelea-parvifolia"
+    ],
+    "source_concept_count": 5,
+    "note": "The source pool preserves older Matelea usage. Current learner organization keeps only M. edwardsensis and M. reticulata in Matelea; former M. biflora is canonical Chthamalia biflora, and legacy M. gonocarpos maps to an unresolved Gonolobus suberosus var. granulatus concept."
   },
   "study_strategy": {
     "priority": [
-      "flower shape: rotate vs campanulate",
-      "reticulate vs longitudinal corolla markings",
+      "flower shape: rotate versus campanulate",
+      "reticulate versus longitudinal or uniform corolla markings",
       "inner-corolla hairiness",
-      "corona development",
-      "follicle armature"
+      "corona/gynostegium structure",
+      "follicle armature and angles",
+      "growth form: low hairy herb versus vigorous twiner"
     ],
-    "warning": "Use the corona/gynostegium and follicle together with corolla pattern; flower color alone is weak."
+    "warning": "Do not treat every historical 'Matelea' record as the same modern genus concept. In this local set, M. biflora is Chthamalia biflora and legacy M. gonocarpos points to a Gonolobus concept that remains range/taxon-concept HOLD."
   },
   "quick_key": [
     {
-      "if": "flat broad pale-green flower + strong dark net-reticulation + glabrous inner corolla + silvery center",
+      "if": "flat broad pale-green flower with strong dark net-reticulation and a silvery center on a hairy twining vine",
       "then": "Matelea reticulata"
     },
     {
-      "if": "more bell-shaped pale-green flower + longitudinal lines + hairy inner corolla + obvious fleshy corona segments",
+      "if": "more bell-shaped pale-green flower with mainly longitudinal lines, hairy inner corolla, and obvious fleshy corona segments",
       "then": "Matelea edwardsensis"
+    },
+    {
+      "if": "low densely hairy plant with paired dark maroon-brown star flowers",
+      "then": "Chthamalia biflora — source name Matelea biflora"
+    },
+    {
+      "if": "large cordate leaves, relatively large uniform olive-green flowers, smooth sharply angled follicle",
+      "then": "Gonolobus suberosus var. granulatus — legacy Matelea gonocarpos concept; reviewed unresolved HOLD"
+    },
+    {
+      "if": "tiny desert twiner with very small leaves and tiny brown/maroon-to-green flowers",
+      "then": "Matelea parvifolia — reviewed target-zone FAIL"
     }
-  ]
+  ],
+  "source_concept_status": [
+    {
+      "id": "matelea-biflora",
+      "scientific_name": "Matelea biflora",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_CHTHAMALIA_BIFLORA"
+    },
+    {
+      "id": "matelea-edwardsensis",
+      "scientific_name": "Matelea edwardsensis",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "matelea-gonocarpos",
+      "scientific_name": "Matelea gonocarpos",
+      "status": "LEGACY_CONCEPT_REPRESENTED_BY_GONOLOBUS_HOLD",
+      "note": "B005 user-accepted unresolved hold; Travis and Williamson firm for Gonolobus suberosus var. granulatus, legacy Hays/Kerr records not counted until concept reconciliation."
+    },
+    {
+      "id": "matelea-parvifolia",
+      "scientific_name": "Matelea parvifolia",
+      "status": "REVIEWED_TARGET_ZONE_FAIL"
+    },
+    {
+      "id": "matelea-reticulata",
+      "scientific_name": "Matelea reticulata",
+      "status": "CANONICAL_PASS"
+    }
+  ],
+  "curation_status": {
+    "version": "1.1-b139-reconciliation",
+    "genus_audit": "complete_with_cross_genus_alias_and_hold_fail",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  }
 }
