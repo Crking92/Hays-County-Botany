@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T01:19:00Z",
+  "updated_at": "2026-10-05T18:53:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3867,6 +3867,22 @@
       "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
       "notes": "Manual near-PASS cleanup batch 2. Reuse prior review, correct any out-of-zone county leakage, and seek exact target-zone voucher/county evidence. No curation bypass. Complete: no PASS promotions. Corrected Williamson leakage for Rudbeckia amplexicaulis, Dyschoriste linearis, Dicliptera brachiata, and Coreopsis lanceolata; Symphyotrichum lanceolatum subsp. lanceolatum remains a legitimate Hays+Travis one-county-short hold.",
       "released_at": "2026-10-05T20:19:00-05:00"
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-mixed-016",
+      "scope_kind": "species_media",
+      "taxa": [
+        "andropogon-gerardi",
+        "panicum-virgatum",
+        "phyla-nodiflora"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-collect-missing-species-photos-continuation",
+      "status": "active",
+      "claimed_at": "2026-10-05T23:53:00Z",
+      "expires_at": "2026-10-06T05:53:00Z",
+      "release_when": "Install and visually verify batch or explicitly skip.",
+      "notes": "Physicalize three existing vetted PASS galleries: big bluestem, switchgrass, and frogfruit. Nine exact-species licensed photos; preserve settled science."
     }
   ]
 }
