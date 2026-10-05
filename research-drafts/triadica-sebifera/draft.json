@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "draft_status": "SCOUTED_PENDING_DEEP_REVIEW",
+  "draft_status": "REJECT_RE_SCOUT",
   "batch_id": "scout-2026-10-03-euphorbiaceae-06",
   "created_at": "2026-10-03T23:09:39-05:00",
   "source_pool": {
@@ -98,5 +98,74 @@
   },
   "notes": [
     "Strong general imagery exists; later photo polish should lock all four diagnostic roles."
-  ]
+  ],
+  "deep_review": {
+    "result": "REJECT/RE-SCOUT",
+    "review_owner": "automation-botany-deep-review-b",
+    "reviewed_at": "2026-10-04T23:01:00-05:00",
+    "taxonomy": {
+      "accepted_name": "Triadica sebifera (L.) Small",
+      "status": "PASS",
+      "synonyms": [
+        "Croton sebifer L.",
+        "Sapium sebiferum (L.) Dum.Cours.",
+        "Excoecaria sebifera (L.) Müll.Arg.",
+        "Stillingia sebifera (L.) Michx."
+      ],
+      "notes": "POWO/WCVP and Flora of North America accept Triadica sebifera."
+    },
+    "target_zone_range": {
+      "status": "FAIL_NONNATIVE",
+      "exact_target_counties": [],
+      "evidence": [
+        "POWO explicitly treats Texas as introduced; native range is eastern/central/southern Asia.",
+        "Texas A&M Forest Service identifies Chinese tallow as an invasive introduced tree in Central Texas.",
+        "US Forest Service FEIS documents introduction and naturalization across the southeastern United States including Texas."
+      ],
+      "guardrail": "Naturalized/local observations do not qualify as target-zone native evidence."
+    },
+    "morphology": {
+      "status": "PASS",
+      "diagnostics": [
+        "deciduous tree with milky sap",
+        "alternate simple ovate/broadly elliptic to rhomboid leaves with long petioles",
+        "two discoid glands near petiole/leaf-base region are useful close-up characters",
+        "terminal inflorescences up to about 20 cm",
+        "3-lobed capsule",
+        "capsule opens to expose three conspicuous white wax-coated popcorn-like seeds"
+      ],
+      "lookalikes": [
+        {
+          "taxon": "Cercis canadensis var. texensis seedlings",
+          "separator": "Redbud has different leaf venation/base and lacks Triadica's terminal Euphorbiaceae inflorescences and popcorn-like 3-seeded capsule."
+        },
+        {
+          "taxon": "Populus spp. seedlings",
+          "separator": "Confirm Triadica petiolar glands, milky sap, inflorescence and 3-lobed capsule/white seeds."
+        }
+      ]
+    },
+    "photos": {
+      "status": "STRONG_LEADS",
+      "assessment": "Existing NPSOT/Texas A&M/USGS/iNaturalist leads can support an invasive-comparison lesson. Best diagnostic set should show leaf shape plus basal/petiolar glands, flower spike, green 3-lobed capsule, and open capsule with white wax-coated seeds.",
+      "priority_roles": [
+        "leaf plus petiolar glands",
+        "terminal flower spike",
+        "green 3-lobed capsule",
+        "open capsule with three white seeds"
+      ]
+    },
+    "evidence_urls": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:256588-2",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250084071",
+      "https://tfsweb.tamu.edu/trees/invasive-species/invasive-plants-and-trees/chinese-tallow/",
+      "https://research.fs.usda.gov/feis/species-reviews/triseb",
+      "https://aquaplant.tamu.edu/plant-identification/alphabetical-index/tallow-or-popcorn-tree/"
+    ],
+    "conflicts": [],
+    "missing_pieces": [
+      "No native-range evidence can cure the project-native failure because Texas occurrence is introduced/naturalized."
+    ],
+    "next_action": "Do not send through native-species curation. Re-route only as an explicitly nonnative/invasive crew-ID comparison lesson if that content lane wants it."
+  }
 }
