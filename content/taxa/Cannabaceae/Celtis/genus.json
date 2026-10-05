@@ -4,13 +4,16 @@
   "name": "Celtis",
   "common_group": "Hackberries",
   "project_scope": {
-    "selection_mode": "B033 same-genus comparison",
+    "selection_mode": "B033/B091 science + B130 LEARNER FAST-FILL",
     "species_ids": [
       "celtis-laevigata",
       "celtis-reticulata",
       "celtis-pallida"
     ],
-    "species_count": 3
+    "species_count": 3,
+    "provisional_species_ids": [
+      "celtis-lindheimeri"
+    ]
   },
   "study_strategy": {
     "priority": [
@@ -31,7 +34,23 @@
     ]
   },
   "curation_status": {
-    "version": "1.0-b033",
-    "last_reviewed": "2026-10-03"
+    "version": "1.0-b033+b130-fast-fill",
+    "last_reviewed": "2026-10-05",
+    "fast_fill_active": true
+  },
+  "fast_fill_visual_status": {
+    "updated": "2026-10-05",
+    "learner_ready": [
+      "celtis-laevigata",
+      "celtis-reticulata",
+      "celtis-pallida"
+    ],
+    "visual_gaps": [
+      {
+        "id": "celtis-lindheimeri",
+        "status": "PROVISIONAL_SCIENCE_AND_MEDIA_GAP",
+        "note": "Exact-species Commons files exist, but per-file license metadata was not reliably captured in this pass. Do not guess a license or promote scientific confidence. Leave the provisional learner photo-empty until a properly licensed exact image is locked."
+      }
+    ]
   }
 }
