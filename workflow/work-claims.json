@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T22:47:11.253Z",
+  "updated_at": "2026-10-05T22:49:17.855Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3651,6 +3651,27 @@
       "expires_at": "2026-10-06T04:47:11.253Z",
       "release_when": "Batch installed and verified or targets explicitly skipped.",
       "notes": "First licensed physical galleries for three PASS oaks. Replace unverified remote media; preserve settled science."
+    },
+    {
+      "claim_id": "manual-genus-prunus-b158-tracker-sync",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "prunus-angustifolia",
+        "prunus-caroliniana",
+        "prunus-serotina-var-eximia",
+        "prunus-rivularis"
+      ],
+      "families": [
+        "Rosaceae"
+      ],
+      "scope_key": "B158-Prunus-tracker-sync",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T22:49:17.855Z",
+      "expires_at": "2026-10-06T04:49:17.855Z",
+      "release_when": "B074/B131 decisions are reflected in source overrides and verified; creek plum remains pending review.",
+      "notes": "Tracker-only closeout; no scientific promotion or gallery work."
     }
   ]
 }
