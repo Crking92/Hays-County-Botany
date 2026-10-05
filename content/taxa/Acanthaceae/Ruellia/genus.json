@@ -1,0 +1,101 @@
+{
+  "rank": "genus",
+  "family": "Acanthaceae",
+  "name": "Ruellia",
+  "authority": "L.",
+  "common_group": "Wild petunias / ruellias",
+  "project_scope": {
+    "selection_mode": "B026/B081 science + B137 source-concept reconciliation",
+    "canonical_species_count": 4,
+    "canonical_species_ids": [
+      "ruellia-ciliatiflora",
+      "ruellia-drummondiana",
+      "ruellia-humilis",
+      "ruellia-metziae"
+    ],
+    "represented_source_concepts": [
+      "ruellia-nudiflora",
+      "ruellia-nudiflora-var-nudiflora",
+      "ruellia-occidentalis"
+    ],
+    "source_pool_row_count": 6,
+    "note": "The source pool contains historical names now represented by canonical Ruellia ciliatiflora. Preserve those names for provenance and field-literature continuity without creating duplicate learner pages."
+  },
+  "source_concept_status": [
+    {
+      "id": "ruellia-ciliatiflora",
+      "scientific_name": "Ruellia ciliatiflora",
+      "status": "CANONICAL_PASS",
+      "aliases": [
+        "Ruellia nudiflora",
+        "Ruellia nudiflora var. nudiflora",
+        "Ruellia occidentalis"
+      ]
+    },
+    {
+      "id": "ruellia-drummondiana",
+      "scientific_name": "Ruellia drummondiana",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "ruellia-humilis",
+      "scientific_name": "Ruellia humilis",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "ruellia-metziae",
+      "scientific_name": "Ruellia metziae",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "ruellia-nudiflora",
+      "scientific_name": "Ruellia nudiflora",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_RUELLIA_CILIATIFLORA"
+    },
+    {
+      "id": "ruellia-nudiflora-var-nudiflora",
+      "scientific_name": "Ruellia nudiflora var. nudiflora",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_RUELLIA_CILIATIFLORA"
+    },
+    {
+      "id": "ruellia-occidentalis",
+      "scientific_name": "Ruellia occidentalis",
+      "status": "SOURCE_ALIAS_REPRESENTED_BY_RUELLIA_CILIATIFLORA"
+    }
+  ],
+  "study_strategy": {
+    "priority": [
+      "terminal/peduncled versus axillary/nearly sessile flower position",
+      "long-pilose versus fine short pubescence versus nearly glabrous foliage",
+      "white versus violet/purple corolla",
+      "terminal panicle/cyme architecture",
+      "capsule seed count when available"
+    ],
+    "warning": "Do not identify these from purple flower color alone. Flower position and hair type are the fastest field split."
+  },
+  "quick_key": [
+    {
+      "if": "purple/violet flowers raised above the foliage on conspicuous peduncled branching terminal or upper-axillary cymes; foliage mostly glabrous to inconspicuously hairy",
+      "then": "Ruellia ciliatiflora (= R. nudiflora / R. occidentalis source concepts)"
+    },
+    {
+      "if": "purple flowers/cymes essentially sessile in the leaf axils; stems and leaves finely short-pubescent; capsule with only 2–4 seeds",
+      "then": "Ruellia drummondiana"
+    },
+    {
+      "if": "purple flowers nearly sessile in leaf axils AND stems/leaves/margins conspicuously long-pilose or shaggy",
+      "then": "Ruellia humilis"
+    },
+    {
+      "if": "large white to pale flowers in a terminal branching panicle; upper inflorescence and calyx densely stalked-glandular-hairy",
+      "then": "Ruellia metziae"
+    }
+  ],
+  "taxonomy_note": "Current Kew/POWO accepts Ruellia ciliatiflora Hook. and places Ruellia nudiflora and Ruellia occidentalis in synonymy. The project keeps historical Texas source names as aliases while using one canonical R. ciliatiflora learner.",
+  "curation_status": {
+    "version": "1.0-b137",
+    "genus_audit": "complete",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  }
+}
