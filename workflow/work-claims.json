@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T10:58:00-05:00",
+  "updated_at": "2026-10-05T11:12:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2551,6 +2551,30 @@
       "expires_at": "2026-10-05T21:58:00Z",
       "release_when": "R. ciliatiflora and R. humilis receive verified exact-current-concept learner visuals or limitations are documented.",
       "notes": "Visual-only. For R. ciliatiflora, synonym-based R. nudiflora imagery may be used only because the canonical record explicitly maps that name into the accepted current concept. Reject uncertain-ID images."
+    },
+    {
+      "claim_id": "manual-genus-eragrostis-b135-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "eragrostis-cilianensis",
+        "eragrostis-hirsuta",
+        "eragrostis-intermedia",
+        "eragrostis-lugens",
+        "eragrostis-secundiflora",
+        "eragrostis-spectabilis",
+        "eragrostis-trichodes"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "study-batch-b135-eragrostis-reconciliation",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T11:12:00-05:00",
+      "expires_at": "2026-10-05T17:12:00-05:00",
+      "release_when": "Eragrostis hirsuta's reviewed HOLD is reflected in durable genus/source bookkeeping without promotion, and the live genus index treats the source concept as processed.",
+      "notes": "Reuse B018 science. Do not reopen range research or install E. hirsuta. This is status reconciliation only: reviewed HOLD must remain explicit while genus-level processing can close."
     }
   ]
 }
