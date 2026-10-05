@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-04T21:28:00-05:00",
+  "updated_at": "2026-10-04T23:20:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -1689,6 +1689,23 @@
       "notes": "Close the remaining coherent Euphorbiaceae scout batch. Review-only; no curation inbox or canonical installation.",
       "released_at": "2026-10-04T23:03:00-05:00",
       "release_note": "Both taxa durably reviewed and queue-checkpointed: Bernardia myricifolia READY FOR CURATION; Triadica sebifera REJECT/RE-SCOUT from native curation and retained only as a nonnative/invasive comparison candidate."
+    },
+    {
+      "claim_id": "manual-genus-cercis-b124-001",
+      "scope_kind": "genus_batch",
+      "taxa": [
+        "cercis-canadensis",
+        "cercis-canadensis-var-mexicana",
+        "cercis-canadensis-var-texensis"
+      ],
+      "scope_key": "study-batch-b124-cercis-closeout-visual-lock",
+      "lane": "manual-large-genus-continuation",
+      "owner": "manual-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-04T23:20:00-05:00",
+      "expires_at": "2026-10-05T05:20:00-05:00",
+      "release_when": "Cercis parent/variety source concepts are reconciled and existing accepted subspecies receive visual-lock updates or explicit visual holds.",
+      "notes": "B124 after Senna. Preserve accepted subsp. texensis and subsp. mexicana canonical pages; fold var. texensis/var. mexicana into current Kew subspecies and treat species-level C. canadensis as umbrella unless evidence requires subsp. canadensis. Add private-study diagnostic photos to the two existing subspecies pages."
     }
   ]
 }
