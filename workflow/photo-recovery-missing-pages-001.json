@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-04",
+  "batch": "photo-recovery-missing-pages-001",
+  "lane": "installed-species-photo-recovery",
+  "status": "active",
+  "scope": "Media-only recovery for canonical/provisional learner pages with no displayable gallery images; scientific and range state remain unchanged.",
+  "protected_scope": {
+    "ulmus": "Owned by the separate user-authorized elm photo repair lane; do not duplicate.",
+    "saved_joey_frames": "Accepted saved Joey frame overlap is already exhausted; only explicitly rejected blurry frames remain excluded."
+  },
+  "selection_rules": [
+    "Check existing canonical assets, research drafts, curation archive/inbox, Joey archive, and saved frames before new searching.",
+    "Prefer complementary diagnostic views over generic beauty shots.",
+    "Keep exact taxon identity, creator, source page, license/reuse status, and diagnostic role with every selected image.",
+    "For the private learner, private-study imagery may be used with public_reuse=false; do not imply publication rights.",
+    "Do not alter taxonomy or range decisions as part of photo recovery."
+  ],
+  "targets": [
+    {
+      "id": "aristolochia-erecta",
+      "state": "queued_to_curation_pipeline",
+      "curation_batch": "photo-recovery-aristolochia-001",
+      "selected_existing_images": 3,
+      "needed_roles": [
+        "curved perianth/flower side",
+        "limb-pattern close-up",
+        "low grass-mimic habit with bud"
+      ],
+      "source": "Joey Santore / Crime Pays But Botany Doesn't — South Texas Borderlands",
+      "rights": "private study; public reuse not cleared"
+    },
+    {
+      "id": "mimosa-texana",
+      "state": "candidate_set_building",
+      "current_page_status": "no images; provisional learner",
+      "existing_exact_candidate": {
+        "source_record_id": "j017-021",
+        "source": "Joey Santore / Crime Pays But Botany Doesn't — Puebla gallery",
+        "role": "globose inflorescence, exserted stamens/anthers, buds",
+        "direct_image_url": "https://images.squarespace-cdn.com/content/v1/6228f6d2f709736d5872534f/a06c2b05-f545-45ae-bf8e-2447f429723f/JUL_1723.JPG",
+        "rights": "private study; public reuse not cleared",
+        "caution": "Use as morphology material only; do not use this out-of-region image as range evidence."
+      },
+      "texas_candidates": [
+        {
+          "source_page": "https://www.inaturalist.org/observations/111727694",
+          "locality": "Austin, Texas",
+          "role": "flowering branch/habit with bipinnate foliage",
+          "rights": "resolve before installation"
+        },
+        {
+          "source_page": "https://www.inaturalist.org/observations/157698120",
+          "locality": "Falcon Lake Estates, Texas",
+          "role": "pods/fruits with bipinnate foliage",
+          "rights": "resolve before installation"
+        },
+        {
+          "source_page": "https://www.inaturalist.org/observations/189144542",
+          "locality": "Mills County, Texas",
+          "role": "red-brown pods/fruit and woody branch",
+          "rights": "resolve before installation"
+        }
+      ],
+      "remaining_visual_need": "Prefer one target-zone Texas view that clearly shows the strongly curved downward prickles and low pinna/leaflet counts; retain fruit/pod coverage."
+    }
+  ]
+}
