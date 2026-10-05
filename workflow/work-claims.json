@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T01:39:00-05:00",
+  "updated_at": "2026-10-05T01:45:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2057,6 +2057,25 @@
       "expires_at": "2026-10-05T03:31:00-05:00",
       "release_when": "Batch is durably staged in curation-inbox or installed canonical, or explicitly aborted.",
       "notes": "FAST-FILL installation of already-reviewed and explicitly approved taxa; no new deep research."
+    },
+    {
+      "claim_id": "manual-fast-fill-muhlenbergia-002",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "muhlenbergia-utilis",
+        "muhlenbergia-x-involuta"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "fast-fill-muhlenbergia-utilis-x-involuta",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T06:45:00Z",
+      "expires_at": "2026-10-05T12:45:00Z",
+      "release_when": "Usable FAST-FILL learner images and provenance are durably written and verified, or the batch is explicitly aborted.",
+      "notes": "Canonical-species visual fill only; taxonomy/range untouched. M. piniflora remains excluded. Prefer rights-cleared exact-species media; do not pad galleries with uncertain-rights images."
     }
   ]
 }
