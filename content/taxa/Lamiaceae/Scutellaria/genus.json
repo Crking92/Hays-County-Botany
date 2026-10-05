@@ -1,0 +1,68 @@
+{
+  "rank": "genus",
+  "family": "Lamiaceae",
+  "name": "Scutellaria",
+  "authority": "L.",
+  "common_group": "Skullcaps",
+  "project_scope": {
+    "selection_mode": "B041 canonical anchors + B153 strict-review handoff",
+    "canonical_species_ids": [
+      "scutellaria-drummondii",
+      "scutellaria-wrightii"
+    ],
+    "pending_strict_review": [
+      "scutellaria-ovata"
+    ],
+    "source_concept_count": 3,
+    "note": "S. drummondii and S. wrightii are installed PASS anchors. S. ovata remains a true open strict-review task and is not installed."
+  },
+  "source_concept_status": [
+    {
+      "id": "scutellaria-drummondii",
+      "scientific_name": "Scutellaria drummondii",
+      "status": "CANONICAL_PASS"
+    },
+    {
+      "id": "scutellaria-ovata",
+      "scientific_name": "Scutellaria ovata",
+      "status": "PENDING_STRICT_DEEP_REVIEW"
+    },
+    {
+      "id": "scutellaria-wrightii",
+      "scientific_name": "Scutellaria wrightii",
+      "status": "CANONICAL_PASS"
+    }
+  ],
+  "study_strategy": {
+    "priority": [
+      "annual versus perennial/rhizomatous habit",
+      "leaf size, shape, and tip",
+      "leaf margin",
+      "visible glandular hairs",
+      "pedicel length",
+      "corolla size",
+      "visorlike scutellum on the calyx"
+    ],
+    "warning": "Do not identify skullcaps from blue-violet flower color alone. Start with life history and leaf architecture, then use hairiness and flower scale."
+  },
+  "quick_key": [
+    {
+      "if": "small annual, acute leaves, visible glandular hairs, very short pedicels and small blue-violet corollas",
+      "then": "Scutellaria drummondii — canonical PASS"
+    },
+    {
+      "if": "low bushy perennial, rounded/obtuse entire leaves, minute pubescence, longer pedicels and larger corollas",
+      "then": "Scutellaria wrightii — canonical PASS"
+    },
+    {
+      "if": "much taller rhizomatous plant with larger triangular-ovate crenate leaves and very large corollas",
+      "then": "Scutellaria ovata — morphology comparison only until strict review is complete"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-b153",
+    "genus_audit": "partial_pending_scutellaria_ovata_review",
+    "source_concepts_reconciled": true,
+    "last_reviewed": "2026-10-05"
+  }
+}
