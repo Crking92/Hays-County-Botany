@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T08:44:00-05:00",
+  "updated_at": "2026-10-05T08:46:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2138,6 +2138,26 @@
       "expires_at": "2026-10-05T19:39:00Z",
       "release_when": "Useful exact-species Pluchea camphorata learner imagery is durably added and verified, or the batch is aborted.",
       "notes": "Visual-only. Preserve the existing user-approved range exception and UNRESOLVED/native-metrics-excluded scientific status."
+    },
+    {
+      "claim_id": "manual-fast-fill-panicum-001",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "panicum-capillare",
+        "panicum-hallii",
+        "panicum-virgatum"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "fast-fill-panicum-capillare-hallii-virgatum",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T13:46:00Z",
+      "expires_at": "2026-10-05T19:46:00Z",
+      "release_when": "The three PASS Panicum pages have usable exact-species FAST-FILL galleries and are verified, or the batch is aborted.",
+      "notes": "Visual-only. Panicum coloratum is deliberately excluded because its canonical record is target-zone FAIL/introduced comparison. Preserve all scientific state."
     }
   ]
 }
