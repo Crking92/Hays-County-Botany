@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T18:18:00-05:00",
+  "updated_at": "2026-10-05T18:31:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3535,6 +3535,25 @@
       "expires_at": "2026-10-06T04:34:05.725Z",
       "release_when": "Install and verify batch or explicitly skip targets.",
       "notes": "Media only. Preserve Callirhoe PASS and Echinacea user-approved UNRESOLVED range exception."
+    },
+    {
+      "claim_id": "manual-fast-fill-amorpha-010",
+      "scope_kind": "photo_fast_fill_batch",
+      "taxa": [
+        "amorpha-roemeriana",
+        "amorpha-fruticosa"
+      ],
+      "families": [
+        "Fabaceae"
+      ],
+      "scope_key": "fast-fill-amorpha-roemeriana-fruticosa",
+      "lane": "small-genus-backfill",
+      "owner": "taxonomy-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T23:31:00Z",
+      "expires_at": "2026-10-06T05:31:00Z",
+      "release_when": "A. roemeriana receives usable exact-species learner imagery and A. fruticosa is optionally topped off only with clean complementary provenance, or exact source limitations are documented.",
+      "notes": "Visual-only. Preserve existing Joey frames on A. fruticosa. A. canescens remains PROVISIONAL and is excluded."
     }
   ]
 }
