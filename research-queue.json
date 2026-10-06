@@ -3209,18 +3209,34 @@
         "hays_local": true
       },
       "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
-      "last_deep_reviewed_at": "2026-10-03T15:15:00-05:00",
-      "notes": "B018 part 1 UNRESOLVED — Uvalde exact county locked; no second/third target-zone counties inferred from broad Texas nativity.",
-      "approval_status": "hold_documented",
+      "last_deep_reviewed_at": "2026-10-06T08:28:00-05:00",
+      "notes": "Manual Poaceae refresh confirms HOLD — Uvalde remains the only exact project target county carried forward from the prior review. Kew specimen records and NPSOT/BONAP confirm the accepted Eragrostis hirsuta concept and broader Texas occurrence, but the specimens recovered in this pass did not add two exact target-zone counties. Taxonomically difficult nearby Eragrostis species are not transferred. Learner admission unchanged.",
+      "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_hold",
+      "canonical_status": "not_installed_range_hold",
       "last_hold_reviewed_at": "2026-10-03T15:15:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "approved_source_pool_membership",
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Uvalde"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Kew occurrence records — Eragrostis hirsuta",
+          "url": "https://records.data.kew.org/occurrences/d3b62f4e-47f0-447b-aa55-a22b6acaf13d",
+          "role": "accepted preserved-specimen occurrence and taxon concept"
+        },
+        {
+          "label": "Native Plant Society of Texas — Eragrostis hirsuta",
+          "url": "https://www.npsot.org/posts/native-plant/eragrostis-hirsuta/",
+          "role": "Texas native distribution and BONAP cross-reference"
+        }
+      ]
     },
     {
       "id": "eragrostis-trichodes",
@@ -4429,8 +4445,8 @@
       "priority": 0,
       "queue_group": "B030 Andropogon / Anatherum",
       "batch_id": "deep-review-batch-039-andropogon-anatherum-b030",
-      "last_deep_reviewed_at": "2026-10-03T18:45:00-05:00",
-      "notes": "B030 UNRESOLVED — current Kew accepts Anatherum virginicum; familiar Andropogon virginicus retained as alias. Broader Texas-native status is clear, but this pass locked only Bexar as an exact target-zone county. Diagnostic priority: narrow silky racemes partly enclosed by flattened spathe-like upper sheaths; persistent straw/orange-brown winter clump.",
+      "last_deep_reviewed_at": "2026-10-06T08:28:00-05:00",
+      "notes": "Manual Poaceae refresh confirms HOLD — Bexar remains the only exact project target county locked from the prior review. Regional ecological sources support broomsedge bluestem in the San Antonio/Bexar landscape, but broad ecological-site presence does not supply two additional exact counties. Current Anatherum virginicum/legacy Andropogon virginicus concept remains preserved for search and learner use.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -4440,7 +4456,23 @@
       "learner_approved_at": "2026-10-05T20:38:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Master Plant Pool row uses synonym/legacy name Andropogon virginicus. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Bexar"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Trans-Texas Water Program environmental report",
+          "url": "https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/TransTXWCg.pdf",
+          "role": "Bexar/San Antonio regional Andropogon virginicus occurrence context"
+        },
+        {
+          "label": "USDA ecological site R150AY534TX",
+          "url": "https://edit.sc.egov.usda.gov/catalogs/esd/150A/R150AY534TX",
+          "role": "Texas ecological-site occurrence under legacy Andropogon virginicus name"
+        }
+      ]
     },
     {
       "id": "opuntia-lindheimeri",
@@ -4982,19 +5014,33 @@
       "queue_group": "B042 Sorghastrum",
       "batch_id": "deep-review-batch-049-sorghastrum-b042",
       "status": "range_hold_reviewed",
-      "notes": "B042 HOLD — Texas native, but evidence found this pass is concentrated in eastern counties outside the project target zone; no 3 target-zone counties locked.",
+      "notes": "Manual Poaceae refresh confirms HOLD — specimen searches continue to recover Texas Sorghastrum elliottii primarily from eastern counties such as San Jacinto and Anderson, outside the project target zone. No exact target-zone county was locked in this pass. Do not infer Central Texas occurrence from genus-level Indiangrass records or from S. nutans.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "reconciliation_status": "preserved_range_hold",
       "priority": 0,
-      "last_deep_reviewed_at": "2026-10-03T23:25:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T08:28:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "USDA ARS Biocollections — Sorghastrum elliottii",
+          "url": "https://biocollections.ars.usda.gov/collections/list.php?comingFrom=newsearch&country=United+States%3B+USA%3B+U.S.A.%3B+United+States+of+America&db=1&page=94",
+          "role": "Texas preserved specimens from San Jacinto and Anderson counties"
+        },
+        {
+          "label": "Harvard University Herbaria — Sorghastrum elliottii",
+          "url": "https://kiki.huh.harvard.edu/databases/specimen_search.php?cltrid=534&start=4001",
+          "role": "additional Texas specimen from Silsbee/eastern Texas"
+        }
+      ]
     },
     {
       "id": "sporobolus-clandestinus",
@@ -5043,19 +5089,38 @@
       "queue_group": "B043 Sporobolus",
       "batch_id": "deep-review-batch-050-sporobolus-b043",
       "status": "taxonomy_range_hold_reviewed",
-      "notes": "B043 HOLD — Central Texas compositus-complex specimens are historically unstable among S. compositus, S. clandestinus, and varietal concepts; Williamson is clear, but ambiguous Travis material is not being counted.",
+      "notes": "Manual Poaceae refresh strengthens TAXON/RANGE HOLD — UT's dedicated Sporobolus compositus-complex review found that Travis County herbarium sheets historically filed as S. compositus/compositus var. compositus have conflicting expert determinations and no clear consensus specimen of strict var. compositus. Williamson is outside the project target zone anyway. Do not count generic Central Texas S. compositus-complex records toward the strict three-county threshold until specimen concepts are reconciled.",
       "approval_status": "hold_range_taxonomy",
-      "native_range_status": "UNRESOLVED",
+      "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
       "canonical_status": "not_installed_hold",
       "reconciliation_status": "preserved_taxonomy_range_hold",
       "priority": 0,
-      "last_deep_reviewed_at": "2026-10-03T23:25:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T08:28:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed"
+      "learner_curation_status": "approved_taxonomy_mapping_needed",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "UT Plant Resources Center — Sporobolus compositus complex",
+          "url": "https://w3.biosci.utexas.edu/prc/SPORO/SPORO-pericarp-comp.html",
+          "role": "Travis County specimen re-examination and conflicting expert determinations"
+        },
+        {
+          "label": "UT Plant Resources Center — Two Sporobolus Complexes in Texas",
+          "url": "https://w3.biosci.utexas.edu/prc/SPORO/index.html",
+          "role": "Texas complex taxonomy, morphology, and distribution framework"
+        },
+        {
+          "label": "Native Plant Society of Texas — Sporobolus compositus",
+          "url": "https://www.npsot.org/posts/native-plant/sporobolus-compositus/",
+          "role": "Texas native/ecoregion context; not county-threshold proof"
+        }
+      ]
     },
     {
       "id": "berberis-trifoliolata",
