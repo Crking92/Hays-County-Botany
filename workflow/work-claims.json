@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T00:00:00-05:00",
+  "updated_at": "2026-10-07T01:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5116,6 +5116,25 @@
       "expires_at": "2026-10-07T06:00:00-05:00",
       "release_when": "Comparison-first family upgrades are durably merged into all five family modules.",
       "notes": "147/147 structural coverage verified live. Fine-tuning only."
+    },
+    {
+      "claim_id": "genus-lesson-vachellia-001",
+      "scope_kind": "genus_module",
+      "taxa": [
+        "vachellia-constricta",
+        "vachellia-farnesiana"
+      ],
+      "families": [
+        "Fabaceae"
+      ],
+      "scope_key": "content/taxa/Fabaceae/Vachellia/genus.json",
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-lesson-builder",
+      "status": "active",
+      "claimed_at": "2026-10-07T01:00:00-05:00",
+      "expires_at": "2026-10-07T03:00:00-05:00",
+      "release_when": "Vachellia genus lesson is durably written and Genus Study Index A:B is synchronized, or work is explicitly aborted.",
+      "notes": "Two-species source-pool comparison lesson only; no broad scouting or canonical installation."
     }
   ]
 }
