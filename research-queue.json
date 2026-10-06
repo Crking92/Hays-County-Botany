@@ -3925,7 +3925,7 @@
       "common_name": "graybark grape",
       "family": "Vitaceae",
       "genus": "Vitis",
-      "status": "range_hold_reviewed",
+      "status": "taxonomy_range_hold_reviewed",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -3945,18 +3945,49 @@
         "hays_local": false
       },
       "batch_id": "deep-review-batch-034-vitis-b025",
-      "last_deep_reviewed_at": "2026-10-03T16:45:00-05:00",
-      "notes": "B025 UNRESOLVED — current taxon concept does not have 3 exact target-zone counties locked. Diagnostic priority: Treat this as a concept-check species. In the strict var. cinerea morphology, branchlets are distinctly angled and densely short-hairy plus cobwebby; leaf undersides stay visibly gray/green with both webby and short hairs, and berries are small and only slightly glaucous. Do not call a Central Texas Heller's grape V. cinerea solely because an app uses a broad species concept.",
-      "approval_status": "hold_range_evidence",
+      "last_deep_reviewed_at": "2026-10-06T10:18:00-05:00",
+      "notes": "Manual Vitaceae refresh strengthens TAXON/RANGE HOLD. Current Kew and FNA recognize Vitis cinerea var. cinerea as the strict graybark-grape concept, while Kew treats the Central Texas Heller's-grape concept (V. cinerea var. helleri) under accepted Vitis berlandieri; ITIS still retains var. helleri under V. cinerea. USDA-derived exact-variety county data lock Hays as the only project target-zone county recovered for strict var. cinerea in this pass. Do not transfer broader V. cinerea / var. helleri county records into the strict var. cinerea concept. Learner admission unchanged.",
+      "approval_status": "hold_taxonomy_range",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
-      "reconciliation_status": "preserved_range_hold",
+      "canonical_status": "not_installed_hold",
+      "reconciliation_status": "preserved_taxonomy_range_hold",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "approved_source_pool_membership",
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Hays"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Flora of North America — Vitis cinerea var. cinerea",
+          "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101312",
+          "role": "strict var. cinerea morphology and eastern-Texas distribution; notes intergradation with var. helleri southwest of the Brazos"
+        },
+        {
+          "label": "Rootfast / USDA PLANTS — Vitis cinerea var. cinerea",
+          "url": "https://rootfast.org/plants/VICIC2",
+          "role": "exact infraspecific Texas county distribution; Hays is the only recovered project target-zone county"
+        },
+        {
+          "label": "Plants of the World Online — Vitis cinerea var. cinerea",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77231499-1",
+          "role": "accepted strict variety concept"
+        },
+        {
+          "label": "Plants of the World Online — Vitis berlandieri",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:68576-1",
+          "role": "current Kew treatment placing Vitis cinerea var. helleri / Vitis helleri as synonyms of V. berlandieri"
+        },
+        {
+          "label": "ITIS — Vitis cinerea var. helleri",
+          "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531144",
+          "role": "documents competing accepted treatment retaining Heller's grape as V. cinerea var. helleri"
+        }
+      ]
     },
     {
       "id": "vitis-palmata",
@@ -3984,8 +4015,8 @@
         "hays_local": false
       },
       "batch_id": "deep-review-batch-034-vitis-b025",
-      "last_deep_reviewed_at": "2026-10-03T16:45:00-05:00",
-      "notes": "B025 UNRESOLVED — current taxon concept does not have 3 exact target-zone counties locked. Diagnostic priority: Look at the stem before the fruit. Catbird grape has uniformly red, purplish-red or chestnut branchlets and usually deeply 3(–5)-lobed leaves with long-pointed lobes. The lower leaf surface is essentially glabrous, and it is a riverbank/slough/floodplain grape.",
+      "last_deep_reviewed_at": "2026-10-06T10:18:00-05:00",
+      "notes": "Manual Vitaceae refresh keeps RANGE HOLD. Plants of the World Online accepts Vitis palmata and recognizes it as native to Texas. A physical herbarium record locks Travis County (Austin, University of Texas) inside the project target zone. The South-Central Texas flora also includes V. palmata in its regional checklist, but that checklist spans many counties and cannot be converted into individual county occurrences. No second and third exact target-zone counties were recovered in this pass. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -3995,7 +4026,28 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Vitis palmata",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:311399-2",
+          "role": "accepted species concept and Texas native status"
+        },
+        {
+          "label": "Delta State University Herbarium — Vitis palmata",
+          "url": "https://ntweb.deltastate.edu/jtift/dsuherbarium/fam-pages/vitaceae.html",
+          "role": "Texas specimen from Travis County, Austin"
+        },
+        {
+          "label": "Saghatelyan 2015 — Flora of South-Central Texas",
+          "url": "https://www.researchgate.net/publication/299552952_PHYTOGEOGRAPHICAL_RELATIONSHIPS_AND_ANALYSIS_OF_THE_FLORA_OF_SOUTH-CENTRAL_TEXAS",
+          "role": "regional Edwards Plateau / south-central Texas occurrence support only; not county-level proof"
+        }
+      ]
     },
     {
       "id": "ruellia-ciliatiflora",
