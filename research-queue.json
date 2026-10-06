@@ -5207,19 +5207,21 @@
       "queue_group": "B045 Senna",
       "batch_id": "deep-review-batch-052-senna-b045",
       "status": "range_hold_reviewed",
-      "notes": "B045 HOLD — accepted Texas-native species, but no 3 exact target-zone counties locked in this pass. Project pool has one wild observation but county not locked.",
+      "notes": "Manual Fabaceae refresh confirms HOLD — Senna pilosior remains accepted and Texas-native, but this pass did not recover three exact project target-zone counties. Regional/Trans-Pecos references are retained as supporting context only; no county is promoted without an explicit specimen or county-level distribution record. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "reconciliation_status": "preserved_range_hold",
       "priority": 0,
-      "last_deep_reviewed_at": "2026-10-03T18:10:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T10:02:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat"
     },
     {
       "id": "croton-capitatus",
@@ -7374,7 +7376,7 @@
       "scientific_name": "Dalea candida",
       "common_name": "White Prairie Clover",
       "status": "range_hold_reviewed",
-      "notes": "B068 HOLD — Williamson locked; fewer than 3 exact target-zone counties.",
+      "notes": "Manual Fabaceae refresh CORRECTION — prior Williamson-only support is removed because Williamson is outside the project target zone. GRIN, NPSOT, NRCS and USDA-derived distribution data confirm Dalea candida as native in Texas and common in prairie systems, but the evidence recovered in this pass did not lock three exact project target-zone counties. HOLD; learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7383,20 +7385,39 @@
       "priority": 0,
       "queue_group": "B068 Dalea",
       "batch_id": "deep-review-batch-070-dalea-b068",
-      "last_deep_reviewed_at": "2026-10-04T00:15:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T10:02:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "GRIN — Dalea candida var. candida",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=315021",
+          "role": "Texas native status"
+        },
+        {
+          "label": "Native Plant Society of Texas — Dalea candida",
+          "url": "https://www.npsot.org/posts/native-plant/dalea-candida/",
+          "role": "Texas native ecoregion/BONAP context"
+        },
+        {
+          "label": "NRCS Southern Plains Plant Guide — Dalea candida",
+          "url": "https://www.nrcs.usda.gov/sites/default/files/2024-11/NRCS_Southern%20Plains%20Plant%20Guide_1024.pdf",
+          "role": "native prairie habitat and distribution context"
+        }
+      ]
     },
     {
       "id": "dalea-greggii",
       "scientific_name": "Dalea greggii",
       "common_name": "Gregg's Dalea",
       "status": "range_hold_reviewed",
-      "notes": "Manual western-range reconciliation confirms HOLD — Kew/ITIS accept Dalea greggii as native to Texas and regional sources support southwestern/Edwards Plateau affinity, but this pass did not recover two additional exact project target-zone specimen counties beyond Val Verde. Austin horticultural references are not counted as native occurrence evidence.",
+      "notes": "Manual Fabaceae refresh confirms HOLD — Val Verde remains the only exact target-zone county locked. BONAP and NPSOT support Dalea greggii as a southwestern/Edwards Plateau Texas native, but this pass did not recover two additional exact target-zone specimen counties. Horticultural Austin/San Antonio references remain excluded from native-county proof.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7405,7 +7426,7 @@
       "priority": 0,
       "queue_group": "B068 Dalea",
       "batch_id": "deep-review-batch-070-dalea-b068",
-      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T10:02:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
@@ -7418,19 +7439,14 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Plants of the World Online — Dalea greggii",
-          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:490685-1",
-          "role": "accepted taxonomy and Texas nativity"
+          "label": "BONAP county map — Dalea greggii",
+          "url": "https://bonap.net/TDC/Image/Map?locationType=County&mapType=Normal&taxonId=10907&taxonType=Species",
+          "role": "county-distribution cross-check"
         },
         {
           "label": "Native Plant Society of Texas — Dalea greggii",
           "url": "https://www.npsot.org/posts/native-plant/dalea-greggii/",
           "role": "Texas native distribution context"
-        },
-        {
-          "label": "ITIS — Dalea greggii",
-          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?print_version=PRT&search_topic=TSN&search_value=26620&source=to_print",
-          "role": "accepted species concept"
         }
       ]
     },
@@ -7439,7 +7455,7 @@
       "scientific_name": "Dalea neomexicana",
       "common_name": "Downy Prairie Clover",
       "status": "range_hold_reviewed",
-      "notes": "Manual western-range reconciliation confirms HOLD — South-Central/Trans-Pecos floristic treatments clearly include Dalea neomexicana, but the material recovered in this pass was regional or Big Bend-centered rather than direct specimen proof for two additional project target-zone counties. Val Verde remains the only locked target county. Learner admission unchanged.",
+      "notes": "Manual Fabaceae refresh confirms HOLD — Val Verde remains the only locked project county. South-Central Texas and Trans-Pecos floristic treatments support regional occurrence, but this pass did not recover two additional exact target-zone specimen counties. Do not infer county presence from a broad multi-county study area. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7448,7 +7464,7 @@
       "priority": 0,
       "queue_group": "B068 Dalea",
       "batch_id": "deep-review-batch-070-dalea-b068",
-      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T10:02:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
@@ -7463,12 +7479,12 @@
         {
           "label": "South-Central Texas flora analysis",
           "url": "https://www.researchgate.net/publication/299552952_PHYTOGEOGRAPHICAL_RELATIONSHIPS_AND_ANALYSIS_OF_THE_FLORA_OF_SOUTH-CENTRAL_TEXAS",
-          "role": "regional Edwards Plateau/South-Central Texas flora context"
+          "role": "regional range context only"
         },
         {
-          "label": "Dead Horse Mountains flora",
-          "url": "https://www.researchgate.net/publication/289046928_Annotated_vascular_flora_of_the_Dead_Horse_Mountains_Big_Bend_National_Park_Texas_with_notes_on_local_vegetation_communities_and_regional_floristic_relationships",
-          "role": "Texas specimen-rich regional context outside target-zone threshold"
+          "label": "ITIS — Dalea neomexicana var. neomexicana",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?print_version=PRT&search_topic=TSN&search_value=192904&source=to_print",
+          "role": "accepted infraspecific taxon context"
         }
       ]
     },
