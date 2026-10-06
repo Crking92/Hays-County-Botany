@@ -2447,8 +2447,8 @@
         "source_count": 1
       },
       "batch_id": "deep-review-batch-018-fraxinus-b014",
-      "last_deep_reviewed_at": "2026-10-05T20:46:00-05:00",
-      "notes": "Manual near-PASS cleanup 3 confirms HOLD — Val Verde remains firmly specimen-backed; Bandera remains supported by documented wild field-survey occurrence. Searches surfaced Uvalde-area references, but not a sufficiently direct specimen/occurrence record for F. greggii itself to count as the third project county. One additional exact target-zone county still required.",
+      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
+      "notes": "Manual western-range reconciliation recheck confirms HOLD — Val Verde remains specimen-backed and Bandera remains the second locked target-zone county. Additional western/Edwards Plateau references recovered in this pass did not provide a third exact target-zone specimen/occurrence strong enough to count. One additional exact target-zone county still required.",
       "approval_status": "needs_manual_review",
       "user_decision": {
         "decision": "hold_unresolved",
@@ -7112,16 +7112,38 @@
       "status": "range_hold_reviewed",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
-      "notes": "B066 HOLD: Val Verde locked; Hays source is introduced and excluded; two more target-zone counties needed.",
+      "notes": "Manual western-range reconciliation strengthens HOLD — Val Verde remains locked. USDA Forest Service and Texas A&M sources firmly place Rhus microphylla in the Edwards Plateau/Trans-Pecos, and the FEIS literature cites a Sutton/Edwards County range-vegetation study, but that citation alone is not treated as exact species-level county proof. Do not infer Sutton or Edwards until a specimen/checklist record directly names R. microphylla there. Learner admission unchanged.",
       "queue_group": "B066 Rhus",
       "batch_id": "deep-review-batch-068-rhus-b066",
-      "last_deep_reviewed_at": "2026-10-03T23:40:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "approval_status": "hold_range_evidence",
+      "verified_target_counties": [
+        "Val Verde"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "US Forest Service FEIS — Rhus microphylla",
+          "url": "https://research.fs.usda.gov/feis/species-reviews/rhumic",
+          "role": "native ecology/range; cites Sutton and Edwards County range vegetation literature"
+        },
+        {
+          "label": "Texas A&M Plants of Texas Rangelands — Rhus microphylla",
+          "url": "https://rangeplants.tamu.edu/plant/littleleaf-sumac/",
+          "role": "Edwards Plateau/Trans-Pecos distribution"
+        },
+        {
+          "label": "Native Plant Society of Texas — Rhus microphylla",
+          "url": "https://www.npsot.org/posts/native-plant/rhus-microphylla/",
+          "role": "Texas native ecoregion and BONAP-linked distribution context"
+        }
+      ]
     },
     {
       "id": "coreopsis-wrightii",
@@ -7231,7 +7253,7 @@
       "scientific_name": "Dalea greggii",
       "common_name": "Gregg's Dalea",
       "status": "range_hold_reviewed",
-      "notes": "B068 HOLD — Val Verde locked; fewer than 3 exact target-zone counties.",
+      "notes": "Manual western-range reconciliation confirms HOLD — Kew/ITIS accept Dalea greggii as native to Texas and regional sources support southwestern/Edwards Plateau affinity, but this pass did not recover two additional exact project target-zone specimen counties beyond Val Verde. Austin horticultural references are not counted as native occurrence evidence.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7240,20 +7262,41 @@
       "priority": 0,
       "queue_group": "B068 Dalea",
       "batch_id": "deep-review-batch-070-dalea-b068",
-      "last_deep_reviewed_at": "2026-10-04T00:15:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Val Verde"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Dalea greggii",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:490685-1",
+          "role": "accepted taxonomy and Texas nativity"
+        },
+        {
+          "label": "Native Plant Society of Texas — Dalea greggii",
+          "url": "https://www.npsot.org/posts/native-plant/dalea-greggii/",
+          "role": "Texas native distribution context"
+        },
+        {
+          "label": "ITIS — Dalea greggii",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?print_version=PRT&search_topic=TSN&search_value=26620&source=to_print",
+          "role": "accepted species concept"
+        }
+      ]
     },
     {
       "id": "dalea-neomexicana",
       "scientific_name": "Dalea neomexicana",
       "common_name": "Downy Prairie Clover",
       "status": "range_hold_reviewed",
-      "notes": "B068 HOLD — Val Verde locked; fewer than 3 exact target-zone counties.",
+      "notes": "Manual western-range reconciliation confirms HOLD — South-Central/Trans-Pecos floristic treatments clearly include Dalea neomexicana, but the material recovered in this pass was regional or Big Bend-centered rather than direct specimen proof for two additional project target-zone counties. Val Verde remains the only locked target county. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7262,13 +7305,29 @@
       "priority": 0,
       "queue_group": "B068 Dalea",
       "batch_id": "deep-review-batch-070-dalea-b068",
-      "last_deep_reviewed_at": "2026-10-04T00:15:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Val Verde"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "South-Central Texas flora analysis",
+          "url": "https://www.researchgate.net/publication/299552952_PHYTOGEOGRAPHICAL_RELATIONSHIPS_AND_ANALYSIS_OF_THE_FLORA_OF_SOUTH-CENTRAL_TEXAS",
+          "role": "regional Edwards Plateau/South-Central Texas flora context"
+        },
+        {
+          "label": "Dead Horse Mountains flora",
+          "url": "https://www.researchgate.net/publication/289046928_Annotated_vascular_flora_of_the_Dead_Horse_Mountains_Big_Bend_National_Park_Texas_with_notes_on_local_vegetation_communities_and_regional_floristic_relationships",
+          "role": "Texas specimen-rich regional context outside target-zone threshold"
+        }
+      ]
     },
     {
       "id": "asclepias-viridiflora",
@@ -7601,7 +7660,7 @@
       "scientific_name": "Argemone sanguinea",
       "common_name": "Red Prickly-Poppy",
       "status": "range_hold_reviewed",
-      "notes": "Manual county-recovery cleanup strengthens but retains HOLD — Kew accepts Argemone sanguinea as native from South Texas into northeastern Mexico. A documented wild field occurrence at Cook's Slough in Uvalde County is retained as a target-zone occurrence lead/working county, but available herbarium results recovered in this pass are primarily Corpus Christi/Eagle Pass/Dimmit/Bee and do not supply two additional exact project counties. HOLD.",
+      "notes": "Manual western-range reconciliation confirms HOLD — Kew accepts Argemone sanguinea as native from South Texas into northeastern Mexico; the Uvalde Cook's Slough field occurrence remains the strongest exact target-zone locality. South Texas native-seed and floristic sources reinforce regional nativity but do not add two exact project counties. HOLD.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7610,7 +7669,7 @@
       "priority": 0,
       "queue_group": "B073 Argemone",
       "batch_id": "deep-review-batch-074-argemone-b073",
-      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
       "verified_target_counties": [
         "Uvalde"
       ],
@@ -7618,18 +7677,18 @@
       "deep_review_sources": [
         {
           "label": "Plants of the World Online — Argemone sanguinea",
-          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18865-2",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18865-2/general-information",
           "role": "accepted species and native South Texas range"
         },
         {
           "label": "Backyard Nature — Argemone sanguinea, Uvalde County",
           "url": "https://www.backyardnature.net/n/h/redprick.htm",
-          "role": "documented wild Uvalde County field occurrence"
+          "role": "documented wild Uvalde County occurrence"
         },
         {
-          "label": "Harvard University Herbaria — Papaveraceae specimen search",
-          "url": "https://kiki.huh.harvard.edu/databases/specimen_search.php?family=Papaveraceae",
-          "role": "Texas Argemone sanguinea specimen context"
+          "label": "Texas Native Seed Collection List for South Texas",
+          "url": "https://www.ckwri.tamuk.edu/sites/default/files/2019-10/2018_collections_list.pdf",
+          "role": "South Texas native restoration context"
         }
       ],
       "learner_admission_status": "APPROVED",
