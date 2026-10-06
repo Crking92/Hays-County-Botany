@@ -6588,20 +6588,31 @@
       },
       "last_scouted_at": "2026-10-03T18:45:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual near-PASS cleanup 2 CORRECTION — Williamson removed because it is outside the project target zone; Hays Purola occurrence remains explicitly introduced and excluded. Travis remains voucher-backed. Bexar regional native-plant guidance lists Dyschoriste linearis but is not counted as specimen-level county proof. HOLD pending two more exact native target-zone counties.",
+      "notes": "Manual Rosaceae/Acanthaceae refresh strengthens HOLD — Dyschoriste linearis is accepted by Kew and native to Texas. Travis remains voucher-backed from the UT Plant Resources Center. Kerr is now locked from the published Flora of Kerr Wildlife Management Area, which lists D. linearis with voucher JS 18024. The Hays Purola occurrence remains explicitly introduced and excluded. Bexar native-plant/rain-garden guidance and the broader south-central Texas flora support regional presence but are not treated as specimen-level county proof. Two exact target-zone counties are now locked (Travis, Kerr); HOLD pending a third.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Acanthaceae Deep Review",
-      "last_deep_reviewed_at": "2026-10-05T20:18:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T11:10:00-05:00",
       "verified_target_counties": [
-        "Travis"
+        "Travis",
+        "Kerr"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "UT Plant Resources Center — Travis County Acanthaceae specimens",
+          "label": "Plants of the World Online — Dyschoriste linearis",
+          "url": "https://powo.science.kew.org/taxon/48146-1",
+          "role": "accepted species concept and Texas native status"
+        },
+        {
+          "label": "UT Plant Resources Center — Travis County Acanthaceae",
           "url": "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
-          "role": "Travis County specimen index"
+          "role": "Travis County voucher index"
+        },
+        {
+          "label": "Singhurst et al. 2010 — Flora of Kerr Wildlife Management Area",
+          "url": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+          "role": "Kerr County voucher-backed occurrence; D. linearis JS 18024"
         },
         {
           "label": "Purola Introduced Species",
@@ -6609,9 +6620,9 @@
           "role": "Hays occurrence explicitly introduced and excluded"
         },
         {
-          "label": "San Antonio River Authority rain-garden plant list",
+          "label": "San Antonio River Authority — native rain-garden plants",
           "url": "https://www.sariverauthority.org/wp-content/uploads/2023/10/rain_garden_plant_lists_2017-v3.pdf",
-          "role": "Bexar regional native-plant lead; not counted as county voucher"
+          "role": "Bexar regional native-plant support only; not counted as specimen-level county proof"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -6619,7 +6630,8 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "dicliptera-brachiata",
@@ -6643,25 +6655,36 @@
       },
       "last_scouted_at": "2026-10-03T18:45:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual near-PASS cleanup 2 CORRECTION — prior Williamson count removed because Williamson is outside the project target zone. Travis remains voucher-backed. ITIS confirms accepted Dicliptera brachiata concept and synonymy; additional exact project-county native vouchers were not locked in this pass. HOLD pending two more exact target-zone counties.",
+      "notes": "Manual Rosaceae/Acanthaceae refresh strengthens HOLD — Dicliptera brachiata is accepted by Kew and native to Texas. Travis remains voucher-backed from the UT Plant Resources Center. Kerr is now locked from the published Flora of Kerr Wildlife Management Area, which lists D. brachiata with voucher JS 18023. The south-central Texas flora includes the species across the region, but because that checklist spans many counties it is retained only as regional support. Two exact target-zone counties are now locked (Travis, Kerr); HOLD pending a third.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Acanthaceae Deep Review",
-      "last_deep_reviewed_at": "2026-10-05T20:18:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T11:10:00-05:00",
       "verified_target_counties": [
-        "Travis"
+        "Travis",
+        "Kerr"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "UT Plant Resources Center — Travis County Acanthaceae specimens",
-          "url": "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
-          "role": "Travis County specimen index"
+          "label": "Plants of the World Online — Dicliptera brachiata",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79689-2",
+          "role": "accepted species concept and Texas native status"
         },
         {
-          "label": "ITIS — Dicliptera brachiata",
-          "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?print_version=PRT&search_topic=TSN&search_value=502049&source=to_print",
-          "role": "accepted species concept and synonymy"
+          "label": "UT Plant Resources Center — Travis County Acanthaceae",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Acanthaceae.html",
+          "role": "Travis County voucher index"
+        },
+        {
+          "label": "Singhurst et al. 2010 — Flora of Kerr Wildlife Management Area",
+          "url": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+          "role": "Kerr County voucher-backed occurrence; D. brachiata JS 18023"
+        },
+        {
+          "label": "Saghatelyan 2015 — Flora of South-Central Texas",
+          "url": "https://www.researchgate.net/publication/299552952_PHYTOGEOGRAPHICAL_RELATIONSHIPS_AND_ANALYSIS_OF_THE_FLORA_OF_SOUTH-CENTRAL_TEXAS",
+          "role": "regional occurrence support only; not individual county proof"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -6669,7 +6692,8 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "anisacanthus-quadrifidus",
@@ -8126,7 +8150,7 @@
       "scientific_name": "Prunus caroliniana",
       "common_name": "Carolina Laurelcherry",
       "status": "range_hold_reviewed",
-      "notes": "Manual county-recovery cleanup CORRECTION — prior Williamson count is removed because Williamson is outside the project target zone. Current Central Texas hits are dominated by landscaping/planting references in Travis and Bexar and cannot establish native county occurrence. NPSOT supports Texas nativity generally, but this pass did not lock three exact native target-zone counties. HOLD.",
+      "notes": "Manual Rosaceae/Acanthaceae refresh keeps HOLD — Prunus caroliniana is accepted by Kew and native from the southeastern U.S. into Texas, but the Central Texas records recovered in this pass remain dominated by horticultural/landscape use. San Antonio guidance explicitly describes it as an East Texas native that performs in central/eastern Bexar County, which supports cultivation suitability rather than a defensible wild Bexar native occurrence. Travis references likewise remain landscape-use records. BONAP confirms Texas county distribution generally, but no three exact native project target-zone counties were locked in this pass. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -8135,24 +8159,29 @@
       "priority": 0,
       "queue_group": "B074 Prunus",
       "batch_id": "deep-review-batch-075-prunus-b074",
-      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T11:10:00-05:00",
       "verified_target_counties": [],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Native Plant Society of Texas — Prunus caroliniana",
-          "url": "https://www.npsot.org/posts/native-plant/prunus-caroliniana/",
-          "role": "Texas native distribution and BONAP-linked county context"
+          "label": "Plants of the World Online — Prunus caroliniana",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:729552-1",
+          "role": "accepted species concept; native to Texas"
         },
         {
-          "label": "Garden Style San Antonio — cherry-laurel",
+          "label": "BONAP county map — Prunus caroliniana",
+          "url": "https://bonap.net/TDC/Image/Map?locationType=County&mapType=Normal&taxonId=21594&taxonType=Species",
+          "role": "county-distribution reference"
+        },
+        {
+          "label": "Garden Style San Antonio — cherry laurel",
           "url": "https://stg.gardenstylesanantonio.com/garden-articles/cherry-is-not-so-very/",
-          "role": "Bexar horticultural occurrence; not counted as native county proof"
+          "role": "describes P. caroliniana as East Texas native and discusses Bexar landscape performance; not counted as wild county proof"
         },
         {
-          "label": "Travis County AgriLife bee-friendly plants",
-          "url": "https://travis-tx.tamu.edu/about-2/horticulture/ornamental-plants/annual-and-perennial-flowers-for-austin/best-bee-friendly-plants-for-austin/",
-          "role": "Travis horticultural recommendation; not counted as wild/native proof"
+          "label": "Travis County AgriLife — Firewise Landscaping",
+          "url": "https://travis-tx.tamu.edu/about-2/horticulture/basic-landscape-design/firewise-landscaping/",
+          "role": "Travis horticultural use; excluded from wild/native threshold"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -8160,14 +8189,15 @@
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "prunus-angustifolia",
       "scientific_name": "Prunus angustifolia",
       "common_name": "Chickasaw Plum",
       "status": "range_hold_reviewed",
-      "notes": "Manual county-recovery cleanup confirms HOLD — the known Hays/Purola occurrence is explicitly listed as introduced and remains excluded. No three exact native target-zone counties were recovered in this pass. Do not promote based on nursery/landscape presence.",
+      "notes": "Manual Rosaceae/Acanthaceae refresh keeps HOLD — Prunus angustifolia is accepted by Kew and native to Texas. BONAP provides a county distribution map and the South-Central Texas flora includes the species regionally, but neither source was converted into individual project-county occurrences without explicit county-level evidence. The known Hays Purola record remains explicitly introduced and excluded. No three exact native target-zone counties were locked; HOLD. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -8176,14 +8206,29 @@
       "priority": 0,
       "queue_group": "B074 Prunus",
       "batch_id": "deep-review-batch-075-prunus-b074",
-      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T11:10:00-05:00",
       "verified_target_counties": [],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Purola Introduced Species — Prunus angustifolia",
-          "url": "https://w3.biosci.utexas.edu/prc/HaysFlora/IntroSpecs.html",
-          "role": "Hays occurrence explicitly introduced and excluded"
+          "label": "Plants of the World Online — Prunus angustifolia",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30186920-2",
+          "role": "accepted species concept and Texas native status"
+        },
+        {
+          "label": "BONAP county map — Prunus angustifolia",
+          "url": "https://bonap.net/TDC/Image/Map?locationType=County&mapType=Normal&taxonId=21576&taxonType=Species",
+          "role": "county-distribution reference"
+        },
+        {
+          "label": "Purola Hays Flora — Prunus angustifolia",
+          "url": "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/PRAN3.html",
+          "role": "Hays record explicitly introduced as a seedling; excluded"
+        },
+        {
+          "label": "Saghatelyan 2015 — Flora of South-Central Texas",
+          "url": "https://www.researchgate.net/publication/299552952_PHYTOGEOGRAPHICAL_RELATIONSHIPS_AND_ANALYSIS_OF_THE_FLORA_OF_SOUTH-CENTRAL_TEXAS",
+          "role": "regional occurrence support only; not individual county proof"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -8191,7 +8236,8 @@
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "gaillardia-suavis",
