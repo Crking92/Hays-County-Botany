@@ -4529,8 +4529,8 @@
       "priority": 0,
       "queue_group": "B031 Opuntia",
       "batch_id": "deep-review-batch-040-opuntia-b031",
-      "last_deep_reviewed_at": "2026-10-03T19:20:00-05:00",
-      "notes": "Accepted Kew species native SW Texas–NE Mexico; three exact target-zone counties not locked in this pass. Diagnostic priority: nearly spineless pads with conspicuous reddish-brown glochid tufts.",
+      "last_deep_reviewed_at": "2026-10-06T10:01:00-05:00",
+      "notes": "Manual Cactaceae refresh confirms HOLD — Kew accepts Opuntia rufida as a distinct species native from SW Texas to NE Mexico. This pass did not recover three exact project target-zone county records under the strict O. rufida concept. Do not transfer records from O. microdasys or other red-glochid Opuntia concepts. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -4540,7 +4540,16 @@
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Opuntia rufida",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:137005-1",
+          "role": "accepted species and native SW Texas range"
+        }
+      ]
     },
     {
       "id": "opuntia-azurea",
@@ -4569,22 +4578,36 @@
       "scientific_name": "Opuntia gilvescens",
       "family": "Cactaceae",
       "genus": "Opuntia",
-      "status": "range_hold_reviewed",
+      "status": "taxonomy_range_hold_reviewed",
       "priority": 0,
       "queue_group": "B031 Opuntia",
       "batch_id": "deep-review-batch-040-opuntia-b031",
-      "last_deep_reviewed_at": "2026-10-03T19:20:00-05:00",
-      "notes": "Current Kew genus backbone accepts O. gilvescens; modern specialist work supports a distinct western/central Texas concept. Three exact target-zone counties not yet locked, so preserve as HOLD.",
-      "approval_status": "hold_range_evidence",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "last_deep_reviewed_at": "2026-10-06T10:01:00-05:00",
+      "notes": "Manual Cactaceae refresh strengthens TAXON/RANGE HOLD — Kew's 2026 Opuntia backbone accepts O. gilvescens as a separate species and maps O. phaeacantha var. major to O. gilvescens. Historical broad O. phaeacantha records therefore cannot be transferred automatically. No three exact target-zone counties were locked under the current O. gilvescens concept. Learner admission unchanged.",
+      "approval_status": "hold_range_taxonomy",
+      "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
+      "canonical_status": "not_installed_hold",
       "reconciliation_status": "preserved_range_hold",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Opuntia genus backbone",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30002080-2",
+          "role": "current Kew backbone lists O. gilvescens as accepted"
+        },
+        {
+          "label": "Plants of the World Online — Opuntia phaeacantha var. major",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:175419-2",
+          "role": "current synonymy maps var. major to O. gilvescens"
+        }
+      ]
     },
     {
       "id": "glandularia-bipinnatifida",
@@ -8468,7 +8491,7 @@
       "scientific_name": "Opuntia phaeacantha",
       "family": "Cactaceae",
       "genus": "Opuntia",
-      "status": "range_taxon_concept_hold_reviewed",
+      "status": "taxonomy_range_hold_reviewed",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -8483,8 +8506,8 @@
         "source_count": 1
       },
       "batch_id": "B117-opuntia-closeout",
-      "last_deep_reviewed_at": "2026-10-04T17:34:00-05:00",
-      "notes": "B117 HOLD — Kew accepts O. phaeacantha and Texas nativity, but historical Central Texas phaeacantha records span taxon concepts now split among other Opuntia. Hays/Travis/Williamson legacy evidence is not promoted to three exact modern-concept counties.",
+      "last_deep_reviewed_at": "2026-10-06T10:01:00-05:00",
+      "notes": "Manual Cactaceae refresh strengthens TAXON/RANGE HOLD — Kew accepts strict Opuntia phaeacantha as a distinct species, but also accepts several taxa historically treated within or near broad phaeacantha concepts, including O. camanchica, O. gilvescens, and O. spinosibacca. Historical Hays/Travis/Williamson labels therefore cannot be promoted without specimen-level reidentification; Williamson is outside the project target zone regardless. Learner admission unchanged.",
       "approval_status": "hold_taxon_concept_and_range",
       "canonical_status": "not_installed_range_taxon_concept_hold",
       "canonical_id": null,
@@ -8494,7 +8517,27 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed"
+      "learner_curation_status": "approved_taxonomy_mapping_needed",
+      "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Opuntia phaeacantha",
+          "url": "https://powo.science.kew.org/taxon/175409-2",
+          "role": "accepted strict species and synonymy"
+        },
+        {
+          "label": "Plants of the World Online — Opuntia camanchica",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:174894-2",
+          "role": "separate accepted species formerly treated within phaeacantha"
+        },
+        {
+          "label": "Plants of the World Online — Opuntia spinosibacca",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:175564-2",
+          "role": "separate accepted species formerly treated as phaeacantha var. spinosibacca"
+        }
+      ]
     },
     {
       "id": "opuntia-senilis-source-row",
@@ -8516,8 +8559,8 @@
         "source_count": 1
       },
       "batch_id": "B117-opuntia-closeout",
-      "last_deep_reviewed_at": "2026-10-04T17:34:00-05:00",
-      "notes": "B117 taxonomy normalization — current Kew treats O. senilis Daul as a synonym of accepted O. orbiculata. Texas state-level nativity is supported, but three exact target-zone counties were not locked. Do not create a duplicate O. senilis learner page.",
+      "last_deep_reviewed_at": "2026-10-06T10:01:00-05:00",
+      "notes": "Manual Cactaceae refresh confirms synonym normalization — Kew explicitly treats Opuntia senilis Daul as a synonym of accepted Opuntia orbiculata, which is native to Texas. Preserve this source row as mapping/provenance only; do not create a duplicate O. senilis learner card. Three exact target-zone counties for O. orbiculata were not locked in this pass.",
       "approval_status": "resolved_synonym_no_duplicate_install",
       "canonical_status": "not_installed_synonym_range_hold",
       "canonical_id": null,
@@ -8527,7 +8570,21 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "represented_existing_no_new_card"
+      "learner_curation_status": "represented_existing_no_new_card",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Opuntia senilis",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:137034-1",
+          "role": "explicit synonym of O. orbiculata"
+        },
+        {
+          "label": "Plants of the World Online — Opuntia orbiculata",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:136867-1",
+          "role": "accepted species and Texas nativity"
+        }
+      ]
     },
     {
       "id": "solidago-nemoralis",
