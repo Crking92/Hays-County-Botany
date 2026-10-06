@@ -1,6 +1,6 @@
 # Hays Botany Approval Dashboard
 
-The Approvals tab is the human gate between deep review and final curation.
+The Approvals tab records learner-admission decisions and exceptional overrides. During Learner Fast-Fill, taxa in Calvin's approved source pools / derived Master Plant Pool already have standing learner admission approval; the dashboard must not make native-range certification a second admission gate.
 
 ## Where it works
 
@@ -18,13 +18,13 @@ The local Python server exposes a loopback-only approval API. The browser receiv
 
 | Dashboard action | Queue result |
 | --- | --- |
-| Approve | `status=approved_pending_curation`, `approval_status=user_approved` |
+| Approve | learner admission approved; `status=approved_pending_curation`, `approval_status=user_approved`; existing native-range status is preserved |
 | Needs more review | `status=needs_manual_review`, `approval_status=needs_manual_review` |
-| Keep as comparison | `status=approved_comparison_pending_curation`, comparison learner role retained/normalized, native metrics excluded |
-| Approve exception | only allowed for `UNRESOLVED`; preserves the unresolved evidence while recording explicit human approval |
-| Reject | `status=rejected`, `approval_status=user_rejected` |
+| Keep as comparison | learner admission approved; comparison learner role retained/normalized, native metrics excluded |
+| Approve exception | legacy/backward-compatible action only; unresolved range evidence remains preserved |
+| Reject | rejects the current learner/curation path |
 
-Normal **Approve** is intentionally blocked for `FAIL` and `UNRESOLVED` range records.
+**PASS, FAIL, UNRESOLVED, and CONFLICT are range metadata, not learner-admission states.** Normal Approve is allowed regardless of range status. A separate canonical card can still be blocked when the durable record says `approved_taxonomy_mapping_needed` or `represented_existing_no_new_card`; those cases must map to the correct accepted concept instead of creating a duplicate/misnamed page.
 
 ## Audit trail
 
