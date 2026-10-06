@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T14:28:00-05:00",
+  "updated_at": "2026-10-06T14:24:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5022,6 +5022,31 @@
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
       "notes": "ONE-PHOTO COVERAGE batch 050. Fresh live-zero verification confirmed Gonolobus suberosus var. granulatus, Scutellaria ovata, and Oenothera biennis all have images[] = 0 and no active media claims. Use exact-species Wikimedia Commons images with explicit reuse status: Gonolobus CC BY 2.0 (sonnia hill), Scutellaria public domain (Mason Brock), Oenothera CC BY-SA 4.0 (Georg Slickers). Media-only; preserve settled science. Completed: curation run 37518788243 succeeded; Gonolobus suberosus var. granulatus, Scutellaria ovata, and Oenothera biennis each received one exact-species/variety Commons image with explicit reuse metadata. All three left the zero-photo queue with zero warnings.",
       "released_at": "2026-10-06T14:28:00-05:00"
+    },
+    {
+      "claim_id": "family-confusion-cleanup-001",
+      "scope_kind": "family_batch",
+      "families": [
+        "Poaceae",
+        "Cyperaceae",
+        "Juncaceae",
+        "Lamiaceae",
+        "Verbenaceae",
+        "Rubiaceae",
+        "Apiaceae",
+        "Araliaceae",
+        "Apocynaceae",
+        "Convolvulaceae",
+        "Asteraceae"
+      ],
+      "scope_key": "family-recognition-confusion-cleanup-001",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T14:24:00-05:00",
+      "expires_at": "2026-10-06T20:24:00-05:00",
+      "release_when": "Comparison-first family recognition upgrades are durably written or batch is explicitly aborted.",
+      "notes": "Post-147/147 structural pass. Improve family-vs-family tie-breakers, exact diagnostic structures, exceptions, genus routing, and diagnostic visual roles only; no species scouting or canonical installation."
     }
   ]
 }
