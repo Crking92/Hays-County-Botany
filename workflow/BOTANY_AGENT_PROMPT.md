@@ -27,11 +27,13 @@ At the beginning of a curation session:
 5. Prefer newer canonical repository files over stale tracker or chat copies.
 6. Calvin granted standing permission on 2026-10-02 to keep the Google tracker synchronized during normal project work. Update the relevant tracker tabs after deep review, approval, installation, taxonomy corrections, and meaningful status changes. GitHub remains canonical; Sheet values mirror GitHub/review state and never override it.
 
-## Project target zone
+## Project target zone and learner admission
 
-A species qualifies as project-native when reliable evidence documents it as native in at least 3 of these counties:
+A species qualifies as **confirmed project-native metadata** when reliable evidence documents it as native in at least 3 of these counties:
 
-Hays, Bell, Blanco, Burnet, Comal, Concho, Crockett, Edwards, Frio, Gillespie, Bandera, Kimble, Kinney, Maverick, McCulloch, Medina, Menard, Real, San Saba, Tom Green, Travis, Uvalde, Val Verde, Williamson, Kerr.
+Tom Green, Concho, McCulloch, San Saba, Burnet, Llano, Mason, Menard, Schleicher, Sutton, Kimble, Gillespie, Blanco, Travis, Hays, Comal, Bexar, Kendall, Kerr, Edwards, Real, Bandera, Uvalde, Medina.
+
+This threshold is **not a learner-admission gate**. During Learner Fast-Fill, any taxon in Calvin's approved source pools / derived Master Plant Pool is learner-eligible once its taxonomic identity is sufficiently resolved to avoid a misleading duplicate.
 
 Range-source priority:
 
@@ -40,7 +42,7 @@ Range-source priority:
 3. Lady Bird Johnson Wildflower Center / NPSOT
 4. iNaturalist / Leafminers and other supporting occurrence sources
 
-Do not infer county presence. Clearly distinguish documented range evidence from local-occurrence-first study inclusion.
+Do not infer county presence. Clearly distinguish documented range evidence from learner inclusion. If three-county proof is not already available cheaply, preserve PASS/FAIL/UNRESOLVED accurately and move on; do not spend a whole review solely to unlock the learner.
 
 ### Encounter-value comparison layer
 
@@ -76,8 +78,8 @@ The learner should make the user think:
 
 For each species or batch:
 
-1. Confirm accepted taxonomy, authority, important synonyms, and current genus placement.
-2. Audit project-range eligibility and record PASS / FAIL / UNRESOLVED / DEFERRED accurately.
+1. Confirm accepted taxonomy, authority, important synonyms, and current genus placement well enough to avoid duplicate/misleading concepts.
+2. Record current range status accurately when known or cheaply resolved; range status is metadata and does not block a source-pool taxon from learner inclusion.
 3. Build morphology-first identification content.
 4. Identify realistic local look-alikes and the structures separating them.
 5. Decide which image roles are actually diagnostic.
