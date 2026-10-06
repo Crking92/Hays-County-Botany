@@ -2024,7 +2024,7 @@
       "scientific_name": "Ulmus alata",
       "family": "Ulmaceae",
       "genus": "Ulmus",
-      "status": "needs_manual_review",
+      "status": "review_complete_pass_pending_curation",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -2042,17 +2042,51 @@
         "source_count": 1
       },
       "batch_id": "deep-review-batch-016-ulmus-b012",
-      "last_deep_reviewed_at": "2026-10-02T16:28:00-05:00",
-      "notes": "B012 UNRESOLVED: native in Texas and regionally documented into Edwards Plateau/Guadalupe valley, but three exact target counties not recovered without inference.",
-      "approval_status": "user_accepted_unresolved_hold",
+      "last_deep_reviewed_at": "2026-10-06T10:41:00-05:00",
+      "notes": "Manual Rosales refresh PASS — Ulmus alata is accepted by Kew/ITIS and exact target-zone occurrences are now locked for Hays, Travis, and Bexar counties. Hays is supported by Texas State/Freeman Ranch plant collections of U. alata; Travis by a City of Austin floodplain field assessment listing U. alata at an Austin site; Bexar by a TxDOT Loop 1604 environmental assessment listing U. alata in project-area woodland. Three-county threshold met. Learner admission follows approved source-pool policy; curation remains a separate lane.",
+      "approval_status": "pass_ready_for_curation",
       "user_decision": {
         "decision": "accept_review_keep_unresolved",
         "decided_at": "2026-10-02T17:02:00-05:00",
         "note": "Blanket prior-batch approval accepted the review result; unresolved status preserved and not promoted as native."
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
-      "reconciliation_status": "preserved_noncanonical_hold",
-      "reconciled_at": "2026-10-03T13:41:00-05:00"
+      "reconciliation_status": "review_pass_pending_curation",
+      "reconciled_at": "2026-10-03T13:41:00-05:00",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed_pending_curation",
+      "verified_target_counties": [
+        "Hays",
+        "Travis",
+        "Bexar"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "learner_admission_status": "APPROVED",
+      "learner_admission_basis": "approved_source_pool_membership",
+      "learner_range_label": "confirmed_target_native",
+      "learner_curation_status": "approved_pending_curation",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Ulmus alata",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:302994-2",
+          "role": "accepted species concept; Texas native"
+        },
+        {
+          "label": "Texas A&M OAKTrust — Alexander 2014 dissertation",
+          "url": "https://oaktrust.library.tamu.edu/bitstream/handle/1969.1/154181/ALEXANDER-DISSERTATION-2014.pdf",
+          "role": "Hays County exact occurrence; Ulmus alata branches collected at FACTS/Freeman Ranch, San Marcos"
+        },
+        {
+          "label": "City of Austin functional assessment — RBI at Loyola Lane",
+          "url": "https://bandc.crccheck.com/zoning-and-platting-commission/457754-04-sp-2022-0567c-rbi-austin-youth-development-complex-district-1-applicant-report-part-3/",
+          "role": "Travis County exact field occurrence"
+        },
+        {
+          "label": "TxDOT State Environmental Assessment — Loop 1604 FM 471 to SH 16",
+          "url": "https://plans.dot.state.tx.us/pub/txdot-info/sat/projects/1604_northwest/envassessment.pdf",
+          "role": "Bexar County exact project-area occurrence"
+        }
+      ]
     },
     {
       "id": "ulmus-parvifolia",
@@ -4796,18 +4830,41 @@
       "status": "taxonomy_hold_reviewed",
       "priority": 0,
       "queue_group": "B033 Celtis",
-      "last_deep_reviewed_at": "2026-10-03T20:10:00-05:00",
-      "notes": "Legacy-name conflict: current POWO maps C. ehrenbergiana to C. iguanaea, while older Texas usage overlaps the granjeno concept taught canonically as C. pallida. Requires specimen-level re-identification before any separate install.",
-      "approval_status": "hold_taxonomy_reidentification",
+      "last_deep_reviewed_at": "2026-10-06T10:41:00-05:00",
+      "notes": "Manual Rosales refresh clarifies the HOLD. True Celtis ehrenbergiana (Klotzsch) Liebm. is currently treated by Kew/GRIN as a synonym of Celtis iguanaea, not as the southwest-Texas granjeno. Texas and southwestern material historically/misapplied as 'C. ehrenbergiana' is treated by Henrickson/ITIS/GRIN as Celtis pallida, which is already canonical in this learner. Because the source-pool row does not preserve enough specimen/source-concept detail to tell whether it meant true C. ehrenbergiana (= C. iguanaea) or the historical Texas misapplication (= C. pallida), do not create a separate learner card and do not merge automatically. Preserve as an intentional taxonomy HOLD until source provenance or specimen-level identity resolves the concept.",
+      "approval_status": "hold_taxonomy_source_concept",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_taxonomy_hold",
-      "reconciliation_status": "preserved_taxonomy_hold",
+      "reconciliation_status": "preserved_taxonomy_hold_existing_celtis_pallida_canonical",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed"
+      "learner_curation_status": "hold_source_concept_no_duplicate_install",
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Celtis ehrenbergiana",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1044320-2",
+          "role": "current treatment: synonym of Celtis iguanaea"
+        },
+        {
+          "label": "USDA GRIN — Celtis ehrenbergiana",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=464000",
+          "role": "true C. ehrenbergiana synonymized to C. iguanaea; explicitly distinguishes misapplied C. ehrenbergiana from C. pallida"
+        },
+        {
+          "label": "USDA GRIN — Celtis ehrenbergiana auct. nonn.",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=418705",
+          "role": "misapplied-name record points to Celtis pallida"
+        },
+        {
+          "label": "Henrickson 2010 — recognition of Celtis pallida",
+          "url": "https://www.researchgate.net/publication/288249410_Comments_on_a_revision_of_celtis_subgenus_mertensia_celtidaceae_and_the_recognition_of_celtis_pallida",
+          "role": "explains why southwest North American spiny hackberry/granjeno should be C. pallida rather than true C. ehrenbergiana"
+        }
+      ]
     },
     {
       "id": "liatris-mucronata",
