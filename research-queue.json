@@ -3441,11 +3441,11 @@
         "hays_local": false
       },
       "batch_id": "deep-review-batch-028-passiflora-b019",
-      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
-      "notes": "Manual county-recovery cleanup — prior Williamson count is removed because Williamson is outside the project target zone. Travis remains the only defensible target-zone county in the current record. Central Texas horticultural/demo-garden occurrences are not counted as wild native evidence. A historical Lindheimer sheet has conflicting county/locality metadata ('Comanche' county with New Braunfels locality), so it is not used as a Comal threshold record. HOLD pending two additional exact native target-zone counties.",
-      "approval_status": "hold_documented",
+      "last_deep_reviewed_at": "2026-10-06T10:47:00-05:00",
+      "notes": "Manual singleton refresh keeps HOLD — Travis is retained as the only defensible project target-zone county in the current record. The UT Plant Resources Center lists Passiflora incarnata among Travis County herbarium species, which is stronger than the local demonstration-garden evidence. Kew accepts the species as native to Texas. A historical Lindheimer sheet remains unusable for Comal because its county/locality metadata conflict, and Bexar popular-use lists are not strong enough to satisfy the project's exact-county standard. HOLD pending two more exact wild target-zone counties. Learner admission unchanged.",
+      "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_hold",
+      "canonical_status": "not_installed_range_hold",
       "last_hold_reviewed_at": "2026-10-03T15:42:00-05:00",
       "verified_target_counties": [
         "Travis"
@@ -3453,14 +3453,19 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Native Plant Society of Texas — Passiflora incarnata",
-          "url": "https://www.npsot.org/posts/native-plant/passiflora-incarnata/",
-          "role": "Texas native distribution and BONAP-linked county context"
+          "label": "UT Plant Resources Center — Travis County Passifloraceae",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Passifloraceae.html",
+          "role": "herbarium-backed Travis County occurrence"
+        },
+        {
+          "label": "Plants of the World Online — Passiflora incarnata",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:675096-1",
+          "role": "accepted species concept and Texas native status"
         },
         {
           "label": "FSU Godfrey Herbarium — Passiflora incarnata Lindheimer 817",
           "url": "https://herbarium.bio.fsu.edu/view-specimen.php?RecordID=22570",
-          "role": "historical Texas specimen with county/locality conflict; not counted"
+          "role": "historical Texas specimen with conflicting county/locality metadata; excluded from threshold"
         },
         {
           "label": "Travis County AgriLife Earth-Kind Garden",
@@ -3473,7 +3478,8 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "callirhoe-involucrata",
@@ -3791,8 +3797,8 @@
         "hays_local": false
       },
       "batch_id": "deep-review-batch-032-penstemon-b022",
-      "last_deep_reviewed_at": "2026-10-03T15:58:00-05:00",
-      "notes": "B022 UNRESOLVED — Texas native, but fewer than 3 exact project target-zone counties verified. Diagnostic priority: Start with scale and habitat. Gulf Coast penstemon has much smaller lavender-to-violet flowers, about 10–14 mm long, on slender branched stems in wet alluvial or coastal-prairie settings. The calyx lobes are small and sharply pointed, and the exserted staminode carries orange hairs distally.",
+      "last_deep_reviewed_at": "2026-10-06T10:47:00-05:00",
+      "notes": "Manual singleton refresh keeps HOLD — Penstemon tenuis is an accepted Texas-native species, but this pass did not recover three exact wild project target-zone counties. NPSOT/BONAP and Texas Tech confirm Texas nativity and Gulf-Coast/Brazos habitat; Travis County AgriLife lists it for Austin landscapes, but that is horticultural/adapted-use evidence rather than a wild county occurrence. Do not promote cultivation records into the native-range threshold. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -3803,7 +3809,31 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Penstemon tenuis",
+          "url": "https://powo.science.kew.org/taxon/187804-2",
+          "role": "accepted species concept and Texas native status"
+        },
+        {
+          "label": "Native Plant Society of Texas — Penstemon tenuis",
+          "url": "https://www.npsot.org/posts/native-plant/penstemon-tenuis/",
+          "role": "Texas native habitat and BONAP-linked distribution context"
+        },
+        {
+          "label": "Texas Tech Plant Database — Penstemon tenuis",
+          "url": "https://www.depts.ttu.edu/plantresources/Pages/directories/landscape-info-sheets/herbaceous-info/Penstemon_tenuis.php",
+          "role": "Texas native-range context; not exact county proof"
+        },
+        {
+          "label": "Travis County AgriLife — bee-friendly plants for Austin",
+          "url": "https://travis-tx.tamu.edu/about-2/horticulture/ornamental-plants/annual-and-perennial-flowers-for-austin/best-bee-friendly-plants-for-austin/",
+          "role": "Austin horticultural recommendation only; excluded from wild county threshold"
+        }
+      ]
     },
     {
       "id": "penstemon-baccharifolius",
@@ -4954,8 +4984,8 @@
       "priority": 0,
       "queue_group": "B036 Diospyros",
       "batch_id": "deep-review-batch-045-diospyros-b036",
-      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
-      "notes": "Manual near-PASS cleanup CORRECTION — prior note counted Williamson, but Williamson is outside the project target zone and is removed from the threshold. Travis remains firm. NPSOT confirms native presence in relevant Central Texas ecoregions including Edwards Plateau/Blackland Prairie, but this pass did not lock two additional exact target-zone counties. HOLD; needs two more exact target-zone counties.",
+      "last_deep_reviewed_at": "2026-10-06T10:47:00-05:00",
+      "notes": "Manual singleton refresh keeps HOLD — Travis remains the only project target-zone county firmly supported in this pass. Travis County AgriLife explicitly describes Travis County as the western habitat edge for Diospyros virginiana and documents the species in Austin. Broader references place the species through eastern Texas up to the Colorado River, but no two additional exact target-zone wild counties were recovered. Hays-area popular references and cultivated/rootstock occurrences were not promoted to county proof. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -4966,14 +4996,19 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "BONAP county map — Diospyros virginiana",
-          "url": "https://bonap.net/TDC/Image/Map?locationType=County&mapType=Normal&taxonId=9556&taxonType=Species",
-          "role": "county-distribution reference"
+          "label": "Travis County AgriLife — Backyard Fruit and Nut Production Tips",
+          "url": "https://travis-tx.tamu.edu/about-2/horticulture/edible-gardens-for-austin/fruits-and-nuts-for-austin/backyard-fruit-and-nut-production-tips/",
+          "role": "explicitly places western native habitat edge in Travis County"
+        },
+        {
+          "label": "Travis County AgriLife — Persimmons in Austin",
+          "url": "https://travis-tx.tamu.edu/about-2/horticulture/edible-gardens-for-austin/fruits-and-nuts-for-austin/persimmons-in-austin-a-fruit-tree-for-everyone/",
+          "role": "native-range context to the Colorado River; Austin occurrence context"
         },
         {
           "label": "Native Plant Society of Texas — Diospyros virginiana",
           "url": "https://www.npsot.org/posts/native-plant/diospyros-virginiana/",
-          "role": "Texas native ecoregion distribution and BONAP cross-reference"
+          "role": "Texas native distribution context and BONAP cross-reference"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -7642,23 +7677,52 @@
       "id": "asclepias-incarnata",
       "scientific_name": "Asclepias incarnata",
       "common_name": "Swamp Milkweed",
-      "status": "range_hold_reviewed",
-      "notes": "B069 HOLD — Texas-native and present in regional Edwards Plateau/East Central Plains guidance, but 3 exact target-zone counties not locked.",
-      "approval_status": "hold_range_evidence",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "status": "review_complete_pass_pending_curation",
+      "notes": "Manual singleton refresh PASS — USDA PLANTS/BONAP-derived county distribution now locks multiple exact project target-zone counties for Asclepias incarnata, including Burnet, Gillespie, Kerr, Kimble, Llano, Mason, Menard, and Tom Green. TPWD independently documents swamp milkweed along perennial streams in the Edwards Plateau and photographs a Llano County plant. Three-county threshold is comfortably met. Learner admission unchanged; curation remains a separate lane.",
+      "approval_status": "pass_ready_for_curation",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed_pending_curation",
       "family": "Apocynaceae",
       "genus": "Asclepias",
       "priority": 0,
       "queue_group": "B069 Asclepias",
       "batch_id": "deep-review-batch-071-asclepias-b069",
-      "last_deep_reviewed_at": "2026-10-04T00:40:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T10:47:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
-      "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_range_label": "confirmed_target_native",
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "review_pass_pending_curation",
+      "verified_target_counties": [
+        "Burnet",
+        "Gillespie",
+        "Kerr",
+        "Kimble",
+        "Llano",
+        "Mason",
+        "Menard",
+        "Tom Green"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Rootfast / USDA PLANTS — Asclepias incarnata",
+          "url": "https://rootfast.org/plants/ASIN",
+          "role": "USDA-derived county distribution; target-zone records include Burnet, Gillespie, Kerr, Kimble, Llano, Mason, Menard, and Tom Green"
+        },
+        {
+          "label": "Rootfast / USDA PLANTS — Asclepias incarnata ssp. incarnata",
+          "url": "https://rootfast.org/plants/ASINI",
+          "role": "infraspecific county distribution corroborates the Texas target-zone records"
+        },
+        {
+          "label": "Texas Parks and Wildlife — Identification of Milkweeds in Texas",
+          "url": "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_w7000_1803.pdf",
+          "role": "Edwards Plateau native habitat and photographed Llano County occurrence; guide states county maps derive from BONAP"
+        }
+      ]
     },
     {
       "id": "asclepias-speciosa",
