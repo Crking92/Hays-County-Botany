@@ -297,3 +297,7 @@ This keeps rapid staging commits from creating/cancelling multiple redundant Act
 ## Canonical target-zone county rule — 2026-10-05
 
 Before any taxonomy/range PASS, read `workflow/target-zone-counties.json`. It is the canonical county list for the project's >=3-county native-range threshold and supersedes older inferred county sets. Do not classify a county as inside or outside the target zone from memory.
+
+## One-photo fast-fill lane
+
+The breadth-first zero-photo learner lane follows `workflow/ONE_PHOTO_FAST_FILL.md`. Its default batch target is 10 species (normally 8–12), it must skip research/licensing rabbit holes instead of shrinking around them, and it must preserve settled scientific fields. Prefer one complete/atomic inbox handoff; never drip-feed species files through many curation-triggering commits. Failed READY batches must be repaired or disabled promptly so they do not block later curation work.
