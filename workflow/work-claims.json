@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T16:03:00Z",
+  "updated_at": "2026-10-06T16:08:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4527,6 +4527,23 @@
       "release_when": "Durable first-pass review results are written for all five taxa or the batch is explicitly aborted.",
       "notes": "Onagraceae/Lamiaceae refresh complete. Scutellaria ovata promoted to PASS with Travis + Hays + Gillespie exact target-zone evidence. Physostegia angustifolia remains Hays + Travis HOLD. Oenothera filiformis remains Hays + Travis HOLD. Monarda fistulosa remains Mason-only HOLD. Oenothera biennis remains HOLD with statewide Texas nativity but no three explicit target-zone counties recovered.",
       "released_at": "2026-10-06T11:50:00-05:00"
+    },
+    {
+      "claim_id": "manual-one-photo-coverage-mixed-033",
+      "scope_kind": "species_media",
+      "taxa": [
+        "physostegia-virginiana",
+        "tridens-flavus",
+        "vitis-berlandieri",
+        "vitis-mustangensis"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-one-photo-coverage-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T11:08:00-05:00",
+      "expires_at": "2026-10-06T17:08:00-05:00",
+      "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
+      "notes": "ONE-PHOTO COVERAGE batch 033. Four clean exact-species, license-clear sources selected from deeper in the live zero queue after the top slice proved source-poor. Media-only; preserve settled science."
     }
   ]
 }
