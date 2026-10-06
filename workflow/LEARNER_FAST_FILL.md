@@ -6,9 +6,11 @@ Purpose: make the private visual learner broadly useful during active field/stud
 
 ## Operating rule
 
-Scientific status stays strict. Fast-fill relaxes presentation completeness, not taxonomy or range standards.
+**Source-pool membership is the learner-admission gate; native-range certification is separate metadata.**
 
-For taxa already canonical or otherwise legitimately learner-ready:
+A taxon appearing in Calvin's approved source pools or the derived `Master Plant Pool` is learner-eligible during fast-fill once its identity is sufficiently resolved to avoid a duplicate/misnamed card. Do not spend substantial time proving three target-zone counties before adding a useful sheet-backed plant to the learner.
+
+For canonical or source-pool learner-ready taxa:
 
 1. Prioritize usable learner content over final-quality presentation.
 2. Reuse existing project photos, Calvin's photos, and saved Joey Santore/video-frame material first.
@@ -21,17 +23,18 @@ For taxa already canonical or otherwise legitimately learner-ready:
 6. Exact species is required. Do not fill a gallery with a related species.
 7. Photo perfection is not required; replace weak-but-usable diagnostic photos later.
 8. Do not reopen completed taxonomy/range research merely because media are incomplete.
-9. Do not run project-wide reconciliation before each small task. Check:
+9. Do not run a strict county-nativity audit solely to unlock learner inclusion. Preserve the best current range label as confirmed, unresolved, nonlocal, introduced, or comparison and move on.
+10. Do not run project-wide reconciliation before each small task. Check:
    - current canonical manifest
    - current work claims
    - exact records/files being edited
-10. Commit useful work in small durable batches and move on.
+11. Commit useful work in small durable batches and move on.
 
 ## Meaning of provisional learner-ready
 
-"Provisional learner-ready" means the page is scientifically legitimate and useful now, but its presentation or photo set may be improved later.
+"Provisional learner-ready" means the page is useful enough for private study now while some presentation, photo, or range metadata may be improved later.
 
-It does **not** mean uncertain taxonomy, unresolved range, or a scientific HOLD/FAIL may be presented as confirmed.
+An unresolved or failed target-zone range status may still be learner-ready. The page must simply avoid claiming the plant is confirmed target-zone native. Taxonomic identity remains the hard guardrail: do not create a misleading duplicate card for an unresolved synonym or ambiguous concept.
 
 ## Current priority
 
