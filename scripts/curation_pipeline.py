@@ -205,7 +205,7 @@ def optimize_image(path: Path) -> None:
         return
 
 
-def process_image_csv(species_dir: Path, require_exact_images: bool, report: dict) -> None:
+def process_image_csv(species_dir: Path, require_exact_images: bool, report: dict, visual_mode: str = "") -> None:
     csv_path = species_dir / "image-sources.csv"
     if not csv_path.exists():
         if require_exact_images:
@@ -283,6 +283,18 @@ def process_image_csv(species_dir: Path, require_exact_images: bool, report: dic
         1 for rec in image_records if (species_dir / rec["file"]).exists()
     )
     sp["curation_status"] = status
+
+    if visual_mode == "learner_fast_fill":
+        note = "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+        sp["learner_visual_status"] = {
+            "status": "provisional_learner_ready",
+            "mode": "learner_fast_fill",
+            "image_count": len(image_records),
+            "filled_at": datetime.now(timezone.utc).date().isoformat(),
+            "note": note,
+        }
+        sp["photo_note"] = note
+
     write_json(species_json, sp)
 
 def copy_species_package(src_species_dir: Path, dst_species_dir: Path) -> None:
@@ -306,6 +318,7 @@ def install_batch(batch_dir: Path, batch: dict, report: dict) -> None:
         raise ValueError(f"{batch_dir}: missing taxa/ folder")
 
     require_exact_images = bool(batch.get("require_exact_images", False))
+    visual_mode = str(batch.get("visual_mode") or "").strip()
     validated: list[tuple[Path, dict]] = []
 
     for species_json in sorted(taxa_root.glob("*/*/*/species.json")):
@@ -346,7 +359,7 @@ def install_batch(batch_dir: Path, batch: dict, report: dict) -> None:
         rel = species_json.parent.relative_to(taxa_root)
         dst_species = CONTENT / rel
         copy_species_package(species_json.parent, dst_species)
-        process_image_csv(dst_species, require_exact_images, report)
+        process_image_csv(dst_species, require_exact_images, report, visual_mode)
         report["installed_species"].append(
             {"id": sp["id"], "scientific_name": scientific_name(sp), "path": str(dst_species.relative_to(ROOT))}
         )
