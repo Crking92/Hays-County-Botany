@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T03:17:00Z",
+  "updated_at": "2026-10-06T03:01:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4073,11 +4073,11 @@
       "claim_id": "manual-one-photo-coverage-mixed-020",
       "scope_kind": "species_media",
       "taxa": [
-        "amaranthus-palmeri",
         "ilex-opaca",
         "bignonia-capreolata",
         "celtis-lindheimeri",
-        "croton-texensis"
+        "croton-texensis",
+        "gaillardia-suavis"
       ],
       "lane": "learner-photo-fast-fill",
       "owner": "manual-one-photo-coverage-continuation-chat",
@@ -4085,7 +4085,7 @@
       "claimed_at": "2026-10-05T21:55:00-05:00",
       "expires_at": "2026-10-06T03:55:00-05:00",
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
-      "notes": "ONE-PHOTO COVERAGE continuation: breadth-first zero-photo -> one provisional recognizable exact-species image. Media-only; preserve settled science; do not compete with Learner Photo Backfill."
+      "notes": "ONE-PHOTO COVERAGE continuation: breadth-first zero-photo -> one provisional recognizable exact-species image. Media-only; preserve settled science; do not compete with Learner Photo Backfill. Palmer amaranth removed before staging because its canonical species.json already contains three remote displayable image URLs; replaced with Gaillardia suavis."
     }
   ]
 }
