@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T14:44:00-05:00",
+  "updated_at": "2026-10-07T00:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5097,6 +5097,25 @@
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
       "notes": "ONE-PHOTO COVERAGE batch 052. Fresh live-zero verification confirmed Solanum triquetrum and Argythamnia humilis both have images[] = 0 and no active media claims. Use exact Travis County UT Plant Resources Center herbarium images; preserve Ditaxis humilis as an accepted synonym on the A. humilis specimen sheet. Private-study provisional coverage; public reuse remains review-only. Media-only; preserve settled science. Completed: curation run 37520491770 succeeded; Solanum triquetrum and Argythamnia humilis each received one provisional exact-current-concept UT herbarium image. Both left the zero-photo queue with zero warnings.",
       "released_at": "2026-10-06T14:44:00-05:00"
+    },
+    {
+      "claim_id": "family-confusion-cleanup-002",
+      "scope_kind": "family_batch",
+      "families": [
+        "Apiaceae",
+        "Araliaceae",
+        "Apocynaceae",
+        "Convolvulaceae",
+        "Asteraceae"
+      ],
+      "scope_key": "family-recognition-confusion-cleanup-002",
+      "lane": "family-backfill",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-07T00:00:00-05:00",
+      "expires_at": "2026-10-07T06:00:00-05:00",
+      "release_when": "Comparison-first family upgrades are durably merged into all five family modules.",
+      "notes": "147/147 structural coverage verified live. Fine-tuning only."
     }
   ]
 }
