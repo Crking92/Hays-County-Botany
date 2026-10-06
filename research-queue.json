@@ -2463,7 +2463,7 @@
       "scientific_name": "Fraxinus greggii",
       "family": "Oleaceae",
       "genus": "Fraxinus",
-      "status": "needs_manual_review",
+      "status": "range_hold_reviewed",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -2481,19 +2481,19 @@
         "source_count": 1
       },
       "batch_id": "deep-review-batch-018-fraxinus-b014",
-      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
-      "notes": "Manual western-range reconciliation recheck confirms HOLD — Val Verde remains specimen-backed and Bandera remains the second locked target-zone county. Additional western/Edwards Plateau references recovered in this pass did not provide a third exact target-zone specimen/occurrence strong enough to count. One additional exact target-zone county still required.",
-      "approval_status": "needs_manual_review",
+      "last_deep_reviewed_at": "2026-10-06T11:26:00-05:00",
+      "notes": "Manual western/prickly-poppy refresh keeps HOLD — Fraxinus greggii is accepted by Kew/GRIN and native to southwestern Texas. Val Verde and Bandera remain the two locked project target-zone counties from specimen/field-survey evidence. A Nuevo León ecological source notes that F. greggii is among species forming comparable habitat in western/southern Texas and mentions Uvalde County, but its wording ('some of these species') is not species-specific enough to count as a third exact F. greggii county. No third defensible project county was recovered. HOLD.",
+      "approval_status": "hold_range_evidence",
       "user_decision": {
         "decision": "hold_unresolved",
         "decided_at": "2026-10-02T17:02:00-05:00",
         "note": "Calvin explicitly requested these remain unresolved for now."
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
-      "reconciliation_status": "preserved_noncanonical_hold",
+      "reconciliation_status": "preserved_range_hold",
       "reconciled_at": "2026-10-03T13:41:00-05:00",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed",
+      "canonical_status": "not_installed_range_hold",
       "verified_target_counties": [
         "Val Verde",
         "Bandera"
@@ -2501,9 +2501,19 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
+          "label": "Plants of the World Online — Fraxinus greggii",
+          "url": "https://powo.science.kew.org/taxon/105830-2",
+          "role": "accepted species concept; native to southwestern Texas"
+        },
+        {
+          "label": "USDA GRIN — Fraxinus greggii",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=289",
+          "role": "verified accepted taxonomy and Texas native status"
+        },
+        {
           "label": "Amistad National Recreation Area vascular flora",
           "url": "https://tpwd.texas.gov/huntwild/wild/wildlife_diversity/nongame/publications/media/amistad.pdf",
-          "role": "Val Verde County specimen-backed Fraxinus greggii occurrence"
+          "role": "Val Verde County specimen-backed occurrence"
         },
         {
           "label": "UC Davis Saratoga Horticultural Research report",
@@ -2511,9 +2521,9 @@
           "role": "Bandera County wild field-survey occurrence"
         },
         {
-          "label": "IPNI — Fraxinus greggii",
-          "url": "https://www.ipni.org/n/105830-2",
-          "role": "accepted name/type context"
+          "label": "Guzmán-Velasco — habitat study",
+          "url": "https://cd.dgb.uanl.mx/bitstream/handle/201504211/16675/21241.pdf?isAllowed=y&sequence=1",
+          "role": "southwestern Texas/Uvalde habitat context only; ambiguous wording not counted as exact species-level county proof"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -7466,41 +7476,49 @@
       "scientific_name": "Rhus microphylla",
       "family": "Anacardiaceae",
       "genus": "Rhus",
-      "status": "range_hold_reviewed",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
-      "notes": "Manual western-range reconciliation strengthens HOLD — Val Verde remains locked. USDA Forest Service and Texas A&M sources firmly place Rhus microphylla in the Edwards Plateau/Trans-Pecos, and the FEIS literature cites a Sutton/Edwards County range-vegetation study, but that citation alone is not treated as exact species-level county proof. Do not infer Sutton or Edwards until a specimen/checklist record directly names R. microphylla there. Learner admission unchanged.",
+      "status": "review_complete_pass_pending_curation",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed_pending_curation",
+      "notes": "Manual western/prickly-poppy refresh PASS — Rhus microphylla is accepted by Kew and native to Texas. Val Verde remains locked from prior specimen-backed review. Edwards County is now locked from a peer-reviewed range study whose Edwards County study area explicitly lists littleleaf sumac among the major shrubs. Uvalde County is locked from a Research Grade iNaturalist field observation at Annandale Ranch (23 May 2019). This gives three exact project target-zone counties (Val Verde, Edwards, Uvalde). Learner admission unchanged; curation remains a separate lane.",
       "queue_group": "B066 Rhus",
       "batch_id": "deep-review-batch-068-rhus-b066",
-      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T11:26:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
-      "learner_range_label": "range_unresolved",
+      "learner_range_label": "confirmed_target_native",
       "learner_curation_status": "approved_pending_curation",
-      "approval_status": "hold_range_evidence",
+      "approval_status": "pass_ready_for_curation",
       "verified_target_counties": [
-        "Val Verde"
+        "Val Verde",
+        "Edwards",
+        "Uvalde"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
+          "label": "Plants of the World Online — Rhus microphylla",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:70699-1",
+          "role": "accepted species concept; native to Texas"
+        },
+        {
           "label": "US Forest Service FEIS — Rhus microphylla",
           "url": "https://research.fs.usda.gov/feis/species-reviews/rhumic",
-          "role": "native ecology/range; cites Sutton and Edwards County range vegetation literature"
+          "role": "prior native ecology/range context and Val Verde review support"
         },
         {
-          "label": "Texas A&M Plants of Texas Rangelands — Rhus microphylla",
-          "url": "https://rangeplants.tamu.edu/plant/littleleaf-sumac/",
-          "role": "Edwards Plateau/Trans-Pecos distribution"
+          "label": "Warren et al. — Comparative diets on an Edwards County study area",
+          "url": "https://journals.uair.arizona.edu/index.php/jrm/article/viewFile/7696/7308",
+          "role": "Edwards County field-study occurrence; littleleaf sumac listed among major shrubs on the Edwards County study area"
         },
         {
-          "label": "Native Plant Society of Texas — Rhus microphylla",
-          "url": "https://www.npsot.org/posts/native-plant/rhus-microphylla/",
-          "role": "Texas native ecoregion and BONAP-linked distribution context"
+          "label": "iNaturalist observation 25716726 — Rhus microphylla",
+          "url": "https://www.inaturalist.org/observations/25716726",
+          "role": "Research Grade Uvalde County field occurrence, 23 May 2019"
         }
-      ]
+      ],
+      "reconciliation_status": "review_pass_pending_curation"
     },
     {
       "id": "coreopsis-wrightii",
@@ -8024,7 +8042,7 @@
       "scientific_name": "Argemone polyanthemos",
       "common_name": "White Prickly-Poppy",
       "status": "range_hold_reviewed",
-      "notes": "Manual county-recovery cleanup confirms HOLD — accepted Argemone polyanthemos; Travis County is specimen-backed in the UT Plant Resources Center index. Other recovered Texas specimens were outside the project target zone, so the three-county threshold is still not met. HOLD pending two additional exact target-zone counties.",
+      "notes": "Manual western/prickly-poppy refresh keeps HOLD — Kew accepts Argemone polyanthemos and places it native in Texas. Travis remains the only exact project target-zone county locked from the UT Plant Resources Center specimen index. Additional broad Texas/central-grassland and photo records support regional nativity but do not provide two more specimen-grade target-zone counties. HOLD; learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -8033,26 +8051,26 @@
       "priority": 0,
       "queue_group": "B073 Argemone",
       "batch_id": "deep-review-batch-074-argemone-b073",
-      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T11:26:00-05:00",
       "verified_target_counties": [
         "Travis"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "UT Plant Resources Center — Travis County Papaveraceae specimens",
+          "label": "Plants of the World Online — Argemone polyanthemos",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18861-2",
+          "role": "accepted species concept and Texas native status"
+        },
+        {
+          "label": "UT Plant Resources Center — Travis County Papaveraceae",
           "url": "https://w3.biosci.utexas.edu/prc/specimens/Papaveraceae.html",
-          "role": "Travis County Argemone polyanthemos specimen index"
+          "role": "Travis County specimen index"
         },
         {
-          "label": "ITIS — Argemone polyanthemos",
-          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=18926",
-          "role": "accepted species concept and synonymy"
-        },
-        {
-          "label": "Illinois Natural History Survey collections",
-          "url": "https://biocoll.inhs.illinois.edu/portal/collections/list.php?comingFrom=harvestparams&country=USA%3B+United+States%3B+U.S.A.%3B+United+States+of+America&db=67&page=2&state=Texas",
-          "role": "Texas specimen context; recovered polyanthemos records outside target zone"
+          "label": "BONAP / regional context via Kew and Texas floristic literature",
+          "url": "https://bonap.net/Napa/TaxonMaps/Genus/County/Argemone",
+          "role": "county-distribution context; no additional target county promoted without explicit locality confirmation"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -8060,14 +8078,15 @@
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "argemone-sanguinea",
       "scientific_name": "Argemone sanguinea",
       "common_name": "Red Prickly-Poppy",
       "status": "range_hold_reviewed",
-      "notes": "Manual western-range reconciliation confirms HOLD — Kew accepts Argemone sanguinea as native from South Texas into northeastern Mexico; the Uvalde Cook's Slough field occurrence remains the strongest exact target-zone locality. South Texas native-seed and floristic sources reinforce regional nativity but do not add two exact project counties. HOLD.",
+      "notes": "Manual western/prickly-poppy refresh keeps HOLD — Kew accepts Argemone sanguinea as native from South Texas into northeastern Mexico. Uvalde remains the only exact project target-zone county locked in the current evidence. Broader South Texas floristic/native-seed sources support regional nativity but do not provide two additional exact project counties. HOLD; learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -8076,7 +8095,7 @@
       "priority": 0,
       "queue_group": "B073 Argemone",
       "batch_id": "deep-review-batch-074-argemone-b073",
-      "last_deep_reviewed_at": "2026-10-05T22:16:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T11:26:00-05:00",
       "verified_target_counties": [
         "Uvalde"
       ],
@@ -8084,8 +8103,8 @@
       "deep_review_sources": [
         {
           "label": "Plants of the World Online — Argemone sanguinea",
-          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18865-2/general-information",
-          "role": "accepted species and native South Texas range"
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18865-2",
+          "role": "accepted species concept and native South Texas range"
         },
         {
           "label": "Backyard Nature — Argemone sanguinea, Uvalde County",
@@ -8093,9 +8112,9 @@
           "role": "documented wild Uvalde County occurrence"
         },
         {
-          "label": "Texas Native Seed Collection List for South Texas",
-          "url": "https://www.ckwri.tamuk.edu/sites/default/files/2019-10/2018_collections_list.pdf",
-          "role": "South Texas native restoration context"
+          "label": "Saghatelyan 2015 — Flora of South-Central Texas",
+          "url": "https://www.researchgate.net/publication/299552952_PHYTOGEOGRAPHICAL_RELATIONSHIPS_AND_ANALYSIS_OF_THE_FLORA_OF_SOUTH-CENTRAL_TEXAS",
+          "role": "regional occurrence support only; not individual county proof"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -8103,7 +8122,8 @@
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "prunus-serotina",
