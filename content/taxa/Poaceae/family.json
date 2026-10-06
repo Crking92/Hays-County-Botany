@@ -131,5 +131,65 @@
       }
     ],
     "taxonomy_note": "Current project taxonomy follows the B030 Kew/POWO reconciliation: big bluestem remains Andropogon, while bushy bluestem and broomsedge are treated in Anatherum. Familiar Andropogon names remain searchable aliases."
+  },
+  "family_confusion_cleanup": {
+    "version": "1.0-comparison-first",
+    "updated": "2026-10-06",
+    "field_question": "If this looks grass-like, which family is it and what single structure breaks the tie?",
+    "comparison_matrix": [
+      {
+        "family": "Poaceae",
+        "first_lock": "Jointed culm with conspicuous nodes; blade-sheath junction has a ligule.",
+        "confirm": "Spikelet has grass floret architecture: glumes outside, lemma + palea around each floret; fruit is a caryopsis.",
+        "do_not_overtrust": "Hollow stems or round stems alone."
+      },
+      {
+        "family": "Cyperaceae",
+        "first_lock": "Often solid culm, commonly 3-ranked leaves and closed sheaths; stem may be triangular, round, or flattened.",
+        "confirm": "Minute flower subtended by a single scale; perianth absent/reduced; one hard one-seeded nutlet/achene. Carex adds a perigynium.",
+        "do_not_overtrust": "'Sedges have edges'—many sedges do not."
+      },
+      {
+        "family": "Juncaceae",
+        "first_lock": "Grass/sedge-like habit but individual flowers still look like tiny conventional flowers.",
+        "confirm": "Six persistent tepals surrounding a superior ovary; fruit is a capsule with several seeds.",
+        "do_not_overtrust": "'Rushes are round'—stem shape overlaps."
+      }
+    ],
+    "decision_key": [
+      "Can you see conspicuous culm nodes plus a sheath-blade junction with a ligule? → Poaceae door.",
+      "No obvious grass node/ligule? Inspect one reproductive unit.",
+      "Six tepals around a real flower and later a multi-seeded capsule? → Juncaceae.",
+      "Flower reduced beneath a scale and fruit a single nutlet/achene? → Cyperaceae."
+    ],
+    "exception_locks": [
+      "Triangular stem supports Cyperaceae but never proves it.",
+      "Round stem does not prove Juncaceae.",
+      "A grass may have solid internodes; use nodes + ligule + spikelet architecture.",
+      "Vegetative plants may remain family-uncertain until the collar/sheath or reproductive unit is visible."
+    ],
+    "diagnostic_visual_roles": [
+      {
+        "priority": 1,
+        "shot": "same-scale Poaceae vs Cyperaceae vs Juncaceae reproductive-unit triptych",
+        "labels": "grass glumes/lemma/palea | sedge scale + nutlet | rush 6 tepals + capsule"
+      },
+      {
+        "priority": 1,
+        "shot": "same-scale stem/node/sheath triptych",
+        "labels": "grass node + ligule | sedge closed sheath/3 ranks | rush sheath and node-poor culm"
+      },
+      {
+        "priority": 1,
+        "shot": "fruit comparison macro",
+        "labels": "caryopsis | one-seeded nutlet/achene | multi-seeded capsule"
+      },
+      {
+        "priority": 2,
+        "shot": "cross-section caution card",
+        "labels": "triangular, round and flattened examples showing why stem shape is only a clue"
+      }
+    ],
+    "genus_routing_note": "After family confirmation, route first by whole inflorescence architecture, then collar/ligule and spikelet characters; do not route genera from fall color or general fuzziness."
   }
 }
