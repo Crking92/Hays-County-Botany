@@ -33,6 +33,7 @@ import shutil
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
@@ -49,7 +50,8 @@ IMAGE_URL_COLUMNS = ("direct_url", "direct_image_url", "image_url", "url")
 IMAGE_ROLE_COLUMNS = ("role", "view", "image_role")
 USER_AGENT = "HaysBotanyID-GitHubAction/1.0"
 DOWNLOAD_DELAY_SECONDS = 15
-RETRY_DELAY_SECONDS = 75
+RETRY_DELAY_SECONDS = 20
+WIKIMEDIA_DOWNLOAD_WIDTH = 960
 
 
 def load_json(path: Path):
@@ -134,8 +136,39 @@ def first_nonempty(row: dict, names: tuple[str, ...]) -> str:
     return ""
 
 
+def normalize_image_download_url(url: str) -> str:
+    """Use a bounded Commons image request instead of a full-size Special:Redirect download."""
+    parsed = urllib.parse.urlsplit(url)
+    if parsed.netloc.lower() != "commons.wikimedia.org":
+        return url
+
+    query = urllib.parse.parse_qs(parsed.query, keep_blank_values=True)
+    title = ""
+
+    prefix = "/wiki/Special:Redirect/file/"
+    if parsed.path.startswith(prefix):
+        filename = urllib.parse.unquote(parsed.path[len(prefix):])
+        title = f"Special:Redirect/file/{filename}"
+    elif parsed.path == "/w/index.php":
+        title = (query.get("title") or [""])[0]
+        if not title.startswith("Special:Redirect/file/"):
+            return url
+    else:
+        return url
+
+    query["title"] = [title]
+    query.setdefault("width", [str(WIKIMEDIA_DOWNLOAD_WIDTH)])
+    encoded = urllib.parse.urlencode(
+        [(key, value) for key, values in query.items() for value in values]
+    )
+    return urllib.parse.urlunsplit(
+        (parsed.scheme or "https", parsed.netloc, "/w/index.php", encoded, "")
+    )
+
+
 def download_one(url: str, destination: Path) -> None:
     destination.parent.mkdir(parents=True, exist_ok=True)
+    url = normalize_image_download_url(url)
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     last_error = None
     for attempt in (1, 2):
