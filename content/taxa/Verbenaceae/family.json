@@ -69,5 +69,77 @@
     "version": "1.0-visual-family-module",
     "last_reviewed": "2026-10-03",
     "visual_lock": "partial_complete"
+  },
+  "family_confusion_cleanup": {
+    "version": "1.0-comparison-first",
+    "updated": "2026-10-06",
+    "field_question": "Opposite leaves and a tubular flower: mint, verbena, or madder/coffee family?",
+    "look_here_first": [
+      "At the node: are there interpetiolar stipules between opposite leaves?",
+      "At the ovary: is it inferior, or superior and deeply lobed?",
+      "At fruiting: four nutlets, a drupe/schizocarp, or a capsule/berry-like fruit?",
+      "Use square stems and aroma only as supporting clues."
+    ],
+    "comparison_matrix": [
+      {
+        "family": "Lamiaceae",
+        "first_lock": "Opposite/decussate leaves usually without stipules; stems often 4-angled and foliage often aromatic.",
+        "break_the_tie": "Superior ovary commonly deeply 4-lobed with a gynobasic style; fruit commonly four nutlets.",
+        "exception": "Not every mint is aromatic, square-stemmed, bilabiate, or four-nutleted; Callicarpa is a conspicuous local breadth exception."
+      },
+      {
+        "family": "Verbenaceae",
+        "first_lock": "Opposite leaves and often 4-angled stems can mimic Lamiaceae closely.",
+        "break_the_tie": "Do not stop at the stem. Inspect ovary/style/fruit architecture; the classic deeply 4-lobed gynobasic mint ovary is not the default verbena pattern.",
+        "exception": "Family boundaries historically shifted, so older references may place some genera differently."
+      },
+      {
+        "family": "Rubiaceae",
+        "first_lock": "Opposite or whorled leaves can mimic mints/verbena vegetatively.",
+        "break_the_tie": "Look BETWEEN opposite petioles for interpetiolar stipules, then confirm an inferior ovary when flowers/fruit allow.",
+        "exception": "In Galium and relatives stipules can look leaflike, making the node appear whorled rather than simply opposite."
+      }
+    ],
+    "decision_key": [
+      "Opposite leaves: inspect the node before the flower.",
+      "Distinct interpetiolar stipule or stipular sheath between petioles? → strong Rubiaceae door; seek inferior ovary confirmation.",
+      "No stipules: inspect the ovary/style and later fruit.",
+      "Deeply four-lobed superior ovary + style arising among/between lobes + four nutlets → strong Lamiaceae door.",
+      "Opposite-leaved Lamiales look-alike without that mint ovary/fruit package → keep Verbenaceae and other Lamiales open until reproductive characters resolve it."
+    ],
+    "diagnostic_visual_roles": [
+      {
+        "priority": 1,
+        "shot": "same-node macro: Lamiaceae vs Verbenaceae vs Rubiaceae",
+        "labels": "no stipule | no stipule | interpetiolar stipule"
+      },
+      {
+        "priority": 1,
+        "shot": "ovary/style comparison macro or botanical diagram",
+        "labels": "Lamiaceae 4-lobed superior ovary + gynobasic style | Verbenaceae contrasting ovary/style | Rubiaceae inferior ovary"
+      },
+      {
+        "priority": 1,
+        "shot": "fruit comparison",
+        "labels": "mint four nutlets | representative verbena-family fruit | representative local Rubiaceae fruit"
+      },
+      {
+        "priority": 2,
+        "shot": "Galium node exception",
+        "labels": "leaf blades vs leaflike stipules producing apparent whorl"
+      }
+    ],
+    "sources": [
+      {
+        "source": "Flora of China — Lamiaceae",
+        "url": "https://www.efloras.org/florataxon.aspx?flora_id=2&taxon_id=10476",
+        "supports": "opposite leaves without stipules; often 4-angled stems; superior ovary often 4-parted with gynobasic style; usually four nutlets"
+      },
+      {
+        "source": "Flora of China — Rubiaceae",
+        "url": "https://www.efloras.org/florataxon.aspx?flora_id=2&taxon_id=10778",
+        "supports": "opposite/whorled leaves and interpetiolar stipules; stipules can be leaflike in Galium/Rubieae"
+      }
+    ]
   }
 }
