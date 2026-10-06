@@ -1811,7 +1811,7 @@
       "scientific_name": "Quercus virginiana",
       "family": "Fagaceae",
       "genus": "Quercus",
-      "status": "taxonomy_range_hold_reviewed",
+      "status": "approved_pending_curation",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -1831,17 +1831,17 @@
       "batch_id": "deep-review-batch-015-quercus-b011",
       "last_deep_reviewed_at": "2026-10-06T13:20:00-05:00",
       "notes": "Fifth eight-species closeout keeps an intentional TAXON/RANGE HOLD for strict Quercus virginiana. Kew accepts Q. virginiana as Texas-native but also accepts Q. fusiformis separately and places former Q. virginiana var. fusiformis under Q. fusiformis. Central/South Texas ecological sources heavily use Q. fusiformis for plateau/deep-sand live-oak systems. Generic Central Texas 'live oak' or legacy Q. virginiana labels therefore cannot establish strict Q. virginiana county occurrence without specimen-level identity. First-pass review complete; preserve for later specimen-level work.",
-      "approval_status": "hold_taxonomy_range",
+      "approval_status": "user_approved",
       "user_decision": {
-        "decision": "accept_review_keep_unresolved",
-        "decided_at": "2026-10-02T17:02:00-05:00",
-        "note": "Blanket prior-batch approval accepted the review result; unresolved status preserved and not promoted as native."
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed taxon for learner curation. Preserve the independent scientific range/taxonomy result; learner approval does not convert unresolved, conflicted, or taxonomy-held evidence into a scientific PASS."
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
-      "reconciliation_status": "preserved_taxonomy_range_hold",
+      "reconciliation_status": "user_approved_with_scientific_hold_preserved",
       "reconciled_at": "2026-10-03T13:41:00-05:00",
       "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
-      "canonical_status": "not_installed_taxonomy_range_hold",
+      "canonical_status": "not_installed",
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
@@ -1865,7 +1865,9 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed"
+      "learner_curation_status": "approved_pending_curation",
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved for learner curation; scientific range/taxonomy findings remain independent."
     },
     {
       "id": "quercus-alba",
@@ -3235,7 +3237,7 @@
       "common_name": "Bigtop lovegrass",
       "family": "Poaceae",
       "genus": "Eragrostis",
-      "status": "range_hold_reviewed",
+      "status": "approved_pending_curation",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -3257,9 +3259,9 @@
       "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
       "last_deep_reviewed_at": "2026-10-06T13:20:00-05:00",
       "notes": "Fifth eight-species closeout keeps an intentional RANGE HOLD. Uvalde remains the only exact project target-zone county locked, including a documented Dry Frio Canyon occurrence in northern Uvalde County. Broader Texas distribution is credible, but no two additional exact target-zone vouchers or county-level records were recovered. First-pass review complete; preserve HOLD.",
-      "approval_status": "hold_range_evidence",
+      "approval_status": "user_approved",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "canonical_status": "not_installed",
       "last_hold_reviewed_at": "2026-10-03T15:15:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "approved_source_pool_membership",
@@ -3283,8 +3285,15 @@
           "role": "Texas native distribution and BONAP cross-reference"
         }
       ],
-      "reconciliation_status": "preserved_range_hold",
-      "queue_disposition": "HOLD_OR_FAIL_PRESERVED"
+      "reconciliation_status": "user_approved_with_scientific_hold_preserved",
+      "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed taxon for learner curation. Preserve the independent scientific range/taxonomy result; learner approval does not convert unresolved, conflicted, or taxonomy-held evidence into a scientific PASS."
+      },
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved for learner curation; scientific range/taxonomy findings remain independent."
     },
     {
       "id": "eragrostis-trichodes",
@@ -4916,10 +4925,10 @@
       "queue_group": "B033 Celtis",
       "last_deep_reviewed_at": "2026-10-06T13:20:00-05:00",
       "notes": "Fifth eight-species closeout confirms an intentional SOURCE-CONCEPT HOLD. Current Kew and GRIN treat true Celtis ehrenbergiana (Klotzsch) Liebm. as a synonym of Celtis iguanaea, while GRIN separately flags the misapplied name Celtis ehrenbergiana auct. nonn. as Celtis pallida. Texas ecological usage has historically used C. ehrenbergiana for the granjeno/desert-hackberry concept now preferred as C. pallida. Because the source-pool row lacks enough provenance to distinguish true C. ehrenbergiana (= C. iguanaea) from the Texas misapplication (= C. pallida), do not create a duplicate learner card and do not auto-merge. First-pass review complete; reopen only if source provenance/specimen identity appears.",
-      "approval_status": "hold_taxonomy_source_concept",
+      "approval_status": "resolved_no_duplicate_install",
       "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
       "canonical_status": "not_installed_taxonomy_hold",
-      "reconciliation_status": "preserved_taxonomy_hold_existing_celtis_pallida_canonical",
+      "reconciliation_status": "user_approved_source_concept_hold_no_duplicate_install",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
@@ -4949,7 +4958,14 @@
           "role": "2025 Texas regional review notes C. ehrenbergiana concept dispute and preferred C. pallida usage"
         }
       ],
-      "queue_disposition": "HOLD_OR_FAIL_PRESERVED"
+      "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
+      "user_decision": {
+        "decision": "approve_closeout_no_duplicate_install",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed record for first-pass closeout. Preserve the unresolved source-concept taxonomy result and do not create a duplicate learner card while the source row could map either to true Celtis ehrenbergiana (= Celtis iguanaea) or the historical Texas misapplication (= Celtis pallida)."
+      },
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved the first-pass disposition; scientific source-concept HOLD remains independent and no duplicate learner card should be installed."
     },
     {
       "id": "liatris-mucronata",
@@ -5499,7 +5515,7 @@
       "common_name": "Texas goatweed / woolly croton",
       "family": "Euphorbiaceae",
       "genus": "Croton",
-      "status": "taxonomy_range_hold_reviewed",
+      "status": "approved_pending_curation",
       "priority": 0,
       "batch_id": "manual-deep-review-croton-001",
       "research_goals": [
@@ -5514,10 +5530,10 @@
         "row": 300
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
-      "approval_status": "hold_taxonomy_range",
+      "approval_status": "user_approved",
       "notes": "Fifth eight-species closeout keeps an intentional TAXON/RANGE HOLD. Kew accepts true Croton capitatus, but current taxonomy moves historical Croton capitatus var. lindheimeri to accepted Croton lindheimeri. Central Texas records under the var. lindheimeri concept therefore cannot be counted toward strict C. capitatus without reidentification. First-pass review complete; preserve HOLD for later specimen-level concept cleanup.",
       "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
-      "canonical_status": "not_installed_taxonomy_range_hold",
+      "canonical_status": "not_installed",
       "queue_group": "Manual Croton Deep Review",
       "last_deep_reviewed_at": "2026-10-06T13:20:00-05:00",
       "learner_admission_status": "APPROVED",
@@ -5525,8 +5541,8 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed",
-      "reconciliation_status": "preserved_taxonomy_range_hold",
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "user_approved_with_scientific_hold_preserved",
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
@@ -5540,7 +5556,14 @@
           "role": "explicit synonymy to C. lindheimeri"
         }
       ],
-      "queue_disposition": "HOLD_OR_FAIL_PRESERVED"
+      "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed taxon for learner curation. Preserve the independent scientific range/taxonomy result; learner approval does not convert unresolved, conflicted, or taxonomy-held evidence into a scientific PASS."
+      },
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved for learner curation; scientific range/taxonomy findings remain independent."
     },
     {
       "id": "croton-fruticulosus",
@@ -5618,7 +5641,7 @@
       "common_name": "Lindheimer's doveweed / woolly croton",
       "family": "Euphorbiaceae",
       "genus": "Croton",
-      "status": "range_hold_reviewed",
+      "status": "approved_pending_curation",
       "priority": 0,
       "batch_id": "manual-deep-review-croton-001",
       "research_goals": [
@@ -5633,10 +5656,10 @@
         "row": 302
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
-      "approval_status": "hold_range_evidence",
+      "approval_status": "user_approved",
       "notes": "Fifth eight-species closeout keeps an intentional RANGE HOLD. Kew accepts Croton lindheimeri and confirms that historical C. capitatus var. lindheimeri belongs here. Travis remains the only exact project target-zone county firmly locked in the current record; nearby Williamson evidence is outside the project target zone. No second and third exact target-zone counties were recovered. First-pass review complete.",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "canonical_status": "not_installed",
       "queue_group": "Manual Croton Deep Review",
       "last_deep_reviewed_at": "2026-10-06T13:20:00-05:00",
       "verified_target_counties": [
@@ -5661,8 +5684,15 @@
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
       "learner_curation_status": "approved_pending_curation",
-      "reconciliation_status": "preserved_range_hold",
-      "queue_disposition": "HOLD_OR_FAIL_PRESERVED"
+      "reconciliation_status": "user_approved_with_scientific_hold_preserved",
+      "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed taxon for learner curation. Preserve the independent scientific range/taxonomy result; learner approval does not convert unresolved, conflicted, or taxonomy-held evidence into a scientific PASS."
+      },
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved for learner curation; scientific range/taxonomy findings remain independent."
     },
     {
       "id": "croton-lindheimerianus",
@@ -6304,7 +6334,7 @@
       "common_name": "David's spurge",
       "family": "Euphorbiaceae",
       "genus": "Euphorbia",
-      "status": "native_status_conflict_reviewed",
+      "status": "approved_pending_curation",
       "priority": 0,
       "batch_id": "manual-deep-review-euphorbia-test-001",
       "research_goals": [
@@ -6319,10 +6349,10 @@
         "row": 442
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
-      "approval_status": "hold_native_status_conflict",
+      "approval_status": "user_approved",
       "notes": "Fifth eight-species closeout confirms a durable AUTHORITY CONFLICT. POWO treats Euphorbia davidii as introduced in Texas, while USDA GRIN explicitly lists Texas as native. Both sources accept the species. The project should not manufacture a native-range PASS or FAIL while major current authorities disagree. First-pass review complete; preserve CONFLICT until the authority discrepancy is resolved by stronger taxonomic/biogeographic evidence.",
       "native_range_status": "CONFLICT",
-      "canonical_status": "not_installed_source_conflict",
+      "canonical_status": "not_installed",
       "queue_group": "Manual Euphorbia Deep Review Test",
       "last_deep_reviewed_at": "2026-10-06T13:20:00-05:00",
       "learner_admission_status": "APPROVED",
@@ -6330,8 +6360,8 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed",
-      "reconciliation_status": "preserved_authority_conflict",
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "user_approved_with_scientific_hold_preserved",
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
@@ -6345,7 +6375,14 @@
           "role": "accepted species; Texas explicitly treated as native"
         }
       ],
-      "queue_disposition": "HOLD_OR_FAIL_PRESERVED"
+      "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed taxon for learner curation. Preserve the independent scientific range/taxonomy result; learner approval does not convert unresolved, conflicted, or taxonomy-held evidence into a scientific PASS."
+      },
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved for learner curation; scientific range/taxonomy findings remain independent."
     },
     {
       "id": "euphorbia-dentata",
@@ -8269,11 +8306,11 @@
       "id": "symphyotrichum-lanceolatum-subsp-lanceolatum",
       "scientific_name": "Symphyotrichum lanceolatum subsp. lanceolatum",
       "common_name": "White Panicle Aster",
-      "status": "range_hold_reviewed",
+      "status": "approved_pending_curation",
       "notes": "Fifth eight-species closeout keeps an intentional RANGE HOLD. World Flora Online continues to accept the nominate Symphyotrichum lanceolatum subsp. lanceolatum and includes Texas in its native range. Hays and Travis remain the only exact project target-zone counties locked under a compatible subspecies concept. Species-level or other-infraspecific records are not transferred. First-pass review complete pending one additional exact county.",
-      "approval_status": "hold_range_evidence",
+      "approval_status": "user_approved",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "canonical_status": "not_installed",
       "family": "Asteraceae",
       "genus": "Symphyotrichum",
       "priority": 0,
@@ -8298,8 +8335,15 @@
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Master Plant Pool contains the same taxon as Symphyotrichum lanceolatum ssp. lanceolatum; rank abbreviation normalized. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
       "learner_curation_status": "approved_pending_curation",
-      "reconciliation_status": "preserved_range_hold",
-      "queue_disposition": "HOLD_OR_FAIL_PRESERVED"
+      "reconciliation_status": "user_approved_with_scientific_hold_preserved",
+      "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed taxon for learner curation. Preserve the independent scientific range/taxonomy result; learner approval does not convert unresolved, conflicted, or taxonomy-held evidence into a scientific PASS."
+      },
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved for learner curation; scientific range/taxonomy findings remain independent."
     },
     {
       "id": "argemone-albiflora",
@@ -8635,16 +8679,16 @@
     {
       "id": "acalypha-persimilis",
       "scientific_name": "Acalypha persimilis",
-      "status": "range_hold_reviewed",
+      "status": "approved_pending_curation",
       "notes": "Fifth eight-species closeout keeps an intentional RANGE HOLD. Kew and World Flora Online continue to accept Acalypha persimilis and recognize Texas as native. Uvalde remains the only exact project target-zone county locked in the current project evidence. No two additional exact target-zone vouchers were recovered in this pass. First-pass review complete; preserve HOLD.",
       "family": "Euphorbiaceae",
       "genus": "Acalypha",
       "priority": 1,
       "queue_group": "Scout Euphorbiaceae Acalypha/Tragia",
       "batch_id": "scout-2026-10-03-euphorbiaceae-05",
-      "approval_status": "hold_range_evidence",
+      "approval_status": "user_approved",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "canonical_status": "not_installed",
       "last_deep_reviewed_at": "2026-10-06T13:20:00-05:00",
       "deep_review_owner": "manual-project-chat",
       "learner_admission_status": "APPROVED",
@@ -8668,8 +8712,15 @@
           "role": "accepted species and Texas native distribution cross-check"
         }
       ],
-      "reconciliation_status": "preserved_range_hold",
-      "queue_disposition": "HOLD_OR_FAIL_PRESERVED"
+      "reconciliation_status": "user_approved_with_scientific_hold_preserved",
+      "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
+      "user_decision": {
+        "decision": "approve_for_curation",
+        "decided_at": "2026-10-06T11:33:00-05:00",
+        "note": "Calvin explicitly approved this reviewed taxon for learner curation. Preserve the independent scientific range/taxonomy result; learner approval does not convert unresolved, conflicted, or taxonomy-held evidence into a scientific PASS."
+      },
+      "approved_at": "2026-10-06T11:33:00-05:00",
+      "approval_note": "User explicitly approved for learner curation; scientific range/taxonomy findings remain independent."
     },
     {
       "id": "acalypha-phleoides",
