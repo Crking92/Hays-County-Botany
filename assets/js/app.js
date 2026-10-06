@@ -107,15 +107,24 @@ function countyList(sp){
 function rangeSummary(sp){
   const counties=countyList(sp);
   const direct=sp.target_zone_range && sp.target_zone_range.meets_three_county_rule;
-  const tracker=sp.project_inclusion && sp.project_inclusion.target_zone_status;
+  const tracker=String((sp.project_inclusion && sp.project_inclusion.target_zone_status) || sp.native_range_status || "").toUpperCase();
+  const role=String(sp.learner_role || "").toUpperCase();
   if(direct===true || tracker==="PASS" || sp.native_target_zone_calculated===true){
     const n=counties.length || sp.target_zone_count || (sp.target_zone_range && (sp.target_zone_range.target_zone_count_confirmed || sp.target_zone_range.target_zone_count_confirmed_minimum)) || "3+";
-    return "PASS · "+n+" supported target-zone counties";
+    return "Confirmed target-zone native · "+n+" supported counties";
   }
-  if(direct===false || tracker==="UNRESOLVED") return "UNRESOLVED · "+counties.length+" supported target-zone counties";
-  if(sp.project_inclusion && sp.project_inclusion.strict_native_filter_deferred) return "Native-range audit deferred · local-occurrence-first study taxon";
-  if(counties.length) return counties.length+" target-zone county records in current file";
-  return "Range status not normalized yet";
+  if(tracker.includes("NON_NATIVE") || tracker==="COMPARISON" || role.includes("NON_NATIVE")){
+    return "Learner comparison · not counted as target-zone native";
+  }
+  if(tracker.includes("FAIL")){
+    return "Not confirmed target-zone native · learner entry retained";
+  }
+  if(tracker==="UNRESOLVED" || tracker==="CONFLICT" || direct===false || role.includes("UNRESOLVED")){
+    return "Range unresolved · learner entry retained";
+  }
+  if(sp.project_inclusion && sp.project_inclusion.strict_native_filter_deferred) return "Range audit deferred · learner entry retained";
+  if(counties.length) return counties.length+" supported target-zone county records · native label not finalized";
+  return "Native-range label not finalized · learner entry retained";
 }
 
 function lookHereFirst(sp){
