@@ -21,29 +21,34 @@ Create or refresh a short-lived claim before beginning substantial work that is 
 Never overwrite another process merely because its tracker status looks stale. Canonical GitHub state wins; if ownership is ambiguous, skip the target.
 
 ## Target zone
-Hays, Bell, Blanco, Burnet, Comal, Concho, Crockett, Edwards, Frio, Gillespie, Bandera, Kimble, Kinney, Maverick, McCulloch, Medina, Menard, Real, San Saba, Tom Green, Travis, Uvalde, Val Verde, Williamson, Kerr.
+Tom Green, Concho, McCulloch, San Saba, Burnet, Llano, Mason, Menard, Schleicher, Sutton, Kimble, Gillespie, Blanco, Travis, Hays, Comal, Bexar, Kendall, Kerr, Edwards, Real, Bandera, Uvalde, Medina.
 
-## Native threshold and range status
-A plant counts as native to the project target zone only when it is documented as native in **at least 3 target-zone counties**.
+## Learner admission vs. native-range status — standing rule as of 2026-10-05
 
-Every curated species must be assigned one of:
-- **PASS** — native in at least 3 target-zone counties
-- **FAIL** — evidence supports fewer than 3 target-zone counties
-- **UNRESOLVED** — evidence is insufficient or conflicting
+**Learner admission and native-range certification are separate decisions.**
 
-Never infer county occurrence. Do not promote an incomplete or uncertain species package to final status.
+During Learner Fast-Fill mode, a taxon is eligible for the private learner when it appears in one of Calvin's approved source pools or the derived `Master Plant Pool`, including the personal iNaturalist flora, LBJ/Hays County native source material, and NPSOT ecoregion backlog. **Three-county native proof is not required before a sheet-backed taxon may be curated or installed.**
 
-## Encounter-value comparison species
-The learner is not limited to project-native plants. A species may be retained as a **comparison/encounter species** when it is non-native, invasive, naturalized, weedy, escaped from cultivation, or simply common enough in the target area that crews are likely to encounter and need to identify it.
+Native-range status remains scientifically strict metadata:
+- **PASS** — confirmed native in at least 3 project target-zone counties.
+- **FAIL / FAIL_TARGET_ZONE / COMPARISON_NON_NATIVE** — not confirmed as project-target native under the current evidence or explicitly non-native/comparison.
+- **UNRESOLVED / CONFLICT** — native-range evidence is incomplete or conflicting.
 
-This role is **orthogonal to native-range status**:
-- a comparison species may still be **FAIL** for project-native status;
-- never relabel a non-native plant as PASS just to keep it in the learner;
-- record a separate learner role such as `NON_NATIVE_COMPARISON`, `INVASIVE_COMPARISON`, `COMMON_WEED_COMPARISON`, or `LOOKALIKE_COMPARISON`;
-- invasive status must be sourced and must not be inferred merely from non-native status;
-- comparison species do not count toward native-species totals or native-range completion metrics.
+These range states do **not** block learner admission. They control labeling and native-only metrics.
 
-Prioritize comparison species that are locally frequent, management-relevant, invasive/problematic, or easily confused with project-native plants. Give them the same morphology-first treatment, diagnostic image roles, provenance, and look-alike separation as native learner species.
+Every learner page should keep the two concepts separate:
+- learner admission: approved / represented / taxonomy-mapping-needed;
+- range label: confirmed target-zone native / range unresolved / nonlocal or target-zone fail / introduced or non-native comparison / other clearly sourced status.
+
+Never relabel an unresolved or non-native taxon as native merely to include it. Never count comparison, FAIL, CONFLICT, or UNRESOLVED taxa in confirmed-native totals.
+
+The remaining hard gate for a separate canonical species card is **taxonomic identity**, not county nativity. Obsolete synonyms, parent concepts, duplicate names, or genuinely ambiguous taxon concepts should be mapped to the correct accepted learner concept or retained as aliases/comparison references rather than installed as misleading duplicate cards.
+
+### Encounter-value comparison species
+
+The learner should retain non-native, invasive, naturalized, weedy, escaped, nonlocal, unresolved-range, and other useful encounter taxa when they occur in the approved source pools or have clear identification value. Invasive status must still be sourced and must not be inferred merely from non-native status.
+
+Use learner roles such as `TARGET_NATIVE_CONFIRMED`, `RANGE_UNRESOLVED`, `NONLOCAL_COMPARISON`, `NON_NATIVE_COMPARISON`, `INVASIVE_COMPARISON`, `COMMON_WEED_COMPARISON`, `LOOKALIKE_COMPARISON`, or `TAXONOMY_REFERENCE` as appropriate.
 
 ## Range authority priority
 1. BONAP / NAPA
@@ -57,8 +62,8 @@ Record the actual counties used for the target-zone decision.
 ## Required curation order
 For every new species or batch:
 
-1. Confirm accepted taxonomy, authority, synonyms, and current genus placement.
-2. Apply target-zone range rules and record PASS, FAIL, or UNRESOLVED.
+1. Confirm accepted taxonomy, authority, synonyms, and current genus placement well enough to avoid duplicate or misleading learner concepts.
+2. Record the best current native-range status when already known or cheaply available, but do not require a three-county audit before a source-pool taxon enters the learner.
 3. Build the morphology-first identification package.
 4. Identify the most important local look-alikes and the structures that separate them.
 5. Define the diagnostic image roles required for that species.
@@ -185,4 +190,6 @@ GitHub remains authoritative. Sheet synchronization may update the Species Track
 Never store API keys, tokens, passwords, or other credentials in the tracker.
 
 ## Incomplete work
-If taxonomy, county range, morphology, look-alikes, or image provenance is incomplete or uncertain, keep the package clearly flagged as incomplete/UNRESOLVED and do not install it as final.
+Incomplete **county-range evidence alone does not block learner installation** for an approved source-pool taxon. Preserve the range state as UNRESOLVED/FAIL/COMPARISON and label it honestly.
+
+A separate species card may still be blocked when the taxonomic identity itself is unresolved enough that installation would create a duplicate, obsolete, or misleading concept. Morphology and image provenance may be provisional during Learner Fast-Fill as long as the page is clearly marked and remains useful for identification.
