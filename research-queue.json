@@ -6540,7 +6540,7 @@
       "scientific_name": "Grindelia adenodonta",
       "common_name": "Lonestar Gumweed",
       "status": "range_hold_reviewed",
-      "notes": "B062 HOLD — Williamson locked; fewer than 3 exact target-zone counties.",
+      "notes": "Manual Asteraceae refresh strengthens HOLD — Grindelia adenodonta is an accepted Texas species. Uvalde is now locked from a Texas A&M field-study specimen/collection series. Williamson is documented but outside the project target zone. No second and third exact target-zone counties were recovered in this pass. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -6550,43 +6550,83 @@
       "priority": 0,
       "queue_group": "B062 Grindelia",
       "batch_id": "deep-review-batch-064-grindelia-b062",
-      "last_deep_reviewed_at": "2026-10-03T22:10:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T08:49:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Uvalde"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Texas A&M range/flora study",
+          "url": "https://oaktrust.library.tamu.edu/server/api/core/bitstreams/ab9f9389-5d02-4912-a47a-f3c030accbaf/content",
+          "role": "Uvalde County Grindelia adenodonta collections"
+        },
+        {
+          "label": "UT Plant Resources Center — Williamson County Grindelia adenodonta",
+          "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Grindelia%20adenodonta",
+          "role": "Williamson occurrence, excluded from project threshold"
+        },
+        {
+          "label": "ITIS — Grindelia adenodonta",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?print_version=PRT&search_topic=TSN&search_value=507608&source=to_print",
+          "role": "accepted species concept"
+        }
+      ]
     },
     {
       "id": "grindelia-squarrosa",
       "scientific_name": "Grindelia squarrosa",
       "common_name": "Curlycup Gumweed",
-      "status": "range_hold_reviewed",
-      "notes": "B062 HOLD — old Central Texas G. squarrosa var. nuda records belong to current G. nuda; current-concept county evidence not sufficient.",
-      "approval_status": "hold_range_evidence",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "status": "taxonomy_range_hold_reviewed",
+      "notes": "Manual Asteraceae refresh strengthens TAXON/RANGE HOLD — current authorities conflict on the Central Texas 'nuda' concept. ITIS/GRIN fold Grindelia nuda / G. squarrosa var. nuda into G. squarrosa, while Kew currently accepts Grindelia nuda as a separate species native to central/northwest Texas. Historical Central Texas nuda-labelled records therefore cannot be assigned automatically to strict G. squarrosa for the county threshold. Learner admission unchanged.",
+      "approval_status": "hold_taxonomy_range",
+      "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
+      "canonical_status": "not_installed_hold",
       "reconciliation_status": "preserved_range_hold",
       "family": "Asteraceae",
       "genus": "Grindelia",
       "priority": 0,
       "queue_group": "B062 Grindelia",
       "batch_id": "deep-review-batch-064-grindelia-b062",
-      "last_deep_reviewed_at": "2026-10-03T22:10:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T08:49:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Grindelia nuda",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:210628-1",
+          "role": "current Kew treatment accepts G. nuda separately"
+        },
+        {
+          "label": "ITIS — Grindelia squarrosa",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=37472",
+          "role": "accepted G. squarrosa; treats G. nuda/nuda varieties as synonyms"
+        },
+        {
+          "label": "GRIN — Grindelia squarrosa var. nuda",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=451155",
+          "role": "alternative treatment folding var. nuda into G. squarrosa"
+        }
+      ]
     },
     {
       "id": "grindelia-ciliata",
       "scientific_name": "Grindelia ciliata",
       "common_name": "Spanish Gold / Waxed Goldenweed",
       "status": "range_hold_reviewed",
-      "notes": "Manual near-PASS cleanup CORRECTION — prior hold counted Williamson, but Williamson is outside the project target zone. Hays remains the only locked target-zone county in the current record. Modern Texas flora treats Grindelia ciliata (including old G. papposa usage) as widespread in Texas, but broad statewide distribution is not enough for the project's exact-county threshold. HOLD; needs two more exact target-zone counties.",
+      "notes": "Manual Asteraceae refresh confirms HOLD — Hays remains the only locked target-zone county. Broader Texas treatments support the accepted Grindelia ciliata concept, but this pass did not recover two additional exact target-zone specimen counties. Do not substitute historical G. papposa or other Grindelia concepts without specimen-level reconciliation.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -6596,7 +6636,7 @@
       "priority": 0,
       "queue_group": "B062 Grindelia",
       "batch_id": "deep-review-batch-064-grindelia-b062",
-      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T08:49:00-05:00",
       "verified_target_counties": [
         "Hays"
       ],
@@ -6605,7 +6645,7 @@
         {
           "label": "Asteraceae of East Texas",
           "url": "https://fwbg.org/wp-content/uploads/2021/08/Asteraceae_East_Texas_download.pdf",
-          "role": "accepted Grindelia ciliata concept, G. papposa synonymy, Texas distribution"
+          "role": "accepted Grindelia ciliata concept and Texas distribution context"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -6998,7 +7038,7 @@
       "scientific_name": "Silphium laciniatum",
       "common_name": "Compass Plant",
       "status": "range_hold_reviewed",
-      "notes": "B064 HOLD — current Kew Texas-native, but known Hays/Purola occurrence is introduced; no 3 exact target-zone native counties locked.",
+      "notes": "Manual Asteraceae refresh confirms HOLD — the known Hays/Purola occurrence remains introduced and excluded. Searches recovered Texas specimens/locality records, but not a clean set of three exact project target counties; one online specimen record even contains internally conflicting county/locality metadata and is not counted. Learner admission unchanged.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7008,22 +7048,36 @@
       "priority": 0,
       "queue_group": "B064 Silphium",
       "batch_id": "deep-review-batch-066-silphium-b064",
-      "last_deep_reviewed_at": "2026-10-03T22:55:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T08:49:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Purola Introduced Species",
+          "url": "https://w3.biosci.utexas.edu/prc/HaysFlora/IntroSpecs.html",
+          "role": "Hays occurrence explicitly introduced and excluded"
+        },
+        {
+          "label": "UNAM/MEXU — Silphium laciniatum specimen",
+          "url": "https://datosabiertos.unam.mx/IBUNAM%3AMEXU%3A123544",
+          "role": "Texas specimen with conflicting county/locality metadata; not counted"
+        }
+      ]
     },
     {
       "id": "silphium-integrifolium",
       "scientific_name": "Silphium integrifolium",
       "common_name": "Wholeleaf Rosinweed",
       "status": "taxonomy_range_hold_reviewed",
-      "notes": "B064 HOLD — current-concept local evidence unresolved because historical Central Texas labels such as S. integrifolium var. asperrimum/radulum map imperfectly to current Kew species concepts.",
+      "notes": "Manual Asteraceae refresh strengthens TAXON/RANGE HOLD — Travis/Edwards Plateau historical material commonly appears as Silphium integrifolium var. asperrimum in Texas resources, including the Balcones Canyonlands Preserve. Kew currently treats that name as a synonym of accepted Silphium asperrimum rather than S. integrifolium, so those Central Texas records cannot be transferred automatically to strict S. integrifolium. Learner admission unchanged.",
       "approval_status": "hold_taxonomy_range",
-      "native_range_status": "UNRESOLVED",
+      "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
       "canonical_status": "not_installed_hold",
       "reconciliation_status": "preserved_taxonomy_range_hold",
       "family": "Asteraceae",
@@ -7031,13 +7085,37 @@
       "priority": 0,
       "queue_group": "B064 Silphium",
       "batch_id": "deep-review-batch-066-silphium-b064",
-      "last_deep_reviewed_at": "2026-10-03T22:55:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T08:49:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed"
+      "learner_curation_status": "approved_taxonomy_mapping_needed",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "UT Plant Resources Center — Silphium integrifolium var. asperrimum",
+          "url": "https://w3.biosci.utexas.edu/prc/wildflowers/flower/silphium-integrifolium-var-asperrimum",
+          "role": "historical Texas/Edwards Plateau concept and specimen gallery"
+        },
+        {
+          "label": "Balcones Canyonlands Preserve plant list",
+          "url": "https://www.traviscountytx.gov/images/tnr/Docs/Plants.pdf",
+          "role": "Travis County occurrence under var. asperrimum historical concept"
+        },
+        {
+          "label": "Plants of the World Online — Silphium integrifolium var. asperrimum",
+          "url": "https://powo.science.kew.org/taxon/1025989-2",
+          "role": "current Kew treatment maps name to Silphium asperrimum"
+        },
+        {
+          "label": "ITIS — Silphium integrifolium",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=38400",
+          "role": "accepted strict S. integrifolium species concept"
+        }
+      ]
     },
     {
       "id": "quercus-lyrata",
