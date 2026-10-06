@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T01:00:51Z",
+  "updated_at": "2026-10-06T01:01:01Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3958,6 +3958,21 @@
       "release_when": "Durable strict Deep Review results are written for all three Lamiaceae taxa or the batch is explicitly aborted.",
       "notes": "Fresh strict Deep Review batch for Lamiaceae taxa that lack durable prior independent review. Verify accepted taxonomy, exact target-zone county evidence, and diagnostic learner cues; do not infer PASS from source-pool flags. Complete: Physostegia angustifolia Hays+Travis HOLD; Scutellaria ovata Travis-only HOLD with infraspecific caution; Monarda fistulosa Mason-only HOLD. No PASS promotions.",
       "released_at": "2026-10-05T20:13:00-05:00"
+    },
+    {
+      "claim_id": "manual-photo-fast-fill-mixed-018",
+      "scope_kind": "species_media",
+      "taxa": [
+        "opuntia-engelmannii-var-lindheimeri",
+        "opuntia-macrorhiza"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-collect-missing-species-photos-continuation",
+      "status": "active",
+      "claimed_at": "2026-10-06T01:01:01Z",
+      "expires_at": "2026-10-06T07:01:01.000Z",
+      "release_when": "Install and visually verify six physical Opuntia learner images or explicitly skip.",
+      "notes": "Physicalize two approved PASS pricklypear galleries. Normalize legacy URL-as-filename metadata and use cached Wikimedia thumbnails where applicable; preserve settled science."
     }
   ]
 }
