@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T08:00:00-05:00",
+  "updated_at": "2026-10-05T23:13:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4215,11 +4215,12 @@
       ],
       "lane": "botany-deep-review",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-06T08:00:00-05:00",
       "expires_at": "2026-10-06T14:00:00-05:00",
       "release_when": "Durable learner-fast-fill scientific review updates are saved for both taxa, or the batch is explicitly aborted.",
-      "notes": "Review-only under source-pool learner-admission rule; native-range status is descriptive metadata, not an admission gate."
+      "notes": "Review-only under source-pool learner-admission rule; native-range status is descriptive metadata, not an admission gate. Released after duplicate-prevention check: both E. bicolor and E. davidii already have durable deep-review results and learner-admission state; no new review needed.",
+      "released_at": "2026-10-05T23:13:00-05:00"
     },
     {
       "claim_id": "manual-one-photo-coverage-mixed-026",
