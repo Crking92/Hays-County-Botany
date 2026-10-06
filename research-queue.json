@@ -1811,7 +1811,7 @@
       "scientific_name": "Quercus virginiana",
       "family": "Fagaceae",
       "genus": "Quercus",
-      "status": "needs_manual_review",
+      "status": "taxonomy_range_hold_reviewed",
       "priority": 0,
       "research_goals": [
         "taxonomy_candidates",
@@ -1829,35 +1829,35 @@
         "source_count": 2
       },
       "batch_id": "deep-review-batch-015-quercus-b011",
-      "last_deep_reviewed_at": "2026-10-05T19:02:00-05:00",
-      "notes": "Manual unresolved cleanup confirms HOLD — do not count generic Central Texas live-oak records as Quercus virginiana. Modern sources accept Q. fusiformis separately (including former Q. virginiana var. fusiformis), and historical Travis/Central Texas material commonly falls in that plateau/Texas live-oak concept. Fewer than three exact target-zone counties remain defensible for strict Q. virginiana under the current project standard.",
-      "approval_status": "user_accepted_unresolved_hold",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
+      "notes": "Second eight-species refresh keeps TAXON/RANGE HOLD for strict Quercus virginiana. Kew accepts Q. virginiana and Q. fusiformis as separate species and places former Q. virginiana var. fusiformis under Q. fusiformis. Texas ecological sources acknowledge both names in Central Texas vegetation, but also note strong geographic/taxonomic separation and introgression. Generic Central Texas 'live oak' or historical Q. virginiana records therefore cannot be transferred to strict Q. virginiana without specimen-level identity. Learner admission remains approved with taxonomy mapping needed.",
+      "approval_status": "hold_taxonomy_range",
       "user_decision": {
         "decision": "accept_review_keep_unresolved",
         "decided_at": "2026-10-02T17:02:00-05:00",
         "note": "Blanket prior-batch approval accepted the review result; unresolved status preserved and not promoted as native."
       },
       "queue_disposition": "HOLD_OR_FAIL_PRESERVED",
-      "reconciliation_status": "preserved_noncanonical_hold",
+      "reconciliation_status": "preserved_taxonomy_range_hold",
       "reconciled_at": "2026-10-03T13:41:00-05:00",
       "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
-      "canonical_status": "not_installed",
+      "canonical_status": "not_installed_taxonomy_range_hold",
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "ITIS — Quercus fusiformis",
-          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=195175",
-          "role": "accepted Q. fusiformis and synonym Q. virginiana var. fusiformis"
+          "label": "Plants of the World Online — Quercus virginiana",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:324846-2",
+          "role": "accepted strict species; Texas native"
         },
         {
-          "label": "USDA GRIN — Quercus fusiformis",
-          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=413279",
-          "role": "accepted taxon concept and homotypic synonym"
+          "label": "Plants of the World Online — Quercus fusiformis",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:215854-2",
+          "role": "accepted separate Texas live-oak species; former Q. virginiana var. fusiformis synonymized here"
         },
         {
-          "label": "Texas Oak Wilt symposium specimen discussion",
-          "url": "https://texasoakwilt.org/assets/studies/NOWS/conference_assets/NOWS_SECTION_I.pdf",
-          "role": "historical Central Texas Q. virginiana-labelled material interpreted as Q. fusiformis"
+          "label": "USNVC — Texas live-oak alliance comments",
+          "url": "https://data.usgs.gov/usnvc-explorer/unitDetails/899314",
+          "role": "documents taxonomic/geographic distinction and introgression concerns for Texas coastal vs plateau live-oak concepts"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -3255,8 +3255,8 @@
         "hays_local": true
       },
       "batch_id": "deep-review-batch-026-eragrostis-b018-part1",
-      "last_deep_reviewed_at": "2026-10-06T08:28:00-05:00",
-      "notes": "Manual Poaceae refresh confirms HOLD — Uvalde remains the only exact project target county carried forward from the prior review. Kew specimen records and NPSOT/BONAP confirm the accepted Eragrostis hirsuta concept and broader Texas occurrence, but the specimens recovered in this pass did not add two exact target-zone counties. Taxonomically difficult nearby Eragrostis species are not transferred. Learner admission unchanged.",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
+      "notes": "Second eight-species refresh keeps HOLD. Eragrostis hirsuta remains an accepted Texas-native grass under the current concept, but Uvalde is still the only exact project target-zone county locked. A Travis Balcones Canyonlands checklist does not list E. hirsuta, so Travis is not inferred from broader Central Texas occurrence. No two additional exact target-zone counties recovered.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -3273,16 +3273,17 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Kew occurrence records — Eragrostis hirsuta",
-          "url": "https://records.data.kew.org/occurrences/d3b62f4e-47f0-447b-aa55-a22b6acaf13d",
-          "role": "accepted preserved-specimen occurrence and taxon concept"
-        },
-        {
           "label": "Native Plant Society of Texas — Eragrostis hirsuta",
           "url": "https://www.npsot.org/posts/native-plant/eragrostis-hirsuta/",
           "role": "Texas native distribution and BONAP cross-reference"
+        },
+        {
+          "label": "Travis County — Plants of the Balcones Canyonlands Preserve",
+          "url": "https://www.traviscountytx.gov/images/tnr/Docs/Plants.pdf",
+          "role": "negative Travis cross-check; several Eragrostis taxa listed but E. hirsuta absent"
         }
-      ]
+      ],
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "eragrostis-trichodes",
@@ -4583,36 +4584,38 @@
       "common_name": "Broomsedge / Broomsedge Bluestem",
       "family": "Poaceae",
       "genus": "Anatherum",
-      "status": "range_hold_reviewed",
+      "status": "review_complete_pass_pending_curation",
       "priority": 0,
       "queue_group": "B030 Andropogon / Anatherum",
       "batch_id": "deep-review-batch-039-andropogon-anatherum-b030",
-      "last_deep_reviewed_at": "2026-10-06T08:28:00-05:00",
-      "notes": "Manual Poaceae refresh confirms HOLD — Bexar remains the only exact project target county locked from the prior review. Regional ecological sources support broomsedge bluestem in the San Antonio/Bexar landscape, but broad ecological-site presence does not supply two additional exact counties. Current Anatherum virginicum/legacy Andropogon virginicus concept remains preserved for search and learner use.",
-      "approval_status": "hold_range_evidence",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
-      "reconciliation_status": "preserved_range_hold",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
+      "notes": "Second eight-species refresh PASS — Kew currently accepts Anatherum virginicum and explicitly treats Andropogon virginicus as a homotypic synonym, so legacy USDA county records under Andropogon virginicus are compatible with the learner's accepted Anatherum concept. USDA-derived county data lock Hays, Real, and San Saba, all within the project target zone. Three-county threshold met; curation remains a separate lane.",
+      "approval_status": "pass_ready_for_curation",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed_pending_curation",
+      "reconciliation_status": "review_pass_pending_curation",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_synonym_or_rank_normalization",
       "learner_approved_at": "2026-10-05T20:38:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Master Plant Pool row uses synonym/legacy name Andropogon virginicus. Native-range status remains separate metadata.",
-      "learner_range_label": "range_unresolved",
+      "learner_range_label": "confirmed_target_native",
       "learner_curation_status": "approved_pending_curation",
       "verified_target_counties": [
-        "Bexar"
+        "Hays",
+        "Real",
+        "San Saba"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Trans-Texas Water Program environmental report",
-          "url": "https://www.twdb.texas.gov/publications/reports/contracted_reports/doc/TransTXWCg.pdf",
-          "role": "Bexar/San Antonio regional Andropogon virginicus occurrence context"
+          "label": "Plants of the World Online — Anatherum virginicum",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30016735-2",
+          "role": "accepted species; Andropogon virginicus listed as homotypic synonym; Texas native"
         },
         {
-          "label": "USDA ecological site R150AY534TX",
-          "url": "https://edit.sc.egov.usda.gov/catalogs/esd/150A/R150AY534TX",
-          "role": "Texas ecological-site occurrence under legacy Andropogon virginicus name"
+          "label": "Rootfast / USDA PLANTS — Andropogon virginicus var. virginicus",
+          "url": "https://rootfast.org/plants/ANVIV",
+          "role": "USDA-derived county distribution; Hays, Real, and San Saba are project target-zone counties"
         }
       ]
     },
@@ -5456,18 +5459,37 @@
         "row": 300
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
-      "approval_status": "reject_rescout_taxon_concept",
-      "notes": "REJECT/RE-SCOUT — true Croton capitatus remains accepted, but Central Texas records under C. capitatus var. lindheimeri belong to current C. lindheimeri. Rebuild true-species range/photo evidence.",
+      "approval_status": "hold_taxonomy_range",
+      "notes": "Second eight-species refresh keeps TAXON/RANGE HOLD. Kew accepts true Croton capitatus as a Texas-native species, but modern FNA-era treatments split the Central Texas woolly-croton complex: historical C. capitatus var. lindheimeri is current C. lindheimeri, not strict C. capitatus. The UT/Williamson Central Texas material under var. lindheimeri therefore cannot be transferred into strict C. capitatus. True-species county evidence still needs rebuilding under the modern concept.",
       "native_range_status": "UNRESOLVED_TAXON_CONCEPT",
       "canonical_status": "not_installed_taxonomy_range_hold",
       "queue_group": "Manual Croton Deep Review",
-      "last_deep_reviewed_at": "2026-10-03T20:46:55-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "approved_source_pool_membership",
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed"
+      "learner_curation_status": "approved_taxonomy_mapping_needed",
+      "reconciliation_status": "preserved_taxonomy_range_hold",
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Croton capitatus",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:342226-1",
+          "role": "accepted strict species; Texas native"
+        },
+        {
+          "label": "Plants of the World Online — Croton lindheimeri",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60450445-2",
+          "role": "accepts C. lindheimeri separately and lists C. capitatus var. lindheimeri as synonym"
+        },
+        {
+          "label": "UT Plant Resources Center — Croton capitatus var. lindheimeri",
+          "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Croton%20capitatus%20lindheimeri.html",
+          "role": "historical Central Texas concept now mapping to C. lindheimeri; not strict C. capitatus"
+        }
+      ]
     },
     {
       "id": "croton-fruticulosus",
@@ -5545,7 +5567,7 @@
       "common_name": "Lindheimer's doveweed / woolly croton",
       "family": "Euphorbiaceae",
       "genus": "Croton",
-      "status": "needs_manual_review",
+      "status": "range_hold_reviewed",
       "priority": 0,
       "batch_id": "manual-deep-review-croton-001",
       "research_goals": [
@@ -5561,11 +5583,11 @@
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual Euphorbiaceae range reconciliation confirms HOLD — POWO currently accepts Croton lindheimeri and treats C. capitatus var. lindheimeri and Pilinophytum lindheimeri as synonyms. Travis remains the only exact target-zone county locked. Historical material under older names cannot be transferred automatically because Croton heptalon is also a distinct accepted Texas species. Learner admission remains approved; two more exact target-zone counties are still needed for native-range PASS.",
+      "notes": "Second eight-species refresh keeps HOLD. Kew and ITIS both accept Croton lindheimeri and synonymize historical C. capitatus var. lindheimeri into it. Travis remains the only project target-zone county firmly locked from the UT specimen index. Williamson material confirms the modern concept nearby but Williamson is outside the project target zone. No second and third exact target-zone counties recovered.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Croton Deep Review",
-      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
       "verified_target_counties": [
         "Travis"
       ],
@@ -5577,14 +5599,19 @@
           "role": "accepted species and synonymy"
         },
         {
-          "label": "Plants of the World Online — Croton heptalon",
-          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77106574-1",
-          "role": "distinct accepted Texas species; guards against legacy-record transfer"
+          "label": "ITIS — Croton lindheimeri",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=511813",
+          "role": "accepted species and C. capitatus var. lindheimeri synonymy"
         },
         {
-          "label": "UT Plant Resources Center — Travis County Euphorbiaceae specimens",
+          "label": "UT Plant Resources Center — Travis County Euphorbiaceae",
           "url": "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
-          "role": "Travis occurrence under legacy/current Croton concept"
+          "role": "Travis specimen evidence"
+        },
+        {
+          "label": "Vascular Plants of Williamson County — historical C. capitatus var. lindheimeri",
+          "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Croton%20capitatus%20lindheimeri.html",
+          "role": "nearby modern-concept support, excluded because Williamson is outside target zone"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -5592,7 +5619,8 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "croton-lindheimerianus",
@@ -6234,7 +6262,7 @@
       "common_name": "David's spurge",
       "family": "Euphorbiaceae",
       "genus": "Euphorbia",
-      "status": "needs_manual_review",
+      "status": "native_status_conflict_reviewed",
       "priority": 0,
       "batch_id": "manual-deep-review-euphorbia-test-001",
       "research_goals": [
@@ -6250,17 +6278,41 @@
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
       "approval_status": "hold_native_status_conflict",
-      "notes": "Manual Deep Review HOLD — taxonomy and E. dentata separation verified, but POWO treats Texas as introduced while FNA describes the southern Great Plains/Texas occurrence as native. Do not force native PASS.",
+      "notes": "Second eight-species refresh confirms an authority conflict, not a range PASS. POWO currently treats Texas as introduced for Euphorbia davidii, while GRIN explicitly lists Texas as native and ITIS reports continental-U.S. native status. EPPO follows POWO and also treats Texas as introduced. Because major current authorities disagree on Texas nativity, preserve CONFLICT rather than force either PASS or FAIL. Learner admission remains approved with range unresolved.",
       "native_range_status": "CONFLICT",
       "canonical_status": "not_installed_source_conflict",
       "queue_group": "Manual Euphorbia Deep Review Test",
-      "last_deep_reviewed_at": "2026-10-03T20:33:03-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "approved_source_pool_membership",
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_taxonomy_mapping_needed"
+      "learner_curation_status": "approved_taxonomy_mapping_needed",
+      "reconciliation_status": "preserved_authority_conflict",
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Euphorbia davidii",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:276643-2",
+          "role": "accepted taxonomy; treats Texas as introduced"
+        },
+        {
+          "label": "USDA GRIN — Euphorbia davidii",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=429419",
+          "role": "accepted taxonomy; explicitly lists Texas as native"
+        },
+        {
+          "label": "ITIS — Euphorbia davidii",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=565180",
+          "role": "accepted taxon and continental-U.S. native origin"
+        },
+        {
+          "label": "EPPO Global Database — Euphorbia davidii",
+          "url": "https://gd.eppo.int/taxon/EPHDV/datasheet",
+          "role": "current invasive-species synthesis following POWO; Texas treated as introduced"
+        }
+      ]
     },
     {
       "id": "euphorbia-dentata",
@@ -8158,7 +8210,7 @@
       "scientific_name": "Symphyotrichum lanceolatum subsp. lanceolatum",
       "common_name": "White Panicle Aster",
       "status": "range_hold_reviewed",
-      "notes": "Manual one-county-short reconciliation confirms HOLD — Hays and Travis remain the only locked project counties for nominate subsp. lanceolatum. WFO/GRIN confirm Texas nativity, but available accession/specimen searches did not recover a third exact target-zone county. East Texas treatments contain Bexar/Travis records for other Symphyotrichum taxa and are not transferred. One additional exact target-zone county still required.",
+      "notes": "Second eight-species refresh keeps HOLD. WFO/Kew/GRIN continue to accept the nominate Symphyotrichum lanceolatum subsp. lanceolatum and include Texas in its native range. Hays and Travis remain the only exact project target-zone counties locked in the current record. No third exact compatible subspecies-level county was recovered; species-level records of other infraspecific concepts are not transferred.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -8167,7 +8219,7 @@
       "priority": 0,
       "queue_group": "B071 Symphyotrichum",
       "batch_id": "deep-review-batch-073-symphyotrichum-b071",
-      "last_deep_reviewed_at": "2026-10-05T22:39:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
       "verified_target_counties": [
         "Hays",
         "Travis"
@@ -8180,9 +8232,14 @@
           "role": "accepted nominate subspecies and Texas native range"
         },
         {
-          "label": "GRIN accession search — Symphyotrichum",
-          "url": "https://npgsweb.ars-grin.gov/gringlobal/search?tg=17703",
-          "role": "accession/specimen cross-check; no third Texas target county recovered"
+          "label": "Plants of the World Online — Symphyotrichum lanceolatum subsp. lanceolatum",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77180710-1",
+          "role": "accepted subspecies and taxonomic backbone"
+        },
+        {
+          "label": "USDA GRIN — Symphyotrichum lanceolatum",
+          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=434245",
+          "role": "accepted species/infraspecific framework; Texas native"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -8190,7 +8247,8 @@
       "learner_approved_at": "2026-10-05T20:38:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Master Plant Pool contains the same taxon as Symphyotrichum lanceolatum ssp. lanceolatum; rank abbreviation normalized. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "argemone-albiflora",
@@ -8526,8 +8584,8 @@
     {
       "id": "acalypha-persimilis",
       "scientific_name": "Acalypha persimilis",
-      "status": "needs_manual_review",
-      "notes": "Manual Euphorbiaceae range reconciliation confirms HOLD — POWO currently accepts Acalypha persimilis and lists Texas in its native range, so the 2025 nomenclatural proposal does not by itself invalidate the current accepted name. However, this pass did not recover two additional exact target-zone county vouchers beyond the previously locked Uvalde record. Learner admission remains approved; native-range metadata remains unresolved.",
+      "status": "range_hold_reviewed",
+      "notes": "Second eight-species refresh keeps HOLD. Current Kew/WFO treatment continues to accept Acalypha persimilis and Texas nativity, so there is no basis to discard the taxon. Uvalde remains the only exact project target-zone county already locked. Searches of current specialist/specimen resources did not recover two additional exact target-zone county vouchers in this pass.",
       "family": "Euphorbiaceae",
       "genus": "Acalypha",
       "priority": 1,
@@ -8536,7 +8594,7 @@
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
-      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:27:00-05:00",
       "deep_review_owner": "manual-project-chat",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
@@ -8563,7 +8621,8 @@
           "url": "https://acalypha.es/secc/specimens.asp",
           "role": "specialist specimen resource for future county reconciliation"
         }
-      ]
+      ],
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "acalypha-phleoides",
