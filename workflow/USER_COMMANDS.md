@@ -64,6 +64,9 @@ Summarize only taxa that have completed deep review and are waiting for Calvin's
 ### "Approve [taxon]"
 Treat Calvin's approval as permission to build the curated species package from the reviewed evidence. Do not skip required project validation.
 
+### Source-pool default approval
+During Learner Fast-Fill, Calvin has given standing learner-admission approval to taxa present in the approved source pools / derived Master Plant Pool. Individual approval is not required merely because native-range status is FAIL, HOLD, UNRESOLVED, or not yet fully audited. Preserve that range label separately and do not call the taxon confirmed native unless the evidence supports it. Taxonomic identity conflicts still require mapping to the correct accepted/represented concept before a separate card is installed.
+
 ### "Approve this batch"
 Curate all taxa currently marked READY FOR CURATION in the referenced review batch.
 
@@ -110,13 +113,17 @@ Use the learner's morphology-first approach: LOOK HERE FIRST → diagnostic stru
 
 ## Normal status model
 
-Source pool
-→ queued
-→ scouted
-→ deep reviewed
-→ READY / NEEDS REVIEW / RE-SCOUT
-→ Calvin approval
+Approved source pool
+→ learner admission approved
+→ taxonomy/ID review as needed
+→ morphology + visual package
 → curated package
 → installed learner
 
-No automated Scout or Reviewer is allowed to silently promote research drafts into canonical learner content.
+Native-range status runs in parallel as metadata:
+
+`PASS / FAIL / UNRESOLVED / CONFLICT / COMPARISON`
+
+A range HOLD no longer means "do not use in the learner." It means "do not label as confirmed target-zone native yet."
+
+No automated Scout or Reviewer may create a misleading duplicate taxon concept; canonical installation still belongs to the curation/installer lane.
