@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T01:45:00Z",
+  "updated_at": "2026-10-06T02:37:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4030,6 +4030,24 @@
       "release_when": "The six-taxon learner-admission batch is installed/reconciled or explicitly aborted.",
       "notes": "First manual curation batch under source-pool learner-admission policy. Preserve native-range labels; no county-proof gating. Installed successfully as learner-admission-malvaceae-001; curation run 37400535713 succeeded with 6 species and no science warnings. Photos remain for backfill.",
       "released_at": "2026-10-05T20:45:00-05:00"
+    },
+    {
+      "claim_id": "manual-deep-review-euphorbiaceae-range-005",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "acalypha-persimilis",
+        "argythamnia-humilis",
+        "tragia-brevispica",
+        "croton-lindheimeri",
+        "euphorbia-bicolor"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T21:37:00-05:00",
+      "expires_at": "2026-10-06T03:37:00-05:00",
+      "release_when": "Durable range-reconciliation results are written for all five taxa or the batch is explicitly aborted.",
+      "notes": "Manual Euphorbiaceae range-reconciliation batch. Learner admission is already approved separately; do not change learner admission. Resolve only native-range/taxonomic evidence."
     }
   ]
 }
