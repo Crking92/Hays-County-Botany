@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T14:29:00-05:00",
+  "updated_at": "2026-10-06T14:32:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5048,6 +5048,22 @@
       "release_when": "Comparison-first family recognition upgrades are durably written or batch is explicitly aborted.",
       "notes": "Post-147/147 structural pass. Improve family-vs-family tie-breakers, exact diagnostic structures, exceptions, genus routing, and diagnostic visual roles only; no species scouting or canonical installation. First durable comparison pass completed for Poaceae/Cyperaceae/Juncaceae and Lamiaceae/Verbenaceae/Rubiaceae. Continue remaining clusters in subsequent claims.",
       "released_at": "2026-10-06T14:29:00-05:00"
+    },
+    {
+      "claim_id": "manual-one-photo-coverage-mixed-051",
+      "scope_kind": "species_media",
+      "taxa": [
+        "asclepias-incarnata",
+        "monarda-fistulosa",
+        "passiflora-incarnata"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-one-photo-coverage-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T14:32:00-05:00",
+      "expires_at": "2026-10-06T20:32:00-05:00",
+      "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
+      "notes": "ONE-PHOTO COVERAGE batch 051. Fresh live-zero verification confirmed Asclepias incarnata, Monarda fistulosa, and Passiflora incarnata all have images[] = 0 and no active media claims. Use exact-species Wikimedia Commons field photos with explicit reuse status: Asclepias CC0 (Matt Schultz), Monarda CC BY 4.0 (Alex Abair), Passiflora CC BY 4.0 (Alex Abair). Media-only; preserve settled science."
     }
   ]
 }
