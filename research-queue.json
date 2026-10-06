@@ -5155,13 +5155,13 @@
       "queue_group": "B040 Eryngium",
       "batch_id": "deep-review-batch-048-eryngium-b040",
       "status": "range_hold_reviewed",
-      "notes": "Manual one-county-short reconciliation confirms HOLD — USDA-derived county data still show Bexar and Gillespie as the only counties in the project target list. NPSOT/BONAP corroborate the Texas-native distribution, but no third exact target-zone county appears in the current county dataset. One additional target county still required.",
+      "notes": "Larger-batch manual refresh keeps HOLD — USDA-derived county distribution still yields Bexar and Gillespie as the only project target-zone counties for Eryngium yuccifolium. The UT Travis County Apiaceae specimen index does not list this species, so Travis is not inferred. Texas native status is well supported, but no third exact target-zone county was recovered.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "reconciliation_status": "preserved_range_hold",
       "priority": 0,
-      "last_deep_reviewed_at": "2026-10-05T22:39:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "verified_target_counties": [
         "Bexar",
         "Gillespie"
@@ -5169,14 +5169,19 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Rootfast/USDA — Eryngium yuccifolium",
+          "label": "Rootfast / USDA PLANTS — Eryngium yuccifolium",
           "url": "https://rootfast.org/plants/ERYU",
-          "role": "county distribution; Bexar and Gillespie are the only project target counties present"
+          "role": "USDA-derived county distribution; Bexar and Gillespie are the target-zone records"
         },
         {
           "label": "Native Plant Society of Texas — Eryngium yuccifolium",
           "url": "https://www.npsot.org/posts/native-plant/eryngium-yuccifolium/",
           "role": "Texas-native distribution and BONAP-linked context"
+        },
+        {
+          "label": "UT Plant Resources Center — Travis County Apiaceae",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Apiaceae.html",
+          "role": "negative cross-check; E. yuccifolium not listed as a Travis County specimen taxon"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -5463,7 +5468,7 @@
       "common_name": "Bush croton",
       "family": "Euphorbiaceae",
       "genus": "Croton",
-      "status": "range_hold_reviewed",
+      "status": "review_complete_pass_pending_curation",
       "priority": 0,
       "batch_id": "manual-deep-review-croton-001",
       "research_goals": [
@@ -5478,18 +5483,47 @@
         "row": 301
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
-      "approval_status": "hold_range_evidence",
-      "notes": "Manual Deep Review HOLD — Travis locked. Previous Kerr claim was withdrawn after TPWD checklist recheck; Comal not strong enough to count. Need two more exact target-zone counties.",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
+      "approval_status": "pass_ready_for_curation",
+      "notes": "Larger-batch manual refresh PASS — Croton fruticulosus is accepted by Kew and native to southwestern Texas. Travis remains locked from the UT Plant Resources Center. A preserved ILLS specimen locks Comal County near Canyon Lake, and Heller's 1894 southern-Texas botanical exploration documents C. fruticulosus growing on both banks of the Guadalupe at Kerrville, locking Kerr County. Three exact project target-zone counties are now supported: Travis, Comal, Kerr.",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed_pending_curation",
       "queue_group": "Manual Croton Deep Review",
-      "last_deep_reviewed_at": "2026-10-03T20:46:55-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "approved_source_pool_membership",
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
-      "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_range_label": "confirmed_target_native",
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "review_pass_pending_curation",
+      "verified_target_counties": [
+        "Travis",
+        "Comal",
+        "Kerr"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Croton fruticulosus",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:342559-1",
+          "role": "accepted species concept and Texas native status"
+        },
+        {
+          "label": "UT Plant Resources Center — Travis County Euphorbiaceae",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+          "role": "Travis County specimen evidence"
+        },
+        {
+          "label": "Illinois Natural History Survey — Croton fruticulosus ILLS00139680",
+          "url": "https://biocoll.inhs.illinois.edu/portal/collections/list.php?comingFrom=harvestparams&db=51&page=51&taxa=Euphorbiaceae&taxontype=3",
+          "role": "preserved Comal County specimen near Canyon Lake"
+        },
+        {
+          "label": "Heller 1895 — Botanical explorations in southern Texas",
+          "url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Botanical_explorations_in_southern_Texas_during_the_season_of_1894_%28IA_botanicalexplora00hellrich%29.pdf",
+          "role": "exact Kerrville/Kerr County field occurrence on both banks of the Guadalupe"
+        }
+      ]
     },
     {
       "id": "croton-lindheimeri",
@@ -6008,27 +6042,32 @@
       "queue_group": "B060 Rudbeckia",
       "batch_id": "deep-review-batch-062-rudbeckia-b060",
       "status": "range_hold_reviewed",
-      "notes": "Manual near-PASS cleanup 2 CORRECTION — prior note counted Williamson, which is outside the project target zone. Travis remains the only qualifying locked county in the current record. NPSOT/BONAP confirm Texas nativity and strong Blackland/east-central distribution, but no second and third exact target-zone native counties were locked in this pass. HOLD.",
+      "notes": "Larger-batch manual refresh keeps HOLD — Kew accepts Rudbeckia amplexicaulis. Travis remains the only qualifying exact project target-zone county in the current record. A current Hays County TxDOT contract specifies clasping-leaf coneflower for seeding, but that is deliberate restoration/roadside planting and is explicitly not counted as wild native county evidence. NPSOT confirms strong Texas Blackland/east-central regional occurrence, but no second and third exact native target-zone counties were locked.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "reconciliation_status": "preserved_range_hold",
       "priority": 0,
-      "last_deep_reviewed_at": "2026-10-05T20:18:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "verified_target_counties": [
         "Travis"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Native Plant Society of Texas — Rudbeckia amplexicaulis",
-          "url": "https://www.npsot.org/posts/native-plant/rudbeckia-amplexicaulis/",
-          "role": "Texas native distribution and BONAP cross-reference"
+          "label": "Plants of the World Online — Rudbeckia amplexicaulis",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:241660-1",
+          "role": "accepted species concept"
         },
         {
-          "label": "TxDOT wildflower regional guidance",
-          "url": "https://www.txdot.gov/manuals/mnt/veg/native_and_introduced_grasses_wildflowers_and_legu/selecting_wildflowers_by_natural_vegetative_region.html",
-          "role": "Texas regional occurrence context"
+          "label": "Native Plant Society of Texas — Rudbeckia amplexicaulis",
+          "url": "https://www.npsot.org/posts/native-plant/rudbeckia-amplexicaulis/",
+          "role": "Texas native regional/ecoregion context"
+        },
+        {
+          "label": "TxDOT Hays County wildflower-seeding contract",
+          "url": "https://ftp.txdot.gov/pub/txdot-info/cmd/txctesttxdotgov/proposal/preprod/14/A00194936/PR_A00194936.pdf",
+          "role": "Hays deliberate seeding specification; explicitly excluded from wild-native county threshold"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -6067,7 +6106,7 @@
       "common_name": "snow-on-the-prairie",
       "family": "Euphorbiaceae",
       "genus": "Euphorbia",
-      "status": "needs_manual_review",
+      "status": "range_hold_reviewed",
       "priority": 0,
       "batch_id": "manual-deep-review-euphorbia-test-001",
       "research_goals": [
@@ -6083,32 +6122,32 @@
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual Euphorbiaceae range reconciliation confirms HOLD — Hays and Travis remain locked. UT PRC documents the species as common in parts of central/eastern/north-central Texas and has multiple Travis specimens, but this pass did not recover a third exact project target county from a specimen-level source. Broad Texas/central-region evidence and the type's generic 'Texas' locality are not counted. Learner admission remains approved.",
+      "notes": "Larger-batch manual refresh keeps HOLD — Kew accepts Euphorbia bicolor as native to Texas. Hays remains documented at Purola and Travis is supported by multiple UT specimens. Broad central/eastern Texas distribution language and generic Texas type material are not enough to assign a third project county. No third exact target-zone county recovered.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Euphorbia Deep Review Test",
-      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "UT Plant Resources Center — Euphorbia bicolor",
-          "url": "https://w3.biosci.utexas.edu/prc/wildflowers/flower/euphorbia-bicolor",
-          "role": "Texas distribution and specimen gallery"
+          "label": "Plants of the World Online — Euphorbia bicolor",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:345779-1",
+          "role": "accepted species concept and Texas native status"
         },
         {
-          "label": "UT Plant Resources Center — Travis County Euphorbiaceae specimens",
+          "label": "UT Plant Resources Center — Euphorbia bicolor",
+          "url": "https://w3.biosci.utexas.edu/prc/wildflowers/flower/euphorbia-bicolor",
+          "role": "central/eastern Texas distribution and specimen context"
+        },
+        {
+          "label": "UT Plant Resources Center — Travis County Euphorbiaceae",
           "url": "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
           "role": "multiple Travis County specimens"
         },
         {
-          "label": "Flora of Purola Preserve — Euphorbia bicolor",
+          "label": "Purola Preserve — Euphorbia bicolor",
           "url": "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/EUBI2.html",
           "role": "Hays County occurrence"
-        },
-        {
-          "label": "MNHN type — Euphorbia bicolor",
-          "url": "https://science.mnhn.fr/institution/mnhn/collection/p/item/p00607195",
-          "role": "historical Texas type locality; not exact enough for county threshold"
         }
       ],
       "verified_target_counties": [
@@ -6120,7 +6159,8 @@
       "learner_approved_at": "2026-10-05T20:20:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: source-pool membership is sufficient for learner admission. Native-range status remains separate metadata and does not block inclusion.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold"
     },
     {
       "id": "euphorbia-cyathophora",
@@ -7251,7 +7291,7 @@
       "scientific_name": "Passiflora foetida",
       "common_name": "Fetid Passionflower",
       "status": "range_hold_reviewed",
-      "notes": "B063 HOLD — Bexar locked; native South Texas species but fewer than 3 exact target-zone counties locked. Strong confusion risk with introduced P. lanuginosa/ciliata-type plants in San Antonio.",
+      "notes": "Larger-batch manual refresh keeps HOLD — Kew accepts Passiflora foetida as native to Texas, but Bexar remains the only exact project target-zone county retained in the current evidence. Local San Antonio identification guidance emphasizes that many apparent P. foetida records are actually introduced P. ciliata/lanuginosa-type plants, so casual Bexar-area reports are not expanded to neighboring counties. No second and third exact target-zone native counties were recovered.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7261,13 +7301,29 @@
       "priority": 0,
       "queue_group": "B063 Passiflora",
       "batch_id": "deep-review-batch-065-passiflora-b063",
-      "last_deep_reviewed_at": "2026-10-03T22:30:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Bexar"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Passiflora foetida",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:321966-2",
+          "role": "accepted species concept and Texas native status"
+        },
+        {
+          "label": "iNaturalist Texas Native Plants identification notes",
+          "url": "https://www.inaturalist.org/posts/65660-identify-notes-texas-native-plants",
+          "role": "documents strong San Antonio/Bexar confusion risk with introduced P. ciliata/lanuginosa-type plants; supports conservative record filtering"
+        }
+      ]
     },
     {
       "id": "passiflora-lanuginosa",
@@ -7605,7 +7661,7 @@
       "scientific_name": "Coreopsis lanceolata",
       "common_name": "Lance-leaved Coreopsis",
       "status": "range_hold_reviewed",
-      "notes": "Manual near-PASS cleanup 2 CORRECTION — Williamson removed because it is outside the project target zone. Travis remains a documented wild locality at Reimer's Ranch. Nearby Blanco/Gillespie LBJ National Historical Park occurrence is explicitly marked non-native by NPS and cannot count toward the native threshold. NPSOT places the species primarily in Blackland/Gulf/East-Central regions. HOLD pending two more exact native target-zone counties.",
+      "notes": "Larger-batch manual refresh keeps HOLD — Coreopsis lanceolata remains accepted and Texas-native, but Travis is still the only wild project target-zone locality retained in the current record. Hays County Master Gardener and Bexar County AgriLife references are plant-sale/landscape recommendations and are not wild occurrence evidence; LBJ NHP records in Blanco/Gillespie remain explicitly non-native. No second and third exact native target-zone counties recovered.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7615,26 +7671,31 @@
       "priority": 0,
       "queue_group": "B067 Coreopsis",
       "batch_id": "deep-review-batch-069-coreopsis-b067",
-      "last_deep_reviewed_at": "2026-10-05T20:18:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "verified_target_counties": [
         "Travis"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
+          "label": "Plants of the World Online — Coreopsis lanceolata synonym backbone",
+          "url": "https://powo.science.kew.org/taxon/198242-1",
+          "role": "Kew synonym record points to accepted Coreopsis lanceolata concept"
+        },
+        {
           "label": "Texas Wild Buds — Coreopsis lanceolata",
           "url": "https://www.texaswildbuds.com/coreopsis-lanceolata.html",
-          "role": "Travis County Reimer's Ranch occurrence"
+          "role": "Travis County Reimer's Ranch wild occurrence"
         },
         {
-          "label": "NPSpecies — Coreopsis lanceolata at Lyndon B. Johnson NHP",
-          "url": "https://irma.nps.gov/NPSpecies/Species/Profile/383497",
-          "role": "Blanco/Gillespie park record explicitly marked non-native"
+          "label": "Hays County Master Gardener — native/adapted plant sale list",
+          "url": "https://txmg.org/hays/files/2020/05/Recommended-List-of-Native-Adapted-for-Fall-Sale_April-2020.pdf",
+          "role": "Hays horticultural availability only; excluded from wild county threshold"
         },
         {
-          "label": "Native Plant Society of Texas — Coreopsis lanceolata",
-          "url": "https://www.npsot.org/posts/native-plant/coreopsis-lanceolata/",
-          "role": "Texas native ecoregion distribution"
+          "label": "Bexar County AgriLife — Plants for Shade",
+          "url": "https://bexar-tx.tamu.edu/earth-kind-horticulture/best-plants-for-bexar-county-south-texas/plants-for-shade/",
+          "role": "Bexar horticultural recommendation only; excluded from wild county threshold"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -7940,7 +8001,7 @@
       "scientific_name": "Solidago rugosa",
       "common_name": "Wrinkleleaf Goldenrod",
       "status": "range_hold_reviewed",
-      "notes": "B070 HOLD — Texas-native at species level, but 3 exact target-zone counties not locked.",
+      "notes": "Larger-batch manual refresh keeps HOLD — Kew accepts Solidago rugosa as native to Texas and recognizes multiple infraspecific taxa, but the current pass did not recover three exact project target-zone counties under a clearly compatible species concept. Statewide/eastern-US native status is not substituted for county proof. HOLD.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7949,13 +8010,23 @@
       "priority": 0,
       "queue_group": "B070 Solidago",
       "batch_id": "deep-review-batch-072-solidago-b070",
-      "last_deep_reviewed_at": "2026-10-04T01:05:00-05:00",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "reconciliation_status": "preserved_range_hold",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Solidago rugosa",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:249846-1",
+          "role": "accepted species, Texas native status, and accepted infraspecific structure"
+        }
+      ]
     },
     {
       "id": "solidago-mexicana",
@@ -8663,40 +8734,47 @@
       "id": "argythamnia-humilis",
       "scientific_name": "Argythamnia humilis",
       "common_name": "Low silverbush",
-      "status": "needs_manual_review",
-      "notes": "Manual one-county-short reconciliation confirms HOLD — Harvard specimens continue to lock Austin (Travis) and New Braunfels (Comal). Additional historical sheets are labeled only 'West of the Brazos', 'Comanche Spring', or 'Leona–Nueces'; none can be assigned to a third exact target-zone county without overinterpreting historical geography. One additional exact county still required.",
+      "status": "review_complete_pass_pending_curation",
+      "notes": "Larger-batch manual refresh PASS — Argythamnia humilis is accepted by Kew and native to Texas. Travis and Comal remain locked from Harvard specimens. USDA-derived county data now independently place the species in Blanco County, which is inside the project target zone. Three exact target-zone counties are therefore locked: Travis, Comal, Blanco. Learner admission unchanged; curation remains separate.",
       "family": "Euphorbiaceae",
       "genus": "Argythamnia",
       "priority": 1,
       "queue_group": "Scout Euphorbiaceae Argythamnia/Bernardia/Triadica",
       "batch_id": "scout-2026-10-03-euphorbiaceae-06",
-      "approval_status": "hold_range_evidence",
-      "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed_range_hold",
-      "last_deep_reviewed_at": "2026-10-05T22:39:00-05:00",
+      "approval_status": "pass_ready_for_curation",
+      "native_range_status": "PASS",
+      "canonical_status": "not_installed_pending_curation",
+      "last_deep_reviewed_at": "2026-10-06T12:08:00-05:00",
       "deep_review_owner": "manual-project-chat",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
-      "learner_range_label": "range_unresolved",
+      "learner_range_label": "confirmed_target_native",
       "learner_curation_status": "approved_pending_curation",
       "verified_target_counties": [
         "Travis",
-        "Comal"
+        "Comal",
+        "Blanco"
       ],
       "deep_review_sources": [
         {
-          "label": "Harvard University Herbaria — Argythamnia humilis specimens",
-          "url": "https://data.huh.harvard.edu/databases/specimen_search.php?family=Euphorbiaceae&limit=5000&mode=search&start=0",
-          "role": "Austin, New Braunfels, Leona–Nueces, and other historical material"
+          "label": "Plants of the World Online — Argythamnia humilis",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18922-2",
+          "role": "accepted species concept and Texas native status"
         },
         {
-          "label": "Argythamnia subgenus Ditaxis revision",
-          "url": "https://www.scielo.org.mx/scielo.php?pid=S2007-42982013000400004&script=sci_arttext",
-          "role": "accepted taxon/type context; does not resolve a third exact project county"
+          "label": "Harvard University Herbaria — Argythamnia humilis specimens",
+          "url": "https://data.huh.harvard.edu/databases/specimen_search.php?family=Euphorbiaceae&limit=5000&mode=search&start=0",
+          "role": "existing exact Travis (Austin) and Comal (New Braunfels) specimen evidence"
+        },
+        {
+          "label": "Rootfast / USDA PLANTS — Blanco County, Texas",
+          "url": "https://rootfast.org/texas/blanco",
+          "role": "USDA-derived Blanco County native occurrence for Argythamnia humilis"
         }
-      ]
+      ],
+      "reconciliation_status": "review_pass_pending_curation"
     },
     {
       "id": "argythamnia-simulans",
