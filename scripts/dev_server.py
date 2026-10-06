@@ -201,13 +201,24 @@ def decision_note(decision, note):
 
 def apply_decision(item, decision, note):
     rng = range_status(item)
+    learner_curation = str(item.get("learner_curation_status") or "")
     if decision == "approve_for_curation":
-        if rng in {"FAIL", "UNRESOLVED"}:
+        if learner_curation == "approved_taxonomy_mapping_needed":
             raise ValueError(
-                f"{rng} records cannot use normal approval. Use comparison retention, more review, rejection, or an explicit unresolved exception."
+                "This taxon is learner-approved, but its name/concept must be mapped before a separate canonical card is installed."
+            )
+        if learner_curation == "represented_existing_no_new_card":
+            raise ValueError(
+                "This source-pool record is already represented by another accepted learner concept; reconcile it as an alias/reference instead of installing a duplicate card."
             )
         item["status"] = "approved_pending_curation"
         item["approval_status"] = "user_approved"
+        item["learner_admission_status"] = "APPROVED"
+        item["learner_curation_status"] = "approved_pending_curation"
+        item["learner_approved_at"] = now_iso()
+        item["learner_approval_note"] = (
+            "Learner admission approved. Native-range status is preserved separately and does not block curation."
+        )
     elif decision == "needs_more_review":
         item["status"] = "needs_manual_review"
         item["approval_status"] = "needs_manual_review"
@@ -217,21 +228,31 @@ def apply_decision(item, decision, note):
     elif decision == "approve_as_comparison":
         item["status"] = "approved_comparison_pending_curation"
         item["approval_status"] = "user_approved_comparison_retention"
+        item["learner_admission_status"] = "APPROVED"
+        item["learner_curation_status"] = "approved_pending_curation"
         item["learner_role"] = recommended_comparison_role(item)
         item["native_metrics_excluded"] = True
     elif decision == "approve_with_range_exception":
-        if rng != "UNRESOLVED":
-            raise ValueError("Range exceptions are only allowed for UNRESOLVED records.")
+        # Backward-compatible legacy action. Range exceptions are no longer
+        # required for learner admission, so treat this as normal approval
+        # while preserving the unresolved range evidence.
+        if learner_curation == "approved_taxonomy_mapping_needed":
+            raise ValueError(
+                "Taxonomy mapping is required before a separate canonical card is installed."
+            )
         item["status"] = "approved_pending_curation"
-        item["approval_status"] = "approved_with_range_exception"
+        item["approval_status"] = "user_approved"
+        item["learner_admission_status"] = "APPROVED"
+        item["learner_curation_status"] = "approved_pending_curation"
         item["range_exception"] = {
             "approved": True,
             "approved_at": now_iso(),
-            "reason": "Explicit human approval; unresolved county evidence remains preserved.",
+            "reason": "Legacy dashboard action retained for audit history; unresolved range evidence remains preserved.",
         }
     elif decision == "reject":
         item["status"] = "rejected"
         item["approval_status"] = "user_rejected"
+        item["learner_admission_status"] = "REJECTED"
     else:
         raise ValueError("Unsupported decision.")
 
