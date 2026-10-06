@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T00:35:00Z",
+  "updated_at": "2026-10-06T00:52:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3933,11 +3933,12 @@
       ],
       "lane": "botany-deep-review",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T19:35:00-05:00",
       "expires_at": "2026-10-06T01:35:00-05:00",
       "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
-      "notes": "Manual county-evidence recovery batch. Reuse completed reviews; correct any Williamson leakage and seek exact target-zone native county evidence."
+      "notes": "Manual county-evidence recovery batch. Reuse completed reviews; correct any Williamson leakage and seek exact target-zone native county evidence. Complete: no PASS promotions. Corrected out-of-zone/introduced evidence for Passiflora incarnata, Prunus caroliniana, and Prunus angustifolia; Argemone polyanthemos remains Travis-only; Argemone sanguinea gains a documented Uvalde wild occurrence but remains below threshold.",
+      "released_at": "2026-10-05T19:52:00-05:00"
     }
   ]
 }
