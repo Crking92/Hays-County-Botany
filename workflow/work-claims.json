@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T04:15:00Z",
+  "updated_at": "2026-10-06T08:00:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4205,6 +4205,21 @@
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
       "notes": "ONE-PHOTO COVERAGE batch 025. Ten canonical/learner-ready pages freshly verified with empty images[] and no claim collisions. Uses clean reusable Commons/USDA/iNaturalist media or existing project-vetted provenance. Media-only; preserve all science. Completed: all 10 targets installed successfully by curation commit fea6ef946d90427d659a5030c495af53308bc976; canonical metadata and physical image files were written.",
       "released_at": "2026-10-05T22:18:00-05:00"
+    },
+    {
+      "claim_id": "manual-deep-review-euphorbia-fastfill-20261006-001",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "euphorbia-bicolor",
+        "euphorbia-davidii"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T08:00:00-05:00",
+      "expires_at": "2026-10-06T14:00:00-05:00",
+      "release_when": "Durable learner-fast-fill scientific review updates are saved for both taxa, or the batch is explicitly aborted.",
+      "notes": "Review-only under source-pool learner-admission rule; native-range status is descriptive metadata, not an admission gate."
     }
   ]
 }
