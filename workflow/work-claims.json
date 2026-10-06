@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T13:29:00Z",
+  "updated_at": "2026-10-06T13:36:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4264,6 +4264,24 @@
       "release_when": "Durable range/taxon reconciliation results are written for all four grasses or the batch is explicitly aborted.",
       "notes": "Manual Poaceae refresh batch. Learner admission unchanged. Recheck exact target-zone county evidence and modern taxon concepts; do not infer counties from broad regional distributions. Complete: no PASS promotions. Eragrostis hirsuta Uvalde-only; Anatherum virginicum Bexar-only; Sorghastrum elliottii no target counties locked; Sporobolus compositus remains a strict taxon-concept/range hold with Travis records explicitly conflicted.",
       "released_at": "2026-10-06T08:29:00-05:00"
+    },
+    {
+      "claim_id": "manual-deep-review-asteraceae-refresh-009",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "grindelia-adenodonta",
+        "grindelia-squarrosa",
+        "grindelia-ciliata",
+        "silphium-laciniatum",
+        "silphium-integrifolium"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T08:36:00-05:00",
+      "expires_at": "2026-10-06T14:36:00-05:00",
+      "release_when": "Durable taxonomy/range reconciliation results are written for all five Asteraceae taxa or the batch is explicitly aborted.",
+      "notes": "Manual Asteraceae refresh batch. Revisit older Grindelia/Silphium holds, correct out-of-zone evidence, and seek exact target-zone county records under current taxon concepts. Learner admission unchanged."
     }
   ]
 }
