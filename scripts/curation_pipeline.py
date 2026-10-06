@@ -393,6 +393,77 @@ def rebuild_manifest(report: dict) -> None:
     report["canonical_species_count"] = len(species_entries)
 
 
+def rebuild_photo_fast_fill_queue() -> None:
+    """Write a compact live queue of canonical species with zero displayable images."""
+    claims_path = ROOT / "workflow" / "work-claims.json"
+    active_claims: dict[str, list[str]] = {}
+    if claims_path.exists():
+        claims_obj = load_json(claims_path)
+        for claim in claims_obj.get("claims", []):
+            if claim.get("status") not in {"active", "queued", "blocked"}:
+                continue
+            for taxon_id in claim.get("taxa", []) or []:
+                active_claims.setdefault(taxon_id, []).append(
+                    str(claim.get("claim_id") or claim.get("lane") or "active-claim")
+                )
+
+    inbox_taxa: set[str] = set()
+    if INBOX.exists():
+        for species_json in INBOX.glob("*/taxa/*/*/*/species.json"):
+            try:
+                inbox_taxa.add(str(load_json(species_json).get("id") or ""))
+            except Exception:
+                continue
+
+    items = []
+    for path in sorted(CONTENT.glob("*/*/*/species.json")):
+        try:
+            sp = load_json(path)
+        except Exception:
+            continue
+        images = sp.get("images")
+        if isinstance(images, list) and images:
+            continue
+
+        taxon_id = str(sp.get("id") or "")
+        if not taxon_id:
+            continue
+
+        species_dir = path.parent
+        existing_csv = species_dir / "image-sources.csv"
+        study_media = sp.get("study_media")
+        source_hint = bool(existing_csv.exists() or (isinstance(study_media, list) and study_media))
+
+        items.append({
+            "id": taxon_id,
+            "scientific_name": scientific_name(sp),
+            "family": sp.get("family"),
+            "genus": sp.get("genus"),
+            "path": str(path.relative_to(ROOT)).replace("\\", "/"),
+            "active_claims": active_claims.get(taxon_id, []),
+            "in_curation_inbox": taxon_id in inbox_taxa,
+            "existing_source_hint": source_hint,
+            "photo_note": sp.get("photo_note"),
+        })
+
+    # Put easiest unclaimed/unreserved candidates first.
+    items.sort(key=lambda x: (
+        bool(x["active_claims"]),
+        bool(x["in_curation_inbox"]),
+        not bool(x["existing_source_hint"]),
+        str(x.get("family") or ""),
+        str(x.get("scientific_name") or ""),
+    ))
+
+    out = {
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "purpose": "Live canonical zero-photo queue for workflow/ONE_PHOTO_FAST_FILL.md. Rebuilt after every successful curation run.",
+        "zero_photo_count": len(items),
+        "items": items,
+    }
+    write_json(REPORTS / "photo-fast-fill-zero-queue.json", out)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--apply", action="store_true", help="install validated batches")
@@ -436,6 +507,7 @@ def main() -> int:
 
     if args.apply:
         rebuild_manifest(report)
+        rebuild_photo_fast_fill_queue()
 
     report["finished_at"] = datetime.now(timezone.utc).isoformat()
     write_json(REPORTS / "last-curation-run.json", report)
