@@ -101,3 +101,48 @@ Success is **coverage breadth**, not polish:
 - move immediately to the next zero.
 
 Gallery quality, diagnostic closeups, stronger local imagery, arrows/labels, comparisons, and scientific enrichment belong to Learner Photo Backfill, Deep Review, Joey/user-media work, and later visual-polish lanes.
+
+## Performance budget
+
+This lane is intentionally optimized for wall-clock speed. Do not turn a production batch into a workflow-design or research session.
+
+### Candidate discovery
+
+- Prefer `reports/photo-fast-fill-zero-queue.json` as the first source of current zero-photo candidates. The curation pipeline rebuilds this report after successful curation runs.
+- Do not start each batch by reopening dozens of species files or re-reading the historical photo-recovery audit.
+- Pick roughly 10–14 promising unclaimed candidates from the live queue, then do one fresh parallel verification of those specific pages plus `workflow/work-claims.json`.
+- The historical recovery audit is a source-hint archive, not live zero-photo truth.
+
+### Source-search cap
+
+- Run **one batched source search** for the whole candidate pool whenever possible.
+- One small follow-up search is allowed only to replace obvious failures.
+- Do not repeatedly search the same difficult species in the same batch.
+- After two source passes, ship the clean subset. A **6–10 species successful batch is better than a 12-species batch delayed by hard taxa**.
+- Record or remember skipped hard taxa for later backfill rather than immediately retrying them in the next fast-fill batch.
+
+### Production-batch discipline
+
+During a requested fast-fill batch:
+
+- do not refactor unrelated workflow code;
+- do not improve scientific content;
+- do not rebuild old audits;
+- do not investigate unrelated automation state;
+- do not expand the batch because another lane changed nearby files;
+- make only the minimum changes needed to claim, stage, install, verify, and release the selected media batch.
+
+Workflow/tooling improvements should be made between batches, not in the middle of one.
+
+### Write and verification budget
+
+Preferred write sequence:
+
+1. one claim commit;
+2. one complete staging commit;
+3. one READY commit;
+4. one release commit after success.
+
+If the atomic Git-tree write fails once because of a connector/API error, refetch the current head and use the reliable staging fallback immediately. Do not spend multiple attempts trying to preserve a single-commit ideal.
+
+For Actions verification, check the triggered run, then verify the final report/canonical files. Avoid excessive polling. The installer itself is expected to be fast; source discovery should not dominate the run.
