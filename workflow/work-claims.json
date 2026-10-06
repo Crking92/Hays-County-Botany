@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-05T18:56:00-05:00",
+  "updated_at": "2026-10-06T01:32:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3884,6 +3884,24 @@
       "release_when": "Install and visually verify batch or explicitly skip.",
       "notes": "Physicalized three existing vetted PASS galleries: big bluestem, switchgrass, and frogfruit. Nine physical JPEGs installed, nonzero, and decoded/optimized by successful curation run; scientific fields unchanged.",
       "released_at": "2026-10-05T23:56:00Z"
+    },
+    {
+      "claim_id": "manual-deep-review-near-pass-cleanup-003",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "fraxinus-greggii",
+        "eryngium-yuccifolium",
+        "euphorbia-bicolor",
+        "oenothera-filiformis",
+        "symphyotrichum-lanceolatum-subsp-lanceolatum"
+      ],
+      "lane": "botany-deep-review",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T20:32:00-05:00",
+      "expires_at": "2026-10-06T02:32:00-05:00",
+      "release_when": "Durable reconciliation results are written for all five taxa or the batch is explicitly aborted.",
+      "notes": "Manual near-PASS cleanup batch 3. Reuse prior review; seek one missing exact target-zone county with strong evidence and preserve holds where proof remains insufficient."
     }
   ]
 }
