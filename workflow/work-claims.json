@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T15:02:00Z",
+  "updated_at": "2026-10-06T15:10:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4335,6 +4335,27 @@
       "expires_at": "2026-10-06T16:08:00-05:00",
       "release_when": "Durable taxonomy/range reconciliation results are written for both Vitaceae taxa or the batch is explicitly aborted.",
       "notes": "Manual Vitaceae refresh batch. Recheck current Vitis taxon concepts and exact target-zone county evidence; do not transfer broad/legacy V. cinerea records across the V. berlandieri / var. helleri split. Learner admission unchanged."
+    },
+    {
+      "claim_id": "manual-one-photo-coverage-mixed-028",
+      "scope_kind": "species_media",
+      "taxa": [
+        "passiflora-lutea",
+        "penstemon-baccharifolius",
+        "penstemon-triflorus",
+        "fraxinus-pennsylvanica",
+        "malvaviscus-arboreus-var-drummondii",
+        "ipomoea-batatas",
+        "oenothera-macrocarpa-subsp-macrocarpa",
+        "panicum-coloratum"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-one-photo-coverage-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T10:10:00-05:00",
+      "expires_at": "2026-10-06T16:10:00-05:00",
+      "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
+      "notes": "ONE-PHOTO COVERAGE batch 028. Eight current canonical pages freshly verified with zero displayable images and no active media claim collisions. Breadth-first easy-source batch under workflow/ONE_PHOTO_FAST_FILL.md; media-only and settled science must remain unchanged."
     }
   ]
 }
