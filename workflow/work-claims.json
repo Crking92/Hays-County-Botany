@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T12:56:00-05:00",
+  "updated_at": "2026-10-06T13:01:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4965,11 +4965,12 @@
       ],
       "lane": "learner-photo-fast-fill",
       "owner": "manual-one-photo-coverage-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-06T12:56:00-05:00",
       "expires_at": "2026-10-06T18:56:00-05:00",
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
-      "notes": "ONE-PHOTO COVERAGE batch 047. Fresh live-zero verification confirmed Physaria densiflora, Physaria gracilis, and Physaria recurvata all have images[] = 0 and no active media claims. Use exact-species UT Plant Resources Center herbarium images, with historical Lesquerella labels reconciled to current Physaria concepts. Private-study provisional coverage; public reuse remains review-only. Media-only; preserve settled science."
+      "notes": "ONE-PHOTO COVERAGE batch 047. Fresh live-zero verification confirmed Physaria densiflora, Physaria gracilis, and Physaria recurvata all have images[] = 0 and no active media claims. Use exact-species UT Plant Resources Center herbarium images, with historical Lesquerella labels reconciled to current Physaria concepts. Private-study provisional coverage; public reuse remains review-only. Media-only; preserve settled science. Completed: curation run 37505800820 succeeded; all three provisional exact-species UT herbarium images installed and zero warnings. All three targets left the live zero queue. Shared queue count is now 29 because concurrent learner-install lanes added new zero-photo taxa while this batch ran.",
+      "released_at": "2026-10-06T13:01:00-05:00"
     }
   ]
 }
