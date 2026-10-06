@@ -397,6 +397,7 @@ function approvalRangeStatus(item){
   return "UNKNOWN";
 }
 function approvalNeedsAction(item){
+  if(item.learner_admission_status==="APPROVED") return false;
   if(item.user_decision && item.user_decision.decision) return false;
   const a=item.approval_status || "";
   const s=item.status || "";
@@ -405,11 +406,16 @@ function approvalNeedsAction(item){
 }
 function approvalDecisionText(item){
   const d=item.user_decision && item.user_decision.decision;
+  if(!d && item.learner_admission_status==="APPROVED"){
+    if(item.learner_curation_status==="approved_taxonomy_mapping_needed") return "Learner approved · taxonomy mapping needed";
+    if(item.learner_curation_status==="represented_existing_no_new_card") return "Learner approved · represented by existing concept";
+    return "Learner approved";
+  }
   if(!d) return "";
   const labels={
     approve_for_curation:"Approved for curation",
     approve_as_comparison:"Approved as comparison",
-    approve_with_range_exception:"Approved with range exception",
+    approve_with_range_exception:"Approved for learner; range remains unresolved",
     hold_unresolved:"Held unresolved",
     needs_more_review:"Needs more review",
     reject:"Rejected",
@@ -597,6 +603,8 @@ function approvalCard(item){
   const artifacts=approvalArtifactLinks(item);
   const pool=item.source_pool || {};
   const busy=state.approvalsBusy===item.id;
+  const curationState=String(item.learner_curation_status||"");
+  const canInstallSeparate=!["approved_taxonomy_mapping_needed","represented_existing_no_new_card"].includes(curationState);
   const comparisonSuggested=(item.approval_status==="ready_for_comparison_approval") || range==="FAIL" || String(item.learner_role||"").includes("COMPARISON");
   let out='<article class="approval-card" data-approval-item="'+esc(item.id)+'">'+
     '<div class="approval-card-top"><div><div class="eyebrow">'+esc(item.family||"")+" › "+esc(item.genus||"")+'</div><h3><i>'+esc(item.scientific_name||item.id)+'</i></h3></div>'+
@@ -616,10 +624,9 @@ function approvalCard(item){
   }else if(state.approvalsWriteEnabled){
     out+='<label class="approval-note"><span>Optional decision note</span><textarea data-approval-note="'+esc(item.id)+'" rows="2" placeholder="Why you approved, held, or rejected this one…"></textarea></label>'+
       '<div class="approval-actions">'+
-      (range!=="UNRESOLVED" && range!=="FAIL"?'<button class="approval-action approve" type="button" data-approval-decision="approve_for_curation" data-approval-id="'+esc(item.id)+'">Approve</button>':'')+
+      (canInstallSeparate?'<button class="approval-action approve" type="button" data-approval-decision="approve_for_curation" data-approval-id="'+esc(item.id)+'">Approve for learner</button>':'')+
       '<button class="approval-action review" type="button" data-approval-decision="needs_more_review" data-approval-id="'+esc(item.id)+'">Needs more review</button>'+
-      (comparisonSuggested?'<button class="approval-action compare" type="button" data-approval-decision="approve_as_comparison" data-approval-id="'+esc(item.id)+'">Keep as comparison</button>':'')+
-      (range==="UNRESOLVED"?'<button class="approval-action exception" type="button" data-approval-decision="approve_with_range_exception" data-approval-id="'+esc(item.id)+'">Approve exception</button>':'')+
+      (comparisonSuggested && canInstallSeparate?'<button class="approval-action compare" type="button" data-approval-decision="approve_as_comparison" data-approval-id="'+esc(item.id)+'">Keep as comparison</button>':'')+
       '<button class="approval-action reject" type="button" data-approval-decision="reject" data-approval-id="'+esc(item.id)+'">Reject</button>'+
       '</div>';
     if(busy) out+='<div class="approval-saving">Saving decision…</div>';
@@ -638,7 +645,7 @@ function approvalsView(){
   const all=(state.approvals.items||[]).slice();
   const action=all.filter(approvalNeedsAction);
   const decided=all.filter(function(x){ return Boolean(x.user_decision && x.user_decision.decision); });
-  const pendingCuration=all.filter(function(x){ return ["approved_pending_curation","approved_comparison_pending_curation"].includes(x.status); });
+  const pendingCuration=all.filter(function(x){ return x.learner_curation_status==="approved_pending_curation" || ["approved_pending_curation","approved_comparison_pending_curation"].includes(x.status); });
   const held=all.filter(function(x){ const d=x.user_decision && x.user_decision.decision; return d==="hold_unresolved" || d==="needs_more_review" || d==="accept_review_keep_unresolved"; });
   let list=all;
   if(state.approvalsFilter==="action") list=action;
@@ -653,8 +660,8 @@ function approvalsView(){
   });
   const ordered=Array.from(groups.entries()).sort(function(a,b){ return approvalBatchNumber(b[0])-approvalBatchNumber(a[0]); });
 
-  let out='<section class="page-intro approval-intro"><div class="eyebrow">Human approval gate</div><h1>Review before curation.</h1>'+
-    '<p>Scout and deep-review work can collect evidence, but nothing should move into final curation until you make the call here.</p></section>'+
+  let out='<section class="page-intro approval-intro"><div class="eyebrow">Learner admission</div><h1>Review special cases.</h1>'+
+    '<p>Approved source-pool plants already have standing learner admission. Native-range PASS, FAIL, or UNRESOLVED is a separate label; this screen is mainly for non-source-pool decisions and taxonomy exceptions.</p></section>'+
     '<section class="approval-summary">'+
       '<div><strong>'+action.length+'</strong><span>need a decision</span></div>'+
       '<div><strong>'+pendingCuration.length+'</strong><span>approved, awaiting curation</span></div>'+
@@ -688,7 +695,7 @@ function approvalsView(){
 async function submitApprovalDecision(itemId,decision){
   if(!state.approvalsWriteEnabled || state.approvalsBusy) return;
   if(decision==="reject" && !window.confirm("Reject this record from the current curation path?")) return;
-  if(decision==="approve_with_range_exception" && !window.confirm("Approve this UNRESOLVED record as an explicit range exception? The unresolved evidence will remain documented.")) return;
+  if(decision==="approve_with_range_exception" && !window.confirm("Approve this learner entry while preserving its unresolved range label?")) return;
   const noteEl=document.querySelector('[data-approval-note="'+CSS.escape(itemId)+'"]');
   const note=noteEl ? noteEl.value.trim() : "";
   state.approvalsBusy=itemId; render();
