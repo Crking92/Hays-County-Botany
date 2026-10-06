@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T01:01:01Z",
+  "updated_at": "2026-10-05T20:32:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -3986,6 +3986,29 @@
       "release_when": "Immediately after verifying GitHub fetch-SHA-update write path.",
       "notes": "Write-path health check PASSED: fetch current SHA, update main, refetch verification, then release. No taxa/science touched.",
       "released_at": "2026-10-05T20:18:00-05:00"
+    },
+    {
+      "claim_id": "manual-one-photo-coverage-mixed-019",
+      "scope_kind": "species_media",
+      "taxa": [
+        "cirsium-ochrocentrum",
+        "euphorbia-marginata",
+        "forestiera-angustifolia",
+        "clematis-pitcheri",
+        "rubus-trivialis",
+        "gaillardia-aestivalis",
+        "gaillardia-amblyodon",
+        "croton-monanthogynus",
+        "solanum-americanum",
+        "sideroxylon-lanuginosum"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-one-photo-coverage-chat",
+      "status": "active",
+      "claimed_at": "2026-10-05T20:32:00-05:00",
+      "expires_at": "2026-10-06T02:32:00-05:00",
+      "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
+      "notes": "ONE-PHOTO COVERAGE worker: breadth-first media-only fast-fill. Zero displayable photos -> one recognizable exact-species provisional photo. Preserve all settled science and do not compete with Learner Photo Backfill."
     }
   ]
 }
