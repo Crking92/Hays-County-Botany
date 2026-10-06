@@ -54,9 +54,13 @@ Each claim should include:
 
 ## Stage handoff
 
-Typical species flow:
+Typical species flow during Learner Fast-Fill:
 
-`source pool → claim → research draft/queue → deep review → approval → curation claim → curation-inbox → canonical manifest`
+`approved source pool → learner admission approved → taxonomy/ID review as needed → curation claim → curation-inbox → canonical manifest`
+
+Scientific deep review may continue enriching taxonomy, range, morphology, and comparison metadata, but a three-county native-range audit is no longer required before a sheet-backed taxon enters the private learner.
+
+**Source-pool learner-admission rule:** membership in Calvin's approved source pools or derived Master Plant Pool is durable user approval for learner inclusion. Preserve native-range PASS/FAIL/UNRESOLVED/CONFLICT separately. Range status controls labeling and native metrics, not admission. Only a genuine taxonomic identity/duplicate-concept problem should block creation of a separate species card; aliases or represented concepts should map to the existing accepted learner entry.
 
 As soon as a later durable artifact exists, the earlier claim should be released or treated as superseded.
 
@@ -101,7 +105,7 @@ When two processes collide:
 - Botany Deep Review owns independent scientific review only.
 - Family Backfill owns family-level modules and audit material.
 - Website/UI work owns presentation/interface files, not scientific source-of-truth data.
-- Joey/video extraction and reconciliation may feed species/family research but does not bypass taxonomy/range review.
+- Joey/video extraction and reconciliation may feed species/family research. Taxonomic identity remains authoritative; native-range review is descriptive metadata and is not an admission gate for source-pool learner taxa.
 
 The goal is not perfect locking. The goal is to make duplicate effort and destructive overlap rare, obvious, and recoverable.
 
@@ -230,7 +234,7 @@ Current project priority is broad usable visual-learner coverage while Calvin is
 - Do not reopen settled taxonomy/range research merely because a canonical page needs photos.
 - Do not run a project-wide reconciliation before every small task. Refresh main, check data/manifest.json, workflow/work-claims.json, and the exact records being edited; consult queue/draft/inbox state when the target is not already settled.
 - Commit useful work in small durable batches and move on.
-- Scientific status remains strict. "Provisional learner-ready" describes presentation polish only and never upgrades HOLD, FAIL, UNRESOLVED, uncertain taxonomy, or uncertain range to confirmed status.
+- Scientific labels remain strict, but HOLD/FAIL/UNRESOLVED **range** states may still be learner-ready. Never upgrade them to confirmed native merely for inclusion. Genuine taxonomy-identity conflicts remain a separate-card blocker until mapped safely.
 - Deep photo polishing, exhaustive citation cleanup, and specialized diagnostic imagery are follow-up phases after broad learner coverage is substantially filled.
 
 ## Current manual-chat priority — 2026-10-05
