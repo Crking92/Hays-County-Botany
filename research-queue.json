@@ -3337,12 +3337,33 @@
         "hays_local": false
       },
       "batch_id": "deep-review-batch-028-passiflora-b019",
-      "last_deep_reviewed_at": "2026-10-03T15:42:00-05:00",
-      "notes": "B019 UNRESOLVED — Travis and Williamson exact target-zone counties locked; no third authoritative target-zone county inferred from Texas-wide nativity, cultivation, or user observation.",
+      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "notes": "Manual county-recovery cleanup — prior Williamson count is removed because Williamson is outside the project target zone. Travis remains the only defensible target-zone county in the current record. Central Texas horticultural/demo-garden occurrences are not counted as wild native evidence. A historical Lindheimer sheet has conflicting county/locality metadata ('Comanche' county with New Braunfels locality), so it is not used as a Comal threshold record. HOLD pending two additional exact native target-zone counties.",
       "approval_status": "hold_documented",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_hold",
-      "last_hold_reviewed_at": "2026-10-03T15:42:00-05:00"
+      "last_hold_reviewed_at": "2026-10-03T15:42:00-05:00",
+      "verified_target_counties": [
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Native Plant Society of Texas — Passiflora incarnata",
+          "url": "https://www.npsot.org/posts/native-plant/passiflora-incarnata/",
+          "role": "Texas native distribution and BONAP-linked county context"
+        },
+        {
+          "label": "FSU Godfrey Herbarium — Passiflora incarnata Lindheimer 817",
+          "url": "https://herbarium.bio.fsu.edu/view-specimen.php?RecordID=22570",
+          "role": "historical Texas specimen with county/locality conflict; not counted"
+        },
+        {
+          "label": "Travis County AgriLife Earth-Kind Garden",
+          "url": "https://travis-tx.tamu.edu/about-2/horticulture/earth-kind-demonstration-gardens/",
+          "role": "Travis horticultural occurrence; not used as native county proof"
+        }
+      ]
     },
     {
       "id": "callirhoe-involucrata",
@@ -7023,7 +7044,7 @@
       "scientific_name": "Argemone polyanthemos",
       "common_name": "White Prickly-Poppy",
       "status": "range_hold_reviewed",
-      "notes": "B073 HOLD — Travis locked; additional strong records found outside target-zone counties. Need two more exact target counties.",
+      "notes": "Manual county-recovery cleanup confirms HOLD — accepted Argemone polyanthemos; Travis County is specimen-backed in the UT Plant Resources Center index. Other recovered Texas specimens were outside the project target zone, so the three-county threshold is still not met. HOLD pending two additional exact target-zone counties.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7032,14 +7053,35 @@
       "priority": 0,
       "queue_group": "B073 Argemone",
       "batch_id": "deep-review-batch-074-argemone-b073",
-      "last_deep_reviewed_at": "2026-10-04T01:55:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "verified_target_counties": [
+        "Travis"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "UT Plant Resources Center — Travis County Papaveraceae specimens",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Papaveraceae.html",
+          "role": "Travis County Argemone polyanthemos specimen index"
+        },
+        {
+          "label": "ITIS — Argemone polyanthemos",
+          "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=18926",
+          "role": "accepted species concept and synonymy"
+        },
+        {
+          "label": "Illinois Natural History Survey collections",
+          "url": "https://biocoll.inhs.illinois.edu/portal/collections/list.php?comingFrom=harvestparams&country=USA%3B+United+States%3B+U.S.A.%3B+United+States+of+America&db=67&page=2&state=Texas",
+          "role": "Texas specimen context; recovered polyanthemos records outside target zone"
+        }
+      ]
     },
     {
       "id": "argemone-sanguinea",
       "scientific_name": "Argemone sanguinea",
       "common_name": "Red Prickly-Poppy",
       "status": "range_hold_reviewed",
-      "notes": "B073 HOLD — South Texas native, but 3 exact target-zone counties not locked in this pass.",
+      "notes": "Manual county-recovery cleanup strengthens but retains HOLD — Kew accepts Argemone sanguinea as native from South Texas into northeastern Mexico. A documented wild field occurrence at Cook's Slough in Uvalde County is retained as a target-zone occurrence lead/working county, but available herbarium results recovered in this pass are primarily Corpus Christi/Eagle Pass/Dimmit/Bee and do not supply two additional exact project counties. HOLD.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7048,7 +7090,28 @@
       "priority": 0,
       "queue_group": "B073 Argemone",
       "batch_id": "deep-review-batch-074-argemone-b073",
-      "last_deep_reviewed_at": "2026-10-04T01:55:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "verified_target_counties": [
+        "Uvalde"
+      ],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Argemone sanguinea",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18865-2",
+          "role": "accepted species and native South Texas range"
+        },
+        {
+          "label": "Backyard Nature — Argemone sanguinea, Uvalde County",
+          "url": "https://www.backyardnature.net/n/h/redprick.htm",
+          "role": "documented wild Uvalde County field occurrence"
+        },
+        {
+          "label": "Harvard University Herbaria — Papaveraceae specimen search",
+          "url": "https://kiki.huh.harvard.edu/databases/specimen_search.php?family=Papaveraceae",
+          "role": "Texas Argemone sanguinea specimen context"
+        }
+      ]
     },
     {
       "id": "prunus-serotina",
@@ -7089,7 +7152,7 @@
       "scientific_name": "Prunus caroliniana",
       "common_name": "Carolina Laurelcherry",
       "status": "range_hold_reviewed",
-      "notes": "B074 HOLD — Travis and Williamson locked; third exact target-zone native county not confirmed.",
+      "notes": "Manual county-recovery cleanup CORRECTION — prior Williamson count is removed because Williamson is outside the project target zone. Current Central Texas hits are dominated by landscaping/planting references in Travis and Bexar and cannot establish native county occurrence. NPSOT supports Texas nativity generally, but this pass did not lock three exact native target-zone counties. HOLD.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7098,14 +7161,33 @@
       "priority": 0,
       "queue_group": "B074 Prunus",
       "batch_id": "deep-review-batch-075-prunus-b074",
-      "last_deep_reviewed_at": "2026-10-04T01:45:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Native Plant Society of Texas — Prunus caroliniana",
+          "url": "https://www.npsot.org/posts/native-plant/prunus-caroliniana/",
+          "role": "Texas native distribution and BONAP-linked county context"
+        },
+        {
+          "label": "Garden Style San Antonio — cherry-laurel",
+          "url": "https://stg.gardenstylesanantonio.com/garden-articles/cherry-is-not-so-very/",
+          "role": "Bexar horticultural occurrence; not counted as native county proof"
+        },
+        {
+          "label": "Travis County AgriLife bee-friendly plants",
+          "url": "https://travis-tx.tamu.edu/about-2/horticulture/ornamental-plants/annual-and-perennial-flowers-for-austin/best-bee-friendly-plants-for-austin/",
+          "role": "Travis horticultural recommendation; not counted as wild/native proof"
+        }
+      ]
     },
     {
       "id": "prunus-angustifolia",
       "scientific_name": "Prunus angustifolia",
       "common_name": "Chickasaw Plum",
       "status": "range_hold_reviewed",
-      "notes": "B074 HOLD — Hays/Purola record is explicitly introduced and excluded; 3 exact target-zone native counties not locked.",
+      "notes": "Manual county-recovery cleanup confirms HOLD — the known Hays/Purola occurrence is explicitly listed as introduced and remains excluded. No three exact native target-zone counties were recovered in this pass. Do not promote based on nursery/landscape presence.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -7114,7 +7196,16 @@
       "priority": 0,
       "queue_group": "B074 Prunus",
       "batch_id": "deep-review-batch-075-prunus-b074",
-      "last_deep_reviewed_at": "2026-10-04T01:45:00-05:00"
+      "last_deep_reviewed_at": "2026-10-05T19:50:00-05:00",
+      "verified_target_counties": [],
+      "deep_review_owner": "manual-project-chat",
+      "deep_review_sources": [
+        {
+          "label": "Purola Introduced Species — Prunus angustifolia",
+          "url": "https://w3.biosci.utexas.edu/prc/HaysFlora/IntroSpecs.html",
+          "role": "Hays occurrence explicitly introduced and excluded"
+        }
+      ]
     },
     {
       "id": "gaillardia-suavis",
