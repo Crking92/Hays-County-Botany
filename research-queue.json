@@ -2405,8 +2405,8 @@
         "source_count": 1
       },
       "batch_id": "deep-review-batch-018-fraxinus-b014",
-      "last_deep_reviewed_at": "2026-10-05T18:34:00-05:00",
-      "notes": "Manual unresolved-hold reconciliation strengthened but remains HOLD — Val Verde is firm from direct ecological collections/studies. Bandera County now has a wild field-survey occurrence as an associated species in a documented canyon collection. Uvalde is mentioned in secondary habitat literature but is not strong enough to count as the third exact project county. Do not force PASS; one additional exact target-zone county still needed.",
+      "last_deep_reviewed_at": "2026-10-05T20:46:00-05:00",
+      "notes": "Manual near-PASS cleanup 3 confirms HOLD — Val Verde remains firmly specimen-backed; Bandera remains supported by documented wild field-survey occurrence. Searches surfaced Uvalde-area references, but not a sufficiently direct specimen/occurrence record for F. greggii itself to count as the third project county. One additional exact target-zone county still required.",
       "approval_status": "needs_manual_review",
       "user_decision": {
         "decision": "hold_unresolved",
@@ -2425,24 +2425,19 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Plant Physiology Val Verde collection",
-          "url": "https://watermark02.silverchair.com/plphys_v74_3_557.pdf",
-          "role": "direct Val Verde County collection"
-        },
-        {
-          "label": "Dan A. Hughes Unit / Devils River vegetation report",
-          "url": "https://texashistory.unt.edu/ark:/67531/metapth902820/m1/46/",
-          "role": "Val Verde County vegetation occurrence"
+          "label": "Amistad National Recreation Area vascular flora",
+          "url": "https://tpwd.texas.gov/huntwild/wild/wildlife_diversity/nongame/publications/media/amistad.pdf",
+          "role": "Val Verde County specimen-backed Fraxinus greggii occurrence"
         },
         {
           "label": "UC Davis Saratoga Horticultural Research report",
           "url": "https://ccuh.ucdavis.edu/sites/g/files/dgvnsk1376/files/inline-files/Griswold_Hart_Final_Report_2019-2020.pdf",
-          "role": "Bandera County wild field-survey occurrence as associated Fraxinus greggii"
+          "role": "Bandera County wild field-survey occurrence"
         },
         {
-          "label": "BONAP Fraxinus county atlas",
-          "url": "https://bonap.net/Napa/TaxonMaps/Genus/County/Fraxinus",
-          "role": "county-distribution cross-check"
+          "label": "IPNI — Fraxinus greggii",
+          "url": "https://www.ipni.org/n/105830-2",
+          "role": "accepted name/type context"
         }
       ]
     },
@@ -4769,13 +4764,13 @@
       "queue_group": "B040 Eryngium",
       "batch_id": "deep-review-batch-048-eryngium-b040",
       "status": "range_hold_reviewed",
-      "notes": "Manual near-PASS cleanup confirms HOLD — Bexar and Gillespie remain the only exact target-zone counties locked. USDA-derived county data show a broad eastern Texas distribution but no third county from the project target list in the available county set. Needs one additional exact target-zone county.",
+      "notes": "Manual near-PASS cleanup 3 confirms HOLD — Bexar and Gillespie remain the only exact target-zone counties locked. NPSOT/BONAP support the species as native in Texas, but the additional specimen/seed-collection records recovered in this pass are from counties outside the target zone. Needs one additional exact target-zone county.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "reconciliation_status": "preserved_range_hold",
       "priority": 0,
-      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T20:46:00-05:00",
       "verified_target_counties": [
         "Bexar",
         "Gillespie"
@@ -4783,9 +4778,14 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Rootfast/USDA — Eryngium yuccifolium",
-          "url": "https://rootfast.org/plants/ERYU",
-          "role": "USDA-derived native county distribution showing Bexar and Gillespie as target-zone records"
+          "label": "Native Plant Society of Texas — Eryngium yuccifolium",
+          "url": "https://www.npsot.org/posts/native-plant/eryngium-yuccifolium/",
+          "role": "Texas native distribution and BONAP cross-reference"
+        },
+        {
+          "label": "TxDOT statewide native-seed collections",
+          "url": "https://library.ctr.utexas.edu/hostedpdfs/tamuk/5-6665-01-1.pdf",
+          "role": "exact Texas collection records, none adding a project target county in this pass"
         }
       ]
     },
@@ -5580,23 +5580,32 @@
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual Euphorbiaceae cleanup HOLD — Hays and Travis evidence retained, but the current authoritative evidence found in this pass does not provide a third exact target-zone native county. UT Texas distribution emphasizes eastern, central, and north-central Texas; do not infer a third county from regional shading alone.",
+      "notes": "Manual near-PASS cleanup 3 confirms HOLD — Hays and Travis remain the exact target-zone counties locked. UT Plant Resources Center describes the species as common in eastern, central, and north-central Texas and provides specimens, but this pass did not recover a third exact target-zone county from authoritative specimen data. Needs one additional exact target-zone county.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Euphorbia Deep Review Test",
-      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T20:46:00-05:00",
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
           "label": "UT Plant Resources Center — Euphorbia bicolor",
           "url": "https://w3.biosci.utexas.edu/prc/wildflowers/flower/euphorbia-bicolor",
-          "role": "Texas distribution and morphology"
+          "role": "Texas distribution, morphology, and specimen gallery"
         },
         {
           "label": "Flora of Purola Preserve — Euphorbia bicolor",
           "url": "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/EUBI2.html",
           "role": "Hays County occurrence"
+        },
+        {
+          "label": "Ask Extension — Travis County Euphorbia bicolor",
+          "url": "https://ask.extension.org/kb/faq.php?id=274865",
+          "role": "Travis County exact-species occurrence"
         }
+      ],
+      "verified_target_counties": [
+        "Hays",
+        "Travis"
       ]
     },
     {
@@ -5894,7 +5903,7 @@
       "family": "Onagraceae",
       "genus": "Oenothera",
       "status": "range_hold_reviewed",
-      "notes": "Manual near-PASS cleanup confirms HOLD — Hays and Travis remain locked exact target-zone counties. NPSOT/BONAP confirm Texas nativity and Blackland Prairie distribution, but no third exact project county was securely recovered in this pass. Old Gaura longiflora/filiformis synonymy remains reconciled. Needs one additional exact target-zone county.",
+      "notes": "Manual near-PASS cleanup 3 confirms HOLD — Hays and Travis remain locked. The modern Gaura/Oenothera revision was rechecked for name/concept stability, but no third exact target-zone county for O. filiformis was recovered cleanly enough to count. Needs one additional exact target-zone county.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -5902,7 +5911,7 @@
       "priority": 0,
       "queue_group": "B061 Oenothera",
       "batch_id": "deep-review-batch-063-oenothera-b061",
-      "last_deep_reviewed_at": "2026-10-05T19:58:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T20:46:00-05:00",
       "verified_target_counties": [
         "Hays",
         "Travis"
@@ -5910,14 +5919,14 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "Native Plant Society of Texas — Oenothera filiformis",
-          "url": "https://www.npsot.org/posts/native-plant/oenothera-%EF%AC%81liformis/",
-          "role": "Texas native distribution, synonymy, BONAP cross-reference"
+          "label": "Taxonomic changes in Oenothera sections Gaura and Calylophus",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3881414/",
+          "role": "modern Oenothera/Gaura taxonomic framework"
         },
         {
-          "label": "GRIN — Oenothera filiformis",
-          "url": "https://ausgenebank.agriculture.vic.gov.au/gringlobal/taxon/taxonomydetail?id=466816",
-          "role": "Texas native status and accepted taxon"
+          "label": "Native Plant Society of Texas — Oenothera filiformis",
+          "url": "https://www.npsot.org/posts/native-plant/oenothera-%EF%AC%81liformis/",
+          "role": "Texas native distribution and BONAP cross-reference"
         }
       ]
     },
@@ -6961,7 +6970,7 @@
       "scientific_name": "Symphyotrichum lanceolatum subsp. lanceolatum",
       "common_name": "White Panicle Aster",
       "status": "range_hold_reviewed",
-      "notes": "Manual near-PASS cleanup 2 confirms HOLD — Hays and Travis remain the two exact target-zone counties for nominate subsp. lanceolatum. GRIN and World Flora Online confirm the nominate subspecies is native in Texas, but state-level nativity does not satisfy the county threshold. Williamson material assigned to var./subsp. hesperium remains excluded. Needs one additional exact target-zone county.",
+      "notes": "Manual near-PASS cleanup 3 confirms HOLD — Hays and Travis remain locked for nominate subsp. lanceolatum. POWO and WFO confirm the nominate subspecies is native in Texas, but available specimen-search results in this pass did not provide a third exact project target county. Williamson material assigned to hesperium remains excluded. Needs one additional exact target-zone county.",
       "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
@@ -6970,7 +6979,7 @@
       "priority": 0,
       "queue_group": "B071 Symphyotrichum",
       "batch_id": "deep-review-batch-073-symphyotrichum-b071",
-      "last_deep_reviewed_at": "2026-10-05T20:18:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T20:46:00-05:00",
       "verified_target_counties": [
         "Hays",
         "Travis"
@@ -6978,9 +6987,9 @@
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "GRIN — Symphyotrichum lanceolatum subsp. lanceolatum",
-          "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=434247",
-          "role": "accepted nominate subspecies and Texas nativity"
+          "label": "Plants of the World Online — Symphyotrichum lanceolatum subsp. lanceolatum",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77180710-1",
+          "role": "accepted subspecies and Texas native range"
         },
         {
           "label": "World Flora Online — Symphyotrichum lanceolatum subsp. lanceolatum",
