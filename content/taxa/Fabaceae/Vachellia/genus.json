@@ -1,0 +1,141 @@
+{
+  "rank": "genus",
+  "name": "Vachellia",
+  "family": "Fabaceae",
+  "project_scope": {
+    "source_pool_species": [
+      "Vachellia constricta",
+      "Vachellia farnesiana"
+    ],
+    "lane": "genus-lesson-comparison-builder",
+    "note": "Comparison framework only. Species learner admission/range/canonical installation remain independent."
+  },
+  "genus_diagnostics": {
+    "shared": "Woody thorny mimosoid legumes with alternate bipinnate leaves, paired straight stipular spines at nodes, globose yellow flower heads, and legume fruits.",
+    "look_here_first": "Confirm paired straight stipular spines at a leaf node, then confirm a bipinnate leaf and a globose yellow flower head. Once Vachellia is established, move to mature pod shape and leaflet/pinna counts for the species split.",
+    "caution": "Flower color and the generic yellow puffball gestalt are not enough; several mimosoid legumes can look similar. Use node armature, leaf architecture, and mature fruit together."
+  },
+  "species_comparison": [
+    {
+      "taxon": "Vachellia constricta",
+      "common_name": "whitethorn acacia",
+      "separating_characters": {
+        "mature_pod": "Long, narrow pod; commonly about 3–6 mm wide and up to about 12 cm long.",
+        "pinnae_leaflets": "Typically about 3–9 pairs of pinnae, each with roughly 4–16 pairs of small leaflets; project lesson should treat counts as supporting ranges, not a single-character key.",
+        "armature": "Paired straight pale/white stipular spines are conspicuous on younger stems.",
+        "habit_context": "Usually shrub to small tree; drought/cold deciduous behavior can make winter twig armature especially useful."
+      },
+      "learner_shortcut": "Narrow pod + relatively fewer leaflets per pinna + conspicuous pale paired spines supports V. constricta."
+    },
+    {
+      "taxon": "Vachellia farnesiana",
+      "common_name": "huisache / sweet acacia",
+      "separating_characters": {
+        "mature_pod": "Distinctly thicker, hard, plump to subcylindrical pod rather than the very narrow pod of V. constricta.",
+        "pinnae_leaflets": "Commonly about 2–6 pairs of pinnae with about 10–25 pairs of narrow leaflets per pinna in regional descriptions.",
+        "armature": "Also has paired straight stipular spines, so spines establish the genus pattern but do not by themselves separate it from V. constricta.",
+        "flowers": "Globose yellow heads are notably fragrant; fragrance is supporting only, not the primary diagnostic."
+      },
+      "learner_shortcut": "Thick hard pod + denser leaflet complement supports V. farnesiana."
+    }
+  ],
+  "comparison_matrix": [
+    {
+      "character": "Mature pod width/form",
+      "constricta": "very narrow, slender legume",
+      "farnesiana": "much thicker, hard/plump to subcylindrical legume",
+      "weight": "highest-value species separator"
+    },
+    {
+      "character": "Leaflet density",
+      "constricta": "generally fewer leaflet pairs per pinna",
+      "farnesiana": "generally more numerous leaflet pairs per pinna",
+      "weight": "supporting; photograph and count"
+    },
+    {
+      "character": "Paired straight spines",
+      "constricta": "present, often conspicuously pale/white",
+      "farnesiana": "present",
+      "weight": "strong genus cue; weak species separator"
+    },
+    {
+      "character": "Yellow globose heads",
+      "constricta": "present",
+      "farnesiana": "present, strongly fragrant",
+      "weight": "genus cue; fragrance supporting only"
+    }
+  ],
+  "lookalikes": [
+    {
+      "group": "other mimosoid Fabaceae in the source pool",
+      "tie_breaker": "Do not key from yellow puffball flowers alone. Verify paired stipular spines at the node, then leaf architecture and mature pod."
+    },
+    {
+      "group": "Acaciella / Senegalia-type look-alikes",
+      "tie_breaker": "Use armature position/type and mature fruit plus current accepted genus placement; hand off uncertain generic boundaries rather than guessing from foliage."
+    }
+  ],
+  "overlap_cautions": [
+    "Both species can be thorny shrubs/small trees with fine bipinnate foliage and yellow globose heads.",
+    "Pinna and leaflet counts overlap and should not be used alone.",
+    "Young or absent fruit can make the species split substantially harder; mark such observations as needing reproductive confirmation rather than forcing an ID.",
+    "Do not reopen native-range decisions in this lesson. The Master Plant Pool currently carries V. constricta and V. farnesiana as source-pool taxa with their own independent review states."
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "role": "paired stipular spines at node",
+      "purpose": "Show the genus-level armature exactly where it attaches; include petiole base and node."
+    },
+    {
+      "role": "whole bipinnate leaf, flat and in focus",
+      "purpose": "Count pinnae and compare leaflet density between species."
+    },
+    {
+      "role": "mature pod, same-scale side-by-side",
+      "purpose": "Primary species split: very narrow V. constricta pod versus thick hard V. farnesiana pod."
+    },
+    {
+      "role": "flower head plus supporting leaf/node",
+      "purpose": "Connect the yellow globose head to the correct thorny bipinnate plant rather than using a detached flower portrait."
+    },
+    {
+      "role": "winter/leafless twig",
+      "purpose": "Show paired spine architecture when foliage is absent, especially useful for V. constricta."
+    }
+  ],
+  "media_handoff": {
+    "priority": "Use project/user/Joey media if an exact-species frame clearly shows node armature, leaf architecture, or mature fruit. Do not acquire generic gallery photos in this lane.",
+    "desired_visual_lock": "One same-scale mature-pod comparison plus one labeled node/spine comparison would provide the highest learner value."
+  },
+  "diagnostic_review_handoff": [
+    "If a future diagnostic reviewer finds local material with pod dimensions or leaflet counts outside these regional ranges, refine the matrix using Texas herbarium/flora evidence rather than forcing the count ranges.",
+    "Confirm any source-pool records using older Acacia names map cleanly to the current Vachellia concepts before adding aliases to species cards."
+  ],
+  "sources": [
+    {
+      "label": "US Forest Service FEIS — Vachellia constricta",
+      "url": "https://research.fs.usda.gov/feis/species-reviews/vaccon",
+      "role": "regional species context"
+    },
+    {
+      "label": "Desert Legume Program — Vachellia constricta",
+      "url": "https://cales.arizona.edu/desertlegumeprogram/legume-taxa/vachellia-constricta.html",
+      "role": "growth form, spines, bipinnate foliage"
+    },
+    {
+      "label": "US Forest Service FEIS — Vachellia farnesiana",
+      "url": "https://research.fs.usda.gov/feis/species-reviews/vacfar",
+      "role": "taxonomy, growth form, paired spines, regional ecology"
+    },
+    {
+      "label": "USDA handbook — sweet acacia",
+      "url": "https://www.govinfo.gov/content/pkg/GOVPUB-A-PURL-gpo17014/pdf/GOVPUB-A-PURL-gpo17014.pdf",
+      "role": "leaf and pod morphology"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-genus-comparison",
+    "last_reviewed": "2026-10-07",
+    "status": "genus_lesson_live_photo_polish_pending"
+  }
+}
