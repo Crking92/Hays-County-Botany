@@ -5246,25 +5246,30 @@
       },
       "last_scouted_at": "2026-10-03T17:28:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual Euphorbiaceae cleanup HOLD — accepted C. lindheimeri and legacy C. capitatus var. lindheimeri synonymy are secure, but only Travis remains firmly locked inside the project target zone after discarding Williamson. Do not transfer records from true C. capitatus or similarly named Croton concepts. Needs two more exact target-zone counties.",
+      "notes": "Manual Euphorbiaceae range reconciliation confirms HOLD — POWO currently accepts Croton lindheimeri and treats C. capitatus var. lindheimeri and Pilinophytum lindheimeri as synonyms. Travis remains the only exact target-zone county locked. Historical material under older names cannot be transferred automatically because Croton heptalon is also a distinct accepted Texas species. Learner admission remains approved; two more exact target-zone counties are still needed for native-range PASS.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Croton Deep Review",
-      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
       "verified_target_counties": [
         "Travis"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "ITIS — Croton lindheimeri",
-          "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=511813",
-          "role": "accepted name and synonymy"
+          "label": "Plants of the World Online — Croton lindheimeri",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60450445-2",
+          "role": "accepted species and synonymy"
         },
         {
-          "label": "Van Ee et al. — Taxonomy and Phylogeny of Croton section Heptallon",
-          "url": "https://www.researchgate.net/publication/250056007_Taxonomy_and_Phylogeny_of_Croton_Section_Heptallon_Euphorbiaceae",
-          "role": "modern taxon concept and Travis voucher"
+          "label": "Plants of the World Online — Croton heptalon",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77106574-1",
+          "role": "distinct accepted Texas species; guards against legacy-record transfer"
+        },
+        {
+          "label": "UT Plant Resources Center — Travis County Euphorbiaceae specimens",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+          "role": "Travis occurrence under legacy/current Croton concept"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -5811,17 +5816,22 @@
       },
       "last_scouted_at": "2026-10-03T18:08:00-05:00",
       "approval_status": "hold_range_evidence",
-      "notes": "Manual near-PASS cleanup 3 confirms HOLD — Hays and Travis remain the exact target-zone counties locked. UT Plant Resources Center describes the species as common in eastern, central, and north-central Texas and provides specimens, but this pass did not recover a third exact target-zone county from authoritative specimen data. Needs one additional exact target-zone county.",
+      "notes": "Manual Euphorbiaceae range reconciliation confirms HOLD — Hays and Travis remain locked. UT PRC documents the species as common in parts of central/eastern/north-central Texas and has multiple Travis specimens, but this pass did not recover a third exact project target county from a specimen-level source. Broad Texas/central-region evidence and the type's generic 'Texas' locality are not counted. Learner admission remains approved.",
       "native_range_status": "UNRESOLVED",
       "canonical_status": "not_installed_range_hold",
       "queue_group": "Manual Euphorbia Deep Review Test",
-      "last_deep_reviewed_at": "2026-10-05T20:46:00-05:00",
+      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
           "label": "UT Plant Resources Center — Euphorbia bicolor",
           "url": "https://w3.biosci.utexas.edu/prc/wildflowers/flower/euphorbia-bicolor",
-          "role": "Texas distribution, morphology, and specimen gallery"
+          "role": "Texas distribution and specimen gallery"
+        },
+        {
+          "label": "UT Plant Resources Center — Travis County Euphorbiaceae specimens",
+          "url": "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
+          "role": "multiple Travis County specimens"
         },
         {
           "label": "Flora of Purola Preserve — Euphorbia bicolor",
@@ -5829,9 +5839,9 @@
           "role": "Hays County occurrence"
         },
         {
-          "label": "Ask Extension — Travis County Euphorbia bicolor",
-          "url": "https://ask.extension.org/kb/faq.php?id=274865",
-          "role": "Travis County exact-species occurrence"
+          "label": "MNHN type — Euphorbia bicolor",
+          "url": "https://science.mnhn.fr/institution/mnhn/collection/p/item/p00607195",
+          "role": "historical Texas type locality; not exact enough for county threshold"
         }
       ],
       "verified_target_counties": [
@@ -7800,23 +7810,43 @@
       "id": "acalypha-persimilis",
       "scientific_name": "Acalypha persimilis",
       "status": "needs_manual_review",
-      "notes": "Deep Review B: NEEDS MANUAL REVIEW — current Kew accepts A. persimilis, but a 2025 proposal seeks conservation of A. ostryifolia; only Uvalde exact target-zone evidence locked; diagnostic photo/key confirmation still needed.",
+      "notes": "Manual Euphorbiaceae range reconciliation confirms HOLD — POWO currently accepts Acalypha persimilis and lists Texas in its native range, so the 2025 nomenclatural proposal does not by itself invalidate the current accepted name. However, this pass did not recover two additional exact target-zone county vouchers beyond the previously locked Uvalde record. Learner admission remains approved; native-range metadata remains unresolved.",
       "family": "Euphorbiaceae",
       "genus": "Acalypha",
       "priority": 1,
       "queue_group": "Scout Euphorbiaceae Acalypha/Tragia",
       "batch_id": "scout-2026-10-03-euphorbiaceae-05",
-      "approval_status": "needs_manual_review",
+      "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed",
-      "last_deep_reviewed_at": "2026-10-03T23:18:00-05:00",
-      "deep_review_owner": "automation-botany-deep-review-b",
+      "canonical_status": "not_installed_range_hold",
+      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
+      "deep_review_owner": "manual-project-chat",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Uvalde"
+      ],
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Acalypha persimilis",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:337688-1",
+          "role": "current accepted taxonomy and Texas nativity"
+        },
+        {
+          "label": "World Flora Online — Acalypha persimilis",
+          "url": "https://www.worldfloraonline.org/taxon/wfo-0000216374",
+          "role": "accepted taxon/distribution cross-check"
+        },
+        {
+          "label": "Acalypha taxonomic specimen database",
+          "url": "https://acalypha.es/secc/specimens.asp",
+          "role": "specialist specimen resource for future county reconciliation"
+        }
+      ]
     },
     {
       "id": "acalypha-phleoides",
@@ -7901,32 +7931,43 @@
     {
       "id": "tragia-brevispica",
       "scientific_name": "Tragia brevispica",
-      "status": "needs_manual_review",
-      "notes": "Manual Euphorbiaceae cleanup recheck confirms HOLD — Travis voucher and Bexar specimen evidence remain solid, but no third exact target-zone county was found in this pass. Accepted species concept remains stable.",
+      "status": "ready_for_approval",
+      "notes": "Manual Euphorbiaceae range reconciliation PASS — Travis remains locked by MICH specimen 1645723; Bexar remains locked by NY specimens. Historical Lindheimer material collected at New Braunfels in 1846–47 adds Comal: Comal County was created March 24, 1846 and New Braunfels was made the county seat, so the dated locality is assignable to Comal County for the project threshold. Three exact target-zone counties now locked. Learner admission was already approved separately.",
       "family": "Euphorbiaceae",
       "genus": "Tragia",
       "priority": 1,
       "queue_group": "Scout Euphorbiaceae Acalypha/Tragia",
       "batch_id": "scout-2026-10-03-euphorbiaceae-05",
-      "approval_status": "needs_manual_review",
-      "native_range_status": "UNRESOLVED",
-      "last_deep_reviewed_at": "2026-10-05T19:32:00-05:00",
+      "approval_status": "ready_for_user_approval",
+      "native_range_status": "PASS",
+      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
       "canonical_status": "not_installed",
       "verified_target_counties": [
         "Travis",
-        "Bexar"
+        "Bexar",
+        "Comal"
       ],
       "deep_review_owner": "manual-project-chat",
       "deep_review_sources": [
         {
-          "label": "University of Michigan Herbarium — Tragia brevispica",
+          "label": "University of Michigan Herbarium — Tragia brevispica 1645723",
           "url": "https://quod.lib.umich.edu/h/herb00ic/x-1645723/mich-v-1645723",
           "role": "Travis County voucher"
         },
         {
-          "label": "ITIS — Tragia brevispica",
-          "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=28427",
-          "role": "accepted species concept"
+          "label": "SEINet/EcoFlora NY specimen results — Tragia brevispica",
+          "url": "https://biokic3.rc.asu.edu/seinet/ecoflora/portal/collections/list.php?comingFrom=newsearch&page=12&taxa=4311&taxontype=2&usethes=1",
+          "role": "Bexar County specimen evidence"
+        },
+        {
+          "label": "Harvard University Herbaria — Tragia brevispica Lindheimer specimens",
+          "url": "https://data.huh.harvard.edu/databases/specimen_search.php?family=Euphorbiaceae&limit=5000&mode=search&start=20000",
+          "role": "New Braunfels 1846–47 historical specimen locality"
+        },
+        {
+          "label": "Comal County history",
+          "url": "https://www.co.comal.tx.us/AUD/Budget/2026Budget/budget2026.pdf",
+          "role": "Comal County created March 24, 1846; New Braunfels county seat"
         }
       ],
       "learner_admission_status": "APPROVED",
@@ -8012,23 +8053,44 @@
       "scientific_name": "Argythamnia humilis",
       "common_name": "Low silverbush",
       "status": "needs_manual_review",
-      "notes": "Deep Review B: NEEDS MANUAL REVIEW — accepted Argythamnia humilis (Engelm. & A.Gray) Müll.Arg.; morphology verified, but strict target-zone range remains UNRESOLVED until an authoritative exact target-zone county record is locked. Diagnostic reproductive photo/license lock also remains.",
+      "notes": "Manual Euphorbiaceae range reconciliation strengthens HOLD — POWO accepts Argythamnia humilis as native to Texas. Harvard specimens lock Austin (Travis) and New Braunfels/Comanche Spring (Comal). A C. Wright 'Leona–Nueces' specimen is geographically suggestive of the Medina/Uvalde corridor but is not exact enough to count as a third county. Learner admission remains approved; native-range metadata stays unresolved pending one additional exact target-zone county.",
       "family": "Euphorbiaceae",
       "genus": "Argythamnia",
       "priority": 1,
       "queue_group": "Scout Euphorbiaceae Argythamnia/Bernardia/Triadica",
       "batch_id": "scout-2026-10-03-euphorbiaceae-06",
-      "approval_status": "needs_manual_review",
+      "approval_status": "hold_range_evidence",
       "native_range_status": "UNRESOLVED",
-      "canonical_status": "not_installed",
-      "last_deep_reviewed_at": "2026-10-04T20:18:00-05:00",
-      "deep_review_owner": "automation-botany-deep-review-b",
+      "canonical_status": "not_installed_range_hold",
+      "last_deep_reviewed_at": "2026-10-05T21:52:00-05:00",
+      "deep_review_owner": "manual-project-chat",
       "learner_admission_status": "APPROVED",
       "learner_admission_basis": "master_plant_pool_membership",
       "learner_approved_at": "2026-10-05T20:33:00-05:00",
       "learner_approval_note": "Calvin changed Learner Fast-Fill policy on 2026-10-05: Master Plant Pool/source-sheet membership is sufficient for learner admission. Native-range status remains separate metadata.",
       "learner_range_label": "range_unresolved",
-      "learner_curation_status": "approved_pending_curation"
+      "learner_curation_status": "approved_pending_curation",
+      "verified_target_counties": [
+        "Travis",
+        "Comal"
+      ],
+      "deep_review_sources": [
+        {
+          "label": "Plants of the World Online — Argythamnia humilis",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:18922-2",
+          "role": "accepted taxonomy and Texas nativity"
+        },
+        {
+          "label": "Harvard University Herbaria — Argythamnia humilis specimens",
+          "url": "https://data.huh.harvard.edu/databases/specimen_search.php?family=Euphorbiaceae&limit=5000&mode=search&start=0",
+          "role": "Austin, New Braunfels/Comanche Spring, and Leona–Nueces historical specimens"
+        },
+        {
+          "label": "Comal County history",
+          "url": "https://www.co.comal.tx.us/AUD/Budget/2026Budget/budget2026.pdf",
+          "role": "historical New Braunfels/Comal county assignment"
+        }
+      ]
     },
     {
       "id": "argythamnia-simulans",
