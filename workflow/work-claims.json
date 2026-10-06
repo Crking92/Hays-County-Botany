@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T15:17:00Z",
+  "updated_at": "2026-10-06T15:24:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -4358,6 +4358,22 @@
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
       "notes": "ONE-PHOTO COVERAGE batch 028. Eight current canonical pages freshly verified with zero displayable images and no active media claim collisions. Breadth-first easy-source batch under workflow/ONE_PHOTO_FAST_FILL.md; media-only and settled science must remain unchanged. Completed: curation run 37486049356 succeeded with 8/8 exact-species/current-concept provisional learner photos, zero warnings, and canonical physical image files verified.",
       "released_at": "2026-10-06T10:17:00-05:00"
+    },
+    {
+      "claim_id": "manual-one-photo-coverage-mixed-029",
+      "scope_kind": "species_media",
+      "taxa": [
+        "passiflora-affinis",
+        "passiflora-tenuiloba",
+        "paysonia-grandiflora"
+      ],
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-one-photo-coverage-continuation-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T10:24:00-05:00",
+      "expires_at": "2026-10-06T16:24:00-05:00",
+      "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
+      "notes": "ONE-PHOTO COVERAGE timing-test batch 029. Three clean taxa survived the two-pass source-search budget; harder candidates were deferred rather than extending the batch. Media-only; preserve settled science."
     }
   ]
 }
