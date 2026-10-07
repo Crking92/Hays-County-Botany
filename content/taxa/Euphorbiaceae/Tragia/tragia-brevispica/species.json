@@ -59,7 +59,7 @@
     "photo_files_present": 1,
     "visual_learning_polished": true
   },
-  "photo_note": "Current whole-voucher image is useful for orientation but is not a complete diagnostic gallery. Highest-priority additions are a scaled entire raceme, male/female flower-position macro, mature capsule, stinging-hair macro, and leaf-base/margin comparison.",
+  "photo_note": "Photo-first curation underway. Candidate set now covers leaf+fruit, stinging hairs, raceme/flower arrangement, mature fruit, whole specimen, and a Central Texas live observation. Physically import only candidates whose image-level reuse license is verified; keep searching until the diagnostic roles are actually represented in the local gallery.",
   "images": [
     {
       "file": "images/tragia-brevispica-provisional-face.jpg",
@@ -190,7 +190,17 @@
       "the presence of stinging hairs as a species-level character",
       "habitat as a substitute for reproductive structure",
       "unverified exact measurements"
-    ]
+    ],
+    "verified_diagnostic_anchors": {
+      "raceme_architecture": "racemelike; one (occasionally two) pistillate flower low on the axis with several staminate flowers above",
+      "staminate_flower_count": "2–8(–10) per raceme",
+      "mature_fruit": "capsule about 6.5–7 mm wide; often only one carpel matures",
+      "leaf": "triangular to cordate with serrate to crenate margin; stinging hairs can be conspicuous, including near margins/basal lobes",
+      "source_basis": [
+        "FNA/WFO treatment",
+        "UT Austin PRC Williamson County treatment"
+      ]
+    }
   },
   "photo_candidates": [
     {
@@ -202,6 +212,66 @@
       "source_page": "https://www.worldfloraonline.org/taxon/wfo-0000326614",
       "diagnostic_value": "Exact-species page exposes reusable images and pairs them with the FNA diagnostic description; prioritize any frame showing raceme and the often one-carpel mature fruit.",
       "public_reuse": "yes_with_attribution_and_image_level_verification"
+    },
+    {
+      "status": "high_value_candidate_rights_check_required_before_physical_import",
+      "scientific_name": "Tragia brevispica",
+      "role": "leaf + mature fruit close-up",
+      "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/eup/Tragia_brevispica.htm",
+      "source_label": "UT Austin BIO406D PlantPics",
+      "diagnostic_value": "Excellent learner frame: a mature leaf and fruit are held against a hand for scale; useful for blade shape/margin and fruit architecture.",
+      "license": "verify image-level reuse before physical import",
+      "public_reuse": "pending"
+    },
+    {
+      "status": "high_value_candidate_rights_check_required_before_physical_import",
+      "scientific_name": "Tragia brevispica",
+      "role": "stinging hairs + leaf/stem texture",
+      "source_page": "https://fsus.ncbg.unc.edu/main.php?pg=show-taxon-detail.php&taxonid=35058",
+      "source_label": "Flora of the Southeastern United States (FSUS)",
+      "diagnostic_value": "Live close-up clearly shows dense stinging hairs on stem/petiole/leaf and serrate leaf margins.",
+      "license": "verify image-level reuse before physical import",
+      "public_reuse": "pending"
+    },
+    {
+      "status": "high_value_candidate_rights_check_required_before_physical_import",
+      "scientific_name": "Tragia brevispica",
+      "role": "raceme / staminate-pistillate arrangement",
+      "source_page": "https://fsus.ncbg.unc.edu/main.php?pg=show-taxon-detail.php&taxonid=35058",
+      "source_label": "Flora of the Southeastern United States (FSUS)",
+      "diagnostic_value": "Live reproductive close-up shows the short racemelike axis and separated flower positions; useful for teaching the low pistillate / upper staminate arrangement.",
+      "license": "verify image-level reuse before physical import",
+      "public_reuse": "pending"
+    },
+    {
+      "status": "high_value_candidate_rights_check_required_before_physical_import",
+      "scientific_name": "Tragia brevispica",
+      "role": "mature fruit close-up",
+      "source_page": "https://fsus.ncbg.unc.edu/main.php?pg=show-taxon-detail.php&taxonid=35058",
+      "source_label": "Flora of the Southeastern United States (FSUS)",
+      "diagnostic_value": "Close live fruit view showing dense hairs and fruit outline; pair with FNA/WFO note that capsules are about 6.5–7 mm wide and often only one carpel matures.",
+      "license": "verify image-level reuse before physical import",
+      "public_reuse": "pending"
+    },
+    {
+      "status": "licensed_source_ready_for_image_level_selection",
+      "scientific_name": "Tragia brevispica",
+      "role": "herbarium structural reference",
+      "source_page": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:357686-1/images",
+      "source_label": "Kew POWO Herbarium Catalogue Specimens",
+      "diagnostic_value": "Two exact-species specimen images; useful for whole architecture and for crops if raceme/fruit structures are sufficiently resolved.",
+      "license": "CC BY 3.0 for Kew Herbarium Catalogue specimen images",
+      "public_reuse": "yes_with_attribution"
+    },
+    {
+      "status": "research_grade_candidate_license_must_be_checked_per_photo",
+      "scientific_name": "Tragia brevispica",
+      "role": "Texas live-plant three-photo observation",
+      "source_page": "https://www.inaturalist.org/observations/71640947",
+      "source_label": "iNaturalist observation 71640947 — Mikael Behrens, Bunny Run, Austin, Texas",
+      "diagnostic_value": "Three-photo Research Grade exact-species observation from Central Texas; inspect each photo for complementary habit/reproductive roles and retain only if its individual photo license permits reuse.",
+      "license": "verify each photo's iNaturalist license before physical import",
+      "public_reuse": "pending"
     }
   ]
 }
