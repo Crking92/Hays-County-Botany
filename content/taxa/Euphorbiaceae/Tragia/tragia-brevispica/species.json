@@ -48,17 +48,18 @@
     "noseburn"
   ],
   "curation_status": {
-    "version": "1.0-pass-tragia-2026-10-06",
+    "version": "1.1-visual-learning-polish-2026-10-07",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "user_approved": true,
-    "last_reviewed": "2026-10-06",
+    "last_reviewed": "2026-10-07",
     "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_files_present": 1,
+    "visual_learning_polished": true
   },
-  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
+  "photo_note": "Current whole-voucher image is useful for orientation but is not a complete diagnostic gallery. Highest-priority additions are a scaled entire raceme, male/female flower-position macro, mature capsule, stinging-hair macro, and leaf-base/margin comparison.",
   "images": [
     {
       "file": "images/tragia-brevispica-provisional-face.jpg",
@@ -76,5 +77,119 @@
     "image_count": 1,
     "filled_at": "2026-10-06",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  },
+  "visual_learning": {
+    "version": "1.0-diagnostic-sequence",
+    "learner_goal": "Recognize this as a stinging Tragia first, then prove brevispica from the reproductive axis rather than from general habit.",
+    "look_sequence": [
+      {
+        "step": 1,
+        "look_at": "stinging hairs on stem/petiole/leaf",
+        "question": "Does the plant fit the stinging-hair Tragia door?",
+        "teaching_note": "Use a macro view. Do not handle bare-handed just to test the character."
+      },
+      {
+        "step": 2,
+        "look_at": "leaf base, margin and overall blade proportions",
+        "question": "What is the leaf architecture?",
+        "teaching_note": "Frame one mature leaf flat enough to compare its base, margin and length:width relationship with other Tragia."
+      },
+      {
+        "step": 3,
+        "look_at": "entire reproductive raceme/spike with scale",
+        "question": "Is the reproductive axis genuinely short, and how are the flowers distributed along it?",
+        "teaching_note": "This is the primary species-level visual lock currently supported by the project. Include a ruler or other scale reference when possible."
+      },
+      {
+        "step": 4,
+        "look_at": "bracts, pedicels and staminate versus pistillate flowers",
+        "question": "Where are the male and female flowers, and what are their attachment details?",
+        "teaching_note": "Use a side-on macro that keeps bract and pedicel visible instead of a flower-only beauty shot."
+      },
+      {
+        "step": 5,
+        "look_at": "mature fruit",
+        "question": "Does the plant show the expected small 3-lobed Tragia capsule, and what fruit characters can be compared?",
+        "teaching_note": "Photograph a mature capsule in side view with scale; fruit is more useful than overall scrambling habit."
+      }
+    ],
+    "comparison_board": [
+      {
+        "compare_with": "Tragia betonicifolia",
+        "show_side_by_side": [
+          "leaf base",
+          "whole raceme with scale",
+          "bract + pedicel",
+          "mature capsule"
+        ],
+        "warning": "Do not separate these from habit alone."
+      },
+      {
+        "compare_with": "Tragia ramosa",
+        "show_side_by_side": [
+          "branching architecture",
+          "leaf proportions",
+          "whole reproductive axis",
+          "flower number/distribution",
+          "mature fruit"
+        ],
+        "warning": "A wide habit shot is supporting context; reproductive structure should carry the comparison."
+      },
+      {
+        "compare_with": "Tragia nigricans",
+        "show_side_by_side": [
+          "whole raceme",
+          "bract + pedicel",
+          "leaf proportions",
+          "mature fruit"
+        ],
+        "warning": "Habitat can support an identification but should not replace reproductive characters."
+      }
+    ],
+    "photo_diagram_needs": [
+      {
+        "priority": 1,
+        "role": "entire raceme/spike with scale",
+        "annotation": "bracket the reproductive axis; mark basal and terminal ends",
+        "status": "missing"
+      },
+      {
+        "priority": 1,
+        "role": "staminate/pistillate flower-position macro",
+        "annotation": "label male vs female flowers plus bract and pedicel",
+        "status": "missing"
+      },
+      {
+        "priority": 1,
+        "role": "mature 3-lobed capsule with scale",
+        "annotation": "label the three-part fruit outline",
+        "status": "missing"
+      },
+      {
+        "priority": 2,
+        "role": "stinging-hair macro",
+        "annotation": "arrow to individual stinging hairs; add handling caution",
+        "status": "missing"
+      },
+      {
+        "priority": 2,
+        "role": "leaf comparison frame",
+        "annotation": "mark leaf base, margin and length:width axis",
+        "status": "missing"
+      },
+      {
+        "priority": 3,
+        "role": "current whole-voucher overview",
+        "annotation": "use arrows to show where leaf, raceme and fruit details occur on the specimen",
+        "status": "available_provisional"
+      }
+    ],
+    "avoid_overtrusting": [
+      "general scrambling habit by itself",
+      "a single leaf shape without reproductive material",
+      "the presence of stinging hairs as a species-level character",
+      "habitat as a substitute for reproductive structure",
+      "unverified exact measurements"
+    ]
   }
 }
