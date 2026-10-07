@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T15:42:00-05:00",
+  "updated_at": "2026-10-07T23:12:21.544Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5701,6 +5701,21 @@
       "owner": "manual-chat",
       "released_at": "2026-10-07T15:55:00-05:00",
       "release_reason": "Genus lesson committed and verified"
+    },
+    {
+      "claim_id": "manual-family-confusion-ranunculaceae-20261008",
+      "scope_kind": "family_module",
+      "families": [
+        "Ranunculaceae"
+      ],
+      "scope_key": "content/taxa/Ranunculaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "manual-chat",
+      "status": "active",
+      "claimed_at": "2026-10-07T23:12:21.544Z",
+      "expires_at": "2026-10-08T05:12:21.544Z",
+      "release_when": "Ranunculaceae confusion-polish module and sheet status are durably written, or work is abandoned.",
+      "notes": "Small morphology-first confusion polish; preserve 147-family structural coverage and species decisions."
     }
   ]
 }
