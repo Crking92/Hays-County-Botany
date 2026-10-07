@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T14:08:00-05:00",
+  "updated_at": "2026-10-07T14:16:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5328,11 +5328,33 @@
       "scope_key": "content/taxa/Euphorbiaceae/Euphorbia/genus.json",
       "lane": "genus-diagnostic-photo",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-07T14:08:00-05:00",
       "expires_at": "2026-10-07T20:08:00-05:00",
       "release_when": "Euphorbia genus diagnostic framework is durably written; species photo work may continue under separate short claims.",
-      "notes": "Build genus lesson for 12 canonical Euphorbia taxa. No range/admission changes."
+      "notes": "Build genus lesson for 12 canonical Euphorbia taxa. No range/admission changes. Completed: 12-species Euphorbia diagnostic framework added at content/taxa/Euphorbiaceae/Euphorbia/genus.json.",
+      "released_at": "2026-10-07T14:16:00-05:00"
+    },
+    {
+      "claim_id": "manual-euphorbia-bicolor-detail-001",
+      "scope_kind": "species_media_diagnostic",
+      "taxa": [
+        "euphorbia-bicolor"
+      ],
+      "families": [
+        "Euphorbiaceae"
+      ],
+      "genera": [
+        "Euphorbia"
+      ],
+      "scope_key": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-bicolor/species.json",
+      "lane": "species-diagnostic-photo",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-07T14:16:00-05:00",
+      "expires_at": "2026-10-07T20:16:00-05:00",
+      "release_when": "Detailed E. bicolor species package and at least one exact physical learner photo are durably installed.",
+      "notes": "First Euphorbia species-detail pass. Preserve range UNRESOLVED and learner approval."
     }
   ]
 }
