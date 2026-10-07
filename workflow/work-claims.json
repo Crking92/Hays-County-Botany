@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T23:22:00-05:00",
+  "updated_at": "2026-10-07T13:55:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -2033,8 +2033,9 @@
       "expires_at": "2026-10-05T12:24:00Z",
       "release_when": "Usable FAST-FILL learner images and provenance are durably written and verified, or the batch is explicitly aborted.",
       "notes": "Canonical-species visual fill only; taxonomy/range untouched. Existing routed/Joey image checks found no reusable assets. M. piniflora excluded because its source-name concept remains scientifically flagged.",
-      "released_at": "2026-10-05T06:39:00Z",
-      "release_note": "Verified M. lindheimeri 2 images, M. reverchonii 1, M. schreberi 3. Below-target pages intentionally preserved rather than using cultivars or uncertain rights. Taxonomy/range unchanged; M. piniflora remains scientifically flagged and excluded."
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_note": "Verified M. lindheimeri 2 images, M. reverchonii 1, M. schreberi 3. Below-target pages intentionally preserved rather than using cultivars or uncertain rights. Taxonomy/range unchanged; M. piniflora remains scientifically flagged and excluded.",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "curation-euphorbiaceae-fast-fill-001",
@@ -2099,8 +2100,9 @@
       "expires_at": "2026-10-05T13:02:00Z",
       "release_when": "Usable FAST-FILL learner image(s) and provenance are durably written and verified, or the batch is explicitly aborted.",
       "notes": "Canonical comparison learner under existing user-approved range exception; preserve underlying UNRESOLVED range status. No Joey/routed image assets. Use only exact-species licensed media.",
-      "released_at": "2026-10-05T07:10:00Z",
-      "release_note": "Verified one exact-species CC BY-NC iNaturalist image on canonical comparison learner Pluchea camphorata. Range exception/UNRESOLVED scientific status unchanged. Gallery intentionally remains below ~3-image target pending easy licensed additions."
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_note": "Verified one exact-species CC BY-NC iNaturalist image on canonical comparison learner Pluchea camphorata. Range exception/UNRESOLVED scientific status unchanged. Gallery intentionally remains below ~3-image target pending easy licensed additions.",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "manual-fast-fill-muhlenbergia-001",
@@ -2117,11 +2119,13 @@
       "scope_key": "fast-fill-muhlenbergia-lindheimeri-reverchonii-utilis-x-involuta",
       "lane": "small-genus-backfill",
       "owner": "taxonomy-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T13:22:00Z",
       "expires_at": "2026-10-05T19:22:00Z",
       "release_when": "The four scientifically settled canonical Muhlenbergia pages reach useful FAST-FILL gallery coverage or exact remaining gaps are documented.",
-      "notes": "Visual-only continuation. Preserve current taxonomy/range. Skip M. piniflora because its own canonical record is scientifically PROVISIONAL/likely erroneous. M. schreberi already has 3 learner images."
+      "notes": "Visual-only continuation. Preserve current taxonomy/range. Skip M. piniflora because its own canonical record is scientifically PROVISIONAL/likely erroneous. M. schreberi already has 3 learner images.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "manual-fast-fill-pluchea-001",
@@ -2135,11 +2139,13 @@
       "scope_key": "fast-fill-pluchea-camphorata",
       "lane": "small-genus-backfill",
       "owner": "taxonomy-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T13:39:00Z",
       "expires_at": "2026-10-05T19:39:00Z",
       "release_when": "Useful exact-species Pluchea camphorata learner imagery is durably added and verified, or the batch is aborted.",
-      "notes": "Visual-only. Preserve the existing user-approved range exception and UNRESOLVED/native-metrics-excluded scientific status."
+      "notes": "Visual-only. Preserve the existing user-approved range exception and UNRESOLVED/native-metrics-excluded scientific status.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "manual-fast-fill-panicum-001",
@@ -2214,11 +2220,13 @@
       "scope_key": "photo-backfill-clematis-rhus-milkweed-009",
       "lane": "learner-photo-backfill",
       "owner": "automation-learner-photo-backfill",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-05T08:30:00-05:00",
       "expires_at": "2026-10-05T10:30:00-05:00",
       "release_when": "Selected learner galleries are durably updated or explicitly skipped.",
-      "notes": "Media-only fast-fill; preserve settled taxonomy/range."
+      "notes": "Media-only fast-fill; preserve settled taxonomy/range.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "manual-fast-fill-prairie-grasses-004",
@@ -3968,11 +3976,13 @@
       ],
       "lane": "learner-photo-fast-fill",
       "owner": "manual-collect-missing-species-photos-continuation",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-06T01:01:01Z",
       "expires_at": "2026-10-06T07:01:01.000Z",
       "release_when": "Install and visually verify six physical Opuntia learner images or explicitly skip.",
-      "notes": "Physicalize two approved PASS pricklypear galleries. Normalize legacy URL-as-filename metadata and use cached Wikimedia thumbnails where applicable; preserve settled science."
+      "notes": "Physicalize two approved PASS pricklypear galleries. Normalize legacy URL-as-filename metadata and use cached Wikimedia thumbnails where applicable; preserve settled science.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "photo-backfill-write-healthcheck-2026-10-05",
@@ -5064,7 +5074,8 @@
       "expires_at": "2026-10-06T20:32:00-05:00",
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
       "notes": "ONE-PHOTO COVERAGE batch 051. Fresh live-zero verification confirmed Asclepias incarnata, Monarda fistulosa, and Passiflora incarnata all have images[] = 0 and no active media claims. Use exact-species Wikimedia Commons field photos with explicit reuse status: Asclepias CC0 (Matt Schultz), Monarda CC BY 4.0 (Alex Abair), Passiflora CC BY 4.0 (Alex Abair). Media-only; preserve settled science. Completed: curation run 37519229912 succeeded; Asclepias incarnata, Monarda fistulosa, and Passiflora incarnata each received one exact-species Commons field image with explicit reuse metadata. All three left the zero-photo queue with zero warnings. Completed: curation run 37520162213 succeeded; Euphorbia villifera, Tragia brevispica, and Bernardia myricifolia each received one provisional exact-current-concept UT herbarium image. All three left the zero-photo queue with zero warnings.",
-      "released_at": "2026-10-06T14:38:00-05:00"
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "manual-one-photo-coverage-mixed-051",
@@ -5076,11 +5087,13 @@
       ],
       "lane": "learner-photo-fast-fill",
       "owner": "manual-one-photo-coverage-continuation-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-06T14:27:00-05:00",
       "expires_at": "2026-10-06T20:27:00-05:00",
       "release_when": "One provisional exact-species learner photo is durably installed and verified for each still-zero target, or the target is explicitly skipped/released.",
-      "notes": "ONE-PHOTO COVERAGE batch 051. Fresh live-zero verification confirmed Euphorbia villifera, Tragia brevispica, and Bernardia myricifolia all have images[] = 0 and no active media claims. Use exact Travis County UT Plant Resources Center herbarium images; preserve Chamaesyce villifera as the historical specimen treatment for E. villifera. Private-study provisional coverage; public reuse remains review-only. Media-only; preserve settled science."
+      "notes": "ONE-PHOTO COVERAGE batch 051. Fresh live-zero verification confirmed Euphorbia villifera, Tragia brevispica, and Bernardia myricifolia all have images[] = 0 and no active media claims. Use exact Travis County UT Plant Resources Center herbarium images; preserve Chamaesyce villifera as the historical specimen treatment for E. villifera. Private-study provisional coverage; public reuse remains review-only. Media-only; preserve settled science.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "manual-one-photo-coverage-mixed-052",
@@ -5111,11 +5124,13 @@
       "scope_key": "family-recognition-confusion-cleanup-002",
       "lane": "family-backfill",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-07T00:00:00-05:00",
       "expires_at": "2026-10-07T06:00:00-05:00",
       "release_when": "Comparison-first family upgrades are durably merged into all five family modules.",
-      "notes": "147/147 structural coverage verified live. Fine-tuning only."
+      "notes": "147/147 structural coverage verified live. Fine-tuning only.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "genus-lesson-vachellia-001",
@@ -5149,11 +5164,13 @@
       "scope_key": "content/taxa/Juglandaceae/Carya/genus.json",
       "lane": "genus-lesson-comparison-builder",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-07T05:30:00-05:00",
       "expires_at": "2026-10-07T11:30:00-05:00",
       "release_when": "Carya genus lesson is durably written, Genus Study Index A:B is synchronized, or the run is explicitly aborted.",
-      "notes": "Comparison-builder only. Source-pool pair Carya aquatica + Carya illinoinensis. No species scouting or canonical installation."
+      "notes": "Comparison-builder only. Source-pool pair Carya aquatica + Carya illinoinensis. No species scouting or canonical installation.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "manual-monarda-visual-comparison-001",
@@ -5277,11 +5294,13 @@
       "scope_key": "content/taxa/Euphorbiaceae/Acalypha/genus.json",
       "lane": "genus-lesson-comparison-builder",
       "owner": "automation-genus-lesson-builder",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-07T11:33:00-05:00",
       "expires_at": "2026-10-07T13:33:00-05:00",
       "release_when": "Acalypha genus lesson is durably written and Genus Study Index A:B is synchronized, or work is explicitly aborted.",
-      "notes": "Three-species comparison framework from canonical species and family module only; A. persimilis exact species-level reproductive thresholds remain targeted diagnostic-review handoff. No species scouting or canonical installation."
+      "notes": "Three-species comparison framework from canonical species and family module only; A. persimilis exact species-level reproductive thresholds remain targeted diagnostic-review handoff. No species scouting or canonical installation.",
+      "released_at": "2026-10-07T13:55:00-05:00",
+      "release_reason": "Coordination audit: lease expired; durable/current state checked. Claim no longer reserves work. Preserve underlying scientific/media state and reacquire a fresh claim if unfinished work is resumed."
     },
     {
       "claim_id": "automation-family-similarity-onagraceae-20261007-1217",
