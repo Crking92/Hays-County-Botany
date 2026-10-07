@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T23:15:00-05:00",
+  "updated_at": "2026-10-06T23:22:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5238,11 +5238,12 @@
       "scope_key": "content/taxa/Lamiaceae/Monarda/genus.json",
       "lane": "genus-diagnostic-photo",
       "owner": "manual-project-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-06T23:15:00-05:00",
       "expires_at": "2026-10-07T05:15:00-05:00",
       "release_when": "Three local genus image assets, provenance metadata, and local visual_comparison paths are durably committed.",
-      "notes": "Physicalize Monarda genus visuals using already-installed rights-cleared species assets; do not change taxonomy/range/admission."
+      "notes": "Physicalize Monarda genus visuals using already-installed rights-cleared species assets; do not change taxonomy/range/admission. Completed in commit 690cdd9c57019aabdf495b425f9ad1e862d65c87: three physical genus JPGs, provenance CSV, and local render paths.",
+      "released_at": "2026-10-06T23:22:00-05:00"
     }
   ]
 }
