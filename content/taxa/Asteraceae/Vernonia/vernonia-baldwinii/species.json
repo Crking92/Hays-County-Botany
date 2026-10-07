@@ -53,14 +53,15 @@
     "Learner approved"
   ],
   "curation_status": {
-    "version": "1.0-range-hold-correction-2026-10-06",
+    "version": "1.1-visual-learning-polish-2026-10-07",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "user_approved": true,
     "range_exception": true,
-    "last_reviewed": "2026-10-06"
+    "last_reviewed": "2026-10-07",
+    "visual_learning_polished": true
   },
   "diagnostic_image_needs": [
     "whole habit",
@@ -70,5 +71,112 @@
     "head close-up",
     "comparison with V. lindheimeri"
   ],
-  "photo_note": "Exact diagnostic imagery remains later enrichment."
+  "photo_note": "Diagnostic imagery is still missing. Highest-value addition is a matched V. baldwinii / V. × guadalupensis / V. lindheimeri leaf comparison using the same scale and views: whole blade, margin profile, upper surface, lower surface.",
+  "visual_learning": {
+    "version": "1.0-parent-hybrid-comparison",
+    "learner_goal": "Separate broad-leaved V. baldwinii from narrow revolute-leaved V. lindheimeri while recognizing that V. × guadalupensis can bridge the parents.",
+    "look_sequence": [
+      {
+        "step": 1,
+        "look_at": "one mature mid-stem leaf in full view",
+        "question": "Is the blade broadly ovate/lance-ovate or very narrow and linear?",
+        "teaching_note": "Start with leaf proportion, not flower color. Photograph the whole blade with a consistent scale."
+      },
+      {
+        "step": 2,
+        "look_at": "leaf margin in cross/oblique view",
+        "question": "Are the margins relatively flatter or strongly rolled under (revolute)?",
+        "teaching_note": "A side-lit edge view teaches this better than a flat overhead photo."
+      },
+      {
+        "step": 3,
+        "look_at": "upper and lower leaf surfaces",
+        "question": "Where is the hairiness concentrated and how woolly is the underside?",
+        "teaching_note": "Use matched macros of the same leaf area on both surfaces; V. lindheimeri should provide the strong densely woolly-underneath contrast."
+      },
+      {
+        "step": 4,
+        "look_at": "whole terminal head array",
+        "question": "Does the overall plant fit the robust broad-leaved ironweed architecture?",
+        "teaching_note": "Use this as supporting context after the leaf characters, not as the sole separator."
+      },
+      {
+        "step": 5,
+        "look_at": "intermediate character combinations",
+        "question": "Does the plant cleanly fit one parent, or does it bridge them?",
+        "teaching_note": "If leaf width, margin roll and indumentum are intermediate, keep V. × guadalupensis open rather than forcing a parent."
+      }
+    ],
+    "comparison_board": [
+      {
+        "compare_with": "Vernonia lindheimeri",
+        "same_frame_features": [
+          "whole mature leaf at same scale",
+          "margin edge profile",
+          "upper-surface macro",
+          "lower-surface macro"
+        ],
+        "baldwinii_side": "much broader ovate to lance-ovate leaf; lower surface hairy/tomentose",
+        "other_side": "very narrow linear leaf; strongly revolute margins; lower surface densely woolly/sericeo-tomentose",
+        "best_visual_lock": "same-scale leaf + edge profile + underside macro"
+      },
+      {
+        "compare_with": "Vernonia × guadalupensis",
+        "same_frame_features": [
+          "leaf width/proportion",
+          "margin roll",
+          "upper/lower indumentum",
+          "whole flowering plant"
+        ],
+        "baldwinii_side": "broad-leaved parent endpoint",
+        "other_side": "accepted natural hybrid may be intermediate between the two parents",
+        "best_visual_lock": "three-column parent–hybrid–parent comparison rather than a binary key"
+      }
+    ],
+    "photo_diagram_needs": [
+      {
+        "priority": 1,
+        "role": "same-scale mature leaf",
+        "annotation": "mark blade width and length axes; label broad-leaved parent endpoint",
+        "status": "missing"
+      },
+      {
+        "priority": 1,
+        "role": "leaf-margin oblique macro",
+        "annotation": "arrow to relatively flatter margin and contrast with strongly revolute V. lindheimeri",
+        "status": "missing"
+      },
+      {
+        "priority": 1,
+        "role": "paired upper/lower leaf-surface macro",
+        "annotation": "label surface and visible hairiness",
+        "status": "missing"
+      },
+      {
+        "priority": 1,
+        "role": "three-column V. baldwinii × V. guadalupensis V. lindheimeri comparison",
+        "annotation": "align same-scale leaves and the same diagnostic regions across all three",
+        "status": "missing"
+      },
+      {
+        "priority": 2,
+        "role": "whole flowering habit + terminal head array",
+        "annotation": "show where comparison leaves were sampled from the plant",
+        "status": "missing"
+      },
+      {
+        "priority": 2,
+        "role": "discoid head close-up",
+        "annotation": "label disc florets and absence of ray florets as genus/family context, not the parent separator",
+        "status": "missing"
+      }
+    ],
+    "avoid_overtrusting": [
+      "purple flower color",
+      "head color or general ironweed gestalt",
+      "plant height by itself",
+      "one intermediate leaf on a possible hybrid",
+      "range status as an identification character"
+    ]
+  }
 }
