@@ -45,8 +45,74 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-species-joey-merge-003",
-    "last_reviewed": "2026-10-02",
+    "version": "1.1-genus-comparison-builder",
+    "last_reviewed": "2026-10-07",
     "joey_overlay": true
-  }
+  },
+  "shared_genus_characters": {
+    "look_here_first": "Confirm a climbing vine with opposite leaves, then inspect the flower: the showy parts are sepals, not petals. Use mature sepal shape and the later achene head for species-level work.",
+    "shared": "Project Clematis are climbing perennials with opposite leaves, petaloid sepals, numerous stamens and pistils, and aggregate achenes with persistent styles."
+  },
+  "species_comparison_matrix": [
+    {
+      "taxon": "Clematis drummondii",
+      "primary": "Small open pale flower rather than a leathery urn",
+      "secondary": "Very long plumose persistent styles on mature achenes",
+      "caution": "Do not identify from vine habit alone."
+    },
+    {
+      "taxon": "Clematis pitcheri",
+      "primary": "Nodding leathery urn with expanded, crispate, recurved sepal tips",
+      "secondary": "Shorter, weakly hairy achene beaks in the current project comparison",
+      "caution": "Color is secondary."
+    },
+    {
+      "taxon": "Clematis texensis",
+      "primary": "Nodding leathery urn with non-expanded, non-crispate sepal margins",
+      "secondary": "Longer, more plumose achene beaks than the project C. pitcheri comparison",
+      "caution": "Red color is memorable but not diagnostic by itself."
+    }
+  ],
+  "overlap_and_cautions": [
+    "Flower color is secondary; inspect sepal margins and tips.",
+    "Opposite divided leaves establish the genus but do not reliably separate these species.",
+    "Use mature fruit for achene-beak comparisons.",
+    "If a mature sepal edge is not visible, keep a leatherflower ID provisional."
+  ],
+  "realistic_lookalikes": [
+    {
+      "lookalike": "other opposite-leaved climbing vines",
+      "separate_by": "Require Clematis reproductive architecture: petaloid sepals, many free stamens and pistils, then aggregate achenes with persistent styles."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "priority": 1,
+      "role": "matched mature flower side views",
+      "target": "all three species",
+      "purpose": "Show open flower versus urn and expose the sepal tips."
+    },
+    {
+      "priority": 1,
+      "role": "sepal-tip macro pair",
+      "target": "C. pitcheri vs C. texensis",
+      "purpose": "Show expanded/crispate/recurved versus non-expanded sepal margins."
+    },
+    {
+      "priority": 1,
+      "role": "matched mature fruit heads",
+      "target": "all three species",
+      "purpose": "Compare persistent style/beak length and plumosity."
+    },
+    {
+      "priority": 2,
+      "role": "opposite leaf node",
+      "target": "representative Clematis",
+      "purpose": "Teach the genus doorway."
+    }
+  ],
+  "diagnostic_review_handoffs": [
+    "If mature sepal-tip structure cannot be verified, request a targeted flower-side macro rather than forcing the species ID.",
+    "Any species outside the current three-species project set goes to Taxonomy + Diagnostic Review before scope changes."
+  ]
 }
