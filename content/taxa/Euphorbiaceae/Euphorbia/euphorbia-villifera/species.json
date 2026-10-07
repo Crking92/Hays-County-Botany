@@ -13,7 +13,7 @@
     "Euphorbia stanfieldii"
   ],
   "taxonomic_note": "Accepted as Euphorbia villifera Scheele by current Kew/POWO and Flora of North America. Chamaesyce villifera is the principal legacy name in this project; Chamaesyce stanfieldii/Euphorbia stanfieldii are also treated as synonyms.",
-  "look_here_first": "Do not use 'hairy' by itself. E. villifera is usually villous but can be glabrous. First look for the usually erect-to-ascending habit, then inspect the distinct filiform stipules and papillate leaf/stem surfaces. Confirm with the glabrous capsule: its cocci are often elongated and end in an empty distal portion.",
+  "look_here_first": "Start with architecture, not the common name. E. villifera is usually erect to ascending rather than a rooted creeping mat. At the nodes its stipules are distinct and filiform, and the stem/leaf surfaces are papillate. Hairiness is supporting evidence only because glabrous forms occur. Confirm with the glabrous capsule, whose cocci are often elongated and terminate in an empty distal portion.",
   "county_occurrences_target_zone": [
     "Hays"
   ],
@@ -43,10 +43,10 @@
       "glabrous capsule with cocci often prolonged into an empty tip",
       "weakly 4-angled seed, smooth to faintly rugose"
     ],
-    "comparison_training": "Against E. serpens: villifera is usually erect/ascending, has distinct filiform stipules and papillate surfaces; serpens is a glabrous rooting mat with fused deltate stipules. Against E. prostrata: villifera has glabrous capsules and usually more generalized villous foliage; prostrata is more strictly prostrate and has crisped-villous capsule keels."
+    "comparison_training": "Against E. serpens: villifera is usually erect/ascending, has distinct filiform stipules and papillate surfaces; serpens is a glabrous prostrate mat that roots at nodes and has fused deltate stipule scales. Against E. prostrata: villifera has filiform stipules and glabrous capsules with often empty-tipped elongated cocci; prostrata does not root at nodes, has upper-free/lower-fused stipules, and has crisped-villous capsule keels."
   },
   "curation_status": {
-    "version": "1.1-diagnostic-detail-2026-10-07",
+    "version": "1.2-sandmat-structural-polish-2026-10-07",
     "taxonomy_reviewed": true,
     "range_reviewed": false,
     "morphology_reviewed": true,
@@ -99,6 +99,18 @@
         "Euphorbia serpens": "strictly prostrate, often rooting at nodes"
       },
       {
+        "character": "Node rooting",
+        "Euphorbia villifera": "usually erect/ascending; node-rooting is not the defining growth pattern",
+        "Euphorbia prostrata": "does not root at nodes",
+        "Euphorbia serpens": "frequently roots at nodes"
+      },
+      {
+        "character": "Stipule architecture",
+        "Euphorbia villifera": "distinct, filiform stipules",
+        "Euphorbia prostrata": "upper-side pair free; lower-side pair fused across node",
+        "Euphorbia serpens": "pairs connate into conspicuous broad-deltate membranous scales"
+      },
+      {
         "character": "Hairiness",
         "Euphorbia villifera": "usually villous, sometimes glabrous",
         "Euphorbia prostrata": "crisped-villous, especially stems/abaxial leaves and fruit keels",
@@ -129,7 +141,7 @@
         "Euphorbia serpens": "small and smooth, bluntly 3–4 angled"
       }
     ],
-    "key_distinctions": "Use the structural package, not the name: erect/ascending habit + filiform stipules + papillate surfaces + glabrous empty-tipped capsule cocci is much safer than 'hairy = villifera.'"
+    "key_distinctions": "Use the structural package: usually erect/ascending + distinct filiform stipules + papillate surfaces + glabrous empty-tipped capsule cocci. Hairiness alone is unsafe because glabrous E. villifera occurs."
   },
   "unreliable_characters": [
     "hairiness by itself because glabrous forms occur",
