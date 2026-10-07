@@ -88,18 +88,18 @@
     "Central Texas"
   ],
   "curation_status": {
-    "version": "1.1-diagnostic-detail-2026-10-07",
+    "version": "1.2-polish-dentata-davidii-2026-10-07",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "user_approved": true,
     "last_reviewed": "2026-10-07",
-    "photo_metadata_count": 3,
-    "photo_files_present": 3,
+    "photo_metadata_count": 5,
+    "photo_files_present": 5,
     "visual_status": "detailed-first-pass"
   },
-  "photo_note": "Detailed first-pass gallery now uses three explicit CC BY-SA exact-species images for plant, leaves, and flower/fruit. Abaxial-hair and seed macros remain the most important unresolved visual targets.",
+  "photo_note": "Detailed first-pass gallery now uses three explicit CC BY-SA exact-species images for plant, leaves, and flower/fruit. Abaxial-hair and seed macros remain the most important unresolved visual targets. Polish pass adds a matched private-study abaxial-hair macro and mature-seed macro from the same photographer/source as its paired comparison species.",
   "images": [
     {
       "file": "images/01-flower-fruit.webp",
@@ -127,14 +127,32 @@
       "source_page": "https://yavapaiplants.extension.arizona.edu/euphorbia-dentata",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "images/04-abaxial-hairs-private-study.jpg",
+      "role": "Abaxial leaf-hair macro / longer weak non-pustular hairs",
+      "creator": "S.R. Turner",
+      "license": "copyrighted / public reuse not granted",
+      "source_page": "https://www.missouriplants.com/Euphorbia_dentata_page.html",
+      "study_use": "yes",
+      "public_reuse": "review"
+    },
+    {
+      "file": "images/05-fruit-seeds-private-study.jpg",
+      "role": "Fruit and mature seed macro / rounded evenly fine-tuberculate seed",
+      "creator": "S.R. Turner",
+      "license": "copyrighted / public reuse not granted",
+      "source_page": "https://www.missouriplants.com/Euphorbia_dentata_page.html",
+      "study_use": "yes",
+      "public_reuse": "review"
     }
   ],
   "learner_visual_status": {
-    "status": "detailed_first_pass",
-    "mode": "diagnostic_detail",
-    "image_count": 3,
+    "status": "polished_pair_first_pass",
+    "mode": "diagnostic_polish_private_study",
+    "image_count": 5,
     "filled_at": "2026-10-07",
-    "note": "Three physical CC BY-SA exact-species images cover whole plant, leaves, and flower/fruit. Seed and abaxial-hair macros remain priority gaps."
+    "note": "Matched hair and seed macros added for the dentata/davidii comparison. Private-study macros are excluded from public reuse until permission or open replacements are found."
   },
   "unreliable_characters": [
     "overall habit by itself",
@@ -153,16 +171,20 @@
     "matched seed comparison with E. davidii"
   ],
   "photo_research": {
-    "status": "DETAILED_FIRST_PASS",
+    "status": "POLISH_PASS_1",
     "installed_roles": [
       "whole plant",
       "leaves",
       "flower and fruit"
     ],
     "next_priority": [
+      "replace private-study macros with equivalent openly reusable macros if found",
+      "matched scale-bar seed plate"
+    ],
+    "matched_pair": "Euphorbia dentata vs Euphorbia davidii",
+    "polish_installed_roles": [
       "abaxial leaf-hair macro",
-      "mature seed macro with scale",
-      "matched E. dentata vs E. davidii seed plate"
+      "mature seed macro"
     ]
   }
 }

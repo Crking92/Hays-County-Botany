@@ -90,7 +90,7 @@
     "Learner approved"
   ],
   "curation_status": {
-    "version": "1.1-diagnostic-detail-2026-10-07",
+    "version": "1.2-polish-dentata-davidii-2026-10-07",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
@@ -100,8 +100,8 @@
     "provisional": true,
     "last_reviewed": "2026-10-07",
     "visual_status": "detailed-first-pass",
-    "photo_metadata_count": 2,
-    "photo_files_present": 2
+    "photo_metadata_count": 4,
+    "photo_files_present": 4
   },
   "diagnostic_image_needs": [
     "whole plant",
@@ -111,7 +111,7 @@
     "mature seed macro with scale",
     "matched E. dentata vs E. davidii seed comparison"
   ],
-  "photo_note": "Detailed first-pass physical media uses two exact-species Wikimedia Commons photographs from Andrey Zharkikh's Euphorbia davidii series. Seed and abaxial-hair macros remain the critical next visual targets.",
+  "photo_note": "Detailed first-pass physical media uses two exact-species Wikimedia Commons photographs from Andrey Zharkikh's Euphorbia davidii series. Seed and abaxial-hair macros remain the critical next visual targets. Polish pass adds a matched private-study abaxial-hair macro and mature-seed macro from the same photographer/source as its paired comparison species.",
   "unreliable_characters": [
     "overall habit by itself",
     "leaf shape by itself",
@@ -120,15 +120,19 @@
     "disturbed habitat"
   ],
   "photo_research": {
-    "status": "DETAILED_FIRST_PASS",
+    "status": "POLISH_PASS_1",
     "installed_roles": [
       "whole plant / reproductive context",
       "closer upper-plant detail"
     ],
     "next_priority": [
-      "abaxial pustule-based hair macro",
-      "mature seed macro with scale",
-      "matched E. dentata vs E. davidii seed plate"
+      "replace private-study macros with equivalent openly reusable macros if found",
+      "matched scale-bar seed plate"
+    ],
+    "matched_pair": "Euphorbia dentata vs Euphorbia davidii",
+    "polish_installed_roles": [
+      "abaxial leaf-hair macro",
+      "mature seed macro"
     ]
   },
   "images": [
@@ -149,13 +153,31 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:2015.08.22_11.57.08_IMG_0259_-_Flickr_-_andrey_zharkikh_(cropped).jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "images/03-abaxial-hairs-private-study.jpg",
+      "role": "Abaxial leaf-hair macro / shorter stiffer pustule-based hairs",
+      "creator": "S.R. Turner",
+      "license": "copyrighted / public reuse not granted",
+      "source_page": "https://www.missouriplants.com/Euphorbia_davidii_page.html",
+      "study_use": "yes",
+      "public_reuse": "review"
+    },
+    {
+      "file": "images/04-seeds-private-study.jpg",
+      "role": "Mature seed macro / larger angular irregularly lumpy seed",
+      "creator": "S.R. Turner",
+      "license": "copyrighted / public reuse not granted",
+      "source_page": "https://www.missouriplants.com/Euphorbia_davidii_page.html",
+      "study_use": "yes",
+      "public_reuse": "review"
     }
   ],
   "learner_visual_status": {
-    "status": "detailed_first_pass",
-    "mode": "diagnostic_detail",
-    "image_count": 2,
+    "status": "polished_pair_first_pass",
+    "mode": "diagnostic_polish_private_study",
+    "image_count": 4,
     "filled_at": "2026-10-07",
-    "note": "Two physical exact-species CC BY 2.0 images cover habit and upper reproductive detail. Seed and abaxial-hair macros remain the highest-priority gaps."
+    "note": "Matched hair and seed macros added for the dentata/davidii comparison. Private-study macros are excluded from public reuse until permission or open replacements are found."
   }
 }
