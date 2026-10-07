@@ -75,14 +75,41 @@
       {
         "title": "Cactaceae vs Yucca/Agave",
         "rule": "Yucca and Agave have true fibrous leaves in rosettes; cacti center their growth on areoles and highly modified/reduced leaves."
+      },
+      {
+        "title": "Cactaceae vs Crassulaceae",
+        "rule": "Look for cactus areoles and an inferior ovary versus true succulent leaves and usually free superior carpels in Crassulaceae."
       }
     ],
-    "caveat": "Two taxonomy guardrails: O. lindheimeri is the same learner concept as accepted O. engelmannii var. lindheimeri; source-row O. senilis maps to O. orbiculata but stays HOLD. Do not count historical O. phaeacantha var. major records toward current O. phaeacantha because current Kew treats var. major under O. gilvescens."
+    "caveat": "Two taxonomy guardrails: O. lindheimeri is the same learner concept as accepted O. engelmannii var. lindheimeri; source-row O. senilis maps to O. orbiculata but stays HOLD. Do not count historical O. phaeacantha var. major records toward current O. phaeacantha because current Kew treats var. major under O. gilvescens.",
+    "diagnostic_visual_locks": [
+      {
+        "role": "areole_macro",
+        "look_for": "Spine/glochid-bearing cushion, with flower or branch origin labeled; distinguish family-wide areole from Opuntioideae glochids"
+      },
+      {
+        "role": "cactus_euphorbia_same_scale",
+        "look_for": "True areole versus Euphorbia spine-bearing structures; cyathium and three-part capsule as reproductive tie-breakers"
+      },
+      {
+        "role": "cactus_agave_yucca_overlay",
+        "look_for": "Flattened stem pad versus fibrous true rosette leaves, with node/areole labels"
+      },
+      {
+        "role": "flower_ovary_cutaway",
+        "look_for": "Inferior cactus ovary below perianth insertion versus Crassulaceae superior free carpels"
+      },
+      {
+        "role": "fruit_cross_section",
+        "look_for": "Fleshy cactus fruit with numerous seeds, contrasted with Euphorbia capsule"
+      }
+    ],
+    "genus_routing": "Start at stem architecture and areoles: Opuntia flattened pads with glochids; Cylindropuntia cylindrical jointed segments with glochids; Echinocereus generally ribbed cylindrical stems often clustering; Echinocactus barrel-like ribbed stems; Thelocactus and Coryphantha tubercle/areole architecture requires close-up confirmation. These are routing cues, not stand-alone genus proofs."
   },
   "curation_status": {
     "version": "1.3-two-anchors-two-holds-reconciled-video-handoff",
     "last_reviewed": "2026-10-03",
-    "visual_lock": "two_local_opuntia_anchors_live_taxonomy_holds_documented"
+    "visual_lock": "family_confusion_text_polished_diagnostic_photos_pending"
   },
   "video_handoff": {
     "source": "research-drafts/reconciliation/video-first-visual-intake-2026-10-03.json",
