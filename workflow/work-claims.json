@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T13:55:00-05:00",
+  "updated_at": "2026-10-07T14:08:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5315,6 +5315,24 @@
       "claimed_at": "2026-10-07T12:17:00-05:00",
       "expires_at": "2026-10-07T14:17:00-05:00",
       "release_when": "Onagraceae confusion polish is durably written or skipped."
+    },
+    {
+      "claim_id": "manual-euphorbia-genus-diagnostic-001",
+      "scope_kind": "genus_module",
+      "families": [
+        "Euphorbiaceae"
+      ],
+      "genera": [
+        "Euphorbia"
+      ],
+      "scope_key": "content/taxa/Euphorbiaceae/Euphorbia/genus.json",
+      "lane": "genus-diagnostic-photo",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-07T14:08:00-05:00",
+      "expires_at": "2026-10-07T20:08:00-05:00",
+      "release_when": "Euphorbia genus diagnostic framework is durably written; species photo work may continue under separate short claims.",
+      "notes": "Build genus lesson for 12 canonical Euphorbia taxa. No range/admission changes."
     }
   ]
 }
