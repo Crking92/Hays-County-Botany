@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T01:20:00-05:00",
+  "updated_at": "2026-10-07T05:30:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5136,6 +5136,24 @@
       "release_when": "Vachellia genus lesson is durably written and Genus Study Index A:B is synchronized, or work is explicitly aborted.",
       "notes": "Two-species source-pool comparison lesson only; no broad scouting or canonical installation.",
       "released_at": "2026-10-07T01:20:00-05:00"
+    },
+    {
+      "claim_id": "genus-lesson-carya-001",
+      "scope_kind": "genus_module",
+      "families": [
+        "Juglandaceae"
+      ],
+      "genera": [
+        "Carya"
+      ],
+      "scope_key": "content/taxa/Juglandaceae/Carya/genus.json",
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-07T05:30:00-05:00",
+      "expires_at": "2026-10-07T11:30:00-05:00",
+      "release_when": "Carya genus lesson is durably written, Genus Study Index A:B is synchronized, or the run is explicitly aborted.",
+      "notes": "Comparison-builder only. Source-pool pair Carya aquatica + Carya illinoinensis. No species scouting or canonical installation."
     }
   ]
 }
