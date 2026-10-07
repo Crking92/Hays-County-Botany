@@ -15,9 +15,9 @@
     "field_tip": "To learn Asteraceae well, do not stop at flower color. Look at phyllaries, receptacle/paleae, leaves, pappus, and overall architecture."
   },
   "curation_status": {
-    "version": "2.1-video-phyllary-anchor",
-    "last_reviewed": "2026-10-03",
-    "visual_lock": "first_pass_complete_video_phyllary_added"
+    "version": "2.2-family-confusion-polish",
+    "last_reviewed": "2026-10-07",
+    "visual_lock": "structural_family_lock_complete_diagnostic_visual_roles_pending"
   },
   "visual_lesson": {
     "status": "first_visual_lock",
@@ -84,5 +84,69 @@
       }
     ],
     "caveat": "Do not identify the family from a daisy-like outline alone; verify the involucre, individual florets and fruit."
+  },
+  "family_confusion_cleanup": {
+    "version": "1.0-comparison-first",
+    "updated": "2026-10-07",
+    "field_question": "Is this really one flower, or a head made of many florets—and what structure proves Asteraceae rather than a merely daisy-looking family?",
+    "look_here_first": [
+      "Turn the apparent flower sideways/over: find an involucre of phyllaries beneath a common receptacle.",
+      "Zoom into the face: prove that the head contains multiple individual florets; a ray is a whole floret, not a petal.",
+      "Follow one floret downward: the ovary is inferior and matures as a one-seeded cypsela, commonly carrying a pappus."
+    ],
+    "comparison_matrix": [
+      {
+        "confusable": "Dipsacaceae-type / teasel-like heads (encounter comparison)",
+        "separate": "Asteraceae has true florets packed on a receptacle inside a phyllary involucre; inspect individual florets and fruit/pappus rather than head silhouette."
+      },
+      {
+        "confusable": "Apiaceae",
+        "separate": "Apiaceae 'heads' resolve into umbels/umbellets with pedicellate 5-part flowers and schizocarp fruits; Asteraceae resolves into sessile florets on one receptacle with phyllaries and cypselas."
+      },
+      {
+        "confusable": "Caprifoliaceae sensu lato head-like clusters",
+        "separate": "Do not use a round flower cluster alone. Asteraceae confirmation is involucre + multiple florets on one receptacle + inferior one-ovule fruiting units/cypselas."
+      }
+    ],
+    "exception_locks": [
+      "Rays can be absent: Baccharis and many Eupatorieae are still Asteraceae.",
+      "A head can contain only ray-like florets or only disc florets; sunflower shape is not required.",
+      "Pappus may be conspicuous, reduced, scale-like, awned, or absent; absence of fluff does not eject a plant from the family.",
+      "Phyllary shape/series can be genus- or species-diagnostic, but a green bract under a flower cluster by itself is not enough."
+    ],
+    "genus_routing_cues": [
+      "First split head type: radiate vs discoid vs ray-only/ligulate.",
+      "Then inspect phyllary series/tips/hairs and whether the receptacle bears paleae.",
+      "Then use pappus form, cypsela characters, leaf arrangement and whole inflorescence architecture.",
+      "For thistle-like plants inspect phyllaries and pappus; for Eupatorieae-like fluffy heads inspect discoid florets plus opposite/alternate leaves and involucre."
+    ],
+    "diagnostic_visual_roles": [
+      {
+        "priority": 1,
+        "shot": "single capitulum cutaway or side macro",
+        "labels": "phyllaries | common receptacle | ray floret | disc floret | inferior ovary"
+      },
+      {
+        "priority": 1,
+        "shot": "same-scale Asteraceae head vs Apiaceae umbel comparison",
+        "labels": "sessile florets on receptacle vs pedicellate flowers on rays"
+      },
+      {
+        "priority": 1,
+        "shot": "one floret-to-fruit sequence",
+        "labels": "corolla | inferior ovary | cypsela | pappus"
+      },
+      {
+        "priority": 1,
+        "shot": "radiate / discoid / ray-only triptych",
+        "labels": "head type; explicitly mark each visible unit as a floret"
+      },
+      {
+        "priority": 2,
+        "shot": "phyllary variation strip from local genera",
+        "labels": "number of series | appressed/recurved tips | spines | hairs/resin"
+      }
+    ],
+    "taxonomy_handoff": "None opened by this polish. Keep tribe/genus placement work in Taxonomy + Diagnostic Review if a canonical species exposes a genuine conflict."
   }
 }
