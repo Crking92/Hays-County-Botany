@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-06T23:04:00-05:00",
+  "updated_at": "2026-10-06T23:15:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5220,6 +5220,29 @@
       "release_when": "The Monarda genus visual comparison gains a durable M. fistulosa diagnostic image entry, or this single-species media pass is explicitly aborted.",
       "notes": "One-species-at-a-time diagnostic visual build. Use an exact M. fistulosa dissected inflorescence/calyx view; no species science, range, learner admission, or gallery changes. Completed: M. fistulosa dissected inflorescence/calyx diagnostic image is durably wired into Monarda genus visual_comparison.",
       "released_at": "2026-10-06T23:04:00-05:00"
+    },
+    {
+      "claim_id": "manual-monarda-physical-genus-images-001",
+      "scope_kind": "genus_module_media",
+      "taxa": [
+        "monarda-citriodora",
+        "monarda-punctata",
+        "monarda-fistulosa"
+      ],
+      "families": [
+        "Lamiaceae"
+      ],
+      "genera": [
+        "Monarda"
+      ],
+      "scope_key": "content/taxa/Lamiaceae/Monarda/genus.json",
+      "lane": "genus-diagnostic-photo",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-06T23:15:00-05:00",
+      "expires_at": "2026-10-07T05:15:00-05:00",
+      "release_when": "Three local genus image assets, provenance metadata, and local visual_comparison paths are durably committed.",
+      "notes": "Physicalize Monarda genus visuals using already-installed rights-cleared species assets; do not change taxonomy/range/admission."
     }
   ]
 }
