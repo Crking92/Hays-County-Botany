@@ -8,13 +8,12 @@
     "selection_mode": "B039 canonical anchors + B152 strict-review handoff",
     "canonical_species_ids": [
       "monarda-citriodora",
+      "monarda-fistulosa",
       "monarda-punctata"
     ],
-    "pending_strict_review": [
-      "monarda-fistulosa"
-    ],
+    "pending_strict_review": [],
     "source_concept_count": 3,
-    "note": "M. citriodora and M. punctata are installed PASS anchors. M. fistulosa remains a true open review task and is not installed until independent taxonomy/range review is complete."
+    "note": "All three current Monarda source concepts are installed learner cards. M. citriodora and M. punctata are project-range PASS; M. fistulosa is canonical learner-approved with range UNRESOLVED and remains excluded from confirmed-native metrics."
   },
   "source_concept_status": [
     {
@@ -25,7 +24,8 @@
     {
       "id": "monarda-fistulosa",
       "scientific_name": "Monarda fistulosa",
-      "status": "PENDING_STRICT_DEEP_REVIEW"
+      "status": "CANONICAL_RANGE_UNRESOLVED",
+      "native_metrics_excluded": true
     },
     {
       "id": "monarda-punctata",
@@ -35,33 +35,55 @@
   ],
   "study_strategy": {
     "priority": [
-      "stacked separated whorls versus more conventional dense terminal heads",
-      "floral-bract shape and color",
-      "length of bristle tips on bracts and calyx teeth",
-      "cream/yellow purple-spotted versus pink/lavender corollas",
-      "calyx-mouth hair pattern",
-      "whole-plant life history and habitat only after floral morphology"
+      "inflorescence architecture",
+      "floral-bract tip shape",
+      "calyx teeth and calyx-mouth hair pattern",
+      "corolla spotting as confirmation",
+      "annual versus perennial habit as supporting context"
     ],
-    "warning": "Do not identify Monarda by flower color alone. For the installed anchors, long bristle-tipped bracts/calyx teeth point to M. citriodora; pale bracts plus cream/yellow heavily purple-spotted flowers and an open ciliate calyx mouth point to M. punctata. M. fistulosa is pending strict review and should not be treated as a local PASS yet."
+    "warning": "Do not identify these Monarda from flower color alone. Start with stacked whorls versus a dense rounded terminal head, then bract and calyx structure. M. fistulosa range remains unresolved independently of learner admission."
   },
   "quick_key": [
     {
-      "if": "tiered/interrupted flower whorls with purplish bracts narrowed into long bristle tips and long bristle-tipped calyx teeth",
-      "then": "Monarda citriodora — canonical PASS"
+      "if": "strongly interrupted/tiered whorls; purplish bracts and calyx teeth drawn into conspicuous long bristle tips",
+      "then": "Monarda citriodora"
     },
     {
-      "if": "tiered whorls with pale white/pink bracts, cream-to-yellow purple-spotted corollas, and short triangular calyx teeth",
-      "then": "Monarda punctata — canonical PASS"
+      "if": "tiered whorls with pale bracts; cream/yellow corollas heavily purple-spotted; pointed non-bristled bracts; open ciliate calyx mouth",
+      "then": "Monarda punctata"
     },
     {
-      "if": "source says wild bergamot / Monarda fistulosa",
-      "then": "pending strict review; do not install or count as target-zone PASS until taxonomy/range review is complete"
+      "if": "dense rounded terminal head rather than conspicuous stacked whorls; perennial habit; calyx throat densely hairy",
+      "then": "Monarda fistulosa — canonical learner card; range UNRESOLVED"
     }
   ],
   "curation_status": {
-    "version": "1.0-b152",
-    "genus_audit": "partial_pending_monarda_fistulosa_review",
+    "version": "1.1-three-species-diagnostic-review",
+    "genus_audit": "complete_for_current_three_species_set",
     "source_concepts_reconciled": true,
-    "last_reviewed": "2026-10-05"
+    "last_reviewed": "2026-10-06"
+  },
+  "diagnostic_review_2026_10_06": {
+    "status": "COMPLETE",
+    "look_here_first": [
+      "1. Decide stacked separated whorls versus dense rounded terminal head.",
+      "2. Inspect the floral-bract tip.",
+      "3. Inspect calyx teeth and the calyx-mouth hair pattern.",
+      "4. Use corolla spotting and life history only as confirmation."
+    ],
+    "unreliable_chars": [
+      "flower color alone",
+      "overall height",
+      "aroma intensity",
+      "habitat alone"
+    ],
+    "exact_photo_roles": [
+      "matched whole-inflorescence side views",
+      "matched bract-tip macros",
+      "matched calyx-tooth/calyx-mouth macros",
+      "M. punctata spotted-corolla macro",
+      "M. fistulosa terminal-head and calyx-throat macro"
+    ],
+    "photo_research_note": "Existing canonical packages already have reusable coverage; prioritize missing matched diagnostic macros rather than decorative duplicates."
   }
 }
