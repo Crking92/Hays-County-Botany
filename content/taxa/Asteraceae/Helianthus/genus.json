@@ -23,7 +23,144 @@
     "warning": "Many Asteraceae look similar from a distance. Use head structure and involucre details, not just a yellow flower photo."
   },
   "curation_status": {
-    "version": "1.0-batch1",
-    "last_reviewed": "2026-09-30"
+    "version": "2.0-genus-comparison-builder",
+    "last_reviewed": "2026-10-07",
+    "genus_lesson": "comparison_complete_current_two_species_set"
+  },
+  "shared_genus_recognition": {
+    "look_here_first": "Confirm a true sunflower head: many disk florets on one receptacle, yellow ray florets around the margin, and an involucre of green phyllaries beneath. Then use whole-plant architecture and leaves before tightening to phyllaries.",
+    "shared_traits": [
+      "coarse herbs with radiate capitula",
+      "yellow ray florets surrounding many disk florets",
+      "involucre of phyllaries beneath each head",
+      "rough leaves",
+      "flattened cypselae that may carry short awns"
+    ],
+    "caution": "A yellow radiate Asteraceae head is not enough for Helianthus. Confirm the capitulum/involucre, then use leaves, branching pattern and phyllaries."
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "life cycle / growth",
+      "Helianthus annuus": "annual; usually freely branching",
+      "Helianthus maximiliani": "rhizomatous perennial; often colonial and more upright with less free branching",
+      "weight": "high supporting"
+    },
+    {
+      "character": "leaf blade",
+      "Helianthus annuus": "broad ovate to deltoid-ovate, rough; lower leaves often long-petiolate",
+      "Helianthus maximiliani": "numerous narrow linear-lanceolate rough leaves, often folded lengthwise and curving downward",
+      "weight": "LOOK HERE FIRST"
+    },
+    {
+      "character": "leaf arrangement",
+      "Helianthus annuus": "lower leaves opposite, upper leaves alternate",
+      "Helianthus maximiliani": "mostly alternate; lower leaves can be opposite/subopposite",
+      "weight": "supporting; overlap exists"
+    },
+    {
+      "character": "head arrangement",
+      "Helianthus annuus": "usually several to many heads on branching stems",
+      "Helianthus maximiliani": "many heads in elongated inflorescences on tall upright stems",
+      "weight": "supporting"
+    },
+    {
+      "character": "phyllaries",
+      "Helianthus annuus": "broader lanceolate to ovate, ciliate-hispid, spreading to somewhat reflexed",
+      "Helianthus maximiliani": "long and narrow, ascending to spreading",
+      "weight": "strong confirmation"
+    }
+  ],
+  "species_key": [
+    {
+      "step": 1,
+      "look": "whole stem + representative mid-stem leaf",
+      "if": "broad ovate/deltoid rough leaves on a usually branching annual",
+      "then": "Helianthus annuus"
+    },
+    {
+      "step": 1,
+      "look": "whole stem + representative mid-stem leaf",
+      "if": "many narrow linear-lanceolate leaves, commonly conduplicate/folded and curving downward on an upright perennial",
+      "then": "Helianthus maximiliani"
+    },
+    {
+      "step": 2,
+      "look": "underside/side of mature head",
+      "if": "broad ciliate-hispid phyllaries",
+      "then": "supports H. annuus"
+    },
+    {
+      "step": 2,
+      "look": "underside/side of mature head",
+      "if": "long narrow phyllaries",
+      "then": "supports H. maximiliani"
+    }
+  ],
+  "overlap_and_cautions": [
+    "Do not use yellow ray color or dark-versus-light disk color as the primary split.",
+    "Lower leaves of H. maximiliani can be opposite/subopposite, so leaf arrangement alone is not decisive.",
+    "Both species can be tall, rough, multi-headed and 2-awned in fruit.",
+    "Young or mowed plants may hide the annual-versus-colonial architecture; in those cases prioritize leaf proportions/folding plus mature phyllaries."
+  ],
+  "local_lookalike_routing": [
+    {
+      "group": "other yellow radiate Asteraceae",
+      "separate": "First prove Helianthus-like head structure and involucre; then compare leaf arrangement, receptacle/phyllaries and fruit rather than flower color."
+    },
+    {
+      "group": "Silphium / Verbesina-type tall yellow composites",
+      "separate": "Do not route from height or yellow heads. Use leaf architecture/attachment and head underside; if those structures are missing, stop at the broader composite comparison."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "priority": 1,
+      "role": "matched whole-plant architecture",
+      "purpose": "branching annual H. annuus versus upright/colonial H. maximiliani"
+    },
+    {
+      "priority": 1,
+      "role": "same-scale representative mid-stem leaf pair",
+      "purpose": "broad ovate/deltoid versus narrow linear-lanceolate; show petiole/attachment and any lengthwise fold"
+    },
+    {
+      "priority": 1,
+      "role": "matched head side/underside macro",
+      "purpose": "compare broad ciliate-hispid versus long narrow phyllaries"
+    },
+    {
+      "priority": 2,
+      "role": "node-to-node stem section",
+      "purpose": "teach lower-opposite-to-upper-alternate transition in H. annuus and mostly alternate pattern in H. maximiliani without overclaiming"
+    },
+    {
+      "priority": 2,
+      "role": "mature fruit/cypsela close-up",
+      "purpose": "confirm shared sunflower fruit architecture; not a primary species separator"
+    }
+  ],
+  "project_media_refs": [
+    {
+      "species": "Helianthus maximiliani",
+      "source": "Joey Santore / Crime Pays But Botany Doesn't",
+      "video_id": "N4yq5Z1_0Eo",
+      "timestamp": "29:30",
+      "role": "sessile/conduplicate leaf teaching view",
+      "library_frame": "/Hays Botany ID/Joey Santore/video-frames/N4yq5Z1_0Eo/helianthus-maximiliani_sessile-folded-leaf-source-label_29-30.jpg",
+      "rights": "private study; public reuse not assumed"
+    },
+    {
+      "species": "Helianthus maximiliani",
+      "source": "Joey Santore / Crime Pays But Botany Doesn't",
+      "video_id": "N4yq5Z1_0Eo",
+      "timestamp": "29:40",
+      "role": "capitulum / narrow multiseriate phyllaries teaching view",
+      "library_frame": "/Hays Botany ID/Joey Santore/video-frames/N4yq5Z1_0Eo/helianthus-maximiliani_head-phyllaries_29-40.jpg",
+      "rights": "private study; public reuse not assumed"
+    }
+  ],
+  "targeted_handoff": {
+    "diagnostic_photo_polish": "Acquire/label matched leaf and head-underside pairs before adding decorative gallery images.",
+    "taxonomy_diagnostic_review": "No new taxonomy/range issue opened; if a specimen lacks mature leaves/phyllaries or presents intermediate architecture, do not force species from color/height alone."
   }
 }
