@@ -113,21 +113,21 @@
         "euphorbia-serpens",
         "euphorbia-villifera"
       ],
-      "look_here_first": "Overall habit first, then stem/leaf hairs, leaf shape/asymmetry, and capsule characters.",
+      "look_here_first": "For the prostrata–serpens–villifera trio, inspect a stem node before judging overall habit: node-rooting + stipule architecture is the fastest split. Then compare pubescence, capsule hairs/cocci, and mature seed sculpture. Use broader habit/leaf characters to separate E. angusta, E. fendleri, and E. nutans.",
       "differences": [
-        "E. angusta: narrow leaves; upright to spreading rather than a tight mat.",
-        "E. fendleri: low perennial sandmat with a more substantial perennial base.",
-        "E. nutans: larger opposite leaves and ascending/erect branching; reddish leaf blotch often present.",
-        "E. prostrata: flat radiating annual mat; asymmetric leaf bases; capsules often hairy.",
-        "E. serpens: tiny smooth creeping mat; very small rounded leaves; mostly glabrous.",
-        "E. villifera: low spreading sandmat with conspicuous soft pubescence."
+        "E. angusta: erect perennial with narrow linear to elliptic-linear distal leaves; stems/involucre/capsule strigose.",
+        "E. fendleri: low perennial from a woody crown; clustered glabrous stems, small entire leaves, distinct narrow stipules, glabrous capsule.",
+        "E. nutans: larger opposite leaves and ascending/erect branching; reddish leaf blotch often present but not required.",
+        "E. prostrata: prostrate/decumbent and not rooting at nodes; upper-side stipules free but lower-side pair fused; capsule keels hairy; seed sharply ridged.",
+        "E. serpens: strictly prostrate and frequently rooting at nodes; fused broad-deltate stipule scales; plant and capsule glabrous; seed smooth.",
+        "E. villifera: usually erect/ascending; distinct filiform stipules and papillate surfaces; usually villous but sometimes glabrous; capsule glabrous with often elongated empty-tipped cocci."
       ],
       "photo_roles": [
-        "matched overhead habit views",
-        "stem/node and stipule macros where relevant",
-        "upper/lower leaf surfaces",
-        "capsule hair close-ups",
-        "seed macros for difficult cases"
+        "matched stem-node views showing no rooting vs adventitious roots",
+        "matched stipule macros: prostrata upper-free/lower-fused vs serpens fused deltate scale vs villifera filiform",
+        "matched capsule macros: prostrata hairy keels vs serpens glabrous vs villifera glabrous elongated cocci",
+        "matched seed macros where available",
+        "overhead/side habit views as supporting context"
       ]
     }
   ],
@@ -146,7 +146,7 @@
     },
     {
       "if": "low creeping/prostrate or small sandmat-like plant",
-      "then": "Use sandmat growth form + hairs + leaves + capsule/seed characters"
+      "then": "For E. prostrata vs E. serpens vs E. villifera, inspect node rooting + stipule architecture first, then capsule/seed characters"
     }
   ],
   "diagnostic_review_2026_10_07": {
@@ -169,14 +169,14 @@
     "species_detail_pass_completed": "2026-10-07"
   },
   "curation_status": {
-    "version": "1.8-high-priority-pair-polish",
+    "version": "1.9-sandmat-structural-polish",
     "genus_audit": "framework_complete_photo_detail_in_progress",
     "last_reviewed": "2026-10-07"
   },
   "visual_comparison": {
     "title": "Euphorbia diagnostic pairs",
     "subtitle": "Compare the closest look-alikes by structure, not overall color.",
-    "memory_rule": "White pair: inspect the TOP surface — bicolor = narrow bracts + conspicuous hairs above; marginata = broad bracts + mostly glabrous above. Poinsettia pair: inspect the gland opening — cyathophora = oblong and rimless; heterophylla = round with an annular rim. Dentata pair: seed first — dentata = smaller, rounded, evenly pebbled; davidii = larger, angular, irregularly lumpy. Sandmat trio: prostrata = hairy fruit keels + ridged seed; serpens = glabrous rooted mat + fused stipule scale + smooth seed; villifera = usually erect/ascending + filiform stipules + papillate surfaces.",
+    "memory_rule": "White pair: inspect the TOP surface — bicolor = narrow bracts + conspicuous hairs above; marginata = broad bracts + mostly glabrous above. Poinsettia pair: inspect the gland opening — cyathophora = oblong and rimless; heterophylla = round with an annular rim. Dentata pair: seed first — dentata = smaller, rounded, evenly pebbled; davidii = larger, angular, irregularly lumpy. Sandmat trio: NODE FIRST — prostrata = no node-rooting + upper-free/lower-fused stipules + hairy fruit keels/ridged seed; serpens = roots at nodes + fused deltate stipule scale + glabrous fruit/smooth seed; villifera = usually erect/ascending + filiform stipules + papillate surfaces + glabrous empty-tipped cocci.",
     "items": [
       {
         "label": "Snow-on-the-prairie — narrow bracts + hairs ABOVE",
@@ -247,7 +247,7 @@
         "scientific_name": "Euphorbia prostrata",
         "image_role": "fruit macro / capsule keel pubescence",
         "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-prostrata/images/02-fruit-hairy-keels.jpg",
-        "caption": "Usually prostrate/decumbent but not a tightly rooting mat. The strongest confirmation is the capsule: crisped hairs concentrate along the keels and toward the base. Seeds are sharply 4-angled with transverse ridges.",
+        "caption": "Start at a node: E. prostrata does not root there; the upper-side stipules are free while the lower-side pair is fused across the node. Then confirm with the capsule: crisped hairs concentrate along the keels/toward the base, and seeds are sharply 4-angled with transverse ridges.",
         "creator": "Stefan.lefnaer",
         "license": "CC BY-SA 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_prostrata_sl26.jpg"
@@ -257,7 +257,7 @@
         "scientific_name": "Euphorbia serpens",
         "image_role": "stem/node macro / fused stipules",
         "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-serpens/images/02-stipules.jpg",
-        "caption": "Strictly prostrate, often rooting at nodes, and essentially glabrous. Look for the conspicuous fused deltate stipule scale; fruit is glabrous and seeds are smooth.",
+        "caption": "NODE FIRST: strictly prostrate stems frequently produce adventitious roots at nodes, and the stipules are fused into conspicuous broad-deltate scales. The plant is essentially glabrous; fruit is glabrous and seed smooth.",
         "creator": "Stefan.lefnaer",
         "license": "CC BY-SA 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_serpens_sl36.jpg"
@@ -267,7 +267,7 @@
         "scientific_name": "Euphorbia villifera",
         "image_role": "field close-up / opposite leaves, stem, and cyathia",
         "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-villifera/images/02-field-leaves-cyathia.jpg",
-        "caption": "Usually erect to ascending rather than a flat mat. Confirm distinct filiform stipules and papillate surfaces. It is usually villous but can be glabrous, so hairiness alone is not safe; capsules are glabrous and often have elongated empty-tipped cocci.",
+        "caption": "Usually erect to ascending rather than a rooted mat. At the nodes, stipules are distinct and filiform; stem/leaf surfaces are papillate. It is usually villous but can be glabrous, so hairiness alone is unsafe; the capsule is glabrous with often elongated empty-tipped cocci.",
         "creator": "UT Austin BIO406D PlantPics",
         "license": "reuse rights unverified",
         "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/eup/Chamaesyce_villifera.htm",
@@ -307,6 +307,6 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_angusta_iNat-51852545.jpg"
       }
     ],
-    "overlay_note": "High-priority pair polish complete for white-bracted, poinsettia-like, and dentata/davidii groups. White-pair galleries intentionally keep their current physical images; the next worthwhile upgrade is a matched upper-surface hair macro rather than another general habit photo."
+    "overlay_note": "High-priority white-bracted, poinsettia-like, and dentata/davidii comparison polish is complete. Sandmat structural polish now uses node-rooting + stipule architecture before general habit; macro-photo backfill is in progress for prostrata/serpens/villifera."
   }
 }
