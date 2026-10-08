@@ -86,10 +86,11 @@
     }
   ],
   "curation_status": {
-    "version": "2.2-quercus-paired-diagnostics-post-blackjack-chinkapin-bur",
+    "version": "2.3-quercus-post-blackjack-photo-visual",
     "last_reviewed": "2026-10-08",
-    "visual_polish_scope": "paired morphology and 12 existing-file real-photo comparison cards; missing fine-structure macros tracked, no range/taxonomy changes",
-    "photo_gap_audit": "six zero-image species remain"
+    "visual_polish_scope": "Post and blackjack now show five additional attributed real images; in-branch photo markup only, no taxonomic decision changed.",
+    "photo_gap_audit": "six zero-image species remain",
+    "last_visual_reviewed": "2026-10-08"
   },
   "b065_eastern_comparison": {
     "selection_mode": "B065 eastern-oak comparison cleanup",
@@ -339,6 +340,30 @@
         "public_reuse": "review"
       },
       {
+        "label": "Post oak — rounded, non-bristled leaf lobes",
+        "scientific_name": "Quercus stellata",
+        "image_role": "Leaf lobe-tip profile and pale underside",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus-stellata-leaves--Bruce-Kirchoff--CC-BY-NC.jpg",
+        "caption": "Photo clearly shows the rounded, non-bristle-terminated lobes and pale abaxial (lower) surface. Star-shaped/glandular hairs are too tiny to confirm from this image; a microscopic hair macro is still needed.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY-NC 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-stellata/",
+        "study_use": "yes",
+        "public_reuse": "review"
+      },
+      {
+        "label": "Post oak — attached acorn and scaled cup",
+        "scientific_name": "Quercus stellata",
+        "image_role": "Acorn, cupule and neighboring bud context",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_stellata_4_riWD77DjyHEn.jpg",
+        "caption": "Scaly cup encircles a mature-looking dark nut; adjacent reddish-brown buds are visible. This photograph does not provide a length scale or diagnostic leaf-hair resolution.",
+        "creator": "Douglas Goldman, USDA",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-stellata/",
+        "study_use": "yes",
+        "public_reuse": "review"
+      },
+      {
         "label": "Blackjack oak — bristled duck-foot blade",
         "scientific_name": "Quercus marilandica",
         "image_role": "Lobed foliage and leaf surfaces",
@@ -349,6 +374,42 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_marilandica_kz01.jpg",
         "study_use": "yes",
         "public_reuse": "yes"
+      },
+      {
+        "label": "Blackjack oak — 3 broad distal bristle-tipped lobes",
+        "scientific_name": "Quercus marilandica",
+        "image_role": "Upper adult blade and distal lobes",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marilandica__okwbBNc0WpTI.jpg",
+        "caption": "This photographed blade widens strongly toward the tip and displays small pointed/bristled distal lobes. Compare post oak's rounded lobes; do not use the whole silhouette alone as a final ID.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
+      },
+      {
+        "label": "Blackjack oak — tawny pubescent terminal buds",
+        "scientific_name": "Quercus marilandica",
+        "image_role": "Terminal and lateral winter buds close-up",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marolandica__PVCxoy7rqkDv.jpe",
+        "caption": "A cluster of large rust-tawny terminal buds shows visible fine pubescence. This is the useful direct comparison to post oak's smaller buds; no ruler or cross-section is shown, so five-angled architecture is not proven here.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
+      },
+      {
+        "label": "Blackjack oak — acorn, cupule scales and twig",
+        "scientific_name": "Quercus marilandica",
+        "image_role": "Attached acorn and scaled cup profile",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marilandica__mqZFApyZAfab.jpg",
+        "caption": "Grayish acorn in a deep scaly cup on the twig. The cup and its scale texture are clear, while age, precise ripeness and size cannot be established without a ruler and observation date.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
       },
       {
         "label": "Blackjack oak — foliage alongside trunk",
@@ -457,7 +518,35 @@
         "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fag/quercus_marilandica.htm",
         "policy": "Link only; image rights not verified for redistribution."
       }
-    ]
+    ],
+    "oak_pair_photo_upgrade": {
+      "species": [
+        "quercus-stellata",
+        "quercus-marilandica"
+      ],
+      "five_external_images": true,
+      "licenses": [
+        "CC BY-NC 2.0",
+        "CC BY-NC 4.0",
+        "CC BY 2.0"
+      ],
+      "source": "NC State Extension Gardener Plant Toolbox",
+      "roles_now_visible": [
+        "rounded lobe-tip / underside contrast",
+        "post oak acorn cup",
+        "blackjack lobe margins",
+        "tawny blackjack buds",
+        "blackjack attached cup and nut"
+      ],
+      "photos_still_needed": [
+        "post twig stellate-hair true macro",
+        "paired abaxial hairs under 10x–20x",
+        "bud lengths with mm ruler",
+        "same-scale lobe-tip bristles",
+        "accurately measured, verifiably ripe fruit"
+      ],
+      "storage": "External directly linked images, not locally mirrored; offline availability is not claimed."
+    }
   },
   "photo_backfill_priorities": {
     "audit_date": "2026-10-08",
@@ -543,7 +632,9 @@
           "abaxial glandular + stellate hairs comparison",
           "matched mature acorn cups and dark bark"
         ],
-        "why": "Current available gallery photos show real foliage/habit, but microhair and terminal-bud proof require additional exact-species licensed macros."
+        "why": "Current available gallery photos show real foliage/habit, but microhair and terminal-bud proof require additional exact-species licensed macros.",
+        "work_done_2026_10_08": "Five vetted external display images added; exact macros with measuring scales remain.",
+        "status": "partially_filled_pending_microphotos"
       },
       {
         "species": [
