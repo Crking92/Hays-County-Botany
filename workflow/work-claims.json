@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T19:18:37.605Z",
+  "updated_at": "2026-10-08T14:19:53-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6131,6 +6131,21 @@
       "claimed_at": "2026-10-08T19:18:37.605Z",
       "expires_at": "2026-10-09T01:18:37.605Z",
       "release_when": "New source galleries checked; useful verified macro installed or bounded results recorded."
+    },
+    {
+      "claim_id": "automation-family-similarity-fagaceae-20261008-1419",
+      "scope_kind": "family_module",
+      "families": [
+        "Fagaceae"
+      ],
+      "scope_key": "content/taxa/Fagaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "automation-family-similarity-polish",
+      "status": "active",
+      "claimed_at": "2026-10-08T14:19:53-05:00",
+      "expires_at": "2026-10-08T16:19:53-05:00",
+      "release_when": "Fagaceae confusion comparison committed and Sheet synchronized or task skipped",
+      "notes": "Preserve canonical genus/species; visual comparison family polish only."
     }
   ]
 }
