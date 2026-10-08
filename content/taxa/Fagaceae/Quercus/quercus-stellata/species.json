@@ -114,6 +114,36 @@
       "photo_id": "602351603",
       "study_use": "yes",
       "public_reuse": "review"
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus-stellata-leaves--Bruce-Kirchoff--CC-BY-NC.jpg",
+      "role": "Diagnostic rounded, non-bristled leaf lobes, upper and pale lower blade surface",
+      "creator": "Bruce Kirchoff",
+      "license": "CC BY-NC 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/2.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-stellata/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "review",
+      "photo_verified": "visually verified direct image URL 2026-10-08",
+      "diagnostic_visibility": "Rounded terminal lobe and pale underside visibly clear; individual glandular/stellate hairs NOT resolved",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Quercus stellata"
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_stellata_4_riWD77DjyHEn.jpg",
+      "role": "Mature dark acorn and cupule close-up on same twig as clustered reddish buds",
+      "creator": "Douglas Goldman, USDA",
+      "license": "CC BY-NC 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-stellata/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "review",
+      "photo_verified": "visually verified direct image URL 2026-10-08",
+      "diagnostic_visibility": "Acorn attached to closely scaled cup; buds also visible, but no metric scale and bud hairs NOT resolved",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Quercus stellata"
     }
   ],
   "curation_status": {
@@ -122,9 +152,11 @@
     "morphology_reviewed": true,
     "photo_downloader_included": true,
     "last_reviewed": "2026-09-30",
-    "photo_metadata_count": 6,
+    "photo_metadata_count": 8,
     "photo_files_present": 6,
-    "photo_backfill_source": "historical taxa.zip migration"
+    "photo_backfill_source": "historical taxa.zip migration",
+    "external_display_images_count": 2,
+    "last_visual_reviewed": "2026-10-08"
   },
   "look_here_first": "Check multiple mature leaf lobe tips: usually rounded with NO terminal bristle. If the leaf lacks a clear cross-shaped outline, look at thick (2–5 mm), often yellowish, densely stellate-hairy twigs and the harsh/stippled LOWER leaf surface with crowded yellowish glandular hairs plus minute stellate hairs. Confirm small reddish-brown buds (usually ≤4 mm) and scaly light-gray bark.",
   "diagnostic_comparison": {
@@ -152,7 +184,16 @@
       "Ripe cup and nut, then mature bark",
       "Matched same-scale adult leaves from SAME tree; do not use young water-sprout leaves as the type"
     ],
-    "guardrail": "Existing gallery file paths and licenses preserved. A reference leaf photograph is not assumed to show macro hairs, buds or cups unless verified directly."
+    "guardrail": "Existing gallery file paths and licenses preserved. A reference leaf photograph is not assumed to show macro hairs, buds or cups unless verified directly.",
+    "covered_by_new_gallery": [
+      "rounded non-bristled lobe-tip and underside context",
+      "mature acorn cup close-up"
+    ],
+    "remaining_macro_priorities": [
+      "twig stellate hairs",
+      "underside trichome magnification",
+      "terminal bud mm-scale macro"
+    ]
   },
   "diagnostic_science_sources": [
     {
@@ -164,5 +205,25 @@
     "date": "2026-10-08",
     "stage": "post-blackjack field-id pair",
     "scope": "FNA morphology/compare/photo-shot plan; existing range, taxonomy, approval and photos unchanged"
-  }
+  },
+  "photo_backfill_2026_10_08": {
+    "stage": "learner-visible-external-diagnostic-images",
+    "status": "partial-photo-gaps-remain",
+    "added_count": 2,
+    "added_roles": [
+      "rounded leaf lobes and pale underside context",
+      "mature acorn/cup view with neighboring buds"
+    ],
+    "visually_checked_direct_urls": true,
+    "physical_github_images_unchanged": true,
+    "source_page": "https://plants.ces.ncsu.edu/plants/quercus-stellata/",
+    "unfilled_roles": [
+      "stellate twig-hair macro",
+      "leaf-underside glandular/star-hair microphoto",
+      "small terminal bud macro with mm ruler"
+    ],
+    "rights_note": "Both new NC State photos are CC BY-NC, suitable for licensed private study; public/commercial release requires rights review. Unverified purported Quercus stellata Commons photo titled Quercus stellata.jpg explicitly excluded: actual species Q. sinuata var. breviloba.",
+    "review_date": "2026-10-08"
+  },
+  "photo_note": " Two external directly displayable NC State licensed diagnostic photographs added 2026-10-08; the images are not yet mirrored to the repository and are not complete twig-hair microscopy."
 }
