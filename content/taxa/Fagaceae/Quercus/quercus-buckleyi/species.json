@@ -33,7 +33,8 @@
   "photo_strategy": {
     "method": "targeted iNaturalist API",
     "target_count": 6,
-    "oak_specific_tightening": "Prioritize multi-photo late-summer/fall observations to increase the chance of mature leaves and acorns, plus curated taxon reference photos."
+    "oak_specific_tightening": "Prioritize multi-photo late-summer/fall observations to increase the chance of mature leaves and acorns, plus curated taxon reference photos.",
+    "diagnostic_photo_priority": "Use existing CC BY-NC local 02 for developing acorn scaly cup now, local 04/05 for upper vs lower leaf comparison; find licensed mature acorn with ruler and ciliate terminal-bud macro; do not treat Red Butte Garden images as reusable without permission."
   },
   "images": [
     {
@@ -47,12 +48,14 @@
     },
     {
       "file": "images/02-curated-reference.jpg",
-      "role": "curated taxon reference 2",
+      "role": "Developing light-green acorn and relatively deep-looking tightly appressed scaly cup on attached twig — cup visible, mature scale unproven",
       "creator": "(c) Eric Keith, some rights reserved (CC BY-NC), uploaded by Eric Keith",
       "license": "cc-by-nc",
       "source_page": "https://www.inaturalist.org/taxa/167640",
       "study_use": "yes",
-      "public_reuse": "review"
+      "public_reuse": "review",
+      "diagnostic_visibility": "Actual stored JPEG visually opened and inspected 2026-10-08. Cup and triangular/overlapping scale texture sharply visible; fruit still green and without ruler, so do NOT claim ripe-size measurements or definitive cup-depth distinction.",
+      "media_role_audit": "actual_image_verified"
     },
     {
       "file": "images/03-same-tree-field-view-1.jpg",
@@ -65,21 +68,25 @@
     },
     {
       "file": "images/04-same-tree-field-view-2.jpg",
-      "role": "same-observation oak field view 2",
+      "role": "Same-tree mature lobed sun leaf: dark-green upper (adaxial) face and bristle-tipped lobes",
       "creator": "(c) Harrison, some rights reserved (CC BY-NC)",
       "license": "cc-by-nc",
       "source_page": "https://www.inaturalist.org/observations/404035822",
       "study_use": "yes",
-      "public_reuse": "review"
+      "public_reuse": "review",
+      "diagnostic_visibility": "Stored JPEG visually inspected 2026-10-08: dark upper surface with multiple bristle-tipped lobes and strong veins; held against hand for informal size context, no accurate ruler.",
+      "media_role_audit": "actual_image_verified"
     },
     {
       "file": "images/05-same-tree-field-view-3.jpg",
-      "role": "same-observation oak field view 3",
+      "role": "Same-tree adult leaf: paler underside (abaxial) and bristle-tipped margins",
       "creator": "(c) Harrison, some rights reserved (CC BY-NC)",
       "license": "cc-by-nc",
       "source_page": "https://www.inaturalist.org/observations/404035822",
       "study_use": "yes",
-      "public_reuse": "review"
+      "public_reuse": "review",
+      "diagnostic_visibility": "Stored JPEG visually inspected 2026-10-08: leaf underside facing camera, pale green with clear veins and lobes; tuft or stellate hairs not resolved by this magnification.",
+      "media_role_audit": "actual_image_verified"
     },
     {
       "file": "images/06-same-tree-field-view-4.jpg",
@@ -162,10 +169,11 @@
       "Exactly 5 vs 7 vs 9 lobes: ranges overlap and environment affects leaves.",
       "Bark or tree size without other evidence."
     ],
-    "hybrid_guardrail": "Q. buckleyi × Q. shumardii intermediates occur; leave unresolved when diagnostic evidence is mixed."
+    "hybrid_guardrail": "Quercus buckleyi and Q. shumardii may produce intermediates; require multi-organ material.",
+    "field_correction_2026_10_08": "UT Austin specimen description calls the Texas red oak cup relatively shallow/bowl-like on measured material. Cup shape and depth overlap with Shumard; compare measured fully ripe cup and other organs rather than claiming Texas red is invariably goblet-deeper."
   },
   "diagnostic_image_plan": {
-    "status": "partial-leaf-lobe-photo-added-fruit-and-buds-open",
+    "status": "partially_filled_original_local_photos_promoted_20261008",
     "priority": "high",
     "needs": [
       "matched adult sun leaf: both surfaces, ruler",
@@ -178,10 +186,21 @@
       "glossy adult bristle-tipped leaf blade and rounded deep sinuses"
     ],
     "remaining_macro_priorities": [
-      "mature brown acorn attached to deeper goblet cup with mm scale, verified CC license",
-      "terminal bud scales ciliate toward apex, macro plus mm ruler",
-      "same-observation upper and lower adult leaf surfaces with vein-axil tuft detail"
-    ]
+      "RIPE brown acorn and cup with millimeter ruler; confirm measured mature depth and width",
+      "terminal bud scales at 10–20× showing ciliate margins with ruler; existing external Red Butte photo remains link-only (copyright)",
+      "10–20× leaf underside trichomes/vein axil tufts photographed from known single tree"
+    ],
+    "covered_by_verified_existing_media": [
+      "02-curated-reference.jpg: developing acorn with clearly visible cupule/overlapping scales, Eric Keith CC BY-NC",
+      "04-same-tree-field-view-2.jpg: mature upper leaf surface, Harrison CC BY-NC",
+      "05-same-tree-field-view-3.jpg: corresponding mature lower surface, Harrison CC BY-NC"
+    ],
+    "reference_needs_rights": [
+      "https://redbuttegarden.org/plants/species/759/",
+      "https://www.backyardnature.net/n/w/texasred.htm",
+      "https://jbg.gardenexplorer.org/taxon-4307.aspx"
+    ],
+    "no_unlicensed_image_added": true
   },
   "diagnostic_science_sources": [
     {
@@ -191,6 +210,11 @@
     {
       "source": "Flora of North America",
       "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501082"
+    },
+    {
+      "authority": "UT Austin Plant Resources Center — A. C. Gibson specimen morphology of Quercus buckleyi",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Quercus%20buckleyi",
+      "note": "Bud scale densely short-ciliate; ripe acorn cup basal about one-third nut, shallow bowl, 5–10.5 mm high x 10–21 mm wide. Do not overstate a uniformly deep goblet cup."
     }
   ],
   "diagnostic_polish": {
@@ -217,5 +241,30 @@
     ],
     "offline_ready": false,
     "reviewed_on": "2026-10-08"
+  },
+  "photo_role_audit_2026_10_08": {
+    "scope": "6 local JPG files opened/inspected for structures",
+    "verified_photo_ids": [
+      "images/01-curated-reference.jpg",
+      "images/02-curated-reference.jpg",
+      "images/03-same-tree-field-view-1.jpg",
+      "images/04-same-tree-field-view-2.jpg",
+      "images/05-same-tree-field-view-3.jpg",
+      "images/06-same-tree-field-view-4.jpg"
+    ],
+    "confirmed_roles": [
+      "developing attached acorn and scaled cup",
+      "leaf upper surface with lobes",
+      "corresponding leaf underside",
+      "twig/habit and tree context"
+    ],
+    "not_proven": [
+      "fully ripe brown attached acorn and cup measurements",
+      "ciliate margins of terminal bud scales",
+      "microscopic hairs in underside vein axils"
+    ],
+    "true_additional_photo_files": 0,
+    "photo_licensing_status": "Original existing CC BY-NC credits preserved; no new third-party image added",
+    "date": "2026-10-08"
   }
 }
