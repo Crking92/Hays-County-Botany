@@ -93,9 +93,101 @@
   ],
   "taxonomy_note": "Current Kew/POWO accepts Ruellia ciliatiflora Hook. and places Ruellia nudiflora and Ruellia occidentalis in synonymy. The project keeps historical Texas source names as aliases while using one canonical R. ciliatiflora learner.",
   "curation_status": {
-    "version": "1.0-b137",
+    "version": "1.1-visual-matrix",
     "genus_audit": "complete",
     "source_concepts_reconciled": true,
-    "last_reviewed": "2026-10-05"
-  }
+    "last_reviewed": "2026-10-07"
+  },
+  "look_here_first": "Opposite leaves and funnel-shaped, 5-lobed corollas suggest Ruellia; first trace each flower stalk to distinguish terminal/upper-axillary peduncled cymes from nearly sessile leaf-axil flowers. Next magnify stem and leaf-edge hairs, then inspect calyx glands and ripe capsule/seed count.",
+  "shared_traits": [
+    "Opposite (often decussate) simple leaves",
+    "Funnel-shaped corolla with five spreading lobes",
+    "Capsule fruit, often explosively dehiscent",
+    "Flowers borne in terminal/upper-axillary branched clusters or axillary nearly sessile clusters depending on species"
+  ],
+  "species_comparison_matrix": [
+    {
+      "species": "Ruellia ciliatiflora",
+      "flower_position": "Conspicuously peduncled branching terminal/upper-axillary cymes",
+      "stem_leaf_hairs": "Nearly glabrous to inconspicuous short hairs",
+      "calyx": "Often glandular-pubescent",
+      "fruit": "Pubescent capsule; count seeds where mature",
+      "look_first": "Follow stalk above foliage; check leaf hair density"
+    },
+    {
+      "species": "Ruellia drummondiana",
+      "flower_position": "Paired nearly sessile axillary cymes",
+      "stem_leaf_hairs": "Fine short pubescence",
+      "calyx": "Long narrow glandular-hairy lobes",
+      "fruit": "2–4 seeds per capsule in canonical review",
+      "look_first": "Inspect leaf axil, then count mature seeds"
+    },
+    {
+      "species": "Ruellia humilis",
+      "flower_position": "Axillary, nearly sessile flowers",
+      "stem_leaf_hairs": "Conspicuous long pilose hairs and ciliate leaf margins",
+      "calyx": "Check hairs in same focal plane as leaf margin",
+      "fruit": "Generally more than 2–4 seeds; confirm with mature fruit",
+      "look_first": "Magnify long leaf-margin hairs"
+    },
+    {
+      "species": "Ruellia metziae",
+      "flower_position": "Terminal panicle of opposite cymes",
+      "stem_leaf_hairs": "Upper inflorescence and calyx densely stalked-glandular-hairy",
+      "calyx": "Dense stalked glands",
+      "fruit": "Seed counts need verified matched fruit",
+      "look_first": "Terminal branching cluster + calyx gland macro"
+    }
+  ],
+  "overlap_cautions": [
+    "R. ciliatiflora and R. metziae both carry raised terminal/upper-axillary clusters; use stalked calyx/inflorescence glands and floral details rather than corolla color alone.",
+    "R. humilis and R. drummondiana both have axillary nearly sessile flowers; compare actual hair length on matching stem/leaf positions and mature capsule seed number.",
+    "Flower color is not an independent diagnosis; lighting, age, and pale morphs can mislead.",
+    "R. nudiflora, R. occidentalis and R. nudiflora var. nudiflora are represented source concepts under canonical R. ciliatiflora, not extra species."
+  ],
+  "realistic_lookalikes": [
+    "Ruellia simplex — long, narrow lanceolate leaves and a typically taller habit; a landscape escape that requires structural confirmation",
+    "Justicia species — bilabiate flowers and different capsule/inflorescence architecture",
+    "Dyschoriste linearis — smaller axillary flowers, narrow foliage, and distinct calyx/capsule morphology"
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "character": "Inflorescence attachment",
+      "roles": [
+        "whole terminal cymes with stalk traced to node: R. ciliatiflora and R. metziae",
+        "matched leaf-axil flower attachment: R. drummondiana and R. humilis"
+      ]
+    },
+    {
+      "character": "Hair length and placement",
+      "roles": [
+        "same-scale stem and leaf-margin macros: long pilose R. humilis vs short pubescent R. drummondiana vs sparse-haired R. ciliatiflora"
+      ]
+    },
+    {
+      "character": "Stalked glands",
+      "roles": [
+        "lateral calyx and upper peduncle macros with scale: R. metziae vs R. ciliatiflora"
+      ]
+    },
+    {
+      "character": "Capsule seed number",
+      "roles": [
+        "opened mature capsule and all seeds in one frame: R. drummondiana vs R. humilis"
+      ]
+    },
+    {
+      "character": "Genus architecture",
+      "roles": [
+        "opposite node, corolla front/side, mature capsule"
+      ]
+    }
+  ],
+  "handoffs": [
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "target": "Ruellia metziae vs Ruellia ciliatiflora",
+      "question": "Verify consistent non-color gland density/type and calyx measurements in matched local material before assigning a numeric couplet."
+    }
+  ]
 }
