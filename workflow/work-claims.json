@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T16:13:35-05:00",
+  "updated_at": "2026-10-08T21:30:33.811Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6390,6 +6390,28 @@
       "expires_at": "2026-10-08T18:13:35-05:00",
       "release_when": "Canonical family comparison and Sheet tracker synchronized",
       "notes": "Polish existing module only; no new species/range changes."
+    },
+    {
+      "claim_id": "photo-fast-fill-mixed-053-manual-20261008",
+      "scope_kind": "species_photo_batch",
+      "taxa": [
+        "asclepias-speciosa",
+        "asclepias-syriaca",
+        "grindelia-ciliata",
+        "silphium-laciniatum",
+        "coreopsis-lanceolata",
+        "eryngium-yuccifolium",
+        "rudbeckia-amplexicaulis",
+        "solidago-rugosa"
+      ],
+      "scope_key": "curation-inbox/photo-fast-fill-mixed-053",
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-chat-continue-photo-batches",
+      "status": "active",
+      "claimed_at": "2026-10-08T21:30:33.811Z",
+      "expires_at": "2026-10-09T03:30:33.811Z",
+      "release_when": "After batch 053 installer succeeds with physically saved images, or batch is aborted and no READY remains.",
+      "notes": "Exact-species licensed Wikimedia photos; media-only provisional learner pass. Do not overwrite scientific review or other lanes."
     }
   ]
 }
