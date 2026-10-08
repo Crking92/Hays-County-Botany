@@ -63,11 +63,12 @@
     "last_reviewed": "2026-10-02",
     "visual_reviewed": true,
     "visual_status": "usable-partial",
-    "photo_metadata_count": 3,
-    "last_visual_reviewed": "2026-10-04",
-    "photo_files_present": 3
+    "photo_metadata_count": 6,
+    "last_visual_reviewed": "2026-10-08",
+    "photo_files_present": 3,
+    "external_display_images_count": 3
   },
-  "photo_note": "Three licensed physical photographs verified: leaf surfaces, field crown/branching, and leaves beside trunk/bark. Acorn and twig/bud macros remain follow-up.",
+  "photo_note": "Three licensed physical photographs verified: leaf surfaces, field crown/branching, and leaves beside trunk/bark. Acorn and twig/bud macros remain follow-up. Three additional visually checked licensed NC State remote images for adult leaf, terminal buds, and cupule 2026-10-08; external files are not yet cached into GitHub.",
   "photo_strategy": {
     "method": "B116 existing-material-first visual lock",
     "target_count": "2 strong diagnostic views now; add twig/bud or additional fruit macro only where it materially improves field ID",
@@ -101,13 +102,59 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Montagnac-Quercus-marilandica_02.jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marilandica__okwbBNc0WpTI.jpg",
+      "role": "Distal 3-lobed blackjack oak leaf with small projecting bristle tips, upper-surface venation and broad apical blade",
+      "creator": "Bruce Kirchoff",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "photo_verified": "visually verified direct image URL 2026-10-08",
+      "diagnostic_visibility": "Entire upper-surface blade and pointed distal lobes are visible; minute terminal bristles are small, no scale or underside view.",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Quercus marilandica"
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marolandica__PVCxoy7rqkDv.jpe",
+      "role": "Close-up tawny pubescent clustered terminal buds and twig",
+      "creator": "Bruce Kirchoff",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "photo_verified": "visually verified direct image URL 2026-10-08",
+      "diagnostic_visibility": "Buds with orange-tawny fine hairs visible; no ruler or demonstrable five-angled cross section.",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Quercus marilandica",
+      "source_filename_note": "Original hosting filename spells marolandica; authoritative NC State species caption and identification label say Quercus marilandica."
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marilandica__mqZFApyZAfab.jpg",
+      "role": "Attached grayish mature-looking acorn, cupule scales, twig and axillary buds",
+      "creator": "Bruce Kirchoff",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "photo_verified": "visually verified direct image URL 2026-10-08",
+      "diagnostic_visibility": "Acorn with cup and scales clearly resolved; exact ripeness and dimensions not established in image, no ruler.",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Quercus marilandica"
     }
   ],
   "learner_visual_status": {
     "status": "provisional_learner_ready",
     "mode": "learner_fast_fill",
-    "image_count": 3,
-    "note": "Three licensed physical photographs verified: leaf surfaces, field crown/branching, and leaves beside trunk/bark. Acorn and twig/bud macros remain follow-up. Scientific PASS unchanged."
+    "image_count": 6,
+    "note": "Three licensed physical photographs verified: leaf surfaces, field crown/branching, and leaves beside trunk/bark. Acorn and twig/bud macros remain follow-up. Scientific PASS unchanged. Three externally hosted CC BY photos added 2026-10-08; not yet mirrored to local files. Specialized bud scale and underside trichome views are still pending."
   },
   "diagnostic_comparison": {
     "priority_group": "Post oak vs blackjack oak",
@@ -134,7 +181,18 @@
       "Ripe acorn and cup showing loosely appressed/free-pointed scales at rim",
       "Same tree leaf group, including atypical forms to teach plasticity"
     ],
-    "guardrail": "Existing gallery file paths and licenses preserved. A reference leaf photograph is not assumed to show macro hairs, buds or cups unless verified directly."
+    "guardrail": "Existing gallery file paths and licenses preserved. A reference leaf photograph is not assumed to show macro hairs, buds or cups unless verified directly.",
+    "covered_by_new_gallery": [
+      "adult leaf lobes and small bristle-tip context",
+      "tawny terminal-bud pubescence",
+      "acorn + cup detail"
+    ],
+    "remaining_macro_priorities": [
+      "bud cross-section / size scale",
+      "lower leaf surface close-up",
+      "paired equal-scale lobe tips",
+      "fruit dimensions and proof of ripeness"
+    ]
   },
   "diagnostic_science_sources": [
     {
@@ -150,5 +208,26 @@
     "date": "2026-10-08",
     "stage": "post-blackjack field-id pair",
     "scope": "FNA morphology/compare/photo-shot plan; existing range, taxonomy, approval and photos unchanged"
+  },
+  "photo_backfill_2026_10_08": {
+    "stage": "learner-visible-external-diagnostic-images",
+    "status": "partial-photo-gaps-remain",
+    "added_count": 3,
+    "added_roles": [
+      "distal lobes/bristle-tip context",
+      "tawny hairy terminal buds",
+      "mature-looking acorn and cupule scale profile"
+    ],
+    "visually_checked_direct_urls": true,
+    "physical_github_images_unchanged": true,
+    "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+    "unfilled_roles": [
+      "bud with ruler + five-angled cross-section",
+      "true paired upper/lower same-tree adult leaves and underside trichomes",
+      "fully measured acorn cup",
+      "matching post-vs-blackjack lobe-tip macro with 10x comparison"
+    ],
+    "rights_note": "All new NC State/ Bruce Kirchoff photos CC BY 2.0 with attribution; use credits and source URL.",
+    "review_date": "2026-10-08"
   }
 }
