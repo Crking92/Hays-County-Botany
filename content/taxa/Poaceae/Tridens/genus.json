@@ -8,7 +8,9 @@
       "tridens-flavus",
       "tridens-texanus"
     ],
-    "species_count": 3
+    "species_count": 3,
+    "source_pool_names": 6,
+    "note": "Only three Tridens species are manifest-backed; historical source-pool names may map to Tridentopsis. All three retain provisional range labels."
   },
   "look_here_first": "Examine panicle branching first; then glume-to-lemma proportions and lemma hairs under magnification.",
   "shared_traits": [
@@ -17,27 +19,53 @@
   ],
   "comparison_matrix": [
     {
-      "character": "panicle",
-      "albescens": "dense and narrow",
-      "flavus": "large, open and spreading",
-      "texanus": "flexuous branches bare basally"
+      "character": "Panicle architecture",
+      "albescens": "Dense, narrow, branches crowded or appressed",
+      "flavus": "Large, open, spreading/pyramidal; often drooping",
+      "texanus": "Flexuous branches with basal sections bare of spikelets"
     },
     {
-      "character": "lemma hairs",
-      "albescens": "glabrous or extreme base",
-      "flavus": "hairs along lower nerves",
-      "texanus": "nerves hairy below middle"
+      "character": "Panicle length",
+      "albescens": "6–30 cm",
+      "flavus": "15–35 cm or more",
+      "texanus": "Mostly 5–16 cm"
     },
     {
-      "character": "glumes",
-      "albescens": "nearly equal, ~4 mm",
-      "flavus": "shorter than spikelet",
-      "texanus": "about half length of lemmas"
+      "character": "Culm height",
+      "albescens": "30–60(–90) cm",
+      "flavus": "60–180 cm",
+      "texanus": "20–75 cm"
+    },
+    {
+      "character": "Florets per spikelet",
+      "albescens": "4–11",
+      "flavus": "Usually 5–7",
+      "texanus": "6–12"
+    },
+    {
+      "character": "Glumes",
+      "albescens": "Nearly equal, about 4 mm",
+      "flavus": "Shorter than full spikelet",
+      "texanus": "About half as long as lemmas"
+    },
+    {
+      "character": "Lemma nerve hairs",
+      "albescens": "Glabrous or hairy only at extreme base",
+      "flavus": "Hair lines along lower portions of nerves",
+      "texanus": "Pubescent along nerves below middle"
+    },
+    {
+      "character": "Supporting anatomy",
+      "albescens": "Dense seedhead color varies from green to purple to white",
+      "flavus": "Flattened overlapping basal sheaths; panicle branches sometimes sticky",
+      "texanus": "Spikelets often purple or rose-purple; can resemble Eragrostis secundiflora"
     }
   ],
   "overlap_cautions": [
     "Color varies across species.",
-    "The provisional T. texanus species record says narrow panicle; regional flora describes flexuous branches bare basally. Needs targeted review."
+    "The provisional T. texanus species record says narrow panicle; regional flora describes flexuous branches bare basally. Needs targeted review.",
+    "Panicle length and plant height overlap; confirm glume and lemma anatomy.",
+    "Historical Tridens buckleyanus, eragrostoides and muticus source-pool names require accepted-concept mapping; do not add duplicate species cards."
   ],
   "lookalikes": [
     "Eragrostis secundiflora",
@@ -45,24 +73,58 @@
     "Sorghum halepense"
   ],
   "diagnostic_photo_checklist": [
-    "Matched full panicles with scale",
-    "Basal panicle branch macros",
-    "Spikelets with glumes and lemmas labeled",
-    "Lemma nerve hairs under magnification",
-    "Basal sheaths and ligules"
+    "Same-scale full panicle of each species; label branches and dimensions",
+    "Matched basal panicle-branch detail, especially exposed bare portions of T. texanus",
+    "Dissected spikelets with millimeter scale; label glumes, lemmas and count florets",
+    "Matched lemma dorsal surfaces at 10–20×; label pubescence along three nerves",
+    "T. flavus flattened basal sheaths and collar/ligule",
+    "T. albescens dense panicle and near-glabrous lemma",
+    "T. texanus versus Eragrostis secundiflora spikelet close-ups"
   ],
   "handoffs": [
     {
       "lane": "Taxonomy + Diagnostic Review",
       "question": "Verify T. texanus panicle conflict and map historical Tridens names."
+    },
+    {
+      "lane": "Approved Taxa Installer",
+      "question": "No action until existing source-pool historical names are taxonomically mapped; do not install duplicate Tridens/Tridentopsis concepts."
+    },
+    {
+      "lane": "Diagnostic Photo Polish",
+      "question": "Prioritize exact-species macro photographs of glume:lemma proportions, lemma hairs, and panicle-branch bases; retain provenance."
     }
   ],
   "sources": [
-    "https://fwbg.org/wp-content/uploads/2025/04/FNCT_1077-1352-Acor-Zanni.pdf"
+    "https://fwbg.org/wp-content/uploads/2025/04/FNCT_1077-1352-Acor-Zanni.pdf",
+    "https://rangeplants.tamu.edu/plant/white-tridens/",
+    "https://rangeplants.tamu.edu/plant/purpletop/",
+    "https://www.npsot.org/posts/native-plant/tridens-albescens/"
   ],
   "curation_status": {
     "version": "1.0",
     "last_reviewed": "2026-10-08",
-    "note": "No canonical species or range decisions changed."
-  }
+    "note": "No canonical species or range decisions changed.",
+    "visual_status": "Genus lesson built; matched diagnostic macro set still pending."
+  },
+  "species_differences": [
+    {
+      "species": "Tridens albescens",
+      "first_check": "Dense narrow panicle",
+      "confirm": "Lemma nearly glabrous except possible hairs at extreme base; compare glumes with lemma",
+      "caution": "Color not reliable."
+    },
+    {
+      "species": "Tridens flavus",
+      "first_check": "Large broadly open panicle, often drooping",
+      "confirm": "Flattened basal sheaths and sticky panicle branches; multi-flowered spikelets",
+      "caution": "Color and size overlap; check branch architecture."
+    },
+    {
+      "species": "Tridens texanus",
+      "first_check": "Flexuous panicle branches visibly bare of spikelets basally",
+      "confirm": "Glumes about half the length of lemmas; nerves hairy below middle",
+      "caution": "Provisional card's narrow-panicle wording needs targeted review."
+    }
+  ]
 }
