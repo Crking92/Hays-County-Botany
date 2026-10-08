@@ -74,12 +74,12 @@
   "overlap_cautions": [
     "Aquatic growth form can vary with water depth; leaf arrangement and reproductive structures are stronger.",
     "Yellow flower color alone does not identify Ludwigia.",
-    "Do not assume all six source-pool Ludwigia taxa are installed; only two are presently canonical.",
+    "All six source-pool Ludwigia species are now installed as canonical learner cards; source-pool counts, native-range PASS counts, and canonical concept counts must still be tracked independently.",
     "Do not equate submerged opposite-leaved plants automatically with L. repens."
   ],
   "local_lookalikes": [
     "Hygrophila polysperma: submerged opposite leaves can resemble L. repens; check reproductive anatomy",
-    "Other source-pool Ludwigia: defer fine splits until species records are canonical",
+    "All six canonical Ludwigia species are available for direct comparisons; avoid identifying sterile aquatic stems to species without reproductive confirmation.",
     "Other Onagraceae wetland herbs: inspect inferior ovary and capsule"
   ],
   "diagnostic_photo_checklist": [
@@ -116,7 +116,7 @@
   },
   "diagnostic_science_20261008": {
     "source": "Flora of North America genus key https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
-    "status": "comparison science only: four uninstalled source-pool species; do not change admission or range",
+    "status": "Six species now canonically installed; scientific genus-comparison review only. Preserve each species' independent native-range labels and learner approval.",
     "look_here_first": [
       "Check opposite versus alternate leaves and rooted versus erect stems.",
       "Count fresh petals and stamens; old petals can fall.",
@@ -133,8 +133,8 @@
       {
         "pair": "L. decurrens / L. octovalvis",
         "diagnostic": "decurrens has sessile leaves and sharply 4-winged stem. octovalvis has 8 stamens, elongated 4-angled inferior ovary and 17–50 mm capsules.",
-        "overlap": "Both may have four yellow petals and erect habit. Project's five-ridged octovalvis stem claim needs verification; FNA keys decurrens by winged stem.",
-        "photos": "Paired leaf bases, stem cross-sections, ovary and mature fruit."
+        "overlap": "Both can have four yellow petals, eight stamens and upright habit. UT Austin PRC documents strongly FIVE-RIDGED stems in its Williamson County L. octovalvis subsp. octovalvis account; FNA allows terete or ridged stems across the broader species. In contrast L. decurrens has sharply FOUR-WINGED stems from decurrent sessile leaf bases. Count ridges/wings on a well-preserved internode and inspect leaf insertion, then confirm with fruit; five ridges are a locally documented character, not a universal species requirement.",
+        "photos": "Matched side and cross-lit stem internodes with scale; decurrens decurrent leaf base; octovalvis ridges arising near stipules; inferior ovaries and mature capsules."
       },
       {
         "pair": "L. leptocarpa / L. peploides",
@@ -187,7 +187,7 @@
       "ovary and capsule: very short vs elongate vs winged, hairy or thin-walled",
       "local photo confirmation, no forced native county range"
     ],
-    "warning": "The comparison includes FOUR source-pool-only species; they are not yet installed as canonical learner taxa. Keep them as genus reference examples until approved installer completes exact species cards. For opposite-leaved sterile mats, especially repens/palustris, verify flowering or mature fruit before certainty."
+    "warning": "All six source-pool species have canonical learner cards. For opposite-leaved sterile mats, especially repens/palustris, verify fresh flowers or mature fruit before certainty. Keep native-range PASS/HOLD/UNRESOLVED independent of learner admission."
   },
   "visual_comparison": {
     "version": "2.0-six-taxon-visual-reference-pass",
@@ -411,6 +411,12 @@
       "species": "Ludwigia repens",
       "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416801",
       "role": "taxon morphology and opposite leaves"
+    },
+    {
+      "source": "Flora of North America genus key",
+      "species": "Ludwigia (including decurrens and octovalvis)",
+      "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
+      "role": "four-winged decurrens vs broader octovalvis species morphology; diagnostic caution"
     }
   ],
   "source_pool_species_comparison": [
@@ -566,5 +572,27 @@
       "palustris": "apetalous flower/capsule striped macro",
       "peploides": "fruit/bracteole/subspecies diagnostic macro"
     }
-  ]
+  ],
+  "octovalvis_local_stem_diagnostic_20261008": {
+    "taxon": "Ludwigia octovalvis subsp. octovalvis",
+    "regional_evidence": "UT Austin Plant Resources Center, Vascular Plants of Williamson County: stems strongly 5-ridged, under 9 mm diameter; two ridges descend from stipules on the internode.",
+    "species_wide_caution": "FNA keys L. octovalvis more broadly with stems that can be terete or ridged; the five-ridge local account must not become a universal exclusion character.",
+    "contrast": "L. decurrens has sharply 4-winged stems and sessile decurrent leaf bases; L. octovalvis leaves are subsessile and stems may be ridged rather than winged.",
+    "look_here_first": [
+      "Photograph and examine a mature stem internode and leaf insertion in profile.",
+      "Distinguish four thin wings formed by decurrent leaf bases from local five longitudinal ridges, including stipular ridges.",
+      "Confirm fresh flower and mature capsule; do not force identification from stem ridges alone."
+    ],
+    "diagnostic_photo_roles": [
+      "Exact-species L. octovalvis subsp. octovalvis stem with five ridges visible, scale and stipules in frame.",
+      "Matched exact-species L. decurrens stem with four sharp wings and decurrent leaf bases.",
+      "Scaled stem transverse sections and mature capsule comparison; prefer existing user/Joey project media before sourcing."
+    ],
+    "sources": [
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Ludwigia%20octovalvis%20octovalvis.html",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
+      "https://aquaplant.tamu.edu/plant-identification/alphabetical-index/water-primrose/wingleaf-primrose/"
+    ],
+    "review_level": "Scientific morphology clarification; no changes to range or installation."
+  }
 }
