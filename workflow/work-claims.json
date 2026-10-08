@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T10:47:00-05:00",
+  "updated_at": "2026-10-08T13:11:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5782,6 +5782,21 @@
       "release_when": "Genus lesson committed and verified",
       "released_at": "2026-10-08T08:05:00-05:00",
       "release_reason": "Lesson committed"
+    },
+    {
+      "claim_id": "manual-rosaceae-family-confusion-20261008",
+      "scope_kind": "family",
+      "families": [
+        "Rosaceae"
+      ],
+      "scope_key": "content/taxa/Rosaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "manual-chat",
+      "status": "active",
+      "claimed_at": "2026-10-08T13:11:00-05:00",
+      "expires_at": "2026-10-08T19:11:00-05:00",
+      "release_when": "Canonical Rosaceae family lesson update committed",
+      "notes": "Merge existing live Sheet Rosaceae visual comparison handoff; preserve species and range decisions."
     }
   ]
 }
