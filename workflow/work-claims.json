@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T19:29:00Z",
+  "updated_at": "2026-10-08T14:12:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6212,6 +6212,29 @@
       "expires_at": "2026-10-08T20:29:00-05:00",
       "release_when": "Updated species/genus diagnostic comparison and verified image references are committed, or this pass is explicitly stopped.",
       "notes": "Polish existing canonical genus/species, prioritize matched mid-stem leaf petiole+venation and involucre views; retain source licensing and old science."
+    },
+    {
+      "claim_id": "manual-ipomoea-specific-photo-pass-20261008b",
+      "scope_kind": "species_media_diagnostic",
+      "taxa": [
+        "ipomoea-hederacea",
+        "ipomoea-nil",
+        "ipomoea-lacunosa"
+      ],
+      "families": [
+        "Convolvulaceae"
+      ],
+      "genera": [
+        "Ipomoea"
+      ],
+      "scope_key": "Ipomoea::specific-fruit-calyx-photo-pass",
+      "lane": "species-diagnostic-photo",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-08T14:12:00-05:00",
+      "expires_at": "2026-10-08T20:12:00-05:00",
+      "release_when": "Specific diagnostic photos committed and verified; genus media-gap list reconciled.",
+      "notes": "Add only exact-species rights-cleared views. Preserve taxonomy/range/admission."
     }
   ]
 }
