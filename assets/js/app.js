@@ -255,6 +255,19 @@ function genusVisualComparison(data){
   });
   out+='</div>';
   if(v.overlay_note) out+='<p class="diagnostic-overlay-note">'+esc(v.overlay_note)+'</p>';
+  if(Array.isArray(v.study_only_photo_links) && v.study_only_photo_links.length){
+    const links=v.study_only_photo_links.filter(function(link){ return link && /^https:\/\/[a-z0-9.-]+(?:\/|$)/i.test(String(link.url||"")); }).slice(0,8);
+    if(links.length){
+      out+='<div class="diagnostic-overlay-note"><div class="eyebrow">Original-site botanical photographs</div><h3>Additional photo references · link only</h3><p>'+esc(v.study_only_intro||"These images open at their source site; they are not included in the licensed learner gallery.")+'</p><ul class="trait-list">';
+      links.forEach(function(link){
+        out+='<li><a href="'+esc(link.url)+'" target="_blank" rel="noopener noreferrer">'+esc(link.label||"View original photo")+' ↗</a>';
+        if(link.look_for) out+=' — '+esc(link.look_for);
+        if(link.reuse) out+='<span class="diagnostic-photo-credit"> · '+esc(link.reuse)+'</span>';
+        out+='</li>';
+      });
+      out+='</ul></div>';
+    }
+  }
   out+='</section>';
   return out;
 }
