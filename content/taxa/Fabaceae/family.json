@@ -64,9 +64,9 @@
     "caveat": "The current canonical website set is Dalea-heavy, so the first visual lock teaches the family mechanism while broader local genera continue to be added."
   },
   "curation_status": {
-    "version": "1.0-visual-family-module-video-handoff",
-    "last_reviewed": "2026-10-03",
-    "visual_lock": "first_pass_complete"
+    "version": "family-confusion-polish-20261008",
+    "last_reviewed": "2026-10-08",
+    "visual_lock": "family_comparison_text_complete_diagnostic_photos_pending"
   },
   "video_handoff": {
     "source": "research-drafts/reconciliation/video-first-visual-intake-2026-10-03.json",
@@ -124,5 +124,67 @@
         ]
       }
     ]
+  },
+  "family_confusion_cleanup": {
+    "version": "1.0-family-confusion-polish",
+    "updated": "2026-10-08",
+    "field_question": "What exact floral or fruit structure confirms this family, and which nearby family could mimic it?",
+    "look_here_first": [
+      "Locate a single superior carpel or mature legume, including modified indehiscent fruits.",
+      "At leaf nodes inspect stipules and pulvini; supportive but not universal.",
+      "Identify papilionoid, Senna-like or mimosoid reproductive architecture without treating any one as required."
+    ],
+    "comparison_matrix": [
+      {
+        "confusable": "Polygalaceae",
+        "separate": "Winglike petaloid sepals and a staminal sheath can mimic a pea flower; dissect the perianth and gynoecium rather than equating wings with Fabaceae wing petals."
+      },
+      {
+        "confusable": "Rosaceae",
+        "separate": "Both may have stipules and many stamens; Fabaceae has one carpel forming a legume, whereas Rosaceae often has a hypanthium and drupes, pomes or aggregate fruits."
+      },
+      {
+        "confusable": "Mimosoid vs papilionoid Fabaceae",
+        "separate": "Puffball-like flowers with conspicuous numerous stamens and small petals vs banner/wing/keel architecture; both remain Fabaceae."
+      }
+    ],
+    "genus_routing_cues": [
+      "Dalea: compact heads/spikes with reduced papilionoid corollas; inspect floral bracts and pod.",
+      "Senna: asymmetric flowers, conspicuous anthers, and legume; photograph anther pores/dehiscence.",
+      "Mimosa: bipinnate leaves and clustered small flowers with conspicuous stamens; use fruit segments and armature.",
+      "Sesbania: pinnate foliage, papilionoid flowers and elongated pods."
+    ],
+    "diagnostic_visual_roles": [
+      {
+        "priority": 1,
+        "shot": "one-carpel ovary to mature legume sequence",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 1,
+        "shot": "stipule and pulvinus node macro",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 1,
+        "shot": "papilionoid vs Senna-like vs mimosoid flower dissections",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 2,
+        "shot": "Polygalaceae wing-sepal vs Fabaceae wing-petal comparison",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 2,
+        "shot": "Senna anther dehiscence and mimosoid stamens",
+        "status": "diagnostic_photo_polish_pending"
+      }
+    ],
+    "exception_locks": [
+      "Do not rely on flower color or overall resemblance; confirm reproductive structures.",
+      "Treat individual genus characters as routing clues, not universal family definitions."
+    ],
+    "taxonomy_handoff": "No species range decisions changed; any uncertain species-level separator remains in Taxonomy + Diagnostic Review."
   }
 }
