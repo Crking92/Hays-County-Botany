@@ -64,8 +64,8 @@
     "last_reviewed": "2026-10-02",
     "visual_reviewed": true,
     "visual_status": "usable-partial",
-    "photo_metadata_count": 3,
-    "last_visual_reviewed": "2026-10-04",
+    "photo_metadata_count": 5,
+    "last_visual_reviewed": "2026-10-08",
     "photo_files_present": 3
   },
   "photo_note": "Three licensed physical photographs verified: toothed leaves with immature acorn cups, mature trunk/crown, and bark. Mature fruit and twig/bud macros remain follow-up.",
@@ -102,6 +102,38 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_muehlenbergii_in_Hackfalls_Arboretum_(1).jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_muehlenbergi_5QYiVht8Ucco.jpe",
+      "role": "MATURE brown chinkapin oak acorns and gray tuberculate cups against black background",
+      "creator": "Bruce Kirchoff",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-muehlenbergii/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "media_storage": "external_direct_url",
+      "image_verified": "Image visually verified via stable HTTP web image retrieval 2026-10-08",
+      "diagnostic_visibility": "Three mature acorns, including one isolated cup and two nuts with scaly gray cups, proving cap texture/non-shaggy rim; no millimeter ruler",
+      "age_stage": "mature brown nut (explicit NC State caption)",
+      "scientific_name_verified": "Quercus muehlenbergii"
+    },
+    {
+      "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Quercus_muehlenbergii_5444930.jpg/960px-Quercus_muehlenbergii_5444930.jpg",
+      "role": "Adult chinkapin oak elongated blade with repeated non-bristled teeth and convergent lateral veins",
+      "creator": "Rob Routledge, Sault College, Bugwood.org",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_muehlenbergii_5444930.jpg",
+      "platform": "Wikimedia Commons / Bugwood",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "media_storage": "external_direct_url",
+      "image_verified": "Wikimedia Commons source/license plus visual image retrieval 2026-10-08",
+      "diagnostic_visibility": "Several triangular rounded-to-pointed marginal teeth and leaf upper surface, veins visible; underside hair microscopy NOT in image",
+      "age_stage": "adult leafy branch",
+      "scientific_name_verified": "Quercus muehlenbergii"
     }
   ],
   "learner_visual_status": {
@@ -127,7 +159,7 @@
   },
   "diagnostic_image_plan": {
     "priority": "high",
-    "status": "photo_targets_not_new_photos",
+    "status": "partial-mature-fruit-now-visible",
     "needs": [
       "Full mature leaf upper/lower, ruler, count 10–14 secondary-vein pairs",
       "Margin teeth macro showing sharp antrorse tooth without bristle",
@@ -136,7 +168,17 @@
       "Cupule scale macro showing tubercles but no soft fringe",
       "Thin pale-gray flaky bark and whole-tree field context"
     ],
-    "guardrail": "Existing gallery/photos and licenses preserved. Current chinkapin leaf+acorn reference documents IMMATURE acorns, not a measured ripe cup."
+    "guardrail": "Existing gallery/photos and licenses preserved. Current chinkapin leaf+acorn reference documents IMMATURE acorns, not a measured ripe cup.",
+    "covered_by_new_gallery": [
+      "MATURE dark acorn with knobby gray cup (no mm scale)",
+      "regular marginal tooth pattern in adult upper leaf"
+    ],
+    "remaining_macro_priorities": [
+      "ripe fruit with mm ruler (cup depth and nut length)",
+      "cup scale ultra-macro vs bur shaggy soft fringe",
+      "nonbristled tooth with mm ruler macro",
+      "abaxial tiny stellate hairs at 10–20× (current photos are not microscopy)"
+    ]
   },
   "diagnostic_science_sources": [
     {
@@ -148,5 +190,21 @@
     "date": "2026-10-08",
     "stage": "chinkapin-bur field-id pair",
     "scope": "FNA structural cues and diagnostic image shot list; scientific native-range, approval and previous image metadata unchanged."
-  }
+  },
+  "photo_backfill_2026_10_08": {
+    "added_count": 2,
+    "external_images_total": 2,
+    "status": "ripe_acorn_and_leaf_visible_but_microscopy_pending",
+    "source_exact_taxon": "Quercus muehlenbergii",
+    "existing_immature_acorn_image_preserved": true,
+    "nc_state_mature_acorn_photo_credit": "Bruce Kirchoff / CC BY 2.0",
+    "commons_leaf_credit": "Rob Routledge / CC BY 3.0",
+    "offline_ready": false,
+    "photographic_role_checks": [
+      "dark brown mature acorns; gray scaly cup no long fringe",
+      "adult blade with regular tooth pattern"
+    ],
+    "reviewed_on": "2026-10-08"
+  },
+  "photo_notes": " 2026-10-08: Added two vetted remotely hosted images for mature brown acorn/cup (NC State, CC BY) and mature toothed leaf (Wikimedia, CC BY); still no physical image copies for these two, scale or trichome macro."
 }
