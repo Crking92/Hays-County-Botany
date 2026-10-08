@@ -28,7 +28,8 @@
       "Landscape context: dry limestone upland, prairie/sand upland, mesic canyon, stream bottomland, or planted street tree.",
       "Document hybrid/intermediate characters rather than forcing species-level identification from one leaf."
     ],
-    "warning": "Oak leaves can be plastic across juvenile water sprouts, shade branches, drought, and maturity. Hybridization also blurs oak characters. Read several mature leaves, their lower surfaces, buds, and (when present) mature acorns from the SAME tree; keep uncertain oak complexes at Quercus sp. or pair-level until diagnostic structures are available."
+    "warning": "Oak leaves can be plastic across juvenile water sprouts, shade branches, drought, and maturity. Hybridization also blurs oak characters. Read several mature leaves, their lower surfaces, buds, and (when present) mature acorns from the SAME tree; keep uncertain oak complexes at Quercus sp. or pair-level until diagnostic structures are available.",
+    "three_way_oak_memory": "Lacey = BLUE + BARREL. White shin = THICKET + FLAT cup scales. Vasey = NARROW + BUMPY cup scales. Cupule texture works best with mature fruit and a 10× loupe."
   },
   "quick_key": [
     {
@@ -48,15 +49,15 @@
       "then": "Quercus shumardii"
     },
     {
-      "if": "Blue-gray/glaucous thin obovate to elliptic leaves, rounded/retuse tips, pale papery bark; small barrel-like mature nut.",
+      "if": "Deciduous limestone oak; broad blue-glaucous leaves, often rounded/notched at tip, usually 6–9 secondary-vein pairs; small barrel-like nut (often flattened ends) and moderately bumpy cup scales.",
       "then": "Quercus laceyi"
     },
     {
-      "if": "Low multi-stem limestone thicket; leaves variable and often shallowly lobed; exfoliating pale bark and very shallow saucer-shaped cupule.",
+      "if": "Low deciduous, often multistemmed limestone thicket; 7–11 secondary-vein pairs; broad/variable leaves; small nut in a very shallow cup with FLAT closely appressed scales (not tuberculate).",
       "then": "Quercus sinuata var. breviloba"
     },
     {
-      "if": "Narrow evergreen/subevergreen leaves with a few coarse mucronate teeth; dark bark shedding in strips; shallow cup with conspicuously bumpy/tuberculate scales.",
+      "if": "Evergreen/subevergreen narrow stiff leaves with 4–6 lateral vein pairs and 0–5 mucronate coarse teeth per side; tiny buds, dark strip-shredding bark; small shallow cup with STRONGLY regularly bumpy scales.",
       "then": "Quercus vaseyana"
     },
     {
@@ -81,7 +82,7 @@
     }
   ],
   "curation_status": {
-    "version": "2.0-quercus-diagnostic-comparison",
+    "version": "2.1-quercus-diagnostic-comparison-limestone-trio",
     "last_reviewed": "2026-10-08",
     "visual_polish_scope": "genus quick key + real-photo comparison, no species range/taxonomy/approval changes",
     "photo_gap_audit": "six zero-image species remain"
@@ -219,12 +220,31 @@
         "cupule scale texture macros",
         "lower-leaf hair microscopy"
       ]
+    },
+    {
+      "title": "Lacey oak ↔ White shin oak ↔ Vasey oak — three-way limestone key",
+      "species_ids": [
+        "quercus-laceyi",
+        "quercus-sinuata-var-breviloba",
+        "quercus-vaseyana"
+      ],
+      "where_to_look_first": "First decide: deciduous blue-glaucous broad leaf, deciduous thicket with flat cup scales, or narrow evergreen/subevergreen leaf with strongly bumpy cup scales. Confirm with adult leaves, twigs, buds, and a ripe cup.",
+      "laceyi": "Deciduous broad blue-green/glaucous leaf usually 40–90 × 30–60 mm; 6–9 secondary veins; often 1.5–3 mm buds; barrel-like acorn 13–15 mm, 4–7 mm deep moderately tuberculate cup.",
+      "sinuata": "Usually low deciduous multi-stem thicket; leaf often 30–60 × 20–40 mm, 7–11 secondary veins; bud 2–3 mm; small acorn generally 7–12 mm with shallow cup and flattened NONtuberculate scales.",
+      "vaseyana": "Evergreen/subevergreen narrower leaf typically 20–60 × 10–20 mm, 4–6 secondary veins; bud only 1–1.5 mm; cup 3–4 mm deep and strongly regularly tuberculate; dark bark exfoliates in strips.",
+      "caution": "Lacey blue-green color and leaf lobing vary with exposure; shin underside hairiness varies by sun/shade; Vasey can have entire margins. Measurements and cup texture overlap in some individuals. Do not identify from just one leaf.",
+      "critical_photo_roles": [
+        "same-scale adult leaf upper and lower comparison for all three",
+        "match cup rim and cup scales (moderate tubercles vs flat vs strong tubercles)",
+        "buds and bark same scale",
+        "habitat / whole-shrub or tree specimen-context images"
+      ]
     }
   ],
   "visual_comparison": {
     "title": "Central Texas oaks: compare the structures",
     "subtitle": "Start with a real photograph, then confirm the species by lobe tips, lower-surface hairs, buds or cupules. Each caption separates visible context from characters that still need a diagnostic macro.",
-    "memory_rule": "Bristle tip → red oak; rounded or mucro tip → white oak. Then confirm the CUP: depth, fringe, or scale texture. Always check several adult leaves and the SAME tree's twigs/acorns.",
+    "memory_rule": "Bristle tip → red oak; rounded or mucro tip → white oak. Then confirm the CUP: depth, fringe, or scale texture. Always check several adult leaves and the SAME tree's twigs/acorns. Edwards Plateau trio: BLUE/BARREL = Lacey; THICKET/FLAT-SCALED CUP = white shin; NARROW/BUMPY-SCALED CUP = Vasey.",
     "items": [
       {
         "label": "Texas red oak — deeper cup, dry limestone",
@@ -267,7 +287,7 @@
         "scientific_name": "Quercus laceyi",
         "image_role": "Same-observation field photo; verify leaf and bark view",
         "image_url": "content/taxa/Fagaceae/Quercus/quercus-laceyi/images/03-same-tree-field-view-1.jpg",
-        "caption": "Look for thin, bluish/glaucous broad leaves with rounded or notched tips and pale flaky bark. Compare with low thicket-forming white shin oak, but require a fruit or twig view for difficult individuals.",
+        "caption": "Lacey oak: 6–9 side veins, rounded/retuse leaf tip, strongly blue-glaucous adult leaves; erect stellate leaf hairs shed with age. Ripe cup is 4–7 mm deep with MODERATELY raised scales, nut barrel-like. Photo is a field view, not guaranteed scale or fruit macro.",
         "creator": "Kane Sandoval",
         "license": "CC BY",
         "source_page": "https://www.inaturalist.org/observations/96109629",
@@ -279,7 +299,7 @@
         "scientific_name": "Quercus sinuata var. breviloba",
         "image_role": "Existing curated species reference photo; habit/cup confirmation pending",
         "image_url": "content/taxa/Fagaceae/Quercus/quercus-sinuata-var-breviloba/images/01-curated-reference.jpg",
-        "caption": "The low multiple-stem habit on dry limestone and very shallow cup are better than any single leaf silhouette. Leaves range from almost entire to irregularly lobed. Pair later with a same-scale Q. laceyi fruit shot.",
+        "caption": "White shin oak: often deciduous multi-stem limestone thicket, 7–11 lateral veins per side, pale flaky bark. Sun leaves may show appressed stellate hairs; shade leaves may look smoother. Mature cupule scales are FLAT, not strongly bumpy. This image needs fruit-role verification.",
         "creator": "Andy Blair",
         "license": "CC BY-NC",
         "source_page": "https://www.inaturalist.org/taxa/242521",
@@ -291,7 +311,7 @@
         "scientific_name": "Quercus vaseyana",
         "image_role": "Existing curated species reference; tuberculate cup detail still needed",
         "image_url": "content/taxa/Fagaceae/Quercus/quercus-vaseyana/images/02-curated-reference.jpg",
-        "caption": "Narrow evergreen foliage with a few coarse mucro-tipped teeth can resemble a toothed live oak. The stronger diagnostic combination is bark peeling in strips plus a shallow cup with regularly tuberculate scales.",
+        "caption": "Vasey oak: 4–6 secondary veins per side and narrow evergreen/subevergreen leaves sometimes with 3–5 coarse teeth each side, sometimes entire. Very small buds (1–1.5 mm), dark bark shredding in strips; mature cup scales strongly and regularly BUMPY. Cup-scale macro is still missing.",
         "creator": "Curren Frasch",
         "license": "CC BY-NC",
         "source_page": "https://www.inaturalist.org/taxa/1552806",
@@ -457,8 +477,39 @@
           "mature acorn cup"
         ],
         "why": "Eastern comparison is a no-image card"
+      },
+      {
+        "species": [
+          "quercus-laceyi",
+          "quercus-sinuata-var-breviloba",
+          "quercus-vaseyana"
+        ],
+        "image_roles": [
+          "cupule scale texture same magnification: moderately tuberculate / flat / strongly tuberculate",
+          "bud size with millimeter ruler",
+          "secondary-vein counts on intact adult sun leaves",
+          "sun vs shade abaxial stellate hairs under loupe"
+        ],
+        "why": "Three-way Edwards Plateau limestone oak differential strengthened by FNA; generic field photographs cannot establish these small traits"
       }
     ],
     "guardrail": "Photo backlog is a request, not permission to add generic replacements. Exact taxon, image rights, photographed structure, and source provenance must be checked before any species gallery update."
-  }
+  },
+  "diagnostic_reference_notes": [
+    {
+      "taxon": "Quercus laceyi",
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501053"
+    },
+    {
+      "taxon": "Quercus sinuata var. breviloba",
+      "source": "Flora of North America (Q. sinuata species plus varietal key)",
+      "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501084"
+    },
+    {
+      "taxon": "Quercus vaseyana",
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501094"
+    }
+  ]
 }
