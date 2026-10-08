@@ -146,35 +146,43 @@
   },
   "quick_key": [
     {
-      "if": "At each node, leaf pairs are opposite; plant creeps in water or roots at nodes",
-      "then": "Ludwigia repens"
+      "if": "Opposite leaves on creeping wetland shoots + minute yellow petals (usually 4 stamens)",
+      "then": "Ludwigia repens — installed"
     },
     {
-      "if": "Successive leaves are alternate; stems upright and branched; blades narrower",
-      "then": "Ludwigia octovalvis"
+      "if": "Opposite leaves on a creeping muddy mat + flowers normally lacking petals, just sepals",
+      "then": "Ludwigia palustris — source pool, not yet installed"
     },
     {
-      "if": "Flower about 6 mm wide with 4 stamens; compact inferior ovary",
-      "then": "Ludwigia repens (flower confirmation)"
+      "if": "Alternate narrow leaves on erect branches + usually 4 yellow petals / 8 stamens + long ribbed capsule",
+      "then": "Ludwigia octovalvis — installed"
     },
     {
-      "if": "Flower around 2–4 cm wide with 8 stamens; long narrow inferior ovary",
-      "then": "Ludwigia octovalvis (flower confirmation)"
+      "if": "Alternate almost sessile leaves on erect sharply 4-winged stem (leaf bases running down ridges)",
+      "then": "Ludwigia decurrens — source pool, not yet installed"
     },
     {
-      "if": "Only a submerged view without resolved nodes/flowers is available",
-      "then": "Ludwigia sp. or aquatic lookalike — recheck"
+      "if": "Alternate leaves on upright hairy plants + usually 5 yellow petals / 10 stamens + long hairy bumpy capsule",
+      "then": "Ludwigia leptocarpa — source pool, not yet installed"
+    },
+    {
+      "if": "Alternate shiny leaves on a floating/creeping aquatic mat + usually 5 yellow petals / 10 stamens",
+      "then": "Ludwigia peploides — source pool, not yet installed"
+    },
+    {
+      "if": "Only sterile submerged vegetation visible, or anatomy unclear",
+      "then": "Ludwigia sp. / aquatic lookalike — recheck rather than force ID"
     }
   ],
   "study_strategy": {
     "priority": [
-      "node-to-node leaf arrangement (paired vs alternate)",
-      "whole-stem habit and roots at nodes",
-      "size of open flower with 4 versus 8 stamens",
-      "inferior ovary and mature capsule proportion",
-      "stem ridges and surface hairs as confirmation"
+      "leaf arrangement: opposite pair vs alternate at nodes",
+      "growth form: erect/winged, hairy erect, creeping, floating",
+      "flower petals: absent, four or five (and stamen count 4, 8 or 10)",
+      "ovary and capsule: very short vs elongate vs winged, hairy or thin-walled",
+      "local photo confirmation, no forced native county range"
     ],
-    "warning": "Never identify from four yellow petals alone. Both are Onagraceae. Uncertain sterile submerged mats may mimic L. repens (including Hygrophila polysperma). 5-ridged stem is described for local L. octovalvis but not universal across entire species range."
+    "warning": "The comparison includes FOUR source-pool-only species; they are not yet installed as canonical learner taxa. Keep them as genus reference examples until approved installer completes exact species cards. For opposite-leaved sterile mats, especially repens/palustris, verify flowering or mature fruit before certainty."
   },
   "visual_comparison": {
     "version": "2.0-six-taxon-visual-reference-pass",
@@ -492,5 +500,17 @@
       "reason": "Wikimedia title states repens but original uploader file history describes Ludwigia ovalis; photo not used as repens until species identity independently verified.",
       "status": "reject_for_species_diagnostic_gallery"
     }
-  ]
+  ],
+  "targeted_installer_handoff": {
+    "status": "ready_for_normal_installer_research_packaging_not_installed",
+    "species": [
+      "ludwigia-decurrens",
+      "ludwigia-leptocarpa",
+      "ludwigia-palustris",
+      "ludwigia-peploides"
+    ],
+    "source": "approved Master Plant Pool per project coordination; actual canonical install and range status must be checked by installer",
+    "photo_leads": "All four photo leads with exact license and source URLs are present in source_pool visual_comparison.items. Never treat genus reference alone as displayable species images[].",
+    "note": "The genus gallery now shows four labeled sources so user can study immediately, but species cards require normal curation-inbox installation."
+  }
 }
