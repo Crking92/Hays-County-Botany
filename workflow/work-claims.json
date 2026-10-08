@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T21:54:20.739Z",
+  "updated_at": "2026-10-08T22:17:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6530,6 +6530,24 @@
       "release_when": "Batch 055 physical image installation verified (all downloads and zero warnings), or aborted and READY removed.",
       "notes": "10 Wikimedia Commons exact-species first-pass learner photos; CC0/CC BY/CC BY-SA licenses, verified source pages; media-only provisional; scientific HOLD/FAIL and taxonomy retained. Installer run 37849728299 success; 10/10 images downloaded physically; 0 warnings; batch 055 archived. Source and licensing preserved.",
       "released_at": "2026-10-08T21:54:20.739Z"
+    },
+    {
+      "claim_id": "manual-ludwigia-four-source-pool-installer-20261008",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "ludwigia-decurrens",
+        "ludwigia-leptocarpa",
+        "ludwigia-palustris",
+        "ludwigia-peploides"
+      ],
+      "scope_key": "curation-inbox/approved-installer-ludwigia-four-20261008-001",
+      "lane": "species-curation-install",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-08T17:17:00-05:00",
+      "expires_at": "2026-10-08T23:17:00-05:00",
+      "release_when": "Four licensed exact-species packages fully installed in manifest, or staging intentionally aborted; release not simply upon READY creation.",
+      "notes": "Source-pool-approved Ludwigia four species: one exact-species CC photo each, cautious native-range UNRESOLVED, preserve existing genus and Joey source. Requires correct installer batch and validation."
     }
   ]
 }
