@@ -15,37 +15,55 @@
     "Flowers typically axillary, with an inferior ovary below sepals and petals",
     "Many-seeded capsule developing from the inferior ovary"
   ],
-  "look_here_first": "Find the ovary directly below the flower. Next inspect leaf arrangement (alternate versus opposite), whether stems root at nodes, and whether the stem is strongly ridged.",
+  "look_here_first": "Check 2–3 stem nodes BEFORE the flower: Ludwigia octovalvis has alternate narrow leaves on an upright branched wetland stem; L. repens has opposite paired leaves on creeping aquatic stems (often rooting at nodes). In flower, compare flower size and count stamens: 8 versus 4. Look under petals for the inferior ovary.",
   "comparison_matrix": [
     {
-      "character": "Habit and rooting",
-      "ludwigia_octovalvis": "Erect, highly branched shoreline herb or subshrub",
-      "ludwigia_repens": "Creeping to ascending aquatic mat, rooting at nodes"
+      "character": "leaf arrangement",
+      "ludwigia_octovalvis": "Alternate (one leaf at each successive node), narrow blades; often short petioled.",
+      "ludwigia_repens": "Opposite/decussate (paired leaves at each node), often glossy elliptic–obovate blades.",
+      "weight": "LOOK HERE FIRST"
     },
     {
-      "character": "Leaf arrangement",
-      "ludwigia_octovalvis": "Alternate",
-      "ludwigia_repens": "Opposite, decussate"
+      "character": "habit / rooting",
+      "ludwigia_octovalvis": "Erect branching shoreline herb, often 0.5–2 m tall, usually taprooted/woody at base.",
+      "ludwigia_repens": "Aquatic, creeping to ascending shoots, roots from horizontal stem nodes, forms mats.",
+      "weight": "HIGH SUPPORTING"
     },
     {
-      "character": "Leaf blade",
-      "ludwigia_octovalvis": "Narrow oblanceolate to oblong-lanceolate",
-      "ludwigia_repens": "Glossy elliptic to obovate, short petioled"
+      "character": "stem surface",
+      "ludwigia_octovalvis": "Williamson County material strongly 5-ridged and hairy, though FNA notes species stems may be terete or ridged.",
+      "ludwigia_repens": "Stem approximately cylindrical, glabrous, often reddish; rootlets can emerge at nodes.",
+      "weight": "SUPPORTING, avoid universal five-ridge claim"
     },
     {
-      "character": "Stem",
-      "ludwigia_octovalvis": "Strongly five-ridged",
-      "ludwigia_repens": "Creeping, rooting at nodes"
+      "character": "leaf surface / shape",
+      "ludwigia_octovalvis": "Narrow oblanceolate to oblong-lanceolate, commonly hairy and not glossy.",
+      "ludwigia_repens": "More oval/elliptic to obovate, often shiny and relatively smooth; submerged leaves may vary.",
+      "weight": "SUPPORTING"
     },
     {
-      "character": "Flower and ovary",
-      "ludwigia_octovalvis": "Usually four yellow petals, eight stamens; long conspicuous inferior ovary",
-      "ludwigia_repens": "Small axillary yellow flowers; examine inferior ovary directly"
+      "character": "flower size",
+      "ludwigia_octovalvis": "Showy bright-yellow four-petaled flowers, 23–39 mm across in local UT PRC account.",
+      "ludwigia_repens": "Very small yellow four-petaled flowers, about 6 mm across in local UT PRC account.",
+      "weight": "HIGH on flowering plants"
     },
     {
-      "character": "Fruit",
-      "ludwigia_octovalvis": "Elongate capsule, typically opening by eight narrow valves",
-      "ludwigia_repens": "Capsule; confirm on mature material before relying on fruit proportions"
+      "character": "stamens",
+      "ludwigia_octovalvis": "Typically 8 in 2 sets (4+4); rare five-merous flowers may have 10.",
+      "ludwigia_repens": "4 in a single whorl, one per sepal.",
+      "weight": "STRONG close-up confirmation"
+    },
+    {
+      "character": "ovary / capsule",
+      "ludwigia_octovalvis": "Conspicuously elongated inferior ovary, then long, slender 4-angled capsule; in local UT PRC account mature capsules 38–45 mm.",
+      "ludwigia_repens": "Short funnel-shaped 4-angled inferior ovary; short broad bell-shaped capsule, locally 6–7.5 mm long.",
+      "weight": "STRONG reproductive confirmation"
+    },
+    {
+      "character": "capsule dehiscence",
+      "ludwigia_octovalvis": "Often 4–8 slender valves (8 described in local UT PRC specimens).",
+      "ludwigia_repens": "Short capsule splits irregularly; sepals persist at top.",
+      "weight": "LATE STAGE / confirmation"
     }
   ],
   "overlap_cautions": [
@@ -79,12 +97,17 @@
     {
       "lane": "Taxonomy + Diagnostic Review",
       "request": "Verify diagnostic mature capsule proportions and reproductive distinctions for L. repens against local Ludwigia lookalikes before adding numerical thresholds."
+    },
+    {
+      "lane": "Photo Polish",
+      "request": "Finish exact-species macro of L. octovalvis eight stamens, mature capsule of both at same scale, rooted node of L. repens and side view of 5-ridged L. octovalvis stem; primary leaf/flower pairing is now live."
     }
   ],
   "curation_status": {
-    "version": "1.0-canonical-pair-framework",
+    "version": "2.0-ludwigia-visual-id-polish",
     "last_reviewed": "2026-10-08",
-    "note": "Genus lesson only; no species/range changes."
+    "note": "Genus lesson only; no species/range changes.",
+    "visual_status": "exact_species_leaf_node_and_flower_pairs_live__matched_capsule_and_rooted_node_macros_pending"
   },
   "diagnostic_science_20261008": {
     "source": "Flora of North America genus key https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
@@ -120,5 +143,167 @@
       "FNA recognizes three North American L. peploides subspecies; do not equate introduced subsp. montevidensis with native subspecies.",
       "Existing Joey octovalvis inferior-ovary frame and repens submerged-habit frame are study-only; need exact diagnostic macros."
     ]
-  }
+  },
+  "quick_key": [
+    {
+      "if": "At each node, leaf pairs are opposite; plant creeps in water or roots at nodes",
+      "then": "Ludwigia repens"
+    },
+    {
+      "if": "Successive leaves are alternate; stems upright and branched; blades narrower",
+      "then": "Ludwigia octovalvis"
+    },
+    {
+      "if": "Flower about 6 mm wide with 4 stamens; compact inferior ovary",
+      "then": "Ludwigia repens (flower confirmation)"
+    },
+    {
+      "if": "Flower around 2–4 cm wide with 8 stamens; long narrow inferior ovary",
+      "then": "Ludwigia octovalvis (flower confirmation)"
+    },
+    {
+      "if": "Only a submerged view without resolved nodes/flowers is available",
+      "then": "Ludwigia sp. or aquatic lookalike — recheck"
+    }
+  ],
+  "study_strategy": {
+    "priority": [
+      "node-to-node leaf arrangement (paired vs alternate)",
+      "whole-stem habit and roots at nodes",
+      "size of open flower with 4 versus 8 stamens",
+      "inferior ovary and mature capsule proportion",
+      "stem ridges and surface hairs as confirmation"
+    ],
+    "warning": "Never identify from four yellow petals alone. Both are Onagraceae. Uncertain sterile submerged mats may mimic L. repens (including Hygrophila polysperma). 5-ridged stem is described for local L. octovalvis but not universal across entire species range."
+  },
+  "visual_comparison": {
+    "version": "1.0-verified-exact-taxa",
+    "title": "Ludwigia: paired leaves or alternating leaves?",
+    "subtitle": "Real identified plants, with separately verified creators and reuse licenses. Photos are not matched to the same magnification; compare architecture, nodes and reproductive parts rather than apparent pixel size.",
+    "memory_rule": "OCTO = alternate, upright, big flower, eight stamens, long pod. REPENS = opposite, running, tiny four-stamen flower, short pod.",
+    "items": [
+      {
+        "label": "1A · Alternate leaves and flower",
+        "scientific_name": "Ludwigia octovalvis",
+        "image_role": "leaf arrangement, budding stem, flower side profile",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Ludwigia_octovalvis_%28Onagraceae%29_-_Flower_and_leaves.jpg/960px-Ludwigia_octovalvis_%28Onagraceae%29_-_Flower_and_leaves.jpg",
+        "caption": "Study successive individual leaves on the upright stem, narrow non-glossy blades, and the elongated floral base beneath the petals. A bud is present but not a fully mature capsule.",
+        "creator": "Juan Carlos Fonseca Mata · Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_octovalvis_(Onagraceae)_-_Flower_and_leaves.jpg",
+        "location": "Guanajuato, Mexico; not Central Texas",
+        "markers": []
+      },
+      {
+        "label": "1B · Opposite leaves and aquatic branching",
+        "scientific_name": "Ludwigia repens",
+        "image_role": "opposite-leaf nodes and habit",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Ludwigia_repens_3zz.jpg",
+        "caption": "Follow the reddish branches: paired leaf blades arise at stem nodes, unlike successive alternate L. octovalvis leaves. Horticultural reference, not a verified San Marcos wild plant.",
+        "creator": "David J. Stang · Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_repens_3zz.jpg",
+        "location": "Maryland water garden; cultivated provenance",
+        "markers": []
+      },
+      {
+        "label": "2A · Large flower and eight-stamen pattern",
+        "scientific_name": "Ludwigia octovalvis",
+        "image_role": "flower face close-up; large four-petaled flower",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ludwigia_octovalvis_%28Onagraceae%29_-_Flower.jpg/1280px-Ludwigia_octovalvis_%28Onagraceae%29_-_Flower.jpg",
+        "caption": "Broad four yellow petals; inspect the central stamens. For flower size and stamen number use the UT PRC key; not all stamens may be resolvable in the photo.",
+        "creator": "Juan Carlos Fonseca Mata · Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_octovalvis_(Onagraceae)_-_Flower.jpg",
+        "location": "Guanajuato, Mexico; not Central Texas",
+        "markers": []
+      },
+      {
+        "label": "2B · Tiny flower at the node",
+        "scientific_name": "Ludwigia repens",
+        "image_role": "axillary small flowers, stamens and inferior ovary",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg/1280px-Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg",
+        "caption": "Excellent reproductive close-up: two small flowers beside a reddish node, four tiny petals and stamens surrounding the stigma; see the lower green four-angled ovary beneath the sepals.",
+        "creator": "Kevin Thiele · Flickr via Wikimedia Commons",
+        "license": "CC BY 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg",
+        "location": "Photographer from Perth, Australia; subject location not confirmed",
+        "markers": []
+      }
+    ],
+    "overlay_note": "All four comparison photos are externally linked with attribution and license rather than imported; photo roles are based on visible content, with sources credited. Mature matched capsule pairs and L. repens root-at-node close-up are still pending.",
+    "study_only_intro": "Additional authoritative botanical treatments showing diagnostic descriptions; original material is not copied.",
+    "study_only_photo_links": [
+      {
+        "label": "UT Plant Resources Center — L. octovalvis subsp. octovalvis",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Ludwigia%20octovalvis%20octovalvis.html",
+        "look_for": "alternate leaves, five stem ridges, long ribbed inferior ovary and capsule",
+        "reuse": "authoritative description; original-site link"
+      },
+      {
+        "label": "UT Plant Resources Center — L. repens",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Ludwigia%20repens.html",
+        "look_for": "opposite leaves, root-bearing creeping stems, 4 stamens, short capsule",
+        "reuse": "authoritative description; original-site link"
+      }
+    ]
+  },
+  "diagnostic_photo_status": [
+    {
+      "role": "alternate versus opposite nodes",
+      "status": "both exact-species source-verified display images installed",
+      "priority": 1
+    },
+    {
+      "role": "large versus tiny flower",
+      "status": "both source-verified display images installed",
+      "priority": 1
+    },
+    {
+      "role": "4 vs 8 stamens",
+      "status": "repens detail clear; octovalvis individual stamen count not yet macro-locked",
+      "priority": 1
+    },
+    {
+      "role": "elongate vs short mature capsule with scale",
+      "status": "needed both species",
+      "priority": 1
+    },
+    {
+      "role": "repens stem rooting at nodes and octovalvis ridged stem",
+      "status": "needs exact-structure macro / annotated comparison",
+      "priority": 2
+    },
+    {
+      "role": "local Texas wild population photographs",
+      "status": "Joey frames exist but diagnostic macros / public rights limitations remain",
+      "priority": 2
+    }
+  ],
+  "scientific_sources": [
+    {
+      "source": "UT Austin Plant Resources Center",
+      "species": "Ludwigia octovalvis subsp. octovalvis",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Ludwigia%20octovalvis%20octovalvis.html",
+      "role": "local detailed morphology; 4-to-8 valves species-range caution"
+    },
+    {
+      "source": "UT Austin Plant Resources Center",
+      "species": "Ludwigia repens",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Ludwigia%20repens.html",
+      "role": "node rooting, opposite leaves, 6 mm flowers with 4 stamens, short fruit"
+    },
+    {
+      "source": "Flora of North America",
+      "species": "Ludwigia octovalvis",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242413617",
+      "role": "species-wide variation and capsule valve count"
+    },
+    {
+      "source": "Flora of North America",
+      "species": "Ludwigia repens",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416801",
+      "role": "taxon morphology and opposite leaves"
+    }
+  ]
 }
