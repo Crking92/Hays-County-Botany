@@ -59,9 +59,10 @@
     "last_reviewed": "2026-10-03",
     "visual_reviewed": true,
     "visual_status": "usable-partial",
-    "photo_metadata_count": 3,
-    "last_visual_reviewed": "2026-10-04",
-    "photo_files_present": 3
+    "photo_metadata_count": 5,
+    "last_visual_reviewed": "2026-10-08",
+    "photo_files_present": 3,
+    "external_display_image_count": 2
   },
   "photo_strategy": {
     "method": "B116 existing-material-first visual lock",
@@ -96,9 +97,40 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_shumardii1.jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_shumardii_ac_sJoUMVxCMGcw.jpeg",
+      "role": "DEVELOPING green acorns showing broad, comparatively shallow bowl/saucer cups and scaly rim",
+      "creator": "Bruce Kirchoff",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-shumardii/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "media_storage": "external_direct_url",
+      "photo_verified": "Actual S3-hosted image visually inspected 2026-10-08",
+      "scientific_name_verified": "Quercus shumardii",
+      "diagnostic_visibility": "Cup rim and closely overlapping scales clearly visible, green developing fruit, NO metric ruler; not proof of mature fruit dimensions",
+      "fruit_stage": "green/developing—not established ripe"
+    },
+    {
+      "file": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_shumardii_e_ubSkBBCU0OXo.jpe",
+      "role": "Shumard oak clustered terminal and axillary buds, scale patterns and twig context",
+      "creator": "Bruce Kirchoff",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://plants.ces.ncsu.edu/plants/quercus-shumardii/",
+      "platform": "NC State Extension Gardener Plant Toolbox",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution",
+      "media_storage": "external_direct_url",
+      "photo_verified": "Actual S3-hosted image visually inspected 2026-10-08",
+      "scientific_name_verified": "Quercus shumardii",
+      "diagnostic_visibility": "Clustered reddish-brown pointed buds and imbricate bud scales visible, but no scale/macro for definite 5-angled geometry or ciliate hairs"
     }
   ],
-  "photo_note": "Three licensed physical photographs verified: two foliage views at different scales and bark. Whole-tree habit, acorn and twig/bud macros remain follow-up; foliage views are not fruit images.",
+  "photo_note": "Three licensed physical photographs verified: two foliage views at different scales and bark. Whole-tree habit, acorn and twig/bud macros remain follow-up; foliage views are not fruit images. 2026-10-08: NC State/Bruce Kirchoff CC BY 2.0 direct-photo backfill: green acorn cup and bud cluster. Do not label acorn ripe or bud measurement confirmed; physical image files not mirrored.",
   "learner_visual_status": {
     "status": "provisional_learner_ready",
     "mode": "learner_fast_fill",
@@ -120,7 +152,7 @@
     "hybrid_guardrail": "Natural intermediates with Texas red oak are recognized; do not force an ID."
   },
   "diagnostic_image_plan": {
-    "status": "photo_targets_not_new_photos",
+    "status": "partial-green-cup-and-buds-visible",
     "priority": "high",
     "needs": [
       "full adult leaf upper and lower surfaces with ruler",
@@ -128,7 +160,16 @@
       "broad saucer cup profile with attached mature acorn",
       "5-angled terminal bud macro"
     ],
-    "photo_reuse_guardrail": "Never call a general habit/foliage photo a bud, acorn, or underside macro without directly inspecting the real image; preserve image attribution/licensing."
+    "photo_reuse_guardrail": "Never call a general habit/foliage photo a bud, acorn, or underside macro without directly inspecting the real image; preserve image attribution/licensing.",
+    "covered_by_new_gallery": [
+      "green developing acorn showing saucer-cup rim profile",
+      "clustered terminal buds with scale overlap"
+    ],
+    "remaining_macro_priorities": [
+      "MATURE brown acorn with matched mm ruler and cup depth",
+      "terminal bud scales at 10–20× and mm ruler for angles/hairs",
+      "vein-axil underside trichome tuft under 10×"
+    ]
   },
   "diagnostic_science_sources": [
     {
@@ -144,5 +185,24 @@
     "date": "2026-10-08",
     "stage": "core-oak-pair-characters",
     "scope": "morphology and image-role requests only; unchanged canonical range, user approval and existing photo files"
+  },
+  "photo_backfill_2026_10_08": {
+    "added_count": 2,
+    "source": "https://plants.ces.ncsu.edu/plants/quercus-shumardii/",
+    "exact_species": "Quercus shumardii",
+    "stage": "developing-fruit-and-bud-live-linked",
+    "rights": "CC BY 2.0 / Bruce Kirchoff",
+    "existing_physical_media_unchanged": true,
+    "visible_structures": [
+      "green acorn cupule scales and shallow profile",
+      "terminal bud imbricate scales"
+    ],
+    "NOT_confirmed": [
+      "ripe mature nut size",
+      "actual 5-angled buds at measured size",
+      "microscopic bud scale hair or underside vein-axil hairs"
+    ],
+    "offline_ready": false,
+    "updated_on": "2026-10-08"
   }
 }
