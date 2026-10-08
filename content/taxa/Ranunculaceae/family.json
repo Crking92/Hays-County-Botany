@@ -67,8 +67,69 @@
     "caveat": "The current visual lock is Clematis-heavy; Aquilegia should become the contrasting 'petals present and spurred' card once promoted with images."
   },
   "curation_status": {
-    "version": "1.0-visual-family-module",
-    "last_reviewed": "2026-10-03",
-    "visual_lock": "first_pass_complete"
+    "version": "family-confusion-polish-20261008",
+    "last_reviewed": "2026-10-08",
+    "visual_lock": "family_comparison_text_complete_diagnostic_photos_pending"
+  },
+  "family_confusion_cleanup": {
+    "version": "1.0-family-confusion-polish",
+    "updated": "2026-10-08",
+    "field_question": "What exact floral or fruit structure confirms this family, and which nearby family could mimic it?",
+    "look_here_first": [
+      "Inspect flower center for numerous free stamens and mostly free carpels, typically with superior ovaries.",
+      "Identify showy sepals vs true petals before counting petals.",
+      "Look for achene aggregates or follicles and check for absence of a typical Rosaceae hypanthium."
+    ],
+    "comparison_matrix": [
+      {
+        "confusable": "Rosaceae",
+        "separate": "Both may have many stamens and free carpels; Rosaceae commonly has a hypanthium and stipules, unlike most Ranunculaceae."
+      },
+      {
+        "confusable": "Papaveraceae",
+        "separate": "Argemone has caducous sepals and a syncarpous capsule, unlike Clematis aggregate achenes and free carpels; compare fruit and gynoecium."
+      },
+      {
+        "confusable": "Clematis vs Aquilegia within Ranunculaceae",
+        "separate": "Clematis has showy petaloid sepals but no true petals and achene fruits; Aquilegia has petal spurs and follicle fruits."
+      }
+    ],
+    "genus_routing_cues": [
+      "Clematis: opposite divided leaves, petaloid sepals, numerous free stamens/carpels and plumose or persistent achene styles.",
+      "Aquilegia: five petal spurs, showy sepals and follicle cluster; only use canonical species imagery where available.",
+      "Ranunculus: separate free petals and achenes; distinguish from Clematis without requiring petaloid sepals."
+    ],
+    "diagnostic_visual_roles": [
+      {
+        "priority": 1,
+        "shot": "Clematis labeled petaloid sepals, stamens and carpels",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 1,
+        "shot": "Clematis flower to achene with persistent styles",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 1,
+        "shot": "Rosaceae hypanthium vs Ranunculaceae flower cutaway",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 2,
+        "shot": "Argemone syncarpous capsule vs Clematis aggregate achenes",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 2,
+        "shot": "Aquilegia petal spur vs sepal and follicle sequence",
+        "status": "diagnostic_photo_polish_pending"
+      }
+    ],
+    "exception_locks": [
+      "Do not rely on flower color or overall resemblance; confirm reproductive structures.",
+      "Treat individual genus characters as routing clues, not universal family definitions."
+    ],
+    "taxonomy_handoff": "No species range decisions changed; any uncertain species-level separator remains in Taxonomy + Diagnostic Review."
   }
 }
