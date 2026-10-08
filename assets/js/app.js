@@ -230,11 +230,20 @@ function genusQuickRows(data){
 }
 function genusVisualComparison(data){
   const v=data && data.visual_comparison;
-  if(!v || !Array.isArray(v.items) || !v.items.length) return "";
+  if(!v) return "";
+  const items=Array.isArray(v.items)?v.items:[];
+  const hasItems=items.length>0;
+  const hasPlate=!!v.plate_image_url;
+  if(!hasItems && !hasPlate) return "";
   let out='<section class="section-block diagnostic-visual-section"><div class="section-heading"><div><div class="eyebrow">Visual field key</div><h2>'+esc(v.title||"Diagnostic comparison")+'</h2>'+(v.subtitle?'<p>'+esc(v.subtitle)+'</p>':'')+'</div></div>';
   if(v.memory_rule) out+='<div class="diagnostic-memory-rule"><span>MEMORY RULE</span><strong>'+esc(v.memory_rule)+'</strong></div>';
-  out+='<div class="diagnostic-visual-grid">';
-  v.items.forEach(function(item,index){
+  if(hasPlate){
+    out+='<figure class="diagnostic-comparison-plate"><img src="'+esc(v.plate_image_url)+'" alt="'+esc(v.plate_alt||v.title||"Diagnostic comparison plate")+'" loading="lazy">';
+    if(v.plate_caption) out+='<figcaption>'+esc(v.plate_caption)+'</figcaption>';
+    out+='</figure>';
+  }
+  if(hasItems) out+='<div class="diagnostic-visual-grid">';
+  items.forEach(function(item,index){
     const markers=Array.isArray(item.markers)?item.markers:[];
     out+='<article class="diagnostic-visual-card"><div class="diagnostic-photo-wrap"><img src="'+esc(item.image_url||"")+'" alt="'+esc((item.label||item.scientific_name||"Diagnostic plant")+" — "+(item.image_role||"diagnostic view"))+'" loading="lazy">';
     if(markers.length){
@@ -253,7 +262,7 @@ function genusVisualComparison(data){
     if(item.source_page) out+='<p class="diagnostic-photo-credit">'+esc(item.creator||"Source photo")+' · '+esc(item.license||"license review")+' · <a href="'+esc(item.source_page)+'" target="_blank" rel="noreferrer">source ↗</a></p>';
     out+='</div></article>';
   });
-  out+='</div>';
+  if(hasItems) out+='</div>';
   if(v.overlay_note) out+='<p class="diagnostic-overlay-note">'+esc(v.overlay_note)+'</p>';
   if(Array.isArray(v.study_only_photo_links) && v.study_only_photo_links.length){
     const links=v.study_only_photo_links.filter(function(link){ return link && /^https:\/\/[a-z0-9.-]+(?:\/|$)/i.test(String(link.url||"")); }).slice(0,8);
