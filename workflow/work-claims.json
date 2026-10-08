@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T22:10:10.128Z",
+  "updated_at": "2026-10-08T22:12:36.864Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6575,6 +6575,26 @@
       "expires_at": "2026-10-08T22:37:00-05:00",
       "release_when": "Corrected comparison plate is committed, rendered by genus UI, verified, and scientific caveats preserved.",
       "notes": "Use corrected original plate. Corolla values are lengths, not widths. Graphic must be labeled illustrated/not literal same-scale. Preserve taxonomy/range/species galleries."
+    },
+    {
+      "claim_id": "photo-fast-fill-mixed-056-manual-20261008",
+      "scope_kind": "species_photo_batch",
+      "taxa": [
+        "rudbeckia-maxima",
+        "tetraneuris-acaulis",
+        "dicliptera-brachiata",
+        "acalypha-persimilis",
+        "fraxinus-berlandieriana",
+        "vernonia-baldwinii"
+      ],
+      "scope_key": "curation-inbox/photo-fast-fill-mixed-056",
+      "lane": "learner-photo-fast-fill",
+      "owner": "manual-chat-continue-photo-batches",
+      "status": "active",
+      "claimed_at": "2026-10-08T22:12:36.864Z",
+      "expires_at": "2026-10-09T04:12:36.864Z",
+      "release_when": "After installer physical image verification / zero warnings, or if batch fails, remove blocked READY and release with notes.",
+      "notes": "Six exact-species source-vetted Commons first-pass media records; maintain all science/range decision fields unchanged. Vernonia diagnostics still belong to independent gallery-polish lane."
     }
   ]
 }
