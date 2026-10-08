@@ -7,24 +7,27 @@
   "authority": "L.",
   "common_name": "Annual Sunflower",
   "field_group": "Tall yellow composite / sunflower complex",
-  "project_tracker_diagnostic": "Annual; usually branching; broad rough leaves, often opposite below and alternate above; heads with dark disk and yellow rays; achenes 2-awned.",
+  "project_tracker_diagnostic": "Annual, usually taprooted; broad rough ovate-triangular usually serrate leaves with conspicuous petioles and often 3 strong basal veins; branching variable; broad abruptly tapering phyllaries.",
   "project_inclusion": {
     "mode": "common Asteraceae batch 1",
     "native_filter_status": "deferred until later finalization",
     "learning_reason": "Common and useful Central Texas field-learning taxon."
   },
   "morphology_keys": {
-    "life_cycle": "Annual.",
-    "habit": "Erect, usually branching herb, often coarse and rough-hispid.",
-    "leaves": "Lower leaves opposite, upper alternate; blades broadly ovate to deltoid-ovate, rough, often long-petiolate below.",
-    "heads": "Usually several to many heads on branching stems; rays yellow; disk florets yellow to darkening with age.",
-    "phyllaries": "Broadly lanceolate to ovate, ciliate-hispid, spreading to somewhat reflexed.",
-    "fruit": "Achenes typically dark, flattened, often with 2 caducous awns.",
+    "life_cycle": "Annual herb, usually with a taproot; do not use a single year's appearance alone to infer lifecycle.",
+    "habit": "Coarse, erect, stiff-hairy stems; often branching, though some wild plants and cultivated forms are little-branched.",
+    "leaf_arrangement": "Lower leaves sometimes opposite; much of stem often alternate. Arrangement alone cannot separate this from H. maximiliani.",
+    "leaves": "Representative mid-stem leaves broadly ovate to triangular, often heart-based; rough, usually prominently serrate and visibly petiolate (petioles ca. 2–20 cm).",
+    "leaf_venation": "Usually 3 conspicuous veins arising from or near the leaf base; blade is generally flat, not narrow and V-folded.",
+    "leaf_attachment": "Longer petiole is readily visible; compare several mature mid-stem nodes against Maximilian's sessile/short-petioled leaves.",
+    "heads": "Wild forms typically 1–9 heads, usually terminal on stem or branches; very large cultivated flower heads and strongly branched forms vary.",
+    "phyllaries": "Broad ovate to lance-ovate bracts (often 5–8 mm wide) with abruptly acuminate tips, hairy/ciliate edges; check side or underside of a mature head.",
+    "fruit": "Flattened cypselas usually bearing a pair of deciduous scales/awns; shared character, not the key split from Maximilian.",
     "best_field_traits": [
-      "annual branching habit",
-      "broad rough leaves",
-      "opposite lower leaves",
-      "multiple sunflower heads"
+      "broad, commonly toothed, petiolate leaf: inspect a mid-stem blade",
+      "3 strong veins from near leaf base",
+      "coarse rough annual stem; branching may vary",
+      "broad phyllaries with rather abruptly narrowed tips"
     ]
   },
   "photo_strategy": {
@@ -48,7 +51,7 @@
     },
     {
       "file": "images/02-curated-reference.jpg",
-      "role": "curated taxon reference 2",
+      "role": "flower-head face (ray and disk florets; not leaf diagnostic)",
       "creator": "(c) Emily Scherer, some rights reserved (CC BY-NC), uploaded by Emily Scherer",
       "license": "cc-by-nc",
       "source_page": "https://www.inaturalist.org/taxa/57983",
@@ -100,13 +103,27 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-batch1",
+    "version": "1.1-helianthus-id-polish",
     "taxonomy_reviewed": true,
     "morphology_reviewed": true,
     "photo_downloader_included": true,
-    "last_reviewed": "2026-09-30",
+    "last_reviewed": "2026-10-08",
     "photo_metadata_count": 5,
     "photo_files_present": 5,
-    "photo_backfill_source": "historical taxa.zip migration"
+    "photo_backfill_source": "historical taxa.zip migration",
+    "comparison_partner": "helianthus-maximiliani",
+    "visual_polish_status": "genus_leaf_photo_comparison_live__same-scale-node-and-phyllary-pair-pending"
+  },
+  "diagnostic_comparison": {
+    "look_first": "Mid-stem leaf: broad + stalked + commonly toothed + 3 strong basal veins = H. annuus; check several nodes.",
+    "separate_from": "helianthus-maximiliani",
+    "confirm_with": "Compare underside of flowering head: broader phyllaries with more abrupt pointed ends in H. annuus.",
+    "caution": "Disk color, yellow rays, height, branching and opposite/alternate leaf arrangement alone are unreliable."
+  },
+  "source_audit": {
+    "date": "2026-10-08",
+    "reference": "Flora of North America",
+    "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200024005",
+    "scope": "Morphology and pairing only. County native-range status left unchanged."
   }
 }
