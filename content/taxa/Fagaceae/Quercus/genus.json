@@ -88,7 +88,7 @@
   "curation_status": {
     "version": "2.3-quercus-post-blackjack-photo-visual",
     "last_reviewed": "2026-10-08",
-    "visual_polish_scope": "Post and blackjack now show five additional attributed real images; in-branch photo markup only, no taxonomic decision changed.",
+    "visual_polish_scope": "3 additional linked exact-species diagnostic photos for chinkapin vs bur; retains all earlier native range statuses and photos",
     "photo_gap_audit": "six zero-image species remain",
     "last_visual_reviewed": "2026-10-08"
   },
@@ -436,6 +436,30 @@
         "public_reuse": "yes"
       },
       {
+        "label": "Chinkapin oak — mature brown acorns and gray cup scales",
+        "scientific_name": "Quercus muehlenbergii",
+        "image_role": "Mature acorn cupule texture side-by-side teaching photo",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_muehlenbergi_5QYiVht8Ucco.jpe",
+        "caption": "Brown, mature chinkapin oak nuts are capped by compact gray, knobby cupules WITHOUT long soft shaggy projections. Notice the rough close-appressed scales. Compare bur oak's soft fringe. The image does NOT include a measuring ruler or verify nut length.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-muehlenbergii/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
+      },
+      {
+        "label": "Chinkapin oak — adult leaf with regularly spaced teeth",
+        "scientific_name": "Quercus muehlenbergii",
+        "image_role": "Adult tooth pattern and leaf veins",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Quercus_muehlenbergii_5444930.jpg/960px-Quercus_muehlenbergii_5444930.jpg",
+        "caption": "Adult leaf with an elongated blade and repeated marginal teeth supplied by nearly parallel secondary veins. Pointed teeth here do NOT carry a red-oak terminal bristle. Leaf underside minute stellate hairs and a ruler are NOT visible.",
+        "creator": "Rob Routledge, Sault College, Bugwood.org",
+        "license": "CC BY 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_muehlenbergii_5444930.jpg",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
+      },
+      {
         "label": "Bur oak — deep middle leaf sinuses",
         "scientific_name": "Quercus macrocarpa",
         "image_role": "Adult leaf architecture: deepest sinuses in the middle/proximal blade",
@@ -446,6 +470,18 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_macrocarpa_hojas_JBCLM.jpg",
         "study_use": "yes",
         "public_reuse": "yes"
+      },
+      {
+        "label": "Bur oak — projecting soft cupule fringe on green fruit",
+        "scientific_name": "Quercus macrocarpa",
+        "image_role": "Close-up of shaggy soft cup rim (DEVELOPING acorns, not ripe)",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Quercus_macrocarpa_15-p.bot-quercus.macro-009.jpg/960px-Quercus_macrocarpa_15-p.bot-quercus.macro-009.jpg?utm_campaign=index&utm_content=thumbnail&utm_source=commons.wikimedia.org",
+        "caption": "Clear soft, outward-pointing projections around green/developing bur oak acorn cups. Compare the compact nonfringed chinkapin oak cup above. These acorns are NOT mature brown fruit; no ruler is shown.",
+        "creator": "Gilles Ayotte / Bibliothèque de l'Université Laval",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_macrocarpa_15-p.bot-quercus.macro-009.jpg",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution-and-sharealike"
       },
       {
         "label": "Bur oak — huge fringed acorn cup",
@@ -546,6 +582,21 @@
         "accurately measured, verifiably ripe fruit"
       ],
       "storage": "External directly linked images, not locally mirrored; offline availability is not claimed."
+    },
+    "chinkapin_bur_photo_upgrade": {
+      "reviewed_on": "2026-10-08",
+      "new_cards": 3,
+      "live_diagnostic_roles": [
+        "chinkapin mature brown acorn and gray tuberculate nonfringed cup",
+        "chinkapin regular teeth on mature leaf",
+        "bur oak prominent soft cup scale fringe in developing green fruit"
+      ],
+      "still_missing": [
+        "ripe acorn side-by-side with millimeter rulers",
+        "paired 20x underside stellate trichomes",
+        "bark/bud comparators in matched scale"
+      ],
+      "media_storage": "External URL referenced in gallery. Not mirrored in private repository."
     }
   },
   "photo_backfill_priorities": {
@@ -647,7 +698,10 @@
           "bur cup fringe 5–10 mm with scale; paired cupule and acorn measurements",
           "underside stellate hair comparison same magnification"
         ],
-        "why": "Bur mature fruit/leaf photos already exist; chinkapin only has immature acorn/cup imagery. Prioritize licensing a ripe chinkapin fruit macro."
+        "why": "Bur mature fruit/leaf photos already exist; chinkapin only has immature acorn/cup imagery. Prioritize licensing a ripe chinkapin fruit macro.",
+        "status": "partial_ripe_chinkapin_and_bur_fringe_now_illustrated",
+        "updated_on": "2026-10-08",
+        "note": "NC State mature brown chinkapin acorns and CC-BY leaf, Université Laval CC-BY-SA green bur cup fringe now in gallery; matched ruler/trichome macros still needed."
       }
     ],
     "guardrail": "Photo backlog is a request, not permission to add generic replacements. Exact taxon, image rights, photographed structure, and source provenance must be checked before any species gallery update."
