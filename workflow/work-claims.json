@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T06:31:32Z",
+  "updated_at": "2026-10-08T03:38:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5733,6 +5733,23 @@
       "expires_at": "2026-10-08T03:31:32-05:00",
       "release_when": "Genus lesson committed and verified or run abandoned",
       "notes": "Comparison lesson only; no species installs, range changes, or photo hunting."
+    },
+    {
+      "claim_id": "automation-genus-abutilon-20261008-0338",
+      "scope_kind": "genus_module",
+      "scope_key": "content/taxa/Malvaceae/Abutilon/genus.json",
+      "taxa": [
+        "abutilon-fruticosum",
+        "abutilon-incanum",
+        "abutilon-theophrasti"
+      ],
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-comparison-builder",
+      "status": "active",
+      "claimed_at": "2026-10-08T03:38:00-05:00",
+      "expires_at": "2026-10-08T05:38:00-05:00",
+      "release_when": "Genus lesson committed and verified or work abandoned",
+      "notes": "Canonical species only; genus lesson plus safe index keys; no taxonomy/range change."
     }
   ]
 }
