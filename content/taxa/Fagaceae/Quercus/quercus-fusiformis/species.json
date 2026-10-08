@@ -48,7 +48,7 @@
     },
     {
       "file": "images/02-curated-reference.jpg",
-      "role": "curated taxon reference 2",
+      "role": "Spring staminate catkins / flowering branch with narrow evergreen leaves",
       "creator": "(c) Rose Cooper, some rights reserved (CC BY-NC-ND), uploaded by Rose Cooper",
       "license": "cc-by-nc-nd",
       "source_page": "https://www.inaturalist.org/taxa/167647",
@@ -57,7 +57,9 @@
       "observation_id": "",
       "photo_id": "129727459",
       "study_use": "yes",
-      "public_reuse": "review"
+      "public_reuse": "review",
+      "diagnostic_visibility": "Confirmed existing local photograph inspected on 2026-10-08: pendant male catkins, small leathery foliage and twigs; this does not show an acorn, lower leaf hairs, or a bud macro.",
+      "media_role_audit": "actual local JPG inspected"
     },
     {
       "file": "images/03-same-tree-field-view-1.jpg",
@@ -110,6 +112,23 @@
       "photo_id": "729858850",
       "study_use": "yes",
       "public_reuse": "review"
+    },
+    {
+      "file": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/QFusiformis.jpg/960px-QFusiformis.jpg",
+      "role": "Mature detached escarpment live oak acorns showing elongated, often two-tone dark-brown nuts and tapered apices (no cups)",
+      "creator": "MartínezFlores",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:QFusiformis.jpg",
+      "platform": "Wikimedia Commons",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution-sharealike",
+      "media_storage": "external_direct_url",
+      "photo_verified": "Actual Commons photo preview inspected 2026-10-08; 7 detached elongated acorns on white paper.",
+      "scientific_name_verified": "Quercus fusiformis",
+      "provenance": "Acorns collected from Tamaulipas, Mexico, original photographer description.",
+      "diagnostic_visibility": "Shows multiple brown detached nut profiles including acute/tapered tips; no attached cups, no scale or ruler, cannot establish cup shape/depth.",
+      "stage": "brown mature or mature-looking detached nuts"
     }
   ],
   "curation_status": {
@@ -118,9 +137,11 @@
     "morphology_reviewed": true,
     "photo_downloader_included": true,
     "last_reviewed": "2026-09-30",
-    "photo_metadata_count": 6,
+    "photo_metadata_count": 7,
     "photo_files_present": 6,
-    "photo_backfill_source": "historical taxa.zip migration"
+    "photo_backfill_source": "historical taxa.zip migration",
+    "external_display_image_count": 1,
+    "last_visual_reviewed": "2026-10-08"
   },
   "look_here_first": "Start with mature acorn shape plus the scaly cup: Texas live oak often has a narrow, noticeably pointed/spindle-like nut ~20–30 mm long seated in a relatively deep funnel/goblet cup. Combine this with pale appressed-stellate leaf undersides and central Texas limestone habitat; leaf shape or evergreen habit alone is insufficient.",
   "diagnostic_comparison": {
@@ -135,10 +156,11 @@
       "Pale leaf underside alone.",
       "A planted Central Texas nursery 'live oak' tag."
     ],
-    "taxon_concept_guardrail": "Retain strict Q. virginiana county-native assessment unresolved; different floras may include fusiformis as a variety. Hybrid/introgressed individuals exist."
+    "taxon_concept_guardrail": "Retain strict Q. virginiana county-native assessment unresolved; different floras may include fusiformis as a variety. Hybrid/introgressed individuals exist.",
+    "acorn_guardrail": "Both live-oak taxa may show pointed green developing acorns. The elongated two-tone mature Q fusiformis nuts are a helpful group-level cue but not a standalone proof; without cups, ruler and provenance do not force ID."
   },
   "diagnostic_image_plan": {
-    "status": "photo_targets_not_new_photos",
+    "status": "new licensed detached mature nuts and existing flower role verified",
     "priority": "high",
     "needs": [
       "mature acorn still seated in cup, nut length and cup depth with ruler",
@@ -146,7 +168,16 @@
       "sun leaf adaxial/abaxial pair, 20× lower hair view",
       "twig buds and bark, adult tree habitat context"
     ],
-    "photo_reuse_guardrail": "Never call a general habit/foliage photo a bud, acorn, or underside macro without directly inspecting the real image; preserve image attribution/licensing."
+    "photo_reuse_guardrail": "Never call a general habit/foliage photo a bud, acorn, or underside macro without directly inspecting the real image; preserve image attribution/licensing.",
+    "covered_by_new_gallery": [
+      "Mature-looking dark pointed detachable nuts from a verified Q fusiformis collection in Tamaulipas, but no cups",
+      "Spring male catkin/branch from existing local 02-curated-reference"
+    ],
+    "remaining_macro_priorities": [
+      "MATURE brown nut in ATTACHED cup with mm ruler",
+      "reproductive cup scales and depth with ruler",
+      "same-magnification underside trichome Q fusiformis vs Q virginiana"
+    ]
   },
   "diagnostic_science_sources": [
     {
@@ -162,5 +193,14 @@
     "date": "2026-10-08",
     "stage": "core-oak-pair-characters",
     "scope": "morphology and image-role requests only; unchanged canonical range, user approval and existing photo files"
+  },
+  "photo_backfill_2026_10_08": {
+    "new_external": 1,
+    "photos": 7,
+    "existing_catkin_media_reclassified": true,
+    "scientific_range_status_unchanged": true,
+    "not_proven": "Detachment means no cup morphology can be inferred. Southern live oak images can also show acute green nuts, so pointiness not exclusive.",
+    "physical_files_unchanged": true,
+    "reviewed_on": "2026-10-08"
   }
 }
