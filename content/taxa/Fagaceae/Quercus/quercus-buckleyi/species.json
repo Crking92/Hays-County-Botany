@@ -173,7 +173,7 @@
     "field_correction_2026_10_08": "UT Austin specimen description calls the Texas red oak cup relatively shallow/bowl-like on measured material. Cup shape and depth overlap with Shumard; compare measured fully ripe cup and other organs rather than claiming Texas red is invariably goblet-deeper."
   },
   "diagnostic_image_plan": {
-    "status": "partially_filled_original_local_photos_promoted_20261008",
+    "status": "licensed-photo-search-incomplete; source-study-links-available",
     "priority": "high",
     "needs": [
       "matched adult sun leaf: both surfaces, ruler",
@@ -200,13 +200,56 @@
       "https://www.backyardnature.net/n/w/texasred.htm",
       "https://jbg.gardenexplorer.org/taxon-4307.aspx"
     ],
-    "no_unlicensed_image_added": true
+    "no_unlicensed_image_added": true,
+    "license_pass_2026_10_08": {
+      "reviewed_on": "2026-10-08",
+      "actual_new_reusable_brown_acorn_or_bud_macro_found": false,
+      "confirmed_external_photo_pages": [
+        {
+          "source": "Red Butte Garden / Quercus buckleyi collection",
+          "url": "https://redbuttegarden.org/plants/species/759/",
+          "visible": "Two brown acorns with distinct tightly scaled cups on twig, plus separate terminal-bud close-up; same taxon labeled by botanic garden",
+          "role": "brown_acorn_and_bud_reference",
+          "reuse_decision": "LINK_ONLY: image reuse rights are not clearly licensed",
+          "ruler_present": false,
+          "bud_cilia_visible_at_required_10x": false
+        },
+        {
+          "source": "Jerusalem Botanical Gardens Garden Explorer",
+          "url": "https://jbg.gardenexplorer.org/taxon-4307.aspx",
+          "visible": "Brown detached acorns and scaly cups in an illustrated taxon set",
+          "role": "ripe_detached_acorn_reference",
+          "reuse_decision": "LINK_ONLY: no confirmed Creative Commons license",
+          "ruler_present": false
+        },
+        {
+          "source": "Flora of North America",
+          "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501014",
+          "visible": "Exact diagnostic morphology; no licensable photo offered",
+          "role": "diagnostic_character_authority",
+          "reuse_decision": "Citation only",
+          "ruler_present": false
+        }
+      ],
+      "screened_out": [
+        {
+          "reason": "A different oak species photographed as a terminal bud (Q. falcata / Q. texana) cannot be substituted for Q. buckleyi.",
+          "taxon_mismatch": true
+        },
+        {
+          "reason": "An unlicensed commercial or botanic-garden acorn image cannot be placed directly into the display gallery.",
+          "taxon_mismatch": false
+        }
+      ],
+      "priority_shot_list": [
+        "Buckley BROWN fully ripe attached or detached acorn and scaly cup photographed from the side WITH mm ruler, upper rim and basal cup profile",
+        "Buckley terminal winter bud 3–7 mm photographed at 10–20x, ciliate hairs on APEX HALF of outer bud scale visibly resolved WITH scale",
+        "Photograph must have photographer, exact species, original URL, and CC BY/CC BY-NC compatible reuse before entering images[]"
+      ],
+      "permissions_needed": "Obtain explicit reuse permission for Red Butte/Jerusalem exact-species photos; otherwise prioritize fresh CC-licensed iNaturalist observations where the actual macro role and photo-level license can be inspected."
+    }
   },
   "diagnostic_science_sources": [
-    {
-      "source": "Flora of North America",
-      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501014"
-    },
     {
       "source": "Flora of North America",
       "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501082"
@@ -215,6 +258,11 @@
       "authority": "UT Austin Plant Resources Center — A. C. Gibson specimen morphology of Quercus buckleyi",
       "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Quercus%20buckleyi",
       "note": "Bud scale densely short-ciliate; ripe acorn cup basal about one-third nut, shallow bowl, 5–10.5 mm high x 10–21 mm wide. Do not overstate a uniformly deep goblet cup."
+    },
+    {
+      "authority": "Flora of North America, Q. buckleyi accepted treatment",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501014",
+      "note": "3–7 mm terminal buds; scales ciliate on apical half. Acorn cup most commonly goblet- to cup-shaped (rarely saucer) 5–11.5 mm high by 10–18 mm wide, encloses 1/3–1/2 nut. Regional UT measurements include shallow bowl-shaped forms: overlap, not guaranteed binary separation."
     }
   ],
   "diagnostic_polish": {
@@ -265,6 +313,8 @@
     ],
     "true_additional_photo_files": 0,
     "photo_licensing_status": "Original existing CC BY-NC credits preserved; no new third-party image added",
-    "date": "2026-10-08"
+    "date": "2026-10-08",
+    "second_pass_result": "No new copyright-cleared measured ripe fruit or clearly ciliate bud-scale macro found; source links available in genus visual lesson; no new photos inserted.",
+    "next_step": "Ask Red Butte Garden to license the images for attributed learner use or gather original field photography with macro lens and mm ruler."
   }
 }
