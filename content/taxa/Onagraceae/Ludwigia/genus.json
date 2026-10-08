@@ -8,7 +8,7 @@
       "ludwigia-repens"
     ],
     "source_pool_species_count": 6,
-    "scope_note": "Two canonical species compared; remaining source-pool taxa await installer/review. Do not imply they are canonical."
+    "scope_note": "Two installed species remain canonical; four source-pool-only taxa now have a clearly labeled genus comparison and photo anchors, but no species installation is implied."
   },
   "shared_traits": [
     "Wetland or aquatic herbs with simple leaves",
@@ -104,10 +104,10 @@
     }
   ],
   "curation_status": {
-    "version": "2.0-ludwigia-visual-id-polish",
+    "version": "2.1-six-taxon-visual-polish",
     "last_reviewed": "2026-10-08",
     "note": "Genus lesson only; no species/range changes.",
-    "visual_status": "exact_species_leaf_node_and_flower_pairs_live__matched_capsule_and_rooted_node_macros_pending"
+    "visual_status": "two_canonical_species_plus_four_noncanonical_comparison_photos_live__mature_scaled_capsules_and_root_macros_pending"
   },
   "diagnostic_science_20261008": {
     "source": "Flora of North America genus key https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
@@ -177,10 +177,10 @@
     "warning": "Never identify from four yellow petals alone. Both are Onagraceae. Uncertain sterile submerged mats may mimic L. repens (including Hygrophila polysperma). 5-ridged stem is described for local L. octovalvis but not universal across entire species range."
   },
   "visual_comparison": {
-    "version": "1.0-verified-exact-taxa",
-    "title": "Ludwigia: paired leaves or alternating leaves?",
-    "subtitle": "Real identified plants, with separately verified creators and reuse licenses. Photos are not matched to the same magnification; compare architecture, nodes and reproductive parts rather than apparent pixel size.",
-    "memory_rule": "OCTO = alternate, upright, big flower, eight stamens, long pod. REPENS = opposite, running, tiny four-stamen flower, short pod.",
+    "version": "2.0-six-taxon-visual-reference-pass",
+    "title": "Ludwigia: distinguish six source-pool species",
+    "subtitle": "Two installed species first, followed by four labeled source-pool references. These images represent exact identified taxa, but not every decisive structure is photographed yet.",
+    "memory_rule": "FIRST nodes (opposite vs alternate). THEN plant architecture, petal number, stamens and capsule. Opposite + yellow petals = repens; opposite + NO petals = palustris. Upright winged stem = decurrens.",
     "items": [
       {
         "label": "1A · Alternate leaves and flower",
@@ -229,9 +229,91 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg",
         "location": "Photographer from Perth, Australia; subject location not confirmed",
         "markers": []
+      },
+      {
+        "scientific_name": "Ludwigia octovalvis",
+        "label": "3A · Long ribbed developing capsule",
+        "image_role": "elongate ribbed inferior capsule with persistent green sepals",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Ludwigia_octovalvis_50612016.jpg",
+        "caption": "Actual fruit close-up with long narrow ridged developing capsule below four persistent sepals. Visibly elongate, but no scale bar and not a dry, dehiscing ripe specimen.",
+        "creator": "Alex Abair · iNaturalist via Wikimedia Commons",
+        "license": "CC BY 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_octovalvis_50612016.jpg",
+        "observation_id": "32278449",
+        "photo_id": "50612016",
+        "provenance": "Gainesville, Florida; confirmed Wikimedia CC BY",
+        "field_stage": "developing fruit",
+        "learner_status": "canonical photo evidence",
+        "markers": []
+      },
+      {
+        "scientific_name": "Ludwigia repens",
+        "label": "3B · Short fruit and rooting stem — botanical plate",
+        "image_role": "mature fruit detail f, young fruit d, rooting prostrate stem a, seed g",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Aquatic_and_wetland_plants_of_southwestern_United_States_%281972%29_%2819562736390%29.jpg",
+        "caption": "Correll & Correll 1972, fig. 562: illustration rather than photograph. Letter f shows mature fruit; d young fruit; e fruit section; g seed; a creeping rooted stem. Not a substitute for an actual rooted-node macro photo.",
+        "creator": "Correll & Correll / EPA 1972; R. K. Godfrey illustration; Internet Archive scan",
+        "license": "Public domain in USA per Wikimedia Commons file record",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aquatic_and_wetland_plants_of_southwestern_United_States_(1972)_(19562736390).jpg",
+        "provenance": "Scientific line drawing, no photographic specimen or site",
+        "learner_status": "canonical illustration evidence",
+        "markers": []
+      },
+      {
+        "scientific_name": "Ludwigia decurrens",
+        "label": "4 · Wing-leaved primrose-willow (source pool)",
+        "image_role": "four yellow petals and lanceolate foliage; winged stem diagnostic not shown clearly",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Ludwigia_decurrens_1.jpg",
+        "caption": "Four-petaled flower of L. decurrens. The strongest field split from L. octovalvis is a sharply four-winged stem and sessile leaf base running down the stem; this flower photograph does not prove those features.",
+        "creator": "Sesamehoneytart · Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_decurrens_1.jpg",
+        "learner_status": "source_pool_reference_only_not_installed",
+        "markers": []
+      },
+      {
+        "scientific_name": "Ludwigia leptocarpa",
+        "label": "5 · Hairy primrose-willow (source pool)",
+        "image_role": "five-petaled yellow flower and leafy upright stem",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Ludwigia_leptocarpa_1.jpg",
+        "caption": "Identified L. leptocarpa flower and leafy stems from Costa Rica. Inspect five petals here; the diagnostic hairy, long, bumpy capsules and leaf hairs still need sharper macro evidence.",
+        "creator": "Franz Xaver · Wikimedia Commons",
+        "license": "CC BY-SA 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_leptocarpa_1.jpg",
+        "provenance": "Costa Rica",
+        "learner_status": "source_pool_reference_only_not_installed",
+        "markers": []
+      },
+      {
+        "scientific_name": "Ludwigia palustris",
+        "label": "6 · Petal-less marsh seedbox (source pool)",
+        "image_role": "opposite leaves and small green four-sepaled axillary fruiting structures",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Ludwigia_palustris_260984076.jpg",
+        "caption": "Opposite leaves along red creeping stem; tiny green sepals and young fruits at nodes, rather than showy yellow petals. This is the dangerous vegetative look-alike of L. repens; capsule green striping and lack of petals improve separation.",
+        "creator": "Alex Abair · iNaturalist via Wikimedia Commons",
+        "license": "CC BY 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_palustris_260984076.jpg",
+        "photo_id": "260984076",
+        "observation_id": "151274515",
+        "provenance": "Florida",
+        "learner_status": "source_pool_reference_only_not_installed",
+        "markers": []
+      },
+      {
+        "scientific_name": "Ludwigia peploides",
+        "label": "7 · Floating primrose-willow (source pool)",
+        "image_role": "floating creeping stems, alternate shiny leaves and five-petaled flower",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Ludwigia_peploides_peploides-6.jpg",
+        "caption": "Subspecies peploides from California: shiny alternate leaves, floating stems, and five broad yellow petals. The petiole, calyx, capsule and bracteoles require closer photos before separating subspecies.",
+        "creator": "Eugene Zelenko · Wikimedia Commons",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_peploides_peploides-6.jpg",
+        "provenance": "San Jose, California; subsp. peploides",
+        "learner_status": "source_pool_reference_only_not_installed",
+        "markers": []
       }
     ],
-    "overlay_note": "All four comparison photos are externally linked with attribution and license rather than imported; photo roles are based on visible content, with sources credited. Mature matched capsule pairs and L. repens root-at-node close-up are still pending.",
+    "overlay_note": "The six-species comparison is an early visual study aid. Only L. octovalvis and L. repens are installed species cards. Four other photographs are comparison references, not canonical installations or county-range PASS claims. Do not use photo scale to compare fruit sizes.",
     "study_only_intro": "Additional authoritative botanical treatments showing diagnostic descriptions; original material is not copied.",
     "study_only_photo_links": [
       {
@@ -245,6 +327,18 @@
         "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Ludwigia%20repens.html",
         "look_for": "opposite leaves, root-bearing creeping stems, 4 stamens, short capsule",
         "reuse": "authoritative description; original-site link"
+      },
+      {
+        "label": "Florida IFAS — Ludwigia repens rooted node in wet habitat (original only)",
+        "url": "https://plant-directory.ifas.ufl.edu/plant-directory/ludwigia-repens/",
+        "look_for": "field specimen with fine roots arising at an underwater stem node",
+        "reuse": "unverified reproduction rights: link only, not copied into gallery"
+      },
+      {
+        "label": "Maryland Biodiversity — Ludwigia decurrens winged stem macro (original only)",
+        "url": "https://www.marylandbiodiversity.com/species/3515",
+        "look_for": "sharp longitudinal stem wings from decurrent leaf bases",
+        "reuse": "rights not cleared: link only"
       }
     ]
   },
@@ -266,12 +360,12 @@
     },
     {
       "role": "elongate vs short mature capsule with scale",
-      "status": "needed both species",
+      "status": "actual elongate developing octovalvis fruit photo + repens published mature-fruit drawing live; matched mature photos with ruler remain pending",
       "priority": 1
     },
     {
       "role": "repens stem rooting at nodes and octovalvis ridged stem",
-      "status": "needs exact-structure macro / annotated comparison",
+      "status": "published repens rooting-stem illustration and external UF field photo link live; sharp licensed root-node photo and local ridged stem macro still missing",
       "priority": 2
     },
     {
@@ -304,6 +398,99 @@
       "species": "Ludwigia repens",
       "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416801",
       "role": "taxon morphology and opposite leaves"
+    }
+  ],
+  "source_pool_species_comparison": [
+    {
+      "id": "ludwigia-decurrens",
+      "name": "Ludwigia decurrens",
+      "installation_status": "source_pool_only",
+      "look_here_first": "Run fingers/eyes down stem: sharply four-angled and winged from sessile decurrent leaf bases.",
+      "comparison": "Against upright L. octovalvis: winged 4-angled stem + sessile blade base, not merely local octovalvis longitudinal ridges; 4 yellow petals and usually 8 stamens overlap.",
+      "photo_status": "flower reference verified; winged stem macro source linked only",
+      "native_range_status": "not reviewed in this pass",
+      "sources": [
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
+        "https://www.worldfloraonline.org/taxon/wfo-0000443183"
+      ]
+    },
+    {
+      "id": "ludwigia-leptocarpa",
+      "name": "Ludwigia leptocarpa",
+      "installation_status": "source_pool_only",
+      "look_here_first": "Erect or ascending often hairy stems, lanceolate alternate leaves, 5 yellow petals and usually 10 stamens.",
+      "comparison": "Against L. octovalvis: typically 5-merous rather than 4-merous; thin-walled, long-hairy capsule with seed impressions (bumps) instead of smoother more woody pod. Against peploides: generally erect, hairy and with long narrow capsule, not low floating glossy mat.",
+      "photo_status": "licensed exact-species flower+plant anchor; hairy mature seedpod macro pending",
+      "native_range_status": "not reviewed in this pass",
+      "sources": [
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:144366-2/general-information"
+      ]
+    },
+    {
+      "id": "ludwigia-palustris",
+      "name": "Ludwigia palustris",
+      "installation_status": "source_pool_only",
+      "look_here_first": "Opposite leaves on creeping wet-mud plant; tiny axillary flowers with sepals but NO yellow petals.",
+      "comparison": "Against L. repens: normally apetalous vs four tiny yellow petals, green longitudinal capsule bands often visible in L. palustris vs absent in L. repens. Sterile shoots often cannot be safely separated.",
+      "photo_status": "licensed leaf/fruit close-up anchor; close green capsule stripes reference only",
+      "native_range_status": "not reviewed in this pass",
+      "sources": [
+        "https://auth1.dpr.ncparks.gov/flora/species_account.php?nrid_sciName=Ludwigia+palustris",
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063"
+      ]
+    },
+    {
+      "id": "ludwigia-peploides",
+      "name": "Ludwigia peploides",
+      "installation_status": "source_pool_only",
+      "look_here_first": "Floating or creeping mat with ALTERNATE shiny broadly elliptic leaves and usually 5 showy yellow petals (10 stamens).",
+      "comparison": "Against L. repens/palustris: alternate leaves, larger showy flowers with 10 stamens. Against L. leptocarpa: creeping/floating with glossy blades; fruit generally shorter and thick-walled; subspecies distinction needs mature reproductive material.",
+      "photo_status": "licensed species subsp. peploides floating/flower anchor; fruit and subspecies macros pending",
+      "native_range_status": "not reviewed in this pass",
+      "sources": [
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416799",
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063"
+      ]
+    }
+  ],
+  "six_species_field_key": [
+    {
+      "step": 1,
+      "check": "Leaves paired at the same node?",
+      "yes": "Repens/palustris pair: inspect flower petals and capsule bands.",
+      "no": "Alternate-leaved four-species group."
+    },
+    {
+      "step": 2,
+      "check": "Opposite-leaved plant: tiny clear yellow petals?",
+      "yes": "Ludwigia repens",
+      "no": "Ludwigia palustris (often petal-less); confirm fruit."
+    },
+    {
+      "step": 3,
+      "check": "Alternate-leaved plant: stem sharply 4-winged with sessile leaf bases running down stem?",
+      "yes": "Ludwigia decurrens",
+      "no": "Continue with flower count and habit."
+    },
+    {
+      "step": 4,
+      "check": "Flower typically 4 yellow petals + 8 stamens; erect shoreline plant with long ribbed pod?",
+      "yes": "Ludwigia octovalvis",
+      "no": "Five-petaled / ten-stamen pair."
+    },
+    {
+      "step": 5,
+      "check": "Five-petaled group: mostly upright, hairy, long bumpy hairy capsules?",
+      "yes": "Ludwigia leptocarpa",
+      "no": "Floating/creeping with shiny broad alternate leaves: Ludwigia peploides."
+    }
+  ],
+  "photo_rejection_log": [
+    {
+      "source": "https://commons.wikimedia.org/wiki/File:Ludwigia_repens_with_a_water_root_-_20091016.jpg",
+      "reason": "Wikimedia title states repens but original uploader file history describes Ludwigia ovalis; photo not used as repens until species identity independently verified.",
+      "status": "reject_for_species_diagnostic_gallery"
     }
   ]
 }
