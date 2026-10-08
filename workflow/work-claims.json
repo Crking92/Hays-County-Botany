@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T03:38:00-05:00",
+  "updated_at": "2026-10-08T05:33:16-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5750,6 +5750,22 @@
       "expires_at": "2026-10-08T05:38:00-05:00",
       "release_when": "Genus lesson committed and verified or work abandoned",
       "notes": "Canonical species only; genus lesson plus safe index keys; no taxonomy/range change."
+    },
+    {
+      "claim_id": "automation-genus-ludwigia-20261008-0533",
+      "scope_kind": "genus_module",
+      "scope_key": "content/taxa/Onagraceae/Ludwigia/genus.json",
+      "taxa": [
+        "ludwigia-octovalvis",
+        "ludwigia-repens"
+      ],
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-comparison-builder",
+      "status": "active",
+      "claimed_at": "2026-10-08T05:33:16-05:00",
+      "expires_at": "2026-10-08T07:33:16-05:00",
+      "release_when": "Ludwigia genus lesson and index reconciliation durably committed, or work abandoned",
+      "notes": "Two canonical Ludwigia species; build morphology-first visual comparison; no species installs."
     }
   ]
 }
