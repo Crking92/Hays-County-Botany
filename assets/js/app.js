@@ -238,7 +238,7 @@ function genusVisualComparison(data){
   let out='<section class="section-block diagnostic-visual-section"><div class="section-heading"><div><div class="eyebrow">Visual field key</div><h2>'+esc(v.title||"Diagnostic comparison")+'</h2>'+(v.subtitle?'<p>'+esc(v.subtitle)+'</p>':'')+'</div></div>';
   if(v.memory_rule) out+='<div class="diagnostic-memory-rule"><span>MEMORY RULE</span><strong>'+esc(v.memory_rule)+'</strong></div>';
   if(hasPlate){
-    out+='<figure class="diagnostic-comparison-plate"><img src="'+esc(v.plate_image_url)+'" alt="'+esc(v.plate_alt||v.title||"Diagnostic comparison plate")+'" loading="lazy">';
+    out+='<figure class="diagnostic-comparison-plate"><a class="diagnostic-comparison-plate-link" href="'+esc(v.plate_image_url)+'" target="_blank" rel="noopener noreferrer" aria-label="Open comparison plate full size"><img src="'+esc(v.plate_image_url)+'" alt="'+esc(v.plate_alt||v.title||"Diagnostic comparison plate")+'" loading="lazy"></a>';
     if(v.plate_caption) out+='<figcaption>'+esc(v.plate_caption)+'</figcaption>';
     out+='</figure>';
   }
