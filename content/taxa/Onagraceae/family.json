@@ -77,8 +77,69 @@
     "caveat": "Do not use flower color as the family ID; local species can be yellow, pink, white, or white aging pink/red."
   },
   "curation_status": {
-    "version": "1.0-visual-family-module",
-    "last_reviewed": "2026-10-03",
-    "visual_lock": "first_pass_complete"
+    "version": "family-confusion-polish-20261008",
+    "last_reviewed": "2026-10-08",
+    "visual_lock": "family_comparison_text_complete_diagnostic_photos_pending"
+  },
+  "family_confusion_cleanup": {
+    "version": "1.0-family-confusion-polish",
+    "updated": "2026-10-08",
+    "field_question": "What exact floral or fruit structure confirms this family, and which nearby family could mimic it?",
+    "look_here_first": [
+      "Turn the flower sideways and trace the floral tube to the inferior ovary below the perianth.",
+      "Inspect 4-part floral plan and lobed stigma, allowing 4 or 8 stamens.",
+      "Confirm fruit as a capsule or modified hard indehiscent fruit in former-Gaura forms."
+    ],
+    "comparison_matrix": [
+      {
+        "confusable": "Lythraceae",
+        "separate": "Both can have a conspicuous floral tube and 4-part flowers; Onagraceae has inferior ovary whereas typical Lythraceae has superior ovary within a floral cup."
+      },
+      {
+        "confusable": "Rosaceae",
+        "separate": "Both may have a floral cup; use ovary position, carpel structure and fruit rather than tube alone."
+      },
+      {
+        "confusable": "Other four-petaled wildflowers",
+        "separate": "Count actual floral parts and locate ovary; four petals or pink/yellow color alone is not a family ID."
+      }
+    ],
+    "genus_routing_cues": [
+      "Oenothera radial forms: 4 broad petals, 4-lobed stigma, and often capsular fruits.",
+      "Former-Gaura Oenothera: asymmetric/one-sided flowers, long exserted stamens, hard few-seeded fruits.",
+      "Oenothera triloba: unusually long floral tube; check stamen count rather than assuming eight."
+    ],
+    "diagnostic_visual_roles": [
+      {
+        "priority": 1,
+        "shot": "labeled flower side-section: tube vs inferior ovary",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 1,
+        "shot": "matched Onagraceae/Lythraceae ovary cutaways",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 1,
+        "shot": "stigma lobes and 4-vs-8 stamen count macros",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 2,
+        "shot": "radial vs former-Gaura asymmetric flower pair",
+        "status": "diagnostic_photo_polish_pending"
+      },
+      {
+        "priority": 2,
+        "shot": "capsule vs hard indehiscent fruit with seeds",
+        "status": "diagnostic_photo_polish_pending"
+      }
+    ],
+    "exception_locks": [
+      "Do not rely on flower color or overall resemblance; confirm reproductive structures.",
+      "Treat individual genus characters as routing clues, not universal family definitions."
+    ],
+    "taxonomy_handoff": "No species range decisions changed; any uncertain species-level separator remains in Taxonomy + Diagnostic Review."
   }
 }
