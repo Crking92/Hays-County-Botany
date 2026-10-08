@@ -29,7 +29,9 @@
       "lower surface mostly glabrous except for conspicuous hair tufts in vein axils",
       "terminal buds gray-brown and often noticeably 5-angled",
       "acorns mature in the second year",
-      "acorn cup shallow saucer-shaped, covering about one-quarter to one-third of nut"
+      "acorn cup shallow saucer-shaped, covering about one-quarter to one-third of nut",
+      "FNA mature leaf blade usually 100–200 mm long; substantial overlap with other red oaks",
+      "ripe saucer/cup often 7–12 mm deep and 15–30 mm wide, generally enclosing 1/4–1/3 nut"
     ],
     "oak_training": "Separate Shumard oak from Texas red oak by using the whole character set rather than leaf shape alone: Shumard generally has larger leaves, more mesic habitat, prominent vein-axil hair tufts beneath, and a broad shallow cup."
   },
@@ -102,5 +104,45 @@
     "mode": "learner_fast_fill",
     "image_count": 3,
     "note": "Three licensed physical photographs verified: two foliage views at different scales and bark. Whole-tree habit, acorn and twig/bud macros remain follow-up; foliage views are not fruit images. Scientific PASS unchanged."
+  },
+  "diagnostic_comparison": {
+    "pair_species_id": "quercus-buckleyi",
+    "best_tie_breakers": [
+      "Mature Shumard cup often a broad saucer, enclosing only 1/4–1/3 nut; Buckley usually cup/goblet-like and proportionally deeper.",
+      "Shumard terminal buds 4–8 mm, often five-angled in cross-section and glabrous; Buckley bud scale margins often distinctly ciliate.",
+      "Shumard mature leaves often 100–200 mm long and mostly glabrous beneath except prominent lower vein-axil hair tufts; Buckley smaller on average, but can have small tufts as well."
+    ],
+    "unreliable_alone": [
+      "Underside hair tufts (not exclusive to Shumard).",
+      "Single shade leaf or lobing count.",
+      "Tree height without acorn or bud confirmation."
+    ],
+    "hybrid_guardrail": "Natural intermediates with Texas red oak are recognized; do not force an ID."
+  },
+  "diagnostic_image_plan": {
+    "status": "photo_targets_not_new_photos",
+    "priority": "high",
+    "needs": [
+      "full adult leaf upper and lower surfaces with ruler",
+      "underside vein-axil tufts macro",
+      "broad saucer cup profile with attached mature acorn",
+      "5-angled terminal bud macro"
+    ],
+    "photo_reuse_guardrail": "Never call a general habit/foliage photo a bud, acorn, or underside macro without directly inspecting the real image; preserve image attribution/licensing."
+  },
+  "diagnostic_science_sources": [
+    {
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501014"
+    },
+    {
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501082"
+    }
+  ],
+  "diagnostic_polish": {
+    "date": "2026-10-08",
+    "stage": "core-oak-pair-characters",
+    "scope": "morphology and image-role requests only; unchanged canonical range, user approval and existing photo files"
   }
 }
