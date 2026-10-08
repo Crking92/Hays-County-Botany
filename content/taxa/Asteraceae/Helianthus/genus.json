@@ -23,10 +23,10 @@
     "warning": "Do not use a dark disk, total height, number of heads, or opposite-vs-alternate leaves by itself. Both taxa are variable and may be cut or regrow. Start with a representative mid-stem leaf and attachment; confirm with the underside of a mature head."
   },
   "curation_status": {
-    "version": "2.1-annuus-maximiliani-visual-polish",
+    "version": "2.2-licensed-diagnostic-photo-pairs",
     "last_reviewed": "2026-10-08",
     "genus_lesson": "comparison_complete_current_two_species_set",
-    "visual_lock": "live_vetted_foliage_comparison__matched-scale-leaf-and-phyllary-macros-pending"
+    "visual_lock": "leaf_node_and_phyllary_paired_sources_live__matched-scale-local-upgrade_optional"
   },
   "shared_genus_recognition": {
     "look_here_first": "Confirm a true sunflower head: many disk florets on one receptacle, yellow ray florets around the margin, and an involucre of green phyllaries beneath. Then use whole-plant architecture and leaves before tightening to phyllaries.",
@@ -132,13 +132,13 @@
       "priority": 1,
       "role": "matched same-scale mid-stem leaves with node/petiole and venation",
       "purpose": "annual broad/three-basal-veined petioled serrate vs Maximilian narrow/single-midrib short-petioled conduplicate",
-      "status": "partial_visual_pair_live__matched_same_scale_pending"
+      "status": "licensed_exact_species_leaf_and_attachment_views_live__same_scale_pending"
     },
     {
       "priority": 1,
       "role": "matched mature involucre underside/side macros",
       "purpose": "broad abruptly acuminate annual phyllaries vs slender gradually attenuate Maximilian phyllaries",
-      "status": "original_site_references_linked__licensed_macro_pair_pending"
+      "status": "two_licensed_involucre_macros_live__same_angle_and_scale_pending"
     },
     {
       "priority": 2,
@@ -150,7 +150,7 @@
       "priority": 2,
       "role": "node sequence / leaf arrangement",
       "purpose": "show why lower leaves may be opposite yet upper leaves commonly alternate in both; not a stand-alone separator",
-      "status": "needs_explicit_node_pair"
+      "status": "one_or_more_stem_nodes_visible__full_opposite_to_alternate_sequence_pending"
     },
     {
       "priority": 3,
@@ -180,7 +180,7 @@
     }
   ],
   "targeted_handoff": {
-    "diagnostic_photo_polish": "Find same-scale license-cleared leaf/node pair and mature involucre macro pair. Do not reuse unlicensed linked-only source images as hosted gallery assets.",
+    "diagnostic_photo_polish": "Both licensed exact-species involucre macros and mid-stem attachment photo anchors are now installed as external display references. Optional higher-quality Central Texas / same-scale leaf and mature head pair remains. Do not misreport external URLs as local photo files.",
     "taxonomy_diagnostic_review": "Scientific differences checked against FNA on 2026-10-08; no county-range decision changed and no forced scientific PASS."
   },
   "quick_key": [
@@ -202,9 +202,9 @@
     }
   ],
   "visual_comparison": {
-    "version": "1.0-leaf-first",
-    "title": "Annual vs Maximilian: identify the leaves before the flowers",
-    "subtitle": "Paired, taxon-verified field-reference images. These are not standardized to the same scale; compare outlines, veins and attachment, not apparent size in pixels.",
+    "version": "2.0-licensed-node-and-phyllary-pairs",
+    "title": "Annual vs Maximilian: leaves, nodes, and phyllaries",
+    "subtitle": "Six exact-species image anchors: first separate mature leaf form, then the leaf-to-stem attachment, then turn a mature head sideways. Images vary in camera scale; compare structure, not apparent pixel size.",
     "memory_rule": "Annual = broad, petioled, usually toothed, three strong basal veins. Maximilian = narrow, nearly stalkless, usually V-folded, one dominant midvein.",
     "items": [
       {
@@ -230,9 +230,67 @@
         "source_page": "https://www.inaturalist.org/taxa/130192",
         "rights_note": "existing licensed learner file, not new image import",
         "markers": []
+      },
+      {
+        "label": "Annual leaf — stalk and basal veins",
+        "scientific_name": "Helianthus annuus",
+        "image_role": "broad serrate lamina, strong basal venation and visible petiole",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Helianthus_annuus_leaf2_-_Flickr_-_Macleay_Grass_Man.jpg/1280px-Helianthus_annuus_leaf2_-_Flickr_-_Macleay_Grass_Man.jpg",
+        "caption": "Follow the blade upward to its petiole and visible stem junction. The broad toothed leaf bears several strong veins from near the base. This is not a matched-scale node macro.",
+        "creator": "Harry Rose (Macleay Grass Man) · Wikimedia Commons",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Helianthus_annuus_leaf2_-_Flickr_-_Macleay_Grass_Man.jpg",
+        "geography": "Dungog, Australia; species image, not Central Texas local provenance",
+        "photo_id": "25167425755",
+        "phase": "2-leaf-attachment",
+        "markers": []
+      },
+      {
+        "label": "Maximilian — almost stalkless nodes",
+        "scientific_name": "Helianthus maximiliani",
+        "image_role": "narrow leaf attached nearly at node; central vein and slight leaf folding",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Helianthus-maximiliani-leaf-arrangement---Matt-Lavin--CC-BY-SA.jpg",
+        "caption": "Narrow blades and short or virtually absent petioles attach along an upright stem. Follow leaf insertion and V-shaped midrib. Not photographed at the same scale as the annual.",
+        "creator": "Matt Lavin · NC State Extension Plant Toolbox",
+        "license": "CC BY-SA 4.0 as credited by NCSU",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_page": "https://plants.ces.ncsu.edu/plants/helianthus-maximiliani/",
+        "geography": "photographer-provided study reference; location not established from NCSU caption",
+        "phase": "2-leaf-attachment",
+        "markers": []
+      },
+      {
+        "label": "Annual — broad phyllaries",
+        "scientific_name": "Helianthus annuus",
+        "image_role": "side/below-head involucre close-up; broad hairy phyllaries",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Helianthus_annuus_%285021132604%29.jpg/960px-Helianthus_annuus_%285021132604%29.jpg",
+        "caption": "Broad, coarse-hairy phyllaries wrapping the underside of the head, tapering rather abruptly near their tips. Compare the whole bract width, not just the pointed tip.",
+        "creator": "Matt Lavin · Wikimedia Commons",
+        "license": "CC BY-SA 2.0",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Helianthus_annuus_(5021132604).jpg",
+        "geography": "Bozeman, Montana; exact-species reference",
+        "photo_id": "5021132604",
+        "phase": "3-phyllary-macro",
+        "markers": []
+      },
+      {
+        "label": "Maximilian — narrow phyllaries",
+        "scientific_name": "Helianthus maximiliani",
+        "image_role": "head side/underside macro; long slender pointed phyllaries",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Helianthus-maximiliani-calyx---Matt-Lavin--CC-BY-SA.jpg",
+        "caption": "Numerous narrow green phyllaries, long and gradually tapering into threadlike points, beneath the yellow rays. Compare with the annual's wide triangular bracts.",
+        "creator": "Matt Lavin · NC State Extension Plant Toolbox",
+        "license": "CC BY-SA 4.0 as credited by NCSU",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_page": "https://plants.ces.ncsu.edu/plants/helianthus-maximiliani/",
+        "geography": "photographer-provided study reference; location not established from NCSU caption",
+        "phase": "3-phyllary-macro",
+        "markers": []
       }
     ],
-    "overlay_note": "Visual-lock status: leaf-shape comparison is live. A matched same-scale pair that includes the node/petiole, plus true head-underside macros, remains pending. Photos are credited individually; no OSU or MissouriPlants images were copied.",
+    "overlay_note": "These additional photos are externally hosted and source-linked; their CC licenses and author credits are retained. The mature involucre comparison is now visually represented for both species; matched-scale, same-angle Central Texas close-ups are a later refinement.",
     "study_only_intro": "Additional exact-species diagnostic photographs at their owners' websites. These are references only; no additional photo-license rights have been assumed.",
     "study_only_photo_links": [
       {
