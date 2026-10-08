@@ -88,7 +88,7 @@
   "curation_status": {
     "version": "2.3-quercus-post-blackjack-photo-visual",
     "last_reviewed": "2026-10-08",
-    "visual_polish_scope": "3 additional linked exact-species diagnostic photos for chinkapin vs bur; retains all earlier native range statuses and photos",
+    "visual_polish_scope": "Red oak pair now has 3 new exact-species external photo cards; immature fruit and copyrighted Buckley macro not mislabeled",
     "photo_gap_audit": "six zero-image species remain",
     "last_visual_reviewed": "2026-10-08"
   },
@@ -268,6 +268,18 @@
         "public_reuse": "review"
       },
       {
+        "label": "Texas red oak — adult glossy, bristle-tipped leaf",
+        "scientific_name": "Quercus buckleyi",
+        "image_role": "Verified mature leaf-lobe profile; no acorn or bud in this image",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Quercus_buckleyi_leaf.jpg",
+        "caption": "This confirmed Q. buckleyi leaf has conspicuous bristle-tipped lobes, deep sinuses, glossy surface and raised veins. Bud margins, acorn-cup depth and lower vein-axil hairs are NOT pictured. Texas red oak fruit and bud photo references exist at Red Butte Garden, but their reuse rights are not granted for this gallery.",
+        "creator": "georgiakharper; cropped by Chiswick Chap",
+        "license": "CC BY 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_buckleyi_leaf.jpg",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
+      },
+      {
         "label": "Shumard oak — larger leaf, saucer cup",
         "scientific_name": "Quercus shumardii",
         "image_role": "Deeply lobed foliage and twig context",
@@ -278,6 +290,30 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_shumardii12.jpg",
         "study_use": "yes",
         "public_reuse": "yes"
+      },
+      {
+        "label": "Shumard oak — green developing acorn cups and scale rim",
+        "scientific_name": "Quercus shumardii",
+        "image_role": "Developing acorns seen end-on: broad shallow cup and overlapping scales",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_shumardii_ac_sJoUMVxCMGcw.jpeg",
+        "caption": "Green developing Shumard acorns viewed from the distal tip show thick, pale cup rims and small overlapping cup scales. This is NOT a ripe-acorn cup-depth measurement. Compare mature fruit from same-scale side profiles before using deeper Texas red vs shallower Shumard as a definitive key.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-shumardii/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
+      },
+      {
+        "label": "Shumard oak — terminal bud cluster and bud scales",
+        "scientific_name": "Quercus shumardii",
+        "image_role": "Terminal and axillary bud closeup with imbricate scales",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_shumardii_e_ubSkBBCU0OXo.jpe",
+        "caption": "Clustered reddish-brown Shumard oak buds show overlapping bud scales and twig context. The image cannot measure bud length or prove five-angled bud shape or presence/absence of ciliate scale margins. Obtain a matched macro of Texas red oak bud-scale cilia.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-shumardii/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution"
       },
       {
         "label": "Escarpment live oak — verify pointed nut",
@@ -597,6 +633,33 @@
         "bark/bud comparators in matched scale"
       ],
       "media_storage": "External URL referenced in gallery. Not mirrored in private repository."
+    },
+    "redoak_paired_photo_upgrade": {
+      "reviewed_on": "2026-10-08",
+      "added_exact_species_images": 3,
+      "buckleyi": {
+        "added_roles": [
+          "adult bristle-tipped leaf"
+        ],
+        "still_missing": [
+          "mature licensed acorn and goblet cup profile",
+          "licensed bud ciliate scales macro"
+        ],
+        "image_rights_guardrail": "Red Butte Garden has both strong photographs but retains copyright: external study link only, never display its photo without authorization."
+      },
+      "shumardii": {
+        "added_roles": [
+          "developing green acorn cup scale detail",
+          "terminal bud cluster"
+        ],
+        "still_missing": [
+          "ripe brown nut and cup with ruler",
+          "measured five-angled buds and underside vein-axil trichomes"
+        ]
+      },
+      "study_only_link": "https://redbuttegarden.org/plants/species/759/",
+      "proof_note": "A photograph of a developing green acorn does not verify ripe cup depth or scale.",
+      "storage": "external verified HTTP image URL; not physically mirrored for offline use"
     }
   },
   "photo_backfill_priorities": {
@@ -620,7 +683,11 @@
           "lower leaf vein-axil tufts",
           "terminal bud-scale cilia"
         ],
-        "why": "Current galleries do not establish the most reliable red-oak pair separation"
+        "why": "Current galleries do not establish the most reliable red-oak pair separation",
+        "status": "partial_redpair_photo_backfill_20261008",
+        "new_images": 3,
+        "remaining": "Matched ripe fruit with ruler and microscopic bud scale cilia/axil hairs; Buckley acorn copyrighted study source linked only.",
+        "updated_on": "2026-10-08"
       },
       {
         "species": [
