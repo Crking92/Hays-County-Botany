@@ -29,7 +29,153 @@
     ]
   },
   "curation_status": {
-    "version": "1.0-b037",
-    "last_reviewed": "2026-10-03"
+    "version": "2.0-genus-comparison-builder",
+    "last_reviewed": "2026-10-07",
+    "visual_status": "diagnostic_comparison_written; matched annotated photo pair pending"
+  },
+  "shared_genus_recognition": {
+    "look_here_first": "Inspect a leafy mid-stem twig: paired/subopposite leaves on rigid, often elbow-like side branches. Then check the small apetalous flowers or dark one-seeded drupes. Do not identify by right-angle branching alone.",
+    "shared_traits": [
+      "Woody shrubs with stiff, often paired angled branchlets",
+      "Small, simple, usually opposite to subopposite leaves",
+      "Small, inconspicuous flowers without showy petals, often appearing before new leaves",
+      "Small dark one-seeded drupes"
+    ],
+    "caution": "Leaflessness, drought and pruning obscure habit; use comparable mature leaves from the same stem position."
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "mature mid-stem blade shape",
+      "Forestiera angustifolia": "Very narrow, linear, leathery; blade margins often rolled under (revolute)",
+      "Forestiera pubescens": "Much broader elliptic, ovate, obovate to broadly lanceolate",
+      "weight": "LOOK HERE FIRST"
+    },
+    {
+      "character": "leaf surface / margin",
+      "Forestiera angustifolia": "Firm, narrow blades, often revolute; pubescence not the principal clue",
+      "Forestiera pubescens": "Often scattered short hairs; broad blades with flatter margins",
+      "weight": "confirmation"
+    },
+    {
+      "character": "winter leaf retention",
+      "Forestiera angustifolia": "Evergreen to semievergreen in favorable conditions, drought-deciduous when stressed",
+      "Forestiera pubescens": "Normally winter deciduous",
+      "weight": "supporting, climate-dependent"
+    },
+    {
+      "character": "branching",
+      "Forestiera angustifolia": "Very dense intricate twiggy habit with stiff near-right-angle branches",
+      "Forestiera pubescens": "Paired rigid lateral branches also make elbow-like angles",
+      "weight": "shared, NOT diagnostic alone"
+    },
+    {
+      "character": "reproductive confirmation",
+      "Forestiera angustifolia": "Small apetalous flowers before leaf flush; dark one-seeded drupes",
+      "Forestiera pubescens": "Small apetalous flowers before leaf flush; dark purple drupes",
+      "weight": "confirms genus, not a strong split"
+    }
+  ],
+  "species_key": [
+    {
+      "step": 1,
+      "look": "mid-stem mature leaves in focus, with ruler",
+      "if": "linear, leathery, very narrow leaves, often rolled at margin",
+      "then": "Forestiera angustifolia"
+    },
+    {
+      "step": 1,
+      "look": "mid-stem mature leaves in focus, with ruler",
+      "if": "broad elliptic/ovate/obovate leaves, sometimes visibly hairy",
+      "then": "Forestiera pubescens"
+    },
+    {
+      "step": 2,
+      "look": "repeat on several shoots and check phenology",
+      "if": "leaf shape conflicts or shrub is defoliated",
+      "then": "Do not force species ID; photograph fruit/flowers, winter shoots, and revisit at leaf-out."
+    }
+  ],
+  "overlap_and_cautions": [
+    "Both species make elbow-like paired branchlets; branch angles are not a species separator.",
+    "Drought can defoliate F. angustifolia; deciduous versus evergreen is seasonal support, not an absolute rule.",
+    "Young shoots and shade leaves can differ in width; compare mature leaves from matching mid-stem positions.",
+    "The dark drupe and apetalous flowers support genus recognition but alone do not separate these two species.",
+    "Avoid claiming an exact blade-width cutoff without independently verified measurements."
+  ],
+  "local_lookalike_routing": [
+    {
+      "group": "Ligustrum (privets)",
+      "separate": "Compare larger paired leaves and flower/fruit clusters; Forestiera typically has tiny apetalous flowers and a small drupe."
+    },
+    {
+      "group": "Sideroxylon / other thorny shrubs",
+      "separate": "Check leaf arrangement and twig armature; do not rely on a skeletal shrub silhouette alone."
+    },
+    {
+      "group": "Other Oleaceae (Fraxinus)",
+      "separate": "Ash has compound leaves and samaras; Forestiera has simple leaves and drupes."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "role": "matched mid-stem leaf pair",
+      "target": "both species",
+      "labels": [
+        "leaf outline",
+        "blade width",
+        "petiole",
+        "rolled vs flat margin"
+      ],
+      "priority": "critical"
+    },
+    {
+      "role": "leaf edge macro in profile",
+      "target": "F. angustifolia",
+      "labels": [
+        "revolute margin",
+        "leathery blade"
+      ],
+      "priority": "critical"
+    },
+    {
+      "role": "leaf-surface macro",
+      "target": "F. pubescens",
+      "labels": [
+        "short hairs",
+        "upper/lower surfaces"
+      ],
+      "priority": "high"
+    },
+    {
+      "role": "twig-node comparison",
+      "target": "both species",
+      "labels": [
+        "opposite/subopposite leaves",
+        "paired angled lateral branches"
+      ],
+      "priority": "high"
+    },
+    {
+      "role": "flower and fruit macro",
+      "target": "both species",
+      "labels": [
+        "apetalous flowers",
+        "one-seeded drupe"
+      ],
+      "priority": "medium"
+    },
+    {
+      "role": "seasonal whole shrub",
+      "target": "both species",
+      "labels": [
+        "winter leaf retention",
+        "drought stress caveat"
+      ],
+      "priority": "supporting"
+    }
+  ],
+  "targeted_handoff": {
+    "lane": "Taxonomy + Diagnostic Review",
+    "question": "Find an authoritative regional key with comparable measured mature leaf blade widths and confirm whether pubescence/revolute margins hold across local populations before adding numerical cutoffs."
   }
 }
