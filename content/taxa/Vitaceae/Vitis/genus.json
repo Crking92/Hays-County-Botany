@@ -8,7 +8,9 @@
     "selection_mode": "B025 strict review + B144 source-status reconciliation",
     "canonical_species_ids": [
       "vitis-berlandieri",
-      "vitis-mustangensis"
+      "vitis-cinerea",
+      "vitis-mustangensis",
+      "vitis-palmata"
     ],
     "reviewed_holds": [
       "vitis-cinerea",
@@ -18,7 +20,7 @@
       "vitis-cinerea-var-helleri"
     ],
     "source_pool_row_count": 4,
-    "note": "The Hays source row Vitis cinerea var. helleri is represented by canonical Vitis berlandieri. V. cinerea and V. palmata completed review but remain range HOLDs."
+    "note": "All four have canonical records. V. cinerea and V. palmata retain scientific range HOLDs. V. cinerea var. helleri maps to V. berlandieri."
   },
   "source_concept_status": [
     {
@@ -77,9 +79,46 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-b144",
+    "version": "1.1-visual-comparison",
     "genus_audit": "complete_with_reviewed_holds",
     "source_concepts_reconciled": true,
-    "last_reviewed": "2026-10-05"
-  }
+    "last_reviewed": "2026-10-08"
+  },
+  "comparison_matrix": [
+    {
+      "character": "Leaf underside",
+      "berlandieri": "Blade visible, sparsely webby",
+      "cinerea": "Blade visible, gray-green, short-hairy and webby",
+      "mustangensis": "Opaque white/rust wool",
+      "palmata": "Nearly glabrous"
+    },
+    {
+      "character": "Branchlets",
+      "berlandieri": "Slightly angled, webby",
+      "cinerea": "Angled, short-hairy and webby",
+      "mustangensis": "Tomentose",
+      "palmata": "Uniform red/purple, nearly glabrous"
+    },
+    {
+      "character": "Fruit",
+      "berlandieri": "Strongly glaucous, compact cluster",
+      "cinerea": "4–8 mm, little bloom",
+      "mustangensis": "Usually 12+ mm, little bloom",
+      "palmata": "8–10 mm, dark"
+    }
+  ],
+  "look_here_first": "Find a tendril opposite a leaf. Flip a mature leaf to inspect underside hair density, then compare current-year branchlets and intact ripe berries.",
+  "diagnostic_photo_checklist": [
+    "Matched mature leaf underside macros of all four species",
+    "Same-age branchlet macros showing hair architecture",
+    "Leaf-opposed tendril/node close-up",
+    "Intact berry clusters with ruler and undisturbed wax bloom",
+    "Matched whole leaves documenting lobing variation"
+  ],
+  "overlap_cautions": [
+    "Mustang grape can develop deeply lobed leaves on vigorous shoots.",
+    "Berry wax can rub off; avoid identification from bloom alone.",
+    "V. cinerea and V. palmata are canonical but remain range HOLDs.",
+    "Source-name V. cinerea var. helleri is represented by V. berlandieri."
+  ]
 }
