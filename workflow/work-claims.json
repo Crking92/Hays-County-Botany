@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-07T23:12:21.544Z",
+  "updated_at": "2026-10-08T06:31:32Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -5716,6 +5716,23 @@
       "expires_at": "2026-10-08T05:12:21.544Z",
       "release_when": "Ranunculaceae confusion-polish module and sheet status are durably written, or work is abandoned.",
       "notes": "Small morphology-first confusion polish; preserve 147-family structural coverage and species decisions."
+    },
+    {
+      "claim_id": "automation-genus-argythamnia-20261008-0131",
+      "scope_kind": "genus_module",
+      "scope_key": "content/taxa/Euphorbiaceae/Argythamnia/genus.json",
+      "taxa": [
+        "argythamnia-aphoroides",
+        "argythamnia-humilis",
+        "argythamnia-simulans"
+      ],
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-comparison-builder",
+      "status": "active",
+      "claimed_at": "2026-10-08T01:31:32-05:00",
+      "expires_at": "2026-10-08T03:31:32-05:00",
+      "release_when": "Genus lesson committed and verified or run abandoned",
+      "notes": "Comparison lesson only; no species installs, range changes, or photo hunting."
     }
   ]
 }
