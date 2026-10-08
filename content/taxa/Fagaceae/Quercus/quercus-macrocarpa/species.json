@@ -9,7 +9,7 @@
   "common_name": "Bur oak",
   "synonyms": [],
   "taxonomic_note": "Accepted by current Kew/POWO.",
-  "look_here_first": "Go straight to the leaf's deep middle sinuses and the acorn cup: bur oak often has a broad fiddle-shaped leaf with a narrow waist, and the huge cup wraps much of the nut with a conspicuously fringed or 'mossy' rim.",
+  "look_here_first": "Inspect fruit first when present: bur oak has a large nut buried deeply in a broad mossy cup with soft projecting scale tips forming a shaggy fringe. Without fruit, look for a broad fiddle-shaped leaf with VERY deep middle/proximal sinuses (a narrow waist), then much shallower distal lobes or teeth. Corky wings on some older twigs provide a supporting character.",
   "county_occurrences_target_zone": [
     "Hays",
     "Bell",
@@ -30,7 +30,13 @@
       "twigs may develop corky wings/ridges",
       "very large acorns",
       "cupule commonly encloses one-half or more of nut and bears long soft fringe around rim",
-      "acorns mature in one season"
+      "acorns mature in one season",
+      "Adult leaf often 70–150 × 50–130 mm but highly variable (occasionally 310 × 160 mm), deepest sinuses near middle or basal two-thirds, sometimes almost reaching midrib; distal portion broad and less deeply lobed.",
+      "Leaf underside pale to whitish with dense minute appressed stellate hairs; hairs alone may overlap with other white oaks.",
+      "Twigs 2–4 mm, may bear flat radiating corky wings/ridges; buds 2–5(–6) mm, usually glabrous.",
+      "Acorns large: nut generally 25–50 mm long, cup ~15–50 mm deep × 20–60 mm wide enclosing half to seven-eighths or more of nut.",
+      "Cup scales near rim may project 5–10 mm or longer SOFT awns forming unmistakable mossy fringe (fringe reduced in some northern/western populations).",
+      "One-year acorn maturation; common on limestone/calcareous clays, bottomlands and riparian slopes, but can also occur on prairies/dry slopes."
     ],
     "oak_training": "Use leaf architecture plus bark/twig/buds and mature acorn/cupule; never identify an oak from leaf silhouette alone."
   },
@@ -103,5 +109,47 @@
     "mode": "learner_fast_fill",
     "image_count": 3,
     "note": "Three licensed physical photographs verified: lobed leaves, mature acorns and green acorns with fringed cups. Whole-tree habit and stronger bark/bud views remain follow-up. Scientific PASS unchanged."
+  },
+  "diagnostic_comparison": {
+    "priority_group": "Chinkapin oak vs bur oak",
+    "where_to_look_first": "Compare regular forward-pointing teeth + numerous parallel veins vs a deeply waisted leaf; confirm via mature cup fringe, size, and lower-surface hairs.",
+    "pair_species_id": "quercus-muehlenbergii",
+    "pair_specific_tie_breakers": {
+      "quercus-muehlenbergii": "Chinkapin oak has a narrower generally regularly toothed leaf, around 10–14 parallel secondary-vein pairs, and smaller acorns whose tuberculate cup lacks long soft awns. Bur oak usually has a deep midleaf waist and very large, heavily fringed cup; look for corky twig wings when present."
+    },
+    "unreliable_alone": [
+      "Cup fringe less conspicuous on young fruit or regional variants; absence alone does not rule out bur oak.",
+      "Vigorous juvenile shoot leaves may be oversized or atypical; inspect mature branches.",
+      "Habitat overlap with chinkapin can occur around calcareous woodland/streams, so site alone is insufficient."
+    ],
+    "hybrid_guardrail": "Use adult leaves and a mature cup, not leaf silhouette or habitat alone."
+  },
+  "diagnostic_image_plan": {
+    "priority": "high",
+    "status": "photo_targets_not_new_photos",
+    "needs": [
+      "Ripe acorn, cup and ruler measuring nut/cup and fringe length",
+      "Cupule rim macro with soft 5–10 mm long awns",
+      "Mature adult leaf flat with deepest middle sinuses clear",
+      "Older twig with corky wing and small bud, if expressed",
+      "Pale lower-surface stellate hairs at same scale as chinkapin",
+      "Whole tree and bark/habitat view"
+    ],
+    "guardrail": "Existing gallery/photos and licenses preserved. Current chinkapin leaf+acorn reference documents IMMATURE acorns, not a measured ripe cup."
+  },
+  "diagnostic_science_sources": [
+    {
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=233501058"
+    },
+    {
+      "source": "USDA Plant Guide",
+      "url": "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_quma2.pdf"
+    }
+  ],
+  "diagnostic_polish": {
+    "date": "2026-10-08",
+    "stage": "chinkapin-bur field-id pair",
+    "scope": "FNA structural cues and diagnostic image shot list; scientific native-range, approval and previous image metadata unchanged."
   }
 }
