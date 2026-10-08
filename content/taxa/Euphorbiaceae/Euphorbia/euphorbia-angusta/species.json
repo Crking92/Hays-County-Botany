@@ -53,11 +53,11 @@
     "user_approved": true,
     "provisional": true,
     "last_reviewed": "2026-10-08",
-    "photo_metadata_count": 5,
-    "photo_files_present": 5,
+    "photo_metadata_count": 9,
+    "photo_files_present": 9,
     "visual_status": "diagnostic-gallery-partial-polish-private-study"
   },
-  "photo_note": "Seven exact-species physical images. Leaf-surface and stem-node macros now resolve individual hairs alongside the capsule-hair macro. Existing voucher supplies rootstock context. Mature white seed macro remains missing.",
+  "photo_note": "Seven exact-species physical images. Leaf-surface and stem-node macros now resolve individual hairs alongside the capsule-hair macro. Existing voucher supplies rootstock context. Mature white seed macro remains missing. Expert-identified provisional stipule-location macro added; source observation remains needs_id. Mature seed macro remains missing. Expert-identified provisional cyathium side macro added to resolve involucre hairs; the source remains needs_id.",
   "images": [
     {
       "file": "images/euphorbia-angusta-provisional-face.jpg",
@@ -196,12 +196,70 @@
         "visually_checked_on": "2026-10-08",
         "limits": "Find the short pale hairs covering the reddish stem and leaf bases around the node. This is a close view of node pubescence. Small reddish structures are also visible, but this image is used for hairs rather than assigning a stipule measurement or claiming complete stipule architecture. No scale is supplied."
       }
+    },
+    {
+      "file": "images/08-stipule-location-macro.jpg",
+      "role": "Stipule-location macro / reddish-brown projections and node hairs",
+      "caption": "Find the two dark reddish-brown projections at the leaf bases, contrasting with the pale hairs covering the surrounding stem and leaves. They occupy the stipule positions and fit the small, distinct, reddish-brown forms described for E. angusta. This close-up separates those structures from ordinary hairs. No scale is supplied; do not measure their length from the displayed image.",
+      "platform": "iNaturalist",
+      "observation_id": 21895584,
+      "photo_id": 33930688,
+      "creator": "Nathan Taylor",
+      "license": "CC BY-NC",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "source_page": "https://www.inaturalist.org/observations/21895584",
+      "direct_image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/33930688/large.jpeg",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "verification": {
+        "taxon": "Euphorbia angusta",
+        "quality_grade": "needs_id",
+        "identification_status": "Single current species identification by photographer Nathan Taylor; no second identifier. Provisional expert-source learner photo; not promoted to Research Grade.",
+        "binary_decoded": true,
+        "dimensions": [
+          881,
+          837
+        ],
+        "git_blob_sha": "a45bbcf5e8026efeaeaf6ce43e82c68476f79c57",
+        "visually_checked_on": "2026-10-08",
+        "morphology_reference": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101551",
+        "limits": "No scale; single view; maturity/seed role not represented. Companion narrow-leaf/habit and reproductive images checked; expert attribution retained."
+      }
+    },
+    {
+      "file": "images/09-hairy-involucre-macro.jpg",
+      "role": "Cyathium side macro / resolved hairs on involucre",
+      "caption": "Find the pale hairs covering the green cup-shaped involucre beneath the pale gland appendages. This side view resolves involucre pubescence separately from the capsule hairs shown elsewhere in the gallery. No scale is supplied, and the side view does not show the complete gland arrangement.",
+      "platform": "iNaturalist",
+      "observation_id": 21895584,
+      "photo_id": 33930683,
+      "creator": "Nathan Taylor",
+      "license": "CC BY-NC",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "source_page": "https://www.inaturalist.org/observations/21895584",
+      "direct_image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/33930683/large.jpeg",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "verification": {
+        "taxon": "Euphorbia angusta",
+        "quality_grade": "needs_id",
+        "identification_status": "Single current species identification by photographer Nathan Taylor; no second identifier. Provisional expert-source learner photo; not promoted to Research Grade.",
+        "binary_decoded": true,
+        "dimensions": [
+          1024,
+          818
+        ],
+        "git_blob_sha": "12bfcb3946919bd96b4d38916e3e08274fced886",
+        "visually_checked_on": "2026-10-08",
+        "morphology_reference": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101551",
+        "limits": "No scale; side view does not document the complete gland arrangement or mature seed. Companion narrow-leaf/habit and node images checked; expert attribution retained."
+      }
     }
   ],
   "learner_visual_status": {
     "status": "diagnostic_gallery_partial_polish",
     "mode": "diagnostic_detail_mixed_reuse",
-    "image_count": 7,
+    "image_count": 9,
     "filled_at": "2026-10-08",
     "note": "Rootstock/crown voucher context verified. Mature white seed macro remains missing. Live crown close-up remains optional; scientific range labels preserved."
   },
@@ -275,7 +333,9 @@
       "Capsule macro / short hairs and toothed gland appendages",
       "Joey Santore close-up / linear leaves and cyathium appendages",
       "Leaf-surface macro / resolved short hairs",
-      "Stem-node macro / resolved short hairs"
+      "Stem-node macro / resolved short hairs",
+      "Stipule-location macro / reddish-brown projections and node hairs",
+      "Cyathium side macro / resolved hairs on involucre"
     ],
     "next_priority": [
       "mature white seed macro showing surface and angles"
@@ -289,6 +349,7 @@
       "date": "2026-10-08",
       "report": "reports/euphorbia-specialty-photo-search-002-2026-10-08.json",
       "seed_gap_still_open": true
-    }
+    },
+    "latest_followup": "reports/euphorbia-specialty-photo-search-006-2026-10-08.json"
   }
 }
