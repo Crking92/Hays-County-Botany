@@ -9,7 +9,7 @@
   "common_name": "Chinkapin oak",
   "synonyms": [],
   "taxonomic_note": "Accepted by current Kew/POWO.",
-  "look_here_first": "Look at the leaf margin first: chestnut-like leaves with many regular sharp teeth, each tied to a strong nearly parallel side vein; then confirm with thin gray flaky bark and a relatively deep acorn cup.",
+  "look_here_first": "Start with several adult leaves: chinkapin oak has an elongated chestnut-like blade with many regularly spaced teeth, each served by a near-parallel lateral vein; its sharp/forward-pointing teeth have NO red-oak terminal bristle. Turn over the leaf for a pale, minute stellate-hairy surface, and confirm a moderately sized acorn in a NON-fringed cup. Compare bur oak's midleaf waist and shaggy cup.",
   "county_occurrences_target_zone": [
     "Bell",
     "Bandera",
@@ -30,7 +30,13 @@
       "teeth lack red-oak bristle tips",
       "lower leaf surface pale/glaucous with minute stellate hairs",
       "bark light to medium gray, thin and flaky/scaly",
-      "acorn matures in one season; cup commonly encloses about one-quarter to one-half of nut"
+      "acorn matures in one season; cup commonly encloses about one-quarter to one-half of nut",
+      "Leaves usually 50–150 × 40–80 mm, leathery, obovate or sometimes narrower, margins regularly undulate/serrate, teeth often strongly antrorse (forward-pointing) but lack red-oak bristles.",
+      "Secondary lateral veins usually 10–14 near-parallel pairs reaching evenly spaced marginal teeth; look at multiple mature leaves.",
+      "Abaxial surface pale/glaucous and seemingly nearly glabrous, but minute appressed symmetric 6–10-rayed stellate hairs occur; adaxial mature blades often glossy.",
+      "Acorns commonly 1–2, sessile or on stalk up to 8 mm; cup 4–12 mm deep × 8–22 mm broad, encloses 1/4–1/2 nut; cup scales tuberculate but NOT long-fringed.",
+      "Acorn nut generally 15–20 mm long (range 13–28 mm), 1-year maturation; bur oak nuts often substantially larger.",
+      "Found on limestone/calcareous woods and canyons in the western range; occasionally stunted and shrubby in xeric terrain, so habit alone is unreliable."
     ],
     "oak_training": "Use leaf architecture plus bark/twig/buds and mature acorn/cupule; never identify an oak from leaf silhouette alone."
   },
@@ -103,5 +109,44 @@
     "mode": "learner_fast_fill",
     "image_count": 3,
     "note": "Three licensed physical photographs verified: toothed leaves with immature acorn cups, mature trunk/crown, and bark. Mature fruit and twig/bud macros remain follow-up. Scientific PASS unchanged."
+  },
+  "diagnostic_comparison": {
+    "priority_group": "Chinkapin oak vs bur oak",
+    "where_to_look_first": "Compare regular forward-pointing teeth + numerous parallel veins vs a deeply waisted leaf; confirm via mature cup fringe, size, and lower-surface hairs.",
+    "pair_species_id": "quercus-macrocarpa",
+    "pair_specific_tie_breakers": {
+      "quercus-macrocarpa": "Bur oak usually has a broad leaf with a dramatic pair of deep middle/proximal sinuses (waist) plus a conspicuous soft-fringed giant cup; chinkapin has a more even sequence of marginal teeth with 10–14 nearly parallel veins and smaller, non-fringed cups."
+    },
+    "unreliable_alone": [
+      "Pointed tooth tips are not the same as red-oak terminal bristles.",
+      "Western or immature bur oak acorns may have reduced fringe and overlap in cup size.",
+      "Existing chinkapin gallery's acorn photo is immature; do not mark mature cupule view complete.",
+      "Edwards Plateau Q. brayi forms are treated as clinal by FNA; do not create a separate species record solely on this label."
+    ],
+    "hybrid_guardrail": "Use adult leaves and a mature cup, not leaf silhouette or habitat alone."
+  },
+  "diagnostic_image_plan": {
+    "priority": "high",
+    "status": "photo_targets_not_new_photos",
+    "needs": [
+      "Full mature leaf upper/lower, ruler, count 10–14 secondary-vein pairs",
+      "Margin teeth macro showing sharp antrorse tooth without bristle",
+      "10–20× lower-surface symmetrical appressed stellate hairs",
+      "RIPE acorn and cup side-profile with mm ruler (not immature image)",
+      "Cupule scale macro showing tubercles but no soft fringe",
+      "Thin pale-gray flaky bark and whole-tree field context"
+    ],
+    "guardrail": "Existing gallery/photos and licenses preserved. Current chinkapin leaf+acorn reference documents IMMATURE acorns, not a measured ripe cup."
+  },
+  "diagnostic_science_sources": [
+    {
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242417084"
+    }
+  ],
+  "diagnostic_polish": {
+    "date": "2026-10-08",
+    "stage": "chinkapin-bur field-id pair",
+    "scope": "FNA structural cues and diagnostic image shot list; scientific native-range, approval and previous image metadata unchanged."
   }
 }
