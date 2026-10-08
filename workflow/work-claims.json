@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-08T22:00:00Z",
+  "updated_at": "2026-10-08T16:37:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6549,6 +6549,31 @@
       "release_when": "Four licensed exact-species packages fully installed in manifest, or staging intentionally aborted; release not simply upon READY creation.",
       "notes": "Source-pool-approved Ludwigia four species: one exact-species CC photo each, cautious native-range UNRESOLVED, preserve existing genus and Joey source. Requires correct installer batch and validation. Installed successfully with GitHub Action run 37850216156: four species in canonical manifest, one physical exact species image each, no warnings, source-pool native status UNRESOLVED retained; six-species genus quick key reconciled. 8/8 post-install checks passed; species macro polish remains separate.",
       "released_at": "2026-10-08T17:00:00-05:00"
+    },
+    {
+      "claim_id": "manual-ipomoea-comparison-plate-20261008",
+      "scope_kind": "genus_visual_comparison",
+      "taxa": [
+        "ipomoea-triloba",
+        "ipomoea-cordatotriloba",
+        "ipomoea-hederacea",
+        "ipomoea-nil",
+        "ipomoea-lindheimeri"
+      ],
+      "families": [
+        "Convolvulaceae"
+      ],
+      "genera": [
+        "Ipomoea"
+      ],
+      "scope_key": "content/taxa/Convolvulaceae/Ipomoea::calyx-corolla-comparison-plate + assets/js/app.js + assets/css/styles.css",
+      "lane": "genus-visual-polish",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-08T16:37:00-05:00",
+      "expires_at": "2026-10-08T22:37:00-05:00",
+      "release_when": "Corrected comparison plate is committed, rendered by genus UI, verified, and scientific caveats preserved.",
+      "notes": "Use corrected original plate. Corolla values are lengths, not widths. Graphic must be labeled illustrated/not literal same-scale. Preserve taxonomy/range/species galleries."
     }
   ]
 }
