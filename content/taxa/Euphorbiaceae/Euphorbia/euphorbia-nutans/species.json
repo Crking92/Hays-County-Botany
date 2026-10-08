@@ -45,19 +45,19 @@
     "comparison_training": "Do not confuse the common reddish leaf blotch with a species-level guarantee. E. nutans is best recognized by its much larger upright/arching habit and large asymmetric serrulate leaves compared with the tiny sandmats."
   },
   "curation_status": {
-    "version": "1.1-diagnostic-detail-2026-10-07",
+    "version": "1.4-diagnostic-photo-polish-2026-10-08",
     "taxonomy_reviewed": true,
     "range_reviewed": false,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "user_approved": true,
     "provisional": true,
-    "last_reviewed": "2026-10-07",
-    "photo_metadata_count": 3,
-    "photo_files_present": 3,
-    "visual_status": "detailed-first-pass"
+    "last_reviewed": "2026-10-08",
+    "photo_metadata_count": 5,
+    "photo_files_present": 5,
+    "visual_status": "diagnostic-gallery-partial-polish-private-study"
   },
-  "photo_note": "Detailed first-pass uses the existing Commons habit image, a CC0 exact-species reproductive close-up, and a UT Austin diagnostic close-up retained for private study. A mature seed macro remains the main visual gap.",
+  "photo_note": "Five exact-species physical images. Final photo-polish adds Node macro / stipule location and petiole hairs and Mature seed macro / wrinkled seed surface. Each new image has verified provenance, reuse terms and bounded visual captions.",
   "images": [
     {
       "file": "images/euphorbia-nutans-provisional-face.jpg",
@@ -85,14 +85,68 @@
       "source_page": "https://w3.biosci.utexas.edu/prc/CHAMA-D/html/CHNU9.html",
       "study_use": "yes",
       "public_reuse": "review"
+    },
+    {
+      "file": "images/04-node-stipule-hairs.jpg",
+      "role": "Node macro / stipule location and petiole hairs",
+      "caption": "Look at the small pale-to-pink membrane at the right-hand leaf attachment beside the green stem. Fine curled hairs on the leaf stalk and blade margin are resolved. This single view locates the stipule; it does not show the complete two-sided fusion pattern.",
+      "platform": "iNaturalist",
+      "observation_id": 168810838,
+      "photo_id": 292606258,
+      "creator": "Douglas Goldman",
+      "license": "CC BY-SA",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_page": "https://www.inaturalist.org/observations/168810838",
+      "direct_image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/292606258/original.jpg",
+      "study_use": "yes",
+      "public_reuse": "yes",
+      "verification": {
+        "taxon": "Euphorbia nutans",
+        "quality_grade": "research",
+        "binary_decoded": true,
+        "dimensions": [
+          1071,
+          1600
+        ],
+        "git_blob_sha": "4a835f4cd5d5913cf950eddaffd28680d1f058d2",
+        "visually_checked_on": "2026-10-08",
+        "limits": "Look at the small pale-to-pink membrane at the right-hand leaf attachment beside the green stem. Fine curled hairs on the leaf stalk and blade margin are resolved. This single view locates the stipule; it does not show the complete two-sided fusion pattern."
+      }
+    },
+    {
+      "file": "images/05-mature-seed-wrinkles.jpg",
+      "role": "Mature seed macro / wrinkled seed surface",
+      "caption": "Look at the dark seeds and their low irregular wrinkles across the faces. Compare surface sculpture rather than the displayed size; the grid spacing is not independently calibrated in this photograph.",
+      "platform": "iNaturalist",
+      "observation_id": 3470010,
+      "photo_id": 4031288,
+      "creator": "Dale Lee Denham-Logsdon",
+      "license": "CC BY-NC",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "source_page": "https://www.inaturalist.org/observations/3470010",
+      "direct_image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/4031288/original.JPG",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "verification": {
+        "taxon": "Euphorbia nutans",
+        "quality_grade": "research",
+        "binary_decoded": true,
+        "dimensions": [
+          900,
+          596
+        ],
+        "git_blob_sha": "0faea7735b763c81bfcd033fb7e627273332c41f",
+        "visually_checked_on": "2026-10-08",
+        "limits": "Look at the dark seeds and their low irregular wrinkles across the faces. Compare surface sculpture rather than the displayed size; the grid spacing is not independently calibrated in this photograph."
+      }
     }
   ],
   "learner_visual_status": {
-    "status": "detailed_first_pass",
-    "mode": "diagnostic_detail",
-    "image_count": 3,
-    "filled_at": "2026-10-07",
-    "note": "Three physical exact-species images now cover whole habit, reproductive context, and diagnostic close-up. Mature seed remains the main visual gap."
+    "status": "diagnostic_gallery_partial_polish",
+    "mode": "diagnostic_detail_mixed_reuse",
+    "image_count": 5,
+    "filled_at": "2026-10-08",
+    "note": "Two licensed diagnostic close-ups added. Remaining specialized views: two-sided stipule macro showing fusion/segmentation. Exact-species photographs; scientific range labels preserved."
   },
   "comparisons": {
     "confused_with": [
@@ -147,15 +201,18 @@
     "stipule/node macro"
   ],
   "photo_research": {
-    "status": "DETAILED_FIRST_PASS",
+    "status": "DIAGNOSTIC_PHOTO_POLISH_SPECIALIZED_GAPS_RETAINED",
     "installed_roles": [
-      "whole branching habit",
-      "reproductive close-up",
-      "diagnostic leaves/cyathia/fruit close-up"
+      "Whole plant / branching habit recognizable face",
+      "Upper branch / leaves, cyathia and fruit context",
+      "Diagnostic close-up / leaves, cyathia and glabrous fruit",
+      "Node macro / stipule location and petiole hairs",
+      "Mature seed macro / wrinkled seed surface"
     ],
     "next_priority": [
-      "mature seed macro",
-      "stipule/node macro"
-    ]
+      "two-sided stipule macro showing fusion/segmentation"
+    ],
+    "updated_at": "2026-10-08",
+    "search_summary": "Screened licensed Research Grade observations from a targeted 100-observation sample per species; selected originals visually inspected. Installed only two complementary exact-species images. No substitutions or range changes."
   }
 }
