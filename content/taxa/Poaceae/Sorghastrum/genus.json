@@ -6,9 +6,10 @@
   "project_scope": {
     "selection_mode": "B042 same-genus comparison",
     "species_ids": [
+      "sorghastrum-elliottii",
       "sorghastrum-nutans"
     ],
-    "species_count": 1,
+    "species_count": 2,
     "holds": [
       "sorghastrum-elliottii"
     ]
@@ -30,9 +31,61 @@
     ]
   },
   "curation_status": {
-    "version": "1.0-b042",
-    "last_reviewed": "2026-10-03"
+    "version": "2.0-two-species-framework",
+    "last_reviewed": "2026-10-08"
   },
   "visual_status": "fast_fill_coverage_live",
-  "fast_fill_note": "Canonical Sorghastrum nutans now has a 3-image FAST-FILL gallery. Existing Joey Santore flowering/anther frame remains the preferred diagnostic private-study anchor, supplemented by licensed whole-plant and panicle views."
+  "fast_fill_note": "Canonical Sorghastrum nutans now has a 3-image FAST-FILL gallery. Existing Joey Santore flowering/anther frame remains the preferred diagnostic private-study anchor, supplemented by licensed whole-plant and panicle views.",
+  "shared_genus_recognition": {
+    "look_here_first": "At the grass collar inspect the ligule; then examine mature spikelets and twisted awns. Habitat and panicle color alone cannot identify the species.",
+    "shared_traits": [
+      "Warm-season perennial grasses with narrow blades and panicles of awned spikelets",
+      "Awn and spikelet hair details are more reliable than golden panicle color"
+    ]
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "Growth form",
+      "nutans": "Typically robust tallgrass bunches from short rhizomes",
+      "elliottii": "Generally more slender"
+    },
+    {
+      "character": "Collar/ligule",
+      "nutans": "Conspicuous stiff membranous ligule with auricle-like extensions",
+      "elliottii": "Needs matched diagnostic verification"
+    },
+    {
+      "character": "Inflorescence",
+      "nutans": "Dense narrow panicle with conspicuous hairy fertile spikelets",
+      "elliottii": "Panicle and spikelet microcharacters need verification"
+    },
+    {
+      "character": "Awn",
+      "nutans": "Once-bent twisted awn, approximately 10–22 mm",
+      "elliottii": "Awn dimensions and insertion require verification"
+    }
+  ],
+  "overlap_cautions": [
+    "Both species are awned grasses; stature, color and habitat are insufficient alone.",
+    "S. elliottii remains a canonical learner comparison with existing range HOLD; this lesson does not change that scientific status."
+  ],
+  "local_lookalikes": [
+    "Andropogon and Anatherum: compare spikelet grouping, raceme architecture, and awn attachment rather than inflorescence color."
+  ],
+  "diagnostic_photo_checklist": [
+    "Both species: collar and ligule macro with scale",
+    "Both species: mature spikelets dissected and photographed side by side",
+    "Both species: awn attachment and measured awn length",
+    "Both species: whole mature panicle and basal habit"
+  ],
+  "targeted_handoff": [
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "request": "Verify S. elliottii collar, ligule, glume, fertile spikelet and awn characters against S. nutans before issuing a firm two-way key."
+    },
+    {
+      "lane": "Diagnostic Photo Polish",
+      "request": "Find matched collar and spikelet macros; preserve existing Joey reference and source licenses."
+    }
+  ]
 }
