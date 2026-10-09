@@ -85,6 +85,165 @@
   ],
   "curation_status": {
     "version": "1.1-b061",
-    "last_reviewed": "2026-10-03"
+    "last_reviewed": "2026-10-09",
+    "diagnostic_science_review": "2026-10-09"
+  },
+  "diagnostic_science_review_20261009": {
+    "lane": "scientific-taxonomy-diagnostic-review",
+    "scope_note": "Comparison enrichment only; no canonical installation or gallery backfill. Genus project_scope's eight-species B061 cohort is historical, NOT the full canonical roster. Manifest audit on 2026-10-09: 17 installed Oenothera IDs. Sheet Genus Study Index's 20 curated rows include synonyms/parent concepts; those are source rows, not 20 unique canonical species.",
+    "look_here_first": [
+      "Sort the specimen by flower architecture: classic radial primrose, minute-flowered former-Gaura spike, showier former-Gaura spike, or yellow sundrop (former Calylophus).",
+      "Inspect flower and bud side views, including hypanthium, sepal tips, and inferior ovary; do not classify from petal color.",
+      "For former-Gaura spikes compare flowering-axis hairs at magnification, open-flower diameter, and mature indehiscent fruit proportions.",
+      "For sundrops compare lower versus upper leaves, bud tip length, sepal keels, hypanthium, and stigma; verify the subspecies concept before merging historical names.",
+      "Confirm using mature capsule/fruit and multiple organs. A single worn flower, color, habitat, or photo without scale is not a safe separator."
+    ],
+    "comparison_groups": [
+      {
+        "pair": [
+          "oenothera-curtiflora",
+          "oenothera-suffulta"
+        ],
+        "title": "Minute velvet gaura versus larger-flowered roadside gaura",
+        "diagnostics": [
+          {
+            "organ": "open flower diameter",
+            "curtiflora": "approximately 3 mm",
+            "suffulta": "12–19 mm",
+            "weight": "strong when freshly open and measured; never compare unopened buds"
+          },
+          {
+            "organ": "flowering axis pubescence",
+            "curtiflora": "densely short-hirsute/velveteen with additional longer hairs",
+            "suffulta": "essentially glabrous flowering spike, even though vegetative stems/leaves can be villous",
+            "weight": "strong; check flowering axis, not just leaf hairs"
+          },
+          {
+            "organ": "mature indehiscent fruit",
+            "curtiflora": "narrow ca. 8 × 2.7–3 mm, short-pilose",
+            "suffulta": "short thick 4-lobed 6–7 × 4–6 mm, glabrous",
+            "weight": "strong in mature material; confirm organ and scale"
+          }
+        ],
+        "unreliable": [
+          "Both are annual taprooted former-Gaura plants and may have hairy vegetative foliage; overall hairiness alone overlaps.",
+          "White-to-rose petals and tall raceme habit are shared and not diagnostic."
+        ],
+        "photo_roles": [
+          "Matched flowering-spike axes at equal magnification to show hair distribution",
+          "Matched fresh open flowers with millimeter ruler, side and face views",
+          "Matched mature indehiscent fruits, lateral and apical views with scale"
+        ],
+        "sources": [
+          "https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20curtiflora.html",
+          "https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20suffulta.html"
+        ]
+      },
+      {
+        "pair": [
+          "oenothera-capillifolia",
+          "Oenothera capillifolia subsp. berlandieri (source alias Calylophus berlandieri)"
+        ],
+        "title": "Former Calylophus subspecies identity — DO NOT AUTO-MERGE",
+        "diagnostics": [
+          {
+            "organ": "accepted-name mapping",
+            "detail": "POWO accepts O. capillifolia subsp. berlandieri for Calylophus berlandieri Spach; separately accepts O. capillifolia subsp. capillifolia. Species-level O. capillifolia learner is not evidence of subspecies identity."
+          },
+          {
+            "organ": "local morphological anchor",
+            "detail": "UT Williamson County subsp. capillifolia has narrow leaves about 20–75 × 1.2–3 mm, conspicuously four-sided buds, and 28–40 mm open flowers; these are an anchor, not a validated dichotomous separator from berlandieri."
+          },
+          {
+            "organ": "FNA subsp. capillifolia",
+            "detail": "FNA gives 30–80 cm erect/ascending stems, leaves 2.5–9 × 0.2–1 cm, free bud tips 0.5–4 mm, and keeled sepals. These ranges overlap some sundrops and are not an independent diagnosis without full key."
+          }
+        ],
+        "unreliable": [
+          "A dark purple floral tube or stigma occurs in FNA-documented subsp. capillifolia populations from Hays and neighboring counties: DO NOT use dark tube/stigma color to force berlandieri.",
+          "Texas nativity at the species/subspecies level does not establish a project three-county native PASS for an unidentified source record.",
+          "Source label 'Calylophus berlandieri' must not automatically be attached to a photograph labeled subsp. capillifolia."
+        ],
+        "photo_roles": [
+          "Voucher-linked flowering plant with source-confirmed subspecies",
+          "Matched stem habit and lower/upper leaf series with scale",
+          "Bud side macro measuring free sepal tips and keel",
+          "Hypanthium and stigma close-ups, labeled as variable-color support only"
+        ],
+        "sources": [
+          "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77133601-1",
+          "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77231171-1",
+          "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250130573",
+          "https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20capillifolia%20capillifolia.html"
+        ]
+      },
+      {
+        "pair": [
+          "Calylophus drummondii (unresolved source spelling)",
+          "Oenothera serrulata",
+          "Oenothera drummondii"
+        ],
+        "title": "Historical Calylophus name trap",
+        "diagnostics": [
+          {
+            "organ": "nomenclature",
+            "detail": "POWO treats Calylophus drummondiana Spach as a synonym of Oenothera serrulata Nutt.; Oenothera drummondii Hook. is a separate accepted species. The source spelling 'Calylophus drummondii' is not resolved to either without original voucher/taxon ID."
+          },
+          {
+            "organ": "handoff",
+            "detail": "Preserve source-pool learner admission but mark exact mapping HOLD; do not create a new canonical card, silently fold the name into O. serrulata, or infer native PASS."
+          }
+        ],
+        "unreliable": [
+          "Shared epithet 'drummondii' is not evidence of synonymy; spellings and author citations matter.",
+          "Common names and generic yellow flower images cannot resolve this historical source label."
+        ],
+        "photo_roles": [
+          "Original source observation screenshot or herbarium voucher showing taxon ID and author",
+          "Voucher-linked leaf, bud, flower and capsule series once mapping resolved"
+        ],
+        "sources": [
+          "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:611301-1",
+          "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:173388-2",
+          "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:294786-2"
+        ]
+      },
+      {
+        "pair": [
+          "oenothera-triloba",
+          "other large-flowered radial Oenothera"
+        ],
+        "title": "Stemless long-tube rosette",
+        "diagnostics": [
+          {
+            "organ": "habit",
+            "detail": "Acaulescent flat basal rosette with stem concealed at ground level, unlike tall leafy stems of many other primroses."
+          },
+          {
+            "organ": "floral tube",
+            "detail": "Very long, sharply four-angled hypanthium to approximately 97 mm in UT Williamson County description; trace it all the way to the inferior ovary."
+          },
+          {
+            "organ": "stamens",
+            "detail": "UT Williamson County detailed dissection reports four stamens; use as a corroborating dissected-flower feature, not a stand-alone identification when counts conflict across sources."
+          }
+        ],
+        "unreliable": [
+          "Yellow petals and lobed leaves are shared by multiple Oenothera.",
+          "Stamen counts from a photo or non-dissected worn flower are error-prone."
+        ],
+        "photo_roles": [
+          "Full basal rosette with scale and stem position labeled",
+          "Whole intact flower side view with ruler spanning hypanthium",
+          "Flower dissection clearly exposing stamens and inferior ovary"
+        ],
+        "sources": [
+          "https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20triloba.html"
+        ]
+      }
+    ],
+    "media_priority": "Use existing user/Calvin observations, Joey video frames, and already linked project images first; only log exact-species voucher-linked diagnostic candidates with creator/license/URL. No generic gallery download in this lane.",
+    "range_and_approval_guard": "Scientific HOLD/FAIL/UNRESOLVED and learner admission are separate. Preserve all existing canonical, learner, and range statuses. No READY markers.",
+    "updated": "2026-10-09"
   }
 }
