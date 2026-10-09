@@ -1,0 +1,193 @@
+{
+  "rank": "genus",
+  "family": "Amaranthaceae",
+  "name": "Amaranthus",
+  "common_group": "Pigweeds and amaranths",
+  "project_scope": {
+    "selection_mode": "canonical manifest comparison",
+    "species_ids": [
+      "amaranthus-palmeri",
+      "amaranthus-polygonoides",
+      "amaranthus-retroflexus",
+      "amaranthus-scleropoides",
+      "amaranthus-spinosus",
+      "amaranthus-viridis"
+    ],
+    "species_count": 6
+  },
+  "shared_genus_recognition": {
+    "look_here_first": "Find alternate petiolate leaves and dense clusters of tiny, bracteate, usually greenish flowers. Then inspect leaf nodes for spines, stem hairs, sex distribution, bracts, tepals and mature fruit.",
+    "shared_traits": [
+      "Annual herbs in the six-species learner set, with alternate simple leaves.",
+      "Minute flowers in axillary clusters and/or terminal spikes or panicles.",
+      "Reproductive structures include bracts, tepals and small one-seeded fruits."
+    ],
+    "caution": "Do not use green flower color or pigweed habit alone; several species overlap strongly without mature flowers or fruits."
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "paired nodal spines",
+      "palmeri": "absent",
+      "polygonoides": "absent",
+      "retroflexus": "absent",
+      "scleropoides": "absent",
+      "spinosus": "present, paired",
+      "viridis": "absent",
+      "priority": "LOOK HERE FIRST"
+    },
+    {
+      "character": "stem pubescence",
+      "palmeri": "usually glabrous",
+      "polygonoides": "variable; not primary",
+      "retroflexus": "moderate to dense upper-stem hairs",
+      "scleropoides": "glabrous",
+      "spinosus": "not primary",
+      "viridis": "glabrous",
+      "priority": "high"
+    },
+    {
+      "character": "cluster placement",
+      "palmeri": "long terminal spikes/panicles",
+      "polygonoides": "mostly compact axillary clusters",
+      "retroflexus": "thick terminal and axillary clusters",
+      "scleropoides": "axillary clusters from base to top",
+      "spinosus": "terminal staminate spikes, axillary pistillate clusters",
+      "viridis": "slender interrupted terminal panicles",
+      "priority": "high"
+    },
+    {
+      "character": "sex distribution",
+      "palmeri": "dioecious; male and female plants separate",
+      "polygonoides": "check flowers",
+      "retroflexus": "monoecious",
+      "scleropoides": "check flowers",
+      "spinosus": "staminate upper and pistillate axillary clusters",
+      "viridis": "check flowers",
+      "priority": "high when flowering"
+    },
+    {
+      "character": "mature fruit/bracts",
+      "palmeri": "female bracts 4–6 mm, longer than tepals",
+      "polygonoides": "five tepals partly joined at base",
+      "retroflexus": "bracts longer than tepals",
+      "scleropoides": "hardened swollen cluster axes; keeled pistillate bracts",
+      "spinosus": "paired nodal spines remain best cue",
+      "viridis": "three tepals; wrinkled indehiscent utricle",
+      "priority": "critical for difficult pairs"
+    }
+  ],
+  "species_key": [
+    "Paired sharp spines at leaf nodes → A. spinosus.",
+    "No spines; low plant with hard swollen axillary cluster axes → A. scleropoides.",
+    "No spines; low plant with small congested axillary clusters, without hardened axes → examine A. polygonoides.",
+    "Tall plant with conspicuous hairy upper stem and thick inflorescence → A. retroflexus.",
+    "Tall nearly glabrous plant; male and female flowers on separate plants; long terminal spikes → A. palmeri.",
+    "Glabrous plant with slender interrupted terminal spikes; three tepals and wrinkled indehiscent fruit → A. viridis."
+  ],
+  "overlap_and_cautions": [
+    "Young vegetative plants can be impossible to separate confidently.",
+    "Terminal spike size changes with maturity and site conditions.",
+    "A. palmeri must be checked for dioecy using flowering plants, not assumed from stature.",
+    "Bract, tepal and fruit traits require hand-lens or macro photography.",
+    "Do not confuse bracts with tepals when counting flower parts."
+  ],
+  "local_lookalike_routing": [
+    {
+      "group": "Other Amaranthus in the source pool",
+      "separate": "Check mature female bracts, tepal number, fruit opening and node armature before species assignment."
+    },
+    {
+      "group": "Chenopodium / Dysphania",
+      "separate": "Look at mealy leaf surfaces, leaf shape, and small flower clusters; use reproductive structure to confirm genus."
+    },
+    {
+      "group": "Acalypha",
+      "separate": "Acalypha has distinctive euphorb inflorescences and pistillate bracts, unlike Amaranthus flower clusters."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "role": "paired nodal-spine close-up",
+      "targets": [
+        "amaranthus-spinosus",
+        "amaranthus-palmeri"
+      ],
+      "labels": [
+        "paired spines",
+        "node",
+        "petiole base"
+      ],
+      "priority": "critical"
+    },
+    {
+      "role": "matched upper-stem hair macro",
+      "targets": [
+        "amaranthus-retroflexus",
+        "amaranthus-palmeri",
+        "amaranthus-viridis"
+      ],
+      "labels": [
+        "stem hairs",
+        "glabrous epidermis"
+      ],
+      "priority": "critical"
+    },
+    {
+      "role": "matched inflorescence architecture",
+      "targets": [
+        "amaranthus-polygonoides",
+        "amaranthus-scleropoides",
+        "amaranthus-viridis"
+      ],
+      "labels": [
+        "axillary versus terminal",
+        "cluster axes"
+      ],
+      "priority": "high"
+    },
+    {
+      "role": "female flower dissection",
+      "targets": [
+        "amaranthus-palmeri",
+        "amaranthus-viridis",
+        "amaranthus-scleropoides"
+      ],
+      "labels": [
+        "bract",
+        "tepal",
+        "ovary",
+        "fruit"
+      ],
+      "priority": "critical"
+    },
+    {
+      "role": "fruit and tepal macro with scale",
+      "targets": [
+        "amaranthus-viridis",
+        "amaranthus-polygonoides",
+        "amaranthus-scleropoides"
+      ],
+      "labels": [
+        "tepal count",
+        "utricle",
+        "keeled bracts"
+      ],
+      "priority": "critical"
+    }
+  ],
+  "targeted_handoffs": [
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "request": "Verify tepal counts and mature female-bract/utricle key for A. polygonoides versus A. scleropoides before declaring a deterministic pairwise key."
+    },
+    {
+      "lane": "Diagnostic Photo Polish",
+      "request": "Use canonical species image records to find paired macros of nodes, female bracts, tepals and mature fruits; do not substitute whole-plant glamour shots."
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-genus-comparison-builder",
+    "last_reviewed": "2026-10-09",
+    "visual_status": "diagnostic_photo_comparison_pending"
+  }
+}
