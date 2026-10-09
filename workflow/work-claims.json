@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T09:40:00-05:00",
+  "updated_at": "2026-10-09T10:11:01-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6732,6 +6732,21 @@
       "release_when": "Genus lesson committed or target skipped",
       "released_at": "2026-10-09T09:40:00-05:00",
       "release_reason": "Genus lesson committed; sheet index updated"
+    },
+    {
+      "claim_id": "automation-family-similarity-verbenaceae-20261009-1011",
+      "scope_kind": "family",
+      "families": [
+        "Verbenaceae"
+      ],
+      "scope_key": "content/taxa/Verbenaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "family-similarity-polish-automation",
+      "status": "active",
+      "claimed_at": "2026-10-09T10:11:01-05:00",
+      "expires_at": "2026-10-09T12:11:01-05:00",
+      "release_when": "Canonical Verbenaceae family confusion polish committed and tracker synced, or target skipped after retry",
+      "notes": "Small family recognition polish on canonical existing lesson; no species/range reopening or image acquisition."
     }
   ]
 }
