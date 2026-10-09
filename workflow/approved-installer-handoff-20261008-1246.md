@@ -19,3 +19,7 @@ Canonical manifest checked at **440 taxa**. The previous Tetraneuris, Rudbeckia 
 **9 stale queue statuses**: `quercus-alba`, `sorghastrum-elliottii`, `tetraneuris-acaulis`, `adiantum-pedatum`, `rudbeckia-maxima`, `grindelia-adenodonta`, `grindelia-ciliata`, `silphium-laciniatum`, `solidago-mexicana` are installed according to the canonical manifest but still have `learner_curation_status=approved_pending_curation` in research-queue.json. Reconcile their learner/canonical state when a safe 502 KB queue update is possible, preserving original range/science/approval fields. Do not reinstall.
 
 No Matelea-specific active claim at this check; other family-polish claims must remain untouched. No Google Sheet derived ranges modified. GitHub Actions run-list access was unavailable through the current connector, so no claim is made about a newly active Action.
+
+## Evening update — Passiflora lanuginosa
+
+Complete staged package: curation-inbox/approved-installer-passifloraceae-passiflora-lanuginosa-20261008-001 (batch.json, species.json, SOURCES.txt, image-sources.csv). Learner approved, scientific FAIL_TARGET_ZONE / introduced comparison. Exact photos pending; provisional visual-incomplete. READY remains absent after two blocked attempts; retry after checking live claims, manifest and Actions. Do not duplicate. Canonical count at staging: 440.
