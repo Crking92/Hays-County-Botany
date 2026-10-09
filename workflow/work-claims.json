@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T15:53:19-05:00",
+  "updated_at": "2026-10-09T17:50:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6710,11 +6710,12 @@
       ],
       "lane": "genus-lesson-comparison-builder",
       "owner": "automation-genus-comparison-builder",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-09T07:38:44-05:00",
       "expires_at": "2026-10-09T09:38:44-05:00",
       "release_when": "Aristolochia genus comparison committed and verified or skipped after retry",
-      "notes": "Build new genus comparison using canonical species; no taxonomy/range changes or image acquisition."
+      "notes": "Build new genus comparison using canonical species; no taxonomy/range changes or image acquisition. Reconciled by approved-taxa-installer after verifying the committed genus.json comparison for A. erecta and A. serpentaria on main. Photo diagnostic polish remains separately assigned.",
+      "released_at": "2026-10-09T17:50:00-05:00"
     },
     {
       "claim_id": "automation-genus-tridentopsis-20261009-0935",
