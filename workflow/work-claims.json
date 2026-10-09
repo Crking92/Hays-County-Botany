@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-09T02:15:50-05:00",
+  "updated_at": "2026-10-09T07:38:44-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6690,6 +6690,28 @@
       "expires_at": "2026-10-09T04:15:50-05:00",
       "release_when": "Canonical merge",
       "notes": "Family visual comparison only."
+    },
+    {
+      "claim_id": "automation-genus-aristolochia-20261009-0738",
+      "scope_kind": "genus_module",
+      "scope_key": "content/taxa/Aristolochiaceae/Aristolochia/genus.json",
+      "taxa": [
+        "aristolochia-erecta",
+        "aristolochia-serpentaria"
+      ],
+      "families": [
+        "Aristolochiaceae"
+      ],
+      "genera": [
+        "Aristolochia"
+      ],
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-comparison-builder",
+      "status": "active",
+      "claimed_at": "2026-10-09T07:38:44-05:00",
+      "expires_at": "2026-10-09T09:38:44-05:00",
+      "release_when": "Aristolochia genus comparison committed and verified or skipped after retry",
+      "notes": "Build new genus comparison using canonical species; no taxonomy/range changes or image acquisition."
     }
   ]
 }
