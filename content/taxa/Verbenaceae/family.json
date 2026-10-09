@@ -66,9 +66,9 @@
     "caveat": "The canonical Verbena photo lock is still pending; the current visual module is scientifically usable but not visually complete."
   },
   "curation_status": {
-    "version": "1.0-visual-family-module",
-    "last_reviewed": "2026-10-03",
-    "visual_lock": "partial_complete"
+    "version": "1.1-recognition-confusion-polish",
+    "last_reviewed": "2026-10-09",
+    "visual_lock": "partial_complete_diagnostic_macros_pending"
   },
   "family_confusion_cleanup": {
     "version": "1.0-comparison-first",
@@ -139,6 +139,130 @@
         "source": "Flora of China — Rubiaceae",
         "url": "https://www.efloras.org/florataxon.aspx?flora_id=2&taxon_id=10778",
         "supports": "opposite/whorled leaves and interpetiolar stipules; stipules can be leaflike in Galium/Rubieae"
+      }
+    ]
+  },
+  "family_confusion_visual_polish": {
+    "version": "1.1-five-genus-fruit-first",
+    "updated": "2026-10-09",
+    "scope": "Existing 14-taxon / five-genus Master Plant Pool; recognition/confusion polish only, not a species taxonomy or native-range review.",
+    "field_question": "Opposite leaves, small tubular flowers and a four-angled stem: how do I prove Verbenaceae instead of a mint, Rubiaceae or another Lamiales family?",
+    "look_here_first": [
+      "At a mature leaf node, look for opposite/decussate leaves without interpetiolar stipules; this is a first-pass clue, not proof.",
+      "Trace one flower to the ovary and style: in common Verbenaceae the ovary is superior, generally not deeply four-lobed externally, and the style is terminal; contrast the deeply four-lobed, often gynobasic mint ovary.",
+      "Inspect a mature fruit WITH its persistent calyx: determine whether it divides into four dry mericarps, two dry mericarps, or is a fleshy drupe. Fruit architecture gives stronger genus routing than flower color.",
+      "Read inflorescence structure: elongate spike/panicle of spikes, short contracted head, creeping pedunculate head, woody raceme, or woody head."
+    ],
+    "comparison_matrix": [
+      {
+        "against": "Lamiaceae",
+        "similarity": "Opposite exstipulate leaves, tubular/bilabiate flowers, frequently four-angled stems; both may produce four nutlet-like units.",
+        "separate": "Dissect the superior ovary before fruiting: typical mint has four conspicuous lobes with gynobasic style, while typical verbena-family ovary is less deeply lobed with terminal style. Compare mature mericarps and calyx; fruit count alone can mislead.",
+        "exceptions": "Callicarpa is in Lamiaceae despite its drupaceous fruit; not every mint has a gynobasic style. Do not use scent or square stem as a family key."
+      },
+      {
+        "against": "Rubiaceae",
+        "similarity": "Opposite leaves and sometimes clustered small tubular flowers; Cephalanthus heads can resemble Verbenaceae heads at a distance.",
+        "separate": "At the node find interpetiolar stipules; confirm inferior Rubiaceae ovary beneath floral parts. Verbenaceae generally lacks stipules and has a superior ovary.",
+        "exceptions": "Galium stipules can resemble extra whorled leaves. Rubiaceae fruits are diverse; avoid using fruit fleshiness alone."
+      },
+      {
+        "against": "Plantaginaceae / Acanthaceae",
+        "similarity": "Lamiales with opposite leaves and tubular flowers; a small spike can resemble Verbena.",
+        "separate": "Plantaginaceae commonly has many-seeded capsules; Acanthaceae often has two-valved capsules with retinacula (seed-support hooks), though not universally. Verbenaceae typically has mericarps or drupaceous fruits, not those capsule mechanisms.",
+        "exceptions": "Fruit and stamen patterns vary; dissect the actual local specimen rather than treating a single character as universal."
+      }
+    ],
+    "five_genus_routing": [
+      {
+        "genus": "Verbena",
+        "master_pool_taxa": 5,
+        "door": "Usually erect/ascending herbs with elongate terminal spikes or panicles of spikes; persistent calyx encloses a dry fruit separating into four one-seeded mericarps.",
+        "compare": "Glandularia generally has a shorter, contracted head and relatively long style; Verbena spikes may be compact when young. Confirm fruit and mature inflorescence."
+      },
+      {
+        "genus": "Glandularia",
+        "master_pool_taxa": 3,
+        "door": "Often lower, spreading herbs with compact terminal flower heads/spikes; deeply divided leaves common in local taxa; dry fruit separates into four mericarps.",
+        "compare": "Versus Verbena, compare contracted unbranched heads, style relative to ovary and leaf division; no single vegetative character is sufficient."
+      },
+      {
+        "genus": "Phyla",
+        "master_pool_taxa": 1,
+        "door": "Prostrate/creeping stems often rooting at nodes, pedunculate dense heads of very small flowers; fruit divides into TWO dry mericarps.",
+        "compare": "Versus Lantana, check herbaceous creeping nodes and dry two-part fruit rather than woody shoots and fleshy drupe; versus Glandularia, compare flower size, leaf division and fruit count."
+      },
+      {
+        "genus": "Lantana",
+        "master_pool_taxa": 3,
+        "door": "Woody shrub with rough opposite leaves and compact rounded/flattened heads; fruit matures as a fleshy drupe with a hard stone/pyrene.",
+        "compare": "A flower head alone can mimic Phyla; follow to woody stem and mature fleshy fruit. Lantana species/hybrid identities are separate taxonomy-review work."
+      },
+      {
+        "genus": "Aloysia",
+        "master_pool_taxa": 2,
+        "door": "Woody aromatic shrubs with opposite or sometimes whorled leaves and small tubular flowers in relatively narrow spikes/racemes; fruit is a dry schizocarp, often two nutlet-like mericarps.",
+        "compare": "Unlike Lantana, usually elongated flowering axes and dry rather than fleshy fruit; unlike Verbena, persistent woody branching. Scent is supporting, never decisive."
+      }
+    ],
+    "diagnostic_visual_locks": [
+      {
+        "priority": 1,
+        "role": "same-scale mature fruit comparison across five pool genera",
+        "labels": "Verbena four mericarps | Glandularia four mericarps | Phyla two mericarps | Lantana drupe/stone | Aloysia dry schizocarp",
+        "status": "photo_acquisition_handoff"
+      },
+      {
+        "priority": 1,
+        "role": "dissected flower-center comparison with Lamiaceae",
+        "labels": "Verbenaceae superior ovary + terminal style | Lamiaceae deeply four-lobed superior ovary + gynobasic style; annotate exceptions",
+        "status": "photo_or_diagram_handoff"
+      },
+      {
+        "priority": 1,
+        "role": "same-node macro with Rubiaceae",
+        "labels": "opposite petioles | interpetiolar stipule present/absent; Galium apparent whorl",
+        "status": "photo_acquisition_handoff"
+      },
+      {
+        "priority": 2,
+        "role": "matched inflorescence architectural board",
+        "labels": "Verbena elongate spike | Glandularia contracted head | Phyla pedunculate creeping head | Lantana woody head | Aloysia woody raceme",
+        "status": "photo_acquisition_handoff"
+      },
+      {
+        "priority": 2,
+        "role": "fruit mechanism comparison with Plantaginaceae and Acanthaceae",
+        "labels": "Verbenaceae schizocarp/mericarps | Plantaginaceae capsule and seeds | Acanthaceae capsule with retinacula where present",
+        "status": "photo_acquisition_handoff"
+      }
+    ],
+    "teaching_cautions": [
+      "Four dry mericarps are not unique to Verbenaceae: mints often yield four nutlets; inspect ovary/style architecture and other characters.",
+      "A head is an inflorescence, not one flower; dissect a single small corolla and calyx from the head.",
+      "Some older references place Callicarpa, Vitex or other former Verbenaceae members in this family; modern treatments place these in Lamiaceae.",
+      "Do not infer native status from inclusion in Master Plant Pool. Encounter/comparison taxa remain in the learner with existing status labels."
+    ],
+    "source_notes": [
+      {
+        "source": "Kew Plants of the World Online, Verbenaceae general morphology",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000070-2/general-information",
+        "supports": "dry schizocarp 2/4 mericarps or drupaceous fruit; current family concept"
+      },
+      {
+        "source": "PlantNET NSW Verbenaceae genus key",
+        "url": "https://plantnet.rbgsyd.nsw.gov.au/cgi-bin/NSWfl.pl?lvl=fm&name=VERBENACEAE&page=nswfl",
+        "supports": "Phyla 2-mericarpy; Verbena vs Glandularia spike/head and style; Lantana drupe"
+      },
+      {
+        "source": "Kew POWO Verbena morphology",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:330551-2/general-information",
+        "supports": "Verbena 4 mericarps and spikes; superior ovary and style"
+      },
+      {
+        "source": "Royal Botanic Gardens Victoria HortFlora Aloysia treatment",
+        "url": "https://hortflora.rbg.vic.gov.au/taxon/ada0d29e-5340-11e7-b82b-005056b0018f",
+        "supports": "Aloysia woody, opposite/whorled leaves, spikes/racemes and 2 nutlets"
       }
     ]
   }
