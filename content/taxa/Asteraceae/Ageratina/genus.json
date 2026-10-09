@@ -7,9 +7,16 @@
   "project_scope": {
     "selection_mode": "Asteraceae batch 2",
     "species_ids": [
+      "ageratina-altissima",
       "ageratina-havanensis"
     ],
-    "species_count": 1
+    "species_count": 2,
+    "canonical_species_ids": [
+      "ageratina-altissima",
+      "ageratina-havanensis"
+    ],
+    "source_pool_species_count": 2,
+    "scope_note": "Both source-pool Ageratina species are canonical learner records; their native-range metadata remains unchanged."
   },
   "study_strategy": {
     "priority": [
@@ -22,9 +29,128 @@
     "warning": "Many fall composites need comparison by structure, not just bloom color."
   },
   "curation_status": {
-    "version": "1.0-batch2",
-    "last_reviewed": "2026-09-30"
+    "version": "1.1-genus-comparison",
+    "last_reviewed": "2026-10-08",
+    "genus_lesson": "two-canonical-species comparison framework",
+    "range_states_unchanged": true
   },
   "visual_status": "fast_fill_coverage_live",
-  "fast_fill_note": "Canonical PASS Ageratina altissima now has a 3-image learner gallery covering whole-plant habit, white discoid heads, and an additional exact-species field reference."
+  "fast_fill_note": "Canonical PASS Ageratina altissima now has a 3-image learner gallery covering whole-plant habit, white discoid heads, and an additional exact-species field reference.",
+  "look_here_first": "Find opposite toothed leaves below loose, white, rayless discoid head clusters. Then check whether the stem base is woody (A. havanensis) or herbaceous/rhizomatous (A. altissima); compare basal leaf veins and petiole length rather than flower color.",
+  "shared_genus_traits": [
+    "Opposite simple leaves, commonly toothed",
+    "Terminal clusters of many small capitula containing disk florets without ray florets",
+    "Phyllaries form an involucre around each head; mature cypselae bear a bristly pappus"
+  ],
+  "species_comparison_matrix": [
+    {
+      "character": "Growth form / stem base",
+      "ageratina_altissima": "Erect herbaceous rhizomatous perennial; stems not persistent woody shrub framework",
+      "ageratina_havanensis": "Perennial subshrub or shrub; woody base and rounded branching habit",
+      "priority": "high"
+    },
+    {
+      "character": "Leaf outline and petiole",
+      "ageratina_altissima": "Broadly ovate to triangular leaves, conspicuously long-petioled",
+      "ageratina_havanensis": "Ovate to triangular-ovate leaves, generally smaller; check short-shoot and mature leaf together",
+      "priority": "supporting; overlap"
+    },
+    {
+      "character": "Leaf venation",
+      "ageratina_altissima": "Three strong veins from near leaf base; photograph underside with petiole junction",
+      "ageratina_havanensis": "Opposite serrate leaves; exact venation contrast not settled in canonical record",
+      "priority": "review needed before using as exclusion"
+    },
+    {
+      "character": "Head arrangement",
+      "ageratina_altissima": "Terminal loose, broadly flat-topped clusters of small rayless heads",
+      "ageratina_havanensis": "Terminal corymbs or panicles of small rayless heads",
+      "priority": "overlaps; not reliable alone"
+    },
+    {
+      "character": "Fruit",
+      "ageratina_altissima": "Cypsela with white pappus",
+      "ageratina_havanensis": "Cypsela with bristly pappus",
+      "priority": "genus confirmation, not a species separator"
+    }
+  ],
+  "quick_comparison_steps": [
+    "1. Confirm an Asteraceae head (many tiny florets), not a single five-petaled flower.",
+    "2. Confirm opposite toothed leaves and clusters of small heads lacking rays.",
+    "3. Check basal stem tissue: woody/shrubby suggests A. havanensis; erect herbaceous rhizomatous habit suggests A. altissima.",
+    "4. Photograph a mature leaf and its petiole/three basal veins, then a side view of the phyllaries; use several characters together."
+  ],
+  "overlap_and_cautions": [
+    "Both species can have opposite toothed triangular leaves and white rayless flower heads; flower color alone cannot separate them.",
+    "Leaf size, branching density and flatness of head clusters vary with growth conditions and are only supporting cues.",
+    "Basal woodiness may be hard to assess on a young shoot; examine the plant base or previous-season branches.",
+    "A. havanensis native-range certification is not resolved by this comparison; preserve its existing learner/range status.",
+    "A. altissima contains toxic compounds; do not taste plants as an identification method."
+  ],
+  "local_source_pool_lookalikes": [
+    {
+      "taxon": "Conoclinium coelestinum",
+      "why_confusable": "Opposite toothed leaves and clusters of rayless heads",
+      "look_for": "Compare head/involucre structure and leaves; do not rely on blue-violet versus white color alone."
+    },
+    {
+      "taxon": "Eupatorium serotinum",
+      "why_confusable": "Small white discoid heads in clusters",
+      "look_for": "Check mature opposite leaf morphology, phyllaries and branching; verify genus rather than naming from flowers alone."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "priority": 1,
+      "shot": "Matched whole plants including stem bases",
+      "purpose": "herbaceous rhizomatous A. altissima versus woody-based A. havanensis",
+      "status": "diagnostic_photo_polish_pending"
+    },
+    {
+      "priority": 1,
+      "shot": "Matched mature leaves with ruler, petioles and basal veins",
+      "purpose": "document petiole proportions, teeth and venation without relying on color",
+      "status": "diagnostic_photo_polish_pending"
+    },
+    {
+      "priority": 1,
+      "shot": "Matched stem base/twig close-ups",
+      "purpose": "show persistent woodiness or lack thereof",
+      "status": "diagnostic_photo_polish_pending"
+    },
+    {
+      "priority": 2,
+      "shot": "Side-view head macros with involucre/phyllaries labeled",
+      "purpose": "genus recognition and look-alike routing",
+      "status": "diagnostic_photo_polish_pending"
+    },
+    {
+      "priority": 2,
+      "shot": "Mature cypsela and pappus macros at same scale",
+      "purpose": "confirm composite reproductive structure; not yet a species split",
+      "status": "diagnostic_photo_polish_pending"
+    }
+  ],
+  "existing_media_references": [
+    {
+      "species_id": "ageratina-altissima",
+      "reference": "Existing canonical 3-image gallery: habit, discoid heads, additional field view",
+      "reuse_note": "Reference existing species images and their provenance; no new acquisition."
+    },
+    {
+      "species_id": "ageratina-havanensis",
+      "reference": "Existing canonical images including field views",
+      "reuse_note": "Preserve original licenses and provenance; some records are CC BY-NC or unverified."
+    }
+  ],
+  "handoffs": [
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "request": "Verify A. havanensis versus A. altissima leaf venation and phyllary measurements using authoritative regional flora/vouchers before turning those into exclusionary key couplets."
+    },
+    {
+      "lane": "Diagnostic Photo Polish",
+      "request": "Obtain matched basal-stem and mature-leaf/venation macros for both species; prioritize actual diagnostic separation over additional habit images."
+    }
+  ]
 }
