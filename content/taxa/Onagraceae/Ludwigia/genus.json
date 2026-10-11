@@ -109,10 +109,10 @@
     }
   ],
   "curation_status": {
-    "version": "2.2-six-species-installed-visual-polish",
-    "last_reviewed": "2026-10-08",
+    "version": "2.3-repens-palustris-photo-contrast",
+    "last_reviewed": "2026-10-11",
     "note": "Genus lesson only; no species/range changes.",
-    "visual_status": "all_six_species_installed_and_have_at_least_one_photo__mature_capsule_and_stem_node_specialty_macros_pending"
+    "visual_status": "repens_yellow_petals_palustris_green_sepals_arrow_live__both_capsule_band_macros_pending"
   },
   "diagnostic_science_20261008": {
     "source": "Flora of North America genus key https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=119063",
@@ -151,12 +151,24 @@
   },
   "quick_key": [
     {
-      "if": "Opposite leaves on creeping wetland shoots + minute yellow petals (usually 4 stamens)",
-      "then": "Ludwigia repens — installed"
+      "if": "Opposite leaves; creeping mat; flower has tiny yellow petals (may be shed/absent in L. repens)",
+      "then": "Suggest Ludwigia repens — inspect mature capsule for absence of 4 green longitudinal bands before a confident split."
     },
     {
-      "if": "Opposite leaves on a creeping muddy mat + flowers normally lacking petals, just sepals",
-      "then": "Ludwigia palustris — installed (native range unresolved)"
+      "if": "Opposite leaves; tiny axillary flower has four GREEN SEPALS but no petals",
+      "then": "Suggest Ludwigia palustris — confirm 4 green longitudinal capsule bands, because repens can sometimes also lack petals."
+    },
+    {
+      "if": "Opposite leaves; capsule has four dark-green longitudinal bands across its four faces",
+      "then": "Ludwigia palustris (strongest repens/palustris separation)"
+    },
+    {
+      "if": "Opposite leaves; mature capsule lacks longitudinal green bands, often with tiny yellow petals present",
+      "then": "Ludwigia repens (check full floral/fruit structure)"
+    },
+    {
+      "if": "Opposite-leaved sterile aquatic shoots only, or fruit too immature to show banding",
+      "then": "Ludwigia repens/palustris unresolved — recheck reproductive features; don't force ID"
     },
     {
       "if": "Alternate narrow leaves on erect branches + usually 4 yellow petals / 8 stamens + long ribbed capsule",
@@ -173,10 +185,6 @@
     {
       "if": "Alternate shiny leaves on a floating/creeping aquatic mat + usually 5 yellow petals / 10 stamens",
       "then": "Ludwigia peploides — installed (native range unresolved)"
-    },
-    {
-      "if": "Only sterile submerged vegetation visible, or anatomy unclear",
-      "then": "Ludwigia sp. / aquatic lookalike — recheck rather than force ID"
     }
   ],
   "study_strategy": {
@@ -190,10 +198,10 @@
     "warning": "All six source-pool species have canonical learner cards. For opposite-leaved sterile mats, especially repens/palustris, verify fresh flowers or mature fruit before certainty. Keep native-range PASS/HOLD/UNRESOLVED independent of learner admission."
   },
   "visual_comparison": {
-    "version": "2.0-six-taxon-visual-reference-pass",
-    "title": "Ludwigia: distinguish six source-pool species",
-    "subtitle": "All six species are now installed in the learner, with an initial exact-species picture on each page. Use node arrangement, growth form, petals, stamens, and fruit details rather than color alone; specialized macros remain incomplete.",
-    "memory_rule": "FIRST nodes (opposite vs alternate). THEN plant architecture, petal number, stamens and capsule. Opposite + yellow petals = repens; opposite + NO petals = palustris. Upright winged stem = decurrens.",
+    "version": "2.2-repens-palustris-petal-and-capsule-photo-polish",
+    "title": "Ludwigia: compare nodes, petals, and fruit bands",
+    "subtitle": "Photos with exact-species attribution: first identify opposite versus alternate nodes, then inspect the tiny flowers and fruit bands. A new magnified petal-less palustris flower has a verified arrow annotation.",
+    "memory_rule": "Opposite-leaved creeping plants: repens often has tiny yellow petals, palustris lacks them; but repens MAY lack petals. Check four dark green bands on palustris capsule vs no bands on repens.",
     "items": [
       {
         "label": "1A · Alternate leaves and flower",
@@ -236,12 +244,44 @@
         "scientific_name": "Ludwigia repens",
         "image_role": "axillary small flowers, stamens and inferior ovary",
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg/1280px-Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg",
-        "caption": "Excellent reproductive close-up: two small flowers beside a reddish node, four tiny petals and stamens surrounding the stigma; see the lower green four-angled ovary beneath the sepals.",
+        "caption": "Two very small L. repens flowers with four yellow petals and four stamens, borne at an opposite-leaf node. These petals are useful when present, but may be absent or shed in some L. repens; confirm lack of capsule green bands to distinguish atypical plants from palustris.",
         "creator": "Kevin Thiele · Flickr via Wikimedia Commons",
         "license": "CC BY 2.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_repens_-_Flickr_-_Kevin_Thiele.jpg",
         "location": "Photographer from Perth, Australia; subject location not confirmed",
-        "markers": []
+        "markers": [
+          {
+            "label": "Yellow petals (when present)",
+            "label_x": 56,
+            "label_y": 9,
+            "target_x": 75,
+            "target_y": 34
+          }
+        ]
+      },
+      {
+        "label": "2C · Marsh seedbox: NO petals around flower",
+        "scientific_name": "Ludwigia palustris",
+        "image_role": "true flower macro: four green sepals and no yellow petals, center of node",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Ludwigia_palustris_278592882.jpg",
+        "caption": "A true tiny L. palustris flower (not a mature seed capsule): four green sepals frame its central reproductive disc; no yellow petals are visible. Arrow points to the sepal ring. Compare with the yellow-petaled L. repens macro—but check mature fruit bands if repens has dropped/lacks petals.",
+        "creator": "Alex Abair · iNaturalist via Wikimedia Commons",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Ludwigia_palustris_278592882.jpg",
+        "observation_id": "161186018",
+        "photo_id": "278592882",
+        "provenance": "Florida; exact-species iNaturalist observation, not Hays occurrence evidence",
+        "learner_status": "canonical_installed__local_range_unresolved",
+        "markers": [
+          {
+            "label": "4 green sepals (no petals)",
+            "label_x": 8,
+            "label_y": 18,
+            "target_x": 55,
+            "target_y": 42
+          }
+        ]
       },
       {
         "scientific_name": "Ludwigia octovalvis",
@@ -326,7 +366,7 @@
         "markers": []
       }
     ],
-    "overlay_note": "All six Ludwigia species now have canonical learner cards. Four source-pool additions were installed 2026-10-08 with provisional visual status and scientific native-range labels UNRESOLVED. In the visual references, the L. repens fruit-and-root view is a botanical drawing, not a photograph; no same-scale mature capsule pair is yet documented.",
+    "overlay_note": "L. palustris 278592882 shows an actual four-sepal petal-less flower (not a mature fruit); repens Kevin Thiele shows yellow petals. The definitive close-up pair for green capsule bands is still outstanding. Repens may lack its petals, so do NOT ID solely by missing petals. Original Joey rights and four species range holds are unchanged.",
     "study_only_intro": "Additional authoritative botanical treatments showing diagnostic descriptions; original material is not copied.",
     "study_only_photo_links": [
       {
@@ -358,12 +398,12 @@
   "diagnostic_photo_status": [
     {
       "role": "alternate versus opposite nodes",
-      "status": "both exact-species source-verified display images installed",
+      "status": "two installed species leaf/node context photographed; palustris flower arrow now live",
       "priority": 1
     },
     {
       "role": "large versus tiny flower",
-      "status": "both source-verified display images installed",
+      "status": "repens yellow-petaled flower + palustris true petal-less four-sepal flower macros now live",
       "priority": 1
     },
     {
@@ -482,9 +522,9 @@
     },
     {
       "step": 2,
-      "check": "Opposite-leaved plant: tiny clear yellow petals?",
-      "yes": "Ludwigia repens",
-      "no": "Ludwigia palustris (often petal-less); confirm fruit."
+      "check": "Opposite leaves: yellow petals present? Then suggest repens; if absent, do NOT assume palustris. Examine green longitudinal bands on a mature capsule.",
+      "yes": "Ludwigia repens suggested; confirm 4 green bands absent",
+      "no": "Ludwigia palustris suggested; confirm 4 green bands present (repens sometimes apetalous)"
     },
     {
       "step": 3,
@@ -594,5 +634,19 @@
       "https://aquaplant.tamu.edu/plant-identification/alphabetical-index/water-primrose/wingleaf-primrose/"
     ],
     "review_level": "Scientific morphology clarification; no changes to range or installation."
+  },
+  "repens_palustris_comparison": {
+    "version": "2026-10-11-science-and-diagnostic-photos",
+    "look_here_first": "Both species have opposite leaf pairs on creeping wetland stems; vegetative habit alone is NOT definitive. Find a small axillary flower and mature fruit.",
+    "flower": "L. palustris usually lacks petals (four green sepals remain). L. repens usually bears four tiny yellow petals, but petals are caducous and some plants may be naturally apetalous.",
+    "reproductive_tie_breaker": "Look for four longitudinal dark-green bands on the four sides of the L. palustris ovary/capsule; absent from L. repens. This is better than absent petals alone.",
+    "fruit_size": "L. palustris typically around 2–5 mm long, L. repens often 4–10 mm (Flora of North America); dimensions overlap and should not be used alone.",
+    "photo_state": "Bright, exact-species petal-less flower macro of palustris with checked arrow + flowering repens macro both live. Matched ripe capsules with visible green banding and ruler NOT yet acquired.",
+    "source_pages": [
+      "https://auth1.dpr.ncparks.gov/flora/species_account.php?nrid_sciName=Ludwigia+palustris",
+      "https://auth1.dpr.ncparks.gov/flora/species_account.php?id=2038",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416801",
+      "https://naturalhistory2.si.edu/botany/hawaiianflora/speciesdescr.cfm?genus=Ludwigia&species=palustris"
+    ]
   }
 }
