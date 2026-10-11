@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T10:40:00-05:00",
+  "updated_at": "2026-10-11T10:55:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7036,11 +7036,13 @@
       "scope_key": "content/taxa/Aquifoliaceae/Ilex/genus.json",
       "lane": "genus-github-backfill",
       "owner": "manual-chat-2026-10-11",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T10:40:00-05:00",
       "expires_at": "2026-10-11T16:40:00-05:00",
       "release_when": "Ilex genus lesson committed and fetched back or aborted",
-      "notes": "3 installed canonical taxa; non-target Ilex opaca must remain comparison-only. Genus comparison, not species installs or range edits."
+      "notes": "3 installed canonical taxa; non-target Ilex opaca must remain comparison-only. Genus comparison, not species installs or range edits.",
+      "released_at": "2026-10-11T10:55:00-05:00",
+      "release_note": "Ilex lesson committed d0de6b13a153ea028cc54e185ec89f7db8378941 and fetched again successfully."
     }
   ]
 }
