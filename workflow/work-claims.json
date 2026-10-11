@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T15:31:09.998Z",
+  "updated_at": "2026-10-11T15:31:36.749Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7142,6 +7142,21 @@
       "notes": "Acleisanthes longiflora and A. obtusa in pool, no canonical species in manifest; no species install or range changes.",
       "released_at": "2026-10-11T15:31:09.998Z",
       "release_note": "Verified commit fd3db501ff76645cbc85ee4813a7461da66dd336"
+    },
+    {
+      "claim_id": "manual-genus-github-backfill-malvaviscus-20261011",
+      "scope_kind": "genus_module",
+      "scope_key": "content/taxa/Malvaceae/Malvaviscus/genus.json",
+      "families": [
+        "Malvaceae"
+      ],
+      "lane": "genus-github-backfill",
+      "owner": "manual-2026-10-11",
+      "status": "active",
+      "claimed_at": "2026-10-11T15:31:36.749Z",
+      "expires_at": "2026-10-11T21:31:36.749Z",
+      "release_when": "after verified Malvaviscus lesson or abandonment",
+      "notes": "Parent M. arboreus broader source name and accepted native local var. drummondii; parent not a separate installed species. No installations."
     }
   ]
 }
