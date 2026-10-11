@@ -11,43 +11,70 @@
     "species_count": 3
   },
   "shared_genus_recognition": {
-    "look_here_first": "Inspect the staminal column and count style branches; then inspect the mature segmented fruit and its mericarp tips.",
+    "look_here_first": "Start at the flower center and mature fruit, not leaf color. Check whether the staminal column is hairy, count the style branches when visible, then inspect fruit size and whether mericarp tips are merely acute/apiculate or form long divergent spines.",
     "shared_traits": [
-      "Alternate cordate leaves with stellate hairs",
-      "Five-petaled flowers with a staminal column",
-      "Dry segmented fruit with multiple mericarps"
-    ]
+      "Alternate cordate leaves with stellate pubescence",
+      "Five-petaled mallow flowers with stamens united into a staminal column",
+      "Dry schizocarp made of persistent mericarps"
+    ],
+    "caution": "Leaf hairiness and yellow flowers overlap. Reproductive structures are more reliable than overall grayness or flower color."
   },
   "species_comparison_matrix": [
+    {
+      "character": "life form / leaf scale",
+      "fruticosum": "Subshrub 1–1.5 m; ovate-cordate leaves 2–10 cm",
+      "incanum": "Subshrub 1–2 m; ovate-cordate leaves to ~6 cm, densely tomentulose",
+      "theophrasti": "Annual herb to 1+ m; very large broadly ovate/suborbiculate leaves 8–15 cm",
+      "weight": "FAST VELVETLEAF SPLIT"
+    },
+    {
+      "character": "corolla",
+      "fruticosum": "Yellow throughout; petals 5–10 mm",
+      "incanum": "Yellow or pink with dark red center; petals 4–6 mm; corolla reflexed",
+      "theophrasti": "Pale yellow throughout; petals 8–13 mm",
+      "weight": "USEFUL SUPPORT"
+    },
+    {
+      "character": "staminal column",
+      "fruticosum": "Glabrous",
+      "incanum": "Pubescent",
+      "theophrasti": "Glabrous",
+      "weight": "BEST FRUTICOSUM VS INCANUM FLOWER CHARACTER"
+    },
     {
       "character": "style branches",
       "fruticosum": "6–9",
       "incanum": "5",
-      "theophrasti": "13–15"
+      "theophrasti": "13–15",
+      "weight": "STRONG REPRODUCTIVE CHARACTER"
     },
     {
-      "character": "fruit",
-      "fruticosum": "compact cask-shaped, no long divergent beaks",
-      "incanum": "compact cask-shaped",
-      "theophrasti": "15–20 mm crown of long-beaked mericarps"
+      "character": "calyx",
+      "fruticosum": "3–5 mm; lobes reflexed in fruit",
+      "incanum": "3–5 mm; lobes spreading or somewhat reflexed in fruit",
+      "theophrasti": "~10 mm; lobes erect in fruit",
+      "weight": "SUPPORTING"
     },
     {
-      "character": "habit",
-      "fruticosum": "woody-based subshrub",
-      "incanum": "densely gray-tomentose subshrub",
-      "theophrasti": "tall annual with large velvety leaves"
+      "character": "schizocarp size/form",
+      "fruticosum": "Cask-shaped, about 8–9 × 8–9 mm",
+      "incanum": "Cask-shaped, about 7–9 × 6 mm",
+      "theophrasti": "Broadly ovoid, about 15 × 20 mm",
+      "weight": "STRONG FRUIT CHARACTER"
     },
     {
-      "character": "flowers",
-      "fruticosum": "usually plain yellow",
-      "incanum": "often dark-centered and reflexed",
-      "theophrasti": "pale yellow; color not decisive"
+      "character": "mericarp apex",
+      "fruticosum": "Acute or apiculate; not long-spined",
+      "incanum": "Acute or apiculate; not long-spined",
+      "theophrasti": "Long divergent spines 3–6 mm",
+      "weight": "BEST VELVETLEAF FRUIT CHARACTER"
     }
   ],
   "overlap_cautions": [
-    "fruticosum and incanum share cordate hairy leaves and compact fruits; use style counts with fruit anatomy.",
-    "Corolla color and leaf size vary; do not use alone.",
-    "Retain each canonical species native-range label unchanged."
+    "A. fruticosum and A. incanum both have small cordate hairy leaves and compact cask-shaped fruits; use staminal-column pubescence plus style count.",
+    "Flower color helps but is not sufficient by itself.",
+    "A. theophrasti fruit is dramatically larger and long-spined; it should not be confused with the two compact-fruited subshrubs once mature fruit is present.",
+    "Preserve current learner/native-range labels: A. fruticosum unresolved, A. incanum nonlocal comparison, A. theophrasti non-native comparison."
   ],
   "local_lookalikes": [
     {
@@ -64,10 +91,45 @@
     }
   ],
   "diagnostic_photo_checklist": [
-    "Same-scale flower-center macros for all three; label and count style branches",
-    "Mature fruit top and side views with ruler; mark mericarp beaks",
-    "Detached mericarp apex of fruticosum versus incanum",
-    "Matched mature leaf upper/lower surfaces and basal stems"
+    {
+      "role": "matched flower-center macro",
+      "targets": [
+        "A. fruticosum",
+        "A. incanum",
+        "A. theophrasti"
+      ],
+      "show": "staminal column surface + style branches, with arrows/count labels",
+      "separates": "pubescent 5-style incanum vs glabrous 6–9-style fruticosum vs 13–15-style theophrasti",
+      "priority": "critical"
+    },
+    {
+      "role": "matched mature fruit top + side",
+      "targets": [
+        "all three"
+      ],
+      "show": "schizocarp diameter/height with ruler and mericarp tips",
+      "separates": "compact acute/apiculate fruticosum/incanum from large long-spined theophrasti",
+      "priority": "critical"
+    },
+    {
+      "role": "fruticosum vs incanum corolla",
+      "targets": [
+        "A. fruticosum",
+        "A. incanum"
+      ],
+      "show": "flower front and side at similar scale",
+      "separates": "plain yellow fruticosum from often dark-centered/reflexed incanum",
+      "priority": "high"
+    },
+    {
+      "role": "matched mature leaves",
+      "targets": [
+        "all three"
+      ],
+      "show": "blade + petiole with scale and surface texture",
+      "separates": "huge velvetleaf foliage; supporting only for fruticosum/incanum",
+      "priority": "medium"
+    }
   ],
   "handoffs": [
     {
@@ -82,8 +144,52 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-genus-lesson",
-    "last_reviewed": "2026-10-08",
-    "visual_status": "diagnostic photo checklist ready; matched photos pending"
-  }
+    "version": "1.1-fna-diagnostic-polish",
+    "last_reviewed": "2026-10-11",
+    "visual_status": "diagnostic matrix complete; reproductive gallery improved; matched flower-center macros still open",
+    "scientific_note": "FNA-backed morphology pass; no range/admission changes."
+  },
+  "field_key_training": [
+    {
+      "step": 1,
+      "look": "Whole mature fruit",
+      "if": "Large ~15 × 20 mm wheel/crown with many 3–6 mm divergent spines",
+      "then": "A. theophrasti — velvetleaf."
+    },
+    {
+      "step": 2,
+      "look": "Flower center",
+      "if": "Staminal column visibly pubescent and style divides into 5 branches",
+      "then": "A. incanum strongly supported; dark-centered/reflexed corolla adds support."
+    },
+    {
+      "step": 3,
+      "look": "Flower center",
+      "if": "Staminal column glabrous and style has 6–9 branches",
+      "then": "A. fruticosum strongly supported; plain yellow flower and 8–9 mm cask-shaped fruit confirm."
+    },
+    {
+      "step": 4,
+      "look": "Only foliage available",
+      "if": "Large velvety 8–15 cm leaves on an annual",
+      "then": "A. theophrasti is plausible; otherwise wait for flowers/fruit before separating fruticosum and incanum."
+    }
+  ],
+  "diagnostic_science_sources": [
+    {
+      "taxon": "Abutilon fruticosum",
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250071371"
+    },
+    {
+      "taxon": "Abutilon incanum",
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101016"
+    },
+    {
+      "taxon": "Abutilon theophrasti",
+      "source": "Flora of North America",
+      "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200013684"
+    }
+  ]
 }
