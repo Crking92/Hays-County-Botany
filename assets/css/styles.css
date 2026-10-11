@@ -245,7 +245,9 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 
 .diagnostic-visual-card{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:var(--card);box-shadow:var(--shadow);}
 .diagnostic-photo-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:#20251f;}
-.diagnostic-photo-wrap>img{display:block;width:100%;height:100%;object-fit:cover;}
+.diagnostic-photo-open{position:absolute;inset:0;display:block;z-index:0;}
+.diagnostic-photo-wrap>img,.diagnostic-photo-open>img{display:block;width:100%;height:100%;object-fit:cover;}
+.diagnostic-photo-open:focus-visible{outline:3px solid #f5e58e;outline-offset:-3px;}
 .diagnostic-arrow-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
 .diagnostic-arrow-layer line{stroke:#fff;stroke-width:2.4;vector-effect:non-scaling-stroke;filter:drop-shadow(0 1px 2px rgba(0,0,0,.8));}
 .diagnostic-arrow-layer marker path{fill:#fff;}
