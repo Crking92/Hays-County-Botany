@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T01:34:00-05:00",
+  "updated_at": "2026-10-11T08:24:35-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6914,6 +6914,23 @@
       "expires_at": "2026-10-11T08:25:30-05:00",
       "release_when": "Durable scientific review saved",
       "notes": "Review only; no install."
+    },
+    {
+      "claim_id": "automation-taxonomy-corydalis-20261011-0824",
+      "scope_kind": "taxa",
+      "taxa": [
+        "corydalis-aurea",
+        "corydalis-curvisiliqua-subsp-curvisiliqua",
+        "corydalis-micrantha"
+      ],
+      "scope_key": "scientific-review-corydalis-2026-10-11",
+      "lane": "scientific-taxonomy-diagnostic-review",
+      "owner": "automation-taxonomy-diagnostic-review",
+      "status": "active",
+      "claimed_at": "2026-10-11T08:24:35-05:00",
+      "expires_at": "2026-10-11T10:24:35-05:00",
+      "release_when": "review artifact and Sheet overrides durable",
+      "notes": "Scientific-only Corydalis 3-source-pool-taxon comparison; no canonical install."
     }
   ]
 }
