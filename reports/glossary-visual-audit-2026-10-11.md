@@ -41,7 +41,16 @@ Some listed concepts overlap existing advanced vocabulary; prioritize field-usef
 - `disc-floret` should include `disk floret` as a search alias; both spellings occur in botany resources.
 - For non-local example plants, retain explicit labels as *structure demonstration only*, not evidence of Hays County nativity.
 
-## Completion statuses
-- Structural geometry: engineering fix must be committed and read back before marking shipped.
-- Term/arrow specific corrections: pending manual visual source verification.
-- Glossary completeness: first-pass gap checklist only, not exhaustively complete.
+## Completed and verified on 2026-10-11
+- Modal + quiz overlay geometry repaired in `assets/js/app.js` (commit `bc6875a0`) and matching image-stage CSS committed in `assets/css/styles.css` (commit `0bf901aa`).
+- The geometry code calculates the rendered image-pixel rectangle from natural dimensions and CSS object-fit; image load, resize, and modal updates resynchronize the arrows. Unloaded/broken image stages stay hidden rather than pointing randomly.
+- In `data/learning-layer.json` (commit `295d0614`), broadened **node**'s everyday teaching definition to cover all stems, retaining the illustrated grass example.
+- The original **ligule** Wikimedia image already has a green arrow. Removed the two extra guessed website-overlay arrows while keeping the photo/source/credit and original baked-in pointer.
+- Read-back checks confirmed file blob SHA matches the write response. JavaScript syntax compiled successfully.
+- Current annotation tally: 147 terms, 126 primary real-photo records, 21 primary diagram records. **146** terms retain a learner-generated coordinate overlay; the ligule relies on its original image's arrow.
+
+## Still pending
+- Manual pixel-level image-by-image arrow inspection and corrections. Passing the alignment fix does NOT certify the 146 remaining arrow sets.
+- Individual media loading/deployment verification on the actual iPhone learner. Source code read-back and JS syntax checks are not a deployed/mobile screenshot test.
+- Photo-backed introduction of missing basic vocabulary from the candidate list above; do not mark new terms visual-complete without trustworthy photos and placed features.
+
