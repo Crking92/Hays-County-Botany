@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T10:17:34-05:00",
+  "updated_at": "2026-10-11T10:24:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7053,11 +7053,27 @@
       "scope_key": "content/taxa/Apiaceae/family.json",
       "lane": "family-similarity-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T10:17:34-05:00",
       "expires_at": "2026-10-11T12:17:34-05:00",
       "release_when": "Apiaceae canonical family diagnostic polish is committed and Family Study Index/Taxonomy Progress reconciled, or this attempt is abandoned.",
-      "notes": "Integrate existing tracker N30:Q30 into canonical Eryngium-centered module without rebuilding; morphology and 13-genus routing; no range decisions."
+      "notes": "Integrate existing tracker N30:Q30 into canonical Eryngium-centered module without rebuilding; morphology and 13-genus routing; no range decisions. Canonical family-file write failed twice; skipped to Sapindaceae, no Apiaceae module change.",
+      "released_at": "2026-10-11T10:24:00-05:00"
+    },
+    {
+      "claim_id": "automation-family-similarity-sapindaceae-20261011-1024",
+      "scope_kind": "family_module",
+      "families": [
+        "Sapindaceae"
+      ],
+      "scope_key": "content/taxa/Sapindaceae/family.json",
+      "lane": "family-similarity-polish",
+      "owner": "automation-family-similarity-polish",
+      "status": "active",
+      "claimed_at": "2026-10-11T10:24:00-05:00",
+      "expires_at": "2026-10-11T12:24:00-05:00",
+      "release_when": "Canonical Sapindaceae family confusion text is committed and trackers synced or this attempt is abandoned.",
+      "notes": "Existing six-genus tracker handoff N18:Q18; preserve 3 canonical image anchors; no species or range changes."
     }
   ]
 }
