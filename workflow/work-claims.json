@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T10:30:00-05:00",
+  "updated_at": "2026-10-11T10:40:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7026,6 +7026,21 @@
       "expires_at": "2026-10-11T16:10:00-05:00",
       "release_when": "Verified Lonicera genus lesson committed and A:B index reconciled; otherwise release on abandonment.",
       "notes": "Three approved source-pool taxa; nonnative L. japonica encounter comparison remains explicitly nonnative; no species installation."
+    },
+    {
+      "claim_id": "manual-genus-github-backfill-ilex-20261011",
+      "scope_kind": "genus_module",
+      "families": [
+        "Aquifoliaceae"
+      ],
+      "scope_key": "content/taxa/Aquifoliaceae/Ilex/genus.json",
+      "lane": "genus-github-backfill",
+      "owner": "manual-chat-2026-10-11",
+      "status": "active",
+      "claimed_at": "2026-10-11T10:40:00-05:00",
+      "expires_at": "2026-10-11T16:40:00-05:00",
+      "release_when": "Ilex genus lesson committed and fetched back or aborted",
+      "notes": "3 installed canonical taxa; non-target Ilex opaca must remain comparison-only. Genus comparison, not species installs or range edits."
     }
   ]
 }
