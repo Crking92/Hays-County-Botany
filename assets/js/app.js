@@ -1262,7 +1262,52 @@ function termPhotoAnnotations(photo){
   const labels=items.map(function(a){
     return '<span class="term-annotation-label" style="left:'+Number(a.label_x)+'%;top:'+Number(a.label_y)+'%">'+esc(a.label)+'</span>';
   }).join("");
-  return '<svg class="term-annotation-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="termArrow" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 z"></path></marker></defs>'+lines+'</svg>'+labels;
+  return '<div class="term-annotation-stage" aria-hidden="true"><svg class="term-annotation-lines" viewBox="0 0 100 100" preserveAspectRatio="none"><defs><marker id="termArrow" markerWidth="5" markerHeight="5" refX="4.2" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 z"></path></marker></defs>'+lines+'</svg>'+labels+'</div>';
+}
+
+
+/*
+ * A glossary coordinate (x,y) is a percentage of the SOURCE PHOTOGRAPH,
+ * not of the CSS img element. object-fit:contain can letterbox the photo
+ * inside that element, especially in the mobile modal and term drill.
+ * Measure the actual visible photo rectangle before placing annotation SVG.
+ */
+function syncTermAnnotationPositions(){
+  document.querySelectorAll(".term-annotation-stage").forEach(function(stage){
+    const container=stage.parentElement;
+    const img=container && container.querySelector("img");
+    if(!img || !img.naturalWidth || !img.naturalHeight){
+      stage.style.visibility="hidden";
+      return;
+    }
+    const box=img.getBoundingClientRect();
+    const frame=container.getBoundingClientRect();
+    if(!box.width || !box.height){stage.style.visibility="hidden";return;}
+    const fit=window.getComputedStyle(img).objectFit;
+    let drawnW=box.width,drawnH=box.height;
+    if(fit==="contain" || fit==="scale-down"){
+      let scale=Math.min(box.width/img.naturalWidth,box.height/img.naturalHeight);
+      if(fit==="scale-down") scale=Math.min(scale,1);
+      drawnW=img.naturalWidth*scale;
+      drawnH=img.naturalHeight*scale;
+    }
+    // Current glossary CSS always centers object-fit media.
+    stage.style.left=(box.left-frame.left+(box.width-drawnW)/2)+"px";
+    stage.style.top=(box.top-frame.top+(box.height-drawnH)/2)+"px";
+    stage.style.width=drawnW+"px";
+    stage.style.height=drawnH+"px";
+    stage.style.visibility="visible";
+  });
+}
+document.addEventListener("load",function(ev){
+  if(ev.target && ev.target.tagName==="IMG") syncTermAnnotationPositions();
+},true);
+window.addEventListener("resize",syncTermAnnotationPositions,{passive:true});
+if(els.modal && window.MutationObserver){
+  const termAnnotationObserver=new MutationObserver(function(){
+    window.requestAnimationFrame(syncTermAnnotationPositions);
+  });
+  termAnnotationObserver.observe(els.modal,{childList:true});
 }
 
 function openTermModal(id){
