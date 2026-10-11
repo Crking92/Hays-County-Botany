@@ -245,7 +245,15 @@ function genusVisualComparison(data){
   if(hasItems) out+='<div class="diagnostic-visual-grid">';
   items.forEach(function(item,index){
     const markers=Array.isArray(item.markers)?item.markers:[];
-    out+='<article class="diagnostic-visual-card"><div class="diagnostic-photo-wrap"><img src="'+esc(item.image_url||"")+'" alt="'+esc((item.label||item.scientific_name||"Diagnostic plant")+" — "+(item.image_role||"diagnostic view"))+'" loading="lazy">';
+    // Optional per-photo framing makes sure small buds and diagnostic lobe tips survive gallery cropping.
+    const fit=item.image_fit==="contain" ? "contain" : "cover";
+    const focus=item.image_focus==="top" ? "top" : item.image_focus==="bottom" ? "bottom" : "center";
+    const photoSrc=item.image_url||"";
+    const safePhotoSrc=/^(https?:\/\/|content\/)/i.test(photoSrc);
+    out+='<article class="diagnostic-visual-card"><div class="diagnostic-photo-wrap">';
+    if(safePhotoSrc) out+='<a class="diagnostic-photo-open" href="'+esc(photoSrc)+'" target="_blank" rel="noopener noreferrer" title="Open full diagnostic photo to zoom">';
+    out+='<img src="'+esc(photoSrc)+'" alt="'+esc((item.label||item.scientific_name||"Diagnostic plant")+" — "+(item.image_role||"diagnostic view"))+'" loading="lazy" style="object-fit:'+fit+';object-position:center '+focus+'">';
+    if(safePhotoSrc) out+='</a>';
     if(markers.length){
       const arrowId="diagnosticArrow"+index;
       out+='<svg class="diagnostic-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
