@@ -11,7 +11,7 @@
     "Ditaxis simulans (J.W.Ingram) Radcl.-Sm. & Govaerts"
   ],
   "taxonomic_note": "Current POWO/WCVP accepts Argythamnia simulans; Ditaxis simulans is a homotypic synonym.",
-  "look_here_first": "Start with sessile leaves plus the unusually long axillary raceme, then confirm with reproductive characters. General gray-green habit is not enough.",
+  "look_here_first": "Start with sessile leaves and a long 3.5–12 cm axillary inflorescence. The key split from A. aphoroides is that A. simulans inflorescences are bisexual, then confirm with only 7–8 stamens.",
   "county_occurrences_target_zone": [
     "Hays",
     "Travis"
@@ -32,20 +32,27 @@
   "native_metrics_excluded": true,
   "morphology_keys": {
     "best_field_traits": [
-      "perennial or subshrub Argythamnia",
-      "sessile leaves",
-      "long axillary racemes roughly 3.5–12 cm in the reviewed treatment",
-      "unisexual reproductive structures",
-      "capsule and seed characters useful for confirmation"
+      "perennial or subshrub",
+      "petiole absent; leaves sessile",
+      "bisexual axillary inflorescences 3.5–12 cm",
+      "staminate flowers with 7–8 stamens and no staminodes",
+      "pistillate styles 1.5–2.1 mm, glabrous",
+      "capsules 3.5–9 mm, hispidulous",
+      "seeds 3.5–4.2 mm, faintly and irregularly alveolate"
     ],
-    "comparison_training": "Sessile leaves plus long racemes separate it quickly from short-racemed A. humilis, but reproductive characters should confirm the ID."
+    "comparison_training": "Use sessile leaves + long raceme to leave A. humilis behind, then use bisexual inflorescence + 7–8 stamens to separate from A. aphoroides.",
+    "petiole": "Absent; leaves sessile",
+    "inflorescence": "Bisexual; 3.5–12 cm",
+    "staminate_flower": "Sepals 4–5.3 mm; petals 2–4 mm; 7–8 stamens; 0 staminodes. Petal attachment to the androphore is variable and not a safe binary.",
+    "pistillate_flower": "Sepals 6–9 mm; styles 1.5–2.1 mm, glabrous; stigmas flattened",
+    "fruit_seed": "Capsules 3.5–9 mm, hispidulous; seeds 3.5–4.2 mm, faintly and irregularly alveolate"
   },
   "comparisons": {
     "confused_with": [
       "Argythamnia humilis",
       "Argythamnia aphoroides"
     ],
-    "key_distinctions": "Use sessile leaf attachment + conspicuously long axillary raceme first, then confirm with staminate/pistillate structures and fruit."
+    "key_distinctions": "Use sessile leaves + 3.5–12 cm raceme first. Then confirm that the inflorescence is bisexual and the staminate flower has 7–8 stamens; this separates it from unisexual, 10-stamen A. aphoroides."
   },
   "tags": [
     "Euphorbiaceae",
@@ -71,5 +78,55 @@
     "pistillate flower",
     "capsule/seed"
   ],
-  "photo_note": "Final diagnostic photo/license lock remains later polish."
+  "photo_note": "Final diagnostic photo/license lock remains later polish.",
+  "field_diagnostics": {
+    "single_best_trait": "Sessile leaves + long bisexual raceme + 7–8 stamens.",
+    "fastest_traits": [
+      "Petiole absent",
+      "Inflorescences bisexual, 3.5–12 cm",
+      "Staminate flowers with 7–8 stamens and no staminodes",
+      "Capsules 3.5–9 mm, hispidulous",
+      "Seeds 3.5–4.2 mm, faintly alveolate"
+    ],
+    "look_alikes": [
+      {
+        "taxon": "Argythamnia humilis",
+        "distinction": "A. humilis has a 2–10 mm petiole and tiny 0.7–0.9 cm raceme."
+      },
+      {
+        "taxon": "Argythamnia aphoroides",
+        "distinction": "Both have sessile leaves and long racemes. A. simulans has bisexual inflorescences and 7–8 stamens; A. aphoroides has unisexual inflorescences and 10 stamens."
+      }
+    ],
+    "unreliable_alone": [
+      "gray-green color",
+      "hairiness",
+      "long raceme without checking sex arrangement"
+    ]
+  },
+  "diagnostic_photo_targets": [
+    "Sessile leaf node with ruler",
+    "Entire 3.5–12 cm raceme with ruler",
+    "Bisexual raceme with staminate and pistillate flowers labeled",
+    "Staminate flower macro showing 7–8 stamens",
+    "Mature hispidulous capsule with scale",
+    "Seed macro showing alveolate surface"
+  ],
+  "diagnostic_reference_links": [
+    {
+      "source_page": "https://www.inaturalist.org/taxa/158648",
+      "role": "Exact-species observation pool",
+      "license_note": "Select individual photos only after verifying the photo-specific Creative Commons license."
+    }
+  ],
+  "diagnostic_science_sources": [
+    {
+      "source": "Flora of North America",
+      "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250101530"
+    }
+  ],
+  "diagnostic_polish": {
+    "status": "text-polished-photo-targets-open",
+    "reviewed": "2026-10-11"
+  }
 }
