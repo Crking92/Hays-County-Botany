@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T15:27:15.805Z",
+  "updated_at": "2026-10-11T15:27:44.591Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7108,6 +7108,21 @@
       "notes": "Amorpha 3 canonical taxa, morphology comparison only; no species installs or range edits",
       "released_at": "2026-10-11T15:27:15.805Z",
       "release_note": "Committed and readback verified c31f45b3bd01a1743b7639c0b9ee3f9f56943c38"
+    },
+    {
+      "claim_id": "manual-genus-github-backfill-acer-20261011",
+      "scope_kind": "genus_module",
+      "families": [
+        "Sapindaceae"
+      ],
+      "scope_key": "content/taxa/Sapindaceae/Acer/genus.json",
+      "lane": "genus-github-backfill",
+      "owner": "manual-2026-10-11",
+      "status": "active",
+      "claimed_at": "2026-10-11T15:27:44.591Z",
+      "expires_at": "2026-10-11T21:27:44.591Z",
+      "release_when": "Acer genus lesson committed and verified or abandoned",
+      "notes": "Four pool names; only Acer negundo canonical. Other concepts comparison only; no scientific native-range upgrades or species installs."
     }
   ]
 }
