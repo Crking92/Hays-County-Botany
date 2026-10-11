@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T10:55:00-05:00",
+  "updated_at": "2026-10-11T10:17:34-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7043,6 +7043,21 @@
       "notes": "3 installed canonical taxa; non-target Ilex opaca must remain comparison-only. Genus comparison, not species installs or range edits.",
       "released_at": "2026-10-11T10:55:00-05:00",
       "release_note": "Ilex lesson committed d0de6b13a153ea028cc54e185ec89f7db8378941 and fetched again successfully."
+    },
+    {
+      "claim_id": "automation-family-similarity-apiaceae-20261011-1017",
+      "scope_kind": "family_module",
+      "families": [
+        "Apiaceae"
+      ],
+      "scope_key": "content/taxa/Apiaceae/family.json",
+      "lane": "family-similarity-polish",
+      "owner": "automation-family-similarity-polish",
+      "status": "active",
+      "claimed_at": "2026-10-11T10:17:34-05:00",
+      "expires_at": "2026-10-11T12:17:34-05:00",
+      "release_when": "Apiaceae canonical family diagnostic polish is committed and Family Study Index/Taxonomy Progress reconciled, or this attempt is abandoned.",
+      "notes": "Integrate existing tracker N30:Q30 into canonical Eryngium-centered module without rebuilding; morphology and 13-genus routing; no range decisions."
     }
   ]
 }
