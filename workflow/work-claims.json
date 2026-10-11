@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T10:55:00-05:00",
+  "updated_at": "2026-10-10T22:15:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6835,6 +6835,21 @@
       "expires_at": "2026-10-10T12:55:00-05:00",
       "release_when": "Batch is durably staged in curation-inbox and marked READY, or abandoned after failure.",
       "notes": "Approved Master Plant Pool rows 10 and 13; morphology and taxonomy review 2026-10-07. Existing Acer negundo is canonical; do not touch. Stage two exact-species photo-backed cards."
+    },
+    {
+      "claim_id": "automation-family-similarity-vitaceae-20261010-2215",
+      "scope_kind": "family",
+      "families": [
+        "Vitaceae"
+      ],
+      "scope_key": "content/taxa/Vitaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "automation-family-similarity-polish",
+      "status": "active",
+      "claimed_at": "2026-10-10T22:15:00-05:00",
+      "expires_at": "2026-10-11T00:15:00-05:00",
+      "release_when": "Vitaceae canonical family confusion polish is committed and Sheet descriptive fields synchronized, or work is explicitly abandoned.",
+      "notes": "Existing Vitaceae module only; five-genus routing and structural confusers, no species/range changes."
     }
   ]
 }
