@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T10:20:00-05:00",
+  "updated_at": "2026-10-11T10:30:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7004,11 +7004,13 @@
       "scope_key": "content/taxa/Malvaceae/Callirhoe/genus.json",
       "lane": "genus-github-backfill",
       "owner": "manual-chat-2026-10-11",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T10:20:00-05:00",
       "expires_at": "2026-10-11T16:20:00-05:00",
       "release_when": "Callirhoe genus comparison commits and readback verifies",
-      "notes": "Four existing canonical species; preserve species taxonomy/range, create only missing genus.json."
+      "notes": "Four existing canonical species; preserve species taxonomy/range, create only missing genus.json.",
+      "released_at": "2026-10-11T10:30:00-05:00",
+      "release_note": "Verified genus lesson in commit 1b22bcd74252b5bcd735696d1ab8ffe83511b068."
     }
   ]
 }
