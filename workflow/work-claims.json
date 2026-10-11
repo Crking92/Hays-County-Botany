@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T15:29:11.467Z",
+  "updated_at": "2026-10-11T15:29:47.552Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7125,6 +7125,21 @@
       "notes": "Four pool names; only Acer negundo canonical. Other concepts comparison only; no scientific native-range upgrades or species installs.",
       "released_at": "2026-10-11T15:29:11.467Z",
       "release_note": "Readback verified commit 5e33434e6cbb68a8cd4c57140647d60dfff3e602"
+    },
+    {
+      "claim_id": "manual-genus-github-backfill-acleisanthes-20261011",
+      "scope_kind": "genus_module",
+      "families": [
+        "Nyctaginaceae"
+      ],
+      "scope_key": "content/taxa/Nyctaginaceae/Acleisanthes/genus.json",
+      "lane": "genus-github-backfill",
+      "owner": "manual-2026-10-11",
+      "status": "active",
+      "claimed_at": "2026-10-11T15:29:47.552Z",
+      "expires_at": "2026-10-11T21:29:47.552Z",
+      "release_when": "after Acleisanthes comparison lesson commit and readback",
+      "notes": "Acleisanthes longiflora and A. obtusa in pool, no canonical species in manifest; no species install or range changes."
     }
   ]
 }
