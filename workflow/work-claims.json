@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T16:08:58.925Z",
+  "updated_at": "2026-10-11T17:00:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7492,6 +7492,22 @@
       "notes": "Historic Sophora secundiflora source-row redirect to already installed Dermatophyllum secundiflorum; no duplicate species.",
       "released_at": "2026-10-11T16:08:58.925Z",
       "release_note": "Readback verified genus module commit c1305376a307c511e7e4b184de4bca1d6a4bb837"
+    },
+    {
+      "claim_id": "manual-ludwigia-repens-palustris-flower-capsule-polish-20261011",
+      "scope_kind": "diagnostic_photo_polish",
+      "scope_key": "content/taxa/Onagraceae/Ludwigia/genus.json and ludwigia-palustris / ludwigia-repens species gallery",
+      "taxa": [
+        "ludwigia-palustris",
+        "ludwigia-repens"
+      ],
+      "lane": "manual-diagnostic-photo-polish",
+      "owner": "manual-project-chat",
+      "status": "active",
+      "claimed_at": "2026-10-11T12:00:00-05:00",
+      "expires_at": "2026-10-11T18:00:00-05:00",
+      "release_when": "Correct petals-optional distinction, add verified petal-less green-sepal photo and arrow, audit source record and remaining capsule macros, commit verified result",
+      "notes": "Photo pass after six-species install; preserve scientific nativity UNRESOLVED for palustris and PASS for repens; do not force repens ID by presence/absence of petals alone."
     }
   ]
 }
