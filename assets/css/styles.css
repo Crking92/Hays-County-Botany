@@ -261,3 +261,12 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
   .diagnostic-photo-label{max-width:48%;font-size:.72rem;padding:.3rem .4rem;}
   .diagnostic-arrow-layer line{stroke-width:2;}
 }
+
+
+/* Glossary annotation geometry: this stage is sized to the VISIBLE photo
+   pixels by syncTermAnnotationPositions(), not the potentially letterboxed
+   image element. Unmeasurable/failed images never show misleading arrows. */
+.term-annotation-stage{position:absolute;visibility:hidden;pointer-events:none;z-index:2;overflow:visible}
+.term-annotation-stage .term-annotation-lines{position:absolute;inset:0;width:100%;height:100%}
+.term-annotation-stage .term-annotation-label{position:absolute}
+.term-photo-wrap,.term-drill-image{isolation:isolate}
