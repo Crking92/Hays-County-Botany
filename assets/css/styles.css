@@ -269,4 +269,6 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 .term-annotation-stage{position:absolute;visibility:hidden;pointer-events:none;z-index:2;overflow:visible}
 .term-annotation-stage .term-annotation-lines{position:absolute;inset:0;width:100%;height:100%}
 .term-annotation-stage .term-annotation-label{position:absolute}
+/* Subpixel arrow shafts were too faint on mobile; keep pointers legible. */
+.term-annotation-stage .term-annotation-lines line{stroke-width:1.45;stroke-linecap:round}
 .term-photo-wrap,.term-drill-image{isolation:isolate}
