@@ -57,8 +57,10 @@
     "lookalikes_reviewed": true,
     "user_approved": true,
     "last_reviewed": "2026-10-05",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_metadata_count": 2,
+    "photo_files_present": 1,
+    "external_display_images_count": 1,
+    "last_visual_reviewed": "2026-10-11"
   },
   "diagnostic_image_needs": [
     "whole riparian tree",
@@ -79,6 +81,19 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Freixe_americ%C3%A0_de_la_pla%C3%A7a_Gal%C2%B7la_Plac%C3%ADdia_P1510486.jpg",
       "study_use": "yes",
       "public_reuse": "cc_by_sa"
+    },
+    {
+      "file": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/pics/FRBE-lfbend-1x-10in.jpg",
+      "role": "PRIVATE STUDY — Central Texas lower leaflet surface reference",
+      "creator": "UT Austin Plant Resources Center / Bob Harms",
+      "license": "reuse rights not verified — private study only",
+      "source_page": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html",
+      "platform": "UT Austin Plant Resources Center",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Fraxinus berlandieriana",
+      "diagnostic_visibility": "Matched local underside macro showing the glabrous surface used in the Central Texas comparison."
     }
   ],
   "learner_visual_status": {
@@ -87,5 +102,54 @@
     "image_count": 1,
     "filled_at": "2026-10-08",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  },
+  "field_diagnostics": {
+    "single_best_trait": "On a fruiting tree, use the >1.5 cm samara whose wings expand gradually from near the base; occasional 3-winged fruits are an excellent supporting clue.",
+    "fastest_traits": [
+      "Usually 3–5(–7) leaflets",
+      "Coarse sharp serration on distal 1/2–2/3 of leaflet",
+      "Lower leaflet surface glabrous in the Central Texas treatment",
+      "Shallow hemispheric leaf scar",
+      "Samara >1.5 cm with gradually expanding/flanging wings; occasional 3-winged fruit"
+    ],
+    "look_alikes": [
+      {
+        "taxon": "Fraxinus pennsylvanica",
+        "distinction": "Green ash usually has more leaflets with much weaker marginal teeth and a samara wing that is decurrent before abruptly broadening distally; 3-winged fruits are not the normal Central Texas pattern."
+      },
+      {
+        "taxon": "Fraxinus albicans",
+        "distinction": "Texas ash generally has 5–7 leaflets, a glaucous white-waxy underside and a much smaller ~1 cm mostly terminal-winged samara."
+      }
+    ],
+    "unreliable_alone": [
+      "3–5 leaflets by itself",
+      "riparian habitat",
+      "single leaf scar"
+    ]
+  },
+  "diagnostic_photo_targets": [
+    "Mature 2-winged samara with ruler showing gradual wing expansion from base",
+    "3-winged samara if available, clearly labeled as supporting not mandatory",
+    "Full 3–5(–7) leaflet leaf showing coarse distal serration",
+    "Lower leaflet macro showing glabrous/non-waxy surface",
+    "Fresh shallow-hemispheric leaf scar + bud"
+  ],
+  "diagnostic_reference_links": [
+    {
+      "source_page": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html",
+      "role": "Central Texas samara, leaf-scar, margin and lower-surface comparison plate",
+      "public_reuse": "no unless individual image rights are verified"
+    }
+  ],
+  "diagnostic_science_sources": [
+    {
+      "source": "UT Austin Plant Resources Center",
+      "url": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html"
+    }
+  ],
+  "diagnostic_polish": {
+    "status": "text-polished-local-underside-reference-present-samara-macros-open",
+    "reviewed": "2026-10-11"
   }
 }
