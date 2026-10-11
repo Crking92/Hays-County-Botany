@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-10T22:15:00-05:00",
+  "updated_at": "2026-10-11T01:34:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -6865,6 +6865,21 @@
       "expires_at": "2026-10-11T02:14:00-05:00",
       "release_when": "Canonical family lesson updated and tracker synchronized, or scope abandoned.",
       "notes": "Small confusion-polish integration of existing Family Study Index handoff; preserve taxonomy and all existing modules."
+    },
+    {
+      "claim_id": "automation-genus-comparison-sorghum-20261011-0134",
+      "scope_kind": "genus_module",
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "content/taxa/Poaceae/Sorghum/genus.json",
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-comparison-builder",
+      "status": "active",
+      "claimed_at": "2026-10-11T01:34:00-05:00",
+      "expires_at": "2026-10-11T03:34:00-05:00",
+      "release_when": "Genus lesson is durably committed or explicitly abandoned.",
+      "notes": "Two approved source-pool Sorghum taxa; build genus comparison only; no species installation or range edits."
     }
   ]
 }
