@@ -54,8 +54,10 @@
     "lookalikes_reviewed": true,
     "user_approved": true,
     "last_reviewed": "2026-10-02",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_metadata_count": 3,
+    "photo_files_present": 1,
+    "external_display_images_count": 2,
+    "last_visual_reviewed": "2026-10-11"
   },
   "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
   "images": [
@@ -67,6 +69,33 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Fraxinus_pennsylvanica_tree.jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fraxinus_pennsylvanica_(5107485857).jpg",
+      "role": "Flowering/young-fruit cluster — reusable reproductive context",
+      "creator": "Matt Lavin",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Fraxinus_pennsylvanica_(5107485857).jpg",
+      "platform": "Wikimedia Commons / Flickr",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution-sharealike",
+      "media_storage": "commons_redirect_url",
+      "scientific_name_verified": "Fraxinus pennsylvanica",
+      "diagnostic_visibility": "Shows flowering/young-fruit reproductive cluster; complements but does not replace a mature samara wing/body macro."
+    },
+    {
+      "file": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/pics/FRPE-lfab-bend-28Aug-1x-5mm-10in.jpg",
+      "role": "PRIVATE STUDY — Central Texas lower leaflet surface reference",
+      "creator": "UT Austin Plant Resources Center / Bob Harms",
+      "license": "reuse rights not verified — private study only",
+      "source_page": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html",
+      "platform": "UT Austin Plant Resources Center",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Fraxinus pennsylvanica",
+      "diagnostic_visibility": "Matched local underside reference for comparison against glaucous Texas ash."
     }
   ],
   "learner_visual_status": {
@@ -75,5 +104,50 @@
     "image_count": 1,
     "filled_at": "2026-10-06",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  },
+  "field_diagnostics": {
+    "single_best_trait": "On a fruiting female tree, look for a >1.5 cm samara body with the wing decurrent along the body before broadening distally.",
+    "fastest_traits": [
+      "Usually 5–7(–9) leaflets",
+      "Margins subentire to inconspicuously dentate-serrulate",
+      "Lower leaflet surface generally non-glaucous",
+      "Broad shield-shaped to oblong-ovate leaf scar",
+      "Samara >1.5 cm; wing strongly decurrent; consistently 2-winged"
+    ],
+    "look_alikes": [
+      {
+        "taxon": "Fraxinus albicans",
+        "distinction": "Texas ash has a smaller ~1 cm seed body, mostly terminal wing and conspicuously glaucous/white-reticulate lower leaflet surface."
+      },
+      {
+        "taxon": "Fraxinus berlandieriana",
+        "distinction": "Mexican ash tends toward 3–5(–7) more coarsely serrate leaflets; its samara wings expand gradually from near the base and 3-winged fruits can occur."
+      }
+    ],
+    "unreliable_alone": [
+      "leaflet count",
+      "one leaf scar",
+      "overall riparian habit"
+    ]
+  },
+  "diagnostic_photo_targets": [
+    "Mature samara with ruler showing >1.5 cm body and decurrent wing",
+    "Lower leaflet macro showing non-glaucous surface",
+    "Fresh shield-shaped winter leaf scar + bud",
+    "Whole mature 5–7(9) leaflet leaf with margin detail"
+  ],
+  "diagnostic_science_sources": [
+    {
+      "source": "UT Austin Plant Resources Center",
+      "url": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html"
+    },
+    {
+      "source": "UT Austin Plant Resources Center — N. Hays County",
+      "url": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/Hays-ash.html"
+    }
+  ],
+  "diagnostic_polish": {
+    "status": "text-polished-reproductive-and-local-underside-reference-present-mature-samara-macro-open",
+    "reviewed": "2026-10-11"
   }
 }
