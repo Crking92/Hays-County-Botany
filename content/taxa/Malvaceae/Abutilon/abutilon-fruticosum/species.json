@@ -7,7 +7,7 @@
   "scientific_name": "Abutilon fruticosum",
   "authority": "Guill. & Perr.",
   "common_name": "sweet Indian mallow / pelotazo",
-  "look_here_first": "Gray-green subshrub with cordate velvety leaves, plain yellow flowers, and a compact cask-shaped fruit without long divergent beaks.",
+  "look_here_first": "For the hard A. fruticosum vs A. incanum split, ignore general grayness and inspect the flower center: A. fruticosum has a glabrous staminal column and 6–9 style branches. Mature fruit is compact/cask-shaped with acute or apiculate—not long-spined—mericarp tips.",
   "county_occurrences_target_zone": [
     "Hays",
     "Travis"
@@ -31,7 +31,9 @@
       "6–9 style branches",
       "compact cask-shaped schizocarp"
     ],
-    "comparison_training": "Separate from velvetleaf (A. theophrasti) by the smaller leaves and compact fruit; separate from A. incanum by plain yellow flowers and more style branches."
+    "comparison_training": "Separate from velvetleaf (A. theophrasti) by the smaller leaves and compact fruit; separate from A. incanum by plain yellow flowers and more style branches.",
+    "flower": "Calyx 3–5 mm; corolla yellow throughout, petals 5–10 mm; staminal column glabrous; style 6–9-branched.",
+    "fruit_seed": "Schizocarp cask-shaped, 8–9 × 8–9 mm; mericarp apex acute/apiculate, tomentulose; 3 seeds per mericarp, seeds ~2 mm."
   },
   "comparisons": {
     "key_distinctions": "Separate from velvetleaf (A. theophrasti) by the smaller leaves and compact fruit; separate from A. incanum by plain yellow flowers and more style branches."
@@ -54,8 +56,10 @@
     "visual_reviewed": false,
     "visual_status": "photo-backfill-pending",
     "last_reviewed": "2026-10-05",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_metadata_count": 2,
+    "photo_files_present": 1,
+    "external_display_images_count": 1,
+    "last_visual_reviewed": "2026-10-11"
   },
   "images": [
     {
@@ -66,6 +70,20 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Abutilon_fruticosum.jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abutilon_fruticosum_1DS-II_3-2244.jpg",
+      "role": "Reusable close flowering view for plain-yellow corolla and reproductive-center context",
+      "creator": "SAplants",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Abutilon_fruticosum_1DS-II_3-2244.jpg",
+      "platform": "Wikimedia Commons",
+      "study_use": "yes",
+      "public_reuse": "yes-with-attribution-sharealike",
+      "media_storage": "commons_redirect_url",
+      "scientific_name_verified": "Abutilon fruticosum",
+      "diagnostic_visibility": "High-resolution exact-species flowering material; useful for plain-yellow corolla and flower-center study, though a dedicated style-count macro remains desirable."
     }
   ],
   "learner_visual_status": {
@@ -75,5 +93,55 @@
     "filled_at": "2026-10-05",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
   },
-  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
+  "field_diagnostics": {
+    "single_best_trait": "Glabrous staminal column + 6–9 style branches.",
+    "fastest_traits": [
+      "Yellow throughout; petals 5–10 mm",
+      "Staminal column glabrous",
+      "Style 6–9-branched",
+      "Calyx 3–5 mm, reflexed in fruit",
+      "Cask-shaped schizocarp ~8–9 × 8–9 mm",
+      "Mericarp apices acute/apiculate, not long-spined"
+    ],
+    "look_alikes": [
+      {
+        "taxon": "Abutilon incanum",
+        "distinction": "A. incanum has a pubescent staminal column and only 5 style branches; its corolla is often reflexed and yellow/pink with a dark red center."
+      },
+      {
+        "taxon": "Abutilon theophrasti",
+        "distinction": "Velvetleaf is annual with very large 8–15 cm leaves, 13–15 style branches and a much larger 15 × 20 mm fruit with long 3–6 mm divergent spines."
+      }
+    ],
+    "unreliable_alone": [
+      "gray-green foliage",
+      "yellow flower",
+      "cordate leaf shape"
+    ]
+  },
+  "diagnostic_photo_targets": [
+    "Flower-center macro showing glabrous staminal column and style branches",
+    "Mature fruit top/side with ruler",
+    "Mericarp apex macro",
+    "Matched flower beside A. incanum",
+    "Whole leaf with scale"
+  ],
+  "diagnostic_reference_links": [
+    {
+      "source_page": "https://commons.wikimedia.org/wiki/File:Abutilon_fruticosum_kz03.jpg",
+      "role": "Exact-species fruit source candidate",
+      "note": "Verify final license metadata and fruit diagnostic visibility before promotion."
+    }
+  ],
+  "diagnostic_science_sources": [
+    {
+      "source": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250071371"
+    }
+  ],
+  "diagnostic_polish": {
+    "status": "text-polished-flower-reference-added-fruit-and-style-macros-open",
+    "reviewed": "2026-10-11"
+  }
 }
