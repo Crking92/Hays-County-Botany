@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T17:31:13-05:00",
+  "updated_at": "2026-10-11T18:11:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7560,6 +7560,21 @@
       "expires_at": "2026-10-11T19:31:13-05:00",
       "release_when": "Genus lesson is durably committed and verified; do not install species.",
       "notes": "Three source-pool Parthenocissus names; morphological framework and taxonomy mapping handoff only."
+    },
+    {
+      "claim_id": "automation-family-caryophyllaceae-confusion-20261011-1811",
+      "scope_kind": "family_module",
+      "families": [
+        "Caryophyllaceae"
+      ],
+      "scope_key": "content/taxa/Caryophyllaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "automation-family-similarity-polish",
+      "status": "active",
+      "claimed_at": "2026-10-11T18:11:00-05:00",
+      "expires_at": "2026-10-11T20:11:00-05:00",
+      "release_when": "Canonical family confusion polish is durably committed or explicitly abandoned.",
+      "notes": "Polish six-genus Caryophyllaceae recognition and local Caryophyllales confusion, no module rebuild or taxonomy/range changes."
     }
   ]
 }
