@@ -61,8 +61,10 @@
     "lookalikes_reviewed": true,
     "user_approved": true,
     "last_reviewed": "2026-10-02",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_metadata_count": 3,
+    "photo_files_present": 1,
+    "external_display_images_count": 2,
+    "last_visual_reviewed": "2026-10-11"
   },
   "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
   "images": [
@@ -74,6 +76,32 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Fraxinus_albicans.jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/pics/FRAL3-F9-samdet-28Aug-67x-10in.jpg",
+      "role": "PRIVATE STUDY — Central Texas Texas-ash samara wing/body detail",
+      "creator": "UT Austin Plant Resources Center / Bob Harms",
+      "license": "reuse rights not verified — private study only",
+      "source_page": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html",
+      "platform": "UT Austin Plant Resources Center",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Fraxinus albicans",
+      "diagnostic_visibility": "Local comparison macro illustrating the small body and terminal/slightly decurrent wing relationship."
+    },
+    {
+      "file": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/pics/F10-lfab-bend-28Aug-1x-5mm-10in.jpg",
+      "role": "PRIVATE STUDY — Central Texas lower leaflet surface showing glaucous white-reticulate wax",
+      "creator": "UT Austin Plant Resources Center / Bob Harms",
+      "license": "reuse rights not verified — private study only",
+      "source_page": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html",
+      "platform": "UT Austin Plant Resources Center",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "media_storage": "external_direct_url",
+      "scientific_name_verified": "Fraxinus albicans",
+      "diagnostic_visibility": "High-value underside macro for the characteristic dense white-reticulate wax."
     }
   ],
   "learner_visual_status": {
@@ -82,5 +110,49 @@
     "image_count": 1,
     "filled_at": "2026-10-05",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  },
+  "field_diagnostics": {
+    "single_best_trait": "On a fruiting female tree, the small ~1 cm samara body with a wing that is terminal or only slightly decurrent is the strongest cue.",
+    "fastest_traits": [
+      "Usually 5–7(–9) leaflets",
+      "Lower leaflet surface glaucous with dense white-reticulate wax",
+      "Samara body about 1 cm; wing only slightly decurrent on distal ~1/4",
+      "Leaf scar depressed-obovate with shallow concavity/notch above"
+    ],
+    "look_alikes": [
+      {
+        "taxon": "Fraxinus pennsylvanica",
+        "distinction": "Green ash has a larger >1.5 cm samara body with the wing running farther down the body; its lower leaflet surface is generally non-glaucous."
+      },
+      {
+        "taxon": "Fraxinus berlandieriana",
+        "distinction": "Mexican ash usually has fewer 3–5(–7) leaflets with coarse sharp distal serration and >1.5 cm samaras whose wings expand gradually from near the base."
+      }
+    ],
+    "unreliable_alone": [
+      "leaflet number",
+      "leaf-scar shape from one old/damaged scar",
+      "overall tree habit"
+    ]
+  },
+  "diagnostic_photo_targets": [
+    "Mature samara with ruler showing ~1 cm body and terminal/slightly decurrent wing",
+    "Lower leaflet macro showing white-reticulate glaucous wax",
+    "Fresh winter leaf scar + bud, several examples",
+    "Whole mature 5–7 leaflet compound leaf with scale"
+  ],
+  "diagnostic_science_sources": [
+    {
+      "source": "UT Austin Plant Resources Center",
+      "url": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/FRAXI-CenTex.html"
+    },
+    {
+      "source": "UT Austin Plant Resources Center — N. Hays County",
+      "url": "https://w3.biosci.utexas.edu/prc/DigFlora/ASH/Hays-ash.html"
+    }
+  ],
+  "diagnostic_polish": {
+    "status": "text-polished-local-study-samara-and-underside-present-public-matched-macros-open",
+    "reviewed": "2026-10-11"
   }
 }
