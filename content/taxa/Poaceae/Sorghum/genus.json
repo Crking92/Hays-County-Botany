@@ -1,0 +1,284 @@
+{
+  "rank": "genus",
+  "name": "Sorghum",
+  "family": "Poaceae",
+  "common_group": "grain sorghum, shattercane and Johnsongrass",
+  "project_scope": {
+    "source_pool": "Master Plant Pool rows 1110–1111; Genus Study Index row 149",
+    "source_pool_taxa": [
+      "Sorghum bicolor",
+      "Sorghum halepense"
+    ],
+    "source_pool_count": 2,
+    "canonical_species_ids": [],
+    "source_pool_curated_flags": [
+      "No",
+      "No"
+    ],
+    "learner_status": "comparison/reference genus text only. Neither species is installed in data/manifest.json and this lane does not approve or install them.",
+    "native_range_guardrail": "Both are introduced grasses in Central Texas; they are not counted among confirmed native target-zone taxa. S. bicolor includes cultivated grain/forage forms and escaped shattercane; S. halepense is invasive Johnsongrass."
+  },
+  "shared_genus_recognition": {
+    "look_here_first": "Find a true grass node and collar/ligule, then trace one flowering branch to paired spikelets: a larger usually bisexual SESSILE spikelet attached directly to the short axis and a PEDICELLATE companion spikelet on a stalk, often staminate or sterile. This separates Sorghum from lookalike panicle grasses far more reliably than its white leaf midrib alone.",
+    "shared_traits": [
+      "Tall warm-season grasses with broad leaves and prominent midribs, jointed culms, terminal branched panicles and paired spikelets at the end of small racemes.",
+      "The fertile sessile spikelet bears a caryopsis enclosed by hardened glumes; the partner pedicellate spikelet may be staminate or functionally sterile.",
+      "Panicle shape changes with domestication: broad compact sorghum grain head is common but feral/crop lines can have lax heads; don't mistake cultivar form for a separate species."
+    ],
+    "terminology": [
+      {
+        "term": "ligule",
+        "definition": "Membrane/hairy boundary on inner collar where leaf blade meets sheath."
+      },
+      {
+        "term": "rhizome",
+        "definition": "Belowground horizontal stem with scale leaves and nodes; Johnsongrass can regenerate from its rhizomes."
+      },
+      {
+        "term": "panicle",
+        "definition": "Branched flower/seed head; Sorghum has short raceme units at branch tips."
+      },
+      {
+        "term": "sessile spikelet",
+        "definition": "Spikelet directly attached without a stalk, typically fruit-producing in these Sorghum species."
+      },
+      {
+        "term": "pedicellate spikelet",
+        "definition": "Companion spikelet on a small stalk; may be male or sterile."
+      },
+      {
+        "term": "shattering",
+        "definition": "Ripe spikelets naturally detach/disarticulate from panicle; wild Johnsongrass shatters much more readily than selected grain sorghum."
+      }
+    ],
+    "handling": "Photograph rhizomes where exposed from maintenance, not by disturbing protected/native plant roots. For invasive Johnsongrass, do not scatter seed or rhizome fragments. Do not sample or feed stressed Sorghum foliage to livestock; cyanogenic glycosides can be hazardous under some conditions."
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "life history and underground parts",
+      "S. bicolor": "Usually cultivated/feral ANNUAL or short-lived perennial, with fibrous roots and no extensive creeping rhizomes",
+      "S. halepense": "Robust PERENNIAL with extensive tough scaly rhizomes; emerges in patches from underground stems",
+      "weight": "MOST IMPORTANT vegetative split; document exposed rhizome with nodes/scale leaves"
+    },
+    {
+      "character": "panicle architecture",
+      "S. bicolor": "Very variable from dense grain heads to lax shattercane/forage panicles depending on cultivar/escape",
+      "S. halepense": "Usually conspicuously open, pyramidal to lanceolate panicle with spreading branches",
+      "weight": "FIRST DISTANT CLUE, not taxonomic proof"
+    },
+    {
+      "character": "leaf width",
+      "S. bicolor": "Typically broader blades, often 2–10 cm (20–100 mm), especially grain/forage types",
+      "S. halepense": "Typically narrower blades ~0.8–4 cm (8–40 mm); broad forms overlap",
+      "weight": "SECONDARY; avoid one-number key"
+    },
+    {
+      "character": "paired spikelet structure",
+      "S. bicolor": "Fertile sessile and companion pedicelled spikelet at branch tips; often larger, plump caryopsis in crop forms",
+      "S. halepense": "Fertile sessile spikelet ~3.8–6.5 mm long with companion stalked usually staminate spikelet; short spikelet-bearing branchlets",
+      "weight": "GENUS CONFIRMATION; requires macro/dissection"
+    },
+    {
+      "character": "mature spikelet attachment / shattering",
+      "S. bicolor": "Cultivated grain types have nonshattering or tardily shedding spikelets, but feral shattercane can readily shatter",
+      "S. halepense": "Rachis normally disarticulates readily below sessile spikelets, scattering ripe units",
+      "weight": "REPRODUCTIVE SUPPORT; strong feral-bicolor exception"
+    },
+    {
+      "character": "seed/head color and awns",
+      "S. bicolor": "Grain colors white, reddish, brown and many others; awns vary by cultivar and wild/feral line",
+      "S. halepense": "Spikelets often straw/brown/reddish-purple; lemma may be awnless or have short geniculate twisted awn (~0–13 mm)",
+      "weight": "LOW; colors and awns cannot distinguish reliably"
+    },
+    {
+      "character": "field context",
+      "S. bicolor": "Grain crop, planted forage, birdseed/roadside spill or escaped shattercane",
+      "S. halepense": "Road edges, disturbed ditches, riparian corridors, turf edges and perennial infestations",
+      "weight": "CONTEXT NOT PROOF: feral bicolor can occur on roadsides too"
+    }
+  ],
+  "look_here_first_sequence": [
+    {
+      "step": 1,
+      "inspect": "whole plant plus collar/ligule and a real culm node",
+      "decision": "Confirm a grass and record mature height, blade width and white midrib only as supporting traits."
+    },
+    {
+      "step": 2,
+      "inspect": "basal stem and naturally exposed underground stems",
+      "decision": "Thick segmented creeping scaly rhizomes strongly indicate perennial S. halepense; no rhizomes and a fibrous annual clump lean S. bicolor."
+    },
+    {
+      "step": 3,
+      "inspect": "mature entire panicle with ruler",
+      "decision": "Open large loose branched panicle leans halepense; compact densely seeded grain head leans domesticated bicolor, but feral bicolor overlaps."
+    },
+    {
+      "step": 4,
+      "inspect": "single intact spikelet PAIR with mm scale",
+      "decision": "Identify pedicelled versus sessile spikelet and the lower vs upper glumes, rachis attachment, awn if any; ensure true Sorghum architecture."
+    },
+    {
+      "step": 5,
+      "inspect": "ripe head still on plant; unforced naturally detached units",
+      "decision": "Easy seedhead shattering favors halepense but escaped S. bicolor can shatter; don't shake plants or spread seed to test."
+    },
+    {
+      "step": 6,
+      "inspect": "no underground, flower/fruit evidence or irregular suspected hybrid",
+      "decision": "Use Sorghum sp. or S. bicolor/halepense complex as appropriate; photo set incomplete and gene flow/feral line possible."
+    }
+  ],
+  "diagnostic_photo_requirements": [
+    {
+      "priority": "critical",
+      "role": "rhizome versus fibrous root/annual base",
+      "taxa": [
+        "bicolor",
+        "halepense"
+      ],
+      "show": "Side view of intact underground horizontal white/tan segmented rhizome with nodes and buds on halepense; clean fibrous base on bicolor. Photograph roots already exposed by maintenance; avoid scattering fragments."
+    },
+    {
+      "priority": "critical",
+      "role": "paired Sorghum spikelets",
+      "taxa": [
+        "both"
+      ],
+      "show": "MM ruler and arrows for sessile fruiting spikelet, pedicel, pedicellate companion, glumes, awn and rachis. Use transmitted macro or dissecting microscope."
+    },
+    {
+      "priority": "critical",
+      "role": "whole panicle matched silhouette",
+      "taxa": [
+        "both, including feral shattercane"
+      ],
+      "show": "Compact domestic bicolor, lax/feral bicolor and open halepense. Three panels explicitly show overlap rather than a false binary."
+    },
+    {
+      "priority": "high",
+      "role": "collar zone ligule and blade widths",
+      "taxa": [
+        "both"
+      ],
+      "show": "Ligule membrane/cilia, sheath, true node, leaf blade with cm scale and pale midrib."
+    },
+    {
+      "priority": "high",
+      "role": "ripe shattering without disturbance",
+      "taxa": [
+        "both"
+      ],
+      "show": "Naturally retained bicolor crop grains versus disarticulated halepense mature branch, with cautious exception for shattercane."
+    },
+    {
+      "priority": "high",
+      "role": "Sorghastrum nutans look-alike spikelet",
+      "taxa": [
+        "Sorghastrum nutans reference",
+        "Sorghum halepense"
+      ],
+      "show": "Sorghum companion fully formed pedicellate spikelet versus Sorghastrum pedicellate partner highly reduced/vestigial; include mm macro and count structures."
+    },
+    {
+      "priority": "secondary",
+      "role": "whole habitat and repeated growth",
+      "taxa": [
+        "halepense",
+        "bicolor"
+      ],
+      "show": "Johnsongrass perennial patches alongside seeded grain/forage plants; habitat does not identify species alone."
+    }
+  ],
+  "local_lookalike_routing": [
+    {
+      "name": "Sorghastrum nutans (Indiangrass; desirable native)",
+      "separator": "Sorghastrum has long awns and a highly reduced companion pedicelled spikelet (often represented by pedicel); Sorghum halepense has a formed companion spikelet. Check grass florets under magnification before deciding management."
+    },
+    {
+      "name": "Panicum virgatum (switchgrass; native)",
+      "separator": "Large open panicles overlap in silhouette but Panicum spikelet architecture lacks Sorghum's characteristic sessile–pedicellate pair."
+    },
+    {
+      "name": "Zea mays (maize)",
+      "separator": "Broad grass foliage with white midrib may overlap but distinct terminal staminate tassel and separate ear; not a Sorghum terminal fruiting panicle."
+    },
+    {
+      "name": "Sorghum almum and bicolor × halepense / feral forms",
+      "separator": "Perennial or hybrid forage sorghums can complicate annual-versus-rhizomatous separation. Photograph underground organs and spikelet pairs; expert confirmation if traits conflict."
+    },
+    {
+      "name": "Setaria spp.",
+      "separator": "Foxtail head has conspicuous bristles subtending spikelets; no Sorghum sessile/pedicellate pairing."
+    }
+  ],
+  "scientific_cautions": [
+    "Neither taxon is presently canonical; this genus backfill does not install them or alter source-pool approval.",
+    "Both are introduced to Central Texas; S. bicolor is African-origin cultivated, S. halepense Eurasian/African-origin introduced invasive. This is not a native-only recommendation.",
+    "Domestic S. bicolor may be a nonrhizomatous perennial in frost-free settings, so do not equate 'can resprout' with halepense; belowground creeping rhizomes are the stronger character.",
+    "Shattercane is a feral/weedy S. bicolor form with shattering seeds and sometimes open heads. It defeats simplistic panicle and seed-retention shortcuts.",
+    "Some sorghum hybrids and forage cultivars cross or show perennial/rhizomatous traits; unresolved hybrids should not be forced into one bin.",
+    "Management relevance: removing one Johnson grass shoot is not rhizome eradication; vegetative fragment movement can spread it. This is ID guidance, not a chemical treatment prescription.",
+    "Prominent white leaf midrib occurs in multiple grasses and should never be an exclusive ID trait.",
+    "Sorghastrum nutans is a desirable native look-alike: require spikelet anatomy before labeling a restored grass invasive."
+  ],
+  "handoffs": [
+    {
+      "owner": "Diagnostic Photo Polish",
+      "target": "7 ranked Sorghum shot locks",
+      "request": "Acquire rights-cleared exact-species matched photos emphasizing rhizome nodes, paired fertile/sterile spikelets and mature panicle variability. Capture field scales and photographers/licensing."
+    },
+    {
+      "owner": "Taxonomy + Diagnostic Review",
+      "target": "Feral S. bicolor vs S. halepense and hybrid/forage taxon",
+      "request": "Confirm close identifications with FNA treatment and herbarium vouchers; use conservative tags for suspected hybrids."
+    },
+    {
+      "owner": "Species Installer / Master Pool Reconciler",
+      "target": "Sorghum bicolor and S. halepense",
+      "request": "Both source entries currently Curated=No and are not in canonical manifest; no installation requested by this genus lesson. If future learning admission, keep both introduced/weed comparison labels and species-level science separate."
+    }
+  ],
+  "scientific_sources": [
+    {
+      "title": "Flora of North America S. halepense treatment (FNA v25)",
+      "url": "https://floranorthamerica.org/Sorghum_halepense",
+      "supports": "rhizomes, ligules, paired spikelets, shattering, reproductive measurements"
+    },
+    {
+      "title": "Go Botany S. halepense versus bicolor and Sorghastrum nutans",
+      "url": "https://gobotany.nativeplanttrust.org/species/sorghum/halepense/",
+      "supports": "annual/nonrhizomatous versus perennial-rhizomatous key and companion spikelets"
+    },
+    {
+      "title": "USDA Forest Service FEIS Johnsongrass",
+      "url": "https://research.fs.usda.gov/feis/species-reviews/sorhal",
+      "supports": "paired sessile/pedicellate spikelets and rhizomatous perennial growth"
+    },
+    {
+      "title": "Canadian Food Inspection Agency Biology of Sorghum bicolor",
+      "url": "https://inspection.canada.ca/en/plant-varieties/plants-novel-traits/applicants/directive-94-08/biology-documents/sorghum-bicolor-moench",
+      "supports": "cultivated bicolor diversity, rhizomatous relatives, Johnsongrass"
+    },
+    {
+      "title": "Texas A&M Plants of Texas Rangelands — Johnsongrass",
+      "url": "https://rangeplants.tamu.edu/plant/johnsongrass/",
+      "supports": "Central Texas field habitat, open seed panicle and rhizomatous form"
+    },
+    {
+      "title": "Canonical Poaceae family lesson",
+      "path": "content/taxa/Poaceae/family.json",
+      "supports": "node-sheath-ligule and spikelet vocabulary used consistently across genus modules"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-genus-github-backfill-2026-10-11",
+    "last_reviewed": "2026-10-11",
+    "taxa": "two source names, no canonical species",
+    "comparison_rows": 7,
+    "photo_locks": 7,
+    "visual_status": "diagnostic targets specified; no images installed",
+    "scientific_decisions": "unchanged",
+    "species_installation": "none"
+  }
+}
