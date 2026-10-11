@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T10:24:00-05:00",
+  "updated_at": "2026-10-11T15:23:50.955Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7074,6 +7074,21 @@
       "expires_at": "2026-10-11T12:24:00-05:00",
       "release_when": "Canonical Sapindaceae family confusion text is committed and trackers synced or this attempt is abandoned.",
       "notes": "Existing six-genus tracker handoff N18:Q18; preserve 3 canonical image anchors; no species or range changes."
+    },
+    {
+      "claim_id": "manual-genus-github-backfill-cercis-20261011",
+      "scope_kind": "genus_module",
+      "scope_key": "content/taxa/Fabaceae/Cercis/genus.json",
+      "families": [
+        "Fabaceae"
+      ],
+      "lane": "genus-github-backfill",
+      "owner": "manual-2026-10-11",
+      "status": "active",
+      "claimed_at": "2026-10-11T15:23:50.955Z",
+      "expires_at": "2026-10-11T21:23:50.955Z",
+      "release_when": "Cercis genus.json verified on main or explicitly abandoned",
+      "notes": "5 source pool names map to 2 installed subspecies and one parent concept; no species installation or range edits"
     }
   ]
 }
