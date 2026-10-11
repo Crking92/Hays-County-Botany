@@ -88,9 +88,9 @@
   "curation_status": {
     "version": "2.3-quercus-post-blackjack-photo-visual",
     "last_reviewed": "2026-10-08",
-    "visual_polish_scope": "five remaining zero-photo Eastern oak comparison species now linked with exact licensed one-photo cards; taxonomy/range unchanged",
+    "visual_polish_scope": "Photo-specific proof arrow locations, portrait crop fixes, full photo zoom, explicit missing microscopic structures; no taxonomy/range/media count changes.",
     "photo_gap_audit": "six zero-image species remain",
-    "last_visual_reviewed": "2026-10-08"
+    "last_visual_reviewed": "2026-10-11"
   },
   "b065_eastern_comparison": {
     "selection_mode": "B065 eastern-oak comparison cleanup",
@@ -199,7 +199,9 @@
         "underside stellate plus yellowish glandular hair macro vs scattered/scurfy underside",
         "ripe acorn cup in side profile, post annual vs blackjack biennial annotated as phenology not image-only proof",
         "mature bark from known adult trees"
-      ]
+      ],
+      "photo_evidence_note": "Current genus photo cards have manually reviewed arrows to post oak rounded lobe, blackjack broad distal lobes, and blackjack bud tawny surface hairs. The true micro-awn shot is linked to UT Austin externally (rights unverified), not reproduced. Post twig hairs still not proved, and all length measurements remain unverified without rulers.",
+      "photo_status": "partial_real_visual_proof_not_all_macros"
     },
     {
       "title": "Chinkapin oak ↔ Bur oak ↔ Eastern swamp chestnut oak",
@@ -486,6 +488,105 @@
         "public_reuse": "review"
       },
       {
+        "label": "Post oak — rounded, non-bristled leaf lobes",
+        "scientific_name": "Quercus stellata",
+        "image_role": "Leaf lobe-tip profile and pale underside",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus-stellata-leaves--Bruce-Kirchoff--CC-BY-NC.jpg",
+        "caption": "Actual photographed post oak upper/lower leaf surfaces show a broad rounded lobe at the arrow. No projecting red-oak bristle here. Pale underside is visible but the individual glandular / stellate hairs are NOT resolved. This is a VERIFIED leaf-tip diagnostic, not a hair micrograph.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY-NC 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-stellata/",
+        "study_use": "yes",
+        "public_reuse": "review",
+        "image_fit": "cover",
+        "image_focus": "center",
+        "markers": [
+          {
+            "label": "Rounded lobe — no bristle",
+            "label_x": 52,
+            "label_y": 7,
+            "target_x": 33,
+            "target_y": 49
+          }
+        ],
+        "diagnostic_verification": {
+          "status": "visible_structure_verified",
+          "target": "broad round lobe tip",
+          "image_native_dimensions": "600x450, aspect 4:3",
+          "arrow_position_verified_in_original": true,
+          "photo_anatomy_not_proven": [
+            "stellate hairs as separate arms",
+            "twig bud scales"
+          ],
+          "verified_on": "2026-10-11"
+        }
+      },
+      {
+        "label": "Blackjack oak — 3 broad distal bristle-tipped lobes",
+        "scientific_name": "Quercus marilandica",
+        "image_role": "Upper adult blade and distal lobes",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marilandica__okwbBNc0WpTI.jpg",
+        "caption": "The broad apical blade has multiple shallow projecting lobes; the original photo includes some pointed lobe corners. Zoom to inspect the minute terminal bristles: they are NOT sufficiently resolved at small card size for a macro-level proof. This image demonstrates blade outline, not magnified bristle anatomy.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution",
+        "image_fit": "cover",
+        "image_focus": "bottom",
+        "markers": [
+          {
+            "label": "Broad distal lobes (zoom for awns)",
+            "label_x": 7,
+            "label_y": 10,
+            "target_x": 50,
+            "target_y": 73
+          }
+        ],
+        "diagnostic_verification": {
+          "status": "leaf_shape_verified_microscopic_brutiles_pending",
+          "target": "broad apical lobe region",
+          "image_native_dimensions": "750x1000 portrait, card focuses lower portion",
+          "arrow_position_verified_in_focused_card": true,
+          "micro_awns_visible_at_thumbnail": false,
+          "verified_on": "2026-10-11"
+        }
+      },
+      {
+        "label": "Blackjack oak — tawny pubescent terminal buds",
+        "scientific_name": "Quercus marilandica",
+        "image_role": "Terminal and lateral winter buds close-up",
+        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marolandica__PVCxoy7rqkDv.jpe",
+        "caption": "This genuine Q. marilandica winter twig shows a cluster of rust-colored terminal buds. Fine tawny hairs are visibly projecting from the terminal bud surface at the arrow. No ruler is shown and the five-angled bud geometry is NOT proven; the photo does prove bud pubescence.",
+        "creator": "Bruce Kirchoff",
+        "license": "CC BY 2.0",
+        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
+        "study_use": "yes",
+        "public_reuse": "yes-with-attribution",
+        "image_fit": "cover",
+        "image_focus": "top",
+        "markers": [
+          {
+            "label": "Tawny hairs on bud",
+            "label_x": 57,
+            "label_y": 11,
+            "target_x": 42,
+            "target_y": 39
+          }
+        ],
+        "diagnostic_verification": {
+          "status": "visible_structure_verified",
+          "target": "fine tawny hairs on terminal bud",
+          "image_native_dimensions": "portrait; card focuses upper half to avoid cropping out bud",
+          "arrow_position_verified_in_focused_card": true,
+          "unproven": [
+            "bud length",
+            "five-angled section"
+          ],
+          "verified_on": "2026-10-11"
+        }
+      },
+      {
         "label": "Post oak — rounded lobes and hairy twig",
         "scientific_name": "Quercus stellata",
         "image_role": "Existing curated oak reference; bud/hair macro still needed",
@@ -494,18 +595,6 @@
         "creator": "paddymcg",
         "license": "CC BY-NC",
         "source_page": "https://www.inaturalist.org/taxa/1552804",
-        "study_use": "yes",
-        "public_reuse": "review"
-      },
-      {
-        "label": "Post oak — rounded, non-bristled leaf lobes",
-        "scientific_name": "Quercus stellata",
-        "image_role": "Leaf lobe-tip profile and pale underside",
-        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus-stellata-leaves--Bruce-Kirchoff--CC-BY-NC.jpg",
-        "caption": "Photo clearly shows the rounded, non-bristle-terminated lobes and pale abaxial (lower) surface. Star-shaped/glandular hairs are too tiny to confirm from this image; a microscopic hair macro is still needed.",
-        "creator": "Bruce Kirchoff",
-        "license": "CC BY-NC 2.0",
-        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-stellata/",
         "study_use": "yes",
         "public_reuse": "review"
       },
@@ -532,30 +621,6 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Quercus_marilandica_kz01.jpg",
         "study_use": "yes",
         "public_reuse": "yes"
-      },
-      {
-        "label": "Blackjack oak — 3 broad distal bristle-tipped lobes",
-        "scientific_name": "Quercus marilandica",
-        "image_role": "Upper adult blade and distal lobes",
-        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marilandica__okwbBNc0WpTI.jpg",
-        "caption": "This photographed blade widens strongly toward the tip and displays small pointed/bristled distal lobes. Compare post oak's rounded lobes; do not use the whole silhouette alone as a final ID.",
-        "creator": "Bruce Kirchoff",
-        "license": "CC BY 2.0",
-        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
-        "study_use": "yes",
-        "public_reuse": "yes-with-attribution"
-      },
-      {
-        "label": "Blackjack oak — tawny pubescent terminal buds",
-        "scientific_name": "Quercus marilandica",
-        "image_role": "Terminal and lateral winter buds close-up",
-        "image_url": "https://s3.amazonaws.com/eit-planttoolbox-prod/media/images/Quercus_marolandica__PVCxoy7rqkDv.jpe",
-        "caption": "A cluster of large rust-tawny terminal buds shows visible fine pubescence. This is the useful direct comparison to post oak's smaller buds; no ruler or cross-section is shown, so five-angled architecture is not proven here.",
-        "creator": "Bruce Kirchoff",
-        "license": "CC BY 2.0",
-        "source_page": "https://plants.ces.ncsu.edu/plants/quercus-marilandica/",
-        "study_use": "yes",
-        "public_reuse": "yes-with-attribution"
       },
       {
         "label": "Blackjack oak — acorn, cupule scales and twig",
@@ -883,6 +948,14 @@
         "look_for": "Botanical collection photo with brown nuts and detached cups on dark background; note broad nut shape and tight cap scales. No ruler.",
         "reuse": "External visual study only. Judith Marcus source photo copyright not verified for reuse; image not copied or embedded.",
         "kind": "unlicensed_external_photo_study"
+      },
+      {
+        "label": "Blackjack oak vs post oak — UT Austin leaf-tip macro (clear bristles; original site)",
+        "species": "Quercus marilandica / Quercus stellata",
+        "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fag/quercus_marilandica.htm",
+        "kind": "unlicensed_external_photo_study",
+        "look_for": "Look for the three short bristles projecting at blackjack's lobe tips (young leaf), and the adjacent post-oak photo without bristles. The actual image demonstrates the feature more clearly than generic foliage views.",
+        "reuse": "LINK ONLY: UT Austin educational images are not confirmed CC-licensed; not embedded or copied."
       }
     ],
     "study_only_intro": "Some excellent oak close-ups cannot be copied without a confirmed license. The links below open the original botanical collection photos for field study; they are not part of our distributed learner gallery.",
@@ -919,6 +992,25 @@
       "source_verified": true,
       "images_physically_mirrored": false,
       "important": "All five are NONLOCAL comparison species / FAIL_TARGET_ZONE unchanged. Single image makes them recognizable, not botanically finished."
+    },
+    "post_blackjack_photo_proof_20261011": {
+      "verdict": "three_existing_licensed_photos_reviewed",
+      "verified_visible": [
+        "post oak round bristleless lobe — annotated",
+        "blackjack broad top-heavy apical lobes — annotated",
+        "blackjack terminal bud tawny surface hairs — annotated"
+      ],
+      "not_yet_proven": [
+        "blackjack bristles under useful macro enlargement (UT only, link only)",
+        "post twig stellate hair rays",
+        "post leaf abaxial 6–8 arm stellate and yellowish glandular hairs",
+        "bud sizes in millimeters",
+        "measured mature cup profiles"
+      ],
+      "display": "Blackjack bud image focused to top; blackjack leaf focused to bottom; photos open full resolution on click; post leaf has coordinate-verified arrow.",
+      "new_photographs": 0,
+      "rights_guardrail": "No source photo copied without confirmed CC terms; old photo credits retained.",
+      "last_reviewed": "2026-10-11"
     }
   },
   "photo_backfill_priorities": {
