@@ -1,0 +1,242 @@
+{
+  "rank": "genus",
+  "name": "Cercis",
+  "family": "Fabaceae",
+  "common_group": "redbuds",
+  "project_scope": {
+    "selection_mode": "Genus backfill from five source-pool names, resolved against existing canonical concepts",
+    "source_pool_names": [
+      "Cercis canadensis",
+      "Cercis canadensis subsp. mexicana",
+      "Cercis canadensis subsp. texensis",
+      "Cercis canadensis var. mexicana",
+      "Cercis canadensis var. texensis"
+    ],
+    "canonical_species_ids": [
+      "cercis-canadensis-subsp-mexicana",
+      "cercis-canadensis-subsp-texensis"
+    ],
+    "source_pool_count": 5,
+    "canonical_count": 2,
+    "note": "Variety names are synonyms of corresponding installed subspecies. C. canadensis is a broader parent species concept, not a newly installed third subspecies. Do not create duplicate species from index count."
+  },
+  "shared_genus_recognition": {
+    "look_here_first": "On a leafy twig, check alternate, single, palmately veined heart-shaped to kidney-shaped leaves (NOT pinnately compound); then find flat, thin legumes with a narrow longitudinal wing at one suture. On flowering wood, look for pink pea-like blossoms often borne directly from old stems before leaf emergence. For texensis vs mexicana, examine hairs on *new branchlets and flower stalks* before trusting wavy leaf margins.",
+    "shared_traits": [
+      "Deciduous shrubs or small trees with alternate simple cordate/reniform leaves, entire margins and palmate veins arising near the blade base.",
+      "Spring clusters of bilateral pealike flowers may appear on older leafless wood; ten stamens mostly free rather than the usual nine-plus-one papilionoid arrangement.",
+      "Dry flattened pods with a narrow wing along one seam; mature pod and venation separate from superficially similar woody plants."
+    ],
+    "caution": "Fruit and twig structure confirm Cercis. Native-range evidence for a subspecies is a separate scientific decision; genus identity does not confer target-zone PASS."
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "young branchlet and pedicel pubescence",
+      "C. canadensis subsp. texensis": "Generally glabrous or almost hairless on young twigs and flower stalks in traditional Texas treatments",
+      "C. canadensis subsp. mexicana": "Young twigs/pedicels characteristically woolly or pubescent in traditional treatments; degree varies",
+      "weight": "BEST STRUCTURAL TIE-BREAKER; assess with macro and repeat on multiple shoots"
+    },
+    {
+      "character": "mature leaf texture and sheen",
+      "C. canadensis subsp. texensis": "Thick/leathery, usually glossy above; often glaucous beneath",
+      "C. canadensis subsp. mexicana": "Also thick/leathery, often glossy and glaucous; substantial overlap",
+      "weight": "SHARED XERIC GROUP; not exclusive"
+    },
+    {
+      "character": "leaf margin waviness",
+      "C. canadensis subsp. texensis": "Typically flatter or less undulate",
+      "C. canadensis subsp. mexicana": "Often conspicuously undulate/wavy",
+      "weight": "SUPPORTING, not a reliable exclusive split"
+    },
+    {
+      "character": "leaf outline / tip",
+      "C. canadensis subsp. texensis": "Broad orbicular- to reniform-cordate, rounded or sometimes acute tip",
+      "C. canadensis subsp. mexicana": "Cordate-ovate to reniform, often rounded tip; wide continuous overlap",
+      "weight": "LOW: clinal variation"
+    },
+    {
+      "character": "habit / geography",
+      "C. canadensis subsp. texensis": "Dry Texas limestone woodland, canyon and bluff sites; already canonical target-native in this project",
+      "C. canadensis subsp. mexicana": "More western xeric/Texas Trans-Pecos and Mexico association; canonical nonlocal comparison in this project",
+      "weight": "CONTEXT ONLY; planted trees do not certify a wild range"
+    },
+    {
+      "character": "spring flower / flat pod",
+      "C. canadensis subsp. texensis": "Pink pealike flowers and flat legumes; broadly shared by both",
+      "C. canadensis subsp. mexicana": "Pink pealike flowers and flat legumes; broadly shared by both",
+      "weight": "GENUS CONFIRMATION not subspecies separation"
+    }
+  ],
+  "look_here_first_sequence": [
+    {
+      "step": 1,
+      "inspect": "single alternate blade, its palmate veins and a mature flat pod",
+      "decision": "Confirm Cercis genus before attempting variety/subspecies; pod attachment and wing seam help distinguish from other legumes."
+    },
+    {
+      "step": 2,
+      "inspect": "several young branchlets plus flower pedicels in side macro",
+      "decision": "Mostly hairless supports texensis; conspicuous woolly/pubescence supports mexicana in traditional identification. Degree and distribution may overlap."
+    },
+    {
+      "step": 3,
+      "inspect": "mature leaves from multiple positions",
+      "decision": "Pronounced wavy margin leans mexicana; flatter leans texensis. Record texture, sheen, margins and blade tip but do not split solely by leaf waviness."
+    },
+    {
+      "step": 4,
+      "inspect": "provenance, geography, flowering versus leafy season",
+      "decision": "Older flowering-only photos often cannot safely separate the two; keep Cercis canadensis complex until leaves and new shoots are documented."
+    }
+  ],
+  "exact_taxonomic_mapping": [
+    {
+      "source_name": "Cercis canadensis",
+      "canonical_routing": "parent complex only",
+      "caution": "A species-level observation need not identify either installed subspecies."
+    },
+    {
+      "source_name": "Cercis canadensis var. mexicana",
+      "canonical_routing": "cercis-canadensis-subsp-mexicana",
+      "caution": "Source-pool synonym; no duplicate learner card."
+    },
+    {
+      "source_name": "Cercis canadensis var. texensis",
+      "canonical_routing": "cercis-canadensis-subsp-texensis",
+      "caution": "Source-pool synonym; no duplicate learner card."
+    },
+    {
+      "source_name": "Cercis canadensis subsp. mexicana",
+      "canonical_routing": "cercis-canadensis-subsp-mexicana",
+      "caution": "Retain existing LOOKALIKE_COMPARISON non-target label."
+    },
+    {
+      "source_name": "Cercis canadensis subsp. texensis",
+      "canonical_routing": "cercis-canadensis-subsp-texensis",
+      "caution": "Retain existing target-native scientific determination."
+    }
+  ],
+  "overlap_and_cautions": [
+    "Leaf size, tip shape, margin waviness and branchlet hairiness form a geographic and morphological gradient; a morphometric study of 281 specimens found continuous leaf variation and overlap between categories. Avoid a falsely perfect dichotomous key.",
+    "Floral photographs taken before leaves emerge are often insufficient to distinguish mexicana and texensis.",
+    "The canonical mexicana learner entry is non-target-zone LOOKALIKE_COMPARISON and must not be promoted to project-native merely because both are redbuds.",
+    "The parent C. canadensis record and both var. aliases are NOT three more installed species. The Sheet index counts source names, not accepted independent organisms.",
+    "Do not infer local native status from ornamental or cultivar specimens; document site provenance."
+  ],
+  "local_lookalike_routing": [
+    {
+      "lookalike": "Cercis canadensis subsp. canadensis (eastern redbud)",
+      "separate": "Often thinner, duller ovate/cordate foliage with an acute tip compared with tougher glossier dry-country forms, but leaf variation overlaps; taxonomy and provenance needed."
+    },
+    {
+      "lookalike": "Bauhinia spp. (ornamental pea-family trees)",
+      "separate": "Bilobed leaf tips may superficially resemble broad redbud foliage; inspect leaf architecture, flowers and fruit."
+    },
+    {
+      "lookalike": "Cercis occidentalis (Western redbud, nonlocal reference)",
+      "separate": "Overlapping rounded leaves and xeric habit; verify accepted concept and western provenance before assigning a name."
+    },
+    {
+      "lookalike": "other simple-leaved Fabaceae and heart-leaf ornamentals",
+      "separate": "Require alternate palmate venation plus flattened one-carpel legume and redbud cauliflorous flowering pattern."
+    }
+  ],
+  "diagnostic_photo_requirements": [
+    {
+      "priority": "critical",
+      "role": "paired young twig / pedicel macro",
+      "taxa": [
+        "texensis",
+        "mexicana"
+      ],
+      "show": "pubescence versus near-glabrous twig, fresh nonworn tissue, shared scale and matched angle; label hair density as variable"
+    },
+    {
+      "priority": "critical",
+      "role": "matched mature leaf side-by-side",
+      "taxa": [
+        "texensis",
+        "mexicana"
+      ],
+      "show": "blade front, dorsal face and edge-on undulation; same scale; never treat waviness alone as proof"
+    },
+    {
+      "priority": "high",
+      "role": "branch-level architecture",
+      "taxa": [
+        "texensis",
+        "mexicana"
+      ],
+      "show": "old-wood flowering position, growth habit and leaf size at comparable maturity"
+    },
+    {
+      "priority": "high",
+      "role": "flat pod and seam macro",
+      "taxa": [
+        "Cercis representative"
+      ],
+      "show": "pod attachment, flattened body, narrow suture wing, cross-section when possible"
+    },
+    {
+      "priority": "high",
+      "role": "flower front and dissection",
+      "taxa": [
+        "Cercis representative"
+      ],
+      "show": "sepals, five petals, bilateral structure, ten free stamens; contrast with ordinary 9+1 papilionoid flowers"
+    },
+    {
+      "priority": "high",
+      "role": "parent vs alias visual label",
+      "taxa": [
+        "all five source-pool names"
+      ],
+      "show": "flowchart with source aliases → two accepted subspecies, and parent species remains broader concept"
+    }
+  ],
+  "handoffs": [
+    {
+      "owner": "Taxonomy + Diagnostic Review",
+      "scope": "subsp. mexicana vs texensis intermediates",
+      "question": "Do not invent a morphological hard cutoff. Resolve ambiguous hairs/leaf variation by field provenance and review of Fritsch et al. 2009."
+    },
+    {
+      "owner": "Approved Species Installer / taxonomy mapper",
+      "scope": "Cercis parent and var. aliases",
+      "question": "Ensure Master Plant Pool parent/var source names map to existing canonical concepts or documented broad species-level reference, without duplicate cards."
+    },
+    {
+      "owner": "Diagnostic Photo Polish",
+      "scope": "matched texensis/mexicana teaching set",
+      "question": "Lock same-scale young twig pubescence, stalk pubescence and edge-on leaf margin images; exact-species licensed photos with attribution/rights. Existing gallery state not claimed complete by genus text."
+    }
+  ],
+  "scientific_sources": [
+    {
+      "title": "Canonical Cercis species treatment",
+      "paths": [
+        "content/taxa/Fabaceae/Cercis/cercis-canadensis-subsp-mexicana/species.json",
+        "content/taxa/Fabaceae/Cercis/cercis-canadensis-subsp-texensis/species.json"
+      ],
+      "supports": "accepted names, synonyms, settled learner roles and ranges"
+    },
+    {
+      "title": "Fritsch, Schiller & Larson (2009), Systematic Botany 34:510–520",
+      "url": "https://doi.org/10.1600/036364409789271254",
+      "supports": "overlapping morphology, young-branchlet hairs and geographic cline, not absolute leaf thresholds"
+    },
+    {
+      "title": "Trees and Shrubs Online — Cercis canadensis",
+      "url": "https://www.treesandshrubsonline.org/articles/cercis/cercis-canadensis/",
+      "supports": "traditional glabrous versus pubescent branchlet/pedicel characters and variability"
+    }
+  ],
+  "curation_status": {
+    "version": "genus-github-backfill-2026-10-11",
+    "last_reviewed": "2026-10-11",
+    "structural_lesson": "comparison matrix plus alias mapping and shot list",
+    "visual_status": "diagnostic comparative photos pending",
+    "species_installation": "none",
+    "scientific_decisions": "unchanged"
+  }
+}
