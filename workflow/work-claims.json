@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-11T15:25:20.565Z",
+  "updated_at": "2026-10-11T15:25:52.025Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7091,6 +7091,21 @@
       "notes": "5 source pool names map to 2 installed subspecies and one parent concept; no species installation or range edits",
       "released_at": "2026-10-11T15:25:20.565Z",
       "release_note": "Verified genus lesson at commit 95f950520f7762121fb93e2f542ab075932abec7"
+    },
+    {
+      "claim_id": "manual-genus-github-backfill-amorpha-20261011",
+      "scope_kind": "genus_module",
+      "families": [
+        "Fabaceae"
+      ],
+      "scope_key": "content/taxa/Fabaceae/Amorpha/genus.json",
+      "lane": "genus-github-backfill",
+      "owner": "manual-2026-10-11",
+      "status": "active",
+      "claimed_at": "2026-10-11T15:25:52.025Z",
+      "expires_at": "2026-10-11T21:25:52.025Z",
+      "release_when": "after genus lesson commit and readback",
+      "notes": "Amorpha 3 canonical taxa, morphology comparison only; no species installs or range edits"
     }
   ]
 }
