@@ -73,12 +73,13 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-source-pool-visual-fastfill-2026-10-12",
+    "version": "1.1-first-photo-annotated-2026-10-12",
     "last_reviewed": "2026-10-12",
     "range_status": "UNRESOLVED",
-    "visual_status": "one_exact_photo_cc_by_queued",
+    "visual_status": "provisional-bloom-image-annotated-more-roles-pending",
     "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_files_present": 1,
+    "arrow_annotations": 2
   },
   "images": [
     {
@@ -97,5 +98,57 @@
     "image_count": 1,
     "filled_at": "2026-10-12",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  },
+  "visual_comparison": {
+    "version": "1.0-wright-spike-photo-2026-10-12",
+    "title": "Wright's acacia: flowering SPIKE, not round head",
+    "subtitle": "Look at the same photo twice: first the cream flower spike, then the relatively broad oval leaflets.",
+    "memory_rule": "WRIGHT = ELONGATED pale flower SPIKE + larger leaflets than most Gregg's (confirm with scale).",
+    "items": [
+      {
+        "label": "FLOWER SPIKE + LEAFLETS",
+        "scientific_name": "Senegalia wrightii",
+        "image_url": "content/taxa/Fabaceae/Senegalia/senegalia-wrightii/images/01-flower-spike.jpg",
+        "image_fit": "contain",
+        "image_role": "Elongated cream inflorescence with several broad obovate leaflets",
+        "caption": "The creamy spike has many clustered little flowers; the visible oval leaves are leaflets of a twice-compound leaf. The species can resemble Gregg's catclaw in bloom; leaflets should be measured from multiple mature leaves.",
+        "creator": "Alison Northup",
+        "license": "CC BY 4.0 · iNaturalist photo 23060929",
+        "source_page": "https://www.inaturalist.org/guide_taxa/1557820",
+        "markers": [
+          {
+            "label": "long cream flower spike",
+            "label_x": 3,
+            "label_y": 17,
+            "target_x": 42,
+            "target_y": 44,
+            "verification": "directly examined Alison Northup original iNat photo 23060929, coordinates normalized"
+          },
+          {
+            "label": "broad leaflets",
+            "label_x": 58,
+            "label_y": 9,
+            "target_x": 77,
+            "target_y": 30,
+            "verification": "directly examined Alison Northup original iNat photo 23060929, coordinates normalized"
+          }
+        ]
+      }
+    ],
+    "overlay_note": "Real downloaded photo and coarse visible structure arrows; fine petiole gland, attachment of hooks and mature pod details still need exact macro images."
+  },
+  "photo_polish_status": {
+    "photo_panels": 1,
+    "diagnostic_arrows": 2,
+    "source_media_physically_installed": true,
+    "primary_complete": [
+      "flower spike with oval leaflets"
+    ],
+    "remaining": [
+      "stout recurved prickle macro",
+      "matched Gregg leaflet scale view",
+      "mature pod with ruler",
+      "isolated full bipinnate leaf"
+    ]
   }
 }
