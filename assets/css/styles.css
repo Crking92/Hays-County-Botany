@@ -356,3 +356,22 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 .inline-term{display:inline;border:0;border-bottom:2px dashed #347e67;background:rgba(255,255,255,.7);border-radius:6px;padding:.05rem .18rem;margin:0 .05rem;color:#195c49;font:inherit;font-weight:800;line-height:inherit;cursor:pointer;text-align:left}
 .inline-term b{font-size:.73em;display:inline-grid;place-items:center;border-radius:50%;width:1.15em;height:1.15em;background:#286c59;color:#fff;vertical-align:middle}
 .inline-term:hover,.inline-term:focus-visible{background:#fff3b8;outline:2px solid #e4b747;outline-offset:2px}
+
+
+/* Accessibility fix: ensure readable text on pastel diagnostic clue cards.
+   Explicit colors override inherited light-on-dark theme rules. */
+.plant-focus .cue-list>div,
+.plant-focus .cue-list>div span,
+.plant-focus .cue-list>div p,
+.plant-focus .cue-list>div strong,
+.plant-focus .cue-list>div em{color:#213a30!important;opacity:1!important}
+.plant-focus .cue-list>div>b{color:#254a36!important;background:#fff!important}
+.plant-focus .cue-list .inline-term{color:#145b46!important;background:#fff!important;border-bottom-color:#24785a!important}
+.plant-focus .cue-list .inline-term b{color:#fff!important;background:#236e53!important}
+.plant-focus .cue-list>div:nth-child(1){background:#e8f4ff!important}
+.plant-focus .cue-list>div:nth-child(2){background:#f1eaff!important}
+.plant-focus .cue-list>div:nth-child(3){background:#e8f7e9!important}
+.plant-focus .cue-list>div:nth-child(n+4){background:#e8f4ff!important}
+.plant-focus .look-card,
+.plant-focus .look-card strong,
+.plant-focus .look-card span{color:#47380e!important}
