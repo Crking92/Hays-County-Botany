@@ -179,9 +179,35 @@
     "warning": "Do not key these learner taxa primarily by flower color, overall woolliness, height, or habitat."
   },
   "curation_status": {
-    "version": "2.0-diagnostic-review",
-    "last_reviewed": "2026-10-06",
+    "version": "3.0-five-taxon-quick-key",
+    "last_reviewed": "2026-10-12",
     "lane": "scientific-diagnostic-review",
     "note": "Genus comparison expanded from two to all five current canonical learner taxa. No species installation or gallery backfill performed."
-  }
+  },
+  "quick_key": [
+    {
+      "if": "Upper leaf face has short appressed spines AND leaf bases extend as long spiny stem wings",
+      "then": "Cirsium vulgare — introduced"
+    },
+    {
+      "if": "Individual flower head has an extra collar of spiny leaflike bracts, involucre 3–5 cm",
+      "then": "Cirsium horridulum"
+    },
+    {
+      "if": "Relatively small involucre about 1.2–2 cm; broadly sessile or slightly clasping upper leaves",
+      "then": "Cirsium texanum"
+    },
+    {
+      "if": "Gray woolly plant, strongly spined phyllaries, often long spiny stem wings",
+      "then": "Cirsium ochrocentrum"
+    },
+    {
+      "if": "Gray woolly plant, broader leaves often shallowly lobed, larger heads, fruit 6–7 mm",
+      "then": "Cirsium undulatum"
+    },
+    {
+      "if": "Only a rosette or critical character unclear",
+      "then": "Cirsium sp.; don't force species"
+    }
+  ]
 }
