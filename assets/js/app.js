@@ -172,7 +172,28 @@ function termsForSpecies(sp,max){
 function termChip(id){
   const t=state.learning.terms[id];
   if(!t) return "";
+  return '<button class="term-chip" type="button" data-term="'+esc(id)+'" title="'+esc(t.plain||"Tap to learn this word")+'"><span>'+esc(t.term)+'</span><b aria-hidden="true">?</b></button>';
+}
+function clueWithTerms(value){
+  const raw=String(value||"");
+  const terms=Object.entries((state.learning&&state.learning.terms)||{})
+    .filter(function(x){return x[1]&&x[1].term&&x[1].term.length>=4;})
+    .sort(function(a,b){return b[1].term.length-a[1].term.length;});
+  const rx=new RegExp("(?<![A-Za-z])("+terms.map(function(x){return x[1].term.replace(/[.*+?^${}()|[\\]\\]/g,"\\function termChip(id){
+  const t=state.learning.terms[id];
+  if(!t) return "";
   return '<button class="term-chip" type="button" data-term="'+esc(id)+'"><span>'+esc(t.term)+'</span><b>?</b></button>';
+}");}).join("|")+")(?![A-Za-z])","gi");
+  if(!terms.length)return esc(raw);
+  const ids=new Map(terms.map(function(x){return [x[1].term.toLowerCase(),x[0]];}));
+  let out="",start=0,match;
+  while((match=rx.exec(raw))!==null){
+    out+=esc(raw.slice(start,match.index));
+    const id=ids.get(match[0].toLowerCase());
+    out+='<button class="inline-term" type="button" data-term="'+esc(id)+'" title="Learn this botanical word">'+esc(match[0])+' <b aria-hidden="true">?</b></button>';
+    start=match.index+match[0].length;
+  }
+  return out+esc(raw.slice(start));
 }
 function familySpecies(family){ return state.species.filter(function(sp){ return sp.family===family; }); }
 function generaForFamily(family){
@@ -1059,8 +1080,8 @@ function plantView(){
   out+='</section>';
   if(!state.quizMode) out+=taxonomyLadder(sp.family,sp.genus,sp)+studyPath(2);
   out+='<section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
-    '<div class="look-card emphasis"><span>🔎 FIRST CLUE · LOOK HERE</span><strong>'+esc(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
-  cues.forEach(function(x,i){ out+='<div><b aria-hidden="true">'+(i+1)+'</b><span>'+esc(x)+'</span></div>'; });
+    '<div class="look-card emphasis"><span>🔎 FIRST CLUE · LOOK HERE</span><strong>'+clueWithTerms(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
+  cues.forEach(function(x,i){ out+='<div><b aria-hidden="true">'+(i+1)+'</b><span>'+clueWithTerms(x)+'</span></div>'; });
   out+='</div><div class="study-actions"><button class="primary-button" type="button" data-family-info="'+esc(sp.family)+'">Why '+esc(sp.family)+'?</button>'+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
