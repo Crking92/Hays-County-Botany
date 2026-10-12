@@ -1,0 +1,424 @@
+{
+  "task": "Mistflower and eupatorieae photo selection: keep useful existing photographs first, then fill only demonstrable missing diagnostic roles",
+  "checked_at": "2026-10-12",
+  "governance": {
+    "authoritative_taxon_files": "content/taxa/Asteraceae/*/*/species.json",
+    "purpose": "Photo shortlist, not physical install. A status of approved_source does not mean the image bytes are present in GitHub.",
+    "reusability": "Public reuse permission applies to a specific file/license, not to a whole iNaturalist taxon page or to UT's field-picture collections.",
+    "do_not_replace_until": "New candidate actually inspected, exactly identified, rights/provenance confirmed, physically present, and linked in species images[].",
+    "native_filter": "Do not count Chromolaena odorata as project target-zone native (target range unresolved); research only."
+  },
+  "species": [
+    {
+      "id": "conoclinium-dissectum",
+      "label": "Gregg's / palmleaf mistflower",
+      "existing_gallery": {
+        "count": 5,
+        "decision": "RETAIN_PROVISIONAL",
+        "source": "iNaturalist CC BY-NC/CC BY-NC-SA exact-taxon references including Valdez observation 403412142",
+        "note": "Individual image diagnostic roles not yet visually graded against raw images. Do not claim specific iNaturalist frame shows a leaf macro without inspection. Retain existing gallery for private learner while replacing generic views opportunistically."
+      },
+      "selected": [
+        {
+          "photo_key": "gregg_existing_03_05",
+          "current_files": [
+            "images/03-same-plant-field-view-1.jpg",
+            "images/04-same-plant-field-view-2.jpg",
+            "images/05-same-plant-field-view-3.jpg"
+          ],
+          "status": "RETAIN_PROVISIONAL",
+          "source_page": "https://www.inaturalist.org/observations/403412142",
+          "license": "CC BY-NC",
+          "role": "same-observation context until examined for leaf diagnostic clarity",
+          "installed_metadata": true,
+          "public_reuse": "review"
+        },
+        {
+          "photo_key": "gregg_public_domain_habit",
+          "status": "SOURCE_APPROVED_PENDING_PHYSICAL_INSTALL",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Eupatoriumgreggii1.jpg",
+          "creator": "Stickpen",
+          "license": "Public Domain (PD-self)",
+          "source_type": "Wikimedia Commons",
+          "role": "species flowering/habit context, not a fruit or isolated-leaf macro",
+          "visual_note": "File identifies cultivated signed specimen under older Eupatorium greggii name; accepted taxon C. dissectum; inspect suitability when installing",
+          "installed_metadata": false,
+          "public_reuse": "yes"
+        }
+      ],
+      "study_only": [
+        {
+          "source_page": "https://www.sbs.utexas.edu/bio406d/images/pics/ast/conoclinium_greggii.htm",
+          "photo_url": "https://www.sbs.utexas.edu/bio406d/images/pics/ast/Conoclinium%20greggii%20leaf.jpg",
+          "role": "EXCELLENT recognizable deep lobe/dissection reference",
+          "rights": "UT teaching-page image, rights not established for reproduction; link only"
+        }
+      ],
+      "still_missing": [
+        {
+          "role": "flattened middle stem leaf including petiole",
+          "priority": 1,
+          "needed": "reuse-cleared image where deeply divided leaf blade is obvious at one glance; underside useful; with scale ideally"
+        },
+        {
+          "role": "hispidulous mature cypsela macro",
+          "priority": 1,
+          "needed": "true fruit surface with scale; don't accept mere pappus cloud"
+        },
+        {
+          "role": "single head / phyllary side macro",
+          "priority": 2,
+          "needed": "involucre and phyllary series visible at known scale"
+        }
+      ]
+    },
+    {
+      "id": "conoclinium-coelestinum",
+      "label": "Blue mistflower",
+      "existing_gallery": {
+        "count": 3,
+        "decision": "KEEP_ALL_EXISTING",
+        "source": "Commons exact-species photos with CC BY 4.0 or public domain",
+        "note": "Roles recorded in canonical manifest and metadata. Photo 1 habit, photo 2 heads+foliage, photo 3 close flowering heads; specific leaf and fruit micro-characters not proven."
+      },
+      "selected": [
+        {
+          "photo_key": "blue_existing_habit",
+          "file": "images/01-flowering-plant-context.jpg",
+          "status": "KEEP_EXISTING",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Conoclinium_coelestinum_729315062.jpg",
+          "creator": "Alex Abair",
+          "license": "CC BY 4.0",
+          "role": "whole flowering plant / context",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "blue_existing_heads_foliage",
+          "file": "images/02-blue-violet-heads-foliage.jpg",
+          "status": "KEEP_EXISTING",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Conoclinium_coelestinum_154837846.jpg",
+          "creator": "Emily Summerbell",
+          "license": "CC BY 4.0",
+          "role": "heads with upper foliage",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "blue_existing_close_heads",
+          "file": "images/03-flower-head-closeup.jpg",
+          "status": "KEEP_EXISTING",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Conoclinium_coelestinum.jpg",
+          "creator": "Kingdon",
+          "license": "Public Domain",
+          "role": "no ray florets / disk florets close-up",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        }
+      ],
+      "study_only": [
+        {
+          "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ast/conoclinium_coelestinum.htm",
+          "photo_url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ast/Eupatorium%20coelestinum%20leav.jpg",
+          "role": "exceptionally clear opposite, toothed (not dissected) leaves",
+          "rights": "UT teaching-page image; reproduction license not verified, link only"
+        },
+        {
+          "source_page": "https://www.missouriplants.com/Conoclinium_coelestinum_page.html",
+          "photo_url": "https://www.missouriplants.com/images/Conoclinium_coelestinum_leaves.jpg",
+          "role": "very good multiple intact leaf-shapes comparison",
+          "rights": "site reproduction license unverified; link only"
+        }
+      ],
+      "still_missing": [
+        {
+          "role": "isolated mature leaf diagnostic",
+          "priority": 1,
+          "needed": "rights-clear leaf showing unlobed serrate blade and three basal veins, ideally opposite arrangement with ruler"
+        },
+        {
+          "role": "mature cypsela close-up",
+          "priority": 1,
+          "needed": "glabrous fruit surface with scale; avoid fruit-length hard cutoff until FNA/Missouri Plants disagreement resolved"
+        },
+        {
+          "role": "single involucre side view",
+          "priority": 2,
+          "needed": "phyllaries distinguish from Chromolaena"
+        }
+      ]
+    },
+    {
+      "id": "ageratina-havanensis",
+      "label": "White mistflower / shrubby boneset",
+      "existing_gallery": {
+        "count": 4,
+        "decision": "RETAIN_PRIVATE_STUDY",
+        "source": "iNaturalist CC BY-NC photos; all-rights-reserved frame previously excluded from current images[]",
+        "note": "No existing specific image independently proven to show woody root crown or hairy cypsela."
+      },
+      "selected": [
+        {
+          "photo_key": "white_existing_fieldseries",
+          "current_files": [
+            "images/03-same-plant-field-view-1.jpg",
+            "images/04-same-plant-field-view-2.jpg",
+            "images/05-same-plant-field-view-3.jpg"
+          ],
+          "status": "RETAIN_PRIVATE_STUDY",
+          "source_page": "https://www.inaturalist.org/observations/367483211",
+          "license": "CC BY-NC",
+          "role": "multi-view same-individual reference; don't assert exact diagnostic macros",
+          "installed_metadata": true,
+          "public_reuse": "review"
+        },
+        {
+          "photo_key": "white_austin_zilker",
+          "status": "SOURCE_APPROVED_PENDING_PHYSICAL_INSTALL",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ageratina_havanensis_-_Zilker_Botanical_Garden_-_Austin,_Texas_-_DSC09017.jpg",
+          "creator": "Daderot",
+          "license": "CC0 1.0",
+          "role": "regional Austin flowering specimen/context; image does NOT yet prove woody base",
+          "note": "cultivated specimen at Zilker; do not treat Austin garden origin as wild county-native occurrence",
+          "installed_metadata": false,
+          "public_reuse": "yes"
+        }
+      ],
+      "study_only": [
+        {
+          "source_page": "https://www.sbs.utexas.edu/bio406d/images/pics/ast/ageratina_havanensis.htm",
+          "photo_url": "https://www.sbs.utexas.edu/bio406d/images/pics/ast/Ageratina%20havanensis%20leaf1.jpg",
+          "role": "clear mature leaf, venation, short petiole",
+          "rights": "UT teaching-page image; reuse permission unverified; link only"
+        }
+      ],
+      "still_missing": [
+        {
+          "role": "woody base and stems",
+          "priority": 1,
+          "needed": "clearly visible lignified basal branch / evergreen winter leaves"
+        },
+        {
+          "role": "hispid mature cypsela macro",
+          "priority": 1,
+          "needed": "hairy fruit surface with ruler to pair with A. altissima"
+        },
+        {
+          "role": "same-scale leaf/petiole",
+          "priority": 2,
+          "needed": "leaf length, tooth pattern and short petiole"
+        },
+        {
+          "role": "individual head side view",
+          "priority": 2,
+          "needed": "phyllary detail under magnification"
+        }
+      ]
+    },
+    {
+      "id": "ageratina-altissima",
+      "label": "White snakeroot",
+      "existing_gallery": {
+        "count": 3,
+        "decision": "KEEP_ALL_EXISTING",
+        "source": "Commons CC BY-SA 3.0, CC BY-SA 4.0 roles",
+        "note": "2 locally named images plus one external Commons URL image record, retained as-is. No unverified binary-install claim for URL-only record."
+      },
+      "selected": [
+        {
+          "photo_key": "snakeroot_existing_habit",
+          "file": "images/01-blooming-whole-plant.jpg",
+          "status": "KEEP_EXISTING",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ageratina_altissima_001.JPG",
+          "creator": "H. Zell",
+          "license": "CC BY-SA 3.0",
+          "role": "whole flowering plant",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "snakeroot_existing_heads",
+          "file": "images/02-white-discoid-heads.jpg",
+          "status": "KEEP_EXISTING",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ageratina_altissima_002.JPG",
+          "creator": "H. Zell",
+          "license": "CC BY-SA 3.0",
+          "role": "white discoid flower-head context",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "snakeroot_existing_foliage",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ageratina_altissima_SCA-5481.jpg",
+          "status": "KEEP_EXISTING_LINKED_REFERENCE",
+          "creator": "R. A. Nonenmacher",
+          "license": "CC BY-SA 4.0",
+          "role": "field foliage and flowers",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "snakeroot_seed_context",
+          "status": "SOURCE_APPROVED_PENDING_PHYSICAL_INSTALL",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ageratina_altissima_seeds,_2020-10-27,_Seldom_Seen,_01.jpg",
+          "creator": "Cbaile19",
+          "license": "CC0 1.0",
+          "role": "mature fruit/seed-head study context; microscopic glabrous cypsela surface NOT verified",
+          "installed_metadata": false,
+          "public_reuse": "yes"
+        }
+      ],
+      "still_missing": [
+        {
+          "role": "isolated glabrous fruit close-up",
+          "priority": 1,
+          "needed": "cypsela surface in focus; include mm scale rather than only pappus"
+        },
+        {
+          "role": "basal herbaceous stems",
+          "priority": 1,
+          "needed": "no persistent woody shrub framework"
+        },
+        {
+          "role": "fully expanded leaf with petiole",
+          "priority": 2,
+          "needed": "three basal veins, coarse serrations and petiole"
+        }
+      ]
+    },
+    {
+      "id": "eupatorium-serotinum",
+      "label": "Late boneset / late thoroughwort",
+      "existing_gallery": {
+        "count": 5,
+        "decision": "KEEP_FOR_NOW",
+        "source": "2 Michael Papay CC BY curated views plus 3 Joey Santore CC BY-NC same-observation field photos",
+        "note": "Preserve Joey's exact photos and credit, but grade their exact diagnostic roles only after view-by-view inspection. No additional rights-clear phyllary macro selected."
+      },
+      "selected": [
+        {
+          "photo_key": "late_existing_ccby_first",
+          "file": "images/01-curated-reference.jpg",
+          "status": "KEEP_EXISTING",
+          "source_page": "https://www.inaturalist.org/photos/353183425",
+          "creator": "Michael J. Papay",
+          "license": "CC BY",
+          "role": "existing curated exact-species overview; exact structure still to inspect",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "late_existing_ccby_second",
+          "file": "images/02-curated-reference.jpg",
+          "status": "KEEP_EXISTING",
+          "source_page": "https://www.inaturalist.org/photos/353183212",
+          "creator": "Michael J. Papay",
+          "license": "CC BY",
+          "role": "existing curated exact-species reference; exact structure still to inspect",
+          "installed_metadata": true,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "late_joey_fieldseries",
+          "current_files": [
+            "images/03-same-plant-field-view-1.jpg",
+            "images/04-same-plant-field-view-2.jpg",
+            "images/05-same-plant-field-view-3.jpg"
+          ],
+          "status": "RETAIN_PRIVATE_STUDY",
+          "source_page": "https://www.inaturalist.org/observations/398100402",
+          "creator": "Joey Santore",
+          "license": "CC BY-NC",
+          "role": "valuable Texas field-series study views; exact leaf/head use pending visual review",
+          "installed_metadata": true,
+          "public_reuse": "review"
+        }
+      ],
+      "study_only": [
+        {
+          "source_page": "https://www.missouriplants.com/Eupatorium_serotinum_page.html",
+          "photo_url": "https://www.missouriplants.com/images/Eupatorium_serotinum_involucres.jpg",
+          "role": "exceptionally clear side view of individual flower heads and phyllaries",
+          "rights": "license for redistribution not established; teaching link only"
+        }
+      ],
+      "still_missing": [
+        {
+          "role": "single head phyllary macro",
+          "priority": 1,
+          "needed": "licensed side-on head showing phyllary number/series, ideally mm scale"
+        },
+        {
+          "role": "narrow gland-dotted leaf",
+          "priority": 1,
+          "needed": "opposite mature stem-leaves top and underside with scale"
+        },
+        {
+          "role": "tall branching habit",
+          "priority": 2,
+          "needed": "base to top, demonstrating herbaceous architecture"
+        }
+      ]
+    },
+    {
+      "id": "chromolaena-odorata",
+      "label": "Fragrant mistflower (comparison research draft)",
+      "existing_gallery": {
+        "count": 0,
+        "decision": "NOT_INSTALLED",
+        "source": "research-drafts/chromolaena-odorata.json",
+        "note": "Not in data/manifest.json or Master Plant Pool; cannot label installed/county PASS. Source pages are candidates only."
+      },
+      "selected": [
+        {
+          "photo_key": "fragrant_leaf",
+          "status": "SOURCE_APPROVED_PENDING_PHYSICAL_INSTALL_AND_COMPARISON_ADMISSION",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Chromolaena_odorata_leaves_(2006).jpg",
+          "creator": "M.arunprasad",
+          "license": "CC BY 2.5 (one of uploader's explicitly offered options)",
+          "role": "three basal veins, toothed mature leaves; no measured scale",
+          "installed_metadata": false,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "fragrant_vegetative_habit",
+          "status": "SOURCE_APPROVED_PENDING_PHYSICAL_INSTALL_AND_COMPARISON_ADMISSION",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Chromolaena_odorata.jpg",
+          "creator": "L. Shyamal",
+          "license": "CC BY 2.5",
+          "role": "vegetative habit and leaves; NOT flowering",
+          "installed_metadata": false,
+          "public_reuse": "yes"
+        },
+        {
+          "photo_key": "fragrant_flowering_context",
+          "status": "SOURCE_APPROVED_PENDING_PHYSICAL_INSTALL_AND_COMPARISON_ADMISSION",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Chromolaena_odorata_flower-.jpg",
+          "creator": "Vis M",
+          "license": "CC BY-SA 4.0",
+          "role": "cluster of florets flowering context; side of single cylindrical involucre not confirmed",
+          "installed_metadata": false,
+          "public_reuse": "yes"
+        }
+      ],
+      "still_missing": [
+        {
+          "role": "cylindrical 8–10 mm involucre",
+          "priority": 1,
+          "needed": "side-on ONE head showing layered phyllaries (4–6+ series), millimeter ruler"
+        },
+        {
+          "role": "regional specimen / provenance",
+          "priority": 2,
+          "needed": "Central Texas target-zone native status unresolved; do not infer from Texas as a whole"
+        }
+      ]
+    }
+  ],
+  "next_pass_order": [
+    "First get reusable matched Gregg's dissected and blue mistflower uncut-leaf macros; UT images are excellent comparison references but require reuse-clear equivalents.",
+    "Then find hairy Ageratina havanensis mature cypsela vs glabrous Ageratina altissima true fruit surface, both under magnification.",
+    "Then find Chromolaena odorata cylindrical involucre side macro and Eupatorium serotinum phyllaries from sources allowing reuse.",
+    "Do not pad galleries with lookalike color-only flower photos."
+  ]
+}
