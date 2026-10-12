@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Regenerate learner lesson index from actual family/genus JSON files."""
+"""Regenerate learner lesson index from actual family/genus JSON files.
+
+Run automatically when lesson modules change; do not infer module completion from species counts.
+"""
 import json
 from pathlib import Path
 root=Path(__file__).resolve().parents[1]
