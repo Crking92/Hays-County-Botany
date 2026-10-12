@@ -295,7 +295,7 @@
       }
     ],
     "overlay_note": "Six species are included in this lesson; only five have existing photo references. True C. capitatus has NO verified exact-concept photo, so no look-alike image has been substituted. The existing five photographs are provisional introductions, not the requested diagnostic hair, style, sepal and fruit micrographs. Two UT-provenance photos are restricted to private study pending public-reuse permission.",
-    "study_only_intro": "Exact-species image candidates found 2026-10-12. Source links are NOT yet locally installed as diagnostic images: copyright/reuse, taxonomic identity, and visible countable details must be checked first. The MissouriPlants photos are source-site copyrighted and must stay link-only pending permissions. The Arizona Extension C. lindheimerianus photos have filename 'lindheimeri', requiring a taxonomic crosscheck. No arrows until diagnostic tips/hairs are actually resolved.",
+    "study_only_intro": "Diagnostic source-photo research updated 2026-10-12. Linked photos are for source-site study, not installed or annotated diagnostic images. Do not count unclear 4/6 style-tip photos as confirmed. Keep copyright/CC BY-NC restrictions and source-specific photographer credits. The image from Jim Conrad in Uvalde is a real local pistillate-ovary and star-hair microscope reference, but does not prove all four terminal tips or the brown-center hair character unambiguously. The ASU photograph page names C. lindheimerianus while the source file includes 'lindheimeri'; specimen identity remains on hold.",
     "study_only_photo_links": [
       {
         "label": "Prairie tea — leaf UNDERSIDE close-up (DETenaglia, MissouriPlants)",
@@ -338,6 +338,36 @@
         "url": "https://catnapin.com/WildFlowers/Weed/wzEuphorbCroton.htm",
         "look_for": "Exact-name Texas photographic reference; zoom and diagnostic structure unverified, copyright unverified.",
         "reuse": "source-site study only; rights unverified"
+      },
+      {
+        "label": "Prairie tea — local Uvalde County pistillate OVARY with style arms (Jim Conrad, 2013)",
+        "url": "https://www.backyardnature.net/n/13/130811cv.jpg",
+        "look_for": "Confirmed exact-species Uvalde County fruiting ovary photograph. Multiple pale style branches show well, but image angle does not independently resolve four endpoints, so DO NOT place four tip-count arrows.",
+        "reuse": "Jim Conrad / Backyard Nature, usage license not located; source-site link only"
+      },
+      {
+        "label": "Prairie tea — Uvalde County microscope photo of STELLATE leaf hairs (Jim Conrad, 2013)",
+        "url": "https://www.backyardnature.net/n/13/130811ct.jpg",
+        "look_for": "Real microscope view sharply reveals separate star-shaped hairs, valuable for teaching what 'stellate' means. Does NOT resolve dark brown hair centers, so should not be used as proof of the brown-dot split.",
+        "reuse": "Jim Conrad / Backyard Nature, usage license not located; source-site link only"
+      },
+      {
+        "label": "Three-seed croton — Richard Reynolds exact-species image displayed in Nathan Taylor's Croton guide",
+        "url": "https://inaturalist-open-data.s3.amazonaws.com/photos/657233/large.jpg?1391093802=",
+        "look_for": "Direct 750×1000 observation image shows several flower/fruiting heads and leaf arrangement, but individual six style tips remain too small/overlapping to annotate. Source identification linked to iNaturalist observation 515698.",
+        "reuse": "Photographer Richard Reynolds; iNaturalist photo license unverified; link only"
+      },
+      {
+        "label": "Prairie tea — UT BIO406D foliage showing clearly flipped leaf undersides",
+        "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/eup/Croton%20monanthogynus%20leafundersides.jpg",
+        "look_for": "Good exact-species leaf underside ORIENTATION image, but not a microscope photo of dark-centered stellate hairs.",
+        "reuse": "UT Austin BIO406D; photographer/reuse permission unverified; source-site link only"
+      },
+      {
+        "label": "Prairie tea — 2024 published SEM micrographs of pistillate flower (figure 3)",
+        "url": "https://www.researchgate.net/figure/Morphology-of-pistillate-flowers-of-Croton-monanthogynus-a-A-young-inflorescence-with_fig1_383520914",
+        "look_for": "Scientific plate explicitly captions two fused carpels and two bifid styles, valuable for identifying anatomy; photo is laboratory SEM / developmental series, not a comparable field macro. No redistribution without permission.",
+        "reuse": "Thaowetsuwan, Riina & Ronse De Craene (2024); publisher copyright; source-site link only"
       }
     ]
   },
@@ -391,9 +421,9 @@
     "preserve": "Species native-range states, provisional images, and underlying taxonomic holds; photo polish is nonblocking for learner use."
   },
   "curation_status": {
-    "version": "1.2-actual-source-candidate-links",
+    "version": "1.3-verified-source-photo-screening",
     "last_reviewed": "2026-10-12",
-    "status": "genus_comparison_ready_real_diagnostic_photo_candidates_partial_final_macro_polish_pending",
+    "status": "genus_comparison_ready_diagnostic_source_photo_screening_partial",
     "species_installation_changed": false,
     "range_decisions_changed": false
   },
@@ -502,5 +532,64 @@
       "A fully resolving licensed image with SIX countable terminal style tips in C. lindheimerianus."
     ],
     "instruction": "Retain previous installed provisional face photos; do NOT call this photo pass completed or annotate unclear traits. Source-site link-only references are allowed in genus lesson; reuse/install only after verifying license and image subject."
+  },
+  "diagnostic_photo_search_round_2_2026_10_12": {
+    "status": "ACTUAL_PHOTOS_VISUALLY_INSPECTED_PARTIAL_DONT_OVERCLAIM",
+    "scope": "Croton monanthogynus vs Croton lindheimerianus",
+    "new_visual_evidence": [
+      {
+        "species": "Croton monanthogynus",
+        "role": "local pistillate ovary/style",
+        "source": "Jim Conrad / Backyard Nature, Uvalde County Texas 2013",
+        "source_url": "https://www.backyardnature.net/n/13/130811cv.jpg",
+        "visual_check": "Female ovary in focus with obvious projecting pale style branches; only some arms discernible from camera angle; cannot safely arrow/count four tips.",
+        "license": "unverified; link only",
+        "priority": "high study candidate"
+      },
+      {
+        "species": "Croton monanthogynus",
+        "role": "local microscope stellate hairs",
+        "source": "Jim Conrad / Backyard Nature, Uvalde County Texas 2013",
+        "source_url": "https://www.backyardnature.net/n/13/130811ct.jpg",
+        "visual_check": "True starlike trichomes individually resolved. Dark-centered trichomes are not clearly resolved.",
+        "license": "unverified; link only",
+        "priority": "supporting morphology"
+      },
+      {
+        "species": "Croton lindheimerianus",
+        "role": "flowers/fruits on identified plant",
+        "source": "Richard Reynolds / iNaturalist 515698 cited by Nathan Taylor",
+        "source_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/657233/large.jpg?1391093802=",
+        "visual_check": "Plant and several inflorescences in focus; six style tips cannot be independently counted at available size.",
+        "license": "unverified; link only",
+        "priority": "context not diagnostic macro"
+      },
+      {
+        "species": "Croton lindheimerianus",
+        "role": "female flower with scale",
+        "source": "Arizona State University Vascular Plant Herbarium / Arizona Cooperative Extension",
+        "source_url": "https://yavapaiplants.extension.arizona.edu/croton-lindheimerianus",
+        "visual_check": "A ruler and female reproductive clusters visible, but not close enough for counting 6 style-tip endpoints. Filename uses lindheimeri; verify accession/specimen label first.",
+        "license": "CC BY-NC on site; hold subject verification",
+        "priority": "taxon identity hold"
+      },
+      {
+        "species": "Croton monanthogynus",
+        "role": "laboratory pistillate flower anatomy",
+        "source": "Thaowetsuwan, Riina & Ronse De Craene 2024, Journal of Plant Research",
+        "source_url": "https://www.researchgate.net/figure/Morphology-of-pistillate-flowers-of-Croton-monanthogynus-a-A-young-inflorescence-with_fig1_383520914",
+        "visual_check": "Figure 3 captions two bifid styles, useful anatomical study reference, not a clean matched field photograph.",
+        "license": "publisher copyrighted, link only",
+        "priority": "anatomy reference"
+      }
+    ],
+    "actual_work_done": "Viewed live source photos and excluded similarly named Croton lindheimeri from the C. lindheimerianus photo pool. Added field-credible Uvalde County photos, UT underside orientation image, and directly linked iNaturalist study photo to genotype-specific teaching notes without redistributing unlicensed sources.",
+    "outstanding": [
+      "Licensed or permissioned C. monanthogynus leaf-underside macro with unequivocal brown-centered individual stellate hairs.",
+      "Licensed or permissioned C. lindheimerianus leaf-underside macro showing absence of brown-centered stellate hairs.",
+      "Licensed or permissioned C. monanthogynus pistillate macro with four terminal style tips all visible from same specimen.",
+      "Licensed or permissioned C. lindheimerianus pistillate macro with six terminal style tips all visibly separable."
+    ],
+    "reuse_policy": "Preserve existing provisional gallery images; no unlicensed files installed. Image arrows only after actual targeted microstructure visibly verified."
   }
 }
