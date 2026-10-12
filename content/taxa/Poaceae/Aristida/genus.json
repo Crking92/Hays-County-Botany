@@ -13,13 +13,14 @@
   },
   "study_strategy": {
     "priority": [
-      "1. Find a mature intact spikelet: three awns from ONE lemma establish Aristida.",
-      "2. Compare LOWER and UPPER glume length on the SAME spikelet, excluding any bristle at their tips: purpurea usually lower ~6–8 mm vs upper ~11–15 mm; oligantha usually both ~18–25 mm.",
-      "3. Backlight the LOWER glume for veins: purpurea usually 1; oligantha usually 3–7 (some references describe 3 or 5).",
-      "4. Inspect the plant base: purpurea = persistent perennial bunch/crown with many basal leaves; oligantha = annual with wiry culms and branchy upper nodes.",
-      "5. Use panicle openness, color, awn length, and collar hairs only as backup clues; these can overlap or vary within the purple-threeawn complex."
+      "1. Isolate an intact spikelet: confirm THREE lemma awns.",
+      "2. At 10–20× inspect the central awn BASE: tight COIL + tiny 3–8 mm central awn and 1–4 mm laterals signals comparison-only A. dichotoma.",
+      "3. Are awns very long and near-equal (~35–70 mm) with 3–7 veins on lower glume? A. oligantha.",
+      "4. Annual with narrow contracted panicle, glumes ~3–9 mm and uncoiled longer CENTRAL awn than lateral ones? comparison-only A. longespica; consider varieties.",
+      "5. Persistent dense PERENNIAL bunch with shorter lower glume (~6–8 mm), longer upper (~11–15 mm), one lower vein? A. purpurea.",
+      "6. If the candidate disagrees with this four-way pattern, leave it Aristida sp.; Texas contains other Aristida taxa."
     ],
-    "warning": "Many more Aristida species occur in Central Texas than the TWO source-pool species currently installed. Do not key every local threeawn to these two; check A. longespica, A. dichotoma, and A. purpurea varieties when the morphology disagrees. Colors, long awns, and an open panicle alone do not separate them.",
+    "warning": "TWO species are canonical learner cards; A. longespica and A. dichotoma are Central Texas look-alike comparisons only. Three awns establish genus, not species. Check first: very long subequal awns and multi-veined lower glume (oligantha), coiled tiny central awn (dichotoma), narrow panicle/uncoiled unequal awns (longespica), or a persistent perennial crown plus unequal glumes (purpurea). Confirm with local voucher/authoritative key; purple tone and panicle openness alone are unreliable.",
     "shared_traits": [
       "All Aristida in this lesson are true grasses with nodes, leaf sheaths, ligules, narrow blades, and mostly one fertile floret per spikelet.",
       "The hardened lemma of one fertile floret divides into three long terminal awns. Count the three on ONE floret: adjacent awned spikelets can falsely look like a single three-pronged head.",
@@ -33,13 +34,13 @@
     ]
   },
   "curation_status": {
-    "version": "3.0-genus-visual-and-local-lookalikes",
+    "version": "3.1-local-four-way-comparison",
     "last_reviewed": "2026-10-12",
     "genus_comparison_version": "2.0-2026-10-11",
-    "comparison_state": "first-pass visual lesson ready; physical oligantha image acquisition and matched glume micros deferred",
+    "comparison_state": "two canonical species + two comparison-only local threeawns now keyed with images and source-photo links; true countable glume/awn macros deferred",
     "canonical_species_unchanged": true
   },
-  "visual_status": "fast_fill_coverage_live",
+  "visual_status": "two approved species galleries + two public-domain comparison drawings; more diagnostic photos needed",
   "visual_anchors": [
     {
       "species_id": "aristida-oligantha",
@@ -290,26 +291,30 @@
   ],
   "quick_key": [
     {
-      "if": "Spikelet does NOT have three awns from one fertile lemma",
-      "then": "Not confirmed Aristida; inspect the grass spikelet again"
-    },
-    {
-      "if": "Perennial crown; lower glume roughly HALF the upper glume; lower glume usually 1-veined",
-      "then": "Aristida purpurea"
-    },
-    {
-      "if": "Annual, wiry branched culms; TWO glumes roughly equal and long (~18–25 mm); lower glume usually 3–7-veined",
+      "if": "Very long equal-like three awns; lower glume 3–7-veined and almost as long as upper; annual",
       "then": "Aristida oligantha"
     },
     {
-      "if": "Annual with much SHORTER awns or noticeably unequal lateral vs central awns",
-      "then": "Check additional Central Texas Aristida such as A. longespica or A. dichotoma; comparison only, not installed"
+      "if": "TINY awns: central 3–8 mm with a spiral coil at base, laterals 1–4 mm; annual",
+      "then": "Aristida dichotoma — COMPARISON ONLY"
+    },
+    {
+      "if": "Annual; narrow spike-like panicle; glumes only 3–9 mm; uncoiled central awn longer than lateral ones",
+      "then": "Aristida longespica — COMPARISON ONLY"
+    },
+    {
+      "if": "Dense persistent perennial bunch; lower glume ~half upper; one lower-glume vein; long near-equal awns",
+      "then": "Aristida purpurea"
+    },
+    {
+      "if": "Unmatched or ambiguous glumes/awns or damaged annual base",
+      "then": "Aristida sp. — seek mature, intact spikelets; avoid forced identification"
     }
   ],
   "visual_comparison": {
     "title": "Threeawns — the whole plant and the single spikelet",
-    "subtitle": "These images are real existing source-attributed species photos and an archival botanical plate. Habit introduces the species; glume length and lower-glume veins are the stronger tie-breakers.",
-    "memory_rule": "THREE AWNS = Aristida. Purpurea: PERENNIAL, lower glume ~½ upper, 1 lower-glume vein. Oligantha: ANNUAL, glumes nearly equal, 3–7 lower-glume veins. Compare same-stage intact spikelets; color and overall fluffiness overlap.",
+    "subtitle": "Six exact-species and context anchors were already present for the TWO canonical learner species. Two new public-domain USDA botanical illustrations cover Central Texas A. dichotoma and A. longespica as comparison-only — not falsely installed as learner taxa.",
+    "memory_rule": "Awn checks: Oligantha = very LONG, roughly EQUAL; Purpurea = PERENNIAL bunch; Dichotoma = TINY awns, central BASE COILED; Longespica = ANNUAL narrow head with UNEQUAL awns, center NOT coiled. Verify the lower glume veins and glume ratio on the approved pair.",
     "items": [
       {
         "label": "Purple threeawn — persistent dense bunch",
@@ -376,9 +381,31 @@
         "license": "CC0 1.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_oligantha_600896755.jpg",
         "image_fit": "contain"
+      },
+      {
+        "label": "Churchmouse threeawn — short awns with curled CENTRAL base (illustration)",
+        "scientific_name": "Aristida dichotoma",
+        "image_role": "Exact-species public-domain USDA botanical illustration; NOT a photograph or a 1-mm measured macro",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristida%20dichotoma%20HC-1950.png",
+        "caption": "COMPARISON ONLY, not an installed species card. Identify the very short awns: central typically 3–8 mm with its base spirally coiled; lateral awns 1–4 mm, erect. Illustration is a structural overview, not counted as a photographed measured spikelet.",
+        "creator": "A.S. Hitchcock, revised Agnes Chase / USDA (1950)",
+        "license": "Public Domain (US federal botanical plate)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_dichotoma_HC-1950.png",
+        "image_fit": "contain"
+      },
+      {
+        "label": "Slimspike threeawn — shorter laterals and narrow panicle (illustration)",
+        "scientific_name": "Aristida longespica",
+        "image_role": "Public-domain A. longespica var. geniculata illustration, labeled to variety; NOT a photograph or proof for all varieties",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristida%20longespica%20geniculata%20HC-1950.png",
+        "caption": "COMPARISON ONLY. A. longespica is an annual with a contracted panicle and much shorter glumes than oldfield threeawn; lateral awns generally shorter than uncoiled central awn. This illustration depicts VAR. GENICULATA; do not generalize its exact lengths to all varieties. Older 'longispica' is an orthographic variant.",
+        "creator": "A.S. Hitchcock, revised Agnes Chase / USDA (1950)",
+        "license": "Public Domain (US federal botanical plate)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_longespica_geniculata_HC-1950.png",
+        "image_fit": "contain"
       }
     ],
-    "overlay_note": "Physical-media audit (2026-10-12): A. purpurea has three actual GitHub image files; A. oligantha has three exact-species remote image references, but no local images/ folder yet. The in-page images are unannotated introductions. Do not add arrows claiming glume lengths or veins until such structures are actually resolved.",
+    "overlay_note": "Four-species comparison, TWO canonical cards only (purpurea and oligantha). Two additional cards display explicitly labeled public-domain BOTANICAL ILLUSTRATIONS for the noncanonical encounter look-alikes (dichotoma, longespica var. geniculata). Do not confuse drawings with high-magnification photographic proof. Existing three local purpurea media files and three remote oligantha images remain unchanged. Final scaled spikelet photography deferred.",
     "study_only_intro": "Open these scientific-source photographs separately for anatomical training. Images are NOT copied to this learner gallery unless photographer permission/license is verified.",
     "study_only_photo_links": [
       {
@@ -404,23 +431,47 @@
         "url": "https://rangeplants.tamu.edu/plant/oldfield-threeawn/",
         "look_for": "Whole annual and branching habit versus purple threeawn; wider scope than photographed spikelet veins.",
         "reuse": "source-site reference only pending image-specific licensing"
+      },
+      {
+        "label": "Central Texas slimspike THREEAWN actual spikelet photo — Bob Harms",
+        "url": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/pages/ARLO2-9.html",
+        "look_for": "A. longespica = older spelling A. longispica at source. Photographed spikelet and glume detail; verify exact awn endpoints before placing arrows.",
+        "reuse": "Bob Harms; educational/scientific use with proper credit per source; link only here"
+      },
+      {
+        "label": "Central Texas slimspike actual panicle — Bob Harms",
+        "url": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/pages/ARLO2-i.html",
+        "look_for": "Narrow/contracted inflorescence and spikelet distribution; not a measured awn macro.",
+        "reuse": "Bob Harms; link only"
+      },
+      {
+        "label": "Churchmouse threeawn actual closeup — FloraFinder",
+        "url": "https://florafinder.org/Species/Aristida_dichotoma.php",
+        "look_for": "Actual churchmouse plant and reproductive heads; central basal coil must be checked in larger macro, not assumed from this photo.",
+        "reuse": "Photographer/license requires individual verification; link only"
+      },
+      {
+        "label": "Photographed red threeawn spikelet with glume 1/2 labels — Go Botany",
+        "url": "https://gobotany.nativeplanttrust.org/species/aristida/longespica/",
+        "look_for": "Examine glume arrangement and longer central awn; pictured New England variety should not be treated as a Hays specimen.",
+        "reuse": "Native Plant Trust photographer-specific license not granted as open gallery reuse; link only"
       }
     ]
   },
   "other_local_aristida_comparisons": {
-    "admission": "COMPARISON_REFERENCES_ONLY — these are described in UT's selected NW Hays/Travis grass list but are absent from the approved Master Plant Pool and GitHub canonical Aristida set. Do not create species records or call them three-county native-certified without review.",
+    "admission": "Two comparison-only taxa A. longespica (often misspelled longispica in UT source), A. dichotoma. No automatic source-pool admission, county native PASS, or new species cards. Other A. purpurea varieties remain ancillary comparisons.",
     "background_source": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/CommonName.html",
     "named_examples": [
       {
         "scientific_name": "Aristida longespica",
         "common_name": "Slimspike threeawn / red threeawn varieties",
-        "field_route": "Another wiry annual; much shorter lemma body and awns than A. oligantha in typical keys; examine central vs lateral awn lengths, basal glumes and scale. Old Texas labels may use longispica spelling; verify accepted concept before new card.",
-        "source": "https://gobotany.nativeplanttrust.org/species/aristida/longespica/"
+        "field_route": "Annual with a relatively narrow contracted panicle, much shorter glumes (~3–9 mm) than A. oligantha and lateral lemma awns shorter than central; central awn NOT spirally coiled at base. Length variable by variety; check A. dichotoma coil. 'longispica' in older UT page = spelling variant of longespica.",
+        "source": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/Aristida-text.html"
       },
       {
         "scientific_name": "Aristida dichotoma",
         "common_name": "Churchmouse threeawn",
-        "field_route": "Shorter, noticeably unequal awns; the central awn commonly exceeds the two laterals. Confirm from spikelets; not a three-awn species to identify as either current learner species.",
+        "field_route": "Tiny awns: central typically 3–8 mm with spirally COILED base, two straight erect shorter laterals 1–4 mm; unlike much longer, uncoiled A. oligantha awns. For A. basiramea also coiled but longer, check a real spikelet.",
         "source": "https://gobotany.nativeplanttrust.org/dkey/aristida/"
       },
       {
@@ -435,7 +486,8 @@
         "field_route": "Purple-threeawn variety with distinct shorter stout awns described by Texas A&M; retain as a variety comparison, not automatically a second species.",
         "source": "https://rangeplants.tamu.edu/plant/wright-threeawn/"
       }
-    ]
+    ],
+    "spelling_guardrail": "Aristida longespica Poir. is the accepted spelling; Aristida longispica is an orthographic variant, not a second species (ITIS 782314)."
   },
   "photo_audit_2026_10_12": {
     "status": "TWO_SPECIES_FACE_AND_AWN_GALLERIES_PRESENT_EXACT_GLUME_COMPARISON_PENDING",
@@ -456,5 +508,149 @@
       "For extra local species, verify exact morphology/accepted concepts and the source-pool approval before new image packs."
     ],
     "workflow_note": "The two approved learner taxa already exist; this pass adds genus learning media and comparison-only lookalikes without modifying range certification or creating new taxa."
+  },
+  "four_way_field_comparison_2026_10_12": {
+    "status": "FOUR_WAY_VISUAL_COMPARISON_READY; two canonical and two look-alike-only",
+    "purpose": "Prevent identification of all Central Texas threeawns as either A. purpurea or A. oligantha. Species-level treatment for noncanonical look-alikes is comparison-only pending source-pool admission and separate county/range vetting.",
+    "canonical_species_ids": [
+      "aristida-purpurea",
+      "aristida-oligantha"
+    ],
+    "comparison_only": [
+      {
+        "name": "Aristida longespica",
+        "common": "Slimspike/red threeawn",
+        "alias": "Aristida longispica (frequent older spelling in UT Central Texas gallery)",
+        "source_presence": "UT Austin's primarily NW Hays/Travis Central Texas grasses listing, not a three-county PASS",
+        "life_cycle": "Annual",
+        "first_look": "Look for relatively contracted, slender/spike-like panicle; SHORT glumes about 3–9 mm versus very long, spreading awns of A. oligantha, and distinctly shortened lateral awns versus the central awn.",
+        "awn": "Central awn length highly variable by variety: var. geniculata often 12–27 mm (or longer in some Texas treatments), laterals often 6–18 mm; var. longespica central 1–10(14) mm, laterals 0–5(8) mm.",
+        "key_splits": "Unlike A. dichotoma, the central awn is NOT spirally coiled at its base at maturity; unlike A. purpurea, plant is ANNUAL with lateral awns commonly significantly shorter than central.",
+        "caution": "Multiple varieties and intermediates. UT page writes A. longispica, an orthographic variant of accepted A. longespica, not an extra species.",
+        "references": [
+          "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=782314",
+          "https://gobotany.nativeplanttrust.org/species/aristida/longespica/",
+          "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/Aristida-text.html"
+        ]
+      },
+      {
+        "name": "Aristida dichotoma",
+        "common": "Churchmouse threeawn",
+        "source_presence": "Listed among grasses in UT Central Texas gallery (primarily NW Hays/Travis); county-level PASS not established by this reference",
+        "life_cycle": "Annual",
+        "first_look": "Start with VERY SHORT awns, particularly the central awn at maturity that is spirally COILED at the base rather than straight, and two shorter erect lateral awns.",
+        "awn": "Typical central awn ~3–8 mm, coiled at base (roughly half turn to several turns); lateral awns 1–4 mm, straight/erect, markedly shorter than central.",
+        "key_splits": "Unlike A. longespica, central awn base COILED. Unlike A. oligantha, awns tiny rather than 35–70 mm long and spreading; lower glume 1-veined rather than 3–7.",
+        "caution": "Photographs of entire heads can obscure tiny curled awns. The structure must be photographed with a ruler/macro; some other Aristida (A. basiramea) also coil the central awn but have longer awns.",
+        "references": [
+          "https://gobotany.nativeplanttrust.org/dkey/aristida/",
+          "https://gobotany.nativeplanttrust.org/species/aristida/dichotoma/",
+          "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/CommonName.html"
+        ]
+      }
+    ],
+    "comparison_matrix": [
+      {
+        "name": "Aristida purpurea",
+        "role": "canonical",
+        "duration": "Perennial dense basal tuft",
+        "panicle": "Often narrow, can be somewhat open",
+        "lower_glume": "Typically ~6–8 mm; shorter than upper ~11–15 mm, commonly 1 vein",
+        "awn": "Three long spreading near-equal awns; often 35–45 mm in typical species description",
+        "priority": "Persistent perennial crown + UNEQUAL glumes + one lower-glume vein; flower color not decisive"
+      },
+      {
+        "name": "Aristida oligantha",
+        "role": "canonical",
+        "duration": "Annual, wiry, branching",
+        "panicle": "Open, sparse and wide-spreading",
+        "lower_glume": "Typically ~18–25 mm and ~equal to upper; 3–7 veins",
+        "awn": "Three long near-equal widely spreading awns often 35–65(70) mm",
+        "priority": "Long EQUAL glumes with 3–7 lower-glume veins; long widely spread awns"
+      },
+      {
+        "name": "Aristida longespica",
+        "role": "comparison_only",
+        "duration": "Annual",
+        "panicle": "Generally contracted, narrow/spike-like",
+        "lower_glume": "About 3–9 mm; normally 1-veined (verify from specimen)",
+        "awn": "Usually UNEQUAL: central typically 1–27 mm (varies by variety), lateral usually shorter up to ~18 mm; not spirally coiled at base",
+        "priority": "NARROW panicle + relatively short glumes + SHORTER lateral awns; avoid wrong historical spelling"
+      },
+      {
+        "name": "Aristida dichotoma",
+        "role": "comparison_only",
+        "duration": "Annual",
+        "panicle": "Relatively narrow branched head",
+        "lower_glume": "Usually 1-veined; glumes typically shorter than oligantha",
+        "awn": "Very SHORT central ~3–8 mm, basal COIL; lateral ~1–4 mm, erect",
+        "priority": "Tiny awn triplet, central coiled at base. Macro required for confident call"
+      }
+    ],
+    "decision_sequence": [
+      "1. Confirm three awns from ONE lemma; if there are three awned spikelets, not three awns on one floret, re-check genus.",
+      "2. Are THREE awns very long (~35–70 mm), spread widely AND lower glume 3–7-veined? → A. oligantha.",
+      "3. Are awns VERY short, with central tip ~3–8 mm coiled at base and erect side tips ~1–4 mm? → A. dichotoma, COMPARISON ONLY.",
+      "4. Annual + narrow contracted panicle, short glumes ~3–9 mm, lateral awns shorter than uncoiled central? → A. longespica, COMPARISON ONLY (variety affects awn lengths).",
+      "5. Persistent densely rooted PERENNIAL bunch, long subequal awns, lower glume shorter than upper and typically single-veined? → A. purpurea.",
+      "6. If intermediate or characters contradictory, label Aristida sp.; check FNA/Texas flora and local voucher before forcing a species."
+    ],
+    "strongest_photographs": [
+      {
+        "taxon": "Aristida longespica",
+        "role": "annotated glume 1/glume 2 spikelet",
+        "status": "REAL PHOTO_SOURCE_ONLY",
+        "link": "https://gobotany.nativeplanttrust.org/species/aristida/longespica/",
+        "credit": "Native Plant Trust/Go Botany; click image to verify photographer/license; do not redistribute without permission"
+      },
+      {
+        "taxon": "Aristida longespica",
+        "role": "actual Central Texas slimspike spikelet (UT Bob Harms)",
+        "status": "REAL_PHOTO_SOURCE_ONLY",
+        "link": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/pages/ARLO2-9.html",
+        "credit": "Bob Harms/UT Austin PRC; educational use with attribution permitted per source collection; do not assert universal redistribution rights"
+      },
+      {
+        "taxon": "Aristida longespica",
+        "role": "Central Texas panicle and branches (UT Bob Harms)",
+        "status": "REAL_PHOTO_SOURCE_ONLY",
+        "link": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/pages/ARLO2-i.html",
+        "credit": "Bob Harms/UT Austin PRC; original-site photo"
+      },
+      {
+        "taxon": "Aristida dichotoma",
+        "role": "inflorescence close-up (FloraFinder)",
+        "status": "REAL_PHOTO_SOURCE_ONLY",
+        "link": "https://florafinder.org/Species/Aristida_dichotoma.php",
+        "credit": "FloraFinder; use as linked study photo only until copyright permission verified"
+      },
+      {
+        "taxon": "Aristida dichotoma",
+        "role": "exact species botanical plate by Hitchcock/Chase USDA",
+        "status": "PUBLIC_DOMAIN_ILLUSTRATION",
+        "link": "https://commons.wikimedia.org/wiki/File:Aristida_dichotoma_HC-1950.png",
+        "credit": "Hitchcock (revised A. Chase), USDA 1950; public domain"
+      },
+      {
+        "taxon": "Aristida longespica var. geniculata",
+        "role": "variety-specific botanical plate by Hitchcock/Chase USDA",
+        "status": "PUBLIC_DOMAIN_ILLUSTRATION",
+        "link": "https://commons.wikimedia.org/wiki/File:Aristida_longespica_geniculata_HC-1950.png",
+        "credit": "Hitchcock (revised A. Chase), USDA 1950; public domain"
+      },
+      {
+        "taxon": "Aristida longespica",
+        "role": "species-level botanical plate by Hitchcock/Chase USDA",
+        "status": "PUBLIC_DOMAIN_ILLUSTRATION",
+        "link": "https://commons.wikimedia.org/wiki/File:Aristida_longespica_HC-1950.png",
+        "credit": "Hitchcock (revised A. Chase), USDA 1950; public domain"
+      }
+    ],
+    "deferred_macro_targets": [
+      "A. dichotoma: one exact-species single spikelet with metric ruler; arrows to 3–8 mm basal-COILED central awn and two 1–4 mm side awns, each point independently resolvable.",
+      "A. longespica: same-scale central and lateral awns and uncoiled central base; representative local variety must be taxonomically documented.",
+      "Pair both new comparison taxa with current A. purpurea and A. oligantha matched glume-length/vein macros; do not mark final visual ID as locked until photographed."
+    ],
+    "geography_and_admission": "These are plausible local encounter taxa according to UT's grass list. BONAP county range verification and separate approved-source-pool admission not done; NO native PASS, species creation, or native metrics change."
   }
 }
