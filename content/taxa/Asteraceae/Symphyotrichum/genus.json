@@ -5,25 +5,42 @@
   "authority": "(Nees) G.L.Nesom",
   "common_group": "Asters",
   "project_scope": {
-    "selection_mode": "Asteraceae batch 2",
+    "selection_mode": "live 2026-10-12 manifest audit; historical B071 comparisons preserved",
     "species_ids": [
-      "symphyotrichum-divaricatum"
+      "symphyotrichum-divaricatum",
+      "symphyotrichum-drummondii",
+      "symphyotrichum-ericoides",
+      "symphyotrichum-eulae",
+      "symphyotrichum-lanceolatum-subsp-lanceolatum",
+      "symphyotrichum-oblongifolium",
+      "symphyotrichum-patens",
+      "symphyotrichum-praealtum",
+      "symphyotrichum-sericeum",
+      "symphyotrichum-subulatum"
     ],
-    "species_count": 1
+    "species_count": 10,
+    "native_range_note": "Installed learner membership does not override scientific native-range HOLD/FAIL."
   },
   "study_strategy": {
-    "priority": [
-      "habit and habitat",
-      "leaf arrangement",
-      "head structure",
-      "phyllaries",
-      "pappus/fruit"
+    "shared_traits": [
+      "Asteraceae heads consist of disk and often ray florets with enclosing phyllaries.",
+      "Compare leaf bases, hairs/glands, phyllaries, flowering arrangement and growth habit on the SAME plant.",
+      "Small white heads or lavender rays alone do not prove species."
     ],
-    "warning": "Many fall composites need comparison by structure, not just bloom color."
+    "priority": [
+      "1. Annual narrow-leaved open/diffuse heads = divaricatum; denser pyramid + SE saline context = subulatum.",
+      "2. Silver silky hairs = sericeum; tiny stiff pointed foliage + spinulose phyllaries = ericoides.",
+      "3. Deep cordate CLASPING upper leaves = patens; short oblong foliage + stalked glands = oblongifolium, but patens may also have glands.",
+      "4. Winged-petiolate serrate LOWER leaf + hairy stems = drummondii; GLABROUS peduncle + ~27–36 rays = eulae.",
+      "5. Tall wet willowleaf pair praealtum/lanceolatum needs hair lines, leaf series, peduncle bracts, measured phyllaries."
+    ],
+    "warning": "Historical genus summary said eight installed, but live manifest has ten. Most important prior ERROR was calling S. divaricatum 'white woodland aster' (Eurybia divaricata); the Symphyotrichum divaricatum species card has now been corrected. Also do not teach glands as exclusive to S. oblongifolium: S. patens varieties can have stalked glands."
   },
   "curation_status": {
-    "version": "1.1-b071",
-    "last_reviewed": "2026-10-04"
+    "version": "2.0-ten-species-structural-key",
+    "last_reviewed": "2026-10-12",
+    "canonical_species_unchanged": true,
+    "comparison_state": "all ten species taught with morphology first, specimen/diagnostic photo polish follows"
   },
   "b071_comparison": {
     "selection_mode": "B071 same-genus comparison",
@@ -162,5 +179,169 @@
       }
     ],
     "safety": "No species installation, READY marker, range PASS, approval rewrite or gallery backfill."
-  }
+  },
+  "genus_diagnostics": {
+    "leaf_base": "Compare lower, middle and upper leaves on the SAME stem: strongly clasping, winged petiole, nearly sessile, narrow-stiff, or silvery.",
+    "pubescence": "Check hairs and stalked glands on upper stems, peduncles and phyllaries using 10–20× lens.",
+    "flowering_head": "Observe head/flower rays, side-view phyllary ranks, involucre millimeter measurement, flowering-branch architecture; ray COLOR alone is not diagnostic.",
+    "developmental": "Separate short-lived annual narrow-leaved saltmarsh asters from rhizomatous perennials; observe basal crown before inferring species."
+  },
+  "species_comparison_matrix": [
+    {
+      "taxon": "Symphyotrichum divaricatum",
+      "common": "Southern annual saltmarsh aster",
+      "look_here_first": "Annual/short-lived; wiry nearly glabrous; narrow mostly sessile leaves 1–3.5 mm; small heads in VERY OPEN diffuse inflorescence",
+      "separate_from": "vs S. subulatum: denser pyramid, mostly SE saline/coastal Texas; do not confuse with Eurybia divaricata, white wood aster",
+      "photo_need": "open panicle; narrow leaf with scale; involucre",
+      "scientific_status": "source-pool taxon; range deferred"
+    },
+    {
+      "taxon": "Symphyotrichum drummondii",
+      "common": "Texas/Drummond's aster",
+      "look_here_first": "Perennial; larger serrate lower leaves taper into winged petiole; reduced narrow upper leaves; hairy stems",
+      "separate_from": "vs S. eulae: hairy flower stalks vs often glabrous; fewer rays in published treatments; local var. texanum distinctions need checked",
+      "photo_need": "matched lower/upper leaves; hairy peduncle; full head ray count",
+      "scientific_status": "PASS"
+    },
+    {
+      "taxon": "Symphyotrichum ericoides",
+      "common": "White heath aster",
+      "look_here_first": "Perennial; many tiny stiff pointed leaves and white small heads; spinulose phyllary tips",
+      "separate_from": "vs narrow-leaved annual divaricatum; do not use white ray color alone",
+      "photo_need": "leaf-tip spinule; phyllary-tip macro; branch habit",
+      "scientific_status": "PASS"
+    },
+    {
+      "taxon": "Symphyotrichum eulae",
+      "common": "Eula's/Whitehouse's aster",
+      "look_here_first": "Texas endemic; serrate scabrous leaves; spreading flower branches; glabrous peduncles; typically 27–36 rays",
+      "separate_from": "vs drummondii: leaf petiole wings, stem hairs, peduncle hairs, ray count and involucre size together",
+      "photo_need": "peduncle hairs; ray count; leaf series",
+      "scientific_status": "PASS"
+    },
+    {
+      "taxon": "Symphyotrichum lanceolatum subsp lanceolatum",
+      "common": "White panicle aster",
+      "look_here_first": "Tall moist-site rhizomatous plant with narrow leaves not strongly reduced upward; few stalk bracts",
+      "separate_from": "vs praealtum: compare hairs in lines, number of peduncle bracts and leaf series; subspecies requires voucher",
+      "photo_need": "peduncle bracts; leaf series; infraspecific determination",
+      "scientific_status": "UNRESOLVED; approved learner"
+    },
+    {
+      "taxon": "Symphyotrichum oblongifolium",
+      "common": "Aromatic/fall aster",
+      "look_here_first": "Short oblong leaves, often low bushy rhizomatous; stalked glandular hairs on upper stems/peduncles/phyllaries",
+      "separate_from": "vs patens: patens has strongly heart-clasping upper leaves, BUT patens can ALSO have glandular phyllaries",
+      "photo_need": "leaf bases on stems; glands macro; phyllary face",
+      "scientific_status": "PASS"
+    },
+    {
+      "taxon": "Symphyotrichum patens",
+      "common": "Late purple/clasping aster",
+      "look_here_first": "Strongly cordate-clasping to auriculate UPPER stem leaves; branches spreading then rising",
+      "separate_from": "vs oblongifolium: upper leaf attachment strongest; patens varies by variety and CAN have stalked glands",
+      "photo_need": "upper leaf stem junction; phyllary hair/gland",
+      "scientific_status": "PROVISIONAL"
+    },
+    {
+      "taxon": "Symphyotrichum praealtum",
+      "common": "Willowleaf aster",
+      "look_here_first": "Tall clonal rhizomatous plant with long willowlike leaves; broad panicle; possible longitudinal stem hair lines",
+      "separate_from": "vs lanceolatum: similar wet tall species; use leaf series, hair lines, peduncle bracts and phyllaries",
+      "photo_need": "stem hairs; leaf series; stalk bract count",
+      "scientific_status": "UNRESOLVED"
+    },
+    {
+      "taxon": "Symphyotrichum sericeum",
+      "common": "Western silver/silky aster",
+      "look_here_first": "Narrow leaves distinctly SILVER from dense appressed silky hairs; low wiry perennial with woody crown",
+      "separate_from": "vs other purple asters: actual appressed silky hair layer visible under 10–20×",
+      "photo_need": "leaf hair macro; woody crown",
+      "scientific_status": "PASS"
+    },
+    {
+      "taxon": "Symphyotrichum subulatum",
+      "common": "True annual saltmarsh aster",
+      "look_here_first": "Narrow-leaved annual of SE saline Texas; relatively dense PYRAMIDAL flowering array",
+      "separate_from": "vs divaricatum: more open diffuse heads in inland Central Texas; historical subulatum var. ligulatum = divaricatum concept",
+      "photo_need": "entire flower array; phyllary macro; local provenance",
+      "scientific_status": "FAIL target zone"
+    }
+  ],
+  "quick_key": [
+    {
+      "if": "Annual/short-lived; wiry nearly glabrous; narrow mostly sessile leaves 1–3.5 mm; small heads in VERY OPEN diffuse inflorescence",
+      "then": "Symphyotrichum divaricatum"
+    },
+    {
+      "if": "Perennial; larger serrate lower leaves taper into winged petiole; reduced narrow upper leaves; hairy stems",
+      "then": "Symphyotrichum drummondii"
+    },
+    {
+      "if": "Perennial; many tiny stiff pointed leaves and white small heads; spinulose phyllary tips",
+      "then": "Symphyotrichum ericoides"
+    },
+    {
+      "if": "Texas endemic; serrate scabrous leaves; spreading flower branches; glabrous peduncles; typically 27–36 rays",
+      "then": "Symphyotrichum eulae"
+    },
+    {
+      "if": "Tall moist-site rhizomatous plant with narrow leaves not strongly reduced upward; few stalk bracts",
+      "then": "Symphyotrichum lanceolatum subsp lanceolatum"
+    },
+    {
+      "if": "Short oblong leaves, often low bushy rhizomatous; stalked glandular hairs on upper stems/peduncles/phyllaries",
+      "then": "Symphyotrichum oblongifolium"
+    },
+    {
+      "if": "Strongly cordate-clasping to auriculate UPPER stem leaves; branches spreading then rising",
+      "then": "Symphyotrichum patens"
+    },
+    {
+      "if": "Tall clonal rhizomatous plant with long willowlike leaves; broad panicle; possible longitudinal stem hair lines",
+      "then": "Symphyotrichum praealtum"
+    },
+    {
+      "if": "Narrow leaves distinctly SILVER from dense appressed silky hairs; low wiry perennial with woody crown",
+      "then": "Symphyotrichum sericeum"
+    },
+    {
+      "if": "Narrow-leaved annual of SE saline Texas; relatively dense PYRAMIDAL flowering array",
+      "then": "Symphyotrichum subulatum — target-zone comparison only"
+    }
+  ],
+  "central_texas_look_here_first": [
+    "1. Southern annual saltmarsh aster — Annual/short-lived; wiry nearly glabrous; narrow mostly sessile leaves 1–3.5 mm; small heads in VERY OPEN diffuse inflorescence",
+    "2. Texas/Drummond's aster — Perennial; larger serrate lower leaves taper into winged petiole; reduced narrow upper leaves; hairy stems",
+    "3. White heath aster — Perennial; many tiny stiff pointed leaves and white small heads; spinulose phyllary tips",
+    "4. Eula's/Whitehouse's aster — Texas endemic; serrate scabrous leaves; spreading flower branches; glabrous peduncles; typically 27–36 rays",
+    "5. White panicle aster — Tall moist-site rhizomatous plant with narrow leaves not strongly reduced upward; few stalk bracts",
+    "6. Aromatic/fall aster — Short oblong leaves, often low bushy rhizomatous; stalked glandular hairs on upper stems/peduncles/phyllaries",
+    "7. Late purple/clasping aster — Strongly cordate-clasping to auriculate UPPER stem leaves; branches spreading then rising",
+    "8. Willowleaf aster — Tall clonal rhizomatous plant with long willowlike leaves; broad panicle; possible longitudinal stem hair lines",
+    "9. Western silver/silky aster — Narrow leaves distinctly SILVER from dense appressed silky hairs; low wiry perennial with woody crown",
+    "10. True annual saltmarsh aster — Narrow-leaved annual of SE saline Texas; relatively dense PYRAMIDAL flowering array"
+  ],
+  "authoritative_references": [
+    {
+      "name": "Flora of North America genus key",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=132022"
+    },
+    {
+      "name": "University of Waterloo Astereae Lab",
+      "url": "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum"
+    },
+    {
+      "name": "UT Austin Williamson County S. divaricatum morphology",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Symphyotrichum%20divaricatum.html"
+    },
+    {
+      "name": "Texas annual saltmarsh aster taxonomy comparison",
+      "url": "https://www.inaturalist.org/posts/88035-saltmarsh-asters-symphyotrichum-divaricatum-and-symphyotrichum-subulatum-in-texas"
+    },
+    {
+      "name": "S. patens variety glands and leaves",
+      "url": "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-patens"
+    }
+  ]
 }
