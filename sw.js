@@ -1,4 +1,4 @@
-const CACHE_NAME = "hays-botany-v18";
+const CACHE_NAME = "hays-botany-v19";
 const CORE = [
   "./",
   "./index.html",
