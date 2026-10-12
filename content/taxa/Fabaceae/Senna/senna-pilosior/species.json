@@ -9,7 +9,7 @@
   "common_name": "Trans-Pecos senna",
   "synonyms": [],
   "taxonomic_note": "Accepted species; Kew gives a native range from Texas to northeastern Mexico.",
-  "look_here_first": "Treat as an annual western/desert Senna comparison. Confirm with mature leaves, stipules, flowers, and pod characters rather than yellow flower color alone.",
+  "look_here_first": "Start with one mature complete leaf: this is a BIFOLIOLATE (one-pair) herbaceous PERENNIAL, not an annual. Both leaflets are relatively broad (roughly 1.3–1.8× as long as wide), hairy and often gray-toned. Magnify stem hairs for a mix of short backward-pointing hairs, tiny glandlike hairs and stiff longer setae, then confirm sepals, floral anthers and erect hairy mature pods; compare carefully against S. roemeriana and S. bauhinioides.",
   "county_occurrences_target_zone": [],
   "target_zone_count": 0,
   "native_target_zone_calculated": false,
@@ -27,20 +27,24 @@
   "native_metrics_excluded": true,
   "morphology_keys": {
     "best_field_traits": [
-      "annual herb",
-      "dry shrubland/desert association",
-      "yellow Senna flowers",
-      "hairy or pilose vegetative parts",
-      "much smaller annual habit than perennial Lindheimer's senna"
+      "herbaceous perennial (2024 peer-reviewed taxonomic flora; corrected from older annual shortcut)",
+      "exactly one leaflet pair per compound leaf",
+      "leaflets relatively broad, about 1.3–1.8 times as long as wide",
+      "mixture of short retrorse hairs, glandlike trichomes and longer stiff setae on stems",
+      "extrafloral gland at the point where the paired leaflets join",
+      "persistent sepals on developing fruit; anthers constricted below symmetric terminal pollen pore",
+      "erect oblong pods roughly 2–4 cm long, hairy/setose; can persist after opening"
     ],
-    "comparison_training": "Use annual habit, pubescence, mature leaf and stipule structure, and pods; yellow flowers alone are not diagnostic."
+    "comparison_training": "S. roemeriana is also perennial and has one leaflet pair, but its leaflets are much more narrowly lanceolate (approximately 2–9 times as long as wide). S. bauhinioides also has a single broad pair; distinguish with stiff mixed stem hairs, persistent sepals, anther/pod detail, and S. bauhinioides stout thickened style + rough seed testa. Life history, leaflet count alone and yellow flowers do not separate this trio."
   },
   "comparisons": {
     "confused_with": [
-      "other western Senna spp.",
-      "Senna lindheimeriana"
+      "Senna roemeriana",
+      "Senna bauhinioides",
+      "Senna pumilio",
+      "other western bifoliolate Senna"
     ],
-    "key_distinctions": "Annual smaller hairy desert habit versus larger perennial Lindheimer's senna; confirm with mature reproductive characters."
+    "key_distinctions": "Broad paired leaflets + retrorse hairs and stiff setae versus narrow paired leaflets in S. roemeriana; against S. bauhinioides, use floral style/anther and mature pod/seed plus indumentum; retain uncertain ID if no reproductive material."
   },
   "tags": [
     "Fabaceae",
@@ -50,22 +54,39 @@
     "Learner approved"
   ],
   "curation_status": {
-    "version": "1.0-range-hold-2026-10-06",
+    "version": "1.1-2026-10-12-morphology-corrected",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "user_approved": true,
     "range_exception": true,
-    "last_reviewed": "2026-10-06"
+    "last_reviewed": "2026-10-12",
+    "visual_status": "visual_incomplete_missing_verified_photo",
+    "taxonomic_status_preserved": true,
+    "range_status_preserved": true
   },
   "diagnostic_image_needs": [
-    "whole annual habit",
-    "compound leaf",
-    "stipules",
-    "flower",
-    "pod",
-    "pubescence macro"
+    "whole herbaceous perennial habit with scale",
+    "ONE entire mature compound leaf showing exactly two broad leaflets",
+    "sharp true-macro of the three kinds of stem hairs and the leaf junction gland",
+    "flower closeup with stamens and persistent sepals",
+    "erect mature hairy pod and opening valves",
+    "side-by-side S. roemeriana narrow paired leaves and S. bauhinioides broad paired leaves at the same scale"
   ],
-  "photo_note": "Exact diagnostic imagery remains later enrichment."
+  "photo_note": "2026-10-12 audit: zero images[] and no verified final picture. iNaturalist species gallery is only a candidate source, not approved/photo installed. Do not use stock/Getty images; check each exact observation, copyright license and photographer before choosing files.",
+  "photo_candidate_sources": [
+    {
+      "label": "iNaturalist taxon gallery — candidates only, requires specific observation review",
+      "url": "https://www.inaturalist.org/taxa/168849-Senna-pilosior",
+      "license_status": "not evaluated; no licensed photograph selected"
+    }
+  ],
+  "botanical_source_notes": [
+    {
+      "source": "Estrada-Castillón et al. 2024, Plants 13(17):2477",
+      "url": "https://www.mdpi.com/2223-7747/13/17/2477",
+      "finding": "Peer-reviewed account calls S. pilosior herbaceous perennial, with one broad pair of leaflets and mixed stem trichomes, and an erect hairy persistent fruit."
+    }
+  ]
 }
