@@ -172,7 +172,7 @@
     "version": "2.1-2026-10-12-source-conflict-photo-candidate-scout",
     "last_reviewed": "2026-10-12",
     "morphology_correction": "S. pilosior perennial and bifoliolate, not annual. Range county count audit flagged, not silently overwritten.",
-    "visual_status": "diagnostic_photo_polish_required"
+    "visual_status": "comparison-photo-plan-attached; full 3-way sourced plate pending"
   },
   "look_here_first": "Count the leaflets on ONE entire mature compound leaf: usually 4–8 pairs leads to S. lindheimeriana; just ONE pair leads to S. roemeriana / S. pilosior / S. bauhinioides. Among one-pair species measure leaflet width, hair type and reproductive structures. Life history of S. pilosior is unresolved between authorities.",
   "shared_traits": {
@@ -295,6 +295,89 @@
       ],
       "source": "https://www.biosurveys.org/taxon/senna-pilosior-168849",
       "required_next_gate": "Select exact iNaturalist observation+photo IDs, verify a diagnostic image and actual file, preserve full provenance, then install through photo pipeline."
+    },
+    "matched_comparison": {
+      "visual_objective": "Same-scale paired-leaf closeups and one reproductive closeup for all three bifoliolate Senna: S. roemeriana, S. pilosior, S. bauhinioides. Never use a photo of one species to fill another's role.",
+      "composite_status": "partially sourced; waiting for verified pilosior and bauhinioides images",
+      "source_panels": [
+        {
+          "panel": "A",
+          "taxon": "Senna roemeriana",
+          "source": "existing canonical species media",
+          "photo_ref": "content/taxa/Fabaceae/Senna/senna-roemeriana/images/02-two-leaflets.jpg",
+          "role": "single whole compound leaf with two narrow leaflets",
+          "label_targets": [
+            "one petiole",
+            "one rachis",
+            "left leaflet",
+            "right leaflet",
+            "small interfoliolar gland only if physically visible"
+          ],
+          "quality_gate": "Confirm all structures in uncropped source; add gland arrow only when it truly appears in the photograph.",
+          "copyright": "UT Austin BIO406D; rights-unverified-private-study; prohibit public redistribution pending rights check",
+          "status": "metadata source wired in species; exact pixel-level arrow audit pending"
+        },
+        {
+          "panel": "B",
+          "taxon": "Senna pilosior",
+          "source": "candidate photos from exact-species iNaturalist index",
+          "preferred_credits": [
+            "Robb Hannawacker CC0",
+            "Austin R. Kelly CC BY",
+            "Dr. Alison Northup CC BY",
+            "Joey Santore CC BY-NC as private-study fallback"
+          ],
+          "photo_ref": null,
+          "role": "two relatively broad leaflets plus retrorse and longer stiff stem hairs",
+          "label_targets": [
+            "two leaflets on ONE leaf",
+            "gland between leaflet insertion",
+            "short retrorse stem hairs",
+            "long stiff setae"
+          ],
+          "quality_gate": "Record actual iNaturalist observation ID/photo ID, original creator/license, visually confirm leaf count and hairs, verify binary; do not populate images[] until complete.",
+          "status": "photo-not-installed"
+        },
+        {
+          "panel": "C",
+          "taxon": "Senna bauhinioides",
+          "source": "external comparison only; indexed photos need licenses checked",
+          "photo_ref": null,
+          "role": "paired broadly oblong leaflets and separate reproductive macro",
+          "label_targets": [
+            "paired leaflets",
+            "style (on flower macro)",
+            "rough seed coat (on mature seed macro)"
+          ],
+          "quality_gate": "Search for CC0, CC BY or CC BY-NC exact-species licensed source; confirm taxon from photo/source and pubescence; no substitution with pilosior.",
+          "status": "photo-not-installed"
+        }
+      ],
+      "second_round": [
+        {
+          "comparison": "roemeriana versus pilosior",
+          "scale": "leaf pairs at a common centimeter scale",
+          "key_readout": "leaflet proportion: roemeriana narrowly lanceolate, pilosior broader + mixed setae"
+        },
+        {
+          "comparison": "pilosior versus bauhinioides",
+          "scale": "closeups with equivalent magnification",
+          "key_readout": "stem hair types, style width/shape and mature seed coat: photo alone may be insufficient"
+        },
+        {
+          "comparison": "lindheimeriana versus roemeriana",
+          "scale": "single entire compound leaf per species",
+          "key_readout": "4–8 velvet leaflet pairs versus one narrow leaflet pair",
+          "extra_source": "content/taxa/Fabaceae/Senna/senna-lindheimeriana/images/senna-lindheimeriana_leaflet-hairs-source-label_06-00.jpg (hair only, not entire leaf)"
+        }
+      ],
+      "photo_review_rules": [
+        "No unverified image URLs or unlicensed stock art.",
+        "Do not infer an arrow coordinate from a filename; inspect full image.",
+        "Keep source license and photographer attribution with image object.",
+        "Public-facing re-use rights and private study rights separate.",
+        "Only mark complete after exact physical media verified and wired to species.json images[]."
+      ]
     }
   },
   "scientific_guardrails": {
