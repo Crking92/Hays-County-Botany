@@ -49,11 +49,14 @@
     }
   ],
   "curation_status": {
-    "version": "1.1-visual-comparison-matrix",
+    "version": "1.2-licensed-photo-and-verified-arrow-pass",
     "last_reviewed": "2026-10-12",
     "learner_comparisons": "installed_text",
-    "photo_arrow_status": "pending_diagnostic_matching",
-    "preserve_existing_photos": true
+    "photo_arrow_status": "four correct-structure markers; decisive matched leaf macros pending",
+    "preserve_existing_photos": true,
+    "genus_photo_overlay_items": 4,
+    "genus_photo_overlay_markers": 4,
+    "visual_source_rights": "verified four Wikimedia CC licenses; UT/USGS references link-only"
   },
   "look_here_first": "Look at LEAVES and the whole flower-spike architecture before flower color. Broad rough leaves vs finely divided vs 3-lobed vs gray-hairy vs narrow unlobed are the fastest splits. Then compare whether spikes are long and slender or numerous, short and compact. Brazilian vervain is an introduced comparison, never a target-native recommendation.",
   "shared_traits": [
@@ -256,7 +259,7 @@
     {
       "comparison": "V. halei vs V. canescens",
       "needed": "Matched lower mature leaves, same-scale hairs along leaf blade and rachis, whole-plant height",
-      "status": "photo-matching and arrows pending"
+      "status": "flower/spike arrow coverage now present; matched leaf/stem hairs still pending"
     },
     {
       "comparison": "V. halei vs V. xutha",
@@ -305,5 +308,127 @@
       "photo_metadata_count": 1,
       "display": "local provisional"
     }
+  ],
+  "visual_comparison": {
+    "title": "Real-photo Verbena field key · spike and hair structures",
+    "subtitle": "Four species photographed from verified exact-species Creative Commons sources. Follow arrows to the precise part being taught, then compare the matching leaves for species-level confirmation.",
+    "memory_rule": "Halei: thin branched spikes · Canescens: dense short hairs · Xutha: coarse flowering axis + lobed foliage · Brasiliensis: many tiny compact heads. Flower color alone is a trap.",
+    "items": [
+      {
+        "label": "Texas vervain · slender spike",
+        "scientific_name": "Verbena halei",
+        "image_role": "elongated flowering spike with open flower spacing",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/Verbena_halei.jpg/960px-Verbena_halei.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Verbena_halei.jpg",
+        "creator": "Annika Lindqvist",
+        "license": "CC BY 4.0",
+        "image_fit": "contain",
+        "caption": "Notice the slender flower spike and its spaced individual flowers. This view does NOT show the decisive lower-leaf shape; use the linked leaf references for that confirmation.",
+        "markers": [
+          {
+            "label": "slender flowering spike",
+            "label_x": 7,
+            "label_y": 12,
+            "target_x": 44,
+            "target_y": 38
+          }
+        ],
+        "visual_status": "source_photo_verified; annotated_spike; diagnostic_lower_leaf_pending"
+      },
+      {
+        "label": "Gray vervain · short stiff hairs",
+        "scientific_name": "Verbena canescens",
+        "image_role": "spike rachis / calyx hair macro",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Verbena_canescens.jpg/960px-Verbena_canescens.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Verbena_canescens.jpg",
+        "creator": "Alison Northup",
+        "license": "CC BY 4.0",
+        "image_fit": "contain",
+        "caption": "Look along the side of the central flower axis, just behind the open bloom. The short, stiff hairs are visible. For final separation from V. halei, a matching LEAF-and-STEM hair macro is still needed.",
+        "markers": [
+          {
+            "label": "short stiff hairs",
+            "label_x": 5,
+            "label_y": 14,
+            "target_x": 51,
+            "target_y": 33
+          }
+        ],
+        "visual_status": "source_photo_verified; annotated_spike_hairs; matched_leaf_macro_pending"
+      },
+      {
+        "label": "Gulf vervain · developing spike",
+        "scientific_name": "Verbena xutha",
+        "image_role": "single flowering spike, buds and floral bracts",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Verbena_xutha.jpg/960px-Verbena_xutha.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Verbena_xutha.jpg",
+        "creator": "Wendy McCrady",
+        "license": "CC BY 4.0",
+        "image_fit": "contain",
+        "caption": "The spike is clear; note its bud-bearing upper portion and open flowers lower down. The repeatedly 3-lobed LEAVES are the better species distinction and are not visible in this view.",
+        "markers": [
+          {
+            "label": "developing buds / bracts",
+            "label_x": 5,
+            "label_y": 8,
+            "target_x": 41,
+            "target_y": 24
+          }
+        ],
+        "visual_status": "source_photo_verified; annotated_spike; key_leaf_macro_pending"
+      },
+      {
+        "label": "Introduced Brazilian vervain · compact heads",
+        "scientific_name": "Verbena brasiliensis",
+        "image_role": "short terminal flower spikes on branched flowering stem",
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Verbena_brasiliensis.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Verbena_brasiliensis.jpg",
+        "creator": "NOZO",
+        "license": "CC BY-SA 3.0",
+        "image_fit": "contain",
+        "caption": "Each short compact flowering tip sits on a branched inflorescence. Compare with the much longer, thinner spikes and broad coarse leaves of native V. scabra. Introduced; not a local native planting species.",
+        "markers": [
+          {
+            "label": "short, compact spike tip",
+            "label_x": 5,
+            "label_y": 80,
+            "target_x": 37,
+            "target_y": 29
+          }
+        ],
+        "visual_status": "source_photo_verified; annotated_short_spike; full_habit_and_leaf_comparison_pending"
+      }
+    ],
+    "overlay_note": "Arrows are learner-added SVG overlays, not part of the source photographs. Photo credits/licensing accompany each image. These verified markers identify the photographed flowering structures only. No leaf-hair or 3-lobe arrow has been installed without a clearly verified leaf image.",
+    "study_only_intro": "These original-site pages show the more decisive LEAF diagnostic structures. They are reference links, not reused embedded photographs because reproduction permissions have not been established.",
+    "study_only_photo_links": [
+      {
+        "label": "UT BIO406D · gray vervain leaf/stem hair photos",
+        "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/vrb/verbena_canescens.htm",
+        "look_for": "Dense hairs on leaf margins and stems compared with halei; flower view is not sufficient.",
+        "reuse": "source link only"
+      },
+      {
+        "label": "UT BIO406D · Texas vervain leaf",
+        "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/vrb/verbena_halei.htm",
+        "look_for": "Variable divided lower leaf and square stem; compare to gray vervain.",
+        "reuse": "source link only"
+      },
+      {
+        "label": "UT BIO406D · Gulf vervain leaf",
+        "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/vrb/verbena_xutha.htm",
+        "look_for": "Leaf lobes and pubescence; compare to the slender spike only after leaf check.",
+        "reuse": "source link only"
+      },
+      {
+        "label": "USGS Plants of Louisiana · Texas vervain leaf photo",
+        "url": "https://warcapps.usgs.gov/PlantID/Species/Details/1254",
+        "look_for": "Deeply lobed leaf with pronounced central vein; photograph referenced without copying source.",
+        "reuse": "source link only"
+      }
+    ]
+  },
+  "overlap_cautions": [
+    "Variable leaf lobing: gray vervain may display some lobed leaves. Compare position on the shoot and especially short stiff hairs rather than deciding based on a single lobed blade."
   ]
 }
