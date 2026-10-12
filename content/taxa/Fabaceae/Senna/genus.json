@@ -298,7 +298,7 @@
     },
     "matched_comparison": {
       "visual_objective": "Same-scale paired-leaf closeups and one reproductive closeup for all three bifoliolate Senna: S. roemeriana, S. pilosior, S. bauhinioides. Never use a photo of one species to fill another's role.",
-      "composite_status": "partially sourced; waiting for verified pilosior and bauhinioides images",
+      "composite_status": "Senna bauhinioides: 3 verified licensed external photo anchors, not yet installed; S. pilosior still awaiting individually identified and visually verified photo; S. roemeriana canonical photo pending annotation.",
       "source_panels": [
         {
           "panel": "A",
@@ -341,8 +341,8 @@
         {
           "panel": "C",
           "taxon": "Senna bauhinioides",
-          "source": "external comparison only; indexed photos need licenses checked",
-          "photo_ref": null,
+          "source": "Wikimedia Commons iNaturalist2Commons; exact observation and photo metadata validated (CC BY 4.0)",
+          "photo_ref": "https://commons.wikimedia.org/wiki/File:Senna_bauhinioides_25258030.jpg",
           "role": "paired broadly oblong leaflets and separate reproductive macro",
           "label_targets": [
             "paired leaflets",
@@ -350,7 +350,60 @@
             "rough seed coat (on mature seed macro)"
           ],
           "quality_gate": "Search for CC0, CC BY or CC BY-NC exact-species licensed source; confirm taxon from photo/source and pubescence; no substitution with pilosior.",
-          "status": "photo-not-installed"
+          "status": "three exact-species comparison photos individually inspected and rights-checked; external references recorded; actual repo media not installed",
+          "photos": [
+            {
+              "role": "single paired compound leaf; broad paired leaflet proportions; gland region visible but gland identity needs confirmation before arrow",
+              "photo_id": 25258030,
+              "observation_id": 16738390,
+              "creator": "Alex Abair",
+              "license": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "page": "https://commons.wikimedia.org/wiki/File:Senna_bauhinioides_25258030.jpg",
+              "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/24/Senna_bauhinioides_25258030.jpg",
+              "date": "2018-09-20",
+              "image_inspected": true,
+              "photo_role_verified": true,
+              "creator_license_source_verified": true,
+              "repo_binary_verified": false,
+              "learner_installed": false,
+              "proposed_overlay": "Outline one common attachment and point separately to two broad leaflets; do not claim gland proven without close inspection."
+            },
+            {
+              "role": "flower face with unequal stamens/anthers visible (style macro not resolved)",
+              "photo_id": 25257991,
+              "observation_id": 16738390,
+              "creator": "Alex Abair",
+              "license": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "page": "https://commons.wikimedia.org/wiki/File:Senna_bauhinioides_25257991.jpg",
+              "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Senna_bauhinioides_25257991.jpg",
+              "date": "2018-09-20",
+              "image_inspected": true,
+              "photo_role_verified": true,
+              "creator_license_source_verified": true,
+              "repo_binary_verified": false,
+              "learner_installed": false,
+              "proposed_overlay": "Mark cluster of central stamens and uneven petals; do not assert visible style without macro."
+            },
+            {
+              "role": "mature open pod showing two valves, hair fringes and seed positions; seeds are NOT present as isolated macro",
+              "photo_id": 11337502,
+              "observation_id": 8498797,
+              "creator": "Alex Abair",
+              "license": "CC BY 4.0",
+              "license_url": "https://creativecommons.org/licenses/by/4.0/",
+              "page": "https://commons.wikimedia.org/wiki/File:Senna_bauhinioides_11337502.jpg",
+              "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Senna_bauhinioides_11337502.jpg",
+              "date": "2017-10-19",
+              "image_inspected": true,
+              "photo_role_verified": true,
+              "creator_license_source_verified": true,
+              "repo_binary_verified": false,
+              "learner_installed": false,
+              "proposed_overlay": "Arrow at opened legume valves and seed attachment scars; not usable for claim about testa roughness."
+            }
+          ]
         }
       ],
       "second_round": [
@@ -377,6 +430,12 @@
         "Keep source license and photographer attribution with image object.",
         "Public-facing re-use rights and private study rights separate.",
         "Only mark complete after exact physical media verified and wired to species.json images[]."
+      ],
+      "remaining_requests": [
+        "S. pilosior: retrieve individual photo_id and observation_id, inspect full pixels and copyright, verify physical binary before creating canonical image refs.",
+        "S. bauhinioides: attach currently verified external-reference photos to genus comparison viewer or installer as licensed comparison media; do not create new species card without Master Source Pool admission review.",
+        "S. bauhinioides: seed testa macro still missing; do not overlabel empty pod as a seed image.",
+        "S. roemeriana: inspect existing UT leaf file before locating nectary arrow."
       ]
     }
   },
