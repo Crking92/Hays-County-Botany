@@ -7,27 +7,34 @@
   "common_group": "Milkweeds",
   "taxonomic_status": {
     "accepted_genus": true,
-    "kew_note": "Plants of the World Online accepts Asclepias L.; the genus contains many species globally. This project file tracks only the curated target-zone species."
+    "kew_note": "Kew Plants of the World Online accepts Asclepias L. This learner includes locally verified native species, nonlocal comparisons, and the explicitly introduced tropical milkweed comparison; inclusion does not imply county nativity."
   },
   "project_scope": {
-    "curated_species_count": 6,
+    "curated_species_count": 11,
     "all_current_species_installed_locally": true,
-    "all_current_species_meet_project_three_county_rule": true,
+    "all_current_species_meet_project_three_county_rule": false,
     "species_ids": [
       "asclepias-asperula",
+      "asclepias-curassavica",
+      "asclepias-incarnata",
       "asclepias-oenotheroides",
+      "asclepias-speciosa",
+      "asclepias-syriaca",
       "asclepias-texana",
       "asclepias-tuberosa",
       "asclepias-verticillata",
+      "asclepias-viridiflora",
       "asclepias-viridis"
-    ]
+    ],
+    "installed_species_count": 11,
+    "project_scope_note": "Eleven learner cards including explicit introduced and nonlocal comparisons. Previous six-species project scope is historical."
   },
   "genus_diagnostics": {
-    "habit": "Perennial herbs in the current Central Texas project set; stems may be erect, ascending, decumbent, or clumping.",
+    "habit": "Mostly perennial herbs in local native set; A. curassavica is an introduced garden species that can behave as a subshrub or annual according to climate.",
     "latex": "Most project species produce milky latex; Asclepias tuberosa is the major exception here with clear/watery sap.",
     "inflorescence": "Umbel-like milkweed flower clusters, terminal and/or axillary depending on species.",
     "flower": "Five reflexed or spreading corolla lobes surrounding a highly specialized gynostegium.",
-    "corona": "Five hood-like corona structures; internal horns may be present or absent and are strongly diagnostic among species.",
+    "corona": "Five hood-like corona structures, usually with species-specific shape; internal horns can be present, reduced or absent. Hoods and horns are not the same thing; both A. viridis and local A. asperula have hoods, but the binary 'asperula horned / viridis hornless' rule is incorrect.",
     "gynostegium": "Fused reproductive column with anther wings, stigmatic slits, corpuscula, translator arms, and paired pollinia.",
     "fruit": "Follicles containing flattened seeds with silky comas."
   },
@@ -36,7 +43,7 @@
     "Leaf arrangement: alternate, opposite, or whorled",
     "Leaf width and margin shape",
     "Umbel position and density",
-    "Corona hood length and presence/absence of horns",
+    "Corona hood shape and length relative to corolla lobes; independently check true horn versus hood",
     "Flower color",
     "Growth habit"
   ],
@@ -63,19 +70,19 @@
     },
     {
       "step": 5,
-      "if": "Leaves narrow lanceolate to linear-lanceolate with narrow pointed tips; dense terminal cluster",
+      "if": "Narrow lanceolate/linear-lanceolate, sharply tapering leaves; often rocky-site clumps, crowded near-spherical umbel; five hoods, but no reliable projecting-horn difference from viridis",
       "then": "Asclepias asperula"
     },
     {
       "step": 6,
-      "if": "Leaves broader oblong to ovate with blunter tips; green flowers with purple-toned central structures",
+      "if": "Broader oblong/ovate, more blunt-tipped leaves; pale green corolla lobes with shorter purple-tinged hoods; compare corona length relative to corolla lobes",
       "then": "Asclepias viridis"
     }
   ],
   "study_notes": [
     "Do not identify milkweeds by flower color alone.",
     "The corona and gynostegium are among the highest-value structures for difficult identifications.",
-    "Leaf phyllotaxy plus sap type often narrows the six-species project set very quickly.",
+    "Leaf arrangement plus sap type often narrows the locally native subset; this learner additionally includes introduced and nonlocal look-alike cards.",
     "Asclepias subverticillata is treated as a separate species from Asclepias verticillata."
   ],
   "source_notes": [
@@ -85,10 +92,12 @@
     "BONAP used as the primary county-level range authority for project species."
   ],
   "curation_status": {
-    "version": "1.1-b069",
+    "version": "1.2-milkweed-pair-corrected-tropical-added",
     "genus_summary_updated": true,
     "six_species_curated": true,
-    "last_reviewed": "2026-10-04"
+    "last_reviewed": "2026-10-12",
+    "installed_species_count": 11,
+    "photo_annotation_status": "planned_not_yet_overlaid"
   },
   "b069_comparison": {
     "selection_mode": "B069 same-genus comparison",
@@ -96,9 +105,7 @@
       "asclepias-viridiflora"
     ],
     "species_count": 1,
-    "holds": [
-      "asclepias-incarnata"
-    ],
+    "holds": [],
     "nonlocal_comparisons": [
       "asclepias-speciosa",
       "asclepias-syriaca"
@@ -107,6 +114,10 @@
       "asclepias-viridis",
       "asclepias-asperula",
       "asclepias-oenotheroides"
+    ],
+    "historical_hold_note": "Historical B069 snapshot; A. incarnata range HOLD was resolved later and should not be interpreted as current.",
+    "resolved_historical_holds": [
+      "asclepias-incarnata"
     ]
   },
   "b069_study_strategy": {
@@ -123,9 +134,190 @@
   "b069_comparison_lesson": {
     "quick_split": [
       "A. viridiflora — compact greenish umbels, opposite leaves, local PASS.",
-      "A. incarnata — wet-site plant with narrow opposite leaves and pink umbels; range HOLD pending exact counties.",
+      "A. incarnata — wet-site plant with narrow opposite leaves and pink umbels; historical range HOLD was resolved to PASS in October 2026.",
       "A. speciosa — tall white-tomentose western/northern milkweed with large pinkish umbels; target-zone FAIL.",
       "A. syriaca — tall clonal common milkweed with broad leaves and pink-purple umbels; non-Texas-native comparison."
     ]
-  }
+  },
+  "expanded_quick_reference": [
+    {
+      "taxon": "Asclepias incarnata",
+      "learner_role": "TARGET_NATIVE_CONFIRMED",
+      "look_here_first": "Moist site; opposite narrow leaves and conspicuous pink umbels."
+    },
+    {
+      "taxon": "Asclepias viridiflora",
+      "learner_role": "TARGET_NATIVE_CONFIRMED",
+      "look_here_first": "Compact greenish upper-axillary flower clusters; inspect reproductive structure vs green milkweed."
+    },
+    {
+      "taxon": "Asclepias speciosa",
+      "learner_role": "NONLOCAL_COMPARISON",
+      "look_here_first": "Tall woolly western milkweed; broad hairy leaves and big rose-purple umbels; target-zone FAIL."
+    },
+    {
+      "taxon": "Asclepias syriaca",
+      "learner_role": "NONLOCAL_COMPARISON",
+      "look_here_first": "Tall broad opposite leaves; round pink umbels and stout follicles; target-zone FAIL."
+    },
+    {
+      "taxon": "Asclepias curassavica",
+      "learner_role": "NON_NATIVE_COMPARISON",
+      "look_here_first": "Usually red corolla with bright yellow corona, opposite leaves and milky sap; introduced in Texas."
+    }
+  ],
+  "comparison_cards": [
+    {
+      "id": "asclepias-viridis-vs-asclepias-asperula",
+      "title": "Green milkweed vs antelopehorns: look at the LEAF first",
+      "taxon_ids": [
+        "asclepias-viridis",
+        "asclepias-asperula"
+      ],
+      "look_here_first": "First compare mature leaf width and tip shape; then flower corona-to-corolla proportions. Do not call one species 'hoodless' or claim that the presence of a projecting horn is the defining split.",
+      "field_matrix": [
+        {
+          "character": "Leaf width and outline",
+          "viridis": "Mostly broad oblong–ovate; frequently roughly 1–6 cm wide",
+          "asperula": "Mostly narrow lanceolate–linear-lanceolate; often roughly 0.4–3.7 cm wide",
+          "strength": "strong (with overlap)"
+        },
+        {
+          "character": "Leaf apex",
+          "viridis": "Obtuse/rounded to shortly acute",
+          "asperula": "Attenuate/narrowly acuminate to acute",
+          "strength": "strongest quick vegetative cue"
+        },
+        {
+          "character": "Corona and true horn",
+          "viridis": "Five hoods; no projecting horn; tiny internal rudiment may occur",
+          "asperula": "Five hoods; subsp. capricornu documented without an enclosed horn",
+          "strength": "not reliable as binary split"
+        },
+        {
+          "character": "Corona vs corolla lobe",
+          "viridis": "Corona segments shorter than half corolla lobe length (FNA)",
+          "asperula": "Corona relatively longer by comparison; check flower in same side view",
+          "strength": "helpful flowering confirmation"
+        },
+        {
+          "character": "Umbel",
+          "viridis": "Crowded terminal, may have a few upper lateral umbels",
+          "asperula": "Often very crowded terminal hemispherical/globose clusters",
+          "strength": "supporting only"
+        },
+        {
+          "character": "Site / habit",
+          "viridis": "Often deeper prairie/valley soils; spreading or ascending",
+          "asperula": "Often rocky uplands; ascending to decumbent and clustered",
+          "strength": "supporting only"
+        }
+      ],
+      "botanical_terms": [
+        {
+          "term": "corolla lobe",
+          "explain": "The five larger pale green petal-like lobes surrounding the center."
+        },
+        {
+          "term": "hood",
+          "explain": "One of five cup/pouch-like units making the corona near the flower center."
+        },
+        {
+          "term": "horn",
+          "explain": "A separate, sometimes projecting appendage arising within a hood in some Asclepias; not synonymous with the hood."
+        }
+      ],
+      "photo_pair_targets": [
+        {
+          "role": "mature leaf apex, matched scale",
+          "left": "green oblong blunt tip",
+          "right": "antelopehorn narrow tapering tip",
+          "arrow": "exact outer leaf tip and widest blade point",
+          "status": "pending matched annotation"
+        },
+        {
+          "role": "side flower same magnification",
+          "left": "shorter corona / longer corolla",
+          "right": "relatively longer corona",
+          "arrow": "hood, horn location, corolla lobe lengths",
+          "status": "pending macro verification"
+        },
+        {
+          "role": "whole plant + umbel",
+          "left": "broader leaf framework",
+          "right": "narrow foliage + often globose inflorescence",
+          "arrow": "top of umbel and foliage",
+          "status": "existing sources; matching/annotation pending"
+        }
+      ],
+      "caution": "Hybrids exist in other parts of the southern Great Plains. No single general photo, growth habit or umbel roundness proves identity.",
+      "references": [
+        "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_w7000_1803.pdf",
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Asclepias%20viridis",
+        "https://w3.biosci.utexas.edu/prc/K12/pdf/Asclepias%20asperula%20capricornu",
+        "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416119"
+      ],
+      "reviewed_at": "2026-10-12"
+    },
+    {
+      "id": "asclepias-tuberosa-vs-asclepias-curassavica",
+      "title": "Butterfly milkweed vs tropical milkweed: check leaves and sap",
+      "taxon_ids": [
+        "asclepias-tuberosa",
+        "asclepias-curassavica"
+      ],
+      "look_here_first": "Do NOT identify an orange milkweed by flower color alone. Check alternate vs opposite leaves, hairiness and clear vs milky latex.",
+      "field_matrix": [
+        {
+          "character": "Texas native status",
+          "tuberosa": "Native to verified target-zone counties",
+          "curassavica": "Introduced in Texas; NON_NATIVE_COMPARISON"
+        },
+        {
+          "character": "Leaves",
+          "tuberosa": "Usually alternate, often conspicuously hairy",
+          "curassavica": "Usually opposite, relatively smooth; sometimes crowded/whorls of three"
+        },
+        {
+          "character": "Sap",
+          "tuberosa": "Clear or watery rather than typical white latex",
+          "curassavica": "White milky latex"
+        },
+        {
+          "character": "Flowers",
+          "tuberosa": "Usually orange corolla and hoods",
+          "curassavica": "Usually red/scarlet corolla with contrasting bright yellow/orange-yellow hoods"
+        },
+        {
+          "character": "Habit",
+          "tuberosa": "Perennial from deep woody rootstock",
+          "curassavica": "Upright branching garden plant, may be perennial in mild winters"
+        }
+      ],
+      "photo_pair_targets": [
+        {
+          "role": "leaf nodes side by side",
+          "arrow": "alternate node vs opposite node; stem hairiness",
+          "status": "pending verified matched crop"
+        },
+        {
+          "role": "flower macro",
+          "arrow": "red corolla lobe vs yellow hood; orange tuberosa hood",
+          "status": "tropical source verified, matched annotated crop pending"
+        },
+        {
+          "role": "whole plant",
+          "arrow": "branching/habit",
+          "status": "tropical photo remote-only; install pending"
+        }
+      ],
+      "ecological_warning": "Tropical milkweed is a monarch host but an introduced species. In climates with winter foliage it can facilitate atypical winter breeding and OE spore buildup. Do not count as target native or recommend in local restoration.",
+      "references": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:94213-1",
+        "https://xerces.org/milkweed-faq",
+        "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_w7000_1803.pdf"
+      ],
+      "reviewed_at": "2026-10-12"
+    }
+  ]
 }
