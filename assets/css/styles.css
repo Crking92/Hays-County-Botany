@@ -276,3 +276,56 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 /* Subpixel arrow shafts were too faint on mobile; keep pointers legible. */
 .term-annotation-stage .term-annotation-lines line{stroke-width:1.45;stroke-linecap:round}
 .term-photo-wrap,.term-drill-image{isolation:isolate}
+
+
+/* Visual learner v2: friendly, layered study cards. Content remains intact. */
+:root{--study-ink:#203b30;--study-mint:#e9f7e9;--study-sun:#fff2ca;--study-lilac:#f0eaff;--study-sky:#eaf5ff}
+.app-shell{max-width:1300px}
+.section-heading h2,.page-intro h1,.family-hero h1,.genus-hero h1{letter-spacing:-.035em;line-height:1.12}
+.family-grid,.species-tile-grid,.family-vocab-grid{gap:1.1rem}
+.family-card,.species-tile,.family-vocab-card{border-radius:24px;overflow:hidden;box-shadow:0 6px 0 rgba(41,75,48,.08),0 12px 30px rgba(30,59,42,.08);transition:transform .16s ease,box-shadow .16s ease}
+.family-card:hover,.species-tile:hover,.family-vocab-card:hover{transform:translateY(-3px);box-shadow:0 8px 0 rgba(41,75,48,.08),0 18px 35px rgba(30,59,42,.12)}
+.family-card:focus-visible,.species-tile:focus-visible,.family-vocab-card:focus-visible{outline:4px solid #efb73f;outline-offset:3px}
+.family-card-body{display:flex;flex-direction:column;gap:.35rem;padding:1.1rem 1.2rem 1.3rem}
+.family-card-body strong{font-size:clamp(1.25rem,2.5vw,1.65rem);line-height:1.18}
+.family-card-body em{font-size:.98rem;opacity:.86}
+.family-count{align-self:flex-start;background:var(--study-sun);color:#624715;padding:.35rem .65rem;border-radius:100px;font-weight:800}
+.family-clue{display:block;background:var(--study-mint);color:var(--study-ink);padding:.85rem;border-radius:14px;line-height:1.5;margin-top:.35rem}
+.family-card .family-mosaic{min-height:135px}
+.species-tile{background:#fff}
+.species-tile>span{padding:1rem}
+.species-tile strong{line-height:1.25}
+.family-hero,.genus-hero{border-radius:28px;overflow:hidden;background:linear-gradient(135deg,#f4faec 0%,#eaf7f5 100%);padding:clamp(1rem,3vw,2rem);gap:1.4rem}
+.look-card{background:var(--study-sun);color:#47380e;border:2px solid #f4da8c;border-radius:20px;padding:1.2rem;box-shadow:0 5px 0 rgba(187,140,41,.1)}
+.look-card span{display:block;font-size:.8rem;letter-spacing:.07em;font-weight:900;margin-bottom:.45rem}
+.look-card strong{font-size:clamp(1.08rem,2vw,1.4rem);line-height:1.4}
+.family-vocab-card{background:var(--study-sky)}
+.family-vocab-card small{line-height:1.5}
+.genus-levels .learning-card:nth-child(1){background:var(--study-mint)}
+.genus-levels .learning-card:nth-child(2){background:var(--study-lilac)}
+.learning-card,.section-block,.genus-warning,.empty-panel{border-radius:22px}
+.genus-key>div,.compare-row{border-radius:12px}
+.compare-row:not(.compare-header):nth-child(even){background:var(--study-sky)}
+.compare-row:not(.compare-header):nth-child(odd){background:#fff}
+.compare-workspace,.two-column-learning{gap:1rem}
+.taxonomy-picker{border-radius:24px;background:var(--study-mint);padding:1.1rem}
+.taxonomy-picker label span{font-weight:800}
+.study-path{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:0 0 1rem;padding:.7rem;border-radius:18px;background:var(--study-sky)}
+.study-path span{display:inline-flex;align-items:center;gap:.35rem;background:#fff;border-radius:100px;padding:.45rem .7rem;font-size:.83rem;font-weight:800;color:var(--study-ink)}
+.study-path b{color:#3d7856;font-size:.9rem}
+.study-tip{padding:.9rem 1rem;border-radius:16px;background:var(--study-sun);color:#57461e;margin:0 0 1.2rem;line-height:1.5}
+.study-tip strong{display:block;margin-bottom:.2rem}
+@media(max-width:700px){
+ .family-grid,.species-tile-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
+ .family-card-body{padding:.8rem}
+ .family-card-body strong{font-size:1.1rem;overflow-wrap:anywhere}
+ .family-card .family-mosaic{min-height:95px}
+ .family-clue{font-size:.84rem;padding:.6rem}
+ .family-card-meta{font-size:.78rem}
+ .family-hero,.genus-hero{padding:1rem;border-radius:20px}
+ .compare-row{font-size:.86rem}
+ .study-path{gap:.35rem}
+ .study-path span{font-size:.75rem}
+}
+@media(max-width:370px){.family-grid,.species-tile-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.family-card,.species-tile,.family-vocab-card{transition:none}}
