@@ -41,7 +41,8 @@
       "perennial clumping/spreading habit",
       "Joey's source under the familiar name Conoclinium greggii shows the low mounded/spreading landscape habit—use that habit with the deeply dissected leaves, not flower color alone."
     ],
-    "joey_field_note": "Joey's West Texas landscaping video labels this plant Conoclinium greggii; the project reconciles that familiar older name to accepted Conoclinium dissectum. The frame is most useful for mounded growth habit and whole-plant architecture."
+    "joey_field_note": "Joey's West Texas landscaping video labels this plant Conoclinium greggii; the project reconciles that familiar older name to accepted Conoclinium dissectum. The frame is most useful for mounded growth habit and whole-plant architecture.",
+    "reproductive_confirmation": "FNA: corollas 2.5–3.5 mm; cypselae 1.8–2.5 mm hispidulous."
   },
   "photo_strategy": {
     "method": "targeted iNaturalist API",
@@ -104,7 +105,9 @@
     "photo_metadata_count": 5,
     "photo_files_present": 5,
     "photo_backfill_source": "historical taxa.zip migration",
-    "joey_enhanced": true
+    "joey_enhanced": true,
+    "diagnostic_polish_date": "2026-10-12",
+    "diagnostic_photo_lock": "pending_matched_leaf_and_cypsela_views"
   },
   "study_media": [
     {
@@ -120,5 +123,43 @@
   ],
   "tags": [
     "Joey-enhanced"
+  ],
+  "look_here_first": "Check fully expanded middle leaves: deep lobes or dissections interrupt the leaf outline; opposite foliage and blue-violet rayless heads support Conoclinium. C. coelestinum has a simple toothed—not deeply cut—leaf outline.",
+  "comparisons": {
+    "confused_with": [
+      "Conoclinium coelestinum",
+      "Chromolaena odorata",
+      "Conoclinium betonicifolium"
+    ],
+    "key_distinctions": "Versus C. coelestinum: deeply dissected/lobed leaf vs intact toothed margin (PRIMARY); FNA fruit hispidulous 1.8–2.5 mm vs glabrous 1–1.5 mm (confirmation). Versus Chromolaena odorata: Conoclinium has shorter hemispheric involucres with 2–3 phyllary series, rather than cylindrical 8–10 mm and 4–6+ series."
+  },
+  "diagnostic_photo_requirements": [
+    {
+      "role": "leaf_comparison",
+      "priority": "P1",
+      "shot": "one flattened mature middle stem leaf, upper and underside, with ruler",
+      "must_show": "depth of lobing/dissection and basal veins",
+      "status": "diagnostic_match_pending"
+    },
+    {
+      "role": "fruit_macro",
+      "priority": "P1",
+      "shot": "ripe cypsela with millimeter scale at 10x or macro",
+      "must_show": "1.8–2.5 mm length and short hairs",
+      "status": "diagnostic_match_pending"
+    },
+    {
+      "role": "head_side_macro",
+      "priority": "P2",
+      "shot": "one individual involucre sideways, scale and clear phyllaries",
+      "must_show": "phyllary series and rounded/hemispheric head base",
+      "status": "diagnostic_match_pending"
+    }
+  ],
+  "sources": [
+    {
+      "authority": "Flora of North America",
+      "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250066412"
+    }
   ]
 }
