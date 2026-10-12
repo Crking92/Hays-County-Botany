@@ -45,19 +45,6 @@
       "public_reuse": "review"
     },
     {
-      "file": "images/02-curated-reference.jpg",
-      "role": "curated taxon reference 2",
-      "creator": "(c) Suzette Rogers, all rights reserved",
-      "license": "license not supplied by API",
-      "source_page": "https://www.inaturalist.org/taxa/128152",
-      "direct_image_url": "https://static.inaturalist.org/photos/7378430/large.jpg",
-      "platform": "iNaturalist",
-      "observation_id": "",
-      "photo_id": "7378430",
-      "study_use": "yes",
-      "public_reuse": "no"
-    },
-    {
       "file": "images/03-same-plant-field-view-1.jpg",
       "role": "same-observation field view 1",
       "creator": "(c) laurenbgood, some rights reserved (CC BY-NC)",
@@ -95,16 +82,68 @@
       "photo_id": "725841559",
       "study_use": "yes",
       "public_reuse": "review"
+    },
+    {
+      "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cirsium%20texanum.jpg",
+      "role": "Texas purple thistle flower head and small spiny involucre; photo is a field face, not scaled involucre proof",
+      "creator": "Megan Kossa",
+      "license": "CC BY 4.0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Cirsium_texanum.jpg",
+      "source_type": "iNaturalist via Wikimedia Commons",
+      "observation_id": "26185057",
+      "photo_id": "40637764",
+      "study_use": "yes",
+      "public_reuse": "CC BY 4.0 attribution required",
+      "photo_status": "EXTERNAL_LICENSED_NOT_DOWNLOADED"
     }
   ],
   "curation_status": {
-    "version": "1.0-batch3",
+    "version": "2.0-cirsium-photo-rights-and-key",
     "taxonomy_reviewed": true,
     "morphology_reviewed": true,
     "photo_downloader_included": true,
-    "last_reviewed": "2026-09-30",
+    "last_reviewed": "2026-10-12",
     "photo_metadata_count": 5,
     "photo_files_present": 5,
-    "photo_backfill_source": "historical taxa.zip migration"
-  }
+    "photo_backfill_source": "historical taxa.zip migration",
+    "active_photo_metadata": 5,
+    "license_review_flagged": true
+  },
+  "photo_rights_review_2026_10_12": {
+    "removed_from_active_image_list": [
+      {
+        "file": "images/02-curated-reference.jpg",
+        "license": "license not supplied by API",
+        "creator": "(c) Suzette Rogers, all rights reserved"
+      }
+    ],
+    "historical_file_retained": true,
+    "reason": "all-rights-reserved picture cannot be used as a license-cleared learner face"
+  },
+  "look_here_first": "Measure the involucre UNDER the florets: C. texanum has smaller heads (involucres roughly 12–20 mm in FNA eastern key), lacking the big spiny leaflike collar around each head of C. horridulum (involucre ~30–50 mm). Check broad, often ovate middle/upper stem leaves, usually sessile or slightly clasping/short-decurrent. Unlike C. vulgare, no distinctive dense short appressed bristle-spines on upper leaf face. Purple color and height are not diagnostic.",
+  "comparisons": {
+    "confused_with": [
+      "Cirsium horridulum",
+      "Cirsium vulgare",
+      "Cirsium carolinianum (comparison only)"
+    ],
+    "key_distinctions": "C. horridulum has head-associated spiny collar and larger involucre; C. vulgare has upper-leaf blade spines and long winged stems; C. carolinianum has narrow, tapered/cuneate upper leaf bases versus texanum's broadly sessile ovate leaves."
+  },
+  "diagnostic_image_needs": [
+    {
+      "role": "Involucre height in millimeters excluding florets",
+      "priority": "high",
+      "status": "needs matched ruler photo"
+    },
+    {
+      "role": "Upper stem leaf base / sessile auricles",
+      "priority": "high",
+      "status": "needs licensed close-up"
+    },
+    {
+      "role": "Head below flower to check lack of horridulum extra spiny bract collar",
+      "priority": "high",
+      "status": "needs matched comparison photo"
+    }
+  ]
 }
