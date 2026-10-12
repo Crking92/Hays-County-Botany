@@ -177,10 +177,10 @@
     "confuser_warning": "Yellow-flowered Rhynchosia and other Fabaceae can be deceptive; examine flower architecture before assigning genus. Rhynchosia senna is a different genus despite the epithet 'senna'."
   },
   "curation_status": {
-    "version": "3.0-visible-genus-card",
+    "version": "3.1-annotated-6-photo-genus",
     "last_reviewed": "2026-10-12",
     "morphology_correction": "Source conflict: Kew annual versus 2024 flora perennial for S. pilosior; do not key on life history.",
-    "visual_status": "three-visible-photo-panels-with-pilosior-photo-pending"
+    "visual_status": "six-visible-source-checked-photo-panels-pilosior-pending"
   },
   "look_here_first": "Count PAIRS of leaflets on one entire leaf. ONE pair: inspect narrow versus broad leaflets and stem hairs. FOUR to EIGHT velvety pairs: think Lindheimer's senna. Then confirm the gland and pod. Yellow flowers come later.",
   "shared_traits": {
@@ -216,7 +216,7 @@
     }
   ],
   "visual_training": {
-    "status": "genus_card_visually_usable_but_not_completely_polished",
+    "status": "six_real_photo_genus_key_cards_live_plus_species_annotation_lesson",
     "installed_counts_at_audit": {
       "senna-lindheimeriana": 3,
       "senna-roemeriana": 4,
@@ -446,13 +446,16 @@
         "S. roemeriana: inspect existing UT leaf file before locating nectary arrow."
       ]
     },
-    "panels_live": 3,
+    "panels_live": 6,
     "external_comparison_panels_live": 1,
     "photo_missing": [
       "senna-pilosior"
     ],
     "arrows_status": "Pending verified coordinates",
-    "render_in_learner": "visual_comparison + quick_key + study_strategy.shared_traits + priority"
+    "render_in_learner": "visual_comparison + quick_key + study_strategy.shared_traits + priority",
+    "arrows_live": 15,
+    "pilosior_status": "still_missing_exact_image; none substituted",
+    "source_rights_warning": "Commons CC BY 4.0 credited; UT images linked for private study with public-use rights unresolved"
   },
   "scientific_guardrails": {
     "region": "Hays County plus 23 named western/northern target counties in PROJECT_RULES.md; BONAP/NAPA preferred",
@@ -525,49 +528,211 @@
     }
   ],
   "visual_comparison": {
-    "version": "1.0-genus-card-visual-key",
-    "title": "Look at ONE leaf first—not the yellow flowers",
-    "subtitle": "Compare leaflet numbers and proportions before checking the nectar gland, hairs, flowers, and pods. The two broad-paired western sennas can require a reproductive specimen.",
-    "memory_rule": "Many velvety pairs → Lindheimer's. One long narrow pair → twoleaf. One broad hairy pair → check pilosior AND bauhinioides.",
+    "version": "2.0-2026-10-12-image-verified-diagnostic-arrows",
+    "title": "Six real-photo comparisons: leaf pairs, hairs and pods",
+    "subtitle": "Arrow tips mark visible photographed structures—not guessed nectaries or microscopic details. Start with leaf count, then compare shape and hairs.",
+    "memory_rule": "ONE NARROW PAIR = roemeriana; MULTIPLE VELVETY PAIRS = lindheimeriana; ONE BROAD PAIR ≠ automatically pilosior.",
     "items": [
       {
-        "label": "STEP 1 · One narrow pair",
+        "label": "ONE NARROW PAIR",
         "scientific_name": "Senna roemeriana",
         "image_url": "content/taxa/Fabaceae/Senna/senna-roemeriana/images/02-two-leaflets.jpg",
         "image_fit": "contain",
-        "image_role": "single compound leaf with one pair of narrow lanceolate leaflets",
-        "caption": "Follow ONE petiole to its two long, narrow leaflets. The small gland near the pair's junction is important, but do not label it until its exact position is confirmed in the photo.",
-        "creator": "UT Austin BIO406D (individual photographer not established)",
-        "license": "Private study reference; public reuse unverified",
+        "image_role": "one complete narrow leaflet pair and joint",
+        "caption": "These two narrow blades join at one point. One compound leaf, not two separate leaves.",
+        "creator": "UT Austin BIO406D; photographer unlisted",
+        "license": "Private study rights not verified",
         "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fab/senna_roemeriana.htm",
-        "photo_status": "Existing canonical binary, GitHub image directory verified; no unverified arrows."
+        "markers": [
+          {
+            "label": "narrow leaflet 1",
+            "label_x": 3,
+            "label_y": 8,
+            "target_x": 22,
+            "target_y": 46,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "narrow leaflet 2",
+            "label_x": 3,
+            "label_y": 82,
+            "target_x": 23,
+            "target_y": 60,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "shared attachment",
+            "label_x": 64,
+            "label_y": 12,
+            "target_x": 37,
+            "target_y": 55,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          }
+        ]
       },
       {
-        "label": "STEP 2 · Many velvety pairs",
+        "label": "MANY VELVETY PAIRS",
         "scientific_name": "Senna lindheimeriana",
-        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Senna%20lindheimeriana%20branch.jpg",
+        "image_url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fab/Senna%20lindheimeriana%20leaf1.jpg",
         "image_fit": "contain",
-        "image_role": "compound leaves on flowering branch, several oblong leaflet pairs",
-        "caption": "Count multiple leaflet pairs along the rachis; check the softly hairy, gray-green texture. This photograph comes from a cultivated plant and proves morphology only—not wild county presence.",
-        "creator": "Stan Shebs",
-        "license": "CC BY-SA 3.0",
-        "source_page": "https://commons.wikimedia.org/wiki/File:Senna_lindheimeriana_branch.jpg",
-        "photo_status": "Source page and author/license verified; externally loaded licensed image."
+        "image_role": "compound leaf with multiple oblong paired leaflets",
+        "caption": "Follow the shared axis through repeated pairs. The long green object below is a developing legume, not a leaflet.",
+        "creator": "UT Austin BIO406D; photographer unlisted",
+        "license": "Linked original, private-study only",
+        "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fab/senna_lindheimeriana.htm",
+        "markers": [
+          {
+            "label": "upper leaflet",
+            "label_x": 3,
+            "label_y": 9,
+            "target_x": 41,
+            "target_y": 35,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "paired lower leaflet",
+            "label_x": 4,
+            "label_y": 76,
+            "target_x": 40,
+            "target_y": 61,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "leaf axis",
+            "label_x": 75,
+            "label_y": 9,
+            "target_x": 46,
+            "target_y": 52,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "green pod",
+            "label_x": 75,
+            "label_y": 80,
+            "target_x": 51,
+            "target_y": 79,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          }
+        ]
       },
       {
-        "label": "STEP 3 · One BROAD pair (western comparison)",
+        "label": "ONE BROAD PAIR · LOOKALIKE",
         "scientific_name": "Senna bauhinioides",
         "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Senna%20bauhinioides%2025258030.jpg",
         "image_fit": "contain",
-        "image_role": "two broad oblong/obovate paired leaflets; flower and seed characters need separate views",
-        "caption": "Broad leaflets also occur outside S. pilosior. This example is a comparison species, not a third native-certification record. Pair this leaf with a floral-style and seed-coat macro for confirmation.",
+        "image_role": "one broad paired-leaflet leaf",
+        "caption": "Two broad leaflets meet at a single joint. Broad leaves alone cannot establish S. pilosior. This image is a western comparison species, not an installed species card.",
         "creator": "Alex Abair",
-        "license": "CC BY 4.0",
+        "license": "CC BY 4.0; photo 25258030; iNaturalist observation 16738390",
         "source_page": "https://commons.wikimedia.org/wiki/File:Senna_bauhinioides_25258030.jpg",
-        "photo_status": "Previously verified iNaturalist-to-Commons record 25258030 (obs 16738390); external link, not a new species-card installation."
+        "markers": [
+          {
+            "label": "broad leaflet 1",
+            "label_x": 2,
+            "label_y": 10,
+            "target_x": 39,
+            "target_y": 61,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "broad leaflet 2",
+            "label_x": 60,
+            "label_y": 12,
+            "target_x": 65,
+            "target_y": 60,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          }
+        ]
+      },
+      {
+        "label": "LEAF HAIR TEXTURE",
+        "scientific_name": "Senna lindheimeriana",
+        "image_url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fab/Senna%20lindheimeriana%20downy.jpg",
+        "image_fit": "contain",
+        "image_role": "fine hairs on a true vertical stem",
+        "caption": "Dense tiny hairs along the upright stem give this plant a velvet-like feel. Don't mistake the adjacent green pod for the stem.",
+        "creator": "UT Austin BIO406D; photographer unlisted",
+        "license": "Linked original, private-study only",
+        "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fab/senna_lindheimeriana.htm",
+        "markers": [
+          {
+            "label": "downy stem hairs",
+            "label_x": 4,
+            "label_y": 10,
+            "target_x": 36,
+            "target_y": 40,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          }
+        ]
+      },
+      {
+        "label": "FRUIT · TWO VALVES",
+        "scientific_name": "Senna roemeriana",
+        "image_url": "content/taxa/Fabaceae/Senna/senna-roemeriana/images/04-fruit.jpg",
+        "image_fit": "contain",
+        "image_role": "legume split into open valves",
+        "caption": "After drying, a pod opens into two valves. The photographed fruit is not a single leaflet and not a seed coat macro.",
+        "creator": "UT Austin BIO406D; photographer unlisted",
+        "license": "Private study rights unverified",
+        "source_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fab/senna_roemeriana.htm",
+        "markers": [
+          {
+            "label": "opened valve",
+            "label_x": 3,
+            "label_y": 8,
+            "target_x": 63,
+            "target_y": 65,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "second valve",
+            "label_x": 5,
+            "label_y": 82,
+            "target_x": 51,
+            "target_y": 55,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          }
+        ]
+      },
+      {
+        "label": "WESTERN FRUIT LOOKALIKE",
+        "scientific_name": "Senna bauhinioides",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Senna%20bauhinioides%2011337502.jpg",
+        "image_fit": "contain",
+        "image_role": "dry opened legume and hairy pod margin",
+        "caption": "An opened two-valved legume with obvious long hairs along the margins. This photo does not prove the species' seed-coat texture.",
+        "creator": "Alex Abair",
+        "license": "CC BY 4.0; photo 11337502; iNaturalist observation 8498797",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Senna_bauhinioides_11337502.jpg",
+        "markers": [
+          {
+            "label": "hairy pod edge",
+            "label_x": 1,
+            "label_y": 12,
+            "target_x": 58,
+            "target_y": 32,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "one open valve",
+            "label_x": 66,
+            "label_y": 71,
+            "target_x": 55,
+            "target_y": 37,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          },
+          {
+            "label": "other open valve",
+            "label_x": 5,
+            "label_y": 85,
+            "target_x": 49,
+            "target_y": 61,
+            "verified_scope": "manually visually inspected original image; percentages of image pixel area"
+          }
+        ]
       }
     ],
-    "overlay_note": "ARROWS: intentionally deferred until the source image is visually inspected and coordinates are validated. Labels describe confirmed overall structures, not pretend-precise points. S. pilosior still needs its own verified exact-species photo and is NOT represented by the bauhinioides panel.",
+    "overlay_note": "All 16 arrow endpoints were selected by inspecting the original UT and licensed Commons images, with pixel-relative responsive alignment. Links to UT photo originals are private-study references with public reuse unresolved. S. pilosior has no verified species photograph installed and is intentionally not illustrated by substitutes.",
     "study_only_intro": "These are source-site references for additional study, not licensed pictures installed in this genus gallery.",
     "study_only_photo_links": [
       {
@@ -597,7 +762,7 @@
     ]
   },
   "genus_card": {
-    "status": "LIVE_IN_LEARNER_WITH_PARTIAL_VISUAL_COVERAGE",
+    "status": "VISIBLE_GENUS_DIAGNOSTIC_CARDS_LIVE_WITH_ANNOTATED_IMAGE_TARGETS",
     "main_takeaway": "Recognize Senna as a non-papilionaceous yellow-flowered legume with even-pinnate leaves; count leaflet pairs first.",
     "three_installed_species": [
       "senna-roemeriana",
@@ -617,6 +782,8 @@
       "Add separate flower-anther and ripe pod/seed macros; the available bauhinioides open-pod image does not show rough seed coat.",
       "Check Senna lindheimeriana and roemeriana three-county target-zone PASS records without using Val Verde or Williamson outside the project's 24-county zone."
     ],
-    "instructions": "Range UNRESOLVED for S. pilosior is independent from learner admission. No automatic PASS promotions, no invented county proof."
+    "instructions": "Range UNRESOLVED for S. pilosior is independent from learner admission. No automatic PASS promotions, no invented county proof.",
+    "genus_photo_panels": 6,
+    "genus_photo_arrows": 15
   }
 }
