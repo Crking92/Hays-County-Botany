@@ -835,9 +835,9 @@ function homeView(){
     '<div class="home-actions"><button class="primary-button" type="button" data-random-quiz>Quiz me with a random plant</button>'+
     '<button class="secondary-button" type="button" data-nav="browse">Browse Family → Genus → Species</button></div>'+
     '<div class="difficulty-explainer"><span>'+esc(level.label)+'</span><strong>'+esc(level.mantra)+'</strong><p>'+esc(level.description)+'</p></div></section>';
-  out+='<section class="section-block family-library"><div class="section-heading"><div><div class="eyebrow">Start broad, then drill down</div><h2>Family Library</h2></div>'+
+  out+='<section class="section-block family-library"><div class="section-heading"><div><div class="eyebrow">Your plant adventure</div><h2>Meet the plant families 🌿</h2></div>'+
     '<button class="text-button" type="button" data-nav="browse">Open taxonomy browser →</button></div>'+
-    '<p class="section-intro">Learn the recurring family pattern first, choose a genus, open a species, then compare it with close relatives and look-alikes.</p>'+
+    '<p class="section-intro">Start with the big picture. Look at photos, spot a clue, then follow the trail from family to genus to species. Every scientific word is a tool you can learn.</p>'+
     '<div class="library-summary"><div><strong>'+families.length+'</strong><span>families represented</span></div><div><strong>'+completedFamilyLessons+'</strong><span>family modules</span></div><div><strong>'+completedGenusLessons+'</strong><span>genus modules</span></div><div><strong>'+state.species.length+'</strong><span>curated species</span></div></div>'+ 
     '<div class="family-grid">';
   families.forEach(function(f){ out+=familyCard(f); });
@@ -854,8 +854,8 @@ function speciesTile(sp,showFamily){
 function familyVisualVocabulary(p){
   const ids=(p && Array.isArray(p.key_terms) ? p.key_terms : []).filter(function(id){ return state.learning.terms[id]; });
   if(!ids.length) return "";
-  let out='<section class="section-block family-vocab"><div class="section-heading"><div><div class="eyebrow">Visual family vocabulary</div><h2>See the structures that define this family</h2></div>'+
-    '<button class="secondary-button" type="button" data-family-term-drill>Drill these terms</button></div><p class="section-intro">These are the family words worth being able to recognize in a photograph before worrying about species-level details.</p><div class="family-vocab-grid">';
+  let out='<section class="section-block family-vocab"><div class="section-heading"><div><div class="eyebrow">Learn the secret plant words</div><h2>See it → name it → remember it</h2></div>'+
+    '<button class="secondary-button" type="button" data-family-term-drill>Drill these terms</button></div><p class="section-intro">Tap a picture to learn its botanical term, what it means in plain language, and where to look for it on a real plant.</p><div class="family-vocab-grid">';
   ids.slice(0,9).forEach(function(id){
     const t=state.learning.terms[id];
     out+='<button class="family-vocab-card" type="button" data-term="'+esc(id)+'">'+termPreviewMedia(t)+'<span><strong>'+esc(t.term)+'</strong><small>'+esc(t.plain)+'</small></span></button>';
@@ -863,12 +863,16 @@ function familyVisualVocabulary(p){
   return out+'</div></section>';
 }
 
+function studyPath(level){
+  const steps=[["1","Family","Big group"],["2","Genus","Close relatives"],["3","Species","One kind"]];
+  return '<div class="study-path" aria-label="Plant learning path">'+steps.map(function(x,i){return '<span'+(i===level?' aria-current="step"':'')+'><b>'+x[0]+'</b> '+x[1]+' · '+x[2]+'</span>';}).join('<b aria-hidden="true">→</b>')+'</div>';
+}
 function familyView(){
   const family=state.selectedFamily, p=familyProfile(family)||{}, members=familySpecies(family), genera=generaForFamily(family);
   const canon=state.familyCache.get(family);
   const signature=state.difficulty==="field" ? (p.field_signature||p.plain_signature) : (p.plain_signature||p.field_signature);
   let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button><span>›</span><strong>'+esc(family)+'</strong></section>'+
-    taxonomyLadder(family,null,null)+
+    taxonomyLadder(family,null,null)+studyPath(0)+
     '<section class="family-hero"><div class="family-hero-copy"><div class="eyebrow">Family · '+members.length+' curated taxa</div><h1>'+esc(family)+'</h1>'+
     '<p class="family-common">'+esc(p.common_name || (canon&&canon.common_name) || "")+'</p>'+
     '<div class="look-card"><span>LOOK HERE FIRST</span><strong>'+esc(p.look_here_first||"Recognize the family structure before species-level details.")+'</strong></div>'+
@@ -880,10 +884,10 @@ function familyView(){
   else out+='<div class="empty-panel">Family lesson ready. Canonical species anchors are still being installed.</div>';
   out+='</div></section>';
   out+=familyVisualVocabulary(p);
-  out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Narrow it down</div><h2>Genera in this learner</h2></div></div><div class="genus-buttons">';
+  out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Next stop · closer relatives</div><h2>Choose a genus to explore</h2></div></div><div class="genus-buttons">';
   if(genera.length) genera.forEach(function(g){ out+='<button type="button" data-genus="'+esc(g[0])+'" data-genus-family="'+esc(family)+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
   else out+='<div class="empty-panel">No canonical genus anchors are installed yet. The family-level lesson above is still available.</div>';
-  out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Recognize individuals</div><h2>Species</h2></div></div><div class="species-tile-grid">';
+  out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Meet the plants</div><h2>Explore the species</h2></div></div><div class="species-tile-grid">';
   if(members.length) members.forEach(function(sp){ out+=speciesTile(sp,true); });
   else out+='<div class="empty-panel">No canonical species anchors are installed for this family yet.</div>';
   out+='</div></section>';
@@ -898,7 +902,7 @@ function genusView(){
   const common=(data&&data.common_group)||genus;
   const warning=(data&&data.study_strategy&&data.study_strategy.warning) || (data&&Array.isArray(data.study_notes)&&data.study_notes[0]) || "";
   let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button><span>›</span><button type="button" data-family="'+esc(family)+'">'+esc(family)+'</button><span>›</span><strong><i>'+esc(genus)+'</i></strong></section>'+
-    taxonomyLadder(family,genus,null)+
+    taxonomyLadder(family,genus,null)+studyPath(1)+
     '<section class="genus-hero"><div><div class="eyebrow">Genus · '+members.length+' curated species</div><h1><i>'+esc(genus)+'</i></h1><p class="family-common">'+esc(common)+'</p>'+
     '<div class="look-card"><span>LOOK HERE FIRST · GENUS</span><strong>'+esc((data&&data.look_here_first)||('What stays the same across '+genus+', and which smaller characters separate the species?'))+'</strong></div>'+
     (warning?'<p class="genus-warning">'+esc(warning)+'</p>':'')+'</div><div class="genus-photo-strip">';
@@ -1109,7 +1113,7 @@ function compareRelationshipHTML(a,b){
 function compareView(){
   ensureComparePair();
   const a=state.speciesById.get(state.compareA), b=state.speciesById.get(state.compareB);
-  let out='<section class="page-intro compare-intro"><div class="eyebrow">Botanical compare & contrast</div><h1>Compare any two plants in the learner.</h1><p>Move from broad characters to narrow ones: family first, genus second, species last.</p></section>'+
+  let out='<section class="page-intro compare-intro"><div class="eyebrow">Plant detective lab 🔎</div><h1>Spot the differences!</h1><p>Choose two plants. Compare the pictures first, then look for leaf, flower, stem and fruit clues. The botanical words help name what you see.</p></section>'+
     '<section class="global-compare-picker"><label><span>Plant A</span><select data-global-compare="a">'+compareSpeciesOptions(state.compareA)+'</select></label><button class="swap-compare" type="button" data-swap-compare aria-label="Swap plants">⇄</button><label><span>Plant B</span><select data-global-compare="b">'+compareSpeciesOptions(state.compareB)+'</select></label></section>';
   if(!a || !b || a.id===b.id) return out+'<div class="empty-panel">Choose two different curated species to compare.</div>';
   const keys=compareKeys(a,b);
@@ -1126,7 +1130,7 @@ function browseView(){
   let list=state.species.slice();
   if(state.browseFamily) list=list.filter(function(sp){ return sp.family===state.browseFamily; });
   if(state.browseGenus) list=list.filter(function(sp){ return sp.genus===state.browseGenus; });
-  let out='<section class="page-intro"><div class="eyebrow">Taxonomy browser</div><h1>Family → Genus → Species</h1><p>Use this when you want to learn the hierarchy instead of searching by name.</p></section>'+
+  let out='<section class="page-intro"><div class="eyebrow">Pick your path</div><h1>Explore the plant family tree 🌱</h1><p>Start big, then zoom in: a family is a group of related plants, a genus is a closer group, and a species is one kind of plant.</p></section>'+
     '<section class="taxonomy-picker"><label><span>1 · Family</span><select data-browse-select="family"><option value="">All families</option>';
   families.forEach(function(f){ const n=familySpecies(f).length; out+='<option value="'+esc(f)+'" '+(f===state.browseFamily?"selected":"")+'>'+esc(f)+' — '+(n?n+' species':'family lesson')+'</option>'; });
   out+='</select></label><div class="tax-arrow">→</div><label><span>2 · Genus</span><select data-browse-select="genus" '+(!state.browseFamily?"disabled":"")+'><option value="">All genera</option>';
