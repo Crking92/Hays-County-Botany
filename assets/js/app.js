@@ -843,7 +843,7 @@ function genusView(){
   let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button><span>›</span><button type="button" data-family="'+esc(family)+'">'+esc(family)+'</button><span>›</span><strong><i>'+esc(genus)+'</i></strong></section>'+
     taxonomyLadder(family,genus,null)+
     '<section class="genus-hero"><div><div class="eyebrow">Genus · '+members.length+' curated species</div><h1><i>'+esc(genus)+'</i></h1><p class="family-common">'+esc(common)+'</p>'+
-    '<div class="look-card"><span>GENUS QUESTION</span><strong>What stays the same across '+esc(genus)+', and which smaller characters separate the species?</strong></div>'+
+    '<div class="look-card"><span>LOOK HERE FIRST · GENUS</span><strong>'+esc((data&&data.look_here_first)||('What stays the same across '+genus+', and which smaller characters separate the species?'))+'</strong></div>'+
     (warning?'<p class="genus-warning">'+esc(warning)+'</p>':'')+'</div><div class="genus-photo-strip">';
   if(members.length) members.slice(0,3).forEach(function(sp){ out+='<button type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"genus-hero-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Species anchors for this genus are still being installed.</div>';
