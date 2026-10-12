@@ -24,7 +24,12 @@
     ],
     "planned_anchor": null,
     "anchor_installed": "senna-roemeriana",
-    "admission_warning": "Comparison taxa are not separate installed learner species by virtue of appearing in this genus lesson. Check Master Plant Pool, approved sources, taxonomy, and county evidence before new cards."
+    "admission_warning": "Comparison taxa are not separate installed learner species by virtue of appearing in this genus lesson. Check Master Plant Pool, approved sources, taxonomy, and county evidence before new cards.",
+    "additional_regional_priority": {
+      "name": "Senna pumilio",
+      "note": "2024 flora cites Llano and Pedernales rivers as type locality (not enough to infer qualifying county). Treat as likely useful western/Edwards Plateau comparison; do not promote until source-pool and BONAP county evidence checked.",
+      "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11397501/"
+    }
   },
   "study_strategy": {
     "priority": [
@@ -35,7 +40,7 @@
       "perennial rootstock / flower and anther structure",
       "pod structure and seed coat for two-leaflet western species"
     ],
-    "warning": "Previous B045 shortcut 'pilosior = annual' was incorrect. A 2024 peer-reviewed flora describes S. pilosior as a herbaceous perennial with one leaflet pair. A two-leaflet key cannot by itself identify S. roemeriana.",
+    "warning": "Start with complete-leaf leaflet count, ratio, hair types and reproductive material. S. pilosior life history is SOURCE CONFLICT: Kew POWO calls it annual; 2024 peer-reviewed flora calls it herbaceous perennial. Do not use annual/perennial as a Senna identification key.",
     "vocabulary": [
       "leaflet",
       "rachis",
@@ -114,7 +119,7 @@
         "taxon": "Senna pilosior",
         "learner": "installed",
         "target_zone": "UNRESOLVED; keep excluded from native-only metrics",
-        "life_history": "herbaceous perennial (corrected from older incorrect annual shortcut)",
+        "life_history": "Conflicting: POWO annual; 2024 taxonomic treatment perennial. Not an ID discriminator.",
         "leaflets": "1 pair; broader, about 1.3–1.8:1 length:width",
         "pubescence": "short retrorse hairs, glandlike hairs and obvious stiff setae",
         "reproductive": "erect setose hairy pods, persistent sepals; anthers constricted below terminal pore",
@@ -164,12 +169,12 @@
     "confuser_warning": "Yellow-flowered Rhynchosia and other Fabaceae can be deceptive; examine flower architecture before assigning genus. Rhynchosia senna is a different genus despite the epithet 'senna'."
   },
   "curation_status": {
-    "version": "2.0-expanded-senna-polish",
+    "version": "2.1-2026-10-12-source-conflict-photo-candidate-scout",
     "last_reviewed": "2026-10-12",
     "morphology_correction": "S. pilosior perennial and bifoliolate, not annual. Range county count audit flagged, not silently overwritten.",
     "visual_status": "diagnostic_photo_polish_required"
   },
-  "look_here_first": "Count leaflet PAIRS on one complete compound leaf, not individual leaflets on an entire shoot. One pair leads to the roemeriana/pilosior/bauhinioides branch; approximately 4–8 pairs of broad velvety leaflets leads to lindheimeriana. Then magnify hair type, leaflet length:width ratio, the gland at the leaflet junction, flower reproductive parts, and mature fruit.",
+  "look_here_first": "Count the leaflets on ONE entire mature compound leaf: usually 4–8 pairs leads to S. lindheimeriana; just ONE pair leads to S. roemeriana / S. pilosior / S. bauhinioides. Among one-pair species measure leaflet width, hair type and reproductive structures. Life history of S. pilosior is unresolved between authorities.",
   "shared_traits": {
     "lineage": "Fabaceae > Caesalpinioideae > Cassieae > Senna; historical Cassia names may appear on specimens and older field guides.",
     "recognition": [
@@ -196,6 +201,10 @@
     {
       "task": "Senna versus Chamaecrista",
       "instruction": "Compare the petiolar nectary position, complete leaf, and mature dehisced pod of partridge pea."
+    },
+    {
+      "task": "Life-history conflict",
+      "instruction": "Explain source difference: POWO annual vs 2024 morphological flora perennial for S. pilosior. Both accounts agree on one pair of comparatively broad leaflets. Teach reproducible observed structures, not habit assumptions."
     }
   ],
   "visual_training": {
@@ -257,13 +266,43 @@
       "Mark the exact extrafloral nectary rather than labeling a random node.",
       "Use same-scale leaf images, separate arrows for long vs stiff short hairs.",
       "Attach source IDs, creators, licensing, and study/public permissions to every final selected photo."
-    ]
+    ],
+    "photo_scout": {
+      "date": "2026-10-12",
+      "status": "exact licensed candidates indexed, no photograph selected or installed",
+      "taxon": "Senna pilosior",
+      "photos_by_credit": [
+        {
+          "creator": "Robb Hannawacker",
+          "license": "CC0",
+          "count": 2
+        },
+        {
+          "creator": "Austin R. Kelly",
+          "license": "CC BY",
+          "count": 5
+        },
+        {
+          "creator": "Dr. Alison Northup",
+          "license": "CC BY",
+          "count": 3
+        },
+        {
+          "creator": "Joey Santore",
+          "license": "CC BY-NC",
+          "count": 7
+        }
+      ],
+      "source": "https://www.biosurveys.org/taxon/senna-pilosior-168849",
+      "required_next_gate": "Select exact iNaturalist observation+photo IDs, verify a diagnostic image and actual file, preserve full provenance, then install through photo pipeline."
+    }
   },
   "scientific_guardrails": {
     "region": "Hays County plus 23 named western/northern target counties in PROJECT_RULES.md; BONAP/NAPA preferred",
     "evidence_audit": "The installed species records currently count Val Verde for S. lindheimeriana and Williamson for S. roemeriana. Neither county is in the 24-county project target-zone list. Current PASS labels must be rechecked for a third qualifying county before making three-county native-certified claims. Do not silently rewrite prior taxonomy/range approvals or manufacture replacement counties.",
     "admitted_vs_certified": "All three species remain in the approved learner. S. pilosior is range-unresolved and not certified local native.",
-    "taxonomy": "Accepted Senna names; Cassia names in older sources are synonyms and not duplicate learner species."
+    "taxonomy": "Accepted Senna names; Cassia names in older sources are synonyms and not duplicate learner species.",
+    "life_history_conflict": "POWO: annual S. pilosior; 2024 peer-reviewed flora: herbaceous perennial. No categorical ID statement. Leave county range separate."
   },
   "sources": [
     {
