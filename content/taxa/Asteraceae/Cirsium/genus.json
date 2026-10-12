@@ -179,7 +179,7 @@
     "warning": "Do not key these learner taxa primarily by flower color, overall woolliness, height, or habitat."
   },
   "curation_status": {
-    "version": "3.0-five-taxon-quick-key",
+    "version": "3.1-head-to-head",
     "last_reviewed": "2026-10-12",
     "lane": "scientific-diagnostic-review",
     "note": "Genus comparison expanded from two to all five current canonical learner taxa. No species installation or gallery backfill performed."
@@ -209,5 +209,35 @@
       "if": "Only a rosette or critical character unclear",
       "then": "Cirsium sp.; don't force species"
     }
-  ]
+  ],
+  "head_to_head": [
+    {
+      "pair": "C. horridulum vs C. texanum",
+      "first": "Horridulum: an EXTRA spiny leaflike BR­ACT collar just below each head and 30–50 mm involucre; texanum: relatively small 12–20 mm involucre, broadly sessile/clasping upper leaves, no similarly developed collar.",
+      "photo": "Same-scale side-by-side head BASE and attached leaf base. Color is unreliable."
+    },
+    {
+      "pair": "C. vulgare vs native thistles",
+      "first": "Vulgare: stiff short BRISTLELIKE SPINES from the UPPER leaf BLADE, not the edges, and long spiny stem wings. Other natives may form spiny wings, so upper-blade spines matter.",
+      "photo": "Upper blade surface 10× plus wing extending down a full stem internode."
+    },
+    {
+      "pair": "C. ochrocentrum vs C. undulatum",
+      "first": "Both woolly. Ochrocentrum: strong phyllary spines often 5–12 mm and some strongly decurrent spiny leaves; undulatum: broader often shallowly lobed leaves and mature 6–7 mm fruits.",
+      "photo": "Paired phyllary tips with scale; stem wing, full leaves, and undulatum mature cypsela."
+    },
+    {
+      "pair": "C. texanum vs C. carolinianum (comparison only)",
+      "first": "Texanum: broad sessile/auriculate upper leaves; carolinianum: narrow cuneate/tapered upper leaf bases. Both can have involucres ~12–20 mm.",
+      "photo": "Matched upper stem leaf attachment."
+    }
+  ],
+  "local_range_audit_2026_10_12": {
+    "horridulum": "Hays counted; Williamson is NOT in target zone, preserve PROVISIONAL",
+    "ochrocentrum": "Kerr only; preserve PROVISIONAL",
+    "vulgare": "introduced, FAIL",
+    "texanum": "Texas native, target-county native proof not added",
+    "undulatum": "Texas native, county proof not added",
+    "pool": "Five Cirsium species verified in Google Master Plant Pool"
+  }
 }
