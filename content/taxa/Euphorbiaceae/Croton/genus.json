@@ -292,16 +292,9 @@
         "creator": "Alison Northup",
         "license": "CC BY 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Croton_lindheimeri.jpg"
-      },
-      {
-        "label": "True Texas goatweed — long recurved female sepals",
-        "scientific_name": "Croton capitatus",
-        "image_role": "not available / taxonomy-first hold",
-        "image_url": null,
-        "caption": "Do not show a random Croton capitatus-var.-lindheimeri photo as true C. capitatus. Exact taxon concept and photo ID unresolved; no verified species image installed.",
-        "license": "no confirmed image"
       }
-    ]
+    ],
+    "overlay_note": "Six species are included in this lesson; only five have existing photo references. True C. capitatus has NO verified exact-concept photo, so no look-alike image has been substituted. The existing five photographs are provisional introductions, not the requested diagnostic hair, style, sepal and fruit micrographs. Two UT-provenance photos are restricted to private study pending public-reuse permission."
   },
   "study_cautions": [
     "Most Croton leaves are alternate, yet leaves crowd near some inflorescences; do not call the apparent leaf clusters a reliable opposite-leaf arrangement.",
@@ -353,10 +346,60 @@
     "preserve": "Species native-range states, provisional images, and underlying taxonomic holds; photo polish is nonblocking for learner use."
   },
   "curation_status": {
-    "version": "1.0-croton-six-way-comparison",
+    "version": "1.1-live-learner-compatible-croton",
     "last_reviewed": "2026-10-12",
     "status": "genus_comparison_ready_photo_macro_polish_pending",
     "species_installation_changed": false,
     "range_decisions_changed": false
-  }
+  },
+  "genus_diagnostics": {
+    "hair_character": "Stellate (star-shaped) or scale-like hairs on at least some foliage or stems; check a true hair structure with a hand lens.",
+    "leaves": "Simple mostly alternate leaves; margins and habit vary across species.",
+    "flowers": "Small unisexual flowers; pistillate and staminate parts on one monoecious plant or on separate dioecious plants, depending on species.",
+    "female_parts": "Female styles and their branching are a particularly strong species-level character: 4 versus 6 versus many terminal arms.",
+    "fruits": "Usually a three-part capsule; C. monanthogynus is an exceptional one-fertile-locule species that appears one-seeded."
+  },
+  "study_strategy": {
+    "shared_traits": [
+      "Look for star-shaped/scalelike hairs; generic gray fuzz or a brown stem is not sufficient.",
+      "Check small unisexual flowers, often on a common mixed inflorescence, then inspect the female style branches.",
+      "Leaves are usually alternate and simple, but leaf shape, tooth pattern and woody versus annual growth vary by species.",
+      "Most have a multi-part capsule; prairie tea has a distinctive effectively one-seeded capsule."
+    ],
+    "priority": [
+      "1. Woody perennial/subshrub base and finely serrulate leaf edges → C. fruticulosus.",
+      "2. Female versus male plants and distinct warty capsule → C. texensis.",
+      "3. Dark-brown-centered stellate hairs on lower leaf surface; four style tips → C. monanthogynus.",
+      "4. Lower surface without dark dots; six style tips → C. lindheimerianus.",
+      "5. Woolly robust pair: female sepal curvature, young-hair color, and mature leaf tips → C. lindheimeri vs true C. capitatus.",
+      "6. Do not count C. lindheimeri or C. capitatus as target-zone-certified natives until scientific holds are resolved."
+    ],
+    "warning": "CAUTION: C. capitatus and C. lindheimeri have historic synonym/variety confusion. Their learner admission does not certify local nativity; do not reuse a C. capitatus var. lindheimeri specimen as evidence of true C. capitatus."
+  },
+  "quick_key": [
+    {
+      "if": "Woody basal stems; finely serrulate ovate foliage",
+      "then": "Croton fruticulosus"
+    },
+    {
+      "if": "Annual; male/female flowers on separate plants, warty capsules",
+      "then": "Croton texensis"
+    },
+    {
+      "if": "Annual; abaxial dark-brown-centered stellate hairs + only 4 style tips",
+      "then": "Croton monanthogynus"
+    },
+    {
+      "if": "Small annual; no brown-dot underside + 6 style tips",
+      "then": "Croton lindheimerianus"
+    },
+    {
+      "if": "Robust ochraceous-woolly annual; acute leaves, pistillate sepals straight/slightly incurved",
+      "then": "Croton lindheimeri (range HOLD)"
+    },
+    {
+      "if": "Woolly annual; some obtuse/mucronate leaves, long mature pistillate sepals recurve outward",
+      "then": "Croton capitatus (taxon-concept HOLD)"
+    }
+  ]
 }
