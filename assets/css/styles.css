@@ -329,3 +329,24 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 }
 @media(max-width:370px){.family-grid,.species-tile-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.family-card,.species-tile,.family-vocab-card{transition:none}}
+
+
+/* Species discovery cards: picture -> first clue -> three field clues -> vocabulary. */
+.plant-focus{gap:1.3rem;align-items:start}
+.plant-visual,.plant-study{min-width:0}
+.plant-study{display:flex;flex-direction:column;gap:1rem}
+.plant-study .identity-panel{background:#fff;border-radius:22px;padding:1.2rem;box-shadow:0 8px 22px rgba(31,65,45,.07)}
+.plant-study .identity-panel h1{font-size:clamp(1.55rem,3vw,2.5rem);line-height:1.15;overflow-wrap:anywhere}
+.plant-study .identity-panel .plant-common{font-size:1.1rem;font-weight:750}
+.plant-focus .focus-photo{border-radius:24px;overflow:hidden;box-shadow:0 9px 28px rgba(30,60,40,.12)}
+.plant-focus .cue-list{display:grid;gap:.7rem}
+.plant-focus .cue-list>div{display:flex;align-items:flex-start;gap:.8rem;background:#eaf5ff;border:1px solid #d2e9f9;border-radius:16px;padding:.9rem 1rem;line-height:1.45}
+.plant-focus .cue-list>div:nth-child(2){background:#f0eaff;border-color:#e1d9f7}
+.plant-focus .cue-list>div:nth-child(3){background:#e9f7e9;border-color:#d4ead4}
+.plant-focus .cue-list>div>b{display:grid;place-items:center;flex:0 0 2rem;width:2rem;height:2rem;background:#fff;color:#284b37;border-radius:50%;font-size:1rem;box-shadow:0 2px 6px rgba(0,0,0,.07)}
+.plant-focus .cue-list>div>span{padding-top:.2rem}
+.learning-panel{background:#fff9e8;border:1px solid #f5e5b4}
+.learning-panel .term-row{gap:.6rem}
+.similar-card{border-radius:22px;overflow:hidden;box-shadow:0 6px 18px rgba(31,65,45,.07)}
+.similar-card .comparison-reason{background:#fff2ca;border-radius:10px;padding:.35rem .5rem}
+@media(max-width:700px){.plant-focus{gap:1rem}.plant-study .identity-panel{padding:1rem}.plant-focus .cue-list>div{padding:.75rem}}
