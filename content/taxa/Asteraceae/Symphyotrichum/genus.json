@@ -39,7 +39,7 @@
     "warning": "Historical genus summary said eight installed, but live manifest has ten. Most important prior ERROR was calling S. divaricatum 'white woodland aster' (Eurybia divaricata); the Symphyotrichum divaricatum species card has now been corrected. Also do not teach glands as exclusive to S. oblongifolium: S. patens varieties can have stalked glands."
   },
   "curation_status": {
-    "version": "2.5-heath-small-white-photo-pass",
+    "version": "2.5-heath-field-routing",
     "last_reviewed": "2026-10-12",
     "canonical_species_unchanged": true,
     "comparison_state": "all ten species taught with morphology first, specimen/diagnostic photo polish follows"
@@ -208,9 +208,9 @@
     {
       "taxon": "Symphyotrichum ericoides",
       "common": "White heath aster",
-      "look_here_first": "Perennial; many tiny stiff pointed leaves and white small heads; spinulose phyllary tips",
-      "separate_from": "vs narrow-leaved annual divaricatum; do not use white ray color alone",
-      "photo_need": "leaf-tip spinule; phyllary-tip macro; branch habit",
+      "look_here_first": "Dense fine-leaved upper flowering branchlets plus a TRUE white/clear stiff PHYLLARY tip spine visible at 10–20× (not a folded green tip). Typical involucre 2.5–4.5(–5) mm.",
+      "separate_from": "S. divaricatum is an open, very diffuse, nearly hairless annual with widely spaced heads. S. pilosum (outside project) often has larger heads and curled GREEN phyllary tips that mimic actual S. ericoides spines. S. eulae broader serrate leaves, generally glabrous peduncles and more rays.",
+      "photo_need": "True phyllary apical clear bristle macro vs curled green pilosum tip; tight leaf-branchlet photo; existing Peter M. Dziuk 2003 arrowed source photo copyright study-link only",
       "scientific_status": "PASS"
     },
     {
@@ -282,6 +282,10 @@
     {
       "if": "Perennial; many tiny stiff pointed leaves and white small heads; spinulose phyllary tips",
       "then": "Symphyotrichum ericoides"
+    },
+    {
+      "if": "Small mostly white asters with bracts that SEEM spiny but show a GREEN rolled or incurved phyllary tip (no separate clear/white stiff bristle), often larger heads than heath aster",
+      "then": "Check Symphyotrichum pilosum — COMPARISON ONLY, not currently canonical; true S. ericoides has a pale/clear apical spine."
     },
     {
       "if": "Texas endemic; serrate scabrous leaves; spreading flower branches; glabrous peduncles; typically 27–36 rays",
@@ -663,7 +667,7 @@
         "reuse": "specimen scan reference; photo license unconfirmed"
       },
       {
-        "label": "HEATH ASTER — ACTUAL PHYL­LARY SPINE PHOTO WITH REAL SOURCE ARROWS",
+        "label": "HEATH ASTER — ACTUAL PHYLLARY SPINE PHOTO WITH REAL SOURCE ARROWS",
         "url": "https://www.minnesotawildflowers.info/udata/r9ndp23q/pd/symphyotrichum-ericoides-2931-3.jpg",
         "source_page": "https://www.minnesotawildflowers.info/flower/heath-aster",
         "look_for": "Peter M. Dziuk (2003) photo: yellow arrows label two authentic spine tips on the small involucral bracts of developing heath aster flower heads. REAL IN-IMAGE arrows already present; original creator image, do NOT copy/re-annotate into GitHub without rights.",
@@ -679,7 +683,7 @@
         "verification": "actual plant-part photo from Extension source and displayed in image search"
       },
       {
-        "label": "HEATH ASTER — WHITE/CLEAR PHYL­LARY TIP IN TAXONOMY LAB PHOTO SET",
+        "label": "HEATH ASTER — WHITE/CLEAR PHYLLARY TIP IN TAXONOMY LAB PHOTO SET",
         "url": "https://uwaterloo.ca/astereae-lab/symphyotrichum-ericoides",
         "source_page": "https://uwaterloo.ca/astereae-lab/symphyotrichum-ericoides",
         "look_for": "J.C. Semple taxon images with labeled photos, species-vs-S. pilosum head comparison (photo 7 of 8), and authentic small spine-tipped bracts.",
@@ -687,7 +691,7 @@
         "verification": "2025 revised taxonomic specialist page; source captions identify each photo"
       },
       {
-        "label": "HEATH ASTER — mature HEAD BR­ACTS and buds at fruit stage",
+        "label": "HEATH ASTER — mature HEAD BRACTS and buds at fruit stage",
         "url": "https://castle.eiu.edu/prairie/images.fullscale/asteeric.fruits1..jpg",
         "source_page": "https://castle.eiu.edu/prairie/asteeric.htm",
         "look_for": "K. R. Robertson / Illinois Natural History Survey photo shows hairy mature heads, bract geometry and a scale; use for anatomy context not unverified terminal spine-pointing.",
