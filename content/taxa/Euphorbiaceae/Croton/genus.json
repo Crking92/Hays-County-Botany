@@ -294,7 +294,52 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Croton_lindheimeri.jpg"
       }
     ],
-    "overlay_note": "Six species are included in this lesson; only five have existing photo references. True C. capitatus has NO verified exact-concept photo, so no look-alike image has been substituted. The existing five photographs are provisional introductions, not the requested diagnostic hair, style, sepal and fruit micrographs. Two UT-provenance photos are restricted to private study pending public-reuse permission."
+    "overlay_note": "Six species are included in this lesson; only five have existing photo references. True C. capitatus has NO verified exact-concept photo, so no look-alike image has been substituted. The existing five photographs are provisional introductions, not the requested diagnostic hair, style, sepal and fruit micrographs. Two UT-provenance photos are restricted to private study pending public-reuse permission.",
+    "study_only_intro": "Exact-species image candidates found 2026-10-12. Source links are NOT yet locally installed as diagnostic images: copyright/reuse, taxonomic identity, and visible countable details must be checked first. The MissouriPlants photos are source-site copyrighted and must stay link-only pending permissions. The Arizona Extension C. lindheimerianus photos have filename 'lindheimeri', requiring a taxonomic crosscheck. No arrows until diagnostic tips/hairs are actually resolved.",
+    "study_only_photo_links": [
+      {
+        "label": "Prairie tea — leaf UNDERSIDE close-up (DETenaglia, MissouriPlants)",
+        "url": "https://missouriplants.com/images/Croton_monanthogynus_abaxial_leaf.jpg",
+        "look_for": "Confirmed leaf-abaxial photo candidate. Tiny star-shaped hairs and scattered brown centers are visible; resolution may not support precise arrowing of dark trichome centers. Source site copyright, not reuse cleared.",
+        "reuse": "source-site study only; photographer DETenaglia; no open reuse license identified"
+      },
+      {
+        "label": "Prairie tea — pistillate flower macro (DETenaglia, MissouriPlants)",
+        "url": "https://missouriplants.com/images/Croton_monanthogynus_pistillate_flower.jpg",
+        "look_for": "Actual female flower photographed up close; split whitish style branches visible but individual four tips may need a higher-resolution or alternate-angle image for unambiguous labeling.",
+        "reuse": "source-site study only; photographer DETenaglia; no open reuse license identified"
+      },
+      {
+        "label": "Prairie tea — male and female inflorescence in one labeled photo (SRTurner)",
+        "url": "https://missouriplants.com/images/Croton_monanthogynus_inflorescence.jpg",
+        "look_for": "Labeled staminate-versus-pistillate flower positions; diagnostic contextual lesson, not a terminal-tip count macro.",
+        "reuse": "source-site study only; photographer SRTurner; no open reuse license identified"
+      },
+      {
+        "label": "Prairie tea — Texas pistillate close-up (Nathan Taylor iNaturalist study)",
+        "url": "https://www.inaturalist.org/observations/4427442",
+        "look_for": "Close-up of flowering/fruiting head, expert-linked from Crotons of the Trans-Pecos. Verify photograph-specific license before reuse.",
+        "reuse": "iNaturalist observation, individual photo license not yet verified"
+      },
+      {
+        "label": "Three-seed croton — verified species observation, Richard Reynolds",
+        "url": "https://www.inaturalist.org/observations/515698",
+        "look_for": "Exact-species C. lindheimerianus flower/head photo linked by Nathan Taylor's species comparison. Female flowers visible; six terminal tips not individually resolved at available display resolution. Verify photo license.",
+        "reuse": "iNaturalist observation, individual photo license not yet verified"
+      },
+      {
+        "label": "Three-seed croton — Arizona Extension flower photo (ASU Vascular Plant Herbarium)",
+        "url": "https://yavapaiplants.extension.arizona.edu/croton-lindheimerianus",
+        "look_for": "Detailed flower/leaf/herbarium-scale candidate; page labels species C. lindheimerianus but underlying image filename says C. lindheimeri: MUST crosscheck taxon identity before installing or counting style tips.",
+        "reuse": "CC BY-NC per source page; hold due to filename/species ambiguity"
+      },
+      {
+        "label": "Three-seed croton — Texas photographed plant (Taylor County)",
+        "url": "https://catnapin.com/WildFlowers/Weed/wzEuphorbCroton.htm",
+        "look_for": "Exact-name Texas photographic reference; zoom and diagnostic structure unverified, copyright unverified.",
+        "reuse": "source-site study only; rights unverified"
+      }
+    ]
   },
   "study_cautions": [
     "Most Croton leaves are alternate, yet leaves crowd near some inflorescences; do not call the apparent leaf clusters a reliable opposite-leaf arrangement.",
@@ -346,9 +391,9 @@
     "preserve": "Species native-range states, provisional images, and underlying taxonomic holds; photo polish is nonblocking for learner use."
   },
   "curation_status": {
-    "version": "1.1-live-learner-compatible-croton",
+    "version": "1.2-actual-source-candidate-links",
     "last_reviewed": "2026-10-12",
-    "status": "genus_comparison_ready_photo_macro_polish_pending",
+    "status": "genus_comparison_ready_real_diagnostic_photo_candidates_partial_final_macro_polish_pending",
     "species_installation_changed": false,
     "range_decisions_changed": false
   },
@@ -401,5 +446,61 @@
       "if": "Woolly annual; some obtuse/mucronate leaves, long mature pistillate sepals recurve outward",
       "then": "Croton capitatus (taxon-concept HOLD)"
     }
-  ]
+  ],
+  "diagnostic_photo_candidate_review_2026_10_12": {
+    "status": "PARTIAL_REAL_PHOTO_CANDIDATES_FOUND_NOT_FULLY_VISUALLY_LOCKED",
+    "species": [
+      "croton-monanthogynus",
+      "croton-lindheimerianus"
+    ],
+    "found": [
+      {
+        "species": "Croton monanthogynus",
+        "role": "abaxial leaf macro",
+        "source": "MissouriPlants DETenaglia",
+        "status": "GOOD_SOURCE_PHOTO_REVIEW_DARK_CENTER_RESOLUTION",
+        "source_url": "https://missouriplants.com/images/Croton_monanthogynus_abaxial_leaf.jpg",
+        "license": "copyrighted/source-site link only until permission"
+      },
+      {
+        "species": "Croton monanthogynus",
+        "role": "pistillate female flower macro",
+        "source": "MissouriPlants DETenaglia",
+        "status": "GOOD_SOURCE_PHOTO_REVIEW_FOUR_TIP_VISIBILITY",
+        "source_url": "https://missouriplants.com/images/Croton_monanthogynus_pistillate_flower.jpg",
+        "license": "copyrighted/source-site link only until permission"
+      },
+      {
+        "species": "Croton monanthogynus",
+        "role": "flower/fruit closeup Texas",
+        "source": "Nathan Taylor iNaturalist",
+        "status": "PROMISING_EXACT_SPECIES_CANDIDATE",
+        "source_url": "https://www.inaturalist.org/observations/4427442",
+        "license": "observation photo license not checked"
+      },
+      {
+        "species": "Croton lindheimerianus",
+        "role": "reproductive head, 6 style tip target",
+        "source": "Richard Reynolds observation cited in Nathan Taylor's Crotons of the Trans-Pecos",
+        "status": "SPECIES_LINKED_BUT_STYLE_TIPS_NOT_COUNTABLE",
+        "source_url": "https://www.inaturalist.org/observations/515698",
+        "license": "observation photo license not checked"
+      },
+      {
+        "species": "Croton lindheimerianus",
+        "role": "floral/leaf candidate with scale",
+        "source": "Arizona Extension / ASU Herbarium",
+        "status": "IDENTITY_HOLD_PHOTO_FILENAME_SAYS_C_LINDHEIMERI",
+        "source_url": "https://yavapaiplants.extension.arizona.edu/croton-lindheimerianus",
+        "license": "CC BY-NC as labeled on page"
+      }
+    ],
+    "hard_missing": [
+      "A fully resolving licensed photograph that unambiguously shows C. monanthogynus dark-centered stellate trichome centers in focus.",
+      "A fully resolving licensed close-up of C. lindheimerianus leaf underside that confirms absence of dark trichome centers.",
+      "A fully resolving licensed image with FOUR countable terminal style tips in C. monanthogynus.",
+      "A fully resolving licensed image with SIX countable terminal style tips in C. lindheimerianus."
+    ],
+    "instruction": "Retain previous installed provisional face photos; do NOT call this photo pass completed or annotate unclear traits. Source-site link-only references are allowed in genus lesson; reuse/install only after verifying license and image subject."
+  }
 }
