@@ -8,7 +8,13 @@
       "Vachellia farnesiana"
     ],
     "lane": "genus-lesson-comparison-builder",
-    "note": "Comparison framework only. Species learner admission/range/canonical installation remain independent."
+    "note": "Comparison framework only. Species learner admission/range/canonical installation remain independent.",
+    "species_ids": [
+      "vachellia-constricta",
+      "vachellia-farnesiana"
+    ],
+    "species_count": 2,
+    "canonical_status": "Both species now installed with exact-species provisional licensed photos; strict native-range statuses remain UNRESOLVED."
   },
   "genus_diagnostics": {
     "shared": "Woody thorny mimosoid legumes with alternate bipinnate leaves, paired straight stipular spines at nodes, globose yellow flower heads, and legume fruits.",
@@ -134,8 +140,43 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-genus-comparison",
-    "last_reviewed": "2026-10-07",
-    "status": "genus_lesson_live_photo_polish_pending"
-  }
+    "version": "2.1-installed-two-species-genus-2026-10-12",
+    "last_reviewed": "2026-10-12",
+    "status": "both_species_installed_first_photo; diagnostic_macros_pending"
+  },
+  "common_group": "Whitethorn and huisache acacias",
+  "look_here_first": "Inspect a twig node for a PAIR of STRAIGHT stipular spines and examine its bipinnate leaves. Both have golden spherical flower heads; compare MATURE pods: whitethorn is slender and constricted, huisache thick and dark.",
+  "study_strategy": {
+    "shared_traits": [
+      "Thorny small trees or shrubs with alternate bipinnate leaves.",
+      "Usually paired STRAIGHT stipular spines at the leaf node, unlike recurved prickles of Senegalia.",
+      "Golden ball-shaped heads of very small flowers with conspicuous stamens.",
+      "Pod shape and size are better species clues than flower color alone."
+    ],
+    "priority": [
+      "Find thorn origin precisely at the stem NODE",
+      "Count primary pinnae and paired tiny leaflets on a complete compound leaf",
+      "Find MATURE fruits: slender constricted whitethorn pods versus thicker dark husk-like huisache pods",
+      "Photograph yellow flower head with nearby leaf + thorn"
+    ],
+    "warning": "Paired thorns can vary, and leaf/pinna counts overlap. Do not identify to species from one isolated gold flower head."
+  },
+  "quick_key": [
+    {
+      "if": "paired straight spines + gold heads + very slender constricted, elongated pod",
+      "then": "Vachellia constricta — whitethorn acacia"
+    },
+    {
+      "if": "paired straight spines + gold heads + stout dark brown/black swollen pod",
+      "then": "Vachellia farnesiana — huisache"
+    },
+    {
+      "if": "elongate pale flower spikes + long straw pods",
+      "then": "Neltuma glandulosa — mesquite (not Vachellia)"
+    },
+    {
+      "if": "hooked prickles + pale flower heads/spikes",
+      "then": "Senegalia spp. (not Vachellia)"
+    }
+  ]
 }
