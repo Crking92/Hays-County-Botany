@@ -11,7 +11,7 @@
     "Cassia roemeriana Scheele",
     "Earleocassia roemeriana (Scheele) Britton"
   ],
-  "look_here_first": "Ignore the yellow flowers at first and count leaflets. Twoleaf senna has exactly one pair of leaflets per leaf. Then check the small gland between that pair, the low perennial habit, and the flattened legume pods.",
+  "look_here_first": "Find ONE mature compound leaf and count its leaflets. Twoleaf senna has exactly ONE PAIR of usually long, narrow lance-shaped leaflets (roughly 2–9 times longer than wide), with a small gland near their junction. This quickly separates S. lindheimeriana with 4–8 pairs, but NOT every western Senna: S. pilosior and S. bauhinioides also have one pair. Confirm leaflet proportions, flowers and pods.",
   "county_occurrences_target_zone": [
     "Hays",
     "Williamson",
@@ -22,7 +22,8 @@
   "project_inclusion": {
     "target_zone_status": "PASS",
     "range_basis": "B123: Hays — UT Plant Resources Center Purola natural flora; Williamson — UT PRC county flora; Kerr — NYBG Heller voucher from Kerrville.",
-    "range_guardrail": "Exact natural/voucher county evidence only."
+    "range_guardrail": "Exact natural/voucher county evidence only.",
+    "range_audit_note": "2026-10-12: Hays and Kerr are in the defined project target-zone counties; Williamson is NOT. The current recorded B123 three-county PASS has only two qualifying counties. Keep historical result pending BONAP/NAPA and primary voucher re-audit; never count Williamson toward the strict project three-county rule."
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -38,9 +39,11 @@
   "comparisons": {
     "confused_with": [
       "Senna lindheimeriana",
-      "Senna pilosior"
+      "Senna pilosior",
+      "Senna bauhinioides (western comparison)",
+      "Chamaecrista fasciculata (other-genus look-alike)"
     ],
-    "key_distinctions": "Exactly one leaflet pair per leaf separates S. roemeriana quickly from the many-paired S. lindheimeriana; confirm the interfoliolar gland and pod."
+    "key_distinctions": "Against S. lindheimeriana: one narrow leaflet pair versus 4–8 velvety pairs. Against S. pilosior: narrower lance-shaped leaflets versus broader hairy leaflets and stiff mixed stem hairs (both perennials). Against S. bauhinioides: narrower leaflets plus reproductive style, fruit and seed characters; one pair alone is insufficient."
   },
   "photo_strategy": {
     "method": "UT Austin BIO406D exact teaching-photo set",
@@ -50,7 +53,7 @@
   },
   "learner_role": "PROJECT_NATIVE",
   "curation_status": {
-    "version": "1.0-b123-web-install",
+    "version": "1.1-senna-comparison-polish",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
@@ -58,9 +61,11 @@
     "user_approved": true,
     "visual_reviewed": true,
     "visual_status": "strong-core",
-    "last_reviewed": "2026-10-04",
+    "last_reviewed": "2026-10-12",
     "photo_metadata_count": 4,
-    "photo_files_present": 4
+    "photo_files_present": 4,
+    "diagnostic_annotation_polish_needed": true,
+    "strict_target_county_audit_needed": true
   },
   "images": [
     {
@@ -99,5 +104,12 @@
       "study_use": "yes",
       "public_reuse": "review"
     }
+  ],
+  "diagnostic_image_needs": [
+    "annotated existing leaf photo showing one entire paired leaflet leaf and rachis",
+    "macro arrow to the small gland between the two leaflets",
+    "flower diagnostic anthers/style",
+    "mature brown pubescent pod",
+    "equal-scale paired leaves against S. pilosior and S. bauhinioides"
   ]
 }
