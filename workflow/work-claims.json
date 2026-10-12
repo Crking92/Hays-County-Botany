@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T11:11:00-05:00",
+  "updated_at": "2026-10-12T11:36:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7696,6 +7696,21 @@
       "expires_at": "2026-10-12T08:14:31-05:00",
       "release_when": "Canonical family confusion patch committed and sheet synchronized, or target skipped",
       "notes": "Compact 4-genus recognition polish; preserve existing visual anchors, taxonomy and formula columns."
+    },
+    {
+      "claim_id": "automation-genus-grindelia-20261012-1136",
+      "scope_kind": "genus_module",
+      "scope_key": "content/taxa/Asteraceae/Grindelia/genus.json",
+      "families": [
+        "Asteraceae"
+      ],
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-comparison-builder",
+      "status": "active",
+      "claimed_at": "2026-10-12T11:36:00-05:00",
+      "expires_at": "2026-10-12T13:36:00-05:00",
+      "release_when": "Grindelia genus lesson is committed and verified or target explicitly abandoned.",
+      "notes": "Upgrade stale B062 one-species framework to four already canonical Grindelia species. No canonical species installation or range decision changes."
     }
   ]
 }
