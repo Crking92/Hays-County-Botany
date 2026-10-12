@@ -128,6 +128,7 @@ function rangeSummary(sp){
 }
 
 function lookHereFirst(sp){
+  if(typeof sp.look_here_first==="string" && sp.look_here_first.trim()) return sp.look_here_first;
   const c=callout(sp);
   if(c && c.standout) return c.standout;
   const m=sp.morphology_keys || {};
@@ -227,6 +228,28 @@ function genusQuickRows(data){
     return Object.entries(data.quick_comparison).map(function(pair){ return {if:pair[1],then:(data.name||"")+" "+pair[0]}; });
   }
   return [];
+}
+function genusTextComparisons(data){
+  const cards=Array.isArray(data && data.comparison_cards) ? data.comparison_cards : [];
+  if(!cards.length) return "";
+  let out='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Similar species · real field characters</div><h2>Side-by-side identification lessons</h2><p>Start with the most reliable separating structure. Photo overlays are added only after the exact feature is verified.</p></div></div>';
+  cards.forEach(function(card){
+    out+='<article class="learning-card"><div class="eyebrow">Look here first</div><h3>'+esc(card.title||"Species comparison")+'</h3><p>'+esc(card.look_here_first||"")+'</p>';
+    if(Array.isArray(card.field_matrix) && card.field_matrix.length){
+      out+='<ul class="trait-list">';
+      card.field_matrix.forEach(function(row){
+        const differences=Object.entries(row).filter(function(pair){ return pair[0]!=="character" && pair[0]!=="strength"; });
+        out+='<li><b>'+esc(row.character||"Character")+'</b> — '+differences.map(function(pair){ return '<strong>'+esc(titleCase(pair[0]))+':</strong> '+esc(formatValue(pair[1])); }).join(' · ');
+        if(row.strength) out+=' <small>('+esc(row.strength)+')</small>';
+        out+='</li>';
+      });
+      out+='</ul>';
+    }
+    if(card.caution || card.ecological_warning) out+='<p class="diagnostic-overlay-note">'+esc(card.caution||card.ecological_warning)+'</p>';
+    out+='</article>';
+  });
+  out+='</section>';
+  return out;
 }
 function genusVisualComparison(data){
   const v=data && data.visual_comparison;
@@ -887,6 +910,7 @@ function genusView(){
     out+='</div></section>';
   }
   out+=genusVisualComparison(data);
+  out+=genusTextComparisons(data);
   if(quick.length){
     out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Quick separation key</div><h2>Character → likely species</h2></div></div><div class="genus-key">';
     quick.slice(0,12).forEach(function(row){ out+='<div><span>'+esc(row.if)+'</span><b>→</b><strong><i>'+esc(row.then)+'</i></strong></div>'; });
