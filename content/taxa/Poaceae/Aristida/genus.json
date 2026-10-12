@@ -29,7 +29,10 @@
   },
   "curation_status": {
     "version": "1.0-b038",
-    "last_reviewed": "2026-10-03"
+    "last_reviewed": "2026-10-03",
+    "genus_comparison_version": "2.0-2026-10-11",
+    "comparison_state": "structural matrix and photo roles built; matched glume macros pending",
+    "canonical_species_unchanged": true
   },
   "visual_status": "fast_fill_coverage_live",
   "visual_anchors": [
@@ -50,5 +53,234 @@
       ]
     }
   ],
-  "fast_fill_note": "Both canonical Aristida learner pages now have 3-image FAST-FILL galleries."
+  "fast_fill_note": "Both canonical Aristida learner pages now have 3-image FAST-FILL galleries.",
+  "shared_genus_recognition": {
+    "look_here_first": "Find one intact ripe Aristida spikelet: the hardened lemma ends in THREE spreading awn branches. Then compare the lower and upper glumes on the same spikelet, counting lower-glume veins. The glume ratio is more reliable for this pair than purple color or panicle openness.",
+    "shared_traits": [
+      "True grasses with jointed culms, sheathing leaves and a hair-fringed ligule.",
+      "Each spikelet contains one fertile floret enclosed by two persistent glumes; the firm, narrow lemma bears three terminal awn branches.",
+      "Both species may have spreading or somewhat open panicles and long awns; three awns confirm the genus, not the species."
+    ],
+    "learning_sequence": "whole clump and persistent basal foliage → isolated intact spikelet → lower versus upper glume lengths and lower-glume veins → lemma/awn anatomy → collar and sheath"
+  },
+  "look_here_first_sequence": [
+    {
+      "step": 1,
+      "action": "Confirm Aristida",
+      "target": "Isolate one fertile floret and count three awns arising from ONE lemma, not three spikelets."
+    },
+    {
+      "step": 2,
+      "action": "Measure the glumes",
+      "target": "Lay lower and upper glumes side by side, exclude any terminal awn, and compare their lengths."
+    },
+    {
+      "step": 3,
+      "action": "Count veins on lower glume",
+      "target": "Backlight the lower glume at 10–20×: 1 prominent vein favors A. purpurea; 3–7 favors A. oligantha."
+    },
+    {
+      "step": 4,
+      "action": "Confirm plant duration",
+      "target": "Perennial A. purpurea retains a persistent dense basal crown; annual A. oligantha often has wiry culms with more foliage/branching above base."
+    },
+    {
+      "step": 5,
+      "action": "Check secondary cues",
+      "target": "Compare spikelet body length and panicle architecture; do not identify from awn length, purple tint or panicle openness alone."
+    }
+  ],
+  "species_comparison_matrix": [
+    {
+      "character": "Life cycle / basal crown",
+      "Aristida purpurea": "Perennial; persistent densely tufted basal crown, many basal leaves.",
+      "Aristida oligantha": "Annual; no persistent perennial crown; wiry culms, commonly branching from base and nodes.",
+      "priority": "strong, especially on intact rooted plants",
+      "source": "Kew GrassBase; Texas A&M"
+    },
+    {
+      "character": "Lower glume length (exclude awn)",
+      "Aristida purpurea": "About 6–8 mm in GrassBase typical description.",
+      "Aristida oligantha": "About 18–25 mm in GrassBase typical description.",
+      "priority": "strong on intact mature spikelets",
+      "source": "Kew GrassBase; variation by population possible"
+    },
+    {
+      "character": "Lower:upper glume length ratio",
+      "Aristida purpurea": "Lower glume about half upper glume length (upper about 11–15 mm in GrassBase).",
+      "Aristida oligantha": "Lower and upper glumes approximately equal (both about 18–25 mm).",
+      "priority": "strong; compare same spikelet",
+      "source": "Kew GrassBase"
+    },
+    {
+      "character": "Lower glume veins",
+      "Aristida purpurea": "Typically 1 vein.",
+      "Aristida oligantha": "Typically 3–7 veins.",
+      "priority": "strong; backlight under 10–20×",
+      "source": "Kew GrassBase"
+    },
+    {
+      "character": "Spikelet length excluding lemma awns",
+      "Aristida purpurea": "Approximately 11–15 mm.",
+      "Aristida oligantha": "Approximately 18–25 mm.",
+      "priority": "supporting; check exactly what is measured",
+      "source": "Kew GrassBase"
+    },
+    {
+      "character": "Panicle architecture",
+      "Aristida purpurea": "Often narrow, nodding or flexuous; may be open or have spreading branches.",
+      "Aristida oligantha": "Texas plants often have a sparse, openly branched, few-spikeleted panicle; descriptions vary by treatment.",
+      "priority": "supporting only; openness overlaps",
+      "source": "Texas A&M; Kew GrassBase"
+    },
+    {
+      "character": "Leaf distribution and collar",
+      "Aristida purpurea": "Mostly basal involute blades, roughly 0.7–2 mm wide; hairs conspicuous at collar in Texas treatment.",
+      "Aristida oligantha": "Mostly cauline filiform blades, roughly 1–2 mm wide; ligule a hair fringe, collar hairs variable.",
+      "priority": "supporting; blade widths overlap",
+      "source": "Texas A&M; Kew GrassBase"
+    },
+    {
+      "character": "Three lemma awns",
+      "Aristida purpurea": "Three long, spreading, near-equal awns; typical GrassBase limbs 35–45 mm, but A. purpurea varieties vary widely.",
+      "Aristida oligantha": "Three long, spreading, near-equal awns; typical GrassBase limbs 30–70 mm.",
+      "priority": "genus recognition only; length overlaps",
+      "source": "Kew GrassBase"
+    }
+  ],
+  "overlap_cautions": [
+    "Three long awns identify Aristida, not which of these two species is present.",
+    "Both panicles may be open. Existing field shorthand ('oligantha airy; purpurea narrow') is a supporting gestalt, not a dependable dichotomous key.",
+    "A. purpurea is variable across recognized varieties; glume/awn dimensions from broad species treatments should be checked against local vouchers if intermediate.",
+    "Glumes persist after floret dispersal; measure an intact spikelet or match the retained pair to the correct floret.",
+    "Purple coloration is seasonal and shared by both; do not use it to separate them.",
+    "Conflicting secondary descriptions of A. oligantha stamen number (Go Botany lists 1; Kew GrassBase lists 3) must not be taught as a separating character until Taxonomy + Diagnostic Review resolves the discrepancy."
+  ],
+  "local_source_pool_lookalikes": [
+    {
+      "taxon": "Muhlenbergia spp.",
+      "separator": "Usually one lemma awn or no awn, not three arising from one hardened lemma; compare whole spikelet under magnification."
+    },
+    {
+      "taxon": "Nassella spp.",
+      "separator": "Typically one conspicuous lemma awn, not three equal branches; confirm glumes and lemma."
+    },
+    {
+      "taxon": "Sporobolus spp.",
+      "separator": "Often awnless small spikelets; lack Aristida's three-armed lemma awn."
+    },
+    {
+      "taxon": "Bouteloua spp.",
+      "separator": "Distinctive spikes or branches with multiple spikelets; do not mistake multiple awned spikelets for three awns on a single Aristida floret."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "character": "Genus three-awn architecture",
+      "shot": "Matched macro of one intact spikelet of each species, arrows to all three branches arising from one lemma.",
+      "anchor_species_ids": [
+        "aristida-purpurea",
+        "aristida-oligantha"
+      ],
+      "status": "existing exact-species images/plate can anchor; annotate after visual check"
+    },
+    {
+      "character": "Lower vs upper glume ratio",
+      "shot": "Matched side-by-side dissected glumes of both species with millimeter scale; label lower, upper, and measured endpoints.",
+      "status": "matched diagnostic macros needed"
+    },
+    {
+      "character": "Lower glume venation",
+      "shot": "Transmitted-light 10–20× images of both lower glumes, vein counts labeled 1 vs 3–7.",
+      "status": "diagnostic photo polish needed"
+    },
+    {
+      "character": "Spikelet body dimensions",
+      "shot": "Matched intact spikelets on metric scale, show body only (exclude long lemma awns) and glumes.",
+      "status": "diagnostic photo polish needed"
+    },
+    {
+      "character": "Perennial vs annual base",
+      "shot": "Rooted whole plants with close view of basal crown, culm branching and basal vs cauline leaves.",
+      "status": "existing habit images are preliminary anchors; matched local pair preferred"
+    },
+    {
+      "character": "Panicle architecture overlap",
+      "shot": "Matched complete flowering panicles with ruler, include open/narrow variants where possible.",
+      "status": "existing habit/plate anchors; annotate overlap"
+    },
+    {
+      "character": "Leaf collar and ligule",
+      "shot": "Paired 10× collar/sheath images with arrows to hair fringe and sheath mouth.",
+      "status": "diagnostic photo polish needed"
+    }
+  ],
+  "existing_media_reuse": [
+    {
+      "species_id": "aristida-purpurea",
+      "species_file": "content/taxa/Poaceae/Aristida/aristida-purpurea/species.json",
+      "roles": [
+        "images/01-habit.jpg",
+        "images/02-mature-florets-awns.jpg",
+        "images/03-three-awn-close.jpg"
+      ],
+      "note": "Three exact-species canonical media references; retain photographer and license from species.json."
+    },
+    {
+      "species_id": "aristida-oligantha",
+      "species_file": "content/taxa/Poaceae/Aristida/aristida-oligantha/species.json",
+      "roles": [
+        "whole plant field reference",
+        "threeawn architecture photo",
+        "Hitchcock USDA botanical plate"
+      ],
+      "note": "Use canonical image entries and existing license metadata; confirm physical availability before claiming image-complete."
+    }
+  ],
+  "handoffs": [
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "question": "Reconcile A. oligantha anther-count discrepancy: Go Botany lists one, Kew GrassBase three; check voucher-level stamen counts. Do not use this character in key until resolved."
+    },
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "question": "Confirm lower-glume venation (1 vs 3–7) and relative glume lengths in Hays-area A. purpurea varieties versus A. oligantha; record local exceptions if any."
+    },
+    {
+      "lane": "Diagnostic Photo Polish",
+      "question": "Prioritize paired backlit lower-glume vein and scaled glume-ratio macros; use existing canonical habit and USDA illustration as learner anchors first."
+    }
+  ],
+  "scientific_sources": [
+    {
+      "name": "Kew POWO / GrassBase Aristida purpurea",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2/general-information",
+      "supports": "glume lengths, venation, perennial habit, variable panicle and awns"
+    },
+    {
+      "name": "Kew POWO / GrassBase Aristida oligantha",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325343-2/general-information",
+      "supports": "glume lengths, venation, annual habit, spikelet and awns"
+    },
+    {
+      "name": "Texas A&M AgriLife oldfield threeawn",
+      "url": "https://rangeplants.tamu.edu/plant/oldfield-threeawn/",
+      "supports": "Texas habit and panicle variation"
+    },
+    {
+      "name": "Texas A&M AgriLife purple threeawn",
+      "url": "https://rangeplants.tamu.edu/plant/purple-threeawn/",
+      "supports": "Texas collar, basal foliage and panicle"
+    },
+    {
+      "name": "Go Botany Aristida oligantha",
+      "url": "https://gobotany.nativeplanttrust.org/species/aristida/oligantha/",
+      "supports": "regional key and stamen-count discrepancy handoff"
+    },
+    {
+      "name": "Poaceae family learner",
+      "path": "content/taxa/Poaceae/family.json",
+      "supports": "grass node, sheath, ligule, spikelet training"
+    }
+  ]
 }
