@@ -13,13 +13,18 @@
   },
   "study_strategy": {
     "priority": [
-      "annual vs perennial habit",
-      "basal tuft density",
-      "panicle openness",
-      "awn length/orientation",
-      "ligule/collar"
+      "1. Find a mature intact spikelet: three awns from ONE lemma establish Aristida.",
+      "2. Compare LOWER and UPPER glume length on the SAME spikelet, excluding any bristle at their tips: purpurea usually lower ~6–8 mm vs upper ~11–15 mm; oligantha usually both ~18–25 mm.",
+      "3. Backlight the LOWER glume for veins: purpurea usually 1; oligantha usually 3–7 (some references describe 3 or 5).",
+      "4. Inspect the plant base: purpurea = persistent perennial bunch/crown with many basal leaves; oligantha = annual with wiry culms and branchy upper nodes.",
+      "5. Use panicle openness, color, awn length, and collar hairs only as backup clues; these can overlap or vary within the purple-threeawn complex."
     ],
-    "warning": "Both have three awns. Do not stop at 'threeawn'; whole-plant architecture and life cycle are the fastest separator."
+    "warning": "Many more Aristida species occur in Central Texas than the TWO source-pool species currently installed. Do not key every local threeawn to these two; check A. longespica, A. dichotoma, and A. purpurea varieties when the morphology disagrees. Colors, long awns, and an open panicle alone do not separate them.",
+    "shared_traits": [
+      "All Aristida in this lesson are true grasses with nodes, leaf sheaths, ligules, narrow blades, and mostly one fertile floret per spikelet.",
+      "The hardened lemma of one fertile floret divides into three long terminal awns. Count the three on ONE floret: adjacent awned spikelets can falsely look like a single three-pronged head.",
+      "The lower and upper glumes are thin bracts at the base of one spikelet; they remain after the awned fertile floret is shed."
+    ]
   },
   "comparison_lesson": {
     "quick_split": [
@@ -28,10 +33,10 @@
     ]
   },
   "curation_status": {
-    "version": "1.0-b038",
-    "last_reviewed": "2026-10-03",
+    "version": "3.0-genus-visual-and-local-lookalikes",
+    "last_reviewed": "2026-10-12",
     "genus_comparison_version": "2.0-2026-10-11",
-    "comparison_state": "structural matrix and photo roles built; matched glume macros pending",
+    "comparison_state": "first-pass visual lesson ready; physical oligantha image acquisition and matched glume micros deferred",
     "canonical_species_unchanged": true
   },
   "visual_status": "fast_fill_coverage_live",
@@ -182,7 +187,7 @@
         "aristida-purpurea",
         "aristida-oligantha"
       ],
-      "status": "existing exact-species images/plate can anchor; annotate after visual check"
+      "status": "EXISTING_GALLERY_ANCHORS_INSTALLED / architecture photo adequate for orientation, arrows not yet validated"
     },
     {
       "character": "Lower vs upper glume ratio",
@@ -282,5 +287,174 @@
       "path": "content/taxa/Poaceae/family.json",
       "supports": "grass node, sheath, ligule, spikelet training"
     }
-  ]
+  ],
+  "quick_key": [
+    {
+      "if": "Spikelet does NOT have three awns from one fertile lemma",
+      "then": "Not confirmed Aristida; inspect the grass spikelet again"
+    },
+    {
+      "if": "Perennial crown; lower glume roughly HALF the upper glume; lower glume usually 1-veined",
+      "then": "Aristida purpurea"
+    },
+    {
+      "if": "Annual, wiry branched culms; TWO glumes roughly equal and long (~18–25 mm); lower glume usually 3–7-veined",
+      "then": "Aristida oligantha"
+    },
+    {
+      "if": "Annual with much SHORTER awns or noticeably unequal lateral vs central awns",
+      "then": "Check additional Central Texas Aristida such as A. longespica or A. dichotoma; comparison only, not installed"
+    }
+  ],
+  "visual_comparison": {
+    "title": "Threeawns — the whole plant and the single spikelet",
+    "subtitle": "These images are real existing source-attributed species photos and an archival botanical plate. Habit introduces the species; glume length and lower-glume veins are the stronger tie-breakers.",
+    "memory_rule": "THREE AWNS = Aristida. Purpurea: PERENNIAL, lower glume ~½ upper, 1 lower-glume vein. Oligantha: ANNUAL, glumes nearly equal, 3–7 lower-glume veins. Compare same-stage intact spikelets; color and overall fluffiness overlap.",
+    "items": [
+      {
+        "label": "Purple threeawn — persistent dense bunch",
+        "scientific_name": "Aristida purpurea",
+        "image_role": "Existing exact-species whole-plant image; basal architecture reference, NOT a dissected glume measurement",
+        "image_url": "content/taxa/Poaceae/Aristida/aristida-purpurea/images/01-habit.jpg",
+        "caption": "Perennial with a persistent crown and many narrow mostly basal blades. Look at the whole clump first, then confirm unequal glumes. Do not use purple color as a decisive test.",
+        "creator": "Matt Lavin",
+        "license": "CC BY-SA 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_(3742173733).jpg",
+        "image_fit": "contain"
+      },
+      {
+        "label": "Oldfield threeawn — annual, branching culms",
+        "scientific_name": "Aristida oligantha",
+        "image_role": "Existing exact-species field reference; panicle habit, not a glume macro",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristida%20oligantha%20176955542.jpg",
+        "caption": "Annual with wiry, frequently branched shoots and relatively few, widely spaced spikelets. The whole plant suggests a direction; equal long glumes and lower-glume venation confirm it.",
+        "creator": "Thomas Koffel",
+        "license": "CC BY 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_oligantha_176955542.jpg",
+        "image_fit": "contain"
+      },
+      {
+        "label": "Purple threeawn — three-awned lemma",
+        "scientific_name": "Aristida purpurea",
+        "image_role": "Existing exact-species three-awn spikelet close-up; NOT confirmed lower-glume vein macro",
+        "image_url": "content/taxa/Poaceae/Aristida/aristida-purpurea/images/03-three-awn-close.jpg",
+        "caption": "The three terminal awns emerge from a single fertile lemma. Use this shot to learn lemma/awn anatomy, then seek a scaled lower-and-upper-glume pair to distinguish the species.",
+        "creator": "Stan Shebs",
+        "license": "CC BY-SA 3.0 / GFDL",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_close.jpg",
+        "image_fit": "contain"
+      },
+      {
+        "label": "Oldfield threeawn — botanical illustration",
+        "scientific_name": "Aristida oligantha",
+        "image_role": "Existing USDA Hitchcock & Chase taxonomic illustration; reproductive arrangement reference",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristida%20oligantha%20HC-1950.png",
+        "caption": "The illustration shows the airy branch habit and conspicuous long three-awned florets. It is a trustworthy structure overview, but the vein count is not resolved as a paired photograph.",
+        "creator": "A. S. Hitchcock; revised by A. Chase / USDA",
+        "license": "Public Domain (U.S. federal work)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_oligantha_HC-1950.png",
+        "image_fit": "contain"
+      },
+      {
+        "label": "Purple threeawn — awned fertile florets",
+        "scientific_name": "Aristida purpurea",
+        "image_role": "Existing exact-species mature floret and awn photograph",
+        "image_url": "content/taxa/Poaceae/Aristida/aristida-purpurea/images/02-mature-florets-awns.jpg",
+        "caption": "Use alongside the three-awn close-up to recognize mature lemma and awn architecture. The lower:upper glume lengths and veins still need matched scaled macro photographs.",
+        "creator": "Matt Lavin",
+        "license": "CC BY-SA 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_(3877125836).jpg",
+        "image_fit": "contain"
+      },
+      {
+        "label": "Oldfield threeawn — exact-species reproductive image",
+        "scientific_name": "Aristida oligantha",
+        "image_role": "Existing exact-species photograph of flowering/fruiting stalk; no glume vein detail established",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aristida%20oligantha%20600896755.jpg",
+        "caption": "Look for the scattered spikelets and spreading awns. This licensed image provides context, not a proof of three-to-seven lower-glume veins.",
+        "creator": "infiniteuniverse",
+        "license": "CC0 1.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_oligantha_600896755.jpg",
+        "image_fit": "contain"
+      }
+    ],
+    "overlay_note": "Physical-media audit (2026-10-12): A. purpurea has three actual GitHub image files; A. oligantha has three exact-species remote image references, but no local images/ folder yet. The in-page images are unannotated introductions. Do not add arrows claiming glume lengths or veins until such structures are actually resolved.",
+    "study_only_intro": "Open these scientific-source photographs separately for anatomical training. Images are NOT copied to this learner gallery unless photographer permission/license is verified.",
+    "study_only_photo_links": [
+      {
+        "label": "Explicitly labeled Aristida purpurea spikelet: lemma, upper/lower glumes and awns",
+        "url": "https://www.minnesotawildflowers.info/grass-sedge-rush/purple-three-awn",
+        "look_for": "Professional labeled spikelet photo visibly identifies lower and upper glumes and awns; excellent glume-anatomy teaching aid, but do not embed without permission.",
+        "reuse": "source-site reference only; redistribution not verified"
+      },
+      {
+        "label": "USGS oldfield threeawn reproductive-spike close-up",
+        "url": "https://warcapps.usgs.gov/PlantID/Species/Details/2840",
+        "look_for": "Photographed A. oligantha awned spikelets and panicle architecture; check underlying file provenance before reuse.",
+        "reuse": "source-site reference only pending image-specific licensing"
+      },
+      {
+        "label": "Texas A&M purple threeawn (includes local collar-hair photo discussion)",
+        "url": "https://rangeplants.tamu.edu/plant/purple-threeawn/",
+        "look_for": "Explore whole bunch, long collar hairs, panicle and awns. Practical Texas habitat and look-alike details.",
+        "reuse": "source-site reference only pending image-specific licensing"
+      },
+      {
+        "label": "Texas A&M oldfield threeawn",
+        "url": "https://rangeplants.tamu.edu/plant/oldfield-threeawn/",
+        "look_for": "Whole annual and branching habit versus purple threeawn; wider scope than photographed spikelet veins.",
+        "reuse": "source-site reference only pending image-specific licensing"
+      }
+    ]
+  },
+  "other_local_aristida_comparisons": {
+    "admission": "COMPARISON_REFERENCES_ONLY — these are described in UT's selected NW Hays/Travis grass list but are absent from the approved Master Plant Pool and GitHub canonical Aristida set. Do not create species records or call them three-county native-certified without review.",
+    "background_source": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/CommonName.html",
+    "named_examples": [
+      {
+        "scientific_name": "Aristida longespica",
+        "common_name": "Slimspike threeawn / red threeawn varieties",
+        "field_route": "Another wiry annual; much shorter lemma body and awns than A. oligantha in typical keys; examine central vs lateral awn lengths, basal glumes and scale. Old Texas labels may use longispica spelling; verify accepted concept before new card.",
+        "source": "https://gobotany.nativeplanttrust.org/species/aristida/longespica/"
+      },
+      {
+        "scientific_name": "Aristida dichotoma",
+        "common_name": "Churchmouse threeawn",
+        "field_route": "Shorter, noticeably unequal awns; the central awn commonly exceeds the two laterals. Confirm from spikelets; not a three-awn species to identify as either current learner species.",
+        "source": "https://gobotany.nativeplanttrust.org/dkey/aristida/"
+      },
+      {
+        "scientific_name": "Aristida purpurea var. nealleyi (often older A. glauca)",
+        "common_name": "Blue threeawn",
+        "field_route": "Part of the very variable A. purpurea complex. Check authority-backed accepted variety/concept before considering another distinct species card.",
+        "source": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/CommonName.html"
+      },
+      {
+        "scientific_name": "Aristida purpurea var. wrightii",
+        "common_name": "Wright's threeawn",
+        "field_route": "Purple-threeawn variety with distinct shorter stout awns described by Texas A&M; retain as a variety comparison, not automatically a second species.",
+        "source": "https://rangeplants.tamu.edu/plant/wright-threeawn/"
+      }
+    ]
+  },
+  "photo_audit_2026_10_12": {
+    "status": "TWO_SPECIES_FACE_AND_AWN_GALLERIES_PRESENT_EXACT_GLUME_COMPARISON_PENDING",
+    "canonical_species": 2,
+    "visual_cards_added": 6,
+    "physical_image_files_on_main": {
+      "aristida-purpurea": 3,
+      "aristida-oligantha": 0
+    },
+    "remote_exact_species_image_refs": {
+      "aristida-purpurea": 0,
+      "aristida-oligantha": 3
+    },
+    "source_link_only_references": 4,
+    "anatomy_photos_needed": [
+      "Matched A. purpurea versus A. oligantha lower/upper glumes laid side by side and measured with metric ruler, with lower-glume to upper-glume ratio visible.",
+      "Transmitted-light macro of LOWER glume on each species at same scale verifying 1 vein versus 3–7 veins.",
+      "For extra local species, verify exact morphology/accepted concepts and the source-pool approval before new image packs."
+    ],
+    "workflow_note": "The two approved learner taxa already exist; this pass adds genus learning media and comparison-only lookalikes without modifying range certification or creating new taxa."
+  }
 }
