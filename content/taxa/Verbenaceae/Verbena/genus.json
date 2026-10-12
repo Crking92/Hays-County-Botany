@@ -56,7 +56,11 @@
     "preserve_existing_photos": true,
     "genus_photo_overlay_items": 9,
     "genus_photo_overlay_markers": 9,
-    "visual_source_rights": "verified four Wikimedia CC licenses; UT/USGS references link-only"
+    "visual_source_rights": "verified four Wikimedia CC licenses; UT/USGS references link-only",
+    "final_polish_deferred": "2026-10-12",
+    "final_polish_queue_count": 3,
+    "nonmicroscopic_visuals": "provisional learner complete",
+    "specialized_hair_micrographs": "pending"
   },
   "look_here_first": "Look at LEAVES and the whole flower-spike architecture before flower color. Broad rough leaves vs finely divided vs 3-lobed vs gray-hairy vs narrow unlobed are the fastest splits. Then compare whether spikes are long and slender or numerous, short and compact. Brazilian vervain is an introduced comparison, never a target-native recommendation.",
   "shared_traits": [
@@ -120,7 +124,7 @@
         "verbena-halei",
         "verbena-canescens"
       ],
-      "look_here_first": "Get a close side-by-side view of leaves. Texas vervain has a greener, more lightly hairy look and distinctly divided lower leaves. Gray vervain stays low and densely covered with grayish-white hairs.",
+      "look_here_first": "Check the stem and leaf surface with a hand lens. UT's Central Texas PlantPics emphasizes short stiff canescent hairs on V. canescens versus glabrous V. halei as the most useful split. Then compare gray overall cast and variable lower-leaf divisions; no need to wait for flowers.",
       "field_matrix": [
         {
           "character": "Leaf outline",
@@ -129,8 +133,8 @@
         },
         {
           "character": "Surface hairs",
-          "halei": "Comparatively sparse; greener",
-          "canescens": "Dense pale hairs create an overall gray cast"
+          "halei": "Glabrous (smooth/hairless) to only sparingly hairy in regional descriptions; UT PlantPics explicitly contrasts glabrous V. halei with V. canescens",
+          "canescens": "Distinct, dense short stiff hairs on stems and leaves (canescent): check real surface at the same scale"
         },
         {
           "character": "Habit",
@@ -147,7 +151,7 @@
         {
           "role": "same-scale leaf/stem pubescence",
           "arrow": "hair density, scale",
-          "status": "pending exact macro"
+          "status": "UT Austin has an exact demonstration on the original source page, linked in genus; it is NOT copied because image reuse rights are unknown. Licensed matched-scale macro deferred to final photographic polish."
         },
         {
           "role": "whole plant",
@@ -155,7 +159,10 @@
           "status": "sources exist; matched comparison pending"
         }
       ],
-      "caution": "Leaf division can vary within one plant; compare lower leaves at the same developmental stage."
+      "caution": "Leaf division can vary within one plant; compare lower leaves at the same developmental stage.",
+      "references": [
+        "https://www.sbs.utexas.edu/bio406d/images/pics/vrb/verbena_canescens.htm"
+      ]
     },
     {
       "id": "verbena-halei-vs-xutha",
@@ -587,6 +594,31 @@
       "status": "sourced-and-annotated CC BY-SA extension leaf image",
       "character": "broad scabrous blade",
       "remaining": "microscopic scabrous hairs; CC BY-SA version confirmation"
+    }
+  ],
+  "final_photo_polish_queue": [
+    {
+      "priority": 1,
+      "comparison": "Verbena canescens vs V. halei",
+      "needed": "Licensed paired SAME SCALE stem and leaf surface macros resolving stiff canescent trichomes vs smooth/glabrous stems",
+      "source_lead": "UT Austin PlantPics Verbena canescens (image 1) contains a clear exact pair demonstration; use source link only until permission verified",
+      "deferred_reason": "Licensing for teaching photo not established; existing photos and key permit useful provisional ID."
+    },
+    {
+      "priority": 2,
+      "comparison": "Verbena xutha vs V. halei",
+      "needed": "Isolated three-lobed middle-stem Gulf leaf versus Texas vervain pinnatifid lower leaf, with clearly visible base/node, both in focus",
+      "deferred_reason": "Current exact photos show leaves but Gulf leaf is too small in frame for precise lobe overlays."
+    },
+    {
+      "priority": 3,
+      "comparison": "Verbena scabra vs V. brasiliensis",
+      "needed": "Licensed true macro of scabrous stiff hairs on broad sandpaper blade + same-scale narrow Brazilian serrate leaf and opposite node",
+      "source_leads": [
+        "https://warcapps.usgs.gov/PlantID/Species/Details/1246",
+        "https://www.backyardnature.net/n/h/brazverv.htm"
+      ],
+      "deferred_reason": "Strong overall leaf shape and branching/spike architecture already represented; microscopy/photo reuse still open."
     }
   ]
 }
