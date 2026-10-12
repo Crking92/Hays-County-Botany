@@ -179,10 +179,13 @@
     "warning": "Do not key these learner taxa primarily by flower color, overall woolliness, height, or habitat."
   },
   "curation_status": {
-    "version": "3.6-horridulum-collar-feature-verified",
+    "version": "3.7-cirsium-visual-first-pass",
     "last_reviewed": "2026-10-12",
     "lane": "scientific-diagnostic-review",
-    "note": "Genus comparison expanded from two to all five current canonical learner taxa. No species installation or gallery backfill performed."
+    "note": "Genus comparison expanded from two to all five current canonical learner taxa. No species installation or gallery backfill performed.",
+    "comparison_lessons": 4,
+    "diagnostic_arrows": 6,
+    "photo_polish_open": true
   },
   "quick_key": [
     {
@@ -405,6 +408,97 @@
       }
     ],
     "overlay_note": "Two arrow targets in the yellowspine bud photo were visually checked against source preview (Pixnio; befish). Other photos are recognition/context until their microscopic traits can be verified; all license metadata preserved. Bull thistle leaf-blade micrograph remains an external study link.",
-    "study_only_photo_links": []
-  }
+    "study_only_photo_links": [
+      {
+        "label": "C. vulgare — TRUE upper leaf surface hairs and bristles (MissouriPlants)",
+        "url": "https://www.missouriplants.com/Cirsium_vulgare_page.html",
+        "look_for": "Click 'Upper surface of leaf' photo, then distinguish short spines emerging INSIDE leaf blade from long marginal thorns.",
+        "reuse": "© DETenaglia; original site link only. Reuse rights not established."
+      },
+      {
+        "label": "C. vulgare — entire SPINY WING with 20 mm source ruler",
+        "url": "https://commons.wikimedia.org/wiki/File:Cirsium_vulgare_sl25.jpg",
+        "look_for": "Compare long downward stem wing to simple clasping. Shown above in licensed gallery with annotation.",
+        "reuse": "Stefan.lefnaer CC BY-SA 4.0."
+      },
+      {
+        "label": "C. horridulum — extra spiny UNDERHEAD BRACT collar",
+        "url": "https://commons.wikimedia.org/wiki/File:Cirsium_horridulum_(bristly_thistle)_2.jpg",
+        "look_for": "Actual armored ring under purple flower; photograph in gallery arrowed to specific subtending bract.",
+        "reuse": "Bobyellow CC BY 4.0."
+      },
+      {
+        "label": "C. texanum — exact Texas specimen photo (June 2019)",
+        "url": "https://commons.wikimedia.org/wiki/File:Cirsium_texanum.jpg",
+        "look_for": "Texanum purple head/involucre, not proof of 12–20 mm size without ruler.",
+        "reuse": "Megan Kossa CC BY 4.0."
+      },
+      {
+        "label": "C. ochrocentrum — long yellow bract spines, gray wool",
+        "url": "https://pixnio.com/media/flower-wildlife-green-sharp-thorn",
+        "look_for": "Identified C. ochrocentrum bud image annotated in learner; photograph of spines is genuine.",
+        "reuse": "befish, Pixnio Free to Use License; terms at source."
+      },
+      {
+        "label": "C. undulatum — barely clasping leaf base/gray wool",
+        "url": "https://commons.wikimedia.org/wiki/File:Cirsium_undulatum_(4990344551).jpg",
+        "look_for": "Actual undulatum leaf attachment and tomentose underside; photograph in learner gallery.",
+        "reuse": "Matt Lavin CC BY-SA 2.0."
+      },
+      {
+        "label": "C. vulgare — photographed first-year prickly rosette",
+        "url": "https://commons.wikimedia.org/wiki/File:Cirsium_vulgare,_Speerdistel_bladrozet_closeup.jpg",
+        "look_for": "Fall recognition stage: rosette before bolt. Do not try to assign unknown rosettes without upper-blade bristles.",
+        "reuse": "Rasbak CC BY-SA 3.0 or GFDL; copyright terms on source."
+      },
+      {
+        "label": "Texas thistle — Native Plant Society of Texas plant profile",
+        "url": "https://www.npsot.org/posts/native-plant/cirsium-texanum/",
+        "look_for": "Season, Texas native range/ecoregions, leaves and flowers. Their photographs require individual permission.",
+        "reuse": "NPSOT text and photo-source site; do not copy unlicensed NPSOT gallery images."
+      }
+    ]
+  },
+  "autumn_rosette_lesson": {
+    "month": "October",
+    "first": "Seedheads/rosettes can be more visible than flowers this season. Look for rosette from above + leaf upper/lower face and stem remnants.",
+    "steps": [
+      "Photograph rosette from straight overhead and side, with ruler and a leaf tip.",
+      "Photograph upper and lower leaf surfaces under lens: bull thistle bristlelike spines IN blade are high-value; underside wool is not species-exclusive.",
+      "If mature stem survives, document downward stem wings and the base of old head for collar.",
+      "Do not assign native/non-native from a photo of purple head or rosette wool alone."
+    ]
+  },
+  "diagnostic_photo_checklist": [
+    {
+      "priority": 1,
+      "group": "horridulum vs texanum",
+      "role": "Measured 12–20 mm versus 30–50 mm involucre and armored collar",
+      "status": "horridulum collar arrow VERIFIED; matching head size/ruler for texanum missing"
+    },
+    {
+      "priority": 1,
+      "group": "vulgare vs other Cirsium",
+      "role": "Upper leaf BLADE short spines, separate from marginal tips",
+      "status": "copyrighted true photo link FOUND; exact licensed macro still open"
+    },
+    {
+      "priority": 1,
+      "group": "ochrocentrum vs undulatum",
+      "role": "Measured bract spine/wool/leaf attachment pair",
+      "status": "two photos with arrowed structures FOUND; undulatum 6–7 mm fruit and true species matched pair pending"
+    },
+    {
+      "priority": 2,
+      "group": "texanum vs carolinianum",
+      "role": "Broad sessile leaf base versus narrow cuneate",
+      "status": "photo pair missing; carolinianum is comparison-only, not admitted"
+    },
+    {
+      "priority": 2,
+      "group": "fall rosettes",
+      "role": "Photos of autumn native rosettes vs introduced bull",
+      "status": "licensed introduced bull rosette link found; matched native rosette images pending"
+    }
+  ]
 }
