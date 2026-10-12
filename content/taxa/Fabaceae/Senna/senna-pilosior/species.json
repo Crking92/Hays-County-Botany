@@ -9,7 +9,7 @@
   "common_name": "Trans-Pecos senna",
   "synonyms": [],
   "taxonomic_note": "Accepted species; Kew gives a native range from Texas to northeastern Mexico.",
-  "look_here_first": "Start with one mature complete leaf: this is a BIFOLIOLATE (one-pair) herbaceous PERENNIAL, not an annual. Both leaflets are relatively broad (roughly 1.3–1.8× as long as wide), hairy and often gray-toned. Magnify stem hairs for a mix of short backward-pointing hairs, tiny glandlike hairs and stiff longer setae, then confirm sepals, floral anthers and erect hairy mature pods; compare carefully against S. roemeriana and S. bauhinioides.",
+  "look_here_first": "Find ONE entire leaf: S. pilosior has only ONE PAIR of comparatively broad hairy leaflets, approximately 1.3–1.8 times as long as wide. Check for short retrorse hairs and much stiffer long setae on stems, the gland where both leaflets meet, then anthers and hairy upright fruit. Do not separate by annual versus perennial habit: current sources disagree on its life history.",
   "county_occurrences_target_zone": [],
   "target_zone_count": 0,
   "native_target_zone_calculated": false,
@@ -27,7 +27,7 @@
   "native_metrics_excluded": true,
   "morphology_keys": {
     "best_field_traits": [
-      "herbaceous perennial (2024 peer-reviewed taxonomic flora; corrected from older annual shortcut)",
+      "source conflict: Kew reports annual; 2024 taxonomic treatment reports herbaceous perennial — do NOT use life history for identification",
       "exactly one leaflet pair per compound leaf",
       "leaflets relatively broad, about 1.3–1.8 times as long as wide",
       "mixture of short retrorse hairs, glandlike trichomes and longer stiff setae on stems",
@@ -35,7 +35,7 @@
       "persistent sepals on developing fruit; anthers constricted below symmetric terminal pollen pore",
       "erect oblong pods roughly 2–4 cm long, hairy/setose; can persist after opening"
     ],
-    "comparison_training": "S. roemeriana is also perennial and has one leaflet pair, but its leaflets are much more narrowly lanceolate (approximately 2–9 times as long as wide). S. bauhinioides also has a single broad pair; distinguish with stiff mixed stem hairs, persistent sepals, anther/pod detail, and S. bauhinioides stout thickened style + rough seed testa. Life history, leaflet count alone and yellow flowers do not separate this trio."
+    "comparison_training": "S. roemeriana also has one leaflet pair, but its leaflets are much more narrowly lanceolate (approximately 2–9 times as long as wide). S. bauhinioides also has a single broad pair; distinguish with stiff mixed stem hairs, persistent sepals, anther/pod detail, and S. bauhinioides stout thickened style + rough seed testa. Life history, leaflet count alone and yellow flowers do not separate this trio."
   },
   "comparisons": {
     "confused_with": [
@@ -62,9 +62,11 @@
     "user_approved": true,
     "range_exception": true,
     "last_reviewed": "2026-10-12",
-    "visual_status": "visual_incomplete_missing_verified_photo",
+    "visual_status": "awaiting_exact_photo_ids_and_binary_qa",
     "taxonomic_status_preserved": true,
-    "range_status_preserved": true
+    "range_status_preserved": true,
+    "life_history_conflict_flagged": true,
+    "photo_sources_scouted": true
   },
   "diagnostic_image_needs": [
     "whole herbaceous perennial habit with scale",
@@ -74,12 +76,47 @@
     "erect mature hairy pod and opening valves",
     "side-by-side S. roemeriana narrow paired leaves and S. bauhinioides broad paired leaves at the same scale"
   ],
-  "photo_note": "2026-10-12 audit: zero images[] and no verified final picture. iNaturalist species gallery is only a candidate source, not approved/photo installed. Do not use stock/Getty images; check each exact observation, copyright license and photographer before choosing files.",
+  "photo_note": "2026-10-12 photo scout found indexed CC0 and CC BY exact-species iNaturalist images via biosurveys. Image-source record IDs and roles not yet verified, so NO PHOTO INSTALLED; images[] stays absent until actual binary/observation/license checked. Commercial Getty and copyrighted T. Kahler photos excluded.",
   "photo_candidate_sources": [
     {
-      "label": "iNaturalist taxon gallery — candidates only, requires specific observation review",
-      "url": "https://www.inaturalist.org/taxa/168849-Senna-pilosior",
-      "license_status": "not evaluated; no licensed photograph selected"
+      "platform": "iNaturalist, through license-bearing biosurveys.org Senna pilosior taxon index",
+      "index_url": "https://www.biosurveys.org/taxon/senna-pilosior-168849",
+      "taxon_url": "https://www.inaturalist.org/taxa/168849-Senna-pilosior",
+      "credit": "Robb Hannawacker",
+      "license": "CC0",
+      "visible_count": 2,
+      "verification": "INDEX VERIFIED; exact iNaturalist observation_id/photo_id not yet recovered, photo content not inspected. Must select IDs before adding images[].",
+      "reusable_status": "candidate only"
+    },
+    {
+      "platform": "iNaturalist, through biosurveys.org",
+      "index_url": "https://www.biosurveys.org/taxon/senna-pilosior-168849",
+      "taxon_url": "https://www.inaturalist.org/taxa/168849-Senna-pilosior",
+      "credit": "Austin R. Kelly",
+      "license": "CC BY",
+      "visible_count": 5,
+      "verification": "INDEX VERIFIED; individual photo IDs, diagnostic roles and image binaries not yet verified.",
+      "reusable_status": "candidate only"
+    },
+    {
+      "platform": "iNaturalist, through biosurveys.org",
+      "index_url": "https://www.biosurveys.org/taxon/senna-pilosior-168849",
+      "taxon_url": "https://www.inaturalist.org/taxa/168849-Senna-pilosior",
+      "credit": "Dr. Alison Northup",
+      "license": "CC BY",
+      "visible_count": 3,
+      "verification": "INDEX VERIFIED; photo ID and image quality unverified.",
+      "reusable_status": "candidate only"
+    },
+    {
+      "platform": "iNaturalist, through biosurveys.org",
+      "index_url": "https://www.biosurveys.org/taxon/senna-pilosior-168849",
+      "taxon_url": "https://www.inaturalist.org/taxa/168849-Senna-pilosior",
+      "credit": "Joey Santore",
+      "license": "CC BY-NC",
+      "visible_count": 7,
+      "verification": "INDEX VERIFIED; compare user's saved Joey media before selecting new source; photographer, image and rights require final record.",
+      "reusable_status": "candidate only; attribution, noncommercial restriction"
     }
   ],
   "botanical_source_notes": [
@@ -88,5 +125,19 @@
       "url": "https://www.mdpi.com/2223-7747/13/17/2477",
       "finding": "Peer-reviewed account calls S. pilosior herbaceous perennial, with one broad pair of leaflets and mixed stem trichomes, and an erect hairy persistent fruit."
     }
-  ]
+  ],
+  "life_history_evidence": {
+    "status": "SOURCE_CONFLICT — DO NOT KEY SPECIES ON LIFE HISTORY",
+    "recent_treatment": {
+      "interpretation": "Herbaceous perennial",
+      "source": "Estrada-Castillón et al., 2024, The Fabaceae in Northeastern Mexico",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11397501/"
+    },
+    "kew_taxon": {
+      "interpretation": "Annual",
+      "source": "Kew Plants of the World Online, accessed 2026-10-12",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:518356-1"
+    },
+    "learner_guidance": "Conflicting source treatments and/or differences in local persistence; DO NOT teach annual vs perennial as separating character for S. pilosior, S. roemeriana, or S. bauhinioides until independently resolved."
+  }
 }
