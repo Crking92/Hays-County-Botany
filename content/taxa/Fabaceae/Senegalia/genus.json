@@ -187,8 +187,23 @@
         "creator": "Stan Shebs",
         "license": "CC BY-SA 3.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Acacia_greggii_thorns.jpg",
-        "markers": [],
-        "annotation_status": "exact species photo binary verified by curation pipeline, per-pixel arrows deferred"
+        "markers": [
+          {
+            "label": "curved prickle",
+            "label_x": 6,
+            "label_y": 82,
+            "target_x": 36,
+            "target_y": 48
+          },
+          {
+            "label": "opposing prickle",
+            "label_x": 76,
+            "label_y": 9,
+            "target_x": 65,
+            "target_y": 48
+          }
+        ],
+        "annotation_status": "Actual Stan Shebs photo checked; two curved prickle points, coordinates refer to source photo pixels. Other fine targets deferred."
       },
       {
         "label": "ROUND-CATCLAW DRY FRUIT",
@@ -224,8 +239,8 @@
         "reuse": "Alison Northup CC BY; photo ID 23060929"
       }
     ],
-    "overlay_note": "Four coarse annotations on identifiable bloom/leaf structures from original photos (Roemer's and Wright's). No arrows added to unverified prickle insertions or microscopic nectar glands. Wright iNaturalist photo credit Alison Northup CC BY; the roemeriana flower is JerryFriedman CC BY-SA, fruit USDA public domain. Local files appear in the learner after installer confirms download.",
-    "version": "2.0-three-way-visual-key"
+    "overlay_note": "Six annotated image targets on Roemer round heads, Wright flower spike and broad leaflets, and Gregg's true curved twig prickles. The species lesson additionally labels full pod and extra leaflets. All images downloaded; license credits retained. Still needs same-scale Gregg/Wright leaflet macros.",
+    "version": "2.1-three-way-catclaw-with-prickle-arrow"
   },
   "sources": [
     {
@@ -274,9 +289,9 @@
     "Wright alternative licensed habit and ripe pod; first bloom face is ready"
   ],
   "curation_status": {
-    "version": "2.0-roemeriana-wrightii-three-way-comparison",
+    "version": "2.1-installed-trio-and-thorn-targets",
     "last_reviewed": "2026-10-12",
-    "status": "three_species_installed; five_photo_genus_comparison; fine_photo_annotations_pending",
+    "status": "three_installed_species_verified_with_five_genus_photos_and_six_large-structure-arrows",
     "genus_photo_panels": 5,
     "verified_canonical_species_count": 3,
     "installed_photo_counts": {
