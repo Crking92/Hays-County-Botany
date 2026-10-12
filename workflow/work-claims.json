@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T06:14:31-05:00",
+  "updated_at": "2026-10-12T09:33:23-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,7 +18,28 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
-    {"claim_id":"automation-genus-pontederia-20261012-0802","scope_kind":"genus_lesson","scope_key":"content/taxa/Pontederiaceae/Pontederia/genus.json","lane":"genus-lesson-comparison-builder","owner":"Genus Comparison Builder","status":"active","claimed_at":"2026-10-12T08:02:00-05:00","expires_at":"2026-10-12T10:02:00-05:00","release_when":"After verified durable genus module commit."},
+    {
+      "claim_id": "automation-genus-galium-20261012-0933",
+      "scope_kind": "genus_lesson",
+      "scope_key": "content/taxa/Rubiaceae/Galium/genus.json",
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "Genus Comparison Builder",
+      "status": "active",
+      "claimed_at": "2026-10-12T09:33:23-05:00",
+      "expires_at": "2026-10-12T11:33:23-05:00",
+      "release_when": "After verified durable genus lesson and Genus Study Index keys."
+    },
+    {
+      "claim_id": "automation-genus-pontederia-20261012-0802",
+      "scope_kind": "genus_lesson",
+      "scope_key": "content/taxa/Pontederiaceae/Pontederia/genus.json",
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "Genus Comparison Builder",
+      "status": "active",
+      "claimed_at": "2026-10-12T08:02:00-05:00",
+      "expires_at": "2026-10-12T10:02:00-05:00",
+      "release_when": "After verified durable genus module commit."
+    },
     {
       "claim_id": "joey-san-marcos-local-001",
       "scope_kind": "species_batch",
