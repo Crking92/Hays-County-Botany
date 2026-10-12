@@ -822,6 +822,7 @@ function homeView(){
   const discovered=Array.from(new Set(profiles.concat(Array.from(counts.keys())))).sort(function(a,b){ return a.localeCompare(b); });
   const families=preferred.concat(discovered.filter(function(f){ return !preferred.includes(f); }));
   const anchoredFamilies=families.filter(function(f){ return familySpecies(f).length; }).length;
+  const profileFamilies=families.filter(function(f){ return !!familyProfile(f); }).length;
   const level=state.learning.difficulty_levels[state.difficulty];
   let out='<section class="home-hero"><div class="eyebrow">Structure-first field botany</div>'+
     '<h1>Learn what to look at, then learn what it is called.</h1>'+
@@ -832,7 +833,7 @@ function homeView(){
   out+='<section class="section-block family-library"><div class="section-heading"><div><div class="eyebrow">Start broad, then drill down</div><h2>Family Library</h2></div>'+
     '<button class="text-button" type="button" data-nav="browse">Open taxonomy browser →</button></div>'+
     '<p class="section-intro">Learn the recurring family pattern first, choose a genus, open a species, then compare it with close relatives and look-alikes.</p>'+
-    '<div class="library-summary"><div><strong>'+families.length+'</strong><span>family lessons</span></div><div><strong>'+anchoredFamilies+'</strong><span>families with species anchors</span></div><div><strong>'+state.species.length+'</strong><span>curated species</span></div></div>'+
+    '<div class="library-summary"><div><strong>'+families.length+'</strong><span>families represented</span></div><div><strong>'+profileFamilies+'</strong><span>family learning profiles</span></div><div><strong>'+state.species.length+'</strong><span>curated species</span></div></div>'+
     '<div class="family-grid">';
   families.forEach(function(f){ out+=familyCard(f); });
   out+='</div></section><section class="method-strip"><div><b>1</b><span><strong>See it</strong>Start with the structure.</span></div>'+
