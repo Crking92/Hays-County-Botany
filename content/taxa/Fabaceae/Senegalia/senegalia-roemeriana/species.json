@@ -73,12 +73,13 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-source-pool-visual-fastfill-2026-10-12",
+    "version": "1.1-annotated-two-image-species-2026-10-12",
     "last_reviewed": "2026-10-12",
     "range_status": "UNRESOLVED",
-    "visual_status": "two_exact_verified_license_photos_queued",
+    "visual_status": "field-useful-photo-and-arrow-pass",
     "photo_metadata_count": 2,
-    "photo_files_present": 2
+    "photo_files_present": 2,
+    "arrow_annotations": 4
   },
   "images": [
     {
@@ -106,5 +107,87 @@
     "image_count": 2,
     "filled_at": "2026-10-12",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  },
+  "visual_comparison": {
+    "version": "1.0-roundflower-closeup-2026-10-12",
+    "title": "Roundflower catclaw: actually ROUND flower heads",
+    "subtitle": "Photos let you study round heads, little leaflets, and a mature pod without confusing them with elongated spikes.",
+    "memory_rule": "ROUND WHITE HEAD = ROEMER'S CATCLAW (confirm hooked prickle and compound leaves).",
+    "items": [
+      {
+        "label": "FLOWER HEAD + COMPOUND LEAVES",
+        "scientific_name": "Senegalia roemeriana",
+        "image_url": "content/taxa/Fabaceae/Senegalia/senegalia-roemeriana/images/01-roundflower-heads.jpg",
+        "image_fit": "contain",
+        "image_role": "cream globose heads and small bipinnate leaflets",
+        "caption": "Notice the round fluffy cream heads. The little leaves above are secondary leaflets of a twice-compound leaf; their exact junctions require a more isolated leaf photo.",
+        "creator": "JerryFriedman",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Acacia_roemeriana_flora.jpg",
+        "markers": [
+          {
+            "label": "ROUND flower head",
+            "label_x": 6,
+            "label_y": 11,
+            "target_x": 61,
+            "target_y": 21,
+            "verification": "manual position on inspected original photo, percentage coordinates"
+          },
+          {
+            "label": "tiny leaflets",
+            "label_x": 53,
+            "label_y": 7,
+            "target_x": 86,
+            "target_y": 8,
+            "verification": "manual position on inspected original photo, percentage coordinates"
+          }
+        ]
+      },
+      {
+        "label": "MATURE POD WITH SCALE",
+        "scientific_name": "Senegalia roemeriana",
+        "image_url": "content/taxa/Fabaceae/Senegalia/senegalia-roemeriana/images/02-flat-pods.jpg",
+        "image_fit": "contain",
+        "image_role": "Flattened mature fruit on a specimen with 1 cm ruler",
+        "caption": "The fruit is a flattened legume, not a round flower head. A 1 cm scale is included, and the slender fruit stalk attaches at the upper right. Do not interpret pod curvature as species-specific by itself.",
+        "creator": "Tracey Slotta / USDA ARS",
+        "license": "Public domain — US federal government",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Acacia_roemeriana_01nsh.jpg",
+        "markers": [
+          {
+            "label": "flat legume fruit",
+            "label_x": 5,
+            "label_y": 8,
+            "target_x": 49,
+            "target_y": 53,
+            "verification": "manual position on inspected original photo, percentage coordinates"
+          },
+          {
+            "label": "fruit stalk",
+            "label_x": 67,
+            "label_y": 13,
+            "target_x": 89,
+            "target_y": 18,
+            "verification": "manual position on inspected original photo, percentage coordinates"
+          }
+        ]
+      }
+    ],
+    "overlay_note": "Arrow targets are on large, clearly visible structures in the original licensed/public-domain photos; no guessed microparts, spine insertions or glands. More targeted prickle and entire-leaf macros remain pending."
+  },
+  "photo_polish_status": {
+    "photo_panels": 2,
+    "diagnostic_arrows": 4,
+    "source_media_physically_installed": true,
+    "primary_complete": [
+      "round flower heads",
+      "mature flat pod"
+    ],
+    "remaining": [
+      "spine insertion macro",
+      "complete bipinnate leaf with ruler",
+      "petiolar nectary closeup",
+      "reproductive inflorescence stalk comparison"
+    ]
   }
 }
