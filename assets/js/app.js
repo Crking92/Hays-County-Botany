@@ -176,24 +176,25 @@ function termChip(id){
 }
 function clueWithTerms(value){
   const raw=String(value||"");
-  const terms=Object.entries((state.learning&&state.learning.terms)||{})
+  const entries=Object.entries((state.learning&&state.learning.terms)||{})
     .filter(function(x){return x[1]&&x[1].term&&x[1].term.length>=4;})
     .sort(function(a,b){return b[1].term.length-a[1].term.length;});
-  const rx=new RegExp("(?<![A-Za-z])("+terms.map(function(x){return x[1].term.replace(/[.*+?^${}()|[\\]\\]/g,"\\function termChip(id){
-  const t=state.learning.terms[id];
-  if(!t) return "";
-  return '<button class="term-chip" type="button" data-term="'+esc(id)+'"><span>'+esc(t.term)+'</span><b>?</b></button>';
-}");}).join("|")+")(?![A-Za-z])","gi");
-  if(!terms.length)return esc(raw);
-  const ids=new Map(terms.map(function(x){return [x[1].term.toLowerCase(),x[0]];}));
-  let out="",start=0,match;
-  while((match=rx.exec(raw))!==null){
-    out+=esc(raw.slice(start,match.index));
-    const id=ids.get(match[0].toLowerCase());
-    out+='<button class="inline-term" type="button" data-term="'+esc(id)+'" title="Learn this botanical word">'+esc(match[0])+' <b aria-hidden="true">?</b></button>';
-    start=match.index+match[0].length;
+  if(!entries.length) return esc(raw);
+  const ids=new Map(entries.map(function(x){return [x[1].term.toLowerCase(),x[0]];}));
+  const names=entries.map(function(x){return x[1].term;});
+  let result="",pos=0;
+  while(pos<raw.length){
+    const match=names.find(function(name){
+      if(raw.slice(pos,pos+name.length).toLowerCase()!==name.toLowerCase()) return false;
+      const before=pos?raw[pos-1]:"",after=raw[pos+name.length]||"";
+      return !/[a-z]/i.test(before)&&!/[a-z]/i.test(after);
+    });
+    if(match){
+      result+='<button class="inline-term" type="button" data-term="'+esc(ids.get(match.toLowerCase()))+'" title="Learn this botanical word">'+esc(raw.slice(pos,pos+match.length))+' <b aria-hidden="true">?</b></button>';
+      pos+=match.length;
+    }else{result+=esc(raw[pos]);pos++;}
   }
-  return out+esc(raw.slice(start));
+  return result;
 }
 function familySpecies(family){ return state.species.filter(function(sp){ return sp.family===family; }); }
 function generaForFamily(family){
