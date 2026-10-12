@@ -1057,22 +1057,22 @@ function plantView(){
   let out='<section class="breadcrumbs"><button type="button" data-nav="home">Home</button>';
   if(!state.quizMode) out+='<span>›</span><button type="button" data-family="'+esc(sp.family)+'">'+esc(sp.family)+'</button><span>›</span><strong><i>'+esc(sp.genus)+'</i></strong>';
   out+='</section>';
-  if(!state.quizMode) out+=taxonomyLadder(sp.family,sp.genus,sp);
+  if(!state.quizMode) out+=taxonomyLadder(sp.family,sp.genus,sp)+studyPath(2);
   out+='<section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
-    '<div class="look-card emphasis"><span>LOOK HERE FIRST</span><strong>'+esc(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
-  cues.forEach(function(x){ out+='<div><b aria-hidden="true">→</b><span>'+esc(x)+'</span></div>'; });
+    '<div class="look-card emphasis"><span>🔎 FIRST CLUE · LOOK HERE</span><strong>'+esc(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
+  cues.forEach(function(x,i){ out+='<div><b aria-hidden="true">'+(i+1)+'</b><span>'+esc(x)+'</span></div>'; });
   out+='</div><div class="study-actions"><button class="primary-button" type="button" data-family-info="'+esc(sp.family)+'">Why '+esc(sp.family)+'?</button>'+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
   if(state.difficulty!=="simple"){
-    out+='<section class="section-block learning-panel"><div class="section-heading"><div><div class="eyebrow">See it → name it → use it</div><h2>Botanical words on this plant</h2></div>'+
+    out+='<section class="section-block learning-panel"><div class="section-heading"><div><div class="eyebrow">🔤 Words for what you see</div><h2>Learn the plant parts</h2></div>'+
       '<button class="text-button" type="button" data-nav="glossary">Full glossary →</button></div><div class="term-row large">'+terms.map(termChip).join("")+'</div>'+
       '<p class="teaching-note">Tap a term for plain language, the formal definition, where to look, why it matters, and a labeled diagram.</p></section>';
   }
-  out+='<section class="two-column-learning"><article class="learning-card"><div class="eyebrow">Family pattern</div><h2>Why does this fit '+esc(sp.family)+'?</h2><p>'+esc(familyConnection)+'</p>'+
+  out+='<section class="two-column-learning"><article class="learning-card"><div class="eyebrow">🌳 Big picture · family</div><h2>Why does this fit '+esc(sp.family)+'?</h2><p>'+esc(familyConnection)+'</p>'+
     '<button class="text-button" type="button" data-family-info="'+esc(sp.family)+'">Open family lesson →</button></article>'+
-    '<article class="learning-card"><div class="eyebrow">Species-level clue</div><h2>What makes this one stand out?</h2><p>'+esc(c.standout || lookHereFirst(sp))+'</p><p class="muted">'+esc(p.caveat||"")+'</p></article></section>';
-  out+='<section id="similarSection" class="section-block"><div class="section-heading"><div><div class="eyebrow">Train your eye</div><h2>Compare with look-alikes and relatives</h2></div></div>'+
+    '<article class="learning-card"><div class="eyebrow">🌼 Tiny details · species</div><h2>What makes this one stand out?</h2><p>'+esc(c.standout || lookHereFirst(sp))+'</p><p class="muted">'+esc(p.caveat||"")+'</p></article></section>';
+  out+='<section id="similarSection" class="section-block"><div class="section-heading"><div><div class="eyebrow">👀 Spot the difference</div><h2>Meet the look-alikes</h2></div></div>'+
     '<p class="section-intro">“Same genus” means close taxonomic relatives. “Useful comparison” is a hand-picked study pairing. “Same family” shares family structure but may not look alike overall.</p><div class="similar-grid">';
   if(similar.length) similar.forEach(function(x){ out+=similarCard(sp,x.sp,x.reason); }); else out+='<div class="empty-panel">No comparison plants are curated yet.</div>';
   out+='</div></section>';
