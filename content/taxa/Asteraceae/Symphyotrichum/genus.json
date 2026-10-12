@@ -39,10 +39,12 @@
     "warning": "Historical genus summary said eight installed, but live manifest has ten. Most important prior ERROR was calling S. divaricatum 'white woodland aster' (Eurybia divaricata); the Symphyotrichum divaricatum species card has now been corrected. Also do not teach glands as exclusive to S. oblongifolium: S. patens varieties can have stalked glands."
   },
   "curation_status": {
-    "version": "2.8-silky-aster-feature-photos",
+    "version": "3.0-genus-learner-first-pass-wrapped",
     "last_reviewed": "2026-10-12",
     "canonical_species_unchanged": true,
-    "comparison_state": "all ten species taught with morphology first, specimen/diagnostic photo polish follows"
+    "comparison_state": "ALL TEN INSTALLED TAXA HAVE MORPHOLOGY-FIRST GENUS ROUTING; 6 lookalike lessons first-pass complete; targeted diagnostic photo and taxonomic holds remain",
+    "final_polish_deferred": true,
+    "scientific_range_status_preserved": true
   },
   "b071_comparison": {
     "selection_mode": "B071 same-genus comparison",
@@ -486,17 +488,18 @@
         "image_fit": "contain"
       },
       {
-        "label": "Eastern annual saltmarsh aster: recognition photograph",
+        "label": "Eastern annual saltmarsh aster — provisional labeled flower reference (NOT diagnostic panicle)",
         "scientific_name": "Symphyotrichum subulatum",
-        "image_role": "Involucre and flowering head / recognizable face",
-        "image_url": "content/taxa/Asteraceae/Symphyotrichum/symphyotrichum-subulatum/images/symphyotrichum-subulatum-provisional-face.jpg",
-        "caption": "Existing verified source-name photo; useful for visual familiarity. Inspect leaves, nodes and phyllaries separately to confirm. ",
-        "creator": "Gaiacoyote",
-        "license": "CC0 1.0",
-        "source_page": "https://commons.wikimedia.org/wiki/File:SYMPHYOTRICHUM_SUBULATUM.jpg",
-        "photo_status": "physical image folder (main)",
-        "annotation_caution": "Do not place arrows to traits that are not unambiguously visible",
-        "image_fit": "contain"
+        "image_role": "Source-labeled true S. subulatum flower from Pemiscot County, Missouri; not a verified flowering-architecture comparison",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eastern%20annual%20saltmarsh%20aster%20flower%20closeup.jpg",
+        "caption": "One flower from a Missouri plant labeled S. subulatum, useful for recognizing the small flower. This does NOT prove the compact upper pyramid that separates true S. subulatum from S. divaricatum. The previous Uvalde County photo is held due to a likely historical broad taxonomic label.",
+        "creator": "Agathman",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Eastern_annual_saltmarsh_aster_flower_closeup.jpg",
+        "photo_status": "EXTERNAL_LICENSED_PHOTO_PROVISIONAL_TAXON_LABEL; NOT_VERIFIED_FEATURE",
+        "annotation_caution": "Do not add arrows or claim floral head architecture from a single flower; the original Uvalde image is quarantined.",
+        "image_fit": "contain",
+        "markers": []
       },
       {
         "label": "Western silver aster / silky aster: recognition photograph",
@@ -611,9 +614,33 @@
         "image_fit": "contain"
       }
     ],
-    "overlay_note": "The silky-aster leaf close-up and closed-bud photo use actual CC BY-SA 4.0 photographs by davecz2 from iNaturalist observation 7725172; NEW arrows target visually checked hairs and hairy outer phyllaries only. Cropping/annotation constitutes an adaptation, so preserve original credit/source, license and share-alike conditions. Other genus images remain unannotated when fine characters are not resolved. Images are linked through Commons, not local binary installs.",
+    "overlay_note": "The silky-aster leaf close-up and closed-bud photo use actual CC BY-SA 4.0 photographs by davecz2 from iNaturalist observation 7725172; NEW arrows target visually checked hairs and hairy outer phyllaries only. Cropping/annotation constitutes an adaptation, so preserve original credit/source, license and share-alike conditions. Other genus images remain unannotated when fine characters are not resolved. Images are linked through Commons, not local binary installs. IMPORTANT FINAL PAIR UPDATE: The S. subulatum card displays only a species-labeled remote Missouri flowering-head photo, NOT a verified whole pyramidal flowering array. A former Uvalde 2014 'subulatum' photograph has been quarantined due to a likely historical broad taxon label; the file remains preserved for review.",
     "study_only_intro": "These high-value anatomical galleries are links for study, not license to republish protected photos.",
     "study_only_photo_links": [
+      {
+        "label": "Direct Texas botanical comparison of S. divaricatum vs S. subulatum, full panicle and phyllary examples",
+        "url": "https://www.inaturalist.org/posts/88035-saltmarsh-asters-symphyotrichum-divaricatum-and-symphyotrichum-subulatum-in-texas",
+        "look_for": "Field ID key showing open vs relatively denser flowering structure, coastal vs inland range, and cautions about mower-altered plants; exact photo licenses vary.",
+        "reuse": "research-source link only; do not copy embedded observation images without photographer/license review"
+      },
+      {
+        "label": "Texas UT Austin Williamson County S. divaricatum measured botanical morphology",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Symphyotrichum%20divaricatum.html",
+        "look_for": "Open inflorescence, linear almost sessile leaves, 20–25 phyllaries and head dimensions; historical subulatum var. ligulatum concept.",
+        "reuse": "university botanical source; link only"
+      },
+      {
+        "label": "TRUE S. subulatum flower, MISSOURI CC BY-SA 4.0, provisional study face (Agathman)",
+        "url": "https://commons.wikimedia.org/wiki/File:Eastern_annual_saltmarsh_aster_flower_closeup.jpg",
+        "look_for": "Shows a labeled flower but NOT an entire flowering array or coastal Texas voucher; source license CC BY-SA 4.0.",
+        "reuse": "Agathman CC BY-SA 4.0, attribution/share-alike required"
+      },
+      {
+        "label": "Legacy Uvalde photo formerly labeled subulatum — HOLD (not definitive)",
+        "url": "https://commons.wikimedia.org/wiki/File:SYMPHYOTRICHUM_SUBULATUM.jpg",
+        "look_for": "2014 Uvalde County source conflicts with Texas modern split; has been removed from active species/gallery references, original physical file retained for review.",
+        "reuse": "Gaiacoyote CC0; taxonomic identity HOLD"
+      },
       {
         "label": "Silky aster cormoid ROOTSTOCK, real specimen photo 4/6 — John Semple",
         "url": "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-sericeum",
@@ -655,18 +682,6 @@
         "url": "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-patens",
         "look_for": "strong upper leaf clasping and varietal phyllaries; Texas Milam County",
         "reuse": "copyright John C. Semple; link only"
-      },
-      {
-        "label": "Texas S. divaricatum specimen morphology (UT Austin Williamson flora)",
-        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Symphyotrichum%20divaricatum.html",
-        "look_for": "narrow sessile leaves and diffuse branching, not white wood aster",
-        "reuse": "source-site reference"
-      },
-      {
-        "label": "Texas divaricatum versus subulatum photographic comparison",
-        "url": "https://www.inaturalist.org/posts/88035-saltmarsh-asters-symphyotrichum-divaricatum-and-symphyotrichum-subulatum-in-texas",
-        "look_for": "open versus pyramidal arrays; phyllaries and inland/coastal range; check each photograph's license",
-        "reuse": "source-site link only; mixed copyright"
       },
       {
         "label": "Waterloo white heath aster variation",
@@ -840,7 +855,7 @@
       "patens": 1,
       "praealtum": 2,
       "sericeum": 0,
-      "subulatum": 1
+      "subulatum": 0
     },
     "photo_cards": 13,
     "source_metadata_per_species": [
@@ -886,7 +901,12 @@
       }
     ],
     "missing_exact_subspecies_photo": "symphyotrichum-lanceolatum-subsp-lanceolatum",
-    "role": "Photo orientation first pass; true diagnostic comparisons require targeted photographs."
+    "role": "Photo orientation first pass; true diagnostic comparisons require targeted photographs.",
+    "physically_preserved_but_excluded_from_active_gallery": {
+      "subulatum": 1
+    },
+    "subulatum_active_photo": "licensed remote Missouri reference, provisional, not diagnostic",
+    "last_updated": "2026-10-12"
   },
   "head_to_head": [
     {
@@ -915,9 +935,9 @@
     },
     {
       "pair": "S. divaricatum vs S. subulatum",
-      "first": "divaricatum: highly open widely spaced small heads, narrow linear leaves, common inland Texas. subulatum: denser pyramidal flower array, saline/coastal southeast Texas.",
-      "trap": "Older S. subulatum var. ligulatum records refer to project S. divaricatum concept. S. subulatum not certified local.",
-      "photo": "Whole equal-scale flowering arrays and side-view phyllaries."
+      "first": "S. divaricatum: an often wiry annual with VERY OPEN diffuse flowering branches and widely separated heads, common inland. TRUE S. subulatum: relatively DENSER PYRAMIDAL upper flowering array with heads closer together nearer top, primarily southeastern Texas saline/coastal marshes. Both have narrow mostly sessile foliage; confirm on unmowed mature whole plant.",
+      "trap": "Density is RELATIVE, not compact vs perfectly airy in every specimen: mowing, juvenile plants and disturbance can defeat the silhouette. The phyllary green-zone feature is described but hard to resolve reliably in photos. Old S. subulatum var. ligulatum goes to S. divaricatum; old Uvalde 2014 'subulatum' image is quarantined, not a verified true-subulatum photo.",
+      "photo": "5 physical divaricatum field/flower views, but no whole panicle positively identifying true subulatum. Historic Uvalde picture quarantined. Seek SAME-SCALE mature flowering arrays from known current taxa, then side-view phyllaries with metric scale."
     },
     {
       "pair": "S. sericeum vs purple asters",
@@ -958,9 +978,9 @@
     {
       "priority": 2,
       "group": "divaricatum vs subulatum",
-      "role": "Whole branching architecture",
-      "status": "whole-plant images available, side-by-side matched still pending",
-      "arrow_target": "open spaces between divaricatum heads vs denser pyramid of subulatum"
+      "role": "Whole-plant loose versus denser upper PYRAMID architecture; unreliable after mowing",
+      "status": "PRELIMINARY_LESSON_COMPLETE; true subulatum full-plant photo NOT authenticated; final paired photographic polish pending",
+      "arrow_target": "Negative space between divaricatum heads vs more closely grouped heads in upper part of true subulatum; label whole branching panicle, not a single floret."
     },
     {
       "priority": 2,
@@ -1287,5 +1307,57 @@
       "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-pratense",
       "https://www.minnesotawildflowers.info/flower/silky-aster"
     ]
+  },
+  "annual_saltmarsh_aster_final_pass_2026_10_12": {
+    "state": "FIRST-PASS COMPARISON COMPLETE; FINAL_MATCHED_DIAGNOSTIC_PHOTOS_OUTSTANDING",
+    "named_taxa": [
+      "Symphyotrichum divaricatum",
+      "Symphyotrichum subulatum"
+    ],
+    "field_identification": {
+      "divaricatum": "Annual/short-lived inland saltmarsh-aster-complex weed, extremely open diffuse branching with conspicuous head spacing; nearly hairless slender stems and narrow sessile leaves.",
+      "subulatum": "Under modern Texas concept, mostly SE-coastal/saline annual, heads gathered more closely together especially toward top of pyramidal array; the pattern is comparative, not exclusive."
+    },
+    "phyllary_hold": "Texan botanist's comparison reports a longitudinal green area across much of S. divaricatum phyllary vs concentrated distally in S. subulatum; not reliably visualized across many photos, and hardened phyllary base terminology remains unclear. Never mark an arrow without microscopic evidence.",
+    "taxonomic_aliases": {
+      "Symphyotrichum subulatum var. ligulatum": "Symphyotrichum divaricatum",
+      "Symphyotrichum subulatum var. parviflorum": "Symphyotrichum expansum, comparison only",
+      "Symphyotrichum subulatum var. subulatum": "Symphyotrichum subulatum in current project concept"
+    },
+    "major_photo_correction": "Current canonical S. subulatum in a narrow Texas sense must not be illustrated with older Gaiacoyote 2014 Uvalde photograph solely because labeled subulatum. Photo physically retained but species gallery quarantined; remote Agathman Missouri head reference is provisional and shows no panicle.",
+    "scientific_range": "S. subulatum remains FAIL target-zone comparison; S. divaricatum native-range evidence remains separately deferred; no taxon/range status was upgraded.",
+    "proof_needed": [
+      "An authenticated true-subulatum Gulf Coast Texas mature UNMOWED inflorescence with closer-spaced upper heads, source/license checked.",
+      "A same-angle, same-scale verified S. divaricatum whole flowering panicle with large gaps, ideally Hays/Travis.",
+      "Side-view mature involucres of both showing phyllary green zone and base under 10–20×, with scale; no unsupported hardened-base rule.",
+      "Resolve exact identity of the old Uvalde photograph or leave it excluded; no duplicate species creation."
+    ],
+    "sources": [
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Symphyotrichum%20divaricatum.html",
+      "https://www.inaturalist.org/posts/88035-saltmarsh-asters-symphyotrichum-divaricatum-and-symphyotrichum-subulatum-in-texas"
+    ]
+  },
+  "genus_wrap_up_2026_10_12": {
+    "stage": "READY_FOR_PRELIMINARY_FIELD_LEARNING_NOT_FINAL_PHOTO_CERTIFICATION",
+    "canonical_installed_species": 10,
+    "genus_comparison_groups_completed": [
+      "oblongifolium-vs-patens",
+      "drummondii-vs-eulae",
+      "ericoides-vs-tiny-white-asters",
+      "praealtum-vs-lanceolatum-subsp-lanceolatum",
+      "sericeum-vs-pratense-compare-only",
+      "divaricatum-vs-subulatum"
+    ],
+    "photos_are_provisional": "Existing species-level faces/galleries vary; licensed remote links are NOT downloaded physical binaries; fine structures require later matched photos/verified arrows.",
+    "risk_holds": [
+      "S. subulatum original Uvalde photograph excluded due to species-concept conflict; true current-species habit macro still needed.",
+      "S. lanceolatum subsp. lanceolatum exact nominate-subspecies photo not installed; range UNRESOLVED.",
+      "FNA bract-count disagreement praealtum vs lanceolatum cannot be used as a hard key.",
+      "Eulae/drummondii peduncle hairs and leaf-base pair not matched in licensed macros.",
+      "Patens vs oblongifolium matched upper leaf clasping macro pending; gland presence occurs on BOTH.",
+      "Heath spinulose phyllary arrow source copyrighted/link only.",
+      "Sericeum silver hair and bud macros linked and arrowed, but rootstock and Texas pratense pair pending."
+    ],
+    "next_genus_recommendation": "Bidens — separately confirmed as existing in canonical manifest; new work may begin without treating Symphyotrichum final polish as a block."
   }
 }
