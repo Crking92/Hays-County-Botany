@@ -7,88 +7,162 @@
   "project_scope": {
     "selection_mode": "Master Plant Pool field-ID comparison; not automatically a canonical species install",
     "species_ids": [
-      "senegalia-greggii"
+      "senegalia-greggii",
+      "senegalia-roemeriana",
+      "senegalia-wrightii"
     ],
-    "species_count": 1,
+    "species_count": 3,
     "approved_source_pool_taxa": [
       "Senegalia greggii",
       "Senegalia roemeriana",
       "Senegalia wrightii"
     ],
-    "native_range_status": "TEXAS STATE native for all three (POWO), strict target-zone counties unassessed.",
+    "native_range_status": "All three Texas native at state level; 3-target-county verification unresolved. No invented county PASS.",
     "primary_local_anchor": "Senegalia roemeriana — Hays flora confirms wild local occurrence",
-    "current_status": "Exactly one source-pool species installed with verified-license photo; other proposed comparisons not installed."
+    "current_status": "Three source-pool-approved species in curation; flower photos for roemeriana/wrightii installed by READY batch when verified. Preserve range UNRESOLVED.",
+    "source_pool_names": [
+      "Senegalia greggii",
+      "Senegalia roemeriana",
+      "Senegalia wrightii"
+    ]
   },
-  "look_here_first": "FEEL FOR THE TINY BACKWARD-CURVED PRICKLES along stems (CAREFULLY). Determine the flower cluster SHAPE: round creamy WHITE heads → S. roemeriana; elongated pale spikes → investigate S. greggii/S. wrightii. Then count leaflets, inspect the stalk and mature flat pod.",
+  "look_here_first": "Find catclaw HOOKS on the woody twig. Then check FLOWER CLUSTER SHAPE: round pale ball = S. roemeriana; pale cylindrical flower spike = S. greggii or S. wrightii. Among spike species compare leaflet SIZE and spike density; use ripe pod details for tough cases.",
   "study_strategy": {
     "shared_traits": [
-      "Woody shrubs or small trees with alternate bipinnate leaves.",
-      "Hooks or recurved PRICKLES often on stems between nodes, unlike paired straight STIPULAR SPINES of Vachellia.",
-      "Many small pale flowers collected into a globose head or an elongate spike depending on species.",
-      "Flattened pods; seed count, margin, width and constrictions matter for species IDs."
+      "Thorny woody members of the mimosoid legume clade with alternate BIPINNATE leaves.",
+      "Sharp hooked prickles occur along branches, unlike paired straight stipular spines typical of Vachellia.",
+      "Flower clusters of many tiny staminate-looking flowers, often cream to white, are HEADS in one local species and SPIKES in the others.",
+      "Flattened legumes; mature pod constriction, curling and width can help but vary, so use multiple traits."
     ],
     "priority": [
-      "Armature: recurved prickles along internode vs straight paired nodal spines",
-      "ROUND head vs ELONGATE spike before counting pinnae",
-      "Leaflet length and pair counts (overlap; only supportive)",
-      "Flower-head/stalk and bud vs open flower macro",
-      "Compare mature flat pods and their margins on same scale"
+      "FIRST: find the recurved prickle on a stem, noting whether it attaches between nodes",
+      "SECOND: is the pale flower cluster round (head) or longer than wide (spike)?",
+      "THIRD: on one complete mature leaf, count pinna pairs then compare leaflet length (with a ruler)",
+      "FOURTH: compare mature pods, not an undeveloped green pod; also check petiole gland",
+      "FINALLY: Gregg versus Wright spikes and pod forms require multiple measurements, no single absolute dimension rule"
     ],
-    "warning": "All three have been historically called Acacia or catclaw. Do not force a species from a nonflowering twig; leaflets/prickles overlap. S. wrightii was once treated as Acacia greggii var. wrightii, but Kew now accepts species S. wrightii. S. roemeriana is an important Hays County ID."
+    "warning": "Texas A&M and a 2024 morphology key differ somewhat in numeric leaflet ranges for Wright catclaw. Both agree Wright tends to have larger leaflets than Gregg; avoid exact cutoff without examining several leaves. S. roemeriana is taxonomically distinct from Senna roemeriana (twoleaf senna), despite sharing species epithet."
   },
   "quick_key": [
     {
-      "if": "round cream/white flower HEADS, hooked prickle; Hill Country",
-      "then": "Senegalia roemeriana — roundflower catclaw (local high priority)"
+      "if": "round or nearly spherical pale cream flower HEAD and hooked prickles",
+      "then": "Senegalia roemeriana — roundflower catclaw"
     },
     {
-      "if": "elongate cream-colored flower SPIKES, catclaw prickles, numerous very tiny leaflets",
+      "if": "elongated cream flower SPIKE and small numerous obovate leaflets (typically smaller than Wright), dense spike",
       "then": "Senegalia greggii — Gregg's catclaw"
     },
     {
-      "if": "elongate cream flower SPIKES, catclaw, noticeably larger leaflets (~3–6 mm) and often 1–4 pinna pairs",
-      "then": "Senegalia wrightii — Wright acacia (confirm reproductive structures)"
+      "if": "elongated cream flower SPIKE but noticeably broader/larger obovate leaflets, somewhat looser spike",
+      "then": "Senegalia wrightii — Wright acacia; confirm with mature pods"
     },
     {
-      "if": "bright yellow spherical heads AND paired straight nodal stipular spines",
-      "then": "Vachellia farnesiana/constricta, NOT Senegalia"
+      "if": "yellow/gold spherical flower heads, paired straight stipular spines at leaf node",
+      "then": "Vachellia constricta or V. farnesiana, NOT Senegalia"
+    },
+    {
+      "if": "yellow flowers with five large distinct petals and exactly 1 pair of broad compound leaflets",
+      "then": "Senna roemeriana and relatives — DIFFERENT genus"
     }
   ],
   "comparison_matrix": [
     {
-      "character": "Flower cluster",
-      "roemeriana": "Spherical creamy white head",
-      "greggii": "Elongate cream spike",
-      "wrightii": "Elongate cream spike",
-      "value": "HIGH"
+      "character": "Flower cluster shape",
+      "roemeriana": "Round or nearly round cream-white head",
+      "greggii": "Narrow dense cream spike",
+      "wrightii": "Elongate cream flower spike, often relatively looser",
+      "weight": "TOP first split"
     },
     {
-      "character": "Thorns",
-      "roemeriana": "curved catclaw prickles",
-      "greggii": "curved catclaw prickles",
-      "wrightii": "curved catclaw prickles",
-      "value": "genus vs Vachellia"
+      "character": "Prickles",
+      "roemeriana": "Small backward-curving catclaw on twig",
+      "greggii": "Recurved internodal prickle",
+      "wrightii": "Recurved internodal prickle",
+      "weight": "strong genus pattern, not enough for species"
     },
     {
-      "character": "Leaflet size",
-      "roemeriana": "small; counts need voucher review",
-      "greggii": "usually shorter than 6 mm in regional descriptions",
-      "wrightii": "~3–6 mm × 2–3 mm; generally larger",
-      "value": "supporting only"
+      "character": "Leaflet form",
+      "roemeriana": "Several small cuneate-oblong leaflets per pinna; pale underside",
+      "greggii": "Generally smaller obovate leaflets",
+      "wrightii": "Generally larger/wider obovate leaflets than Gregg",
+      "weight": "measure and compare repeated mature leaves"
     },
     {
-      "character": "Mature fruit",
-      "roemeriana": "flat curved pod",
-      "greggii": "flat pod; check morphology with key",
-      "wrightii": "flattened oblong sometimes constricted/twisted",
-      "value": "needed for hard spike-pair split"
+      "character": "Ripe pods",
+      "roemeriana": "Flattened, at times curved legume",
+      "greggii": "Flat pods, may curl strongly when mature",
+      "wrightii": "Flat 5–10 cm pods, sometimes constricted or coiled; curling not exclusive",
+      "weight": "high value for tough Gregg/Wright pair"
+    },
+    {
+      "character": "Leaflet length threshold",
+      "roemeriana": "Do not use alone",
+      "greggii": "Texas A&M typically <0.25 in; peer-reviewed work ranges overlap",
+      "wrightii": "Texas A&M gives 0.25–0.5 in; another flora gives overlapping smaller ranges",
+      "weight": "source variation; avoid rigid ruler cutoff"
     }
   ],
   "visual_comparison": {
-    "title": "Catclaw means HOOKS, not the whole acacia family",
-    "subtitle": "Locally installed, licensed diagnostic photos; leaf/spine attachments and reproductive structures are emphasized.",
-    "memory_rule": "ROUND CREAM HEAD = ROEMER'S; CREAM SPIKE = GREGG/Wright; STRAIGHT PAIRED WHITE SPINES = Vachellia.",
+    "title": "Round flower heads vs cream spikes: three catclaws",
+    "subtitle": "First pick out Roemer's round flower head, then compare Gregg/Wright spikes and their leaflets. Review photo credits and tap photos to zoom.",
+    "memory_rule": "ROUND CREAM HEAD = ROEMER'S · TIGHT SPIKE + SMALLER LEAFLETS = GREGG'S · LOOSE SPIKE + BIGGER LEAFLETS = WRIGHT'S.",
     "items": [
+      {
+        "label": "ROUND CREAM FLOWER HEAD",
+        "scientific_name": "Senegalia roemeriana",
+        "image_url": "content/taxa/Fabaceae/Senegalia/senegalia-roemeriana/images/01-roundflower-heads.jpg",
+        "image_fit": "contain",
+        "image_role": "Many cream almost spherical flower heads beside bipinnate foliage",
+        "caption": "Look at the round flower heads. This is the fastest way to separate Roemer's catclaw from Gregg/Wright flower spikes. The pale heads are many flowers, not one large flower.",
+        "creator": "JerryFriedman",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Acacia_roemeriana_flora.jpg",
+        "markers": [
+          {
+            "label": "rounded flower head",
+            "label_x": 6,
+            "label_y": 11,
+            "target_x": 61,
+            "target_y": 21
+          },
+          {
+            "label": "bipinnate leaf",
+            "label_x": 54,
+            "label_y": 7,
+            "target_x": 86,
+            "target_y": 8
+          }
+        ],
+        "annotation_status": "Manual coarse pixel targets from directly inspected original photograph; inspect in learner at each screen size"
+      },
+      {
+        "label": "PALE ELONGATE FLOWER SPIKE",
+        "scientific_name": "Senegalia wrightii",
+        "image_url": "content/taxa/Fabaceae/Senegalia/senegalia-wrightii/images/01-flower-spike.jpg",
+        "image_fit": "contain",
+        "image_role": "Cream flower spike and broad oval leaflets",
+        "caption": "An elongated pale spike is several times longer than wide. Individual leaflets in Wright's often look bigger than Gregg's; verify with other fully mature leaves.",
+        "creator": "Alison Northup",
+        "license": "CC BY 4.0 · iNaturalist photo 23060929",
+        "source_page": "https://www.inaturalist.org/guide_taxa/1557820",
+        "markers": [
+          {
+            "label": "cream flower spike",
+            "label_x": 4,
+            "label_y": 17,
+            "target_x": 40,
+            "target_y": 41
+          },
+          {
+            "label": "obovate leaflets",
+            "label_x": 58,
+            "label_y": 11,
+            "target_x": 77,
+            "target_y": 30
+          }
+        ],
+        "annotation_status": "Manual coarse pixel targets from directly inspected original photograph; inspect in learner at each screen size"
+      },
       {
         "label": "Senegalia greggii",
         "scientific_name": "Senegalia greggii",
@@ -115,6 +189,19 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Acacia_greggii_thorns.jpg",
         "markers": [],
         "annotation_status": "exact species photo binary verified by curation pipeline, per-pixel arrows deferred"
+      },
+      {
+        "label": "ROUND-CATCLAW DRY FRUIT",
+        "scientific_name": "Senegalia roemeriana",
+        "image_url": "content/taxa/Fabaceae/Senegalia/senegalia-roemeriana/images/02-flat-pods.jpg",
+        "image_fit": "contain",
+        "image_role": "Flattened specimen pod with mature seed chambers",
+        "caption": "The mature flattened legume is useful to confirm catclaw morphology. It is not the species' round flower head.",
+        "creator": "Tracey Slotta / USDA ARS",
+        "license": "US Federal Government public domain",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Acacia_roemeriana_01nsh.jpg",
+        "markers": [],
+        "annotation_status": "No verified fine arrow targets yet"
       }
     ],
     "study_only_photo_links": [
@@ -129,9 +216,16 @@
         "label": "NPSOT roundflower catclaw overview",
         "look_for": "hooked prickles, round pale flower heads",
         "reuse": "source context"
+      },
+      {
+        "label": "Source-licensed Wright flower and leaf photograph",
+        "url": "https://www.inaturalist.org/guide_taxa/1557820",
+        "look_for": "long cream spikes and obovate leaflets",
+        "reuse": "Alison Northup CC BY; photo ID 23060929"
       }
     ],
-    "overlay_note": "Images physically downloaded with source license retained. Photo-role captions checked; annotation arrows not guessed."
+    "overlay_note": "Four coarse annotations on identifiable bloom/leaf structures from original photos (Roemer's and Wright's). No arrows added to unverified prickle insertions or microscopic nectar glands. Wright iNaturalist photo credit Alison Northup CC BY; the roemeriana flower is JerryFriedman CC BY-SA, fruit USDA public domain. Local files appear in the learner after installer confirms download.",
+    "version": "2.0-three-way-visual-key"
   },
   "sources": [
     {
@@ -153,18 +247,36 @@
     {
       "label": "Texas A&M Wright morphology",
       "url": "https://texastreeid.tfs.tamu.edu/content/TreeDetails/?id=2"
+    },
+    {
+      "label": "Kew accepted Roemer species",
+      "url": "https://powo.science.kew.org/taxon/234358-2"
+    },
+    {
+      "label": "Kew accepted Wright species",
+      "url": "https://powo.science.kew.org/taxon/234376-2"
+    },
+    {
+      "label": "2024 peer-reviewed 3-way morphology key",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10857220/"
+    },
+    {
+      "label": "Texas A&M Gregg/Wright comparison",
+      "url": "https://texastreeid.tfs.tamu.edu/content/TreeDetails/?id=2"
     }
   ],
   "diagnostic_photo_checklist": [
-    "S. roemeriana exact cream spherical flower heads",
-    "S. greggii vs S. wrightii equal-scale individual leaflets and flower spikes",
-    "recurved internodal prickles exact lateral view",
-    "pod margins/shapes on same ruler background"
+    "All three: recurved thorn placement relative to twig node, matched close-up",
+    "S. roemeriana: globose flowerhead and a complete bipinnate leaf",
+    "S. greggii versus S. wrightii: same scale pinnules/leaflets with millimeter ruler",
+    "Gregg and Wright: ripe pod twisting and segment shape photographed alongside leaves",
+    "Petiole nectary gland macro for each species",
+    "Wright alternative licensed habit and ripe pod; first bloom face is ready"
   ],
   "curation_status": {
-    "version": "1.2-two-installed-diagnostic-photos",
+    "version": "2.0-roemeriana-wrightii-three-way-comparison",
     "last_reviewed": "2026-10-12",
-    "status": "one_canonical_species_with_local_image",
+    "status": "three-way key and photopanel sources committed; await installer confirmation for two new binaries",
     "genus_photo_panels": 2
   }
 }
