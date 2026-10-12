@@ -5,6 +5,7 @@ const state = {
   species: [],
   speciesById: new Map(),
   familyCache: new Map(),
+  lessonIndex: {families: [], genera: []},
   genusCache: new Map(),
   difficulty: readLocal("hays-botany-difficulty") || "terms",
   quizMode: readLocal("hays-botany-quiz") === "true",
@@ -85,6 +86,8 @@ function thumb(sp,cls){
   if(img) return '<img class="'+cls+'" src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+'" loading="lazy">';
   return '<div class="'+cls+' thumb-empty" aria-hidden="true">✣</div>';
 }
+function familyLessonExists(name){ return state.lessonIndex.families.includes(name); }
+function genusLessonExists(family,genus){ return state.lessonIndex.genera.some(function(x){ return x.family===family && x.genus===genus; }); }
 function familyProfile(name){ return state.learning && state.learning.family_profiles ? state.learning.family_profiles[name] : null; }
 function callout(sp){ return state.learning && state.learning.species_callouts ? state.learning.species_callouts[sp.id] : null; }
 
@@ -819,10 +822,12 @@ function homeView(){
   const counts=familyCounts();
   const profiles=Object.keys((state.learning&&state.learning.family_profiles)||{});
   const preferred=state.learning.home_families || [];
-  const discovered=Array.from(new Set(profiles.concat(Array.from(counts.keys())))).sort(function(a,b){ return a.localeCompare(b); });
+  const discovered=Array.from(new Set(profiles.concat(Array.from(counts.keys()),state.lessonIndex.families))).sort(function(a,b){ return a.localeCompare(b); });
   const families=preferred.concat(discovered.filter(function(f){ return !preferred.includes(f); }));
   const anchoredFamilies=families.filter(function(f){ return familySpecies(f).length; }).length;
   const profileFamilies=families.filter(function(f){ return !!familyProfile(f); }).length;
+  const completedFamilyLessons=state.lessonIndex.families.length;
+  const completedGenusLessons=state.lessonIndex.genera.length;
   const level=state.learning.difficulty_levels[state.difficulty];
   let out='<section class="home-hero"><div class="eyebrow">Structure-first field botany</div>'+
     '<h1>Learn what to look at, then learn what it is called.</h1>'+
@@ -833,7 +838,7 @@ function homeView(){
   out+='<section class="section-block family-library"><div class="section-heading"><div><div class="eyebrow">Start broad, then drill down</div><h2>Family Library</h2></div>'+
     '<button class="text-button" type="button" data-nav="browse">Open taxonomy browser →</button></div>'+
     '<p class="section-intro">Learn the recurring family pattern first, choose a genus, open a species, then compare it with close relatives and look-alikes.</p>'+
-    '<div class="library-summary"><div><strong>'+families.length+'</strong><span>families represented</span></div><div><strong>'+profileFamilies+'</strong><span>family learning profiles</span></div><div><strong>'+state.species.length+'</strong><span>curated species</span></div></div>'+
+    '<div class="library-summary"><div><strong>'+families.length+'</strong><span>families represented</span></div><div><strong>'+completedFamilyLessons+'</strong><span>family modules</span></div><div><strong>'+completedGenusLessons+'</strong><span>genus modules</span></div><div><strong>'+state.species.length+'</strong><span>curated species</span></div></div>'+ 
     '<div class="family-grid">';
   families.forEach(function(f){ out+=familyCard(f); });
   out+='</div></section><section class="method-strip"><div><b>1</b><span><strong>See it</strong>Start with the structure.</span></div>'+
@@ -1116,8 +1121,8 @@ function compareView(){
   return out;
 }
 function browseView(){
-  const families=Array.from(new Set(state.species.map(function(sp){ return sp.family; }).concat(Object.keys((state.learning&&state.learning.family_profiles)||{})))).sort();
-  const genera=state.browseFamily ? generaForFamily(state.browseFamily).map(function(x){ return x[0]; }) : [];
+  const families=Array.from(new Set(state.species.map(function(sp){ return sp.family; }).concat(Object.keys((state.learning&&state.learning.family_profiles)||{}),state.lessonIndex.families))).sort();
+  const genera=state.browseFamily ? Array.from(new Set(generaForFamily(state.browseFamily).map(function(x){ return x[0]; }).concat(state.lessonIndex.genera.filter(function(x){ return x.family===state.browseFamily; }).map(function(x){ return x.genus; })))).sort() : [];
   let list=state.species.slice();
   if(state.browseFamily) list=list.filter(function(sp){ return sp.family===state.browseFamily; });
   if(state.browseGenus) list=list.filter(function(sp){ return sp.genus===state.browseGenus; });
@@ -1558,6 +1563,7 @@ async function boot(){
     const loaded=await Promise.all([loadJSON("data/manifest.json"),loadJSON("data/project.json"),loadJSON("data/learning-layer.json")]);
     const manifest=loaded[0]; state.project=loaded[1]; state.learning=loaded[2]; state.manifestSpecies=manifest.species||[];
     state.species=await Promise.all(state.manifestSpecies.map(function(x){ return loadJSON(x.path); }));
+    try { const idx=await loadJSON("data/lesson-index.json"); if(Array.isArray(idx.families)&&Array.isArray(idx.genera)) state.lessonIndex=idx; } catch(e){ console.warn("Lesson index unavailable; showing species-backed lessons.",e); }
     state.species.sort(function(a,b){ return (a.family||"").localeCompare(b.family||"") || (a.genus||"").localeCompare(b.genus||"") || scientificName(a).localeCompare(scientificName(b)); });
     state.species.forEach(function(sp){ state.speciesById.set(sp.id,sp); });
     if(!state.learning.difficulty_levels[state.difficulty]) state.difficulty="terms";
