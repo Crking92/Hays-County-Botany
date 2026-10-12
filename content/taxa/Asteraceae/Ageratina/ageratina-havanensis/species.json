@@ -25,7 +25,8 @@
       "opposite leaves",
       "white fluffy clusters",
       "woody base"
-    ]
+    ],
+    "fna_confirmation": "FNA: shrub 69–150 cm (rarely 30–200 cm), petioles 3–10(–15) mm, deltate to broadly ovate (sometimes hastate) leaves generally 3–5 × 2–5 cm; leaves essentially gland-free; involucres 4–6 mm; foliage persistent in the US flora."
   },
   "photo_strategy": {
     "method": "targeted iNaturalist API",
@@ -33,19 +34,6 @@
     "selection_logic": "Prefer curated taxon photos plus multiple views from one Central Texas/Texas observation."
   },
   "images": [
-    {
-      "file": "images/01-curated-reference.jpg",
-      "role": "curated taxon reference 1",
-      "creator": "(c) anica_htx, all rights reserved, uploaded by anica_htx",
-      "license": "license not supplied by API",
-      "source_page": "https://www.inaturalist.org/taxa/158108",
-      "direct_image_url": "https://static.inaturalist.org/photos/6805492/large.jpg",
-      "platform": "iNaturalist",
-      "observation_id": "",
-      "photo_id": "6805492",
-      "study_use": "yes",
-      "public_reuse": "no"
-    },
     {
       "file": "images/02-curated-reference.jpg",
       "role": "curated taxon reference 2",
@@ -105,8 +93,81 @@
     "morphology_reviewed": true,
     "photo_downloader_included": true,
     "last_reviewed": "2026-09-30",
-    "photo_metadata_count": 5,
-    "photo_files_present": 5,
-    "photo_backfill_source": "historical taxa.zip migration"
-  }
+    "photo_metadata_count": 4,
+    "photo_files_present": "legacy count 5 before excluded ARR record; retained physical files need verification",
+    "photo_backfill_source": "historical taxa.zip migration",
+    "photo_policy_review": "2026-10-12: excluded one all-rights-reserved metadata record; selected CC BY 3.0 Texas candidate awaiting image installation.",
+    "diagnostic_polish_status": "morphology improved; matched images pending"
+  },
+  "other_common_names": [
+    "White mistflower",
+    "Shrubby boneset",
+    "Havana snakeroot"
+  ],
+  "look_here_first": "First look for the woody shrubby base and persistent opposite sharply toothed broad leaves on short 3–10(–15) mm petioles. Then inspect an individual white to faint-pink head sideways: involucre 4–6 mm. Versus Chromolaena odorata, avoid color alone; its involucres are LONG CYLINDRICAL 8–10 mm with 4–6+ phyllary series.",
+  "comparisons": {
+    "confused_with": [
+      "Ageratina altissima",
+      "Chromolaena odorata",
+      "Eupatorium serotinum",
+      "Conoclinium coelestinum"
+    ],
+    "key_distinctions": "Against A. altissima: persistent woody shrub structure and relatively short petioles versus rhizomatous herb with broader long-petioled leaves. Against Chromolaena odorata: 4–6 mm involucres, not 8–10 mm cylindrical heads with numerous layered phyllaries. Against E. serotinum: shrub rather than tall herbaceous branched perennial.",
+    "caution": "Single new green shoots may not betray the perennial woody base; compare mature stem base and whole plant."
+  },
+  "photo_exclusions": [
+    {
+      "file": "images/01-curated-reference.jpg",
+      "role": "curated taxon reference 1",
+      "creator": "(c) anica_htx, all rights reserved, uploaded by anica_htx",
+      "license": "license not supplied by API",
+      "source_page": "https://www.inaturalist.org/taxa/158108",
+      "direct_image_url": "https://static.inaturalist.org/photos/6805492/large.jpg",
+      "platform": "iNaturalist",
+      "observation_id": "",
+      "photo_id": "6805492",
+      "study_use": "yes",
+      "public_reuse": "no",
+      "reason": "EXCLUDED from canonical learner image list: all-rights-reserved/permission not established. Pre-existing physical file may require mechanical cleanup; DO NOT reuse without permission."
+    }
+  ],
+  "replacement_photo_candidate": {
+    "source_page": "https://commons.wikimedia.org/wiki/File:Ageratina_Havanensis,_Shrubby_Boneset_-_panoramio_(1).jpg",
+    "creator": "En el nido (Nest)",
+    "license": "CC BY 3.0",
+    "platform": "Wikimedia Commons / Panoramio licensed archival photograph",
+    "photo_role": "Texas field view; shrubby flowering habit near Hudson Bend, Travis County",
+    "region": "Travis County, Texas (photo location)",
+    "status": "licensed candidate identified, binary not yet installed or visually matched to a structural role"
+  },
+  "diagnostic_photo_requirements": [
+    {
+      "priority": 1,
+      "shot": "Full shrub including stem base versus herbaceous A. altissima",
+      "label": "woody perennial architecture vs herbaceous rhizomatous shoots",
+      "status": "matched pair pending"
+    },
+    {
+      "priority": 1,
+      "shot": "Opposite mature leaf front and reverse, with ruler and petiole",
+      "label": "short 3–10(–15) mm petiole, leaf teeth; do not overclaim venation",
+      "status": "matched pair pending"
+    },
+    {
+      "priority": 1,
+      "shot": "Side closeup of one rayless head with mm scale",
+      "label": "4–6 mm involucre; separate from 8–10 mm cylindric Chromolaena",
+      "status": "diagnostic image pending"
+    }
+  ],
+  "source_references": [
+    {
+      "authority": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250066014"
+    },
+    {
+      "authority": "Wikimedia Commons CC BY 3.0 photograph",
+      "url": "https://commons.wikimedia.org/wiki/File:Ageratina_Havanensis,_Shrubby_Boneset_-_panoramio_(1).jpg"
+    }
+  ]
 }
