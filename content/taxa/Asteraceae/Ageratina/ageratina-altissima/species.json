@@ -35,7 +35,8 @@
     "leaf_morphology": "Broadly ovate/triangular, coarsely toothed, commonly 3-veined from near base.",
     "heads": "White discoid heads with no ray florets.",
     "inflorescence": "Terminal corymbiform/flat-topped cluster.",
-    "fruit": "Cypsela with conspicuous white pappus."
+    "fruit": "Cypsela with conspicuous white pappus.",
+    "reproductive_confirmation": "Mature cypselae glabrous, not hispid, contrasted with A. havanensis (Flora of North America)."
   },
   "comparisons": {
     "confused_with": [
@@ -44,7 +45,7 @@
       "Eupatorium serotinum",
       "Chromolaena odorata"
     ],
-    "key_distinctions": "Blue mistflower has blue-violet heads and smaller triangular leaves. A. havanensis is woody/subshrubby with smaller leaves. Against C. odorata: compare 8–10 mm cylindric Chromolaena involucres with those of the white snakeroot; herbaceous versus sprawling subshrub is supporting but not sufficient."
+    "key_distinctions": "FNA: A. altissima is herbaceous, with larger usually long-petioled, coarsely double-toothed leaves and GLABROUS cypselae; A. havanensis has a persistent woody shrub framework, shorter-petioled generally smaller leaves, and HISPID cypselae. Chromolaena odorata shows much longer cylindrical involucres (8–10 mm) with 4–6+ phyllary series."
   },
   "tags": [
     "Asteraceae",
@@ -62,7 +63,8 @@
     "last_reviewed": "2026-10-02",
     "photo_metadata_count": 2,
     "photo_files_present": 2,
-    "diagnostic_polish_status": "link to cross-genus comparison established; matched photographs pending"
+    "diagnostic_polish_status": "link to cross-genus comparison established; matched photographs pending",
+    "diagnostic_polish_date": "2026-10-12"
   },
   "photo_note": "Diagnostic role set recorded; photo locking can improve later.",
   "images": [
@@ -104,19 +106,31 @@
   },
   "diagnostic_photo_requirements": [
     {
-      "priority": 1,
-      "shot": "Broad mature opposite leaf with petiole and 3 strong basal veins",
-      "status": "diagnostic pair with A. havanensis pending"
+      "role": "fruit_surface_macro",
+      "priority": "P1",
+      "shot": "several ripe cypselae at high magnification with scale",
+      "must_show": "smooth, glabrous surface compared to hairy A. havanensis",
+      "status": "PENDING"
     },
     {
-      "priority": 1,
-      "shot": "Entire plant with its stem base and basal shoots",
-      "status": "herb vs wood-base comparison pending"
+      "role": "stem_base",
+      "priority": "P1",
+      "shot": "shoot base and prior-year remains",
+      "must_show": "herbaceous crown, no persistent brittle woody shrub frame",
+      "status": "PENDING"
     },
     {
-      "priority": 2,
-      "shot": "Individual white disk-flower head in side view with mm scale",
-      "status": "involucre comparison pending"
+      "role": "mature_leaf",
+      "priority": "P1",
+      "shot": "fully expanded leaf both sides and petiole with scale",
+      "must_show": "incised-serrate margin, blade size, petiole length",
+      "status": "PENDING"
+    }
+  ],
+  "sources": [
+    {
+      "authority": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250066013"
     }
   ]
 }
