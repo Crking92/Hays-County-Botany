@@ -15,7 +15,7 @@
   "morphology_keys": {
     "habit": "Thorny shrub or small tree, locally sometimes tree-sized.",
     "armature": "Short hooked recurved internodal prickles on stems, not paired stipular spines.",
-    "leaves": "Bipinnate, often 1–4 pairs of pinnae and 3–6 paired obovate leaflets per pinna; literature reports variable leaflet dimensions. Compare same-maturity leaves against Gregg's catclaw.",
+    "leaves": "Bipinnate, often 1–4 pinna pairs and 3–6 leaflet pairs per pinna. Leaflets obovate. The 2024 regional key gives about 5–9(-12) mm long, but its own species description gives 3–6 × 2–3 mm; numeric overlap/inconsistency warrants measuring several fully mature leaves, not a single strict cutoff.",
     "flowers": "Cream to yellowish-white flower SPIKES, elongated rather than spherical, often more open/less compact than Gregg's.",
     "pods": "Broad, flat pods, often slightly constricted; can be distorted or coiled, so curvature alone not definitive.",
     "best_field_traits": [
@@ -23,7 +23,9 @@
       "Larger round-obovate leaflets than typical Gregg's catclaw",
       "Recurved catclaw twig prickles",
       "Mature flattened often broad pods"
-    ]
+    ],
+    "petiole_gland": "A capitate gland is reported at/near the proximal pinna pair; requires a verified tight macro before adding a training arrow.",
+    "pod_confirmation": "Usually straight-to-slightly curved in regional key, but detailed 2024 treatment also permits coiled pods. Do not exclude Wright based only on a curled pod."
   },
   "comparisons": {
     "confused_with": [
@@ -32,7 +34,7 @@
       "Vachellia constricta",
       "Leucaena retusa"
     ],
-    "key_distinctions": "S. roemeriana has rounded white flower heads; S. greggii and S. wrightii have spikes. Relative leaflet size and density of flowering spike provide best Gregg/Wright field hints; use fruit and reproductive context for difficult cases. Texas A&M gives Wright leaflet length 0.25–0.5 in vs Gregg less than 0.25 in; 2024 publication gives partially overlapping shorter ranges, so don't apply one absolute cutoff."
+    "key_distinctions": "Roemer forms spherical cream heads. Gregg and Wright have elongated cream flower spikes; Wright often has relatively larger leaflets and a laxer spike, while Gregg more often has tighter spikes and curling pods. The 2024 paper's Wright numeric key (5–9(-12) mm) conflicts partly with its descriptive text (3–6 mm), so teach the RELATIVE traits and request multiple leaves, petiole measures and mature pods before a confident hard-pair determination."
   },
   "project_inclusion": {
     "learner_admission_status": "APPROVED_FROM_MASTER_PLANT_POOL",
@@ -73,13 +75,14 @@
     }
   ],
   "curation_status": {
-    "version": "1.1-first-photo-annotated-2026-10-12",
+    "version": "1.1-measured-leaf-and-pod-source-conflict-polish",
     "last_reviewed": "2026-10-12",
     "range_status": "UNRESOLVED",
     "visual_status": "provisional-bloom-image-annotated-more-roles-pending",
     "photo_metadata_count": 1,
     "photo_files_present": 1,
-    "arrow_annotations": 2
+    "arrow_annotations": 2,
+    "diagnostic_photo_gap": "same-scale leaflets, true Wright pod, gland + prickle micros"
   },
   "images": [
     {
@@ -150,5 +153,51 @@
       "mature pod with ruler",
       "isolated full bipinnate leaf"
     ]
-  }
+  },
+  "diagnostic_photo_requirements": {
+    "priority": [
+      "one complete compound leaf with millimeter ruler; do not rely on optical size",
+      "one prickle insertion and nearby node",
+      "one mature fruit showing pod outline, stalk and seeds if open",
+      "macro at proximal petiole showing capitate gland",
+      "same-scale leaf/fruit photos of S. greggii, ideally beside Wright"
+    ],
+    "externally_available_study_only": [
+      {
+        "label": "University of Arizona Campus Arboretum leaf and blossom photographs",
+        "url": "https://apps.cals.arizona.edu/arboretum/taxon.aspx?id=948",
+        "roles": [
+          "paired obovate leaves",
+          "open cream cylindrical flowering spikes",
+          "elongated tight green flower buds"
+        ],
+        "license_status": "Not independently verified for republication; study link only; images[] not changed."
+      },
+      {
+        "label": "Texas A&M Forest Service — Wright acacia",
+        "url": "https://texastreeid.tfs.tamu.edu/content/TreeDetails/?id=2",
+        "roles": [
+          "key differences from Gregg's",
+          "native habitat"
+        ],
+        "license_status": "study and botanical comparison source only"
+      }
+    ]
+  },
+  "source_conflicts": [
+    {
+      "issue": "Wright leaflet length measurements vary within a 2024 regional source",
+      "key": "5–9(-12) mm",
+      "description": "3–6 × 2–3 mm",
+      "disposition": "Source discrepancy documented; retain relative size clue, not numerical absolute; verify local floristic specimens.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10857220/"
+    },
+    {
+      "issue": "Pod curling is not an absolute diagnostic for Gregg versus Wright",
+      "key": "Regional key uses fruit not curling to favor Wright",
+      "description": "Same treatment's Wright species description permits straight or coiled pods",
+      "disposition": "Require secondary traits.",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10857220/"
+    }
+  ]
 }
