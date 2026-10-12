@@ -252,11 +252,11 @@ function genusVisualComparison(data){
     const safePhotoSrc=/^(https?:\/\/|content\/)/i.test(photoSrc);
     out+='<article class="diagnostic-visual-card"><div class="diagnostic-photo-wrap">';
     if(safePhotoSrc) out+='<a class="diagnostic-photo-open" href="'+esc(photoSrc)+'" target="_blank" rel="noopener noreferrer" title="Open full diagnostic photo to zoom">';
-    out+='<img src="'+esc(photoSrc)+'" alt="'+esc((item.label||item.scientific_name||"Diagnostic plant")+" — "+(item.image_role||"diagnostic view"))+'" loading="lazy" style="object-fit:'+fit+';object-position:center '+focus+'">';
+    out+='<img data-diagnostic-image src="'+esc(photoSrc)+'" alt="'+esc((item.label||item.scientific_name||"Diagnostic plant")+" — "+(item.image_role||"diagnostic view"))+'" loading="lazy" style="object-fit:'+fit+';object-position:center '+focus+'">';
     if(safePhotoSrc) out+='</a>';
     if(markers.length){
       const arrowId="diagnosticArrow"+index;
-      out+='<svg class="diagnostic-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
+      out+='<div class="diagnostic-arrow-stage" data-diag-stage hidden><svg class="diagnostic-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
       markers.forEach(function(m){
         const lx=Number(m.label_x||8), ly=Number(m.label_y||10), tx=Number(m.target_x||50), ty=Number(m.target_y||50);
         out+='<line x1="'+lx+'" y1="'+ly+'" x2="'+tx+'" y2="'+ty+'" marker-end="url(#'+arrowId+')"></line>';
@@ -265,6 +265,7 @@ function genusVisualComparison(data){
       markers.forEach(function(m){
         out+='<span class="diagnostic-photo-label" style="left:'+Number(m.label_x||8)+'%;top:'+Number(m.label_y||10)+'%">'+esc(m.label||"look here")+'</span>';
       });
+      out+='</div>';
     }
     out+='</div><div class="diagnostic-visual-copy"><div class="eyebrow">'+esc(item.label||"Diagnostic view")+'</div><h3><i>'+esc(item.scientific_name||"")+'</i></h3><p>'+esc(item.caption||"")+'</p>';
     if(item.source_page) out+='<p class="diagnostic-photo-credit">'+esc(item.creator||"Source photo")+' · '+esc(item.license||"license review")+' · <a href="'+esc(item.source_page)+'" target="_blank" rel="noreferrer">source ↗</a></p>';
@@ -288,6 +289,33 @@ function genusVisualComparison(data){
   out+='</section>';
   return out;
 }
+// Annotation coordinates are percentages of original IMAGE pixels, not the
+// 4:3 card. Align overlay to the actual visible image after object-fit.
+function positionDiagnosticArrowStages(){
+  document.querySelectorAll('.diagnostic-photo-wrap [data-diag-stage]').forEach(function(stage){
+    const wrap=stage.parentElement;
+    const image=wrap.querySelector('img[data-diagnostic-image]');
+    if(!image || !image.naturalWidth || !image.naturalHeight){ stage.hidden=true; return; }
+    const cw=wrap.clientWidth, ch=wrap.clientHeight;
+    if(!cw || !ch){ stage.hidden=true; return; }
+    const cover=image.style.objectFit==="cover";
+    const scale=cover ? Math.max(cw/image.naturalWidth,ch/image.naturalHeight) :
+      Math.min(cw/image.naturalWidth,ch/image.naturalHeight);
+    const width=image.naturalWidth*scale, height=image.naturalHeight*scale;
+    stage.style.left=((cw-width)/2)+'px';
+    stage.style.top=((ch-height)/2)+'px';
+    stage.style.width=width+'px';
+    stage.style.height=height+'px';
+    stage.hidden=false;
+  });
+}
+document.addEventListener("load",function(e){
+  if(e.target && e.target.matches && e.target.matches('img[data-diagnostic-image]')){
+    window.requestAnimationFrame(positionDiagnosticArrowStages);
+  }
+},true);
+window.addEventListener("resize",positionDiagnosticArrowStages,{passive:true});
+
 function genusComparePanel(genus,members){
   if(!members || members.length<2) return "";
   const opts=members.map(function(sp){ return '<option value="'+esc(sp.id)+'">'+esc(scientificName(sp))+(commonName(sp)?' — '+esc(commonName(sp)):'')+'</option>'; }).join("");
@@ -1014,6 +1042,7 @@ function plantView(){
     '<p class="section-intro">“Same genus” means close taxonomic relatives. “Useful comparison” is a hand-picked study pairing. “Same family” shares family structure but may not look alike overall.</p><div class="similar-grid">';
   if(similar.length) similar.forEach(function(x){ out+=similarCard(sp,x.sp,x.reason); }); else out+='<div class="empty-panel">No comparison plants are curated yet.</div>';
   out+='</div></section>';
+  if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=genusVisualComparison(sp);
   if(state.difficulty==="field") out+=fieldBotanySection(sp,genusData);
   return out;
 }
@@ -1210,6 +1239,7 @@ function render(){
   else if(state.view==="approvals") els.app.innerHTML=approvalsView();
   else els.app.innerHTML=homeView();
   if(state.view==="approvals") requestAnimationFrame(hydrateVisibleApprovalPhotos);
+  if(state.view==="genus" || state.view==="plant") requestAnimationFrame(positionDiagnosticArrowStages);
 }
 
 function genusMatches(query){
