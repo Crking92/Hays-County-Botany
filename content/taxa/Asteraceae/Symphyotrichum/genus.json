@@ -39,7 +39,7 @@
     "warning": "Historical genus summary said eight installed, but live manifest has ten. Most important prior ERROR was calling S. divaricatum 'white woodland aster' (Eurybia divaricata); the Symphyotrichum divaricatum species card has now been corrected. Also do not teach glands as exclusive to S. oblongifolium: S. patens varieties can have stalked glands."
   },
   "curation_status": {
-    "version": "2.3-patens-oblongifolium-source-photo-pass",
+    "version": "2.4-two-aster-pair-photo-scouts",
     "last_reviewed": "2026-10-12",
     "canonical_species_unchanged": true,
     "comparison_state": "all ten species taught with morphology first, specimen/diagnostic photo polish follows"
@@ -618,6 +618,24 @@
         "url": "https://commons.wikimedia.org/wiki/File:Symphyotrichum_patens_101273126.jpg",
         "look_for": "Exact taxon identified as S. patens, North Carolina photo by Becky Dill, CC0. Need inspect individual image to confirm leaf base visible before using as diagnostic plate.",
         "reuse": "Becky Dill, CC0 1.0, Commons/iNaturalist photo 101273126"
+      },
+      {
+        "label": "Texas Drummond's aster var. texanum — actual reproductive close-up (UT Austin BIO406D)",
+        "url": "https://www.sbs.utexas.edu/bio406d/images/pics/ast/Symphyotrichum%20drummond%20hds.jpg",
+        "look_for": "Several flower heads from S. drummondii var. texanum, with whole short branch and some hairy structures. It DOES NOT clearly show winged lower leaf petioles; never arrow a winged lower leaf here.",
+        "reuse": "University of Texas herbarium/BIOL 406D source; reuse permission not identified; link only"
+      },
+      {
+        "label": "Drummond's aster var. texanum — exact local specimen morphology (UT Williamson County flora)",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Symphyotrichum%20drummondii%20texanum.html",
+        "look_for": "Lower leaves with long winged petiole portion, distal hairs, head rays; measured source is NOT photograph.",
+        "reuse": "authoritative specimen description"
+      },
+      {
+        "label": "Eula's aster — additional specimen photograph (NYBG herbarium)",
+        "url": "https://commons.wikimedia.org/wiki/File:Symphyotrichum_eulae_specimen_NY_01847673.jpg",
+        "look_for": "Exact-name herbarium voucher for whole flowering branch, leaves and arrangement; confirm file title/license at Commons before installing anything.",
+        "reuse": "specimen scan reference; photo license unconfirmed"
       }
     ]
   },
@@ -810,6 +828,43 @@
       "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-patens",
       "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-oblongifolium",
       "https://w3.biosci.utexas.edu/prc/K12/pdf/Symphyotrichum%20patens%20patens"
+    ]
+  },
+  "pair_photo_polish_drummondii_eulae_2026_10_12": {
+    "status": "partial source-photo pass; licensed visible matched hairs/leaf bases not yet locked",
+    "matched_key": {
+      "Symphyotrichum drummondii var. texanum": "Lower leaf tapering to winged petiole (up to ~45 mm in UT local description), middle/upper leaves strongly reduced; young distal stems and peduncles hairy; inflorescence diffuse.",
+      "Symphyotrichum eulae": "Peduncles typically GLABROUS, 5–10 slender bractlets on peduncle, ~27–36 rays on intact heads, middle stem leaves serrate/scabrous."
+    },
+    "priority_images": [
+      "Local drummondii LOWER winged leaf stalk attached to stem AND leaves higher on SAME stem.",
+      "Side-by-side drummondii hairy versus eulae glabrous peduncle at 10–20×, arrows only on clearly visible hairs.",
+      "Head face-on with intact countable rays for each; no ray number arrow when flower damaged.",
+      "Scaled phyllary/involucre side views; FNA lists 3.8–5.2 mm involucre for var. texanum while UT Williamson treatment records 6–7 mm on its local specimen: DO NOT force a hard universal size split."
+    ],
+    "actual_image_candidates": [
+      {
+        "species": "S. drummondii var. texanum",
+        "url": "https://www.sbs.utexas.edu/bio406d/images/pics/ast/Symphyotrichum%20drummond%20hds.jpg",
+        "role": "flower heads/upper flowering branch",
+        "status": "actual exact-local-variety source photo, copyrighted study link only"
+      },
+      {
+        "species": "S. eulae",
+        "url": "https://commons.wikimedia.org/wiki/File:Symphyotrichum_eulae,_Bastrop_County,_TX,_USA_imported_from_iNaturalist_photo_455429342.jpg",
+        "role": "existing physically installed single flowering stem photo",
+        "status": "existing CC BY 4.0 face, not proven peduncle-macro"
+      }
+    ],
+    "scientific_notes": [
+      "Do not infer FNA variety-specific measurements from generic drummondii species description.",
+      "Presence/absence of peduncle hairs matters but sample a full mature flowering head.",
+      "Eulae Texas-only PASS and Drummondii var. texanum current PASS remain unchanged."
+    ],
+    "references": [
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250068828",
+      "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250067643",
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Symphyotrichum%20drummondii%20texanum.html"
     ]
   }
 }
