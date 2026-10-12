@@ -62,11 +62,13 @@
     "user_approved": true,
     "range_exception": true,
     "last_reviewed": "2026-10-12",
-    "visual_status": "awaiting_exact_photo_ids_and_binary_qa",
+    "visual_status": "missing_verified_photo_photo_id_and_binary",
     "taxonomic_status_preserved": true,
     "range_status_preserved": true,
     "life_history_conflict_flagged": true,
-    "photo_sources_scouted": true
+    "photo_sources_scouted": true,
+    "photo_scout_verified_observation": 402434586,
+    "photo_scout_note": "Specific personal-source observation located; photo-ID/photo binary retrieval blocked. Candidate only; not visual complete."
   },
   "diagnostic_image_needs": [
     "whole herbaceous perennial habit with scale",
@@ -76,8 +78,26 @@
     "erect mature hairy pod and opening valves",
     "side-by-side S. roemeriana narrow paired leaves and S. bauhinioides broad paired leaves at the same scale"
   ],
-  "photo_note": "2026-10-12 photo scout found indexed CC0 and CC BY exact-species iNaturalist images via biosurveys. Image-source record IDs and roles not yet verified, so NO PHOTO INSTALLED; images[] stays absent until actual binary/observation/license checked. Commercial Getty and copyrighted T. Kahler photos excluded.",
+  "photo_note": "2026-10-12: Personal iNaturalist Flora row 890 provides specific observation 402434586 (wild, 2026-09-19; identification NEEDS ID), now highest-priority lead, but its photo IDs, license, actual images and species determination are not verified because external iNaturalist observation/API/photo resources were inaccessible in this run. Prior CC0/CC BY photographer-level leads remain candidates only. No photo installed; images[] remains absent. Do not use copyrighted Getty, CalPhotos or all-rights-reserved Flickr alternatives.",
   "photo_candidate_sources": [
+    {
+      "priority": 0,
+      "platform": "Personal iNaturalist Flora source-pool observation",
+      "observation_id": 402434586,
+      "observation_url": "https://www.inaturalist.org/observations/402434586",
+      "taxon_id": 168849,
+      "observed_on": "2026-09-19",
+      "source": "Hays_Botany_ID_Master_Curation_Tracker → My iNaturalist Flora row 890",
+      "research_grade": 0,
+      "needs_id": 1,
+      "wild_observation": 1,
+      "candidate_status": "UNVERIFIED PHOTO/TAXON — do not install yet",
+      "photo_id": null,
+      "photographer": "not retrieved from observation; ownership/source identity not independently verified",
+      "photo_license": "unknown until photo-level inspection; do not assume CC from user source-pool membership",
+      "visual_roles": "unknown until actual images opened",
+      "action": "Open observation; confirm its ID and whether images depict Senna pilosior; record each image's photo ID, creator, individual CC license, diagnostic view and physical image URL. Only then add exact files to image-sources.csv, download, verify and wire images[]."
+    },
     {
       "platform": "iNaturalist, through license-bearing biosurveys.org Senna pilosior taxon index",
       "index_url": "https://www.biosurveys.org/taxon/senna-pilosior-168849",
