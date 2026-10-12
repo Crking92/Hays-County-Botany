@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12T04:29:12-05:00",
+  "updated_at": "2026-10-12T06:14:31-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -7656,6 +7656,21 @@
       "expires_at": "2026-10-12T06:29:12-05:00",
       "release_when": "Scientific report or Sheet overrides are durably saved; release immediately afterward.",
       "notes": "Scientific review only; no canonical installs, READY markers or generic gallery backfill."
+    },
+    {
+      "claim_id": "automation-family-similarity-oleaceae-20261012-0614",
+      "scope_kind": "family_module",
+      "families": [
+        "Oleaceae"
+      ],
+      "scope_key": "content/taxa/Oleaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "automation-family-similarity-polish",
+      "status": "active",
+      "claimed_at": "2026-10-12T06:14:31-05:00",
+      "expires_at": "2026-10-12T08:14:31-05:00",
+      "release_when": "Canonical family confusion patch committed and sheet synchronized, or target skipped",
+      "notes": "Compact 4-genus recognition polish; preserve existing visual anchors, taxonomy and formula columns."
     }
   ]
 }
