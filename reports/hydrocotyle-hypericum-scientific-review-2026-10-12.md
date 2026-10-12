@@ -1,0 +1,14 @@
+# Hydrocotyle and Hypericum scientific review — 2026-10-12
+
+Research only; no canonical installation or READY marker. Master Plant Pool source rows 564–565, 571–572 are learner-approved, while strict three-target-county native certification remains UNRESOLVED.
+
+## Hydrocotyle
+*H. umbellata* and *H. verticillata* are separate accepted species (POWO); both native to Texas at state level. LOOK HERE FIRST: examine the entire inflorescence and mature fruit. *H. umbellata* usually has one many-flowered terminal umbel, ~15–35 flowers and a 2–3 mm schizocarp notched at base. *H. verticillata* generally has several separated few-flowered verticils along an axis and a 3–4 mm fruit with rounded/truncate base. Both have rounded peltate leaves; foliage alone is unreliable. IMPORTANT: *H. verticillata* var. *triradiata* is assigned by POWO to accepted *H. bonariensis*; historical regional images under that varietal name are NOT unequivocal *H. verticillata* vouchers. Photo roles: whole inflorescence axis, whorl/umbel insertion, fruit width/base with scale, peltate petiole underside.
+
+## Hypericum
+POWO accepts *H. hypericoides* (basionym *Ascyrum hypericoides*) and *H. walteri* as separate species, both Texas native at state level. LOOK HERE FIRST: confirm growth habit, opposite leaves, floral structures and mature capsules. *H. hypericoides* (woody St Andrew's-cross group) must be compared with separately accepted *H. crux-andreae*; common name and yellow flower shape alone are unreliable. *H. walteri* (wetland perennial) must be compared with separately accepted *H. tubulosum*; older *Triadenum tubulosum* var. *walteri* is a synonym of *H. walteri*, whereas *H. walteri* var. *tubulosum* maps to *H. tubulosum*. The exact floral/fruit key remains a photo/voucher handoff rather than an invented separation. Photo roles: paired leaf nodes, floral organs, calyx and mature capsule, exact-species matched voucher comparison.
+
+## Sources
+POWO: https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:843746-1 ; https://powo.science.kew.org/taxon/843759-1 ; https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1105522-2 ; https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30080839-2 ; https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:126401-2 ; Go Botany: https://gobotany.nativeplanttrust.org/dkey/hydrocotyle/ ; UT PRC: https://w3.biosci.utexas.edu/prc/K12/pages/Hydrocotyle%20umbellata.html .
+
+Source-pool overrides were verified in Google Sheets rows 723–726; no images installed. Check Calvin and Joey project media before sourcing any photo. BONAP county audit deferred.
