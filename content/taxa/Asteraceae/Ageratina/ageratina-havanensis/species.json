@@ -26,7 +26,9 @@
       "white fluffy clusters",
       "woody base"
     ],
-    "fna_confirmation": "FNA: shrub 69–150 cm (rarely 30–200 cm), petioles 3–10(–15) mm, deltate to broadly ovate (sometimes hastate) leaves generally 3–5 × 2–5 cm; leaves essentially gland-free; involucres 4–6 mm; foliage persistent in the US flora."
+    "fna_confirmation": "FNA: shrub 69–150 cm (rarely 30–200 cm), petioles 3–10(–15) mm, deltate to broadly ovate (sometimes hastate) leaves generally 3–5 × 2–5 cm; leaves essentially gland-free; involucres 4–6 mm; foliage persistent in the US flora.",
+    "mature_cypsela": "Hispid (hairy), contrasted with glabrous A. altissima (FNA).",
+    "leaf_persistence": "Persistently leaved / evergreen shrub, rare within Flora of North America Ageratina."
   },
   "photo_strategy": {
     "method": "targeted iNaturalist API",
@@ -98,23 +100,23 @@
     "photo_backfill_source": "historical taxa.zip migration",
     "photo_policy_review": "2026-10-12: excluded one all-rights-reserved metadata record; selected CC BY 3.0 Texas candidate awaiting image installation.",
     "diagnostic_polish_status": "morphology improved; matched images pending",
-    "photo_binary_cleanup": "2026-10-12: all-rights-reserved 01-curated-reference.jpg physically deleted after exclusion from images[]; four licensed local images remain. CC BY 3.0 Travis County replacement selected, not installed."
+    "photo_binary_cleanup": "2026-10-12: all-rights-reserved 01-curated-reference.jpg physically deleted after exclusion from images[]; four licensed local images remain. CC BY 3.0 Travis County replacement selected, not installed.",
+    "diagnostic_polish_date": "2026-10-12"
   },
   "other_common_names": [
     "White mistflower",
     "Shrubby boneset",
     "Havana snakeroot"
   ],
-  "look_here_first": "First look for the woody shrubby base and persistent opposite sharply toothed broad leaves on short 3–10(–15) mm petioles. Then inspect an individual white to faint-pink head sideways: involucre 4–6 mm. Versus Chromolaena odorata, avoid color alone; its involucres are LONG CYLINDRICAL 8–10 mm with 4–6+ phyllary series.",
+  "look_here_first": "Look for a many-branched, persistent-leaved (evergreen) woody shrub with opposite, serrate, typically 3–5 cm leaves on short 3–10 mm petioles and white to faintly pinkish rayless heads. A. altissima has herbaceous stems and smoother/glabrous cypselae. Mature A. havanensis cypselae are HISPID (hairy).",
   "comparisons": {
     "confused_with": [
       "Ageratina altissima",
-      "Chromolaena odorata",
+      "Conoclinium coelestinum",
       "Eupatorium serotinum",
-      "Conoclinium coelestinum"
+      "Chromolaena odorata"
     ],
-    "key_distinctions": "Against A. altissima: persistent woody shrub structure and relatively short petioles versus rhizomatous herb with broader long-petioled leaves. Against Chromolaena odorata: 4–6 mm involucres, not 8–10 mm cylindrical heads with numerous layered phyllaries. Against E. serotinum: shrub rather than tall herbaceous branched perennial.",
-    "caution": "Single new green shoots may not betray the perennial woody base; compare mature stem base and whole plant."
+    "key_distinctions": "Versus A. altissima: evergreen/brittle woody shrub framework (not herbaceous), shorter typical petioles, and HISPID mature cypselae (A. altissima glabrous). Versus C. odorata: A. havanensis heads have much shorter 4–6 mm involucres, compared with cylindrical 8–10 mm and 4–6+ phyllary series. Versus E. serotinum: shrub vs tall herbaceous, narrower leaves on late boneset."
   },
   "photo_exclusions": [
     {
@@ -144,22 +146,32 @@
   },
   "diagnostic_photo_requirements": [
     {
-      "priority": 1,
-      "shot": "Full shrub including stem base versus herbaceous A. altissima",
-      "label": "woody perennial architecture vs herbaceous rhizomatous shoots",
-      "status": "matched pair pending"
+      "role": "fruit_surface_macro",
+      "priority": "P1",
+      "shot": "several ripe cypselae with scale at magnification",
+      "must_show": "hispid/hairy surface vs glabrous A. altissima",
+      "status": "PENDING"
     },
     {
-      "priority": 1,
-      "shot": "Opposite mature leaf front and reverse, with ruler and petiole",
-      "label": "short 3–10(–15) mm petiole, leaf teeth; do not overclaim venation",
-      "status": "matched pair pending"
+      "role": "evergreen_woody_base",
+      "priority": "P1",
+      "shot": "woody base, mature brittle stems, winter foliage",
+      "must_show": "persistent shrub framework and leaves",
+      "status": "PENDING"
     },
     {
-      "priority": 1,
-      "shot": "Side closeup of one rayless head with mm scale",
-      "label": "4–6 mm involucre; separate from 8–10 mm cylindric Chromolaena",
-      "status": "diagnostic image pending"
+      "role": "leaf_petioles",
+      "priority": "P1",
+      "shot": "opposite mature foliage front/back plus mm ruler",
+      "must_show": "short 3–10 mm typical petioles, serrate margins",
+      "status": "PENDING"
+    },
+    {
+      "role": "head_side_macro",
+      "priority": "P2",
+      "shot": "involucres side-on with ruler",
+      "must_show": "4–6 mm involucre length",
+      "status": "PENDING"
     }
   ],
   "source_references": [
@@ -170,6 +182,12 @@
     {
       "authority": "Wikimedia Commons CC BY 3.0 photograph",
       "url": "https://commons.wikimedia.org/wiki/File:Ageratina_Havanensis,_Shrubby_Boneset_-_panoramio_(1).jpg"
+    }
+  ],
+  "sources": [
+    {
+      "authority": "Flora of North America",
+      "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250066014"
     }
   ]
 }
