@@ -39,7 +39,7 @@
     "warning": "Historical genus summary said eight installed, but live manifest has ten. Most important prior ERROR was calling S. divaricatum 'white woodland aster' (Eurybia divaricata); the Symphyotrichum divaricatum species card has now been corrected. Also do not teach glands as exclusive to S. oblongifolium: S. patens varieties can have stalked glands."
   },
   "curation_status": {
-    "version": "2.2-head-to-head-structure-complete",
+    "version": "2.3-patens-oblongifolium-source-photo-pass",
     "last_reviewed": "2026-10-12",
     "canonical_species_unchanged": true,
     "comparison_state": "all ten species taught with morphology first, specimen/diagnostic photo polish follows"
@@ -577,6 +577,47 @@
         "url": "https://www.inaturalist.org/taxa/238759-Symphyotrichum-lanceolatum-lanceolatum",
         "look_for": "identify photograph at nominate SUBSPECIES rank, verify photographer/license and provenance before linking exact photo",
         "reuse": "not yet resolved"
+      },
+      {
+        "label": "PATENS — actual clasping leaf stem nodes (Native Plant Trust photograph)",
+        "url": "https://newfs.s3.amazonaws.com/taxon-images-1000s1000/Asteraceae/symphyotrichum-patens-le-atal.jpg",
+        "look_for": "Several intact true stem nodes with strongly clasping rounded basal lobes. Strong teaching reference for clasping leaf attachment, even without arrows.",
+        "reuse": "Native Plant Trust/Go Botany; photographer-specific copyright, NOT for embedding; link for study only",
+        "source_page": "https://gobotany.nativeplanttrust.org/species/symphyotrichum/patens/",
+        "verification": "real exact-species leaf-node photo at Go Botany; rounded lobes visually apparent"
+      },
+      {
+        "label": "PATENS — stem and nodes (MissouriPlants, SRTurner)",
+        "url": "https://www.missouriplants.com/images/Symphyotrichum_patens_stem.jpg",
+        "look_for": "Actual stem-and-node photograph labeled as S. patens with sessile auriculate upper leaves; use to compare with oblongifolium stem view.",
+        "reuse": "SRTurner © MissouriPlants; link only",
+        "source_page": "https://www.missouriplants.com/Symphyotrichum_patens_page.html"
+      },
+      {
+        "label": "OBLONGIFOLIUM — stem with attached leaves (MissouriPlants, SRTurner)",
+        "url": "https://www.missouriplants.com/images/Symphyotrichum_oblongifolium_leaves2.jpg",
+        "look_for": "Exact-species foliage/stem comparison showing upper and middle leaves that are not strongly cordate-clasping as in patens.",
+        "reuse": "SRTurner © MissouriPlants; link only",
+        "source_page": "https://www.missouriplants.com/Symphyotrichum_oblongifolium_page.html"
+      },
+      {
+        "label": "OBLONGIFOLIUM — upper stem and gland region (MissouriPlants, SRTurner)",
+        "url": "https://www.missouriplants.com/images/Symphyotrichum_oblongifolium_stem.jpg",
+        "look_for": "Actual upper stem showing pubescence/gland-bearing region; stalked gland HEADS may require closer macro before arrowing.",
+        "reuse": "SRTurner © MissouriPlants; link only",
+        "source_page": "https://www.missouriplants.com/Symphyotrichum_oblongifolium_page.html"
+      },
+      {
+        "label": "PATENS — documented Texas clasping upper leaves and glandular stems (UT Austin K12)",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Symphyotrichum%20patens%20patens",
+        "look_for": "Williamson County exact var. patens describes rounded basal lobes partially wrapping stem and stalked glands; reference measurements, not photo asset.",
+        "reuse": "UT Austin specimen description, source reference"
+      },
+      {
+        "label": "PATENS — photo-licensed additional subject candidates (Wikimedia CC0)",
+        "url": "https://commons.wikimedia.org/wiki/File:Symphyotrichum_patens_101273126.jpg",
+        "look_for": "Exact taxon identified as S. patens, North Carolina photo by Becky Dill, CC0. Need inspect individual image to confirm leaf base visible before using as diagnostic plate.",
+        "reuse": "Becky Dill, CC0 1.0, Commons/iNaturalist photo 101273126"
       }
     ]
   },
@@ -720,5 +761,55 @@
       "status": "remote face present; diagnostic macro pending",
       "arrow_target": "single in-focus silky white appressed hair on narrow leaf"
     }
-  ]
+  ],
+  "pair_photo_polish_2026_10_12": {
+    "pair": [
+      "Symphyotrichum patens",
+      "Symphyotrichum oblongifolium"
+    ],
+    "status": "ACTUAL_SOURCE-PHOTOS_FOUND; READY_FOR_PRELIMINARY_FIELD_ID; licensed matched leaf-base macros not yet installed",
+    "strongest_field_rule": "On the SAME height upper stem, S. patens has deeply cordate-CLASPING auriculate leaf bases that wrap around stem; S. oblongifolium has oblong to lanceolate leaves usually rounded, narrowed or just WEAKLY clasping, with many smaller upper leaves. The obvious heart-shaped clasping base is the better first-look character than gland presence.",
+    "gland_correction": "DO NOT use glands alone: S. patens var. patens in the Williamson County flora bears colorless stalked glands on stems and peduncles; S. oblongifolium also commonly bears stalked glands on upper stems/peduncles/phyllaries.",
+    "source_photo_results": [
+      {
+        "species": "S. patens",
+        "role": "actual upper leaf nodes with rounded clasping auricles",
+        "url": "https://newfs.s3.amazonaws.com/taxon-images-1000s1000/Asteraceae/symphyotrichum-patens-le-atal.jpg",
+        "photographer": "Native Plant Trust photographer; individual credit must be checked at Go Botany",
+        "status": "STRONG_DIAGNOSTIC_SOURCE_PHOTO, protected study link"
+      },
+      {
+        "species": "S. patens",
+        "role": "stem and nodes",
+        "url": "https://www.missouriplants.com/images/Symphyotrichum_patens_stem.jpg",
+        "photographer": "SRTurner",
+        "status": "SOURCE_SITE_COPYRIGHT_STUDY_LINK_ONLY"
+      },
+      {
+        "species": "S. oblongifolium",
+        "role": "leaf-bearing stem",
+        "url": "https://www.missouriplants.com/images/Symphyotrichum_oblongifolium_leaves2.jpg",
+        "photographer": "SRTurner",
+        "status": "SOURCE_SITE_COPYRIGHT_STUDY_LINK_ONLY"
+      },
+      {
+        "species": "S. oblongifolium",
+        "role": "upper stem hairs",
+        "url": "https://www.missouriplants.com/images/Symphyotrichum_oblongifolium_stem.jpg",
+        "photographer": "SRTurner",
+        "status": "COPYRIGHT; gland heads not individually vetted"
+      }
+    ],
+    "to_finish": [
+      "Physical local licensed matched S. patens upper-leaf auricle and S. oblongifolium upper-leaf base macros at same scale.",
+      "Matched 10–20× stalked gland close-ups with head visible, clear that BOTH can have glands.",
+      "Optional exact-source Texas specimen for S. patens with accepted variety and county status; existing PROVISIONAL scientific status must remain.",
+      "Real verified arrows after checking photo pixels; no arrows should be inferred from descriptions."
+    ],
+    "authorities": [
+      "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-patens",
+      "https://uwaterloo.ca/astereae-lab/research/asters/symphyotrichum/symphyotrichum-oblongifolium",
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Symphyotrichum%20patens%20patens"
+    ]
+  }
 }
