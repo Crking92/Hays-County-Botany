@@ -4,35 +4,288 @@
   "name": "Senna",
   "common_group": "Sennas",
   "project_scope": {
-    "selection_mode": "B045 same-genus comparison",
+    "selection_mode": "Existing installed Senna learner pages plus non-installed Texas encounter comparisons",
     "species_ids": [
-      "senna-lindheimeriana"
+      "senna-lindheimeriana",
+      "senna-pilosior",
+      "senna-roemeriana"
     ],
-    "species_count": 1,
+    "species_count": 3,
     "holds": [
       "senna-pilosior"
     ],
-    "planned_anchor": "senna-roemeriana"
+    "hold_meaning": "S. pilosior is canonical/learner approved but county-range UNRESOLVED; this is not a morphology or learner-admission hold.",
+    "comparison_only_taxa": [
+      "Senna bauhinioides",
+      "Senna pumilio",
+      "Senna obtusifolia",
+      "Senna occidentalis",
+      "Chamaecrista fasciculata"
+    ],
+    "planned_anchor": null,
+    "anchor_installed": "senna-roemeriana",
+    "admission_warning": "Comparison taxa are not separate installed learner species by virtue of appearing in this genus lesson. Check Master Plant Pool, approved sources, taxonomy, and county evidence before new cards."
   },
   "study_strategy": {
     "priority": [
-      "leaflet-pair count",
-      "annual vs perennial habit",
-      "pubescence",
-      "extrafloral nectary position",
-      "pod morphology"
+      "count leaflet pairs on a single leaf",
+      "leaflet length-to-width ratio, shape and texture",
+      "pubescence (short retrorse hairs versus stiff setae versus velvety covering)",
+      "exact nectary location at leaflet junction or along rachis",
+      "perennial rootstock / flower and anther structure",
+      "pod structure and seed coat for two-leaflet western species"
     ],
-    "warning": "Yellow flower color is low-value. Start with leaflet count and life history."
+    "warning": "Previous B045 shortcut 'pilosior = annual' was incorrect. A 2024 peer-reviewed flora describes S. pilosior as a herbaceous perennial with one leaflet pair. A two-leaflet key cannot by itself identify S. roemeriana.",
+    "vocabulary": [
+      "leaflet",
+      "rachis",
+      "petiole",
+      "pulvinus",
+      "extrafloral nectary",
+      "pubescence",
+      "setae",
+      "retrorse trichomes",
+      "staminode",
+      "poricidal anther",
+      "legume",
+      "dehiscence"
+    ],
+    "audience": "Central Texas field crew visual ID; use magnified true-part photos with labeled pairs, gland, hairs and pods."
   },
   "comparison_lesson": {
     "quick_split": [
-      "S. roemeriana — local twoleaf senna: one pair of leaflets.",
-      "S. lindheimeriana — perennial, tall and velvety, 4–8 leaflet pairs.",
-      "S. pilosior — annual western/desert comparison, range HOLD pending exact counties."
-    ]
+      "One leaflet pair with long narrow lanceolate leaflets (typically 2–9 times longer than wide): investigate S. roemeriana.",
+      "One pair of broader (approximately 1.3–1.8 times as long as wide) hairy leaflets and a mixture of short backward-pointing hairs plus conspicuous stiff setae: investigate S. pilosior (western comparison; RANGE UNRESOLVED).",
+      "One pair of oblong/obovate leaflets (often 1–2.5 cm long), very short thick style and rough seed coat: investigate S. bauhinioides (external comparison; not installed).",
+      "Usually 4–8 leaflet pairs, oval/oblong and densely velvety, robust perennial: S. lindheimeriana.",
+      "Many small leaflet pairs with a cup-like nectary near the base of the leaf plus rapidly splitting twisting pods: check Chamaecrista, especially C. fasciculata; not Senna."
+    ],
+    "decision_tree": [
+      {
+        "step": "1",
+        "question": "How many pairs of leaflets on ONE mature compound leaf?",
+        "if": "4–8 pairs, soft gray-green velvet",
+        "then": "S. lindheimeriana candidate; check full hairy leaflet and reproductive macro.",
+        "else": "Only one pair: proceed to step 2. Many pairs but not matching lindheimeriana: check Chamaecrista and other Senna."
+      },
+      {
+        "step": "2",
+        "question": "Are the one-pair leaflets conspicuously long and narrow (about 2–9 times as long as wide)?",
+        "if": "yes",
+        "then": "S. roemeriana candidate: confirm short leaf-junction nectary and flower/pod.",
+        "else": "Broad leaflets: proceed to step 3; do not force roemeriana."
+      },
+      {
+        "step": "3",
+        "question": "Are stems/leaflets strongly hairy with mixed stiff setae and short retrorse hairs?",
+        "if": "yes",
+        "then": "S. pilosior candidate; confirm flower and erect hairy pod, and western provenance.",
+        "else": "S. bauhinioides or another bifoliolate Senna candidate; get flower style + mature pod/seed evidence."
+      },
+      {
+        "step": "4",
+        "question": "Is the broad-leaf bifoliolate plant difficult to settle vegetatively?",
+        "if": "yes",
+        "then": "Do not guess. S. bauhinioides has stout distally dilated style and rough seed coat; S. pilosior requires hair, flower and fruit character confirmation."
+      }
+    ],
+    "comparison_matrix": [
+      {
+        "taxon": "Senna roemeriana",
+        "learner": "installed",
+        "target_zone": "PASS in current species record; re-audit qualifying counties",
+        "life_history": "herbaceous perennial",
+        "leaflets": "1 pair, narrow lanceolate (2–9:1 length:width)",
+        "pubescence": "small stem hairs and short upward-angled setae",
+        "reproductive": "ascending pubescent oblong pods ca. 2–3.5 cm",
+        "look_here": "single complete two-leaflet leaf + gland; photograph pod"
+      },
+      {
+        "taxon": "Senna lindheimeriana",
+        "learner": "installed",
+        "target_zone": "PASS in current species record; re-audit qualifying counties",
+        "life_history": "woody-rooted perennial",
+        "leaflets": "(4–)5–7(–8) pairs; oval/oblong, softly velvety",
+        "pubescence": "dense velvety hairs",
+        "reproductive": "upper/terminal flowering racemes and elongate legume pods",
+        "look_here": "count multiple leaflet pairs + macro of leaf hairs"
+      },
+      {
+        "taxon": "Senna pilosior",
+        "learner": "installed",
+        "target_zone": "UNRESOLVED; keep excluded from native-only metrics",
+        "life_history": "herbaceous perennial (corrected from older incorrect annual shortcut)",
+        "leaflets": "1 pair; broader, about 1.3–1.8:1 length:width",
+        "pubescence": "short retrorse hairs, glandlike hairs and obvious stiff setae",
+        "reproductive": "erect setose hairy pods, persistent sepals; anthers constricted below terminal pore",
+        "look_here": "broad paired leaves + mixed hairs + erect mature pods; no verified installed photographs"
+      },
+      {
+        "taxon": "Senna bauhinioides",
+        "learner": "external comparison only",
+        "target_zone": "unassessed for project county threshold",
+        "life_history": "herbaceous perennial",
+        "leaflets": "1 pair; oblong to obovate; often ca. 1–2.5 cm long",
+        "pubescence": "pubescent",
+        "reproductive": "short thickened style and rough-surfaced seeds; densely hairy ovoid pod ca. 1.9–2.5 cm",
+        "look_here": "separate from pilosior using flower/seed, not leaf pair count"
+      },
+      {
+        "taxon": "Senna pumilio",
+        "learner": "external western reference only",
+        "target_zone": "unassessed",
+        "life_history": "dwarf Senna",
+        "leaflets": "requires authoritative key; do not infer from common name",
+        "pubescence": "requires keyed specimen",
+        "reproductive": "requires key and pod",
+        "look_here": "western/Trans-Pecos candidate; not a presumptive Hays ID"
+      },
+      {
+        "taxon": "Senna obtusifolia",
+        "learner": "common-encounter comparison candidate only",
+        "target_zone": "unassessed",
+        "life_history": "annual or short-lived perennial",
+        "leaflets": "usually 3 pairs of broader obovate leaflets",
+        "pubescence": "variable",
+        "reproductive": "long narrow mostly cylindrical to slightly curved pod",
+        "look_here": "3 broad leaflet pairs and gland at base of rachis"
+      },
+      {
+        "taxon": "Chamaecrista fasciculata",
+        "learner": "different genus look-alike",
+        "target_zone": "separate taxon assessment",
+        "life_history": "annual",
+        "leaflets": "usually 3–6 pairs of small leaflets",
+        "pubescence": "variable",
+        "reproductive": "10 fertile stamens and elastically dehiscent twisting pods",
+        "look_here": "petiolar cup-like nectary near lowest leaflet pair, leaflet size, exploding pods"
+      }
+    ],
+    "confuser_warning": "Yellow-flowered Rhynchosia and other Fabaceae can be deceptive; examine flower architecture before assigning genus. Rhynchosia senna is a different genus despite the epithet 'senna'."
   },
   "curation_status": {
-    "version": "1.0-b045",
-    "last_reviewed": "2026-10-03"
-  }
+    "version": "2.0-expanded-senna-polish",
+    "last_reviewed": "2026-10-12",
+    "morphology_correction": "S. pilosior perennial and bifoliolate, not annual. Range county count audit flagged, not silently overwritten.",
+    "visual_status": "diagnostic_photo_polish_required"
+  },
+  "look_here_first": "Count leaflet PAIRS on one complete compound leaf, not individual leaflets on an entire shoot. One pair leads to the roemeriana/pilosior/bauhinioides branch; approximately 4–8 pairs of broad velvety leaflets leads to lindheimeriana. Then magnify hair type, leaflet length:width ratio, the gland at the leaflet junction, flower reproductive parts, and mature fruit.",
+  "shared_traits": {
+    "lineage": "Fabaceae > Caesalpinioideae > Cassieae > Senna; historical Cassia names may appear on specimens and older field guides.",
+    "recognition": [
+      "Alternate, usually even-pinnate compound leaves without a lone terminal leaflet; some Senna species have just one leaflet pair.",
+      "Five unequal yellow petals, often with conspicuously unequal stamens and pore-opening anthers; do not assume a papilionaceous pea flower.",
+      "Legume fruits; shape, pubescence, posture, dehiscence, and mature seeds aid difficult IDs.",
+      "Small extrafloral nectary/gland often on petiole or rachis in or near leaflet pairs; location varies by species."
+    ],
+    "caution": "Flower color, overall plant size, season, or hairiness alone cannot separate all Senna species. Not all legumes fix nitrogen; avoid claiming nodulation for these species without evidence."
+  },
+  "field_practice": [
+    {
+      "task": "Quick dichotomy",
+      "instruction": "Present photographs of one mature complete leaf from S. roemeriana and S. lindheimeriana; require learner to mark the rachis and count leaflet PAIRS."
+    },
+    {
+      "task": "Hard bifoliolate comparison",
+      "instruction": "Pair equal-scale leaf closeups from S. roemeriana, S. pilosior and S. bauhinioides; label length:width ratios; add macro of stem hair types and leaf-junction gland."
+    },
+    {
+      "task": "Reproductive lock",
+      "instruction": "Use flower closeups for style/anther separation and macro of both sides of mature pods; add seeds for S. bauhinioides."
+    },
+    {
+      "task": "Senna versus Chamaecrista",
+      "instruction": "Compare the petiolar nectary position, complete leaf, and mature dehisced pod of partridge pea."
+    }
+  ],
+  "visual_training": {
+    "status": "expanded-text-complete / photo-polish-incomplete",
+    "installed_counts_at_audit": {
+      "senna-lindheimeriana": 3,
+      "senna-roemeriana": 4,
+      "senna-pilosior": 0
+    },
+    "note": "Image counts are current species.json metadata as checked 2026-10-12, not a physical-binary or license audit; do not mark the genus visually complete.",
+    "photo_queue": [
+      {
+        "taxon": "senna-pilosior",
+        "priority": 1,
+        "needed": [
+          "whole perennial habit",
+          "complete paired-leaf closeup",
+          "stiff setae versus short retrorse hair macro",
+          "flower side/sepals/anthers",
+          "upright hairy pod"
+        ],
+        "source_strategy": "Exact verified species iNaturalist records or herbarium/author sources, with creator and license per original photograph; exclude Getty stock imagery and all-rights-reserved images from install."
+      },
+      {
+        "taxon": "senna-roemeriana",
+        "priority": 2,
+        "needed": [
+          "annotation arrow to exact single pair",
+          "arrow to gland between leaflets",
+          "parallel scale photo against S. pilosior",
+          "pod closeup"
+        ],
+        "existing": "Four UT BIO406D role photos; use these as teaching anchors, preserving rights-unverified private-study status."
+      },
+      {
+        "taxon": "senna-lindheimeriana",
+        "priority": 2,
+        "needed": [
+          "entire compound leaf at scale showing number of leaflet pairs",
+          "true macro of velvety hairs",
+          "pod maturity/dehiscence",
+          "annotated comparison against Chamaecrista"
+        ],
+        "existing": "Joey saved foliage frame and two Commons flowering photos, with separately recorded reuse rights."
+      },
+      {
+        "taxon": "Senna bauhinioides",
+        "priority": 3,
+        "needed": [
+          "broad paired leaf",
+          "flower style at macro scale",
+          "seed coat/short hairy pod"
+        ],
+        "status": "external look-alike only; do not install species card automatically"
+      }
+    ],
+    "overlays": [
+      "Number one full leaf, count pairs, and place arrows at the rachis—not at adjacent leaves.",
+      "Mark the exact extrafloral nectary rather than labeling a random node.",
+      "Use same-scale leaf images, separate arrows for long vs stiff short hairs.",
+      "Attach source IDs, creators, licensing, and study/public permissions to every final selected photo."
+    ]
+  },
+  "scientific_guardrails": {
+    "region": "Hays County plus 23 named western/northern target counties in PROJECT_RULES.md; BONAP/NAPA preferred",
+    "evidence_audit": "The installed species records currently count Val Verde for S. lindheimeriana and Williamson for S. roemeriana. Neither county is in the 24-county project target-zone list. Current PASS labels must be rechecked for a third qualifying county before making three-county native-certified claims. Do not silently rewrite prior taxonomy/range approvals or manufacture replacement counties.",
+    "admitted_vs_certified": "All three species remain in the approved learner. S. pilosior is range-unresolved and not certified local native.",
+    "taxonomy": "Accepted Senna names; Cassia names in older sources are synonyms and not duplicate learner species."
+  },
+  "sources": [
+    {
+      "title": "Fabaceae of Northeastern Mexico, 2024, Plants 13(17):2477; key + Senna pilosior, S. bauhinioides and S. roemeriana treatments",
+      "url": "https://www.mdpi.com/2223-7747/13/17/2477",
+      "rights": "CC BY 4.0 scientific text; paraphrased field notes"
+    },
+    {
+      "title": "UT Austin PRC vascular plants of Travis County: Senna lindheimeriana",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Senna%20lindheimeriana.pdf"
+    },
+    {
+      "title": "UT Austin PRC Vascular Plants of Williamson County: Chamaecrista fasciculata",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Chamaecrista%20fasciculata%20fasciculata.html"
+    },
+    {
+      "title": "USDA Texas A&M AgriLife Rangelands: Lindheimer senna",
+      "url": "https://rangeplants.tamu.edu/plant/lindheimer-senna/"
+    },
+    {
+      "title": "Kew Plants of the World Online: Senna and accepted taxonomy",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30000132-2/general-information"
+    }
+  ]
 }
