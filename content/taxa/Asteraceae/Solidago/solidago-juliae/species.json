@@ -7,7 +7,7 @@
   "scientific_name": "Solidago juliae",
   "authority": "G.L.Nesom",
   "common_name": "Julia's Goldenrod",
-  "look_here_first": "Start with the dry-site habit and leaf/stem texture. Julia's goldenrod is a tall perennial of grasslands and open woodlands with gray-green to somewhat hairy foliage and a large terminal panicle of yellow heads.",
+  "look_here_first": "LOOK FIRST at stem HAI​RS and panicle shape, not dry habitat: Julia's goldenrod has an evenly white-soft-hairy (densely villoso-tomentose) stem, narrow 3-nerved middle leaves often 5–10 mm wide with moderately dense fine hairs, and a LONG NARROW pyramid-like branching panicle about 3–4 times longer than wide. It occurs in Edwards Plateau/Trans-Pecos grassy or open woodland sites AND along WET stream/lake edges. Site moisture alone cannot distinguish it.",
   "county_occurrences_target_zone": [
     "Hays",
     "Travis",
@@ -22,24 +22,27 @@
   },
   "morphology_keys": {
     "best_field_traits": [
-      "perennial herb",
-      "tall erect stems",
-      "foliage often gray-green to canescent",
-      "leaves alternate and narrowing upward",
-      "large terminal panicle",
-      "numerous yellow heads",
-      "Central/west Texas grassland and woodland association"
+      "stem continuously soft white tomentose",
+      "narrow 3-nerved pubescent leaves 5–10 mm wide",
+      "long narrow panicle 3–4 times long as broad",
+      "Edwards Plateau and Trans-Pecos population; habitats wet streams, grasslands and woodland"
     ],
-    "comparison_training": "Compared with smoother, wetter-site S. gigantea, S. juliae is a drier-site Central/west Texas species with more visibly hairy/canescent foliage."
+    "comparison_training": "Compared with smoother, wetter-site S. gigantea, S. juliae is a drier-site Central/west Texas species with more visibly hairy/canescent foliage.",
+    "stem": "FNA: evenly densely villoso-tomentose (fine thin crisped white hairs) along stems 50–250 cm, generally 1–5 stems.",
+    "leaves": "FNA: narrow lanceolate 3-nerved 50–80(–120) × 5–10(–12) mm, margins shallowly toothed/near entire, both sides moderately to densely hairy.",
+    "flowering_axis": "FNA: narrowly pyramidal panicle approximately 3–4 times as long as wide, 80–950 heads; involucres ~3–4 mm. Compare broad arching panicle giant and tall goldenrods.",
+    "habitat_corrected": "Can occur on wet stream/lake margins AND grasslands or oak/pine woodland, 300–1000+ m; not a dry-site-only species."
   },
   "curation_status": {
-    "version": "1.0-b070",
+    "version": "1.1-corrected-juliae-fna-hair-and-narrow-panicle-20261013",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "user_approved": true,
-    "last_reviewed": "2026-10-04"
+    "last_reviewed": "2026-10-04",
+    "last_visual_reviewed": "2026-10-13",
+    "photo_source_note": "One external iNaturalist flower photo and separately linked copyrighted expert voucher reference; no physical new images claimed."
   },
   "images": [
     {
@@ -61,5 +64,59 @@
     "image_count": 1,
     "filled_at": "2026-10-05",
     "note": "One exact-species CC BY-NC field image installed. Scientific taxonomy/range status unchanged; add habit/leaf detail later when clean reusable provenance is easy."
-  }
+  },
+  "photo_diagnostic_lesson": {
+    "look_here_first": "Stem feels soft fuzzy/white wool rather than giant goldenrod smooth/waxy. Panicle long and narrow, not a broad plume. Leaf underside has dense fine hairs.",
+    "compare": [
+      {
+        "part": "Lower stem",
+        "juliae": "evenly woolly, fine crisped pale hairs",
+        "gigantea": "lower stem mostly smooth/glaucous",
+        "altissima": "short rough short hairs, usually not evenly soft woolly"
+      },
+      {
+        "part": "Middle leaf",
+        "juliae": "~5–10 mm wide narrow 3-nerved, white fine hairs",
+        "gigantea": "3-nerved often longer/wider and smoother",
+        "altissima": "firmer rough blade, also 3-nerved"
+      },
+      {
+        "part": "Head display",
+        "juliae": "narrowly pyramid, 3–4× longer than wide",
+        "gigantea": "broad arching panicle",
+        "altissima": "broader irregular arching plume"
+      },
+      {
+        "part": "Habitat",
+        "juliae": "both stream edge moist soils and grassland or woodland",
+        "gigantea": "moist lower areas",
+        "altissima": "open sites varied"
+      }
+    ],
+    "photo_requirements": [
+      "FNA/local voucher-confirmed living specimen full leaf, soft hairy stem and narrow panicle",
+      "Stem macro that actually resolves fine white hairs",
+      "Compare 3–4× narrow panicle silhouette to broad giant and tall goldenrod"
+    ],
+    "warnings": [
+      "Do not teach 'Julia's = dry-site only'; official FNA specifically says wet stream/lake margins.",
+      "Current species gallery image external, not physically installed or pixel-validated.",
+      "Waterloo Herbarium expert-vouchered close leaf/stem/head images © 2025 J.C. Semple, external learning links only; no automatic reuse."
+    ]
+  },
+  "expert_external_diagnostic_photos": [
+    {
+      "title": "University of Waterloo expert-vouchered Julia's goldenrod, leaf stem flower heads",
+      "url": "https://uwaterloo.ca/astereae-lab/research/goldenrods/classification-and-illustrations/solidago-juliae",
+      "credit": "© 2025 J.C. Semple (unless otherwise indicated)",
+      "rights": "Copyrighted; LINK ONLY. Do not install without permission.",
+      "value": "Gillespie County dried shoot and Kerr County type material — provides measured FNA-matching diagnostics."
+    },
+    {
+      "title": "Jim Conrad wild Julia's goldenrod, Dry Frio area Uvalde (hairy rachis, underside, panicle)",
+      "url": "https://www.backyardnature.net/n/h/juligold.htm",
+      "rights": "Not verified for reuse; link only",
+      "value": "Real west Central Texas close underside and flower stalk hairs. Note wet riparian microhabitat."
+    }
+  ]
 }
