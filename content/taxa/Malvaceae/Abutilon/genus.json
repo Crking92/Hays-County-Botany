@@ -11,13 +11,13 @@
     "species_count": 3
   },
   "shared_genus_recognition": {
-    "look_here_first": "Start at the flower center and mature fruit, not leaf color. Check whether the staminal column is hairy, count the style branches when visible, then inspect fruit size and whether mericarp tips are merely acute/apiculate or form long divergent spines.",
+    "look_here_first": "Start with mature fruit: velvetleaf has striking long divergent 3–6 mm mericarp spines; sweet Indian mallow and A. incanum have compact NON-long-spined fruit. To tell those two apart count the terminal style/stigma branches or mature fruit segments (usually 6–9 for A. fruticosum, 5 for A. incanum). Column hair is an unresolved cross-flora conflict, NOT a safe stand-alone trait.",
     "shared_traits": [
       "Alternate cordate leaves with stellate pubescence",
       "Five-petaled mallow flowers with stamens united into a staminal column",
       "Dry schizocarp made of persistent mericarps"
     ],
-    "caution": "Leaf hairiness and yellow flowers overlap. Reproductive structures are more reliable than overall grayness or flower color."
+    "caution": "Do not identify just from silvery hairs or heart-shaped leaves. IMPORTANT scientific conflict: FNA calls A. fruticosum staminal column glabrous; UT Austin's detailed Texas material says it has some stellate hairs; Kew's African floras describe a hairy tube. Avoid using column hair as a decisive A. fruticosum versus A. incanum split. Count styles/carpels, compare the whole reproductive structures, and flag ambiguous material."
   },
   "species_comparison_matrix": [
     {
@@ -36,17 +36,17 @@
     },
     {
       "character": "staminal column",
-      "fruticosum": "Glabrous",
-      "incanum": "Pubescent",
-      "theophrasti": "Glabrous",
-      "weight": "BEST FRUTICOSUM VS INCANUM FLOWER CHARACTER"
+      "fruticosum": "SOURCE CONFLICT: FNA glabrous, UT Austin some stellate hairs, Kew Flora Zambesiaca stellate-hairy; DO NOT use hair alone",
+      "incanum": "Pubescent in FNA (but not unique if fruticosum can also have hairs)",
+      "theophrasti": "Glabrous (FNA)",
+      "weight": "CAUTION — conflicting sources for fruticosum, not a definitive character"
     },
     {
       "character": "style branches",
-      "fruticosum": "6–9",
-      "incanum": "5",
-      "theophrasti": "13–15",
-      "weight": "STRONG REPRODUCTIVE CHARACTER"
+      "fruticosum": "6–9 (FNA); Williamson County study 6–10",
+      "incanum": "5 (FNA; geographic mismatch with Hays)",
+      "theophrasti": "13–15 (FNA)",
+      "weight": "BEST matched structure for fruticosum vs incanum"
     },
     {
       "character": "calyx",
@@ -71,10 +71,12 @@
     }
   ],
   "overlap_cautions": [
-    "A. fruticosum and A. incanum both have small cordate hairy leaves and compact cask-shaped fruits; use staminal-column pubescence plus style count.",
     "Flower color helps but is not sufficient by itself.",
     "A. theophrasti fruit is dramatically larger and long-spined; it should not be confused with the two compact-fruited subshrubs once mature fruit is present.",
-    "Preserve current learner/native-range labels: A. fruticosum unresolved, A. incanum nonlocal comparison, A. theophrasti non-native comparison."
+    "Preserve current learner/native-range labels: A. fruticosum unresolved, A. incanum nonlocal comparison, A. theophrasti non-native comparison.",
+    "Scientific source conflict: FNA fruticosum says staminal column glabrous; UT Austin Texas description says some stellate hairs, Kew African treatments say hairy; relegate this to a documented caution, never decisive.",
+    "Texas A. incanum is a historic misapplication of A. fruticosum. FNA maps A. incanum to southwestern states excluding Texas; keep nonlocal card for comparative study and mark Hays identifications for re-ID.",
+    "Strongest practical differences: style/stigma branches and fruit MERICARP counts (~6–9 in A. fruticosum, 5 in A. incanum, 13–15 in A. theophrasti); later verify exact heads with clean matched macros."
   ],
   "local_lookalikes": [
     {
@@ -144,10 +146,11 @@
     }
   ],
   "curation_status": {
-    "version": "1.1-fna-diagnostic-polish",
-    "last_reviewed": "2026-10-11",
-    "visual_status": "diagnostic matrix complete; reproductive gallery improved; matched flower-center macros still open",
-    "scientific_note": "FNA-backed morphology pass; no range/admission changes."
+    "version": "1.2-cross-flora-science-reconciliation",
+    "last_reviewed": "2026-10-13",
+    "visual_status": "previous FNA matrix preserved with source-conflict caveat; exact reproductive photo backfill underway",
+    "scientific_note": "FNA-backed morphology pass; no range/admission changes.",
+    "flower_hair_diagnosis": "scientific source conflict — corrected to caution instead of strict key"
   },
   "field_key_training": [
     {
@@ -158,15 +161,15 @@
     },
     {
       "step": 2,
-      "look": "Flower center",
-      "if": "Staminal column visibly pubescent and style divides into 5 branches",
-      "then": "A. incanum strongly supported; dark-centered/reflexed corolla adds support."
+      "look": "Flower styles and mature fruit",
+      "if": "Exactly FIVE style branches / five mericarps, plus compatible flower and provenance",
+      "then": "Supports A. incanum, which FNA does not report from Texas; treat 'Texas A. incanum' records as identification-review flags."
     },
     {
       "step": 3,
-      "look": "Flower center",
-      "if": "Staminal column glabrous and style has 6–9 branches",
-      "then": "A. fruticosum strongly supported; plain yellow flower and 8–9 mm cask-shaped fruit confirm."
+      "look": "Flower styles and mature fruit",
+      "if": "About 6–9 style branches or 6–9(–10) fruit mericarps, small plain yellow flower, short unspined fruit",
+      "then": "Supports A. fruticosum; DO NOT require a glabrous staminal column, as botanical sources disagree."
     },
     {
       "step": 4,
@@ -191,5 +194,62 @@
       "source": "Flora of North America",
       "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200013684"
     }
-  ]
+  ],
+  "scientific_conflict_log": [
+    {
+      "character": "Staminal column pubescence, A. fruticosum",
+      "sources": [
+        {
+          "authority": "FNA North America",
+          "statement": "glabrous",
+          "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250071371"
+        },
+        {
+          "authority": "UT Austin A. C. Gibson Williamson County",
+          "statement": "some stellate hairs on staminal column",
+          "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Abutilon%20fruticosum"
+        },
+        {
+          "authority": "Kew POWO Flora Zambesiaca/Flora Tropical East Africa",
+          "statement": "stellate-hairy/hairy above",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:326450-2/general-information"
+        }
+      ],
+      "decision": "DO_NOT_USE_AS_STRICT_DIAGNOSTIC; prefer styles and mericarp count; may reflect geographic variation or different interpretation of column/tube",
+      "status": "open scholarly disagreement for final science pass"
+    }
+  ],
+  "visual_training": {
+    "first": "Look at ring of dry fruit segments; crown spines versus short acute tips.",
+    "second": "Count style/stigma branches or fruit segments in the same plant; 5 / 6–9 / 13–15 is the core comparison.",
+    "third": "Look for a smaller plain yellow flower vs a smaller often dark-centered reflexed corolla vs larger pale-yellow velvetleaf.",
+    "term_definitions": [
+      {
+        "term": "staminal column",
+        "simple": "A central tube made of fused stamen filaments. The anthers with pollen sit around or above it."
+      },
+      {
+        "term": "style branch",
+        "simple": "One slender division of the female style, ending in a stigma. Count these, not yellow anthers."
+      },
+      {
+        "term": "schizocarp",
+        "simple": "A dry fruit that breaks into several separate segments."
+      },
+      {
+        "term": "mericarp",
+        "simple": "One wedge/segment of the schizocarp, often with seeds inside."
+      },
+      {
+        "term": "stellate hairs",
+        "simple": "Tiny star-shaped branched hairs on leaf, stem or floral structures."
+      }
+    ],
+    "mobile_arrow_requirements": [
+      "Arrow target directly onto one fruit mericarp and its tip",
+      "Arrow to a style branch/stigma, not an anther or stamen",
+      "Arrow to hair ONLY if high-resolution macro truly shows the hairs",
+      "Label the whole fruit as schizocarp; one chamber as mericarp"
+    ]
+  }
 }
