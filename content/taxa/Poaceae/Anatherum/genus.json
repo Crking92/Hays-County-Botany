@@ -11,7 +11,7 @@
     ],
     "species_count": 2,
     "holds": [],
-    "note": "Both A. glomeratum and A. virginicum are installed canonical learner species and their individual species.json records currently label both target-zone PASS. Familiar field-guide aliases are Andropogon glomeratus and Andropogon virginicus. Preserve existing settled county/range evidence; do not treat the unrelated source-pool Anatherum tenuispatheum as either of these taxa."
+    "note": "Both A. glomeratum and A. virginicum are installed canonical learner species; both species.json records currently carry PASS labels, which are preserved pending any separate scientific review. Familiar aliases are Andropogon glomeratus and Andropogon virginicus. A. glomeratum's current PASS basis lists Williamson County, which is outside the project target-county list; flag for targeted audit rather than changing species-level range decisions here. Do not conflate source-pool A. tenuispatheum with either canonical taxon."
   },
   "study_strategy": {
     "priority": [
@@ -82,7 +82,8 @@
     "Bushy bluestem can be less conspicuously fluffy before maturity; broomsedge can look crowded on stressed or mowed plants.",
     "Wet versus dry habitat is supporting context only; broomsedge and bushy bluestem can grow together.",
     "A. virginicum is already canonical with species-level PASS status. The older genus-level HOLD text was stale and is superseded by the species record.",
-    "The live Master Plant Pool currently lists the two canonical concepts under familiar Andropogon source names; its Anatherum genus row instead counts Anatherum tenuispatheum. Do not manually overwrite Genus Study Index formula columns C:M to mask this source-name mismatch."
+    "The live Master Plant Pool currently lists the two canonical concepts under familiar Andropogon source names; its Anatherum genus row instead counts Anatherum tenuispatheum. Do not manually overwrite Genus Study Index formula columns C:M to mask this source-name mismatch.",
+    "Range data integrity: A. glomeratum species.json lists Hays, Travis and Williamson as three target counties, but Williamson is not in PROJECT_RULES.md target zone. Treat its current PASS as a recorded species status requiring targeted Taxonomy + Diagnostic Review; do not use this genus lesson to independently certify a third target county."
   ],
   "local_source_pool_lookalikes": [
     {
@@ -172,6 +173,10 @@
     {
       "lane": "Google Sheet/Taxonomy Coordination",
       "task": "Genus Study Index Poaceae/Anatherum A:B already exists at row 106, but its C:M formulas count source-pool A. tenuispatheum (1 total/0 curated), while canonical glomeratum/virginicum occur in Master Plant Pool under Andropogon aliases. Resolve alias-aware derived counts in owning formula/source mapping lane; do not hand-edit C:M."
+    },
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "task": "Check A. glomeratum species.json county_occurrences_target_zone (Hays, Travis, Williamson): Williamson is not a project target county. Find a third exact in-zone county or correct species-level native-range classification in taxonomy lane. Do not infer it from statewide occurrence or silently change status in genus lane."
     }
   ],
   "sources": [
