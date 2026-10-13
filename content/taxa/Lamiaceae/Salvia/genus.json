@@ -89,14 +89,14 @@
     }
   ],
   "curation_status": {
-    "version": "2.3-salvia-red-trio-visual-polish",
+    "version": "2.4-big-red-flower-vs-rosette-accuracy",
     "last_reviewed": "2026-10-13",
-    "visual_status": "Red trio has 7 new comparison panels referencing 5 existing and 4 new physical media; new media installer may still be in progress. Precise annotated pointers and matched scales outstanding.",
+    "visual_status": "20 photographic panels in Salvia genus; Big Red new exact USFWS flower/calyx panel added to comparison, physical installer queued. Actual rosette SSA figure remains source-only pending extraction, not falsely counted installed.",
     "annotated_panels": 0,
-    "photo_panels": 19,
+    "photo_panels": 20,
     "multi_species_comparison": true,
     "photo_new_pair_panels": 7,
-    "red_trio_panels": 7
+    "red_trio_panels": 8
   },
   "shared_genus_recognition": {
     "look_here_first": "FIRST identify the growth form (shrub, annual herb, or low perennial); then whole-plant leaves, then the flowering node and calyx. Tiny leaf gland shapes are strong when correctly photographed but cannot be guessed from a fuzzy full-plant shot.",
@@ -415,9 +415,22 @@
         "caption": "Wild Big Red Sage along limestone Cibolo bluffs: tall stiff flowering stalk and large pinkish-red tubular flowers. FWS measurements: stems to 1.5 m, flowers around 4 cm, thick smooth basal blades to 12 cm.",
         "markers": [],
         "annotation_status": "Only broad visible structures; true arrow tip positions require original image pixel inspection."
+      },
+      {
+        "label": "BIG RED · FLOWER/CALYX CLOSE-UP (NOT ROSETTE)",
+        "scientific_name": "Salvia pentstemonoides",
+        "species_id": "salvia-pentstemonoides",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-pentstemonoides/images/02-cibolo-flower-calyx-close.jpg",
+        "image_fit": "contain",
+        "creator": "Chris Best/USFWS",
+        "license": "Public Domain",
+        "source_page": "https://www.fws.gov/media/big-red-sadge-rosette-cibolo-bluffs",
+        "caption": "Close exact Big Red Sage corolla and green sharply tipped calyx. Despite 'rosette' in the USFWS media page title, the actual photographed image shows flowers, NOT basal leaves. See linked USFWS Fig 2.1a for real rosette.",
+        "markers": [],
+        "annotation_status": "True visible flower/calyx; precise individual-point arrows deferred until pixel QA."
       }
     ],
-    "photo_count": 19,
+    "photo_count": 20,
     "distinct_species": 2,
     "annotation_policy": "Arrows only after individual photo target QA; don't label a rosette when the source image crops off the plant base."
   },
@@ -543,7 +556,8 @@
         15,
         16,
         17,
-        18
+        18,
+        19
       ],
       "priority": 1,
       "look_here_first": "Plant BASE and COMPLETE LEAF before red flowers. Scarlet: simple, stem-leafy annual; cedar: true perennial woodland rosette, sometimes 1–3 leaflets; big red: large smooth dark green rosette and big ~4 cm corollas.",
@@ -587,18 +601,28 @@
         "https://w3.biosci.utexas.edu/prc/K12/pages/Salvia%20roemeriana.html",
         "https://www.fws.gov/species/big-red-sage-salvia-pentstemonoides"
       ],
-      "conservation_caution": "Big Red Sage rare wild populations: do not publish fine wild coordinates, disturb rootstock, uproot plants, or collect flowering material for a training photo."
+      "conservation_caution": "Big Red Sage rare wild populations: do not publish fine wild coordinates, disturb rootstock, uproot plants, or collect flowering material for a training photo.",
+      "photo_references": [
+        {
+          "name": "USFWS Big Red Sage SSA, Figures 2.1a (rosette) and 2.1d (annotated flower anatomy)",
+          "page": "https://www.fws.gov/media/big-red-sage-species-status-assessment",
+          "photo_type": "separate PDF figures for online study; NOT local image files",
+          "photographer": "Chris Best/USFWS",
+          "license": "Public Domain",
+          "status": "source-rights verified, extraction pending"
+        }
+      ]
     }
   ],
   "look_here_first": "For blue/purple sages: first check whole plant and opposite leaves, then a SIDE VIEW of the CALYX behind the corolla. In azurea vs farinacea, green visibly ribbed versus dense white-or-purple fuzzy calyx. In texana vs engelmannii, basal+stem leaves versus stem-only, then pit/tack glands. Avoid identifying from blue flower alone.",
   "photo_final_red_sage": {
     "priority": [
-      "Uncropped rosette comparison cedar vs Big Red showing basal blades and the same scale",
-      "Mature simple scarlet leaf against cedar sage 1–3 leaflet leaf, full petiole included",
-      "Big Red sage side flower next to real 1-cm ruler vs cedar/Scarlet",
-      "Photo-verified 3-flowered cedar cymes",
-      "Precise arrow overlays to leaflets, rosette, calyx only once the actual image reveals the point"
+      "One actual public-domain photo of BIG RED SAGE BASAL ROSETTE — SSA Fig 2.1a. Do not mislabel flower photo as rosette.",
+      "Separate Fig 2.1d clear labeled flower anatomy (theca, style, corolla/calyx lips); illustrator Chris Best/USFWS.",
+      "True calibrated measured flower with 1-cm ruler; existing photos don't show scale.",
+      "Mobile-checked arrows with arrows on exact structures, not arbitrary background."
     ],
-    "rights_note": "Big Red existing USFWS image public domain; new scarlet/cedar CC BY; preserve source and place labels."
+    "rights_note": "Big Red existing USFWS image public domain; new scarlet/cedar CC BY; preserve source and place labels.",
+    "important_source_warning": "USFWS media '/big-red-sadge-rosette-cibolo-bluffs' is misnamed: photograph shows flowers and calyces on flowering stem, no basal rosette. Label correctly in app and queue SSA Fig 2.1a as true rosette."
   }
 }
