@@ -5,26 +5,38 @@
   "authority": "L.",
   "common_group": "Goldenrods",
   "project_scope": {
-    "selection_mode": "Asteraceae batch 2",
+    "selection_mode": "All 8 canonical goldenrod species indexed with range-sensitive comparisons",
     "species_ids": [
       "solidago-altissima",
-      "solidago-canadensis"
+      "solidago-canadensis",
+      "solidago-gigantea",
+      "solidago-juliae",
+      "solidago-mexicana",
+      "solidago-nemoralis",
+      "solidago-radula",
+      "solidago-rugosa"
     ],
-    "species_count": 2
+    "species_count": 8,
+    "range_lane_separate": true,
+    "range_cautions": "S. mexicana is FAIL_TARGET_ZONE comparison species; S. rugosa UNRESOLVED user-approved; do not count as target-native PASS. All 8 have species cards, but S. gigantea and juliae currently use remote image links, not local copied photos."
   },
   "study_strategy": {
     "priority": [
-      "habit and habitat",
-      "leaf arrangement",
-      "head structure",
-      "phyllaries",
-      "pappus/fruit"
+      "BELOW PANICLE: lower-stem hairs, smooth waxy bloom vs fuzzy vs genuinely coarse/stiff rough",
+      "MIDSTEM LEAF: number of strong veins, actual underside hair between/along veins, serrations, wrinkles, width",
+      "BASE/HABIT: creeping rhizomes and colony vs smaller isolated rosette/clump",
+      "HEAD ARRAY: one-sided recurving wand, broad arching panicle or tight terminal cluster",
+      "FNA detailed heads and phyllaries at mm scale for difficult tall vs Canada goldenrod",
+      "Site moisture & rocky/dry soil, but never habitat alone"
     ],
-    "warning": "Many fall composites need comparison by structure, not just bloom color."
+    "warning": "S. altissima, S. canadensis and S. gigantea often overlap in height, color and leaf shape. Flower color is NOT diagnostic; giant usually has genuinely smooth lower stem; altissima vs canadensis require multiple leaf/stem/head characters."
   },
   "curation_status": {
-    "version": "1.1-b070",
-    "last_reviewed": "2026-10-04"
+    "version": "2.0-eight-species-photo-comparison-20261013",
+    "last_reviewed": "2026-10-13",
+    "photo_panels": 8,
+    "visual_status": "Eight species now indexed (6 with local photo reference panels, 2 external reference-only). Leaf and stem diagnostic matrix installed; no false macro arrows or PASS on range-held taxa.",
+    "scientific_decisions_preserved": true
   },
   "b070_comparison": {
     "selection_mode": "B070 same-genus comparison",
@@ -65,5 +77,302 @@
     ]
   },
   "visual_status": "fast_fill_partial_coverage",
-  "fast_fill_note": "FAST-FILL status: canonical PASS S. gigantea now has 3 diagnostic images emphasizing flower display plus leaf/stem characters. Canonical PASS S. juliae remains source-limited because the readily found licensed guide image does not expose a clean direct photo record for installation."
+  "fast_fill_note": "FAST-FILL status: canonical PASS S. gigantea now has 3 diagnostic images emphasizing flower display plus leaf/stem characters. Canonical PASS S. juliae remains source-limited because the readily found licensed guide image does not expose a clean direct photo record for installation.",
+  "look_here_first": "Don't start with yellow flowers. On a flowering plant, take a PHOTO of the LOWER STEM in focus (smooth/waxy? fine-haired? coarse stiff rough?). Then inspect the UNDERSIDE of a middle leaf (3 main veins? flat vs rugose? hair between veins?). THEN determine height/plant colony, dry rocky versus wet ditch setting, and the shape of the flowering branches. A single yellow plume is almost never sufficient to name a goldenrod to species.",
+  "visual_species_quick_key": [
+    {
+      "rank": 1,
+      "species_id": "solidago-gigantea",
+      "look": "SMOOTH lower stem, often waxy/glaucous, narrow three-veined leaves",
+      "comparison": "S. altissima / canadensis usually short-haired at least on portions of stem; wetter drainage/moister ditch supports gigantea",
+      "caution": "Upper inflorescence axis can still be hairy; inspect well BELOW flower branches. Three veins alone is shared."
+    },
+    {
+      "rank": 2,
+      "species_id": "solidago-altissima",
+      "look": "Tall colony goldenrod: fine SHORT hairs on much of stem; firm slightly rough leaf, often only weak upper serrations; shorter/briefer involucre distinction from Canada requires hand lens",
+      "comparison": "S. canadensis often has more regularly toothed/relatively thinner leaves and sparser longer hairs; overlap is substantial",
+      "caution": "Do not identify merely by plant height, late flowering or between-vein hairs. Native subspecies gilvocanescens photo cannot prove every altissima."
+    },
+    {
+      "rank": 3,
+      "species_id": "solidago-canadensis",
+      "look": "Tall goldenrod complex: narrow three-veined leaf, often more noticeably serrated along upper leaf edge; stem more sparingly hairy than most altissima",
+      "comparison": "S. altissima denser shorter stem hairs/firm leaves, but overlap; compare scaled involucre and leaf teeth together",
+      "caution": "Some regional taxonomic concepts include altissima or separate taxa differently; flag ambiguous intermediate as Solidago canadensis complex."
+    },
+    {
+      "rank": 4,
+      "species_id": "solidago-nemoralis",
+      "look": "Smaller GRAY fuzzed perennial: gray-hairy stem, tapered spatulate/oblanceolate lower leaf with winged petiole; skinny one-sided wand-like flower array",
+      "comparison": "S. radula notably stiff ROUGH scabrous hairs and broader lower leaves with compact terminal panicle",
+      "caution": "Dry caliche/prairie is supporting, not a diagnostic by itself."
+    },
+    {
+      "rank": 5,
+      "species_id": "solidago-radula",
+      "look": "Genuinely ROUGH, gritty stem AND leaves from short stiff hairs, often broader bottom blades; flowering array relatively compact",
+      "comparison": "S. nemoralis has fine pale gray fuzz and more one-sided wand instead of hard gritty roughness",
+      "caution": "Rub gently/inspect hand lens if safe; don't key just on yellow head shape."
+    },
+    {
+      "rank": 6,
+      "species_id": "solidago-juliae",
+      "look": "Central/west Texas dry grassland/woodland goldenrod: sometimes GRAY/HAIRY foliage, tall flower stem and expanded terminal panicle",
+      "comparison": "S. gigantea typically smoother more rhizomatous/wetter-site; juliae shares gray/hairy character with other dry goldenrods",
+      "caution": "Need good exact-species hair/leaf and basal photos; one remote photo alone doesn't confirm fine distinctions."
+    },
+    {
+      "rank": 7,
+      "species_id": "solidago-rugosa",
+      "look": "RUGOSE = ridged WRINKLED or quilted leaf surfaces with curved alternate side veins; hairy stem and branched yellow panicles",
+      "comparison": "S. radula is rough/scabrous but not necessarily visibly puckered and wrinkled in blade structure",
+      "caution": "Strict target-zone range UNRESOLVED, USER APPROVED learner. No PASS claims."
+    },
+    {
+      "rank": 8,
+      "species_id": "solidago-mexicana",
+      "look": "Coastal seep, dune/brackish marsh goldenrod with thick/fleshy narrow leaves, tall often one-sided inflorescence",
+      "comparison": "Interior tall/rough goldenrods usually softer, three-nerved serrate leaves and inland habitats",
+      "caution": "STRICT range FAIL_TARGET_ZONE (native coastal comparison only). Do not present as confirmed Hays wild native."
+    }
+  ],
+  "comparison_matrix": [
+    {
+      "trait": "Lower stem well below panicle",
+      "altissima": "Short fine hairy",
+      "canadensis": "Often sparsely hairy / becomes smoother near base",
+      "gigantea": "Glabrous, sometimes glaucous waxy",
+      "nemoralis": "Short gray dense hairy",
+      "radula": "Stiff short gritty hairs",
+      "juliae": "Often gray/hairy, verify voucher",
+      "rugosa": "Hairy, often several types",
+      "mexicana": "Not a safe single-species split"
+    },
+    {
+      "trait": "Leaf midsection",
+      "altissima": "Firm, 3-nerved, upper often weakly toothed",
+      "canadensis": "More often thinner and more finely serrate, 3 veins",
+      "gigantea": "Long narrow 3-nerved, lower surface often smoother",
+      "nemoralis": "Tapered oblanceolate, smaller upward, gray fuzzy",
+      "radula": "Broad coarse rough lower blade, diminishes quickly up",
+      "juliae": "Gray-green occasionally canescent",
+      "rugosa": "Conspicuously WRINKLED and veined",
+      "mexicana": "Thicker narrow/fleshy coastal foliage"
+    },
+    {
+      "trait": "Flowering branch silhouette",
+      "altissima": "Arching plume in dense colonies",
+      "canadensis": "Often branching pyramidal plume, overlap",
+      "gigantea": "Broad arching open panicle",
+      "nemoralis": "One-sided recurving wand",
+      "radula": "More compact terminal group",
+      "juliae": "Terminal panicle, often broad",
+      "rugosa": "Branched rough/hairy plumes",
+      "mexicana": "Usually elongated often one-sided terminal cluster"
+    },
+    {
+      "trait": "Habitat SUPPORTING only",
+      "altissima": "Roadside/open moist to dry prairie",
+      "canadensis": "Mesic open field/old fields",
+      "gigantea": "Wetter floodplains, ditch and seasonal depression",
+      "nemoralis": "Dry glades/caliche/prairie",
+      "radula": "Dry rocky/calcareous prairie",
+      "juliae": "Central/west Texas grasslands",
+      "rugosa": "Often moist sites elsewhere; locality certification lacking",
+      "mexicana": "Coast/brackish salt marshes; nonlocal"
+    }
+  ],
+  "visual_comparison": {
+    "title": "Goldenrods: eight species, sort by stem and leaf BEFORE golden flowers",
+    "subtitle": "Eight existing physically installed reference-photo panels for six goldenrod species; S. gigantea and S. juliae currently use offsite sources and are linked as reference below, not represented as local photos. Provisional photo roles remain provisional.",
+    "items": [
+      {
+        "species_id": "solidago-altissima",
+        "scientific_name": "Solidago altissima",
+        "label": "TALL GOLDENROD · PHOTO FACE",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-altissima/images/01-curated-reference.jpg",
+        "caption": "Tall goldenrod habit: locate the yellow panicle, then photograph a lower-stem hair macro to check the ID.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      },
+      {
+        "species_id": "solidago-altissima",
+        "scientific_name": "Solidago altissima",
+        "label": "TALL GOLDENROD · SAME-PLANT FIELD VIEW",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-altissima/images/03-same-plant-field-view-1.jpg",
+        "caption": "Different field view of S. altissima plant; compare overall plume with S. canadensis but do not claim hair visibility without zoom.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      },
+      {
+        "species_id": "solidago-canadensis",
+        "scientific_name": "Solidago canadensis",
+        "label": "CANADA GOLDENROD · FLOWERING HABIT",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-canadensis/images/01-curated-reference.jpg",
+        "caption": "Canada goldenrod looks similar to tall goldenrod. Study midstem leaves and head shape; photographs alone may be ambiguous in this complex.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      },
+      {
+        "species_id": "solidago-canadensis",
+        "scientific_name": "Solidago canadensis",
+        "label": "CANADA GOLDENROD · TEXAS REFERENCE",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-canadensis/images/03-texas-reference.jpg",
+        "caption": "Existing Texas reference. Compare leaf teeth and stem hairs; same-scale underside photo is still needed.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      },
+      {
+        "species_id": "solidago-nemoralis",
+        "scientific_name": "Solidago nemoralis",
+        "label": "GRAY GOLDENROD · ONE-SIDED WAND",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-nemoralis/images/solidago-nemoralis-provisional-face.jpg",
+        "caption": "One-sided wandlike flower array and pale gray fine hairs. Provisional first photo; need actual leaf macro in final pass.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      },
+      {
+        "species_id": "solidago-radula",
+        "scientific_name": "Solidago radula",
+        "label": "ROUGH GOLDENROD · GRITTY LEAVES",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-radula/images/solidago-radula-provisional-face.jpg",
+        "caption": "More compact flowers and genuinely gritty hairs on stem and blades distinguish from softer gray goldenrod. First provisional photo; macro missing.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      },
+      {
+        "species_id": "solidago-rugosa",
+        "scientific_name": "Solidago rugosa",
+        "label": "WRINKLELEAF GOLDENROD · RUGOSE BLADE",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-rugosa/images/solidago-rugosa-provisional-face.jpg",
+        "caption": "Wrinkled leaf and branching panicle should be shown by photograph; current image is provisional broad face. Target range remains UNRESOLVED.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      },
+      {
+        "species_id": "solidago-mexicana",
+        "scientific_name": "Solidago mexicana",
+        "label": "SEASIDE GOLDENROD · COASTAL COMPARISON",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-mexicana/images/solidago-mexicana-provisional-face.jpg",
+        "caption": "Thicker linear coastal goldenrod leaves, but Hays target-zone FAIL. Include solely for identification comparisons, not native-zone totals.",
+        "creator": "See species-level exact image metadata; not copied to genus caption",
+        "license": "Retain original species image attribution",
+        "source_page": "See canonical species image record",
+        "markers": [],
+        "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
+      }
+    ],
+    "photo_count": 8,
+    "remote_sources_only": [
+      {
+        "species_id": "solidago-gigantea",
+        "reason": "Species file has three external Commons redirects but no local images/ count verified; original pages must be separately licensed and downloaded",
+        "reference_url": "https://commons.wikimedia.org/wiki/Category:Solidago_gigantea"
+      },
+      {
+        "species_id": "solidago-juliae",
+        "reason": "Species photo is external iNaturalist S3 image and per-photo license not resolved; do not invent local image file",
+        "reference_url": "https://www.inaturalist.org/taxa/"
+      }
+    ],
+    "annotation_policy": "Photos are to reinforce features stated in reliable key; do not claim leaf undersurface macro or gland if image is distant."
+  },
+  "learner_glossary": {
+    "glabrous": "GLAY-brus — without obvious hairs",
+    "glaucous": "GLAW-kus — dull bluish or whitish waxy bloom on a stem",
+    "scabrous": "SKAY-brus — coarse, rough to touch from short stiff hairs",
+    "pubescent": "PYOO-bess-ent — hairy surface",
+    "canescent": "kuh-NES-ent — looks gray/whitish because of dense fine hairs",
+    "rugose": "ROO-gose — wrinkled/puckered like quilted fabric",
+    "triplinerved": "trip-lee-NERV'D — 3 major veins, middle one plus pair running up sides from near leaf base",
+    "abaxial": "ab-AX-ee-ul — underside of leaf",
+    "phyllary": "FILL-uh-ree — a single bract of the green cup at base of goldenrod composite flower head",
+    "panicle": "PAN-i-kul — branched flowering structure",
+    "secund": "SEE-kund — heads mostly point to one side of an axis",
+    "rhizome": "RY-zohm — underground spreading stem that makes new shoots"
+  },
+  "photo_diagnostic_requirements": [
+    {
+      "priority": 1,
+      "pair": "altissima vs canadensis vs gigantea",
+      "features": [
+        "lower stem 5 cm below flower base with mm ruler",
+        "middle leaf whole margin + underside 3 main veins and hairs on/between veins",
+        "flower phyllary and intact individual head 1 mm scale"
+      ],
+      "reliability_warning": "Overlap, especially altissima vs canadensis; don't teach hair count as one-character magic."
+    },
+    {
+      "priority": 2,
+      "pair": "nemoralis vs radula",
+      "features": [
+        "stem close macro: gray soft fine hairs vs stiff gritty scabrous hairs",
+        "entire basal lower leaf shape and relative upper reduction",
+        "wand one-sided vs compact inflorescence"
+      ],
+      "reliability_warning": "Both dry-prairie; habitat supports not replaces morphology."
+    },
+    {
+      "priority": 3,
+      "pair": "rugosa vs dry-site goldenrods",
+      "features": [
+        "puckered leaf veins from both sides with scale",
+        "stem hairs and head arrangement"
+      ],
+      "reliability_warning": "Unresolved local range."
+    },
+    {
+      "priority": 4,
+      "pair": "juliae and mexicana",
+      "features": [
+        "exact species licensed local photos: entire stem, leaf and flower for juliae",
+        "coastal fleshy leaf vs inland goldenrods"
+      ],
+      "reliability_warning": "Mexicana FAIL TARGET ZONE and Julia's current image remote only."
+    }
+  ],
+  "scientific_sources": [
+    {
+      "title": "FNA altissima",
+      "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242414377"
+    },
+    {
+      "title": "FNA gigantea",
+      "url": "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242417286"
+    },
+    {
+      "title": "University Waterloo Asteraceae lab altissima",
+      "url": "https://uwaterloo.ca/astereae-lab/research/goldenrods/classification-and-illustrations/solidago-altissima"
+    },
+    {
+      "title": "Bucknell Solidago complex recognition",
+      "url": "https://solidago.scholar.bucknell.edu/recognition-of-the-solidago/"
+    },
+    {
+      "title": "Ottawa goldenrod key",
+      "url": "https://ofnc.ca/programs/fletcher-wildlife-garden/flora-and-fauna-at-the-fwg/goldenrods-of-the-ottawa-region"
+    }
+  ]
 }
