@@ -5,14 +5,23 @@
   "authority": "L.",
   "common_group": "Clematis / leatherflowers",
   "project_scope": {
-    "selection_mode": "comparison-first",
+    "selection_mode": "four canonical learner concepts; native-range tags kept separate",
     "species_ids": [
+      "clematis-drummondii",
+      "clematis-pitcheri",
+      "clematis-texensis",
+      "clematis-terniflora"
+    ],
+    "species_count": 4,
+    "note": "All four present in canonical manifest. Sweet autumn clematis is an introduced, non-native look-alike learner only. Clematis reticulata is currently a research draft, not canonical and not assigned a native PASS.",
+    "confirmed_native_concepts": [
       "clematis-drummondii",
       "clematis-pitcheri",
       "clematis-texensis"
     ],
-    "species_count": 3,
-    "note": "Approved B006 native Clematis set. C. terniflora remains a non-native comparison outside this install."
+    "introduced_comparison": [
+      "clematis-terniflora"
+    ]
   },
   "study_strategy": {
     "shared_traits": [
@@ -28,26 +37,39 @@
       "leaf division and reticulation",
       "length and plumosity of achene beaks"
     ],
-    "warning": "Do not identify leatherflowers by color alone; sepal margin architecture and fruit beaks are critical."
+    "warning": "Do not identify leatherflowers by color alone; sepal margin architecture and fruit beaks are critical.",
+    "look_here_first": "Verify opposite leaves on a vine, then find ONE flower/fruit cluster. Open four-sepal flowers: compare native dioecious C. drummondii and introduced many-flowered C. terniflora. Nodding leathery urn-shaped flowers: compare C. pitcheri and C. texensis by the edge of a SEPAl, not just flower color. Later inspect an actual seedhead: plumose long beaks versus short appressed-haired beaks.",
+    "photo_teaching_order": [
+      "opposite leaf node, leaflet attachment and climbing leaf stalk",
+      "open vs urn flower side views",
+      "hairy edge and rolled tip of four sepals in pitcheri / thick noncrispate margins in texensis",
+      "seedhead showing individual achene, persistent style and plumose hairs",
+      "paired leaves for drummondii versus terniflora"
+    ]
   },
   "quick_key": [
     {
-      "if": "small open white/cream 4-sepal flowers on separate male/female vines + very long plumose seed tails",
-      "then": "Clematis drummondii"
+      "if": "Open pale flowers, often male/female flowers on different plants; leaflets divided/lobed; later a mass of VERY long silvery feathery achene tails",
+      "then": "Clematis drummondii — native old man's beard"
     },
     {
-      "if": "nodding blue/reddish-purple leathery urn + expanded/crispate recurved sepal tips + short weakly hairy achene beaks",
-      "then": "Clematis pitcheri"
+      "if": "Open white/cream small flowers in large branched MANY-flowered sprays; opposite mostly 3–5 leaflets with smooth, ENTIRE edges",
+      "then": "Clematis terniflora — introduced sweet autumn clematis; native-only tally excluded"
     },
     {
-      "if": "nodding true rose-red/scarlet leathery urn + non-expanded non-crispate sepal margins + longer plumose achene beaks",
-      "then": "Clematis texensis"
+      "if": "Nodding leathery urn, four thick but distally THIN EXPANDED/CRISPATE sepal margins with recurved points; mature seed beaks ~1–3 cm little-appressed-hairy",
+      "then": "Clematis pitcheri — purple leatherflower"
+    },
+    {
+      "if": "Nodding leathery urn, unexpanded THICK noncrispate sepal margins and recurved points; mature seed beaks 4–7 cm PLUMOSE",
+      "then": "Clematis texensis — scarlet leatherflower"
     }
   ],
   "curation_status": {
-    "version": "1.1-genus-comparison-builder",
-    "last_reviewed": "2026-10-07",
-    "joey_overlay": true
+    "version": "1.2-four-canonical-morphology-matrix",
+    "last_reviewed": "2026-10-13",
+    "joey_overlay": true,
+    "genus_audit": "canonical learner four species, introduced terniflora correctly separate, retain target-zone labels"
   },
   "shared_genus_characters": {
     "look_here_first": "Confirm a climbing vine with opposite leaves, then inspect the flower: the showy parts are sepals, not petals. Use mature sepal shape and the later achene head for species-level work.",
@@ -56,21 +78,39 @@
   "species_comparison_matrix": [
     {
       "taxon": "Clematis drummondii",
-      "primary": "Small open pale flower rather than a leathery urn",
-      "secondary": "Very long plumose persistent styles on mature achenes",
-      "caution": "Do not identify from vine habit alone."
+      "flower": "OPEN white/cream 4 sepals",
+      "leaves": "opposite compound leaflets often lobed/divided",
+      "reproductive_system": "dioecious; male and female vines separate",
+      "achene": "4–9 cm extremely long feathery style",
+      "status": "native learner PASS",
+      "photo_need": "male flower front, female flower, leaf node and plumed ripe seedheads"
+    },
+    {
+      "taxon": "Clematis terniflora",
+      "flower": "OPEN small white 4-sepal flowers in many-branched sprays",
+      "leaves": "opposite compound, usually 3–5 unlobed ENTIRE-edged leaflets",
+      "reproductive_system": "flowers generally bisexual; verify stamens+pistils on one flower",
+      "achene": "flattened rimmed achenes with feathery styles",
+      "status": "introduced NON_NATIVE_COMPARISON",
+      "photo_need": "one inflorescence with leaf and a macro of smooth edged leaflet"
     },
     {
       "taxon": "Clematis pitcheri",
-      "primary": "Nodding leathery urn with expanded, crispate, recurved sepal tips",
-      "secondary": "Shorter, weakly hairy achene beaks in the current project comparison",
-      "caution": "Color is secondary."
+      "flower": "nodding urn; four sepals with thin distal margin expansion to about 1 mm, often crinkled/recurved",
+      "leaves": "variable reticulate-veined leaflets, sometimes lobed",
+      "reproductive_system": "flowers generally perfect",
+      "achene": "1–3 cm little-hairy to appressed-pubescent beaks",
+      "status": "native learner PASS",
+      "photo_need": "sepal edge side macro with arrow, achene side with ruler"
     },
     {
       "taxon": "Clematis texensis",
-      "primary": "Nodding leathery urn with non-expanded, non-crispate sepal margins",
-      "secondary": "Longer, more plumose achene beaks than the project C. pitcheri comparison",
-      "caution": "Red color is memorable but not diagnostic by itself."
+      "flower": "nodding scarlet urn; four sepals, thick unexpanded noncrispate margins",
+      "leaves": "opposite leathery 1-pinnate leaflets, often glaucous below",
+      "reproductive_system": "flowers generally perfect",
+      "achene": "4–7 cm showily plumose beaks",
+      "status": "native learner PASS",
+      "photo_need": "matched sepal edge side macro against pitcheri and fruit hair comparison"
     }
   ],
   "overlap_and_cautions": [
@@ -114,5 +154,67 @@
   "diagnostic_review_handoffs": [
     "If mature sepal-tip structure cannot be verified, request a targeted flower-side macro rather than forcing the species ID.",
     "Any species outside the current three-species project set goes to Taxonomy + Diagnostic Review before scope changes."
-  ]
+  ],
+  "comparison_cards": [
+    {
+      "id": "clematis-drummondii-vs-terniflora",
+      "title": "Native old man's beard vs introduced sweet autumn clematis",
+      "taxon_ids": [
+        "clematis-drummondii",
+        "clematis-terniflora"
+      ],
+      "look_here_first": "Not all white Clematis are the same: count flowers on a branch, then look at individual compound LEAFLETS (deeply divided/lobed in drummondii vs mostly entire and oval in terniflora). On drummondii separate male/female vines; on terniflora flowers mostly bisexual. Both can develop fluffy seed structures.",
+      "photo_requirements": [
+        "matched flower clusters in habit",
+        "leaf blade edge closeups at the same scale",
+        "individual male/female flowers versus bisexual bloom",
+        "mature seedhead with single fruit beak"
+      ],
+      "caution": "Do not identify merely from fluffy silver seedheads; both produce plumed styles."
+    },
+    {
+      "id": "clematis-pitcheri-vs-texensis",
+      "title": "Purple versus scarlet leatherflowers",
+      "taxon_ids": [
+        "clematis-pitcheri",
+        "clematis-texensis"
+      ],
+      "look_here_first": "Find one sepAl EDGE near the tip: pitcheri = narrowly expanded thin CRISPATE margin, texensis = thick not expanded not crispate. Later verify fruit: pitcheri ~1–3 cm weakly hairy beak vs texensis 4–7 cm plumose beak.",
+      "photo_requirements": [
+        "matched lateral urns at same scale",
+        "high resolution sepal edge macro arrows (true sepal margin not a petal)",
+        "two ripe achenes with cm ruler"
+      ],
+      "caution": "Purple-versus-red hue is not a sufficient diagnosis in intermediate cultivated flowers; need wild species concept and sepal/fruit structure."
+    },
+    {
+      "id": "clematis-leatherflower-vs-open-flower",
+      "title": "Leatherflower or open-flowered clematis?",
+      "taxon_ids": [
+        "clematis-drummondii",
+        "clematis-pitcheri",
+        "clematis-texensis",
+        "clematis-terniflora"
+      ],
+      "look_here_first": "Clematis has no true petals: the colored flower parts are four SEPALS. In the leatherflowers they join visually into a nodding urn; in drummondii and terniflora they spread openly.",
+      "photo_requirements": [
+        "front open flower sepals",
+        "side leatherflower urn sepals",
+        "label sepals, stamens and central female parts"
+      ]
+    }
+  ],
+  "visual_install_audit": {
+    "checked_at": "2026-10-13",
+    "manifest_species_count": 4,
+    "drummondii_photos_physically_present": 0,
+    "pitcheri": 1,
+    "texensis": 2,
+    "terniflora": 1,
+    "photo_priority": [
+      "drummondii true flower/foliage/seed image install",
+      "terniflora separate exact-species leaf macro",
+      "leatherflower sepal edge comparison"
+    ]
+  }
 }
