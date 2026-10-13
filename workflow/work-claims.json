@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-12",
+  "updated_at": "2026-10-13T18:49:22-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,7 +18,18 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
-    {"claim_id":"automation-genus-chaetopappa-20261013-0536","scope_kind":"genus_lesson","scope_key":"content/taxa/Asteraceae/Chaetopappa/genus.json","lane":"genus-lesson-comparison-builder","owner":"Genus Comparison Builder","status":"released","released_at":"2026-10-13T05:46:00-05:00","claimed_at":"2026-10-13T05:36:24-05:00","expires_at":"2026-10-13T07:36:24-05:00","release_when":"Verified genus commit and index A:B sync"},
+    {
+      "claim_id": "automation-genus-chaetopappa-20261013-0536",
+      "scope_kind": "genus_lesson",
+      "scope_key": "content/taxa/Asteraceae/Chaetopappa/genus.json",
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "Genus Comparison Builder",
+      "status": "released",
+      "released_at": "2026-10-13T05:46:00-05:00",
+      "claimed_at": "2026-10-13T05:36:24-05:00",
+      "expires_at": "2026-10-13T07:36:24-05:00",
+      "release_when": "Verified genus commit and index A:B sync"
+    },
     {
       "claim_id": "automation-genus-potamogeton-20261012-1532",
       "scope_kind": "genus_lesson",
@@ -8017,7 +8028,25 @@
       "claimed_at": "2026-10-13T03:30:38-05:00",
       "expires_at": "2026-10-13T05:30:38-05:00",
       "release_when": "Verified genus module commit 975c4ccabd20bfc7f65ae677e239481a71dd63f4"
+    },
+    {
+      "claim_id": "approved-installer-oxalis-bulbous-pair-20261013-001",
+      "scope_kind": "species_curation_batch",
+      "taxa": [
+        "oxalis-drummondii",
+        "oxalis-violacea"
+      ],
+      "families": [
+        "Oxalidaceae"
+      ],
+      "scope_key": "curation-inbox/approved-installer-oxalidaceae-oxalis-bulbous-pair-20261013-001",
+      "lane": "approved-taxa-installer",
+      "owner": "approved-taxa-installer-automation",
+      "status": "active",
+      "claimed_at": "2026-10-13T18:49:22-05:00",
+      "expires_at": "2026-10-13T20:49:22-05:00",
+      "release_when": "Batch durably staged and marked READY, or abandoned after failure.",
+      "notes": "Master Pool rows 802/804; reviewed accepted Oxalis concepts; maintain UNRESOLVED native county status. Provisional exact-species photo for violacea; Drummondii media backfill pending."
     }
-
   ]
 }
