@@ -90,9 +90,265 @@
     }
   ],
   "curation_status": {
-    "version": "1.1-b139-reconciliation",
+    "version": "1.2-matelea-talayote-diagnostic-crossgenus",
     "genus_audit": "complete_with_cross_genus_alias_and_hold_fail",
     "source_concepts_reconciled": true,
-    "last_reviewed": "2026-10-05"
-  }
+    "last_reviewed": "2026-10-12",
+    "visual_comparison_status": "2 existing local Matelea species photos, exact talayote source references, missing licensed closeups",
+    "preserve_source_taxonomy": true,
+    "comparisons_installed": 3
+  },
+  "look_here_first": "On a milkvine with opposite heart-shaped leaves, FIND ONE OPEN FLOWER and inspect the flower face. Flat, strongly net-veined green petals plus bright silvery pearl = Matelea reticulata. Slightly bell-shaped flower with mainly lengthwise lines, hairy inside and raised fleshy corona segments = M. edwardsensis. Very small 5 mm green-white flowers in a many-flowered axillary spray = talayote, Cynanchum unifarium, a DIFFERENT genus. Large, uniformly olive-green star plus smoothly angled pod = Gonolobus, not Matelea.",
+  "shared_traits": [
+    "Twining milkweed vines with opposite, often deeply cordate leaves, milky latex and paired follicles (a pair may develop from one flower); these traits also occur in related genera, so they are not diagnostic alone.",
+    "In the local comparison, evaluate corolla shape (rotate/flat vs campanulate/bell), surface pattern (reticulation vs longitudinal lines), INNER-SIDE hairs, corona architecture and follicle armature.",
+    "Do not classify by leaf shape alone. Look for the flower's fused gynostegium and pollinia as dogbane-family clues. Mature fruit may be crucial when a flower is absent."
+  ],
+  "species_comparison_matrix": [
+    {
+      "species": "Matelea reticulata",
+      "common_name": "Pearl milkvine",
+      "look_first": "Broad flat green flower with dense dark mesh pattern and reflective silvery pearl center",
+      "corolla": "Rotate (flat), broad nearly round lobes ~4–5 mm; glabrous inner face",
+      "corona": "Reduced to low yellow ring, silvery anther appendages dominate",
+      "hairs": "Stem/leaf/pedicel conspicuously long hairy",
+      "fruit": "~8–15 cm somewhat fusiform, surface sparsely to moderately studded (muricate)",
+      "scope": "canonical"
+    },
+    {
+      "species": "Matelea edwardsensis",
+      "common_name": "Edwards Plateau milkvine",
+      "look_first": "Smaller bell-shaped green bloom; long parallel lines and visibly hairy upper corolla surface",
+      "corolla": "Campanulate; ~3–4 mm lobes, densely hairy inner face",
+      "corona": "Five raised/fleshy segments, lacking strongly silvery pearl",
+      "hairs": "Typically more sparsely hairy plant",
+      "fruit": "~8–10 cm fusiform; sparsely/mid-muricate",
+      "scope": "canonical"
+    },
+    {
+      "species": "Cynanchum unifarium",
+      "common_name": "Talayote",
+      "look_first": "Tiny ~5 mm green and whitish-edged flowers in a branching axillary spray, not showy single large stars",
+      "corolla": "Shallow bell/star, ~3–4 mm lobes with white margins",
+      "corona": "Small 3-lobed fleshy hoods; genus distinct from Matelea",
+      "hairs": "Fine short hairs, often concentrated along a line on stems",
+      "fruit": "~7.5–9.5 cm plump, smooth and unarmed (not muricate)",
+      "scope": "source-pool-approved canonical-install target; different genus"
+    },
+    {
+      "species": "Gonolobus suberosus var. granulatus",
+      "common_name": "Anglepod milkvine",
+      "look_first": "Larger uniform olive-green flowers lacking pearl netting",
+      "corolla": "Broad star, near-uniform olive green",
+      "corona": "Yellow dorsal anther appendages",
+      "hairs": "Variable",
+      "fruit": "Sharply longitudinally ANGLED but smooth",
+      "scope": "existing canonical cross-genus comparison; taxon and legacy-name concepts to preserve"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "id": "pearl-vs-plateau-matelea",
+      "title": "Pearl milkvine vs Edwards Plateau milkvine",
+      "taxon_ids": [
+        "matelea-reticulata",
+        "matelea-edwardsensis"
+      ],
+      "look_here_first": "Face the open flower directly. Pearl milkvine is FLAT with a dense netted dark-green pattern and conspicuous silver center. Edwards Plateau milkvine is MORE BELL-SHAPED and marked primarily by lengthwise stripes. Side-angle then reveals the hairy inner corolla and fleshy lobed corona of edwardsensis.",
+      "field_matrix": [
+        {
+          "character": "Flower profile",
+          "reticulata": "Flat/rotate",
+          "edwardsensis": "Shallow bell/campanulate"
+        },
+        {
+          "character": "Lines",
+          "reticulata": "Heavy mesh-like dark reticulation over lobes",
+          "edwardsensis": "Mostly parallel lengthwise marks; only distal tips/margins reticulate"
+        },
+        {
+          "character": "Inner petal hairs",
+          "reticulata": "Glabrous inner surface",
+          "edwardsensis": "Dense short hairs on inner corolla"
+        },
+        {
+          "character": "Center/corona",
+          "reticulata": "Highly reduced low corona, SILVERY anther appendages",
+          "edwardsensis": "Clearly fleshy raised 5-lobed corona without conspicuous silver pearl"
+        },
+        {
+          "character": "Stem/leaf hairs",
+          "reticulata": "More densely long-hairy",
+          "edwardsensis": "Often sparser/shorter-hairy"
+        }
+      ],
+      "caution": "These co-occur on the eastern Edwards Plateau. Both climb with heart-shaped leaves and green flowers, so leaf-only IDs are unreliable."
+    },
+    {
+      "id": "matelea-vs-talayote",
+      "title": "Talayote vs pearl/plateau milkvines",
+      "taxon_ids": [
+        "matelea-reticulata",
+        "matelea-edwardsensis"
+      ],
+      "comparison_taxon": "Cynanchum unifarium (talayote)",
+      "look_here_first": "First photograph an ENTIRE flower spray with a finger for scale. Talayote's many tiny ~5 mm green-with-white-rim flowers occur along a branched axillary cyme/raceme. Matelea milkvines instead have larger showy patterned corollas. For fruit, Talayote has a smooth plump pod versus rough/studded Matelea pods.",
+      "field_matrix": [
+        {
+          "character": "Size of entire flower",
+          "matelea": "Much showier green corollas, patterns obvious to the eye",
+          "talayote": "Small (~5 mm across) green flower with pale/white edged lobes"
+        },
+        {
+          "character": "Inflorescence",
+          "matelea": "Smaller groups of larger flowers; inspect actual per-species peduncles",
+          "talayote": "Often 10+ tiny flowers, spaced along a racemelike axillary cyme"
+        },
+        {
+          "character": "Flower structure",
+          "matelea": "Pearl vs Plateau: netted/flat vs longitudinal/bell",
+          "talayote": "Fleshy 3-lobed corona hoods, small shallow bell-shaped green corolla"
+        },
+        {
+          "character": "Follicles",
+          "matelea": "Roughened or sparsely spiny/muricate",
+          "talayote": "Plump smooth, ca. 7.5–9.5 cm x 3–3.3 cm"
+        },
+        {
+          "character": "Stem hairs",
+          "matelea": "Often conspicuous especially M. reticulata",
+          "talayote": "Short hairs commonly in a LINE along stem"
+        }
+      ],
+      "caution": "Both can exude WHITE latex and have opposite heart-shaped leaves. Sap and leaf shape alone do NOT separate talayote from Matelea. Talayote can also resemble Gonolobus vegetatively."
+    },
+    {
+      "id": "matelea-vs-anglepod",
+      "title": "Pearl milkvine vs anglepod",
+      "taxon_ids": [
+        "matelea-reticulata"
+      ],
+      "comparison_taxon": "Gonolobus suberosus var. granulatus",
+      "look_here_first": "On a flowering vine, look for MESH PATTERN and SILVERY CENTRAL PEARL. If the green petals are uniform olive rather than netted, suspect anglepod. A mature fruit with sharp LONGITUDINAL ANGLES (but smooth skin) supports anglepod.",
+      "field_matrix": [
+        {
+          "character": "Flower face",
+          "matelea": "Dark green netting across nearly round petals",
+          "gonolobus": "Mostly uniformly olive green"
+        },
+        {
+          "character": "Center",
+          "matelea": "Shiny silvery anther appendages",
+          "gonolobus": "Yellow dorsal appendages"
+        },
+        {
+          "character": "Mature pod",
+          "matelea": "Somewhat fusiform, roughened/muricate",
+          "gonolobus": "Smooth and strongly angled"
+        }
+      ],
+      "caution": "Legacy Matelea gonocarpos records are not the same as M. reticulata. Preserve the current Gonolobus variety identity and its existing range decision."
+    }
+  ],
+  "visual_comparison": {
+    "title": "Local milkvines: flower faces FIRST",
+    "subtitle": "Real photographs: preserve existing Joey Santore frames for pearl milkvine; compare with Edwards Plateau milkvine. Talayote original-site photo references are linked below, not substituted with another species.",
+    "memory_rule": "MESH + PEARL = M. reticulata; PARALLEL LINES + HAIRY BELL = M. edwardsensis; TINY GREEN-WHITE SPRAYS + SMOOTH POD = Cynanchum talayote; UNIFORM OLIVE + ANGLED POD = Gonolobus.",
+    "items": [
+      {
+        "label": "Pearl milkvine · netted corolla and silver pearl",
+        "scientific_name": "Matelea reticulata",
+        "image_role": "Flower front, dense green reticulation and reflective center",
+        "image_url": "content/taxa/Apocynaceae/Matelea/matelea-reticulata/images/matelea-reticulata_reticulate-corolla-center-nectar_03-15.jpg",
+        "source_page": "https://www.youtube.com/watch?v=Y7A530PjEbU&t=195s",
+        "creator": "Joey Santore / Crime Pays But Botany Doesn't",
+        "license": "Private study only — permission for redistribution not established",
+        "caption": "An existing saved project video frame: flat corolla with extensive green netting and silvery central reproductive appendages. Compare the center and corolla shape against the Edwards Plateau milkvine.",
+        "markers": [],
+        "image_fit": "contain",
+        "visual_status": "existing installed local private-study project frame"
+      },
+      {
+        "label": "Edwards Plateau milkvine · pale striped flowers",
+        "scientific_name": "Matelea edwardsensis",
+        "image_role": "Open green flowers and opposite heart-shaped leaves",
+        "image_url": "content/taxa/Apocynaceae/Matelea/matelea-edwardsensis/images/matelea-edwardsensis-provisional-face.jpg",
+        "source_page": "https://www.inaturalist.org/guide_taxa/229760",
+        "creator": "Source credited in existing species card",
+        "license": "All rights reserved — existing private study asset; not for public redistribution",
+        "caption": "Existing learner face provides whole-flower and leaf context. Compare the bell-shaped corolla and mainly lengthwise lines, then seek an inner-surface hair macro for confirmation.",
+        "markers": [],
+        "image_fit": "contain",
+        "visual_status": "existing installed local private-study asset; source rights unresolved"
+      }
+    ],
+    "overlay_note": "Existing photos are preserved only for the private learner. No new rights are implied. Arrows await precise point verification, especially inner corolla hairs and tiny talayote flowers.",
+    "study_only_intro": "Talayote has authentic photographs at these sources, but their image reuse rights and precise individual file provenance need checking before embedding.",
+    "study_only_photo_links": [
+      {
+        "label": "Talayote flowering vine, foliage and small clusters — Weston Ranch Foundation",
+        "url": "https://www.westonranchfoundation.org/milkweeds",
+        "look_for": "Heart-shaped leaves and many tiny pale flowers on a branching spray",
+        "reuse": "Original-site only; copyright/license not confirmed"
+      },
+      {
+        "label": "Talayote licensed iNaturalist photograph — Blake Hendon",
+        "url": "https://www.inaturalist.org/guide_taxa/1454914",
+        "look_for": "Exact taxon Cynanchum unifarium; photographer Blake Hendon; CC BY-NC (photo direct ID pending)",
+        "reuse": "Original-site only until exact photo URL and ID recorded"
+      },
+      {
+        "label": "Talayote smooth mature follicles — Backyard Nature",
+        "url": "https://www.backyardnature.net/n/h/talayote.htm",
+        "look_for": "Several plump smooth green pods on a climbing vine",
+        "reuse": "Original-site only; image reuse rights not confirmed"
+      },
+      {
+        "label": "Talayote user's example iNaturalist observation",
+        "url": "https://www.inaturalist.org/observations/311289060",
+        "look_for": "Master Plant Pool My iNaturalist Flora row 266, field photograph / possible project-owned first face",
+        "reuse": "Private source reference; check exact photo ID and license before download"
+      },
+      {
+        "label": "UT Austin Williamson County botanical talayote description",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Cynanchum%20racemosum%20unifarium.html",
+        "look_for": "Small flowers, axillary branching spray and smooth capsule botanical descriptions",
+        "reuse": "Morphology reference"
+      }
+    ]
+  },
+  "diagnostic_photo_checklist": [
+    {
+      "character": "Reticulation and reflective center",
+      "roles": [
+        "Matelea reticulata exact head-on flower in clear focus",
+        "Matelea edwardsensis matched head-on flower, comparison scale",
+        "arrow to M. reticulata silver anther appendages after exact photo check"
+      ]
+    },
+    {
+      "character": "Corolla profile and inner hairs",
+      "roles": [
+        "Matelea edwardsensis inner-corolla trichomes with a loupe/macro",
+        "M. reticulata inner glabrous surface for direct comparison",
+        "side-on shot to separate rotate vs bell-shaped"
+      ]
+    },
+    {
+      "character": "Talayote axillary spray",
+      "roles": [
+        "Cynanchum unifarium whole axillary branched racemelike cluster and adjacent opposite leaves",
+        "macro of individual tiny green-white flower and 3-lobed corona",
+        "use exact photographer photo ID and CC license"
+      ]
+    },
+    {
+      "character": "Fruit anatomy",
+      "roles": [
+        "Talayote smooth plump follicle with scale",
+        "Matelea rough studded follicle",
+        "Gonolobus longitudinally angled smooth follicle"
+      ]
+    }
+  ]
 }
