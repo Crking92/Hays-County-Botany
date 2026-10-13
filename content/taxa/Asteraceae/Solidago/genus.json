@@ -32,10 +32,10 @@
     "warning": "S. altissima, S. canadensis and S. gigantea often overlap in height, color and leaf shape. Flower color is NOT diagnostic; giant usually has genuinely smooth lower stem; altissima vs canadensis require multiple leaf/stem/head characters."
   },
   "curation_status": {
-    "version": "2.1-goldenrod-fna-juliae-correction-20261013",
+    "version": "2.2-giant-local-gallery-and-juliae-fna-20261013",
     "last_reviewed": "2026-10-13",
-    "photo_panels": 8,
-    "visual_status": "Eight species now indexed (6 with local photo reference panels, 2 external reference-only). Leaf and stem diagnostic matrix installed; no false macro arrows or PASS on range-held taxa.",
+    "photo_panels": 11,
+    "visual_status": "7 of 8 species have locally installed source photo comparison panels, 1 Julia's external only. Three new exact licensed Giant goldenrod photos installed, including smooth lower stem + leaf underside. Scientific native-range metadata not altered.",
     "scientific_decisions_preserved": true,
     "scientific_notes": "Julia's corrected to wet-streams-as-well-as-grasslands, fine white tomentose stem and 3–4x elongated panicle. Range labels unchanged."
   },
@@ -186,7 +186,7 @@
   ],
   "visual_comparison": {
     "title": "Goldenrods: eight species, sort by stem and leaf BEFORE golden flowers",
-    "subtitle": "Eight existing physically installed reference-photo panels for six goldenrod species; S. gigantea and S. juliae currently use offsite sources and are linked as reference below, not represented as local photos. Provisional photo roles remain provisional.",
+    "subtitle": "Eleven installed goldenrod comparison panels covering seven species. Julia's goldenrod still has an external image reference only; external expert photos are copyrighted and not copied. Provisional first-pass images need fine diagnostics later.",
     "items": [
       {
         "species_id": "solidago-altissima",
@@ -283,15 +283,46 @@
         "source_page": "See canonical species image record",
         "markers": [],
         "annotation_status": "Do not draw leaves/hair arrows until original-pixel inspected, some are broad first-face photos."
-      }
-    ],
-    "photo_count": 8,
-    "remote_sources_only": [
+      },
       {
         "species_id": "solidago-gigantea",
-        "reason": "Species file has three external Commons redirects but no local images/ count verified; original pages must be separately licensed and downloaded",
-        "reference_url": "https://commons.wikimedia.org/wiki/Category:Solidago_gigantea"
+        "scientific_name": "Solidago gigantea",
+        "label": "GIANT GOLDENROD — FLOWERING HABIT",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-gigantea/images/01-whole-flowering-habit.jpg",
+        "caption": "Broad arching goldenrod flower panicle; distinguish with a lower-stem macro, not this broad shape alone.",
+        "creator": "Calimo",
+        "license": "CC BY-SA 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Solidago_gigantea.jpg",
+        "markers": [],
+        "annotation_status": "No unjustified macro-arrow points; user final photo inspection pending."
       },
+      {
+        "species_id": "solidago-gigantea",
+        "scientific_name": "Solidago gigantea",
+        "label": "GIANT GOLDENROD — SMOOTH STEM & UNDERSIDE",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-gigantea/images/02-smooth-stem-leaf-underside.jpg",
+        "caption": "More diagnostic: look at the comparatively smooth stem and underside of the 3-veined leaf; tall and Canada goldenrods tend to show more hairs.",
+        "creator": "Pethan",
+        "license": "CC BY-SA 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Solidago_gigantea04.jpg",
+        "markers": [],
+        "annotation_status": "No unjustified macro-arrow points; user final photo inspection pending."
+      },
+      {
+        "species_id": "solidago-gigantea",
+        "scientific_name": "Solidago gigantea",
+        "label": "GIANT GOLDENROD — MIDSTEM LEAF",
+        "image_url": "content/taxa/Asteraceae/Solidago/solidago-gigantea/images/03-leaf-and-stem-field-view.jpg",
+        "caption": "Real exact species leaf view from Netherlands, narrow leaf and vein habit. Nonlocal reference, not county-native evidence.",
+        "creator": "Michel Langeveld",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Solidago_gigantea_211207255.jpg",
+        "markers": [],
+        "annotation_status": "No unjustified macro-arrow points; user final photo inspection pending."
+      }
+    ],
+    "photo_count": 11,
+    "remote_sources_only": [
       {
         "species_id": "solidago-juliae",
         "reason": "Species photo is external iNaturalist S3 image and per-photo license not resolved; do not invent local image file",
@@ -353,6 +384,16 @@
         "Coastal fleshy leaf in mexicana compared with inland goldenrods"
       ],
       "reliability_warning": "Julia's may be wet STREAM-edge (FNA), not a dry-only species; mexicana is FAIL TARGET ZONE."
+    },
+    {
+      "priority": 5,
+      "pair": "Julia's goldenrod standalone licensed visual search",
+      "features": [
+        "Kerr / Gillespie voucher comparison page available at University of Waterloo, but copyrighted expert images link only",
+        "One existing iNaturalist external face photo in species card, exact per-photo license unknown",
+        "Future exact rights-verified Julia's flowering stalk + narrow leaf hair macro"
+      ],
+      "reliability_warning": "Do not call remote iNaturalist or copyrighted Waterloo expert voucher a physically installed photo."
     }
   ],
   "scientific_sources": [
