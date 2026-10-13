@@ -146,11 +146,14 @@
     }
   ],
   "curation_status": {
-    "version": "1.2-cross-flora-science-reconciliation",
+    "version": "1.3-real-reproductive-photo-genus-comparison",
     "last_reviewed": "2026-10-13",
-    "visual_status": "previous FNA matrix preserved with source-conflict caveat; exact reproductive photo backfill underway",
+    "visual_status": "Five licensed exact-species panels; A. fruticosum flower/two fruit files physically installed; incanum and velvetleaf comparisons link existing Commons source cards. Arrow QA and measured style macro pending.",
     "scientific_note": "FNA-backed morphology pass; no range/admission changes.",
-    "flower_hair_diagnosis": "scientific source conflict — corrected to caution instead of strict key"
+    "flower_hair_diagnosis": "scientific source conflict — corrected to caution instead of strict key",
+    "photo_panels": 5,
+    "panels_local_files": 3,
+    "arrows": 0
   },
   "field_key_training": [
     {
@@ -315,5 +318,81 @@
     "local_installation": "NOT_DONE; original remote flower/fruit links preserved, no local images claimed",
     "visual_overlay_status": "Arrows require pixel checking on actual original; do not place blind arrows",
     "priority": "Install fruticosum two real mature fruits and local Uvalde source, then exact flower style macro"
+  },
+  "visual_comparison": {
+    "title": "Abutilon: who has the spines, and how many fruit segments?",
+    "subtitle": "Sweet Indian mallow is in the local flora; hoary abutilon is a nonlocal comparison and velvetleaf is an introduced comparison. All 5 photo panels are exact-species, with 3 local files and 2 Commons links.",
+    "look_here_first": "Fruit first: short unspined mericarps versus long 3–6 mm spines. Next COUNT style/stigma branches, not anthers.",
+    "items": [
+      {
+        "label": "SWEET INDIAN MALLOW · FLOWER",
+        "scientific_name": "Abutilon fruticosum",
+        "image_url": "content/taxa/Malvaceae/Abutilon/abutilon-fruticosum/images/02-yellow-flower.jpg",
+        "image_fit": "contain",
+        "caption": "Plain yellow petals and staminal column. The exact number of style branches cannot be confirmed from this broad flower photo.",
+        "creator": "SAplants",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Abutilon_fruticosum_1DS-II_3-2244.jpg",
+        "markers": [],
+        "annotation_status": "no unverified style arrows"
+      },
+      {
+        "label": "SWEET INDIAN MALLOW · SHORT-TIPPED FRUIT",
+        "scientific_name": "Abutilon fruticosum",
+        "image_url": "content/taxa/Malvaceae/Abutilon/abutilon-fruticosum/images/03-compact-fruit-side.jpg",
+        "image_fit": "contain",
+        "caption": "A. fruticosum schizocarp: compact short-tipped mericarps. Count the segments on a good macro; they are NOT the long divergent spines of velvetleaf.",
+        "creator": "Krzysztof Ziarnek, Kenraiz",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Abutilon_fruticosum_kz03.jpg",
+        "markers": [],
+        "annotation_status": "requires precise fruit segment overlay"
+      },
+      {
+        "label": "SWEET INDIAN MALLOW · SECOND FRUIT VIEW",
+        "scientific_name": "Abutilon fruticosum",
+        "image_url": "content/taxa/Malvaceae/Abutilon/abutilon-fruticosum/images/04-compact-fruit-oblique.jpg",
+        "image_fit": "contain",
+        "caption": "Second fruit angle: see how the mericarps fit around a common center; no ruler, so fruit dimensions are from botanical keys, not measured in this photo.",
+        "creator": "Krzysztof Ziarnek, Kenraiz",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Abutilon_fruticosum_kz04.jpg",
+        "markers": [],
+        "annotation_status": "same-species source verified"
+      },
+      {
+        "label": "HOARY ABUTILON · SMALL FRUIT, NONLOCAL",
+        "scientific_name": "Abutilon incanum",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Starr-131218-2869-Abutilon_incanum-seed_capsule_and_leaves-Honokanaia-Kahoolawe_(25110446902).jpg",
+        "image_fit": "contain",
+        "caption": "A. incanum is a nonlocal comparison. About five style branches and fruit segments, versus six to nine in sweet Indian mallow. The source photo is externally hosted, not locally installed.",
+        "creator": "Forest & Kim Starr",
+        "license": "CC BY 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Starr-131218-2869-Abutilon_incanum-seed_capsule_and_leaves-Honokanaia-Kahoolawe_(25110446902).jpg",
+        "markers": [],
+        "annotation_status": "linked source photo"
+      },
+      {
+        "label": "VELVETLEAF · LONG SPINY MERICARPS",
+        "scientific_name": "Abutilon theophrasti",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Abutilon_theophrasti_fruit.jpg",
+        "image_fit": "contain",
+        "caption": "Introduced velvetleaf: fruit much larger, with about 13–15 segments and long divergent mericarp spines, not the short points of A. fruticosum.",
+        "creator": "Vibraison",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Abutilon_theophrasti_fruit.jpg",
+        "markers": [],
+        "annotation_status": "linked source photo"
+      }
+    ]
+  },
+  "photo_final_polish": {
+    "priorities": [
+      "Photograph exactly 5 vs 6–9 vs 13–15 style/stigma branches (count after flowering if possible)",
+      "Actual mm ruler beside each ripe capsule",
+      "Verify original pixels before drawing arrows to each mericarp's short or long tip",
+      "Recover Jim Conrad Uvalde public-domain fruit closeups after download availability check"
+    ],
+    "note": "Arrows to styles or hairs not added blindly. FNA / UT / Kew conflict on A. fruticosum staminal hair preserved."
   }
 }
