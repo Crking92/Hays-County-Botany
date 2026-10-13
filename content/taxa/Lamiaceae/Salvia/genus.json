@@ -89,18 +89,19 @@
     }
   ],
   "curation_status": {
-    "version": "2.4-big-red-flower-vs-rosette-accuracy",
+    "version": "2.5-all-salvia-visual-first-pass",
     "last_reviewed": "2026-10-13",
-    "visual_status": "20 photographic panels in Salvia genus; Big Red new exact USFWS flower/calyx panel added to comparison, physical installer queued. Actual rosette SSA figure remains source-only pending extraction, not falsely counted installed.",
+    "visual_status": "All 10 canonical Salvia species have readable photo-first diagnostics and comparison groups. 2 woody and lyreleaf modules integrated; new images staged/pipeline in flight. Pixel-accurate arrows, attribution on 2 provisional ballotiflora photos and matched-scale micros remain final polish.",
     "annotated_panels": 0,
-    "photo_panels": 20,
+    "photo_panels": 30,
     "multi_species_comparison": true,
     "photo_new_pair_panels": 7,
     "red_trio_panels": 8,
     "physical_big_red_images": 2,
     "big_red_new_photo_verified": "content/taxa/Lamiaceae/Salvia/salvia-pentstemonoides/images/02-cibolo-flower-calyx-close.jpg",
     "new_photo_install_outcome": "success — FWS image downloaded, old image retained, zero warnings",
-    "index_sync_retry_note": "Index job push initially conflicted with concurrent bot commit, no content/build error; fresh main change triggers new index build."
+    "index_sync_retry_note": "Index job push initially conflicted with concurrent bot commit, no content/build error; fresh main change triggers new index build.",
+    "range_decisions_unchanged": true
   },
   "shared_genus_recognition": {
     "look_here_first": "FIRST identify the growth form (shrub, annual herb, or low perennial); then whole-plant leaves, then the flowering node and calyx. Tiny leaf gland shapes are strong when correctly photographed but cannot be guessed from a fuzzy full-plant shot.",
@@ -170,8 +171,8 @@
     ]
   },
   "visual_comparison": {
-    "title": "Salvia — Blue and Red Sage Photo Comparisons",
-    "subtitle": "Real species photographs are grouped by confusing lookalikes, with taxon, locality, license and caution. Avoid assigning microparts from wide shots.",
+    "title": "Salvia ID — photo-first look-alikes and rosette/leaf keys",
+    "subtitle": "All ten installed Salvia species covered by photo comparison lessons; read actual photo captions for locality, licensing and diagnostic visibility. Red, blue, woody and lyreleaf comparisons.",
     "items": [
       {
         "label": "TEXAS SAGE · BRACTS & FLOWER HEADS",
@@ -432,9 +433,139 @@
         "caption": "Close exact Big Red Sage corolla and green sharply tipped calyx. Despite 'rosette' in the USFWS media page title, the actual photographed image shows flowers, NOT basal leaves. See linked USFWS Fig 2.1a for real rosette.",
         "markers": [],
         "annotation_status": "True visible flower/calyx; precise individual-point arrows deferred until pixel QA."
+      },
+      {
+        "species_id": "salvia-greggii",
+        "scientific_name": "Salvia greggii",
+        "label": "AUTUMN · SHOWY FLOWER",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-greggii/images/01-flower-habit.jpg",
+        "image_fit": "contain",
+        "creator": "Raul654",
+        "license": "CC BY-SA 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_greggii.jpg",
+        "caption": "Large red floral display, oval opposite leaves; cultivated, not verified local wild provenance.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-greggii",
+        "scientific_name": "Salvia greggii",
+        "label": "AUTUMN · LEAF AND FLOWER",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-greggii/images/02-leaf-and-flower-close.jpg",
+        "image_fit": "contain",
+        "creator": "Consultaplantas",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_greggii_1c.JPG",
+        "caption": "Flower and leaf close view; smooth-looking small oval leaves and relatively showy flower, compare with shrubby blue sage's tiny bloom.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-greggii",
+        "scientific_name": "Salvia greggii",
+        "label": "AUTUMN · BRANCHED SHOOT",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-greggii/images/03-flowering-branch.jpg",
+        "image_fit": "contain",
+        "creator": "Krzysztof Ziarnek, Kenraiz",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_greggii_kz12.jpg",
+        "caption": "Another cultivated/unknown-origin autumn sage branch. Colors and morphology may vary; do not assume native provenance.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-ballotiflora",
+        "scientific_name": "Salvia ballotiflora",
+        "label": "SHRUBBY BLUE · VERIFIED FLOWER",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-ballotiflora/images/01-flower-closeup.JPG",
+        "image_fit": "contain",
+        "creator": "TDogg310",
+        "license": "CC BY-SA 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_ballotiflora_1.JPG",
+        "caption": "Small blue-purple flowers, rough hairy leaves sometimes visible. Source is cultivated, exact species. Compare 10–13-mm flowers to Greggii ~25 mm.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-ballotiflora",
+        "scientific_name": "Salvia ballotiflora",
+        "label": "SHRUBBY BLUE · PROVISIONAL VIEW",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-ballotiflora/images/02-commons-field-view-provisional.jpg",
+        "image_fit": "contain",
+        "creator": "iNaturalist observer, metadata pending",
+        "license": "rights audit pending — private only",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_ballotiflora_343007199.jpg",
+        "caption": "Additional exact-species private study image; license/author and visible diagnostic role need checking before public re-use.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-ballotiflora",
+        "scientific_name": "Salvia ballotiflora",
+        "label": "SHRUBBY BLUE · PROVISIONAL VIEW 2",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-ballotiflora/images/03-commons-flower-view-provisional.jpg",
+        "image_fit": "contain",
+        "creator": "iNaturalist observer, metadata pending",
+        "license": "rights audit pending — private only",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_ballotiflora_589592598.jpg",
+        "caption": "Second source-exact private study photo; verify attribution and exact leaf/calyx features before any diagnostic arrows.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-lyrata",
+        "scientific_name": "Salvia lyrata",
+        "label": "LYRELEAF · ROSETTE WITH FLOWERS",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-lyrata/images/01-rosette-flowering-habit.jpg",
+        "image_fit": "contain",
+        "creator": "sonnia hill",
+        "license": "CC BY 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_lyrata.jpg",
+        "caption": "See a low leaf rosette and upper flowering stalk on one plant. Don't use flower color alone to identify.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-lyrata",
+        "scientific_name": "Salvia lyrata",
+        "label": "LYRELEAF · TEXAS WINTER ROSETTE",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-lyrata/images/02-texas-winter-rosette.jpg",
+        "image_fit": "contain",
+        "creator": "sonnia hill",
+        "license": "CC BY 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_lyrata_-_rosette.jpg",
+        "caption": "Anderson County Texas winter basal rosette: look for the large TERMINAL leaf lobe and smaller LATERAL lobes on a SINGLE blade.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-lyrata",
+        "scientific_name": "Salvia lyrata",
+        "label": "LYRELEAF · TWO-LIPPED FLOWER DETAIL",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-lyrata/images/03-lower-flower-lip.jpg",
+        "image_fit": "contain",
+        "creator": "Alex Abair",
+        "license": "CC BY 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_lyrata_lower_corolla_lip.jpg",
+        "caption": "Florida study flower with broad lavender lower corolla lip; this is a flower part photo, not a Texas voucher.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
+      },
+      {
+        "species_id": "salvia-lyrata",
+        "scientific_name": "Salvia lyrata",
+        "label": "LYRELEAF · SPACED FLOWERING WHORLS",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-lyrata/images/04-inflorescence-whorls.jpg",
+        "image_fit": "contain",
+        "creator": "Alex Abair",
+        "license": "CC BY 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_lyrata_inflorescence_and_blurred_background.jpg",
+        "caption": "Small lavender flowers widely spaced on more or less leafless stalk; follow stalk DOWN to ground-level lyrate rosette.",
+        "markers": [],
+        "annotation_status": "No invented arrows. Provisional rights/images for ballotiflora panels noted in card."
       }
     ],
-    "photo_count": 20,
+    "photo_count": 30,
     "distinct_species": 2,
     "annotation_policy": "Arrows only after individual photo target QA; don't label a rosette when the source image crops off the plant base."
   },
@@ -446,13 +577,14 @@
       "matched 1-mm leaf and calyx gland macros: sunken pit glands versus raised tack glands",
       "matched full side calyx with true ruler, ribs and awn tips"
     ],
-    "remaining_groups": [
-      "Azure vs mealy blue sages",
-      "scarlet vs cedar vs big red",
-      "autumn vs shrubby blue",
-      "lyreleaf standalone"
-    ],
-    "final_arrow_QA": "Open each original on phone; if visual arrows target empty space, do not mark photo reviewed."
+    "remaining_groups": [],
+    "final_arrow_QA": "Open each original on phone; if visual arrows target empty space, do not mark photo reviewed.",
+    "new_woody_and_lyreleaf": [
+      "Exact original-pixel visible rough leaf macro of S. ballotiflora and smoother S. greggii",
+      "Same-scale whole corolla pairs with ruler for Greggii vs ballotiflora",
+      "Lyrata rosette lobe/leaflet photo arrows visually checked",
+      "Licensed wild Hays specimen photos where possible, not cultivated introductions"
+    ]
   },
   "field_vocabulary": {
     "cauline": "KAW-lin — on stems",
@@ -470,7 +602,15 @@
     "foliolate": "FOH-lee-uh-lit — divided into identifiable leaflets; 3-foliolate means three separate leaflet blades",
     "petiole": "PET-ee-ohl — the stalk attaching a leaf blade to a stem",
     "peltate": "PEL-tayt — stalk attached under the leaf blade, not at the edge; cedar sage can only LOOK almost peltate",
-    "corolla": "kuh-ROL-uh — collectively the petals; in Salvia joined into a tube with two lips"
+    "corolla": "kuh-ROLL-uh — all joined petals including the flower tube and lips",
+    "lyrate": "LYE-rate — a leaf widest at a rounded tip lobe, with smaller side lobes nearer the petiole",
+    "lobe": "Part of the SAME leaf blade bounded by notches",
+    "leaflet": "A SEPARATE blade forming part of a compound leaf",
+    "sinus": "The indentation between leaf lobes",
+    "pubescent": "PYOO-bess-ent — covered in plant hairs",
+    "glabrous": "GLAY-brus — with no obvious hairs",
+    "crenate": "KREE-nayt — margin with rounded shallow teeth",
+    "axillary": "AK-sill-air-ee — arising from an angle between leaf and stem"
   },
   "photo_review_cautions": [
     "Some pre-existing Salvia texana photo records have unresolved photographer and rights; study-only, not public export.",
@@ -479,7 +619,12 @@
     "Canonical Salvia texana range record counts Williamson as a target county, but Williamson is NOT within project 24-county zone. Flag to science/range lane for reconciliation, without changing a settled status in this PHOTO lane.",
     "Farinacea has BOTH white-felted and dark-violet-felted calyx forms, UT Austin local description; 'not white' does not rule it out.",
     "S. azurea local var. grandiflora differs in taxonomic scope from the Florida var. azurea diagnostic photo; show provenance in every panel.",
-    "Salvia azurea AND farinacea canonical PASS county lists also count Williamson, outside the target-zone list: flag for separate 3-county recertification, do not alter this science decision in visual lane."
+    "Salvia azurea AND farinacea canonical PASS county lists also count Williamson, outside the target-zone list: flag for separate 3-county recertification, do not alter this science decision in visual lane.",
+    "Salvia ballotiflora UT Hays Flora introduced from Medina County — don't count as wild Hays native.",
+    "Salvia ballotiflora current strict PASS uses Val Verde outside target zone; needs scientific range recertification, separate from visual learner.",
+    "Shrubby blue two additional Commons images have unknown individual credits/licenses and must remain private-only pending audit.",
+    "Lyreleaf Texas winter rosette photographed Anderson County, outside target; photo doesn't fix unresolved nativity status.",
+    "Autumn sage cultivars/hybrids may mislead; glossy smooth leaf/large flower is supportive only."
   ],
   "photo_comparison_groups": [
     {
@@ -615,6 +760,121 @@
           "license": "Public Domain",
           "status": "source-rights verified, extraction pending"
         }
+      ]
+    },
+    {
+      "pair_id": "greggii-ballotiflora",
+      "name": "Woody Sage — Autumn vs Shrubby Blue",
+      "species_ids": [
+        "salvia-greggii",
+        "salvia-ballotiflora"
+      ],
+      "panel_indices": [
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "look_here_first": "BOTH are woody. Compare upper and undersides of leaves (smooth-ish vs ROUGH hairy); compare corolla LENGTH (~25mm vs ~10–13mm) rather than just red versus blue.",
+      "comparison_matrix": [
+        {
+          "character": "Habit",
+          "greggii": "Mounded woody many-branched shrub",
+          "ballotiflora": "Also woody densely branched shrub",
+          "why": "Woody alone won't split them"
+        },
+        {
+          "character": "Leaf SIZE",
+          "greggii": "~8–48 mm in UT local treatment",
+          "ballotiflora": "~15–38 mm in descriptions",
+          "why": "Overlaps — DON'T key mainly by size"
+        },
+        {
+          "character": "Leaf TEXTURE",
+          "greggii": "Relatively smooth, with minute sunken gland dots (needs macro)",
+          "ballotiflora": "Rough with conspicuous fine leaf hairs on upper/lower surfaces",
+          "why": "Best texture split with sharp photo"
+        },
+        {
+          "character": "Flower",
+          "greggii": "~25 mm, often red/rose in wild but cultivar colors many",
+          "ballotiflora": "Usually blue-purple and smaller ~10–13 mm",
+          "why": "Best size-based view WITH metric ruler"
+        },
+        {
+          "character": "Calyx",
+          "greggii": "Ribbed and glandular; clearer with closeup",
+          "ballotiflora": "Hairy small calyx, also glandular",
+          "why": "Not absolute without microscopic QA"
+        }
+      ],
+      "memory_rule": "GREGGII = relatively SMOOTH leaf and larger flower. BALLOTIFLORA = ROUGH leaf and much smaller blue flower.",
+      "external_photo_reference": {
+        "taxon": "Salvia ballotiflora",
+        "source": "https://w3.biosci.utexas.edu/prc/DF/pages/SABA5.html",
+        "photographer": "William R. Carr",
+        "usage": "copyrighted external reference only; do not rehost"
+      },
+      "exact_photo_requirements": [
+        "Matched leaf surface hair macros 1-mm scale",
+        "Matched flowers 10–13 and ~25 mm same scale with cm ruler",
+        "Original Commons individual author/license audit for two provisional shrubby blue panels",
+        "Cultivar / Salvia × jamensis caution for S. greggii nursery plants"
+      ],
+      "warnings": [
+        "Hays UT source lists shrubby blue sage as introduced from Medina — don't count as naturally occurring Hays species.",
+        "Canonical shrubby blue sage PASS uses Val Verde as third county, which isn't on project 24-county list; range revalidation separate.",
+        "Autumn sage UNRESOLVED range remains unchanged.",
+        "Two shrubby blue images are private-only provisional and may need attribution replacement."
+      ]
+    },
+    {
+      "pair_id": "lyrata-rosette",
+      "name": "Lyreleaf Sage — basal rosette and lobe vs leaflet",
+      "species_ids": [
+        "salvia-lyrata",
+        "salvia-roemeriana"
+      ],
+      "panel_indices": [
+        26,
+        27,
+        28,
+        29
+      ],
+      "look_here_first": "One lyre-shaped basal LEAF: large terminal lobe and smaller lateral lobes joined to the blade. Follow flower stalk upward: small lavender flowers. CEDAR has red flowers and some leaves with 1–3 SEPARATE leaflets, not one cut blade.",
+      "comparison_matrix": [
+        {
+          "character": "Leaf blade",
+          "lyrata": "Often one lyre-shaped blade with large terminal lobe and smaller side lobes",
+          "roemeriana": "May have simple broad leaf or separate terminal+two lateral leaflets"
+        },
+        {
+          "character": "Habit",
+          "lyrata": "Flat perennial basal rosette + often leafless tall axis",
+          "roemeriana": "Perennial basal rosette, flower stem in Ashe-juniper woodland"
+        },
+        {
+          "character": "Flowers",
+          "lyrata": "Small blue-lavender and separated along stalk",
+          "roemeriana": "Crimson two-lipped flowers in paired cymes"
+        },
+        {
+          "character": "Leaf seasonal color",
+          "lyrata": "May turn purple in winter/cultivars; unreliable alone",
+          "roemeriana": "Green/purplish leaves also variable; color not enough"
+        }
+      ],
+      "memory_rule": "LYRELEAF = one LOBED blade, lavender flowers. CEDAR = sometimes separate LEAFLETS, red flowers.",
+      "photo_requirements": [
+        "Matched complete lyreleaf and cedar sage leaves with labels (no wrong arrows)",
+        "Hays-confirmed source photos of basal rosette and flower",
+        "Pixel-correct arrows: terminal lobe, lateral lobe, sinus, corolla lower lip"
+      ],
+      "warnings": [
+        "Lyreleaf native range still UNRESOLVED 2 target counties. Do not turn it PASS from Texas Anderson County photo.",
+        "Texas rosette image location Anderson County is outside project zone."
       ]
     }
   ],
