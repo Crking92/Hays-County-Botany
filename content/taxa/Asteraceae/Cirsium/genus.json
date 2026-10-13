@@ -24,7 +24,7 @@
     "warning": "Purple/pink flower color, overall plant height, generic 'woolliness', and disturbed-site habitat overlap strongly among learner taxa and should not be used alone."
   },
   "look_here_first_sequence": [
-    "1. STEM: check whether leaf bases run down the stem as obvious spiny wings, and how long/continuous those wings are.",
+    "1. STEM: check whether leaf bases run down the stem as obvious spiny wings, and how long/continuous those wings are. NOTE: both Texas and bull thistles can have descending stem wings; use upper blade spines and head anatomy too.",
     "2. HEAD BASE: inspect the involucre and any leaflike/spiny bracts immediately subtending the head; note phyllary spine length, orientation, and any glutinous ridge.",
     "3. LEAF SURFACES: compare upper versus lower surfaces for green/glabrate, gray/white tomentose, or true short bristlelike spines.",
     "4. LEAF SHAPE: record whether leaves are unlobed, shallowly pinnatifid, or deeply divided and whether the base clasps or is decurrent.",
@@ -179,7 +179,7 @@
     "warning": "Do not key these learner taxa primarily by flower color, overall woolliness, height, or habitat."
   },
   "curation_status": {
-    "version": "3.9-three-thistle-feature-photo-pass",
+    "version": "4.0-texanum-horridulum-measurement-study",
     "last_reviewed": "2026-10-12",
     "lane": "scientific-diagnostic-review",
     "note": "Genus comparison expanded from two to all five current canonical learner taxa. No species installation or gallery backfill performed.",
@@ -188,20 +188,23 @@
     "photo_polish_open": true,
     "photo_polish_pending": true,
     "verified_bull_spine_macro_linked": true,
-    "licensing_respected": true
+    "licensing_respected": true,
+    "scientific_false_wing_key_corrected": true,
+    "licensing_cautions_preserved": true,
+    "matched_ruler_photos_pending": true
   },
   "quick_key": [
     {
-      "if": "Upper leaf face has short appressed spines AND leaf bases extend as long spiny stem wings",
-      "then": "Cirsium vulgare — introduced"
+      "if": "Short stiff bristle-spines arising directly ON upper leaf BLADE (not just lobe edges); often with long decurrent spiny stem wings, which ALSO occur in robust native C. texanum",
+      "then": "Cirsium vulgare — introduced; leaf-FACE bristles best discriminator"
     },
     {
-      "if": "Individual flower head has an extra collar of spiny leaflike bracts, involucre 3–5 cm",
-      "then": "Cirsium horridulum"
+      "if": "Large green involucre about 40–45 mm (UT Williamson var. horridulum); head hidden or ringed by extremely spiny reduced upper leaves",
+      "then": "Cirsium horridulum — extra head armor, not just a spiny stem"
     },
     {
-      "if": "Relatively small involucre about 1.2–2 cm; broadly sessile or slightly clasping upper leaves",
-      "then": "Cirsium texanum"
+      "if": "Small green involucre about 15–20 mm tall (UT Williamson flora); broad sessile, sometimes auriculate-clasping upper leaves; some plants DO have spiny decurrent stem wings; no huge extra under-head collar",
+      "then": "Cirsium texanum — native Texas thistle; verify upper blade and head base"
     },
     {
       "if": "Gray woolly plant, strongly spined phyllaries, often long spiny stem wings",
@@ -219,12 +222,12 @@
   "head_to_head": [
     {
       "pair": "C. horridulum vs C. texanum",
-      "first": "Horridulum: an EXTRA spiny leaflike BRACT collar just below each head and 30–50 mm involucre; texanum: relatively small 12–20 mm involucre, broadly sessile/clasping upper leaves, no similarly developed collar.",
-      "photo": "Same-scale side-by-side head BASE and attached leaf base. Color is unreliable."
+      "first": "S. NOTE CIRS IUM: TEXANUM ~15–20 mm tall involucre versus HORRIDULUM var. horridulum ~40–45 mm tall in UT Williamson measured botanical descriptions. Measure the GREEN INVOLUCRAL BODY from its basal attachment to upper rim, excluding florets and projecting bract spines. Horridulum's separate, spinescent upper leaves/under-head collar obscure its large involucre; texanum has a smaller head and often clasping leaf bases, but CAN make winged stems.",
+      "photo": "Licensed two-species SIDE/head source photos available but neither carries an original scale ruler; existing head photos may teach which part to measure, NOT visual proof of the numerical measurements. Matched ruler photos remain final polish."
     },
     {
       "pair": "C. vulgare vs native thistles",
-      "first": "Vulgare: stiff short BRISTLELIKE SPINES from the UPPER leaf BLADE, not the edges, and long spiny stem wings. Other natives may form spiny wings, so upper-blade spines matter.",
+      "first": "Bull thistle uniquely has short appressed bristlelike spines growing on UPPER LEAF BLADE, and may have long spiny stem wings; Texas thistle on robust plants CAN ALSO have decurrent spiny wings (UT Austin). Do not teach wings alone as native/non-native test.",
       "photo": "Upper blade surface 10× plus wing extending down a full stem internode."
     },
     {
@@ -256,7 +259,7 @@
         "scientific_name": "Cirsium horridulum",
         "image_url": "content/taxa/Asteraceae/Cirsium/cirsium-horridulum/images/03-armored-head-bracts.jpg",
         "image_role": "head collar",
-        "caption": "Look directly beneath the purple florets: the arrow points to the separate extra leaflike spiny BRACT surrounding the base of the head. It is NOT a petal and not merely a prickly stem leaf. Compare Texas thistle's smaller 12–20 mm involucre. Photograph by Bobyellow, original Florida specimen.",
+        "caption": "The arrow shows an authentic spiny reduced upper leaf/under-head collar outside the GREEN INVOLUCRE. UT Williamson County var. horridulum specimen describes involucre about 40–45 mm tall; this photographed specimen is NOT ruler-scaled.",
         "creator": "Bobyellow",
         "license": "CC BY 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Cirsium_horridulum_(bristly_thistle)_2.jpg",
@@ -329,7 +332,7 @@
         "scientific_name": "Cirsium texanum",
         "image_role": "Exact-species Texas flowering head/green involucre, not head measurement",
         "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cirsium%20texanum.jpg",
-        "caption": "Inspect the comparatively SMALL green involucre beneath florets. For confirmation, measure it and compare the broad stem leaf bases against C. carolinianum; purple alone proves nothing.",
+        "caption": "This licensed head image introduces the smaller TEXANUM green involucre. Published measured height ~15–20 mm (UT Austin), but no ruler is in THIS IMAGE; do not infer its millimeters from visual size. Photograph also does not prove whether lower stem leaves are winged.",
         "creator": "Megan Kossa",
         "license": "CC BY 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Cirsium_texanum.jpg",
@@ -447,22 +450,40 @@
     "overlay_note": "Two arrow targets in the yellowspine bud photo were visually checked against source preview (Pixnio; befish). Other photos are recognition/context until their microscopic traits can be verified; all license metadata preserved. Bull thistle leaf-blade micrograph remains an external study link.",
     "study_only_photo_links": [
       {
-        "label": "TEXAS THISTLE: actual close-up of clasping ear-shaped leaf base, photographed Uvalde County",
+        "label": "C. texanum — UT Austin photo of REAL leaf base, stem ATTACHED",
+        "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ast/Cirsium%20texanum%20lvs1.JPG",
+        "look_for": "The leaf attaches at LEFT, partly clasping the vertical stem; helps teach actual attachment rather than just a spiny blade. No scale or reusable rights for embedding established.",
+        "reuse": "UT Austin BIO406D photograph; COPYRIGHT/permissions not resolved, study link ONLY."
+      },
+      {
+        "label": "C. texanum — UT Austin underside with white wool",
+        "url": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ast/Cirsium%20texanum%20lvs2.JPG",
+        "look_for": "Woolly underside of same accepted species. NOT a leaf-node photograph, so no node arrow.",
+        "reuse": "UT Austin BIO406D photograph; study link ONLY."
+      },
+      {
+        "label": "C. texanum — Uvalde actual spiny leaf-base EARS and sticky head phyllaries",
         "url": "https://www.backyardnature.net/n/h/texthist.htm",
-        "look_for": "Jim Conrad's 'eared leaf base' photograph (spiny auricles wrap hairy stem) and flower head photo revealing white, sticky median RIDGE on each phyllary. This is the best found actual TEXANUM part comparison.",
-        "reuse": "Jim Conrad source-page photographs: study links ONLY; license for rehosting/annotated reuse not established."
+        "look_for": "Look for 'eared leaf base' and separate 'flower head showing phyllaries' in Jim Conrad's illustrated Uvalde field account.",
+        "reuse": "Jim Conrad original photographs; license for republication/annotation not established, study link only."
+      },
+      {
+        "label": "C. texanum — UT Gibson botanical measurements incl. wings and involucre",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Cirsium%20texanum",
+        "look_for": "Measured green involucre 15–20 mm tall, and upper stem leaves clasping AND possibly continuing as descending spiny wings; exact measurements are botanical, not photo-estimated.",
+        "reuse": "Scientific source text, not a measured specimen photograph."
+      },
+      {
+        "label": "C. horridulum — UT Gibson measured head/armored upper leaves",
+        "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Cirsium%20horridulum%20horridulum",
+        "look_for": "Measured involucre 40–45 mm tall, concealed by deeply spiny reduced upper leaves; compare with texanum 15–20 mm.",
+        "reuse": "Scientific source text, not a measured specimen photograph."
       },
       {
         "label": "BULL THISTLE: actual short adaxial blade spines with 5 mm reference (licensed)",
         "url": "https://commons.wikimedia.org/wiki/File:Cirsium_vulgare_sl27.jpg",
         "look_for": "Photograph by Stefan.lefnaer with several short spines emerging from upper blade tissue, ruler at bottom. This is now in the learner gallery with a precise arrow.",
         "reuse": "Stefan.lefnaer CC BY-SA 4.0; credit, license link, share-alike for changes."
-      },
-      {
-        "label": "TEXAS THISTLE: UT Austin fine-morphology specimen description",
-        "url": "https://w3.biosci.utexas.edu/prc/K12/pdf/Cirsium%20texanum",
-        "look_for": "Involucre approximately 15–20 mm, middle phyllary sticky pale median ridge around 2.5–4 mm, and outer spine tip 1–3(–5) mm. Treat ranges as local sampled material, not exact species single point.",
-        "reuse": "Botanical research text; no photograph copied."
       },
       {
         "label": "C. vulgare — TRUE upper leaf surface hairs and bristles (MissouriPlants)",
@@ -528,8 +549,8 @@
     {
       "priority": 1,
       "group": "horridulum vs texanum",
-      "role": "Measured 12–20 mm versus 30–50 mm involucre and armored collar",
-      "status": "horridulum collar arrow VERIFIED; matching head size/ruler for texanum missing"
+      "role": "Green involucre true measured height + extra horridulum under-head spiny collar; texanum clasping/winged leaf base",
+      "status": "15–20 vs 40–45 mm documented in UT Austin scientific texts; head photos not photographed with rulers; matched metrics PHOTO pending. UT and Uvalde leaf photos linked study-only."
     },
     {
       "priority": 1,
@@ -610,5 +631,41 @@
       "Matched same-scale C. horridulum + C. texanum involucre/bract-collar photos, preferably sourced from central Texas rather than Florida.",
       "Matched leaf-face pair showing C. vulgare upper-blade spines next to native C. texanum/horridulum nonspiny upper blade."
     ]
+  },
+  "texanum_horridulum_measured_visual_pass_2026_10_12": {
+    "stage": "SCIENTIFIC_SIZE_SPLIT_VERIFIED; EXACT_LEAF_PHOTOS_FOUND_ON_SOURCE; MATCHED_RULER_PHOTOS_STILL OPEN",
+    "genus_comparison": {
+      "texanum": {
+        "involucre_height_mm": [
+          15,
+          20
+        ],
+        "locality": "UT Austin Williamson County voucher treatment",
+        "extra_head_collar": "No enormous distinct tight ring of spine-lined reduced cauline leaves like horridulum",
+        "upper_leaf": "Sessile/clasping with possible short auricles AND long spiny decurrent wings in vigorous specimens"
+      },
+      "horridulum_var_horridulum": {
+        "involucre_height_mm": [
+          40,
+          45
+        ],
+        "locality": "UT Austin Williamson County voucher treatment",
+        "extra_head_collar": "Involucre concealed by reduced highly spinescent upper leaves with many narrow, sharp projections",
+        "upper_leaf": "Extremely spiny upper leaflets/subtending bracts"
+      }
+    },
+    "source_photos": {
+      "texanum_leaf_node": "https://www.bio.utexas.edu/courses/bio406d/images/pics/ast/Cirsium%20texanum%20lvs1.JPG",
+      "texanum_eared_leaf": "https://www.backyardnature.net/n/h/texthist.htm",
+      "texanum_involucre_licensed_no_scale": "https://commons.wikimedia.org/wiki/File:Cirsium_texanum.jpg",
+      "horridulum_armored_head_licensed_no_scale": "https://commons.wikimedia.org/wiki/File:Cirsium_horridulum_(bristly_thistle)_2.jpg"
+    },
+    "exact_photo_gaps": [
+      "Ruler alongside each exact species flowering-head INVOLUCRE in same anatomical orientation, photographed with metric scale, excluding projecting florets/spines.",
+      "License-cleared Texas thistle upper-leaf node showing attached auricles and the possible downward wing on a ROBUST specimen.",
+      "A head+leaf three-frame comparison from authentic Hays/nearby voucher-confirmed plants at comparable development stage."
+    ],
+    "reuse_policy": "UT and Jim Conrad structural closeups are SOURCE LINKS only; no permission to install or add arrow overlays. Existing Commons photos are reusable with attribution but lack original measurement rulers.",
+    "no_fabrication_rule": "Never overlay a 20 mm or 45 mm ruler onto differently scaled photographs. Give sourced reference ranges as text; retain measurement photo role pending."
   }
 }
