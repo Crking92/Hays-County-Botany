@@ -7,12 +7,13 @@
   "project_scope": {
     "selection_mode": "comparison-first",
     "species_ids": [
+      "rhus-aromatica",
       "rhus-copallinum-var-lanceolata",
-      "rhus-virens",
-      "rhus-aromatica"
+      "rhus-microphylla",
+      "rhus-virens"
     ],
-    "species_count": 3,
-    "note": "Approved B008 Central Texas sumac set. Rhus copallinum var. lanceolata retains Rhus lanceolata as a prominent synonym. Rhus trilobata is treated within current Rhus aromatica."
+    "species_count": 4,
+    "note": "Approved B008 Central Texas sumac set. Rhus copallinum var. lanceolata retains Rhus lanceolata as a prominent synonym. Rhus trilobata is treated within current Rhus aromatica. Rhus microphylla is also canonical as a RANGE_UNRESOLVED learner entry; do not count it in confirmed-native metrics."
   },
   "study_strategy": {
     "shared_traits": [
@@ -28,7 +29,8 @@
       "terminal red hairy Rhus drupes",
       "distinguish three-leaflet Rhus aromatica from Toxicodendron radicans"
     ],
-    "warning": "Do not teach 'leaves of three = poison ivy.' Rhus aromatica also has three leaflets. Do not use sap contact or crushing as an identification test."
+    "warning": "Do not teach 'leaves of three = poison ivy.' Rhus aromatica also has three leaflets. Do not use sap contact or crushing as an identification test.",
+    "look_here_first": "Count leaflets on a complete leaf, then inspect whether the central leaf axis (rachis) has a leafy wing. Compare leaflet size, margin, and whether foliage persists in winter. Confirm using flowers or drupes when present."
   },
   "quick_key": [
     {
@@ -38,6 +40,10 @@
     {
       "if": "5–9 thick glossy entire leaflets + evergreen/semi-evergreen shrub",
       "then": "Rhus virens"
+    },
+    {
+      "if": "several very small dull green leaflets + densely branched dry-site shrub; rachis may be narrowly winged",
+      "then": "Rhus microphylla (range unresolved; do not identify by thorns alone)"
     },
     {
       "if": "exactly 3 often lobed/coarsely toothed leaflets + low deciduous suckering shrub",
@@ -78,5 +84,50 @@
       "R. aromatica — exactly 3 larger fan-shaped/lobed leaflets; low suckering shrub; local PASS.",
       "R. microphylla — several much smaller leaflets on a pinnate leaf; dry western/southwestern shrub; range HOLD."
     ]
-  }
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "Leaflet count",
+      "R. aromatica": "3",
+      "R. copallinum var. lanceolata": "numerous, commonly 9–23",
+      "R. microphylla": "several to numerous tiny leaflets",
+      "R. virens": "commonly 5–9"
+    },
+    {
+      "character": "Leaf architecture",
+      "R. aromatica": "trifoliolate; leaflets often lobed or toothed",
+      "R. copallinum var. lanceolata": "pinnate, narrow leaflets, conspicuously winged rachis",
+      "R. microphylla": "pinnate, very small leaflets; rachis sometimes narrowly winged",
+      "R. virens": "pinnate, leathery, glossy, mostly entire leaflets"
+    },
+    {
+      "character": "Habit",
+      "R. aromatica": "low deciduous shrub, often suckering",
+      "R. copallinum var. lanceolata": "deciduous shrub or small tree",
+      "R. microphylla": "densely branched shrub, often dry western habitats",
+      "R. virens": "evergreen to semi-evergreen shrub"
+    },
+    {
+      "character": "High-confidence close-up",
+      "R. aromatica": "leaflet lobes and three-leaflet junction",
+      "R. copallinum var. lanceolata": "broad rachis wings between leaflets",
+      "R. microphylla": "leaflet size with scale and rachis detail",
+      "R. virens": "thick entire glossy leaflets and their attachment"
+    }
+  ],
+  "comparison_cautions": [
+    "A narrow rachis wing may occur in R. microphylla; conspicuous wings plus larger narrow leaflets favor R. copallinum var. lanceolata.",
+    "Do not rely on absence of spines alone for R. microphylla; branch-tip spinescence reports need targeted diagnostic review.",
+    "R. aromatica and poison ivy (Toxicodendron radicans) both have three leaflets; compare habit, leaflet margin, fruit and stem attachment without touching sap.",
+    "R. trilobata names remain represented under R. aromatica, not separate canonical taxa.",
+    "R. microphylla is installed for study but its target-zone range status remains unresolved."
+  ],
+  "diagnostic_photo_checklist": [
+    "Matched whole leaves of all four species on millimeter grids showing leaflet counts",
+    "R. aromatica: leaf junction and leaflet lobes, with poison ivy look-alike comparison",
+    "R. copallinum var. lanceolata: rachis wing close-up and whole leaf",
+    "R. microphylla: tiny leaflet measurements, rachis wing variation and branch-tip close-up",
+    "R. virens: leaf texture and entire leaflet margins with scale",
+    "All four: fruit clusters and close-ups of drupes where available"
+  ]
 }
