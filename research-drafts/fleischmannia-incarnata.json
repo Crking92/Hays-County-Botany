@@ -37,7 +37,7 @@
     "confirmed_native_counties": [],
     "range_note": "FNA lists Texas, but BONAP county-level evidence for at least 3 project target-zone counties has not been reviewed. Do not score confirmed-native."
   },
-  "look_here_first": "A lax or sprawling/scandent perennial with widely spaced OPPOSITE triangular to heart-based coarse-toothed leaves and small, pale pink to purple discoid heads. Compare the number of florets in ONE head and dissect a head to see the flat/slightly convex receptacle. Conoclinium coelestinum generally has many more florets/head and a CONIC receptacle. Flower color only supports the determination.",
+  "look_here_first": "Do not start with pink color. Inspect ONE flower head from the SIDE with a scale. Fleischmannia has a short 4–5 mm involucre and comparatively few phyllary ranks; fragrant mistflower (Chromolaena odorata) has a more cylindrical ~8–10 mm head with many overlapping phyllary rows. Next check Fleischmannia's lax/sprawling herbaceous stems and opposite coarsely toothed triangular-to-heart-shaped leaves. Against blue mistflower (Conoclinium coelestinum), also compare florets per head and flat/slightly convex vs conic receptacle if a dissection is possible.",
   "morphology": {
     "habit": "Perennial 30–120(–200) cm, lax, sprawling or scandent/leaning on neighbors, much branched.",
     "leaves": "Opposite; petioles (0.5–)1–3.5(–4) cm; triangular-deltate 2–5(–7) × 1.5–3.5(–5) cm; base often truncate to cordate, margins coarsely serrate to crenate-serrate.",
@@ -71,11 +71,26 @@
     },
     {
       "taxon": "Chromolaena odorata",
-      "canonical": false,
+      "canonical": true,
+      "priority": "high",
+      "separators": [
+        "Inspect the SIDE of one unopened-to-flowering capitulum: Fleischmannia involucre 4–5 mm, Chromolaena odorata typically cylindrical 8–10 mm.",
+        "Fleischmannia heads have relatively few phyllary ranks; Chromolaena has conspicuously numerous overlapping/imbricate phyllary series.",
+        "Fleischmannia stems are lax, sprawling or weakly climbing HERBACEOUS growth; Chromolaena more robust and shrub-like, but this is supporting only.",
+        "Both can bear opposite coarsely toothed, three-veined-looking leaves and pinkish flower heads: neither color nor leaf venation alone separates them."
+      ],
+      "photo_pair": [
+        "same magnification capitulum side with millimeter scale",
+        "mature leaf pair and stem habit"
+      ]
+    },
+    {
+      "taxon": "Ageratina altissima",
+      "canonical": true,
       "priority": "secondary",
       "separators": [
-        "Chromolaena individual cylindrical involucre generally 8–10 mm vs F. incarnata 4–5 mm",
-        "Chromolaena many series of imbricate phyllaries; Fleischmannia short subequal series"
+        "White snakeroot commonly has broader triangular opposite toothed leaves and white head clusters, but flower color overlaps.",
+        "When sterile or atypical, inspect capitulum phyllaries and mature fruit; avoid an identification based on white versus pink alone."
       ]
     }
   ],
@@ -110,6 +125,18 @@
       "priority": 2,
       "shot": "ripe cypsela/pappus and carpopodium under microscope with mm scale",
       "status": "PENDING"
+    },
+    {
+      "role": "matched_fleischmannia_vs_chromolaena_involucres",
+      "priority": 1,
+      "shot": "side view of one mature flower head in both species at SAME millimeter scale; arrows mark phyllary overlap and involucre length (Fleischmannia 4–5 mm vs Chromolaena 8–10 mm)",
+      "status": "PENDING rights-cleared paired photos"
+    },
+    {
+      "role": "fragrant_mistflower_vs_pink_thoroughwort_field_habit",
+      "priority": 2,
+      "shot": "full plant and middle-node opposite leaf pairs in each species at similar scale, showing lax herbaceous vs robust shrub-like habit; labels note overlap",
+      "status": "PENDING rights-cleared paired photos"
     }
   ],
   "media_references": [
@@ -158,6 +185,7 @@
     "status": "research draft, not approved for canonical installation",
     "range": "UNRESOLVED",
     "photos": "0 installed / 3 reference pages identified; diagnosis-specific images pending",
-    "notes": "Source-pool eligible and genuinely confusable with Conoclinium coelestinum; admit when diagnostic-photo provenance and curation pipeline are ready. Preserve independent reviewer/automation claims."
+    "notes": "Expanded high-priority Chromolaena odorata/fragrant mistflower side-view head comparison without changing UNRESOLVED native-range label. No images installed; exact-license flower head macros still required. Eligible via approved source pool; preserve draft status until visual curation.",
+    "last_enriched": "2026-10-13"
   }
 }
