@@ -33,13 +33,16 @@
       "flowers grouped in cymes/verticils along a flowering axis"
     ],
     "priority": [
+      "salvia-texana vs salvia-engelmannii: count basal vs cauline leaves and flower cymes, study calyx glands only with macros",
+      "salvia-farinacea vs salvia-azurea: mealy calyx vs open tall flower axis and narrow leaves",
+      "salvia-coccinea vs salvia-roemeriana vs salvia-pentstemonoides: separate basal leaf patterns, habitat and flower size",
+      "salvia-greggii vs salvia-ballotiflora: woody shrubs and distinctive leaves/calyces",
+      "salvia-lyrata: deeply lyrate rosette leaf vs other blue flowered sages",
       "basal leaves present vs absent",
       "leaf width, shape, and petiole",
       "gland/hair type",
       "calyx surface, ribs, and lobe tips",
-      "bracts and cyme structure",
-      "overall flowering-axis architecture",
-      "corolla pubescence and lip shape"
+      "bracts and cyme structure"
     ],
     "warning": "Do not identify Texas sages primarily by flower color. Several local species overlap in blue-violet shades."
   },
@@ -86,7 +89,183 @@
     }
   ],
   "curation_status": {
-    "version": "2.0-salvia-complete",
-    "last_reviewed": "2026-10-02"
-  }
+    "version": "2.1-salvia-texana-engelmannii-photo-first",
+    "last_reviewed": "2026-10-13",
+    "visual_status": "5 matched media panels staged/live: 2 texana + 3 engelmannii; photo-first morphology, arrows and true gland macros still pending",
+    "annotated_panels": 0,
+    "photo_panels": 5,
+    "multi_species_comparison": true
+  },
+  "shared_genus_recognition": {
+    "look_here_first": "FIRST identify the growth form (shrub, annual herb, or low perennial); then whole-plant leaves, then the flowering node and calyx. Tiny leaf gland shapes are strong when correctly photographed but cannot be guessed from a fuzzy full-plant shot.",
+    "shared_traits": [
+      "opposite decussate leaves",
+      "square/4-angled stems common",
+      "bilabiate flowers",
+      "two fertile stamens with elongate connective/lever architecture",
+      "deeply 4-lobed ovary with gynobasic style",
+      "fruit separating into nutlets",
+      "flowers grouped in cymes/verticils along a flowering axis"
+    ],
+    "science_caution": "S. texana has basal leaves but is not itself a true basal rosette (UT Austin); never claim basal rosette in that species. Also many blue-violet Salvia have strongly ribbed calyces: ribs alone are NOT a reliable species ID."
+  },
+  "photo_comparison_focus": {
+    "priority": 1,
+    "pair": [
+      "salvia-texana",
+      "salvia-engelmannii"
+    ],
+    "key_traits": [
+      {
+        "look": "Leaves at plant base",
+        "texana": "Basal AND cauline leaves but NOT true rosette; basal leaf 25–60 × 4–10+ mm",
+        "engelmannii": "Only cauline leaves, slender linear ~30–60 × 3–5 mm",
+        "why": "Best whole-plant difference if base in frame",
+        "photo_requirements": "Photograph full rooted base on each plant, and paired leaves on 1-mm ruler"
+      },
+      {
+        "look": "Flower groups at same stem node",
+        "texana": "Terminal many-flowered axis/raceme; often 8–14 flower pairs, sharply pointed leafy bracts",
+        "engelmannii": "Two opposing axillary cymes with three flowers per cyme, often close nodes",
+        "why": "Teaches difference between individual flower pairs and multi-flower branching cymes",
+        "photo_requirements": "Same-level flowering node side close-up with visible pedicels, no overlapping labels"
+      },
+      {
+        "look": "Gland position",
+        "texana": "Glandular hairs embedded/sunken in pits on leaf and calyx",
+        "engelmannii": "Subsessile tack-shaped glands stand above leaf/calyx surface",
+        "why": "Microstructure true separator when adequately photographed",
+        "photo_requirements": "Exact species same-magnification leaf/calyx macro, millimeter scale and arrows directly on confirmed glands; not available yet"
+      },
+      {
+        "look": "Calyx",
+        "texana": "Green 10-ribbed pointed calyx ~11–12 mm",
+        "engelmannii": "10-ribbed calyx ~10–11 mm with ~0.5-mm awn tips and raised tack glands",
+        "why": "Mostly overlapping; calyx alone insufficient",
+        "photo_requirements": "Side/back photo of same-maturity calyces at ruler scale"
+      },
+      {
+        "look": "Petals and color",
+        "texana": "Blue-violet 2-lipped, relatively dark lower lip",
+        "engelmannii": "Pale blue-violet, often very white/violet-marked lower lip",
+        "why": "Flower color/brightness varies and cannot be sole split",
+        "photo_requirements": "Same light, angle, camera and stage for both species"
+      }
+    ],
+    "memory_rule": "TEXANA = basal leaves + PIT glands + pointed leafy bracts. ENGELMANN = stem leaves only + TACK glands + three-flower cymes.",
+    "do_not_label_without_macro": [
+      "sunken/pitted gland hair",
+      "individual tack-shaped gland head",
+      "one flower in a 3-flowered cyme when pedicels not separately visible"
+    ],
+    "source_pages": [
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Salvia%20texana.html",
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Salvia%20engelmannii.html"
+    ]
+  },
+  "visual_comparison": {
+    "title": "Texas Sage vs Engelmann’s Sage — Learn the right part first",
+    "subtitle": "Five real images (two Texas and three Engelmann), with concise visual clues beside each photograph. Final gland micrographs and pixel-accurate arrows still missing.",
+    "items": [
+      {
+        "label": "TEXAS SAGE · BRACTS & FLOWER HEADS",
+        "species_id": "salvia-texana",
+        "scientific_name": "Salvia texana",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-texana/images/01-flowering-detail.jpg",
+        "image_fit": "contain",
+        "caption": "Look at the pointed, leaflike bracts beside each blue-violet flower; the green calyx cups each flower. The pitted gland detail needs a dedicated micro shot.",
+        "creator": "Wikimedia Commons contributor — unresolved",
+        "license": "unverified individual photo; private study only",
+        "source_page": "https://commons.wikimedia.org/wiki/Category:Salvia_texana",
+        "markers": [],
+        "annotation_status": "no arrows yet — image pixel/licensing QA pending"
+      },
+      {
+        "label": "ENGELMANN · EDWARDS PLATEAU STEM",
+        "species_id": "salvia-engelmannii",
+        "scientific_name": "Salvia engelmannii",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-engelmannii/images/01-edwards-plateau-field-reference.jpg",
+        "image_fit": "contain",
+        "caption": "Exact wild plant. Find its narrow stem leaves and compare bloom color/shape with Texas sage. Raised tack-shaped glands require a macro.",
+        "creator": "Craig Hensley",
+        "license": "CC BY 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_engelmannii_iNat-43145045.jpg",
+        "markers": [],
+        "annotation_status": "big morphological features only"
+      },
+      {
+        "label": "TEXAS SAGE · HABIT & STEM LEAVES",
+        "species_id": "salvia-texana",
+        "scientific_name": "Salvia texana",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-texana/images/02-field-reference.jpeg",
+        "image_fit": "contain",
+        "caption": "Existing field photograph of habit, upper leaves and flower groups; base not in view may conceal the diagnostically useful basal leaves.",
+        "creator": "iNaturalist observer unresolved",
+        "license": "image reuse unverified",
+        "source_page": "https://www.gbif.org/es/species/2926988",
+        "markers": [],
+        "annotation_status": "no guesses about base of cropped photograph"
+      },
+      {
+        "label": "ENGELMANN · FLOWER-AND-LEAF FIELD",
+        "species_id": "salvia-engelmannii",
+        "scientific_name": "Salvia engelmannii",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-engelmannii/images/03-chalk-mountain-flowering-study.jpg",
+        "image_fit": "contain",
+        "caption": "Somervell County native Engelmann sage, 2024. Added with source and CC BY 2.0 attribution, for matched flowering plant shape.",
+        "creator": "sonnia hill",
+        "license": "CC BY 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Salvia_engelmannii.jpg",
+        "markers": [],
+        "annotation_status": "field photo, not micromorphology"
+      },
+      {
+        "label": "ENGELMANN · OVERALL CLUMP, CULTIVATED",
+        "species_id": "salvia-engelmannii",
+        "scientific_name": "Salvia engelmannii",
+        "image_url": "content/taxa/Lamiaceae/Salvia/salvia-engelmannii/images/02-whole-plant-habit.jpg",
+        "image_fit": "contain",
+        "caption": "Cultivated comparison for compact clumping form only. Not a wild field diagnostic or public-reuse image.",
+        "creator": "Lone Star Nursery",
+        "license": "rights not verified, no public reuse",
+        "source_page": "https://lonestarnursery.com/products/sage-engelmanns-blue",
+        "markers": [],
+        "annotation_status": "private learner only"
+      }
+    ],
+    "photo_count": 5,
+    "distinct_species": 2,
+    "annotation_policy": "Only mark parts actually visible; no guessed tiny gland arrows, and credits must remain attached to the photo."
+  },
+  "diag_photos_needed": {
+    "highest": [
+      "matched whole rooted plants showing basal versus cauline leaves",
+      "paired measured basal / stem leaf blades",
+      "real flower node top and lateral views showing paired individual flowers versus 3-flowered cymes",
+      "matched 1-mm leaf and calyx gland macros: sunken pit glands versus raised tack glands",
+      "matched full side calyx with true ruler, ribs and awn tips"
+    ],
+    "remaining_groups": [
+      "Azure vs mealy blue sages",
+      "scarlet vs cedar vs big red",
+      "autumn vs shrubby blue",
+      "lyreleaf standalone"
+    ],
+    "final_arrow_QA": "Open each original on phone; if visual arrows target empty space, do not mark photo reviewed."
+  },
+  "field_vocabulary": {
+    "cauline": "KAW-lin — on stems",
+    "basal": "BAY-sul — near plant base; basal leaves do NOT always make a rosette",
+    "rosette": "roh-ZET — tight basal leaf circle (not present in S. texana)",
+    "cyme": "SIME — flowering group with branching pedicels; count separate flowers in each",
+    "raceme": "ray-SEEM — mostly unbranched flower axis with individual flower stalks",
+    "verticil": "VER-ti-sil — a group of flowers around one stem level",
+    "gland": "GLAND — minute secretory structure; can sit sunken (pit) or raised (tack)"
+  },
+  "photo_review_cautions": [
+    "Some pre-existing Salvia texana photo records have unresolved photographer and rights; study-only, not public export.",
+    "One Commons photo titled 'Blue Sage / Texas Sage' (4553958082) says 'Could be Engelmann’s Salvia' on its source page; exclude from learner despite correct-looking Commons category.",
+    "UT Williamson specimen says texana NOT rosetted; distinguish basal leaves from true rosette.",
+    "Canonical Salvia texana range record counts Williamson as a target county, but Williamson is NOT within project 24-county zone. Flag to science/range lane for reconciliation, without changing a settled status in this PHOTO lane."
+  ]
 }
