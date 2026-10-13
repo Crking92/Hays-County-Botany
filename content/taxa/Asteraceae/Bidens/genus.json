@@ -90,7 +90,7 @@
       "priority": 1,
       "group": "frondosa",
       "role": "Complete three-leaflet leaf with petiole, ideally opposite node in frame",
-      "status": "Laval licensed standalone upper leaf photo found, added to species images[] as remote. Full attached node still missing.",
+      "status": "CC BY-SA 4.0 complete standalone compound leaf FOUND, actual original image reviewed, two correct arrows added in genus. Stem node still missing.",
       "source": "https://commons.wikimedia.org/wiki/File:Bidens_frondosa_15-p.bot-biden.frondo-18.jpg"
     },
     {
@@ -120,14 +120,15 @@
     }
   ],
   "curation_status": {
-    "version": "2.0-two-taxon-diagnostic-visual-comparison",
+    "version": "2.1-annotated-leaf-and-floret-study",
     "taxonomy_reviewed": true,
     "morphology_reviewed": true,
     "range_status": "UNRESOLVED",
     "photo_polish_pending": true,
     "last_reviewed": "2026-10-12",
     "visual_gallery_items": 5,
-    "major_scientific_correction_complete": true
+    "major_scientific_correction_complete": true,
+    "verified_visual_arrow_count": 4
   },
   "head_to_head": [
     {
@@ -148,7 +149,7 @@
   ],
   "visual_comparison": {
     "title": "Beggarticks — see the leaf FIRST, then green bracts and sticky fruits",
-    "subtitle": "Two canonical species, five real source-attributed photographs covering habit, whole leaf, head, and fruits. All are real source/physical images; no unverified arrows.",
+    "subtitle": "Six source-attributed photos for the two installed Bidens. Four genuinely verified arrows now teach frondosa compound-leaf leaflet junction and laevis ray-versus-disk FLORETS. Calyculus, cypsela awns and node positions remain targeted photo polish.",
     "memory_rule": "FRO(N)DOSA: leaf FRACTIONS (3–5) + mostly disk head; LAEVIS: ONE leaf blade + often large yellow rays. For look-alikes, count OUTER calyculus bracts and examine ripe fruit margins.",
     "items": [
       {
@@ -171,7 +172,25 @@
         "creator": "Gilles Ayotte / Université Laval",
         "license": "CC BY-SA 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Bidens_frondosa_15-p.bot-biden.frondo-18.jpg",
-        "image_fit": "contain"
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "Three leaflets — ONE compound leaf",
+            "label_x": 3,
+            "label_y": 7,
+            "target_x": 57,
+            "target_y": 70
+          },
+          {
+            "label": "Terminal leaflet",
+            "label_x": 58,
+            "label_y": 4,
+            "target_x": 50,
+            "target_y": 29
+          }
+        ],
+        "annotation_note": "Compared against exact original licensed 1263×1828 image: first arrow points at common trifoliate junction x≈57%,y≈70%, second at terminal blade tissue x≈50%,y≈29%. Neither claims a visible STEM NODE (cropped leaf ends below). Added overlay by learner, not part of the source photo.",
+        "photo_status": "ORIGINAL_PIXELS_VIEWED_AND_LEAFLET_JUNCTION_MARKED"
       },
       {
         "label": "B. frondosa — mature head longitudinal section",
@@ -205,9 +224,38 @@
         "license": "CC BY 2.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Bidens_laevis_-_achenes_and_chaff.jpg",
         "image_fit": "contain"
+      },
+      {
+        "label": "Smooth beggarticks — actual RAY FLORET and center DISK FLORETS",
+        "scientific_name": "Bidens laevis",
+        "image_role": "Clear large yellow strap-shaped ray florets and central cluster of small tubular disk florets, same head",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bidens%20laevis%201a.jpg",
+        "caption": "A whole head is made of many flowers: each large YELLOW STRAP is ONE ray floret, and the tight center is MANY tiny tubular disk florets. Compare frondosa's usually rayless/small-rayed heads, but always confirm the leaf and fruit.",
+        "creator": "jimduggan24",
+        "license": "CC BY 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Bidens_laevis_1a.jpg",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "ONE ray floret",
+            "label_x": 7,
+            "label_y": 14,
+            "target_x": 34,
+            "target_y": 40
+          },
+          {
+            "label": "Many disk florets",
+            "label_x": 59,
+            "label_y": 8,
+            "target_x": 53,
+            "target_y": 56
+          }
+        ],
+        "annotation_note": "Original 953×768 photograph inspected: ray target in upper-left large yellow strap blade; disk target in center yellow/orange tubular floret cluster. Do NOT put an arrow on woolly leaf at bottom claiming species-specific leaf attachment.",
+        "photo_status": "ORIGINAL_PIXELS_VIEWED_AND_TWO_FLORAL_PARTS_LABELED"
       }
     ],
-    "overlay_note": "Photo roles are supported by actual sources and physical filenames, but no feature arrows are placed until photos are inspected at original pixels. External Commons leaf file is linked (not local binary). Protected outside sources appear below as STUDY LINKS ONLY.",
+    "overlay_note": "Original Commons photographs were visually reviewed for ONLY these four arrow targets: frondosa trifoliate junction and terminal leaflet, laevis ray floret and central disk florets. No leaf NODE or small awn is arrowed without being unambiguously visible. Overlays are learner additions; original license attribution and derivative conditions remain.",
     "study_only_intro": "Diagnostic photographs shown on their original sites cannot be copied into the learner without image-specific reuse permission; these are research links for humans.",
     "study_only_photo_links": [
       {
@@ -258,10 +306,30 @@
     "physical_images_frondosa": 2,
     "physical_images_laevis": 2,
     "remote_image_frondosa": 1,
-    "genus_gallery_cards": 5,
-    "diagnostic_arrows": 0,
+    "genus_gallery_cards": 6,
+    "diagnostic_arrows": 4,
     "why_no_arrows": "Part photographs are sourced and present; image-pixel coordinates have not been independently checked, so no guessed marker positions.",
-    "remaining": "Node-attached leafy macros, matched 2 species and lookalikes at same scale, calyculus and fruit barbs with metric measurement."
+    "remaining": "Node-attached leafy macros, matched 2 species and lookalikes at same scale, calyculus and fruit barbs with metric measurement.",
+    "remote_images_laevis": 1,
+    "feature_verified_arrow_photo_sources": [
+      {
+        "species": "Bidens frondosa",
+        "url": "https://commons.wikimedia.org/wiki/File:Bidens_frondosa_15-p.bot-biden.frondo-18.jpg",
+        "features": [
+          "three leaflet junction",
+          "terminal leaflet"
+        ]
+      },
+      {
+        "species": "Bidens laevis",
+        "url": "https://commons.wikimedia.org/wiki/File:Bidens_laevis_1a.jpg",
+        "features": [
+          "ray floret",
+          "center disk florets"
+        ]
+      }
+    ],
+    "why_no_other_arrows": "Only actual complete original images inspected; small fruit barbs and inner calyculus not yet pixel-position-checked."
   },
   "scientific_correction_2026_10_12": "Previously genus.matrix labeled B. laevis 'perennial wetland'; FNA describes annual sometimes persisting. Updated across genus and species card. Also B. frondosa has antrorse OR retrorse barbs, cannot claim always backward.",
   "authoritative_sources": [
