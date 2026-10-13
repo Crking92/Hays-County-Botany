@@ -6,13 +6,12 @@
   "project_scope": {
     "selection_mode": "B030 taxonomy-reconciled comparison",
     "species_ids": [
-      "anatherum-glomeratum"
-    ],
-    "species_count": 1,
-    "holds": [
+      "anatherum-glomeratum",
       "anatherum-virginicum"
     ],
-    "note": "Current Kew treatment accepts bushy bluestem and broomsedge in Anatherum. A. virginicum remains a range HOLD in this project."
+    "species_count": 2,
+    "holds": [],
+    "note": "Both A. glomeratum and A. virginicum are installed canonical learner species and their individual species.json records currently label both target-zone PASS. Familiar field-guide aliases are Andropogon glomeratus and Andropogon virginicus. Preserve existing settled county/range evidence; do not treat the unrelated source-pool Anatherum tenuispatheum as either of these taxa."
   },
   "study_strategy": {
     "priority": [
@@ -29,12 +28,167 @@
       "Anatherum glomeratum — dense brushlike fluffy crown; many clustered inflorescence units.",
       "Anatherum virginicum — narrower silky racemes, individually more sheath-enclosed; persistent broomlike winter clump."
     ],
-    "caveat": "A. virginicum is researched but not installed as a native canonical species until three exact target-zone counties are locked."
+    "caveat": "Both species are canonical and currently PASS under their existing species-level county decisions. The genus comparison needs matched reproductive photographs; A. virginicum currently lacks an images[] gallery."
   },
   "curation_status": {
-    "version": "1.0-b030",
-    "last_reviewed": "2026-10-03"
+    "version": "2.0-two-canonical-comparison-2026-10-14",
+    "last_reviewed": "2026-10-14"
   },
-  "visual_status": "fast_fill_coverage_live",
-  "fast_fill_note": "Anatherum glomeratum now has a 3-image FAST-FILL gallery. Synonym-based images are used only because the canonical record explicitly maps Andropogon glomeratus to accepted Anatherum glomeratum."
+  "visual_status": "morphology_comparison_live_photo_polish_pending",
+  "fast_fill_note": "Anatherum glomeratum now has a 3-image FAST-FILL gallery. Synonym-based images are used only because the canonical record explicitly maps Andropogon glomeratus to accepted Anatherum glomeratum.",
+  "look_here_first": "On a mature flowering stem, follow the upper leaf sheaths to the small paired silky racemes (rames). Is the flowering crown densely packed into a broad brushlike cluster, with many short branches, or is it a narrower, more elongated set of racemes tucked into separate spathe-like sheaths? Then compare the sheath length and how far the rames protrude. Do not key by fall color alone.",
+  "shared_genus_traits": [
+    "Warm-season perennial tufted grasses with leaf sheaths, ligules and narrow blades.",
+    "Upper culms bear inflorescence units subtended by spathe-like leafy sheaths.",
+    "Each short rame bears paired spikelet positions, typically one fertile sessile spikelet and a reduced or absent pedicellate spikelet; silky hairs on the rame joints and pedicels produce the fluffy appearance.",
+    "Andropogon glomeratus and Andropogon virginicus are familiar search aliases for the canonical Anatherum concepts used in this project."
+  ],
+  "species_comparison_matrix": [
+    {
+      "character": "Whole flowering crown",
+      "anatherum-glomeratum": "Broad, densely clustered brushlike/cottony terminal mass; shortened upper branches crowded together.",
+      "anatherum-virginicum": "Narrower, looser or elongated flowering outline; raceme units distributed along upper branches."
+    },
+    {
+      "character": "Rame versus spathe",
+      "anatherum-glomeratum": "Paired silky rames often reach or protrude from subtending spathes; crowded units form the bushy crown.",
+      "anatherum-virginicum": "Short paired or grouped rames mostly partly enclosed by conspicuous flattened spathe-like sheaths."
+    },
+    {
+      "character": "Rame and sheath size (supporting)",
+      "anatherum-glomeratum": "Rames commonly 1–3 cm, with spathes of roughly similar length in older regional treatments.",
+      "anatherum-virginicum": "Rames commonly 1–3 cm; spathes often about 2.5–6 cm. Size overlaps; inspect exposure and architecture."
+    },
+    {
+      "character": "Growth context (secondary only)",
+      "anatherum-glomeratum": "Frequently low, moist drainage edges, ditches and pond margins.",
+      "anatherum-virginicum": "Frequently upland old fields, sandy/disturbed ground; can also occur near bushy bluestem."
+    },
+    {
+      "character": "Useful close-up",
+      "anatherum-glomeratum": "Photograph a dense group of paired rames at the upper node and their enclosing spathes.",
+      "anatherum-virginicum": "Photograph one separated inflorescence unit with spathe, paired rames and their exposed lengths."
+    }
+  ],
+  "quick_comparison_steps": [
+    "1. Start with the whole mature inflorescence: dense rounded brush (glomeratum) versus more elongated and separated units (virginicum).",
+    "2. Zoom in on one paired-rame unit and label the spathe, peduncle and two rames.",
+    "3. Compare whether rames are protruding or mostly sheath-enclosed; inspect several units because development changes exposure.",
+    "4. If uncertain, photograph mature spikelets, sheath attachment and full plant; do not identify by dry-season orange color or habitat alone."
+  ],
+  "overlap_and_cautions": [
+    "Both have silky hairs, paired rames and similar spikelet sizes; those shared traits do not separate the species.",
+    "Sheath and rame lengths overlap and can change with maturity; overall inflorescence architecture plus rame exposure is stronger than one measurement.",
+    "Bushy bluestem can be less conspicuously fluffy before maturity; broomsedge can look crowded on stressed or mowed plants.",
+    "Wet versus dry habitat is supporting context only; broomsedge and bushy bluestem can grow together.",
+    "A. virginicum is already canonical with species-level PASS status. The older genus-level HOLD text was stale and is superseded by the species record.",
+    "The live Master Plant Pool currently lists the two canonical concepts under familiar Andropogon source names; its Anatherum genus row instead counts Anatherum tenuispatheum. Do not manually overwrite Genus Study Index formula columns C:M to mask this source-name mismatch."
+  ],
+  "local_source_pool_lookalikes": [
+    {
+      "taxon": "Andropogon gerardii / big bluestem",
+      "separate": "Few open fingerlike turkey-foot racemes, not many paired sheath-enclosed silky rames crowded into a brush."
+    },
+    {
+      "taxon": "Schizachyrium scoparium / little bluestem",
+      "separate": "Silky rames occur singly or in simpler branch arrangements rather than dense upper Anatherum spathe-bracted clusters; confirm spikelet arrangement."
+    },
+    {
+      "taxon": "Bothriochloa spp.",
+      "separate": "Often conspicuous branching panicles and different raceme/spikelet architecture; inspect rachis and pedicellate spikelets rather than hairiness alone."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "role": "matched whole flowering crowns",
+      "taxa": [
+        "anatherum-glomeratum",
+        "anatherum-virginicum"
+      ],
+      "annotation": "arrow to crowded versus elongated upper branching; same scale and maturity"
+    },
+    {
+      "role": "one inflorescence unit per species",
+      "taxa": [
+        "anatherum-glomeratum",
+        "anatherum-virginicum"
+      ],
+      "annotation": "label spathe, peduncle, paired rames and exposed tips; show ruler"
+    },
+    {
+      "role": "paired spikelet macro",
+      "taxa": [
+        "anatherum-glomeratum",
+        "anatherum-virginicum"
+      ],
+      "annotation": "label fertile sessile spikelet, reduced pedicellate position, rame internode and silky hairs"
+    },
+    {
+      "role": "sheath and ligule",
+      "taxa": [
+        "anatherum-glomeratum",
+        "anatherum-virginicum"
+      ],
+      "annotation": "show upper spathe-like sheath and basal leaf collar/ligule"
+    },
+    {
+      "role": "whole plant and basal clump",
+      "taxa": [
+        "anatherum-glomeratum",
+        "anatherum-virginicum"
+      ],
+      "annotation": "show branching position and intact lower culms"
+    },
+    {
+      "role": "big bluestem look-alike",
+      "taxa": [
+        "anatherum-glomeratum",
+        "anatherum-virginicum"
+      ],
+      "annotation": "compare turkey-foot open digitate racemes to spathe-enclosed Anatherum units"
+    }
+  ],
+  "existing_media_references": [
+    {
+      "species_id": "anatherum-glomeratum",
+      "source": "content/taxa/Poaceae/Anatherum/anatherum-glomeratum/species.json",
+      "note": "Three provisional gallery image references exist; verify diagnostic structures before reuse."
+    },
+    {
+      "species_id": "anatherum-virginicum",
+      "source": "content/taxa/Poaceae/Anatherum/anatherum-virginicum/species.json",
+      "note": "No images[] gallery currently; diagnostic photo acquisition remains needed."
+    }
+  ],
+  "handoffs": [
+    {
+      "lane": "Diagnostic Photo Polish",
+      "task": "Install matched rame/spathe close-ups for both species, prioritizing no-gallery A. virginicum; verify source image licensing and visible structures."
+    },
+    {
+      "lane": "Family Backfill",
+      "task": "Poaceae/family.json still says broomsedge is a range HOLD. Reconcile family-level summary against canonical A. virginicum species.json without changing county decisions."
+    },
+    {
+      "lane": "Google Sheet/Taxonomy Coordination",
+      "task": "Genus Study Index Poaceae/Anatherum A:B already exists at row 106, but its C:M formulas count source-pool A. tenuispatheum (1 total/0 curated), while canonical glomeratum/virginicum occur in Master Plant Pool under Andropogon aliases. Resolve alias-aware derived counts in owning formula/source mapping lane; do not hand-edit C:M."
+    }
+  ],
+  "sources": [
+    {
+      "title": "USDA Forest Service Bushy Bluestem account",
+      "url": "https://www.srs.fs.usda.gov/pubs/rp/rp_so210.pdf",
+      "scope": "glomeratum dense crown, spathes and rame dimensions"
+    },
+    {
+      "title": "Iowa Grasses Andropogon virginicus",
+      "url": "https://www.eeob.iastate.edu/research/IowaGrasses/speciespages/AndroVirgi/AndroVirgi.html",
+      "scope": "virginicum paired rames, sheath and spikelet measurements"
+    },
+    {
+      "title": "Texas A&M Plants of Texas Rangelands broomsedge",
+      "url": "https://rangeplants.tamu.edu/plant/broomsedge-bluestem/",
+      "scope": "local habitat and upper sheath architecture"
+    }
+  ]
 }
