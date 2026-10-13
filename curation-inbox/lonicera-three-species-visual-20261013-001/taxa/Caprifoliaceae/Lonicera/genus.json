@@ -1,0 +1,237 @@
+{
+  "rank": "genus",
+  "name": "Lonicera",
+  "family": "Caprifoliaceae",
+  "common_group": "honeysuckles (including Japanese encounter comparison)",
+  "project_scope": {
+    "selection_mode": "approved source-pool all three staged for canonical install",
+    "source_pool": "Hays_Botany_ID_Master_Curation_Tracker > Master Plant Pool rows 657–659",
+    "included_source_pool_taxa": [
+      "Lonicera albiflora",
+      "Lonicera japonica",
+      "Lonicera sempervirens"
+    ],
+    "canonical_species_ids_present": [
+      "lonicera-albiflora",
+      "lonicera-japonica",
+      "lonicera-sempervirens"
+    ],
+    "learner_vs_range_note": "L. japonica is a non-native encounter/comparison taxon; approved source-pool admission does not imply native range PASS. Other taxa also retain separate county-range determinations.",
+    "note": "Do not confuse species cards in canonical learner with BONAP target-native PASS. albiflora and sempervirens unresolved; japonica introduced comparison."
+  },
+  "shared_genus_recognition": {
+    "look_here_first": "At a node, confirm opposite simple leaves. Trace an intact flower from corolla tube to its INFERIOR ovary. Then ask whether the flowers come in axillary pairs (Japanese honeysuckle) or condensed TERMINAL whorls. On terminal flowering shoots, measure the corolla and photograph the fused bracts: both L. albiflora and L. sempervirens can have a fused perfoliate pair, so that character alone does NOT separate them.",
+    "shared_traits": [
+      "Woody shrubs, scrambling shrubs or vines with opposite simple leaves, typically with entire margins and without stipules.",
+      "Sympetalous flowers with a tubular base, five corolla lobes (often appearing two-lipped), five stamens and an inferior ovary.",
+      "Fleshy berries with small seeds; ripe fruit color is especially helpful for routing L. japonica versus the two red-fruited species."
+    ],
+    "family_reference": "content/taxa/Caprifoliaceae/family.json",
+    "false_friend": "Fused terminal bracts are not exclusive to coral honeysuckle. Texas honeysuckle L. albiflora also has connate-perfoliate inflorescence bracts and sometimes perfoliate sucker leaves."
+  },
+  "look_here_first_sequence": [
+    {
+      "step": 1,
+      "inspect": "flowering shoot: insertion points of inflorescences",
+      "decision": "Flowers in small opposite axillary PAIRS at successive nodes, rather than terminal condensed whorls -> L. japonica candidate."
+    },
+    {
+      "step": 2,
+      "inspect": "terminal flowering cluster, floral corolla length and lobing",
+      "decision": "Terminal whorls with short (~17–20 mm) clearly two-lipped cream flowers -> L. albiflora; terminal whorls with long (~38–48 mm) mostly tubular flowers and relatively short lobes -> L. sempervirens."
+    },
+    {
+      "step": 3,
+      "inspect": "ripe berry associated with the identified flowering shoot",
+      "decision": "Blackish fruit supports L. japonica; red-orange to scarlet fruit can occur in BOTH L. albiflora and L. sempervirens and cannot split them."
+    },
+    {
+      "step": 4,
+      "inspect": "vegetative-only vine or unusual flowering shoot",
+      "decision": "Retain Lonicera sp. when no terminal/axillary structure or flower dissection is available; leaf fusion by itself is insufficient."
+    }
+  ],
+  "species_comparison_matrix": [
+    {
+      "character": "growth form",
+      "Lonicera albiflora": "Often a several-stemmed arching shrub to ~1.4 m with some twining branches.",
+      "Lonicera japonica": "Evergreen or semi-evergreen scandent/sprawling vine, often with pubescent young shoots.",
+      "Lonicera sempervirens": "Woody twining/climbing or trailing vine.",
+      "weight": "context, variable"
+    },
+    {
+      "character": "leaf attachment and upper shoot bracts",
+      "Lonicera albiflora": "Usually separate short-petiolate ordinary leaves (petiole often ≤3 mm), BUT inflorescence bracts strongly fused/perfoliate; vigorous shoots can have fused leaves.",
+      "Lonicera japonica": "Ordinary opposite leaves distinct with petioles typically ~5–15 mm, not a large complete fused disk immediately subtending terminal whorls.",
+      "Lonicera sempervirens": "Ordinary opposite leaves separate, petiole often ≤7 mm; one or two uppermost terminal pairs/bracts strongly connate into a cup or disk.",
+      "weight": "critical structural caution: leaf fusion cannot separate albiflora from sempervirens"
+    },
+    {
+      "character": "flower position",
+      "Lonicera albiflora": "Condensed terminal cymes, often in whorls, to ~13 flowers.",
+      "Lonicera japonica": "Paired axillary 2-flowered cymes along leafy shoot nodes.",
+      "Lonicera sempervirens": "Terminal condensed whorls / interrupted spike-like cluster, sometimes many flowers.",
+      "weight": "PRIMARY: axillary versus terminal"
+    },
+    {
+      "character": "corolla form and length",
+      "Lonicera albiflora": "Cream to white, two-lipped, ~17–19.5 mm; tube/throat ~9 mm, lobes conspicuously expanded.",
+      "Lonicera japonica": "Long ~45–57 mm, strongly two-lipped, long tube ~24–27 mm with long projecting lobes, white aging yellow.",
+      "Lonicera sempervirens": "Elongate ~38–48 mm narrow trumpet; lobes relatively short and nearly regular compared with the tube; red/orange outside often yellow inside.",
+      "weight": "PRIMARY: architecture + length; not color alone"
+    },
+    {
+      "character": "shoot pubescence",
+      "Lonicera albiflora": "Typically glabrous, sometimes glaucous stems and leaves.",
+      "Lonicera japonica": "Young shoots and petioles short-hairy; stalked glandular hairs can be visible with magnification.",
+      "Lonicera sempervirens": "Young shoots relatively smooth; leaf underside may be glaucous and minutely hairy.",
+      "weight": "supporting macro"
+    },
+    {
+      "character": "ripe fruit",
+      "Lonicera albiflora": "Red-orange to scarlet berry, ~6.5–10 mm diameter.",
+      "Lonicera japonica": "Blackish berry, usually ~6–8 mm, up to ~12 seeds in UT account.",
+      "Lonicera sempervirens": "Red-orange/scarlet berry, commonly ~6–10 mm.",
+      "weight": "PRIMARY for japonica vs others, NOT albiflora vs sempervirens"
+    }
+  ],
+  "scientific_cautions": [
+    "Never teach perfoliate leaves as unique to L. sempervirens: A. C. Gibson describes connate terminal bracts and occasional fused sucker leaves in L. albiflora.",
+    "Ripe red berries do not split L. albiflora from L. sempervirens. Floral architecture and corolla measurements are the reliable training pair.",
+    "L. japonica is a non-native introduced comparison in the source pool; avoid labeling it as a native Hays County plant.",
+    "Winter leaf persistence varies by weather and microclimate; evergreen/deciduous is supporting only.",
+    "Flowers of L. japonica age from white toward yellow; flower color alone is not species proof.",
+    "A connected low leaf ledge is not the same as the wide fused perfoliate disk below terminal flowers. Show exact node and contiguous blade tissue.",
+    "Photos with no attached inflorescence origin or no ruler may be useful as provisional portraits, not a completed diagnostic pair.",
+    "No species files, range statuses, or native-only counts were changed by this genus lesson."
+  ],
+  "local_lookalike_routing": [
+    {
+      "taxon": "Symphoricarpos spp. (snowberries)",
+      "test": "Opposite simple leaves and berries may look similar; compare much shorter, smaller bell-shaped flowers and fruit arrangement with Lonicera's extended tubular corolla and head/axillary flower layout."
+    },
+    {
+      "taxon": "Viburnum spp. (Viburnaceae)",
+      "test": "Opposite foliage and inferior ovary are shared Dipsacales traits; Viburnum commonly has broad many-flowered clusters of small relatively regular flowers and drupes rather than Lonicera tubular flowers and berries."
+    },
+    {
+      "taxon": "Campsis radicans (Bignoniaceae)",
+      "test": "Long orange-red tubes can resemble coral honeysuckle, but Campsis leaves are oppositely PINNATELY COMPOUND and climber uses aerial rootlets; Lonicera leaves are simple."
+    },
+    {
+      "taxon": "Lonicera × brownii / horticultural trumpet-honeysuckle cultivars",
+      "test": "Potential planting/trade look-alikes to L. sempervirens; document provenance and compare accepted hybrid identity rather than certifying a garden plant as straight-species native."
+    }
+  ],
+  "diagnostic_photo_requirements": [
+    {
+      "priority": "critical",
+      "role": "three-species matched inflorescence insertion",
+      "targets": [
+        "L. albiflora",
+        "L. japonica",
+        "L. sempervirens"
+      ],
+      "show": "full shoot with arrows to axillary 2-flowered cymes vs terminal whorls; include intact node and top of stem"
+    },
+    {
+      "priority": "critical",
+      "role": "two red-fruited species matched corolla profile",
+      "targets": [
+        "L. albiflora",
+        "L. sempervirens"
+      ],
+      "show": "same-scale side/face corolla with caliper: short two-lipped ~17–20 mm versus long trumpet ~38–48 mm; arrows to tube and lobes"
+    },
+    {
+      "priority": "critical",
+      "role": "uppermost fused leaf pair and flower stalk",
+      "targets": [
+        "L. albiflora",
+        "L. sempervirens"
+      ],
+      "show": "both connate/perfoliate bracts with close-up connection; note that fusion alone cannot distinguish these taxa"
+    },
+    {
+      "priority": "high",
+      "role": "japonica leaf-node and young-stem gland hair macro",
+      "targets": [
+        "L. japonica"
+      ],
+      "show": "separate petioles and axillary inflorescence; hairs and stalked glands with mm ruler"
+    },
+    {
+      "priority": "high",
+      "role": "ripe berries from positively identified plants",
+      "targets": [
+        "all three"
+      ],
+      "show": "paired comparison of black L. japonica berry and red berries of both others, calyx scar and mm scale"
+    },
+    {
+      "priority": "high",
+      "role": "full habit with reproductive branch",
+      "targets": [
+        "all three"
+      ],
+      "show": "arching shrub versus climbing vine; habitat not presented as determinative"
+    }
+  ],
+  "existing_media_reuse": {
+    "status": "Not verified/installed in this genus lesson; use exact-species existing user/Joey/project assets first when a later photo lane performs provenance, binary and diagnostic verification."
+  },
+  "dependencies": [
+    {
+      "owner": "approved-species installer / taxonomy lane",
+      "scope": "all three Lonicera source-pool taxa",
+      "detail": "No canonical Lonicera manifest species found as of review; source-pool approval is not a species install, and L. japonica must keep explicit non-native encounter labeling."
+    },
+    {
+      "owner": "scientific review",
+      "scope": "Lonicera albiflora / L. sempervirens field comparison",
+      "detail": "Recheck short cream two-lipped versus long trumpet corolla on mature flowering shoots; preserve species identity when possible hybrid/trade material is encountered."
+    },
+    {
+      "owner": "diagnostic photo-polish",
+      "scope": "Lonicera 3-species teaching lock",
+      "detail": "Get licensed exact-species same-scale floral and terminal-node macros (especially albiflora versus sempervirens), annotate original source and learner overlays separately; no media was acquired in this lane."
+    }
+  ],
+  "scientific_sources": [
+    {
+      "title": "A. C. Gibson, Vascular Plants of Williamson County — Lonicera albiflora",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Lonicera%20albiflora.html",
+      "supports": "perfoliate terminal bracts ALSO in albiflora; 17–19.5 mm corolla; red-orange fruit"
+    },
+    {
+      "title": "A. C. Gibson, Vascular Plants of Williamson County — Lonicera japonica",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Lonicera%20japonica.html",
+      "supports": "paired axillary cymes; petiole/pubescence; 45–57 mm two-lipped corolla; black fruit"
+    },
+    {
+      "title": "University of Michigan CLIMBERS — Lonicera sempervirens",
+      "url": "https://climbers.lsa.umich.edu/lonicera-sempervirens/",
+      "supports": "terminal perfoliate pair, long tubular corollas, red fruit, L. japonica separation"
+    },
+    {
+      "title": "Missouri Plants — Lonicera sempervirens",
+      "url": "https://missouriplants.com/Lonicera_sempervirens_page.html",
+      "supports": "corolla 38–48 mm with relatively short lobes; red fruit"
+    },
+    {
+      "title": "NPSOT — Lonicera sempervirens",
+      "url": "https://www.npsot.org/posts/native-plant/lonicera-sempervirens/",
+      "supports": "Central Texas practice context; upper leaves joined below terminal inflorescences"
+    }
+  ],
+  "curation_status": {
+    "version": "1.0-genus-github-backfill",
+    "last_reviewed": "2026-10-11",
+    "structural_lesson": "three-species comparison built",
+    "visual_lock": "diagnostic-photo shot list only; not acquired",
+    "species_installation": "pending READY and workflow verification",
+    "scientific_decisions": "unchanged",
+    "first_species_batch_staged": "2026-10-13",
+    "visual_count_staged": 8
+  }
+}
