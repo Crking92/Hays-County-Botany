@@ -25,20 +25,23 @@
     "note": "Accepted by current Kew/POWO and Flora of North America."
   },
   "target_zone_range": {
-    "decision": "PASS",
+    "decision": "UNRESOLVED",
     "threshold": 3,
     "documented_counties": [
       "Hays",
-      "Travis",
-      "Williamson"
+      "Travis"
     ],
     "evidence": [
       "Hays — UT Plant Resources Center Flora of Purola Preserve explicitly lists Clematis drummondii among naturally occurring plants of northern Hays County.",
       "Travis — UT Plant Resources Center Travis County Ranunculaceae herbarium index includes multiple Clematis drummondii specimens.",
-      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a detailed native field treatment for Clematis drummondii."
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a detailed native field treatment for Clematis drummondii. (record retained as occurrence evidence, NOT target-zone county)"
     ],
-    "blocking_issue": null,
-    "guardrail": "No county inferred from statewide range, ecoregion, cultivation, plant sales, or an unreconciled historical taxonomic concept."
+    "blocking_issue": "Only 2 approved target-zone counties confirmed; Williamson County was incorrectly counted but is outside PROJECT_RULES target zone.",
+    "guardrail": "No county inferred from statewide range, ecoregion, cultivation, plant sales, or an unreconciled historical taxonomic concept.",
+    "outside_target_zone_occurrences": [
+      "Williamson"
+    ],
+    "review_corrected_at": "2026-10-13"
   },
   "morphology": {
     "look_here_first": "Look at the flower architecture and sex first: small open white-to-cream flowers with four spreading sepals occur on separate male and female vines; later, female plants explode into masses of long silky plumose seed tails.",
