@@ -1,0 +1,210 @@
+{
+  "rank": "genus",
+  "family": "Poaceae",
+  "name": "Chloris",
+  "common_group": "Windmillgrasses",
+  "project_scope": {
+    "selection_mode": "Three installed canonical species plus two approved source-pool comparison dependencies",
+    "species_ids": [
+      "chloris-cucullata",
+      "chloris-verticillata",
+      "chloris-virgata"
+    ],
+    "species_count": 3,
+    "source_pool_noncanonical": [
+      "Chloris andropogonoides",
+      "Chloris ×subdolichostachya"
+    ],
+    "range_status": "All three canonical cards currently RANGE_UNRESOLVED; do not count as confirmed target-zone natives"
+  },
+  "look_here_first": "LOOK HERE FIRST: Photograph the WHOLE flowering head before collecting a mature spikelet. Ask whether the racemes form crowded tiers, widely separated tiers, or one terminal fan. Then use a hand lens to inspect the upper sterile lemma (hood shape), fertile lemma awn, and marginal hairs.",
+  "shared_genus_traits": [
+    "Warm-season grasses with radiating fingerlike racemes carrying spikelets along one side; the windmill silhouette alone is not species-diagnostic.",
+    "Each spikelet has glumes and a fertile floret with one or more reduced sterile florets above it. The fertile and sterile lemmas may bear different awns.",
+    "For species-level ID, examine a mature head plus a detached spikelet under 10–20× magnification and use a millimeter scale."
+  ],
+  "quick_key": [
+    {
+      "if": "Several CLOSELY packed tiers of SHORT racemes, upper sterile lemma rounded and swollen like a hood, awns very short",
+      "then": "Chloris cucullata"
+    },
+    {
+      "if": "Widely SEPARATED whorls of LONG racemes, often one upright terminal branch, both lemma awns comparatively long",
+      "then": "Chloris verticillata"
+    },
+    {
+      "if": "Racemes chiefly one TERMINAL digitate fan; annual tuft and conspicuous long hairs on fertile lemma margins",
+      "then": "Chloris virgata"
+    },
+    {
+      "if": "Intermediate between hooded and tumble windmillgrass",
+      "then": "Consider Chloris ×subdolichostachya; source-pool comparison only, taxonomy/installer dependency"
+    }
+  ],
+  "species_comparison_matrix": [
+    {
+      "character": "Life history",
+      "cucullata": "Perennial",
+      "verticillata": "Perennial, sometimes rooting at lower nodes",
+      "virgata": "Annual; inspect basal crown"
+    },
+    {
+      "character": "Raceme layout",
+      "cucullata": "~10–20 short racemes in crowded whorls",
+      "verticillata": "~10–16 racemes in separated whorls, often a terminal upright branch",
+      "virgata": "~4–20 racemes mainly in one terminal whorl"
+    },
+    {
+      "character": "Raceme length",
+      "cucullata": "~2–5 cm",
+      "verticillata": "~5–15 cm",
+      "virgata": "Often ~5–10 cm; overlaps verticillata"
+    },
+    {
+      "character": "Upper sterile lemma",
+      "cucullata": "Inflated rounded hood, ~1–1.5 mm",
+      "verticillata": "Not conspicuously inflated into a round hood",
+      "virgata": "Reduced sterile florets, not the cucullata hood"
+    },
+    {
+      "character": "Fertile lemma awn",
+      "cucullata": "~0.3–1.5 mm",
+      "verticillata": "~4.8–9 mm",
+      "virgata": "~2.5–15 mm; overlaps verticillata"
+    },
+    {
+      "character": "Sterile lemma awn",
+      "cucullata": "Absent to ~1.5 mm",
+      "verticillata": "~3.2–7 mm",
+      "virgata": "Do not key on length alone; examine fertile lemma hairs"
+    },
+    {
+      "character": "Fertile lemma apical marginal hairs",
+      "cucullata": "Not the conspicuous >1.5 mm fringe of virgata",
+      "verticillata": "Not the conspicuous >1.5 mm fringe of virgata",
+      "virgata": "Long apical marginal hairs, often >1.5 mm; important tie-breaker"
+    }
+  ],
+  "cautions": [
+    "Never identify by purple or straw-colored heads alone; age changes color.",
+    "Raceme length and awn lengths overlap, especially between C. verticillata and C. virgata; use whorl arrangement, basal crown, and fertile lemma hairs together.",
+    "C. ×subdolichostachya is reported as a naturally occurring C. cucullata × C. verticillata hybrid. Intermediate heads should remain unresolved pending diagnostic review.",
+    "C. andropogonoides is in the Master Plant Pool but is not among these three canonical cards; avoid implying this key covers every local Chloris.",
+    "Do not use Texas state nativity to convert project county-level RANGE_UNRESOLVED into PASS."
+  ],
+  "lookalikes": [
+    {
+      "taxon": "Chloris andropogonoides",
+      "difference": "Source-pool Chloris with slender spike arrangement; needs targeted diagnostic review before adding a fourth key branch."
+    },
+    {
+      "taxon": "Chloris ×subdolichostachya",
+      "difference": "Natural C. cucullata × C. verticillata hybrid; may combine intermediate raceme and spikelet characters. Do not force either parent."
+    },
+    {
+      "taxon": "Cynodon dactylon",
+      "difference": "Also digitate grass heads, but Cynodon spikelets and branch layout differ; inspect spikelet under hand lens."
+    },
+    {
+      "taxon": "Dactyloctenium aegyptium",
+      "difference": "Radiating thick comb-like spikes, distinct spikelet shape; inspect branch tips and spikelet arrangement."
+    }
+  ],
+  "diagnostic_photo_checklist": [
+    {
+      "role": "whole_inflorescence_side_by_side",
+      "targets": [
+        "chloris-cucullata",
+        "chloris-verticillata",
+        "chloris-virgata"
+      ],
+      "look_for": "Same-scale heads with arrows showing crowded whorls, spaced whorls, or terminal fan."
+    },
+    {
+      "role": "sterile_lemma_hood_macro",
+      "targets": [
+        "chloris-cucullata",
+        "chloris-verticillata"
+      ],
+      "look_for": "10–20× mature spikelet with arrow on upper sterile lemma and 1 mm scale."
+    },
+    {
+      "role": "fertile_versus_sterile_awn",
+      "targets": [
+        "chloris-cucullata",
+        "chloris-verticillata",
+        "chloris-virgata"
+      ],
+      "look_for": "Separate arrows for each lemma and its awn; measure in mm."
+    },
+    {
+      "role": "fertile_lemma_margin_hairs",
+      "targets": [
+        "chloris-virgata",
+        "chloris-verticillata"
+      ],
+      "look_for": "Matched side-lit macros with arrow to hairs near fertile lemma apex."
+    },
+    {
+      "role": "basal_crown_nodes",
+      "targets": [
+        "chloris-virgata",
+        "chloris-verticillata"
+      ],
+      "look_for": "Plant base and lower nodes showing annual crown versus perennial rooting habit."
+    },
+    {
+      "role": "hybrid_comparison",
+      "targets": [
+        "chloris-cucullata",
+        "chloris-verticillata"
+      ],
+      "look_for": "Future verified intermediate hybrid spikelet and whole head; no generic substitution."
+    }
+  ],
+  "handoffs": [
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "taxa": [
+        "Chloris andropogonoides",
+        "Chloris ×subdolichostachya"
+      ],
+      "need": "Reconcile exact source concepts and diagnostic traits, especially naturally occurring hybrid versus parents, before separate learner cards or firm key branches."
+    },
+    {
+      "lane": "Approved Taxa Installer",
+      "taxa": [
+        "Chloris andropogonoides",
+        "Chloris ×subdolichostachya"
+      ],
+      "need": "Approved source-pool records not among the three canonical manifest species; check taxonomy decisions and installation readiness. Do not install from this lane."
+    },
+    {
+      "lane": "Diagnostic Photo Polish",
+      "need": "Matched head and mature-spikelet photos with correct arrows for hood, awns and fertile-lemma fringe."
+    }
+  ],
+  "scientific_sources": [
+    {
+      "type": "canonical_species",
+      "path": "content/taxa/Poaceae/Chloris/"
+    },
+    {
+      "type": "reference",
+      "url": "https://gobotany.nativeplanttrust.org/species/chloris/verticillata/"
+    },
+    {
+      "type": "reference",
+      "url": "https://rangeplants.tamu.edu/plant/tumble-windmillgrass/nggallery/slideshow"
+    },
+    {
+      "type": "reference",
+      "url": "https://www.ckwri.tamuk.edu/plant/shortspike-windmillgrass"
+    }
+  ],
+  "curation_status": {
+    "stage": "genus_framework_ready_photo_pending",
+    "reviewed_at": "2026-10-13",
+    "species_installed_here": 0
+  }
+}
