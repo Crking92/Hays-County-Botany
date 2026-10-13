@@ -25,20 +25,23 @@
     "note": "Current Kew accepts Clematis pitcheri and recognizes two varieties, var. pitcheri and var. dictyota. The Central Texas/Edwards Plateau comparison here is species-level, with local evidence centered on var. pitcheri."
   },
   "target_zone_range": {
-    "decision": "PASS",
+    "decision": "UNRESOLVED",
     "threshold": 3,
     "documented_counties": [
       "Travis",
-      "Williamson",
       "Uvalde"
     ],
     "evidence": [
       "Travis — UT Plant Resources Center Travis County Ranunculaceae herbarium index records Clematis pitcheri var. pitcheri.",
-      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a detailed treatment of Clematis pitcheri var. pitcheri.",
+      "Williamson — UT Plant Resources Center Vascular Plants of Williamson County provides a detailed treatment of Clematis pitcheri var. pitcheri. (record retained as occurrence evidence, NOT target-zone county)",
       "Uvalde — Harvard University Herbaria specimen A:01657120 records Clematis pitcheri from the Nueces River west of Uvalde, Texas."
     ],
-    "blocking_issue": null,
-    "guardrail": "No county inferred from statewide range, ecoregion, cultivation, plant sales, or an unreconciled historical taxonomic concept."
+    "blocking_issue": "Only 2 approved target-zone counties confirmed; Williamson County was incorrectly counted but is outside PROJECT_RULES target zone.",
+    "guardrail": "No county inferred from statewide range, ecoregion, cultivation, plant sales, or an unreconciled historical taxonomic concept.",
+    "outside_target_zone_occurrences": [
+      "Williamson"
+    ],
+    "review_corrected_at": "2026-10-13"
   },
   "morphology": {
     "look_here_first": "Look for the nodding leathery urn: dull blue-purple to reddish-purple sepals stay connivent for most of their length, then develop narrow expanded, often crisped/recurved tips.",
