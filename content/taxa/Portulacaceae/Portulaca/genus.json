@@ -12,13 +12,16 @@
     "source": "Approved Master Plant Pool and verified GitHub manifest after installer run 2026-10-13",
     "index_row": 154,
     "canonical_species_at_build": 3,
-    "mode": "THREE SPECIES INSTALLED CANONICALLY with two physically downloaded exact-species licensed images each. Native-range labels separately preserved: oleracea comparison nonnative; pilosa/umbraticola unresolved.",
+    "mode": "THREE CANONICAL SPECIES INSTALLED: individual lessons and two physically verified licensed images per taxon",
     "species_ids": [
       "portulaca-oleracea",
       "portulaca-pilosa",
       "portulaca-umbraticola"
     ],
-    "species_count": 3
+    "species_count": 3,
+    "canonical_count_verified_from_manifest": 3,
+    "installation_verified": "2026-10-12 (local project date), GitHub Actions run 38342965928, attempt 2 succeeded",
+    "native_metrics_guardrail": "Oleracea NON_NATIVE_COMPARISON; pilosa and umbraticola native Texas state-level but Hays-region 3-county PASS remains UNRESOLVED."
   },
   "shared_genus_traits": [
     "Succulent herbs with simple fleshy leaves and stems often spreading across the ground.",
@@ -171,8 +174,8 @@
   "handoffs": [
     {
       "lane": "Approved Taxa Installer",
-      "task": "COMPLETED 2026-10-13. Three species installed, manifest updated and six CC-source photographs downloaded; report verified.",
-      "status": "complete"
+      "task": "All three source-pool Portulaca taxa installed via approved-portulaca-trio-20261012-001, canonical manifest 3 entries, 6 physically present image files. No native-range PASS inferred; no additional species installation needed.",
+      "status": "COMPLETE"
     },
     {
       "lane": "Diagnostic Photo Polish",
@@ -202,7 +205,7 @@
     }
   ],
   "curation_status": {
-    "status": "three_species_canonical_installed_photo_first_pass_ready",
+    "status": "CANONICAL_THREE_TAXA_INSTALLED; GENUS_VISUAL_LEARNER_READY; LOCAL_DIAGNOSTIC_PHOTO_POLISH_PENDING",
     "date": "2026-10-12",
     "visual_complete": false,
     "canonical_taxa_installed": true,
@@ -212,7 +215,11 @@
     "native_range_labels_unchanged": true,
     "installation_verified_at": "2026-10-13T03:46:55Z",
     "manifest_species_count_after_install": 486,
-    "installation_warnings": 0
+    "installation_warnings": 0,
+    "canonical_species_count": 3,
+    "physical_species_photo_count": 6,
+    "last_verified": "2026-10-12",
+    "last_installer_run": 38342965928
   },
   "visual_comparison": {
     "title": "Purslanes — see the seed capsule wing, white axil hairs and true leaf shape",
@@ -335,7 +342,7 @@
         "photo_status": "PHYSICAL_IMAGE_PRESENT; nonlocal source, morphology only"
       }
     ],
-    "overlay_note": "All six species photo sources were downloaded and verified by GitHub curation on 2026-10-13 (zero warnings). Four earlier learner annotation arrows were placed on source image previews; confirm their coordinates against the locally optimized versions during a final precision-arrow audit because image cropping/scaling could change pixel placement.",
+    "overlay_note": "All 3 individual Portulaca species cards are now canonical and each has two physically verified licensed photos. This genus gallery still uses five Commons-linked research photographs, including wingpod nursery cultivar as morphological context only. The four diagnostic arrow overlays were visually reviewed and are the learner's additions (not original). Local wild Texas voucher / seed-coat microscopy and measured wing await final photo polish.",
     "study_only_intro": "Supplementary sources or site-copyrighted botanical photos below are links for learning only, not copied.",
     "study_only_photo_links": [
       {
@@ -377,7 +384,7 @@
     "photos_verified_by_source_page": 5,
     "new_overlay_arrows": 4,
     "physical_images_installed": 6,
-    "remote_commons_photos": 0,
+    "remote_commons_photos": 6,
     "photo_cautions": [
       "Umbraticola wing photograph comes from cultivated 'Wildfire' nursery stock, not wild Texas voucher; use morphological reference only.",
       "Maui and Australian images do not confirm county-native criteria.",
@@ -397,6 +404,17 @@
       "portulaca-oleracea": 2,
       "portulaca-pilosa": 2,
       "portulaca-umbraticola": 2
-    }
+    },
+    "canonical_ids": [
+      "portulaca-oleracea",
+      "portulaca-pilosa",
+      "portulaca-umbraticola"
+    ],
+    "physical_images_by_species": {
+      "portulaca-oleracea": 2,
+      "portulaca-pilosa": 2,
+      "portulaca-umbraticola": 2
+    },
+    "photo_note": "Genus gallery's existing five images remain source-linked at Commons; each of 3 species cards has 2 additionally downloaded physical license-attributed images (6 total). Only local wild photos and fine calibrated macro remain pending."
   }
 }
