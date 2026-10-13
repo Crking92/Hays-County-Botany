@@ -34,14 +34,14 @@
     "caveat": "Older regional treatments may show G. bipinnatifida var. bipinnatifida; this project does not count that autonym as a second canonical species."
   },
   "curation_status": {
-    "version": "1.2-diagnostic-pair-and-verbena-bridge",
+    "version": "1.3-low-vervain-first-licensed-face",
     "last_reviewed": "2026-10-12",
     "genus_audit": "prior science preserved, visual gap explicit",
     "source_concepts_reconciled": true,
     "cross_genus_comparison_built": true,
     "comparison_cards_count": 2,
-    "diagnostic_real_photo_count": 2,
-    "visual_status": "partially complete: G. pumila needs rights-cleared photo"
+    "diagnostic_real_photo_count": 3,
+    "visual_status": "both species have remotely viewable licensed exact-species photos; physical installations and matched macros pending"
   },
   "source_concept_status": [
     {
@@ -240,10 +240,31 @@
     }
   ],
   "visual_comparison": {
-    "title": "Prairie verbena — real photos and where to look",
-    "subtitle": "Photographs of exact-species prairie verbena (*G. bipinnatifida*) are licensed and labeled; low verbena (*G. pumila*) remains an original-site reference until a particular photo is cleared. No image substitutions.",
+    "title": "Glandularia: prairie versus low verbena — actual species photos",
+    "subtitle": "Now showing both species, with foliage highlighted. Compare broad fan-shaped lobes (pumila) with more deeply featherlike lobes (bipinnatifida). Fruit close-ups are still outstanding.",
     "memory_rule": "FEATHERY leaf + elongating fruit spike → G. bipinnatifida. Small FAN-shaped leaf + compact old fruit spike → G. pumila.",
     "items": [
+      {
+        "label": "Low verbena · broad lobed leaves",
+        "scientific_name": "Glandularia pumila",
+        "image_role": "Flowering leafy shoot, fan-lobed leaves and a compact lavender-pink cluster",
+        "image_url": "https://bs.plantnet.org/image/o/258f239e64608ec94f364a119185b4a4576d9472",
+        "source_page": "https://identify.plantnet.org/el/namerica/species/Glandularia%20pumila%20(Rydb.)%20Umber/data",
+        "creator": "Angela (Pl@ntNet contributor)",
+        "license": "CC BY-SA 3.0",
+        "image_fit": "contain",
+        "caption": "Exact-species Pl@ntNet photograph of G. pumila. A broad, few-lobed leaf is visible near the upper center and a short, crowded flower cluster lower right. The source attributes this image to Angela under CC BY-SA 3.0; no substitutions.",
+        "markers": [
+          {
+            "label": "broad, cut leaf",
+            "label_x": 8,
+            "label_y": 15,
+            "target_x": 58,
+            "target_y": 35
+          }
+        ],
+        "visual_status": "verified real photograph + image URL + Pl@ntNet on-page creator/license; annotation learner-added, source not edited"
+      },
       {
         "label": "Prairie verbena · mature divided leaf",
         "scientific_name": "Glandularia bipinnatifida",
@@ -287,7 +308,7 @@
         "visual_status": "Ellis County, Texas exact-species photo; licensed public domain and visually checked"
       }
     ],
-    "overlay_note": "All arrows are learner-generated overlays; original source images were not edited. The genus is NOT visually complete until an exact-rights-cleared image for G. pumila is installed. Both field images are of G. bipinnatifida.",
+    "overlay_note": "Image of G. pumila: © Angela (Pl@ntNet), CC BY-SA 3.0, original link in photo credit; overlay arrow added by this learner. Copyright-cleared images only; annotations are not part of source photograph.",
     "study_only_intro": "Exact-species G. pumila photographs exist at these original websites. Photo-specific licenses must be checked before displaying or annotating them inside the learner.",
     "study_only_photo_links": [
       {
@@ -300,12 +321,6 @@
         "label": "Glandularia pumila · Lady Bird Johnson Wildflower Center gallery",
         "url": "https://www.wildflower.org/plants/result.php?id_plant=GLPU4",
         "look_for": "Exact species photographs; select individual CC-cleared photo in subsequent pass.",
-        "reuse": "original-site link only"
-      },
-      {
-        "label": "Glandularia pumila · PlantNet leaf/habit/flower gallery",
-        "url": "https://identify.plantnet.org/el/namerica/species/Glandularia%20pumila%20(Rydb.)%20Umber/data/galleries",
-        "look_for": "Individual photographs may have CC licenses, but require exact file URL/creator/license verification.",
         "reuse": "original-site link only"
       },
       {
@@ -322,24 +337,23 @@
       }
     ],
     "photographed_species": [
-      "glandularia-bipinnatifida"
-    ],
-    "unphotographed_species": [
+      "glandularia-bipinnatifida",
       "glandularia-pumila"
-    ]
+    ],
+    "unphotographed_species": []
   },
   "final_photo_polish_queue": [
     {
       "priority": 1,
       "taxon": "glandularia-pumila",
       "role": "first real face",
-      "status": "no_reuse_cleared_exact_photo",
+      "status": "PROVISIONAL_COMPLETE_REMOTE_LICENSED",
       "source_leads": [
         "LBJ 68 exact species gallery",
         "San Antonio Water System 3 views",
         "PlantNet 19 example images"
       ],
-      "task": "Verify exact individual photo source and CC license, creator/observation id and install real photo; do not substitute another species."
+      "task": "Exact Pl@ntNet Angela CC BY-SA 3 first face now linked. Still need physical install, isolated leaf close-up, whole habit and compact mature-fruit image."
     },
     {
       "priority": 2,
