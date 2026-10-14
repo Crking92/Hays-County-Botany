@@ -1,6 +1,6 @@
 {
   "id": "ulmus-alata",
-  "entry_type": "provisional_species",
+  "entry_type": "species",
   "family": "Ulmaceae",
   "genus": "Ulmus",
   "species": "alata",
@@ -9,27 +9,31 @@
   "common_name": "Winged elm",
   "synonyms": [],
   "taxonomic_note": "Accepted by current Kew/POWO.",
-  "look_here_first": "Look at young and older branches first: regular corky wings are the signature. Then check that the wings usually stop abruptly at the leaf node, the leaves are pointed, and reproduction is in spring.",
-  "county_occurrences_target_zone": [],
-  "target_zone_count": 0,
-  "native_target_zone_calculated": false,
-  "native_metrics_excluded": true,
+  "look_here_first": "Start with the TWIG, not the leaf: regular corky wings on branches are the fastest clue. Then check whether those wings stop abruptly at a leaf node, look for pointed double-serrate leaves, and use SPRING flowers/samaras to separate winged elm from fall-fruiting cedar elm.",
+  "county_occurrences_target_zone": [
+    "Hays",
+    "Travis",
+    "Bexar"
+  ],
+  "target_zone_count": 3,
+  "native_target_zone_calculated": true,
+  "native_metrics_excluded": false,
   "project_inclusion": {
-    "target_zone_status": "PROVISIONAL",
-    "range_basis": "Kew/POWO accepts Ulmus alata and lists Texas in its native range. Texas regional sources place it in the broader Blackland Prairie/Cross Timbers/Edwards Plateau region, but the prior B012 review did not lock three exact project counties.",
-    "range_guardrail": "Installed for visual learning only; do not count as project-native until exact target-zone county evidence is reconciled."
+    "target_zone_status": "PASS",
+    "range_basis": "Accepted native Texas species. The completed Rosales deep-review lane locked exact target-zone evidence for Hays, Travis, and Bexar counties; this update reconciles the older provisional learner card with that durable reviewed state.",
+    "range_guardrail": "Keep county evidence tied to the reviewed Hays/Travis/Bexar records; do not infer additional counties from statewide range maps alone."
   },
-  "learner_role": "PROVISIONAL_LEARNER",
+  "learner_role": "NATIVE_LEARNER",
   "morphology_keys": {
     "best_field_traits": [
       "deciduous small-to-medium elm",
-      "regular corky wings commonly present on young and older branches",
-      "wings generally terminate abruptly at leaf nodes",
-      "leaves small, pointed, and double-serrate",
+      "paired corky wings commonly develop on young and older branches",
+      "wings usually terminate abruptly at leaf nodes rather than flowing continuously around them",
+      "leaves relatively small, pointed, and double-serrate with pinnate elm venation",
       "flowers before or around leaf-out in spring",
-      "spring samaras small and ciliate"
+      "small spring samaras with hairy/ciliate margins"
     ],
-    "elm_training": "Winged elm vs cedar elm: both can have corky wings, but winged elm wings typically stop at the node and reproduction is in spring; cedar elm wings can continue around the node and reproduction is in fall."
+    "elm_training": "Winged elm vs cedar elm: twig wings overlap, so use the node plus season. Winged elm usually has regular wings that end at the node and reproduces in spring; cedar elm may carry corky ridges around nodes and reproduces in late summer-fall."
   },
   "comparisons": {
     "confused_with": [
@@ -59,16 +63,16 @@
       "public_reuse": "yes"
     }
   ],
-  "photo_note": "Ulmus photo backfill 2026-10-04: winged twig + pointed leaf views prioritized; the Commons winged-twig file itself notes possible confusion with cedar elm, so use as a teaching comparison rather than sole-ID proof.",
+  "photo_note": "Existing exact-species learner references cover pointed foliage and a corky-winged twig. The winged-twig Commons image itself notes possible U. crassifolia confusion, so it is intentionally taught as a comparison image rather than sole-ID proof. Physical local copies remain a photo-polish target.",
   "curation_status": {
-    "version": "1.0-ulmus-photo-backfill",
+    "version": "2.0-range-reconciled-visual",
     "taxonomy_reviewed": true,
-    "range_reviewed": false,
+    "range_reviewed": true,
     "morphology_reviewed": true,
     "lookalikes_reviewed": true,
     "photo_reviewed": true,
     "user_approved": true,
-    "provisional": true,
-    "last_reviewed": "2026-10-04"
+    "provisional": false,
+    "last_reviewed": "2026-10-14"
   }
 }
