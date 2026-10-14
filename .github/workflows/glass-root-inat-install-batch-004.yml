@@ -1,0 +1,66 @@
+name: Install Glass Root Garden photo batch 004
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - workflow/glass-root-inat/batch-004/approved-photo-install-batch-004.json
+      - .github/workflows/glass-root-inat-install-batch-004.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-approved-install
+  cancel-in-progress: false
+
+jobs:
+  install-verified-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install pillow
+      - name: Apply only previously reviewed photo IDs
+        run: python3 scripts/glass_root_inat_install_batch004.py
+      - name: Verify all canonical image files and metadata
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          from PIL import Image
+          d=json.loads(pathlib.Path("workflow/glass-root-inat/batch-004/approved-photo-install-batch-004.json").read_text())
+          for taxon in d["targets"]:
+              src=pathlib.Path(taxon["path"])
+              j=json.loads(src.read_text())
+              assert j["id"]==taxon["id"]
+              for p in taxon["photos"]:
+                  matches=[x for x in j["images"] if str(x.get("photo_id"))==str(p["id"])]
+                  assert len(matches)==1,(taxon["id"],p["id"])
+                  im=matches[0]
+                  file=src.parent/im["file"]
+                  assert file.exists() and file.stat().st_size>20000,str(file)
+                  assert im["creator"]=="Glass Root Garden"
+                  assert im["license"]=="CC BY 4.0"
+                  with Image.open(file) as check: check.verify()
+                  print("VERIFIED",taxon["id"],p["id"],str(file))
+          PY
+      - name: Commit add-only photos and species metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Anacardiaceae/Rhus/rhus-virens/ content/taxa/Rubiaceae/Cephalanthus/cephalanthus-occidentalis/ content/taxa/Oleaceae/Ligustrum/ligustrum-lucidum/
+          if git diff --cached --quiet; then
+            echo "Batch already installed; no changes."
+            exit 0
+          fi
+          git commit -m "Install Glass Root Garden photo batch 004 on canonical learner"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "Conflict detected; not overwriting other worker" >&2
+          exit 1
