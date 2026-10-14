@@ -589,3 +589,28 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 @media(prefers-reduced-motion:reduce){
   .family-card,.species-tile,.similar-card,.glossary-card,.family-vocab-card,.term-confusion-card{transition:none}
 }
+
+
+/* Mobile field-guide polish v3.1 */
+.learning-panel{color:var(--card-ink);background:#fff9e8;border-color:#eadcba;box-shadow:var(--card-shadow)}
+.learning-panel h2,.learning-panel .teaching-note{color:var(--card-ink)}
+.learning-panel .eyebrow{color:#80631c}
+.learning-panel .text-button{color:#245c43}
+@media(max-width:760px){
+  /* Keep all five navigation destinations without the awkward orphaned fifth tile. */
+  .topbar{display:flex;flex-wrap:wrap;gap:9px;padding:10px 12px}
+  .topbar .brand{flex:1 1 100%}
+  .topbar .main-nav{order:2;display:flex;grid-column:auto;grid-row:auto;gap:6px;width:100%;overflow-x:auto;scrollbar-width:thin;padding-bottom:3px}
+  .topbar .main-nav button{flex:0 0 auto;min-height:40px;padding:9px 13px;border:1px solid var(--line);background:var(--panel3)}
+  .topbar .main-nav button.active{background:var(--accent-bg);border-color:#779b82;color:var(--accent-strong)}
+  .topbar .header-tools{order:3;display:flex;grid-column:auto;grid-row:auto;width:100%;gap:7px;justify-content:space-between}
+  .topbar .difficulty{flex:1;min-width:0}
+  .topbar .difficulty button{flex:1;padding:8px 4px;font-size:.76rem}
+  .topbar .quiz-toggle{width:auto;min-width:88px;flex:0 0 auto}
+  .search-dock{border-bottom:1px solid var(--line)}
+  .section-heading{align-items:start}
+}
+@media(max-width:390px){
+  .topbar .quiz-toggle{min-width:75px;padding:7px}
+  .topbar .difficulty button{font-size:.7rem}
+}
