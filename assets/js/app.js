@@ -1342,7 +1342,7 @@ function botanyPartExamples(sp,genusData){
   const usedFamily=new Set(),usedGenus=new Set();
   const familyItems=(Array.isArray(familyLesson.steps)?familyLesson.steps:[])
     .filter(function(step){return step && !/pending/i.test(String(step.status||""));})
-    .slice(0,5).map(function(step){
+    .slice(0,7).map(function(step){
       const host=step.anchor_species_id ? state.speciesById.get(step.anchor_species_id) : null;
       const direct=familyExternalImageUrl(step);
       let photo=null;
