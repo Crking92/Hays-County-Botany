@@ -33,7 +33,7 @@ def main():
   assert science(sp)==science(before),"Scientific data changed"
   p.write_text(json.dumps(sp,ensure_ascii=False,indent=2)+"\n")
   csv_append(p.parent/"image-sources.csv",[{"file_name":t["filename"],"role":r["role"],"creator":r["creator"],"license":r["license"],"license_url":r["license_url"],"source_page":r["source_page"],"direct_url":r["downloaded_from"],"observation_id":str(r["observation_id"]),"photo_id":str(r["photo_id"]),"study_use":"yes","public_reuse":r["public_reuse"],"modifications":r["modifications"]}])
-  s=p.parent/"SOURCES.txt";s.write_text(s.read_text()+"\nFIRST LICENSED PHOTOGRAPH 2026-10-14\n"+r["creator"]+"; "+r["license"]+"; "+r["license_url"]+"\n"+r["source_page"]+" | "+r["observation_url"]+"\n"+r["modifications"]+". Preserve attribution and applicable ShareAlike.\n")
+  s=p.parent/"SOURCES.txt";s.write_text((s.read_text() if s.exists() else "")+"\nFIRST LICENSED PHOTOGRAPH 2026-10-14\n"+r["creator"]+"; "+r["license"]+"; "+r["license_url"]+"\n"+r["source_page"]+" | "+r["observation_url"]+"\n"+r["modifications"]+". Preserve attribution and applicable ShareAlike.\n")
   report["installed"].append({"id":t["id"],"path":t["path"],"file":str(out),"photo_id":t["photo_id"],"observation_id":t["observation_id"],"bytes":len(raw),"sha256":hashlib.sha256(raw).hexdigest(),"dimensions":r["image_dimensions"],"creator":r["creator"],"license":r["license"],"science_preserved":True})
  REPORT.write_text(json.dumps(report,indent=2)+"\n")
  from scripts.curation_pipeline import rebuild_photo_fast_fill_queue
