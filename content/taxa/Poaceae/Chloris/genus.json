@@ -205,7 +205,8 @@
   "curation_status": {
     "stage": "genus_framework_ready_photo_pending",
     "reviewed_at": "2026-10-13",
-    "species_installed_here": 0
+    "species_installed_here": 0,
+    "photo_led_status": "two_installed_photos_visually_verified_microscopic_roles_pending"
   },
   "genus_diagnostics": {
     "look_here_first": "Find complete flowering racemes and count their tiers; then inspect mature sterile lemma hood, fertile and sterile awns, and fertile lemma hairs.",
@@ -245,5 +246,54 @@
       "Fertile lemma marginal hairs"
     ],
     "warning": "Head color, whorl arrangement and awn length can overlap; hybrids require review."
+  },
+  "visual_comparison": {
+    "status": "Two exact-species installed photographs visually checked on 2026-10-14; third species currently has a botanical illustration, not a real photograph.",
+    "items": [
+      {
+        "species_id": "chloris-cucullata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-cucullata/images/chloris-cucullata-fonseca-head.jpg",
+        "creator": "Juan Carlos Fonseca Mata",
+        "license": "CC BY-SA 4.0",
+        "public_reuse": "yes",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Pasto_verdillo_papalote_(Chloris_cucullata)_ago19.jpg",
+        "observed_anatomy": "Crowded short spikelet-bearing branches next to longer radiating racemes. No hooded sterile lemma resolved.",
+        "caption": "Crowded short racemes are visible; inspect a separate spikelet macro for the hood.",
+        "visual_status": "installed_verified; annotation_pending",
+        "markers": []
+      },
+      {
+        "species_id": "chloris-virgata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-virgata/images/chloris-virgata-matt-lavin-habit.jpg",
+        "creator": "Matt Lavin",
+        "license": "CC BY-SA 2.0",
+        "public_reuse": "yes",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Chloris_virgata_-_20377468966.jpg",
+        "observed_anatomy": "Upright pale racemes closely grouped near the flowering head tip. Lemma margin hairs and basal crown not resolved.",
+        "caption": "See terminal raceme grouping; the hair fringe needs a separate macro.",
+        "visual_status": "installed_verified; annotation_pending",
+        "markers": []
+      },
+      {
+        "species_id": "chloris-verticillata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-verticillata/images/chloris-verticillata-usda-illustration.png",
+        "creator": "USDA",
+        "license": "Public domain",
+        "public_reuse": "yes",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Chloris_verticillata_HC-1950.png",
+        "observed_anatomy": "Species gallery lists a botanical illustration, not a real photograph; binary not inspected this run.",
+        "caption": "Botanical illustration reference only; matched real flowering head photo needed.",
+        "visual_status": "external_reference; annotation_pending",
+        "markers": []
+      }
+    ],
+    "photo_gaps": [
+      "C. verticillata rights-cleared real whole flowering head showing spaced whorls",
+      "Three matched mature heads with whorl spacing and ruler",
+      "C. cucullata rounded upper sterile lemma macro with scale",
+      "C. virgata and C. verticillata fertile lemma apical hair macros",
+      "Three species fertile and sterile awn measurements from dissected spikelets"
+    ],
+    "handoff": "Diagnostic Photo Polish: acquire rights-cleared matched views and verify precise arrow positions. Taxonomy + Diagnostic Review: preserve hybrid C. ×subdolichostachya uncertainty."
   }
 }
