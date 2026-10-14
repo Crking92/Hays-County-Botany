@@ -1220,6 +1220,31 @@ function taxonomyTeachingTrail(sp,genusData,profile,callouts){
   return out;
 }
 
+
+/* Prominent paths to the full family and genus lessons on each species page. */
+function taxonomyLessonShortcuts(sp){
+  if(!sp || !sp.family || !sp.genus) return "";
+  return '<section class="section-block taxonomy-lesson-shortcuts" aria-labelledby="taxonomyLessonShortcutTitle">'+
+    '<div class="section-heading"><div><div class="eyebrow">Explore the plant family tree</div>'+
+    '<h2 id="taxonomyLessonShortcutTitle">Open the family &amp; genus lessons</h2></div></div>'+
+    '<p class="section-intro">Family and genus have their own full pages with shared structures and look-alike comparisons. Tap a tile to explore.</p>'+
+    '<div class="taxonomy-lesson-shortcut-grid">'+
+      '<button class="taxonomy-lesson-shortcut taxonomy-lesson-family" type="button" data-family="'+esc(sp.family)+'">'+
+        '<span class="taxonomy-lesson-shortcut-kicker">Family lesson</span>'+
+        '<strong>'+esc(sp.family)+'</strong>'+
+        '<span class="taxonomy-lesson-shortcut-explainer">Why these genera belong together—and how to recognize the family.</span>'+
+        '<span class="taxonomy-lesson-shortcut-action">Open family lesson <span aria-hidden="true">→</span></span>'+
+      '</button>'+
+      '<button class="taxonomy-lesson-shortcut taxonomy-lesson-genus" type="button" data-genus="'+esc(sp.genus)+'" data-genus-family="'+esc(sp.family)+'">'+
+        '<span class="taxonomy-lesson-shortcut-kicker">Genus lesson</span>'+
+        '<strong><i>'+esc(sp.genus)+'</i></strong>'+
+        '<span class="taxonomy-lesson-shortcut-explainer">What close relatives share—and how to tell their species apart.</span>'+
+        '<span class="taxonomy-lesson-shortcut-action">Open genus lesson <span aria-hidden="true">→</span></span>'+
+      '</button>'+
+    '</div>'+
+    '<button class="taxonomy-lesson-jump" type="button" data-jump="taxonomy">See the three photo cards explaining this name ↓</button>'+
+  '</section>';
+}
 function plantView(){
   const sp=selectedSpecies(); if(!sp) return homeView();
   const p=familyProfile(sp.family)||{}, c=callout(sp)||{}, terms=termsForSpecies(sp,state.difficulty==="simple"?3:(state.difficulty==="terms"?7:12));
@@ -1236,6 +1261,7 @@ function plantView(){
   out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="taxonomy">Why this name? ↓</button>' : '')+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
+  if(!state.quizMode || state.quizRevealed) out+=taxonomyLessonShortcuts(sp);
   if(state.difficulty!=="simple"){
     out+='<section class="section-block learning-panel"><div class="section-heading"><div><div class="eyebrow">🔤 Words for what you see</div><h2>Learn the plant parts</h2></div>'+
       '<button class="text-button" type="button" data-nav="glossary">Full glossary →</button></div><div class="term-row large">'+terms.map(termChip).join("")+'</div>'+
