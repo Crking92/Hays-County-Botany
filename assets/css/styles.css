@@ -655,3 +655,43 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 @media(max-width:650px){
   .taxonomy-teaching-media>img{height:clamp(210px,60vw,330px)}
 }
+
+
+/* Family and genus lesson entry tiles v4.1 */
+.taxonomy-lesson-shortcuts{scroll-margin-top:85px}
+.taxonomy-lesson-shortcut-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.taxonomy-lesson-shortcut{
+  display:flex;flex-direction:column;align-items:flex-start;gap:9px;width:100%;
+  min-height:200px;padding:18px 19px;text-align:left;font:inherit;
+  border:1px solid var(--card-edge);border-top:5px solid #6bab82;
+  border-radius:20px;background:var(--card-mint);color:var(--card-ink);
+  box-shadow:var(--card-shadow);cursor:pointer;transition:transform .15s ease,box-shadow .15s ease
+}
+.taxonomy-lesson-genus{border-top-color:#7b9fcb;background:var(--card-sky)}
+.taxonomy-lesson-shortcut:hover{transform:translateY(-2px);box-shadow:0 13px 26px rgba(15,40,28,.14)}
+.taxonomy-lesson-shortcut:focus-visible,.taxonomy-lesson-jump:focus-visible{outline:3px solid #235d48;outline-offset:3px}
+.taxonomy-lesson-shortcut-kicker{
+  font-size:.72rem;line-height:1.3;letter-spacing:.1em;font-weight:850;
+  text-transform:uppercase;color:#226347
+}
+.taxonomy-lesson-genus .taxonomy-lesson-shortcut-kicker{color:#365f86}
+.taxonomy-lesson-shortcut>strong{
+  font-size:clamp(1.24rem,2.6vw,1.65rem);line-height:1.2;
+  color:#213b2e;overflow-wrap:anywhere
+}
+.taxonomy-lesson-shortcut-explainer{font-size:.88rem;line-height:1.5;color:#3c5347}
+.taxonomy-lesson-shortcut-action{margin-top:auto;font-weight:850;color:#1d6043;font-size:.89rem}
+.taxonomy-lesson-genus .taxonomy-lesson-shortcut-action{color:#2e5f88}
+.taxonomy-lesson-jump{
+  display:block;width:100%;margin:14px 0 0;padding:12px 16px;min-height:44px;
+  border:1px solid #b5d5c1;background:var(--card-paper);
+  color:#1d6245;border-radius:14px;cursor:pointer;font:inherit;
+  font-size:.87rem;font-weight:800;text-align:center
+}
+.taxonomy-lesson-jump:hover{background:#eef8f0}
+@media(max-width:680px){
+  .taxonomy-lesson-shortcut-grid{grid-template-columns:1fr;gap:10px}
+  .taxonomy-lesson-shortcut{min-height:155px;padding:14px 16px;gap:7px}
+  .taxonomy-lesson-shortcut>strong{font-size:1.3rem}
+}
+@media(prefers-reduced-motion:reduce){.taxonomy-lesson-shortcut{transition:none}}
