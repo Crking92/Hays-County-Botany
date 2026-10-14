@@ -186,8 +186,92 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-genus-comparison-builder",
-    "last_reviewed": "2026-10-09",
-    "visual_status": "diagnostic_photo_comparison_pending"
+    "version": "1.1-anchored-genus-photo-lesson",
+    "last_reviewed": "2026-10-14",
+    "visual_status": "species_photo_anchors_added_close_diagnostic_macros_pending"
+  },
+  "look_here_first": "START AT THE LEAF NODE. Paired sharp spines? A. spinosus. No spines? Photograph the upper stem hairs and follow where the flower clusters form (axillary versus terminal). Then inspect a mature female flower for BRACT, TEPAL, and FRUIT differences. A green pigweed silhouette alone is not enough.",
+  "visual_lesson": {
+    "status": "anchored_existing_species_gallery_some_external_photos_no_arrows",
+    "intro": "SEE a whole plant, SPOT the leaf node and flower cluster, NAME spine versus flower bract and tepal, then COMPARE multiple exact species at the same scale. Three species are comparison-only nonnatives; do not mistake inclusion in a visual key for project native-range approval.",
+    "steps": [
+      {
+        "title": "1 · Locate the paired nodal spines",
+        "photo_role": "spiny node with petiole and paired thorns",
+        "anchor_species_id": "amaranthus-spinosus",
+        "anchor_image_index": 1,
+        "look_for": "Two rigid spines at leaf attachment. These are NOT spiny flower bracts.",
+        "why_it_matters": "Fastest useful separation for A. spinosus.",
+        "status": "existing_external_species_image_reference_not_pixel_annotated"
+      },
+      {
+        "title": "2 · Compare hairy stems with glabrous stems",
+        "photo_role": "whole plant and upper stem pubescence comparison",
+        "anchor_species_id": "amaranthus-retroflexus",
+        "anchor_image_index": 0,
+        "look_for": "A. retroflexus often has obvious upper-stem hairs; use a second close macro before relying on this characteristic.",
+        "why_it_matters": "Stem hair provides an accessible clue after spiny amaranth is excluded.",
+        "status": "species_gallery_reference_not_diagnostic_macro"
+      },
+      {
+        "title": "3 · Look at an extended terminal tassel",
+        "photo_role": "flowering inflorescence of A. palmeri",
+        "anchor_species_id": "amaranthus-palmeri",
+        "anchor_image_index": 0,
+        "look_for": "Long inflorescence branches; confirm flower sex and check stiff female bracts rather than treating tassel length as proof.",
+        "why_it_matters": "Palmer amaranth is dioecious; a vegetative shoot alone cannot prove sex.",
+        "status": "existing_species_photo_reference_not_sex_verified"
+      },
+      {
+        "title": "4 · Identify a small rounded axillary cluster",
+        "photo_role": "axillary clusters and entire leaf",
+        "anchor_species_id": "amaranthus-polygonoides",
+        "anchor_image_index": 0,
+        "look_for": "Compact clusters at leaf axils and relatively smaller foliage; immature plants may overlap other species.",
+        "why_it_matters": "Teaches where the flowers sit before examining tiny tepals.",
+        "status": "existing_species_photo_reference"
+      },
+      {
+        "title": "5 · Compare hardened clustered axes",
+        "photo_role": "hard swollen axillary floral axes",
+        "anchor_species_id": "amaranthus-scleropoides",
+        "anchor_image_index": 0,
+        "look_for": "The clustered flower-bearing axis becomes thickened and hard; verify from voucher/macro rather than treating whole-voucher image as an anatomical proof.",
+        "why_it_matters": "The hardest pair against A. polygonoides requires reproductive macro.",
+        "status": "provisional_local_study_photo_rights_unverified"
+      },
+      {
+        "title": "6 · Count tepals and inspect mature fruit",
+        "photo_role": "female inflorescence/fruit study",
+        "anchor_species_id": "amaranthus-viridis",
+        "anchor_image_index": 1,
+        "look_for": "A. viridis generally has three tepals and an indehiscent wrinkled utricle; this inflorescence image does not resolve the fruit microscopically.",
+        "why_it_matters": "Reproductive structures settle IDs when leaves and habit overlap.",
+        "status": "existing_external_photo_diagnostic_macro_pending"
+      }
+    ],
+    "comparison_priority": [
+      {
+        "pair": "A. polygonoides vs A. scleropoides",
+        "test": "hard swollen floral axes, tepal details and full axillary cluster macros",
+        "status": "priority_macro_pending"
+      },
+      {
+        "pair": "A. retroflexus vs A. palmeri",
+        "test": "upper-stem hair, separate male/female flowering plants, female bract length",
+        "status": "priority_macro_pending"
+      },
+      {
+        "pair": "A. spinosus vs all remaining species",
+        "test": "paired spines at leaf nodes",
+        "status": "existing_species_image_supports_basic_comparison"
+      }
+    ],
+    "cautions": [
+      "Photo references use images already recorded on the six species cards; most are offsite URLs, NOT new locally downloaded assets.",
+      "Do not put arrows on a photo until its precise part is independently checked.",
+      "A. scleropoides is represented by a provisional voucher/face image with unverified reuse rights; do not republish or imply rights clearance.",
+      "Native status is species-specific: palmeri, polygonoides and scleropoides remain PROVISIONAL in the canonical records; other three are comparison nonnatives."
+    ]
   }
 }
