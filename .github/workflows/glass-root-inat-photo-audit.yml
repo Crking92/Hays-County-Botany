@@ -1,0 +1,34 @@
+name: Glass Root Garden iNaturalist Photo Inventory
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-inat-photo-audit.yml
+
+permissions:
+  contents: read
+
+jobs:
+  audit-photo-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out canonical project
+        uses: actions/checkout@v4
+      - name: Collect every photo from each matching iNaturalist observation
+        run: |
+          python3 scripts/glass_root_inat_photo_metadata.py \
+            --user calvinking \
+            --place-id 18 \
+            --taxon-id 47126 \
+            --manifest data/manifest.json \
+            --out workflow/glass-root-inat/output
+      - name: Save review-only photo metadata
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: glass-root-inat-photo-metadata
+          path: workflow/glass-root-inat/output/
+          if-no-files-found: warn
+          retention-days: 30
