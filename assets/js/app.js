@@ -232,7 +232,13 @@ function genusSpecies(family,genus){
 }
 function genusSharedTraits(data){
   if(!data) return [];
-  if(data.study_strategy && Array.isArray(data.study_strategy.shared_traits)) return data.study_strategy.shared_traits;
+  // Genus builders use either the older study_strategy/genus_diagnostics
+  // schema or direct shared_traits; honor both without changing science.
+  if(data.study_strategy && Array.isArray(data.study_strategy.shared_traits) && data.study_strategy.shared_traits.length) return data.study_strategy.shared_traits;
+  if(Array.isArray(data.shared_traits) && data.shared_traits.length) return data.shared_traits;
+  if(data.shared_traits && typeof data.shared_traits==="object"){
+    return Object.entries(data.shared_traits).map(function(pair){ return titleCase(pair[0])+": "+formatValue(pair[1]); });
+  }
   if(data.genus_diagnostics && typeof data.genus_diagnostics==="object"){
     return Object.entries(data.genus_diagnostics).map(function(pair){ return titleCase(pair[0])+": "+formatValue(pair[1]); });
   }
