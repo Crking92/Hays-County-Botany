@@ -83,5 +83,24 @@
     ],
     "parent_warning": "Unqualified Anisacanthus quadrifidus is a parent taxon and cannot be assumed equivalent to var. wrightii everywhere.",
     "effect": "Four master-pool names now have verified canonical alias routing; do not install duplicate cards."
+  },
+  "second_pass": {
+    "date": "2026-10-14",
+    "scope": "all 1282 rows rescanned using stricter existing-learner and candidate status patterns",
+    "counts": {
+      "already_installed_exact": 498,
+      "likely_existing_card_alias_verify": 63,
+      "reviewed_new_card_candidate_verify": 129,
+      "taxonomy_review_needed": 22,
+      "needs_research_or_card_triage": 570
+    },
+    "interpretation": "The 784 non-exact matches are NOT 784 new cards. Categories are provisional wording-based bins; in particular only four alias mappings have been individually verified against canonical species JSON so far. Re-check canon, accepted taxa and variation before any card. Do not alter raw source-pool rows.",
+    "card_decision": [
+      "already_installed_exact: no new card",
+      "likely_existing_card_alias_verify: check exact canonical target; add alias/search mapping if verified, no duplicate",
+      "reviewed_new_card_candidate_verify: prioritize small batches for install after current manifest, claims and inbox check",
+      "taxonomy_review_needed: resolve accepted identity/infraspecific concept; native-range HOLD alone is not a blocker",
+      "needs_research_or_card_triage: determine distinct accepted taxon versus comparison versus synonym; highest remaining inventory"
+    ]
   }
 }
