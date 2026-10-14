@@ -1,0 +1,63 @@
+name: Install Glass Root Garden photo batch 002
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - workflow/glass-root-inat/batch-002/approved-photo-install-batch-002.json
+      - .github/workflows/glass-root-inat-install-batch-002.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-approved-install
+  cancel-in-progress: false
+
+jobs:
+  install-reviewed-user-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install pillow
+      - name: Validate and install exact confirmed photos
+        run: python3 scripts/glass_root_inat_install_batch002.py
+      - name: Verify on-disk image binaries and species metadata
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          from PIL import Image
+          data=json.loads(pathlib.Path("workflow/glass-root-inat/batch-002/approved-photo-install-batch-002.json").read_text())
+          for target in data["targets"]:
+              path=pathlib.Path(target["path"])
+              species=json.loads(path.read_text())
+              for photo in target["photos"]:
+                  found=[x for x in species["images"] if str(x.get("photo_id"))==str(photo["id"])]
+                  assert len(found)==1,(target["id"],photo["id"])
+                  record=found[0]
+                  actual=path.parent/record["file"]
+                  assert record["creator"]=="Glass Root Garden" and record["license"]=="CC BY 4.0"
+                  assert actual.stat().st_size > 20000
+                  with Image.open(actual) as im: im.verify()
+                  print("VERIFIED",target["id"],photo["id"],actual)
+          PY
+      - name: Save canonical images, preserving concurrent work
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Sapindaceae/Sapindus/sapindus-drummondii/ content/taxa/Verbenaceae/Lantana/lantana-urticoides/ content/taxa/Ulmaceae/Ulmus/ulmus-crassifolia/
+          if git diff --cached --quiet; then
+            echo "No new files: batch already installed."
+            exit 0
+          fi
+          git commit -m "Install Glass Root Garden soapberry lantana and cedar elm photos"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
