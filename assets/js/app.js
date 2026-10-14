@@ -1085,6 +1085,87 @@ function fieldBotanySection(sp,genusData){
     (countyList(sp).length?'<p><b>Supported target-zone counties in this file:</b> '+esc(countyList(sp).join(", "))+'</p>':'')+'</details></section>';
   return out;
 }
+/* Photo-first taxonomy examples. Images are illustrative, never a claim of unverified anatomy. */
+function taxonomyRoleText(img){
+  return String([img.role,img.view,img.caption,img.image_role,img.diagnostic_roles].filter(Boolean).join(" ")).toLowerCase();
+}
+function taxonomyPhotoPriority(rank,detail){
+  const cue=String(detail||"").toLowerCase();
+  const families=[
+    {words:/leaf|foliage|blade|petiole|phyllotaxy|venation|margin|apex/,roles:["leaf","leaves","foliage","node","stem"]},
+    {words:/acorn|cupule|cup|nut|seed|fruit|follicle|pod|berry/,roles:["acorn","cupule","fruit","follicle","seed","pod","nut"]},
+    {words:/bud|twig|bark|prickle|thorn/,roles:["bud","twig","bark","stem"]},
+    {words:/phyllar|capitul|floret|inflorescen|umbel|spike|head/,roles:["phyllar","flower-head","floret","head","inflorescence","umbel","flower"]},
+    {words:/flower|corolla|petal|anther|stamen|corona|hood|horn|gynostegium|receptacle|ligule|calyx|sepal/,roles:["flower macro","flower close","flower","reproductive","floral"]}
+  ];
+  const match=families.find(function(group){ return group.words.test(cue); });
+  if(match) return match.roles.concat(["diagnostic","macro","close-up","habit"]);
+  if(rank==="species") return ["diagnostic","macro","leaf","leaves","flower","fruit","habit"];
+  if(rank==="genus") return ["flower macro","flower close","flower","inflorescence","fruit","leaves","diagnostic","habit"];
+  return ["flower","inflorescence","habit","leaves","fruit","diagnostic"];
+}
+function taxonomyPickPhoto(sp,rank,detail,preferredIndex){
+  if(!sp) return null;
+  const gallery=imagesFor(sp).filter(function(img){ return !/^(javascript|data|file):/i.test(String(img.file)); });
+  if(!gallery.length) return null;
+  const hints=taxonomyPhotoPriority(rank,detail);
+  const specified=Number(preferredIndex);
+  let chosen=null;
+  if(preferredIndex!==undefined && preferredIndex!==null && Number.isInteger(specified) && specified>=0 && specified<gallery.length){
+    chosen=gallery[specified];
+  }else{
+    const ranked=gallery.map(function(img,index){
+      const role=taxonomyRoleText(img);
+      let score=0;
+      hints.forEach(function(hint,i){ if(role.includes(hint)) score=Math.max(score,40-i*2); });
+      // Real diagnostic close-ups are preferred over pretty but uninformative portraits.
+      if(/macro|close-up|diagnostic/.test(role)) score+=3;
+      return {img:img,index:index,score:score};
+    }).sort(function(a,b){ return b.score-a.score || a.index-b.index; });
+    chosen=ranked[0].img;
+  }
+  return {species:sp,img:chosen,role:chosen.role||chosen.view||"Plant reference",src:imagePath(sp,chosen)};
+}
+function taxonomyTeachingPhoto(sp,rank,detail,familyData){
+  let picked=null,step=null,linkedRank=rank;
+  const lesson=familyData && familyData.visual_lesson;
+  if((rank==="family" || rank==="order") && lesson && Array.isArray(lesson.steps)){
+    for(const candidate of lesson.steps){
+      if(!candidate || !candidate.anchor_species_id || /pending/i.test(String(candidate.status||""))) continue;
+      const representative=state.speciesById.get(candidate.anchor_species_id);
+      if(!representative || !imagesFor(representative).length) continue;
+      picked=taxonomyPickPhoto(representative,"family",candidate.photo_role||detail,candidate.anchor_image_index);
+      if(picked){ step=candidate;break; }
+    }
+  }
+  if(!picked){
+    let representative=sp;
+    if(rank==="genus" && !imagesFor(sp).length){
+      representative=genusSpecies(sp.family,sp.genus).find(function(x){return imagesFor(x).length;})||sp;
+    }
+    if((rank==="family" || rank==="order") && !imagesFor(representative).length){
+      representative=familySpecies(sp.family).find(function(x){return imagesFor(x).length;})||sp;
+    }
+    picked=taxonomyPickPhoto(representative,rank,detail);
+  }
+  if(!picked) return '<div class="taxonomy-teaching-photo-empty"><span aria-hidden="true">✣</span><strong>Photo example needed</strong><small>The identification clues below are still available.</small></div>';
+  const photo=picked.img, photoSp=picked.species;
+  const recordedRole=String(picked.role||"Plant reference");
+  const caption=step && step.image_label ? step.image_label : recordedRole;
+  const credit=[photo.creator||photo.credit,photo.license].filter(Boolean).join(" · ");
+  const page=photo.source_page||((step && step.source_page)||"");
+  const isRepresentative=photoSp.id!==sp.id;
+  const title=(rank==="species"?"Species study view":rank==="genus"?"Genus example":rank==="order"?"Related family example":"Family example");
+  const note=(isRepresentative?"Representative: "+scientificName(photoSp)+" · ":"")+caption;
+  const description=scientificName(photoSp)+" — "+recordedRole+". Teaching example; inspect the written clues for diagnostic evidence.";
+  return '<figure class="taxonomy-teaching-media">'+
+    '<img src="'+esc(picked.src)+'" alt="'+esc(description)+'" loading="lazy" decoding="async">'+
+    '<figcaption><b>'+esc(title)+'</b><span>'+esc(note)+'</span>'+
+      (credit?'<small>'+esc(credit)+'</small>':'<small>Photograph provenance: see species gallery</small>')+
+      (page && /^https?:\/\//i.test(page)?'<a href="'+esc(page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':'')+
+    '</figcaption></figure>';
+}
+
 /* Presentation-only name/relationship lesson. Canonical ranks and ID evidence stay in their source modules. */
 function taxonomyTeachingTrail(sp,genusData,profile,callouts){
   const familyData=state.familyCache.get(sp.family)||{};
@@ -1115,10 +1196,11 @@ function taxonomyTeachingTrail(sp,genusData,profile,callouts){
   let out='<section id="taxonomySection" class="section-block taxonomy-teaching" aria-labelledby="taxonomyTeachingTitle">'+
     '<div class="section-heading"><div><div class="eyebrow">Name detective · follow the clues</div>'+
     '<h2 id="taxonomyTeachingTitle">Why does this plant have that name?</h2></div></div>'+
-    '<p class="section-intro">Follow the classification from broader relatives to this species. These are field clues to investigate, not single-character proof of an identification.</p>'+
+    '<p class="section-intro">Follow the classification from broader relatives to this species. Each image is a representative study view; use the written clues and detailed lessons to verify individual structures.</p>'+
     '<div class="taxonomy-teaching-grid">';
   ranks.forEach(function(rank,index){
     out+='<article class="taxonomy-teaching-card taxonomy-teaching-'+rank.tone+'">'+
+      taxonomyTeachingPhoto(sp,rank.tone,rank.detail,familyData)+
       '<div class="taxonomy-teaching-head"><span class="taxonomy-teaching-number">'+String(index+1).padStart(2,"0")+'</span>'+
       '<span><small>'+esc(rank.rank)+' · '+esc(rank.helper)+'</small><strong>'+(rank.italic?'<i>'+esc(rank.name)+'</i>':esc(rank.name))+'</strong></span></div>'+
       '<div class="taxonomy-teaching-body"><b>Look for</b><p>'+clueWithTerms(rank.detail)+'</p></div>'+
