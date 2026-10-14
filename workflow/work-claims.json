@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T18:49:22-05:00",
+  "updated_at": "2026-10-13T19:58:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -8054,11 +8054,13 @@
       "scope_key": "assets/js/app.js::species-gallery-thumbnails; assets/css/styles.css::visual-legibility+responsive-navigation; index.html::cache-versions",
       "lane": "website-ui",
       "owner": "manual-project-chat-visual-layout-20261013",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-13T19:45:00-05:00",
       "expires_at": "2026-10-14T01:45:00-05:00",
       "release_when": "After visual layout and gallery changes committed and verified.",
-      "notes": "UI-only work; preserve all taxonomy, photo provenance, learner data, and curation workflows."
+      "notes": "UI-only work; preserve all taxonomy, photo provenance, learner data, and curation workflows.",
+      "released_at": "2026-10-13T19:58:00-05:00",
+      "release_note": "Completed and read-back-verified species photo filmstrip in assets/js/app.js (03c38f63), improved pastel text contrast and iPhone navigation in assets/css/styles.css (59f331d8), bumped index assets (479ddee9) and service-worker offline cache (dc1a1b9). Scientific content and image assets untouched."
     }
   ]
 }
