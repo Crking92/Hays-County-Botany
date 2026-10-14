@@ -221,7 +221,7 @@
   "curation_status": {
     "version": "1.1-fna-diagnostic-polish",
     "last_reviewed": "2026-10-14",
-    "visual_status": "exact_photo_source_audit_pending_asset_download_links",
+    "visual_status": "photo_acquisition_two_specific_targets_identified_not_installed",
     "scientific_note": "FNA-backed comparison pass; no taxonomy/range/admission changes."
   },
   "look_here_first_sequence": [
@@ -318,9 +318,20 @@
   },
   "photo_source_audit": {
     "date": "2026-10-14",
-    "aphoroides": "Kew POWO lists one exact-species herbarium image. Need direct image URL, individual sheet identifier and licensing attribution before public installation.",
-    "simulans": "iNaturalist has an exact-species observation pool; must check selected photo ID, owner, reuse license and downloadable URL independently.",
-    "status": "No new physical images installed; precise reusable assets not yet verified.",
-    "guardrails": "Preserve humilis private-study image, all taxonomy and county decisions; never install genus-level substitute."
+    "status": "two_exact_taxon_source_targets_verified_no_rights_and_direct_asset_pair_yet",
+    "aphoroides": {
+      "page": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:339338-1/images",
+      "image_count": 1,
+      "license": "Kew Herbarium Catalogue digital images CC BY 3.0",
+      "next_check": "Resolve actual HC specimen asset/IIIF endpoint and specimen identifier; preserve Kew credit."
+    },
+    "simulans": {
+      "observation": "https://www.inaturalist.org/observations/3687154",
+      "observer": "Mikael Behrens (mikaelb)",
+      "identification": "Argythamnia simulans, research grade, Austin TX, 2016-07-16",
+      "photo_count": 2,
+      "next_check": "Retrieve image IDs and verify the individual photograph license; observation license alone is not enough."
+    },
+    "guardrails": "Do not send READY to installer without verified direct image URLs and per-image attribution. Keep all existing taxon/range determinations and the humilis study-only image."
   }
 }
