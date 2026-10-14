@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T08:10:25-05:00",
+  "updated_at": "2026-10-14",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,22 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "taxonomy-diagnostic-juncus-20261014-1022",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "juncus-dichotomus",
+        "juncus-filipendulus",
+        "juncus-texanus"
+      ],
+      "lane": "scientific-taxonomy-diagnostic-review",
+      "owner": "Taxonomy + Diagnostic Review",
+      "status": "active",
+      "claimed_at": "2026-10-14T10:22:12-05:00",
+      "expires_at": "2026-10-14T12:22:12-05:00",
+      "release_when": "Scientific report and three Master Pool scientific overrides verified, or work explicitly abandoned",
+      "notes": "Scientific review only; no genus/canonical/gallery writes. Juncaceae family module preserved."
+    },
     {
       "claim_id": "automation-genus-chaetopappa-20261013-0536",
       "scope_kind": "genus_lesson",
