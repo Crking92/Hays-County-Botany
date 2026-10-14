@@ -1120,6 +1120,8 @@ function taxonomyPickPhoto(sp,rank,detail,preferredIndex){
       hints.forEach(function(hint,i){ if(role.includes(hint)) score=Math.max(score,40-i*2); });
       // Real diagnostic close-ups are preferred over pretty but uninformative portraits.
       if(/macro|close-up|diagnostic/.test(role)) score+=3;
+      // Installed local media is more reliable than a hotlinked reference image.
+      if(!/^https?:\/\//i.test(String(img.file))) score+=60;
       return {img:img,index:index,score:score};
     }).sort(function(a,b){ return b.score-a.score || a.index-b.index; });
     chosen=ranked[0].img;
@@ -1153,7 +1155,8 @@ function taxonomyTeachingPhoto(sp,rank,detail,familyData){
   const recordedRole=String(picked.role||"Plant reference");
   const caption=step && step.image_label ? step.image_label : recordedRole;
   const credit=[photo.creator||photo.credit,photo.license].filter(Boolean).join(" · ");
-  const page=photo.source_page||((step && step.source_page)||"");
+  // Link only the chosen image's actual source, not a different family-lesson reference.
+  const page=photo.source_page||"";
   const isRepresentative=photoSp.id!==sp.id;
   const title=(rank==="species"?"Species study view":rank==="genus"?"Genus example":rank==="order"?"Related family example":"Family example");
   const note=(isRepresentative?"Representative: "+scientificName(photoSp)+" · ":"")+caption;
@@ -1161,7 +1164,7 @@ function taxonomyTeachingPhoto(sp,rank,detail,familyData){
   return '<figure class="taxonomy-teaching-media">'+
     '<img src="'+esc(picked.src)+'" alt="'+esc(description)+'" loading="lazy" decoding="async">'+
     '<figcaption><b>'+esc(title)+'</b><span>'+esc(note)+'</span>'+
-      (credit?'<small>'+esc(credit)+'</small>':'<small>Photograph provenance: see species gallery</small>')+
+      (credit?'<small>'+esc(credit)+'</small>':'<small>Photo attribution not recorded in this entry</small>')+
       (page && /^https?:\/\//i.test(page)?'<a href="'+esc(page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':'')+
     '</figcaption></figure>';
 }
