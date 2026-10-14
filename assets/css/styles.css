@@ -614,3 +614,44 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
   .topbar .quiz-toggle{min-width:75px;padding:7px}
   .topbar .difficulty button{font-size:.7rem}
 }
+
+
+/* Photo-backed taxonomy lesson cards v4: photos show representative plants, not unverified arrows. */
+.taxonomy-teaching-card{overflow:hidden}
+.taxonomy-teaching-media{
+  display:block;margin:0 0 14px;border:1px solid var(--card-edge);border-radius:15px;
+  background:#edf2eb;overflow:hidden
+}
+.taxonomy-teaching-media>img{
+  display:block;width:100%;height:clamp(155px,17vw,225px);
+  object-fit:contain;background:#e9efea
+}
+.taxonomy-teaching-media figcaption{
+  display:flex;flex-direction:column;align-items:start;gap:4px;padding:10px 12px 12px;
+  background:#f3f8f1;border-top:1px solid var(--card-edge)
+}
+.taxonomy-teaching-media figcaption b{
+  color:#275d43;font-size:.69rem;letter-spacing:.07em;text-transform:uppercase
+}
+.taxonomy-teaching-media figcaption span{
+  color:var(--card-ink);line-height:1.37;font-size:.78rem;overflow-wrap:anywhere
+}
+.taxonomy-teaching-media figcaption small{
+  color:var(--card-muted);font-size:.71rem;line-height:1.3;overflow-wrap:anywhere
+}
+.taxonomy-teaching-media figcaption a{font-size:.76rem;font-weight:800;color:#226045}
+.taxonomy-teaching-media figcaption a:hover{text-decoration:underline}
+.taxonomy-teaching-photo-empty{
+  min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:5px;padding:20px;margin:0 0 14px;border:2px dashed var(--card-edge);
+  border-radius:15px;background:#f2f6ef;color:var(--card-muted);text-align:center
+}
+.taxonomy-teaching-photo-empty>span{font-size:2rem;color:#7c9c85}
+.taxonomy-teaching-photo-empty strong{color:var(--card-ink);font-size:.86rem}
+.taxonomy-teaching-photo-empty small{font-size:.74rem}
+@media(max-width:1000px){
+  .taxonomy-teaching-media>img{height:clamp(175px,29vw,260px)}
+}
+@media(max-width:650px){
+  .taxonomy-teaching-media>img{height:clamp(210px,60vw,330px)}
+}
