@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T01:06:40.000Z",
+  "updated_at": "2026-10-14T01:16:09.990Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -8117,6 +8117,18 @@
       "notes": "Layout-only, no changes to canonical taxonomy, species or photo assets. Other plant curation continues independently.",
       "release_note": "Committed and re-fetched presentation-only taxonomy explanation, cohesive photo/card styling, mobile nav, term contrast and cache-busted site assets. JS syntax and canonical Asclepias viridis taxonomy output verified. No scientific/content data modified; Cloudflare device render not externally verified.",
       "released_at": "2026-10-14T00:54:19.736Z"
+    },
+    {
+      "claim_id": "manual-taxonomy-photo-cards-20261013-website",
+      "scope_kind": "website",
+      "scope_key": "assets/js/app.js::taxonomy photo cards;assets/css/styles.css::taxonomy photo cards;index.html;sw.js",
+      "lane": "website-ui",
+      "owner": "manual-chat-visual-learner",
+      "status": "active",
+      "claimed_at": "2026-10-14T01:16:09.990Z",
+      "expires_at": "2026-10-14T07:16:09.990Z",
+      "release_when": "After photo card assets are committed and re-fetched for verification",
+      "notes": "UI-only: photo examples on species taxonomy trail, using installed assets and existing family/genus data; no canonical scientific/photographic records modified."
     }
   ]
 }
