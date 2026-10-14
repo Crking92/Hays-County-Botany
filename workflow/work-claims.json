@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T21:22:00Z",
+  "updated_at": "2026-10-14T16:37:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -8766,6 +8766,25 @@
       "expires_at": "2026-10-14T16:10:25-05:00",
       "release_when": "After canonical family module polish and Sheet sync are verified, or on failure/expiry.",
       "notes": "Small existing-family diagnostic visual role and Ulmaceae/Moraceae/Rhamnaceae confusion polish; no UI or photo installs."
+    },
+    {
+      "claim_id": "automation-genus-ammannia-20261014-1637",
+      "scope_kind": "genus_module",
+      "taxa": [
+        "ammannia-auriculata",
+        "ammannia-coccinea"
+      ],
+      "families": [
+        "Lythraceae"
+      ],
+      "scope_key": "content/taxa/Lythraceae/Ammannia/genus.json",
+      "lane": "genus-lesson-comparison-builder",
+      "owner": "automation-genus-comparison-builder",
+      "status": "active",
+      "claimed_at": "2026-10-14T16:37:00-05:00",
+      "expires_at": "2026-10-14T18:37:00-05:00",
+      "release_when": "Ammannia genus lesson committed, re-fetched and registered in lesson-index; otherwise release after failure.",
+      "notes": "Two manifest-backed species; no species installs, range decisions or website changes."
     }
   ]
 }
