@@ -54,5 +54,34 @@
     "master_rows_scanned": 1282,
     "manifest_entries_scanned": 532,
     "automation_running_policy": "No global READY promotions from this report"
+  },
+  "verified_alias_batch_1": {
+    "date": "2026-10-14",
+    "count": 4,
+    "mappings": [
+      {
+        "source": "Andropogon glomeratus",
+        "canonical_id": "anatherum-glomeratum",
+        "status": "verified_existing_synonym"
+      },
+      {
+        "source": "Andropogon gerardii",
+        "canonical_id": "andropogon-gerardi",
+        "status": "verified_existing_synonym"
+      },
+      {
+        "source": "Celtis laevigata var. reticulata",
+        "canonical_id": "celtis-reticulata",
+        "status": "verified_existing_synonym"
+      },
+      {
+        "source": "Anisacanthus quadrifidus wrightii",
+        "canonical_id": "anisacanthus-quadrifidus-var-wrightii",
+        "status": "verified_alias_added",
+        "commit": "ea18c5ea602aade008b5f098c93b04d48a111e41"
+      }
+    ],
+    "parent_warning": "Unqualified Anisacanthus quadrifidus is a parent taxon and cannot be assumed equivalent to var. wrightii everywhere.",
+    "effect": "Four master-pool names now have verified canonical alias routing; do not install duplicate cards."
   }
 }
