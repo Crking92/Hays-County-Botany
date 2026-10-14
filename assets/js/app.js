@@ -1230,7 +1230,7 @@ function botanyPartLabel(raw){
   if(/pollin/.test(v)) return "Pollen structures";
   if(/inflorescen|umbel/.test(v)) return "Flower cluster";
   if(/fruit|follicle|pod|acorn|cupule/.test(v)) return "Fruit and seed";
-  if(/leaf|foliage|venation|phyllotaxy/.test(v)) return "Leaves and attachment";
+  if(/leaf|leaves|foliage|venation|phyllotaxy/.test(v)) return "Leaves and attachment";
   if(/stem|bud|bark|twig/.test(v)) return "Stem, twig or buds";
   if(/latex|sap/.test(v)) return "Sap and latex";
   if(/habit/.test(v)) return "Whole plant";
@@ -1240,7 +1240,7 @@ function botanyPartLabel(raw){
 function botanyPartPhotoPattern(raw){
   const v=String(raw||"").toLowerCase();
   if(/latex|sap/.test(v)) return /latex|sap|cut.stem|exudate/;
-  if(/leaf|foliage|venation|phyllotaxy/.test(v)) return /leaves|leaf|foliage|stem.node|venation/;
+  if(/leaf|leaves|foliage|venation|phyllotaxy/.test(v)) return /leaves|leaf|foliage|stem.node|venation/;
   if(/fruit|follicle|pod|acorn|cupule|seed/.test(v)) return /fruit|follicle|pod|acorn|cupule|seed/;
   if(/habit/.test(v)) return /habit|whole.plant|branching/;
   if(/inflorescen|umbel/.test(v)) return /inflorescence|umbel|flower.head|flowering.plant|flower.cluster/;
@@ -1283,7 +1283,9 @@ function botanyPartPhotoCard(item){
   if(photo && photo.src){
     const label=photo.species?scientificName(photo.species):"Botanical reference";
     const role=(photo.img&&photo.img.role)||item.role||"Reference photograph";
-    media='<img src="'+esc(photo.src)+'" loading="lazy" decoding="async" alt="'+esc(label+" — "+role+" (unannotated study photo)")+'">';
+    media='<button class="part-example-photo-button" type="button" data-part-preview data-part-src="'+esc(photo.src)+'" data-part-title="'+esc(name)+'" data-part-caption="'+esc(label+" · "+role)+'" data-part-credit="'+esc([photo.img&&photo.img.creator,photo.img&&photo.img.license].filter(Boolean).join(" · "))+'" aria-label="Enlarge '+esc(name)+' reference photo">'+
+      '<img src="'+esc(photo.src)+'" loading="lazy" decoding="async" alt="'+esc(label+" — "+role+" (unannotated study photo)")+'">'+
+      '<span class="part-example-zoom-tag">Enlarge ↗</span></button>';
   }
   const source=photo && photo.img ? photo.img.source_page : item.source;
   const attribution=photo && photo.img ? [photo.img.creator||photo.img.credit,photo.img.license].filter(Boolean).join(" · ") : (item.credit||"");
@@ -1300,6 +1302,21 @@ function botanyPartPhotoCard(item){
     (attribution?'<small class="part-example-credit">'+esc(attribution)+'</small>':'')+
     (sourceLink?'<span class="part-example-source">'+sourceLink+'</span>':'')+
     '</div></article>';
+}
+function openPartPhotoPreview(button){
+  const src=String(button.dataset.partSrc||"");
+  if(!/^(https?:\/\/|content\/)/i.test(src)) return;
+  const heading=button.dataset.partTitle||"Botanical photo";
+  const caption=button.dataset.partCaption||"Unannotated real-plant reference";
+  const credit=button.dataset.partCredit||"";
+  els.modal.innerHTML='<div class="modal-backdrop" data-close-modal><section class="modal-card part-photo-modal" role="dialog" aria-modal="true" aria-labelledby="partPhotoTitle">'+
+    '<button class="modal-close" type="button" data-close-modal aria-label="Close photo">×</button>'+
+    '<h2 id="partPhotoTitle">'+esc(heading)+'</h2>'+
+    '<div class="part-photo-zoom"><img src="'+esc(src)+'" alt="'+esc(caption)+'" loading="eager"></div>'+
+    '<p>'+esc(caption)+'</p>'+
+    (credit?'<small>'+esc(credit)+'</small>':'')+
+    '<p class="part-modal-caveat">Unannotated study photograph. Arrows will only be added after individual structures are visually checked.</p>'+
+    '</section></div>';
 }
 function botanyPartGroup(rank,label,subtext,items,button){
   if(!items || !items.length) return "";
@@ -1834,6 +1851,8 @@ function closeModal(){ els.modal.innerHTML=""; }
 function handleClick(e){
   const close=e.target.closest("[data-close-modal]");
   if(close && (e.target.classList.contains("modal-backdrop") || close.classList.contains("modal-close"))){ closeModal(); return; }
+  const partPreview=e.target.closest("[data-part-preview]");
+  if(partPreview){ openPartPhotoPreview(partPreview); return; }
   const nav=e.target.closest("[data-nav]"); if(nav){ setView(nav.dataset.nav); return; }
   if(e.target.closest("#brandHome")){ setView("home"); return; }
   const approvalFilter=e.target.closest("[data-approval-filter]");
