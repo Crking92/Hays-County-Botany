@@ -1,6 +1,6 @@
 # Glass Root Garden — iNaturalist photo inventory
 
-**Status:** Metadata retrieval only; no images installed or species cards modified.
+**Status:** Metadata inventory plus explicitly approved canonical photo installations; see per-batch manifests and reports.
 
 ## Purpose
 Inventory all photos (not just the single image URL in the original CSV) attached to public Research Grade plant observations by `calvinking` in Texas. Cross-reference the *current* canonical `data/manifest.json`. Preserve individual photo ID, source link, license and iNaturalist attribution without exposing GPS coordinates.
@@ -30,3 +30,7 @@ The GitHub workflow uses the public iNaturalist query for observer `calvinking`,
 
 ## Follow-up
 Review a small high-value set first (Lindheimer's senna, Maximilian sunflower, flame acanthus, Simsia calva and other no-photo/one-photo installed taxa), download original photo files in approved batches, install true diagnostic views through the existing species photo pipeline, and verify both rendered cards and arrow targets. Other ongoing genus/family automation is unaffected.
+
+## Owner-authorized private-use exception — 2026-10-14
+
+Calvin explicitly confirmed his ownership and authorized use of his iNaturalist photographs in the private learner in this project chat. Follow [OWNER_PERMISSION_2026-10-14.md](OWNER_PERMISSION_2026-10-14.md). For new photos whose individual API record still says all rights reserved, retain that source state and record the separate owner-authorized private-study permission; set public_reuse=no. Do not invent a public CC license, change previous photo licenses, or apply this permission to another creator's photographs. Match exact observer, photo ID, scientific identity and owner attribution, inspect image content, and preserve all previous galleries/science.
