@@ -33,9 +33,15 @@
     ]
   },
   "curation_status": {
-    "version": "1.1-b075",
+    "version": "1.2-structured-photo-inventory",
     "last_reviewed": "2026-10-14",
-    "genus_lesson": "four canonical species reconciled; photo-led comparison provisional"
+    "genus_lesson": "four canonical species reconciled; photo-led comparison provisional",
+    "physical_nonempty_images": 7,
+    "publicly_reusable_or_nc_images": 4,
+    "all_rights_reserved_study_images": 3,
+    "external_suavis_illustration": 1,
+    "rights_and_anatomy_cautions_preserved": true,
+    "range_decisions_changed": false
   },
   "b075_comparison": {
     "selection_mode": "B075 same-genus comparison",
@@ -191,5 +197,115 @@
       ]
     }
   ],
-  "visual_comparison": "{\"status\":\"Three real exact-species photos visually inspected in GitHub; one additional listed pulchella image is zero-byte and unusable; G. suavis has an external illustration only. Morphology-dependent views still needed.\",\"items\":[{\"species_id\":\"gaillardia-aestivalis\",\"image_url\":\"content/taxa/Asteraceae/Gaillardia/gaillardia-aestivalis/images/gaillardia-aestivalis-provisional-face.jpg\",\"creator\":\"Alan Rockefeller\",\"license\":\"CC BY-SA 4.0\",\"public_reuse\":\"attribution/share-alike\",\"source_page\":\"https://commons.wikimedia.org/wiki/File:Gaillardia_aestivalis_Texas.jpg\",\"observed_anatomy\":\"Head front with yellow-orange ray florets and dark maroon central disk; no visible basal leaves or underside phyllaries.\",\"caption\":\"Ray and disk florets in a lanceleaf blanketflower head; leaf-attachment confirmation needs a separate photo.\",\"visual_status\":\"installed_verified; annotation_pending\",\"future_arrow_target\":\"yellow-orange outer ray florets and dark central disk; coordinates pending\",\"markers\":[]},{\"species_id\":\"gaillardia-amblyodon\",\"image_url\":\"content/taxa/Asteraceae/Gaillardia/gaillardia-amblyodon/images/gaillardia-amblyodon-provisional-face.jpg\",\"creator\":\"Megan Kossa\",\"license\":\"CC BY 4.0\",\"public_reuse\":\"attribution\",\"source_page\":\"https://commons.wikimedia.org/wiki/File:Gaillardia_amblyodon,_Texas,_US_imported_from_iNaturalist_photo_72187260.jpg\",\"observed_anatomy\":\"Close head front with reddish rays and a dark disk with yellow center; no stem architecture or phyllary underside.\",\"caption\":\"The head's ray florets and central disk are visible; do not decide this species from red color alone.\",\"visual_status\":\"installed_verified; annotation_pending\",\"future_arrow_target\":\"outer strap-shaped ray and center disk; coordinates pending\",\"markers\":[]},{\"species_id\":\"gaillardia-pulchella\",\"image_url\":\"content/taxa/Asteraceae/Gaillardia/gaillardia-pulchella/images/01-curated-reference.jpg\",\"creator\":\"TexasEagle\",\"license\":\"CC BY-NC\",\"public_reuse\":\"review; noncommercial restriction\",\"source_page\":\"https://www.inaturalist.org/taxa/51768\",\"observed_anatomy\":\"Head front with red ray bases, yellow ray tips and central disk; underside phyllaries and leaves not visible.\",\"caption\":\"A firewheel head shows rays and disk; this image does not prove underside phyllary structure.\",\"visual_status\":\"installed_verified; annotation_pending\",\"future_arrow_target\":\"yellow ray tip, red ray base and disk; coordinates pending\",\"markers\":[]},{\"species_id\":\"gaillardia-pulchella\",\"image_url\":\"content/taxa/Asteraceae/Gaillardia/gaillardia-pulchella/images/02-curated-reference.jpg\",\"creator\":\"Conway Hawn\",\"license\":\"CC0\",\"public_reuse\":\"yes\",\"source_page\":\"https://www.inaturalist.org/taxa/51768\",\"observed_anatomy\":\"GitHub blob returned zero bytes; no image anatomy can be verified.\",\"caption\":\"Unavailable file; do not render as verified diagnostic photo.\",\"visual_status\":\"needs_photo; empty_file_verified; annotation_pending\",\"markers\":[]},{\"species_id\":\"gaillardia-suavis\",\"image_url\":\"https://commons.wikimedia.org/wiki/Special:Redirect/file/Gaillardia-suavis01.jpg\",\"creator\":\"N. L. Britton & A. Brown / USDA-NRCS\",\"license\":\"Public domain\",\"public_reuse\":\"yes\",\"source_page\":\"https://commons.wikimedia.org/wiki/File:Gaillardia-suavis01.jpg\",\"observed_anatomy\":\"External botanical illustration reference in species.json; not installed or independently visually inspected here.\",\"caption\":\"External reference only; real basal rosette, flowering stalk and head macro still needed.\",\"visual_status\":\"external_reference; annotation_pending\",\"markers\":[]}],\"photo_gaps\":[\"G. suavis exact-species real photo showing basal rosette plus full nearly leafless peduncle\",\"All four species matched head undersides showing phyllary rows\",\"All four species matched upper stem leaf attachment and full plant bases\",\"All four species mature cypsela/pappus macros with 1-mm ruler\",\"G. pulchella repair or replace zero-byte 02-curated-reference.jpg after validating license and provenance\",\"Verify any future arrow target on rendered image before adding coordinates\"],\"handoff\":\"Diagnostic Photo Polish: install/validate missing anatomy photos, repair zero-byte file, preserve CC BY-NC and all-rights-reserved limits. Taxonomy + Diagnostic Review: validate overlap in aestivalis/pulchella and amblyodon/pulchella phyllary/fruit keys without changing existing range decisions.\"}"
+  "visual_comparison": {
+    "status": "Seven physically installed nonempty images verified by GitHub directory sizes (aestivalis 1, amblyodon 1, pulchella 5). Three pulchella images are all-rights-reserved and must be excluded from public-use galleries absent permission. G. suavis has only an external public-domain illustration. Anatomical macros/arrows remain pending.",
+    "items": [
+      {
+        "species_id": "gaillardia-aestivalis",
+        "image_url": "content/taxa/Asteraceae/Gaillardia/gaillardia-aestivalis/images/gaillardia-aestivalis-provisional-face.jpg",
+        "creator": "Alan Rockefeller",
+        "license": "CC BY-SA 4.0",
+        "public_reuse": "attribution/share-alike",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gaillardia_aestivalis_Texas.jpg",
+        "observed_anatomy": "Head front with yellow-orange ray florets and dark maroon central disk; no visible basal leaves or underside phyllaries.",
+        "caption": "Ray and disk florets in a lanceleaf blanketflower head; leaf-attachment confirmation needs a separate photo.",
+        "visual_status": "installed_verified; annotation_pending",
+        "future_arrow_target": "yellow-orange outer ray florets and dark central disk; coordinates pending",
+        "markers": []
+      },
+      {
+        "species_id": "gaillardia-amblyodon",
+        "image_url": "content/taxa/Asteraceae/Gaillardia/gaillardia-amblyodon/images/gaillardia-amblyodon-provisional-face.jpg",
+        "creator": "Megan Kossa",
+        "license": "CC BY 4.0",
+        "public_reuse": "attribution",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gaillardia_amblyodon,_Texas,_US_imported_from_iNaturalist_photo_72187260.jpg",
+        "observed_anatomy": "Close head front with reddish rays and a dark disk with yellow center; no stem architecture or phyllary underside.",
+        "caption": "The head's ray florets and central disk are visible; do not decide this species from red color alone.",
+        "visual_status": "installed_verified; annotation_pending",
+        "future_arrow_target": "outer strap-shaped ray and center disk; coordinates pending",
+        "markers": []
+      },
+      {
+        "species_id": "gaillardia-pulchella",
+        "image_url": "content/taxa/Asteraceae/Gaillardia/gaillardia-pulchella/images/01-curated-reference.jpg",
+        "creator": "TexasEagle",
+        "license": "CC BY-NC",
+        "public_reuse": "review; noncommercial restriction",
+        "source_page": "https://www.inaturalist.org/taxa/51768",
+        "observed_anatomy": "Head front with red ray bases, yellow ray tips and central disk; underside phyllaries and leaves not visible.",
+        "caption": "A firewheel head shows rays and disk; this image does not prove underside phyllary structure.",
+        "visual_status": "installed_verified; annotation_pending",
+        "future_arrow_target": "yellow ray tip, red ray base and disk; coordinates pending",
+        "markers": []
+      },
+      {
+        "species_id": "gaillardia-pulchella",
+        "image_url": "content/taxa/Asteraceae/Gaillardia/gaillardia-pulchella/images/02-curated-reference.jpg",
+        "creator": "Conway Hawn",
+        "license": "CC0",
+        "public_reuse": "yes",
+        "source_page": "https://www.inaturalist.org/taxa/51768",
+        "observed_anatomy": "Physical image file now exists (1,615,805 bytes). Detailed anatomy not newly pixel-reviewed during this pass.",
+        "caption": "Curated additional firewheel photograph; verify exact anatomical targets before drawing arrows.",
+        "visual_status": "physically_installed_nonempty; anatomy_pixel_review_pending",
+        "markers": [],
+        "future_arrow_target": "pending actual image inspection"
+      },
+      {
+        "species_id": "gaillardia-suavis",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gaillardia-suavis01.jpg",
+        "creator": "N. L. Britton & A. Brown / USDA-NRCS",
+        "license": "Public domain",
+        "public_reuse": "yes",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Gaillardia-suavis01.jpg",
+        "observed_anatomy": "External botanical illustration reference in species.json; not installed or independently visually inspected here.",
+        "caption": "External reference only; real basal rosette, flowering stalk and head macro still needed.",
+        "visual_status": "external_reference; annotation_pending",
+        "markers": []
+      },
+      {
+        "species_id": "gaillardia-pulchella",
+        "image_url": "content/taxa/Asteraceae/Gaillardia/gaillardia-pulchella/images/03-same-plant-field-view-1.jpg",
+        "creator": "Nina Leonard",
+        "license": "All rights reserved",
+        "public_reuse": false,
+        "source_page": "https://www.inaturalist.org/observations/376883263",
+        "caption": "Same-observation supplemental firewheel field view. Restricted rights: do not display publicly without creator permission.",
+        "visual_status": "physically_installed_rights_restricted; public_gallery_exclude",
+        "markers": []
+      },
+      {
+        "species_id": "gaillardia-pulchella",
+        "image_url": "content/taxa/Asteraceae/Gaillardia/gaillardia-pulchella/images/04-same-plant-field-view-2.jpg",
+        "creator": "Nina Leonard",
+        "license": "All rights reserved",
+        "public_reuse": false,
+        "source_page": "https://www.inaturalist.org/observations/376883263",
+        "caption": "Same-observation supplemental firewheel field view. Restricted rights: do not display publicly without creator permission.",
+        "visual_status": "physically_installed_rights_restricted; public_gallery_exclude",
+        "markers": []
+      },
+      {
+        "species_id": "gaillardia-pulchella",
+        "image_url": "content/taxa/Asteraceae/Gaillardia/gaillardia-pulchella/images/05-same-plant-field-view-3.jpg",
+        "creator": "Nina Leonard",
+        "license": "All rights reserved",
+        "public_reuse": false,
+        "source_page": "https://www.inaturalist.org/observations/376883263",
+        "caption": "Same-observation supplemental firewheel field view. Restricted rights: do not display publicly without creator permission.",
+        "visual_status": "physically_installed_rights_restricted; public_gallery_exclude",
+        "markers": []
+      }
+    ],
+    "photo_gaps": [
+      "G. suavis exact-species real photo showing basal rosette plus full nearly leafless peduncle",
+      "All four species matched head undersides showing phyllary rows",
+      "All four species matched upper stem leaf attachment and full plant bases",
+      "All four species mature cypsela/pappus macros with 1-mm ruler",
+      "Verify any future arrow target on rendered image before adding coordinates",
+      "The three all-rights-reserved firewheel observation photographs require explicit permission before public deployment."
+    ],
+    "handoff": "Diagnostic Photo Polish: obtain licensed actual Gaillardia suavis rosette/stalk/head photos, matched underside phyllaries and mature pappus/cypsela macros. Do not reuse restricted firewheel images publicly without permission; 02-curated-reference.jpg has been repaired and is nonempty. Science lane: preserve G. aestivalis HOLD."
+  }
 }
