@@ -54,12 +54,12 @@
     {
       "priority": "medium",
       "role": "Flower head with 6–13 flowers counted in focus",
-      "status": "PENDING_MORPHOLOGY_FINAL_POLISH"
+      "status": "PHOTO_CANDIDATE_SELECTED; morphology-specific closeup still unverified"
     },
     {
       "priority": "medium",
       "role": "Pointed mature pod measured 30–50 mm",
-      "status": "PENDING_MORPHOLOGY_FINAL_POLISH"
+      "status": "PHOTO_CANDIDATE_SELECTED; morphology-specific closeup still unverified"
     },
     {
       "priority": "medium",
@@ -72,7 +72,35 @@
       "status": "PENDING_MORPHOLOGY_FINAL_POLISH"
     }
   ],
-  "images": [],
+  "images": [
+    {
+      "file": "images/desmanthus-acuminatus-face.jpg",
+      "role": "Wild tantan exact-species whole shoot / plant recognition; not a verified leaf gland macro",
+      "creator": "Btcpg",
+      "license": "CC0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Desmanthus_acuminatus.jpg",
+      "study_use": "yes",
+      "public_reuse": "public_domain"
+    },
+    {
+      "file": "images/desmanthus-acuminatus-leaves-flowers.jpg",
+      "role": "Leaf and flower heads on exact species; check complete bipinnate leaves and flower head structure",
+      "creator": "Btcpg",
+      "license": "CC0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Desmanthus_acuminatus_leaf_and_flowers.jpg",
+      "study_use": "yes",
+      "public_reuse": "public_domain"
+    },
+    {
+      "file": "images/desmanthus-acuminatus-pods.jpg",
+      "role": "Species-specific mature pods; inspect long narrow acuminate pods and seed impressions",
+      "creator": "Btcpg",
+      "license": "CC0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Desmanthus_acuminatus_pods.jpg",
+      "study_use": "yes",
+      "public_reuse": "public_domain"
+    }
+  ],
   "study_media": [
     {
       "url": "https://w3.biosci.utexas.edu/prc/K12/search.php",
@@ -85,13 +113,14 @@
       "reuse_status": "NOT_UNIVERSALLY_VERIFIED; do not auto-install from these links"
     }
   ],
-  "photo_note": "No exact-species reusable photograph adequately confirmed in this pass. Species card is text-first with exact image targets and scholarly/reference links; use no replacement species photo.",
+  "photo_note": "Photo first-pass: 3 exact-species licensed photographs sourced from Wikimedia Commons (3 CC0, Btcpg). These are first-face/recognition images, not all organ diagnostics or independently verified image arrow locations. Later matched pods, complete leaves, glands and stamens still needed.",
   "learner_visual_status": {
-    "status": "awaiting_exact_species_licensed_photos",
-    "mode": "learner_fast_fill",
-    "image_count": 0,
+    "status": "provisional_learner_ready_after_installer",
+    "mode": "photo_enrichment",
+    "image_count": 3,
     "photo_files_present": 0,
-    "provisional": true
+    "provisional": true,
+    "note": "Exact-species source metadata approved; awaiting actual image download; photo licensing preserved and any noncommercial restriction explicit."
   },
   "scientific_sources": [
     {
@@ -113,10 +142,11 @@
     "range_reviewed": false,
     "lookalikes_reviewed": true,
     "provisional": true,
-    "photo_metadata_count": 0,
-    "photo_files_present": 0,
+    "photo_metadata_count": 3,
+    "photo_files_present": 3,
     "last_reviewed": "2026-10-13",
-    "photo_backfill_required": true,
-    "updated": "2026-10-13"
+    "photo_backfill_required": false,
+    "updated": "2026-10-13",
+    "source_photo_audit": "research-drafts/desmanthus-photo-probe-20261013.json"
   }
 }
