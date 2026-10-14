@@ -73,9 +73,11 @@
     "caveat": "Use aroma only from naturally handled foliage; do not damage plants solely for an odor test."
   },
   "curation_status": {
-    "version": "1.0-visual-family-module",
-    "last_reviewed": "2026-10-03",
-    "visual_lock": "reference_first_pass"
+    "version": "1.2-juglans-installed-photo-routing",
+    "last_reviewed": "2026-10-14",
+    "visual_lock": "reference_first_pass",
+    "juglans_photo_anchors": 4,
+    "anatomy_arrow_review_pending": true
   },
   "family_confusion_polish": {
     "reviewed": "2026-10-12",
@@ -124,5 +126,54 @@
       "Sapindus drupe and Rhus drupe versus Carya/Juglans nuts, matched fruit cross-sections"
     ],
     "photo_status": "Diagnostic Photo Polish to source exact rights-cleared macros; existing family reference images retained."
+  },
+  "juglans_visual_extension": {
+    "title": "Juglandaceae: whole leaf, walnut husk, twig pith",
+    "look_here_first": "Confirm compound leaf arrangement, then the husked nut. On a naturally fallen twig show Juglans chambered pith vs Carya solid pith. Compare mature husk splitting (usually Carya) with a walnut husk that normally stays whole.",
+    "reference_photo_anchors": [
+      {
+        "taxon_id": "juglans-microcarpa",
+        "image_url": "content/taxa/Juglandaceae/Juglans/juglans-microcarpa/images/02-leaves-small-green-fruits.jpg",
+        "image_role": "Narrow leaflets and developing small green fruit in same view",
+        "creator": "Charlie Meador (s_pi_ky)",
+        "license": "CC BY 4.0",
+        "source_page": "https://www.inaturalist.org/photos/275885457",
+        "status": "existing_physically_installed; anatomy_markers_not_pixel_verified"
+      },
+      {
+        "taxon_id": "juglans-microcarpa",
+        "image_url": "content/taxa/Juglandaceae/Juglans/juglans-microcarpa/images/03-male-catkin-twig.jpg",
+        "image_role": "Staminate catkin context, not a species-level fruit key",
+        "creator": "Jo Roberts (bacchusrock)",
+        "license": "CC BY 4.0",
+        "source_page": "https://www.inaturalist.org/photos/366129933",
+        "status": "existing_physically_installed; anatomy_markers_not_pixel_verified"
+      },
+      {
+        "taxon_id": "juglans-major",
+        "image_url": "content/taxa/Juglandaceae/Juglans/juglans-major/images/juglans-major-provisional-face.jpg",
+        "image_role": "Foliage with developing fruits; provisional face, not shell sculpture",
+        "creator": "Whitney Cranshaw, Colorado State University",
+        "license": "CC BY 3.0 US",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Juglans_major_foliagenuts.jpg",
+        "status": "existing_physically_installed; anatomy_markers_not_pixel_verified"
+      },
+      {
+        "taxon_id": "juglans-nigra",
+        "image_url": "content/taxa/Juglandaceae/Juglans/juglans-nigra/images/02-leaf-fruit.jpg",
+        "image_role": "Compound leaf and large green-husked fruit",
+        "creator": "Rohit Naniwadekar",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Juglans_nigra_11.jpg",
+        "status": "existing_physically_installed; anatomy_markers_not_pixel_verified"
+      }
+    ],
+    "visual_missing": [
+      "matched Juglans vs Carya twig pith close-up",
+      "same-scale mature husked walnut vs splitting pecan/hickory husk",
+      "cleaned nut shell sculpture macro",
+      "labelled compound leaf rachis and leaflet"
+    ],
+    "technical_caution": "Husk is not the fruit wall: walnut fruit is a nut, while husk derives from floral surrounding tissues. Neither male catkins nor compound leaves alone establish family."
   }
 }
