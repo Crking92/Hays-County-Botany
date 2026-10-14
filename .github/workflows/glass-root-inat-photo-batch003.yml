@@ -1,0 +1,59 @@
+name: Glass Root Garden Photo Review Batch 003
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-inat-photo-batch003.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-photo-review-batch003
+  cancel-in-progress: false
+
+jobs:
+  gather-user-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install pillow
+      - name: Inventory and download review thumbnails from owner's iNaturalist
+        run: |
+          python3 scripts/glass_root_inat_photo_metadata.py \
+            --user calvinking --place-id 18 --taxon-id 47126 \
+            --manifest data/manifest.json \
+            --out workflow/glass-root-inat/batch-003/metadata
+          python3 scripts/glass_root_inat_review_previews_batch003.py \
+            --input workflow/glass-root-inat/batch-003/metadata/photo-candidates.csv \
+            --out workflow/glass-root-inat/batch-003/previews \
+            --per-species 16
+      - name: Persist review previews and summary only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/glass-root-inat/batch-003/previews workflow/glass-root-inat/batch-003/metadata/summary.json
+          if git diff --cached --quiet; then
+            echo "No new review images."
+            exit 0
+          fi
+          git commit -m "Stage five Glass Root Garden species photo sets for review"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Private candidate photos available for review."
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
+      - name: Keep review artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: glass-root-inat-batch-003-previews
+          path: workflow/glass-root-inat/batch-003/
+          retention-days: 30
