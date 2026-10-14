@@ -937,7 +937,7 @@ function genusView(){
     (warning?'<p class="genus-warning">'+esc(warning)+'</p>':'')+'</div><div class="genus-photo-strip">';
   if(members.length) members.slice(0,3).forEach(function(sp){ out+='<button type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"genus-hero-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Species anchors for this genus are still being installed.</div>';
-  out+='</div></section>'+
+  out+='</div></section>'+botanyGenusPartPreview(members,data)+
     '<section class="two-column-learning genus-levels"><article class="learning-card"><div class="eyebrow">Family characters</div><h2>Why '+esc(family)+'?</h2><p>'+esc(p.plain_signature||p.field_signature||"Use the family lesson to recognize the broader structural pattern.")+'</p><button class="text-button" type="button" data-family="'+esc(family)+'">Open family →</button></article>'+
     '<article class="learning-card"><div class="eyebrow">Genus characters</div><h2>What makes <i>'+esc(genus)+'</i> hang together?</h2>';
   if(shared.length) out+='<ul class="trait-list">'+shared.slice(0,8).map(function(x){ return '<li>'+esc(formatValue(x))+'</li>'; }).join("")+'</ul>';
@@ -1310,6 +1310,31 @@ function botanyPartGroup(rank,label,subtext,items,button){
     '<div class="part-example-grid">'+items.map(botanyPartPhotoCard).join("")+'</div>'+
     (button||"")+'</details>';
 }
+function botanyGenusPartPreview(members,genusData){
+  if(!genusData || !members || !members.length) return "";
+  const traits=genusData.genus_diagnostics||{};
+  const keys=Object.keys(traits);
+  const order=["flower","corona","gynostegium","inflorescence","leaves","leaf","fruit","bud","stem","habit","latex"];
+  keys.sort(function(a,b){
+    const ia=order.indexOf(a),ib=order.indexOf(b);
+    return (ia<0?100:ia)-(ib<0?100:ib);
+  });
+  const anchor=members.find(function(sp){return imagesFor(sp).length;})||members[0];
+  const used=new Set();
+  let cards=keys.slice(0,6).map(function(key){
+    const photo=botanyPartPhoto(anchor,key,used,members.filter(function(sp){return sp.id!==anchor.id;}));
+    return {title:botanyPartLabel(key),description:formatValue(traits[key]),term:state.learning&&state.learning.terms&&state.learning.terms[key]?key:null,photo:photo,role:key};
+  });
+  if(!cards.length)cards=imagesFor(anchor).slice(0,5).map(function(img){
+    return {title:botanyPartLabel(img.role||"Study image"),description:"Compare this view among the species below.",photo:{species:anchor,img:img,src:imagePath(anchor,img)}};
+  });
+  if(!cards.length)return "";
+  return '<section class="section-block botany-genus-preview">'+
+    '<div class="section-heading"><div><div class="eyebrow">Learning with real plant images</div><h2>What parts help recognize <i>'+esc(genusData.name||anchor.genus)+'</i>?</h2></div></div>'+
+    '<p class="section-intro">Explore the structures that define the genus. Photo labels are unannotated examples; arrows will be added after verifying each structure.</p>'+
+    '<div class="part-example-grid">'+cards.map(botanyPartPhotoCard).join("")+'</div></section>';
+}
+
 function botanyPartExamples(sp,genusData){
   if(!sp) return "";
   const family=state.familyCache.get(sp.family)||{};
