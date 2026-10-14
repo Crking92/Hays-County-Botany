@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T00:54:19.736Z",
+  "updated_at": "2026-10-14T01:06:40.000Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -36,11 +36,13 @@
       "scope_key": "content/taxa/Potamogetonaceae/Potamogeton/genus.json",
       "lane": "genus-lesson-comparison-builder",
       "owner": "Genus Comparison Builder",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T15:32:34-05:00",
       "expires_at": "2026-10-12T17:32:34-05:00",
       "release_when": "After verified genus lesson commit and Genus Study Index A:B key synchronization.",
-      "notes": "Unindexed three-species Master Plant Pool genus; canonical P. illinoensis retained, nodosus/pusillus are installer dependencies."
+      "notes": "Unindexed three-species Master Plant Pool genus; canonical P. illinoensis retained, nodosus/pusillus are installer dependencies.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-genus-galium-20261012-0933",
@@ -61,10 +63,12 @@
       "scope_key": "content/taxa/Pontederiaceae/Pontederia/genus.json",
       "lane": "genus-lesson-comparison-builder",
       "owner": "Genus Comparison Builder",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T08:02:00-05:00",
       "expires_at": "2026-10-12T10:02:00-05:00",
-      "release_when": "After verified durable genus module commit."
+      "release_when": "After verified durable genus module commit.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "joey-san-marcos-local-001",
@@ -6197,11 +6201,13 @@
       "scope_key": "content/taxa/Fagaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-08T18:17:30-05:00",
       "expires_at": "2026-10-08T20:17:30-05:00",
       "release_when": "Fagaceae confusion comparison committed and Sheet synchronized or task skipped",
-      "notes": "Preserve canonical genus/species; visual comparison family polish only. Renewed expired lease by same family similarity lane to complete Fagaceae confusion polish."
+      "notes": "Preserve canonical genus/species; visual comparison family polish only. Renewed expired lease by same family similarity lane to complete Fagaceae confusion polish.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "manual-buckleyi-macros-second-pass-20261008",
@@ -6720,11 +6726,13 @@
       "scope_key": "content/taxa/Plantaginaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "family-similarity-polish-automation",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-09T02:15:50-05:00",
       "expires_at": "2026-10-09T04:15:50-05:00",
       "release_when": "Canonical family update committed",
-      "notes": "Family visual confusion polish only."
+      "notes": "Family visual confusion polish only.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-family-similarity-acanthaceae-20261009-0215",
@@ -6820,11 +6828,13 @@
       "scope_key": "content/taxa/Nyctaginaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "family-similarity-polish-automation",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-10T06:17:00-05:00",
       "expires_at": "2026-10-10T08:17:00-05:00",
       "release_when": "After canonical family polish is durably committed and tracker sync complete, or on failure.",
-      "notes": "Visual structural comparisons only; no species range changes or family rebuild."
+      "notes": "Visual structural comparisons only; no species range changes or family rebuild.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-genus-schoenoplectus-20261010-0737",
@@ -6860,10 +6870,12 @@
       "scope_key": "content/taxa/Plantaginaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-10T08:15:00-05:00",
       "expires_at": "2026-10-10T10:15:00-05:00",
-      "release_when": "Module updated or claim released."
+      "release_when": "Module updated or claim released.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "approved-installer-acer-pair-20261010-001",
@@ -6894,11 +6906,13 @@
       "scope_key": "content/taxa/Vitaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-10T22:15:00-05:00",
       "expires_at": "2026-10-11T00:15:00-05:00",
       "release_when": "Vitaceae canonical family confusion polish is committed and Sheet descriptive fields synchronized, or work is explicitly abandoned.",
-      "notes": "Existing Vitaceae module only; five-genus routing and structural confusers, no species/range changes."
+      "notes": "Existing Vitaceae module only; five-genus routing and structural confusers, no species/range changes.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-family-similarity-polygonaceae-20261011-0014",
@@ -6909,11 +6923,13 @@
       "scope_key": "content/taxa/Polygonaceae/family.json",
       "lane": "family-similarity-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T00:14:00-05:00",
       "expires_at": "2026-10-11T02:14:00-05:00",
       "release_when": "Canonical family lesson updated and tracker synchronized, or scope abandoned.",
-      "notes": "Small confusion-polish integration of existing Family Study Index handoff; preserve taxonomy and all existing modules."
+      "notes": "Small confusion-polish integration of existing Family Study Index handoff; preserve taxonomy and all existing modules.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-genus-comparison-sorghum-20261011-0134",
@@ -6943,11 +6959,13 @@
       ],
       "lane": "scientific-taxonomy-diagnostic-review",
       "owner": "automation-taxonomy-diagnostic-review",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T04:22:44-05:00",
       "expires_at": "2026-10-11T06:22:44-05:00",
       "release_when": "When scientific review is durably saved to Sheet override or GitHub report; no canonical installation.",
-      "notes": "Taxonomy/diagnostic review only; source-pool learner admission separate from native-range certification."
+      "notes": "Taxonomy/diagnostic review only; source-pool learner admission separate from native-range certification.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-taxonomy-cuscuta-20261011-0625",
@@ -6960,11 +6978,13 @@
       ],
       "lane": "scientific-taxonomy-diagnostic-review",
       "owner": "automation-taxonomy-diagnostic-review",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T06:25:30-05:00",
       "expires_at": "2026-10-11T08:25:30-05:00",
       "release_when": "Durable scientific review saved",
-      "notes": "Review only; no install."
+      "notes": "Review only; no install.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-taxonomy-corydalis-20261011-0824",
@@ -6977,11 +6997,13 @@
       "scope_key": "scientific-review-corydalis-2026-10-11",
       "lane": "scientific-taxonomy-diagnostic-review",
       "owner": "automation-taxonomy-diagnostic-review",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T08:24:35-05:00",
       "expires_at": "2026-10-11T10:24:35-05:00",
       "release_when": "review artifact and Sheet overrides durable",
-      "notes": "Scientific-only Corydalis 3-source-pool-taxon comparison; no canonical install."
+      "notes": "Scientific-only Corydalis 3-source-pool-taxon comparison; no canonical install.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-genus-comparison-lonicera-20261011-0935",
@@ -7120,11 +7142,13 @@
       "scope_key": "content/taxa/Sapindaceae/family.json",
       "lane": "family-similarity-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T10:24:00-05:00",
       "expires_at": "2026-10-11T12:24:00-05:00",
       "release_when": "Canonical Sapindaceae family confusion text is committed and trackers synced or this attempt is abandoned.",
-      "notes": "Existing six-genus tracker handoff N18:Q18; preserve 3 canonical image anchors; no species or range changes."
+      "notes": "Existing six-genus tracker handoff N18:Q18; preserve 3 canonical image anchors; no species or range changes.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "manual-genus-github-backfill-cercis-20261011",
@@ -7589,11 +7613,13 @@
       "scope_key": "scientific-review-erigeron-2026-10-11",
       "lane": "scientific-taxonomy-diagnostic-review",
       "owner": "automation-taxonomy-diagnostic-review",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T12:28:00-05:00",
       "expires_at": "2026-10-11T14:28:00-05:00",
       "release_when": "Durable scientific report and Sheet overrides verified or review abandoned",
-      "notes": "Scientific diagnostic research only; no canonical install or READY markers."
+      "notes": "Scientific diagnostic research only; no canonical install or READY markers.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-genus-parthenocissus-20261011-1731",
@@ -7604,11 +7630,13 @@
       ],
       "lane": "genus-lesson-comparison-builder",
       "owner": "genus-comparison-builder-automation",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T17:31:13-05:00",
       "expires_at": "2026-10-11T19:31:13-05:00",
       "release_when": "Genus lesson is durably committed and verified; do not install species.",
-      "notes": "Three source-pool Parthenocissus names; morphological framework and taxonomy mapping handoff only."
+      "notes": "Three source-pool Parthenocissus names; morphological framework and taxonomy mapping handoff only.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-family-caryophyllaceae-confusion-20261011-1811",
@@ -7619,11 +7647,13 @@
       "scope_key": "content/taxa/Caryophyllaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-11T18:11:00-05:00",
       "expires_at": "2026-10-11T20:11:00-05:00",
       "release_when": "Canonical family confusion polish is durably committed or explicitly abandoned.",
-      "notes": "Polish six-genus Caryophyllaceae recognition and local Caryophyllales confusion, no module rebuild or taxonomy/range changes."
+      "notes": "Polish six-genus Caryophyllaceae recognition and local Caryophyllales confusion, no module rebuild or taxonomy/range changes.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "photo-fast-fill-mixed-058-manual-20261011",
@@ -7667,10 +7697,12 @@
       ],
       "lane": "genus-lesson-comparison-builder",
       "owner": "Genus Comparison Builder",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T01:35:44-05:00",
       "expires_at": "2026-10-12T03:35:44-05:00",
-      "release_when": "genus lesson commit verified"
+      "release_when": "genus lesson commit verified",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-family-similarity-rhamnaceae-20261012-0220",
@@ -7681,11 +7713,13 @@
       "scope_key": "content/taxa/Rhamnaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T02:20:35-05:00",
       "expires_at": "2026-10-12T04:20:35-05:00",
       "release_when": "Canonical confusion comparison committed and sheet synchronized, or scope skipped",
-      "notes": "Existing six-source-genus Rhamnaceae lesson; visual differences only; preserve taxonomy and module."
+      "notes": "Existing six-source-genus Rhamnaceae lesson; visual differences only; preserve taxonomy and module.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-taxonomy-hedeoma-20261012-0429",
@@ -7700,11 +7734,13 @@
       ],
       "lane": "scientific-taxonomy-diagnostic-review",
       "owner": "Taxonomy + Diagnostic Review automation",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T04:29:12-05:00",
       "expires_at": "2026-10-12T06:29:12-05:00",
       "release_when": "Scientific report or Sheet overrides are durably saved; release immediately afterward.",
-      "notes": "Scientific review only; no canonical installs, READY markers or generic gallery backfill."
+      "notes": "Scientific review only; no canonical installs, READY markers or generic gallery backfill.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-family-similarity-oleaceae-20261012-0614",
@@ -7715,11 +7751,13 @@
       "scope_key": "content/taxa/Oleaceae/family.json",
       "lane": "family-recognition-confusion-polish",
       "owner": "automation-family-similarity-polish",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T06:14:31-05:00",
       "expires_at": "2026-10-12T08:14:31-05:00",
       "release_when": "Canonical family confusion patch committed and sheet synchronized, or target skipped",
-      "notes": "Compact 4-genus recognition polish; preserve existing visual anchors, taxonomy and formula columns."
+      "notes": "Compact 4-genus recognition polish; preserve existing visual anchors, taxonomy and formula columns.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-genus-grindelia-20261012-1136",
@@ -7743,10 +7781,12 @@
       "scope_key": "content/taxa/Verbenaceae/Aloysia/genus.json",
       "lane": "genus-lesson-comparison-builder",
       "owner": "Genus Comparison Builder automation",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T13:35:00-05:00",
       "expires_at": "2026-10-12T15:35:00-05:00",
-      "release_when": "After genus lesson commit"
+      "release_when": "After genus lesson commit",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "photo-fast-fill-mixed-059-manual-20261012",
@@ -8012,11 +8052,13 @@
       "scope_key": "content/taxa/Sapindaceae/Aesculus/genus.json",
       "lane": "genus-lesson-comparison-builder",
       "owner": "Genus Comparison Builder",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-12T23:33:39-05:00",
       "expires_at": "2026-10-13T01:33:39-05:00",
       "release_when": "After verified durable Aesculus genus lesson commit and index A:B reconciliation.",
-      "notes": "Two existing canonical learner taxa; preserve source and range metadata, merge comparison and visual checklist only."
+      "notes": "Two existing canonical learner taxa; preserve source and range metadata, merge comparison and visual checklist only.",
+      "released_at": "2026-10-14T01:06:40.000Z",
+      "release_reason": "Expired lease hygiene; reservation released only. Work completion not inferred. Recheck canonical state, drafts, and inbox before resuming."
     },
     {
       "claim_id": "automation-genus-baccharis-20261013-0330",
