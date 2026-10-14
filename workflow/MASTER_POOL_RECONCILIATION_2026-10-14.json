@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "created": "2026-10-14",
+  "origin": {
+    "sheet": "Hays_Botany_ID_Master_Curation_Tracker",
+    "tab": "Master Plant Pool",
+    "range": "A2:Z1283",
+    "canonical": "data/manifest.json"
+  },
+  "purpose": "Prototype reconciliation planning; categorization by Sheet text heuristic only, NOT botanical decisions or installer READY authorization.",
+  "counts": {
+    "master_taxa": 1282,
+    "canonical_species": 532,
+    "exact_name_matches": 498,
+    "unmatched_name_rows": 784,
+    "unmatched_mapping_review": 57,
+    "unmatched_explicit_approved_candidate": 142,
+    "unmatched_review_flags": 7,
+    "unmatched_untriaged": 578
+  },
+  "interpretation": [
+    "34 canonical species are not exact ID matches to a Master Pool scientific name; may be accepted-name mappings, independent additions or orthographic differences, so must reconcile both directions.",
+    "The 142 rows tagged approved_pending_curation in Sheet are prospects, NOT confirmed safe-to-install current GitHub queue records. Recheck accepted name, existing synonym/parent representation, actual approved curation-inbox state, and active claims before staging.",
+    "The 57 mapping_review and 7 taxonomy_or_range_review bins are preliminary classification of Sheet status wording, not final outcomes.",
+    "The 578 untriaged rows include reviewed and unreviewed source taxa; don't assume all need separate cards.",
+    "Never use county PASS as admission barrier; maintain FAIL/HOLD/UNRESOLVED and NONNATIVE comparison labels."
+  ],
+  "next_actions": [
+    "Approved Taxa Installer: reconcile next 3-5 exact-name noncanonical approved candidates from live Master Pool, verifying synonym/hybrid/infraspecies against current manifest and curation-inbox before READY; if identity sound install with truthful range label and one rights-cleared image where available.",
+    "Taxonomy + Diagnostic Review: resolve small batches of unmatched mapping/identity cases and create durable accepted-name alias decisions; prioritize 57 mapping flags and obvious common species.",
+    "Genus Comparison Builder: provide genus framework for accepted taxon candidates and keep Genus Study Index A:B synced.",
+    "Diagnostic Photo Fast-Fill: focus on canonical zero/one-photo pages; no role confusion and no filler images.",
+    "Recompute reconciliation after installs: exact scientific name matches undercount mapped synonyms, so build maintained alias relation instead of adding 784 species cards."
+  ],
+  "examples": {
+    "candidates": [
+      "Agave americana",
+      "Agave lechuguilla",
+      "Allionia incarnata",
+      "Ampelopsis cordata",
+      "Anemia mexicana",
+      "Anoda cristata",
+      "Arundo donax",
+      "Asplenium resiliens"
+    ],
+    "mapping": [
+      "Andropogon glomeratus → Anatherum glomeratum",
+      "Andropogon gerardii → Andropogon gerardi",
+      "Celtis laevigata var. reticulata → Celtis reticulata",
+      "Anisacanthus quadrifidus wrightii → Anisacanthus quadrifidus var. wrightii"
+    ]
+  },
+  "verification": {
+    "master_rows_scanned": 1282,
+    "manifest_entries_scanned": 532,
+    "automation_running_policy": "No global READY promotions from this report"
+  }
+}
