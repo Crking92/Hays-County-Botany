@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14",
+  "updated_at": "2026-10-14T08:10:25-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -8526,6 +8526,21 @@
       "expires_at": "2026-10-14T13:45:00-05:00",
       "release_when": "Sorghastrum genus lesson updated and re-fetched, or skipped due to write conflict.",
       "notes": "Photo-led comparison of two already-canonical Sorghastrum species; no canonical species install or native-range changes."
+    },
+    {
+      "claim_id": "automation-family-similarity-rubiaceae-20261014-0810",
+      "scope_kind": "family_module",
+      "families": [
+        "Rubiaceae"
+      ],
+      "scope_key": "content/taxa/Rubiaceae/family.json",
+      "lane": "family-recognition-confusion-polish",
+      "owner": "automation-family-similarity-polish",
+      "status": "active",
+      "claimed_at": "2026-10-14T08:10:25-05:00",
+      "expires_at": "2026-10-14T10:10:25-05:00",
+      "release_when": "Rubiaceae family diagnostic photo mapping and confusion polish committed and Sheet synced, or explicitly aborted.",
+      "notes": "Small photo-led family anatomy polish, merge existing Rubiaceae tracker handoff; preserve other claims, science, and UI."
     }
   ]
 }
