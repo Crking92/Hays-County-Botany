@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T14:10:25-05:00",
+  "updated_at": "2026-10-14T21:22:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,21 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "manual-prototype-sambucus-samolus-20261014",
+      "scope_kind": "species_curation_batch",
+      "taxa": [
+        "sambucus-canadensis",
+        "samolus-parviflorus"
+      ],
+      "lane": "approved-taxa-installer",
+      "owner": "manual-prototype-chat",
+      "status": "active",
+      "claimed_at": "2026-10-14T21:22:00Z",
+      "expires_at": "2026-10-15T03:22:00Z",
+      "release_when": "Canonical installation and live verification, or explicit source failure/skip.",
+      "notes": "Reuse existing approved Sheet scientific reviews; exact user iNaturalist photo verification first. Preserve UNRESOLVED range and aliases."
+    },
     {
       "claim_id": "taxonomy-diagnostic-juncus-20261014-1022",
       "scope_kind": "species_batch",
