@@ -1,0 +1,33 @@
+name: Verify empty-card photo sources 006
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/empty-photo-source-006.yml]
+permissions:
+  contents: write
+jobs:
+  sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python3 -m pip install pillow
+      - run: python3 scripts/empty_photo_sources_006.py
+      - shell: bash
+        run: |
+          git config user.name hays-botany-automation
+          git config user.email actions@users.noreply.github.com
+          git add workflow/empty-photo-006
+          git commit -m "botany: save exact licensed photo candidates for visual review [skip ci]"
+          for attempt in 1 2 3; do
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git rebase origin/main || exit 1
+          done
+          exit 1
