@@ -35,11 +35,10 @@ import urllib.parse
 def load_rows(path):
     with open(path,newline="",encoding="utf-8-sig") as f:
         rows=list(csv.DictReader(f))
-    # Two separate gates: an already CC BY-licensed photograph AND creator match.
-    return [r for r in rows if r.get("rights_gate")=="candidate_for_visual_review"
-            and r.get("source_license")=="cc-by"
-            and r.get("proposed_learner_credit")=="Glass Root Garden"
-            and r.get("photo_id","").isdigit()]
+    return [r for r in rows if r.get("photo_id","").isdigit()]
+def owner_credit(row):
+    a=(row.get("source_attribution") or "").lower()
+    return any(s in a for s in ("calvinking","calvin king","glass root garden"))
 def choose(rows, n=16):
     # Select spread over distinct iNaturalist observations before taking second
     # photos from an observation; take earlier/later seasons into account.
@@ -81,8 +80,8 @@ def draw_sheet(images, title, out):
     rows=(len(images)+cols-1)//cols
     sheet=Image.new("RGB",(cols*w,max(1,rows)*h+66),"#fbfaf6")
     d=ImageDraw.Draw(sheet)
-    d.text((12,10), title+" · Glass Root Garden · CC BY 4.0",fill="#173b2a")
-    d.text((12,35),"PRIVATE REVIEW ONLY — Photo IDs correspond to priority-candidates.json",fill="#405746")
+    d.text((12,10), title+" · Glass Root Garden photo REVIEW",fill="#173b2a")
+    d.text((12,35),"PRIVATE REVIEW — verify individual image license before publication",fill="#405746")
     for idx,(item,photo) in enumerate(images):
         x=(idx%cols)*w; y=66+(idx//cols)*h
         fitted=ImageOps.contain(photo,(312,226))
@@ -105,7 +104,9 @@ def main():
     for sid,name in TARGETS:
         matching=[r for r in all_rows if r.get("canonical_id")==sid
                   or r.get("scientific_name")==name]
-        selection=choose(matching,a.per_species)
+        allowed=[r for r in matching if owner_credit(r)]
+        verified=[r for r in allowed if r.get("source_license")=="cc-by"]
+        selection=choose(verified or allowed,a.per_species)
         info=[]; imgs=[]
         for r in selection:
             url=safe_url(r.get("image_url",""))
@@ -130,13 +131,21 @@ def main():
             time.sleep(a.pause)
         if imgs:
             draw_sheet(imgs,name,out/(sid+"-contact-sheet.jpg"))
-        manifests[sid]={"taxon":name,"all_eligible_photo_records":len(matching),
+        from collections import Counter
+        manifests[sid]={"taxon":name,
+                        "total_photo_records_found":len(matching),
+                        "owner_attribution_matches":len(allowed),
+                        "cc_by_owner_attributed":len(verified),
+                        "source_license_counts":dict(Counter(r.get("source_license") for r in matching)),
+                        "rights_gate_counts":dict(Counter(r.get("rights_gate") for r in matching)),
+                        "attribution_examples":sorted(set((r.get("source_attribution") or "")[:90] for r in matching))[:8],
+                        "genus_photo_records":sum(r.get("scientific_name","").lower().startswith(name.split()[0].lower()+" ") for r in all_rows),
                         "previews_created":len(info),"candidates":info}
-        print(sid,":",len(info),"previews from",len(matching),"eligible photos",flush=True)
+        print(sid,":",len(info),"private previews from",len(matching),"records,",len(allowed),"owned-credit,",len(verified),"CC BY",flush=True)
     out.mkdir(parents=True,exist_ok=True)
     (out/"priority-candidates.json").write_text(json.dumps({
         "purpose":"Privately held photo preview queue; NO canonical installation",
-        "license_policy":"Individually licensed CC BY photos credited to Glass Root Garden",
+        "license_policy":"Private review only; publication requires individually verified ownership and CC BY attribution",
         "photo_selection":"Stratified by observation date, one photo per observation where possible",
         "warning":"Photo identity, visible anatomical structure and arrow coordinates remain unverified",
         "taxa":manifests},indent=2)+"\n",encoding="utf-8")
