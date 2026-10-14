@@ -1,0 +1,64 @@
+{
+  "batch_id": "glass-root-inat-photo-install-001",
+  "state": "approved_for_installation",
+  "approved_by": "photo_owner (in ChatGPT conversation, 2026-10-14)",
+  "scope": "photo-enrichment-only-existing-installed-species",
+  "source_platform": "iNaturalist",
+  "photo_owner": "Calvin King",
+  "public_photo_credit": "Glass Root Garden",
+  "photo_license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_basis": "Direct authorization by photograph owner in project conversation; iNaturalist API recorded older all-rights-reserved attribution on 2026-10-14; do not claim iNaturalist API currently displays CC BY.",
+  "conditions": [
+    "Only exact observation photo IDs from observer calvinking",
+    "Verify original photo metadata, existence and license provenance before install",
+    "Preserve all pre-existing species gallery entries, avoid overwrites and duplicates",
+    "Use photo images with source and role captions, no invented anatomical arrows",
+    "Exclude observation GPS/private coordinates",
+    "Install only after verifying downloaded image bytes and botanical roles"
+  ],
+  "targets": [
+    {
+      "id": "yucca-rupicola",
+      "path": "content/taxa/Asparagaceae/Yucca/yucca-rupicola/species.json",
+      "scientific_name": "Yucca rupicola",
+      "photos": [
+        {
+          "id": 607698000,
+          "observation_id": 334613780,
+          "filename": "glass-root-garden-607698000-colony.jpg",
+          "role": "Whole-plant colony habit: multiple basal leaf rosettes in rocky open habitat; leaf-margin close-up still needed",
+          "status": "visually_reviewed_candidate"
+        },
+        {
+          "id": 623378710,
+          "observation_id": 342331558,
+          "filename": "glass-root-garden-623378710-rosette.jpg",
+          "role": "Isolated basal rosette with narrow twisting leaves; margin denticles not clearly resolved",
+          "status": "visually_reviewed_candidate"
+        }
+      ]
+    },
+    {
+      "id": "croton-fruticulosus",
+      "path": "content/taxa/Euphorbiaceae/Croton/croton-fruticulosus/species.json",
+      "scientific_name": "Croton fruticulosus",
+      "photos": [
+        {
+          "id": 573059048,
+          "observation_id": 317149183,
+          "filename": "glass-root-garden-573059048-leaf-shoot.jpg",
+          "role": "Hand-held leafy shoot shows leaf outline and stem attachment; hair details require macro",
+          "status": "visually_reviewed_candidate"
+        },
+        {
+          "id": 623379901,
+          "observation_id": 342332092,
+          "filename": "glass-root-garden-623379901-branch.jpg",
+          "role": "Woody leafy branch with small flowering structures; exact floral anatomy not resolvable at this scale",
+          "status": "visually_reviewed_candidate"
+        }
+      ]
+    }
+  ]
+}
