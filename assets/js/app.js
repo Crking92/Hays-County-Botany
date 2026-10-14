@@ -1327,8 +1327,27 @@ function botanyPartGroup(rank,label,subtext,items,button){
     '<div class="part-example-grid">'+items.map(botanyPartPhotoCard).join("")+'</div>'+
     (button||"")+'</details>';
 }
+/* Optional exact-species part examples selected by curators after inspecting real gallery files.
+   Unmapped parts deliberately remain as missing-photo cards; don't substitute similar-looking taxa. */
+function botanyExactGenusParts(genusData){
+  const entries=genusData&&genusData.visual_comparison&&genusData.visual_comparison.part_examples;
+  if(!Array.isArray(entries)||!entries.length)return [];
+  return entries.slice(0,9).map(function(entry){
+    let picked=null;
+    if(entry.anchor_species_id && entry.image_file){
+      const host=state.speciesById.get(entry.anchor_species_id);
+      if(host && host.family===genusData.family && host.genus===genusData.name){
+        const img=imagesFor(host).find(function(candidate){return candidate.file===entry.image_file;});
+        if(img)picked={species:host,img:img,src:imagePath(host,img)};
+      }
+    }
+    return {title:entry.title||"Study this part",description:entry.look_for||"",why:entry.why_it_matters||"",
+      role:entry.role||"",photo:picked,source:entry.source_page||""};
+  });
+}
 function botanyGenusPartPreview(members,genusData){
   if(!genusData || !members || !members.length) return "";
+  const explicit=botanyExactGenusParts(genusData);
   const traits=genusData.genus_diagnostics||{};
   const keys=Object.keys(traits);
   const order=["flower","corona","gynostegium","inflorescence","leaves","leaf","fruit","bud","stem","habit","latex"];
@@ -1338,7 +1357,7 @@ function botanyGenusPartPreview(members,genusData){
   });
   const anchor=members.find(function(sp){return imagesFor(sp).length;})||members[0];
   const used=new Set();
-  let cards=keys.slice(0,6).map(function(key){
+  let cards=explicit.length?explicit:keys.slice(0,6).map(function(key){
     const photo=botanyPartPhoto(anchor,key,used,members.filter(function(sp){return sp.id!==anchor.id;}));
     return {title:botanyPartLabel(key),description:formatValue(traits[key]),term:state.learning&&state.learning.terms&&state.learning.terms[key]?key:null,photo:photo,role:key};
   });
@@ -1363,7 +1382,14 @@ function botanyPartExamples(sp,genusData){
       const host=step.anchor_species_id ? state.speciesById.get(step.anchor_species_id) : null;
       const direct=familyExternalImageUrl(step);
       let photo=null;
-      if(host){
+      if(host && Number.isInteger(step.anchor_image_index)){
+        const chosen=imagesFor(host)[step.anchor_image_index];
+        if(chosen && chosen.file && !/^(no|private|restricted|review)$/i.test(String(chosen.public_reuse||""))){
+          photo={species:host,img:chosen,src:imagePath(host,chosen)};
+          usedFamily.add(photo.src);
+        }
+      }
+      if(host && !photo){
         photo=botanyPartPhoto(host,step.photo_role||step.title,usedFamily,[]);
         if(!photo && imagesFor(host).length && /habit|whole.plant/i.test(String(step.photo_role||""))) {
           const img=imagesFor(host)[0];photo={species:host,img:img,src:imagePath(host,img)};
@@ -1389,7 +1415,8 @@ function botanyPartExamples(sp,genusData){
     return (aa<0?100:aa)-(bb<0?100:bb);
   }).slice(0,5);
   const relatives=genusSpecies(sp.family,sp.genus).filter(function(x){return x.id!==sp.id;});
-  const genusItems=chosen.map(function(key){
+  const exactParts=botanyExactGenusParts(genusData);
+  const genusItems=exactParts.length?exactParts:chosen.map(function(key){
     return {title:botanyPartLabel(key),description:formatValue(diag[key]),term:state.learning?.terms?.[key]?key:null,photo:botanyPartPhoto(sp,key,usedGenus,relatives),role:key};
   });
   if(!genusItems.length){
