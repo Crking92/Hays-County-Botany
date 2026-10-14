@@ -430,3 +430,162 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
   .photo-thumbnail{flex-basis:106px}
 }
 @media(prefers-reduced-motion:reduce){.photo-thumbnail{transition:none}}
+
+
+/* Unified field-guide cards v3 — presentation only, preserves all teaching content. */
+:root{
+  --card-paper:#f9fbf6;
+  --card-ink:#233c2e;
+  --card-muted:#4e6859;
+  --card-edge:#d5e3d6;
+  --card-shadow:0 7px 0 rgba(7,22,13,.07),0 15px 30px rgba(6,18,10,.16);
+  --card-mint:#e9f6ed;
+  --card-peach:#fff0d6;
+  --card-sky:#eaf3fc;
+  --card-lilac:#f1ecfb;
+}
+/* All interactive learner tiles use one surface, border, radius, and typography system. */
+.family-card,.species-tile,.similar-card,.glossary-card,.family-vocab-card,
+.term-confusion-card,.learning-card,.morph-card,.family-visual-step,
+.diagnostic-chip-grid>div,.genus-key>div,.taxonomy-teaching-card{
+  background:var(--card-paper);
+  color:var(--card-ink);
+  border:1px solid var(--card-edge);
+  border-radius:20px;
+  box-shadow:var(--card-shadow);
+  overflow:hidden;
+}
+.family-card,.species-tile,.similar-card,.glossary-card,.family-vocab-card,.term-confusion-card{transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.family-card:hover,.species-tile:hover,.similar-card:hover,.glossary-card:hover,.family-vocab-card:hover,.term-confusion-card:hover{
+  transform:translateY(-2px);
+  border-color:#86aa90;
+  box-shadow:0 9px 0 rgba(7,22,13,.06),0 20px 34px rgba(6,18,10,.19)
+}
+.family-card:focus-visible,.species-tile:focus-visible,.similar-card:focus-within,.glossary-card:focus-visible,.family-vocab-card:focus-visible{
+  outline:3px solid #e5b54c;outline-offset:3px
+}
+/* Inherited light-on-dark text must not disappear against the pale cards. */
+.family-card-body,.species-tile>span,.family-vocab-card>span:not(.glossary-card-media),
+.glossary-card>span:not(.glossary-card-media),.learning-card,.morph-card,
+.family-visual-copy,.term-confusion-card,.genus-key>div,.diagnostic-chip-grid>div{
+  color:var(--card-ink);
+}
+.family-card-body strong,.species-tile strong,.family-vocab-card strong,
+.glossary-card strong,.similar-open strong,.family-visual-step-title,
+.learning-card h2,.learning-card h3,.morph-card b{color:var(--card-ink)}
+.family-card-body em,.family-card-meta,.species-tile em,.species-tile small,
+.family-vocab-card small,.glossary-card p,.glossary-card em,
+.similar-open em,.learning-card p,.learning-card .muted,
+.morph-card p,.term-confusion-card span,.family-visual-copy p,
+.genus-key span,.genus-key strong,.diagnostic-chip-grid>div{
+  color:var(--card-muted)
+}
+.family-card-meta,.species-tile small,.glossary-card em,.morph-card>b,
+.term-confusion-card strong,.family-visual-copy small{color:#2f7154}
+.family-card-body strong,.species-tile strong,.similar-open strong{overflow-wrap:anywhere}
+.family-card .family-clue{background:var(--card-mint);color:var(--card-ink)}
+.family-vocab-card{background:var(--card-paper)}
+.species-tile-img{height:205px;object-fit:cover}
+.species-tile>span{display:block;min-height:110px}
+.species-tile em{line-height:1.35}
+.similar-open{color:var(--card-ink)}
+.similar-card .comparison-reason{color:#355e39;background:var(--card-peach)}
+.similar-card .compare-button{background:var(--card-mint);border-color:var(--card-edge);color:#25543a}
+.similar-card .compare-button:hover{background:#d8eadc}
+/* Consistent focused teaching panel and photograph frame. */
+.plant-study{border:1px solid #486151;background:#223329;border-radius:24px;padding:16px;box-shadow:0 16px 30px rgba(0,0,0,.14)}
+.plant-study .identity-panel{background:var(--card-paper);color:var(--card-ink);border:1px solid var(--card-edge);border-radius:20px}
+.plant-study .identity-panel .plant-common{color:var(--card-muted)}
+.plant-focus .focus-photo{border-radius:24px;border-color:#577062}
+.plant-focus .look-card,.family-hero .look-card,.genus-hero .look-card{background:var(--card-peach);border-color:#e9d299;color:#573f18}
+.look-card span,.look-card>span{color:#715522}
+.look-card strong{color:#493917}
+.plant-focus .cue-list>div{box-shadow:0 4px 0 rgba(8,22,13,.09)}
+.plant-focus .photo-thumbnail{border-radius:14px}
+.plant-study .study-actions{margin-top:4px}
+.plant-study .study-actions button{flex:1 1 170px}
+/* Family/genus heroes now speak the same visual language as the cards. */
+.family-hero,.genus-hero{background:linear-gradient(135deg,#eff7ea,#e4f3ee);border:1px solid #c9dfce}
+.family-hero-copy,.genus-hero>div:first-child{
+  background:var(--card-paper);color:var(--card-ink);
+  border:1px solid var(--card-edge);border-radius:21px;
+}
+.family-hero-copy h1,.genus-hero h1,.family-hero-copy .family-common,.genus-hero .family-common{
+  color:var(--card-ink)
+}
+.family-hero .family-signature{color:var(--card-muted)}
+.family-hero .eyebrow,.genus-hero .eyebrow{color:#28704a}
+.genus-hero .genus-warning{color:#3e5b4a;background:var(--card-mint);border-left-color:#4d936c}
+.genus-levels .learning-card:nth-child(1),.genus-levels .learning-card:nth-child(2){background:var(--card-paper)}
+.learning-card .eyebrow{color:#327853}
+.learning-card .text-button,.family-hero .text-button,.genus-hero .text-button,
+.taxonomy-teaching-link{color:#1c6545}
+.learning-card .trait-list,.learning-card .trait-list li{color:var(--card-ink)}
+.family-visual-copy p b{color:var(--card-ink)}
+.family-visual-step{background:var(--card-paper)}
+.family-visual-copy{background:var(--card-paper)}
+.genus-key>div b{color:#2b7053}
+/* The existing browse and compare controls retain all behavior, but match the same palette. */
+.taxonomy-picker,.family-compare-panel,.global-compare-picker,.compare-workspace,
+.compare-relationship,.cross-family-signatures>div{
+  border-radius:21px;
+}
+.taxonomy-picker{background:var(--card-paper);border-color:var(--card-edge);color:var(--card-ink)}
+.taxonomy-picker label span,.taxonomy-picker .picker-result>span{color:#2c6d50}
+.taxonomy-picker .picker-result{background:var(--card-mint);color:var(--card-ink);border-color:var(--card-edge)}
+.compare-row:not(.compare-header)>*{color:var(--card-ink)}
+.compare-row:not(.compare-header)>strong{color:#2a6549}
+.compare-row:not(.compare-header){background:var(--card-paper)}
+.compare-row:not(.compare-header):nth-child(even){background:var(--card-sky)}
+/* Species taxonomy trail: visual explanation for why the ranks fit. */
+.taxonomy-teaching{scroll-margin-top:100px}
+.taxonomy-teaching-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  align-items:stretch;
+}
+.taxonomy-teaching-grid:has(.taxonomy-teaching-order){grid-template-columns:repeat(4,minmax(0,1fr))}
+.taxonomy-teaching-card{display:flex;flex-direction:column;min-width:0;overflow:visible;padding:16px 16px 14px}
+.taxonomy-teaching-family{border-top:5px solid #69aa82}
+.taxonomy-teaching-genus{border-top:5px solid #7b9fcb}
+.taxonomy-teaching-species{border-top:5px solid #dfa95b}
+.taxonomy-teaching-order{border-top:5px solid #a391c8}
+.taxonomy-teaching-head{display:flex;gap:12px;align-items:start;padding-bottom:15px;border-bottom:1px solid var(--card-edge)}
+.taxonomy-teaching-number{flex:0 0 34px;display:grid;place-items:center;width:34px;height:34px;border-radius:11px;color:#215039;background:var(--card-mint);font-weight:900;font-size:.9rem}
+.taxonomy-teaching-genus .taxonomy-teaching-number{background:var(--card-sky)}
+.taxonomy-teaching-species .taxonomy-teaching-number{background:var(--card-peach)}
+.taxonomy-teaching-order .taxonomy-teaching-number{background:var(--card-lilac)}
+.taxonomy-teaching-head>span:last-child{display:block;min-width:0}
+.taxonomy-teaching-head small{display:block;font-size:.73rem;color:var(--card-muted);font-weight:800;line-height:1.3}
+.taxonomy-teaching-head strong{display:block;margin-top:5px;font-size:clamp(1.12rem,2.1vw,1.38rem);line-height:1.2;overflow-wrap:anywhere;color:var(--card-ink)}
+.taxonomy-teaching-body{flex:1;padding:14px 0 18px}
+.taxonomy-teaching-body>b{display:block;font-size:.68rem;color:#2e6c50;text-transform:uppercase;letter-spacing:.09em}
+.taxonomy-teaching-body p{margin:7px 0 0;color:var(--card-ink);font-size:.9rem;line-height:1.6;overflow-wrap:anywhere}
+.taxonomy-teaching-link,.taxonomy-teaching-note{display:block;margin-top:auto;border:0;border-radius:12px;padding:11px 12px;background:var(--card-mint);color:#18553a;font-size:.84rem;font-weight:800;text-align:center}
+.taxonomy-teaching-link:hover{background:#d2e8d7}
+.taxonomy-teaching-note{background:#f0f3ee;color:#496150;font-weight:650}
+.taxonomy-teaching-footnote{
+  margin:15px 0 0;padding:14px 17px;border-radius:17px;
+  background:var(--card-peach);color:#503d23;line-height:1.55;font-size:.88rem
+}
+.taxonomy-teaching-footnote b{color:#403419}
+.taxonomy-teaching-card .inline-term{font-size:inherit}
+@media(max-width:1000px){
+  .taxonomy-teaching-grid,.taxonomy-teaching-grid:has(.taxonomy-teaching-order){grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:650px){
+  .taxonomy-teaching-grid,.taxonomy-teaching-grid:has(.taxonomy-teaching-order){grid-template-columns:1fr}
+  .taxonomy-teaching-card{padding:16px}
+  .taxonomy-teaching-body{padding-bottom:15px}
+  .taxonomy-teaching-head strong{font-size:1.23rem}
+  .plant-study{padding:11px;border-radius:20px}
+  .species-tile-img{height:162px}
+  .species-tile>span{padding:12px;min-height:125px}
+  .family-card-body{padding:12px}
+  .family-card-body strong{font-size:1.12rem}
+  .glossary-card{border-radius:20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .family-card,.species-tile,.similar-card,.glossary-card,.family-vocab-card,.term-confusion-card{transition:none}
+}
