@@ -14,6 +14,7 @@ def science(sp):
     for k in ("images","photo_note","learner_visual_status"):value.pop(k,None)
     cur=value.get("curation_status",{})
     for k in ("photo_metadata_count","photo_files_present","glass_root_garden_photo_install"):cur.pop(k,None)
+    if not cur:value.pop("curation_status",None)
     return value
 def csv_append(path,records):
     text=path.read_text(encoding="utf-8-sig") if path.exists() else ""
