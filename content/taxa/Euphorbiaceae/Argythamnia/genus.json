@@ -220,8 +220,8 @@
   ],
   "curation_status": {
     "version": "1.1-fna-diagnostic-polish",
-    "last_reviewed": "2026-10-11",
-    "visual_status": "diagnostic matrix complete; matched diagnostic photo set still pending",
+    "last_reviewed": "2026-10-14",
+    "visual_status": "photo_led_first_pass_one_study_voucher_two_species_need_rights_cleared_images",
     "scientific_note": "FNA-backed comparison pass; no taxonomy/range/admission changes."
   },
   "look_here_first_sequence": [
@@ -267,5 +267,53 @@
       "status": "source-pool",
       "note": "Large exact-species observation pool. Pull only individual photos whose license is explicitly acceptable."
     }
-  ]
+  ],
+  "visual_lesson": {
+    "status": "one_existing_private_study_voucher_two_species_without_photos",
+    "title": "Three Argythamnia: measure the leaf stalk, then inspect the flowering raceme",
+    "intro": "Photograph the node first. A. humilis has a visible petiole and short axillary raceme; A. aphoroides and A. simulans have essentially stalkless leaves and longer racemes. The last pair requires floral sex and stamen counts, not a broad habit impression.",
+    "teaching_order": "leaf attachment → raceme length → unisexual versus bisexual inflorescence → stamen count → capsule",
+    "steps": [
+      {
+        "title": "1 · A. humilis: locate the petiole",
+        "anchor_species_id": "argythamnia-humilis",
+        "anchor_image_index": 0,
+        "image_file": "images/argythamnia-humilis-provisional-face.jpg",
+        "photo_role": "study-only whole voucher",
+        "look_for": "The existing voucher shows general plant and leaf position. To measure the 2–10 mm petiole or tiny 0.7–0.9 cm raceme, obtain a separate close-up with ruler.",
+        "why_it_matters": "Petiole and short raceme distinguish humilis from the two sessile-leaved species.",
+        "status": "existing_physical_study_only_rights_unverified_no_public_reuse"
+      },
+      {
+        "title": "2 · A. aphoroides: sessile leaves, unisexual racemes",
+        "anchor_species_id": "argythamnia-aphoroides",
+        "photo_role": "exact-species leaf-node and flower raceme",
+        "look_for": "Leaves essentially without petioles; axillary raceme 3–8 cm. Confirm inflorescence sex and 10 stamens in a dissected male flower.",
+        "why_it_matters": "The sex of the raceme helps separate it from A. simulans.",
+        "status": "photo_not_installed"
+      },
+      {
+        "title": "3 · A. simulans: sessile leaves, bisexual racemes",
+        "anchor_species_id": "argythamnia-simulans",
+        "photo_role": "exact-species leaf-node and flower raceme",
+        "look_for": "Stalkless leaves and long racemes; inspect both floral sexes on inflorescence and count 7–8 stamens in male flowers.",
+        "why_it_matters": "Avoid calling it aphoroides from the leaf alone.",
+        "status": "photo_not_installed"
+      },
+      {
+        "title": "4 · Confirm the fruit and male flower",
+        "photo_role": "matched capsule profile and stamens macro",
+        "look_for": "Compare verified mature capsules and count real stamens under magnification. Do not infer a count from yellow-green bloom silhouettes.",
+        "why_it_matters": "The genus can be deceptive without small reproductive structures.",
+        "status": "verified_macro_missing"
+      }
+    ],
+    "lookalike_warning": "Other small Euphorbiaceae can have inconspicuous flowers and pubescence; confirm Argythamnia with an exact botanical key and specimens rather than appearance alone.",
+    "photo_priority": [
+      "Rights-cleared face + leaf attachment A. aphoroides",
+      "Rights-cleared face + leaf attachment A. simulans",
+      "Rights-cleared closeup for A. humilis; existing voucher rights unresolved",
+      "Measured flower sex, stamens and mature capsule set"
+    ]
+  }
 }
