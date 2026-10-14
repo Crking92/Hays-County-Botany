@@ -68,7 +68,9 @@
     "external_wrightii_references": 2,
     "new_image_binaries": 0,
     "status_conflict_flagged": true,
-    "verified_arrow_targets": 0
+    "verified_arrow_targets": 0,
+    "photo_source_verification": "2026-10-14",
+    "wrightii_binary_installed": false
   },
   "look_here_first": "FIRST find the SKULLCAP on a flower's CALYX: a small shieldlike projection (SCUTELLUM) rising from the upper calyx lip; it is not a petal. Photograph the flower from SIDE to show the projection and tubular two-lipped corolla. SECOND follow the flower stem down: an annual with acute leaves, short flower stalks and tiny corollas suggests S. drummondii; a compact bushy perennial with small round-ended entire leaves suggests S. wrightii; a much taller rhizomatous plant with broad scallop-edged triangular leaves suggests S. ovata. Check flower size with scale rather than blue-purple color.",
   "shared_genus_pattern": {
@@ -195,6 +197,19 @@
   "status_reconciliation": {
     "issue": "Genus source list says S. ovata PENDING_STRICT_DEEP_REVIEW, whereas canonical species.json contains a PASS with three target-county records.",
     "action": "Keep both original source status records unchanged until approval/workflow state is reconciled; do not create duplicate taxon or silently change range/admission status.",
-    "last_checked": "2026-10-14"
+    "last_checked": "2026-10-14",
+    "display_rule": "The canonical species.json for S. ovata currently says target_zone_status PASS; the genus B153 strict-review queue remains open. Show these as separate dimensions: species range PASS (recorded) and strict taxonomic/media review pending. Avoid labeling species simply uninstalled or without range evidence.",
+    "status_not_modified": true
+  },
+  "photo_link_handoff": {
+    "taxon_id": "scutellaria-wrightii",
+    "verified_external_license": "CC BY 4.0",
+    "credit": "Michelle W. （鍾偉瑋）",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_image_page": "https://commons.wikimedia.org/wiki/File:Scutellaria_wrightii_120531127.jpg",
+    "original_photo_page": "https://www.inaturalist.org/photos/120531127",
+    "recommended_photo_role": "whole flowering habit / branch structure",
+    "status": "REMOTE_SOURCE_VERIFIED_NOT_INSTALLED",
+    "next_step": "Acquire actual binary and commit local image via a binary-capable upload process; preserve author, license and original URL. No placeholder image path or invented arrows."
   }
 }
