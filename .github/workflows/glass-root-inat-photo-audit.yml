@@ -7,15 +7,17 @@ on:
       - .github/workflows/glass-root-inat-photo-audit.yml
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   audit-photo-metadata:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Check out canonical project
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
       - name: Collect every photo from each matching iNaturalist observation
         run: |
           python3 scripts/glass_root_inat_photo_metadata.py \
@@ -24,11 +26,39 @@ jobs:
             --taxon-id 47126 \
             --manifest data/manifest.json \
             --out workflow/glass-root-inat/output
-      - name: Save review-only photo metadata
+      - name: Install thumbnail dependency
+        run: python3 -m pip install pillow
+      - name: Build review-only previews for three under-photographed species
+        run: |
+          python3 scripts/glass_root_inat_review_previews.py \
+            --input workflow/glass-root-inat/output/photo-candidates.csv \
+            --out workflow/glass-root-inat/previews \
+            --per-species 16
+      - name: Save review-only photo previews to private repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/glass-root-inat/previews/
+          if ! git diff --cached --quiet; then
+            git commit -m "Save Glass Root Garden iNaturalist photo candidate previews (review only)"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then
+                echo "Review previews saved to GitHub."
+                exit 0
+              fi
+              sleep 3
+            done
+            echo "Couldn't safely push previews; metadata remains in Actions artifact." >&2
+            exit 1
+          fi
+      - name: Save complete photo metadata and preview artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: glass-root-inat-photo-metadata
-          path: workflow/glass-root-inat/output/
+          path: |
+            workflow/glass-root-inat/output/
+            workflow/glass-root-inat/previews/
           if-no-files-found: warn
           retention-days: 30
