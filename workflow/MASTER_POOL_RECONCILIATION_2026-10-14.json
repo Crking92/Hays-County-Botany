@@ -102,5 +102,63 @@
       "taxonomy_review_needed: resolve accepted identity/infraspecific concept; native-range HOLD alone is not a blocker",
       "needs_research_or_card_triage: determine distinct accepted taxon versus comparison versus synonym; highest remaining inventory"
     ]
+  },
+  "verified_alias_batch_2": {
+    "date": "2026-10-14",
+    "outcome": "7 source aliases already routed to installed canonical species; 2 identities remain uninstalled and must not be counted as done",
+    "verified_installed": [
+      {
+        "source": "Aesculus pavia var. pavia",
+        "canonical": "aesculus-pavia",
+        "note": "parent species module exists; infraspecific record requires retained metadata, not a separate default card"
+      },
+      {
+        "source": "Andropogon virginicus",
+        "canonical": "anatherum-virginicum",
+        "note": "synonym in canonical species"
+      },
+      {
+        "source": "Bouteloua hirsuta var. pectinata",
+        "canonical": "bouteloua-pectinata",
+        "note": "existing canonical synonym"
+      },
+      {
+        "source": "Celtis laevigata var. laevigata",
+        "canonical": "celtis-laevigata",
+        "note": "existing parent species and variant synonym"
+      },
+      {
+        "source": "Cercis canadensis var. mexicana",
+        "canonical": "cercis-canadensis-subsp-mexicana",
+        "note": "existing synonym"
+      },
+      {
+        "source": "Cercis canadensis var. texensis",
+        "canonical": "cercis-canadensis-subsp-texensis",
+        "note": "existing synonym"
+      },
+      {
+        "source": "Centaurea americana",
+        "canonical": "plectocephalus-americanus",
+        "note": "sheet accepted-name routing; inspect species synonyms before adding search alias"
+      }
+    ],
+    "needs_identity_or_installer": [
+      {
+        "source": "Buddleja racemosa ssp. racemosa",
+        "target": "buddleja-racemosa",
+        "status": "source parent not installed"
+      },
+      {
+        "source": "Evax prolifera",
+        "target": "diaperia-prolifera",
+        "status": "accepted target absent from manifest"
+      }
+    ],
+    "cautions": [
+      "Bothriochloa laguroides broad source concept must not be automatically equated to Bothriochloa torreyana in all observations; canonical only has torreyana-specific old subspecies/variety aliases.",
+      "Unqualified Anisacanthus quadrifidus is wider than the installed Texas variety; parent name routing must be scoped to Texas source concept.",
+      "The master list is not ready for deletion; preserve 1282 sources and use reconciliation views for distinct card needs."
+    ]
   }
 }
