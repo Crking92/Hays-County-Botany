@@ -1104,7 +1104,7 @@ function taxonomyPhotoPriority(rank,detail){
   if(rank==="genus") return ["flower macro","flower close","flower","inflorescence","fruit","leaves","diagnostic","habit"];
   return ["flower","inflorescence","habit","leaves","fruit","diagnostic"];
 }
-function taxonomyPickPhoto(sp,rank,detail,preferredIndex){
+function taxonomyPickPhoto(sp,rank,detail,preferredIndex,usedPhotos){
   if(!sp) return null;
   const gallery=imagesFor(sp).filter(function(img){ return !/^(javascript|data|file):/i.test(String(img.file)); });
   if(!gallery.length) return null;
@@ -1122,13 +1122,15 @@ function taxonomyPickPhoto(sp,rank,detail,preferredIndex){
       if(/macro|close-up|diagnostic/.test(role)) score+=3;
       // Installed local media is more reliable than a hotlinked reference image.
       if(!/^https?:\/\//i.test(String(img.file))) score+=60;
+      // Different taxonomic ranks should show different plant views when available.
+      if(usedPhotos && usedPhotos.has(imagePath(sp,img))) score-=250;
       return {img:img,index:index,score:score};
     }).sort(function(a,b){ return b.score-a.score || a.index-b.index; });
     chosen=ranked[0].img;
   }
   return {species:sp,img:chosen,role:chosen.role||chosen.view||"Plant reference",src:imagePath(sp,chosen)};
 }
-function taxonomyTeachingPhoto(sp,rank,detail,familyData){
+function taxonomyTeachingPhoto(sp,rank,detail,familyData,usedPhotos){
   let picked=null,step=null,linkedRank=rank;
   const lesson=familyData && familyData.visual_lesson;
   if((rank==="family" || rank==="order") && lesson && Array.isArray(lesson.steps)){
@@ -1136,7 +1138,7 @@ function taxonomyTeachingPhoto(sp,rank,detail,familyData){
       if(!candidate || !candidate.anchor_species_id || /pending/i.test(String(candidate.status||""))) continue;
       const representative=state.speciesById.get(candidate.anchor_species_id);
       if(!representative || !imagesFor(representative).length) continue;
-      picked=taxonomyPickPhoto(representative,"family",candidate.photo_role||detail,candidate.anchor_image_index);
+      picked=taxonomyPickPhoto(representative,"family",candidate.photo_role||detail,candidate.anchor_image_index,usedPhotos);
       if(picked){ step=candidate;break; }
     }
   }
@@ -1148,9 +1150,10 @@ function taxonomyTeachingPhoto(sp,rank,detail,familyData){
     if((rank==="family" || rank==="order") && !imagesFor(representative).length){
       representative=familySpecies(sp.family).find(function(x){return imagesFor(x).length;})||sp;
     }
-    picked=taxonomyPickPhoto(representative,rank,detail);
+    picked=taxonomyPickPhoto(representative,rank,detail,null,usedPhotos);
   }
   if(!picked) return '<div class="taxonomy-teaching-photo-empty"><span aria-hidden="true">✣</span><strong>Photo example needed</strong><small>The identification clues below are still available.</small></div>';
+  if(usedPhotos) usedPhotos.add(picked.src);
   const photo=picked.img, photoSp=picked.species;
   const recordedRole=String(picked.role||"Plant reference");
   const caption=step && step.image_label ? step.image_label : recordedRole;
@@ -1201,9 +1204,10 @@ function taxonomyTeachingTrail(sp,genusData,profile,callouts){
     '<h2 id="taxonomyTeachingTitle">Why does this plant have that name?</h2></div></div>'+
     '<p class="section-intro">Follow the classification from broader relatives to this species. Each image is a representative study view; use the written clues and detailed lessons to verify individual structures.</p>'+
     '<div class="taxonomy-teaching-grid">';
+  const usedTaxonomyPhotos=new Set();
   ranks.forEach(function(rank,index){
     out+='<article class="taxonomy-teaching-card taxonomy-teaching-'+rank.tone+'">'+
-      taxonomyTeachingPhoto(sp,rank.tone,rank.detail,familyData)+
+      taxonomyTeachingPhoto(sp,rank.tone,rank.detail,familyData,usedTaxonomyPhotos)+
       '<div class="taxonomy-teaching-head"><span class="taxonomy-teaching-number">'+String(index+1).padStart(2,"0")+'</span>'+
       '<span><small>'+esc(rank.rank)+' · '+esc(rank.helper)+'</small><strong>'+(rank.italic?'<i>'+esc(rank.name)+'</i>':esc(rank.name))+'</strong></span></div>'+
       '<div class="taxonomy-teaching-body"><b>Look for</b><p>'+clueWithTerms(rank.detail)+'</p></div>'+
