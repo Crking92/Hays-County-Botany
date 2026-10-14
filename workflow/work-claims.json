@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T21:51:00Z",
+  "updated_at": "2026-10-14T22:04:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,29 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "glass-root-owner-private-zero-fill-20261014-003",
+      "scope_kind": "species_photo_batch",
+      "taxa": [
+        "cynanchum-unifarium",
+        "dalea-enneandra",
+        "quercus-michauxii",
+        "quercus-phellos",
+        "quercus-nigra",
+        "callirhoe-leiocarpa",
+        "oenothera-curtiflora",
+        "oenothera-suffulta",
+        "passiflora-lanuginosa",
+        "bouteloua-rigidiseta"
+      ],
+      "lane": "photo-fast-fill",
+      "owner": "manual-prototype-chat",
+      "status": "active",
+      "claimed_at": "2026-10-14T22:04:00Z",
+      "expires_at": "2026-10-15T04:04:00Z",
+      "release_when": "Verified first physical user photo per selected species, Sheet photo-ID tracking and report saved; or explicit skip/release.",
+      "notes": "Photo owner explicitly confirmed calvinking photos are theirs and approved use in private learner in current chat. Preserve old API copyright state and record separate private-study permission; no new public CC license asserted. Existing galleries/science must remain byte-for-byte semantically preserved."
+    },
     {
       "claim_id": "manual-prototype-agave-allionia-arundo-20261014",
       "scope_kind": "species_curation_batch",
