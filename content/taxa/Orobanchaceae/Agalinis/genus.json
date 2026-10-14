@@ -13,7 +13,7 @@
   },
   "curation_status": {
     "version": "1.0-genus-comparison",
-    "last_reviewed": "2026-10-09",
+    "last_reviewed": "2026-10-14",
     "status": "morphology framework; diagnostic macros pending"
   },
   "look_here_first": "Measure the pedicel from flowering branch to calyx on several intact flowers, then inspect calyx lobe length relative to the tube. Long pedicels with very short calyx lobes favor A. edwardsiana; very short pedicels with conspicuous calyx lobes favor A. heterophylla.",
@@ -99,11 +99,15 @@
   "existing_media_references": [
     {
       "species_id": "agalinis-edwardsiana",
-      "reference": "species.json existing CC BY 4.0 flowering branch by Michelle Wong"
+      "reference": "species.json existing CC BY 4.0 flowering branch by Michelle Wong",
+      "installed_path": "content/taxa/Orobanchaceae/Agalinis/agalinis-edwardsiana/images/agalinis-edwardsiana-branch.jpg",
+      "observed_anatomy": "installed_verified: opposite narrow leaves and branching node; no diagnostic flower visible; annotation_pending"
     },
     {
       "species_id": "agalinis-heterophylla",
-      "reference": "species.json existing CC0 flowering habit by Donna"
+      "reference": "species.json existing CC0 flowering habit by Donna",
+      "installed_path": "content/taxa/Orobanchaceae/Agalinis/agalinis-heterophylla/images/agalinis-heterophylla-habit.jpg",
+      "observed_anatomy": "installed_verified: pink tubular flowers, slender leaves and habit; pedicel/calyx not measurable; annotation_pending"
     }
   ],
   "handoffs": [
@@ -120,5 +124,31 @@
     "content/taxa/Orobanchaceae/Agalinis/agalinis-edwardsiana/species.json",
     "content/taxa/Orobanchaceae/Agalinis/agalinis-heterophylla/species.json",
     "content/taxa/Orobanchaceae/family.json"
+  ],
+  "comparison_cards": [
+    {
+      "title": "Pedicel: the flower stalk, not the branch",
+      "taxon_ids": [
+        "agalinis-edwardsiana",
+        "agalinis-heterophylla"
+      ],
+      "look_here_first": "Compare several side-on flower stalks measured from branch to calyx: A. edwardsiana up to ~30 mm; A. heterophylla ~1.6–3.2 mm.",
+      "photo_requirements": [
+        "Matched millimeter-scaled pedicel side views, both species"
+      ],
+      "caution": "Neither installed image proves this measurement."
+    },
+    {
+      "title": "Calyx: lobes versus tube",
+      "taxon_ids": [
+        "agalinis-edwardsiana",
+        "agalinis-heterophylla"
+      ],
+      "look_here_first": "Heterophylla calyx lobes are conspicuous, about 3–6 mm in a regional flora; edwardsiana lobes are very short relative to tube.",
+      "photo_requirements": [
+        "Matched calyx tube/lobe side macros, both species"
+      ],
+      "caution": "Absolute edwardsiana lobe measurements require diagnostic review."
+    }
   ]
 }
