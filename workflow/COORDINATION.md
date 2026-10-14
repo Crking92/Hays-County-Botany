@@ -301,3 +301,10 @@ Before any taxonomy/range PASS, read `workflow/target-zone-counties.json`. It is
 ## One-photo fast-fill lane
 
 The breadth-first zero-photo learner lane follows `workflow/ONE_PHOTO_FAST_FILL.md`. Its default batch target is 10 species (normally 8–12), it must skip research/licensing rabbit holes instead of shrinking around them, and it must preserve settled scientific fields. Prefer one complete/atomic inbox handoff; never drip-feed species files through many curation-triggering commits. Failed READY batches must be repaired or disabled promptly so they do not block later curation work.
+
+
+## Automation claim lifecycle hygiene — 2026-10-13
+
+Unattended family, genus, scientific-review, media, and curation workers must close the claim lifecycle during each run, not merely commit the underlying work. After a durable successful write, re-fetch and verify the changed artifact, then mark that exact worker's claim `released` with the verified commit/path. When a target is skipped or blocked, release its short-lived active reservation and record the precise unresolved blocker or handoff; do not label incomplete science as complete. If work legitimately spans runs, explicitly renew its short lease with current evidence before ending. Never overwrite another worker's still-valid claim.
+
+Expired `active` reservations are not exclusive ownership. Before reclaiming one, recheck the canonical manifest, drafts, inbox, newest GitHub commits, and Actions to determine whether the work finished or was handed off. Expiry permits releasing the stale *reservation*, not asserting successful completion. On 2026-10-13, 21 historical two-hour claims were released as expired reservations only; no scientific decisions or missing work were certified by that cleanup.
