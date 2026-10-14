@@ -193,3 +193,8 @@ Never store API keys, tokens, passwords, or other credentials in the tracker.
 Incomplete **county-range evidence alone does not block learner installation** for an approved source-pool taxon. Preserve the range state as UNRESOLVED/FAIL/COMPARISON and label it honestly.
 
 A separate species card may still be blocked when the taxonomic identity itself is unresolved enough that installation would create a duplicate, obsolete, or misleading concept. Morphology and image provenance may be provisional during Learner Fast-Fill as long as the page is clearly marked and remains useful for identification.
+
+## Photo-led family/genus/species lessons — approved 2026-10-13
+
+**Mandatory for all new and substantially polished learner-facing lessons:** read and follow [workflow/VISUAL_PHOTO_LESSON_STANDARD.md](workflow/VISUAL_PHOTO_LESSON_STANDARD.md). This is the user-approved visual field guide behavior now implemented in the website: **an obvious Family → Genus → Species pathway, multiple photographs of the actual diagnostic plant parts with plain-English explanations, tap-to-enlarge mobile images, unambiguous installed-versus-external-versus-missing photo status, and targeted arrows only after verifying the actual anatomy.** Preserve every existing botanical claim, look-alike comparison, range status, photo attribution, and reuse restriction. Do not remove or obscure existing content to make cards simpler. Each research, review, family, genus, media and installer lane contributes its own evidence/roles to these photo-group lessons; bulk installation is owned by the photo lane and UI rendering is owned by website work. See the linked standard for precise ownership and verification criteria.
+
