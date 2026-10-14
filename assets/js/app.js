@@ -1715,7 +1715,7 @@ function genusMatches(query){
 function searchMatches(query){
   const q=norm(query); if(!q) return [];
   return state.species.map(function(sp){
-    const sci=scientificName(sp), common=commonName(sp), body=norm([sci,common,sp.genus,sp.family].concat(sp.other_common_names||[]).join(" "));
+    const sci=scientificName(sp), common=commonName(sp), body=norm([sci,common,sp.genus,sp.family].concat(sp.other_common_names||[]).concat((sp.synonyms||[]).map(function(s){ return typeof s==="string"?s:(s && (s.name||s.scientific_name))||""; })).join(" "));
     let score=0;
     if(norm(sci)===q || norm(common)===q) score+=100;
     if(norm(sci).startsWith(q) || norm(common).startsWith(q)) score+=50;
