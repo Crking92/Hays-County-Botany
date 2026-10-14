@@ -1,0 +1,72 @@
+name: Install approved Glass Root Garden botanical photos
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-inat-install-batch-001.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-approved-install
+  cancel-in-progress: false
+
+jobs:
+  install-approved-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the canonical learner
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install Pillow for image verification and safe EXIF-stripping
+        run: python3 -m pip install pillow
+      - name: Verify Python installer syntax
+        run: python3 -m py_compile scripts/glass_root_inat_install_approved.py
+      - name: Validate observation identity and install only the four approved photos
+        run: python3 scripts/glass_root_inat_install_approved.py
+      - name: Validate new species image metadata and installed binaries
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          from PIL import Image
+          data=json.loads(pathlib.Path("workflow/glass-root-inat/approved-photo-install-batch-001.json").read_text())
+          for taxon in data["targets"]:
+              species_path=pathlib.Path(taxon["path"])
+              species=json.loads(species_path.read_text())
+              for photo in taxon["photos"]:
+                  matching=[im for im in species.get("images",[]) if str(im.get("photo_id"))==str(photo["id"])]
+                  assert len(matching)==1, (taxon["id"],photo["id"])
+                  item=matching[0]
+                  file=species_path.parent/item["file"]
+                  assert file.exists() and file.stat().st_size > 20000, str(file)
+                  with Image.open(file) as im:
+                      im.verify()
+                  assert item.get("creator")=="Glass Root Garden"
+                  assert item.get("license")=="CC BY 4.0"
+                  print("Verified",taxon["id"],photo["id"],str(file))
+          PY
+      - name: Commit and push only canonical gallery additions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Asparagaceae/Yucca/yucca-rupicola/ content/taxa/Euphorbiaceae/Croton/croton-fruticulosus/
+          if git diff --cached --quiet; then
+            echo "No new approved photos to commit."
+            exit 0
+          fi
+          git commit -m "Install 4 CC BY Glass Root Garden images for yucca and croton"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Canonical images and image metadata committed."
+              exit 0
+            fi
+            echo "Push conflict; retrying against main."
+            sleep 3
+          done
+          echo "Image commit could not be pushed safely." >&2
+          exit 1
