@@ -80,7 +80,12 @@ function imagePath(sp,img){
   if(img.file.startsWith("content/")) return encodeURI(img.file);
   return encodeURI(speciesBase(sp)+"/"+img.file);
 }
-function firstImage(sp){ return imagesFor(sp)[0] || null; }
+function defaultPhotoIndex(sp){
+  const imgs=imagesFor(sp);
+  const verified=imgs.findIndex(function(img){ return !/^https?:\/\//i.test(img.file) && Array.isArray(img.image_dimensions) && img.source_platform==="iNaturalist" && img.study_use==="yes"; });
+  return verified>=0 ? verified : 0;
+}
+function firstImage(sp){ return imagesFor(sp)[defaultPhotoIndex(sp)] || null; }
 function thumb(sp,cls){
   const img=firstImage(sp);
   if(img) return '<img class="'+cls+'" src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+'" loading="lazy">';
@@ -964,7 +969,7 @@ function genusView(){
 function photoCarousel(sp){
   const imgs=imagesFor(sp);
   if(!imgs.length) return '<div class="focus-photo-empty">No curated photo installed yet.</div>';
-  let idx=state.photoIndex[sp.id]||0; idx=((idx%imgs.length)+imgs.length)%imgs.length; state.photoIndex[sp.id]=idx;
+  let idx=state.photoIndex[sp.id]===undefined ? defaultPhotoIndex(sp) : state.photoIndex[sp.id]; idx=((idx%imgs.length)+imgs.length)%imgs.length; state.photoIndex[sp.id]=idx;
   const img=imgs[idx], role=img.role||img.view||"Curated study image", credit=[img.creator||img.credit,img.license].filter(Boolean).join(" · ");
   let out='<div class="species-gallery"><figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'"></button>'+
     '<div class="photo-topline"><span>'+esc(role)+'</span><b>'+(idx+1)+' / '+imgs.length+'</b></div>';
