@@ -49,8 +49,23 @@ for name in TARGETS:
         "action":"query","list":"categorymembers","cmtitle":category,"cmtype":"file","cmlimit":"30","format":"json"
     })
     titles = [a.get("title") for a in cm.get("query",{}).get("categorymembers",[]) if a.get("title")]
+    file_info = []
+    if titles:
+        info = get_json("https://commons.wikimedia.org", "/w/api.php", {
+            "action":"query","prop":"imageinfo","titles":"|".join(titles),
+            "iiprop":"url|extmetadata","format":"json"
+        })
+        for item in info.get("query",{}).get("pages",{}).values():
+            img = (item.get("imageinfo") or [{}])[0]
+            meta = img.get("extmetadata") or {}
+            file_info.append({"title":item.get("title"),"direct_url":img.get("url"),
+                "creator":meta.get("Artist",{}).get("value"),
+                "license":meta.get("LicenseShortName",{}).get("value"),
+                "license_url":meta.get("LicenseUrl",{}).get("value"),
+                "credit":meta.get("Credit",{}).get("value"),
+                "size":img.get("size"),"source":"https://commons.wikimedia.org/wiki/"+(item.get("title") or "").replace(" ","_")})
     out["targets"][name] = {"inat_results":q.get("total_results"),"inat_error":q.get("error"),
-        "approved_media":records[:35],"commons_file_titles":titles,"commons_error":cm.get("error")}
+        "approved_media":records[:35],"commons_file_titles":titles,"commons_details":file_info,"commons_error":cm.get("error")}
 OUTPUT.parent.mkdir(parents=True,exist_ok=True)
 OUTPUT.write_text(json.dumps(out, indent=2, ensure_ascii=False)+"\n",encoding="utf-8")
 print("wrote",OUTPUT, "photo counts", {n:len(v["approved_media"]) for n,v in out["targets"].items()})
