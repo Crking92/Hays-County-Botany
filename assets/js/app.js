@@ -1138,7 +1138,7 @@ function plantView(){
   out+='<section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
     '<div class="look-card emphasis"><span>🔎 FIRST CLUE · LOOK HERE</span><strong>'+clueWithTerms(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
   cues.forEach(function(x,i){ out+='<div><b aria-hidden="true">'+(i+1)+'</b><span>'+clueWithTerms(x)+'</span></div>'; });
-  out+='</div><div class="study-actions"><button class="primary-button" type="button" data-jump="taxonomy">Why this name? ↓</button>'+
+  out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="taxonomy">Why this name? ↓</button>' : '')+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
   if(state.difficulty!=="simple"){
