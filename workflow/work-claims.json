@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-13T19:58:00-05:00",
+  "updated_at": "2026-10-14T00:49:55.888Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -8061,6 +8061,18 @@
       "notes": "UI-only work; preserve all taxonomy, photo provenance, learner data, and curation workflows.",
       "released_at": "2026-10-13T19:58:00-05:00",
       "release_note": "Completed and read-back-verified species photo filmstrip in assets/js/app.js (03c38f63), improved pastel text contrast and iPhone navigation in assets/css/styles.css (59f331d8), bumped index assets (479ddee9) and service-worker offline cache (dc1a1b9). Scientific content and image assets untouched."
+    },
+    {
+      "claim_id": "manual-website-card-design-taxonomy-trail-20261013",
+      "scope_kind": "website",
+      "scope_key": "assets/js/app.js::plant-taxonomy-teaching;assets/css/styles.css::cohesive-card-system;index.html::cache-version",
+      "lane": "website-ui",
+      "owner": "manual-chat-website-design",
+      "status": "active",
+      "claimed_at": "2026-10-14T00:49:55.888Z",
+      "expires_at": "2026-10-14T06:49:55.888Z",
+      "release_when": "After UI changes are committed, read back and checked.",
+      "notes": "Layout-only, no changes to canonical taxonomy, species or photo assets. Other plant curation continues independently."
     }
   ]
 }
