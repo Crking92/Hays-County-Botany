@@ -959,11 +959,20 @@ function photoCarousel(sp){
   if(!imgs.length) return '<div class="focus-photo-empty">No curated photo installed yet.</div>';
   let idx=state.photoIndex[sp.id]||0; idx=((idx%imgs.length)+imgs.length)%imgs.length; state.photoIndex[sp.id]=idx;
   const img=imgs[idx], role=img.role||img.view||"Curated study image", credit=[img.creator||img.credit,img.license].filter(Boolean).join(" · ");
-  let out='<figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'"></button>'+
+  let out='<div class="species-gallery"><figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'"></button>'+
     '<div class="photo-topline"><span>'+esc(role)+'</span><b>'+(idx+1)+' / '+imgs.length+'</b></div>';
   if(imgs.length>1) out+='<button class="photo-arrow prev" type="button" data-photo-step="-1" aria-label="Previous photo">‹</button><button class="photo-arrow next" type="button" data-photo-step="1" aria-label="Next photo">›</button>';
   out+='<figcaption><span>'+esc(credit||"Source metadata retained in species record")+'</span>'+(img.source_page?'<a href="'+esc(img.source_page)+'" target="_blank" rel="noreferrer">source ↗</a>':'')+'</figcaption></figure>';
-  return out;
+  if(imgs.length>1){
+    out+='<div class="photo-filmstrip" role="group" aria-label="Choose a plant photo">';
+    imgs.forEach(function(photo,i){
+      const label=photo.role||photo.view||("Photo "+(i+1));
+      out+='<button type="button" class="photo-thumbnail'+(i===idx?' active':'')+'" data-photo-index="'+i+'" aria-pressed="'+String(i===idx)+'" aria-label="Show photo '+(i+1)+' of '+imgs.length+': '+esc(label)+'">'+
+        '<img src="'+imagePath(sp,photo)+'" alt="" loading="lazy"><span>'+esc(label)+'</span></button>';
+    });
+    out+='</div>';
+  }
+  return out+'</div>';
 }
 function identityPanel(sp){
   if(state.quizMode && !state.quizRevealed){
@@ -1540,6 +1549,13 @@ function handleClick(e){
   const species=e.target.closest("[data-species]"); if(species){ closeModal(); openPlant(species.dataset.species); return; }
   const fam=e.target.closest("[data-family]"); if(fam){ closeModal(); openFamily(fam.dataset.family); return; }
   const famInfo=e.target.closest("[data-family-info]"); if(famInfo){ openFamilyModal(famInfo.dataset.familyInfo); return; }
+  const photoThumb=e.target.closest("[data-photo-index]");
+  if(photoThumb){
+    const sp=selectedSpecies(), imgs=sp?imagesFor(sp):[];
+    const index=Number(photoThumb.dataset.photoIndex);
+    if(sp && Number.isInteger(index) && index>=0 && index<imgs.length){ state.photoIndex[sp.id]=index; render(); }
+    return;
+  }
   const photo=e.target.closest("[data-photo-step]");
   if(photo){
     const sp=selectedSpecies(), imgs=sp?imagesFor(sp):[];
