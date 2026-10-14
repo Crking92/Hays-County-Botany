@@ -15,7 +15,7 @@
     "source_pool": "Genus Study Index row 68; existing species records in content/taxa/Malvaceae/Callirhoe"
   },
   "shared_genus_recognition": {
-    "look_here_first": "Turn a flower bud sideways and LOOK DIRECTLY BELOW THE CALYX. Are there three extra bractlets (an involucel/epicalyx)? If yes in this four-taxon set, the winecup branch is favored. If none, check whether the plant is annual or perennial and examine mature mericarps, stipules, leaf lobes and raceme versus panicle.",
+    "look_here_first": "First turn a flower bud sideways and examine the calyx/extra bractlet region. The epicalyx (involucel) of C. involucrata is well-documented, but DO NOT use a blanket 'involucel absent in pedata' rule: FNA says absent, while UT's Williamson County C. pedata treatment says three bracteoles. Mark pedata anatomy taxonomic-review pending. Then inspect whether bud sepal tips converge or diverge, trailing versus erect habit, leaf stipules, and mature segmented fruit rather than relying on flower color.",
     "shared_traits": [
       "Mallow flowers with five petals and many stamens fused into a staminal column around the style; alternate stipulate leaves.",
       "Leaves can be deeply palmately lobed, but leaf division alone does not reliably split the erect species.",
@@ -30,8 +30,8 @@
       "Callirhoe involucrata": "3 present, easily seen on intact bud (occasionally flattened against sepals)",
       "Callirhoe digitata": "absent",
       "Callirhoe leiocarpa": "absent",
-      "Callirhoe pedata": "absent",
-      "weight": "FIRST SPLIT"
+      "Callirhoe pedata": "SOURCE CONFLICT: FNA describes absent; UT Austin's Williamson County treatment records three bracteoles. Verify accepted specimen concept and matched bud macro before asserting absent.",
+      "weight": "FIRST SPLIT for involucrata, PEDATA SOURCE-CONCEPT CAUTION"
     },
     {
       "character": "calyx lobes in bud",
@@ -54,8 +54,8 @@
       "Callirhoe involucrata": "Racemose; persistent ovate to ovate-lanceolate stipules",
       "Callirhoe digitata": "Paniculate; stipules usually caducous (shed early)",
       "Callirhoe leiocarpa": "Racemose; persistent distinctly auriculate stipules",
-      "Callirhoe pedata": "Racemose; persistent linear-lanceolate/subulate stipules",
-      "weight": "PRIMARY tie-breaker among non-involucellate species"
+      "Callirhoe pedata": "FNA: racemose, narrow persistent stipules; UT Williamson County treatment: panicle, wider asymmetric often persistent stipules. Conflicting source descriptions require specimen/concept reconciliation.",
+      "weight": "SUPPORTING, conflicting pedata sources"
     },
     {
       "character": "leaf lobes",
@@ -78,7 +78,7 @@
     {
       "step": 1,
       "structure": "flower bud side view, both calyx and just-below-calyx region",
-      "decision": "Three distinct involucellar bractlets + divergent calyx lobes → C. involucrata branch. Confirm trailing perennial habit."
+      "decision": "C. involucrata: three epicalyx bractlets and widely separated bud calyx lobes plus trailing habit. Do NOT force pedata exclusion solely from epicalyx presence/absence because FNA and UT descriptions disagree."
     },
     {
       "step": 2,
@@ -108,7 +108,8 @@
     "C. involucrata is variable at variety level; do not force an infraspecific ID from flower shade.",
     "Involucel bractlets can lie flat against sepals, especially in open flowers; check unopened buds and take a lateral close-up.",
     "Leaf lobes and stem height overlap across species and mowing may affect habit; preserve juvenile-versus-adult context.",
-    "Do not handle rare/nonlocal comparison taxa as locally confirmed natives without independent county evidence. Species range labels already in the canonical records are unchanged."
+    "Do not handle rare/nonlocal comparison taxa as locally confirmed natives without independent county evidence. Species range labels already in the canonical records are unchanged.",
+    "BOTANICAL SOURCE DISAGREEMENT: FNA C. pedata lacks involucellar bractlets and has racemose inflorescences, while UT Williamson County description reports three bracteoles under the calyx and paniculate flowers. The genus key must not force presence/absence based on this concept until verified independently."
   ],
   "local_lookalike_routing": [
     {
@@ -273,7 +274,8 @@
       "callirhoe-leiocarpa"
     ],
     "arrow_status": "needs_visually_verified_annotations",
-    "diagnostic_conflict_status": "FNA pedata no involucel versus UT Williamson pedata three bracteoles; needs review"
+    "diagnostic_conflict_status": "FNA pedata no involucel versus UT Williamson pedata three bracteoles; needs review",
+    "source_concept_conflict_review_required": true
   },
   "look_here_first": "FIRST turn a bud/flower SIDEWAYS and inspect the region immediately UNDER the true five-lobed CALYX for an extra ring of tiny BRACTLETS (INVOLUCEL/EPICALYX). On C. involucrata, three bractlets are strongly supported and buds have separated sepal tips. BUT do not use 'bractlets absent' as an unqualified C. pedata veto: FNA describes them absent, whereas UT's detailed Williamson County treatment describes three bracteoles on a plant identified C. pedata. This conflict needs independent taxonomic/specimen-photo review. SECOND check trailing versus erect habit and leaf/stipule characters. THIRD confirm annuality and ripe MERICARP anatomy (dehiscent vs indehiscent; beak/collar). Petal color is not sufficient.",
   "genus_diagnostics": {
