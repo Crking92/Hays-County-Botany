@@ -54,7 +54,24 @@
       "title": "Cenchrus spinifex vs Cenchrus longispinus",
       "look_here_first": "Compare several mature BURRS and exposed spikelets under a ruler or macro rather than guessing from one spine.",
       "field_note": "Both are accepted North American sandbur species with overlapping general appearance. Species-level distinction requires a formal regional key and measured mature bur characters.",
-      "status": "comparative_macro_and_county_review_pending"
+      "status": "comparative_macro_and_county_review_pending",
+      "field_matrix": [
+        {
+          "character": "prominent bur spines",
+          "spinifex": "Usually 6–10 stout spines in regional keys",
+          "longispinus": "Often 45–75 numerous slender bristles"
+        },
+        {
+          "character": "inner bristle base",
+          "spinifex": "Check fused base and regional key",
+          "longispinus": "Inner bristles fused about half their length or more into a cupule"
+        },
+        {
+          "character": "spikelets",
+          "spinifex": "Inspect intact mature burs",
+          "longispinus": "Commonly 2–3(–4) spikelets per fascicle"
+        }
+      ]
     },
     {
       "title": "Sandburs vs Setaria (foxtails)",
@@ -108,13 +125,52 @@
       "source": "Kew POWO — C. longispinus",
       "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:51256-2/general-information",
       "supports": "morphology and Texas native distribution"
+    },
+    {
+      "source": "Flora of North America via Burke Herbarium",
+      "url": "https://www.burkeherbarium.org/imagecollection/taxon.php?Taxon=Cenchrus+longispinus",
+      "supports": "bristle count, cupule, spikelets"
+    },
+    {
+      "source": "Cornell CALS sandbur comparison",
+      "url": "https://cals.cornell.edu/weed-science/weed-profiles/sandburs",
+      "supports": "field photos and habit"
+    },
+    {
+      "source": "Canadian Food Inspection Agency",
+      "url": "https://inspection.canada.ca/en/plant-health/seeds/seed-testing-and-grading/seeds-identification/cenchrus-longispinus",
+      "supports": "bur anatomy"
     }
   ],
   "curation_status": {
-    "phase": "GENUS FIRST PASS — PHOTO ENRICHMENT PENDING",
+    "phase": "GENUS AND PHOTO REFERENCES COMPLETED — PHYSICAL IMAGE INSTALLATION PENDING",
     "date": "2026-10-14",
     "photos_installed": 0,
     "county_nativeness_certified": false,
-    "canonical_species_added": 0
-  }
+    "canonical_species_added": 0,
+    "external_photo_references": 3
+  },
+  "photo_reference_gallery": [
+    {
+      "taxon": "Cenchrus longispinus",
+      "role": "bur",
+      "url": "https://commons.wikimedia.org/wiki/File:Cenchrus_longispinus_31254531.jpg",
+      "credit": "Yuriy Danilevsky · CC BY 4.0",
+      "status": "external_only"
+    },
+    {
+      "taxon": "Cenchrus longispinus",
+      "role": "flowering head",
+      "url": "https://commons.wikimedia.org/wiki/File:Cenchrus_longispinus_(long-spined_sandbur),_Middletown,_RI_(31324581884).jpg",
+      "credit": "Doug McGrady · CC BY 2.0",
+      "status": "external_only"
+    },
+    {
+      "taxon": "Cenchrus spinifex and Cenchrus longispinus",
+      "role": "field comparison",
+      "url": "https://cals.cornell.edu/weed-science/weed-profiles/sandburs",
+      "credit": "Joseph DiTomaso · reuse rights not established",
+      "status": "reference_only"
+    }
+  ]
 }
