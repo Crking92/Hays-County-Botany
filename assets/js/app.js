@@ -1079,6 +1079,52 @@ function fieldBotanySection(sp,genusData){
     (countyList(sp).length?'<p><b>Supported target-zone counties in this file:</b> '+esc(countyList(sp).join(", "))+'</p>':'')+'</details></section>';
   return out;
 }
+/* Presentation-only name/relationship lesson. Canonical ranks and ID evidence stay in their source modules. */
+function taxonomyTeachingTrail(sp,genusData,profile,callouts){
+  const familyData=state.familyCache.get(sp.family)||{};
+  const familyDiagnostics=familyData.family_diagnostics||{};
+  const familyClue=callouts.family_connection||profile.look_here_first||profile.plain_signature||
+    familyDiagnostics.where_to_look_first||familyDiagnostics.field_tip||
+    "Open this family lesson to learn its shared structures and important exceptions.";
+  const genusTraits=genusSharedTraits(genusData);
+  const genusClue=(genusData && (genusData.look_here_first ||
+    (genusData.study_strategy && genusData.study_strategy.look_here_first))) ||
+    (genusData && genusData.genus_diagnostics && (
+      genusData.genus_diagnostics.flower || genusData.genus_diagnostics.inflorescence ||
+      genusData.genus_diagnostics.fruit || genusData.genus_diagnostics.leaves)) ||
+    (genusTraits.length?genusTraits[0]:"The genus lesson is still being expanded. Open it to compare shared traits across close relatives.");
+  const speciesClue=callouts.standout||lookHereFirst(sp);
+  const order=[sp.order,genusData&&genusData.order,familyData.order].find(function(value){
+    return typeof value==="string" && value.trim();
+  });
+  const ranks=[];
+  if(order){
+    const orderHint=(familyData.order_diagnostics && typeof familyData.order_diagnostics==="string")?
+      familyData.order_diagnostics:"This broader evolutionary group includes multiple families. Its identifying traits need to be checked at the family and genus levels.";
+    ranks.push({rank:"Order",name:order,detail:orderHint,helper:"Broader group",tone:"order"});
+  }
+  ranks.push({rank:"Family",name:sp.family,detail:familyClue,helper:"Shared family architecture",tone:"family",open:'data-family="'+esc(sp.family)+'"',action:"Explore family"});
+  ranks.push({rank:"Genus",name:sp.genus,detail:genusClue,helper:"What close relatives share",tone:"genus",open:'data-genus="'+esc(sp.genus)+'" data-genus-family="'+esc(sp.family)+'"',action:"Explore genus",italic:true});
+  ranks.push({rank:"Species",name:scientificName(sp),detail:speciesClue,helper:"What separates this plant",tone:"species",italic:true});
+  let out='<section id="taxonomySection" class="section-block taxonomy-teaching" aria-labelledby="taxonomyTeachingTitle">'+
+    '<div class="section-heading"><div><div class="eyebrow">Name detective · follow the clues</div>'+
+    '<h2 id="taxonomyTeachingTitle">Why does this plant have that name?</h2></div></div>'+
+    '<p class="section-intro">Follow the classification from broader relatives to this species. These are field clues to investigate, not single-character proof of an identification.</p>'+
+    '<div class="taxonomy-teaching-grid">';
+  ranks.forEach(function(rank,index){
+    out+='<article class="taxonomy-teaching-card taxonomy-teaching-'+rank.tone+'">'+
+      '<div class="taxonomy-teaching-head"><span class="taxonomy-teaching-number">'+String(index+1).padStart(2,"0")+'</span>'+
+      '<span><small>'+esc(rank.rank)+' · '+esc(rank.helper)+'</small><strong>'+(rank.italic?'<i>'+esc(rank.name)+'</i>':esc(rank.name))+'</strong></span></div>'+
+      '<div class="taxonomy-teaching-body"><b>Look for</b><p>'+clueWithTerms(rank.detail)+'</p></div>'+
+      (rank.open?'<button class="taxonomy-teaching-link" type="button" '+rank.open+'>'+rank.action+' <span aria-hidden="true">→</span></button>':
+        '<span class="taxonomy-teaching-note">'+(rank.tone==="species"?"Now compare it with look-alikes ↓":"A broader classification level")+'</span>')+
+      '</article>';
+  });
+  out+='</div><p class="taxonomy-teaching-footnote"><b>Read the name:</b> <i>'+esc(sp.genus)+'</i> names the genus, <i>'+esc(scientificName(sp))+'</i> names the species, and '+
+    '<b>'+esc(sp.family)+'</b> names the family. Most botanical family names end in <b>-aceae</b>. Tap the highlighted botanical words above for examples.</p></section>';
+  return out;
+}
+
 function plantView(){
   const sp=selectedSpecies(); if(!sp) return homeView();
   const p=familyProfile(sp.family)||{}, c=callout(sp)||{}, terms=termsForSpecies(sp,state.difficulty==="simple"?3:(state.difficulty==="terms"?7:12));
@@ -1092,7 +1138,7 @@ function plantView(){
   out+='<section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
     '<div class="look-card emphasis"><span>🔎 FIRST CLUE · LOOK HERE</span><strong>'+clueWithTerms(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
   cues.forEach(function(x,i){ out+='<div><b aria-hidden="true">'+(i+1)+'</b><span>'+clueWithTerms(x)+'</span></div>'; });
-  out+='</div><div class="study-actions"><button class="primary-button" type="button" data-family-info="'+esc(sp.family)+'">Why '+esc(sp.family)+'?</button>'+
+  out+='</div><div class="study-actions"><button class="primary-button" type="button" data-jump="taxonomy">Why this name? ↓</button>'+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
   if(state.difficulty!=="simple"){
@@ -1100,9 +1146,7 @@ function plantView(){
       '<button class="text-button" type="button" data-nav="glossary">Full glossary →</button></div><div class="term-row large">'+terms.map(termChip).join("")+'</div>'+
       '<p class="teaching-note">Tap a term for plain language, the formal definition, where to look, why it matters, and a labeled diagram.</p></section>';
   }
-  out+='<section class="two-column-learning"><article class="learning-card"><div class="eyebrow">🌳 Big picture · family</div><h2>Why does this fit '+esc(sp.family)+'?</h2><p>'+esc(familyConnection)+'</p>'+
-    '<button class="text-button" type="button" data-family-info="'+esc(sp.family)+'">Open family lesson →</button></article>'+
-    '<article class="learning-card"><div class="eyebrow">🌼 Tiny details · species</div><h2>What makes this one stand out?</h2><p>'+esc(c.standout || lookHereFirst(sp))+'</p><p class="muted">'+esc(p.caveat||"")+'</p></article></section>';
+  if(!state.quizMode || state.quizRevealed) out+=taxonomyTeachingTrail(sp,genusData,p,c);
   out+='<section id="similarSection" class="section-block"><div class="section-heading"><div><div class="eyebrow">👀 Spot the difference</div><h2>Meet the look-alikes</h2></div></div>'+
     '<p class="section-intro">“Same genus” means close taxonomic relatives. “Useful comparison” is a hand-picked study pairing. “Same family” shares family structure but may not look alike overall.</p><div class="similar-grid">';
   if(similar.length) similar.forEach(function(x){ out+=similarCard(sp,x.sp,x.reason); }); else out+='<div class="empty-panel">No comparison plants are curated yet.</div>';
