@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "date": "2026-10-14",
+  "type": "reviewed_source_pool_installer_handoff_not_ready",
+  "source": "Google Sheet Master Plant Pool rows 33,58,77; GitHub manifest/claims/research-queue/research-drafts/curation-inbox",
+  "collision_check": {
+    "canonical_manifest": "none of three",
+    "claims": "none of three",
+    "research_queue": "none of three",
+    "research_drafts": "none of three (directory listing)",
+    "curation_inbox": "none of three (directory listing)"
+  },
+  "taxa": [
+    {
+      "id": "allionia-incarnata",
+      "scientific_name": "Allionia incarnata",
+      "family": "Nyctaginaceae",
+      "sheet_row": 33,
+      "learner_approved": true,
+      "range": "UNRESOLVED target counties; POWO Texas state-level native",
+      "taxonomy": "accepted species; source variety unspecified; do not assume var. incarnata",
+      "look_here_first": "Three simultaneously open asymmetric flowers with three bracts; verify glandular ribbed anthocarp, not flower color alone",
+      "lookalikes": [
+        "Allionia choisyi"
+      ],
+      "photos": [
+        "three-flower unit + bracts",
+        "mature anthocarp profile with scale",
+        "paired node"
+      ]
+    },
+    {
+      "id": "ampelopsis-cordata",
+      "scientific_name": "Ampelopsis cordata",
+      "family": "Vitaceae",
+      "sheet_row": 58,
+      "learner_approved": true,
+      "range": "UNRESOLVED target counties; Texas native state-level",
+      "taxonomy": "accepted distinct from Ampelopsis arborea; Vitis cordata historical synonym",
+      "look_here_first": "Simple serrate leaves, tendril/cluster opposite leaf, cut twig with continuous white pith",
+      "lookalikes": [
+        "Ampelopsis arborea",
+        "Vitis spp.",
+        "Parthenocissus spp."
+      ],
+      "photos": [
+        "whole leaf with ruler",
+        "stem node and tendril",
+        "white pith cross section",
+        "fruit clusters"
+      ]
+    },
+    {
+      "id": "anoda-cristata",
+      "scientific_name": "Anoda cristata",
+      "family": "Malvaceae",
+      "sheet_row": 77,
+      "learner_approved": true,
+      "range": "UNRESOLVED target counties; Texas native state-level",
+      "taxonomy": "accepted; Sida cristata historical synonym",
+      "look_here_first": "Disk-shaped schizocarp of 10–19 mericarps; mature mericarp spines; don't ID by purple leaf mark",
+      "lookalikes": [
+        "Sida spp.",
+        "Abutilon spp."
+      ],
+      "photos": [
+        "mature fruit top+side with ruler",
+        "single mericarp spine",
+        "flower and calyx"
+      ]
+    }
+  ],
+  "next_steps": [
+    "Installer: independently verify taxonomy, photo rights and current duplicate/claim state; stage one small batch (up to 3 taxa) through established curation-inbox/Actions only, never create READY from this handoff.",
+    "Photo worker: obtain one rights-cleared exact-species face photo for each as feasible, then differentiated anatomy roles.",
+    "Taxonomy worker: retain county range UNRESOLVED until three target-zone counties independently verified; confirm Allionia subspecific attribution not forced."
+  ],
+  "status": "handoff_persisted; zero canonical installs in this pass; no READY markers created"
+}
