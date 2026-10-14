@@ -911,6 +911,7 @@ function familyView(){
   if(members.length) members.slice(0,4).forEach(function(sp){ out+='<button type="button" data-species="'+sp.id+'">'+thumb(sp,"family-stack-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Family lesson ready. Canonical species anchors are still being installed.</div>';
   out+='</div></section>';
+  if(canon) out+=familyVisualLessonHTML(canon);
   out+=familyVisualVocabulary(p);
   out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Next stop · closer relatives</div><h2>Choose a genus to explore</h2></div></div><div class="genus-buttons">';
   if(genera.length) genera.forEach(function(g){ out+='<button type="button" data-genus="'+esc(g[0])+'" data-genus-family="'+esc(family)+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
@@ -1221,6 +1222,162 @@ function taxonomyTeachingTrail(sp,genusData,profile,callouts){
 }
 
 
+/* Multi-view visual field guide. Source-derived descriptions; photographs are unannotated until verified. */
+function botanyPartLabel(raw){
+  const v=String(raw||"").trim().toLowerCase();
+  if(/corona|hood/.test(v)) return "Corona and hoods";
+  if(/gynostegium/.test(v)) return "Flower center";
+  if(/pollin/.test(v)) return "Pollen structures";
+  if(/inflorescen|umbel/.test(v)) return "Flower cluster";
+  if(/fruit|follicle|pod|acorn|cupule/.test(v)) return "Fruit and seed";
+  if(/leaf|foliage|venation|phyllotaxy/.test(v)) return "Leaves and attachment";
+  if(/stem|bud|bark|twig/.test(v)) return "Stem, twig or buds";
+  if(/latex|sap/.test(v)) return "Sap and latex";
+  if(/habit/.test(v)) return "Whole plant";
+  if(/flower|corolla|stamen|calyx|anther/.test(v)) return "Flower anatomy";
+  return titleCase(v);
+}
+function botanyPartPhotoPattern(raw){
+  const v=String(raw||"").toLowerCase();
+  if(/latex|sap/.test(v)) return /latex|sap|cut.stem|exudate/;
+  if(/leaf|foliage|venation|phyllotaxy/.test(v)) return /leaves|leaf|foliage|stem.node|venation/;
+  if(/fruit|follicle|pod|acorn|cupule|seed/.test(v)) return /fruit|follicle|pod|acorn|cupule|seed/;
+  if(/habit/.test(v)) return /habit|whole.plant|branching/;
+  if(/inflorescen|umbel/.test(v)) return /inflorescence|umbel|flower.head|flowering.plant|flower.cluster/;
+  if(/stem|bud|bark|twig/.test(v)) return /stem|bud|bark|twig/;
+  if(/pollinarium|pollinia/.test(v)) return /pollinarium|pollinia|pollinium|pollinator.macro/;
+  return /flower|macro|corolla|calyx|corona|gynostegium|floret|hood|horn|diagnostic.close/;
+}
+function botanyPartPhoto(sp,part,usedPhotos,related){
+  const pattern=botanyPartPhotoPattern(part);
+  const candidates=[sp].concat(related||[]);
+  const possible=[];
+  const seen=new Set();
+  candidates.forEach(function(candidate,index){
+    if(!candidate || seen.has(candidate.id)) return;
+    seen.add(candidate.id);
+    imagesFor(candidate).forEach(function(img,ix){
+      if(index>0 && /^(no|review|private|restricted)$/i.test(String(img.public_reuse||"").trim())) return;
+      const role=String([img.role,img.view,img.image_role,img.caption].filter(Boolean).join(" "));
+      if(!pattern.test(role.toLowerCase())) return;
+      const src=imagePath(candidate,img);
+      if(!src) return;
+      let score=(index===0?12:0)+(usedPhotos&&usedPhotos.has(src)?-22:14)+(/https?:\/\//.test(src)?0:5);
+      const k=String(part).toLowerCase();
+      if(role.toLowerCase().includes(k)) score+=20;
+      if(/macro|close-up/.test(role.toLowerCase())) score+=3;
+      possible.push({species:candidate,img:img,src:src,score:score,order:ix});
+    });
+  });
+  possible.sort(function(a,b){return b.score-a.score || a.order-b.order;});
+  const result=possible[0]||null;
+  if(result && usedPhotos)usedPhotos.add(result.src);
+  return result;
+}
+function botanyPartPhotoCard(item){
+  const name=item.title||"Examine this part";
+  const photo=item.photo||null;
+  const note=item.description||"";
+  const why=item.why||"";
+  let media='<div class="part-example-empty" role="img" aria-label="Close-up not yet available"><span aria-hidden="true">⌕</span><strong>Close-up needed</strong></div>';
+  if(photo && photo.src){
+    const label=photo.species?scientificName(photo.species):"Botanical reference";
+    const role=(photo.img&&photo.img.role)||item.role||"Reference photograph";
+    media='<img src="'+esc(photo.src)+'" loading="lazy" decoding="async" alt="'+esc(label+" — "+role+" (unannotated study photo)")+'">';
+  }
+  const source=photo && photo.img ? photo.img.source_page : item.source;
+  const attribution=photo && photo.img ? [photo.img.creator||photo.img.credit,photo.img.license].filter(Boolean).join(" · ") : (item.credit||"");
+  const speciesName=photo && photo.species ? scientificName(photo.species) : "";
+  const sourceLink=source&&/^https?:\/\//i.test(source)?'<a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':"";
+  const foot=[speciesName,photo&&photo.img&&photo.img.role||item.role||""].filter(Boolean).join(" · ");
+  const glossaryKey=item.term&&state.learning&&state.learning.terms&&state.learning.terms[item.term]?item.term:null;
+  return '<article class="part-example-card">'+
+    '<div class="part-example-media">'+media+'</div><div class="part-example-content">'+
+    '<div class="part-example-title">'+(glossaryKey?'<button type="button" data-term="'+esc(glossaryKey)+'">'+esc(name)+' <span aria-hidden="true">↗</span></button>':'<strong>'+esc(name)+'</strong>')+'</div>'+
+    (note?'<p>'+esc(note)+'</p>':'')+
+    (why?'<small class="part-example-why">'+esc(why)+'</small>':'')+
+    (foot?'<small class="part-example-role">'+esc(foot)+'</small>':'')+
+    (attribution?'<small class="part-example-credit">'+esc(attribution)+'</small>':'')+
+    (sourceLink?'<span class="part-example-source">'+sourceLink+'</span>':'')+
+    '</div></article>';
+}
+function botanyPartGroup(rank,label,subtext,items,button){
+  if(!items || !items.length) return "";
+  return '<details class="part-gallery-group part-gallery-'+rank+'" open>'+
+    '<summary><span class="part-gallery-marker">'+esc(rank)+'</span><span class="part-gallery-summary">'+
+    '<strong>'+esc(label)+'</strong><small>'+esc(subtext)+'</small></span>'+
+    '<span class="part-gallery-count">'+items.length+' parts <span aria-hidden="true">⌄</span></span></summary>'+
+    '<div class="part-example-grid">'+items.map(botanyPartPhotoCard).join("")+'</div>'+
+    (button||"")+'</details>';
+}
+function botanyPartExamples(sp,genusData){
+  if(!sp) return "";
+  const family=state.familyCache.get(sp.family)||{};
+  const familyLesson=family.visual_lesson||{};
+  const usedFamily=new Set(),usedGenus=new Set();
+  const familyItems=(Array.isArray(familyLesson.steps)?familyLesson.steps:[])
+    .filter(function(step){return step && !/pending/i.test(String(step.status||""));})
+    .slice(0,5).map(function(step){
+      const host=step.anchor_species_id ? state.speciesById.get(step.anchor_species_id) : null;
+      const direct=familyExternalImageUrl(step);
+      let photo=null;
+      if(host){
+        photo=botanyPartPhoto(host,step.photo_role||step.title,usedFamily,[]);
+        if(!photo && imagesFor(host).length && /habit|whole.plant/i.test(String(step.photo_role||""))) {
+          const img=imagesFor(host)[0];photo={species:host,img:img,src:imagePath(host,img)};
+        }
+      }
+      if(!photo && direct && /^https?:\/\//i.test(direct)){
+        photo={species:null,img:{role:step.photo_role||"Teaching close-up",creator:step.image_credit||"",source_page:step.source_page||""},src:direct};
+      }
+      return {title:String(step.title||step.photo_role||"Family part").replace(/^\d+\s*[·.-]\s*/,""),description:step.look_for||"",why:step.why_it_matters||"",role:step.photo_role||"",photo:photo,credit:step.image_credit||""};
+    });
+  if(!familyItems.length){
+    const diag=family.family_diagnostics||{};
+    Object.entries(diag).filter(function(pair){return /flower|fruit|leaf|follicle|stem|reproductive|where_to_look/i.test(pair[0]);}).slice(0,4).forEach(function(pair){
+      const photo=botanyPartPhoto(sp,pair[0],usedFamily,[]);
+      familyItems.push({title:botanyPartLabel(pair[0]),description:String(pair[1]),photo:photo});
+    });
+  }
+  const diag=genusData && genusData.genus_diagnostics ||{};
+  const keyPriority=["corona","gynostegium","flower","inflorescence","leaves","leaf","fruit","buds","bark","stem","latex","habit"];
+  const available=Object.keys(diag);
+  const chosen=available.sort(function(a,b){
+    const aa=keyPriority.indexOf(a),bb=keyPriority.indexOf(b);
+    return (aa<0?100:aa)-(bb<0?100:bb);
+  }).slice(0,5);
+  const relatives=genusSpecies(sp.family,sp.genus).filter(function(x){return x.id!==sp.id;});
+  const genusItems=chosen.map(function(key){
+    return {title:botanyPartLabel(key),description:formatValue(diag[key]),term:state.learning?.terms?.[key]?key:null,photo:botanyPartPhoto(sp,key,usedGenus,relatives),role:key};
+  });
+  if(!genusItems.length){
+    imagesFor(sp).slice(0,4).forEach(function(img){
+      genusItems.push({title:botanyPartLabel(img.role||"Field feature"),description:"Compare this structure across species in the genus lesson.",photo:{species:sp,img:img,src:imagePath(sp,img)}});
+    });
+  }
+  const seenRoles=new Set();
+  const speciesItems=imagesFor(sp).filter(function(img){
+    const role=String(img.role||"").trim().toLowerCase();
+    const group=botanyPartLabel(role);
+    if(seenRoles.has(group)) return false;
+    seenRoles.add(group);return true;
+  }).slice(0,5).map(function(img){
+    return {title:botanyPartLabel(img.role),description:img.caption||"Compare this "+(img.role||"view").toLowerCase()+" with the identification clues above.",photo:{species:sp,img:img,src:imagePath(sp,img)}};
+  });
+  const familyButton='<button class="part-gallery-open" type="button" data-family="'+esc(sp.family)+'">Open complete '+esc(sp.family)+' family lesson →</button>';
+  const genusButton='<button class="part-gallery-open" type="button" data-genus="'+esc(sp.genus)+'" data-genus-family="'+esc(sp.family)+'">Open complete '+esc(sp.genus)+' genus lesson →</button>';
+  return '<section id="partsSection" class="section-block botany-parts-section" aria-labelledby="botanyPartsTitle">'+
+    '<div class="botany-parts-hero"><div class="eyebrow">Visual field guide · anatomy examples</div>'+
+    '<h2 id="botanyPartsTitle">Look at the actual plant parts</h2>'+
+    '<p>Start with the family, narrow down to the genus, then confirm the species. Each tile names a structure and shows a real reference photo when available.</p>'+
+    '<div class="botany-parts-keys"><span>1 · Family</span><span>2 · Genus</span><span>3 · Species</span></div></div>'+
+    '<p class="part-annotation-note">Photos are currently unmarked. A named feature is a <b>place to investigate</b>, not a verified arrow on the photo. We can add arrows to the exact structure after visual review.</p>'+
+    botanyPartGroup("family","Family · "+sp.family,"Broad family features and important exceptions",familyItems,familyButton)+
+    botanyPartGroup("genus","Genus · "+sp.genus,"Shared structures to examine in close relatives",genusItems,genusButton)+
+    botanyPartGroup("species","Species · "+scientificName(sp),"Photographs already in this species gallery",speciesItems,"")+
+    '</section>';
+}
+
 /* Prominent paths to the full family and genus lessons on each species page. */
 function taxonomyLessonShortcuts(sp){
   if(!sp || !sp.family || !sp.genus) return "";
@@ -1242,7 +1399,7 @@ function taxonomyLessonShortcuts(sp){
         '<span class="taxonomy-lesson-shortcut-action">Open genus lesson <span aria-hidden="true">→</span></span>'+
       '</button>'+
     '</div>'+
-    '<button class="taxonomy-lesson-jump" type="button" data-jump="taxonomy">See the three photo cards explaining this name ↓</button>'+
+    '<button class="taxonomy-lesson-jump" type="button" data-jump="parts">Explore 3 levels of plant-part photos ↓</button>'+
   '</section>';
 }
 function plantView(){
@@ -1258,10 +1415,11 @@ function plantView(){
   out+='<section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
     '<div class="look-card emphasis"><span>🔎 FIRST CLUE · LOOK HERE</span><strong>'+clueWithTerms(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
   cues.forEach(function(x,i){ out+='<div><b aria-hidden="true">'+(i+1)+'</b><span>'+clueWithTerms(x)+'</span></div>'; });
-  out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="taxonomy">Why this name? ↓</button>' : '')+
+  out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="parts">See family, genus &amp; plant-part photos ↓</button>' : '')+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
   if(!state.quizMode || state.quizRevealed) out+=taxonomyLessonShortcuts(sp);
+  if(!state.quizMode || state.quizRevealed) out+=botanyPartExamples(sp,genusData);
   if(state.difficulty!=="simple"){
     out+='<section class="section-block learning-panel"><div class="section-heading"><div><div class="eyebrow">🔤 Words for what you see</div><h2>Learn the plant parts</h2></div>'+
       '<button class="text-button" type="button" data-nav="glossary">Full glossary →</button></div><div class="term-row large">'+terms.map(termChip).join("")+'</div>'+
