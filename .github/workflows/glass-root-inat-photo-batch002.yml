@@ -1,0 +1,59 @@
+name: Glass Root Garden Photo Review Batch 002
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-inat-photo-batch002.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-photo-review-batch002
+  cancel-in-progress: false
+
+jobs:
+  gather-user-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install pillow
+      - name: Fetch all iNaturalist observation photo metadata and create review images
+        run: |
+          python3 scripts/glass_root_inat_photo_metadata.py \
+            --user calvinking --place-id 18 --taxon-id 47126 \
+            --manifest data/manifest.json \
+            --out workflow/glass-root-inat/batch-002/metadata
+          python3 scripts/glass_root_inat_review_previews_batch002.py \
+            --input workflow/glass-root-inat/batch-002/metadata/photo-candidates.csv \
+            --out workflow/glass-root-inat/batch-002/previews \
+            --per-species 16
+      - name: Persist only review photos and summary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/glass-root-inat/batch-002/previews workflow/glass-root-inat/batch-002/metadata/summary.json
+          if git diff --cached --quiet; then
+            echo "No new review images were produced."
+            exit 0
+          fi
+          git commit -m "Stage Glass Root Garden soapberry lantana and elm photos for review"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Review images available in private repository."
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
+      - name: Upload review materials
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: glass-root-inat-batch-002-previews
+          path: workflow/glass-root-inat/batch-002/
+          retention-days: 30
