@@ -5,7 +5,7 @@ Read-only audit plus photo-worker automation adjustment. This is NOT a complete 
 ## Canonical scope
 - data/manifest.json: 532 installed species, spanning 183 genus paths and 59 represented families (manifest-derived; 147 family modules in the larger source-pool project).
 - Master Plant Pool (Google Sheet): 1,282 source-pool taxa, 612 genera, 147 families. Do not treat the difference as automatically installable; synonyms, FAIL/HOLD and source-pool status must be preserved.
-- Genus Study Index has 164 populated genus rows (checked), of which 92 are labeled Complete, 10 Ready, 59 blank and 3 special status notes. Sheet status is not proof of missing GitHub module.
+- Genus Study Index initially had 164 populated rows but 163 unique family/genus keys (checked), of which 92 are labeled Complete, 10 Ready, 59 blank and 3 special status notes. Sheet status is not proof of missing GitHub module.
 - Stratified 15-genus module existence sample: 15/15 genus.json files exist; 8/15 have the richer `visual_lesson` or `visual_comparison` field. Other 7 may have useful comparison text; treat as VISUAL REVIEW NEEDED, not missing content.
 - Stratified 18-species photo-metadata sample: zero = 1, one = 9, multiple = 8. Count LOCAL image path = at least a repository-local reference, NOT verified physically present; REMOTE image = HTTPS reference, NOT physical install. Representative gaps: `muhlenbergia-piniflora` images=0; `quercus-alba` one external reference; `anatherum-glomeratum` three external references. These are sample counts, NOT totals for 532.
 - Research queue: no records currently explicitly `approved_pending_curation` or `ready_for_curation` in its primary status fields. Do not indiscriminately promote range HOLDs.
@@ -23,3 +23,8 @@ Read-only audit plus photo-worker automation adjustment. This is NOT a complete 
 
 ## Evidence caveats
 This is a durable checkpoint from connector reads, not an assertion that all images load on the published Pages website, and not a completed comprehensive photo audit. Never show sampled figures as global totals.
+
+## Reconciliation implemented this session
+- Added 49 missing canonical family/genus keys to Google Sheet Genus Study Index cells A166:B214. Calculated columns C:M were untouched and verified populated afterward.
+- Index now contains 212 unique family/genus keys, including taxa under development without canonical species; this is not the same as 212 physically verified genus module files.
+- Photo worker rewritten and enabled as hourly Diagnostic Photo Fast-Fill; its new priority is one useful physically installed exact-species image per run, no self-disable and verified preservation of existing galleries.
