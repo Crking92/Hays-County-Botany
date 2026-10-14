@@ -98,6 +98,58 @@
       "then": "Helenium quadridentatum — provisional range HOLD"
     }
   ],
-  "visual_status": "fast_fill_partial_coverage",
-  "fast_fill_note": "FAST-FILL status: H. autumnale 3 images; H. elegans remains scientifically PASS but quick image sourcing is provenance-limited; H. quadridentatum remains scientifically PROVISIONAL and is not promoted by photo work."
+  "visual_status": "four_species_local_reference_images_present; diagnostic_closeups_pending",
+  "fast_fill_note": "FAST-FILL status: H. autumnale 3 images; H. elegans remains scientifically PASS but quick image sourcing is provenance-limited; H. quadridentatum remains scientifically PROVISIONAL and is not promoted by photo work. 2026-10-14: all 4 represented Helenium species have at least one physically present referenced image in GitHub (12 total photo files listed); anatomical macro roles and actual UI rendering still require checking, no arrow claims.",
+  "visual_comparison": {
+    "status": "repository_local_assets_confirmed; image anatomy unannotated",
+    "image_verification": "Confirmed exact referenced filenames exist in each species images/ directory via GitHub contents listing 2026-10-14. This does not certify which anatomical characters are visible within each image. All arrows pending visual inspection.",
+    "examples": [
+      {
+        "species_id": "helenium-amarum",
+        "local_file": "content/taxa/Asteraceae/Helenium/helenium-amarum/images/01-curated-reference.jpg",
+        "role": "species overview for unwinged annual comparison",
+        "license": "cc-by",
+        "verification": "file_exists; anatomy_unverified"
+      },
+      {
+        "species_id": "helenium-autumnale",
+        "local_file": "content/taxa/Asteraceae/Helenium/helenium-autumnale/images/02-field-habit.jpg",
+        "role": "overview of flowering perennial and ray/disk architecture",
+        "license": "CC BY 2.0",
+        "verification": "file_exists; anatomy_unverified"
+      },
+      {
+        "species_id": "helenium-elegans",
+        "local_file": "content/taxa/Asteraceae/Helenium/helenium-elegans/images/helenium-elegans-provisional-face.jpg",
+        "role": "provisional overall flowering face for winged annual",
+        "license": "Public domain",
+        "verification": "file_exists; anatomy_unverified"
+      },
+      {
+        "species_id": "helenium-quadridentatum",
+        "local_file": "content/taxa/Asteraceae/Helenium/helenium-quadridentatum/images/helenium-quadridentatum-provisional-face.jpg",
+        "role": "provisional botanical illustration; winged annual comparison",
+        "license": "Public domain",
+        "verification": "file_exists; anatomy_unverified; range_HOLD_retained"
+      }
+    ],
+    "priority_photo_gaps": [
+      {
+        "shared_comparison": "winged vs unwinged stems",
+        "needed": "matching macro of each species stem node and decurrent leaf wings, especially H. amarum against H. elegans"
+      },
+      {
+        "shared_comparison": "head profile",
+        "needed": "same-scale side views of mature H. elegans globose involucre and H. quadridentatum ovoid/obconic disk; count rays and disc-lobe shape only on inspected images"
+      },
+      {
+        "shared_comparison": "annual vs perennial",
+        "needed": "basal crown/root and leaf-width photos contrasting H. autumnale with H. elegans"
+      },
+      {
+        "shared_comparison": "H. amarum varieties",
+        "needed": "verified same-stage disc-floret lobe macro for var. amarum versus var. badium; do not use generic dark disc as variety proof"
+      }
+    ]
+  }
 }
