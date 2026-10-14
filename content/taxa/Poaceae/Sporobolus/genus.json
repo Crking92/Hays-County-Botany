@@ -7,25 +7,23 @@
     "selection_mode": "B043 science + B149 source-status reconciliation",
     "canonical_species_ids": [
       "sporobolus-clandestinus",
+      "sporobolus-compositus",
       "sporobolus-vaginiflorus"
     ],
-    "canonical_species_count": 2,
-    "reviewed_holds": [
-      "sporobolus-compositus"
-    ],
+    "canonical_species_count": 3,
+    "reviewed_holds": [],
     "source_concept_count": 3,
-    "note": "S. compositus completed review but remains a taxonomy/range HOLD because Central Texas material in the compositus complex is historically unstable. Genus-level processing is complete without installing it."
+    "note": "Current manifest contains all three canonical species. S. compositus species-rank card is PASS (Hays, Bexar, Kerr), while disputed variety-level/Travis records are excluded from that determination. Historical B149 HOLD text below is retained as historical context, not current admission status."
   },
   "study_strategy": {
     "priority": [
-      "annual vs perennial habit",
-      "panicle contraction",
-      "sheath characters",
-      "spikelet texture",
-      "cleistogamous sheath flowers",
-      "grain/pericarp on difficult plants"
+      "annual versus perennial crown",
+      "upper sheath with or without hidden cleistogenes",
+      "panicle length and contraction",
+      "glume roughness and fertile lemma hairs",
+      "mature spikelet and grain when perennial species overlap"
     ],
-    "warning": "The S. compositus complex is taxonomically messy in Central Texas. Do not promote a plant from the complex on habit alone; mature grain/pericarp, lemma characters, and reconciled specimen identity may be needed. Ambiguous Travis material is intentionally not counted as range evidence."
+    "warning": "Panicle contraction and plant height overlap with age, drought and mowing. Species-rank S. compositus is now canonical; its disputed variety-level records must not be silently treated as resolved."
   },
   "comparison_lesson": {
     "quick_split": [
@@ -35,9 +33,9 @@
     ]
   },
   "curation_status": {
-    "version": "1.1-b149-reconciliation",
+    "version": "1.2-three-canonical-visual-comparison-2026-10-14",
     "last_reviewed": "2026-10-05",
-    "genus_audit": "complete_with_reviewed_taxonomy_range_hold",
+    "genus_audit": "canonical_scope_reconciled_photo_polish_pending",
     "source_concepts_reconciled": true
   },
   "visual_status": "partial_fast_fill_species_anchors",
@@ -51,13 +49,244 @@
     {
       "id": "sporobolus-compositus",
       "scientific_name": "Sporobolus compositus",
-      "status": "REVIEWED_TAXONOMY_RANGE_HOLD",
-      "note": "Williamson clear; ambiguous Travis material not counted."
+      "status": "CANONICAL_PASS_SPECIES_RANK",
+      "note": "Current canonical species.json: Hays, Bexar, Kerr PASS at species rank; historical variety-level/Travis dispute remains excluded."
     },
     {
       "id": "sporobolus-vaginiflorus",
       "scientific_name": "Sporobolus vaginiflorus",
       "status": "CANONICAL_PASS"
     }
-  ]
+  ],
+  "look_here_first": "1. Inspect the plant base: annual roots or a persistent perennial tuft? 2. Examine the whole panicle: tightly contracted versus longer and more open. 3. At a node, lift the upper leaf sheath gently to look for hidden self-pollinating spikelets (cleistogenes). 4. Magnify a mature spikelet: glume surface, lemma hairs and fruit are more reliable than fall color.",
+  "genus_diagnostics": {
+    "shared_structure_examples": [
+      {
+        "formal_term": "panicle",
+        "plain_english": "The branching flower/seed head at the top of the grass.",
+        "look_for": "Branch length, angle and how closely the spikelets crowd the axis.",
+        "why_it_matters": "Separates the short contracted heads of poverty/rough dropseed from the often longer compositus head; head openness overlaps."
+      },
+      {
+        "formal_term": "spikelet, glumes, lemma",
+        "plain_english": "Tiny flowering unit, outer bracts and bract around its flower.",
+        "look_for": "Detach a mature spikelet and examine outer glumes and lemma under magnification.",
+        "why_it_matters": "Roughness and hairs help separate perennial species; requires actual macro, not habit photo."
+      },
+      {
+        "formal_term": "leaf sheath and cleistogene",
+        "plain_english": "The leaf tube around the stem; some hidden self-pollinating flowers develop inside.",
+        "look_for": "Upper sheaths of S. vaginiflorus; document a concealed spikelet without tearing away its point of origin.",
+        "why_it_matters": "Especially useful confirmation of annual poverty dropseed."
+      },
+      {
+        "formal_term": "culm base and crown",
+        "plain_english": "The lower grass stem and persistent tuft or annual root system.",
+        "look_for": "Whether old perennial tillers persist at the crown or an annual plant roots from a single season.",
+        "why_it_matters": "First division between S. vaginiflorus and the two perennial species."
+      }
+    ],
+    "genus_recognition": "Grasses with small spikelets in a panicle and dropseed-type grains. Recognize grass anatomy first: culm nodes, sheath, ligule and spikelets; no single panicle silhouette confirms genus.",
+    "confusable_genera": [
+      {
+        "genus": "Muhlenbergia",
+        "distinction": "Also fine-panicled grasses; dissect spikelet glumes/lemmas and mature fruit rather than relying on cloudlike heads."
+      },
+      {
+        "genus": "Eragrostis",
+        "distinction": "Usually multiple florets per spikelet; compare an entire dissected spikelet against Sporobolus, where spikelets are generally one-flowered."
+      }
+    ]
+  },
+  "species_comparison_matrix": [
+    {
+      "character": "Life cycle and crown",
+      "clandestinus": "Perennial tuft, commonly 50–100 cm culms",
+      "compositus": "Perennial bunchgrass; usually robust and taller than annual poverty dropseed",
+      "vaginiflorus": "Annual tuft, commonly 15–55 cm culms"
+    },
+    {
+      "character": "Panicle",
+      "clandestinus": "Narrow, tightly contracted",
+      "compositus": "Long and narrow, varying from contracted to somewhat open",
+      "vaginiflorus": "Small, contracted; check upper sheaths"
+    },
+    {
+      "character": "Spikelet surface",
+      "clandestinus": "Rough/asperulous glumes; pubescent fertile lemma",
+      "compositus": "Small numerous spikelets; exact lemma/glume character requires macro confirmation",
+      "vaginiflorus": "Fertile lemma pubescent; upper sheath cleistogenes important"
+    },
+    {
+      "character": "Hidden sheath flowers",
+      "clandestinus": "Not primary identification character",
+      "compositus": "Not primary identification character",
+      "vaginiflorus": "Cleistogamous spikelets hidden in upper leaf sheaths"
+    },
+    {
+      "character": "High-value photograph",
+      "clandestinus": "Mature panicle and glume/lemma macro",
+      "compositus": "Full panicle + mature spikelet and grain at scale",
+      "vaginiflorus": "Upper sheath opened to expose cleistogene + crown"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "id": "sporobolus-perennials-versus-annual",
+      "title": "Start at the base: perennial dropseeds vs poverty dropseed",
+      "taxon_ids": [
+        "sporobolus-clandestinus",
+        "sporobolus-compositus",
+        "sporobolus-vaginiflorus"
+      ],
+      "look_here_first": "Photograph the rooted base first, then upper sheaths and panicles.",
+      "field_matrix": [
+        {
+          "character": "Life cycle and crown",
+          "clandestinus": "Perennial tuft, commonly 50–100 cm culms",
+          "compositus": "Perennial bunchgrass; usually robust and taller than annual poverty dropseed",
+          "vaginiflorus": "Annual tuft, commonly 15–55 cm culms"
+        },
+        {
+          "character": "Panicle",
+          "clandestinus": "Narrow, tightly contracted",
+          "compositus": "Long and narrow, varying from contracted to somewhat open",
+          "vaginiflorus": "Small, contracted; check upper sheaths"
+        }
+      ],
+      "photo_pair_targets": [
+        {
+          "role": "rooted basal crown, same angle and scale",
+          "arrow_target": "junction of culm bases and persistent tillers",
+          "status": "needs_photo; annotation_pending"
+        },
+        {
+          "role": "upper sheath peeled back to show hidden cleistogene",
+          "arrow_target": "concealed spikelet within sheath and sheath opening",
+          "status": "needs_photo; annotation_pending"
+        }
+      ],
+      "caution": "Small drought-stressed perennials may resemble annuals without a rooted crown."
+    },
+    {
+      "id": "sporobolus-clandestinus-versus-compositus",
+      "title": "Two perennial dropseeds: inspect the spikelet",
+      "taxon_ids": [
+        "sporobolus-clandestinus",
+        "sporobolus-compositus"
+      ],
+      "look_here_first": "Compare matched mature panicles, then inspect glumes, lemma surface and grain under magnification.",
+      "field_matrix": [
+        {
+          "character": "Panicle",
+          "clandestinus": "Narrow, tightly contracted",
+          "compositus": "Long and narrow, varying from contracted to somewhat open",
+          "vaginiflorus": "Small, contracted; check upper sheaths"
+        },
+        {
+          "character": "Spikelet surface",
+          "clandestinus": "Rough/asperulous glumes; pubescent fertile lemma",
+          "compositus": "Small numerous spikelets; exact lemma/glume character requires macro confirmation",
+          "vaginiflorus": "Fertile lemma pubescent; upper sheath cleistogenes important"
+        },
+        {
+          "character": "Hidden sheath flowers",
+          "clandestinus": "Not primary identification character",
+          "compositus": "Not primary identification character",
+          "vaginiflorus": "Cleistogamous spikelets hidden in upper leaf sheaths"
+        }
+      ],
+      "photo_pair_targets": [
+        {
+          "role": "same-scale mature panicles",
+          "arrow_target": "branch insertion and contracted versus spreading portion",
+          "status": "needs_photo; annotation_pending"
+        },
+        {
+          "role": "dissected spikelet, glumes and fertile lemma",
+          "arrow_target": "glume outer surface and lemma hairs",
+          "status": "needs_photo; annotation_pending"
+        }
+      ],
+      "caution": "S. compositus is morphologically variable and variety-level concepts have a historical dispute; species-rank ID should not be reduced to height or panicle openness."
+    }
+  ],
+  "visual_comparison": {
+    "teaching_order": "See the basal crown → inspect panicle → lift upper sheath → magnify glumes/lemma → compare matched species.",
+    "photo_roles": [
+      {
+        "role": "whole panicle, matched side view",
+        "species_ids": [
+          "sporobolus-clandestinus",
+          "sporobolus-compositus",
+          "sporobolus-vaginiflorus"
+        ],
+        "status": "needs_photo",
+        "caption": "Compare panicle branch arrangement, not just the outline; show ruler and flowering stage.",
+        "arrow_target": "panicle main axis and branch attachment; annotation_pending"
+      },
+      {
+        "role": "upper sheath and concealed cleistogene",
+        "species_ids": [
+          "sporobolus-vaginiflorus"
+        ],
+        "status": "needs_photo",
+        "caption": "Show exactly where the hidden self-pollinating flower sits inside the sheath.",
+        "arrow_target": "sheath opening and concealed spikelet; annotation_pending"
+      },
+      {
+        "role": "glume and lemma macro",
+        "species_ids": [
+          "sporobolus-clandestinus",
+          "sporobolus-compositus"
+        ],
+        "status": "needs_photo",
+        "caption": "Label the outer glume and inner lemma; compare surface hairs/roughness at matched magnification.",
+        "arrow_target": "glume surface and fertile lemma; annotation_pending"
+      },
+      {
+        "role": "basal crown",
+        "species_ids": [
+          "sporobolus-clandestinus",
+          "sporobolus-compositus",
+          "sporobolus-vaginiflorus"
+        ],
+        "status": "needs_photo",
+        "caption": "Compare persistent perennial tillers against annual base.",
+        "arrow_target": "culm bases and root/crown junction; annotation_pending"
+      }
+    ],
+    "existing_media_references": [
+      {
+        "species_id": "sporobolus-clandestinus",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sporobolus_clandestinus_BB-1913.png",
+        "creator": "N. L. Britton & A. Brown (1913); scan via USDA-NRCS/Kentucky Native Plant Society",
+        "license": "Public Domain",
+        "public_reuse": "yes",
+        "status": "external_reference",
+        "caption": "Historical botanical illustration reference; not a verified modern diagnostic macro.",
+        "verified_anatomy": "not independently visually verified in this pass",
+        "arrow_target": "annotation_pending"
+      },
+      {
+        "species_id": "sporobolus-vaginiflorus",
+        "source_page": "https://commons.wikimedia.org/wiki/Category:Sporobolus_vaginiflorus",
+        "creator": "Witmer Stone / 1911 publication scan",
+        "license": "Public Domain",
+        "public_reuse": "yes",
+        "status": "external_reference",
+        "caption": "Historical publication reference; confirm exact plate before anatomy arrows.",
+        "verified_anatomy": "not independently visually verified in this pass",
+        "arrow_target": "annotation_pending"
+      },
+      {
+        "species_id": "sporobolus-compositus",
+        "status": "needs_photo",
+        "caption": "No canonical species image reference in species.json as of this pass.",
+        "arrow_target": "annotation_pending"
+      }
+    ],
+    "status": "text_comparison_ready_photo_roles_pending",
+    "handoff": "Diagnostic Photo Polish: acquire licensed exact-species macro sets; do not count externally linked historical plates as installed_verified. Verify actual structures before arrows."
+  }
 }
