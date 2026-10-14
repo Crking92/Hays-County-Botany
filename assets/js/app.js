@@ -935,7 +935,7 @@ function genusView(){
     '<section class="genus-hero"><div><div class="eyebrow">Genus · '+members.length+' curated species</div><h1><i>'+esc(genus)+'</i></h1><p class="family-common">'+esc(common)+'</p>'+
     '<div class="look-card"><span>LOOK HERE FIRST · GENUS</span><strong>'+esc((data&&data.look_here_first)||('What stays the same across '+genus+', and which smaller characters separate the species?'))+'</strong></div>'+
     (warning?'<p class="genus-warning">'+esc(warning)+'</p>':'')+'</div><div class="genus-photo-strip">';
-  if(members.length) members.slice(0,3).forEach(function(sp){ out+='<button type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"genus-hero-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
+  if(members.length) members.slice().sort(function(a,b){return imagesFor(b).length-imagesFor(a).length;}).slice(0,3).forEach(function(sp){ out+='<button type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"genus-hero-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Species anchors for this genus are still being installed.</div>';
   out+='</div></section>'+botanyGenusPartPreview(members,data)+
     '<section class="two-column-learning genus-levels"><article class="learning-card"><div class="eyebrow">Family characters</div><h2>Why '+esc(family)+'?</h2><p>'+esc(p.plain_signature||p.field_signature||"Use the family lesson to recognize the broader structural pattern.")+'</p><button class="text-button" type="button" data-family="'+esc(family)+'">Open family →</button></article>'+
