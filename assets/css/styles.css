@@ -375,3 +375,58 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
 .plant-focus .look-card,
 .plant-focus .look-card strong,
 .plant-focus .look-card span{color:#47380e!important}
+
+/* Website layout pass 2026-10-13: readable study cards, photo-first navigation, compact mobile UI.
+   This is presentation only; botanical content and image provenance remain untouched. */
+.species-tile{color:#203a2e}
+.species-tile em{color:#4b6456}
+.species-tile small{color:#256849}
+.species-tile-img{display:block;aspect-ratio:4/3;height:auto;min-height:150px;object-fit:cover}
+.family-vocab-card{color:#213c30}
+.family-vocab-card small{color:#496557}
+.genus-levels .learning-card:nth-child(1),
+.genus-levels .learning-card:nth-child(2){color:#203b30}
+.genus-levels .learning-card:nth-child(1) p,
+.genus-levels .learning-card:nth-child(2) p,
+.genus-levels .learning-card:nth-child(1) .muted,
+.genus-levels .learning-card:nth-child(2) .muted{color:#40594b}
+.genus-levels .learning-card:nth-child(1) .eyebrow,
+.genus-levels .learning-card:nth-child(2) .eyebrow{color:#28644a}
+.compare-row:not(.compare-header){color:#243e31}
+.compare-row:not(.compare-header)>strong{color:#266145}
+.taxonomy-picker{color:#263f32}
+.taxonomy-picker label span,.taxonomy-picker .picker-result>span{color:#245a41}
+.plant-study .identity-panel{color:#203b30}
+.plant-study .identity-panel .eyebrow{color:#286649}
+.plant-study .identity-panel .plant-common{color:#385e4c}
+.plant-study .identity-panel .authority{color:#526e5d}
+.learning-panel{color:#263e32}
+.learning-panel .eyebrow{color:#286649}
+.learning-panel .teaching-note{color:#435e4f}
+.photo-filmstrip{display:flex;gap:10px;overflow-x:auto;padding:11px 2px 8px;scroll-snap-type:x proximity;overscroll-behavior-x:contain;scrollbar-width:thin}
+.photo-thumbnail{flex:0 0 145px;min-width:0;overflow:hidden;scroll-snap-align:start;padding:4px;border:2px solid var(--line);border-radius:14px;background:var(--panel3);color:var(--text);text-align:left;transition:border-color .15s,background .15s}
+.photo-thumbnail:hover{border-color:#a4d3a5}
+.photo-thumbnail.active{border-color:#c6e6bd;background:#385741;box-shadow:inset 0 0 0 1px #c6e6bd}
+.photo-thumbnail:focus-visible{outline:3px solid #f0c766;outline-offset:2px}
+.photo-thumbnail img{display:block;width:100%;height:92px;object-fit:cover;border-radius:9px;background:#0d120e}
+.photo-thumbnail span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.5em;padding:7px 5px 3px;color:#eff7ef;font-size:.73rem;line-height:1.25}
+.species-gallery{min-width:0}
+@media(max-width:760px){
+  .topbar{gap:8px}
+  .main-nav{grid-row:2;grid-column:1;display:flex;width:100%;gap:6px;overflow-x:auto;overscroll-behavior-x:contain;padding:1px 0 6px;scrollbar-width:thin}
+  .main-nav button{flex:0 0 auto;min-height:37px;padding:7px 12px;white-space:nowrap}
+  .header-tools{grid-row:3;grid-column:1;display:flex;width:100%;justify-content:space-between;gap:7px;flex-wrap:nowrap}
+  .difficulty{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));flex:1;min-width:0;width:auto}
+  .difficulty button{min-width:0;padding:5px 3px;white-space:normal;line-height:1.2;font-size:.72rem}
+  .quiz-toggle{flex:0 0 auto;align-self:stretch;width:auto;padding:7px 9px;font-size:.75rem}
+  .search-dock{padding-top:8px;padding-bottom:8px}
+  .focus-photo-image img{height:min(84vw,500px);min-height:240px}
+  .photo-thumbnail{flex-basis:118px}
+  .photo-thumbnail img{height:82px}
+}
+@media(max-width:360px){
+  .main-nav button{padding:7px 10px}
+  .quiz-toggle{padding:6px}
+  .photo-thumbnail{flex-basis:106px}
+}
+@media(prefers-reduced-motion:reduce){.photo-thumbnail{transition:none}}
