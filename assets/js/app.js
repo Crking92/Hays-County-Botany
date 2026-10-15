@@ -1344,40 +1344,90 @@ function botanyPartPhoto(sp,part,usedPhotos,related){
   if(result && usedPhotos)usedPhotos.add(result.src);
   return result;
 }
-function botanyPartPhotoCard(item){
+
+/* Reusable observation-led anatomy cards. Source text remains authoritative:
+   photo roles guide where to inspect; no unverified annotation is asserted. */
+function anatomyWhereToLook(role){
+  const v=String(role||"").toLowerCase();
+  if(/phyllar|involucre|head underside|cupule/.test(v)) return "Turn the head or fruiting structure sideways and examine the structures underneath.";
+  if(/leaf|foliage|venation|petiole|blade|phyllotaxy/.test(v)) return "Find a mature leaf, its base, and the point where it joins the stem.";
+  if(/bud|twig|bark|stem|node/.test(v)) return "Follow a stem or twig and inspect its nodes, surface, and buds.";
+  if(/fruit|follicle|seed|acorn|pod|cypsela/.test(v)) return "Look closely at mature fruit or seed structures when they are present.";
+  if(/flower|floret|corolla|calyx|petal|inflorescen|umbel|corona|hood/.test(v)) return "View the flower or flower cluster from the front and side, then examine its smaller parts.";
+  if(/habit|whole plant|architecture|branching/.test(v)) return "Step back to see the whole plant, then look at its branching and overall form.";
+  if(/sap|latex/.test(v)) return "Find a documented view of the sap or latex character; do not rely on a general habit photograph.";
+  return "Locate the named part in the photo. If the structure cannot be seen clearly, open another view.";
+}
+function anatomyFieldCue(sp,role){
+  const m=sp&&sp.morphology_keys||{};
+  const v=String(role||"").toLowerCase();
+  let keys=[];
+  if(/phyllar|involucre|head underside/.test(v)) keys=["phyllaries","involucre","heads"];
+  else if(/leaf|vein|petiole|foliage|blade/.test(v)) keys=["leaf_venation","leaf_attachment","leaves","leaf_arrangement","leaf_morphology"];
+  else if(/flower|floret|corolla|inflorescen|umbel/.test(v)) keys=["flower","flowers","inflorescence","heads","corolla"];
+  else if(/fruit|seed|pod|acorn|follicle|cypsela/.test(v)) keys=["fruit","fruits","acorn","seed"];
+  else if(/stem|bark|bud|twig|node/.test(v)) keys=["stem","bark","buds","habit"];
+  else if(/habit|whole plant|branching/.test(v)) keys=["habit","growth_habit","life_cycle"];
+  else if(/sap|latex/.test(v)) keys=["sap_type","latex"];
+  const hit=keys.find(function(key){return typeof m[key]==="string" && m[key].trim();});
+  return hit?m[hit]:"";
+}
+function anatomyNextCheck(level){
+  if(level==="family") return "Next, compare this family pattern with the genus-level structures.";
+  if(level==="genus") return "Next, look for a species-level difference in the plant gallery or comparison key.";
+  return "Next, check the same feature in a look-alike and confirm with at least one other field character.";
+}
+function anatomyTeachingSentence(label,body){
+  return '<div class="anatomy-teach-step"><b>'+esc(label)+'</b><p>'+esc(body)+'</p></div>';
+}
+function botanyPartPhotoCard(item,level){
   const name=item.title||"Examine this part";
   const photo=item.photo||null;
-  const note=String(item.description||"");
-  const why=String(item.why||"");
-  const longNote=note.length>185;
-  const shortNote=longNote ? (note.slice(0,170).replace(/\s+\S*$/,"").trim()||note.slice(0,170))+"…" : note;
-  const moreInfo=(longNote||why) ? '<details class="part-example-explain"><summary>'+(longNote?"Read the complete clue":"Why this matters")+'</summary><div>'+
-    (longNote?'<p><b>Full study clue:</b> '+esc(note)+'</p>':'')+
-    (why?'<p><b>Why this matters:</b> '+esc(why)+'</p>':'')+'</div></details>' : "";
+  const note=String(item.description||"").trim();
+  const why=String(item.why||"").trim();
+  const role=String(item.role || (photo&&photo.img&&photo.img.role) || name);
+  const suggestedFieldCue=item.fieldCue||"";
+  const fieldCue=why||suggestedFieldCue;
+  const noteLong=note.length>220;
+  const shortNote=noteLong?(note.slice(0,200).replace(/\s+\S*$/,"").trim()||note.slice(0,200))+"…":note;
   let media='<div class="part-example-empty" role="img" aria-label="Close-up not yet available"><span aria-hidden="true">⌕</span><strong>Close-up needed</strong></div>';
   if(photo && photo.src){
     const label=photo.species?scientificName(photo.species):"Botanical reference";
-    const role=(photo.img&&photo.img.role)||item.role||"Reference photograph";
-    media='<button class="part-example-photo-button" type="button" data-part-preview data-part-src="'+esc(photo.src)+'" data-part-title="'+esc(name)+'" data-part-caption="'+esc(label+" · "+role)+'" data-part-credit="'+esc([photo.img&&photo.img.creator,photo.img&&photo.img.license].filter(Boolean).join(" · "))+'" aria-label="Enlarge '+esc(name)+' reference photo">'+
-      '<img src="'+esc(photo.src)+'" loading="lazy" decoding="async" alt="'+esc(label+" — "+role+" (unannotated study photo)")+'">'+
+    const photoRole=(photo.img&&photo.img.role)||item.role||"Reference photograph";
+    media='<button class="part-example-photo-button" type="button" data-part-preview data-part-src="'+esc(photo.src)+'" data-part-title="'+esc(name)+'" data-part-caption="'+esc(label+" · "+photoRole)+'" data-part-credit="'+esc([photo.img&&(photo.img.creator||photo.img.credit),photo.img&&photo.img.license].filter(Boolean).join(" · "))+'" aria-label="Enlarge '+esc(name)+' reference photo">'+
+      '<img src="'+esc(photo.src)+'" loading="lazy" decoding="async" alt="'+esc(label+" — "+photoRole+" (unannotated study photo)")+'">'+
       '<span class="part-example-zoom-tag">Enlarge ↗</span></button>';
   }
   const source=photo && photo.img ? photo.img.source_page : item.source;
   const attribution=photo && photo.img ? [photo.img.creator||photo.img.credit,photo.img.license].filter(Boolean).join(" · ") : (item.credit||"");
-  const speciesName=photo && photo.species ? scientificName(photo.species) : "";
+  const photoName=photo&&photo.species ? scientificName(photo.species) : "";
   const sourceLink=source&&/^https?:\/\//i.test(source)?'<a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':"";
-  const foot=[speciesName,photo&&photo.img&&photo.img.role||item.role||""].filter(Boolean).join(" · ");
   const glossaryKey=item.term&&state.learning&&state.learning.terms&&state.learning.terms[item.term]?item.term:null;
-  return '<article class="part-example-card">'+
-    '<div class="part-example-media">'+media+'</div><div class="part-example-content">'+
+  const subjectLabel=photo&&photo.src ? (photo.img&&photo.img.file?"Installed gallery photo":"Reference image") : "Photo still needed";
+  const viewLabel=photoName ? "Photographed plant: "+photoName : "Photo subject not specified";
+  const fullExtra=noteLong?'<p><b>Complete observation:</b> '+esc(note)+'</p>':"";
+  const comparePrompt=anatomyNextCheck(level);
+  const diagnosticText=fieldCue||"This view alone does not prove the ID. Use another documented character before deciding.";
+  return '<article class="part-example-card anatomy-lesson-card">'+
+    '<div class="part-example-media">'+media+'</div>'+
+    '<div class="part-example-content">'+
     '<div class="part-example-title">'+(glossaryKey?'<button type="button" data-term="'+esc(glossaryKey)+'">'+esc(name)+' <span aria-hidden="true">↗</span></button>':'<strong>'+esc(name)+'</strong>')+'</div>'+
-    (shortNote?'<p class="part-example-observation"><b>Study clue</b>'+esc(shortNote)+'</p>':'')+
-    moreInfo+
-    (foot?'<small class="part-example-role">'+esc(foot)+'</small>':'')+
-    (attribution?'<small class="part-example-credit">'+esc(attribution)+'</small>':'')+
-    (sourceLink?'<span class="part-example-source">'+sourceLink+'</span>':'')+
+    '<div class="anatomy-photo-context"><b>'+esc(subjectLabel)+'</b><span>'+esc(viewLabel)+'</span></div>'+
+    '<div class="anatomy-teach-steps">'+
+       anatomyTeachingSentence("1 · Where to look",anatomyWhereToLook(role))+
+       anatomyTeachingSentence("2 · What to check",shortNote||"Inspect this structure using the source photo role and the identification clues above.")+
+       anatomyTeachingSentence("3 · How it helps identify",diagnosticText)+
+    '</div>'+
+    (noteLong?'<details class="part-example-explain"><summary>Read the complete observation</summary><div>'+fullExtra+'</div></details>':"")+
+    '<details class="anatomy-next-step"><summary>What should I compare next?</summary><p>'+esc(comparePrompt)+'</p></details>'+
+    '<div class="anatomy-photo-sources">'+
+    (photoName&&photo.species.id?'<button class="anatomy-reference-link" type="button" data-species="'+esc(photo.species.id)+'">Study this photographed plant →</button>':"")+
+    (attribution?'<small class="part-example-credit">'+esc(attribution)+'</small>':"")+
+    (sourceLink?'<span class="part-example-source">'+sourceLink+'</span>':"")+
+    '<small class="anatomy-photo-caution">Photo labels suggest what to investigate; no unverified arrows or structures are asserted.</small></div>'+
     '</div></article>';
 }
+
 function openPartPhotoPreview(button){
   const src=String(button.dataset.partSrc||"");
   if(!/^(https?:\/\/|content\/)/i.test(src)) return;
@@ -1398,16 +1448,19 @@ function botanyPartGroup(rank,label,subtext,items,button,cue){
   const number=rank==="family"?"01":rank==="genus"?"02":"03";
   const group=rank==="family"?"Family":rank==="genus"?"Genus":"Species";
   const name=String(label||"").replace(/^(Family|Genus|Species)\s*·\s*/i,"");
-  const fieldCue=cue ? '<div class="part-gallery-practice"><b>Where to look first</b><p>'+esc(formatValue(cue))+'</p><small>Use the photographs as study examples. Confirm a diagnostic character from the description; an unmarked image is not a verified annotation.</small></div>' : "";
+  const fieldCue=cue ? '<div class="part-gallery-practice"><b>Where to look first</b><p>'+esc(formatValue(cue))+'</p><small>Use photographs as study examples. Confirm any diagnostic character from the written description before assigning an ID.</small></div>' : "";
+  const first=items.slice(0,2),later=items.slice(2);
   return '<details class="part-gallery-group part-gallery-'+rank+'">'+
     '<summary><span class="part-gallery-marker" aria-hidden="true">'+number+'</span>'+
     '<span class="part-gallery-summary"><small class="part-gallery-level">'+group+' · Step '+Number(number)+'</small>'+
     '<strong>'+(rank==="family"?esc(name):'<i>'+esc(name)+'</i>')+'</strong>'+
     '<small class="part-gallery-description">'+esc(subtext)+'</small></span>'+
     '<span class="part-gallery-count"><b>'+items.length+' study parts</b><span aria-hidden="true">⌄</span></span></summary>'+
-    fieldCue+'<div class="part-example-grid">'+items.map(botanyPartPhotoCard).join("")+'</div>'+
+    fieldCue+'<div class="part-example-grid">'+first.map(function(item){return botanyPartPhotoCard(item,rank);}).join("")+'</div>'+
+    (later.length?'<details class="anatomy-more-views"><summary>Explore '+later.length+' additional study views ⌄</summary><div class="part-example-grid">'+later.map(function(item){return botanyPartPhotoCard(item,rank);}).join("")+'</div></details>':"")+
     (button||"")+'</details>';
 }
+
 /* Optional exact-species part examples selected by curators after inspecting real gallery files.
    Unmapped parts deliberately remain as missing-photo cards; don't substitute similar-looking taxa. */
 function botanyExactGenusParts(genusData){
@@ -1450,8 +1503,8 @@ function botanyGenusPartPreview(members,genusData){
     '<div class="section-heading"><div><div class="eyebrow">Learning with real plant images</div><h2>What parts help recognize <i>'+esc(genusData.name||anchor.genus)+'</i>?</h2></div></div>'+
     '<p class="section-intro">Explore the structures that define the genus. Photo labels are unannotated examples; arrows will be added after verifying each structure.</p>'+
     '<p class="genus-photo-guidance">Examine the first three structures. The name of the photographed plant stays visible so a representative family or genus photo is not mistaken for this exact species.</p>'+
-    '<div class="part-example-grid">'+cards.slice(0,3).map(botanyPartPhotoCard).join("")+'</div>'+
-    (cards.length>3?'<details class="genus-more-photo-steps"><summary>Show '+(cards.length-3)+' more structure examples ⌄</summary><div class="part-example-grid">'+cards.slice(3).map(botanyPartPhotoCard).join("")+'</div></details>':'')+'</section>';
+    '<div class="part-example-grid">'+cards.slice(0,3).map(function(item){return botanyPartPhotoCard(item,"genus");}).join("")+'</div>'+
+    (cards.length>3?'<details class="genus-more-photo-steps"><summary>Show '+(cards.length-3)+' more structure examples ⌄</summary><div class="part-example-grid">'+cards.slice(3).map(function(item){return botanyPartPhotoCard(item,"genus");}).join("")+'</div></details>':'')+'</section>';
 }
 
 function botanyPartExamples(sp,genusData){
@@ -1514,7 +1567,7 @@ function botanyPartExamples(sp,genusData){
     if(seenRoles.has(group)) return false;
     seenRoles.add(group);return true;
   }).slice(0,5).map(function(img){
-    return {title:botanyPartLabel(img.role),description:img.caption||"Compare this "+(img.role||"view").toLowerCase()+" with the identification clues above.",photo:{species:sp,img:img,src:imagePath(sp,img)}};
+    return {title:botanyPartLabel(img.role),description:img.caption||"Compare this "+(img.role||"view").toLowerCase()+" with the identification clues above.",fieldCue:anatomyFieldCue(sp,img.role||""),role:img.role||"",photo:{species:sp,img:img,src:imagePath(sp,img)}};
   });
   const familyButton='<button class="part-gallery-open" type="button" data-family="'+esc(sp.family)+'">Explore full '+esc(sp.family)+' family lesson →</button>';
   const genusButton='<button class="part-gallery-open" type="button" data-genus="'+esc(sp.genus)+'" data-genus-family="'+esc(sp.family)+'">Explore full '+esc(sp.genus)+' genus lesson →</button>';
