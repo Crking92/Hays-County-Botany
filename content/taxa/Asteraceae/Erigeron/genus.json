@@ -5,17 +5,19 @@
   "common_group": "Fleabanes and horseweed",
   "project_scope": {
     "canonical_species_ids": [
+      "erigeron-canadensis",
       "erigeron-geiseri",
       "erigeron-modestus"
     ],
     "pending_canonical_installer": [
-      "erigeron-canadensis"
+      "erigeron-philadelphicus",
+      "erigeron-strigosus"
     ],
     "source_pool_synonym": "Conyza canadensis maps to Erigeron canadensis, no duplicate species card",
     "science_status": "Preserve previously published UNRESOLVED range statuses of geiseri and modestus; horseweed independently pending 3-county verification",
-    "lesson_scope": "New Erigeron lesson does not assert additional taxa installations before manifest confirms."
+    "lesson_scope": "Three species confirmed installed in current canonical manifest; E. philadelphicus and E. strigosus are source-pool candidates only, not installed. Native-range evidence remains unchanged."
   },
-  "look_here_first": "If you see a tall upright weed with a skinny leaf-covered stem and hundreds of tiny pale heads (almost no showy 'daisy' rays), go to HORSEWEED E. canadensis. Larger visible daisy-like white/pink/lavender petals around a yellow central disc suggest another Erigeron fleabane. Learn rosette-to-fruit stages; DO NOT identify by bare rosette alone.",
+  "look_here_first": "LOOK HERE FIRST: inspect the full rooted plant (annual rosette/taproot versus perennial crown), then compare flowering-head diameter and ray length with a ruler, involucre/phyllaries, and stem hairs. Horseweed's tiny heads are unlike showy-rayed fleabanes; E. geiseri versus E. modestus needs several traits, not flower color alone.",
   "shared_traits": [
     "Asteraceae composite capitula with many minute florets",
     "Alternate leaves on horseweed (other Erigeron leaf architecture varies)",
@@ -150,7 +152,7 @@
     "https://www.worldfloraonline.org/taxon/wfo-0000129910"
   ],
   "curation_status": {
-    "version": "1.0-erigeron-horseweed-visual-20261013",
+    "version": "1.1-three-canonical-morphology-reconciliation",
     "last_reviewed": "2026-10-13",
     "photo_panels": 4,
     "physical_installer_status": "VERIFIED — canonical manifest contains erigeron-canadensis and all four expected JPEG photo files are physically in its images/ folder. Final measured/arrow macro polish remains.",
@@ -163,5 +165,124 @@
     "stem": "In horseweed a single upright, leafy main stem branches into a broad narrow-headed terminal panicle. Other Erigeron may be much shorter or hold one/several showier heads. Whole-plant architecture is important but not definitive alone.",
     "inflorescence": "Compare head size, number, rays and the panicle shape. Horseweed has scores to hundreds of heads just a few millimeters across; many fleabanes have larger radiate heads that resemble tiny daisies.",
     "fruit": "Mature Erigeron cypselae generally have a pappus aiding wind dispersal. The horseweed photograph shows fluffy mature heads; a single dry cypsela and attachment of bristles needs a millimeter-scale macro."
-  }
+  },
+  "study_strategy": {
+    "order": [
+      "Whole rooted plant and basal crown",
+      "Head diameter, rays and phyllary profile at matched scale",
+      "Stem and leaf hairs under magnification",
+      "Mature fruit/pappus as supporting evidence"
+    ],
+    "overlap_cautions": [
+      "Head sizes and ray characters can overlap between showy fleabanes; don't force identification from a single measurement.",
+      "A rosette alone is insufficient to confirm horseweed.",
+      "The two source-pool candidates are not canonical learner cards; installer lane must resolve accepted identity and eligibility."
+    ]
+  },
+  "species_comparison_matrix": {
+    "columns": [
+      "species",
+      "life cycle / base",
+      "flower heads",
+      "stem and leaf clues",
+      "diagnostic confidence"
+    ],
+    "rows": [
+      [
+        "Erigeron canadensis",
+        "Annual/winter annual; rosette then tall erect stem",
+        "Numerous tiny heads ~3–4 mm; rays inconspicuous",
+        "Narrow alternate stem leaves; upper branching",
+        "Good mature architecture; rosette alone uncertain"
+      ],
+      [
+        "Erigeron geiseri",
+        "Perennial; inspect intact root crown",
+        "Showy fleabane-like rays; measure intact heads",
+        "Compare stem hairs and phyllaries with E. modestus",
+        "Needs paired voucher-confirmed specimens"
+      ],
+      [
+        "Erigeron modestus",
+        "Perennial; inspect intact root crown",
+        "Showy fleabane-like rays; measurements may overlap E. geiseri",
+        "Compare basal leaves, hair distribution and involucre",
+        "Needs paired voucher-confirmed specimens"
+      ]
+    ]
+  },
+  "anatomy_lessons": [
+    {
+      "term": "basal crown",
+      "plain": "Where the stems join the roots",
+      "look_for": "Annual horseweed taproot/rosette versus perennial crowns of the other installed fleabanes",
+      "photo_role": "whole excavated base with ruler",
+      "status": "needs_photo"
+    },
+    {
+      "term": "capitulum",
+      "plain": "One composite flower head containing many small florets",
+      "look_for": "Tiny horseweed heads versus conspicuous ray florets of showy fleabanes",
+      "photo_role": "matched head face and side with mm ruler",
+      "status": "needs_photo"
+    },
+    {
+      "term": "phyllaries",
+      "plain": "Green overlapping bracts beneath the flower head",
+      "look_for": "Compare rows, shapes and hairiness under magnification",
+      "photo_role": "same-scale involucre side macros for geiseri/modestus",
+      "status": "needs_photo"
+    },
+    {
+      "term": "indumentum",
+      "plain": "Hairs on stems and leaves",
+      "look_for": "Hair placement, length and direction, not simply hairy versus smooth",
+      "photo_role": "paired stem-node and leaf macros for geiseri/modestus",
+      "status": "needs_photo"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "title": "Horseweed versus showy fleabanes",
+      "species_ids": [
+        "erigeron-canadensis",
+        "erigeron-geiseri",
+        "erigeron-modestus"
+      ],
+      "look_here_first": "Head size and ray length; check whole plant",
+      "status": "diagnostic_photo_pending"
+    },
+    {
+      "title": "Geiser's versus modest fleabane",
+      "species_ids": [
+        "erigeron-geiseri",
+        "erigeron-modestus"
+      ],
+      "look_here_first": "Perennial crown, stem hairs and phyllary details in combination",
+      "status": "diagnostic_photo_pending"
+    },
+    {
+      "title": "Source-pool fleabanes for installer review",
+      "species_ids": [
+        "erigeron-philadelphicus",
+        "erigeron-strigosus"
+      ],
+      "look_here_first": "Do not treat as installed; installer must verify accepted concepts and source-pool records",
+      "status": "installer_handoff_only"
+    }
+  ],
+  "handoffs": [
+    {
+      "lane": "photo",
+      "need": "Exact-species matched geiseri/modestus crowns, stem hairs and phyllary macros; inspect image anatomy before adding arrows. Existing horseweed images retain original creator/license and installed status."
+    },
+    {
+      "lane": "installer",
+      "need": "Review source-pool Erigeron philadelphicus and E. strigosus; no genus-lane install or range decision."
+    },
+    {
+      "lane": "taxonomy",
+      "need": "Verify fine-scale geiseri/modestus discriminators against herbarium keys; avoid unsupported non-overlapping numeric cutoffs."
+    }
+  ]
 }
