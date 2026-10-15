@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:17:39.963Z",
+  "updated_at": "2026-10-15T00:18:40.532Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,31 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "native-range-fast-fill-20261014-004",
+      "scope_kind": "species_native_range_batch",
+      "taxa": [
+        "lygodium-japonicum",
+        "lysimachia-arvensis",
+        "malva-parviflora",
+        "marrubium-vulgare",
+        "melia-azedarach",
+        "melilotus-albus",
+        "melilotus-indicus",
+        "myriophyllum-aquaticum",
+        "papaver-rhoeas",
+        "paulownia-tomentosa",
+        "pyrus-calleryana",
+        "silybum-marianum"
+      ],
+      "lane": "native-range-fast-fill",
+      "owner": "manual-native-range-research-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T00:18:40.532Z",
+      "expires_at": "2026-10-15T06:18:40.532Z",
+      "release_when": "12 POWO range FAIL sourcepool updates persisted to GitHub, Master overrides and derived pool verified",
+      "notes": "Uninstalled, unclaimed approved source pool; preserve comparative learner admission; only range audit and review override values updated."
+    },
     {
       "claim_id": "native-range-fast-fill-20261014-003",
       "scope_kind": "species_native_range_batch",
