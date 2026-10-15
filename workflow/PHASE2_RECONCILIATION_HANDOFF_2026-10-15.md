@@ -80,3 +80,12 @@
 - Durable batch: `research-drafts/reconciliation/phase3-accepted-source-name-preflight-2026-10-15-b005.json`
 - Commit: `9989e828ed3b67b06d7f3604da4d3089ecdf22c6`
 - Only **2 previously unprocessed identity-concept rows** remain in the Phase-2 routing ledger; existing durable HOLD rows are handled separately in Phase 4.
+
+## Phase 3 routing closure — identity holds batch 006
+- Closed the final **2 previously unprocessed** source-concept rows: `Celtis ehrenbergiana` and `Clematis reticulata`.
+- Both remain **Phase-4 identity/concept HOLDs**. Their nomenclature can be crosswalked, but the old Texas/source material cannot safely be reassigned without specimen/source re-identification.
+- **General Phase-3 source routing backlog is now 0.** Every one of the original 306 exception rows has a durable route, represented decision, future-concept route, or HOLD decision (with the seven pre-existing installed-alias decisions retained from Phase 2).
+- Durable batch: `research-drafts/reconciliation/phase3-identity-concept-holds-2026-10-15-b006.json`
+- Commit: `c2de3497700952f0890b4f9c6e39786e5a23309d`
+
+The next step is a cross-batch deduplication of all future accepted concepts so the project has one trustworthy projected new-card workload instead of adding source-row counts together.
