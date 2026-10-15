@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:19:57.690Z",
+  "updated_at": "2026-10-15T00:20:46.540Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,21 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "native-range-kerr-evidence-20261014-004",
+      "scope_kind": "species_native_range_reconciliation_batch",
+      "taxa": [
+        "physostegia-angustifolia",
+        "abutilon-fruticosum"
+      ],
+      "lane": "native-range-fast-fill",
+      "owner": "manual-native-range-resume-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T00:20:46.540Z",
+      "expires_at": "2026-10-15T06:20:46.540Z",
+      "release_when": "Two Kerr flora PASS decisions verified on GitHub and Sheet; queue reconciled; no media/approval changes.",
+      "notes": "Physostegia angustifolia and Abutilon fruticosum, preexisting Hays+Travis records plus published Kerr County vouchers."
+    },
     {
       "claim_id": "native-range-fast-fill-20261014-004",
       "scope_kind": "species_native_range_batch",
