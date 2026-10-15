@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.1",
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 2,
+  "batch_id": "2026-10-15-019",
+  "checked_at": "2026-10-15",
+  "source_sheet": "Master Plant Pool",
+  "canonical_manifest_checked": "data/manifest.json (552 installed)",
+  "prior_batches_checked": "2026-10-14-001 preserved; 2026-10-15-001..018 inspected; no prior name-pass records for these two",
+  "counts": {
+    "ACCEPTED": 2,
+    "SYNONYM_TO_ACCEPTED": 0,
+    "ACCEPTED_WITH_CONCEPT_CAUTION": 0,
+    "HOLD_IDENTITY": 0,
+    "total": 2
+  },
+  "range_audit": "DEFERRED",
+  "records": [
+    {
+      "source_name": "Acer negundo",
+      "accepted_name": "Acer negundo L.",
+      "accepted_genus": "Acer",
+      "accepted_family": "Sapindaceae",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "synonyms_for_search": [
+        "Negundo aceroides Moench"
+      ],
+      "duplicate_caution": "Accepted species has accepted infraspecific taxa; do not infer variety from source species name. Existing canonical species retained.",
+      "canonical_path": "content/taxa/Sapindaceae/Acer/acer-negundo/species.json",
+      "source_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:781412-1",
+      "source_pool": "Master Plant Pool",
+      "source_name_status": "accepted by POWO/WCVP",
+      "authority": "Royal Botanic Gardens Kew, POWO/WCVP 2026",
+      "checked_at": "2026-10-15",
+      "native_range_audit": "DEFERRED",
+      "specimen_photo_identity": "NOT_CHECKED",
+      "learner_edits": "NONE"
+    },
+    {
+      "source_name": "Adiantum capillus-veneris",
+      "accepted_name": "Adiantum capillus-veneris L.",
+      "accepted_genus": "Adiantum",
+      "accepted_family": "Pteridaceae",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "synonyms_for_search": [],
+      "duplicate_caution": "Accepted fern species; source name matches installed canonical. Specimen/photos not verified.",
+      "canonical_path": "content/taxa/Pteridaceae/Adiantum/adiantum-capillus-veneris/species.json",
+      "source_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325030-2",
+      "source_pool": "Master Plant Pool",
+      "source_name_status": "accepted by POWO/WCVP",
+      "authority": "Royal Botanic Gardens Kew, POWO/WCVP 2026",
+      "checked_at": "2026-10-15",
+      "native_range_audit": "DEFERRED",
+      "specimen_photo_identity": "NOT_CHECKED",
+      "learner_edits": "NONE"
+    }
+  ]
+}
