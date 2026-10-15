@@ -13,14 +13,39 @@
   "county_occurrences_target_zone": [
     "Burnet",
     "Travis",
-    "Williamson"
+    "Kerr"
   ],
   "target_zone_count": 3,
   "native_target_zone_calculated": true,
   "project_inclusion": {
     "target_zone_status": "PASS",
-    "range_basis": "Burnet — UT PRC Vascular Plants of Burnet County. Travis — UT PRC herbarium specimen index. Williamson — UT PRC Studies on the Vascular Plants of Williamson County. These three exact counties meet the project threshold.",
-    "range_guardrail": "Use exact county floristic or herbarium evidence; do not infer a county from a city or locality label when the county is not explicit."
+    "range_basis": "Burnet — prior verified UT Plant Resources Center county flora. Travis — prior verified UT PRC herbarium records. Kerr — John C. Semple (2023), Phytoneuron 2023-20, p.4, cites S. radula Kerr County herbarium vouchers Morton & Venn NA16362 and NA16364 (TRT). All three are inside the project's 24-county target zone. The prior Williamson record remains historically relevant but is out of zone and is not counted.",
+    "range_guardrail": "Use exact county floristic or herbarium evidence; do not infer a county from a city or locality label when the county is not explicit.",
+    "native_range_review": {
+      "reviewed_at": "2026-10-14",
+      "status": "PASS",
+      "accepted_name": "Solidago radula Nutt.",
+      "confidence": "high",
+      "verified_counties": [
+        "Burnet",
+        "Travis",
+        "Kerr"
+      ],
+      "excluded_non_target_counties": [
+        "Williamson"
+      ],
+      "source_links": [
+        {
+          "url": "https://www.phytoneuron.net/wp-content/uploads/2023/07/20PhytoN-SectRadulaeCytogeography.pdf",
+          "role": "Published Kerr County herbarium cytovouchers, Table 1, p. 4"
+        },
+        {
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:249822-1",
+          "role": "Accepted taxonomy and Texas native range"
+        }
+      ],
+      "reason": "Replace erroneously counted out-of-zone Williamson County with publication-backed native Kerr County; original Burnet/Travis evidence retained."
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
