@@ -8,7 +8,9 @@ from PIL import Image,ImageOps,UnidentifiedImageError
 
 ROOT=pathlib.Path(".")
 sys.path.insert(0,str(ROOT.resolve()))
-CATALOG=ROOT/"workflow/joey-inat-photo-inventory/photo-candidates.csv"
+REGIONAL_CATALOG=ROOT/"workflow/joey-inat-photo-inventory/photo-candidates.csv"
+TEXAS_CATALOG=ROOT/"workflow/joey-texas-inat-photo-inventory/photo-candidates.csv"
+CATALOG=TEXAS_CATALOG if TEXAS_CATALOG.exists() else REGIONAL_CATALOG
 MANIFEST=ROOT/"data/manifest.json"
 CLAIMS=ROOT/"workflow/work-claims.json"
 REPORT=ROOT/"reports/joey-photo-batch-latest.json"
@@ -103,6 +105,10 @@ def main():
     for ready in (ROOT/"curation-inbox").rglob("species.json"):
         try:inbox_ids.add(json.loads(ready.read_text())["id"])
         except (KeyError,ValueError,OSError):pass
+    local_photo_ids=set()
+    if REGIONAL_CATALOG.exists():
+        with REGIONAL_CATALOG.open(newline="",encoding="utf-8-sig") as rf:
+            local_photo_ids={row["photo_id"] for row in csv.DictReader(rf)}
     groups=collections.defaultdict(list)
     with CATALOG.open(newline="",encoding="utf-8-sig") as f:
         for x in csv.DictReader(f):
@@ -132,7 +138,7 @@ def main():
         already=existing_photo_ids(obj)
         options=[v for v in candidates if v["photo_id"] not in already and v["scientific_name"]==obj.get("scientific_name")]
         # Prefer Research Grade exact-species photos from different observation IDs.
-        options.sort(key=lambda v:(v.get("already_installed_photo_id")=="yes",v["observation_id"],v["photo_id"]))
+        options.sort(key=lambda v:(v["photo_id"] not in local_photo_ids,v.get("already_installed_photo_id")=="yes",v["observation_id"],v["photo_id"]))
         if not options:continue
         if a.mode=="zero" and path.parent.joinpath("images").exists():
             if list(path.parent.joinpath("images").glob("*")):
@@ -141,7 +147,7 @@ def main():
             skips.append({"id":sid,"reason":"no source audit file"});continue
         targets.append((sid,path,obj,options))
     targets.sort(key=lambda t:(priority.get(t[0],99999),len(t[2].get("images") or []),-len(t[3]),t[0]))
-    report={"run_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"mode":a.mode,"requested_batch":a.batch_size,
+    report={"run_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"mode":a.mode,"catalog_scope":"Texas statewide" if CATALOG==TEXAS_CATALOG else "24 project counties","requested_batch":a.batch_size,
             "eligible_matching_species":len(targets),"installed":[],"skipped":skips,"science_preserved":True,
             "note":"Noncommercial educational CC BY-NC images; source identification and image pixels machine-checked, anatomy not visually reviewed."}
     edits=[]
@@ -149,7 +155,7 @@ def main():
         if len(edits)>=a.batch_size:break
         if sid in busy or sid in inbox_ids:continue
         seen_obs={str(im.get("observation_id")) for im in (obj.get("images") or []) if im.get("observation_id")}
-        candidates=sorted(options,key=lambda v:(str(v["observation_id"]) in seen_obs,v["observation_id"],v["photo_id"]))
+        candidates=sorted(options,key=lambda v:(str(v["observation_id"]) in seen_obs,v["photo_id"] not in local_photo_ids,v["observation_id"],v["photo_id"]))
         new=[]
         for row in candidates:
             if len(new)>=a.per_species:break
