@@ -1,0 +1,58 @@
+name: Croton capitatus NC State CC0 First Photos
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/croton-capitatus-ncsu-cc0.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: targeted-croton-cc0-photo
+  cancel-in-progress: false
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pillow requests beautifulsoup4
+      - name: Validate fresh photo-specific CC0 labels and install
+        run: python scripts/croton_capitatus_ncsu_cc0.py
+      - name: Verify both files and preserved hold
+        run: |
+          python - <<'PY'
+          import pathlib,json
+          from PIL import Image
+          p=pathlib.Path("content/taxa/Euphorbiaceae/Croton/croton-capitatus/species.json")
+          s=json.loads(p.read_text())
+          assert len(s["images"])==2
+          assert "HOLD" in str(s.get("taxonomic_note","")).upper() or "unresolved" in str(s.get("taxonomic_note","")).lower()
+          for x in s["images"]:
+              assert x["license"]=="CC0 1.0"
+              file=p.parent/x["file"]
+              assert file.exists() and file.stat().st_size>14000
+              with Image.open(file) as im:im.verify()
+              print("VERIFIED",file,x["source_page"])
+          PY
+      - name: Commit verified canonical media
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Euphorbiaceae/Croton/croton-capitatus/ reports/croton-capitatus-ncsu-cc0-batch.json reports/photo-fast-fill-zero-queue.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install NC State CC0 Croton capitatus reference photos [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
