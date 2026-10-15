@@ -5,10 +5,10 @@ on:
   workflow_dispatch:
     inputs:
       source:
-        description: 'GBIF needs no key; Pl@ntNet requires secret PLANTNET_API_KEY'
+        description: 'GBIF or Pl@ntNet via GBIF need no key; direct Pl@ntNet needs PLANTNET_API_KEY'
         type: choice
         default: gbif
-        options: [gbif, plantnet, both]
+        options: [gbif, plantnet-gbif, plantnet, both]
       limit:
         description: 'Number of sparse-photo species to search (1-60)'
         type: number
