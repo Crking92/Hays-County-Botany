@@ -65,6 +65,20 @@ class PhotoAuditTest(unittest.TestCase):
         self.assertEqual(row["best_canonical_image_index"], 0)
         self.assertEqual(sp["images"][0]["creator"], "A. Test")
 
+    def test_plural_botanical_terms_are_detected(self):
+        checks = {
+            "broad phyllaries beneath flowering heads": ["phyllary", "flower"],
+            "mature acorns in cups": ["fruit"],
+            "dense florets and corollas": ["flower"],
+            "hairy stems and buds": ["stem"],
+            "milkweed hoods and horns": ["corona"],
+            "grasses with short ligules": ["ligule"],
+        }
+        for role, expected in checks.items():
+            detected = audit.image_roles({"role": role})
+            for item in expected:
+                self.assertIn(item, detected, role)
+
     def test_avoid_claimed_species_and_honor_expiry(self):
         claim = {"claims": [{
             "status": "active", "lane": "photo-fast-fill",
