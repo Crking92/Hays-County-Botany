@@ -1,0 +1,67 @@
+name: GBIF Exact-Name First-Photo Recovery
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/gbif-exact-first-photo-recovery.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gbif-exact-first-photo-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pillow
+      - name: Cross-check live specimens with Kew-confirmed scientific synonyms and photograph licenses
+        run: python scripts/gbif_exact_zero_photo_recovery.py
+      - name: Verify scientific constraints, image bytes and source license
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          from PIL import Image
+          report=json.loads(pathlib.Path("reports/gbif-first-photo-targeted-latest.json").read_text())
+          for row in report["installed"]:
+              fp=pathlib.Path(row["photo_file"])
+              assert fp.is_file() and fp.stat().st_size>19000
+              with Image.open(fp) as im:im.verify()
+              obj=json.loads((fp.parent.parent/"species.json").read_text())
+              images=[r for r in obj.get("images",[]) if r.get("file")=="images/"+fp.name]
+              assert len(images)==1
+              assert images[0]["source_determination"]==row["source_taxon"]
+              assert images[0]["license"] in ("CC0 1.0","CC BY","CC BY-SA","CC BY-NC","CC BY-NC-SA")
+              assert images[0]["source_page"].startswith("https://www.gbif.org/occurrence/")
+              print("VERIFIED",row["id"],row["source_taxon"],row["license"])
+          print("First photographs installed:",len(report["installed"]))
+          PY
+      - name: Commit validated first photographs or research audit only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/ reports/gbif-first-photo-targeted-latest.json reports/photo-fast-fill-zero-queue.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "Recover exact-taxonomic first photos or record verified source gaps [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: gbif-first-photo-recovery-audit
+          path: reports/gbif-first-photo-targeted-latest.json
+          retention-days: 30
