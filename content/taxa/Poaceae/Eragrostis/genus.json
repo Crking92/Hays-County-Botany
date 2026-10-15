@@ -5,20 +5,19 @@
   "common_group": "Lovegrasses",
   "project_scope": {
     "selection_mode": "structural learner batch / B135 source-status reconciliation",
-    "canonical_species_count": 6,
+    "canonical_species_count": 7,
     "canonical_species_ids": [
       "eragrostis-cilianensis",
+      "eragrostis-hirsuta",
       "eragrostis-intermedia",
       "eragrostis-lugens",
       "eragrostis-secundiflora",
       "eragrostis-spectabilis",
       "eragrostis-trichodes"
     ],
-    "reviewed_hold_source_concepts": [
-      "eragrostis-hirsuta"
-    ],
+    "reviewed_hold_source_concepts": [],
     "source_concept_count": 7,
-    "note": "E. hirsuta has completed independent scientific review but remains a range HOLD and is not installed. Genus-level processing is complete without promoting that HOLD."
+    "note": "All seven source concepts are installed canonical learner species. E. hirsuta remains native-range HOLD/UNRESOLVED and excluded from confirmed-native metrics; admission does not imply native PASS."
   },
   "recognition": {
     "where_to_look_first": "Do not start with flower color. Start with panicle architecture and then inspect the sheath/collar: openness, branch angle, spikelet clustering, glands, and where the hairs sit are the fast field characters in the project set.",
@@ -40,7 +39,7 @@
       "E. spectabilis — broad airy purple cloud with widely spreading flexible branches; mature inflorescence can tumble.",
       "E. trichodes — tall perennial with long hairs concentrated at the sheath throat/collar and a huge diffuse fine-branched panicle."
     ],
-    "hold_comparison": "E. hirsuta — REVIEWED RANGE HOLD, not an unfinished taxon. It is conspicuously hairy across the sheaths and at panicle branch axils; keep it as a comparison concept unless future exact target-zone evidence satisfies the range rule."
+    "hold_comparison": "E. hirsuta — CANONICAL LEARNER, native-range HOLD/UNRESOLVED (not a confirmed target native). Look for hairs on sheaths and panicle branch axils; compare against E. intermedia and E. trichodes. Preserve uncertainty."
   },
   "visual_needs": [
     "one whole-panicle image for each canonical species at comparable scale",
@@ -48,12 +47,13 @@
     "side-by-side E. intermedia versus E. trichodes showing sheath/collar hair placement",
     "macro of E. cilianensis crater-like glands on panicle parts or lemma keels",
     "leaf closeup showing the narrow involute blades of E. lugens",
-    "annotated panicle branch-angle comparison across the genus set"
+    "annotated panicle branch-angle comparison across the genus set",
+    "E. hirsuta canonical species: verify existing species photo rights and capture diagnostic sheath/collar/panicle-axil views; no photos newly installed here."
   ],
   "visual_status": "fast_fill_coverage_live",
   "curation_status": {
     "version": "1.1-b135-source-reconciliation",
-    "genus_audit": "complete_with_reviewed_hold",
+    "genus_audit": "seven_canonical_species_reconciled_range_uncertainty_preserved",
     "species_work_independent": true,
     "last_reviewed": "2026-10-05",
     "source_concepts_reconciled": true
@@ -118,8 +118,8 @@
     {
       "id": "eragrostis-hirsuta",
       "scientific_name": "Eragrostis hirsuta",
-      "status": "REVIEWED_RANGE_HOLD",
-      "learner_action": "comparison-only in genus lesson; no canonical species install"
+      "status": "CANONICAL_RANGE_UNRESOLVED",
+      "learner_action": "already installed; teach in seven-species comparison; exclude from confirmed-native metrics"
     },
     {
       "id": "eragrostis-intermedia",
@@ -145,6 +145,88 @@
       "id": "eragrostis-trichodes",
       "scientific_name": "Eragrostis trichodes",
       "status": "CANONICAL_PASS"
+    }
+  ],
+  "study_strategy": {
+    "look_here_first": [
+      "Compare panicle openness and whether spikelets cluster along branches.",
+      "Examine sheath, collar and panicle branch axils for hair placement.",
+      "Inspect leaf rolling, glands and mature spikelet structure.",
+      "Use mature, attached structures to confirm; do not rely on color alone."
+    ],
+    "overlap_cautions": [
+      "E. intermedia and E. trichodes can both form open panicles; sheath/collar hair location helps.",
+      "E. hirsuta is already installed but remains native-range unresolved; no native PASS implied.",
+      "Panicle shape changes with maturity and wind; compare mature, intact specimens."
+    ]
+  },
+  "genus_diagnostics": {
+    "shared_structure_examples": [
+      {
+        "term": "panicle",
+        "plain": "Branched grass flower cluster; note whether branches spread openly or carry dense spikelet clusters.",
+        "photo_role": "same-scale intact mature panicles for all seven",
+        "status": "needs_photo"
+      },
+      {
+        "term": "collar and sheath throat",
+        "plain": "Junction where leaf blade meets its wraparound sheath; record where long hairs originate.",
+        "photo_role": "paired sheath-throat and collar macros for E. hirsuta, E. intermedia and E. trichodes",
+        "status": "needs_photo"
+      },
+      {
+        "term": "spikelet and lemma",
+        "plain": "Small unit of grass flowers and its enclosing bracts; check shape and glands under magnification.",
+        "photo_role": "matched mature spikelet dissections including E. cilianensis glands",
+        "status": "needs_photo"
+      },
+      {
+        "term": "involute leaf blade",
+        "plain": "Leaf edges rolled inward, creating a narrow firm-looking blade.",
+        "photo_role": "E. lugens blade cross-section and attached foliage",
+        "status": "needs_photo"
+      }
+    ]
+  },
+  "comparison_cards": [
+    {
+      "title": "Hair placement in airy lovegrasses",
+      "taxon_ids": [
+        "eragrostis-hirsuta",
+        "eragrostis-intermedia",
+        "eragrostis-trichodes"
+      ],
+      "look_here_first": "Sheath, collar and panicle-branch axils, then whole panicle",
+      "photo_requirements": [
+        "matched collar/sheath macro",
+        "branch-axil macro",
+        "whole-panicle same-scale"
+      ]
+    },
+    {
+      "title": "Cloud versus clustered spikelets",
+      "taxon_ids": [
+        "eragrostis-spectabilis",
+        "eragrostis-secundiflora"
+      ],
+      "look_here_first": "Distribution of spikelets along panicle branches",
+      "photo_requirements": [
+        "mature panicle overview",
+        "same-scale branch segment"
+      ]
+    },
+    {
+      "title": "Glandular annual versus narrow-leaved perennial",
+      "taxon_ids": [
+        "eragrostis-cilianensis",
+        "eragrostis-lugens"
+      ],
+      "look_here_first": "Crater-like glands versus narrow involute blades; compare life cycle",
+      "photo_requirements": [
+        "gland macro",
+        "leaf cross-section",
+        "whole plant base"
+      ]
     }
   ]
 }
