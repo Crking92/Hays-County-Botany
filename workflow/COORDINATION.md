@@ -2,6 +2,14 @@
 
 This file defines the shared anti-duplication protocol for all ChatGPT chats, automations, local tools, and manual project work.
 
+## 2026-10-15 source update and manual photo-batch ownership
+
+**All five active scheduled botany automations must read** `workflow/PHOTO_SOURCE_AND_MANUAL_BATCH_HANDOFF_20261015.md` before choosing photo-related work. It documents **Joey Santore's 15,041-photo statewide iNaturalist catalog** and **Calvin King's own Glass Root Garden / iNaturalist photo inventory and private-use permission**, with distinct licensing and exact-photo validation rules.
+
+**User-directed work separation:** The user will initiate **new multi-species diagnostic photo-enrichment batches manually in ChatGPT**. Do not have the five automations launch, schedule, duplicate, or preclaim those bulk batches or auto-trigger the Joey statewide installer. Existing scheduled tasks **must continue unchanged** in their current lanes, including the one-species-per-run Diagnostic Photo Fast-Fill's independent unclaimed diagnostic-photo and recovery work. Do not disable, pause, add, reschedule, or repurpose any existing automation. Read live `data/manifest.json`, current photo coverage, active claims, curation inbox, and source license before acting.
+
+Source catalogs are candidate metadata **not installed photos**. Joey's CC BY-NC is noncommercial; Calvin's personally owned photos have direct permission for **private learner** use but may not have a public CC grant. Never silently change photo license, photographer credit, public reuse rights, scientific HOLD/FAIL/range status, or existing installed gallery entries.
+
 ## 2026-10-14 priority shift: no new range fast-fill claims
 
 The user has paused exhaustive native-range status work in favor of a field-useful visual learner. **Do not initiate or renew native-range-fast-fill batches, claims, or repetitive pending-range spreadsheet sweeps.** Preserve the existing audits and release history; do not retroactively erase or force-approve scientific nativity results. Previously completed batches remain available for later review. Do not interfere with claims owned by active photo, installer, scientific-diagnostic, genus, or family lanes.
