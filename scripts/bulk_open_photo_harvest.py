@@ -237,7 +237,8 @@ def stage(r, out):
     rgb.thumbnail((1400, 1400), Image.Resampling.LANCZOS)
     directory = out / "staged_images" / r["canonical_id"]
     directory.mkdir(parents=True, exist_ok=True)
-    filename = r["source"].lower().replace("@", "a") + "-" + hashlib.sha256(url.encode()).hexdigest()[:14] + ".jpg"
+    source_slug = re.sub(r"[^a-z0-9]+", "-", r["source"].lower().replace("@", "a")).strip("-")
+    filename = source_slug + "-" + hashlib.sha256(url.encode()).hexdigest()[:14] + ".jpg"
     dest = directory / filename
     rgb.save(dest, format="JPEG", quality=88, optimize=True)
     return str(dest.relative_to(out))
