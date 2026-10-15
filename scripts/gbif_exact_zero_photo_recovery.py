@@ -165,7 +165,7 @@ def main():
  eligible=[]
  for row in queued:
   sid=row["id"]
-  if sid in busy or sid in inbox or row.get("in_curation_inbox") or row.get("active_claims"):
+  if sid in busy or sid in inbox or row.get("in_curation_inbox") or (row.get("active_claims") and not args.reclaim_expired):
    report["skipped"].append({"id":sid,"reason":"another active project lane"});continue
   loc=refs.get(sid);path=ROOT/loc if loc else None
   if not path or not path.is_file():continue
