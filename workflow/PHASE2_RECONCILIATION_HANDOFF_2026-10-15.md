@@ -58,3 +58,16 @@
 - Current full-pool decomposition: **586 represented + 400 preflight candidates + 17 confirmed aliases awaiting their target source-row card + 60 accepted-target routes awaiting 59 destination concepts + 219 unresolved exceptions = 1,282**.
 - Durable batch: `research-drafts/reconciliation/phase3-rank-parent-routing-2026-10-15-b003.json`
 - Commit: `abfff4cfb2c7cd7c1315ff32dda02a319d3ea146`
+
+## Phase 3 progress — explicit-target routing batch 004
+- Completed the full **135-row** `EXPLICIT_ACCEPTED_TARGET_NOT_CAPTURED` bucket.
+- **21** source rows are now confirmed represented by live canonical cards, bringing represented source-row coverage from **586 to 607**.
+- **70** rows are accepted-name installer-preflight candidates.
+- **36** rows route to another accepted destination name rather than create a source-name card. Two of the initially identified route targets (Berberis swaseyi and B. trifoliolata) were already live and were counted among the 21 represented rows instead.
+- The 70 candidates + 36 route rows collapse to **103 unique future concepts** inside this batch because Polygonum aliases converge on three Persicaria candidates already present in the same bucket.
+- **8** rows are preserved as Phase-4 concept holds: Calylophus drummondii, Mimosa quadrivalvis, Onosmodium bejarense, Parthenocissus inserta, Philadelphus ernestii, Schoenocaulon drummondii, Solanum ptycanthum, and Taraxacum officinale.
+- Fresh backbone checks cleared several stale/generic rows, including Chloracantha spinosa, Geum canadense, Lupinus texensis, Pluchea odorata, Silphium integrifolium, Vaccinium arboreum, and Zizania texana. Zizania texana is taxonomically accepted and explicitly Hays County in Kew; any separate photo/source reservation remains outside this taxonomy gate.
+- Malvaviscus arboreus is treated as an umbrella/rank-caution source routed to the existing local var. drummondii learner rather than creating a duplicate species page.
+- Remaining **unprocessed** concept-routing rows: **84**. The 8 holds above already have durable HOLD decisions and belong to final exception review.
+- Durable batch: `research-drafts/reconciliation/phase3-explicit-target-routing-2026-10-15-b004.json`
+- Commit: `304173bddb6c025c8b4f0db799b5086b5c3ea7e4`
