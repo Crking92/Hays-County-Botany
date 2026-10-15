@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T02:43:18.926Z",
+  "updated_at": "2026-10-15T03:42:00.000Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9220,6 +9220,18 @@
       "notes": "Make individual family/genus/species photo cards teach where to inspect, what to check, why it matters, with rights-preserving image labels and progressive disclosure. UI files only, no science or photo metadata changed.",
       "released_at": "2026-10-15T02:43:18.926Z",
       "release_reason": "UI-only PR #24 merged into main at 1480891daa90009ae0e8e0aeaae8da6a0d8bd480. Verified JS syntax, CSS balance, Asteraceae family/Helianthus comparison/annuus morphology and attribution checks. Live iPhone visual review remains; no data or automations changed."
+    },
+    {
+      "claim_id": "manual-helianthus-diagnostic-photo-order-20261014",
+      "scope_kind": "website_ui",
+      "scope_key": "assets/js/app.js; assets/css/styles.css; workflow/helianthus-photo-arrow-review.md",
+      "lane": "website-ui-photo-qa",
+      "owner": "manual-design-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T03:42:00.000Z",
+      "expires_at": "2026-10-15T09:42:00.000Z",
+      "release_when": "QA report and gallery update merged; no image or scientific field edited",
+      "notes": "Improve photo priority without changing canonical image[] order; source-grounded Helianthus leaf and phyllary targets; leave all arrows unverified until pixel coordinate inspection."
     }
   ]
 }
