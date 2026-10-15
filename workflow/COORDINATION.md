@@ -1,5 +1,12 @@
 # Hays Botany Work Coordination
 
+## 2026-10-15 permanent photo candidate library — required read
+
+**New user-approved priority:** mass photo *collection* is separate from slow botanical photo *selection and installation*. Every project chat and all five scheduled workers must read `workflow/photo-library/README.md` when choosing photo work or consuming photos. Consult its permanent per-batch indexes and private GitHub Release media archive before beginning new image gathering. All candidate metadata is **provisional** and cannot be marked canonical, visually verified, or installed until the existing scientific/licensing/gallery gate passes.
+
+The manual ChatGPT/GitHub bulk library collector may gather 30–60 otherwise eligible species per batch **without claiming each species for card installation**. Check live manifest, current photo counts, taxonomic source-concept HOLDs, existing manual-photo claims and candidate-inventory scan history first. Collection and curation claims are distinct scopes. Do not auto-trigger collection from existing automations. Keep all five automations enabled with their existing schedules and jobs. Old Joey and Glass Root inventories remain legitimate separate sources.
+
+
 This file defines the shared anti-duplication protocol for all ChatGPT chats, automations, local tools, and manual project work.
 
 ## 2026-10-15 source update and manual photo-batch ownership
