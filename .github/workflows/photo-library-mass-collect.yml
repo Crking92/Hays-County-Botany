@@ -102,7 +102,23 @@ jobs:
           set -euo pipefail
           tag="hays-photo-library-mass-$RUN_ID"
           asset="$RUNNER_TEMP/archives/mass-$RUN_ID-photos.zip"
-          gh release create "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease --title "Provisional photo candidate library: mass-$RUN_ID" --notes "Unverified botanical photo candidates. Verify original individual-photo rights, identity and attribution before any learner install. See catalog CSV inside; private project storage only."
+          # Releases API can transiently return HTTP 403 after consecutive publishing jobs.
+          # Retry without dropping downloaded images or incorrectly marking them archived.
+          archived=0
+          for attempt in 1 2 3 4; do
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              if gh release upload "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --clobber; then archived=1; break; fi
+            elif gh release create "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --prerelease --title "Provisional photo candidate library: mass-$RUN_ID" --notes "Unverified botanical photo candidates. Verify original individual-photo rights, identity and attribution before any learner install. See catalog CSV inside; private project storage only."; then
+              archived=1
+              break
+            fi
+            echo "::warning::Release publish attempt $attempt failed; will retry"
+            sleep $((attempt * 12))
+          done
+          if [[ "$archived" != "1" ]]; then
+            echo "::error::Release publishing blocked; recovery artifact will retain harvested images"
+            exit 1
+          fi
           python scripts/photo_library_archive.py published --batch-id "mass-$RUN_ID"
           python scripts/photo_library_archive.py rebuild
       - name: Save searchable catalog in canonical GitHub repository
