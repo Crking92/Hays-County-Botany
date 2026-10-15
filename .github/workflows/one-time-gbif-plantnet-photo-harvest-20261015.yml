@@ -1,4 +1,4 @@
-name: One-time GBIF + PlantNet Photo Candidate Harvest
+name: One-time Public Pl@ntNet via GBIF Photo Harvest
 
 # Single user-requested manual handoff, triggered only by its dedicated kickoff file.
 # Does not modify canonical species cards or alter existing scheduled workflows.
@@ -22,22 +22,16 @@ jobs:
           python-version: '3.12'
       - name: Install photo preparation dependency
         run: python -m pip install --disable-pip-version-check Pillow
-      - name: Harvest GBIF and Pl@ntNet together for 30 sparse species
-        env:
-          PLANTNET_API_KEY: ${{ secrets.PLANTNET_API_KEY }}
+      - name: Harvest public Pl@ntNet observation photographs from GBIF
         shell: bash
         run: |
           set -euo pipefail
-          if [[ -z "${PLANTNET_API_KEY:-}" ]]; then
-            echo "::error::The PLANTNET_API_KEY Actions secret is missing or unavailable."
-            exit 2
-          fi
-          python scripts/bulk_open_photo_harvest.py --source both --limit 30 --per-species 3 --max-local 2 --download --out workflow/open-photo-candidates/combined-20261015
+          python scripts/bulk_open_photo_harvest.py --source plantnet-gbif --limit 30 --per-species 3 --max-local 2 --download --out workflow/open-photo-candidates/plantnet-gbif-20261015
       - name: Upload review artifact (no canonical install)
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: hays-gbif-plantnet-combined-review
-          path: workflow/open-photo-candidates/combined-20261015/
+          name: hays-plantnet-gbif-photo-review
+          path: workflow/open-photo-candidates/plantnet-gbif-20261015/
           retention-days: 14
           if-no-files-found: warn
