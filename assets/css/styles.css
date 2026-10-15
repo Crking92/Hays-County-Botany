@@ -797,3 +797,17 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
   .part-photo-modal{max-height:88dvh;padding:14px}
   .part-photo-zoom,.part-photo-zoom img{max-height:59dvh}
 }
+
+/* Encounter-first learner: display only explicitly documented invasive/introduced labels. */
+.encounter-badge{
+  display:inline-flex;align-items:center;gap:.28rem;align-self:flex-start;
+  max-width:100%;width:fit-content;margin:.3rem 0 .15rem;
+  padding:.27rem .55rem;border-radius:999px;
+  font-size:.73rem;line-height:1.3;font-weight:750;letter-spacing:.005em;
+  white-space:normal;
+}
+.encounter-invasive{background:#fae7dd;color:#86351d;border:1px solid #ddb49d}
+.encounter-introduced{background:#edf1f1;color:#3a5150;border:1px solid #cdd9d7}
+.species-tile .encounter-badge,.search-species-result .encounter-badge{font-size:.67rem}
+.identity-panel .encounter-badge{margin:.35rem 0 .2rem}
+@media(max-width:680px){.encounter-badge{font-size:.7rem}}
