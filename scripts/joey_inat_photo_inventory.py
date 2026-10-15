@@ -74,16 +74,17 @@ def installed_index(manifest_path):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--manifest",default="data/manifest.json")
+    p.add_argument("--statewide",action="store_true",help="Inventory all Texas iNaturalist plant photos, not just target counties")
     p.add_argument("--out",default="workflow/joey-inat-photo-inventory")
     p.add_argument("--pause",type=float,default=.3)
     p.add_argument("--max-pages",type=int,default=40)
     a=p.parse_args()
-    placeids=ids_for_counties(COUNTIES,a.pause)
+    placeids={} if a.statewide else ids_for_counties(COUNTIES,a.pause)
     known,previous=installed_index(pathlib.Path(a.manifest))
     rows=[];obsids=set();taxa=set()
     page=1
     while page<=a.max_pages:
-        data=get("/observations",{"user_id":USER,"taxon_id":47126,"place_id":",".join(map(str,placeids)),"photos":"true","per_page":200,"page":page,"order_by":"id","order":"asc"})
+        data=get("/observations",{"user_id":USER,"taxon_id":47126,"place_id":"18" if a.statewide else ",".join(map(str,placeids)),"photos":"true","per_page":200,"page":page,"order_by":"id","order":"asc"})
         items=data["results"];total=int(data.get("total_results",len(items)))
         print("Page",page,":",len(items),"of",total,"observations",flush=True)
         for obs in items:
@@ -94,7 +95,7 @@ def main():
             t=obs.get("taxon") or {};name=t.get("name") or obs.get("species_guess") or ""
             if not name:continue
             taxa.add(name);sid=slug(name)
-            counties="; ".join(sorted({placeids[int(x)] for x in obs.get("place_ids",[]) if str(x).isdigit() and int(x) in placeids})) or "in county union; no exact county inferred"
+            counties=("Texas (exact county not asserted)" if a.statewide else ("; ".join(sorted({placeids[int(x)] for x in obs.get("place_ids",[]) if str(x).isdigit() and int(x) in placeids})) or "in county union; no exact county inferred"))
             pics=obs.get("photos") or [x.get("photo",{}) for x in (obs.get("observation_photos") or [])]
             for photo in pics:
                 if not photo.get("id"):continue
@@ -115,6 +116,7 @@ def main():
         page+=1;time.sleep(a.pause)
     else:raise RuntimeError("Pagination safety limit reached; no partial results saved")
     if not rows:raise RuntimeError("No photos returned; refused misleading empty catalog")
+    if a.statewide and len(obsids)<2000:raise RuntimeError("Texas catalog unexpectedly small; refusing partial inventory")
     rows.sort(key=lambda x:(x["scientific_name"].lower(),x["observation_id"],x["photo_id"]))
     grouped=collections.defaultdict(list)
     for row in rows:grouped[row["scientific_name"]].append(row)
@@ -131,7 +133,7 @@ def main():
     write_csv(out/"photo-candidates.csv",PHOTOS,rows)
     write_csv(out/"species-photo-summary.csv",SPECIES,summaries)
     report={"date_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"observer":USER,"profile":"https://www.inaturalist.org/people/joeysantore",
-      "region":"24 Central/West Texas project-rule counties","counties":COUNTIES,"county_place_ids":{str(k):v for k,v in placeids.items()},
+      "region":"Texas statewide" if a.statewide else "24 Central/West Texas project-rule counties","counties":["Texas"] if a.statewide else COUNTIES,"county_place_ids":{str(k):v for k,v in placeids.items()},
       "observations":len(obsids),"taxa":len(taxa),"taxa_with_photos":len(summaries),"photos":len(rows),
       "photos_credited_to_joey":sum(x["photographer_gate"]=="joey_credited_candidate" for x in rows),
       "photos_with_other_or_unclear_credit":sum(x["photographer_gate"]!="joey_credited_candidate" for x in rows),
