@@ -1,0 +1,65 @@
+name: Install Glass Root Garden Photo Batch 005
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - workflow/glass-root-inat/batch-005/approved-photo-install-batch-005.json
+      - .github/workflows/glass-root-inat-install-batch-005.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-approved-install
+  cancel-in-progress: false
+
+jobs:
+  install-review-approved:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install pillow
+      - name: Validate exact observation/photographer, download photos and strip EXIF
+        run: python3 scripts/glass_root_inat_install_batch005.py
+      - name: Verify every file, image record and rights attribution
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          from PIL import Image
+          j=json.loads(pathlib.Path("workflow/glass-root-inat/batch-005/approved-photo-install-batch-005.json").read_text())
+          for target in j["targets"]:
+              p=pathlib.Path(target["path"])
+              species=json.loads(p.read_text())
+              assert species["id"]==target["id"]
+              for photo in target["photos"]:
+                  candidates=[x for x in species["images"] if str(x.get("photo_id"))==str(photo["id"])]
+                  assert len(candidates)==1,(target["id"],photo["id"])
+                  x=candidates[0]
+                  f=p.parent/x["file"]
+                  assert f.exists() and f.stat().st_size>20000,str(f)
+                  with Image.open(f) as im:im.verify()
+                  assert x.get("creator")=="Glass Root Garden" and x.get("license")=="CC BY 4.0"
+                  assert x.get("source_page") and x.get("observation_url")
+                  print("VERIFIED",target["id"],photo["id"])
+          PY
+      - name: Commit only species content created by this installer
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/
+          if git diff --cached --quiet; then
+            echo "Idempotent no-op."
+            exit 0
+          fi
+          git commit -m "Install Glass Root Garden photo batch 005 in canonical learner"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
