@@ -874,3 +874,218 @@ button.taxonomy-rank{cursor:pointer}.taxonomy-rank:hover{border-color:#607963}.t
  .part-groups-grid>.part-gallery-group:last-child:not([open]){grid-column:auto}
 }
 @media(prefers-reduced-motion:reduce){.study-drawer-chevron,.home-more-families>summary b{transition:none}}
+
+
+/* Central Texas limestone + sage theme, 2026-10-14.
+   Companion to Glass Root Garden's forest/sage/cream style, not a clone.
+   Theme only: preserve full botanical lessons, photo captions, credits and data. */
+:root{
+  color-scheme:light;
+  --bg:#f6f3e9;
+  --panel:#fffdf8;
+  --panel2:#e9f0e6;
+  --panel3:#eef3ea;
+  --line:#d3dfd1;
+  --line-soft:#dfe7da;
+  --text:#26392d;
+  --muted:#566b5c;
+  --accent:#276647;
+  --accent-strong:#194d35;
+  --accent-bg:#dfecdf;
+  --shadow:0 10px 30px rgba(35,71,49,.08);
+  --card-paper:#fffefa;
+  --card-ink:#243d30;
+  --card-muted:#50685a;
+  --card-edge:#d5e1d3;
+  --card-mint:#e6f2e5;
+  --card-peach:#fff0d5;
+  --card-sky:#e6f1f0;
+  --card-lilac:#efebf4;
+  --card-shadow:0 5px 0 rgba(40,80,54,.035),0 13px 26px rgba(40,80,54,.09);
+  --study-mint:#e6f2e6;
+  --study-sun:#fff0cf;
+  --study-lilac:#f0eaf3;
+  --study-sky:#e7f3f2;
+}
+body{
+  color:var(--text);
+  background:
+    radial-gradient(ellipse 750px 520px at 93% -90px,rgba(137,176,139,.19),transparent 74%),
+    radial-gradient(ellipse 680px 430px at -13% 560px,rgba(159,191,184,.12),transparent 72%),
+    linear-gradient(180deg,#f8f6ee 0%,var(--bg) 420px,#f4f2e9 100%);
+  min-height:100vh;
+}
+.app-shell{color:var(--text)}
+.eyebrow{color:#357454}
+.section-intro,.home-hero>p,.page-intro>p{color:var(--muted)}
+.section-heading h2,.page-intro h1,.home-hero h1{color:#234b36}
+.section-block{scroll-margin-top:95px}
+.topbar{
+  --text:#f6faf3;
+  --muted:#c3d5c5;
+  --accent:#d5eebd;
+  --accent-strong:#fff8de;
+  --accent-bg:#355f48;
+  --panel:#315540;
+  --panel2:#365c46;
+  --panel3:#274634;
+  --line:#557763;
+  --line-soft:#40644e;
+  color:var(--text);
+  background:linear-gradient(115deg,#1b4130 0%,#28533e 67%,#2a5647 100%);
+  border-bottom:1px solid #315740;
+  box-shadow:0 5px 24px rgba(29,59,39,.13);
+}
+.topbar .brand-mark{background:#365f46;border-color:#6b9274;color:#f2e6b9}
+.topbar .brand strong{color:#fffdf5}
+.topbar .brand small{color:#d0ddca}
+.topbar .main-nav button,.topbar .difficulty button,.topbar .quiz-toggle{color:#e4eee1}
+.topbar .main-nav button.active,.topbar .difficulty button.active,.topbar .quiz-toggle.active{color:#fffdf2;background:#3e7554;border-color:#8cb498}
+.topbar .main-nav button:hover,.topbar .difficulty button:hover,.topbar .quiz-toggle:hover{background:#3b694f;color:#fffdf5}
+.topbar .difficulty,.topbar .quiz-toggle{border-color:#4d775d;background:#234633}
+.search-dock{
+  background:rgba(248,246,239,.97);
+  border-bottom:1px solid #e1e8db;
+  box-shadow:0 5px 18px rgba(29,66,41,.04);
+  backdrop-filter:blur(12px);
+}
+.search-wrap{box-shadow:0 5px 24px rgba(39,77,50,.055);border-radius:16px}
+#globalSearch{background:#fffefa;color:#263b30;border-color:#c8d8c9;box-shadow:0 2px 9px rgba(35,71,49,.06)}
+#globalSearch::placeholder{color:#718375}
+.search-icon{color:#537b61}
+.search-clear{color:#3b5d46}
+.search-results{background:#fffefa;border-color:#c6d8ca;box-shadow:0 18px 38px rgba(25,53,35,.15)}
+.search-species-result,.search-family-result,.search-genus-result{color:#274333}
+.search-species-result:hover,.search-family-result:hover,.search-genus-result:hover{background:#eaf3e8}
+.search-species-result em,.search-family-result em,.search-genus-result em{color:#556c5d}
+.search-species-result small{color:#657d6d}
+.search-family-result>b,.search-genus-result>b{background:#dcebdd;color:#245940}
+.search-empty{color:#657b6b}
+.home-hero{
+  max-width:100%;
+  padding:clamp(23px,4vw,48px);
+  border-radius:28px;
+  border:1px solid #d7e5d5;
+  background:
+    radial-gradient(circle at 91% 7%,rgba(203,168,85,.15),transparent 24%),
+    linear-gradient(121deg,#edf5e9 0%,#f9f5e8 63%,#e8f2f0 100%);
+  box-shadow:0 15px 32px rgba(38,78,52,.075);
+}
+.home-hero h1{max-width:850px}
+.home-hero .eyebrow{color:#33734f}
+.home-hero>p{max-width:800px}
+.difficulty-explainer{background:rgba(255,255,255,.65);border-left-color:#b7924a}
+.difficulty-explainer span,.difficulty-explainer strong{color:#2a6143}
+.primary-button{background:#285c43;color:#fffdf6;border-color:#285c43}
+.primary-button:hover{background:#367452;color:#fff}
+.secondary-button{background:#fffefa;border-color:#c6d7c8;color:#23563c}
+.secondary-button:hover{background:#e9f4e8}
+.text-button{color:#246b4a}
+.library-summary>div,.approval-summary>div{
+  background:#fffdf7;border-color:#d6e2d4;box-shadow:0 5px 16px rgba(37,70,45,.05)
+}
+.library-summary strong,.approval-summary strong{color:#286749}
+.method-strip{border-color:#d6e3d3;background:#d6e3d3}
+.method-strip>div{background:#fffdf7}
+.method-strip span{color:var(--muted)}
+.method-strip span strong{color:var(--text)}
+.method-strip b{background:#e4f0e1;color:#2c6547}
+.family-card,.species-tile,.similar-card,.glossary-card{
+  box-shadow:0 5px 20px rgba(37,71,48,.085)
+}
+.family-card:hover,.species-tile:hover,.similar-card:hover,.glossary-card:hover{
+  box-shadow:0 8px 26px rgba(37,71,48,.14)
+}
+.family-grid,.species-tile-grid{align-items:stretch}
+.home-more-families{background:#e9f2e5;border-color:#c8dac5}
+.home-more-families>.family-grid{background:#f6f3e9}
+.family-hero,.genus-hero{background:linear-gradient(125deg,#e9f2e5,#f8f3e4 62%,#e9f3ef);border-color:#d2dfce}
+.family-hero-copy,.genus-hero>div:first-child{background:#fffdf7}
+.family-hero .family-signature{color:var(--card-muted)}
+.study-drawer{box-shadow:0 6px 18px rgba(44,79,51,.08)}
+.study-drawer:nth-child(4n+1){background:#e7f3e5;border-color:#cadfc9}
+.study-drawer:nth-child(4n+2){background:#e5f0f0;border-color:#cfe2de}
+.study-drawer:nth-child(4n+3){background:#fff0d8;border-color:#efdbb8}
+.study-drawer:nth-child(4n+4){background:#eee9f2;border-color:#dfd7e7}
+.study-drawer>summary:hover{background:rgba(255,255,255,.32)}
+.study-drawer[open]>summary{border-bottom-color:#d0dfce}
+.study-drawer-body{background:#fffdfa;border-top:1px solid #e2eade;color:var(--text)}
+.study-drawer-icon{background:rgba(39,103,66,.12);color:#255c40}
+.plant-study{background:#e5eee5;border-color:#cadbcb;box-shadow:0 12px 30px rgba(41,74,47,.09)}
+.plant-study .identity-panel{background:#fffefa}
+.plant-focus .focus-photo{border-color:#becfbe;box-shadow:0 8px 26px rgba(27,51,33,.09)}
+.photo-topline span,.photo-topline b{color:#fffdf5}
+.focus-photo figcaption{background:#19241d;color:#e1e9dc}
+.focus-photo figcaption a{color:#cfebc9}
+.photo-thumbnail{background:#294435;color:#f2faf0;border-color:#58725b}
+.photo-thumbnail:hover{background:#365843}
+.photo-thumbnail.active{background:#355640;border-color:#9bc8a4}
+.photo-thumbnail span{color:#f2faf0}
+.family-photo-stack button span,.genus-photo-strip button span{color:#fffdf5}
+.family-visual-photo>span{color:#fff}
+.family-visual-copy p,.family-visual-comparisons span{color:var(--card-muted)}
+.family-visual-copy p b{color:var(--card-ink)}
+.family-visual-copy small{color:#327150}
+.family-visual-comparisons{background:#f0f5ee;color:var(--card-ink)}
+.family-visual-comparisons b{color:#326f4e}
+.part-gallery-group{box-shadow:0 5px 16px rgba(38,80,51,.09)}
+.part-gallery-group>summary{background:#e6f0e4}
+.part-gallery-genus>summary{background:#e5f0ef}
+.part-gallery-species>summary{background:#fff0d9}
+.botany-parts-hero{background:linear-gradient(119deg,#1d4834,#2d6650 75%,#317069)}
+.part-example-card{box-shadow:0 4px 13px rgba(33,72,43,.07)}
+.term-chip{background:#e9f2e8;color:#28573d;border-color:#cee0cd}
+.term-chip:hover{background:#dcecdf}
+.term-chip b{color:#28573d;background:#cce4cf}
+.taxonomy-rank,.taxonomy-picker,.global-compare-picker,.compare-workspace,.family-compare-panel,.compare-relationship{
+  background:#fffefa;border-color:#d2dfd0;color:#253e31
+}
+.taxonomy-rank.current{background:#e5f1e4;border-color:#9abca0}
+.taxonomy-rank span,.taxonomy-picker label span,.global-compare-picker label span{color:#346a4c}
+.cross-family-signatures>div{background:#edf3ee}
+.cross-family-signatures span{color:#4c6857}
+.compare-header{background:#e4efea;color:#254533}
+.compare-header>*,.compare-header b{color:#254533}
+.approval-card{background:#fffefa;border-color:#d6e1d4}
+.approval-notes{color:#465e4c}
+.approval-artifacts a{color:#2c6548}
+.approval-photo-block{background:#edf3ec}
+.approval-role-chips span,.approval-photo-candidate b{color:#2d5b42}
+.approval-role-label{color:#276a49}
+.approval-action.review{color:#775c1d}
+.approval-action.compare{color:#276077}
+.approval-action.exception{color:#805c1f}
+.approval-action.reject{color:#a13f3f}
+.approval-mode-banner.readonly{border-color:#ceb780}
+.approval-mode-banner.writable{border-color:#90ba99}
+.family-visual-photo{color:#fffdf5}
+.part-example-photo-button{color:#fffdf5}
+.modal-card{
+  --text:#eff7ef;
+  --muted:#c1cfc2;
+  --accent:#c6e4c7;
+  --accent-bg:#2a4833;
+  --panel:#223629;
+  --panel2:#314938;
+  --panel3:#263c2e;
+  --line:#4b6853;
+  --line-soft:#3e5945;
+  color:var(--text);
+  background:#1b2b21;
+}
+.modal-card .primary-button{color:#fffdf5}
+.modal-card .secondary-button{background:#263e30;color:#ecf7ed;border-color:#58715c}
+.modal-card .term-chip{color:#eff8e9;background:#294232;border-color:#5b7962}
+.modal-card .term-chip b{color:#ecf8e9;background:#416a4c}
+.modal-card .family-visual-photo>span{color:#fff}
+.modal-card .family-visual-comparisons{background:#233b2c;color:#eff7ef}
+.modal-card .family-visual-comparisons span{color:#d0ddcf}
+.modal-card .family-visual-comparisons b{color:#b7ddb9}
+.modal-card .family-visual-copy p,.modal-card .family-visual-copy p b{color:#3b5745}
+@media(max-width:760px){
+ .home-hero{border-radius:21px;padding:22px 17px}
+ .home-hero h1{font-size:clamp(1.85rem,7.4vw,2.65rem)}
+ .topbar .main-nav button{border-color:#4d755b;background:#28503a;color:#ecf4e9}
+ .topbar .main-nav button.active{background:#3d7654;border-color:#83a78b;color:#fff}
+ .study-drawer-body{padding:4px 12px 16px}
+}
