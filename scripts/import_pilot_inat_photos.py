@@ -54,8 +54,11 @@ for plant in json.loads(SOURCE.read_text(encoding="utf-8"))["records"]:
             item["observation_url"] = f"https://www.inaturalist.org/observations/{observation_id}"
             item["photo_url"] = f"https://www.inaturalist.org/photos/{photo_id}"
             item["observed_taxon"] = observed_name
+            owner = (obs.get("user") or {}).get("login", "").lower()
+            if lic not in ALLOWED_LICENSES and owner != "calvinking":
+                raise ValueError(f"third-party photo license not explicitly reusable: {lic or 'none'}")
             if lic not in ALLOWED_LICENSES:
-                raise ValueError(f"photo license not explicitly reusable: {lic or 'none'}")
+                item["rights_note"] = "User-owned observation candidate; rights not publicly verified, private study staging only"
             url = photo.get("url") or ""
             if not url.startswith("https://"):
                 raise ValueError("missing HTTPS photo URL")
