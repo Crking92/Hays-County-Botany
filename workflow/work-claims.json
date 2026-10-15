@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:15:58.715Z",
+  "updated_at": "2026-10-15T00:17:39.963Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -35,11 +35,13 @@
       ],
       "lane": "native-range-fast-fill",
       "owner": "manual-native-range-research-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-15T00:15:58.715Z",
       "expires_at": "2026-10-15T06:15:58.715Z",
       "release_when": "Verified GitHub scientific range research and ten exact Master Plant Pool overrides sync; release claim",
-      "notes": "Ten pool taxa without canonical species or queue records. POWO accepted taxa and non-North-American native ranges; strict range FAIL while preserving comparison study eligibility. Never change learner/installer/photo status."
+      "notes": "Ten pool taxa without canonical species or queue records. POWO accepted taxa and non-North-American native ranges; strict range FAIL while preserving comparison study eligibility. Never change learner/installer/photo status.",
+      "released_at": "2026-10-15T00:17:39.963Z",
+      "release_reason": "Research commit 1712190 verified 10 POWO FAIL decisions; 10 _Master Pool Overrides rows A/R and 10 formula-derived Master Pool R values read back. No learner cards touched."
     },
     {
       "claim_id": "native-range-kerr-evidence-20261014-003",
