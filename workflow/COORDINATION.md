@@ -2,6 +2,12 @@
 
 This file defines the shared anti-duplication protocol for all ChatGPT chats, automations, local tools, and manual project work.
 
+## 2026-10-14 priority shift: no new range fast-fill claims
+
+The user has paused exhaustive native-range status work in favor of a field-useful visual learner. **Do not initiate or renew native-range-fast-fill batches, claims, or repetitive pending-range spreadsheet sweeps.** Preserve the existing audits and release history; do not retroactively erase or force-approve scientific nativity results. Previously completed batches remain available for later review. Do not interfere with claims owned by active photo, installer, scientific-diagnostic, genus, or family lanes.
+
+All ongoing lanes should prioritize accepted identities, approved learner installations, real usable images, exact structural comparisons and diagnostic lessons. A taxon with a missing/FAIL/UNRESOLVED three-county result remains eligible if its accepted name and concept are sufficiently understood. Only verified invasive/introduced classifications warrant new conspicuous field-guide badges; nativity/county metadata can remain in GitHub.
+
 ## Authoritative state order
 
 Before selecting any new work, refresh from `main` and check these sources in order:
