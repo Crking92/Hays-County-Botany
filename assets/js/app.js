@@ -1104,19 +1104,42 @@ function familyExternalVisual(step){
 
 function familyVisualStepCard(step,index){
   const sp=step.anchor_species_id ? state.species.find(function(x){return x.id===step.anchor_species_id;}) : null;
-  let out='<article class="family-visual-step"><div class="family-study-stepnum">Look '+(index+1)+'</div>';
+  const external=Boolean(familyExternalImageUrl(step));
+  const imgs=sp?imagesFor(sp):[];
+  const selected=Number.isInteger(step.anchor_image_index)&&step.anchor_image_index>=0&&step.anchor_image_index<imgs.length?imgs[step.anchor_image_index]:imgs[0];
+  const photoCredit=external?(step.image_credit||""):[selected&&selected.creator,selected&&selected.license].filter(Boolean).join(" · ") || step.image_credit||"";
+  const role=step.photo_role||step.title||"Study structure";
+  const clue=String(step.look_for||"").trim();
+  const why=String(step.why_it_matters||"").trim();
+  const longer=clue.length>220;
+  const preview=longer?(clue.slice(0,200).replace(/\s+\S*$/,"").trim()||clue.slice(0,200))+"…":clue;
+  const whyLong=why.length>200;
+  const whyPreview=whyLong?(why.slice(0,185).replace(/\s+\S*$/,"").trim()||why.slice(0,185))+"…":why;
+  const source=step.source_page&&/^https?:\/\//i.test(step.source_page)?'<a href="'+esc(step.source_page)+'" target="_blank" rel="noopener noreferrer">Photo / lesson source ↗</a>':"";
+  let out='<article class="family-visual-step family-anatomy-lesson"><div class="family-study-stepnum">Look '+(index+1)+'</div>';
   if(sp){
     out+='<button class="family-visual-photo" type="button" data-species="'+esc(sp.id)+'">'+familyVisualThumb(sp,step,"family-visual-img")+
       '<span><b>'+esc(commonName(sp)||scientificName(sp))+'</b><i>'+esc(scientificName(sp))+'</i></span></button>';
-  }else if(familyExternalImageUrl(step)){
+  }else if(external){
     out+=familyExternalVisual(step);
   }else{
     out+='<div class="family-visual-photo family-visual-placeholder"><span>Diagram / photo lock pending</span></div>';
   }
-  out+='<div class="family-visual-copy"><div class="family-visual-step-title">'+esc(step.title||step.photo_role||"Look here")+'</div>';
-  if(step.photo_role) out+='<small>'+esc(step.photo_role)+'</small>';
-  if(step.look_for) out+='<p><b>Look for:</b> '+esc(step.look_for)+'</p>';
-  if(step.why_it_matters) out+='<details class="family-why-detail"><summary>Why this feature matters</summary><p>'+esc(step.why_it_matters)+'</p></details>';
+  out+='<div class="family-visual-copy"><div class="family-visual-step-title">'+esc(step.title||step.photo_role||"Look here")+'</div>'+
+    (step.photo_role?'<small>'+esc(step.photo_role)+'</small>':"")+
+    '<div class="family-anatomy-steps">'+
+      anatomyTeachingSentence("1 · Where to look",anatomyWhereToLook(role))+
+      anatomyTeachingSentence("2 · What to check",preview||"Check the original visual lesson for the intended structural character.")+
+      anatomyTeachingSentence("3 · Why it matters",whyPreview||"Confirm this character alongside another reliable family or genus trait.")+
+    '</div>';
+  if(longer||whyLong) out+='<details class="family-why-detail"><summary>Read the complete botanical explanation</summary>'+
+    (longer?'<p><b>Complete observation:</b> '+esc(clue)+'</p>':"")+
+    (whyLong?'<p><b>Complete reasoning:</b> '+esc(why)+'</p>':"")+'</details>';
+  out+='<div class="family-study-source"><b>'+esc(external?"External image reference":selected?"Gallery-linked example":"Photo still needed")+'</b>'+
+    (sp?'<span>Photographed plant: <i>'+esc(scientificName(sp))+'</i></span>':"")+
+    (photoCredit?'<small>'+esc(photoCredit)+'</small>':"")+
+    (source?'<span>'+source+'</span>':"")+
+    '<small>Unannotated imagery is an inspection reference, not verification that the named part is visible.</small></div>';
   if(step.status && /pending/i.test(step.status)) out+='<em class="visual-lock-status">Visual polish pending</em>';
   return out+'</div></article>';
 }
@@ -1398,12 +1421,13 @@ function botanyPartPhotoCard(item,level){
       '<img src="'+esc(photo.src)+'" loading="lazy" decoding="async" alt="'+esc(label+" — "+photoRole+" (unannotated study photo)")+'">'+
       '<span class="part-example-zoom-tag">Enlarge ↗</span></button>';
   }
-  const source=photo && photo.img ? photo.img.source_page : item.source;
+  const source=(photo && photo.img && photo.img.source_page)||item.source||"";
   const attribution=photo && photo.img ? [photo.img.creator||photo.img.credit,photo.img.license].filter(Boolean).join(" · ") : (item.credit||"");
   const photoName=photo&&photo.species ? scientificName(photo.species) : "";
   const sourceLink=source&&/^https?:\/\//i.test(source)?'<a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':"";
   const glossaryKey=item.term&&state.learning&&state.learning.terms&&state.learning.terms[item.term]?item.term:null;
-  const subjectLabel=photo&&photo.src ? (photo.img&&photo.img.file?"Installed gallery photo":"Reference image") : "Photo still needed";
+  const externallyHosted=Boolean(photo&&photo.img&&(photo.img.external_reference||/^https?:\/\//i.test(String(photo.img.file||""))||/external/i.test(String(photo.img.media_storage||""))));
+  const subjectLabel=photo&&photo.src ? (externallyHosted?"Externally hosted reference":photo.img&&photo.img.file?"Gallery-linked photo":"Photo reference") : "Photo still needed";
   const viewLabel=photoName ? "Photographed plant: "+photoName : "Photo subject not specified";
   const fullExtra=noteLong?'<p><b>Complete observation:</b> '+esc(note)+'</p>':"";
   const comparePrompt=anatomyNextCheck(level);
