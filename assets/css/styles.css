@@ -1636,3 +1636,31 @@ body{
  .diagnostic-visual-copy{padding:13px}
  .diagnostic-guided-copy .anatomy-teach-step{padding:10px}
 }
+
+
+/* Species image priority — diagnostic photo first with honest structure clues. */
+.gallery-study-intro{
+  display:flex;align-items:center;justify-content:space-between;gap:8px 14px;flex-wrap:wrap;
+  padding:11px 14px;margin:0 0 9px;border-radius:15px;border:1px solid #cadfcf;
+  background:#eef6ec;color:#285540;font-size:.8rem;line-height:1.4;
+}
+.gallery-study-intro>b{font-size:.73rem;letter-spacing:.065em;text-transform:uppercase;color:#236447}
+.gallery-study-intro>span{flex:1 1 200px;color:#4a6251}
+.focus-photo figcaption.gallery-photo-caption{
+  display:flex;flex-direction:column;align-items:flex-start;gap:7px;
+  padding:14px 16px;background:#1d3024;color:#e4f1e7;
+  font-size:.79rem;line-height:1.55;overflow-wrap:break-word;
+}
+.gallery-photo-caption>strong{display:inline;color:#d7edbe;font-weight:900}
+.gallery-photo-caption>small{
+  display:block;color:#cedccf;line-height:1.45;font-style:italic;
+}
+.gallery-photo-caption>span{color:#dce9dd;font-size:.73rem;line-height:1.4}
+.gallery-photo-caption>a{color:#d9efcf!important;font-size:.8rem;font-weight:800}
+.photo-thumbnail>span{overflow-wrap:break-word;word-break:normal}
+@media(max-width:760px){
+ .gallery-study-intro{padding:11px 12px;gap:5px}
+ .gallery-study-intro>b{font-size:.7rem}
+ .gallery-study-intro>span{flex:1 1 100%;font-size:.77rem}
+ .focus-photo figcaption.gallery-photo-caption{padding:12px;gap:6px;font-size:.77rem}
+}
