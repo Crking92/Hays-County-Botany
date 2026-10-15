@@ -75,9 +75,18 @@ def select_taxa(limit, max_local, requested):
     coverage = load("reports/photo-coverage-latest.json")
     canonical = {s["id"] for s in load("data/manifest.json")["species"]}
     busy = busy_ids()
-    holds = set()
-    for item in coverage.get("unresolved_taxon_source_concept_holds", []):
-        holds.add(item if isinstance(item, str) else item.get("id", ""))
+    # The numeric unresolved_taxon_source_concept_holds report field is a COUNT.
+    # Actual held taxon IDs are listed in zero_gallery_items.
+    holds = {
+        entry.get("id", "")
+        for entry in coverage.get("zero_gallery_items", [])
+        if isinstance(entry, dict) and (
+            "HOLD" in str(entry.get("status", "")).upper()
+            or "HOLD" in str(entry.get("reason", "")).upper()
+        )
+    }
+    # Explicit source-concept guardrail must survive report reshaping.
+    holds.add("muhlenbergia-piniflora")
     out = []
     for item in coverage["zero_one_two_photo_species"]:
         sid = item["id"]
