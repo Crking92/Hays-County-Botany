@@ -1620,3 +1620,19 @@ body{
   .anatomy-lesson-card .part-example-media{height:220px}
   .anatomy-lesson-card .part-example-content{padding:11px}
 }
+
+
+/* Deeper look-alike photo comparisons share the same three-stage field lesson. */
+.diagnostic-visual-card{background:#fffefa;color:#284333;border-color:#d3e2d6}
+.diagnostic-visual-copy{display:flex;flex-direction:column;gap:11px;min-width:0;background:#fffefa;color:#284333}
+.diagnostic-visual-copy h3{margin:0;color:#244e38;overflow-wrap:break-word;word-break:normal}
+.diagnostic-guided-copy{margin-top:1px;gap:8px}
+.diagnostic-guided-copy .anatomy-teach-step{padding:10px 12px}
+.diagnostic-visual-copy .anatomy-next-step p{color:#425e49}
+.diagnostic-visual-copy .diagnostic-photo-credit{font-size:.74rem;color:#536b59}
+.diagnostic-visual-copy .diagnostic-photo-credit a{color:#226a48}
+@media(max-width:760px){
+ .diagnostic-visual-card{min-width:0}
+ .diagnostic-visual-copy{padding:13px}
+ .diagnostic-guided-copy .anatomy-teach-step{padding:10px}
+}
