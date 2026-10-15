@@ -1,5 +1,10 @@
 # Photo-source update and manual diagnostic-batch boundary — 2026-10-15
 
+## Addendum: user-approved mass photo library (later 2026-10-15 decision)
+
+**Read `workflow/photo-library/README.md` first.** Bulk *harvesting* of candidate photos from public GBIF, Pl@ntNet via GBIF, Joey and Glass Root Garden may now run in successive manual 30–60 species batches, with durable source metadata and separately archived private JPEGs. This harvest is not bulk *installation* and does not reserve every harvested species against the current workers. All five scheduled automation prompts and schedules remain unchanged; their regular photo-relevant work must check the library first, then verify exact taxonomy, image-level license and real anatomy independently before modifying canonical cards. Older instructions below about manual 12–15 species **diagnostic installation/enrichment** still apply to installation work, not to the new collection lane.
+
+
 **User instruction:** Make all five existing botany automations aware of Joey Santore's new Texas-wide photo catalog **and** the user's own iNaturalist / Glass Root Garden photo sources. **Keep all five existing automations enabled, scheduled and working in their current lanes.** Do not create, pause, repurpose, or reschedule automations. The user will conduct **new coordinated multi-species diagnostic-photo enrichment batches manually in this ChatGPT conversation**.
 
 Read this file with `PROJECT_RULES.md`, `workflow/COORDINATION.md`, `workflow/VISUAL_PHOTO_LESSON_STANDARD.md`, `workflow/work-claims.json`, `data/manifest.json`, and latest `reports/photo-coverage-latest.json`.
