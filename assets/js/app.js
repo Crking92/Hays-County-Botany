@@ -1497,7 +1497,7 @@ function botanyPartExamples(sp,genusData){
   const genusButton='<button class="part-gallery-open" type="button" data-genus="'+esc(sp.genus)+'" data-genus-family="'+esc(sp.family)+'">Explore full '+esc(sp.genus)+' genus lesson →</button>';
   const familyProfileData=familyProfile(sp.family)||{};
   const familyCue=familyProfileData.look_here_first||family.family_diagnostics?.where_to_look_first||familyProfileData.plain_signature||"Look for reliable structures shared across members of this family.";
-  const genusCue=genusData?.look_here_first||genusData?.study_strategy?.look_here_first||"Look at the structures shared by close relatives before deciding on a species.";
+  const genusCue=genusData?.look_here_first||genusData?.shared_genus_recognition?.look_here_first||genusData?.study_strategy?.look_here_first||genusData?.study_strategy?.priority?.[0]||"Look at the structures shared by close relatives before deciding on a species.";
   const speciesCue=lookHereFirst(sp);
   return '<section id="partsSection" class="section-block botany-parts-section" aria-labelledby="botanyPartsTitle">'+
     '<div class="botany-parts-hero"><div class="eyebrow">Next step · Learn by looking</div>'+
