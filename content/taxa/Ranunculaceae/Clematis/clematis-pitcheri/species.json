@@ -15,17 +15,43 @@
   "look_here_first": "Look for the nodding leathery urn: dull blue-purple to reddish-purple sepals stay connivent for most of their length, then develop narrow expanded, often crisped/recurved tips.",
   "county_occurrences_target_zone": [
     "Travis",
-    "Uvalde"
+    "Uvalde",
+    "Kerr"
   ],
-  "target_zone_count": 2,
-  "native_target_zone_calculated": false,
+  "target_zone_count": 3,
+  "native_target_zone_calculated": true,
   "project_inclusion": {
-    "target_zone_status": "UNRESOLVED",
-    "range_basis": "Travis — UT PRC herbarium var. pitcheri; Williamson — UT PRC county treatment; Uvalde — Harvard specimen from Nueces River west of Uvalde. [2026-10-13 range audit correction: Williamson County is NOT in the 24-county project target zone and must not count toward the >=3 county PASS rule; verified target-zone counties here currently Travis, Uvalde (2). No third eligible county checked/confirmed in this pass.]",
-    "native_metric_excluded_pending_evidence": true,
-    "county_threshold_count_verified": 2,
+    "target_zone_status": "PASS",
+    "range_basis": "Travis — prior UT PRC herbarium voucher under Clematis pitcheri var. pitcheri; Uvalde — prior Harvard wild specimen from Nueces River; Kerr — Singhurst et al. (2010), Flora of Kerr Wildlife Management Area, vouchers JS 10559, JS 10823, LS 3861, p.518. These three counties meet the strict 24-county project threshold; old Williamson record is out-of-zone.",
+    "native_metric_excluded_pending_evidence": false,
+    "county_threshold_count_verified": 3,
     "county_threshold_required": 3,
-    "range_audit_note": "Prior PASS incorrectly treated Williamson as a target-zone county. Retain learner admission and actual Williamson observation as external-zone context, but demote PASS pending third approved-zone county evidence."
+    "range_audit_note": "Prior PASS incorrectly treated Williamson as a target-zone county. Retain learner admission and actual Williamson observation as external-zone context, but demote PASS pending third approved-zone county evidence.",
+    "native_range_reconciliation": {
+      "reviewed_at": "2026-10-14",
+      "decision": "PASS",
+      "confidence": "high",
+      "accepted_name": "Clematis pitcheri Torr. & A.Gray",
+      "verified_target_counties": [
+        "Travis",
+        "Uvalde",
+        "Kerr"
+      ],
+      "historical_out_of_zone_counties": [
+        "Williamson"
+      ],
+      "source_links": [
+        {
+          "url": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+          "role": "Kerr WMA natural flora vouchers JS 10559, JS 10823, LS 3861"
+        },
+        {
+          "url": "https://powo.science.kew.org/taxon/60399-2",
+          "role": "Accepted species and Texas nativity"
+        }
+      ],
+      "note": "Prior 2026-10-13 boundary correction downgraded an unsupported 3-county PASS. New independent Kerr specimen evidence fills the third target county. Species-level determination preserved; no infraspecific assignment."
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
