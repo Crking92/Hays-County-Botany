@@ -24,9 +24,17 @@ python scripts/bulk_open_photo_harvest.py --source gbif --limit 30 --per-species
 
 The default output directory is `workflow/open-photo-candidates/manual-latest`.
 
+## Public Pl@ntNet photos through GBIF (recommended)
+
+**This route worked in an actual GitHub Actions run on 2026-10-15**, without a Pl@ntNet API key. Choose `source: plantnet-gbif` in the manual workflow (or `--source plantnet-gbif` in Python). It searches the Pl@ntNet community-validated **observations with photographs** dataset on GBIF: https://www.gbif.org/dataset/7a3679ef-5582-4aaa-81f0-8c2545cafc81, DOI 10.15468/gtebaa. It does **not** use the separate automated-identification-only dataset, which lacks photos.
+
+Initial 30-species test: 26 licensed, downloaded Pl@ntNet photographs spanning 10 sparse-gallery species; individual media records were CC BY-SA, creator names retained. Photographs must be credited **Creator / Pl@ntNet, CC BY-SA** and remain subject to independent taxonomic and diagnostic-image review before installation.
+
+Choose `source: both` for GBIF general + public Pl@ntNet GBIF + direct Pl@ntNet DWC *when accessible*. The public sources work even when a direct Pl@ntNet key lacks DWC access.
+
 ## Optional Pl@ntNet enrichment
 
-The Pl@ntNet `/v2/dwc/occurrence/search` API can search exact scientific names and research-validated observations, with image organ metadata. It needs a developer API key. Store it as a GitHub Actions repository secret named `PLANTNET_API_KEY` or as a **local** environment variable, never in the code or public workflow input. Then select `source: plantnet` or `source: both`.
+The Pl@ntNet `/v2/dwc/occurrence/search` API can search exact scientific names and research-validated observations, with image organ metadata. It needs a developer API key **with DWC route access**; a working key for other API endpoints does not guarantee permission to use DWC. In the October 15 live test, the saved key accessed `/v2/projects` (HTTP 200) but the basic DWC request returned HTTP 403. Store it as a GitHub Actions repository secret named `PLANTNET_API_KEY` or as a **local** environment variable, never in the code or public workflow input. Then select `source: plantnet` or `source: both`.
 
 The Pl@ntNet taxonomy `/species?images=true` image option requires Pro; this tool uses the observation endpoint and does not bypass account or quota restrictions. Verify plan access before relying on it at scale.
 
@@ -54,4 +62,4 @@ The Pl@ntNet taxonomy `/species?images=true` image option requires Pro; this too
 
 A newly harvested candidate never counts as an installed photograph. `summary.json` explicitly reports canonical cards modified = 0.
 
-The new action is **manual-only**; do not schedule it or trigger bulk runs from any existing automation.
+The new action is **manual-only**; do not schedule it or trigger bulk runs from any existing automation. The two temporary one-time test workflows were removed after successful retrieval. See `reports/bulk-open-photo-gbif-plantnet-test-20261015.md` for exact test results, and use the original **Bulk Open Photo Candidate Harvest** workflow for future batches.
