@@ -11,7 +11,7 @@ Teach field identification by showing **where to look first**, which structures 
 ## Current roles
 
 - **GitHub** — persistent project home
-- **ChatGPT/OpenAI** — range verification, morphology, look-alikes, image curation, species packages, code/QC
+- **ChatGPT/OpenAI** — morphology, look-alikes, image curation, species packages, code/QC (county-native-range fast-fill paused Oct 14, 2026)
 - **Google AI** — terminology, definitions and text-heavy comparison wording
 - **Master tracker** — coordination source
 
@@ -47,7 +47,7 @@ The learner now includes an **Approvals** tab.
 - When the project is opened with `RUN_LOCAL_SERVER.bat`, the same page can write decisions safely through the local Python server.
 - Decisions update `research-queue.json` only after an optimistic revision check, so a stale page cannot silently overwrite newer curation work.
 - Every local decision is appended to `workflow/approval-audit.jsonl`.
-- Normal approval is blocked for `FAIL` and `UNRESOLVED` range records. Those require a comparison decision, additional review, rejection, or an explicit unresolved exception.
+- Normal learner admission is independent of native-range PASS/FAIL/UNRESOLVED; accepted-name/duplicate-concept mapping remains the species-card safeguard. Confirmed invasive/introduced labels are encounter aids, while county-range research remains archived for later.
 - Git commits are optional with `HAYS_BOTANY_APPROVAL_AUTO_COMMIT=1`.
 - A local tracker-sync command can optionally be supplied through `HAYS_BOTANY_APPROVAL_SYNC_COMMAND`; otherwise the established ChatGPT/Google-Sheet synchronization workflow remains unchanged.
 
