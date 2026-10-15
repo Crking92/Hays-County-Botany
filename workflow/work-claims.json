@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T02:15:00Z",
+  "updated_at": "2026-10-15T02:26:11.097Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9168,6 +9168,18 @@
       "notes": "User screenshot shows collapsed words in Family/Genus/Species part tiles. Repair mobile structure first, then clear ID-first guided flow. No canonical species data edits.",
       "released_at": "2026-10-15T02:15:00Z",
       "release_reason": "UI-only PR #21 merged to main as 57dbcc967dd07c5fb39e72d3a0b5cd1623c47a9c; checked JS parsing, CSS structure and lesson rendering. No canonical science or photo files touched."
+    },
+    {
+      "claim_id": "website-deep-lesson-cards-20261014",
+      "scope_kind": "website_ui",
+      "scope_key": "assets/js/app.js; assets/css/styles.css — family/genus/part-card deep study presentation",
+      "lane": "website-ui",
+      "owner": "manual-design-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T02:26:11.097Z",
+      "expires_at": "2026-10-15T08:26:11.097Z",
+      "release_when": "Safe PR merged and verified; only interface files modified",
+      "notes": "Follow-on visual learner work: deeper family/genus study cards, source-backed LOOK HERE FIRST, progressive anatomy photo studies, content preservation; do not modify canonicals/automation."
     }
   ]
 }
