@@ -73,10 +73,11 @@ def busy_ids():
     return claimed
 
 
-def select_taxa(limit, max_local, requested):
+def select_taxa(limit, max_local, requested, exclude=None):
     coverage = load("reports/photo-coverage-latest.json")
     canonical = {s["id"] for s in load("data/manifest.json")["species"]}
     busy = busy_ids()
+    exclude = exclude or set()
     # The numeric unresolved_taxon_source_concept_holds report field is a COUNT.
     # Actual held taxon IDs are listed in zero_gallery_items.
     holds = {
@@ -93,7 +94,7 @@ def select_taxa(limit, max_local, requested):
     for item in coverage["zero_one_two_photo_species"]:
         sid = item["id"]
         files = int(item.get("installed_local_files", 0))
-        if (sid not in canonical or sid in busy or sid in holds or files > max_local
+        if (sid not in canonical or sid in busy or sid in holds or sid in exclude or files > max_local
                 or (requested and sid not in requested)):
             continue
         name = item.get("scientific_name") or ""
@@ -103,6 +104,22 @@ def select_taxa(limit, max_local, requested):
                     "gallery": int(item.get("gallery_records", 0))})
     out.sort(key=lambda x: (x["files"], x["gallery"], x["id"]))
     return out[:limit], len(out), coverage.get("generated_at_utc")
+
+
+def library_scanned_ids():
+    scanned = set()
+    batches = ROOT / "workflow/photo-library/batches"
+    for record in batches.glob("*/selected-species.json"):
+        try:
+            payload = json.loads(record.read_text(encoding="utf-8"))
+            for entry in payload.get("species", []):
+                if isinstance(entry, str):
+                    scanned.add(entry)
+                elif isinstance(entry, dict) and entry.get("id"):
+                    scanned.add(entry["id"])
+        except (ValueError, OSError):
+            continue
+    return scanned
 
 
 def get_json(endpoint, params):
@@ -251,13 +268,14 @@ def csv_safe(value):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--source", choices=("gbif", "plantnet-gbif", "plantnet", "both"), default="gbif")
+    ap.add_argument("--source", choices=("gbif", "plantnet-gbif", "plantnet", "both", "public"), default="gbif")
     ap.add_argument("--limit", type=int, default=30)
     ap.add_argument("--per-species", type=int, default=3)
     ap.add_argument("--max-local", type=int, choices=(0, 1, 2), default=2)
     ap.add_argument("--species", default="", help="comma-separated canonical species IDs")
     ap.add_argument("--out", default="workflow/open-photo-candidates/manual-latest")
     ap.add_argument("--download", action="store_true")
+    ap.add_argument("--skip-library-scanned", action="store_true", help="Avoid species already scanned in permanent photo-library batches")
     args = ap.parse_args()
     if not (1 <= args.limit <= 60 and 1 <= args.per_species <= 8):
         ap.error("limit must be 1-60; per-species must be 1-8")
@@ -265,7 +283,8 @@ def main():
     if args.source == "plantnet" and not key:
         ap.error("PLANTNET_API_KEY required for the Pl@ntNet source")
     desired = {s.strip() for s in args.species.split(",") if s.strip()}
-    items, eligible, snapshot = select_taxa(args.limit, args.max_local, desired)
+    items, eligible, snapshot = select_taxa(args.limit, args.max_local, desired,
+                                           library_scanned_ids() if args.skip_library_scanned else set())
     out = pathlib.Path(args.out)
     out = out if out.is_absolute() else ROOT / out
     out.mkdir(parents=True, exist_ok=True)
@@ -297,6 +316,7 @@ def main():
     for n, item in enumerate(items, 1):
         found = []
         for source in (("GBIF", "Pl@ntNet via GBIF", "Pl@ntNet") if args.source == "both" else
+                       ("GBIF", "Pl@ntNet via GBIF") if args.source == "public" else
                        ("GBIF",) if args.source == "gbif" else
                        ("Pl@ntNet via GBIF",) if args.source == "plantnet-gbif" else
                        ("Pl@ntNet",)):
@@ -325,6 +345,12 @@ def main():
         writer = csv.DictWriter(file, fieldnames=COLUMNS)
         writer.writeheader()
         writer.writerows({col: csv_safe(r.get(col, "")) for col in COLUMNS} for r in rows)
+    (out / "selected-species.json").write_text(json.dumps({
+        "coverage_snapshot": snapshot,
+        "species": [{"id": x["id"], "scientific_name": x["name"],
+                     "local_files_at_scan": x["files"], "gallery_records_at_scan": x["gallery"]}
+                    for x in items]
+    }, indent=2) + "\n", encoding="utf-8")
     summary = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                "coverage_snapshot": snapshot, "source": args.source,
                "plantnet_access": plantnet_access,
