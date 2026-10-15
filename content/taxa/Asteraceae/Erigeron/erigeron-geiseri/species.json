@@ -25,7 +25,30 @@
     "target_zone_status": "UNRESOLVED",
     "include_in_native_only_metrics": false
   },
-  "images": [],
+  "images": [
+    {
+      "file": "images/gbif-first-1455970091-2c65627b99.jpg",
+      "role": "Provisional exact source determination first-recognition photo; diagnostic details not checked",
+      "creator": "Conveyor Belt",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_platform": "GBIF mediated record; credit original dataset, specimen and creator",
+      "source_page": "https://www.gbif.org/occurrence/1455970091",
+      "gbif_occurrence_id": "1455970091",
+      "source_determination": "Erigeron geiseri Shinners",
+      "accepted_target": "Erigeron geiseri",
+      "media_source_url": "https://collections.nmnh.si.edu/media/?i=11518731&h=2000",
+      "source_dataset_key": "821cc27a-e3bb-4bc5-ac34-89ada245069d",
+      "image_dimensions": [
+        1031,
+        1350
+      ],
+      "study_use": "Yes; rights-specific conditions on original image",
+      "public_reuse": "Respect photo license; CC BY-NC images are noncommercial only",
+      "photo_review": "Source-reported taxon and image license verified; morphological identification and teaching view need independent visual review",
+      "modifications": "Resized JPEG and EXIF removed"
+    }
+  ],
   "diagnostic_image_needs": [
     "Root crown",
     "Lower and upper stem hairs",
@@ -34,7 +57,10 @@
   ],
   "curation_status": {
     "provisional": true,
-    "photo_backfill_needed": true
+    "photo_backfill_needed": true,
+    "photo_metadata_count": 1,
+    "photo_files_present": 1,
+    "gbif_first_photo_install": "2026-10-15"
   },
   "media_photo_handoff": {
     "status": "missing_physical_image",
@@ -52,5 +78,15 @@
     "rights_status": "no verified reusable source",
     "installation_status": "missing",
     "note": "Media-only diagnostic handoff; preserve images[] and scientific fields."
-  }
+  },
+  "learner_visual_status": {
+    "status": "provisional_learner_ready",
+    "mode": "learner_fast_fill",
+    "image_count": 1,
+    "note": "Specimen/observation source first photo installed provisionally with an individually verified license. Botanical diagnostic morphology pending.",
+    "missing_diagnostic_views": [
+      "Confirm diagnostic vegetative and reproductive characters"
+    ]
+  },
+  "photo_note": "Exact source determination GBIF-linked image provisionally installed with image-level license; visual ID requires review."
 }
