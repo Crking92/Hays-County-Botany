@@ -1,0 +1,1355 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-15",
+  "lane": "approved-taxa-installer-preflight",
+  "source_workload_ledger": "research-drafts/reconciliation/phase3-consolidated-card-workload-2026-10-15.json",
+  "purpose": "Reusable mass queue of clean accepted-name concepts after Phase-3 reconciliation. These are taxonomy-cleared candidates, not installed cards. Each worker still performs live collision and media checks.",
+  "counts": {
+    "eligible_direct_candidates_after_live_claim_inbox_filter": 140,
+    "queued_now": 100,
+    "batches": 10,
+    "batch_size": 10
+  },
+  "batches": [
+    {
+      "batch_id": "installer-preflight-mass-01",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Acer palmatum",
+          "slug": "acer-palmatum",
+          "source_rows": [
+            12
+          ],
+          "source_names": [
+            "Acer palmatum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Aphanostephus riddellii",
+          "slug": "aphanostephus-riddellii",
+          "source_rows": [
+            78
+          ],
+          "source_names": [
+            "Aphanostephus riddellii"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Berlandiera lyrata",
+          "slug": "berlandiera-lyrata",
+          "source_rows": [
+            132
+          ],
+          "source_names": [
+            "Berlandiera lyrata"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Boltonia diffusa",
+          "slug": "boltonia-diffusa",
+          "source_rows": [
+            142
+          ],
+          "source_names": [
+            "Boltonia diffusa"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Buchnera americana",
+          "slug": "buchnera-americana",
+          "source_rows": [
+            166
+          ],
+          "source_names": [
+            "Buchnera americana"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Buglossoides arvensis",
+          "slug": "buglossoides-arvensis",
+          "source_rows": [
+            169
+          ],
+          "source_names": [
+            "Buglossoides arvensis"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Camphora officinarum",
+          "slug": "camphora-officinarum",
+          "source_rows": [
+            181
+          ],
+          "source_names": [
+            "Camphora officinarum"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Centaurea cyanus",
+          "slug": "centaurea-cyanus",
+          "source_rows": [
+            219
+          ],
+          "source_names": [
+            "Centaurea cyanus"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Centaurea melitensis",
+          "slug": "centaurea-melitensis",
+          "source_rows": [
+            220
+          ],
+          "source_names": [
+            "Centaurea melitensis"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Ceratostigma plumbaginoides",
+          "slug": "ceratostigma-plumbaginoides",
+          "source_rows": [
+            229
+          ],
+          "source_names": [
+            "Ceratostigma plumbaginoides"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-02",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Chloracantha spinosa",
+          "slug": "chloracantha-spinosa",
+          "source_rows": [
+            255
+          ],
+          "source_names": [
+            "Chloracantha spinosa"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Chloris × subdolichostachya",
+          "slug": "chloris-x-subdolichostachya",
+          "source_rows": [
+            256
+          ],
+          "source_names": [
+            "Chloris ×subdolichostachya"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Chondrilla juncea",
+          "slug": "chondrilla-juncea",
+          "source_rows": [
+            261
+          ],
+          "source_names": [
+            "Chondrilla juncea"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Corallorhiza wisteriana",
+          "slug": "corallorhiza-wisteriana",
+          "source_rows": [
+            293
+          ],
+          "source_names": [
+            "Corallorhiza wisteriana"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Cordia boissieri",
+          "slug": "cordia-boissieri",
+          "source_rows": [
+            294
+          ],
+          "source_names": [
+            "Cordia boissieri"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Cornus drummondii",
+          "slug": "cornus-drummondii",
+          "source_rows": [
+            299
+          ],
+          "source_names": [
+            "Cornus drummondii"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Coryphantha echinus",
+          "slug": "coryphantha-echinus",
+          "source_rows": [
+            303
+          ],
+          "source_names": [
+            "Coryphantha echinus"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Coryphantha sulcata",
+          "slug": "coryphantha-sulcata",
+          "source_rows": [
+            305
+          ],
+          "source_names": [
+            "Coryphantha sulcata"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Cotinus obovatus",
+          "slug": "cotinus-obovatus",
+          "source_rows": [
+            306
+          ],
+          "source_names": [
+            "Cotinus obovatus"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Crataegus viridis",
+          "slug": "crataegus-viridis",
+          "source_rows": [
+            307
+          ],
+          "source_names": [
+            "Crataegus viridis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-03",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Cryptantha texana",
+          "slug": "cryptantha-texana",
+          "source_rows": [
+            314
+          ],
+          "source_names": [
+            "Cryptantha texana"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Cyclospermum leptophyllum",
+          "slug": "cyclospermum-leptophyllum",
+          "source_rows": [
+            323
+          ],
+          "source_names": [
+            "Cyclospermum leptophyllum"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Cylindropuntia imbricata",
+          "slug": "cylindropuntia-imbricata",
+          "source_rows": [
+            324
+          ],
+          "source_names": [
+            "Cylindropuntia imbricata"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Cynoglossum officinale",
+          "slug": "cynoglossum-officinale",
+          "source_rows": [
+            330
+          ],
+          "source_names": [
+            "Cynoglossum officinale"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Desmodium paniculatum",
+          "slug": "desmodium-paniculatum",
+          "source_rows": [
+            366
+          ],
+          "source_names": [
+            "Desmodium paniculatum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Desmodium psilophyllum",
+          "slug": "desmodium-psilophyllum",
+          "source_rows": [
+            367
+          ],
+          "source_names": [
+            "Desmodium psilophyllum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Desmodium sessilifolium",
+          "slug": "desmodium-sessilifolium",
+          "source_rows": [
+            368
+          ],
+          "source_names": [
+            "Desmodium sessilifolium"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Diplotaxis muralis",
+          "slug": "diplotaxis-muralis",
+          "source_rows": [
+            386
+          ],
+          "source_names": [
+            "Diplotaxis muralis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Elaeagnus angustifolia",
+          "slug": "elaeagnus-angustifolia",
+          "source_rows": [
+            408
+          ],
+          "source_names": [
+            "Elaeagnus angustifolia"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Eleocharis atropurpurea",
+          "slug": "eleocharis-atropurpurea",
+          "source_rows": [
+            409
+          ],
+          "source_names": [
+            "Eleocharis atropurpurea"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-04",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Eleocharis geniculata",
+          "slug": "eleocharis-geniculata",
+          "source_rows": [
+            410
+          ],
+          "source_names": [
+            "Eleocharis geniculata"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Eleocharis montevidensis",
+          "slug": "eleocharis-montevidensis",
+          "source_rows": [
+            411
+          ],
+          "source_names": [
+            "Eleocharis montevidensis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Eleocharis palustris",
+          "slug": "eleocharis-palustris",
+          "source_rows": [
+            412
+          ],
+          "source_names": [
+            "Eleocharis palustris"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": "Eleocharis palustris source observation still needs specimen-level ID confidence; accepted name itself is valid."
+        },
+        {
+          "name": "Eleocharis rostellata",
+          "slug": "eleocharis-rostellata",
+          "source_rows": [
+            413
+          ],
+          "source_names": [
+            "Eleocharis rostellata"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Feijoa sellowiana",
+          "slug": "feijoa-sellowiana",
+          "source_rows": [
+            472
+          ],
+          "source_names": [
+            "Feijoa sellowiana"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Firmiana simplex",
+          "slug": "firmiana-simplex",
+          "source_rows": [
+            476
+          ],
+          "source_names": [
+            "Firmiana simplex"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Galium texense",
+          "slug": "galium-texense",
+          "source_rows": [
+            498
+          ],
+          "source_names": [
+            "Galium texense"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Galium virgatum",
+          "slug": "galium-virgatum",
+          "source_rows": [
+            499
+          ],
+          "source_names": [
+            "Galium virgatum"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Geum canadense",
+          "slug": "geum-canadense",
+          "source_rows": [
+            508
+          ],
+          "source_names": [
+            "Geum canadense"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Ginkgo biloba",
+          "slug": "ginkgo-biloba",
+          "source_rows": [
+            511
+          ],
+          "source_names": [
+            "Ginkgo biloba"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-05",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Hymenopappus scabiosaeus var. corymbosus",
+          "slug": "hymenopappus-scabiosaeus-var-corymbosus",
+          "source_rows": [
+            569
+          ],
+          "source_names": [
+            "Hymenopappus scabiosaeus var. corymbosus"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Koelreuteria paniculata",
+          "slug": "koelreuteria-paniculata",
+          "source_rows": [
+            606
+          ],
+          "source_names": [
+            "Koelreuteria paniculata"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Kummerowia striata",
+          "slug": "kummerowia-striata",
+          "source_rows": [
+            611
+          ],
+          "source_names": [
+            "Kummerowia striata"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Lactuca serriola",
+          "slug": "lactuca-serriola",
+          "source_rows": [
+            613
+          ],
+          "source_names": [
+            "Lactuca serriola"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Lamium amplexicaule",
+          "slug": "lamium-amplexicaule",
+          "source_rows": [
+            614
+          ],
+          "source_names": [
+            "Lamium amplexicaule"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Lantana camara",
+          "slug": "lantana-camara",
+          "source_rows": [
+            615
+          ],
+          "source_names": [
+            "Lantana camara"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": "Accepted species, but cultivated/hybrid Lantana material can be difficult to assign from appearance alone; source photo identity remains separate from name validity."
+        },
+        {
+          "name": "Lantana × strigocamara",
+          "slug": "lantana-x-strigocamara",
+          "source_rows": [
+            616
+          ],
+          "source_names": [
+            "Lantana strigocamara"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Lupinus texensis",
+          "slug": "lupinus-texensis",
+          "source_rows": [
+            667
+          ],
+          "source_names": [
+            "Lupinus texensis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Lygodium japonicum",
+          "slug": "lygodium-japonicum",
+          "source_rows": [
+            670
+          ],
+          "source_names": [
+            "Lygodium japonicum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Lysimachia arvensis",
+          "slug": "lysimachia-arvensis",
+          "source_rows": [
+            671
+          ],
+          "source_names": [
+            "Lysimachia arvensis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-06",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Malva parviflora",
+          "slug": "malva-parviflora",
+          "source_rows": [
+            680
+          ],
+          "source_names": [
+            "Malva parviflora"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Marrubium vulgare",
+          "slug": "marrubium-vulgare",
+          "source_rows": [
+            686
+          ],
+          "source_names": [
+            "Marrubium vulgare"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Melia azedarach",
+          "slug": "melia-azedarach",
+          "source_rows": [
+            702
+          ],
+          "source_names": [
+            "Melia azedarach"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Melilotus albus",
+          "slug": "melilotus-albus",
+          "source_rows": [
+            703
+          ],
+          "source_names": [
+            "Melilotus albus"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Melilotus indicus",
+          "slug": "melilotus-indicus",
+          "source_rows": [
+            704
+          ],
+          "source_names": [
+            "Melilotus indicus"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Mirabilis albida",
+          "slug": "mirabilis-albida",
+          "source_rows": [
+            720
+          ],
+          "source_names": [
+            "Mirabilis albida"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Mirabilis linearis",
+          "slug": "mirabilis-linearis",
+          "source_rows": [
+            722
+          ],
+          "source_names": [
+            "Mirabilis linearis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Mirabilis nyctaginea",
+          "slug": "mirabilis-nyctaginea",
+          "source_rows": [
+            723
+          ],
+          "source_names": [
+            "Mirabilis nyctaginea"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Myriophyllum aquaticum",
+          "slug": "myriophyllum-aquaticum",
+          "source_rows": [
+            741
+          ],
+          "source_names": [
+            "Myriophyllum aquaticum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Nandina domestica",
+          "slug": "nandina-domestica",
+          "source_rows": [
+            747
+          ],
+          "source_names": [
+            "Nandina domestica"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-07",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Papaver rhoeas",
+          "slug": "papaver-rhoeas",
+          "source_rows": [
+            814
+          ],
+          "source_names": [
+            "Papaver rhoeas"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Paulownia tomentosa",
+          "slug": "paulownia-tomentosa",
+          "source_rows": [
+            836
+          ],
+          "source_names": [
+            "Paulownia tomentosa"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Pectis angustifolia var. fastigiata",
+          "slug": "pectis-angustifolia-var-fastigiata",
+          "source_rows": [
+            840
+          ],
+          "source_names": [
+            "Pectis angustifolia var. fastigiata"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Perilla frutescens",
+          "slug": "perilla-frutescens",
+          "source_rows": [
+            855
+          ],
+          "source_names": [
+            "Perilla frutescens"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Pistacia chinensis",
+          "slug": "pistacia-chinensis",
+          "source_rows": [
+            893
+          ],
+          "source_names": [
+            "Pistacia chinensis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Pluchea odorata",
+          "slug": "pluchea-odorata",
+          "source_rows": [
+            903
+          ],
+          "source_names": [
+            "Pluchea odorata"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Polypogon monspeliensis",
+          "slug": "polypogon-monspeliensis",
+          "source_rows": [
+            915
+          ],
+          "source_names": [
+            "Polypogon monspeliensis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Pyrus calleryana",
+          "slug": "pyrus-calleryana",
+          "source_rows": [
+            946
+          ],
+          "source_names": [
+            "Pyrus calleryana"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Ranunculus fascicularis",
+          "slug": "ranunculus-fascicularis",
+          "source_rows": [
+            966
+          ],
+          "source_names": [
+            "Ranunculus fascicularis"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Ranunculus macranthus",
+          "slug": "ranunculus-macranthus",
+          "source_rows": [
+            967
+          ],
+          "source_names": [
+            "Ranunculus macranthus"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-08",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Ranunculus sardous",
+          "slug": "ranunculus-sardous",
+          "source_rows": [
+            968
+          ],
+          "source_names": [
+            "Ranunculus sardous"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Ranunculus sceleratus",
+          "slug": "ranunculus-sceleratus",
+          "source_rows": [
+            969
+          ],
+          "source_names": [
+            "Ranunculus sceleratus"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Rapistrum rugosum",
+          "slug": "rapistrum-rugosum",
+          "source_rows": [
+            970
+          ],
+          "source_names": [
+            "Rapistrum rugosum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Rhaphiolepis indica",
+          "slug": "rhaphiolepis-indica",
+          "source_rows": [
+            972
+          ],
+          "source_names": [
+            "Rhaphiolepis indica"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Rhynchosida physocalyx",
+          "slug": "rhynchosida-physocalyx",
+          "source_rows": [
+            984
+          ],
+          "source_names": [
+            "Rhynchosida physocalyx"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Rivina humilis",
+          "slug": "rivina-humilis",
+          "source_rows": [
+            989
+          ],
+          "source_names": [
+            "Rivina humilis"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Robinia pseudoacacia",
+          "slug": "robinia-pseudoacacia",
+          "source_rows": [
+            990
+          ],
+          "source_names": [
+            "Robinia pseudoacacia"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Rotala ramosior",
+          "slug": "rotala-ramosior",
+          "source_rows": [
+            991
+          ],
+          "source_names": [
+            "Rotala ramosior"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Sabal mexicana",
+          "slug": "sabal-mexicana",
+          "source_rows": [
+            1006
+          ],
+          "source_names": [
+            "Sabal mexicana"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Sabal minor",
+          "slug": "sabal-minor",
+          "source_rows": [
+            1007
+          ],
+          "source_names": [
+            "Sabal minor"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-09",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Sabatia campestris",
+          "slug": "sabatia-campestris",
+          "source_rows": [
+            1008
+          ],
+          "source_names": [
+            "Sabatia campestris"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Sanicula canadensis",
+          "slug": "sanicula-canadensis",
+          "source_rows": [
+            1030
+          ],
+          "source_names": [
+            "Sanicula canadensis"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Saponaria officinalis",
+          "slug": "saponaria-officinalis",
+          "source_rows": [
+            1035
+          ],
+          "source_names": [
+            "Saponaria officinalis"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Schinus terebinthifolia",
+          "slug": "schinus-terebinthifolia",
+          "source_rows": [
+            1040
+          ],
+          "source_names": [
+            "Schinus terebinthifolia"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Secale cereale",
+          "slug": "secale-cereale",
+          "source_rows": [
+            1049
+          ],
+          "source_names": [
+            "Secale cereale"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Selaginella arenicola",
+          "slug": "selaginella-arenicola",
+          "source_rows": [
+            1053
+          ],
+          "source_names": [
+            "Selaginella arenicola"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Sherardia arvensis",
+          "slug": "sherardia-arvensis",
+          "source_rows": [
+            1069
+          ],
+          "source_names": [
+            "Sherardia arvensis"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Silene antirrhina",
+          "slug": "silene-antirrhina",
+          "source_rows": [
+            1076
+          ],
+          "source_names": [
+            "Silene antirrhina"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Silybum marianum",
+          "slug": "silybum-marianum",
+          "source_rows": [
+            1081
+          ],
+          "source_names": [
+            "Silybum marianum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Sisymbrium altissimum",
+          "slug": "sisymbrium-altissimum",
+          "source_rows": [
+            1083
+          ],
+          "source_names": [
+            "Sisymbrium altissimum"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    },
+    {
+      "batch_id": "installer-preflight-mass-10",
+      "status": "queued_for_final_installer_preflight",
+      "taxa": [
+        {
+          "name": "Sisyrinchium biforme",
+          "slug": "sisyrinchium-biforme",
+          "source_rows": [
+            1085
+          ],
+          "source_names": [
+            "Sisyrinchium biforme"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Sisyrinchium ensigerum",
+          "slug": "sisyrinchium-ensigerum",
+          "source_rows": [
+            1086
+          ],
+          "source_names": [
+            "Sisyrinchium ensigerum"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Sisyrinchium langloisii",
+          "slug": "sisyrinchium-langloisii",
+          "source_rows": [
+            1087
+          ],
+          "source_names": [
+            "Sisyrinchium langloisii"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Smilax tamnoides",
+          "slug": "smilax-tamnoides",
+          "source_rows": [
+            1089
+          ],
+          "source_names": [
+            "Smilax tamnoides"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Sonchus asper",
+          "slug": "sonchus-asper",
+          "source_rows": [
+            1106
+          ],
+          "source_names": [
+            "Sonchus asper"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Sorghum halepense",
+          "slug": "sorghum-halepense",
+          "source_rows": [
+            1111
+          ],
+          "source_names": [
+            "Sorghum halepense"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        },
+        {
+          "name": "Sphagneticola trilobata",
+          "slug": "sphagneticola-trilobata",
+          "source_rows": [
+            1114
+          ],
+          "source_names": [
+            "Sphagneticola trilobata"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Spiraea thunbergii",
+          "slug": "spiraea-thunbergii",
+          "source_rows": [
+            1116
+          ],
+          "source_names": [
+            "Spiraea thunbergii"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Symplocos tinctoria",
+          "slug": "symplocos-tinctoria",
+          "source_rows": [
+            1146
+          ],
+          "source_names": [
+            "Symplocos tinctoria"
+          ],
+          "basis": "phase3-accepted-source-name-preflight-b005",
+          "caution": null
+        },
+        {
+          "name": "Tamarix aphylla",
+          "slug": "tamarix-aphylla",
+          "source_rows": [
+            1148
+          ],
+          "source_names": [
+            "Tamarix aphylla"
+          ],
+          "basis": "phase3-explicit-target-routing-b004",
+          "caution": null
+        }
+      ],
+      "required_checks": [
+        "refresh data/manifest.json",
+        "refresh workflow/work-claims.json",
+        "check research-queue.json, research-drafts/, curation-inbox/",
+        "confirm accepted concept is still distinct and not represented by synonym/parent",
+        "obtain at least one usable exact-taxon photo with preserved provenance before READY install",
+        "do not reopen native-by-county research solely to unlock learner admission"
+      ]
+    }
+  ]
+}
