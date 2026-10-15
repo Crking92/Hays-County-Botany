@@ -102,10 +102,11 @@
     "https://www.npsot.org/posts/native-plant/tridens-albescens/"
   ],
   "curation_status": {
-    "version": "1.0",
-    "last_reviewed": "2026-10-08",
+    "version": "1.1-photo-led-anatomy",
+    "last_reviewed": "2026-10-15",
     "note": "No canonical species or range decisions changed.",
-    "visual_status": "Genus lesson built; matched diagnostic macro set still pending."
+    "visual_status": "Genus lesson built; matched diagnostic macro set still pending.",
+    "new_photo_binaries": 0
   },
   "species_differences": [
     {
@@ -152,5 +153,76 @@
       "three-species lemma nerve hairs"
     ],
     "owner": "Diagnostic Photo Polish"
-  }
+  },
+  "visual_lesson": {
+    "title": "Tridens: the grass ID is in the spikelets",
+    "status": "structural_lesson_ready; new_photos_pending",
+    "look_here_first": "Follow one complete flowering stem: first compare panicle silhouette and bare lower branch sections, then dissect a spikelet to compare glume length with lemmas and inspect lemma-nerve hairs. Color alone is unreliable.",
+    "steps": [
+      {
+        "title": "1 · Read the panicle outline",
+        "term": "panicle branches",
+        "plain": "Are branches tightly crowded, broadly open and drooping, or flexuous with bare bases?",
+        "where": "Whole flowering stalk, with scale",
+        "why": "T. albescens tends narrow/dense; T. flavus broadly open; T. texanus flexuous with basal gaps.",
+        "photo_role": "same-scale whole panicles of three exact species",
+        "status": "needs_photo; annotation_pending"
+      },
+      {
+        "title": "2 · Find the bare branch base",
+        "term": "basal panicle branch internode",
+        "plain": "Look for a stretch of branch without attached spikelets.",
+        "where": "Base of a lateral panicle branch",
+        "why": "Supports T. texanus but needs cross-check with branch development and other species.",
+        "photo_role": "T. texanus versus T. albescens and T. flavus branch-base macros",
+        "status": "needs_photo; annotation_pending"
+      },
+      {
+        "title": "3 · Open a spikelet",
+        "term": "glume, lemma, floret",
+        "plain": "The outer pair of bracts are glumes; count the florets and compare their lemmas.",
+        "where": "Dissected mature spikelet under hand lens with millimeter scale",
+        "why": "Glume-to-lemma proportions and floret counts help resolve overlapping panicle sizes.",
+        "photo_role": "matched dissected spikelets of three species",
+        "status": "needs_photo; annotation_pending"
+      },
+      {
+        "title": "4 · Inspect three lemma nerves",
+        "term": "lemma nerves and pubescence",
+        "plain": "Follow each raised line on the lemma and check where tiny hairs occur.",
+        "where": "Lemma dorsal face under 10–20× magnification",
+        "why": "Nerve hair distribution helps separate nearly glabrous T. albescens from hairier T. flavus and T. texanus.",
+        "photo_role": "matched dorsal lemma macros with verified labels",
+        "status": "needs_photo; annotation_pending"
+      }
+    ]
+  },
+  "comparison_cards": [
+    {
+      "title": "White tridens versus purpletop",
+      "taxon_ids": [
+        "tridens-albescens",
+        "tridens-flavus"
+      ],
+      "look_here_first": "Dense, narrow versus broad open panicle; confirm by basal sheath and lemma hair patterns.",
+      "caution": "Panicle color is variable; photograph whole stalk and dissected lemma."
+    },
+    {
+      "title": "Texas tridens versus purpletop",
+      "taxon_ids": [
+        "tridens-texanus",
+        "tridens-flavus"
+      ],
+      "look_here_first": "Find the long bare base of flexuous panicle branches and compare with the larger open purpletop panicle.",
+      "caution": "Panicle lengths overlap; use glume:lemma ratio and lemma pubescence."
+    },
+    {
+      "title": "Texas tridens versus lovegrasses",
+      "taxon_ids": [
+        "tridens-texanus"
+      ],
+      "look_here_first": "Dissect spikelet for Tridens lemma nerve architecture rather than relying on pinkish seedhead color.",
+      "caution": "Eragrostis secundiflora can resemble T. texanus in the field."
+    }
+  ]
 }
