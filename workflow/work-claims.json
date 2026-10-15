@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T04:37:04.111Z",
+  "updated_at": "2026-10-15T04:44:45.224Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9241,11 +9241,13 @@
       "scope_key": "scripts/photo_quality_audit.py; .github/workflows/photo-quality-audit.yml; workflow/PHOTO_QUALITY_BATCH_SYSTEM.md; reports/photo-quality-batch-001*",
       "lane": "photo-quality-reporting",
       "owner": "manual-photo-quality-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-15T04:37:04.111Z",
       "expires_at": "2026-10-15T09:37:04.111Z",
       "release_when": "PR merged, first-batch baseline verified; report-only no canonical photo mutations",
-      "notes": "Read-only manifest-driven photo coverage classification, image role queues, licensing checks, pending arrow targets. Respect existing active photo installer and science claims; no auto image or metadata edits."
+      "notes": "Read-only manifest-driven photo coverage classification, image role queues, licensing checks, pending arrow targets. Respect existing active photo installer and science claims; no auto image or metadata edits.",
+      "released_at": "2026-10-15T04:44:45.224Z",
+      "release_reason": "PR #26 plus role-regex fix #27 merged to main; GitHub Action 38682989963 passed five unit tests and audited 548 taxa, found 13 zero-gallery, produced 25 unclaimed priority cases; artifact 11948652721 uploaded. Strict read-only audit with no canonical writes or changes to active photo installers."
     }
   ]
 }
