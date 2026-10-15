@@ -66,8 +66,10 @@ def live_photo(row,sciname):
     url=p.get("url") or ""
     parsed=urllib.parse.urlparse(url)
     if parsed.scheme!="https" or parsed.hostname not in TRUSTED:raise ValueError("unexpected image host")
-    url=re.sub(r"/(?:square|thumb|small|medium|large|original)\.(?:jpg|jpeg|png|webp)$","/large.jpg",url,flags=re.I)
-    if url==p.get("url"):raise ValueError("unexpected image URL")
+    if not re.search(r"/(?:square|thumb|small|medium|large|original)\.(jpg|jpeg|png|webp)$",url,re.I):
+        raise ValueError("unexpected image URL")
+    url=re.sub(r"/(?:square|thumb|small|medium|large|original)\.(jpg|jpeg|png|webp)$",
+               lambda m:"/large."+m.group(1).lower(),url,flags=re.I)
     raw=get(url)
     with Image.open(io.BytesIO(raw)) as im:
         im.load()
