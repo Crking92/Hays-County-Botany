@@ -213,5 +213,38 @@ def main():
     if report["installed"]:
         from scripts.curation_pipeline import rebuild_photo_fast_fill_queue
         rebuild_photo_fast_fill_queue()
-    print(json.dumps({"mode":a.mode,"eligible":len(targets),"installed":report["installed"],"skipped":report["skipped"][:20]},indent=2),flush=True)
+    # Snapshot all canonical gallery counts after this batch; no scientific edits.
+    gallery_counts=collections.Counter()
+    physical_counts=collections.Counter()
+    records=[]
+    for entry in manifest["species"]:
+        srcfile=ROOT/entry["path"]
+        if not srcfile.is_file():
+            records.append({"id":entry["id"],"issue":"missing species.json"})
+            continue
+        sp=json.loads(srcfile.read_text(encoding="utf-8"))
+        photos=sp.get("images") or []
+        count=len(photos)
+        group="0" if count==0 else "1" if count==1 else "2" if count==2 else "3+"
+        gallery_counts[group]+=1
+        local_count=sum(1 for photo in photos
+                        if (photo.get("file") and
+                            not str(photo["file"]).startswith(("http://","https://")) and
+                            (srcfile.parent/photo["file"]).is_file()))
+        pgroup="0" if local_count==0 else "1" if local_count==1 else "2" if local_count==2 else "3+"
+        physical_counts[pgroup]+=1
+        if count<=2:
+            records.append({"id":entry["id"],"scientific_name":sp.get("scientific_name"),
+                            "gallery_records":count,"installed_local_files":local_count})
+    coverage={"generated_at_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),
+              "canonical_species":len(manifest["species"]),
+              "gallery_image_record_counts":dict(gallery_counts),
+              "physically_installed_local_image_counts":dict(physical_counts),
+              "zero_one_two_photo_species":[r for r in records if r.get("gallery_records",3)<=2],
+              "interpretation":"Counts reflect canonical image records and local file existence, NOT exact botanical quality, render checks, or diagnostic image coverage."}
+    (ROOT/"reports/photo-coverage-latest.json").write_text(json.dumps(coverage,indent=2)+"\n",encoding="utf-8")
+    print(json.dumps({"mode":a.mode,"eligible":len(targets),"installed":report["installed"],
+                      "skipped":report["skipped"][:20],
+                      "gallery_counts":dict(gallery_counts),
+                      "local_file_counts":dict(physical_counts)},indent=2),flush=True)
 if __name__=="__main__":main()
