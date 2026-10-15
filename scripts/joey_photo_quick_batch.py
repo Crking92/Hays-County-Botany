@@ -110,8 +110,17 @@ def main():
         with REGIONAL_CATALOG.open(newline="",encoding="utf-8-sig") as rf:
             local_photo_ids={row["photo_id"] for row in csv.DictReader(rf)}
     groups=collections.defaultdict(list)
+    catalog_diagnostics=collections.defaultdict(lambda:{"rows":0,"grades":collections.Counter(),"ranks":collections.Counter(),"rights":collections.Counter(),"gates":collections.Counter(),"accepted":0})
     with CATALOG.open(newline="",encoding="utf-8-sig") as f:
         for x in csv.DictReader(f):
+            sid=x.get("canonical_id") or ""
+            if sid in selected:
+                d=catalog_diagnostics[sid]
+                d["rows"]+=1
+                d["grades"][x.get("quality_grade") or ""]+=1
+                d["ranks"][x.get("taxon_rank") or ""]+=1
+                d["rights"][x.get("source_license") or ""]+=1
+                d["gates"][x.get("photographer_gate") or ""]+=1
             if not x.get("canonical_id") or x.get("photographer_gate")!="joey_credited_candidate":continue
             if x.get("source_license")!="cc-by-nc" or x.get("taxon_rank")!="species":continue
             if x.get("quality_grade")!="research":continue
@@ -119,6 +128,7 @@ def main():
             if selected and x["canonical_id"] not in selected:continue
             if photo_filter and x["photo_id"] not in photo_filter:continue
             groups[x["canonical_id"]].append(x)
+            if sid in selected:catalog_diagnostics[sid]["accepted"]+=1
     queue_path=ROOT/"reports/photo-fast-fill-zero-queue.json"
     if a.mode=="zero" and queue_path.is_file():
         queue=json.loads(queue_path.read_text())
@@ -150,6 +160,16 @@ def main():
     report={"run_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),"mode":a.mode,"catalog_scope":"Texas statewide" if CATALOG==TEXAS_CATALOG else "24 project counties","requested_batch":a.batch_size,
             "eligible_matching_species":len(targets),"installed":[],"skipped":skips,"science_preserved":True,
             "note":"Noncommercial educational CC BY-NC images; source identification and image pixels machine-checked, anatomy not visually reviewed."}
+    if selected:
+        report["requested_species_diagnostics"]={
+            sid:{"rows":catalog_diagnostics[sid]["rows"],
+                "quality_grades":dict(catalog_diagnostics[sid]["grades"]),
+                "taxon_ranks":dict(catalog_diagnostics[sid]["ranks"]),
+                "source_licenses":dict(catalog_diagnostics[sid]["rights"]),
+                "credit_gates":dict(catalog_diagnostics[sid]["gates"]),
+                "rows_passing_source_filters":catalog_diagnostics[sid]["accepted"],
+                "eligible_target":sid in {t[0] for t in targets}}
+            for sid in sorted(selected)}
     edits=[]
     for sid,path,obj,options in targets:
         if len(edits)>=a.batch_size:break
