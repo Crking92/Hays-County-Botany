@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T03:47:29.442Z",
+  "updated_at": "2026-10-15T04:37:04.111Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9234,6 +9234,18 @@
       "notes": "Improve photo priority without changing canonical image[] order; source-grounded Helianthus leaf and phyllary targets; leave all arrows unverified until pixel coordinate inspection.",
       "released_at": "2026-10-15T03:47:29.442Z",
       "release_reason": "PR #25 merged to main as 00038d694314b3b28e94f688f629795ba71e30c1. Diagnostic photo order and role captions tested for both Helianthus taxa; arrow coordinates remain pending verified image-level inspection. No canonical photo order or science changed."
+    },
+    {
+      "claim_id": "manual-photo-quality-batch-system-20261014",
+      "scope_kind": "automation_utility",
+      "scope_key": "scripts/photo_quality_audit.py; .github/workflows/photo-quality-audit.yml; workflow/PHOTO_QUALITY_BATCH_SYSTEM.md; reports/photo-quality-batch-001*",
+      "lane": "photo-quality-reporting",
+      "owner": "manual-photo-quality-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T04:37:04.111Z",
+      "expires_at": "2026-10-15T09:37:04.111Z",
+      "release_when": "PR merged, first-batch baseline verified; report-only no canonical photo mutations",
+      "notes": "Read-only manifest-driven photo coverage classification, image role queues, licensing checks, pending arrow targets. Respect existing active photo installer and science claims; no auto image or metadata edits."
     }
   ]
 }
