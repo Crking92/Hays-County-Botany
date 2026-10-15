@@ -1,0 +1,33 @@
+name: Kew Exact Specimen Photo Leads
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/kew-exact-specimen-leads.yml
+permissions:
+  contents: write
+concurrency:
+  group: kew-exact-specimen-leads
+  cancel-in-progress: false
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - run: python scripts/kew_exact_specimen_image_probe.py
+      - name: Record source-only audit (do not download or claim new images)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/kew-herbarium-photo-leads.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Inspect rights-cleared Kew specimen image leads [skip ci]"
+          for n in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
