@@ -29,6 +29,7 @@ NAMES={
  "senna-pilosior":["Senna pilosior"],
  "bouteloua-pectinata":["Bouteloua pectinata"],
  "eragrostis-hirsuta":["Eragrostis hirsuta"],
+ "ammannia-auriculata":["Ammannia auriculata"],
 }
 # Catch falsely identified separate taxa sharing an initial binomial.
 RANK_BAD=re.compile(r"^(variety|subspecies|subsp|form|f\\.)\b",re.I)
@@ -134,6 +135,7 @@ def main():
  p.add_argument("--reclaim-expired",action="store_true",help="Allow work on expired leases ONLY; preserve any live/renewed claim and never overwrite.")
  p.add_argument("--report",default=str(REPORT))
  p.add_argument("--focus",default="",help="Comma-separated exact species IDs, if supplied")
+ p.add_argument("--permit-genus-lesson-only-claim",action="store_true",help="Allow ONLY Ammannia species media while an unrelated genus.json-only lesson claim owns the same taxon; never touch genus.json.")
  args=p.parse_args()
  focus={x.strip() for x in args.focus.split(",") if x.strip()}
  reportfile=ROOT/args.report
@@ -153,7 +155,13 @@ def main():
     lease=datetime.datetime.fromisoformat(expiry.replace("Z","+00:00"))
     can_reclaim=lease<now_dt and x.get("lane") in ("photo-fast-fill","genus-comparison-builder")
    except (ValueError,TypeError):pass
-  if not can_reclaim:busy.update(x.get("taxa") or [])
+  unrelated_genus_lesson=(args.permit_genus_lesson_only_claim and
+    x.get("scope_key")=="content/taxa/Lythraceae/Ammannia/genus.json" and
+    x.get("lane")=="genus-lesson-comparison-builder" and
+    x.get("scope_kind")=="genus_module" and
+    "ammannia-auriculata" in (x.get("taxa") or []) and
+    focus=={"ammannia-auriculata"})
+  if not can_reclaim and not unrelated_genus_lesson:busy.update(x.get("taxa") or [])
  inbox=set()
  for p in (ROOT/"curation-inbox").rglob("species.json"):
   try:inbox.add(json.loads(p.read_text())["id"])
@@ -165,7 +173,7 @@ def main():
  eligible=[]
  for row in queued:
   sid=row["id"]
-  if sid in busy or sid in inbox or row.get("in_curation_inbox") or (row.get("active_claims") and not args.reclaim_expired):
+  if sid in busy or sid in inbox or row.get("in_curation_inbox") or (row.get("active_claims") and not (args.reclaim_expired or args.permit_genus_lesson_only_claim)):
    report["skipped"].append({"id":sid,"reason":"another active project lane"});continue
   loc=refs.get(sid);path=ROOT/loc if loc else None
   if not path or not path.is_file():continue
