@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T02:31:09.498Z",
+  "updated_at": "2026-10-15T02:29:52Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,29 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "taxonomy-name-fast-pass-20261014-011-2129",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "ranunculus-fascicularis",
+        "ranunculus-macranthus",
+        "ranunculus-sardous",
+        "ranunculus-sceleratus",
+        "rhaphiolepis-indica",
+        "rhynchosida-physocalyx",
+        "rivina-humilis",
+        "robinia-pseudoacacia",
+        "sabal-mexicana",
+        "sabal-minor"
+      ],
+      "lane": "taxonomy-name-fast-pass",
+      "owner": "Taxonomy Name Fast-Pass hourly worker",
+      "status": "active",
+      "claimed_at": "2026-10-14T21:29:52-05:00",
+      "expires_at": "2026-10-14T23:29:52-05:00",
+      "release_when": "Batch 011 GitHub evidence and safe Sheet mirrors verified or abandoned",
+      "notes": "Phase 1 name-only; no range or canonical changes"
+    },
     {
       "claim_id": "native-range-fast-fill-20261014-006",
       "scope_kind": "species_native_range_batch",
