@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T02:26:11.097Z",
+  "updated_at": "2026-10-15T02:31:09.498Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9175,11 +9175,13 @@
       "scope_key": "assets/js/app.js; assets/css/styles.css — family/genus/part-card deep study presentation",
       "lane": "website-ui",
       "owner": "manual-design-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-15T02:26:11.097Z",
       "expires_at": "2026-10-15T08:26:11.097Z",
       "release_when": "Safe PR merged and verified; only interface files modified",
-      "notes": "Follow-on visual learner work: deeper family/genus study cards, source-backed LOOK HERE FIRST, progressive anatomy photo studies, content preservation; do not modify canonicals/automation."
+      "notes": "Follow-on visual learner work: deeper family/genus study cards, source-backed LOOK HERE FIRST, progressive anatomy photo studies, content preservation; do not modify canonicals/automation.",
+      "released_at": "2026-10-15T02:31:09.498Z",
+      "release_reason": "UI-only PR #23 merged to main at 73eb15929a8bb72877597f276719db4a8ce96841; JavaScript parser, CSS brace, rendering smoke checks passed; source data, photos and other automation lanes preserved. iPhone production visual review pending."
     }
   ]
 }
