@@ -1,0 +1,115 @@
+{
+  "id": "manual-one-photo-diagnostic-001-20261015",
+  "created_on": "2026-10-15",
+  "initiated_by": "user in ChatGPT; manual batch only",
+  "phase": "one-photo enrichment (first complementary view)",
+  "scope": "canonical existing gallery photo records exactly one; no new taxa",
+  "ownership": "This is a chat-requested manual targeted GitHub Actions batch; not a new scheduled task. Existing five automations proceed independently.",
+  "candidates": [
+    {
+      "id": "grindelia-adenodonta",
+      "initial_photo_records": 1,
+      "desired_view": "Flower-head side view: sticky phyllaries and leaf clasping; keep taxon/range hold",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "argythamnia-humilis",
+      "initial_photo_records": 1,
+      "desired_view": "Petiole and axillary raceme; female and male flower structures",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "oenothera-lindheimeri",
+      "initial_photo_records": 1,
+      "desired_view": "Flower side view: four petals, exerted stamens, hypanthium",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "oenothera-laciniata",
+      "initial_photo_records": 1,
+      "desired_view": "Leaf incision, flower and capsule",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "aphanostephus-skirrhobasis",
+      "initial_photo_records": 1,
+      "desired_view": "Involucre/phyllaries, mature fruit and hairs",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "boerhavia-linearifolia",
+      "initial_photo_records": 1,
+      "desired_view": "Mature anthocarp with five rounded ribs; leaf habit",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "corydalis-micrantha",
+      "initial_photo_records": 1,
+      "desired_view": "Spurred flower side view or straight mature capsules",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "physaria-gracilis",
+      "initial_photo_records": 1,
+      "desired_view": "Inflated silicles and hairy leaves; compare Physaria species",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "brickellia-eupatorioides",
+      "initial_photo_records": 1,
+      "desired_view": "Head and pappus macro; gland-dotted phyllaries",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "helenium-elegans",
+      "initial_photo_records": 1,
+      "desired_view": "Winged stem from decurrent leaf base, globose involucre",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    },
+    {
+      "id": "erigeron-modestus",
+      "initial_photo_records": 1,
+      "desired_view": "Basal leaf crown or side view of phyllaries",
+      "requested_new_photos": 1,
+      "photo_role_validation": "PENDING; photo metadata/source ID is not proof of this diagnostic structure",
+      "status": "SELECTED"
+    }
+  ],
+  "sources": [
+    "workflow/joey-texas-inat-photo-inventory/photo-candidates.csv",
+    "workflow/joey-inat-photo-inventory/photo-candidates.csv",
+    "workflow/glass-root-inat/output/"
+  ],
+  "source_selection": "Prefer observed within target counties. Match exact taxon and Research Grade, photographer Joey Santore individual photo CC BY-NC. Existing Glass Root Garden owner-permitted photos may be used in separate manually inspected batches if source/catalog has an exact match.",
+  "rules": [
+    "Do not mutate taxonomy, nativity/range, approved inclusion or scientific HOLD",
+    "Preserve every preexisting gallery image/credit and license status",
+    "No anatomy arrows unless exact photographic feature personally inspected",
+    "Mark new photos provisional; review anatomy against desired_view separately",
+    "Respect active claims and curation inbox; do not launch standing automation",
+    "Confirm actual local JPEG files, source data and Action completion",
+    "Do not count near-duplicate images as diagnostically verified"
+  ],
+  "github_action": "Quick Joey Photo Batches — targeted mode",
+  "intended_batch_size": 11
+}
