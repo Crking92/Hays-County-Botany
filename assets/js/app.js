@@ -135,6 +135,23 @@ function rangeSummary(sp){
   return "Native-range label not finalized · learner entry retained";
 }
 
+
+// Encounter labels are intentionally independent of the deferred county-native audit.
+// Only explicit, sourced learner classifications may trigger a public label.
+// Range FAIL, UNRESOLVED, nonlocal status, or occurrence in Texas does not imply invasiveness.
+function encounterBadge(sp){
+  const inclusion=sp.project_inclusion || {};
+  const role=String(sp.learner_role || inclusion.learner_role || "").toUpperCase();
+  const confirmed=String(sp.invasive_status || inclusion.invasive_status || "").toUpperCase();
+  if(role.includes("INVASIVE") || confirmed==="CONFIRMED_INVASIVE"){
+    return '<span class="encounter-badge encounter-invasive">⚠ Invasive</span>';
+  }
+  if(role.includes("NON_NATIVE") || role.includes("INTRODUCED")){
+    return '<span class="encounter-badge encounter-introduced">Introduced / non-native</span>';
+  }
+  return "";
+}
+
 function lookHereFirst(sp){
   if(typeof sp.look_here_first==="string" && sp.look_here_first.trim()) return sp.look_here_first;
   const c=callout(sp);
@@ -722,10 +739,10 @@ function approvalCard(item){
   const busy=state.approvalsBusy===item.id;
   const curationState=String(item.learner_curation_status||"");
   const canInstallSeparate=!["approved_taxonomy_mapping_needed","represented_existing_no_new_card"].includes(curationState);
-  const comparisonSuggested=(item.approval_status==="ready_for_comparison_approval") || range==="FAIL" || String(item.learner_role||"").includes("COMPARISON");
+  const comparisonSuggested=(item.approval_status==="ready_for_comparison_approval") || String(item.learner_role||"").includes("COMPARISON");
   let out='<article class="approval-card" data-approval-item="'+esc(item.id)+'">'+
     '<div class="approval-card-top"><div><div class="eyebrow">'+esc(item.family||"")+" › "+esc(item.genus||"")+'</div><h3><i>'+esc(item.scientific_name||item.id)+'</i></h3></div>'+
-    '<span class="approval-range '+approvalStatusClass(range)+'">'+esc(range)+'</span></div>'+
+    encounterBadge(item)+'</div>'+
     '<p class="approval-notes">'+esc(item.notes||"No review note recorded.")+'</p>'+
     approvalPhotoPlaceholder(item)+
     '<div class="approval-meta">'+
@@ -778,7 +795,7 @@ function approvalsView(){
   const ordered=Array.from(groups.entries()).sort(function(a,b){ return approvalBatchNumber(b[0])-approvalBatchNumber(a[0]); });
 
   let out='<section class="page-intro approval-intro"><div class="eyebrow">Learner admission</div><h1>Review special cases.</h1>'+
-    '<p>Approved source-pool plants already have standing learner admission. Native-range PASS, FAIL, or UNRESOLVED is a separate label; this screen is mainly for non-source-pool decisions and taxonomy exceptions.</p></section>'+
+    '<p>Approved source-pool plants are eligible for visual identification lessons regardless of county-range research. This screen handles exceptional admission and taxonomy decisions; confirmed invasive or introduced plants may be labeled separately.</p></section>'+
     '<section class="approval-summary">'+
       '<div><strong>'+action.length+'</strong><span>need a decision</span></div>'+
       '<div><strong>'+pendingCuration.length+'</strong><span>approved, awaiting curation</span></div>'+
@@ -882,7 +899,7 @@ function homeView(){
 function speciesTile(sp,showFamily){
   return '<button class="species-tile" type="button" data-species="'+sp.id+'">'+thumb(sp,"species-tile-img")+
     '<span>'+(showFamily?'<small>'+esc(sp.genus)+'</small>':'')+'<strong><i>'+esc(scientificName(sp))+'</i></strong>'+
-    '<em>'+esc(commonName(sp))+'</em></span></button>';
+    '<em>'+esc(commonName(sp))+'</em>'+encounterBadge(sp)+'</span></button>';
 }
 function familyVisualVocabulary(p){
   const ids=(p && Array.isArray(p.key_terms) ? p.key_terms : []).filter(function(id){ return state.learning.terms[id]; });
@@ -992,7 +1009,7 @@ function identityPanel(sp){
       '<button class="primary-button" type="button" data-reveal-quiz>Reveal identification</button></div>';
   }
   return '<div class="identity-panel"><div class="eyebrow">'+esc(sp.family)+' › '+esc(sp.genus)+'</div><h1><i>'+esc(scientificName(sp))+'</i></h1>'+
-    '<p class="plant-common">'+esc(commonName(sp))+'</p>'+(sp.authority?'<p class="authority">'+esc(sp.authority)+'</p>':'')+
+    '<p class="plant-common">'+esc(commonName(sp))+'</p>'+encounterBadge(sp)+(sp.authority?'<p class="authority">'+esc(sp.authority)+'</p>':'')+
     (state.quizMode?'<button class="text-button" type="button" data-next-quiz>Next mystery plant →</button>':'')+'</div>';
 }
 function similarCard(base,other,reason){
@@ -1080,15 +1097,14 @@ function termsInText(text,max){
 function fieldBotanySection(sp,genusData){
   const rows=Object.entries(sp.morphology_keys||{}).filter(function(p){ return !["best_field_traits","high_value_field_traits"].includes(p[0]); });
   const strategy=genusData && (genusData.study_strategy || genusData.genus_diagnostics || genusData.high_value_field_traits);
-  let out='<section class="section-block technical-section"><div class="section-heading"><div><div class="eyebrow">Field botany</div><h2>Technical morphology</h2></div><span class="range-badge">'+esc(rangeSummary(sp))+'</span></div><div class="morphology-grid">';
+  let out='<section class="section-block technical-section"><div class="section-heading"><div><div class="eyebrow">Field botany</div><h2>Technical morphology</h2></div></div><div class="morphology-grid">';
   rows.forEach(function(p){
     const ids=termsInText(titleCase(p[0])+" "+formatValue(p[1]),3);
     out+='<article class="morph-card"><b>'+esc(titleCase(p[0]))+'</b><p>'+esc(formatValue(p[1]))+'</p>'+(ids.length?'<div class="mini-terms">'+ids.map(termChip).join("")+'</div>':'')+'</article>';
   });
   out+='</div>';
   if(strategy) out+='<details class="genus-strategy"><summary>How to study <i>'+esc(sp.genus)+'</i> as a genus</summary><div>'+structuredTeachingHTML(strategy)+'</div></details>';
-  out+='<details class="range-details"><summary>Project range evidence summary</summary><p>'+esc(rangeSummary(sp))+'</p>'+
-    (countyList(sp).length?'<p><b>Supported target-zone counties in this file:</b> '+esc(countyList(sp).join(", "))+'</p>':'')+'</details></section>';
+  out+='</section>';
   return out;
 }
 /* Photo-first taxonomy examples. Images are illustrative, never a claim of unverified anatomy. */
@@ -1743,7 +1759,7 @@ function renderResults(){
   });
   matches.forEach(function(x){
     const sp=x.sp; out+='<button class="search-species-result" type="button" data-species="'+sp.id+'">'+thumb(sp,"search-thumb")+'<span><strong><i>'+esc(scientificName(sp))+'</i></strong>'+
-      '<em>'+esc(commonName(sp))+'</em><small>'+esc(sp.family)+' › '+esc(sp.genus)+'</small></span></button>';
+      '<em>'+esc(commonName(sp))+'</em>'+encounterBadge(sp)+'<small>'+esc(sp.family)+' › '+esc(sp.genus)+'</small></span></button>';
   });
   if(!fmatch && !gmatches.length && !matches.length) out='<div class="search-empty">No matching curated plant yet.</div>';
   els.results.innerHTML=out; els.results.hidden=false;
