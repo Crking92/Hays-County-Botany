@@ -16,15 +16,31 @@
   "look_here_first": "Look for the flower architecture: five red petals remain tightly furled rather than spreading flat, while the staminal column and style project conspicuously beyond them. Then confirm the stellate-hairy, cordate to shallowly 3-lobed leaves.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Travis",
-    "Williamson"
+    "Travis"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays — project Hays-local source pool records Malvaviscus arboreus var. drummondii as local/native. Travis — UT Plant Resources Center Travis County Malvaceae specimen index includes var. drummondii. Williamson — UT Plant Resources Center provides a detailed Vascular Plants of Williamson County treatment.",
-    "range_guardrail": "The local Joey frame is morphology evidence, not the sole native-range basis."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "2026-10-14 corrected two-county status: Hays, Travis inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+    "range_guardrail": "The local Joey frame is morphology evidence, not the sole native-range basis.",
+    "range_audit": {
+      "date": "2026-10-14",
+      "prior_classification": "PASS",
+      "decision": "UNRESOLVED",
+      "valid_target_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "confidence": "high for target-zone membership; historic county-locality citations retained, not independently re-vouchered",
+      "reason": "Third project county not actually verified. Does not mean native absence from other target counties.",
+      "original_range_basis": "Hays — project Hays-local source pool records Malvaviscus arboreus var. drummondii as local/native. Travis — UT Plant Resources Center Travis County Malvaceae specimen index includes var. drummondii. Williamson — UT Plant Resources Center provides a detailed Vascular Plants of Williamson County treatment.",
+      "source_document": "content/taxa/Malvaceae/Malvaviscus/malvaviscus-arboreus-var-drummondii/SOURCES.txt"
+    },
+    "native_range_last_reviewed": "2026-10-14"
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -108,5 +124,6 @@
     "image_count": 1,
     "filled_at": "2026-10-06",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
-  }
+  },
+  "native_metrics_excluded": true
 }

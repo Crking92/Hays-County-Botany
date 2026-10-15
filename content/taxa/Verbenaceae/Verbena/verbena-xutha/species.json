@@ -12,15 +12,31 @@
   "look_here_first": "Start with the leaves: most are conspicuously 3-lobed or deeply cut, with a long central lobe and smaller lateral lobes; then notice the coarse hispid/glandular plant and multiple terminal or axillary spikes.",
   "county_occurrences_target_zone": [
     "Travis",
-    "Williamson",
     "Kerr"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Kew/POWO accepts Verbena xutha and lists Texas within its native range. Travis County — UT Plant Resources Center has multiple Travis County Verbena xutha herbarium specimens. Williamson County — the UT Plant Resources Center field treatment documents Verbena xutha as part of the county flora. Kerr County — the Kerr WMA vascular flora documents Verbena xutha without an introduced marker.",
-    "range_guardrail": "The project Hays native-source list does not include V. xutha, so Hays is not assumed from nearby Travis/Williamson occurrence."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "2026-10-14 corrected two-county status: Travis, Kerr inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+    "range_guardrail": "The project Hays native-source list does not include V. xutha, so Hays is not assumed from nearby Travis/Williamson occurrence.",
+    "range_audit": {
+      "date": "2026-10-14",
+      "prior_classification": "PASS",
+      "decision": "UNRESOLVED",
+      "valid_target_counties": [
+        "Travis",
+        "Kerr"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "confidence": "high for target-zone membership; historic county-locality citations retained, not independently re-vouchered",
+      "reason": "Third project county not actually verified. Does not mean native absence from other target counties.",
+      "original_range_basis": "Kew/POWO accepts Verbena xutha and lists Texas within its native range. Travis County — UT Plant Resources Center has multiple Travis County Verbena xutha herbarium specimens. Williamson County — the UT Plant Resources Center field treatment documents Verbena xutha as part of the county flora. Kerr County — the Kerr WMA vascular flora documents Verbena xutha without an introduced marker.",
+      "source_document": "content/taxa/Verbenaceae/Verbena/verbena-xutha/SOURCES.txt"
+    },
+    "native_range_last_reviewed": "2026-10-14"
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -96,5 +112,6 @@
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
     "leaf_visual_backfill": "2026-10-12",
     "leaf_macro_polish_status": "additional matched close-ups/hair macro still pending"
-  }
+  },
+  "native_metrics_excluded": true
 }

@@ -17,14 +17,30 @@
   "project_tracker_diagnostic": "Tall perennial with narrow opposite linear-lanceolate leaves, long open terminal flowering axis, and green ribbed hairy calyces lacking the farinose/mealy coating of S. farinacea.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Travis",
-    "Williamson"
+    "Travis"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays County native inventory, Travis County preserve/herbarium records, and UT Williamson County treatment; no county presence inferred."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "2026-10-14 corrected two-county status: Hays, Travis inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+    "range_audit": {
+      "date": "2026-10-14",
+      "prior_classification": "PASS",
+      "decision": "UNRESOLVED",
+      "valid_target_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "confidence": "high for target-zone membership; historic county-locality citations retained, not independently re-vouchered",
+      "reason": "Third project county not actually verified. Does not mean native absence from other target counties.",
+      "original_range_basis": "Hays County native inventory, Travis County preserve/herbarium records, and UT Williamson County treatment; no county presence inferred.",
+      "source_document": "content/taxa/Lamiaceae/Salvia/salvia-azurea/SOURCES.txt"
+    },
+    "native_range_last_reviewed": "2026-10-14"
   },
   "morphology_keys": {
     "habit": "Woody-rootstock herbaceous perennial, often upright; not a rosette. Central Texas local treatment often below 1 m.",
@@ -189,5 +205,6 @@
     "Texas var. grandiflora calyx with actual readable rib count and mm scale",
     "Entire woody rootstock and two cauline leaves with metric ruler",
     "Matched white/violet mealy sage calyx side-by-side at same magnification"
-  ]
+  ],
+  "native_metrics_excluded": true
 }

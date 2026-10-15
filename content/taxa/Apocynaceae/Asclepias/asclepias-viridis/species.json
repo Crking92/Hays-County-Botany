@@ -48,8 +48,6 @@
   "county_occurrences_target_zone": [
     "Hays",
     "Travis",
-    "Williamson",
-    "Bell",
     "Comal",
     "Blanco",
     "Burnet",
@@ -57,7 +55,7 @@
     "San Saba",
     "McCulloch"
   ],
-  "target_zone_count": 10,
+  "target_zone_count": 8,
   "native_target_zone_calculated": true,
   "images": [
     {
@@ -165,5 +163,27 @@
     "https://w3.biosci.utexas.edu/prc/K12/pdf/Asclepias%20viridis",
     "https://tpwd.texas.gov/publications/pwdpubs/media/pwd_rp_w7000_1803.pdf",
     "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416119"
-  ]
+  ],
+  "native_range_audit": {
+    "date": "2026-10-14",
+    "decision": "PASS",
+    "native_target_counties": [
+      "Hays",
+      "Travis",
+      "Comal",
+      "Blanco",
+      "Burnet",
+      "Gillespie",
+      "San Saba",
+      "McCulloch"
+    ],
+    "excluded_out_of_zone_counties": [
+      "Williamson",
+      "Bell"
+    ],
+    "prior_count": 10,
+    "verified_count": 8,
+    "reason": "Correct counted county metadata to project 24-county boundary; retains PASS because >=3 accepted records still in zone",
+    "confidence": "high for boundary recalculation; inherited county evidence should undergo future voucher check"
+  }
 }

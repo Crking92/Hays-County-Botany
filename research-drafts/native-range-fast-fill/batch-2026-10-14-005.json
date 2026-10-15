@@ -1,0 +1,173 @@
+{
+  "batch_id": "native-range-fast-fill-20261014-005",
+  "reviewed_at": "2026-10-14",
+  "lane": "native-range-fast-fill",
+  "method": "8 exact species cross-check canonical/Sheet, exclude only counties outside 24-county rule; do not fabricate new county evidence",
+  "decisions": [
+    {
+      "id": "asclepias-viridis",
+      "decision": "PASS",
+      "role": "canonical count correction",
+      "qualifying_counties": [
+        "Hays",
+        "Travis",
+        "Comal",
+        "Blanco",
+        "Burnet",
+        "Gillespie",
+        "San Saba",
+        "McCulloch"
+      ],
+      "excluded_counties": [
+        "Williamson",
+        "Bell"
+      ],
+      "reason": "Eight formerly documented counties qualify after Bell and Williamson excluded",
+      "canonical_file": "content/taxa/Apocynaceae/Asclepias/asclepias-viridis/species.json",
+      "evidence": "Correct counted county metadata to project 24-county boundary; retains PASS because >=3 accepted records still in zone",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    },
+    {
+      "id": "conoclinium-coelestinum",
+      "scientific_name": "Conoclinium coelestinum",
+      "decision": "PASS",
+      "role": "Sheet-only mirror",
+      "qualifying_counties": [
+        "Bexar",
+        "Burnet",
+        "Comal",
+        "Hays",
+        "San Saba",
+        "Travis"
+      ],
+      "excluded_counties": [],
+      "reason": "Canonical file already corrected; Tracker has outdated status or county list; do not mutate canonical",
+      "canonical_file": "content/taxa/Asteraceae/Conoclinium/conoclinium-coelestinum/species.json",
+      "evidence": "Corrected 2026-10-12: original three-county field incorrectly counted Williamson County, which is outside project target zone. USDA PLANTS-derived native county list documents Bexar, Burnet, Comal, Hays, San Saba, Travis (all six in project zone); cross-checked with BONAP native county distribution map. Prior Hays/Travis/WilIiamson note is kept as audit history only.",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    },
+    {
+      "id": "diospyros-texana",
+      "scientific_name": "Diospyros texana",
+      "decision": "PASS",
+      "role": "Sheet-only mirror",
+      "qualifying_counties": [
+        "Hays",
+        "Travis",
+        "Mason"
+      ],
+      "excluded_counties": [],
+      "reason": "Canonical file already corrected; Tracker has outdated status or county list; do not mutate canonical",
+      "canonical_file": "content/taxa/Ebenaceae/Diospyros/diospyros-texana/species.json",
+      "evidence": "Prior North Hays County flora and Travis County wild-source records retained; third supported county Mason via USFS FEIS natural rocky slope image credited Kenneth Bader. Old Williamson County record preserved only as out-of-zone context, NOT counted.",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    },
+    {
+      "id": "salvia-azurea",
+      "scientific_name": "Salvia azurea",
+      "decision": "UNRESOLVED",
+      "role": "canonical correction",
+      "qualifying_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Historic PASS counted an excluded county; only two approved counties verified",
+      "canonical_file": "content/taxa/Lamiaceae/Salvia/salvia-azurea/species.json",
+      "evidence": "2026-10-14 corrected two-county status: Hays, Travis inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    },
+    {
+      "id": "malvaviscus-arboreus-var-drummondii",
+      "scientific_name": "Malvaviscus arboreus var. drummondii",
+      "decision": "UNRESOLVED",
+      "role": "canonical correction",
+      "qualifying_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Historic PASS counted an excluded county; only two approved counties verified",
+      "canonical_file": "content/taxa/Malvaceae/Malvaviscus/malvaviscus-arboreus-var-drummondii/species.json",
+      "evidence": "2026-10-14 corrected two-county status: Hays, Travis inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    },
+    {
+      "id": "clematis-drummondii",
+      "scientific_name": "Clematis drummondii",
+      "decision": "UNRESOLVED",
+      "role": "Sheet-only mirror",
+      "qualifying_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [],
+      "reason": "Canonical file already corrected; Tracker has outdated status or county list; do not mutate canonical",
+      "canonical_file": "content/taxa/Ranunculaceae/Clematis/clematis-drummondii/species.json",
+      "evidence": "Hays — Purola natural flora; Travis — UT PRC herbarium specimens; Williamson — UT PRC county field treatment. [2026-10-13 range audit correction: Williamson County is NOT in the 24-county project target zone and must not count toward the >=3 county PASS rule; verified target-zone counties here currently Hays, Travis (2). No third eligible county checked/confirmed in this pass.]",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    },
+    {
+      "id": "verbena-xutha",
+      "scientific_name": "Verbena xutha",
+      "decision": "UNRESOLVED",
+      "role": "canonical correction",
+      "qualifying_counties": [
+        "Travis",
+        "Kerr"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Historic PASS counted an excluded county; only two approved counties verified",
+      "canonical_file": "content/taxa/Verbenaceae/Verbena/verbena-xutha/species.json",
+      "evidence": "2026-10-14 corrected two-county status: Travis, Kerr inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    },
+    {
+      "id": "solidago-nemoralis",
+      "scientific_name": "Solidago nemoralis",
+      "decision": "UNRESOLVED",
+      "role": "canonical correction",
+      "qualifying_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Historic PASS counted an excluded county; only two approved counties verified",
+      "canonical_file": "content/taxa/Asteraceae/Solidago/solidago-nemoralis/species.json",
+      "evidence": "2026-10-14 corrected two-county status: Hays, Travis inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+      "confidence": "high for boundary/count reconciliation; field observations not re-reviewed",
+      "date_reviewed": "2026-10-14"
+    }
+  ],
+  "counts": {
+    "reviewed": 8,
+    "PASS": 3,
+    "UNRESOLVED": 5,
+    "FAIL": 0,
+    "CONFLICT": 0,
+    "HOLD": 0,
+    "COMPARISON": 0
+  },
+  "sheet_sync": "Species Tracker G:I pending precise update and readback",
+  "claims": "native-range-fast-fill-20261014-005",
+  "scope_guardrails": [
+    "Preserved all existing photographic, morphology, learner and installer fields",
+    "Only status/county metadata and queue range labels changed when needed",
+    "Sheet-only corrected records not rewritten into GitHub"
+  ]
+}

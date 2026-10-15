@@ -12,15 +12,31 @@
   "look_here_first": "Start low on the plant. Gray goldenrod is comparatively short and gray-hairy, with a densely pubescent stem and narrow spatulate-to-oblanceolate lower leaves that become smaller and narrower upward. Then check the usually one-sided, wandlike/recurving flowering branches.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Travis",
-    "Williamson"
+    "Travis"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays — UT Plant Resources Center Natural Purola Plants list. Travis — UT PRC herbarium specimen index. Williamson — UT PRC Vascular Plants of Williamson County field treatment. These three exact counties meet the project threshold.",
-    "range_guardrail": "Do not transfer records assigned to currently accepted Solidago decemflora or Solidago mollis into S. nemoralis without checking the taxon concept."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "2026-10-14 corrected two-county status: Hays, Travis inside 24-county zone; Williamson outside. Third accepted native county not yet established. Original evidence retained in range_audit.",
+    "range_guardrail": "Do not transfer records assigned to currently accepted Solidago decemflora or Solidago mollis into S. nemoralis without checking the taxon concept.",
+    "range_audit": {
+      "date": "2026-10-14",
+      "prior_classification": "PASS",
+      "decision": "UNRESOLVED",
+      "valid_target_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "confidence": "high for target-zone membership; historic county-locality citations retained, not independently re-vouchered",
+      "reason": "Third project county not actually verified. Does not mean native absence from other target counties.",
+      "original_range_basis": "Hays — UT Plant Resources Center Natural Purola Plants list. Travis — UT PRC herbarium specimen index. Williamson — UT PRC Vascular Plants of Williamson County field treatment. These three exact counties meet the project threshold.",
+      "source_document": "content/taxa/Asteraceae/Solidago/solidago-nemoralis/SOURCES.txt"
+    },
+    "native_range_last_reviewed": "2026-10-14"
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -79,5 +95,6 @@
     "image_count": 1,
     "filled_at": "2026-10-06",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
-  }
+  },
+  "native_metrics_excluded": true
 }
