@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:18:47.594Z",
+  "updated_at": "2026-10-15T00:19:57.690Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -37,11 +37,13 @@
       ],
       "lane": "native-range-fast-fill",
       "owner": "manual-native-range-research-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-15T00:18:40.532Z",
       "expires_at": "2026-10-15T06:18:40.532Z",
       "release_when": "12 POWO range FAIL sourcepool updates persisted to GitHub, Master overrides and derived pool verified",
-      "notes": "Uninstalled, unclaimed approved source pool; preserve comparative learner admission; only range audit and review override values updated."
+      "notes": "Uninstalled, unclaimed approved source pool; preserve comparative learner admission; only range audit and review override values updated.",
+      "released_at": "2026-10-15T00:19:57.690Z",
+      "release_reason": "GitHub commit 3613811 verified, 12 Master Pool rows show native range FAIL; source overrides A/R 505:516 read back; comparison inclusion untouched."
     },
     {
       "claim_id": "native-range-fast-fill-20261014-003",
