@@ -1,0 +1,52 @@
+name: Joey Santore Central Texas iNaturalist Photo Catalog
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/joey-inat-photo-inventory.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: joey-inat-photo-catalog
+  cancel-in-progress: false
+
+jobs:
+  source-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Check out current repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Retrieve exact public plant photo metadata in project Central Texas counties
+        run: |
+          python3 scripts/joey_inat_photo_inventory.py --manifest data/manifest.json --out workflow/joey-inat-photo-inventory
+      - name: Save source-only inventory, never install photos or alter science
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/joey-inat-photo-inventory/photo-candidates.csv workflow/joey-inat-photo-inventory/species-photo-summary.csv workflow/joey-inat-photo-inventory/summary.json
+          if git diff --cached --quiet; then
+            echo "No changes to source catalog"
+            exit 0
+          fi
+          git commit -m "Inventory Joey Santore Central Texas iNaturalist photo sources"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Source catalog committed and verified"
+              exit 0
+            fi
+            sleep 4
+          done
+          exit 1
+      - name: Keep CSV inventory available for spreadsheet download
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: joey-santore-central-texas-photo-spreadsheets
+          path: workflow/joey-inat-photo-inventory/
+          retention-days: 30
