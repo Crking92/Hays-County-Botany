@@ -1,0 +1,37 @@
+name: Photo-first learner installer batch 002
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/photo-first-learner-batch-002.yml'
+permissions:
+  contents: write
+concurrency:
+  group: botany-curation-main
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Retrieve owner photos, install five species and verify local images
+        run: python scripts/install_photo_first_five_20261015_b002.py
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa data/manifest.json data/project.json reports curation-archive research-drafts/photo-imports
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install second photo-first five plant learner batch"
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
