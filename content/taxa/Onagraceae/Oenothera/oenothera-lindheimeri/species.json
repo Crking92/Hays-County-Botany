@@ -59,10 +59,11 @@
     "lookalikes_reviewed": true,
     "user_approved": true,
     "last_reviewed": "2026-10-02",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_metadata_count": 2,
+    "photo_files_present": 2,
+    "gbif_manual_photo_enrichment": "2026-10-15"
   },
-  "photo_note": "Exact reusable image source locked for canonical learner.",
+  "photo_note": "Exact reusable image source locked for canonical learner. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling.",
   "images": [
     {
       "file": "images/01-flowering-habit.jpg",
@@ -72,6 +73,29 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Oenothera_lindheimeri_kz2.jpg",
       "study_use": "yes",
       "public_reuse": "yes"
+    },
+    {
+      "file": "images/gbif-manual-6131056948-8132841d8.jpg",
+      "role": "Additional distinct image candidate; target structures not yet visually verified",
+      "requested_diagnostic_view": "Flower side view: four petals, exerted stamens, hypanthium",
+      "creator": "Andrew Gillespie",
+      "license": "CC BY",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/",
+      "source_platform": "GBIF occurrence image, original creator retained",
+      "source_page": "https://www.gbif.org/occurrence/6131056948",
+      "gbif_occurrence_id": "6131056948",
+      "source_determination": "Oenothera lindheimeri (Engelm. & A.Gray) W.L.Wagner & Hoch",
+      "accepted_target": "Oenothera lindheimeri",
+      "media_source_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606850343/original.jpg",
+      "image_dimensions": [
+        1138,
+        1350
+      ],
+      "photo_review": "Exact source determination, individually licensed media, downloaded pixels, and basic near-duplicate filter checked. Anatomy NOT visually confirmed.",
+      "anatomy_arrows": "not added; image anatomy not verified",
+      "study_use": "follow individual license conditions; noncommercial only for CC BY-NC",
+      "public_reuse": "Respect recorded photo-specific license",
+      "modifications": "Resized JPEG and EXIF removed"
     }
   ]
 }
