@@ -35,9 +35,11 @@ def license_status(value):
         return s, "restricted"
     if "publicdomain/zero" in s or re.search(r"\bcc-?0\b", s):
         return "CC0", "supported"
-    if "creativecommons.org/licenses/by-sa/" in s or "cc-by-sa" in s or "cc by-sa" in s:
+    if ("creativecommons.org/licenses/by-sa/" in s or
+            re.search(r"\bcc[ -]?by[ -]?sa(?:\b|\d)", s)):
         return "CC BY-SA", "supported"
-    if "creativecommons.org/licenses/by/" in s or "cc-by-" in s or s == "cc-by":
+    if ("creativecommons.org/licenses/by/" in s or
+            re.search(r"\bcc[ -]?by(?:\b|[ -]?\d)", s)):
         return "CC BY", "supported"
     return s, "unknown"
 
