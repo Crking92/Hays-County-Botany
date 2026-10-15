@@ -30,6 +30,7 @@ on:
   push:
     paths:
       - .github/workflows/joey-photo-quick-batch.yml
+      - workflow/joey-inat-photo-inventory/next-batch.json
 
 permissions:
   contents: write
@@ -60,13 +61,17 @@ jobs:
       - name: Download exact licensed images and install small safe batch
         run: |
           python - <<'PY'
-          import os,subprocess
+          import os,subprocess,json,pathlib
+          config=json.loads(pathlib.Path("workflow/joey-inat-photo-inventory/next-batch.json").read_text())
+          def arg(env,key):
+              return os.environ[env] if os.environ.get("GITHUB_EVENT_NAME")=="workflow_dispatch" else str(config.get(key,""))
           cmd=["python","scripts/joey_photo_quick_batch.py",
-               "--mode",os.environ["BATCH_MODE"],
-               "--batch-size",os.environ["BATCH_SIZE"],
-               "--per-species",os.environ["PER_SPECIES"],
-               "--species",os.environ["SPECIES_IDS"],
-               "--photo-ids",os.environ["PHOTO_IDS"]]
+               "--mode",arg("BATCH_MODE","mode") or "zero",
+               "--batch-size",arg("BATCH_SIZE","batch_size") or "10",
+               "--per-species",arg("PER_SPECIES","per_species") or "1",
+               "--species",arg("SPECIES_IDS","species_ids"),
+               "--photo-ids",arg("PHOTO_IDS","photo_ids")]
+          print("Batch request",cmd[2:],flush=True)
           subprocess.run(cmd,check=True)
           PY
       - name: Verify image bytes, attribution and source identity after install
