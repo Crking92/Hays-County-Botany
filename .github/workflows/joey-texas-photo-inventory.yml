@@ -1,0 +1,65 @@
+name: Joey Santore All Texas Photo Catalog
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/joey-texas-photo-inventory.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: joey-texas-photo-catalog
+  cancel-in-progress: false
+
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Inventory all Texas observations and individual photo metadata
+        run: |
+          python3 scripts/joey_inat_photo_inventory.py --statewide --manifest data/manifest.json --out workflow/joey-texas-inat-photo-inventory --max-pages 40
+      - name: Verify statewide coverage, photographer rights, and GPS exclusion
+        run: |
+          python3 - <<'PY'
+          import csv,json,pathlib
+          root=pathlib.Path("workflow/joey-texas-inat-photo-inventory")
+          stats=json.loads((root/"summary.json").read_text())
+          assert stats["region"]=="Texas statewide"
+          assert stats["observations"]>=2000 and stats["photos"]>=stats["observations"]
+          with (root/"photo-candidates.csv").open(newline="",encoding="utf-8") as file:
+              reader=csv.DictReader(file)
+              assert not set(reader.fieldnames)&{"latitude","longitude","private_latitude","private_longitude","coordinates"}
+              total=sum(1 for row in reader if row["source_license"]=="cc-by-nc" and row["photographer_gate"]=="joey_credited_candidate")
+          print("Verified Texas observations",stats["observations"],"credited CC BY-NC photo rows",total)
+          PY
+      - name: Commit catalog only (not canonical galleries)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/joey-texas-inat-photo-inventory/
+          if git diff --cached --quiet; then
+            echo "Texas source catalog already current"
+            exit 0
+          fi
+          git commit -m "Catalog Texas-wide Joey Santore botanical photos with safe provenance [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Texas-wide catalog verified in canonical GitHub"
+              exit 0
+            fi
+            sleep 4
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: joey-texas-statewide-photo-catalog
+          path: workflow/joey-texas-inat-photo-inventory/
+          retention-days: 30
