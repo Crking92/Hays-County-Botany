@@ -1,0 +1,74 @@
+name: Seed Permanent Photo Library (One Time)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/photo-library/requests/20261015-bootstrap.json'
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: hays-photo-library-persist-main
+  cancel-in-progress: false
+
+jobs:
+  migrate-existing-reviewed-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Retrieve earlier photo candidate artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/seed-gbif" "$RUNNER_TEMP/seed-plantnet"
+          gh run download 38753278755 --repo "$GITHUB_REPOSITORY" --name hays-open-photo-review-candidates --dir "$RUNNER_TEMP/seed-gbif"
+          gh run download 38756305154 --repo "$GITHUB_REPOSITORY" --name hays-plantnet-gbif-photo-review --dir "$RUNNER_TEMP/seed-plantnet"
+      - name: Package both as permanent private release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          for spec in "seed-gbif-20261015|seed-gbif" "seed-plantnet-20261015|seed-plantnet"; do
+            IFS='|' read -r batch folder <<< "$spec"
+            python scripts/photo_library_archive.py prepare --input "$RUNNER_TEMP/$folder" --batch-id "$batch" --archive-dir "$RUNNER_TEMP/archives"
+            tag="hays-photo-library-$batch"
+            asset="$RUNNER_TEMP/archives/$batch-photos.zip"
+            gh release create "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --prerelease --title "Photo candidate library: $batch" --notes "Private archive of provisionally licensed, unverified botanical images. The metadata and per-photo attribution are inside. Not ready for public learner installation."
+            python scripts/photo_library_archive.py published --batch-id "$batch"
+          done
+          python scripts/photo_library_archive.py rebuild
+      - name: Persist metadata and searchable index to canonical GitHub
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/batches workflow/photo-library/catalog.csv workflow/photo-library/species-index.json
+          git commit -m "Archive original GBIF and PlantNet photo batches in private Release library"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "Persistent metadata verified in GitHub commit"
+              exit 0
+            fi
+            sleep $((attempt * 3))
+          done
+          exit 1
+      - name: Recovery artifact if canonical commit blocked
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: photo-library-bootstrap-metadata-recovery
+          path: workflow/photo-library/batches/
+          retention-days: 14
+          if-no-files-found: ignore
