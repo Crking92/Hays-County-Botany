@@ -1,0 +1,56 @@
+name: Glass Root Garden One Plant Speed Test
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-one-plant-001.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-single-species-owner-photo
+  cancel-in-progress: false
+
+jobs:
+  retrieve-one-species:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install image validation library
+        run: python3 -m pip install pillow
+      - name: Validate single-species script
+        run: python3 -m py_compile scripts/glass_root_inat_one_plant.py
+      - name: Directly fetch one plant, make private diagnostic contact sheet
+        run: |
+          python3 scripts/glass_root_inat_one_plant.py \
+            --species "Sambucus canadensis" \
+            --id sambucus-canadensis \
+            --canonical-path content/taxa/Viburnaceae/Sambucus/sambucus-canadensis/species.json \
+            --out workflow/glass-root-inat/one-plant-001 \
+            --limit 8
+      - name: Save only the photo previews and timing report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/glass-root-inat/one-plant-001/
+          if git diff --cached --quiet; then
+            echo "No preview changes needed."
+            exit 0
+          fi
+          git commit -m "Stage American elderberry owner photo fast-lane previews"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: glass-root-one-plant-001
+          path: workflow/glass-root-inat/one-plant-001/
+          retention-days: 14
