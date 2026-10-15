@@ -3,7 +3,7 @@
 No taxonomy or native-range changes, no claimed taxa, no duplicate photo install.
 New image roles remain unverified until inspected by a botanist.
 """
-import collections,copy,csv,datetime,hashlib,io,json,pathlib,re,subprocess,sys
+import argparse,collections,copy,csv,datetime,hashlib,io,json,pathlib,re,subprocess,sys
 from concurrent.futures import ThreadPoolExecutor,as_completed
 from PIL import Image
 ROOT=pathlib.Path(".");sys.path.insert(0,str(ROOT.resolve()))
@@ -50,7 +50,13 @@ def claim_exclusion():
         except (OSError,ValueError,KeyError):pass
     return busy|inbox
 def main():
-    batch=json.loads(BATCH.read_text(encoding="utf-8"))
+    parser=argparse.ArgumentParser()
+    parser.add_argument("--batch",default=str(BATCH))
+    parser.add_argument("--report",default=str(REPORT))
+    args=parser.parse_args()
+    batch_path=ROOT/args.batch
+    report_path=ROOT/args.report
+    batch=json.loads(batch_path.read_text(encoding="utf-8"))
     manifest=json.loads((ROOT/"data/manifest.json").read_text(encoding="utf-8"))
     refs={x["id"]:x["path"] for x in manifest["species"]}
     busy=claim_exclusion()
@@ -160,8 +166,8 @@ def main():
          "id":sid,"file":str(f),"source":source["occurrence_url"],"photo_license":source["license"],
          "creator":photo["creator"],"bytes":len(blob),"sha256":hashlib.sha256(blob).hexdigest(),
          "diagnostic_view_verified":False})
-    REPORT.parent.mkdir(exist_ok=True)
-    REPORT.write_text(json.dumps(output,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    report_path.parent.mkdir(parents=True,exist_ok=True)
+    report_path.write_text(json.dumps(output,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
     subprocess.run([sys.executable,"scripts/refresh_photo_coverage_snapshot.py"],check=True)
     print(json.dumps({"installed":len(output["installed"]),"skipped":output["skipped"],
                       "ids":[x["id"] for x in output["installed"]]},indent=2),flush=True)
