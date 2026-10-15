@@ -6,18 +6,18 @@
   "current_manifest_cards": 552,
   "source_pool_rows": 1282,
   "decomposition": {
-    "confirmed_represented_source_rows": 607,
-    "future_routed_source_rows": 665,
-    "phase4_hold_source_rows": 10,
+    "confirmed_represented_source_rows": 608,
+    "future_routed_source_rows": 662,
+    "phase4_hold_source_rows": 12,
     "accounting_check": 1282
   },
   "projected_workload": {
     "raw_future_routing_entries": 665,
-    "exact_normalized_unique_future_concepts": 636,
+    "exact_normalized_unique_future_concepts": 633,
     "already_installed_matches_found_in_future_union": 0,
     "cross_batch_overlap_concepts": 29,
-    "projected_max_manifest_after_install_if_no_further_collapses": 1188,
-    "interpretation": "636 is the current working upper-bound distinct future-card workload after exact-name deduplication. Installer synonym/rank/identity checks may lower it."
+    "projected_max_manifest_after_install_if_no_further_collapses": 1185,
+    "interpretation": "633 is the corrected current working upper-bound distinct future-card workload after exact-name deduplication and queue-state reconciliation. Installer synonym/rank/identity checks may lower it further."
   },
   "phase4_holds": [
     {
@@ -34,6 +34,11 @@
       "row": 273,
       "name": "Clematis reticulata",
       "reason": "The scientific name is accepted, but current Kew native distribution is southeastern U.S. and excludes Texas; historical Texas records require re-identification under the modern C. reticulata-complex treatment."
+    },
+    {
+      "row": 522,
+      "name": "Grindelia squarrosa",
+      "reason": "Research queue preserves a taxonomy/concept HOLD: historical Central Texas nuda material must not be recycled into strict G. squarrosa; current authorities split/treat the nuda concept differently."
     },
     {
       "row": 717,
@@ -59,6 +64,11 @@
       "row": 1042,
       "name": "Schoenocaulon drummondii",
       "reason": "Two Schoenocaulon drummondii homonyms route to different accepted taxa; original authority is required."
+    },
+    {
+      "row": 1078,
+      "name": "Silphium integrifolium",
+      "reason": "Research queue preserves a taxonomy/concept HOLD: historical Central Texas var. asperrimum material maps to current S. asperrimum under Kew and cannot prove strict S. integrifolium."
     },
     {
       "row": 1095,
@@ -4303,25 +4313,6 @@
       ],
       "decisions": [
         "PREFLIGHT"
-      ],
-      "currently_installed_by_slug": false,
-      "installer_status": "PREFLIGHT_REQUIRED"
-    },
-    {
-      "accepted_working_name": "Grindelia squarrosa",
-      "normalized_key": "grindelia squarrosa",
-      "slug": "grindelia-squarrosa",
-      "source_rows": [
-        522
-      ],
-      "source_names": [
-        "Grindelia squarrosa"
-      ],
-      "origins": [
-        "phase3_explicit_target"
-      ],
-      "decisions": [
-        "ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE"
       ],
       "currently_installed_by_slug": false,
       "installer_status": "PREFLIGHT_REQUIRED"
@@ -9865,25 +9856,6 @@
       "installer_status": "PREFLIGHT_REQUIRED"
     },
     {
-      "accepted_working_name": "Sapindus saponaria",
-      "normalized_key": "sapindus saponaria",
-      "slug": "sapindus-saponaria",
-      "source_rows": [
-        1032
-      ],
-      "source_names": [
-        "Sapindus saponaria"
-      ],
-      "origins": [
-        "phase3_explicit_target"
-      ],
-      "decisions": [
-        "ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE"
-      ],
-      "currently_installed_by_slug": false,
-      "installer_status": "PREFLIGHT_REQUIRED"
-    },
-    {
       "accepted_working_name": "Saponaria officinalis",
       "normalized_key": "saponaria officinalis",
       "slug": "saponaria-officinalis",
@@ -10355,25 +10327,6 @@
       ],
       "origins": [
         "phase3_accepted_source"
-      ],
-      "decisions": [
-        "ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE"
-      ],
-      "currently_installed_by_slug": false,
-      "installer_status": "PREFLIGHT_REQUIRED"
-    },
-    {
-      "accepted_working_name": "Silphium integrifolium",
-      "normalized_key": "silphium integrifolium",
-      "slug": "silphium-integrifolium",
-      "source_rows": [
-        1078
-      ],
-      "source_names": [
-        "Silphium integrifolium"
-      ],
-      "origins": [
-        "phase3_explicit_target"
       ],
       "decisions": [
         "ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE"
@@ -12699,6 +12652,19 @@
         "phase2_preflight",
         "phase3_alias_target"
       ]
+    }
+  ],
+  "corrections": [
+    {
+      "date": "2026-10-15",
+      "reason": "Installer-phase reconciliation against authoritative research-queue dispositions.",
+      "changes": [
+        "Sapindus saponaria source row moved from future-card workload to represented_existing via canonical Sapindus drummondii source-concept mapping.",
+        "Grindelia squarrosa moved from future-card workload to Phase-4 taxonomy/concept HOLD.",
+        "Silphium integrifolium moved from future-card workload to Phase-4 taxonomy/concept HOLD."
+      ],
+      "previous_future_unique": 636,
+      "corrected_future_unique": 633
     }
   ]
 }
