@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "lane": "taxonomy-hold-triage",
+  "date": "2026-10-15",
+  "source_project": "Crking92/Hays-County-Botany",
+  "scope": "Review eight flagged taxonomic/range concepts while native-range sweep remains paused. Resolve only name-rank crosswalk evidence; retain observation identification, ecology, provenance, historical taxon, and county data as untouched.",
+  "summary": {
+    "reviewed": 8,
+    "name_rank_crosswalks_confirmed": 2,
+    "other_held_concepts_preserved": 6,
+    "species_installs": 0,
+    "photos_changed": 0,
+    "range_status_changes": 0
+  },
+  "records": [
+    {
+      "source_name": "Clematis reticulata",
+      "master_pool_row": 273,
+      "override_row": 23,
+      "category": "PRESERVED_SPECIMEN_RANGE_HOLD",
+      "name_crosswalk": "Clematis reticulata Walter — accepted",
+      "resolution": "Do not transfer historical Texas records to revised 2022 taxon concept without specimen re-identification",
+      "references": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60413-2"
+      ],
+      "sheet_action": "NONE"
+    },
+    {
+      "source_name": "Echinocereus enneacanthus enneacanthus",
+      "master_pool_row": 398,
+      "override_row": 908,
+      "category": "NOMENCLATURE_CROSSWALK_CONFIRMED",
+      "name_crosswalk": "Kew accepts Echinocereus enneacanthus var. enneacanthus; ITIS accepts E. enneacanthus subsp. enneacanthus and treats the variety as a synonym",
+      "resolution": "Remove unresolved name-rank flag, preserve the source's unranked spelling as alias; botanical ID and exact original rank remain unverified; never invent a photograph or local occurrence",
+      "references": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77229536-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=912751"
+      ],
+      "sheet_action": "REPLACE_TAXONOMY_STATUS_AND_ACCEPTED_NOTE"
+    },
+    {
+      "source_name": "Opuntia phaeacantha",
+      "master_pool_row": 797,
+      "override_row": 417,
+      "category": "PRESERVED_HISTORICAL_CONCEPT_RANGE_HOLD",
+      "name_crosswalk": "Opuntia phaeacantha Engelm. — accepted",
+      "resolution": "Modern species concept does not safely resolve broad historical Central Texas records; do not infer county classifications",
+      "references": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:200110-2"
+      ],
+      "sheet_action": "NONE"
+    },
+    {
+      "source_name": "Philadelphus ernestii",
+      "master_pool_row": 867,
+      "override_row": 1082,
+      "category": "PRESERVED_BACKBONE_CONFLICT",
+      "name_crosswalk": "ITIS: Philadelphus ernestii accepted, P. texensis synonym; POWO: P. texensis accepted species",
+      "resolution": "Do not pick one taxonomic backbone arbitrarily; retain both searchable labels, need standard selection for project",
+      "references": [
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=24423",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30007321-2"
+      ],
+      "sheet_action": "NONE"
+    },
+    {
+      "source_name": "Quercus virginiana",
+      "master_pool_row": 965,
+      "override_row": 425,
+      "category": "PRESERVED_RANGE_SPECIES_COMPLEX_HOLD",
+      "name_crosswalk": "Quercus virginiana Mill. — accepted",
+      "resolution": "Keep Texas live-oak evidence distinguishable from Q. fusiformis; skip native-range fast-fill",
+      "references": [
+        "https://powo.science.kew.org/"
+      ],
+      "sheet_action": "NONE"
+    },
+    {
+      "source_name": "Sagittaria graminea var. graminea",
+      "master_pool_row": 1010,
+      "override_row": 1133,
+      "category": "NOMENCLATURE_CROSSWALK_CONFIRMED",
+      "name_crosswalk": "Old autonym variety maps to Sagittaria graminea subsp. graminea in ITIS/FNA; Kew's accepted species concept is S. graminea Michx.",
+      "resolution": "Remove missing accepted-name flag; preserve varietal alias, label taxonomic rank differences and leave plant/subspecies determination unverified",
+      "references": [
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=182445",
+        "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=222000336",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:225249-2"
+      ],
+      "sheet_action": "REPLACE_TAXONOMY_STATUS_AND_ACCEPTED_NOTE"
+    },
+    {
+      "source_name": "Schoenocaulon drummondii",
+      "master_pool_row": 1042,
+      "override_row": 1141,
+      "category": "PRESERVED_HOMONYM_AUTHORITY_HOLD",
+      "name_crosswalk": "S. drummondii A.Gray ex Hook. & Arn. is linked to S. ghiesbreghtii; later S. drummondii A.Gray ex Torr. is linked to S. texanum",
+      "resolution": "Find original name authority and source before choosing identity; keep two concepts unmerged",
+      "references": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:229787-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:540619-1"
+      ],
+      "sheet_action": "NONE"
+    },
+    {
+      "source_name": "Taraxacum officinale",
+      "master_pool_row": 1151,
+      "override_row": 1183,
+      "category": "PRESERVED_SECTION_RANK_AND_ID_HOLD",
+      "name_crosswalk": "Taraxacum officinale F.H.Wigg. is a synonym of Taraxacum sect. Taraxacum according to Kew",
+      "resolution": "Section rank is not a replacement species identity; no species card duplication or photo assignment",
+      "references": [
+        "https://powo.science.kew.org/taxon/1003018-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:254151-1"
+      ],
+      "sheet_action": "NONE"
+    }
+  ]
+}
