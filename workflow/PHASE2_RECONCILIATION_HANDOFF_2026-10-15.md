@@ -89,3 +89,16 @@
 - Commit: `c2de3497700952f0890b4f9c6e39786e5a23309d`
 
 The next step is a cross-batch deduplication of all future accepted concepts so the project has one trustworthy projected new-card workload instead of adding source-row counts together.
+
+## Phase 3 consolidated workload — durable working total
+- Cross-batch deduplication completed after Phase-3 routing closure.
+- Full 1,282-row pool now accounts as **607 represented + 665 future-routed + 10 Phase-4 holds = 1,282**.
+- The 665 future routing entries collapse by exact normalized accepted name to **636 working future concepts**.
+- Current manifest contains **552 cards**. If all 636 remain distinct after final installer synonym/rank checks, the learner ceiling is **1,188 cards**.
+- This **636 is an upper-bound working number, not the final installed count**. Final installer checks are expected to collapse additional synonyms, parent/infraspecific concepts, and stale source identities.
+- The consolidated ledger includes all 636 working concepts, their source rows and cross-batch overlaps, plus the 10 Phase-4 holds.
+- Durable ledger: `research-drafts/reconciliation/phase3-consolidated-card-workload-2026-10-15.json`
+- Commit: `bebbfd32125e7725bb2fdb84c4709fa342c887f7`
+
+### Next active phase
+Begin final installer preflight against the 636 working concepts: refresh manifest/claims/drafts, collapse any remaining synonym/rank duplicates, and promote clean distinct accepted concepts into installable batches. County-native research remains deferred; photo licensing/availability remains an installation requirement, not a taxonomy gate.
