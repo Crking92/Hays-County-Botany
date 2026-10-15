@@ -1,0 +1,63 @@
+name: Recover Expired-Claim First-Photo Gaps
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/gbif-expired-lease-photo-recovery.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gbif-expired-lease-photo-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pillow
+      - name: Recheck lease expiration, exact taxon, photo-level rights and pixels
+        run: |
+          python scripts/gbif_exact_zero_photo_recovery.py \
+            --reclaim-expired \
+            --focus sorghastrum-elliottii,senna-pilosior,bouteloua-pectinata,eragrostis-hirsuta \
+            --report reports/gbif-first-photo-expired-claim-recovery.json
+      - name: Verify first images and license after safe recovery
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          from PIL import Image
+          report=json.loads(pathlib.Path("reports/gbif-first-photo-expired-claim-recovery.json").read_text())
+          for item in report["installed"]:
+              fp=pathlib.Path(item["photo_file"])
+              assert fp.is_file() and fp.stat().st_size>19000
+              with Image.open(fp) as im: im.verify()
+              sp=json.loads((fp.parent.parent/"species.json").read_text())
+              images=[i for i in sp.get("images",[]) if i.get("file")=="images/"+fp.name]
+              assert len(images)==1 and images[0]["source_determination"]==item["source_taxon"]
+              assert images[0]["license"] in ("CC0 1.0","CC BY","CC BY-SA","CC BY-NC","CC BY-NC-SA")
+              print("VERIFIED",item["id"],item["source_taxon"])
+          print("Installed",len(report["installed"]))
+          PY
+      - name: Commit safely while preserving other workers' unexpired claims
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/ reports/gbif-first-photo-expired-claim-recovery.json reports/photo-fast-fill-zero-queue.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "First-photo recovery on expired project leases with verified image rights [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
