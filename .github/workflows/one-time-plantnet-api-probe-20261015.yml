@@ -1,0 +1,49 @@
+name: One-time Pl@ntNet API Access Diagnosis
+
+# Read-only one-time probe. Do not print API keys or HTTP exception URLs.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/open-photo-candidates/plantnet-probe-trigger-20261015.json'
+
+permissions:
+  contents: read
+
+jobs:
+  safe-access-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PLANTNET_API_KEY: ${{ secrets.PLANTNET_API_KEY }}
+    steps:
+      - name: Check Pl@ntNet endpoint access without revealing secret
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, urllib.request, urllib.parse, urllib.error, json
+          key=os.getenv("PLANTNET_API_KEY","")
+          if not key:
+              print("Secret missing or empty; no calls made")
+              raise SystemExit(2)
+          base="https://my-api.plantnet.org"
+          tests=[
+            ("projects", "/v2/projects", {}),
+            ("dwc_exact_query", "/v2/dwc/occurrence/search", {
+              "scientificName":"Asclepias curassavica", "limit":"1",
+              "scientificNameMatchAuthor":"false","identificationVerificationStatus":"research"}),
+            ("dwc_simple_query", "/v2/dwc/occurrence/search", {
+              "scientificName":"Asclepias curassavica", "limit":"1"})
+          ]
+          for label,path,params in tests:
+              args=dict(params);args["api-key"]=key
+              url=base+path+"?"+urllib.parse.urlencode(args)
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"HaysBotanyOpenPhoto-access-check/1.0"}),timeout=15) as response:
+                      response.read(1024)
+                      print(label,"HTTP",response.status,"OK")
+              except urllib.error.HTTPError as exc:
+                  print(label,"HTTP",exc.code,"no content disclosed")
+              except Exception as exc:
+                  print(label,"error_type",type(exc).__name__)
+          PY
