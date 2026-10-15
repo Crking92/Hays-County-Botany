@@ -1,0 +1,68 @@
+name: Commons First-Photo Fallback
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/commons-first-photo-fallback.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: commons-first-photo-fallback
+  cancel-in-progress: false
+
+jobs:
+  fill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pillow
+      - name: Collect exact-species Commons media with individually declared public licenses
+        run: python scripts/commons_first_photo_quick_batch.py
+      - name: Verify bytes, source pages, image metadata
+        run: |
+          python - <<'PY'
+          import pathlib,json
+          from PIL import Image
+          report=json.loads(pathlib.Path("reports/commons-first-photo-batch-latest.json").read_text())
+          for row in report["installed"]:
+              path=pathlib.Path(row["path"])
+              assert path.is_file() and path.stat().st_size>18000
+              with Image.open(path) as im:im.verify()
+              obj=json.loads((path.parent.parent/"species.json").read_text())
+              images=[x for x in obj["images"] if x["file"]==("images/"+path.name)]
+              assert len(images)==1
+              assert images[0]["source_platform"]=="Wikimedia Commons"
+              assert images[0]["source_page"].startswith("https://commons.wikimedia.org/wiki/")
+              assert images[0]["license"]
+              print("VERIFIED",row["id"],row["source"])
+          print("Installed:",len(report["installed"]))
+          PY
+      - name: Commit only first photos and source audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/ reports/commons-first-photo-batch-latest.json reports/photo-fast-fill-zero-queue.json
+          if git diff --cached --quiet; then echo "Nothing changed"; exit 0; fi
+          git commit -m "Add provisional Commons first photographs with license verification [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
+      - name: Audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: commons-exact-species-photo-audit
+          path: reports/commons-first-photo-batch-latest.json
+          retention-days: 30
