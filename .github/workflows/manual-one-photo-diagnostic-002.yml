@@ -1,0 +1,72 @@
+name: Manual One-Photo Diagnostic Enrichment Batch 002
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/manual-one-photo-diagnostic-002.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manual-one-photo-diagnostic-002
+  cancel-in-progress: false
+
+jobs:
+  enrich:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pillow
+      - name: Enrich current one-photo canonical cards from exact and individually licensed sources
+        run: python scripts/manual_one_photo_gbif_batch.py --batch workflow/manual-photo-enrichment/batch-002-20261015.json --report reports/manual-diagnostic-photo-batch-002.json
+      - name: Verify new media bytes, photo provenance and gallery preservation
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          from PIL import Image
+          report=json.loads(pathlib.Path("reports/manual-diagnostic-photo-batch-002.json").read_text())
+          ids=set()
+          for row in report["installed"]:
+              assert row["id"] not in ids
+              ids.add(row["id"])
+              pic=pathlib.Path(row["file"])
+              assert pic.is_file() and pic.stat().st_size>19000
+              with Image.open(pic) as im:im.verify()
+              sp=json.loads((pic.parent.parent/"species.json").read_text())
+              assert sp["id"]==row["id"] and len(sp["images"])==2
+              img=[p for p in sp["images"] if p.get("file")=="images/"+pic.name]
+              assert len(img)==1
+              assert img[0]["source_platform"].startswith("GBIF")
+              assert img[0]["photo_review"].endswith("Anatomy NOT visually confirmed.")
+              assert img[0]["anatomy_arrows"].startswith("not added")
+              assert img[0]["license"] in ("CC0 1.0","CC BY","CC BY-SA","CC BY-NC","CC BY-NC-SA")
+              print("VERIFIED",row["id"],row["photo_license"],pic.stat().st_size)
+          print("New images verified:",len(ids))
+          PY
+      - name: Publish only verified media, batch audit and refreshed coverage
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/ reports/manual-diagnostic-photo-batch-002.json reports/photo-coverage-latest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Manual photo enrichment 002: licensed complementary views [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: manual-one-photo-batch-002-audit
+          path: reports/manual-diagnostic-photo-batch-002.json
+          retention-days: 30
