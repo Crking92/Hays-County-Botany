@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:15:18.017Z",
+  "updated_at": "2026-10-15T00:15:58.715Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,29 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "native-range-fast-fill-20261014-003",
+      "scope_kind": "species_native_range_batch",
+      "taxa": [
+        "cynoglossum-officinale",
+        "diplotaxis-muralis",
+        "elaeagnus-angustifolia",
+        "feijoa-sellowiana",
+        "firmiana-simplex",
+        "ginkgo-biloba",
+        "koelreuteria-paniculata",
+        "kummerowia-striata",
+        "lactuca-serriola",
+        "lamium-amplexicaule"
+      ],
+      "lane": "native-range-fast-fill",
+      "owner": "manual-native-range-research-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T00:15:58.715Z",
+      "expires_at": "2026-10-15T06:15:58.715Z",
+      "release_when": "Verified GitHub scientific range research and ten exact Master Plant Pool overrides sync; release claim",
+      "notes": "Ten pool taxa without canonical species or queue records. POWO accepted taxa and non-North-American native ranges; strict range FAIL while preserving comparison study eligibility. Never change learner/installer/photo status."
+    },
     {
       "claim_id": "native-range-kerr-evidence-20261014-003",
       "scope_kind": "species_native_range_reconciliation_batch",
