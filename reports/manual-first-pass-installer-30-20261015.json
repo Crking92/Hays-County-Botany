@@ -1,0 +1,644 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-15",
+  "batch_id": "manual-first-pass-installer-30-20261015",
+  "scope": "Initial 30 candidates of the Phase 3 reconciled installer queue. Existing cards and scientific holds preserved. Never mark installed until manifest+physical image verification.",
+  "source_files": [
+    "workflow/INSTALLER_PREFLIGHT_QUEUE_2026-10-15.json",
+    "research-drafts/reconciliation/phase3-consolidated-card-workload-2026-10-15.json",
+    "data/manifest.json",
+    "workflow/work-claims.json",
+    "research-queue.json",
+    "workflow/joey-texas-inat-photo-inventory/species-photo-summary.csv"
+  ],
+  "checks": {
+    "manifest_count_at_start": 552,
+    "already_canonical": 0,
+    "active_claim_collisions": 0,
+    "research_queue_holds_in_batch": 0,
+    "candidate_photo_summary_exact_matches": 7,
+    "photo_bytes_acquired_and_locally_installed": 0,
+    "completed_validated_cards": 0
+  },
+  "counts": {
+    "reviewed": 30,
+    "installed": 0,
+    "blocked_photo_verification_or_acquisition": 30,
+    "joey_exact_photo_leads": 7,
+    "no_joey_exact_photo_summary_match": 23
+  },
+  "root_blocker": "The Joey inventory is metadata only; it explicitly marks visual review pending. Physical photo acquisition/verified local media installation did not succeed in this chat. A candidate source URL is not proof of a working installed image. Incomplete packages were not READY-marked.",
+  "next_actions": [
+    "For seven exact-name Joey leads, retrieve/select one image per species, visually confirm identity/diagnostic suitability, and verify noncommercial-use limits and credit. Install media bytes and validate them.",
+    "For other 23, search user-owned iNaturalist media, previously licensed project media, and suitable permitted sources before external search.",
+    "Build accepted-canonical minimal species packages in curation-inbox only after final identity/synonym collision check; commit READY last and verify curation Actions run/manifest/media.",
+    "Do not treat the 30 as installed and do not overwrite any existing canonical or pending curation package."
+  ],
+  "records": [
+    {
+      "ordinal": 1,
+      "scientific_name": "Acer palmatum",
+      "slug": "acer-palmatum",
+      "source_pool_rows": [
+        12
+      ],
+      "source_names": [
+        "Acer palmatum"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 2,
+      "scientific_name": "Aphanostephus riddellii",
+      "slug": "aphanostephus-riddellii",
+      "source_pool_rows": [
+        78
+      ],
+      "source_names": [
+        "Aphanostephus riddellii"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 3,
+      "scientific_name": "Berlandiera lyrata",
+      "slug": "berlandiera-lyrata",
+      "source_pool_rows": [
+        132
+      ],
+      "source_names": [
+        "Berlandiera lyrata"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": {
+        "observation_count": 3,
+        "photo_count": 23,
+        "observation_url": "https://www.inaturalist.org/observations/113052021",
+        "photo_rights": "CC BY-NC reported in Joey inventory; individual image still needs validation"
+      },
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "Joey photo lead is metadata only: exact image not visually reviewed, image bytes not installed, no working local media verified"
+      ]
+    },
+    {
+      "ordinal": 4,
+      "scientific_name": "Boltonia diffusa",
+      "slug": "boltonia-diffusa",
+      "source_pool_rows": [
+        142
+      ],
+      "source_names": [
+        "Boltonia diffusa"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 5,
+      "scientific_name": "Buchnera americana",
+      "slug": "buchnera-americana",
+      "source_pool_rows": [
+        166
+      ],
+      "source_names": [
+        "Buchnera americana"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 6,
+      "scientific_name": "Buglossoides arvensis",
+      "slug": "buglossoides-arvensis",
+      "source_pool_rows": [
+        169
+      ],
+      "source_names": [
+        "Buglossoides arvensis"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 7,
+      "scientific_name": "Camphora officinarum",
+      "slug": "camphora-officinarum",
+      "source_pool_rows": [
+        181
+      ],
+      "source_names": [
+        "Camphora officinarum"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 8,
+      "scientific_name": "Centaurea cyanus",
+      "slug": "centaurea-cyanus",
+      "source_pool_rows": [
+        219
+      ],
+      "source_names": [
+        "Centaurea cyanus"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 9,
+      "scientific_name": "Centaurea melitensis",
+      "slug": "centaurea-melitensis",
+      "source_pool_rows": [
+        220
+      ],
+      "source_names": [
+        "Centaurea melitensis"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 10,
+      "scientific_name": "Ceratostigma plumbaginoides",
+      "slug": "ceratostigma-plumbaginoides",
+      "source_pool_rows": [
+        229
+      ],
+      "source_names": [
+        "Ceratostigma plumbaginoides"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 11,
+      "scientific_name": "Chloracantha spinosa",
+      "slug": "chloracantha-spinosa",
+      "source_pool_rows": [
+        255
+      ],
+      "source_names": [
+        "Chloracantha spinosa"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": {
+        "observation_count": 3,
+        "photo_count": 20,
+        "observation_url": "https://www.inaturalist.org/observations/147768906",
+        "photo_rights": "CC BY-NC reported in Joey inventory; individual image still needs validation"
+      },
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "Joey photo lead is metadata only: exact image not visually reviewed, image bytes not installed, no working local media verified"
+      ]
+    },
+    {
+      "ordinal": 12,
+      "scientific_name": "Chloris × subdolichostachya",
+      "slug": "chloris-x-subdolichostachya",
+      "source_pool_rows": [
+        256
+      ],
+      "source_names": [
+        "Chloris ×subdolichostachya"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 13,
+      "scientific_name": "Chondrilla juncea",
+      "slug": "chondrilla-juncea",
+      "source_pool_rows": [
+        261
+      ],
+      "source_names": [
+        "Chondrilla juncea"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 14,
+      "scientific_name": "Corallorhiza wisteriana",
+      "slug": "corallorhiza-wisteriana",
+      "source_pool_rows": [
+        293
+      ],
+      "source_names": [
+        "Corallorhiza wisteriana"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 15,
+      "scientific_name": "Cordia boissieri",
+      "slug": "cordia-boissieri",
+      "source_pool_rows": [
+        294
+      ],
+      "source_names": [
+        "Cordia boissieri"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": {
+        "observation_count": 1,
+        "photo_count": 2,
+        "observation_url": "https://www.inaturalist.org/observations/10522483",
+        "photo_rights": "CC BY-NC reported in Joey inventory; individual image still needs validation"
+      },
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "Joey photo lead is metadata only: exact image not visually reviewed, image bytes not installed, no working local media verified"
+      ]
+    },
+    {
+      "ordinal": 16,
+      "scientific_name": "Cornus drummondii",
+      "slug": "cornus-drummondii",
+      "source_pool_rows": [
+        299
+      ],
+      "source_names": [
+        "Cornus drummondii"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 17,
+      "scientific_name": "Coryphantha echinus",
+      "slug": "coryphantha-echinus",
+      "source_pool_rows": [
+        303
+      ],
+      "source_names": [
+        "Coryphantha echinus"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": {
+        "observation_count": 5,
+        "photo_count": 10,
+        "observation_url": "https://www.inaturalist.org/observations/140819267",
+        "photo_rights": "CC BY-NC reported in Joey inventory; individual image still needs validation"
+      },
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "Joey photo lead is metadata only: exact image not visually reviewed, image bytes not installed, no working local media verified"
+      ]
+    },
+    {
+      "ordinal": 18,
+      "scientific_name": "Coryphantha sulcata",
+      "slug": "coryphantha-sulcata",
+      "source_pool_rows": [
+        305
+      ],
+      "source_names": [
+        "Coryphantha sulcata"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": {
+        "observation_count": 3,
+        "photo_count": 11,
+        "observation_url": "https://www.inaturalist.org/observations/119809807",
+        "photo_rights": "CC BY-NC reported in Joey inventory; individual image still needs validation"
+      },
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "Joey photo lead is metadata only: exact image not visually reviewed, image bytes not installed, no working local media verified"
+      ]
+    },
+    {
+      "ordinal": 19,
+      "scientific_name": "Cotinus obovatus",
+      "slug": "cotinus-obovatus",
+      "source_pool_rows": [
+        306
+      ],
+      "source_names": [
+        "Cotinus obovatus"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": {
+        "observation_count": 3,
+        "photo_count": 21,
+        "observation_url": "https://www.inaturalist.org/observations/189988924",
+        "photo_rights": "CC BY-NC reported in Joey inventory; individual image still needs validation"
+      },
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "Joey photo lead is metadata only: exact image not visually reviewed, image bytes not installed, no working local media verified"
+      ]
+    },
+    {
+      "ordinal": 20,
+      "scientific_name": "Crataegus viridis",
+      "slug": "crataegus-viridis",
+      "source_pool_rows": [
+        307
+      ],
+      "source_names": [
+        "Crataegus viridis"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 21,
+      "scientific_name": "Cryptantha texana",
+      "slug": "cryptantha-texana",
+      "source_pool_rows": [
+        314
+      ],
+      "source_names": [
+        "Cryptantha texana"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 22,
+      "scientific_name": "Cyclospermum leptophyllum",
+      "slug": "cyclospermum-leptophyllum",
+      "source_pool_rows": [
+        323
+      ],
+      "source_names": [
+        "Cyclospermum leptophyllum"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 23,
+      "scientific_name": "Cylindropuntia imbricata",
+      "slug": "cylindropuntia-imbricata",
+      "source_pool_rows": [
+        324
+      ],
+      "source_names": [
+        "Cylindropuntia imbricata"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": {
+        "observation_count": 1,
+        "photo_count": 6,
+        "observation_url": "https://www.inaturalist.org/observations/212409796",
+        "photo_rights": "CC BY-NC reported in Joey inventory; individual image still needs validation"
+      },
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "Joey photo lead is metadata only: exact image not visually reviewed, image bytes not installed, no working local media verified"
+      ]
+    },
+    {
+      "ordinal": 24,
+      "scientific_name": "Cynoglossum officinale",
+      "slug": "cynoglossum-officinale",
+      "source_pool_rows": [
+        330
+      ],
+      "source_names": [
+        "Cynoglossum officinale"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 25,
+      "scientific_name": "Desmodium paniculatum",
+      "slug": "desmodium-paniculatum",
+      "source_pool_rows": [
+        366
+      ],
+      "source_names": [
+        "Desmodium paniculatum"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 26,
+      "scientific_name": "Desmodium psilophyllum",
+      "slug": "desmodium-psilophyllum",
+      "source_pool_rows": [
+        367
+      ],
+      "source_names": [
+        "Desmodium psilophyllum"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 27,
+      "scientific_name": "Desmodium sessilifolium",
+      "slug": "desmodium-sessilifolium",
+      "source_pool_rows": [
+        368
+      ],
+      "source_names": [
+        "Desmodium sessilifolium"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 28,
+      "scientific_name": "Diplotaxis muralis",
+      "slug": "diplotaxis-muralis",
+      "source_pool_rows": [
+        386
+      ],
+      "source_names": [
+        "Diplotaxis muralis"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 29,
+      "scientific_name": "Elaeagnus angustifolia",
+      "slug": "elaeagnus-angustifolia",
+      "source_pool_rows": [
+        408
+      ],
+      "source_names": [
+        "Elaeagnus angustifolia"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    },
+    {
+      "ordinal": 30,
+      "scientific_name": "Eleocharis atropurpurea",
+      "slug": "eleocharis-atropurpurea",
+      "source_pool_rows": [
+        409
+      ],
+      "source_names": [
+        "Eleocharis atropurpurea"
+      ],
+      "canonical_manifest_collision": false,
+      "existing_queue_status": null,
+      "active_claim_lane": null,
+      "joey_photo_lead": null,
+      "status": "BLOCKED_PRE_MEDIA_INSTALL",
+      "blockers": [
+        "No exact-name Joey Texas inventory match; search user-owned photos, other licensed sources, and approved media archives"
+      ]
+    }
+  ]
+}
