@@ -1,0 +1,31 @@
+{
+  "test": "one-plant-inaturalist-pipeline-speed-test",
+  "species": "Sambucus canadensis",
+  "date": "2026-10-14",
+  "direct_api_observations": 4,
+  "preview_photos": 4,
+  "script_fetch_and_preview_seconds": 5.11,
+  "photos_selected_for_install": 2,
+  "installed_photo_ids": [
+    696882282,
+    696882344
+  ],
+  "rejected_photo_ids": [
+    560924879,
+    607692623
+  ],
+  "photo_count_before": 1,
+  "photo_count_after": 3,
+  "commit": "1d1ff30f6cb524fa7659b07679291809299cc58c",
+  "verification": {
+    "image_binaries_present": true,
+    "jpeg_signature_correct": true,
+    "original_commons_photo_preserved": true,
+    "photo_ids_in_species_metadata": true,
+    "source_csv_and_sources_txt_updated": true,
+    "source_urls_and_CC_BY_credit_verified": true,
+    "native_range_status_preserved_as_UNRESOLVED": true
+  },
+  "performance_note": "5.11 seconds is script time, excluding Action runner startup, installing Pillow, git commits and manual image review. Compare future runs using matching workflow wall-clock metrics.",
+  "next_recommendation": "Run one species at a time with a reusable exact-species API query; do not scan all of calvinking observations for every plant."
+}
