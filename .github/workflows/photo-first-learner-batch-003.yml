@@ -1,0 +1,21 @@
+name: Photo-first learner batch 003
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/photo-first-learner-batch-003.yml"
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install Pillow
+      - run: python scripts/install_photo_first_five_20261015_b003.py
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Install photo-first learner batch 003"
