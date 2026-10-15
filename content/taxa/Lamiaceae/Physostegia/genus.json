@@ -7,28 +7,25 @@
   "project_scope": {
     "selection_mode": "B095 canonical/provisional anchors + B154 strict-review handoff",
     "canonical_species_ids": [
+      "physostegia-angustifolia",
       "physostegia-correllii",
       "physostegia-virginiana"
     ],
-    "pending_strict_review": [
-      "physostegia-angustifolia"
-    ],
+    "pending_strict_review": [],
     "source_concept_count": 3,
-    "note": "P. correllii range PASS; P. virginiana PROVISIONAL; P. angustifolia user-approved learner entry but range UNRESOLVED with two verified target counties. Earlier pending-review status is retained historically, not treated as a missing species.",
+    "note": "All three are installed canonical species. P. angustifolia now has accepted taxonomy and documented target-zone PASS (Hays, Travis, Kerr); P. correllii PASS; P. virginiana remains provisional. Historical unresolved decisions are preserved in species records.",
     "learner_species_ids": [
       "physostegia-correllii",
       "physostegia-virginiana",
       "physostegia-angustifolia"
     ],
-    "approved_learner_only": [
-      "physostegia-angustifolia"
-    ]
+    "approved_learner_only": []
   },
   "source_concept_status": [
     {
       "id": "physostegia-angustifolia",
       "scientific_name": "Physostegia angustifolia",
-      "status": "PENDING_STRICT_DEEP_REVIEW"
+      "status": "CANONICAL_PASS"
     },
     {
       "id": "physostegia-correllii",
@@ -51,7 +48,7 @@
       "corolla color and size",
       "accepted taxon/subspecies concept before using range"
     ],
-    "warning": "Do not infer native status from an obedient-plant occurrence near development or plantings. P. virginiana is explicitly provisional and the Hays record is introduced; P. angustifolia still needs strict review."
+    "warning": "P. angustifolia has documented target-zone PASS and canonical installation; do not confuse its earlier HOLD with current state. P. virginiana remains provisional and garden-origin specimens require caution."
   },
   "quick_key": [
     {
@@ -64,12 +61,12 @@
     },
     {
       "if": "source says Physostegia angustifolia / narrowleaf false dragonhead",
-      "then": "pending strict taxonomy + target-zone range review; no canonical install yet"
+      "then": "Physostegia angustifolia — canonical PASS; confirm identification by leaf and inflorescence characters, not name alone"
     }
   ],
   "curation_status": {
     "version": "2.0-photo-led-three-concept-comparison",
-    "genus_audit": "partial_pending_physostegia_angustifolia_review",
+    "genus_audit": "three_canonical_species_reconciled",
     "source_concepts_reconciled": true,
     "last_reviewed": "2026-10-14",
     "existing_local_photo_files": 2,
@@ -83,7 +80,7 @@
       "feature": "Project status",
       "correllii": "PASS (historical and extant wetland county records)",
       "virginiana": "PROVISIONAL, native metrics excluded",
-      "angustifolia": "User-approved learner; range UNRESOLVED / two documented counties"
+      "angustifolia": "CANONICAL PASS (Hays, Travis, Kerr)"
     },
     {
       "feature": "Habit and habitat",
@@ -168,7 +165,7 @@
   },
   "status_reconciliation": {
     "last_checked": "2026-10-14",
-    "finding": "Earlier genus entry lists P. angustifolia pending strict review, but its species.json contains user-approved learner inclusion and nonempty local photo. It remains range unresolved with two documented target counties, not native range PASS.",
-    "action": "Respect user-approved learner entry, keep original history and scientific hold; verify workflow claim separately."
+    "finding": "Manifest confirms all three canonical; P. angustifolia species record documents target-zone PASS with Hays, Travis and Kerr evidence, superseding earlier genus HOLD wording.",
+    "action": "Historical HOLD retained in species evidence; no native-range decision changed by this genus-only correction."
   }
 }
