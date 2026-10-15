@@ -12,6 +12,7 @@ import pathlib
 import sys
 import time
 import urllib.parse
+sys.path.insert(0,str(pathlib.Path(__file__).resolve().parent.parent))
 from scripts.glass_root_inat_photo_metadata import API, FIELDS, get_json, photo_rows, save_csv
 from scripts.glass_root_inat_review_previews_batch006 import choose, draw_sheet, retrieve, safe_url, owner_credit
 
