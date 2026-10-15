@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T03:42:00.000Z",
+  "updated_at": "2026-10-15T03:47:29.442Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9227,11 +9227,13 @@
       "scope_key": "assets/js/app.js; assets/css/styles.css; workflow/helianthus-photo-arrow-review.md",
       "lane": "website-ui-photo-qa",
       "owner": "manual-design-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-15T03:42:00.000Z",
       "expires_at": "2026-10-15T09:42:00.000Z",
       "release_when": "QA report and gallery update merged; no image or scientific field edited",
-      "notes": "Improve photo priority without changing canonical image[] order; source-grounded Helianthus leaf and phyllary targets; leave all arrows unverified until pixel coordinate inspection."
+      "notes": "Improve photo priority without changing canonical image[] order; source-grounded Helianthus leaf and phyllary targets; leave all arrows unverified until pixel coordinate inspection.",
+      "released_at": "2026-10-15T03:47:29.442Z",
+      "release_reason": "PR #25 merged to main as 00038d694314b3b28e94f688f629795ba71e30c1. Diagnostic photo order and role captions tested for both Helianthus taxa; arrow coordinates remain pending verified image-level inspection. No canonical photo order or science changed."
     }
   ]
 }
