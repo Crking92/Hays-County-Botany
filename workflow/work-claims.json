@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:07:07.835Z",
+  "updated_at": "2026-10-15T00:10:45.058Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -37,11 +37,13 @@
       ],
       "lane": "native-range-fast-fill",
       "owner": "manual-native-range-research-chat",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-15T00:07:07.835Z",
       "expires_at": "2026-10-15T06:07:07.835Z",
       "release_when": "Verified native-range corrections persisted to canonical GitHub and tracker; release with evidence audit",
-      "notes": "Range metadata only; 24 project counties strict. Investigate 12 old PASS records whose counted county list includes out-of-target counties. Do not change photos, learner admission, or installer fields."
+      "notes": "Range metadata only; 24 project counties strict. Investigate 12 old PASS records whose counted county list includes out-of-target counties. Do not change photos, learner admission, or installer fields.",
+      "released_at": "2026-10-15T00:10:45.058Z",
+      "release_reason": "Commit a09c86e verified: 12 canonical species and queue corrected; 12 Species Tracker G:I rows read back as UNRESOLVED/two qualifying counties."
     },
     {
       "claim_id": "huge-empty-photo-20261014-007",
