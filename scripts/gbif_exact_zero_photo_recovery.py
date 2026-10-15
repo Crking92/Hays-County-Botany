@@ -6,7 +6,7 @@ Kew-checked synonym); individual IMAGE license CC0 / CC BY / CC BY-SA / CC BY-NC
 credited image bytes fully downloaded and verified. No taxonomic/range edits.
 Otherwise emit a detailed skipped/candidate audit, not a borrowed genus photo.
 """
-import copy,csv,datetime,hashlib,io,json,pathlib,re,sys,urllib.parse,urllib.request,urllib.error,time,collections
+import argparse,copy,csv,datetime,hashlib,io,json,pathlib,re,sys,urllib.parse,urllib.request,urllib.error,time,collections
 from concurrent.futures import ThreadPoolExecutor,as_completed
 from PIL import Image,ImageOps
 ROOT=pathlib.Path(".");sys.path.insert(0,str(ROOT.resolve()))
@@ -25,6 +25,10 @@ NAMES={
  "oenothera-patriciae":["Oenothera patriciae","Gaura brachycarpa","Gaura hexandra var. coryi","Gaura tripetala var. coryi"],
  "muhlenbergia-piniflora":["Muhlenbergia piniflora"],
  "tridentopsis-buckleyana":["Tridentopsis buckleyana","Tridens buckleyanus","Triodia buckleyana","Sieglingia buckleyana"],
+ "sorghastrum-elliottii":["Sorghastrum elliottii"],
+ "senna-pilosior":["Senna pilosior"],
+ "bouteloua-pectinata":["Bouteloua pectinata"],
+ "eragrostis-hirsuta":["Eragrostis hirsuta"],
 }
 # Catch falsely identified separate taxa sharing an initial binomial.
 RANK_BAD=re.compile(r"^(variety|subspecies|subsp|form|f\\.)\b",re.I)
@@ -126,14 +130,30 @@ def csvappend(path,new):
  b=io.StringIO();writer=csv.DictWriter(b,fieldnames=keys,lineterminator="\n")
  writer.writeheader();writer.writerows(lines+[new]);path.write_text(b.getvalue(),encoding="utf-8")
 def main():
- now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+ p=argparse.ArgumentParser()
+ p.add_argument("--reclaim-expired",action="store_true",help="Allow work on expired leases ONLY; preserve any live/renewed claim and never overwrite.")
+ p.add_argument("--report",default=str(REPORT))
+ p.add_argument("--focus",default="",help="Comma-separated exact species IDs, if supplied")
+ args=p.parse_args()
+ focus={x.strip() for x in args.focus.split(",") if x.strip()}
+ reportfile=ROOT/args.report
+ now_dt=datetime.datetime.now(datetime.timezone.utc)
+ now=now_dt.isoformat()
  manifest=json.loads((ROOT/"data/manifest.json").read_text(encoding="utf-8"))
  refs={e["id"]:e["path"] for e in manifest["species"]}
  queue=json.loads(QUEUE.read_text(encoding="utf-8"))
  busy=set()
  claims=json.loads((ROOT/"workflow/work-claims.json").read_text(encoding="utf-8"))
  for x in claims["claims"]:
-  if x.get("status") in ("active","queued","blocked"):busy.update(x.get("taxa") or [])
+  if x.get("status") not in ("active","queued","blocked"):continue
+  expiry=x.get("expires_at")
+  can_reclaim=False
+  if args.reclaim_expired and expiry and x.get("status")=="active":
+   try:
+    lease=datetime.datetime.fromisoformat(expiry.replace("Z","+00:00"))
+    can_reclaim=lease<now_dt and x.get("lane") in ("photo-fast-fill","genus-comparison-builder")
+   except (ValueError,TypeError):pass
+  if not can_reclaim:busy.update(x.get("taxa") or [])
  inbox=set()
  for p in (ROOT/"curation-inbox").rglob("species.json"):
   try:inbox.add(json.loads(p.read_text())["id"])
@@ -141,7 +161,7 @@ def main():
  report={"run_at":now,"lane":"targeted first-photo GBIF individually licensed source recovery",
    "source_policy":"Exact original specimen determination or independently confirmed botanical synonym. Image-level CC0/CC BY/CC BY-SA/CC BY-NC license required. Anatomy provisional.",
    "installed":[],"skipped":[],"searches":[]}
- queued=[r for r in queue["items"] if r["id"] in NAMES]
+ queued=[r for r in queue["items"] if r["id"] in NAMES and (not focus or r["id"] in focus)]
  eligible=[]
  for row in queued:
   sid=row["id"]
@@ -212,7 +232,8 @@ def main():
    out.write("\nPROVISIONAL GBIF EXACT-SPECIMEN FIRST PHOTO "+now+"\n"+str(row["source_determination"])+"\n"+str(row["creator"])+"\n"+str(row["license"])+" "+str(row["license_url"])+"\n"+row["occurrence_url"]+"\n"+row["uri"]+"\nAnatomy visual verification pending; no scientific taxon/range status changed.\n")
   path.write_text(json.dumps(sp,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
   report["installed"].append({"id":sid,"source_taxon":row["source_determination"],"photo_file":str(dest),"source_page":row["occurrence_url"],"license":row["license"],"bytes":len(binary),"sha256":hashlib.sha256(binary).hexdigest()})
- REPORT.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+ reportfile.parent.mkdir(parents=True,exist_ok=True)
+ reportfile.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
  if report["installed"]:
   from scripts.curation_pipeline import rebuild_photo_fast_fill_queue
   rebuild_photo_fast_fill_queue()
