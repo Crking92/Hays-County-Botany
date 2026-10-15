@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:20:46.540Z",
+  "updated_at": "2026-10-15T00:21:43.469Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,27 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "native-range-fast-fill-20261014-005",
+      "scope_kind": "species_native_range_batch",
+      "taxa": [
+        "asclepias-viridis",
+        "conoclinium-coelestinum",
+        "diospyros-texana",
+        "salvia-azurea",
+        "malvaviscus-arboreus-var-drummondii",
+        "clematis-drummondii",
+        "verbena-xutha",
+        "solidago-nemoralis"
+      ],
+      "lane": "native-range-fast-fill",
+      "owner": "manual-native-range-research-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T00:21:43.469Z",
+      "expires_at": "2026-10-15T06:00:00Z",
+      "release_when": "batch verified and tracker synced",
+      "notes": "Range metadata audit only, no media or learner edits."
+    },
     {
       "claim_id": "native-range-kerr-evidence-20261014-004",
       "scope_kind": "species_native_range_reconciliation_batch",
