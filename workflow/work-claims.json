@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:26:54.103Z",
+  "updated_at": "2026-10-15T02:00:00.000Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9154,6 +9154,18 @@
       "expires_at": "2026-10-14T18:37:00-05:00",
       "release_when": "Ammannia genus lesson committed, re-fetched and registered in lesson-index; otherwise release after failure.",
       "notes": "Two manifest-backed species; no species installs, range decisions or website changes."
+    },
+    {
+      "claim_id": "website-mobile-study-flow-20261014",
+      "scope_kind": "website_ui",
+      "scope_key": "assets/js/app.js and assets/css/styles.css — species anatomy cards and mobile learning path",
+      "lane": "website-ui",
+      "owner": "manual-design-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T02:00:00.000Z",
+      "expires_at": "2026-10-15T08:00:00.000Z",
+      "release_when": "PR merged and implementation verified; UI-only, no plant data/photos/automations",
+      "notes": "User screenshot shows collapsed words in Family/Genus/Species part tiles. Repair mobile structure first, then clear ID-first guided flow. No canonical species data edits."
     }
   ]
 }
