@@ -1,0 +1,69 @@
+name: Bulk Open Photo Candidate Harvest
+
+# Manual-only photo sourcing. No canonical writes or scheduled-task changes.
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'GBIF needs no key; Pl@ntNet requires secret PLANTNET_API_KEY'
+        type: choice
+        default: gbif
+        options: [gbif, plantnet, both]
+      limit:
+        description: 'Number of sparse-photo species to search (1-60)'
+        type: number
+        default: 30
+      per_species:
+        description: 'Candidate photos per species per source (1-8)'
+        type: number
+        default: 3
+      max_local:
+        description: 'Search cards with 0, 1, or 2 installed local photos'
+        type: choice
+        default: '2'
+        options: ['0', '1', '2']
+      species:
+        description: 'Optional comma-separated canonical species IDs'
+        type: string
+        default: ''
+      download:
+        description: 'Stage supported-license media in the review artifact'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  harvest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image validation dependency
+        run: python -m pip install --disable-pip-version-check Pillow
+      - name: Gather candidate photos without installing
+        env:
+          SOURCE: ${{ inputs.source }}
+          LIMIT: ${{ inputs.limit }}
+          PER_SPECIES: ${{ inputs.per_species }}
+          MAX_LOCAL: ${{ inputs.max_local }}
+          SPECIES: ${{ inputs.species }}
+          DOWNLOAD: ${{ inputs.download }}
+          PLANTNET_API_KEY: ${{ secrets.PLANTNET_API_KEY }}
+        run: |
+          set -euo pipefail
+          args=(--source "$SOURCE" --limit "$LIMIT" --per-species "$PER_SPECIES" --max-local "$MAX_LOCAL" --species "$SPECIES" --out workflow/open-photo-candidates/manual-latest)
+          if [[ "$DOWNLOAD" == "true" ]]; then args+=(--download); fi
+          python scripts/bulk_open_photo_harvest.py "${args[@]}"
+      - name: Upload candidate CSV, report, and staged media (not installed)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hays-open-photo-review-candidates
+          path: workflow/open-photo-candidates/manual-latest/
+          if-no-files-found: warn
+          retention-days: 14
