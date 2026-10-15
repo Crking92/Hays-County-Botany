@@ -49,3 +49,12 @@
 - Residual concept-routing exception backlog is now **229 source rows** (306 - 17 - 60).
 - Durable batch: `research-drafts/reconciliation/phase3-accepted-target-routing-2026-10-15-b002.json`
 - Commit: `626d38d7d0c0d5bfb80da8dfa0cca865a12cfb52`
+
+## Phase 3 progress — rank/parent routing batch 003
+- Resolved all **10** `RANK_PARENT_CONCEPT_REVIEW` source rows.
+- All 10 are now confirmed represented inside **8 already-installed parent canonical cards**; exact variety/subspecies names remain important searchable/infraspecific references, but no second learner card should be created from these source rows.
+- Newly confirmed represented total: **586 source rows**.
+- Residual unresolved concept-routing exceptions: **219 source rows**.
+- Current full-pool decomposition: **586 represented + 400 preflight candidates + 17 confirmed aliases awaiting their target source-row card + 60 accepted-target routes awaiting 59 destination concepts + 219 unresolved exceptions = 1,282**.
+- Durable batch: `research-drafts/reconciliation/phase3-rank-parent-routing-2026-10-15-b003.json`
+- Commit: `abfff4cfb2c7cd7c1315ff32dda02a319d3ea146`
