@@ -1,0 +1,69 @@
+name: Install Glass Root Garden One Plant 001
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-one-plant-install-001.yml
+      - workflow/glass-root-inat/one-plant-001/approved-photo-install-001.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-approved-install
+  cancel-in-progress: false
+
+jobs:
+  install-one-verified-species:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install pillow
+      - name: Install exact owner-approved elderberry photos
+        run: |
+          python3 scripts/glass_root_inat_install_one_plant_001.py
+      - name: Verify all actual JPEGs, preserved original, credit and source links
+        run: |
+          python3 - <<'PY'
+          import json,pathlib
+          from PIL import Image
+          batch=json.loads(pathlib.Path("workflow/glass-root-inat/one-plant-001/approved-photo-install-001.json").read_text())
+          target=batch["targets"][0]
+          path=pathlib.Path(target["path"])
+          j=json.loads(path.read_text())
+          assert j["id"]=="sambucus-canadensis"
+          assert any(x.get("creator")=="H. Zell" and x.get("license")=="CC BY-SA 3.0" for x in j["images"])
+          for p in target["photos"]:
+              matches=[x for x in j["images"] if str(x.get("photo_id"))==str(p["id"])]
+              assert len(matches)==1,p["id"]
+              x=matches[0]
+              assert x["creator"]=="Glass Root Garden" and x["license"]=="CC BY 4.0"
+              assert x.get("source_page") and x.get("observation_url")
+              f=path.parent/x["file"]
+              assert f.stat().st_size>=20000
+              with Image.open(f) as im: im.verify()
+              print("VERIFIED",p["id"],f)
+          assert j["curation_status"]["photo_metadata_count"]==len(j["images"])
+          assert len(j["images"])==3
+          PY
+      - name: Push only elderberry card improvements
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Viburnaceae/Sambucus/sambucus-canadensis/
+          if git diff --cached --quiet; then
+            echo "No-op: exact photos already installed."
+            exit 0
+          fi
+          git commit -m "Install two Glass Root Garden elderberry photos — one-plant test"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
