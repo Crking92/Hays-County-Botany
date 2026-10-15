@@ -1,0 +1,59 @@
+name: Visual Learner Photo Quality Queue
+
+on:
+  workflow_dispatch:
+    inputs:
+      batch_size:
+        description: "Number of unclaimed taxa in this review batch (1-100)"
+        default: "25"
+        type: string
+        required: false
+      offset:
+        description: "Skip this many highest-priority unclaimed taxa (0, 25, 50, ...)"
+        default: "0"
+        type: string
+        required: false
+  push:
+    branches: [main]
+    paths:
+      - "data/manifest.json"
+      - "content/taxa/**/species.json"
+      - "scripts/photo_quality_audit.py"
+      - "tests/test_photo_quality_audit.py"
+      - ".github/workflows/photo-quality-audit.yml"
+  schedule:
+    - cron: "18 11 * * 1"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: visual-photo-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality-queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify quality rules and nonmutation
+        run: python -m unittest discover -s tests -p 'test_photo_quality_audit.py' -v
+      - name: Generate full manifest audit and priority batch
+        env:
+          BATCH_SIZE: ${{ github.event.inputs.batch_size || '25' }}
+          OFFSET: ${{ github.event.inputs.offset || '0' }}
+        run: |
+          python scripts/photo_quality_audit.py \
+            --batch-size "$BATCH_SIZE" --offset "$OFFSET" \
+            --out-dir "photo-quality-output"
+      - name: Publish report artifacts (does not commit or alter source)
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-photo-quality-queue-${{ github.run_number }}
+          path: photo-quality-output/
+          retention-days: 30
+          if-no-files-found: error
