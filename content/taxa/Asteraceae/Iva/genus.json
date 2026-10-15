@@ -199,11 +199,126 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-genus-github-backfill",
+    "version": "1.1-iva-photo-led-anatomy-recovery",
     "last_reviewed": "2026-10-11",
     "structural_lesson": "comparison built from published diagnostic key",
-    "visual_lock": "diagnostic photos required; no acquired media claimed",
+    "visual_lock": "four anatomy roles and three comparisons added; exact-species diagnostic photos still needed; no arrows verified",
     "species_installation": "not performed",
     "scientific_decisions": "unchanged"
-  }
+  },
+  "anatomy_lessons": [
+    {
+      "title": "1 · Measure the petiole at the node",
+      "term": "petiole",
+      "plain_language": "The little stalk between the stem and leaf blade",
+      "species": [
+        "Iva angustifolia",
+        "Iva annua"
+      ],
+      "look_for": "Measure several fully expanded mid-stem leaves at their stem attachment: 0–2 mm in I. angustifolia versus usually 5–20 mm in I. annua. Include a ruler and full leaf margin; small immature leaves can mislead.",
+      "why_it_matters": "The combination of leaf stalk, blade width and entire versus toothed edge is the first useful field split.",
+      "photo_role": "matched exact-species node + full leaf + millimeter scale",
+      "photo_status": "needed; no genus-installed verified diagnostic photo",
+      "annotation_status": "pending image-specific verification"
+    },
+    {
+      "title": "2 · Turn the head sideways",
+      "term": "capitulum / involucre",
+      "plain_language": "A tiny flower head and the green wrapper beneath it",
+      "species": [
+        "Iva angustifolia",
+        "Iva annua"
+      ],
+      "look_for": "Each spike-like branch holds multiple separate rayless capitula. Compare the narrow top-shaped ~2.5–3 mm involucre of I. angustifolia with the rounded ~3–5 mm involucre of I. annua, measuring intact mature heads.",
+      "why_it_matters": "These are composite heads, not a single spike flower; head profile can corroborate the leaf characters.",
+      "photo_role": "matched lateral head macros, same magnification, ruler in plane",
+      "photo_status": "needed; external references do not count as installed",
+      "annotation_status": "pending image-specific verification"
+    },
+    {
+      "title": "3 · Find the outer phyllary seams",
+      "term": "phyllaries / connate",
+      "plain_language": "Green bracts under the head, either joined at the base or separate",
+      "species": [
+        "Iva angustifolia",
+        "Iva annua"
+      ],
+      "look_for": "Under a hand lens examine outer 3–5 phyllaries: partly fused (connate) in I. angustifolia, distinct in I. annua. Photograph the actual seams in the same orientation; do not infer fusion from a distant flowering-axis view.",
+      "why_it_matters": "Phyllary fusion is a more decisive reproductive tie-breaker than head color.",
+      "photo_role": "side and underside macro showing the base of outer phyllaries",
+      "photo_status": "needed; no verified arrow targets",
+      "annotation_status": "pending image-specific verification"
+    },
+    {
+      "title": "4 · Dissect one rayless head",
+      "term": "pistillate / staminate florets; paleae",
+      "plain_language": "Separate seed-forming and pollen-forming little flowers inside one head",
+      "species": [
+        "Iva angustifolia",
+        "Iva annua"
+      ],
+      "look_for": "Separate the outer functionally pistillate florets from inner staminate florets and receptacular paleae. Count several mature heads: counts overlap and should support, not replace, leaf/petiole/phyllary evidence.",
+      "why_it_matters": "Explains why a rayless Asteraceae head is still made of many individual florets.",
+      "photo_role": "dissected head with separately labeled florets and mm scale",
+      "photo_status": "needed; no dissections claimed",
+      "annotation_status": "pending image-specific verification"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "title": "Narrowleaf marsh-elder versus sumpweed",
+      "taxa": [
+        "Iva angustifolia",
+        "Iva annua"
+      ],
+      "look_here_first": "Measure mid-stem petioles and check entire narrow versus toothed broader leaves; confirm phyllary fusion on mature heads.",
+      "caution": "Leaf sizes, plant heights and floret counts vary; never force an ID from a single young leaf.",
+      "status": "source-pool comparison; neither species installed in canonical manifest"
+    },
+    {
+      "title": "Iva versus ragweed",
+      "taxa": [
+        "Iva spp.",
+        "Ambrosia spp."
+      ],
+      "look_here_first": "Check whether heads are arranged as Iva rayless capitula versus ragweed's separate pollen-producing and fruiting structures; inspect mature fruiting heads.",
+      "caution": "A green spike-like flowering display and rough leaves alone are not diagnostic; confirm with reproductive anatomy.",
+      "status": "comparison only; no occurrence or native-range claim"
+    },
+    {
+      "title": "Iva versus other rayless composites",
+      "taxa": [
+        "Iva spp.",
+        "Cyclachaena xanthifolia",
+        "Baccharis spp."
+      ],
+      "look_here_first": "Check herbaceous versus woody habit, head sex and branching, involucre/phyllaries, and pappus; use exact local specimen references.",
+      "caution": "Comparison genera are visual look-alikes, not newly installed Iva species or confirmed local records.",
+      "status": "look-alike handoff only"
+    }
+  ],
+  "media_and_rights": {
+    "installed_exact_species_photo_claim": "none in this genus lesson; both Iva taxa absent from current canonical manifest",
+    "reference_status": "Flora of North America keys are scientific text references, not installed or visually verified photos",
+    "candidate_status": "Photo-library candidate records require exact-image identity and image-level licensing checks before selection",
+    "reuse_rule": "Retain photographer, source page, exact license and any private-use restrictions; CC BY-NC does not imply commercial reuse, owner permission does not imply public CC licensing",
+    "annotation_status": "No image-specific arrow coordinates or verified macro demonstrations published"
+  },
+  "targeted_handoffs": [
+    {
+      "lane": "Diagnostic Photo Fast-Fill",
+      "scope": "Iva matched comparison",
+      "request": "Consult permanent candidate library; obtain same-scale verified node/petiole, involucre, phyllary-seam and dissection photos for each species, with exact photo rights and attribution."
+    },
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "scope": "Iva angustifolia / I. annua",
+      "request": "Verify synonym handling for I. texensis and confirm published character ranges and overlap before any key tightening; no native-range decision here."
+    },
+    {
+      "lane": "Approved Taxa Installer",
+      "scope": "Iva angustifolia / I. annua",
+      "request": "Both names are in live Master Plant Pool but neither in current canonical manifest; independently assess accepted concepts and licensed photo requirements before any installation."
+    }
+  ]
 }
