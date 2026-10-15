@@ -853,6 +853,15 @@ async function submitApprovalDecision(itemId,decision){
   }
 }
 
+/* Compact, accessible presentation-only drawer. All source content remains in the DOM. */
+function studyDrawer(title,preview,content,tone){
+  if(!content) return "";
+  return '<details class="study-drawer study-drawer-'+esc(tone||"neutral")+'">'+
+    '<summary><span class="study-drawer-icon" aria-hidden="true">'+(tone==="photo"?"◉":tone==="compare"?"⇄":tone==="terms"?"Aa":"✣")+'</span>'+
+    '<span class="study-drawer-label"><strong>'+esc(title)+'</strong><small>'+esc(preview)+'</small></span>'+
+    '<span class="study-drawer-chevron" aria-hidden="true">⌄</span></summary>'+
+    '<div class="study-drawer-body">'+content+'</div></details>';
+}
 function familyCard(family){
   const p=familyProfile(family)||{};
   const members=familySpecies(family);
@@ -890,8 +899,14 @@ function homeView(){
     '<p class="section-intro">Start with the big picture. Look at photos, spot a clue, then follow the trail from family to genus to species. Every scientific word is a tool you can learn.</p>'+
     '<div class="library-summary"><div><strong>'+families.length+'</strong><span>families represented</span></div><div><strong>'+completedFamilyLessons+'</strong><span>family modules</span></div><div><strong>'+completedGenusLessons+'</strong><span>genus modules</span></div><div><strong>'+state.species.length+'</strong><span>curated species</span></div></div>'+ 
     '<div class="family-grid">';
-  families.forEach(function(f){ out+=familyCard(f); });
-  out+='</div></section><section class="method-strip"><div><b>1</b><span><strong>See it</strong>Start with the structure.</span></div>'+
+  families.slice(0,8).forEach(function(f){ out+=familyCard(f); });
+  out+='</div>';
+  if(families.length>8){
+    out+='<details class="home-more-families"><summary><strong>Explore all '+families.length+' plant families</strong><span>Open the complete photo-tile library · '+(families.length-8)+' more families <b aria-hidden="true">⌄</b></span></summary><div class="family-grid">';
+    families.slice(8).forEach(function(f){out+=familyCard(f);});
+    out+='</div></details>';
+  }
+  out+='</section><section class="method-strip"><div><b>1</b><span><strong>See it</strong>Start with the structure.</span></div>'+
     '<div><b>2</b><span><strong>Name it</strong>Tap terms as they appear.</span></div>'+
     '<div><b>3</b><span><strong>Compare it</strong>Put relatives side by side.</span></div></section>';
   return out;
@@ -933,16 +948,23 @@ function familyView(){
   if(members.length) members.slice(0,4).forEach(function(sp){ out+='<button type="button" data-species="'+sp.id+'">'+thumb(sp,"family-stack-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Family lesson ready. Canonical species anchors are still being installed.</div>';
   out+='</div></section>';
-  if(canon) out+=familyVisualLessonHTML(canon);
-  out+=familyVisualVocabulary(p);
+  out+='<div class="study-drawer-grid">';
+  if(canon) out+=studyDrawer("Family anatomy photos","See real plant structures, clues and tie-breakers.",familyVisualLessonHTML(canon),"photo");
+  out+=studyDrawer("Learn the botanical terms","Visual vocabulary and a short practice drill.",familyVisualVocabulary(p),"terms");
+  const genusStart=out.length;
   out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Next stop · closer relatives</div><h2>Choose a genus to explore</h2></div></div><div class="genus-buttons">';
   if(genera.length) genera.forEach(function(g){ out+='<button type="button" data-genus="'+esc(g[0])+'" data-genus-family="'+esc(family)+'"><i>'+esc(g[0])+'</i><span>'+g[1]+'</span></button>'; });
   else out+='<div class="empty-panel">No canonical genus anchors are installed yet. The family-level lesson above is still available.</div>';
-  out+='</div></section><section class="section-block"><div class="section-heading"><div><div class="eyebrow">Meet the plants</div><h2>Explore the species</h2></div></div><div class="species-tile-grid">';
+  out+='</div></section>';
+  out=out.slice(0,genusStart)+studyDrawer("Choose a genus",genera.length+" close-relative groups to explore.",out.slice(genusStart),"browse");
+  const speciesStart=out.length;
+  out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Meet the plants</div><h2>Explore the species</h2></div></div><div class="species-tile-grid">';
   if(members.length) members.forEach(function(sp){ out+=speciesTile(sp,true); });
   else out+='<div class="empty-panel">No canonical species anchors are installed for this family yet.</div>';
   out+='</div></section>';
-  out+=familyComparePanel(family,members);
+  out=out.slice(0,speciesStart)+studyDrawer("Species photo library",members.length+" species with identity photos and field clues.",out.slice(speciesStart),"photo");
+  out+=studyDrawer("Compare species", "Side-by-side field identification.",familyComparePanel(family,members),"compare");
+  out+='</div>';
   return out;
 }
 function genusView(){
@@ -959,28 +981,39 @@ function genusView(){
     (warning?'<p class="genus-warning">'+esc(warning)+'</p>':'')+'</div><div class="genus-photo-strip">';
   if(members.length) members.slice().sort(function(a,b){return imagesFor(b).length-imagesFor(a).length;}).slice(0,3).forEach(function(sp){ out+='<button type="button" data-species="'+esc(sp.id)+'">'+thumb(sp,"genus-hero-img")+'<span>'+esc(commonName(sp)||scientificName(sp))+'</span></button>'; });
   else out+='<div class="empty-panel">Species anchors for this genus are still being installed.</div>';
-  out+='</div></section>'+botanyGenusPartPreview(members,data)+
-    '<section class="two-column-learning genus-levels"><article class="learning-card"><div class="eyebrow">Family characters</div><h2>Why '+esc(family)+'?</h2><p>'+esc(p.plain_signature||p.field_signature||"Use the family lesson to recognize the broader structural pattern.")+'</p><button class="text-button" type="button" data-family="'+esc(family)+'">Open family →</button></article>'+
+  out+='</div></section><div class="study-drawer-grid">'+
+    studyDrawer("Genus anatomy photos","Actual structures and the clues they illustrate.",botanyGenusPartPreview(members,data),"photo");
+  const sharedStart=out.length;
+  out+='<section class="two-column-learning genus-levels"><article class="learning-card"><div class="eyebrow">Family characters</div><h2>Why '+esc(family)+'?</h2><p>'+esc(p.plain_signature||p.field_signature||"Use the family lesson to recognize the broader structural pattern.")+'</p><button class="text-button" type="button" data-family="'+esc(family)+'">Open family →</button></article>'+
     '<article class="learning-card"><div class="eyebrow">Genus characters</div><h2>What makes <i>'+esc(genus)+'</i> hang together?</h2>';
   if(shared.length) out+='<ul class="trait-list">'+shared.slice(0,8).map(function(x){ return '<li>'+esc(formatValue(x))+'</li>'; }).join("")+'</ul>';
   else out+='<p>The genus-level diagnostic module is still being expanded. Use the species set and comparison key below in the meantime.</p>';
   out+='</article></section>';
+  out=out.slice(0,sharedStart)+studyDrawer("Why this family & genus?","Shared structure, family clues and exceptions.",out.slice(sharedStart),"terms");
+  const priorityStart=out.length;
   if(priority.length){
     out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Species-level characters</div><h2>Look here to separate '+esc(genus)+' species</h2></div></div><div class="diagnostic-chip-grid">';
     priority.slice(0,10).forEach(function(x){ out+='<div>'+esc(formatValue(x))+'</div>'; });
     out+='</div></section>';
   }
-  out+=genusVisualComparison(data);
-  out+=genusTextComparisons(data);
+  if(out.length>priorityStart) out=out.slice(0,priorityStart)+studyDrawer("Top distinguishing characters","Look for these features in the field.",out.slice(priorityStart),"terms");
+  out+=studyDrawer("Photo comparisons","Compare the actual distinguishing plant parts.",genusVisualComparison(data),"photo");
+  out+=studyDrawer("Detailed comparison notes","All existing diagnostic comparisons.",genusTextComparisons(data),"compare");
+  const quickStart=out.length;
   if(quick.length){
     out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Quick separation key</div><h2>Character → likely species</h2></div></div><div class="genus-key">';
     quick.slice(0,12).forEach(function(row){ out+='<div><span>'+esc(row.if)+'</span><b>→</b><strong><i>'+esc(row.then)+'</i></strong></div>'; });
     out+='</div></section>';
   }
+  if(out.length>quickStart) out=out.slice(0,quickStart)+studyDrawer("Quick separation key","Character by character, find the likely species.",out.slice(quickStart),"compare");
+  const genusSpeciesStart=out.length;
   out+='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Drill down</div><h2>'+esc(genus)+' species in the learner</h2></div></div><div class="species-tile-grid">';
   if(members.length) members.forEach(function(sp){ out+=speciesTile(sp,true); });
   else out+='<div class="empty-panel">No canonical species are installed for this genus yet.</div>';
-  out+='</div></section>'+genusComparePanel(genus,members);
+  out+='</div></section>';
+  out=out.slice(0,genusSpeciesStart)+studyDrawer("Explore species photos",members.length+" species in this genus.",out.slice(genusSpeciesStart),"photo");
+  out+=studyDrawer("Compare two species","Open a side-by-side field test.",genusComparePanel(genus,members),"compare");
+  out+='</div>';
   return out;
 }
 function photoCarousel(sp){
@@ -1341,7 +1374,7 @@ function openPartPhotoPreview(button){
 }
 function botanyPartGroup(rank,label,subtext,items,button){
   if(!items || !items.length) return "";
-  return '<details class="part-gallery-group part-gallery-'+rank+'" open>'+
+  return '<details class="part-gallery-group part-gallery-'+rank+'">'+
     '<summary><span class="part-gallery-marker">'+esc(rank)+'</span><span class="part-gallery-summary">'+
     '<strong>'+esc(label)+'</strong><small>'+esc(subtext)+'</small></span>'+
     '<span class="part-gallery-count">'+items.length+' parts <span aria-hidden="true">⌄</span></span></summary>'+
@@ -1462,10 +1495,11 @@ function botanyPartExamples(sp,genusData){
     '<p>Start with the family, narrow down to the genus, then confirm the species. Each tile names a structure and shows a real reference photo when available.</p>'+
     '<div class="botany-parts-keys"><span>1 · Family</span><span>2 · Genus</span><span>3 · Species</span></div></div>'+
     '<p class="part-annotation-note">Photos are currently unmarked. A named feature is a <b>place to investigate</b>, not a verified arrow on the photo. We can add arrows to the exact structure after visual review.</p>'+
+    '<div class="part-groups-grid">'+
     botanyPartGroup("family","Family · "+sp.family,"Broad family features and important exceptions",familyItems,familyButton)+
     botanyPartGroup("genus","Genus · "+sp.genus,"Shared structures to examine in close relatives",genusItems,genusButton)+
     botanyPartGroup("species","Species · "+scientificName(sp),"Photographs already in this species gallery",speciesItems,"")+
-    '</section>';
+    '</div></section>';
 }
 
 /* Prominent paths to the full family and genus lessons on each species page. */
@@ -1510,18 +1544,24 @@ function plantView(){
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
   if(!state.quizMode || state.quizRevealed) out+=taxonomyLessonShortcuts(sp);
   if(!state.quizMode || state.quizRevealed) out+=botanyPartExamples(sp,genusData);
+  out+='<div class="study-drawer-grid">';
+  const vocabStart=out.length;
   if(state.difficulty!=="simple"){
     out+='<section class="section-block learning-panel"><div class="section-heading"><div><div class="eyebrow">🔤 Words for what you see</div><h2>Learn the plant parts</h2></div>'+
       '<button class="text-button" type="button" data-nav="glossary">Full glossary →</button></div><div class="term-row large">'+terms.map(termChip).join("")+'</div>'+
       '<p class="teaching-note">Tap a term for plain language, the formal definition, where to look, why it matters, and a labeled diagram.</p></section>';
   }
-  if(!state.quizMode || state.quizRevealed) out+=taxonomyTeachingTrail(sp,genusData,p,c);
+  if(out.length>vocabStart) out=out.slice(0,vocabStart)+studyDrawer("Learn the terms","Botanical vocabulary with tap-to-explain definitions.",out.slice(vocabStart),"terms");
+  if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Follow the family tree","Why the scientific name fits this plant.",taxonomyTeachingTrail(sp,genusData,p,c),"terms");
+  const similarStart=out.length;
   out+='<section id="similarSection" class="section-block"><div class="section-heading"><div><div class="eyebrow">👀 Spot the difference</div><h2>Meet the look-alikes</h2></div></div>'+
     '<p class="section-intro">“Same genus” means close taxonomic relatives. “Useful comparison” is a hand-picked study pairing. “Same family” shares family structure but may not look alike overall.</p><div class="similar-grid">';
   if(similar.length) similar.forEach(function(x){ out+=similarCard(sp,x.sp,x.reason); }); else out+='<div class="empty-panel">No comparison plants are curated yet.</div>';
   out+='</div></section>';
-  if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=genusVisualComparison(sp);
-  if(state.difficulty==="field") out+=fieldBotanySection(sp,genusData);
+  out=out.slice(0,similarStart)+studyDrawer("Meet the look-alikes",similar.length+" possible comparison plants; open to check the differences.",out.slice(similarStart),"compare");
+  if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=studyDrawer("Diagnostic photo comparisons","Visual evidence for confusing species.",genusVisualComparison(sp),"photo");
+  if(state.difficulty==="field") out+=studyDrawer("Technical morphology","Every detailed morphological field, without the scrolling.",fieldBotanySection(sp,genusData),"terms");
+  out+='</div>';
   return out;
 }
 function compareSpeciesOptions(selectedId){
@@ -1979,7 +2019,19 @@ function handleClick(e){
   }
   if(e.target.closest("[data-reveal-quiz]")){ state.quizRevealed=true; render(); return; }
   if(e.target.closest("[data-next-quiz]") || e.target.closest("[data-random-quiz]")){ randomQuiz(); return; }
-  const jump=e.target.closest("[data-jump]"); if(jump){ const target=document.getElementById(jump.dataset.jump+"Section"); if(target) target.scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  const jump=e.target.closest("[data-jump]"); if(jump){
+    const target=document.getElementById(jump.dataset.jump+"Section");
+    if(target){
+      let parent=target.parentElement && target.parentElement.closest("details");
+      while(parent){parent.open=true;parent=parent.parentElement && parent.parentElement.closest("details");}
+      if(jump.dataset.jump==="parts"){
+        const speciesGroup=target.querySelector(".part-gallery-species");
+        if(speciesGroup) speciesGroup.open=true;
+      }
+      target.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+    return;
+  }
   const gb=e.target.closest("[data-browse-genus]");
   if(gb){ state.browseFamily=gb.dataset.browseFamily; state.browseGenus=gb.dataset.browseGenus; state.view="browse"; render(); window.scrollTo({top:0,behavior:"smooth"}); }
 }
