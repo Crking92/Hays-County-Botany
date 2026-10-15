@@ -37,3 +37,10 @@ Source: live `reports/photo-fast-fill-zero-queue.json` after external CC and Wik
 - LOOK HERE FIRST: whole flowering plant with upper leaves. Missing views: upper leaf attachment, inflated fruits, stellate hairs.
 - Annotation pending: true; no anatomical arrows verified.
 - Blocker: no verified retrievable exact-species image file. Preserve science and all existing gallery entries; recover only after photo ID, rights, and bytes are checked.
+
+## Oenothera patriciae media source recovery (2026-10-15)
+- Status: photo candidate only; no physically installed image, no READY stage.
+- Source lead: https://www.texaswildbuds.com/oenothera-patriciae.html — exact-species page with Blanco/Travis County photographs including Johnson City and Reimer's Ranch. Individual image creator, license, image ID and downloadable original have NOT been verified; do not copy or publish without permission.
+- LOOK HERE FIRST: flowering annual with gaura-like small flowers and leaf attachment; request whole-plant habit first, then flower side, hairy stem/leaf nodes and developing fruit.
+- needs_photo: true; annotation_pending: true. No pixel-verified arrow targets.
+- Blocker: image-specific rights and retrievable photo bytes missing. Do not mark as installed or externally linked in canonical gallery.
