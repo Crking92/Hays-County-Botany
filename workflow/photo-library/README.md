@@ -1,0 +1,50 @@
+# Permanent photo candidate library — shared operating contract
+Updated: 2026-10-15
+
+## New project decision: mass collection first, curation on demand
+
+**This file is required reading for all ChatGPT project chats and all five existing botany automations** whenever they need images, research a taxon, build a species card, or work on family/genus visual lessons. The canonical rules in `PROJECT_RULES.md`, `workflow/COORDINATION.md`, and `workflow/PHOTO_SOURCE_AND_MANUAL_BATCH_HANDOFF_20261015.md` still apply.
+
+**User direction (2026-10-15):** Gather as many responsibly licensed, exact-name candidate photographs as possible in large manual collection runs **now**; maintain a permanent reusable library; allow existing scheduled and manual scientific/photo-correction lanes to curate/select/install from it later. No new ten-species installation batch requirement. New species, more photos, and stronger diagnostic views can always be collected later. Do not wait to make perfect image choices during bulk gathering.
+
+## Start here
+
+- **Durable metadata:** `workflow/photo-library/batches/<batch-id>/candidates.csv`, `summary.json`, `selected-species.json`, `archive.json`. New catalog index: `workflow/photo-library/catalog.csv` and `species-index.json` (if generated). The per-batch files are authoritative when a consolidated index is stale.
+- **Durable actual JPEGs:** compressed `photos.zip` release asset attached to a private GitHub Release tagged `hays-photo-library-<batch-id>`. See the batch `archive.json` for the asset name/tag, file integrity, and mapping; use `gh release download <tag> -p photos.zip` on an authorized repository checkout. GitHub Actions *artifacts* expire: never treat an artifact URL as the permanent photo library.
+- **Manual collection workflow:** `Bulk Open Photo Candidate Harvest` and, after enabled, `Photo Library Mass Collect`. The collector gathers GBIF general and Pl@ntNet via GBIF (dataset `7a3679ef-5582-4aaa-81f0-8c2545cafc81`), which worked in a real batch without a Pl@ntNet API key. Direct Pl@ntNet DWC endpoint returned HTTP 403 with the current key; don't repeatedly retry it for ordinary collection. Record external source URL, creator, *image-level* license and provenance.
+- **Additional existing source pools:** Joey's Texas iNaturalist photo CSV; Calvin's Glass Root Garden/iNaturalist photo inventory and direct private-use permission. These are **candidate inventories**, not all installed photos. Preserve Joey's CC BY-NC restrictions, Calvin's private-only direct permissions, and separate licenses. Do not silently consolidate rights into CC BY.
+- **Do not re-run the same first 30 every time:** Choose eligible species that have not been batch-scanned first; prioritize live 0 local photos, then 1–2; allow explicit manual rescans / new sources / better anatomy later. Species with genuine taxonomy/source-concept holds (e.g., `muhlenbergia-piniflora`) must not be assigned a substituted species photo.
+- **Live canonical installed truth:** `data/manifest.json` and real local image files. A record in this library *never* counts as an installed or verified learner photo.
+
+## Status contract
+
+`candidate_metadata` -> `downloaded_provisional` -> `visual_identity_and_license_verified` -> `curation_selected` -> `installed_render_tested`.
+
+Harvest workers may set **only** the first two states. Photo/installer/lesson chats select actual views, check identity/license/claims/duplicates, preserve any copyright requirements (attribution and ShareAlike for adaptations), and run the established installer before reporting completion. A source label, AI guess, or GBIF observation name is not independent proof of botanical identity.
+
+Every worker should **search the permanent library before requesting/download-searching new media** and may look at fresh external sources only for remaining diagnostic gaps, failed URLs, wrong labels, or unavailable images. No need to modify existing completed cards simply because new candidates exist.
+
+## Lane-specific reading instructions
+
+1. **Approved Taxa Installer:** query library for new accepted species aliases/exact accepted names; install only identity-checked, credited, safe images. Preserve old gallery and science.
+2. **Diagnostic Photo Fast-Fill:** check photo library first, continue one independently unclaimed species per existing run. Select the missing diagnostic role; don't bulk-install the dump or claim the manual collector's scope.
+3. **Family Similarity Polish:** use candidate links to locate real anatomy references; do not treat metadata labels as visual evidence or publish an unexamined photo.
+4. **Genus Comparison Builder:** consult candidate images for real separating structures/look-alikes; no unverified species swap; preserve source photo rights.
+5. **Taxonomy Name Fast-Pass:** use candidate names as leads only; taxonomy decisions come from authority, not image labels. Do not run photo harvest.
+
+Keep all five schedules and existing automation scopes unchanged. There is no need for an additional scheduled automation. The collector is **manually initiated** in ChatGPT/GitHub, and does not preclaim all sparse species or interfere with other work.
+
+## Persistence, privacy and failure gates
+
+- The repository is currently private. If making any photo release or repository public later, reassess rights/attribution of every asset; never expose private GPS/EXIF.
+- Keep large photo bytes out of the main git history; use private GitHub Release assets for durable storage. Check total archive size and ZIP integrity; preservation lasts only while repository/releases are retained.
+- Only store JPEGs after valid image-byte checks and usable individual-photo permissions. Original photographer and photo license appear in the matching CSV and source page; release assets must include their metadata.
+- When release upload fails, **do not** mark any row as permanently stored; fail and keep temporary Actions artifact as recovery only.
+- Never overwrite or delete already installed `content/taxa/**/species.json`, existing galleries, or disputed source-concept research during mass collecting.
+- Avoid exposing tokens/API keys in scripts, commit messages, job logs, or exported candidate metadata. Use GitHub Actions secret handling for any private API keys.
+
+## Historic batches
+
+GBIF harvest #2: 84 metadata rows, 80 staged images, 28 taxa. Public Pl@ntNet via GBIF: 26 image candidates and 26 staged images across 10 of the same taxa. **110 total candidate rows / 106 staged files**, not 106 verified or installed learner photos. Report: `reports/bulk-open-photo-gbif-plantnet-test-20261015.md`. Source GitHub artifacts expire 2026-10-29; archive them into private Release assets before that date.
+
+If the persistent library is missing an initial batch, treat it as *not yet migrated* rather than assuming it is permanently saved.
