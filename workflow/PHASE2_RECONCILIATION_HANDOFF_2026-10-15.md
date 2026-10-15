@@ -71,3 +71,12 @@
 - Remaining **unprocessed** concept-routing rows: **84**. The 8 holds above already have durable HOLD decisions and belong to final exception review.
 - Durable batch: `research-drafts/reconciliation/phase3-explicit-target-routing-2026-10-15-b004.json`
 - Commit: `304173bddb6c025c8b4f0db799b5086b5c3ea7e4`
+
+## Phase 3 progress — accepted source-name preflight batch 005
+- Cleared all **82** `SOURCE_NAME_ACCEPTED_NEEDS_MORE_VALIDATION` rows.
+- None are currently installed in the refreshed 552-card manifest and none matched an active work claim.
+- **79** reused recent durable authoritative taxonomy reviews; the three rows without durable review received fresh checks: Galium texense, Galium virgatum, and Lantana camara.
+- All **82** now route as accepted-name installer-preflight candidates. Native-by-county and source-photo identity remain separate/deferred.
+- Durable batch: `research-drafts/reconciliation/phase3-accepted-source-name-preflight-2026-10-15-b005.json`
+- Commit: `9989e828ed3b67b06d7f3604da4d3089ecdf22c6`
+- Only **2 previously unprocessed identity-concept rows** remain in the Phase-2 routing ledger; existing durable HOLD rows are handled separately in Phase 4.
