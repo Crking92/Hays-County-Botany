@@ -1,0 +1,92 @@
+name: Recover Mass Photo Library Archives
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - workflow/photo-library/requests/20261015-recover.json
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: hays-photo-library-persist-main
+  cancel-in-progress: false
+
+jobs:
+  archive-recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Restore existing downloaded media without re-querying external sources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B main origin/main
+          for run_id in 38760123960 38760929397; do
+            batch="mass-$run_id"
+            if [[ -f "workflow/photo-library/batches/$batch/archive.json" ]]; then
+              echo "Skipping already recorded $batch"
+              continue
+            fi
+            if ! gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name photo-library-mass-harvest-recovery --dir "$RUNNER_TEMP/recovery-$run_id"; then
+              echo "No failure recovery artifact for run $run_id; likely already successful or still pending"
+              continue
+            fi
+            file="$(find "$RUNNER_TEMP/recovery-$run_id" -type f -name candidates.csv | head -n 1)"
+            if [[ -z "$file" ]]; then
+              echo "::error::Recovery artifact lacks candidates.csv for $batch"
+              exit 1
+            fi
+            harvest="$(dirname "$file")"
+            echo "Recovering $batch from $harvest"
+            python scripts/photo_library_archive.py prepare --input "$harvest" --batch-id "$batch" --archive-dir "$RUNNER_TEMP/release-assets"
+            tag="hays-photo-library-$batch"
+            asset="$RUNNER_TEMP/release-assets/$batch-photos.zip"
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              echo "Release $tag already exists; verifying photo asset"
+              gh release upload "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --clobber
+            else
+              gh release create "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --prerelease --title "Provisional photo candidates: $batch" --notes "Private research media; exact botany/photo rights unverified. Metadata and attribution inside archive."
+            fi
+            python scripts/photo_library_archive.py published --batch-id "$batch"
+          done
+          python scripts/photo_library_archive.py rebuild
+      - name: Persist recovered batch metadata and index
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/batches workflow/photo-library/species-index.json workflow/photo-library/catalog.csv
+          if git diff --cached --quiet; then
+            echo "No additional photo archives to record"
+            exit 0
+          fi
+          git commit -m "Recover photo library media from failed harvest artifacts"
+          for i in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep $((3 * i))
+          done
+          exit 1
+      - name: Preserve metadata when blocked
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unresolved-mass-photo-archive-recovery
+          path: workflow/photo-library/batches/
+          retention-days: 14
+          if-no-files-found: ignore
