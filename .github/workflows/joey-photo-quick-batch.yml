@@ -1,0 +1,118 @@
+name: Quick Joey Photo Batches
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "zero = no photos; thin = 1-2 photos; targeted = selected species"
+        type: choice
+        required: true
+        default: zero
+        options: [zero, thin, targeted]
+      batch_size:
+        description: "Up to 12 species per run"
+        required: true
+        default: "10"
+        type: string
+      species_ids:
+        description: "Optional comma-separated species IDs (required if targeted)"
+        required: false
+        type: string
+      photo_ids:
+        description: "Optional exact photo IDs for selected views"
+        required: false
+        type: string
+      per_species:
+        description: "Number of new photos per species, 1-3"
+        required: true
+        default: "1"
+        type: string
+  push:
+    paths:
+      - .github/workflows/joey-photo-quick-batch.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: joey-photo-quick-batches
+  cancel-in-progress: false
+
+jobs:
+  quick-fill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BATCH_MODE: ${{ github.event.inputs.mode || 'zero' }}
+      BATCH_SIZE: ${{ github.event.inputs.batch_size || '10' }}
+      SPECIES_IDS: ${{ github.event.inputs.species_ids || '' }}
+      PHOTO_IDS: ${{ github.event.inputs.photo_ids || '' }}
+      PER_SPECIES: ${{ github.event.inputs.per_species || '1' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pillow
+      - name: Download exact licensed images and install small safe batch
+        run: |
+          python - <<'PY'
+          import os,subprocess
+          cmd=["python","scripts/joey_photo_quick_batch.py",
+               "--mode",os.environ["BATCH_MODE"],
+               "--batch-size",os.environ["BATCH_SIZE"],
+               "--per-species",os.environ["PER_SPECIES"],
+               "--species",os.environ["SPECIES_IDS"],
+               "--photo-ids",os.environ["PHOTO_IDS"]]
+          subprocess.run(cmd,check=True)
+          PY
+      - name: Verify image bytes, attribution and source identity after install
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          from PIL import Image
+          p=pathlib.Path("reports/joey-photo-batch-latest.json")
+          audit=json.loads(p.read_text())
+          for t in audit["installed"]:
+              file=pathlib.Path(t["path"])
+              assert file.is_file() and file.stat().st_size>16000
+              with Image.open(file) as image:image.verify()
+              sj=file.parent.parent/"species.json"
+              d=json.loads(sj.read_text())
+              ims=[im for im in d["images"] if str(im.get("photo_id"))==str(t["photo_id"])]
+              assert len(ims)==1,(d["id"],t["photo_id"])
+              im=ims[0]
+              assert im["creator"]=="Joey Santore" and im["license"]=="CC BY-NC 4.0"
+              assert im["source_page"] and "inaturalist" in im["source_page"]
+              print("VERIFIED",d["id"],t["photo_id"],file.stat().st_size)
+          print("Total images installed:",len(audit["installed"]))
+          PY
+      - name: Commit and rebase safely
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/ reports/joey-photo-batch-latest.json reports/photo-fast-fill-zero-queue.json
+          if git diff --cached --quiet; then
+            echo "No photos eligible for this batch; nothing committed"
+            exit 0
+          fi
+          git commit -m "Install provisional Joey Santore photo batch [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Canonical photo batch pushed"
+              exit 0
+            fi
+            sleep 4
+          done
+          echo "A concurrent edit conflicted; changes not overwritten"
+          exit 1
+      - name: Retain batch audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: joey-photo-quick-batch-audit
+          path: reports/joey-photo-batch-latest.json
+          retention-days: 30
