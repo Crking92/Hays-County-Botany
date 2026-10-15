@@ -1,0 +1,29 @@
+name: Photo-first learner batch 004
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/photo-first-learner-batch-004.yml"
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install Pillow
+      - run: python scripts/install_photo_first_five_20261015_b004.py
+      - name: Commit installed species and verified photo files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa data/manifest.json data/project.json reports curation-archive research-drafts/photo-imports
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install photo-first learner batch 004"
+          git pull --rebase origin main
+          git push origin HEAD:main
