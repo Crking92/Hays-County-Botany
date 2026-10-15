@@ -102,3 +102,14 @@ The next step is a cross-batch deduplication of all future accepted concepts so 
 
 ### Next active phase
 Begin final installer preflight against the 636 working concepts: refresh manifest/claims/drafts, collapse any remaining synonym/rank duplicates, and promote clean distinct accepted concepts into installable batches. County-native research remains deferred; photo licensing/availability remains an installation requirement, not a taxonomy gate.
+
+## Installer-phase recovery after connection interruption
+- Reconciled the first three queue-backed concepts against live research-queue state.
+- Corrected workload: **608 represented + 662 future-routed + 12 Phase-4 holds = 1,282**.
+- Corrected exact-name future concept ceiling: **633** (projected maximum manifest **1,185** if none collapse further).
+- Corrections: Sapindus saponaria source context is already represented by canonical S. drummondii; Grindelia squarrosa and Silphium integrifolium are preserved as taxonomy/concept HOLDs, not installer candidates.
+- Consolidated workload correction commit: `2b7e6b2800ccc61d5e122652bf7c89cccdd3a49f`.
+- Built a reusable **100-concept installer-preflight queue** in 10 batches of 10 from clean accepted-name candidates after refreshing active claims and curation-inbox state.
+- Queue file: `workflow/INSTALLER_PREFLIGHT_QUEUE_2026-10-15.json`
+- Queue commit: `47e0658f037363bf7d225e0ce35c494b5e2785e7`
+- 140 clean direct candidates were eligible at queue-build time; the first 100 are reserved by durable queue state for final live duplicate/media checks. No learner cards or photos were overwritten by this queue creation.
