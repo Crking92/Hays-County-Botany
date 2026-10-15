@@ -12,15 +12,38 @@
   "look_here_first": "Look at the base/collar and then the seedhead: a tall warm-season rhizomatous clump with a broad airy pyramidal panicle and a conspicuously hairy ligule/collar zone.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Blanco",
-    "Val Verde"
+    "Blanco"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Kew/POWO accepts Panicum virgatum and lists Texas in its native range. Hagenbuch & Lemke's Texas Hill Country grass appendix explicitly records Hays County (Bierner 90-208, TEX-LL). The same appendix explicitly records Blanco County (Breckenridge 559, SWT). The same appendix explicitly records Val Verde County (Smith & Butterwick 202, TEX-LL).",
-    "range_guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Hays, Blanco qualify; Val Verde out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "range_guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Hays",
+        "Blanco",
+        "Val Verde"
+      ],
+      "valid_target_counties": [
+        "Hays",
+        "Blanco"
+      ],
+      "excluded_counties": [
+        "Val Verde"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 2 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "Kew/POWO accepts Panicum virgatum and lists Texas in its native range. Hagenbuch & Lemke's Texas Hill Country grass appendix explicitly records Hays County (Bierner 90-208, TEX-LL). The same appendix explicitly records Blanco County (Breckenridge 559, SWT). The same appendix explicitly records Val Verde County (Smith & Butterwick 202, TEX-LL).",
+      "source_document": "content/taxa/Poaceae/Panicum/panicum-virgatum/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -97,5 +120,6 @@
     "image_count": 3,
     "filled_at": "2026-10-05",
     "note": "Three vetted exact-species images are physically installed and verified in canonical content. Scientific PASS unchanged."
-  }
+  },
+  "native_metrics_excluded": true
 }

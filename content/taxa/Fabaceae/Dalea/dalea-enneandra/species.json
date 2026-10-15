@@ -14,15 +14,38 @@
   ],
   "look_here_first": "Look at spacing along the spike: flowers and broad bracts are visibly separated along a long slender, often nodding or drooping rachis rather than packed into a dense head.",
   "county_occurrences_target_zone": [
-    "Bell",
     "Burnet",
     "Comal"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "USDA-derived county native-status data explicitly marks Bell, Burnet and Comal native; additional qualifying counties include Gillespie, Kerr, San Saba, Travis and Williamson."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Burnet, Comal qualify; Bell out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Bell",
+        "Burnet",
+        "Comal"
+      ],
+      "valid_target_counties": [
+        "Burnet",
+        "Comal"
+      ],
+      "excluded_counties": [
+        "Bell"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 2 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "USDA-derived county native-status data explicitly marks Bell, Burnet and Comal native; additional qualifying counties include Gillespie, Kerr, San Saba, Travis and Williamson.",
+      "source_document": "content/taxa/Fabaceae/Dalea/dalea-enneandra/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -108,5 +131,6 @@
     "mode": "learner_fast_fill",
     "image_count": 2,
     "note": "Private owner-authorized first-photo coverage; fine diagnostic views remain pending."
-  }
+  },
+  "native_metrics_excluded": true
 }

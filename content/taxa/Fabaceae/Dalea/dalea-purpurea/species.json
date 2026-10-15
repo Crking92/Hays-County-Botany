@@ -14,16 +14,39 @@
   "taxonomic_note": "Species-level learner target. Do not assign variety without exact specimen/source support.",
   "look_here_first": "Start at the flower head, then move straight to the calyx. Purple prairie clover forms dense thimble-like to cylindrical heads; for the difficult D. purpurea versus D. compacta split, use calyx pubescence rather than flower color.",
   "county_occurrences_target_zone": [
-    "Bell",
     "Concho",
     "Tom Green"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "B122: Bell County environmental/plant-community documentation plus USDA NRCS Rolling Limestone Prairie ecological-site documentation tied to Concho and Tom Green county soil surveys. BONAP/NAPA supports the broader Texas county pattern.",
-    "range_guardrail": "Project-zone PASS only. Current B122 evidence does not establish Hays-local status."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Concho, Tom Green qualify; Bell out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "range_guardrail": "Project-zone PASS only. Current B122 evidence does not establish Hays-local status.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Bell",
+        "Concho",
+        "Tom Green"
+      ],
+      "valid_target_counties": [
+        "Concho",
+        "Tom Green"
+      ],
+      "excluded_counties": [
+        "Bell"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 2 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "B122: Bell County environmental/plant-community documentation plus USDA NRCS Rolling Limestone Prairie ecological-site documentation tied to Concho and Tom Green county soil surveys. BONAP/NAPA supports the broader Texas county pattern.",
+      "source_document": "content/taxa/Fabaceae/Dalea/dalea-purpurea/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -103,5 +126,6 @@
     "image_count": 3,
     "filled_at": "2026-10-05",
     "note": "Presentation fast-fill only; settled scientific status unchanged. Existing images retained and supplemented with an exact-species licensed iNaturalist guide image."
-  }
+  },
+  "native_metrics_excluded": true
 }

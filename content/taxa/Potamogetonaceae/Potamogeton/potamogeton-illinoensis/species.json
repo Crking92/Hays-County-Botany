@@ -11,16 +11,38 @@
   "taxonomic_note": "Accepted by current Kew/POWO; Texas is within the native range.",
   "look_here_first": "Look for a broad-leaved submerged pondweed with alternate two-ranked leaves and a persistent axillary stipule/prophyll, then confirm the emergent many-flowered spike.",
   "county_occurrences_target_zone": [
-    "Hays",
-    "Williamson",
-    "Val Verde"
+    "Hays"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 1,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays — UT Plant Resources Center Purola Preserve natural flora lists Potamogeton illinoensis among plants occurring naturally. Williamson — UT PRC Vascular Plants of Williamson County provides a detailed county treatment. Val Verde — the Amistad National Recreation Area / Val Verde vascular flora inventory documents P. illinoensis in shallow river/lake margins.",
-    "range_guardrail": "Only exact target-zone county evidence counted; statewide presence was not converted into county evidence."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Hays qualify; Williamson, Val Verde out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "range_guardrail": "Only exact target-zone county evidence counted; statewide presence was not converted into county evidence.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Hays",
+        "Williamson",
+        "Val Verde"
+      ],
+      "valid_target_counties": [
+        "Hays"
+      ],
+      "excluded_counties": [
+        "Williamson",
+        "Val Verde"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 1 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "Hays — UT Plant Resources Center Purola Preserve natural flora lists Potamogeton illinoensis among plants occurring naturally. Williamson — UT PRC Vascular Plants of Williamson County provides a detailed county treatment. Val Verde — the Amistad National Recreation Area / Val Verde vascular flora inventory documents P. illinoensis in shallow river/lake margins.",
+      "source_document": "content/taxa/Potamogetonaceae/Potamogeton/potamogeton-illinoensis/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -99,5 +121,6 @@
   ],
   "diagnostic_image_needs": [
     "Close leaf blade and petiole/stipule views; reproductive spike and fruit detail."
-  ]
+  ],
+  "native_metrics_excluded": true
 }

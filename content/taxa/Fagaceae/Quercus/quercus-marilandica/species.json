@@ -11,16 +11,39 @@
   "taxonomic_note": "Kew recognizes var. ashei and var. marilandica; B011 remains species-level.",
   "look_here_first": "Look at adult leaf tips with a loupe: 3–5 broad distal lobes should show small AWNS/bristles (red-oak-group trait). Then check the conspicuous tawny-hairy, often 5-angled terminal buds (5–10 mm), glossy mature upper leaves, and dark bark broken into blocks. Do not rely on a 'duck-foot' leaf alone.",
   "county_occurrences_target_zone": [
-    "Bell",
     "Blanco",
     "Burnet"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Kew/POWO accepts Q. marilandica, lists Texas as native, and recognizes var. ashei and var. marilandica. USDA PLANTS-derived county/native-status data records Q. marilandica as native in Bell County. The same USDA-derived data records it as native in Blanco County. The same USDA-derived data records it as native in Burnet County.",
-    "range_guardrail": "The learner remains species-level for B011 while preserving Kew's accepted infraspecific structure; flower/leaf variation should not be used to assign a variety without stronger evidence."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Blanco, Burnet qualify; Bell out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "range_guardrail": "The learner remains species-level for B011 while preserving Kew's accepted infraspecific structure; flower/leaf variation should not be used to assign a variety without stronger evidence.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Bell",
+        "Blanco",
+        "Burnet"
+      ],
+      "valid_target_counties": [
+        "Blanco",
+        "Burnet"
+      ],
+      "excluded_counties": [
+        "Bell"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 2 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "Kew/POWO accepts Q. marilandica, lists Texas as native, and recognizes var. ashei and var. marilandica. USDA PLANTS-derived county/native-status data records Q. marilandica as native in Bell County. The same USDA-derived data records it as native in Blanco County. The same USDA-derived data records it as native in Burnet County.",
+      "source_document": "content/taxa/Fagaceae/Quercus/quercus-marilandica/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -229,5 +252,6 @@
     ],
     "rights_note": "All new NC State/ Bruce Kirchoff photos CC BY 2.0 with attribution; use credits and source URL.",
     "review_date": "2026-10-08"
-  }
+  },
+  "native_metrics_excluded": true
 }

@@ -15,15 +15,37 @@
   "look_here_first": "Look at the seedhead: a contracted panicle made of many short, densely hairy rames gives the whole inflorescence a silvery-white cottony appearance.",
   "project_tracker_diagnostic": "Clumping warm-season grass with smooth pale nodes and a contracted, densely silvery-white fuzzy panicle composed of many short rames; awned sessile spikelets are embedded among conspicuous hairs.",
   "county_occurrences_target_zone": [
-    "Uvalde",
-    "Val Verde",
-    "Kinney"
+    "Uvalde"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 1,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "USDA-NRCS accession/collection records explicitly document Uvalde, Val Verde, and Kinney counties; current POWO treatment recognizes Bothriochloa torreyana as the accepted species."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Uvalde qualify; Val Verde, Kinney out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Uvalde",
+        "Val Verde",
+        "Kinney"
+      ],
+      "valid_target_counties": [
+        "Uvalde"
+      ],
+      "excluded_counties": [
+        "Val Verde",
+        "Kinney"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 1 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "USDA-NRCS accession/collection records explicitly document Uvalde, Val Verde, and Kinney counties; current POWO treatment recognizes Bothriochloa torreyana as the accepted species.",
+      "source_document": "content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "habit": "Perennial warm-season clumping grass, commonly with a somewhat spreading or semi-prostrate base; lacks rhizomes.",
@@ -98,5 +120,6 @@
       "public_reuse": "no"
     }
   ],
-  "taxonomic_note": "Current Kew/POWO accepts Bothriochloa torreyana. Older Texas sources commonly call the same native concept Bothriochloa laguroides subsp. torreyana or var. torreyana. Current Kew also accepts B. laguroides sensu stricto as a separate Mexico-to-South-America species, not a Texas native concept; the stale project B. laguroides row is therefore merged into B. torreyana rather than counted separately."
+  "taxonomic_note": "Current Kew/POWO accepts Bothriochloa torreyana. Older Texas sources commonly call the same native concept Bothriochloa laguroides subsp. torreyana or var. torreyana. Current Kew also accepts B. laguroides sensu stricto as a separate Mexico-to-South-America species, not a Texas native concept; the stale project B. laguroides row is therefore merged into B. torreyana rather than counted separately.",
+  "native_metrics_excluded": true
 }

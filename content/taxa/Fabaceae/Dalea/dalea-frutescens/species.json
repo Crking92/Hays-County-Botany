@@ -16,14 +16,37 @@
   "look_here_first": "First decide whether the plant is woody: black dalea is a low intricately branched shrub with many tiny leaflets on pale gray/straw branchlets and short terminal flower spikes.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Kerr",
-    "Val Verde"
+    "Kerr"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays — Purola natural flora; Kerr — Barneby Edwards Plateau material; Val Verde — Devils River type material of synonym Parosela laxa within the current species concept."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Hays, Kerr qualify; Val Verde out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Hays",
+        "Kerr",
+        "Val Verde"
+      ],
+      "valid_target_counties": [
+        "Hays",
+        "Kerr"
+      ],
+      "excluded_counties": [
+        "Val Verde"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 2 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "Hays — Purola natural flora; Kerr — Barneby Edwards Plateau material; Val Verde — Devils River type material of synonym Parosela laxa within the current species concept.",
+      "source_document": "content/taxa/Fabaceae/Dalea/dalea-frutescens/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -86,5 +109,6 @@
       "study_use": "yes",
       "public_reuse": "no"
     }
-  ]
+  ],
+  "native_metrics_excluded": true
 }

@@ -14,14 +14,13 @@
   "look_here_first": "Find ONE mature compound leaf and count its leaflets. Twoleaf senna has exactly ONE PAIR of usually long, narrow lance-shaped leaflets (roughly 2–9 times longer than wide), with a small gland near their junction. This quickly separates S. lindheimeriana with 4–8 pairs, but NOT every western Senna: S. pilosior and S. bauhinioides also have one pair. Confirm leaflet proportions, flowers and pods.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Williamson",
     "Kerr"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "B123: Hays — UT Plant Resources Center Purola natural flora; Williamson — UT PRC county flora; Kerr — NYBG Heller voucher from Kerrville.",
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Hays, Kerr qualify; Williamson out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
     "range_guardrail": "Exact natural/voucher county evidence only.",
     "range_audit_note": "2026-10-12: Hays and Kerr are in the defined project target-zone counties; Williamson is NOT. The current recorded B123 three-county PASS has only two qualifying counties. Keep historical result pending BONAP/NAPA and primary voucher re-audit; never count Williamson toward the strict project three-county rule.",
     "target_county_followup_leads": [
@@ -32,7 +31,31 @@
         "source": "https://www.texaswildbuds.com/recent-central-texas-spring-2026-1.html",
         "note": "Photographer's May 12 2026 species-identified field image. Check wild provenance and authoritative county record before counting."
       }
-    ]
+    ],
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for county boundary/count correction; prior locality evidence not independently reexamined",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Hays",
+        "Williamson",
+        "Kerr"
+      ],
+      "valid_target_counties": [
+        "Hays",
+        "Kerr"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Old PASS required 3 approved counties, but only 2 in stored evidence are inside zone. Not an assertion that other local wild populations are absent.",
+      "original_range_basis": "B123: Hays — UT Plant Resources Center Purola natural flora; Williamson — UT PRC county flora; Kerr — NYBG Heller voucher from Kerrville.",
+      "source_document": "content/taxa/Fabaceae/Senna/senna-roemeriana/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -249,5 +272,6 @@
     "visual_pass": "FIELD-USEFUL_PARTIAL_MACROS_PENDING",
     "evidence_page": "https://www.bio.utexas.edu/courses/bio406d/images/pics/fab/senna_roemeriana.htm",
     "arrows_review": "major visible targets visually inspected; no arrow placed on unconfirmed gland"
-  }
+  },
+  "native_metrics_excluded": true
 }
