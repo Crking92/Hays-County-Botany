@@ -12,12 +12,12 @@ ROOT = Path(__file__).resolve().parents[1]
 RULES = {
     "habit": r"\b(habit|whole[\s_-]?plant|entire[\s_-]?plant|growth[\s_-]?form)\b",
     "leaf": r"\b(leaf|leaves|foliage|blade|petiole|venation|conduplicate|leaflet|needle)\b",
-    "flower": r"\b(flower|floret|corolla|ray florets|disk florets|capitulum|inflorescen|umbel|spikelet|panicle)\b",
-    "fruit": r"\b(fruit|seed|pod|follicle|berry|capsule|acorn|cypsela|achene|samara)\b",
-    "stem": r"\b(stem|bud|twig|node|bark|insertion|attachment)\b",
-    "phyllary": r"\b(phyllar|involucre|involucral|underside[\s_-]?head)\b",
-    "ligule": r"\b(ligule|collar|sheath|auricle)\b",
-    "corona": r"\b(corona|hood|horn|gynostegium|pollinaria|pollinium|pollinia)\b",
+    "flower": r"\b(flower\w*|floret\w*|corolla\w*|petal\w*|capitulum|inflorescen\w*|umbel\w*|spikelet\w*|panicle\w*)\b",
+    "fruit": r"\b(fruit\w*|seed\w*|pod\w*|follicle\w*|berry|berries|capsule\w*|acorn\w*|cypsela\w*|achene\w*|samara\w*)\b",
+    "stem": r"\b(stem\w*|bud\w*|twig\w*|node\w*|bark|insertion|attachment)\b",
+    "phyllary": r"\b(phyllar\w*|involucre\w*|involucral\w*|underside[\s_-]?head)\b",
+    "ligule": r"\b(ligule\w*|collar|sheath|auricle\w*)\b",
+    "corona": r"\b(corona\w*|hood\w*|horn\w*|gynostegium|pollinaria|pollinium|pollinia)\b",
 }
 LABELS = {
     "habit": "whole-plant habit", "leaf": "mature leaf, venation or attachment",
