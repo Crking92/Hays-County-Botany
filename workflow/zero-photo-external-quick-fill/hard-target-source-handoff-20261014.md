@@ -30,3 +30,10 @@ Source: live `reports/photo-fast-fill-zero-queue.json` after external CC and Wik
 - `scripts/commons_first_photo_quick_batch.py`: exact scientific-name category, imageinfo and license checks; latest batch found 0 installable files for 6 unclaimed target species.
 - Both preserve scientific records and avoid forcing potentially wrong photo identifications.
 - Maintain first-photo provisional status and independently verify distinguishing structures in final diagnostic polish.
+
+## Physaria sessilis media recovery (2026-10-15)
+- Status: no physical image installed; gallery still empty. Canonical taxon and photo queue checked; no active taxon claim.
+- Candidate: Kew POWO herbarium catalogue shows one image and a CC BY 3.0 source credit. Specimen identifier, image bytes, and photo-specific attribution not yet verified. No READY stage or external gallery link added.
+- LOOK HERE FIRST: whole flowering plant with upper leaves. Missing views: upper leaf attachment, inflated fruits, stellate hairs.
+- Annotation pending: true; no anatomical arrows verified.
+- Blocker: no verified retrievable exact-species image file. Preserve science and all existing gallery entries; recover only after photo ID, rights, and bytes are checked.
