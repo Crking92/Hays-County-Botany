@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T00:11:03.808Z",
+  "updated_at": "2026-10-15T00:11:28.028Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,32 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "native-range-fast-fill-20261014-002",
+      "scope_kind": "species_native_range_batch",
+      "taxa": [
+        "dalea-enneandra",
+        "dalea-frutescens",
+        "dalea-purpurea",
+        "senna-roemeriana",
+        "quercus-macrocarpa",
+        "quercus-marilandica",
+        "quercus-muehlenbergii",
+        "fraxinus-pennsylvanica",
+        "panicum-hallii",
+        "panicum-virgatum",
+        "bothriochloa-torreyana",
+        "potamogeton-illinoensis",
+        "ulmus-americana"
+      ],
+      "lane": "native-range-fast-fill",
+      "owner": "manual-native-range-research-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T00:11:28.028Z",
+      "expires_at": "2026-10-15T06:11:28.028Z",
+      "release_when": "Canonical+queue county corrections verified, Sheet range fields synced, claim released",
+      "notes": "13 false three-county PASS values. County threshold correction only; no learner admission/photo/installer edits. Skip already corrected and active claims."
+    },
     {
       "claim_id": "native-range-kerr-evidence-20261014-002",
       "scope_kind": "species_native_range_reconciliation_batch",
