@@ -12,13 +12,14 @@
   "look_here_first": "Look at the base/collar and then the seedhead: a tall warm-season rhizomatous clump with a broad airy pyramidal panicle and a conspicuously hairy ligule/collar zone.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Blanco"
+    "Blanco",
+    "Kerr"
   ],
-  "target_zone_count": 2,
-  "native_target_zone_calculated": false,
+  "target_zone_count": 3,
+  "native_target_zone_calculated": true,
   "project_inclusion": {
-    "target_zone_status": "UNRESOLVED",
-    "range_basis": "24-county boundary audit 2026-10-14: Hays, Blanco qualify; Val Verde out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "target_zone_status": "PASS",
+    "range_basis": "Kew/POWO accepts Panicum virgatum and lists Texas in its native range. Hagenbuch & Lemke's Texas Hill Country grass appendix explicitly records Hays County (Bierner 90-208, TEX-LL). The same appendix explicitly records Blanco County (Breckenridge 559, SWT). The same appendix explicitly records Val Verde County (Smith & Butterwick 202, TEX-LL). Kerr County: Singhurst et al. 2010 Kerr WMA flora, published vouchers JS 9985, FG 8470, LS 3927. Valid target counties Hays, Blanco, Kerr; former Val Verde is out of zone.",
     "range_guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold.",
     "native_range_last_reviewed": "2026-10-14",
     "range_audit": {
@@ -43,6 +44,19 @@
       "original_range_basis": "Kew/POWO accepts Panicum virgatum and lists Texas in its native range. Hagenbuch & Lemke's Texas Hill Country grass appendix explicitly records Hays County (Bierner 90-208, TEX-LL). The same appendix explicitly records Blanco County (Breckenridge 559, SWT). The same appendix explicitly records Val Verde County (Smith & Butterwick 202, TEX-LL).",
       "source_document": "content/taxa/Poaceae/Panicum/panicum-virgatum/SOURCES.txt",
       "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    },
+    "native_range_reconciliation": {
+      "date": "2026-10-14",
+      "status": "PASS",
+      "confidence": "high",
+      "verified_target_counties": [
+        "Hays",
+        "Blanco",
+        "Kerr"
+      ],
+      "source_url": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+      "source_detail": "Kerr WMA Flora, p. 511: Panicum virgatum vouchers JS 9985, FG 8470, LS 3927.",
+      "reason": "Independent Kerr wild botanical vouchers fill missing third target county; preserve prior boundary audit."
     }
   },
   "morphology_keys": {
@@ -121,5 +135,5 @@
     "filled_at": "2026-10-05",
     "note": "Three vetted exact-species images are physically installed and verified in canonical content. Scientific PASS unchanged."
   },
-  "native_metrics_excluded": true
+  "native_metrics_excluded": false
 }
