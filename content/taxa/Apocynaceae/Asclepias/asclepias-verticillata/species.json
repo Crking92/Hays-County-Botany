@@ -20,15 +20,36 @@
     "status": "verified_for_threshold",
     "bonap_primary_source_reviewed": true,
     "confirmed_target_zone_counties": [
-      "Bell",
       "Gillespie",
       "Travis",
-      "Williamson"
+      "Kerr"
     ],
-    "target_zone_count_confirmed": 4,
+    "target_zone_count_confirmed": 3,
     "meets_three_county_rule": true,
-    "evidence_note": "BONAP was reviewed first as the project's primary county-level authority. A USDA-derived Texas county distribution list supports Bell, Gillespie, and Travis. UT's Williamson County flora independently documents Williamson County. This comfortably satisfies the project's >=3 target-zone county threshold.",
-    "correction_note": "This supersedes the earlier unresolved pass. Williamson County is part of the project's 25-county target zone, and Bell + Gillespie + Travis provide three additional supported target-zone counties."
+    "evidence_note": "Gillespie and Travis — existing BONAP-first/USDA-derived county review. Kerr — 2010 Kerr WMA vascular flora, voucher JS 10652. All three qualify under the project's strict 24-county zone.",
+    "correction_note": "Review 2026-10-14: Bell and Williamson are NOT project target counties. Retain their records as historical evidence, but do not count them. Published native Kerr specimen restores three qualifying counties.",
+    "review_2026_10_14": {
+      "decision": "PASS",
+      "confidence": "high",
+      "accepted_scientific_name": "Asclepias verticillata L.",
+      "verified_target_counties": [
+        "Gillespie",
+        "Travis",
+        "Kerr"
+      ],
+      "historical_out_of_zone_counties": [
+        "Bell",
+        "Williamson"
+      ],
+      "sources": [
+        {
+          "url": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+          "role": "Kerr County botanical inventory; voucher JS 10652"
+        }
+      ],
+      "reason": "County recount and published Kerr specimen",
+      "reviewed_at": "2026-10-14"
+    }
   },
   "tags": [
     "Monarch Host",
