@@ -76,6 +76,7 @@ def science(species):
     if isinstance(obj.get("curation_status"),dict):
         for k in ("photo_metadata_count","photo_files_present","external_first_photo_install"):
             obj["curation_status"].pop(k,None)
+        if not obj["curation_status"]:obj.pop("curation_status",None)
     return obj
 def main():
     p=argparse.ArgumentParser()
