@@ -40,8 +40,9 @@
     "user_approved": true,
     "provisional": true,
     "last_reviewed": "2026-10-03",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_metadata_count": 2,
+    "photo_files_present": 2,
+    "gbif_manual_photo_enrichment": "2026-10-15"
   },
   "images": [
     {
@@ -66,6 +67,29 @@
       "public_reuse": "yes; retain attribution",
       "modifications": "EXIF removed and JPEG normalized; no anatomy overlays",
       "photo_review": "Exact Research Grade source record and actual pixels reviewed; provisional first-pass view"
+    },
+    {
+      "file": "images/gbif-manual-6185299514-5f22e92ae.jpg",
+      "role": "Additional distinct image candidate; target structures not yet visually verified",
+      "requested_diagnostic_view": "Large silvery-white winged perigynium and 2–4 separate rounded spikes",
+      "creator": "IDClaire",
+      "license": "CC BY",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/",
+      "source_platform": "GBIF occurrence image, original creator retained",
+      "source_page": "https://www.gbif.org/occurrence/6185299514",
+      "gbif_occurrence_id": "6185299514",
+      "source_determination": "Carex tetrastachya Scheele",
+      "accepted_target": "Carex tetrastachya",
+      "media_source_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/631042004/original.jpg",
+      "image_dimensions": [
+        759,
+        1350
+      ],
+      "photo_review": "Exact source determination, individually licensed media, downloaded pixels, and basic near-duplicate filter checked. Anatomy NOT visually confirmed.",
+      "anatomy_arrows": "not added; image anatomy not verified",
+      "study_use": "follow individual license conditions; noncommercial only for CC BY-NC",
+      "public_reuse": "Respect recorded photo-specific license",
+      "modifications": "Resized JPEG and EXIF removed"
     }
   ],
   "learner_visual_status": {
@@ -74,5 +98,5 @@
     "image_count": 1,
     "note": "First exact photograph installed; additional diagnostic views pending."
   },
-  "photo_note": " First exact licensed photo physically installed 2026-10-14; fine diagnostic gallery pending."
+  "photo_note": "First exact licensed photo physically installed 2026-10-14; fine diagnostic gallery pending. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling."
 }

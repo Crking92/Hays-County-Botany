@@ -55,11 +55,12 @@
     "lookalikes_reviewed": true,
     "user_approved": true,
     "last_reviewed": "2026-10-07",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1,
-    "visual_learning_polished": true
+    "photo_metadata_count": 2,
+    "photo_files_present": 2,
+    "visual_learning_polished": true,
+    "gbif_manual_photo_enrichment": "2026-10-15"
   },
-  "photo_note": "Photo-first curation underway. Candidate set now covers leaf+fruit, stinging hairs, raceme/flower arrangement, mature fruit, whole specimen, and a Central Texas live observation. Physically import only candidates whose image-level reuse license is verified; keep searching until the diagnostic roles are actually represented in the local gallery.",
+  "photo_note": "Photo-first curation underway. Candidate set now covers leaf+fruit, stinging hairs, raceme/flower arrangement, mature fruit, whole specimen, and a Central Texas live observation. Physically import only candidates whose image-level reuse license is verified; keep searching until the diagnostic roles are actually represented in the local gallery. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling.",
   "images": [
     {
       "file": "images/tragia-brevispica-provisional-face.jpg",
@@ -69,6 +70,29 @@
       "source_page": "https://w3.biosci.utexas.edu/prc/specimens/Euphorbiaceae.html",
       "study_use": "yes",
       "public_reuse": "review"
+    },
+    {
+      "file": "images/gbif-manual-2609229303-5511f4d55.jpg",
+      "role": "Additional distinct image candidate; target structures not yet visually verified",
+      "requested_diagnostic_view": "Short floral raceme and individual staminate and pistillate units",
+      "creator": "Cleveland Powell",
+      "license": "CC BY",
+      "license_url": "http://creativecommons.org/licenses/by/4.0/",
+      "source_platform": "GBIF occurrence image, original creator retained",
+      "source_page": "https://www.gbif.org/occurrence/2609229303",
+      "gbif_occurrence_id": "2609229303",
+      "source_determination": "Tragia brevispica Engelm. & A.Gray",
+      "accepted_target": "Tragia brevispica",
+      "media_source_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/67350939/original.jpeg",
+      "image_dimensions": [
+        1012,
+        1350
+      ],
+      "photo_review": "Exact source determination, individually licensed media, downloaded pixels, and basic near-duplicate filter checked. Anatomy NOT visually confirmed.",
+      "anatomy_arrows": "not added; image anatomy not verified",
+      "study_use": "follow individual license conditions; noncommercial only for CC BY-NC",
+      "public_reuse": "Respect recorded photo-specific license",
+      "modifications": "Resized JPEG and EXIF removed"
     }
   ],
   "learner_visual_status": {
