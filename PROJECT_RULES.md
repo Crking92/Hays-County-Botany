@@ -1,5 +1,10 @@
 # Hays Botany ID — Project Rules
 
+## 2026-10-15 mandatory photo-library handoff — mass collection first
+
+**All ChatGPT project chats and five existing botany automations must consult `workflow/photo-library/README.md` before gathering, selecting or installing external photographs.** The user approved gathering broad candidate photo coverage *now*, persisting candidate metadata and private image archives, and allowing the existing installer, diagnostic photo, family/genus, and manual scientific lanes to **select and verify those candidates later**. This is not permission to auto-publish unverified images or change scientific findings. Search that library **before** repeating image research; source candidates are not installed cards. The mass collector is manual-only and must not change any of the five automation schedules or existing division of work. Preserve all original photo-level licenses and owner restrictions.
+
+
 ## Current operating priority — encounter-first visual learner (approved 2026-10-14)
 
 **Native-range fast-fill and exhaustive county-level certification are PAUSED.** This is a priority change, not deletion, rejection, or a relaxation of scientific evidence. Retain all existing native-range research, counties, source citations, PASS/FAIL/UNRESOLVED/CONFLICT decisions, historical drafts, and native-only metric exclusions in canonical GitHub. Do not launch new county-native fast-fill batches or clear a pending taxonomy/range row solely to produce a three-county verdict until Calvin explicitly resumes this lane. Cheap incidental range evidence can be saved when directly relevant to taxonomy or a verified exotic/invasive label.
