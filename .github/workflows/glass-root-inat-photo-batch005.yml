@@ -1,0 +1,64 @@
+name: Glass Root Garden Photo Review Batch 005
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-inat-photo-batch005.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-photo-review-batch005
+  cancel-in-progress: false
+
+jobs:
+  stage-next-photo-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: python3 -m pip install pillow
+      - name: Retrieve owner photo metadata
+        run: |
+          python3 scripts/glass_root_inat_photo_metadata.py \
+            --user calvinking --place-id 18 --taxon-id 47126 \
+            --manifest data/manifest.json \
+            --out workflow/glass-root-inat/batch-005/metadata
+      - name: Recalculate gallery deficits and gather actual diagnostic candidates
+        run: |
+          python3 scripts/glass_root_inat_backlog_plan.py \
+            --photos workflow/glass-root-inat/batch-005/metadata/photo-candidates.csv \
+            --manifest data/manifest.json \
+            --out workflow/glass-root-inat/batch-005/plan --batch-size 4
+          python3 scripts/glass_root_inat_review_previews_batch005.py \
+            --input workflow/glass-root-inat/batch-005/metadata/photo-candidates.csv \
+            --queue workflow/glass-root-inat/batch-005/plan/priority-queue.csv \
+            --out workflow/glass-root-inat/batch-005/previews \
+            --taxa-count 4 --per-species 16
+      - name: Save contact sheets and photo candidates, no species changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/glass-root-inat/batch-005/previews/ workflow/glass-root-inat/batch-005/plan/summary.json
+          if git diff --cached --quiet; then
+            echo "No review pictures produced."
+            exit 0
+          fi
+          git commit -m "Stage four priority Glass Root Garden photo species for review"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: glass-root-inat-batch-005-previews
+          path: workflow/glass-root-inat/batch-005/
+          retention-days: 30
