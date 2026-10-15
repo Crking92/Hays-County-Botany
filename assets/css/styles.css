@@ -1095,3 +1095,181 @@ body{
 .part-photo-modal h2,.part-photo-modal>p{color:#eef5ec}
 .part-photo-modal>small,.part-photo-modal .part-modal-caveat{color:#c0cfc2}
 .part-photo-modal .part-photo-zoom{background:#283d30}
+
+
+/* Field-guide lesson flow v6 — mobile readability, no word collisions.
+   Large badge text and a right-hand parts pill had previously crushed names
+   into tiny columns at iPhone widths. Give each rank its own complete row. */
+.part-groups-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+  align-items:start;
+}
+.part-groups-grid>.part-gallery-group{min-width:0;margin:0}
+.part-groups-grid>.part-gallery-group[open]{grid-column:1/-1}
+.part-groups-grid>.part-gallery-group>summary{
+  display:grid;
+  grid-template-columns:40px minmax(0,1fr);
+  align-content:start;
+  align-items:start;
+  gap:9px 12px;
+  padding:18px;
+  min-height:165px;
+}
+.part-gallery-marker{
+  display:grid;place-items:center;
+  width:40px;min-width:0;height:40px;
+  font-size:.82rem;
+  letter-spacing:.02em;
+  white-space:nowrap;
+}
+.part-gallery-summary{
+  display:block;
+  width:100%;
+  min-width:0;
+}
+.part-gallery-summary .part-gallery-level{
+  display:block;
+  margin:1px 0 6px;
+  font-size:.66rem;
+  line-height:1.25;
+  font-weight:900;
+  color:#3b7655;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+}
+.part-gallery-genus .part-gallery-level{color:#326a71}
+.part-gallery-species .part-gallery-level{color:#805b2b}
+.part-gallery-summary strong{
+  display:block;
+  max-width:100%;
+  font-size:clamp(1.05rem,1.8vw,1.22rem);
+  line-height:1.34;
+  word-break:normal;
+  overflow-wrap:break-word;
+  hyphens:none;
+  letter-spacing:-.012em;
+}
+.part-gallery-summary strong i{font-family:Georgia,serif;font-weight:600}
+.part-gallery-summary .part-gallery-description{
+  display:block;
+  margin-top:7px;
+  font-size:.83rem;
+  line-height:1.46;
+  color:#516b5a;
+  white-space:normal;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+.part-gallery-count{
+  grid-column:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  justify-self:start;
+  max-width:100%;
+  padding:7px 11px;
+  font-size:.75rem;
+  line-height:1.3;
+  white-space:normal;
+  background:rgba(255,255,255,.52);
+}
+.part-gallery-count b{font-weight:800}
+.part-gallery-count span{font-size:1rem}
+.part-gallery-group[open]>summary{min-height:0;border-bottom:1px solid #d4e1d3}
+.part-gallery-practice{
+  padding:15px 18px;
+  margin:15px 15px 0;
+  background:#f0f7ed;
+  border:1px solid #cbdcc9;
+  border-left:4px solid #47835b;
+  border-radius:13px;
+  color:#294932;
+}
+.part-gallery-genus .part-gallery-practice{background:#eaf4f1;border-color:#c8deda;border-left-color:#538f88}
+.part-gallery-species .part-gallery-practice{background:#fff8e9;border-color:#ead9bc;border-left-color:#ba8d45}
+.part-gallery-practice b{
+  display:block;
+  color:#275f43;
+  font-size:.73rem;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+}
+.part-gallery-practice p{
+  margin:7px 0;
+  color:#2a4837;
+  font-size:clamp(.91rem,1.4vw,1rem);
+  line-height:1.54;
+  white-space:normal;
+  overflow-wrap:break-word;
+}
+.part-gallery-practice small{
+  display:block;
+  color:#596d5d;
+  font-size:.75rem;
+  line-height:1.5;
+}
+.part-photo-note{
+  margin:16px 0 5px;
+  padding:0 14px;
+  border:1px solid #e4d9ba;
+  border-radius:14px;
+  background:#fbf8ed;
+  color:#5d553c;
+}
+.part-photo-note>summary{
+  list-style:revert;
+  padding:11px 0;
+  color:#5c5339;
+  cursor:pointer;
+  font-size:.81rem;
+  font-weight:750;
+}
+.part-photo-note>p{
+  margin:0 0 12px;
+  font-size:.83rem;
+  line-height:1.5;
+  color:#5a513b;
+}
+.part-example-grid{align-items:start}
+.part-example-content p{white-space:normal;word-break:normal;overflow-wrap:break-word}
+.part-example-card{min-width:0}
+@media(max-width:1100px){
+  .part-groups-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .part-groups-grid>.part-gallery-group:last-child:not([open]){grid-column:1/-1}
+}
+@media(max-width:760px){
+  .part-groups-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:11px;margin-top:14px}
+  .part-groups-grid>.part-gallery-group,
+  .part-groups-grid>.part-gallery-group:last-child:not([open]),
+  .part-groups-grid>.part-gallery-group[open]{grid-column:1}
+  .part-groups-grid>.part-gallery-group>summary{
+    grid-template-columns:38px minmax(0,1fr);
+    gap:7px 12px;
+    min-height:0;
+    padding:15px;
+    align-items:start;
+  }
+  .part-gallery-marker{width:38px;height:38px;font-size:.8rem}
+  .part-gallery-summary .part-gallery-level{font-size:.69rem;margin:1px 0 4px}
+  .part-gallery-summary strong{font-size:1.13rem;line-height:1.33}
+  .part-gallery-summary .part-gallery-description{font-size:.83rem;margin-top:5px}
+  .part-gallery-count{grid-column:2;font-size:.74rem;padding:6px 10px;margin-top:3px}
+  .part-gallery-practice{margin:11px 11px 0;padding:12px 13px}
+  .part-gallery-practice p{font-size:.92rem}
+  .part-example-grid{padding:11px}
+  .part-photo-note{margin:12px 0 2px}
+  .botany-parts-hero{padding:18px 15px;border-radius:20px}
+  .botany-parts-hero p{font-size:.9rem;line-height:1.5}
+  .botany-parts-keys{gap:6px}
+  .botany-parts-keys span{font-size:.69rem;padding:6px 9px}
+}
+@media(max-width:380px){
+  .part-groups-grid{grid-template-columns:minmax(0,1fr)}
+  .part-groups-grid>.part-gallery-group{grid-column:1}
+  .part-gallery-summary strong{font-size:1.05rem}
+  .part-gallery-count{font-size:.7rem}
+  .part-gallery-practice{padding:11px}
+}

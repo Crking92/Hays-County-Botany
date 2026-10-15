@@ -1372,13 +1372,19 @@ function openPartPhotoPreview(button){
     '<p class="part-modal-caveat">Unannotated study photograph. Arrows will only be added after individual structures are visually checked.</p>'+
     '</section></div>';
 }
-function botanyPartGroup(rank,label,subtext,items,button){
+function botanyPartGroup(rank,label,subtext,items,button,cue){
   if(!items || !items.length) return "";
+  const number=rank==="family"?"01":rank==="genus"?"02":"03";
+  const group=rank==="family"?"Family":rank==="genus"?"Genus":"Species";
+  const name=String(label||"").replace(/^(Family|Genus|Species)\s*·\s*/i,"");
+  const fieldCue=cue ? '<div class="part-gallery-practice"><b>Where to look first</b><p>'+esc(formatValue(cue))+'</p><small>Use the photographs as study examples. Confirm a diagnostic character from the description; an unmarked image is not a verified annotation.</small></div>' : "";
   return '<details class="part-gallery-group part-gallery-'+rank+'">'+
-    '<summary><span class="part-gallery-marker">'+esc(rank)+'</span><span class="part-gallery-summary">'+
-    '<strong>'+esc(label)+'</strong><small>'+esc(subtext)+'</small></span>'+
-    '<span class="part-gallery-count">'+items.length+' parts <span aria-hidden="true">⌄</span></span></summary>'+
-    '<div class="part-example-grid">'+items.map(botanyPartPhotoCard).join("")+'</div>'+
+    '<summary><span class="part-gallery-marker" aria-hidden="true">'+number+'</span>'+
+    '<span class="part-gallery-summary"><small class="part-gallery-level">'+group+' · Step '+Number(number)+'</small>'+
+    '<strong>'+(rank==="family"?esc(name):'<i>'+esc(name)+'</i>')+'</strong>'+
+    '<small class="part-gallery-description">'+esc(subtext)+'</small></span>'+
+    '<span class="part-gallery-count"><b>'+items.length+' study parts</b><span aria-hidden="true">⌄</span></span></summary>'+
+    fieldCue+'<div class="part-example-grid">'+items.map(botanyPartPhotoCard).join("")+'</div>'+
     (button||"")+'</details>';
 }
 /* Optional exact-species part examples selected by curators after inspecting real gallery files.
@@ -1487,25 +1493,30 @@ function botanyPartExamples(sp,genusData){
   }).slice(0,5).map(function(img){
     return {title:botanyPartLabel(img.role),description:img.caption||"Compare this "+(img.role||"view").toLowerCase()+" with the identification clues above.",photo:{species:sp,img:img,src:imagePath(sp,img)}};
   });
-  const familyButton='<button class="part-gallery-open" type="button" data-family="'+esc(sp.family)+'">Open complete '+esc(sp.family)+' family lesson →</button>';
-  const genusButton='<button class="part-gallery-open" type="button" data-genus="'+esc(sp.genus)+'" data-genus-family="'+esc(sp.family)+'">Open complete '+esc(sp.genus)+' genus lesson →</button>';
+  const familyButton='<button class="part-gallery-open" type="button" data-family="'+esc(sp.family)+'">Explore full '+esc(sp.family)+' family lesson →</button>';
+  const genusButton='<button class="part-gallery-open" type="button" data-genus="'+esc(sp.genus)+'" data-genus-family="'+esc(sp.family)+'">Explore full '+esc(sp.genus)+' genus lesson →</button>';
+  const familyProfileData=familyProfile(sp.family)||{};
+  const familyCue=familyProfileData.look_here_first||family.family_diagnostics?.where_to_look_first||familyProfileData.plain_signature||"Look for reliable structures shared across members of this family.";
+  const genusCue=genusData?.look_here_first||genusData?.shared_genus_recognition?.look_here_first||genusData?.study_strategy?.look_here_first||genusData?.study_strategy?.priority?.[0]||"Look at the structures shared by close relatives before deciding on a species.";
+  const speciesCue=lookHereFirst(sp);
   return '<section id="partsSection" class="section-block botany-parts-section" aria-labelledby="botanyPartsTitle">'+
-    '<div class="botany-parts-hero"><div class="eyebrow">Visual field guide · anatomy examples</div>'+
-    '<h2 id="botanyPartsTitle">Look at the actual plant parts</h2>'+
-    '<p>Start with the family, narrow down to the genus, then confirm the species. Each tile names a structure and shows a real reference photo when available.</p>'+
-    '<div class="botany-parts-keys"><span>1 · Family</span><span>2 · Genus</span><span>3 · Species</span></div></div>'+
-    '<p class="part-annotation-note">Photos are currently unmarked. A named feature is a <b>place to investigate</b>, not a verified arrow on the photo. We can add arrows to the exact structure after visual review.</p>'+
+    '<div class="botany-parts-hero"><div class="eyebrow">Next step · Learn by looking</div>'+
+    '<h2 id="botanyPartsTitle">What should I look at on this plant?</h2>'+
+    '<p>Begin with the family pattern, check traits shared by the genus, and then inspect this species. Open each step to see photos next to the structure and identification clue.</p>'+
+    '<div class="botany-parts-keys"><span>01 · Find the family pattern</span><span>02 · Narrow to genus</span><span>03 · Confirm the species</span></div></div>'+
     '<div class="part-groups-grid">'+
-    botanyPartGroup("family","Family · "+sp.family,"Broad family features and important exceptions",familyItems,familyButton)+
-    botanyPartGroup("genus","Genus · "+sp.genus,"Shared structures to examine in close relatives",genusItems,genusButton)+
-    botanyPartGroup("species","Species · "+scientificName(sp),"Photographs already in this species gallery",speciesItems,"")+
-    '</div></section>';
+    botanyPartGroup("family","Family · "+sp.family,"Recognize the broader structural pattern.",familyItems,familyButton,familyCue)+
+    botanyPartGroup("genus","Genus · "+sp.genus,"Find the features shared by close relatives.",genusItems,genusButton,genusCue)+
+    botanyPartGroup("species","Species · "+scientificName(sp),"Inspect this plant’s own photo gallery and ID clues.",speciesItems,"",speciesCue)+
+    '</div>'+
+    '<details class="part-photo-note"><summary>About photos, labels and arrows</summary><p>Photos are currently unmarked. A named feature is a <b>place to investigate</b>, not a verified arrow on the photo. We can add arrows to the exact structure after visual review.</p></details>'+
+    '</section>';
 }
 
 /* Prominent paths to the full family and genus lessons on each species page. */
 function taxonomyLessonShortcuts(sp){
   if(!sp || !sp.family || !sp.genus) return "";
-  return '<section class="section-block taxonomy-lesson-shortcuts" aria-labelledby="taxonomyLessonShortcutTitle">'+
+  return '<section id="lessonsSection" class="section-block taxonomy-lesson-shortcuts" aria-labelledby="taxonomyLessonShortcutTitle">'+
     '<div class="section-heading"><div><div class="eyebrow">Explore the plant family tree</div>'+
     '<h2 id="taxonomyLessonShortcutTitle">Open the family &amp; genus lessons</h2></div></div>'+
     '<p class="section-intro">Family and genus have their own full pages with shared structures and look-alike comparisons. Tap a tile to explore.</p>'+
@@ -1539,27 +1550,27 @@ function plantView(){
   out+='<section class="plant-focus"><div class="plant-visual">'+photoCarousel(sp)+'</div><div class="plant-study">'+identityPanel(sp)+
     '<div class="look-card emphasis"><span>🔎 FIRST CLUE · LOOK HERE</span><strong>'+clueWithTerms(lookHereFirst(sp))+'</strong></div><div class="cue-list">';
   cues.forEach(function(x,i){ out+='<div><b aria-hidden="true">'+(i+1)+'</b><span>'+clueWithTerms(x)+'</span></div>'; });
-  out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="parts">See family, genus &amp; plant-part photos ↓</button>' : '')+
+  out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="parts">Next: inspect the plant parts ↓</button>' : '')+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
-  if(!state.quizMode || state.quizRevealed) out+=taxonomyLessonShortcuts(sp);
   if(!state.quizMode || state.quizRevealed) out+=botanyPartExamples(sp,genusData);
   out+='<div class="study-drawer-grid">';
+  const similarStart=out.length;
+  out+='<section id="similarSection" class="section-block"><div class="section-heading"><div><div class="eyebrow">The confirmation step</div><h2>Compare look-alikes</h2></div></div>'+
+    '<p class="section-intro">Check a look-alike before settling on an ID. “Same genus” means close relatives; “useful comparison” is a curated pairing; “same family” is a broader relationship, not proof the plants look alike.</p><div class="similar-grid">';
+  if(similar.length) similar.forEach(function(x){ out+=similarCard(sp,x.sp,x.reason); }); else out+='<div class="empty-panel">No comparison plants are curated yet.</div>';
+  out+='</div></section>';
+  out=out.slice(0,similarStart)+studyDrawer("3 · Check the look-alikes",similar.length?("Compare "+similar.length+" other plants before confirming your ID."):"No comparison plants curated yet; revisit after photo study.",out.slice(similarStart),"compare");
+  if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=studyDrawer("Diagnostic photo comparisons","Use documented photo evidence to check distinguishing structures.",genusVisualComparison(sp),"photo");
+  if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Study the family & genus","Open full lessons for deeper structural evidence.",taxonomyLessonShortcuts(sp),"photo");
   const vocabStart=out.length;
   if(state.difficulty!=="simple"){
     out+='<section class="section-block learning-panel"><div class="section-heading"><div><div class="eyebrow">🔤 Words for what you see</div><h2>Learn the plant parts</h2></div>'+
       '<button class="text-button" type="button" data-nav="glossary">Full glossary →</button></div><div class="term-row large">'+terms.map(termChip).join("")+'</div>'+
       '<p class="teaching-note">Tap a term for plain language, the formal definition, where to look, why it matters, and a labeled diagram.</p></section>';
   }
-  if(out.length>vocabStart) out=out.slice(0,vocabStart)+studyDrawer("Learn the terms","Botanical vocabulary with tap-to-explain definitions.",out.slice(vocabStart),"terms");
-  if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Follow the family tree","Why the scientific name fits this plant.",taxonomyTeachingTrail(sp,genusData,p,c),"terms");
-  const similarStart=out.length;
-  out+='<section id="similarSection" class="section-block"><div class="section-heading"><div><div class="eyebrow">👀 Spot the difference</div><h2>Meet the look-alikes</h2></div></div>'+
-    '<p class="section-intro">“Same genus” means close taxonomic relatives. “Useful comparison” is a hand-picked study pairing. “Same family” shares family structure but may not look alike overall.</p><div class="similar-grid">';
-  if(similar.length) similar.forEach(function(x){ out+=similarCard(sp,x.sp,x.reason); }); else out+='<div class="empty-panel">No comparison plants are curated yet.</div>';
-  out+='</div></section>';
-  out=out.slice(0,similarStart)+studyDrawer("Meet the look-alikes",similar.length+" possible comparison plants; open to check the differences.",out.slice(similarStart),"compare");
-  if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=studyDrawer("Diagnostic photo comparisons","Visual evidence for confusing species.",genusVisualComparison(sp),"photo");
+  if(out.length>vocabStart) out=out.slice(0,vocabStart)+studyDrawer("Learn the plant words","Tap unfamiliar terms to understand each ID clue.",out.slice(vocabStart),"terms");
+  if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Why this plant has its name","Follow the family tree using source-backed clues.",taxonomyTeachingTrail(sp,genusData,p,c),"terms");
   if(state.difficulty==="field") out+=studyDrawer("Technical morphology","Every detailed morphological field, without the scrolling.",fieldBotanySection(sp,genusData),"terms");
   out+='</div>';
   return out;
