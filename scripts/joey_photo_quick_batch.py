@@ -7,6 +7,7 @@ import argparse, collections, copy, csv, datetime, hashlib, io, json, pathlib, r
 from PIL import Image,ImageOps,UnidentifiedImageError
 
 ROOT=pathlib.Path(".")
+sys.path.insert(0,str(ROOT.resolve()))
 CATALOG=ROOT/"workflow/joey-inat-photo-inventory/photo-candidates.csv"
 MANIFEST=ROOT/"data/manifest.json"
 CLAIMS=ROOT/"workflow/work-claims.json"
