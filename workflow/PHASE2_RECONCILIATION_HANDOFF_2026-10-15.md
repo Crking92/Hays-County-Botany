@@ -30,3 +30,12 @@
 - Source names and rejected/provisional taxon concepts remain archived. Do not change derived **Master Plant Pool** cells directly; write only via permitted source/override or proper canonical-owner workflows.
 - The two legacy combined pending taxonomy/range labels at the time of earlier audit were **Malvaviscus arboreus** and **Zizania texana**, already reserved for Joey reconciliation; do not force them through the general installer.
 - Recompute counts after the installer adds new species; the 2026-10-15 inventory is a dated baseline, not a live ticker.
+
+## Phase 3 progress — confirmed source-pool alias batch 001
+- Reviewed all **17** records previously routed as `PROPOSED_ALIAS_TO_SOURCE_POOL_TARGET`.
+- **17/17 confirmed** as aliases, orthographic variants, or infraspecific/historical names that should route to the other accepted Master Plant Pool target rather than create a second learner card.
+- Fresh live manifest check found **0** of the 17 accepted targets installed yet and **0** active work-claim mentions for those targets at review time.
+- Residual concept-routing exception backlog is therefore **289 source rows** (306 - 17). This does **not** mean 289 future cards; more synonyms/rank merges remain.
+- Durable batch: `research-drafts/reconciliation/phase3-confirmed-source-pool-aliases-2026-10-15-b001.json`
+- Commit: `c235d1175f833b308c32990c4829a0b268f675d5`
+- County-native range remains **DEFERRED** and no learner/media files were changed.
