@@ -1415,3 +1415,224 @@ body{
  }
  .genus-photo-strip{min-height:0}
 }
+
+
+/* Anatomy micro-lessons v7: locate, inspect, interpret and compare — without inventing photo annotations. */
+.anatomy-lesson-card,
+.family-anatomy-lesson{
+  min-width:0;
+  background:#fffefa;
+  border:1px solid #d5e4d7;
+  border-radius:20px;
+  box-shadow:0 6px 22px rgba(32,74,45,.07);
+  overflow:hidden;
+}
+.anatomy-lesson-card .part-example-media{
+  min-height:210px;
+  height:235px;
+  width:100%;
+  background:#eaf0e7;
+  border-bottom:1px solid #d8e5d9;
+}
+.anatomy-lesson-card .part-example-media img{
+  display:block;width:100%;height:100%;object-fit:contain;
+}
+.anatomy-lesson-card .part-example-content{
+  display:flex;
+  flex-direction:column;
+  gap:11px;
+  padding:17px;
+  min-width:0;
+  background:#fffefa;
+}
+.anatomy-lesson-card .part-example-title strong,
+.anatomy-lesson-card .part-example-title button{
+  font-size:clamp(1.07rem,2vw,1.22rem);
+  line-height:1.3;
+  color:#1f5339;
+  font-weight:850;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+.anatomy-photo-context{
+  display:flex;flex-direction:column;align-items:start;gap:4px;
+  padding-bottom:9px;border-bottom:1px solid #e2ebe0;
+}
+.anatomy-photo-context>b{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;
+  color:#2d7051;font-weight:900;
+}
+.anatomy-photo-context span{
+  font-size:.76rem;color:#526b59;line-height:1.4;
+  overflow-wrap:break-word;word-break:normal;
+}
+.anatomy-teach-steps,.family-anatomy-steps{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:8px;
+  min-width:0;
+}
+.anatomy-teach-step{
+  min-width:0;
+  padding:11px 12px;
+  border:1px solid #d4e5d5;
+  border-radius:13px;
+  background:#edf5e9;
+}
+.anatomy-teach-step:nth-child(2){background:#edf5f6;border-color:#d5e7e7}
+.anatomy-teach-step:nth-child(3){background:#fff5e4;border-color:#efddbe}
+.anatomy-teach-step>b{
+  display:block;
+  margin-bottom:5px;
+  color:#265e42;
+  letter-spacing:.04em;
+  font-size:.72rem;
+  font-weight:900;
+  line-height:1.3;
+  text-transform:uppercase;
+}
+.anatomy-teach-step:nth-child(2)>b{color:#246765}
+.anatomy-teach-step:nth-child(3)>b{color:#775420}
+.anatomy-teach-step>p{
+  margin:0;
+  font-size:.87rem;
+  font-weight:500;
+  color:#284333;
+  line-height:1.55;
+  white-space:normal;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+.anatomy-next-step,.part-example-explain,.family-why-detail{
+  margin-top:2px;
+  padding:9px 0 0;
+  border-top:1px solid #dce6dc;
+  background:transparent;
+  width:100%;
+  max-width:100%;
+}
+.anatomy-next-step>summary,.part-example-explain>summary,.family-why-detail>summary{
+  list-style:revert;
+  font-size:.79rem;
+  color:#27674c;
+  font-weight:800;
+  cursor:pointer;
+  line-height:1.4;
+}
+.anatomy-next-step>p,.part-example-explain>div p,.family-why-detail>p{
+  margin:8px 0;
+  color:#3c5845;
+  font-size:.84rem;
+  line-height:1.55;
+  overflow-wrap:break-word;
+}
+.anatomy-photo-sources,.family-study-source{
+  display:flex;flex-direction:column;align-items:start;gap:5px;
+  margin-top:4px;padding:10px 0 0;
+  border-top:1px dashed #d4e2d4;
+  width:100%;min-width:0;
+}
+.anatomy-photo-sources .part-example-source{margin-top:2px}
+.anatomy-photo-sources small,.family-study-source small,
+.anatomy-photo-sources .part-example-credit{
+  color:#566a59;
+  font-size:.73rem;
+  line-height:1.4;
+  overflow-wrap:break-word;
+}
+.anatomy-photo-caution{font-style:italic;color:#6c705b!important}
+.anatomy-reference-link{
+  padding:6px 10px;
+  border:1px solid #b6d2c1;
+  border-radius:10px;
+  background:#e6f2e8;
+  color:#245f41;
+  font-size:.77rem;font-weight:800;
+  text-align:left;
+}
+.anatomy-reference-link:hover{background:#d7e8dc}
+.anatomy-reference-link:focus-visible{outline:3px solid #2a7956;outline-offset:2px}
+.anatomy-more-views{
+  margin:7px 14px 15px;
+  border-radius:15px;
+  border:1px solid #cddfcc;
+  overflow:hidden;
+  background:#edf6ea;
+  color:#2b563c;
+}
+.anatomy-more-views>summary{
+  cursor:pointer;
+  list-style:none;
+  padding:14px 16px;
+  font-size:.85rem;
+  line-height:1.4;
+  font-weight:850;
+}
+.anatomy-more-views>summary::-webkit-details-marker{display:none}
+.anatomy-more-views[open]>summary{border-bottom:1px solid #ccdfce}
+.anatomy-more-views>.part-example-grid{padding:13px}
+.family-anatomy-lesson .family-visual-copy{
+  background:#fffefa;
+  display:flex;flex-direction:column;gap:9px;
+  min-width:0;
+  padding:14px;
+}
+.family-anatomy-lesson .family-visual-step-title{
+  color:#245239;
+  font-size:1.08rem;
+  line-height:1.35;
+}
+.family-anatomy-lesson .family-visual-copy>small{
+  color:#47715b;
+  letter-spacing:.02em;
+  line-height:1.45;
+  text-transform:none;
+}
+.family-anatomy-lesson .family-visual-photo{height:200px}
+.family-anatomy-lesson .family-visual-img{height:100%;object-fit:contain}
+.family-study-source>b{color:#286447;font-size:.72rem}
+.family-study-source>span{color:#536b58;font-size:.73rem;line-height:1.4;overflow-wrap:break-word}
+.family-study-source a{color:#256846;font-size:.75rem;font-weight:800}
+.family-study-source a:hover{text-decoration:underline}
+.family-why-detail p b{color:#315742}
+@media(min-width:1080px){
+  .anatomy-lesson-card .part-example-media{height:265px}
+}
+@media(max-width:760px){
+  /* A tiny 116px image column makes close-up anatomy impossible to learn. */
+  .part-example-grid{grid-template-columns:minmax(0,1fr)}
+  .part-example-grid>.anatomy-lesson-card{
+    display:flex;
+    flex-direction:column;
+    grid-template-columns:none;
+    min-height:0;
+    width:100%;
+  }
+  .anatomy-lesson-card .part-example-media{height:clamp(210px,65vw,310px);min-height:0}
+  .anatomy-lesson-card .part-example-content{padding:13px;gap:9px}
+  .anatomy-lesson-card .part-example-title strong,
+  .anatomy-lesson-card .part-example-title button{font-size:1.09rem}
+  .anatomy-teach-step{padding:10px 11px}
+  .anatomy-teach-step>p{font-size:.87rem}
+  .anatomy-more-views{margin:7px 10px 12px}
+  .anatomy-more-views>.part-example-grid{padding:10px}
+  .family-anatomy-lesson .family-visual-photo{height:225px}
+}
+@media(max-width:380px){
+  .anatomy-lesson-card .part-example-media{height:220px}
+  .anatomy-lesson-card .part-example-content{padding:11px}
+}
+
+
+/* Deeper look-alike photo comparisons share the same three-stage field lesson. */
+.diagnostic-visual-card{background:#fffefa;color:#284333;border-color:#d3e2d6}
+.diagnostic-visual-copy{display:flex;flex-direction:column;gap:11px;min-width:0;background:#fffefa;color:#284333}
+.diagnostic-visual-copy h3{margin:0;color:#244e38;overflow-wrap:break-word;word-break:normal}
+.diagnostic-guided-copy{margin-top:1px;gap:8px}
+.diagnostic-guided-copy .anatomy-teach-step{padding:10px 12px}
+.diagnostic-visual-copy .anatomy-next-step p{color:#425e49}
+.diagnostic-visual-copy .diagnostic-photo-credit{font-size:.74rem;color:#536b59}
+.diagnostic-visual-copy .diagnostic-photo-credit a{color:#226a48}
+@media(max-width:760px){
+ .diagnostic-visual-card{min-width:0}
+ .diagnostic-visual-copy{padding:13px}
+ .diagnostic-guided-copy .anatomy-teach-step{padding:10px}
+}
