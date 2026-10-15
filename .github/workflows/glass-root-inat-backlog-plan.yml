@@ -1,0 +1,61 @@
+name: Glass Root Garden Photo Backlog Assessment
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/glass-root-inat-backlog-plan.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: glass-root-inat-backlog-plan
+  cancel-in-progress: false
+
+jobs:
+  refresh-actual-gallery-and-owner-photo-backlog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Retrieve current observer's iNaturalist photo inventory
+        run: |
+          python3 scripts/glass_root_inat_photo_metadata.py \
+            --user calvinking --place-id 18 --taxon-id 47126 \
+            --manifest data/manifest.json \
+            --out workflow/glass-root-inat/batch-005/metadata
+      - name: Count actual canonical photo coverage and prioritize unsatisfied photo gaps
+        run: |
+          python3 scripts/glass_root_inat_backlog_plan.py \
+            --photos workflow/glass-root-inat/batch-005/metadata/photo-candidates.csv \
+            --manifest data/manifest.json \
+            --out workflow/glass-root-inat/backlog-plan --batch-size 4
+      - name: Commit only new queue and summary, no species cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/glass-root-inat/backlog-plan/ workflow/glass-root-inat/batch-005/metadata/summary.json
+          if git diff --cached --quiet; then
+            echo "No backlog changes."
+            exit 0
+          fi
+          git commit -m "Update owner-photo canonical coverage and next species candidates"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Saved updated photo plan."
+              exit 0
+            fi
+            sleep 3
+          done
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: glass-root-inat-backlog-assessment
+          path: |
+            workflow/glass-root-inat/backlog-plan/
+            workflow/glass-root-inat/batch-005/metadata/summary.json
+          retention-days: 30
