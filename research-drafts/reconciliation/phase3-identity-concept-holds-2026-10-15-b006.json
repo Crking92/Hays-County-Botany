@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-15",
+  "lane": "phase3-identity-concept-reconciliation",
+  "batch": "b006",
+  "scope": "Close the two remaining unprocessed Phase-2 concept-routing rows. Scientific-name validity and source-observation identity are kept separate.",
+  "checks": {
+    "source_rows_reviewed": 2,
+    "general_phase3_routing_backlog_after_batch": 0
+  },
+  "counts": {
+    "phase4_identity_holds": 2
+  },
+  "records": [
+    {
+      "master_pool_row": 210,
+      "source_name": "Celtis ehrenbergiana",
+      "decision": "PHASE4_IDENTITY_CONCEPT_HOLD",
+      "accepted_backbone_crosswalk": "Celtis iguanaea (Jacq.) Sarg. under current Kew/POWO treatment",
+      "fresh_evidence_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60450477-2",
+      "reason": "Current taxonomy can crosswalk the name, but legacy Texas usage conflicts with modern species concepts. Do not relabel old/local source material as C. iguanaea without specimen-level re-identification.",
+      "card_action": "No new Celtis ehrenbergiana card and no automatic merge into another Celtis card until source identity is resolved.",
+      "native_range": "DEFERRED"
+    },
+    {
+      "master_pool_row": 273,
+      "source_name": "Clematis reticulata",
+      "decision": "PHASE4_IDENTITY_CONCEPT_HOLD",
+      "accepted_backbone_crosswalk": "Clematis reticulata Walter is an accepted species",
+      "fresh_evidence_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:710133-1",
+      "reason": "The scientific name is accepted, but current Kew native distribution is southeastern U.S. and excludes Texas; historical Texas records require re-identification under the modern C. reticulata-complex treatment.",
+      "card_action": "Do not install a Central Texas C. reticulata learner from the old source row until the source observation/specimen is re-identified.",
+      "native_range": "DEFERRED"
+    }
+  ]
+}
