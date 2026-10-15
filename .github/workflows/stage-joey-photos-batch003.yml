@@ -1,0 +1,30 @@
+name: Stage Joey batch 003 diagnostic photo candidates
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/stage-joey-photos-batch003.yml"
+permissions:
+  contents: write
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install Pillow
+      - name: Download exact licensed photos into review-only staging
+        run: python scripts/import_joey_batch003_candidates.py
+      - name: Commit downloaded photos for botanical review
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add research-drafts/photo-imports/joey-batch003
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Stage Joey batch 003 candidate images for visual review"
+          git pull --rebase origin main
+          git push origin HEAD:main
