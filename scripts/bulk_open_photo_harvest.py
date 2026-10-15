@@ -136,13 +136,17 @@ def row(item, source, oid, page, url, photo_id, organ, creator, rights, basis, l
             "photo_license_status": status, "staged_file": ""}
 
 
-def gbif(item, count):
+PLANTNET_GBIF_DATASET = "7a3679ef-5582-4aaa-81f0-8c2545cafc81"
+
+def gbif(item, count, plantnet_dataset=False):
     matches = []
     used = set()
     for texas in (True, False):
         if len(matches) >= count:
             break
         params = {"scientificName": item["name"], "mediaType": "StillImage", "limit": 80}
+        if plantnet_dataset:
+            params["datasetKey"] = PLANTNET_GBIF_DATASET
         if texas:
             params.update({"country": "US", "stateProvince": "Texas"})
         for occ in get_json("https://api.gbif.org/v1/occurrence/search", params).get("results", []):
@@ -165,8 +169,12 @@ def gbif(item, count):
                 if not creator:
                     continue
                 individual = media.get("license") or media.get("rights")
-                r = row(item, "GBIF", oid, "https://www.gbif.org/occurrence/" + oid,
-                        url, media.get("identifier"), "", creator, individual or occ.get("license"),
+                # Pl@ntNet's occurrence dataset is CC BY, but photos have separate
+                # rights (usually CC BY-SA). Never inherit a dataset license as a photo license.
+                rights = individual or ("" if plantnet_dataset else occ.get("license"))
+                source = "Pl@ntNet via GBIF" if plantnet_dataset else "GBIF"
+                r = row(item, source, oid, "https://www.gbif.org/occurrence/" + oid,
+                        url, media.get("identifier"), "", creator, rights,
                         "media" if individual else "occurrence_only_review_media_license",
                         (occ.get("stateProvince") or "") + ", " + (occ.get("country") or ""))
                 if r["photo_license_status"] != "restricted":
@@ -242,7 +250,7 @@ def csv_safe(value):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--source", choices=("gbif", "plantnet", "both"), default="gbif")
+    ap.add_argument("--source", choices=("gbif", "plantnet-gbif", "plantnet", "both"), default="gbif")
     ap.add_argument("--limit", type=int, default=30)
     ap.add_argument("--per-species", type=int, default=3)
     ap.add_argument("--max-local", type=int, choices=(0, 1, 2), default=2)
@@ -287,13 +295,19 @@ def main():
                                "error_type": type(exc).__name__})
     for n, item in enumerate(items, 1):
         found = []
-        for source in (("GBIF", "Pl@ntNet") if args.source == "both" else
-                       ("GBIF",) if args.source == "gbif" else ("Pl@ntNet",)):
+        for source in (("GBIF", "Pl@ntNet via GBIF", "Pl@ntNet") if args.source == "both" else
+                       ("GBIF",) if args.source == "gbif" else
+                       ("Pl@ntNet via GBIF",) if args.source == "plantnet-gbif" else
+                       ("Pl@ntNet",)):
             if source == "Pl@ntNet" and not plantnet_available:
                 continue
             try:
-                found.extend(gbif(item, args.per_species) if source == "GBIF" else
-                             plantnet(item, args.per_species, key))
+                if source == "GBIF":
+                    found.extend(gbif(item, args.per_species))
+                elif source == "Pl@ntNet via GBIF":
+                    found.extend(gbif(item, args.per_species, plantnet_dataset=True))
+                else:
+                    found.extend(plantnet(item, args.per_species, key))
             except Exception as exc:
                 errors.append({"species": item["id"], "source": source,
                                "stage": "search", "error_type": type(exc).__name__})
@@ -315,7 +329,7 @@ def main():
                "plantnet_access": plantnet_access,
                "candidate_counts_by_source": {
                    k: sum(r["source"] == k for r in rows)
-                   for k in ("GBIF", "Pl@ntNet")
+                   for k in ("GBIF", "Pl@ntNet via GBIF", "Pl@ntNet")
                },
                "eligible_unclaimed_taxa": eligible, "selected_taxa": len(items),
                "candidate_count": len(rows),
