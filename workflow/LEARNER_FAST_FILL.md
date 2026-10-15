@@ -4,6 +4,12 @@ Status: **ACTIVE**
 Activated: 2026-10-05
 Purpose: make the private visual learner broadly useful during active field/study use before final photo polishing.
 
+## Encounter-first priority update — 2026-10-14
+
+**RANGE FAST-FILL PAUSED.** This phase is now focused on identifying plants people may see in Central Texas, including planted, escaped, introduced, and invasive species. Preserve all GitHub scientific nativity data; defer extra native-range research and pending-range backlog clearing. Do not show undecided county-range status to learners as a prominent badge. Use an invasive warning only with explicit documented status and source, and an introduced/non-native label only with direct evidence. Never classify a plant invasive merely because it is non-native.
+
+Current order: install approved, identity-resolved species with a helpful description and one actual licensed photo when feasible; then expand real diagnostic views, genus/family lessons and local look-alike comparisons. Leave final photo polish and exhaustive county audits for later. Source-pool approval remains valid regardless of range; do not degrade scientific HOLD/FAIL evidence.
+
 ## Operating rule
 
 **Source-pool membership is the learner-admission gate; native-range certification is separate metadata.**
@@ -23,7 +29,7 @@ For canonical or source-pool learner-ready taxa:
 6. Exact species is required. Do not fill a gallery with a related species.
 7. Photo perfection is not required; replace weak-but-usable diagnostic photos later.
 8. Do not reopen completed taxonomy/range research merely because media are incomplete.
-9. Do not run a strict county-nativity audit solely to unlock learner inclusion. Preserve the best current range label as confirmed, unresolved, nonlocal, introduced, or comparison and move on.
+9. Do not run a strict county-nativity audit solely to unlock learner inclusion. Preserve the best current range status in GitHub as metadata; display only separately verified invasive/introduced encounter labels.
 10. Do not run project-wide reconciliation before each small task. Check:
    - current canonical manifest
    - current work claims
