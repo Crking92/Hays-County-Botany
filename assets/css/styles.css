@@ -1273,3 +1273,111 @@ body{
   .part-gallery-count{font-size:.7rem}
   .part-gallery-practice{padding:11px}
 }
+
+
+/* Guided lesson deep-dive: progressive family/genus anatomy and readable micro-lessons. */
+.lesson-route{
+  display:flex;flex-wrap:wrap;align-items:stretch;gap:9px;
+  margin:18px 0 12px;padding:12px;
+  border:1px solid #d3e1d0;border-radius:19px;
+  background:#fbfaf4;box-shadow:0 8px 24px rgba(30,65,40,.065);
+}
+.lesson-route>strong{
+  flex:1 1 100%;color:#28513b;
+  font-size:.85rem;line-height:1.4;padding:2px 6px 4px;
+}
+.lesson-route>button{
+  display:flex;flex:1 1 200px;align-items:center;gap:10px;
+  min-width:0;min-height:58px;padding:10px 12px;
+  border:1px solid #d3e1d2;border-radius:13px;background:#eaf3e7;
+  color:#284d37;cursor:pointer;text-align:left;font:inherit;
+  font-size:.83rem;font-weight:800;line-height:1.3;
+}
+.lesson-route>button:nth-of-type(2){background:#e9f2f3}
+.lesson-route>button:nth-of-type(3){background:#fff0da}
+.lesson-route>button>b{
+  flex:0 0 30px;width:30px;height:30px;
+  display:grid;place-items:center;border-radius:10px;
+  background:#fffefa;color:#245c3f;
+}
+.lesson-route>button>span{flex:1;min-width:0;overflow-wrap:break-word}
+.lesson-route>button:hover{border-color:#91b39a;filter:brightness(.985)}
+.lesson-route>button:focus-visible{outline:3px solid #276a4a;outline-offset:2px}
+.genus-warning{padding:0;overflow:hidden}
+.genus-warning>summary{
+  cursor:pointer;font-weight:800;color:#315d44;
+  padding:12px 14px;list-style:revert;
+}
+.genus-warning>p{margin:0;padding:0 14px 14px;color:#465d4a;line-height:1.55}
+.family-study-guidance,.genus-photo-guidance{
+  color:#47614f;font-size:.86rem;line-height:1.55;
+  background:#edf5e9;border:1px solid #d4e4d0;
+  border-radius:13px;padding:12px 14px;margin:12px 0;
+}
+.family-visual-step{position:relative;min-width:0}
+.family-study-stepnum{
+  position:absolute;top:9px;left:9px;z-index:1;
+  border-radius:999px;padding:4px 8px;
+  background:rgba(23,58,37,.92);color:#fff;
+  font-size:.65rem;font-weight:900;letter-spacing:.055em;text-transform:uppercase;
+}
+.family-why-detail{margin:10px 0 0;border-top:1px solid #d6e2d6;padding-top:7px}
+.family-why-detail>summary{cursor:pointer;color:#25684a;font-size:.8rem;font-weight:800}
+.family-why-detail p{color:#3b5845;line-height:1.55}
+.family-more-photo-steps,.family-tie-breakers,.genus-more-photo-steps{
+  margin:16px 0 5px;border:1px solid #cbdcce;border-radius:17px;
+  background:#f2f8f0;overflow:hidden;color:#2b4a34;
+}
+.family-more-photo-steps>summary,.family-tie-breakers>summary,.genus-more-photo-steps>summary{
+  cursor:pointer;list-style:none;padding:16px 18px;font-weight:850;
+  color:#29563d;line-height:1.35;
+}
+.family-more-photo-steps>summary::-webkit-details-marker,
+.family-tie-breakers>summary::-webkit-details-marker,
+.genus-more-photo-steps>summary::-webkit-details-marker{display:none}
+.family-more-photo-steps>summary strong,.family-more-photo-steps>summary span{display:block}
+.family-more-photo-steps>summary span{font-size:.78rem;font-weight:550;color:#52715b;margin-top:3px}
+.family-more-photo-steps[open]>summary,.family-tie-breakers[open]>summary,.genus-more-photo-steps[open]>summary{
+  border-bottom:1px solid #cfdfd0;background:#e6f1e4;
+}
+.family-more-photo-steps>.family-visual-steps,.genus-more-photo-steps>.part-example-grid{padding:14px}
+.family-tie-breakers>.family-visual-comparisons{margin:12px}
+.family-more-photo-steps summary:focus-visible,
+.family-tie-breakers summary:focus-visible,
+.genus-more-photo-steps summary:focus-visible,
+.family-why-detail summary:focus-visible{outline:3px solid #347b55;outline-offset:-3px}
+.part-example-observation b{
+  display:block;color:#266747;font-weight:850;
+  font-size:.71rem;letter-spacing:.07em;
+  text-transform:uppercase;margin-bottom:5px
+}
+.part-example-explain{
+  width:100%;max-width:100%;border-top:1px solid #d9e7da;
+  padding-top:8px;margin-top:2px;
+}
+.part-example-explain>summary{
+  cursor:pointer;color:#266a49;
+  font-size:.77rem;font-weight:800;line-height:1.4;
+}
+.part-example-explain>div{margin-top:7px}
+.part-example-explain>div p{
+  margin:0 0 8px;color:#385743;
+  font-size:.79rem;line-height:1.55;overflow-wrap:break-word;
+}
+.part-example-explain>div p b{color:#27573f}
+.part-example-role,.part-example-credit,.part-example-source{
+  overflow-wrap:break-word;word-break:normal;
+}
+.family-visual-steps,.part-example-grid{align-items:start}
+.family-visual-copy,.part-example-content{min-width:0}
+.family-visual-step-title{overflow-wrap:break-word;word-break:normal}
+@media(max-width:760px){
+  .lesson-route{padding:10px;margin:14px 0 9px;gap:7px}
+  .lesson-route>button{flex:1 1 100%;min-height:48px;padding:8px 11px}
+  .lesson-route>strong{font-size:.8rem}
+  .family-more-photo-steps>summary,.family-tie-breakers>summary,.genus-more-photo-steps>summary{padding:13px}
+  .family-more-photo-steps>.family-visual-steps,.genus-more-photo-steps>.part-example-grid{padding:10px}
+  .family-study-guidance,.genus-photo-guidance{font-size:.8rem;padding:10px 11px}
+  .family-visual-heading{align-items:start;flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){.lesson-route>button{scroll-behavior:auto}}
