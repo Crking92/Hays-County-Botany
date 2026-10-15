@@ -16,15 +16,38 @@
   "look_here_first": "Inspect opposite paired leaves along a creeping, node-rooting stem. Look for very small yellow petals (when present), but note they may be shed or naturally absent. Crucially, a mature capsule lacks the four dark-green longitudinal bands seen on L. palustris. Do not force submerged sterile specimens to species.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Travis",
-    "Williamson"
+    "Travis"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays — a peer-reviewed San Marcos River aquatic-plant survey lists Ludwigia repens as native; Joey's Hays County source video independently shows it in the river. Travis — UT Plant Resources Center Travis County Onagraceae index includes an herbarium specimen of L. repens. Williamson — UT PRC Vascular Plants of Williamson County provides a detailed county treatment.",
-    "range_guardrail": "The Hays decision uses a native-status river survey rather than inferring nativity from aquarium occurrence."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Hays, Travis qualify; Williamson are out-of-zone and cannot count toward PASS. Prior citation/evidence text preserved in range_audit; third native county not verified.",
+    "range_guardrail": "The Hays decision uses a native-status river survey rather than inferring nativity from aquarium occurrence.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for exclusion of counties not in project zone; prior county-locality evidence retained without fresh specimen reinspection",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "valid_target_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Old PASS counted an excluded county. UNRESOLVED is not FAIL or proof of absence; verify a third accepted county before PASS.",
+      "original_range_basis": "Hays — a peer-reviewed San Marcos River aquatic-plant survey lists Ludwigia repens as native; Joey's Hays County source video independently shows it in the river. Travis — UT Plant Resources Center Travis County Onagraceae index includes an herbarium specimen of L. repens. Williamson — UT PRC Vascular Plants of Williamson County provides a detailed county treatment.",
+      "source_document": "content/taxa/Onagraceae/Ludwigia/ludwigia-repens/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone; three qualifying native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -161,5 +184,6 @@
     "strong_fruit_split": "Repens bell-shaped capsule locally only 6–7.5 mm long vs octovalvis elongated 38–45 mm capsule.",
     "caution": "Submerged opposite-leaved Hygrophila can mimic this species; without a flower or fruit, use genus-level or unresolved ID when uncertain."
   },
-  "repens_palustris_field_caution": "Absence of petals is NOT proof of palustris. Repens petals often shed quickly and may sometimes be absent. If no petals, use mature capsule wall: repens lacks palustris four dark green longitudinal capsule bands."
+  "repens_palustris_field_caution": "Absence of petals is NOT proof of palustris. Repens petals often shed quickly and may sometimes be absent. If no petals, use mature capsule wall: repens lacks palustris four dark green longitudinal capsule bands.",
+  "native_metrics_excluded": true
 }

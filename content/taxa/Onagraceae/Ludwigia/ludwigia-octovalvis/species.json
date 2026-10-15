@@ -15,15 +15,38 @@
   "look_here_first": "Locate several stem nodes: leaves alternate, typically narrow and softly hairy on upright branched shoreline shoots. At flowering, see a showy four-petaled yellow corolla and the conspicuously long inferior ovary BELOW the sepals; usually eight stamens. Compare L. repens opposite nodes and tiny four-stamen flowers.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Travis",
-    "Williamson"
+    "Travis"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays — UT Plant Resources Center Purola Preserve flora lists Ludwigia octovalvis as naturally occurring. Travis — UT PRC Travis County Onagraceae index includes Ludwigia octovalvis. Williamson — UT PRC provides a detailed Ludwigia octovalvis subsp. octovalvis treatment.",
-    "range_guardrail": "Subspecies records are reconciled to the accepted species concept without inventing additional counties."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Hays, Travis qualify; Williamson are out-of-zone and cannot count toward PASS. Prior citation/evidence text preserved in range_audit; third native county not verified.",
+    "range_guardrail": "Subspecies records are reconciled to the accepted species concept without inventing additional counties.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for exclusion of counties not in project zone; prior county-locality evidence retained without fresh specimen reinspection",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "valid_target_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Old PASS counted an excluded county. UNRESOLVED is not FAIL or proof of absence; verify a third accepted county before PASS.",
+      "original_range_basis": "Hays — UT Plant Resources Center Purola Preserve flora lists Ludwigia octovalvis as naturally occurring. Travis — UT PRC Travis County Onagraceae index includes Ludwigia octovalvis. Williamson — UT PRC provides a detailed Ludwigia octovalvis subsp. octovalvis treatment.",
+      "source_document": "content/taxa/Onagraceae/Ludwigia/ludwigia-octovalvis/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone; three qualifying native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -187,5 +210,6 @@
     "strong_reproductive_split": "Octovalvis ca. 23–39 mm corolla and typically eight stamens; repens ca. 6 mm flower and four stamens.",
     "strong_fruit_split": "Octovalvis narrow capsule often 38–45 mm long in Williamson vs repens bell-shaped capsule 6–7.5 mm long.",
     "caution": "These lengths describe Williamson County specimens; field dimensions can vary. Five stem ridges are characteristic of locally described material but not universal."
-  }
+  },
+  "native_metrics_excluded": true
 }

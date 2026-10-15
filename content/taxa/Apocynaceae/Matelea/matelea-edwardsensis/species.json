@@ -12,15 +12,38 @@
   "look_here_first": "Compare the flower directly with pearl milkvine: it is more bell-shaped, with mostly parallel longitudinal green lines that become netted only near the lobe tips/margins, and the inner corolla surface is visibly hairy.",
   "county_occurrences_target_zone": [
     "Travis",
-    "Bell",
     "Comal"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Travis — NatureServe and the UT PRC Travis County herbarium document Matelea edwardsensis. Bell — NatureServe explicitly lists Bell County records. Comal — NatureServe explicitly lists Comal County records.",
-    "range_guardrail": "No county inferred from statewide or ecoregion range. Legacy names are counted only where taxonomic concept is reconciled."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Travis, Comal qualify; Bell are out-of-zone and cannot count toward PASS. Prior citation/evidence text preserved in range_audit; third native county not verified.",
+    "range_guardrail": "No county inferred from statewide or ecoregion range. Legacy names are counted only where taxonomic concept is reconciled.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for exclusion of counties not in project zone; prior county-locality evidence retained without fresh specimen reinspection",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Travis",
+        "Bell",
+        "Comal"
+      ],
+      "valid_target_counties": [
+        "Travis",
+        "Comal"
+      ],
+      "excluded_counties": [
+        "Bell"
+      ],
+      "reason": "Old PASS counted an excluded county. UNRESOLVED is not FAIL or proof of absence; verify a third accepted county before PASS.",
+      "original_range_basis": "Travis — NatureServe and the UT PRC Travis County herbarium document Matelea edwardsensis. Bell — NatureServe explicitly lists Bell County records. Comal — NatureServe explicitly lists Comal County records.",
+      "source_document": "content/taxa/Apocynaceae/Matelea/matelea-edwardsensis/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone; three qualifying native counties"
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -79,5 +102,6 @@
     "image_count": 1,
     "filled_at": "2026-10-06",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
-  }
+  },
+  "native_metrics_excluded": true
 }

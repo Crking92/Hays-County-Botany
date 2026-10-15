@@ -16,14 +16,37 @@
   "project_tracker_diagnostic": "Opposite broad triangular to ovate-deltoid serrate leaves on conspicuous petioles, 4-angled stems, repeated flower verticils, persistent ribbed calyx, and long bilabiate corolla.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Travis",
-    "Williamson"
+    "Travis"
   ],
-  "target_zone_count": 3,
-  "native_target_zone_calculated": true,
+  "target_zone_count": 2,
+  "native_target_zone_calculated": false,
   "project_inclusion": {
-    "target_zone_status": "PASS",
-    "range_basis": "Hays County native list, Travis County Balcones Canyonlands records, and UT Williamson County treatment; no county presence inferred."
+    "target_zone_status": "UNRESOLVED",
+    "range_basis": "24-county boundary audit 2026-10-14: Hays, Travis qualify; Williamson are out-of-zone and cannot count toward PASS. Prior citation/evidence text preserved in range_audit; third native county not verified.",
+    "native_range_last_reviewed": "2026-10-14",
+    "range_audit": {
+      "date": "2026-10-14",
+      "decision": "UNRESOLVED",
+      "confidence": "high for exclusion of counties not in project zone; prior county-locality evidence retained without fresh specimen reinspection",
+      "prior_status": "PASS",
+      "prior_count": 3,
+      "prior_counties": [
+        "Hays",
+        "Travis",
+        "Williamson"
+      ],
+      "valid_target_counties": [
+        "Hays",
+        "Travis"
+      ],
+      "excluded_counties": [
+        "Williamson"
+      ],
+      "reason": "Old PASS counted an excluded county. UNRESOLVED is not FAIL or proof of absence; verify a third accepted county before PASS.",
+      "original_range_basis": "Hays County native list, Travis County Balcones Canyonlands records, and UT Williamson County treatment; no county presence inferred.",
+      "source_document": "content/taxa/Lamiaceae/Salvia/salvia-coccinea/SOURCES.txt",
+      "rule_source": "PROJECT_RULES.md — Target zone; three qualifying native counties"
+    }
   },
   "morphology_keys": {
     "habit": "Annual to short-lived perennial/subshrub tendency; usually branched, often 0.5–1 m tall.",
@@ -199,5 +222,6 @@
       "Photo arrow QA on one entire blade, petiole, calyx and individual flowers"
     ],
     "license_rule": "New Florida Commons photos are CC BY 4.0, not proof of Central Texas provenance."
-  }
+  },
+  "native_metrics_excluded": true
 }
