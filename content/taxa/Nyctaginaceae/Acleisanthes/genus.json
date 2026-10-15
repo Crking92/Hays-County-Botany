@@ -4,13 +4,18 @@
   "family": "Nyctaginaceae",
   "common_group": "angel trumpets / Berlandier's trumpets",
   "project_scope": {
-    "selection_mode": "Two approved source-pool taxa, neither currently represented as separate canonical species.json in live manifest",
+    "selection_mode": "Two approved source-pool taxa; both canonical species already installed in live manifest.",
     "included_source_pool_taxa": [
       "Acleisanthes longiflora",
       "Acleisanthes obtusa"
     ],
     "source_pool": "Master Plant Pool rows 15–16; Genus Study Index row 132",
-    "species_installation": "not performed; sheet Curated flags do not prove canonical installation"
+    "species_installation": "both installed and verified in data/manifest.json on 2026-10-15; genus lesson only; no species edits",
+    "canonical_species_ids": [
+      "acleisanthes-longiflora",
+      "acleisanthes-obtusa"
+    ],
+    "canonical_species_count": 2
   },
   "shared_genus_recognition": {
     "look_here_first": "Inspect a fully opened flower SIDEWAYS and measure its narrow perianth tube. Acleisanthes longiflora can have a remarkably long 7–17 cm tube; A. obtusa has a much shorter open perianth around 2.5–5.5 cm total. Then find mature anthocarps and inspect ridges and hairs. Check both ordinary open (chasmogamous) and closed, self-pollinating (cleistogamous) flowers.",
@@ -96,8 +101,8 @@
     "Flower tube length applies to OPEN chasmogamous flowers and must be measured from the base through the narrow tube, not just the flaring limb.",
     "Fruit sizes overlap (6–8 mm); ridges, grooves and indumentum need high-resolution matched macros.",
     "Perianth versus corolla terminology matters; do not label the visible tube as a fused true corolla.",
-    "Sheet curated status does not substitute for species installation in data/manifest.json; no new canonical species or native-target labels created.",
-    "A. obtusa is accepted by POWO with A. berlandieri and A. greggii as synonyms; these are not separate new lesson species."
+    "A. obtusa is accepted by POWO with A. berlandieri and A. greggii as synonyms; these are not separate new lesson species.",
+    "Both Acleisanthes species are installed canonical learners. Admission does not imply a new native-range decision."
   ],
   "local_lookalike_routing": [
     {
@@ -170,9 +175,9 @@
   ],
   "dependencies": [
     {
-      "owner": "Approved Species Installer / taxonomy",
+      "owner": "Approved Species Installer",
       "scope": "A. longiflora + A. obtusa",
-      "detail": "Both approved source-pool entries appear curated in Sheet yet are absent from current canonical manifest. Reconcile source-pool names against existing species/aliases and any review/installer state; no species installation by genus lane."
+      "detail": "Both species already appear in canonical manifest; do not duplicate installs. Genus-level photo and comparison improvements only."
     },
     {
       "owner": "Diagnostic Photo Polish",
@@ -208,11 +213,123 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-genus-github-backfill",
-    "last_reviewed": "2026-10-11",
+    "version": "1.1-canonical-reconciliation-photo-led",
+    "last_reviewed": "2026-10-15",
     "structural_lesson": "two-source-species morphology comparison complete",
-    "visual_status": "specific diagnostic shots pending",
+    "visual_status": "photo examples linked to existing species records; diagnostic closeups and annotation verification pending",
     "scientific_decisions": "no range or installer decisions changed",
-    "species_installs": "none"
+    "species_installs": "both already canonical; none made in genus lane"
+  },
+  "genus_diagnostics": {
+    "anatomy_examples": [
+      {
+        "term": "chasmogamous perianth tube",
+        "plain": "The long narrow part of a fully open flower, not a true corolla.",
+        "photo_role": "matched full-length side views with centimeter rulers; A. longiflora 7–17 cm tube versus A. obtusa 2.5–5.5 cm whole open perianth",
+        "status": "needs_photo",
+        "annotation_status": "annotation_pending"
+      },
+      {
+        "term": "opposite unequal leaf pair",
+        "plain": "Two leaves at a node, often different sizes; compare wedge-shaped versus broadly rounded bases.",
+        "photo_role": "same-scale leaf bases still attached to nodes of both species",
+        "status": "needs_photo",
+        "annotation_status": "annotation_pending"
+      },
+      {
+        "term": "anthocarp costae and sulci",
+        "plain": "The ridges and grooves of the mature one-seeded fruit covering.",
+        "photo_role": "mature fruit side and tip macro with millimeter ruler for both species",
+        "status": "needs_photo",
+        "annotation_status": "annotation_pending"
+      },
+      {
+        "term": "cleistogamous flower",
+        "plain": "Small closed flower that self-pollinates; do not measure it as if it were a fully open trumpet.",
+        "photo_role": "open and closed flowers on same plant, exact-species source",
+        "status": "needs_photo",
+        "annotation_status": "annotation_pending"
+      }
+    ]
+  },
+  "comparison_cards": [
+    {
+      "title": "The trumpet-length split",
+      "species_ids": [
+        "acleisanthes-longiflora",
+        "acleisanthes-obtusa"
+      ],
+      "look_here_first": "Measure the whole open flower correctly: longiflora's tube about 7–17 cm; obtusa's open perianth 2.5–5.5 cm overall.",
+      "caution": "Do not compare a closed self-pollinating flower to an open trumpet.",
+      "photo_status": "needs_photo"
+    },
+    {
+      "title": "Fruit-ridge tie-breaker",
+      "species_ids": [
+        "acleisanthes-longiflora",
+        "acleisanthes-obtusa"
+      ],
+      "look_here_first": "Thin often translucent longitudinal ridges versus deeper grooves ending in small knobs on mature anthocarps.",
+      "caution": "Fruit lengths overlap 6–8 mm; do not use size alone.",
+      "photo_status": "needs_photo"
+    },
+    {
+      "title": "Acleisanthes versus four-o'clocks",
+      "species_ids": [
+        "acleisanthes-longiflora",
+        "acleisanthes-obtusa"
+      ],
+      "comparison_taxon": "Mirabilis spp.",
+      "look_here_first": "Check involucre bracts and fruit architecture; a long petaloid tube alone is not genus proof.",
+      "caution": "Flower color is weak evidence.",
+      "photo_status": "needs_photo"
+    }
+  ],
+  "visual_comparison": {
+    "status": "existing species media; diagnostic anatomy mostly unverified",
+    "examples": [
+      {
+        "species_id": "acleisanthes-longiflora",
+        "installed_path": "content/taxa/Nyctaginaceae/Acleisanthes/acleisanthes-longiflora/images/acleisanthes-longiflora-usda-habit.jpg",
+        "creator": "Clarence A. Rechenthin / USDA-NRCS",
+        "license": "Public Domain (USDA)",
+        "role": "whole plant and flowers",
+        "verification": "installed_species_record; tube measurement not verified",
+        "annotation_status": "annotation_pending"
+      },
+      {
+        "species_id": "acleisanthes-longiflora",
+        "installed_path": "content/taxa/Nyctaginaceae/Acleisanthes/acleisanthes-longiflora/images/joey-inat-172766731.jpg",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://www.inaturalist.org/photos/172766731",
+        "public_reuse": "noncommercial with attribution; public use requires review",
+        "role": "exact-taxon additional view; diagnostic role unverified",
+        "verification": "installed_species_record; anatomy_unverified",
+        "annotation_status": "annotation_pending"
+      },
+      {
+        "species_id": "acleisanthes-obtusa",
+        "installed_path": "content/taxa/Nyctaginaceae/Acleisanthes/acleisanthes-obtusa/images/inat-743460202-first-photo.jpg",
+        "creator": "IDClaire",
+        "license": "CC BY",
+        "source_page": "https://www.inaturalist.org/photos/743460202",
+        "role": "open white flowers and broad rounded leaves",
+        "verification": "species record notes actual pixels reviewed; no tube-scale measurement",
+        "annotation_status": "annotation_pending"
+      },
+      {
+        "species_id": "acleisanthes-obtusa",
+        "installed_path": "content/taxa/Nyctaginaceae/Acleisanthes/acleisanthes-obtusa/images/joey-inat-171305910.jpg",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://www.inaturalist.org/photos/171305910",
+        "public_reuse": "noncommercial with attribution; public use requires review",
+        "role": "exact-taxon additional view; diagnostic role unverified",
+        "verification": "installed_species_record; anatomy_unverified",
+        "annotation_status": "annotation_pending"
+      }
+    ],
+    "photo_gap": "No verified matched ruler-based open-tube images, ripe anthocarp ridge macros, or cleistogamous-versus-open pairs. No arrows added."
   }
 }
