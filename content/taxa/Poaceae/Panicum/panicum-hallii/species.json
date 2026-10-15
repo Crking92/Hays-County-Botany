@@ -12,13 +12,14 @@
   "look_here_first": "Look for a short blue-gray bunch: mostly basal stiff glaucous leaves and a relatively small open pyramidal panicle whose branches are stiff and ascending.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Blanco"
+    "Blanco",
+    "Kerr"
   ],
-  "target_zone_count": 2,
-  "native_target_zone_calculated": false,
+  "target_zone_count": 3,
+  "native_target_zone_calculated": true,
   "project_inclusion": {
-    "target_zone_status": "UNRESOLVED",
-    "range_basis": "24-county boundary audit 2026-10-14: Hays, Blanco qualify; Val Verde out-of-zone and excluded from PASS. Previous evidence preserved in range_audit; third approved county pending.",
+    "target_zone_status": "PASS",
+    "range_basis": "Kew/POWO accepts Panicum hallii, lists Texas as native, and recognizes subsp. hallii and subsp. filipes. Hagenbuch & Lemke explicitly record multiple Hays County specimens. The same appendix records Blanco County (Lackey 777, SWT). The same appendix records Val Verde County (Labus 301, 326, 352, SWT). Kerr — Singhurst et al. (2010), Kerr Wildlife Management Area natural flora, p. 511, published specimens JS 10677; FG 8249; LS 4050, 4416, 4532. Together Hays, Blanco, Kerr satisfy the 3-county project threshold; historical out-of-zone counties not counted.",
     "range_guardrail": "Occurrence is not treated as nativity; introduced records do not count toward the three-county native threshold.",
     "native_range_last_reviewed": "2026-10-14",
     "range_audit": {
@@ -43,6 +44,26 @@
       "original_range_basis": "Kew/POWO accepts Panicum hallii, lists Texas as native, and recognizes subsp. hallii and subsp. filipes. Hagenbuch & Lemke explicitly record multiple Hays County specimens. The same appendix records Blanco County (Lackey 777, SWT). The same appendix records Val Verde County (Labus 301, 326, 352, SWT).",
       "source_document": "content/taxa/Poaceae/Panicum/panicum-hallii/SOURCES.txt",
       "rule_source": "PROJECT_RULES.md — Target zone and minimum three native counties"
+    },
+    "native_range_reconciliation": {
+      "reviewed_at": "2026-10-14",
+      "decision": "PASS",
+      "confidence": "high",
+      "accepted_scientific_name": "Panicum hallii",
+      "verified_target_counties": [
+        "Hays",
+        "Blanco",
+        "Kerr"
+      ],
+      "new_county": "Kerr",
+      "new_county_source": {
+        "url": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+        "title": "Singhurst et al. 2010 — Flora of Kerr Wildlife Management Area",
+        "voucher": "JS 10677; FG 8249; LS 4050, 4416, 4532",
+        "page": "p. 511"
+      },
+      "prior_24_county_audit_preserved": true,
+      "notes": "The earlier 2026-10-14 boundary audit correctly excluded outside-zone counties and temporarily set UNRESOLVED. Subsequent independent Kerr botanical vouchers meet the missing third-county requirement. Previous out-of-zone evidence remains historical and not counted."
     }
   },
   "morphology_keys": {
@@ -118,5 +139,5 @@
     "filled_at": "2026-10-05",
     "note": "Three exact-species physical images installed and visually verified in photo fast-fill 017; scientific PASS unchanged."
   },
-  "native_metrics_excluded": true
+  "native_metrics_excluded": false
 }
