@@ -45,9 +45,10 @@
     "lookalikes_reviewed": true,
     "user_approved": true,
     "last_reviewed": "2026-10-03",
-    "photo_metadata_count": 1,
-    "photo_files_present": 1,
-    "gbif_first_photo_install": "2026-10-15"
+    "photo_metadata_count": 2,
+    "photo_files_present": 2,
+    "gbif_first_photo_install": "2026-10-15",
+    "gbif_manual_photo_enrichment": "2026-10-15"
   },
   "images": [
     {
@@ -71,6 +72,29 @@
       "public_reuse": "Respect photo license; CC BY-NC images are noncommercial only",
       "photo_review": "Source-reported taxon and image license verified; morphological identification and teaching view need independent visual review",
       "modifications": "Resized JPEG and EXIF removed"
+    },
+    {
+      "file": "images/gbif-manual-1453538391-1a92e0840.jpg",
+      "role": "Additional distinct image candidate; target structures not yet visually verified",
+      "requested_diagnostic_view": "Gaura-type flower side-view showing long stamens/style, narrow hairy foliage, fruit",
+      "creator": "Andy Newman",
+      "license": "CC BY-NC",
+      "license_url": "http://creativecommons.org/licenses/by-nc/4.0/",
+      "source_platform": "GBIF occurrence image, original creator retained",
+      "source_page": "https://www.gbif.org/occurrence/1453538391",
+      "gbif_occurrence_id": "1453538391",
+      "source_determination": "Oenothera patriciae W.L.Wagner & Hoch",
+      "accepted_target": "Oenothera patriciae",
+      "media_source_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/6683222/original.jpeg",
+      "image_dimensions": [
+        1350,
+        900
+      ],
+      "photo_review": "Exact source determination, individually licensed media, downloaded pixels, and basic near-duplicate filter checked. Anatomy NOT visually confirmed.",
+      "anatomy_arrows": "not added; image anatomy not verified",
+      "study_use": "follow individual license conditions; noncommercial only for CC BY-NC",
+      "public_reuse": "Respect recorded photo-specific license",
+      "modifications": "Resized JPEG and EXIF removed"
     }
   ],
   "learner_visual_status": {
@@ -82,5 +106,5 @@
       "Confirm diagnostic vegetative and reproductive characters"
     ]
   },
-  "photo_note": "Exact source determination GBIF-linked image provisionally installed with image-level license; visual ID requires review."
+  "photo_note": "Exact source determination GBIF-linked image provisionally installed with image-level license; visual ID requires review. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling."
 }
