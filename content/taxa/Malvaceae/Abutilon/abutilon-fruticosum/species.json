@@ -10,17 +10,39 @@
   "look_here_first": "Texas sweet Indian mallow: small yellow 5-petal mallow flower, small hairy heart-based leaves, and a compact dry fruit with about 6–9(–10) unspined mericarps. For A. incanum lookalike count 6–9 style branches instead of 5. DO NOT require a hairless staminal tube: FNA and UT/Kew disagree.",
   "county_occurrences_target_zone": [
     "Hays",
-    "Travis"
+    "Travis",
+    "Kerr"
   ],
-  "target_zone_count": 2,
-  "native_target_zone_calculated": false,
-  "native_range_status": "UNRESOLVED",
+  "target_zone_count": 3,
+  "native_target_zone_calculated": true,
+  "native_range_status": "PASS",
   "learner_admission_status": "APPROVED",
   "learner_admission_basis": "approved_source_pool_membership",
   "project_inclusion": {
-    "target_zone_status": "UNRESOLVED",
-    "range_basis": "Hays and Travis remain supported target-zone occurrences. The earlier Williamson record is outside the project target zone, so this taxon is retained in the learner with range unresolved rather than relabeled as confirmed target-zone native.",
-    "range_guardrail": "Learner admission is source-pool based; do not count this entry in confirmed-native metrics unless a third valid target-zone county is later documented."
+    "target_zone_status": "PASS",
+    "range_basis": "Prior Hays and Travis native-range support preserved. Kerr — Singhurst et al. (2010), Kerr Wildlife Management Area natural vascular flora, Abutilon fruticosum vouchers JS 10658, FG 8256a, LS 3799, LS 4538. Three project target counties: Hays, Travis, Kerr. Williamson is out-of-zone and not counted.",
+    "range_guardrail": "Learner admission remains independent; native metrics count these three reviewed approved counties only, not Williamson or cultivated observations.",
+    "native_range_reconciliation": {
+      "reviewed_at": "2026-10-14",
+      "decision": "PASS",
+      "confidence": "high",
+      "accepted_scientific_name": "Abutilon fruticosum Guill. & Perr.",
+      "taxon_note": "Texas species-level material falls within species; POWO var. fruticosum native in Texas, do not assign a source row to variety without determination.",
+      "verified_target_counties": [
+        "Hays",
+        "Travis",
+        "Kerr"
+      ],
+      "new_evidence_url": "https://tpwd.texas.gov/huntwild/wild/research/highlights/taxa/publications/Singhurst_etal_2010_KerrWMA.pdf",
+      "taxonomic_source_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:326450-2",
+      "new_vouchers": [
+        "JS 10658",
+        "FG 8256a",
+        "LS 3799",
+        "LS 4538"
+      ],
+      "reason": "Kerr WMA wild collection independently fills third county after correction excluding Williamson."
+    }
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -45,7 +67,7 @@
     "remaining_need": "Habit, reproductive structure, and diagnostic close-up when practical."
   },
   "learner_role": "RANGE_UNRESOLVED",
-  "native_metrics_excluded": true,
+  "native_metrics_excluded": false,
   "curation_status": {
     "version": "1.3-four-physical-images-three-species-panels",
     "taxonomy_reviewed": true,
