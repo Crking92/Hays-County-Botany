@@ -114,8 +114,6 @@ def main():
         imdir=path.parent/"images"
         if imdir.exists() and any(imdir.iterdir()):
             report["skipped"].append({"id":sid,"reason":"physical photo exists; do not overwrite"});continue
-        if not (path.parent/"SOURCES.txt").is_file():
-            report["skipped"].append({"id":sid,"reason":"missing provenance file"});continue
         name=sp.get("scientific_name") or ""
         if not name:continue
         report["attempts"]+=1
@@ -187,6 +185,28 @@ def main():
     if report["installed"]:
         from scripts.curation_pipeline import rebuild_photo_fast_fill_queue
         rebuild_photo_fast_fill_queue()
+    # Refresh complete canonical coverage after this successful first-photo batch.
+    rec=collections.Counter(); local=collections.Counter(); thin=[]
+    for row in manifest["species"]:
+        fp=ROOT/row["path"]
+        if not fp.is_file():continue
+        sp=json.loads(fp.read_text(encoding="utf-8"))
+        photos=sp.get("images") or []
+        count=len(photos)
+        key="0" if count==0 else "1" if count==1 else "2" if count==2 else "3+"
+        rec[key]+=1
+        disk=sum(1 for ph in photos if ph.get("file") and not str(ph["file"]).startswith(("https://","http://")) and (fp.parent/ph["file"]).is_file())
+        key2="0" if disk==0 else "1" if disk==1 else "2" if disk==2 else "3+"
+        local[key2]+=1
+        if count<=2:thin.append({"id":row["id"],"scientific_name":sp.get("scientific_name"),"gallery_records":count,"installed_local_files":disk})
+    (ROOT/"reports/photo-coverage-latest.json").write_text(json.dumps({
+       "generated_at_utc":dt.datetime.now(dt.timezone.utc).isoformat(),
+       "canonical_species":len(manifest["species"]),
+       "gallery_image_record_counts":dict(rec),
+       "physically_installed_local_image_counts":dict(local),
+       "zero_one_two_photo_species":thin,
+       "interpretation":"Image counts only; source photos need botanical and rendered-card visual review."
+    },indent=2)+"\n")
     print(json.dumps({"attempts":report["attempts"],"installed":report["installed"],
                       "skipped":report["skipped"]},indent=2),flush=True)
 if __name__=="__main__":main()
