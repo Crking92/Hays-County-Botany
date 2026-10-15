@@ -1,0 +1,29 @@
+name: Enrich batch 003 galleries with Joey photos
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/enrich-joey-batch003-galleries.yml"
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install Pillow
+      - run: python scripts/install_joey_batch003_gallery.py
+      - name: Save verified photo gallery additions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa reports/joey-batch003-gallery-enrichment.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Enrich four learner galleries with Joey photo candidates"
+          git pull --rebase origin main
+          git push origin HEAD:main
