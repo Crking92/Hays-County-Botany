@@ -1,6 +1,10 @@
 # Visual learner — photo-led anatomy lesson standard
 _Last approved by Calvin: 2026-10-13. Applies to canonical family, genus, species, look-alike, and glossary lessons._
 
+## 2026-10-15 photo-source and batch handoff
+
+Read `workflow/PHOTO_SOURCE_AND_MANUAL_BATCH_HANDOFF_20261015.md` for new statewide Joey Santore photos (verified individual photo rights: CC BY-NC), user-owned Glass Root Garden iNaturalist media (direct private-study owner authorization, separate from public CC licensing), and the user's explicit decision to **run new multi-species diagnostic photo-enrichment batches manually in chat**. Keep the five scheduled automations' existing scope and cadence; the single-species Diagnostic Photo Fast-Fill continues independent work without commandeering these manual batches. Avoid claiming/overwriting manually claimed taxa. Use real diagnostic parts; exact source image and anatomy review remain necessary.
+
 ## The user-approved teaching experience
 
 Build a real **visual field guide**, not simply a text database. The learner should follow:
