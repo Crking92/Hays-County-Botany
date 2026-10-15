@@ -39,3 +39,13 @@
 - Durable batch: `research-drafts/reconciliation/phase3-confirmed-source-pool-aliases-2026-10-15-b001.json`
 - Commit: `c235d1175f833b308c32990c4829a0b268f675d5`
 - County-native range remains **DEFERRED** and no learner/media files were changed.
+
+## Phase 3 progress — accepted-target routing batch 002
+- Reviewed the full **60-row** `PROPOSED_ACCEPTED_TARGET_NOT_IN_POOL` bucket.
+- **60/60 source rows now have a canonical routing decision**, representing **59 unique accepted destination concepts** because two historical source rows collapse into the same `Lithospermum caroliniense var. caroliniense` destination.
+- Reused recent authoritative taxonomy reviews instead of repeating full research; fresh targeted checks covered the principal caution cases (including Anemone, Pelecyphora/Coryphantha, Bletia/Hexalectris, Muenchhusia/Hibiscus, Malus, Populus, Botrychium/Sceptridium, and Sisyrinchium).
+- Corrected the non-taxon proposal text `Miller species` to accepted `Sisyrinchium angustifolium`.
+- No accepted destinations were found in the refreshed manifest and no active claim blocked this review. Installation still requires the installer’s final duplicate/image-rights/claim check.
+- Residual concept-routing exception backlog is now **229 source rows** (306 - 17 - 60).
+- Durable batch: `research-drafts/reconciliation/phase3-accepted-target-routing-2026-10-15-b002.json`
+- Commit: `626d38d7d0c0d5bfb80da8dfa0cca865a12cfb52`
