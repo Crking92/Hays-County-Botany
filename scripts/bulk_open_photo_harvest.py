@@ -176,9 +176,8 @@ def gbif(item, count):
 
 
 def plantnet(item, count, key):
-    params = {"api-key": key, "scientificName": item["name"],
-              "scientificNameMatchAuthor": "false",
-              "identificationVerificationStatus": "research", "limit": 60}
+    # Use the minimal documented query; name/verification filters can differ by plan.
+    params = {"api-key": key, "scientificName": item["name"], "limit": 60}
     matches, used = [], set()
     # Never print exception text: URL may include API key.
     data = get_json("https://my-api.plantnet.org/v2/dwc/occurrence/search", params)
@@ -262,11 +261,35 @@ def main():
     out = out if out.is_absolute() else ROOT / out
     out.mkdir(parents=True, exist_ok=True)
     rows, errors = [], []
+    plantnet_access = "not_requested"
+    plantnet_available = False
+    if args.source in ("both", "plantnet"):
+        if not key:
+            plantnet_access = "missing_secret"
+            errors.append({"source": "Pl@ntNet", "stage": "access_preflight",
+                           "error_type": "MissingApiKey"})
+        else:
+            # A single low-cost request proves whether this key can access
+            # Darwin Core observation search; a general API key may not.
+            try:
+                get_json("https://my-api.plantnet.org/v2/dwc/occurrence/search",
+                         {"api-key": key, "scientificName": "Asclepias curassavica",
+                          "limit": 1})
+                plantnet_available = True
+                plantnet_access = "available"
+            except urllib.error.HTTPError as exc:
+                plantnet_access = "unavailable_http_" + str(exc.code)
+                errors.append({"source": "Pl@ntNet", "stage": "access_preflight",
+                               "error_type": "HTTPError", "http_status": exc.code})
+            except Exception as exc:
+                plantnet_access = "unavailable_" + type(exc).__name__
+                errors.append({"source": "Pl@ntNet", "stage": "access_preflight",
+                               "error_type": type(exc).__name__})
     for n, item in enumerate(items, 1):
         found = []
         for source in (("GBIF", "Pl@ntNet") if args.source == "both" else
                        ("GBIF",) if args.source == "gbif" else ("Pl@ntNet",)):
-            if source == "Pl@ntNet" and not key:
+            if source == "Pl@ntNet" and not plantnet_available:
                 continue
             try:
                 found.extend(gbif(item, args.per_species) if source == "GBIF" else
@@ -289,6 +312,11 @@ def main():
         writer.writerows({col: csv_safe(r.get(col, "")) for col in COLUMNS} for r in rows)
     summary = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(),
                "coverage_snapshot": snapshot, "source": args.source,
+               "plantnet_access": plantnet_access,
+               "candidate_counts_by_source": {
+                   k: sum(r["source"] == k for r in rows)
+                   for k in ("GBIF", "Pl@ntNet")
+               },
                "eligible_unclaimed_taxa": eligible, "selected_taxa": len(items),
                "candidate_count": len(rows),
                "staged_image_count": sum(bool(r["staged_file"]) for r in rows),
