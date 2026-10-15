@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-14T23:19:11.573Z",
+  "updated_at": "2026-10-15T00:07:07.835Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -18,6 +18,31 @@
     "queued_claims_are_superseded_by_durable_state": true
   },
   "claims": [
+    {
+      "claim_id": "native-range-fast-fill-20261014-001",
+      "scope_kind": "species_native_range_batch",
+      "taxa": [
+        "rhus-aromatica",
+        "rhus-copallinum-var-lanceolata",
+        "matelea-edwardsensis",
+        "matelea-reticulata",
+        "ilex-decidua",
+        "ilex-vomitoria",
+        "dalea-aurea",
+        "fraxinus-albicans",
+        "ludwigia-octovalvis",
+        "ludwigia-repens",
+        "salvia-coccinea",
+        "salvia-texana"
+      ],
+      "lane": "native-range-fast-fill",
+      "owner": "manual-native-range-research-chat",
+      "status": "active",
+      "claimed_at": "2026-10-15T00:07:07.835Z",
+      "expires_at": "2026-10-15T06:07:07.835Z",
+      "release_when": "Verified native-range corrections persisted to canonical GitHub and tracker; release with evidence audit",
+      "notes": "Range metadata only; 24 project counties strict. Investigate 12 old PASS records whose counted county list includes out-of-target counties. Do not change photos, learner admission, or installer fields."
+    },
     {
       "claim_id": "huge-empty-photo-20261014-007",
       "scope_kind": "species_photo_batch",
