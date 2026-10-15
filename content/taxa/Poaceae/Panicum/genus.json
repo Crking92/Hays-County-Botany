@@ -23,7 +23,12 @@
       "glaucous versus hairy foliage",
       "rhizomatous versus tufted/knotty base"
     ],
-    "warning": "Do not identify these from a generic open panicle alone. Read the base, ligule/collar, leaf texture and panicle architecture together."
+    "warning": "Do not identify these from a generic open panicle alone. Read the base, ligule/collar, leaf texture and panicle architecture together.",
+    "overlap_cautions": [
+      "Open panicles occur in several species; inspect base, collar and mature spikelets together.",
+      "Master Plant Pool Panicum obtusum is a legacy concept corresponding to Hopia obtusa; do not add a fifth canonical Panicum card.",
+      "P. coloratum retains existing introduced/non-native comparison classification; no new range decision."
+    ]
   },
   "quick_key": [
     {
@@ -44,8 +49,8 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-species-merge-006",
-    "last_reviewed": "2026-10-02"
+    "version": "1.1-visual-comparison",
+    "last_reviewed": "2026-10-15"
   },
   "visual_status": "fast_fill_native_coverage_live",
   "visual_anchors": [
@@ -74,5 +79,111 @@
       ]
     }
   ],
-  "fast_fill_note": "All three PASS native Panicum learner pages in the current genus set now have 3-image FAST-FILL galleries. Panicum coloratum remains an introduced/target-zone FAIL comparison and is deliberately excluded from native fast-fill coverage."
+  "fast_fill_note": "All three PASS native Panicum learner pages in the current genus set now have 3-image FAST-FILL galleries. Panicum coloratum remains an introduced/target-zone FAIL comparison and is deliberately excluded from native fast-fill coverage.",
+  "look_here_first": "Check the growth base (rhizomes versus tuft), then the leaf collar and ligule. Compare mature panicle branch angles and spikelets. Never name a Panicum from an open panicle alone.",
+  "shared_genus_traits": [
+    "Jointed grass culms with leaf sheaths, collars and ligules.",
+    "Branched panicles of small spikelets; mature spikelet and glume/lemma details help resolve look-alikes.",
+    "Growth base, collar hairs and inflorescence branching distinguish these four learner species better than flower color."
+  ],
+  "species_comparison_matrix": [
+    {
+      "character": "Growth base / lifespan",
+      "capillare": "Annual; no persistent rhizome network",
+      "coloratum": "Perennial tuft with firm knotty base",
+      "hallii": "Short tufted perennial; often bluish",
+      "virgatum": "Tall perennial with spreading rhizomes",
+      "caution": "Inspect actual basal crown; age and management change appearance."
+    },
+    {
+      "character": "Collar / sheath",
+      "capillare": "Hairy nodes and sheaths; check collar",
+      "coloratum": "Examine ligule and sheath with lens; do not assume from habit",
+      "hallii": "Check glaucous foliage and collar",
+      "virgatum": "Conspicuous hairs around collar/ligule area",
+      "caution": "Hairiness varies and must be checked on multiple leaves."
+    },
+    {
+      "character": "Mature panicle",
+      "capillare": "Very diffuse, irregular, broad branching",
+      "coloratum": "Finer fanlike branching",
+      "hallii": "Smaller, relatively stiff ascending branches",
+      "virgatum": "Large airy pyramidal panicle",
+      "caution": "Panicle spread changes with maturity and weather."
+    },
+    {
+      "character": "Whole-plant scale",
+      "capillare": "Annual often branching and sprawling",
+      "coloratum": "Tufted introduced grass",
+      "hallii": "Relatively short, bluish, basal-leaved",
+      "virgatum": "Often tall robust stands",
+      "caution": "Size is supportive, not diagnostic."
+    }
+  ],
+  "genus_diagnostics": {
+    "anatomy_examples": [
+      {
+        "term": "basal crown / rhizome",
+        "plain": "Follow stems down to see whether underground runners connect shoots.",
+        "photo_role": "same-scale P. virgatum rhizome versus P. hallii/coloratum tuft",
+        "status": "needs_photo"
+      },
+      {
+        "term": "collar and ligule",
+        "plain": "At the blade–sheath junction, find the small membrane or hairs and their exact position.",
+        "photo_role": "collar macros from each canonical species",
+        "status": "needs_photo"
+      },
+      {
+        "term": "panicle branch",
+        "plain": "Compare how wide and stiff the seed-head branches spread.",
+        "photo_role": "matched mature panicles at same scale",
+        "status": "needs_photo"
+      },
+      {
+        "term": "spikelet / glumes",
+        "plain": "Isolate a single mature unit and distinguish its enclosing bracts.",
+        "photo_role": "magnified spikelet side and opened views",
+        "status": "needs_photo"
+      }
+    ]
+  },
+  "comparison_cards": [
+    {
+      "title": "Switchgrass vs Hall's panicgrass",
+      "species_ids": [
+        "panicum-virgatum",
+        "panicum-hallii"
+      ],
+      "look_here_first": "Rhizomatous tall stand versus shorter bluish basal tuft",
+      "second_check": "Compare collar hair placement and mature panicle size",
+      "caution": "Drought, grazing and mowing can obscure stature."
+    },
+    {
+      "title": "Witchgrass vs kleingrass",
+      "species_ids": [
+        "panicum-capillare",
+        "panicum-coloratum"
+      ],
+      "look_here_first": "Annual with hairy nodes and chaotic diffuse panicle versus tufted perennial with knotty base",
+      "second_check": "Inspect collar and panicle branch stiffness",
+      "caution": "Kleingrass is an introduced comparison, not native PASS."
+    },
+    {
+      "title": "Panicum vs vine mesquite",
+      "species_ids": [
+        "panicum-hallii",
+        "panicum-virgatum"
+      ],
+      "comparison_taxon": "Hopia obtusa (formerly Panicum obtusum)",
+      "look_here_first": "Check accepted genus concept and vine-mesquite stolons; do not duplicate its learner card.",
+      "caution": "Master Plant Pool still includes the legacy Panicum obtusum name; taxonomy/installer lane owns synonym reconciliation."
+    }
+  ],
+  "photo_handoffs": [
+    "Matched basal-crown/rhizome images for P. virgatum versus P. hallii and P. coloratum.",
+    "Macro of blade–sheath collar and ligule on all four exact species.",
+    "Same-scale mature panicles plus one dissected spikelet per species; arrows only after visual verification."
+  ],
+  "taxonomy_handoff": "Review Master Pool legacy Panicum obtusum alias against existing Hopia obtusa canonical card; genus lane must not install or change taxonomy."
 }
