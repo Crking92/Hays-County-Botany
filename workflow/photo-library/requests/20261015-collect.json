@@ -9,9 +9,14 @@
   "max_installed_local_photos": 2,
   "store": "private_GitHub_Release_and_git_catalog",
   "install_live_cards": false,
-  "request_sequence": 2,
-  "request_name": "Mass photo collection batch following run 38760123960",
+  "request_sequence": 3,
+  "request_name": "Collect next 40 genuinely unscanned species following successful archive recovery",
   "wait_for_prior": "hays-photo-library-persist-main GitHub concurrency",
   "fresh_main_checkout": true,
-  "rerun_reason": "User approved next batch; continue unscanned species after prior harvest finishes"
+  "rerun_reason": "User approved next batch; continue unscanned species after prior harvest finishes",
+  "prior_completed": [
+    38760123960,
+    38760929397
+  ],
+  "deduped_starting_index": "workflow/photo-library/species-index.json"
 }
