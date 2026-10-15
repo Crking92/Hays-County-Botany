@@ -85,6 +85,24 @@ function defaultPhotoIndex(sp){
   const verified=imgs.findIndex(function(img){ return !/^https?:\/\//i.test(img.file) && Array.isArray(img.image_dimensions) && img.source_platform==="iNaturalist" && img.study_use==="yes"; });
   return verified>=0 ? verified : 0;
 }
+/* Image priority applies to presentation only. Canonical images[] indices remain stable
+   because family lessons bind to original anchor_image_index positions. */
+function galleryPhotoScore(img){
+  const role=String([img.role,img.view,img.image_role].filter(Boolean).join(" ")).toLowerCase();
+  const vetted=Boolean(img.visual_role_reviewed || img.diagnostic_role_verified || img.annotation_verified);
+  if(vetted && (/diagnostic|leaf|venation|petiole|phyllar|involucre|bud|acorn|ligule|fruit|flower|corona|pollinia|macro|structure/.test(role))) return 120;
+  if(/diagnostic/.test(role)) return 95;
+  if(/verified .*(leaf|flower|macro|fruit|vegetative|phyllar)/.test(role)) return 78;
+  if(/(leaf|petiole|venation|phyllar|involucre|corona|gynostegium|ligule|acorn|bud|bark|pappus|fruit|seed|macro|detail)/.test(role)&&!/^(same-observation|curated taxon)/.test(role)) return 53;
+  if(/whole plant|habit|field view/.test(role)) return 16;
+  return 0;
+}
+function galleryPhotoOrder(sp){
+  const imgs=imagesFor(sp), fallback=defaultPhotoIndex(sp);
+  return imgs.map(function(img,index){return {index,score:galleryPhotoScore(img)+(index===fallback?1:0)};})
+    .sort(function(a,b){return b.score-a.score || a.index-b.index;})
+    .map(function(x){return x.index;});
+}
 function firstImage(sp){ return imagesFor(sp)[defaultPhotoIndex(sp)] || null; }
 function thumb(sp,cls){
   const img=firstImage(sp);
@@ -1039,17 +1057,34 @@ function genusView(){
 function photoCarousel(sp){
   const imgs=imagesFor(sp);
   if(!imgs.length) return '<div class="focus-photo-empty">No curated photo installed yet.</div>';
-  let idx=state.photoIndex[sp.id]===undefined ? defaultPhotoIndex(sp) : state.photoIndex[sp.id]; idx=((idx%imgs.length)+imgs.length)%imgs.length; state.photoIndex[sp.id]=idx;
-  const img=imgs[idx], role=img.role||img.view||"Curated study image", credit=[img.creator||img.credit,img.license].filter(Boolean).join(" · ");
-  let out='<div class="species-gallery"><figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'"></button>'+
-    '<div class="photo-topline"><span>'+esc(role)+'</span><b>'+(idx+1)+' / '+imgs.length+'</b></div>';
+  const order=galleryPhotoOrder(sp), best=order[0];
+  let idx=state.photoIndex[sp.id]===undefined?best:state.photoIndex[sp.id];
+  if(!Number.isInteger(idx)||idx<0||idx>=imgs.length) idx=best;
+  state.photoIndex[sp.id]=idx;
+  const position=order.indexOf(idx), img=imgs[idx];
+  const role=img.role||img.view||"Curated study image";
+  const credit=[img.creator||img.credit,img.license].filter(Boolean).join(" · ");
+  const vetted=Boolean(img.visual_role_reviewed || img.diagnostic_role_verified || img.annotation_verified);
+  const diagnostic=galleryPhotoScore(img)>=53;
+  const check=diagnostic?anatomyFieldCue(sp,role):"";
+  const sourceKind=img.external_reference?"Externally hosted reference":"Gallery-linked view";
+  let out='<div class="species-gallery">'+
+    '<div class="gallery-study-intro"><b>'+(diagnostic?"Diagnostic study view":"Plant overview / reference")+'</b>'+
+    '<span>'+(diagnostic?"Inspect the named structures, then confirm against another view.":"Swipe or tap a thumbnail to inspect another plant structure.")+'</span></div>'+
+    '<figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'"></button>'+
+    '<div class="photo-topline"><span>'+esc(role)+'</span><b>'+(position+1)+' / '+imgs.length+'</b></div>';
   if(imgs.length>1) out+='<button class="photo-arrow prev" type="button" data-photo-step="-1" aria-label="Previous photo">‹</button><button class="photo-arrow next" type="button" data-photo-step="1" aria-label="Next photo">›</button>';
-  out+='<figcaption><span>'+esc(credit||"Source metadata retained in species record")+'</span>'+(img.source_page?'<a href="'+esc(img.source_page)+'" target="_blank" rel="noreferrer">source ↗</a>':'')+'</figcaption></figure>';
+  out+='<figcaption class="gallery-photo-caption">'+
+    (check?'<strong>Look for:</strong> '+esc(check)+'<small>Based on this species’ written morphological record; the photo has no new verified arrow.</small>':"")+
+    '<span>'+esc(sourceKind)+(vetted?" · Study role reviewed":"")+'</span>'+
+    '<span>'+esc(credit||"Source metadata retained in species record")+'</span>'+
+    (img.source_page?'<a href="'+esc(img.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':"")+
+    '</figcaption></figure>';
   if(imgs.length>1){
     out+='<div class="photo-filmstrip" role="group" aria-label="Choose a plant photo">';
-    imgs.forEach(function(photo,i){
-      const label=photo.role||photo.view||("Photo "+(i+1));
-      out+='<button type="button" class="photo-thumbnail'+(i===idx?' active':'')+'" data-photo-index="'+i+'" aria-pressed="'+String(i===idx)+'" aria-label="Show photo '+(i+1)+' of '+imgs.length+': '+esc(label)+'">'+
+    order.forEach(function(actualIndex,rank){
+      const photo=imgs[actualIndex],label=photo.role||photo.view||("Photo "+(rank+1));
+      out+='<button type="button" class="photo-thumbnail'+(actualIndex===idx?' active':'')+'" data-photo-index="'+actualIndex+'" aria-pressed="'+String(actualIndex===idx)+'" aria-label="Show photo '+(rank+1)+' of '+imgs.length+': '+esc(label)+'">'+
         '<img src="'+imagePath(sp,photo)+'" alt="" loading="lazy"><span>'+esc(label)+'</span></button>';
     });
     out+='</div>';
@@ -2132,7 +2167,14 @@ function handleClick(e){
   const photo=e.target.closest("[data-photo-step]");
   if(photo){
     const sp=selectedSpecies(), imgs=sp?imagesFor(sp):[];
-    if(sp && imgs.length){ const cur=state.photoIndex[sp.id]||0; state.photoIndex[sp.id]=(cur+Number(photo.dataset.photoStep)+imgs.length)%imgs.length; render(); }
+    if(sp && imgs.length){
+      const order=galleryPhotoOrder(sp);
+      const current=state.photoIndex[sp.id]===undefined?order[0]:state.photoIndex[sp.id];
+      const pos=Math.max(0,order.indexOf(current));
+      const shift=Number(photo.dataset.photoStep)||1;
+      state.photoIndex[sp.id]=order[(pos+shift%order.length+order.length)%order.length];
+      render();
+    }
     return;
   }
   if(e.target.closest("[data-reveal-quiz]")){ state.quizRevealed=true; render(); return; }
