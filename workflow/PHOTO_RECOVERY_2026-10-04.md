@@ -11,3 +11,8 @@ First recovery batch: Arbutus xalapensis (bark, fruiting branch, fruit), Aristol
 Ulmus photo work belongs to the other user-authorized manual chat. All five current canonical Ulmus entries now include image references; avoid duplicate work and verify deployed availability there.
 
 Detailed species queue and source pointers: workflow/photo-recovery-audit-2026-10-04.json. This audit adds no new species research batches and changes no taxonomy/range decisions.
+
+## Allium canadense photo recovery — 2026-10-15
+Existing physical image: images/allium-canadense-umbel.jpg (Eric Hunt, CC BY-SA 4.0), verified nonempty in GitHub. One local installed image, one gallery entry.
+Existing permanent library batch mass-38760123960 holds eight provisional candidate images. Sam Kieschnick photos 625462975 and 625463031, GBIF occurrence 6178851994, are cataloged CC BY; visual anatomy and live image-specific rights not yet checked. Private archive and metadata: workflow/photo-library/batches/mass-38760123960/archive.json and workflow/photo-library/catalog.csv.
+Needs: visually verified intact spathe/bract-vein macro and flower/bulbil view. No new image installed, no gallery link added, no READY marker, annotation pending. Recover from existing private archive via approved media pipeline; preserve existing gallery and science.
