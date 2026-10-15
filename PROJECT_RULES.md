@@ -1,5 +1,15 @@
 # Hays Botany ID — Project Rules
 
+## Current operating priority — encounter-first visual learner (approved 2026-10-14)
+
+**Native-range fast-fill and exhaustive county-level certification are PAUSED.** This is a priority change, not deletion, rejection, or a relaxation of scientific evidence. Retain all existing native-range research, counties, source citations, PASS/FAIL/UNRESOLVED/CONFLICT decisions, historical drafts, and native-only metric exclusions in canonical GitHub. Do not launch new county-native fast-fill batches or clear a pending taxonomy/range row solely to produce a three-county verdict until Calvin explicitly resumes this lane. Cheap incidental range evidence can be saved when directly relevant to taxonomy or a verified exotic/invasive label.
+
+**The learner is an encounter-based Central Texas plant identification guide, not a native-only flora.** Taxa from approved pools remain learner-eligible even when introduced, weedy, nonlocal, planted, escaped, invasive, or range-unresolved. Accepted identity/synonym mapping and honest photo licensing still apply.
+
+**Public-facing label policy:** Prioritize common/scientific name, actual photos, LOOK HERE FIRST morphology, family/genus lessons, and local look-alikes. Show an **Invasive** warning only when its regional invasive classification is explicitly documented in a trusted taxon field with an evidence trail; show **Introduced / non-native** only for documented introduced/exotic taxa. These labels are different: not every introduced plant is invasive. Do not infer either label from a county-range FAIL, missing PASS, vague notes, or an observation in Texas. Do not show default native/not-native, three-county, FAIL, HOLD, UNRESOLVED, or pending-range badges on ordinary learner cards. Keep detailed source metadata available in GitHub for later research. Approval decisions must not depend on range verdicts.
+
+**Priority order during this phase:** (1) safe accepted-name/identity mapping and source-pool learner inclusion, (2) install a helpful morphology-first card with at least one properly credited displayable exact-species photo when available, (3) enrich real diagnostic photos and photo-led family/genus/species comparisons, (4) final visual polish and verified anatomy arrows, (5) resume detailed range audits only on explicit instruction. Preserve ongoing photo, genus, family and approved installer automations.
+
 ## Canonical project home
 GitHub repository `Crking92/Hays-County-Botany` is the canonical home for botany data, learner files, workflow rules, and finalized curation packages.
 
@@ -34,11 +44,9 @@ Native-range status remains scientifically strict metadata:
 - **FAIL / FAIL_TARGET_ZONE / COMPARISON_NON_NATIVE** — not confirmed as project-target native under the current evidence or explicitly non-native/comparison.
 - **UNRESOLVED / CONFLICT** — native-range evidence is incomplete or conflicting.
 
-These range states do **not** block learner admission. They control labeling and native-only metrics.
+These range states do **not** block learner admission. They remain internal research and native-only-metric safeguards rather than default visible learner badges.
 
-Every learner page should keep the two concepts separate:
-- learner admission: approved / represented / taxonomy-mapping-needed;
-- range label: confirmed target-zone native / range unresolved / nonlocal or target-zone fail / introduced or non-native comparison / other clearly sourced status.
+Keep learner admission (approved / represented / taxonomy-mapping-needed) separate from research nativity fields. Show only supported introduced/invasive encounter labels on ordinary learner cards; defer county-range display during this phase.
 
 Never relabel an unresolved or non-native taxon as native merely to include it. Never count comparison, FAIL, CONFLICT, or UNRESOLVED taxa in confirmed-native totals.
 
@@ -57,7 +65,7 @@ Use learner roles such as `TARGET_NATIVE_CONFIRMED`, `RANGE_UNRESOLVED`, `NONLOC
 4. Herbarium records and other authoritative regional floras
 5. iNaturalist / GBIF / Leafminers as supporting occurrence evidence
 
-Record the actual counties used for the target-zone decision.
+When native-range research is explicitly resumed or independently necessary, record the actual counties used for the target-zone decision. Do not conduct new exhaustive county audits during encounter-first mode.
 
 ## Required curation order
 For every new species or batch:
