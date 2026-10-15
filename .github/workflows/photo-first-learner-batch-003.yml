@@ -11,11 +11,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - run: pip install Pillow
       - run: python scripts/install_photo_first_five_20261015_b003.py
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: "Install photo-first learner batch 003"
+      - name: Commit verified learner cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa data/manifest.json data/project.json reports curation-archive research-drafts/photo-imports
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install photo-first learner batch 003"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
