@@ -344,8 +344,14 @@ function genusVisualComparison(data){
       });
       out+='</div>';
     }
-    out+='</div><div class="diagnostic-visual-copy"><div class="eyebrow">'+esc(item.label||"Diagnostic view")+'</div><h3><i>'+esc(item.scientific_name||"")+'</i></h3><p>'+esc(item.caption||"")+'</p>';
-    if(item.source_page) out+='<p class="diagnostic-photo-credit">'+esc(item.creator||"Source photo")+' · '+esc(item.license||"license review")+' · <a href="'+esc(item.source_page)+'" target="_blank" rel="noreferrer">source ↗</a></p>';
+    out+='</div><div class="diagnostic-visual-copy"><div class="eyebrow">'+esc(item.label||"Diagnostic view")+'</div><h3><i>'+esc(item.scientific_name||"")+'</i></h3>'+
+      '<div class="anatomy-teach-steps diagnostic-guided-copy">'+
+      anatomyTeachingSentence("Where to look",anatomyWhereToLook(item.image_role||item.label))+
+      anatomyTeachingSentence("What to compare",item.caption||"Use the identified photo role to inspect the same structure in the other species.")+
+      (item.why_it_matters?anatomyTeachingSentence("How it separates them",item.why_it_matters):"")+
+      '</div>'+
+      '<details class="anatomy-next-step"><summary>How to confirm this comparison</summary><p>Compare the same view on the other species and use the documented genus key. A single view or an unverified label should not settle the identification.</p></details>';
+    if(item.source_page) out+='<p class="diagnostic-photo-credit">'+esc(item.creator||"Source photo")+' · '+esc(item.license||"license review")+' · <a href="'+esc(item.source_page)+'" target="_blank" rel="noopener noreferrer">source ↗</a></p>';
     out+='</div></article>';
   });
   if(hasItems) out+='</div>';
@@ -1106,7 +1112,8 @@ function familyVisualStepCard(step,index){
   const sp=step.anchor_species_id ? state.species.find(function(x){return x.id===step.anchor_species_id;}) : null;
   const external=Boolean(familyExternalImageUrl(step));
   const imgs=sp?imagesFor(sp):[];
-  const selected=Number.isInteger(step.anchor_image_index)&&step.anchor_image_index>=0&&step.anchor_image_index<imgs.length?imgs[step.anchor_image_index]:imgs[0];
+  const indexNumber=Number(step.anchor_image_index);
+  const selected=Number.isInteger(indexNumber)&&indexNumber>=0&&indexNumber<imgs.length?imgs[indexNumber]:imgs[0];
   const photoCredit=external?(step.image_credit||""):[selected&&selected.creator,selected&&selected.license].filter(Boolean).join(" · ") || step.image_credit||"";
   const role=step.photo_role||step.title||"Study structure";
   const clue=String(step.look_for||"").trim();
