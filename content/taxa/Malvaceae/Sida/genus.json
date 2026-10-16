@@ -159,7 +159,7 @@
     "Flora of North America Sida spinosa: https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242348923"
   ],
   "curation_status": {
-    "version": "1.0-genus-lesson",
+    "version": "1.1-photo-led-anatomy-20261015",
     "last_reviewed": "2026-10-14",
     "visual_status": "normal_photo_led_pass_done_specialty_macros_queued",
     "note": "Two canonical taxa compared; no species installs, taxonomy decisions, or range-status edits.",
@@ -169,7 +169,8 @@
       "matched stem hairs",
       "ripe schizocarps both species",
       "flower staminal column and calyx side views"
-    ]
+    ],
+    "genus_anatomy_upgrade": "four structured teaching roles, three comparison cards, species photo metadata and rights reconciled; diagnostic closeups and annotation still pending"
   },
   "look_here_first": "First compare the whole-plant habit in the two actual species photographs: Sida abutilifolia spreads across the ground; Sida spinosa is usually upright. Then photograph intact nodes for S. spinosa's sometimes-present petiole-base tubercle, and ripe mericarps for confirmation. Don't identify these mallows on yellow flowers alone.",
   "visual_lesson": {
@@ -250,5 +251,212 @@
       "Mature schizocarp of both species, top and side views",
       "Five-lobed calyx and staminal column on a real Sida flower"
     ]
-  }
+  },
+  "look_here_first_sequence": [
+    "1. SEE the whole plant and soil line: S. abutilifolia usually spreads/procumbent; S. spinosa generally rises erect or ascending. Disturbance can change habit.",
+    "2. SPOT an intact leaf node: examine directly BELOW the petiole for the sometimes-present spinelike tubercle of S. spinosa. An absent tubercle does not exclude it.",
+    "3. NAME the hair types with a hand lens and millimeter scale: S. abutilifolia often mixes 1–2 mm simple hairs with stellate hairs; S. spinosa is usually minutely stellate-hairy (generally <=0.5 mm).",
+    "4. COMPARE mature schizocarps, not buds: count the dry mericarps, photograph their tips and surface texture. S. spinosa typically has five apically spined mericarps; S. abutilifolia details need independently checked material."
+  ],
+  "anatomy_lessons": [
+    {
+      "title": "1 · Flower center and the true calyx",
+      "term": "staminal column / calyx / epicalyx",
+      "plain": "Many stamens share a central tube; the five green calyx lobes surround the flower base. Sida lacks an extra epicalyx ring.",
+      "look_for": "Open flower front plus lateral flower base; show column, calyx and absence of separate involucel bractlets only when the base is in focus.",
+      "why_it_matters": "Confirms a Sida-style mallow instead of identifying from yellow petals or a fuzzy leaf.",
+      "photo_role": "same-scale flower face and side of each species",
+      "status": "needs_verified_anatomy_photo",
+      "annotation_status": "pending_image_review"
+    },
+    {
+      "title": "2 · The node's little bump",
+      "term": "petiole-base tubercle",
+      "plain": "A small projection may sit just below a leaf stalk on prickly sida; it is not a woody branch thorn.",
+      "look_for": "Side-lit S. spinosa node, including the petiole insertion and 2–3 mm of stem below; sample several nodes because tubercles may be absent.",
+      "why_it_matters": "Memorable positive cue for S. spinosa, never a reliable negative test.",
+      "photo_role": "paired stem-node closeups with 1 mm scale",
+      "status": "needs_verified_anatomy_photo",
+      "annotation_status": "pending_image_review"
+    },
+    {
+      "title": "3 · Two kinds of hairs",
+      "term": "simple and stellate trichomes",
+      "plain": "Simple hairs are single strands; stellate hairs radiate like tiny stars.",
+      "look_for": "On matched stem sections, measure longer simple hairs mixed with stars in S. abutilifolia versus short stellate hairs in S. spinosa; do not infer hair type from overall fuzziness.",
+      "why_it_matters": "A strong combination character when plant posture overlaps.",
+      "photo_role": "paired 1 mm-scaled stem-hair macros",
+      "status": "needs_verified_anatomy_photo",
+      "annotation_status": "pending_image_review"
+    },
+    {
+      "title": "4 · Count the ripe fruit pieces",
+      "term": "schizocarp / mericarp",
+      "plain": "A dry mallow fruit splits into individual wedge-like mericarps, each enclosing a seed.",
+      "look_for": "Ripe fruit top and side; S. spinosa generally five mericarps with ~1 mm apical spines, while S. abutilifolia mature count/tips remain for taxonomic verification.",
+      "why_it_matters": "Separates superficially similar mallows and tests an identification made from vegetative cues.",
+      "photo_role": "matched ripe-fruit top and side with millimeter ruler",
+      "status": "needs_verified_anatomy_photo",
+      "annotation_status": "pending_image_review"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "title": "Spreading versus prickly Sida",
+      "taxon_ids": [
+        "sida-abutilifolia",
+        "sida-spinosa"
+      ],
+      "look_here_first": "Habit → petiole base → hair mixture → ripe mericarps",
+      "separator": "Sprawling S. abutilifolia often has longer simple hairs mixed with stellate hairs; erect S. spinosa often has a small petiole-base tubercle and short stellate hairs. Verify with mature fruit.",
+      "caution": "Mowing alters posture; tubercle may be absent; neither single character alone proves species.",
+      "photo_roles": [
+        "whole-plant posture references",
+        "paired node and hair macros pending"
+      ]
+    },
+    {
+      "title": "Sida versus Abutilon",
+      "taxon_ids": [
+        "sida-abutilifolia",
+        "sida-spinosa"
+      ],
+      "lookalike_genus": "Abutilon",
+      "look_here_first": "Flower calyx and mature segmented fruit",
+      "separator": "Confirm the Sida-style small axillary flower, calyx lacking epicalyx, and fruit mericarps; compare Abutilon species using their own key, not fuzzy leaves alone.",
+      "caution": "Both are Malvaceae and can have a staminal column and segmented fruit.",
+      "photo_roles": [
+        "flower base macro pending",
+        "ripe schizocarp macro pending"
+      ]
+    },
+    {
+      "title": "Sida versus Callirhoe and Malvaviscus",
+      "taxon_ids": [
+        "sida-abutilifolia",
+        "sida-spinosa"
+      ],
+      "lookalike_genera": [
+        "Callirhoe",
+        "Malvaviscus"
+      ],
+      "look_here_first": "Petal posture, leaf shape, calyx/epicalyx and fruit type",
+      "separator": "Compare Sida's small open flowers and dry mericarps against variable Callirhoe flower/leaf architecture and Malvaviscus furled petals and fleshy fruit.",
+      "caution": "An epicalyx is variable in the mallow family; do not use its absence alone as an entire-family diagnosis.",
+      "photo_roles": [
+        "flower face/side pending",
+        "mature fruit comparison pending"
+      ]
+    }
+  ],
+  "photo_evidence_and_rights": {
+    "status": "metadata_cross_checked_against_two_current_canonical_species_json_records; actual anatomy and arrows not visually verified",
+    "installed_species_records": [
+      {
+        "species_id": "sida-abutilifolia",
+        "declared_photo_count": 3,
+        "photos": [
+          {
+            "path": "content/taxa/Malvaceae/Sida/sida-abutilifolia/images/sida-abutilifolia-provisional-face.jpg",
+            "creator": "Juan Carlos Fonseca Mata",
+            "license": "CC BY 4.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Arrastradilla_(Sida_abutifolia),_GTOMX.jpg",
+            "public_reuse": "yes",
+            "role": "Whole plant / spreading habit recognizable face",
+            "photo_status": "installed_metadata; provisional_habit_or_reference",
+            "annotation_status": "not_verified"
+          },
+          {
+            "path": "content/taxa/Malvaceae/Sida/sida-abutilifolia/images/joey-inat-205861282.jpg",
+            "creator": "Joey Santore",
+            "license": "CC BY-NC 4.0",
+            "source_page": "https://www.inaturalist.org/photos/205861282",
+            "public_reuse": "review — only noncommercial use with credit; verify site context",
+            "role": "Additional exact-taxon view; anatomical role pending visual inspection",
+            "photo_status": "installed_metadata; anatomical_role_unverified",
+            "annotation_status": "not_verified"
+          },
+          {
+            "path": "content/taxa/Malvaceae/Sida/sida-abutilifolia/images/joey-inat-428383458.jpg",
+            "creator": "Joey Santore",
+            "license": "CC BY-NC 4.0",
+            "source_page": "https://www.inaturalist.org/photos/428383458",
+            "public_reuse": "review — only noncommercial use with credit; verify site context",
+            "role": "Additional exact-taxon view; anatomical role pending visual inspection",
+            "photo_status": "installed_metadata; anatomical_role_unverified",
+            "annotation_status": "not_verified"
+          }
+        ]
+      },
+      {
+        "species_id": "sida-spinosa",
+        "declared_photo_count": 3,
+        "photos": [
+          {
+            "path": "content/taxa/Malvaceae/Sida/sida-spinosa/images/sida-spinosa-provisional-face.jpg",
+            "creator": "NY State IPM Program at Cornell University",
+            "license": "CC BY 2.0",
+            "source_page": "https://commons.wikimedia.org/wiki/File:Sida_spinosa_-_whole_plant_(18875885170).jpg",
+            "public_reuse": "yes",
+            "role": "Whole plant / habit recognizable face",
+            "photo_status": "installed_metadata; provisional_habit_or_reference",
+            "annotation_status": "not_verified"
+          },
+          {
+            "path": "content/taxa/Malvaceae/Sida/sida-spinosa/images/joey-inat-367088472.jpg",
+            "creator": "Joey Santore",
+            "license": "CC BY-NC 4.0",
+            "source_page": "https://www.inaturalist.org/photos/367088472",
+            "public_reuse": "review — only noncommercial use with credit; verify site context",
+            "role": "Additional exact-taxon view; anatomical role pending visual inspection",
+            "photo_status": "installed_metadata; anatomical_role_unverified",
+            "annotation_status": "not_verified"
+          },
+          {
+            "path": "content/taxa/Malvaceae/Sida/sida-spinosa/images/joey-inat-367088489.jpg",
+            "creator": "Joey Santore",
+            "license": "CC BY-NC 4.0",
+            "source_page": "https://www.inaturalist.org/photos/367088489",
+            "public_reuse": "review — only noncommercial use with credit; verify site context",
+            "role": "Additional exact-taxon view; anatomical role pending visual inspection",
+            "photo_status": "installed_metadata; anatomical_role_unverified",
+            "annotation_status": "not_verified"
+          }
+        ]
+      }
+    ],
+    "roles_needed": [
+      {
+        "role": "same-scale flower face and side of each species",
+        "status": "needs_verified_anatomy_photo"
+      },
+      {
+        "role": "paired stem-node closeups with 1 mm scale",
+        "status": "needs_verified_anatomy_photo"
+      },
+      {
+        "role": "paired 1 mm-scaled stem-hair macros",
+        "status": "needs_verified_anatomy_photo"
+      },
+      {
+        "role": "matched ripe-fruit top and side with millimeter ruler",
+        "status": "needs_verified_anatomy_photo"
+      }
+    ],
+    "rights_warning": "CC BY requires attribution; Joey Santore CC BY-NC is noncommercial and public reuse requires separate review. Existing face photos are not proof of tiny hairs, nodes or fruit tips. Never add arrows until exact pixels and coordinates are checked."
+  },
+  "targeted_handoffs": [
+    {
+      "lane": "Diagnostic Photo Fast-Fill / manual photo enrichment",
+      "task": "Select, visually verify and license-check four paired diagnostic roles: flower base, petiole nodes, stem hairs, ripe schizocarps. Check permanent photo candidate library and already-installed Joey images before fresh harvesting; do not imply candidate metadata is installed."
+    },
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "task": "Resolve S. abutilifolia mature mericarp count, spine shape and S. ciliaris comparison using authoritative key and matched mature material; preserve uncertainty until verified."
+    },
+    {
+      "lane": "Approved Taxa Installer",
+      "task": "No new taxa requested. Both Sida species are already canonical; preserve species galleries and current scientific/range states."
+    }
+  ]
 }
