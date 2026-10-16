@@ -1,0 +1,39 @@
+name: Muhlenbergia Hybrid Plate Review 024
+on:
+  push:
+    paths:
+      - .github/workflows/manual-external-mirror-review-024.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-external-mirror-review-024
+  cancel-in-progress: false
+jobs:
+  stage-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow
+      - name: Download only rights-cleared remote originals and draw review sheets
+        run: python scripts/manual_external_mirror_review_024.py
+      - name: Commit thumbnails and hash manifest, not photo installations
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/manual-external-mirror-review-024/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Stage visual audit of externally linked gallery photo sources 024 [skip ci]"
+          for i in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep $((3*i))
+          done
+          exit 1
