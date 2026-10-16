@@ -272,13 +272,98 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-genus-github-backfill-2026-10-11",
+    "version": "1.1-visual-genus-20261015",
     "last_reviewed": "2026-10-11",
     "taxa": "two source names, no canonical species",
     "comparison_rows": 7,
     "photo_locks": 7,
-    "visual_status": "diagnostic targets specified; no images installed",
+    "visual_status": "Four structured anatomy lessons and three comparison cards; no installed photos or verified arrows.",
     "scientific_decisions": "unchanged",
     "species_installation": "none"
+  },
+  "look_here_first": "LOOK HERE FIRST: confirm a true grass leaf collar, then find one intact PAIR of spikelets (fertile sessile spikelet + stalked pedicellate companion). Next check naturally exposed belowground stems: creeping segmented rhizomes strongly support Johnsongrass (S. halepense); fibrous nonrhizomatous base supports typical S. bicolor. Finally compare whole panicle. Feral shattercane and hybrids can overlap; don't use the white midrib or head color as proof.",
+  "shared_traits": [
+    "Jointed culms with sheathing leaves, ligules and terminal branched panicles.",
+    "At raceme tips, a sessile fruiting spikelet is paired with a pedicellate companion; use a hand lens to confirm both.",
+    "Grain sorghum head compactness is shaped by cultivation; some escaped S. bicolor have open, easily shattering heads."
+  ],
+  "overlap_cautions": [
+    "Leaf width overlaps: bicolor often ~20–100 mm and halepense often ~8–40 mm; broad halepense and narrow bicolor can confuse.",
+    "Open panicles and shattering are not exclusive to Johnsongrass; feral shattercane can have both.",
+    "A white midrib, reddish seedheads or awns are not reliable species keys.",
+    "Perennial or hybrid forage sorghums can combine traits. If rhizomes and spikelets disagree, record Sorghum sp. and hand off for voucher review.",
+    "Both taxa are source-pool comparison names, not canonical species cards; this lesson installs no species or photos."
+  ],
+  "comparison_cards": [
+    {
+      "title": "Johnsongrass versus crop or feral sorghum",
+      "taxon_names": [
+        "Sorghum halepense",
+        "Sorghum bicolor"
+      ],
+      "look_here_first": "Check segmented creeping rhizomes, then compare paired spikelets and panicle architecture.",
+      "measurements": "Typical leaf width ~8–40 mm (halepense) versus ~20–100 mm (bicolor); overlaps substantially.",
+      "caution": "Feral shattercane can have loose heads and easily detached seeds; underground organs are stronger evidence.",
+      "photo_role": "matched root base, rhizome nodes and whole panicle, all with ruler; needs_photo"
+    },
+    {
+      "title": "Sorghum versus Indiangrass",
+      "taxon_names": [
+        "Sorghum halepense",
+        "Sorghastrum nutans"
+      ],
+      "look_here_first": "Examine the spikelet partner under magnification: a formed stalked companion in Sorghum versus reduced/vestigial partner in Sorghastrum.",
+      "caution": "Open panicle silhouette alone can cause native Indiangrass to be mistaken for introduced Johnsongrass.",
+      "photo_role": "same-scale dissected spikelet pairs with visible pedicels; needs_photo"
+    },
+    {
+      "title": "Sorghum versus switchgrass and foxtails",
+      "comparison_genera": [
+        "Panicum",
+        "Setaria"
+      ],
+      "look_here_first": "Switchgrass lacks the characteristic sessile/pedicellate Sorghum pair; foxtails have conspicuous bristles below spikelets.",
+      "caution": "A broad grass leaf or seedhead color does not identify genus.",
+      "photo_role": "matched mature spikelet and head close-ups; needs_photo"
+    }
+  ],
+  "visual_lesson": {
+    "title": "Sorghum: look past the white midrib",
+    "status": "structured_photo_roles_ready; no installed genus images",
+    "steps": [
+      {
+        "title": "1 · Find the grass collar",
+        "term": "ligule, sheath, node",
+        "look_for": "Leaf blade, sheath, ligule and one real culm node, with centimeter scale.",
+        "why": "Confirms grass anatomy but is not a Sorghum species key.",
+        "photo_role": "matched collar and ligule macros",
+        "status": "needs_photo; arrows_pending"
+      },
+      {
+        "title": "2 · Follow the underground stem",
+        "term": "rhizome versus fibrous base",
+        "look_for": "Naturally exposed horizontal rhizome with nodes, buds and scale leaves; compare fibrous annual base.",
+        "why": "Creeping rhizomes strongly support S. halepense over ordinary nonrhizomatous S. bicolor.",
+        "photo_role": "paired base/rhizome with centimeter scale; avoid spreading invasive fragments",
+        "status": "needs_photo; arrows_pending"
+      },
+      {
+        "title": "3 · Compare intact panicles",
+        "term": "panicle branching and shattering",
+        "look_for": "Compact crop head, open feral bicolor and open Johnsongrass side by side.",
+        "why": "Teaches that cultivation and feral forms make panicle shape overlap.",
+        "photo_role": "three matched full flowering/fruiting stalks",
+        "status": "needs_photo; arrows_pending"
+      },
+      {
+        "title": "4 · Separate the paired spikelets",
+        "term": "sessile versus pedicellate spikelet",
+        "look_for": "One directly attached fruiting spikelet and its stalked companion, including glumes and pedicel.",
+        "why": "This is a strong genus character and separates Sorghum from look-alike grasses.",
+        "photo_role": "dissected paired spikelets with millimeter scale and verified anatomy",
+        "status": "needs_photo; arrows_pending"
+      }
+    ],
+    "rights_and_status": "No canonical Sorghum species or installed genus photographs. All future image candidates require exact-species identification, photographer credit, image-level license and public-reuse check. Do not add arrows until source pixels are examined."
   }
 }
