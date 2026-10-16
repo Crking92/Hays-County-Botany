@@ -9,14 +9,13 @@
     "canonical_species_ids": [
       "penstemon-baccharifolius",
       "penstemon-cobaea",
+      "penstemon-tenuis",
       "penstemon-triflorus"
     ],
-    "canonical_species_count": 3,
-    "reviewed_holds": [
-      "penstemon-tenuis"
-    ],
+    "canonical_species_count": 4,
+    "reviewed_holds": [],
     "source_concept_count": 4,
-    "note": "P. tenuis completed independent review but remains a range HOLD. Genus-level processing is complete without installing it."
+    "note": "Four species installed as learner cards; P. tenuis remains native-range HOLD/UNRESOLVED and excluded from confirmed-native metrics. Learner installation is not range certification."
   },
   "source_concept_status": [
     {
@@ -32,8 +31,8 @@
     {
       "id": "penstemon-tenuis",
       "scientific_name": "Penstemon tenuis",
-      "status": "REVIEWED_RANGE_HOLD",
-      "note": "Texas-native status accepted; fewer than three exact project target-zone counties verified."
+      "status": "CANONICAL_LEARNER_RANGE_HOLD",
+      "note": "Installed learner card; range HOLD unchanged, not a target-zone PASS."
     },
     {
       "id": "penstemon-triflorus",
@@ -71,11 +70,11 @@
     }
   ],
   "curation_status": {
-    "version": "2.0-penstemon-photo-first",
+    "version": "2.1-four-canonical-status-reconciled",
     "genus_audit": "complete_with_reviewed_hold",
     "source_concepts_reconciled": true,
     "last_reviewed": "2026-10-14",
-    "local_images": 5,
+    "local_images": 10,
     "new_image_binaries": 0,
     "hold_unchanged": true
   },
@@ -164,12 +163,78 @@
         "public_reuse": true
       }
     ],
-    "photo_note": "All five physical files confirmed nonempty in the repository. The two P. cobaea images are restricted video-derived study frames; no rights-safe blooming cobaea photo is locally installed. Do not infer images contain microscopic staminode detail without direct pixel validation."
+    "photo_note": "Prior five-file list is a selected teaching-reference subset, not the full gallery inventory. Canonical species folders contain 10 installed image files in total (3 baccharifolius, 3 cobaea, 2 tenuis, 2 triflorus), per recent gallery audit; reverify each image's exact anatomical role before labeling diagnostic. Existing credit and reuse restrictions remain unchanged."
   },
   "next_photo_targets": [
     "Rights-safe P. cobaea full bloom with leaf node and flower side view",
     "Matched staminode-in-throat macros for all four; verify actual hair placement",
     "P. cobaea upper connate-leaf node and P. baccharifolius leathery serrations",
     "Matched calyx and post-flower capsule images, preserving creator licenses"
-  ]
+  ],
+  "anatomy_lessons": [
+    {
+      "term": "Opposite leaf node",
+      "plain": "Where two leaves meet the stem",
+      "look_for": "Whether upper leaf bases join around the stem, especially in P. cobaea",
+      "photo_role": "upper node with ruler",
+      "status": "needs_photo"
+    },
+    {
+      "term": "Corolla",
+      "plain": "Fused petals forming the flower tube",
+      "look_for": "Measure side-on corolla length in mm; ranges overlap and depend on maturity",
+      "photo_role": "matched lateral blossoms with ruler",
+      "status": "needs_photo"
+    },
+    {
+      "term": "Staminode",
+      "plain": "Sterile fifth stamen inside the flower",
+      "look_for": "Position and hairs inside throat; do not assume visible in ordinary flower portraits",
+      "photo_role": "verified throat macro or dissection",
+      "status": "needs_photo"
+    },
+    {
+      "term": "Calyx and capsule",
+      "plain": "Sepals at flower base and mature seed pod",
+      "look_for": "Compare intact calyx lobes and splitting mature capsule",
+      "photo_role": "matched flower-base and ripe-fruit close-ups",
+      "status": "needs_photo"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "title": "Large versus small flowers",
+      "species_ids": [
+        "penstemon-cobaea",
+        "penstemon-tenuis"
+      ],
+      "look_here_first": "Side-view flower with mm scale and upper leaf node",
+      "status": "diagnostic_photo_pending"
+    },
+    {
+      "title": "Red-flowered rocky beardtongues",
+      "species_ids": [
+        "penstemon-baccharifolius",
+        "penstemon-triflorus"
+      ],
+      "look_here_first": "Woody habit, leaf texture and flower profile together",
+      "status": "diagnostic_photo_pending"
+    },
+    {
+      "title": "Four-species identification sequence",
+      "species_ids": [
+        "penstemon-baccharifolius",
+        "penstemon-cobaea",
+        "penstemon-tenuis",
+        "penstemon-triflorus"
+      ],
+      "look_here_first": "Habit → leaf attachment → measured corolla → staminode and calyx",
+      "status": "diagnostic_photo_pending"
+    }
+  ],
+  "handoffs": {
+    "photo": "Review ten installed files individually for exact role and license; obtain matched flower-side, upper-node, staminode and capsule macros. Do not add arrows without verified image targets.",
+    "taxonomy": "Retain P. tenuis unresolved native-range status; do not infer county PASS from learner installation.",
+    "installer": "All four species already canonical; no installation needed."
+  }
 }
