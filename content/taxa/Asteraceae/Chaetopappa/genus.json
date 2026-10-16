@@ -112,6 +112,28 @@
         }
       ],
       "caution": "Both have tiny ringlike pappi, so fruit alone cannot split this pair."
+    },
+    {
+      "title": "Chaetopappa versus small-rayed Erigeron",
+      "look_here_first": "Compare whole plant, involucre/phyllaries, and mature fruit rather than pale ray color.",
+      "field_matrix": [
+        {
+          "character": "Ray color",
+          "chaetopappa": "Often pale",
+          "erigeron": "Often pale; overlaps"
+        },
+        {
+          "character": "Pappus",
+          "chaetopappa": "Species-dependent minute crown or barbellate bristles",
+          "erigeron": "Variable; requires species-level key"
+        },
+        {
+          "character": "Rootstock and leaves",
+          "chaetopappa": "Use genus species matrix",
+          "erigeron": "Variable; compare complete specimen"
+        }
+      ],
+      "caution": "This routes a plausible look-alike; not a universal Erigeron species key. Matched photographs remain unverified."
     }
   ],
   "overlap_and_cautions": [
@@ -167,7 +189,7 @@
       "priority": "P2"
     }
   ],
-  "photo_polish_handoff": "Diagnostic Photo Polish: bellidifolia and effusa have no installed photos; ericoides has one provisional flowering image. Matched roots, leaves and mature pappus macros still needed.",
+  "photo_polish_handoff": "Diagnostic Photo lane: six species gallery entries (two each), correcting stale 0/0/1 counts. Inspect actual pixels before labeling a diagnostic feature. Need matched stem-leaf/groove, intact crown, lower leaf base with mm scale, and mature cypsela/pappus micrographs. Preserve CC BY, CC BY-SA and CC0 rights.",
   "scientific_sources": [
     {
       "name": "Flora of North America Chaetopappa key",
@@ -179,10 +201,163 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-genus-comparison-builder",
-    "reviewed": "2026-10-13",
-    "visual_status": "diagnostic_photo_polish_pending",
+    "version": "1.1-chaetopappa-anatomy-gallery-reconcile",
+    "reviewed": "2026-10-16",
+    "visual_status": "six_gallery_records_reconciled_diagnostic_macros_pending",
     "range_decisions_changed": 0,
-    "canonical_species_installed": 0
-  }
+    "canonical_species_installed": 0,
+    "new_photo_binaries": 0
+  },
+  "anatomy_lessons": [
+    {
+      "title": "Leaf overlap and upper-surface grooves",
+      "botanical_terms": [
+        "adaxial",
+        "midnerve",
+        "longitudinal groove"
+      ],
+      "plain_language": "Compare same-length leafy stems; C. ericoides has crowded leathery leaves with raised center vein and two upper-face grooves.",
+      "measurement": "C. ericoides leaves often 2–10 mm long; include mm ruler.",
+      "photo_role": "Matched stem and upper-leaf surface macro for all three.",
+      "status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caution": "Leaf crowding varies with drought; uninspected image does not verify grooves."
+    },
+    {
+      "title": "Taproot versus rhizomatous crown",
+      "botanical_terms": [
+        "taproot",
+        "rhizome",
+        "rootstock"
+      ],
+      "plain_language": "Follow intact plant bases. C. bellidifolia is a taprooted annual; C. effusa is rhizomatous; C. ericoides has a woody/rhizomatous base.",
+      "measurement": "Show entire crown with 1-cm scale.",
+      "photo_role": "Matched excavated crown and rhizome images.",
+      "status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caution": "Broken roots cannot prove annuality."
+    },
+    {
+      "title": "Proximal cauline leaf base",
+      "botanical_terms": [
+        "proximal",
+        "cauline",
+        "truncate",
+        "subcordate"
+      ],
+      "plain_language": "Measure lower stem leaves and their bases. C. effusa often has broader oblong leaves with truncate to subcordate bases.",
+      "measurement": "C. effusa proximal blade width 6–12 mm; C. ericoides leaf length often 2–10 mm.",
+      "photo_role": "Matched lower-stem leaf with millimeter ruler.",
+      "status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caution": "Do not compare leaf width against leaf length as if same character."
+    },
+    {
+      "title": "Mature cypsela and pappus",
+      "botanical_terms": [
+        "cypsela",
+        "pappus",
+        "barbellate bristle",
+        "erose crown"
+      ],
+      "plain_language": "Dissect ripe dry fruit. C. ericoides has many white barbellate bristles; C. bellidifolia and C. effusa have minute ringlike pappi.",
+      "measurement": "C. ericoides usually 24–26 bristles (20–30); C. effusa crown <0.1 mm.",
+      "photo_role": "Matched mature-fruit microscope views with scale.",
+      "status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caution": "Minute rings overlap; immature fruit is unreliable."
+    }
+  ],
+  "media_inventory_reconciliation": {
+    "gallery_records": 6,
+    "by_species": {
+      "chaetopappa-bellidifolia": 2,
+      "chaetopappa-effusa": 2,
+      "chaetopappa-ericoides": 2
+    },
+    "status": "six canonical gallery records; binary and depicted anatomy not independently pixel-verified in this genus run",
+    "entries": [
+      {
+        "species_id": "chaetopappa-bellidifolia",
+        "path": "content/taxa/Asteraceae/Chaetopappa/chaetopappa-bellidifolia/images/inat-first-259597819.jpg",
+        "creator": "Cody Stricker",
+        "license": "CC BY 4.0",
+        "source_page": "https://www.inaturalist.org/photos/259597819",
+        "role": "Exact-taxon first-pass recognition photo; visible diagnostic parts not yet personally verified",
+        "status": "canonical_gallery_entry_anatomy_unverified",
+        "annotation_status": "annotation_pending",
+        "public_reuse": "yes, attribution required"
+      },
+      {
+        "species_id": "chaetopappa-bellidifolia",
+        "path": "content/taxa/Asteraceae/Chaetopappa/chaetopappa-bellidifolia/images/gbif-manual-1837060765-a835f4d67.jpg",
+        "creator": "Laura Clark",
+        "license": "CC BY",
+        "source_page": "https://www.gbif.org/occurrence/1837060765",
+        "role": "Additional distinct image candidate; target structures not yet visually verified",
+        "status": "canonical_gallery_entry_anatomy_unverified",
+        "annotation_status": "annotation_pending",
+        "public_reuse": "Respect recorded photo-specific license"
+      },
+      {
+        "species_id": "chaetopappa-effusa",
+        "path": "content/taxa/Asteraceae/Chaetopappa/chaetopappa-effusa/images/inat-first-741209514.jpg",
+        "creator": "iNaturalist photo contributor (CC0)",
+        "license": "CC0 1.0",
+        "source_page": "https://www.inaturalist.org/photos/741209514",
+        "role": "Exact-taxon first-pass recognition photo; visible diagnostic parts not yet personally verified",
+        "status": "canonical_gallery_entry_anatomy_unverified",
+        "annotation_status": "annotation_pending",
+        "public_reuse": "yes, no attribution legally required (CC0)"
+      },
+      {
+        "species_id": "chaetopappa-effusa",
+        "path": "content/taxa/Asteraceae/Chaetopappa/chaetopappa-effusa/images/gbif-manual-6566703372-bf7f9824a.jpg",
+        "creator": "Nick Loveland",
+        "license": "CC0 1.0",
+        "source_page": "https://www.gbif.org/occurrence/6566703372",
+        "role": "Additional distinct image candidate; target structures not yet visually verified",
+        "status": "canonical_gallery_entry_anatomy_unverified",
+        "annotation_status": "annotation_pending",
+        "public_reuse": "Respect recorded photo-specific license"
+      },
+      {
+        "species_id": "chaetopappa-ericoides",
+        "path": "content/taxa/Asteraceae/Chaetopappa/chaetopappa-ericoides/images/chaetopappa-ericoides-stan-shebs-heads.jpg",
+        "creator": "Stan Shebs",
+        "license": "CC BY-SA 3.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Chaetopappa_ericoides_4.jpg",
+        "role": "Flowering heads and overlapping foliage",
+        "status": "canonical_gallery_entry_anatomy_unverified",
+        "annotation_status": "annotation_pending",
+        "public_reuse": "yes"
+      },
+      {
+        "species_id": "chaetopappa-ericoides",
+        "path": "content/taxa/Asteraceae/Chaetopappa/chaetopappa-ericoides/images/gbif-manual-6178402923-60711c10e.jpg",
+        "creator": "Daniel McNair",
+        "license": "CC BY",
+        "source_page": "https://www.gbif.org/occurrence/6178402923",
+        "role": "Additional distinct image candidate; target structures not yet visually verified",
+        "status": "canonical_gallery_entry_anatomy_unverified",
+        "annotation_status": "annotation_pending",
+        "public_reuse": "Respect recorded photo-specific license"
+      }
+    ],
+    "rights_rule": "Preserve creator, individual photo license and public reuse terms; no inferred anatomical arrows."
+  },
+  "targeted_handoffs": [
+    {
+      "lane": "Diagnostic Photo Fast-Fill",
+      "task": "Verify six gallery image files and anatomy; consult permanent photo library for exact missing macro roles only."
+    },
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "task": "Confirm C. parryi and C. hersheyi local look-alike source concepts and diagnostic pappus measurements."
+    },
+    {
+      "lane": "Approved Taxa Installer",
+      "task": "No installs required; all three species already canonical. Preserve range states."
+    }
+  ]
 }
