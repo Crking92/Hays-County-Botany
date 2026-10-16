@@ -28,12 +28,16 @@ jobs:
         run: python scripts/refresh_photo_coverage_snapshot.py
       - name: Prioritize archived, individually licensed candidates for visual inspection
         run: python scripts/diagnostic_library_review_queue_026.py
+      - name: Also refresh sparse one-gallery cards from the same snapshot
+        run: python scripts/photo_library_selection_queue.py
       - name: Verify no galleries were edited by the queue
         run: |
           python - <<'PY'
           import json,pathlib
           j=json.loads(pathlib.Path("reports/diagnostic-photo-selection-queue-latest.json").read_text())
           c=json.loads(pathlib.Path("reports/photo-coverage-latest.json").read_text())
+          k=json.loads(pathlib.Path("reports/photo-library-selection-queue-latest.json").read_text())
+          assert k["canonical_species"]==c["canonical_species"] and k["installed_new_images"]==0
           assert j["canonical_species"]==c["canonical_species"]
           assert j["gallery_image_record_counts"]==c["gallery_image_record_counts"]
           assert j["physically_installed_local_image_counts"]==c["physically_installed_local_image_counts"]
@@ -47,7 +51,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/diagnostic-photo-selection-queue-latest.json reports/diagnostic-photo-selection-queue-latest.md reports/photo-coverage-latest.json
+          git add reports/diagnostic-photo-selection-queue-latest.json reports/diagnostic-photo-selection-queue-latest.md reports/photo-library-selection-queue-latest.json reports/photo-library-selection-queue-latest.md reports/photo-coverage-latest.json
           if git diff --cached --quiet; then
             echo "Audit unchanged; nothing to commit"
             exit 0
