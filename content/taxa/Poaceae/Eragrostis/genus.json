@@ -52,11 +52,13 @@
   ],
   "visual_status": "fast_fill_coverage_live",
   "curation_status": {
-    "version": "1.1-b135-source-reconciliation",
+    "version": "1.2-seven-species-photo-led-matrix",
     "genus_audit": "seven_canonical_species_reconciled_range_uncertainty_preserved",
     "species_work_independent": true,
-    "last_reviewed": "2026-10-05",
-    "source_concepts_reconciled": true
+    "last_reviewed": "2026-10-15",
+    "source_concepts_reconciled": true,
+    "new_photo_binaries": 0,
+    "annotation_status": "pending verified pixels"
   },
   "visual_anchors": [
     {
@@ -227,6 +229,126 @@
         "leaf cross-section",
         "whole plant base"
       ]
+    }
+  ],
+  "look_here_first": "LOOK HERE FIRST: follow a complete mature panicle. Are spikelets widely scattered or clustered along branches? Next inspect sheath throat and collar hairs with a hand lens; then check glands, rolled leaf blades, and dissected spikelets. Record measurements rather than relying on purple color or panicle size alone.",
+  "shared_traits": [
+    "Poaceae with spikelets bearing multiple florets and usually many small, overlapping lemmas.",
+    "Panicle branching and spikelet spacing vary across the seven installed lovegrasses.",
+    "Leaf sheath, collar/ligule, branch axils and lemma details are often more diagnostic than flower color."
+  ],
+  "species_comparison_matrix": {
+    "measurement_protocol": "Measure panicle length/width and spikelet length in mm on mature attached material; record branch angles and hair positions. Numeric species cutoffs are intentionally not invented where current sources lack verified measurements.",
+    "columns": [
+      "species",
+      "panicle / spikelet arrangement",
+      "sheath or leaf diagnostic",
+      "reproductive macro",
+      "confidence and overlap"
+    ],
+    "rows": [
+      [
+        "E. cilianensis",
+        "Coarser many-flowered spikelets; often more contracted than airy species",
+        "Annual habit",
+        "Look for crater-like glands on reproductive parts",
+        "Glands can be difficult to see; odor alone insufficient"
+      ],
+      [
+        "E. hirsuta",
+        "Airy panicle; compare with intermedia/trichodes",
+        "Hairs on sheaths and panicle branch axils",
+        "Match spikelets and branch hairs at same scale",
+        "Native-range unresolved; hair overlap needs voucher review"
+      ],
+      [
+        "E. intermedia",
+        "Open transparent panicle, long divergent pedicels",
+        "Mostly smooth sheaths",
+        "Measure pedicel spacing and branch angles",
+        "Open-panicled trichodes can overlap"
+      ],
+      [
+        "E. lugens",
+        "More restrained panicle",
+        "Narrow firm inward-rolled (involute) blades",
+        "Photograph blade cross-section",
+        "Blade rolling alone not conclusive"
+      ],
+      [
+        "E. secundiflora",
+        "Spikelets clustered densely along ascending branches",
+        "Check collar and leaf width as support",
+        "Count/measure clusters on one branch segment",
+        "May resemble Tridens texanus; dissect spikelets"
+      ],
+      [
+        "E. spectabilis",
+        "Wide diffuse panicle with spreading flexible branches",
+        "Mature panicle may detach and tumble",
+        "Show widely spaced spikelets at same scale as secundiflora",
+        "Panicle appearance shifts with maturity"
+      ],
+      [
+        "E. trichodes",
+        "Large diffuse fine-branched panicle",
+        "Long hairs concentrated near sheath throat/collar",
+        "Compare hair placement with hirsuta/intermedia",
+        "Height and open panicle alone insufficient"
+      ]
+    ]
+  },
+  "anatomy_lessons": [
+    {
+      "title": "1 · Read a panicle branch",
+      "term": "panicle and pedicel",
+      "plain": "The branched flower cluster and the small stalk holding each spikelet",
+      "look_for": "Compare clustered E. secundiflora spikelets with widely spaced E. spectabilis spikelets; measure a branch segment.",
+      "photo_role": "same-scale mature panicle and branch macros",
+      "status": "needs_photo",
+      "annotation_status": "pending"
+    },
+    {
+      "title": "2 · Find the collar and sheath throat",
+      "term": "ligule, collar, sheath pubescence",
+      "plain": "Where the blade meets the sheath wrapped around the stem",
+      "look_for": "Compare hair position in E. hirsuta, E. intermedia and E. trichodes with the same magnification.",
+      "photo_role": "paired exact-species sheath/collar and branch-axil macros",
+      "status": "needs_photo",
+      "annotation_status": "pending"
+    },
+    {
+      "title": "3 · Open a spikelet",
+      "term": "glume, lemma, floret",
+      "plain": "The tiny bracts and flowers in a grass spikelet",
+      "look_for": "Count florets and inspect the lemma keel for crater-like glands in E. cilianensis; verify under magnification.",
+      "photo_role": "dissected mature spikelets with mm ruler",
+      "status": "needs_photo",
+      "annotation_status": "pending"
+    },
+    {
+      "title": "4 · See an inward-rolled leaf",
+      "term": "involute blade",
+      "plain": "Leaf margins roll toward the upper surface, making the blade appear narrow",
+      "look_for": "Photograph a fresh E. lugens blade in cross-section next to the intact leaf.",
+      "photo_role": "matched intact leaf and cross-section with scale",
+      "status": "needs_photo",
+      "annotation_status": "pending"
+    }
+  ],
+  "media_rights_status": "Existing visual_anchors are species-photo references, not proof that the needed microscopic character is visible. Verify exact image files, identity, photographer, license and public reuse separately. Joey CC BY-NC remains noncommercial; owner-authorized private-study images are not public CC. Photo-library candidates are provisional; no new photo binaries or arrows installed in this lesson.",
+  "handoffs": [
+    {
+      "lane": "diagnostic-photo",
+      "action": "Prioritize matched E. secundiflora/spectabilis branch segments, E. hirsuta/intermedia/trichodes sheath collars, E. cilianensis gland macros and E. lugens cross-section. Verify license and pixels before annotation."
+    },
+    {
+      "lane": "taxonomy-diagnostic",
+      "action": "Review E. hirsuta versus intermedia/trichodes hair-placement limits and E. secundiflora versus Tridens texanus spikelet anatomy; preserve current HOLD/range statuses."
+    },
+    {
+      "lane": "installer",
+      "action": "All seven species already manifest-backed; do not reinstall or create duplicate concepts."
     }
   ]
 }
