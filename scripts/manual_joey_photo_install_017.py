@@ -13,6 +13,7 @@ def main():
     cfg=load(CFG);preview=load(R/cfg["preview_manifest"])
     options={s["id"]:s for s in preview["species"]}
     species={s["id"]:s["path"] for s in load(R/"data/manifest.json")["species"]}
+    sys.path.insert(0,str(R.resolve()))
     from scripts.manual_library_photo_install_010 import signature,blocked_claims
     from scripts.gbif_exact_zero_photo_recovery import csvappend
     claims=blocked_claims()
