@@ -1,5 +1,12 @@
 # Learner Fast-Fill Mode
 
+## 2026-10-16 revised first-card admission — one photo, any properly licensed source
+
+**Mandatory policy:** `workflow/FIRST_CARD_MULTISOURCE_POLICY_20261016.md`. The immediate priority for the Approved Taxa Installer and manual first-card installer is the uninstalled, identity-resolved approved Master Pool backlog, **not just species already having Joey photo records**. Source ladder: existing vetted project/permanent photo library, Calvin-owned iNaturalist/private permitted media, Joey media, then other photo-level licensed exact-species media (iNaturalist/GBIF/Wikimedia/public-domain agency). A single real, displayable, properly credited image and morphology-first description suffice for *provisional* learner-ready. Complete macro galleries and three image roles are follow-up targets, not first-card admission gates. No licensed image means explicit NEEDS_FIRST_PHOTO handoff, not a fake install. Preserve source-specific NC/SA/private reuse restrictions, actual image bytes, identity/alias checks and existing science.
+
+**Separate manual sparse-data chat:** research accepted names, core morphology, diagnostic needs and licensed-photo leads for source-pool concepts without usable first-card evidence; save durable research-only handoffs and avoid competing canonical cards while the installer owns them. No county-range research. Existing family/genus, taxonomy, diagnostic-photo, and photo-library collection workers retain their prior boundaries and schedules.
+
+
 Status: **ACTIVE**
 Activated: 2026-10-05
 Purpose: make the private visual learner broadly useful during active field/study use before final photo polishing.
