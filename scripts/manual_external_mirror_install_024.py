@@ -42,12 +42,19 @@ def main():
         raise ValueError("Original plate dimensions no longer match visual review")
     normalized,dim,photo=clean(raw)
     assert hashlib.sha256(normalized).hexdigest()==cand["sha256_of_normalized_jpeg"],"Photo pixels differ from visual review"
-    if fmt!="JPEG":raise ValueError("Historical page is not JPEG")
-    sha=hashlib.sha256(raw).hexdigest()
+    # BHL can serve the public-domain page as PNG despite the Commons JPEG alias.
+    # Save the source pixels to a full-resolution JPEG for stable offline gallery use.
+    with Image.open(io.BytesIO(raw)) as original_image:
+        original_image.load()
+        rgb=original_image.convert("RGB")
+    output_buffer=io.BytesIO()
+    rgb.save(output_buffer,format="JPEG",quality=91,optimize=True,progressive=True)
+    saved=output_buffer.getvalue()
+    sha=hashlib.sha256(saved).hexdigest()
     name="bhl42021050-multi-taxon-plate-"+sha[:12]+".jpg"
     output=path.parent/"images"/name
     if output.exists():raise ValueError("No overwrite permitted")
-    output.parent.mkdir(parents=True,exist_ok=True);output.write_bytes(raw)
+    output.parent.mkdir(parents=True,exist_ok=True);output.write_bytes(saved)
     entry={"file":"images/"+name,
       "role":"HISTORICAL MULTI-TAXON BOTANICAL PLATE. Locate only the labeled Muhlenbergia involuta illustration; other labeled figures represent different grasses. NOT a field photograph.",
       "creator":"A. S. Hitchcock and Agnes Chase / Biodiversity Heritage Library",
