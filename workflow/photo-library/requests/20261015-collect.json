@@ -1,5 +1,5 @@
 {
-  "requested_on": "2026-10-15",
+  "requested_on": "2026-10-16",
   "user_approved": true,
   "mode": "mass_candidate_collect",
   "source": "public",
@@ -9,14 +9,15 @@
   "max_installed_local_photos": 2,
   "store": "private_GitHub_Release_and_git_catalog",
   "install_live_cards": false,
-  "request_sequence": 3,
-  "request_name": "Collect next 40 genuinely unscanned species following successful archive recovery",
+  "request_sequence": 4,
+  "request_name": "Mass photo collection - next 40 unscanned sparse-gallery species",
   "wait_for_prior": "hays-photo-library-persist-main GitHub concurrency",
   "fresh_main_checkout": true,
-  "rerun_reason": "User approved next batch; continue unscanned species after prior harvest finishes",
+  "rerun_reason": "User explicitly requested another manual photo-library harvest; use current canonical catalog and claims",
   "prior_completed": [
     38760123960,
-    38760929397
+    38760929397,
+    38762471564
   ],
   "deduped_starting_index": "workflow/photo-library/species-index.json"
 }
