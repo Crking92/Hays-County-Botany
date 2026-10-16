@@ -1,0 +1,31 @@
+name: Untouched Master Pool first-card batch 008
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/untouched-first-card-008.yml"
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install Pillow
+      - run: python scripts/stage_untouched_first_card_008.py
+      - run: python scripts/install_untouched_first_card_008.py
+      - name: Commit canonical photos, cards, and batch reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa data/manifest.json data/project.json reports curation-archive research-drafts/photo-imports/untouched-first-card-008
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install first learner cards from untouched Master Pool batch 008"
+          git pull --rebase origin main
+          git push origin HEAD:main
