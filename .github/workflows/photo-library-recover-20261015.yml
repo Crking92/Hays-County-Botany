@@ -33,17 +33,17 @@ jobs:
           set -euo pipefail
           git fetch origin main
           git checkout -B main origin/main
-          for run_id in 38760123960 38760929397; do
+          for run_id in 38928367123; do
             batch="mass-$run_id"
             if [[ -f "workflow/photo-library/batches/$batch/archive.json" ]]; then
               echo "Skipping already recorded $batch"
               continue
             fi
             if ! gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name photo-library-mass-harvest-recovery --dir "$RUNNER_TEMP/recovery-$run_id"; then
-              echo "No failure recovery artifact for run $run_id; likely already successful or still pending"
-              continue
+              echo "::error::Required recovery artifact unavailable for run $run_id"
+              exit 1
             fi
-            file="$(find "$RUNNER_TEMP/recovery-$run_id" -type f -name candidates.csv | head -n 1)"
+            file="$(find "$RUNNER_TEMP/recovery-$run_id" -type f -path '*/harvest/candidates.csv' | head -n 1)"
             if [[ -z "$file" ]]; then
               echo "::error::Recovery artifact lacks candidates.csv for $batch"
               exit 1
