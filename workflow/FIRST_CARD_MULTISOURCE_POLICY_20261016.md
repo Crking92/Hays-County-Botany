@@ -1,0 +1,38 @@
+# First-card multisource installation policy — effective 2026-10-16
+
+**Status: ACTIVE. User-directed.** This policy supersedes any earlier first-card rule that makes *Joey Santore coverage*, a specific observation source, three photos, or polished diagnostic galleries a prerequisite. It applies to the **Approved Taxa Installer**, manual first-card batches, and any first-card GitHub installer. It does not reassign the canonical-photo, family, genus, taxonomy or collector lanes.
+
+## Objective
+Increase first-time canonical learner coverage for the unrepresented, approved entries in the **1,282-source-name Master Plant Pool**. The 635-card manifest on 2026-10-16 is a historical snapshot: always calculate against the **latest** `data/manifest.json`. Master Pool rows and installed cards are **not** a 1:1 count because synonyms, infraspecific taxa, holds and mapped aliases can refer to the same concept.
+
+## Admission and first-card gates
+1. Candidate is from an approved user source pool / Master Plant Pool or is separately explicitly approved. Check accepted-name identity (POWO/WCVP or suitable flora), synonyms, infraspecific rank and existing canonical aliases so no duplicate taxon is created. Genuine identity/parent/synonym conflicts remain HOLD. **Native-by-county review is deferred** and is not a gate.
+2. Check latest manifest, work claims, research queue, existing drafts, curation inbox and any active installation Action immediately before a batch. Do not overwrite another worker's species, provenance or media work.
+3. Build a useful *minimal morphology-first* card: common and accepted scientific names, family/genus, a plain-language **LOOK HERE FIRST** clue anchored to real diagnostic structure, source references and honest unresolved detail flags. Record local look-alike *needs* rather than inventing unverified comparisons.
+4. **One verified, physical, exact-taxon, displayable image is enough** for a provisional first learner card. No Joey-only requirement and no required number of three photos. A second/third image is a bonus only when it is ready and nonduplicative. Photographic perfection and visual ID macro polish are later phases.
+5. Search sources in this practical order, moving on quickly if a source is empty, unlicensed or ambiguous:
+   - Existing canonical or approved project files and the permanent photo library `workflow/photo-library/README.md`, its per-batch index and private Release JPEG assets; verify the actual bytes, taxon/observation and image-specific rights.
+   - Calvin's personally owned iNaturalist/Glass Root Garden collection; record private-use permission and original provenance, do **not** mislabel it a Creative Commons photo.
+   - Joey Santore's Texas/regional iNaturalist inventories and saved frames; retain photo-specific CC BY-NC and creator.
+   - Other exact-species iNaturalist/GBIF/Pl@ntNet-via-GBIF, Wikimedia Commons, USDA/NPS or reputable original-host images **only with confirmed photo-level usage rights** permitting this private/noncommercial educational project, an accurate accepted taxon match and image integrity. CC BY, CC BY-SA, CC0, public domain and appropriately documented CC BY-NC/NC-SA photos may qualify; honor NC/SA and display any restrictions. Do not assume every GBIF/Pl@ntNet image is reusable just because an API returns a URL.
+6. Download/decode the chosen JPEG or other supported image, check minimum useful resolution, SHA/integrity, exact taxon ID and physical file presence, then write complete `images[]`, `image-sources.csv`, creator, individual license, source page/ID/URL and permitted reuse. Provisional status remains `provisional_learner_ready`, **not** visually verified/diagnostically complete. Do not auto-assert correct anatomy based on a filename.
+7. When *no licensed verifiable image* can be obtained promptly, **do not silently count the species as installed or fabricate a placeholder**. Save a durable `NEEDS_FIRST_PHOTO` handoff to the research/media queue with taxon, tried sources, exact blocker, needed image roles and next search. Continue with the next unclaimed approved species in the same run. If an explicit text-only draft is permitted by existing workflow, label it `visual_incomplete` and count separately from learner-ready/physical-image installs.
+8. Use the existing curation inbox/pipeline; create `READY` **last**, after validating the complete package. Re-fetch GitHub manifest, species JSON and actual local files after the push/Action. Report **installed cards**, **physical photos**, **metadata-only candidates**, **no-photo holds** and **unresolved taxonomic holds** separately. On a GitHub SHA conflict retry once using fresh current data; never force overwrite or claim a failed stage installed.
+
+## Division of labor — manual chats and the five scheduled workers
+
+- **Approved Taxa Installer automation and this first-card manual chat:** own first-time learner installation for confirmed, uninstalled source-pool concepts, especially the 77-preflight checkpoint at `workflow/UNINSTALLED_MASTER_POOL_FIRST_CARD_CHECKPOINT_20261016.json`. That checkpoint is dated and is **not** the entire remaining Master Pool; refresh it. Do not wait for Joey photos.
+- **Other manual chat — sparse/untouched species research:** own **research evidence only** for still-uninstalled records lacking reliable description, accepted identity, distinguishing botanical characters or photo-source evidence. It may prepare species drafts and `NEEDS_FIRST_PHOTO` handoffs; it **must not** push a competing canonical installer/READY card while the first-card installer owns that species. Consult `workflow/UNTOUCHED_MISSING_INFO_CHAT_HANDOFF_20261016.md` for precise instructions. A plant missing Joey photos is not automatically a plant with missing botanical information.
+- **Diagnostic Photo Fast-Fill:** canonical species only, restore zero/one-photo and add verified diagnostic views. It may supply first-photo leads to installer without claiming its whole species-install lane. Do not compete over uninstalled taxa.
+- **Taxonomy Name Fast-Pass:** accepted name/synonym/parent identity and alias decisions only, with no photo-source prerequisite and no species installation. Send clear resolved concepts to the installer.
+- **Family Similarity Polish and Genus Comparison Builder:** retain existing structure, comparison lessons and independent scopes. May hand first-card photo/diagnostic needs to installer and other manual chat, not install new species.
+- **Mass photo collector:** continues as **manual only**, maintains library; does not auto-install or count downloaded candidates as canonical.
+
+No sixth scheduled automation, no new native-range audit, no changes to the five existing hourly schedules. All instructions remain subject to `PROJECT_RULES.md`, `workflow/COORDINATION.md`, current claims and the image-license restrictions.
+
+## Next source pools and checkpoints
+- `workflow/UNINSTALLED_MASTER_POOL_FIRST_CARD_CHECKPOINT_20261016.json` — 77 uninstalled unclaimed *preflight* candidates as of the snapshot; 74 lacked Joey inventory metadata, not necessarily all photographs or information.
+- `research-drafts/reconciliation/phase3-consolidated-card-workload-2026-10-15.json` — future concepts requiring alias/identity/rank checks; avoid assuming every source row needs a separate card.
+- `workflow/photo-library/README.md` and `workflow/photo-library/batches/` — existing independently sourced candidate metadata and archived private Release photos.
+
+**Success metric:** net new, nonduplicate learner cards that actually display a licensed physical photo, with a useful morphology cue; blocked plants handled as explicit handoffs, not forgotten or inflated.
