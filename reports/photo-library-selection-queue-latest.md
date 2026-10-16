@@ -1,12 +1,12 @@
 # Library-first manual photo selection queue
 
-Updated: 2026-10-16T18:44:18.444401+00:00
+Updated: 2026-10-16T18:56:05.235917+00:00
 
 No photos were installed. Verify real image content, taxon identity and anatomical roles before selection.
 
-Canonical species: **712**; galleries: 0=1, 1=85, 2=196, 3+=430.
-Local photo files per card: 0=1, 1=115, 2=240, 3+=356.
-Ready for manual image review: **2**; need more archived candidates: **83**; held/claimed: **1**.
+Canonical species: **728**; galleries: 0=1, 1=101, 2=196, 3+=430.
+Local photo files per card: 0=1, 1=124, 2=240, 3+=363.
+Ready for manual image review: **2**; need more archived candidates: **99**; held/claimed: **1**.
 
 ## First 20 library-backed review targets
 
