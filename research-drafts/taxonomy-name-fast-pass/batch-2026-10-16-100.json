@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 2,
+  "batch_id": "2026-10-16-100",
+  "checked_at": "2026-10-16",
+  "source_workbook": "Hays_Botany_ID_Master_Curation_Tracker",
+  "source_sheet": "Master Plant Pool",
+  "range_audit": "DEFERRED",
+  "scope": "Accepted-name, synonym, author, rank, genus/family audit only; no range, specimen/photo or install",
+  "count": 3,
+  "status_counts": {
+    "ACCEPTED": 2,
+    "ACCEPTED_WITH_CONCEPT_CAUTION": 1
+  },
+  "records": [
+    {
+      "source_name": "Conoclinium dissectum",
+      "accepted_name": "Conoclinium dissectum A.Gray",
+      "genus": "Conoclinium",
+      "family": "Asteraceae",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "master_pool_row": 289,
+      "override_row": 261,
+      "authority": "Kew POWO/WCVP 2026 (WFO/EPPO where specified)",
+      "source_url": "https://powo.science.kew.org/taxon/197046-1",
+      "source_checked_at": "2026-10-16",
+      "synonyms": [
+        "Conoclinium greggii Small",
+        "Eupatorium dissectum A.Gray",
+        "Eupatorium greggii A.Gray"
+      ],
+      "duplicate_homonym_caution": "Conoclinium greggii is a historical synonym under current POWO; keep searchable alias. Distinct from C. coelestinum.",
+      "installation_decision": "EXISTING_CANONICAL_NO_INSTALL",
+      "canonical_path": "content/taxa/Asteraceae/Conoclinium/conoclinium-dissectum/species.json",
+      "specimen_identity": "NOT_CHECKED",
+      "range_audit": "DEFERRED"
+    },
+    {
+      "source_name": "Coreopsis basalis",
+      "accepted_name": "Coreopsis basalis (A.Dietr.) S.F.Blake",
+      "genus": "Coreopsis",
+      "family": "Asteraceae",
+      "rank": "species",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "master_pool_row": 295,
+      "override_row": 264,
+      "authority": "Kew POWO/WCVP 2026 (WFO/EPPO where specified)",
+      "source_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:65770-2",
+      "source_checked_at": "2026-10-16",
+      "synonyms": [
+        "Calliopsis basalis A.Dietr.",
+        "Bidens basalis (A.Dietr.) Banfi, Galasso & Bartolucci",
+        "Coreopsis drummondii Torr. & A.Gray"
+      ],
+      "duplicate_homonym_caution": "Coreopsis basalis var. wrightii appears among synonyms of C. basalis, but Coreopsis wrightii is also separately accepted; avoid automatic concept/photo merging.",
+      "installation_decision": "EXISTING_CANONICAL_NO_INSTALL",
+      "canonical_path": "content/taxa/Asteraceae/Coreopsis/coreopsis-basalis/species.json",
+      "specimen_identity": "NOT_CHECKED",
+      "range_audit": "DEFERRED",
+      "secondary_source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60437222-2",
+        "https://www.ipni.org/n/1103177-2"
+      ]
+    },
+    {
+      "source_name": "Coreopsis tinctoria",
+      "accepted_name": "Coreopsis tinctoria Nutt.",
+      "genus": "Coreopsis",
+      "family": "Asteraceae",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "master_pool_row": 297,
+      "override_row": 265,
+      "authority": "Kew POWO/WCVP 2026 (WFO/EPPO where specified)",
+      "source_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:198219-1",
+      "source_checked_at": "2026-10-16",
+      "synonyms": [
+        "Calliopsis tinctoria (Nutt.) DC.",
+        "Bidens tinctoria (Nutt.) E.H.L.Krause"
+      ],
+      "duplicate_homonym_caution": "Accepted species; historical Calliopsis combinations are synonyms, not separate cards.",
+      "installation_decision": "EXISTING_CANONICAL_NO_INSTALL",
+      "canonical_path": "content/taxa/Asteraceae/Coreopsis/coreopsis-tinctoria/species.json",
+      "specimen_identity": "NOT_CHECKED",
+      "range_audit": "DEFERRED"
+    }
+  ]
+}
