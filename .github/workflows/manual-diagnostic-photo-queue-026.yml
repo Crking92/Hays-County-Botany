@@ -1,0 +1,64 @@
+name: Diagnostic Photo Review Queue 026
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/manual-diagnostic-photo-queue-026.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manual-diagnostic-photo-queue-026
+  cancel-in-progress: false
+
+jobs:
+  build-queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Refresh actual live canonical image coverage
+        run: python scripts/refresh_photo_coverage_snapshot.py
+      - name: Prioritize archived, individually licensed candidates for visual inspection
+        run: python scripts/diagnostic_library_review_queue_026.py
+      - name: Verify no galleries were edited by the queue
+        run: |
+          python - <<'PY'
+          import json,pathlib
+          j=json.loads(pathlib.Path("reports/diagnostic-photo-selection-queue-latest.json").read_text())
+          c=json.loads(pathlib.Path("reports/photo-coverage-latest.json").read_text())
+          assert j["canonical_species"]==c["canonical_species"]
+          assert j["gallery_image_record_counts"]==c["gallery_image_record_counts"]
+          assert j["physically_installed_local_image_counts"]==c["physically_installed_local_image_counts"]
+          assert j["installed_new_images"]==0
+          assert all(x["candidate_images"] for x in j["review_shortlist"])
+          assert all(x["archived_choices"]>=1 for x in j["review_shortlist"])
+          print("Diagnostic queue passed:",j["canonical_species"],"species,",
+                j["ready_for_manual_visual_review_count"],"review targets")
+          PY
+      - name: Save queue and current coverage without altering taxa
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/diagnostic-photo-selection-queue-latest.json reports/diagnostic-photo-selection-queue-latest.md reports/photo-coverage-latest.json
+          if git diff --cached --quiet; then
+            echo "Audit unchanged; nothing to commit"
+            exit 0
+          fi
+          git commit -m "Refresh actual canonical coverage and library-first review queue [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Diagnostic queue committed"
+              exit 0
+            fi
+            sleep 4
+          done
+          echo "Concurrent conflict: no destructive overwrite"
+          exit 1
