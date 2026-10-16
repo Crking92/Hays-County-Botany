@@ -1,18 +1,21 @@
 # Library-first manual photo selection queue
 
-Updated: 2026-10-16T17:52:00.602137+00:00
+Updated: 2026-10-16T18:19:37.084168+00:00
 
 No photos were installed. Verify real image content, taxon identity and anatomical roles before selection.
 
-Canonical species: **651**; galleries: 0=1, 1=27, 2=212, 3+=411.
-Local photo files per card: 0=1, 1=77, 2=237, 3+=336.
-Ready for manual image review: **2**; need more archived candidates: **25**; held/claimed: **1**.
+Canonical species: **687**; galleries: 0=1, 1=63, 2=200, 3+=423.
+Local photo files per card: 0=1, 1=100, 2=240, 3+=346.
+Ready for manual image review: **5**; need more archived candidates: **58**; held/claimed: **1**.
 
 ## First 20 library-backed review targets
 
 | Plant | Gallery / locally saved | Saved candidate photos | Source observations |
 |---|---:|---:|---:|
 | *Centaurea cyanus* | 1 / 1 | 7 | 6 |
+| *Myriophyllum aquaticum* | 1 / 1 | 4 | 3 |
+| *Crataegus viridis* | 1 / 1 | 4 | 2 |
+| *Lygodium japonicum* | 1 / 1 | 4 | 2 |
 | *Myriophyllum heterophyllum* | 1 / 1 | 3 | 2 |
 
 ## Install only after manual photo review
