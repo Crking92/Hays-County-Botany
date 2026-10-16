@@ -1,5 +1,12 @@
 # Hays Botany Work Coordination
 
+## 2026-10-16 multisource first-card policy and separate sparse-data research chat
+
+Read `workflow/FIRST_CARD_MULTISOURCE_POLICY_20261016.md` for the user-approved **first-time card** prerequisite update. First-card installation for uninstalled approved Master Plant Pool species is now **source-neutral**: no Joey/photo-inventory match is necessary; one physically verified, usable, attributed, exact-taxon licensed image + LOOK HERE FIRST cue is sufficient for a provisional card. Search existing project and permanent photo archives, Calvin's own authorized iNaturalist, Joey, and other confirmed-licensed iNaturalist/GBIF/Wikimedia/public-domain sources. No usable image => durable NEEDS_FIRST_PHOTO handoff and keep selecting another eligible species; **do not claim installed**. County-native checks remain paused; taxon identity/alias/parent HOLD and image rights are non-negotiable.
+
+**Two non-competing manual chats:** first-card installation chat owns preflight-qualified installation; other manual chat works on **missing-information/uninstalled first-card research** (accepted name, evidence-backed identification traits and photo leads), saving research drafts or NEEDS_FIRST_PHOTO handoffs only. Both refresh manifest, claims, research queue and inbox; claim only their individual taxon/stage; do not overwrite one another. Existing five scheduled workers retain their normal lanes; specifically Diagnostic Photo remains installed-canonical photo polish, Taxonomy remains name-only, and family/genus are lesson-only. Bulk photo collector remains manual. No extra automations or schedule changes.
+
+
 ## 2026-10-15 permanent photo candidate library — required read
 
 **New user-approved priority:** mass photo *collection* is separate from slow botanical photo *selection and installation*. Every project chat and all five scheduled workers must read `workflow/photo-library/README.md` when choosing photo work or consuming photos. Consult its permanent per-batch indexes and private GitHub Release media archive before beginning new image gathering. All candidate metadata is **provisional** and cannot be marked canonical, visually verified, or installed until the existing scientific/licensing/gallery gate passes.
