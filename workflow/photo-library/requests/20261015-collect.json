@@ -9,25 +9,27 @@
   "max_installed_local_photos": 2,
   "store": "private_GitHub_Release_and_git_catalog",
   "install_live_cards": false,
-  "request_sequence": 5,
+  "request_sequence": 6,
   "request_name": "Mass photo collection - next 40 unscanned sparse-gallery species",
   "wait_for_prior": "hays-photo-library-persist-main GitHub concurrency",
   "fresh_main_checkout": true,
-  "rerun_reason": "User explicitly requested continuation: one new manual batch of up to 40 genuinely unscanned sparse-photo species, public GBIF and PlantNet via GBIF; preserve holds, claims, credits and five schedules; no learner installations.",
+  "rerun_reason": "User requested another manual batch: next up to 40 genuinely unscanned sparse-photo species using public GBIF and PlantNet via GBIF; preserve credits, holds, claims, five automations; no learner installation.",
   "prior_completed": [
     38760123960,
     38760929397,
     38762471564,
-    38901179535
+    38901179535,
+    38910186269
   ],
   "deduped_starting_index": "workflow/photo-library/species-index.json",
   "preflight": {
-    "unique_candidates": 773,
-    "stored_provisional_images": 730,
-    "species_scanned": 148,
-    "permanent_archives_verified": 6,
-    "archive_sha256_and_size_match": true,
-    "previous_failure_recovered": true,
-    "prior_download_rejection": "centaurea-cyanus: ValueError; metadata retained, invalid image not stored"
+    "unique_candidates": 1010,
+    "stored_provisional_images": 956,
+    "species_scanned": 188,
+    "previous_batch": 38910186269,
+    "previous_batch_candidates": 237,
+    "previous_batch_stored_images": 226,
+    "previous_batch_errors": 0,
+    "previous_archive_sha256_and_size_match": true
   }
 }
