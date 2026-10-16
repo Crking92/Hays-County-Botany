@@ -1,5 +1,10 @@
 # Permanent photo candidate library — shared operating contract
 
+## 2026-10-16 multisource first-card clarification
+
+The user approved replacing any **Joey-only** photo prerequisite for new canonical first cards: read `workflow/FIRST_CARD_MULTISOURCE_POLICY_20261016.md`. This archive is the **first source to check**, not a mandatory supplier of a first-card image. If a taxon has no suitable archived option, use Calvin's own authorized photos, Joey's, or properly licensed exact-species images from other sources. One physically downloaded, image-level rights-verified photo can support a **provisional** first card; photo archiving, metadata-only source matching or unreviewed GBIF labels do not count as installations. Keep individual attribution/private-use/CC BY-NC/SA restrictions intact. Diagnostic Photo Fast-Fill continues to work existing canonical galleries separately; bulk collector remains manual.
+
+
 ## October 16 — library-first manual selection as collection continues
 
 The user is continuing broad photo collection and wants **plenty of options before choosing the best visual-ID images**. Keep the collector running only on its existing manually initiated schedule; do not create or reschedule a standing automation.
