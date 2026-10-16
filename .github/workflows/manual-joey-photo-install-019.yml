@@ -1,0 +1,58 @@
+name: Install Joey Selected Photo 019
+on:
+  push:
+    paths:
+      - .github/workflows/manual-joey-photo-install-019.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-joey-photo-install-019
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow
+      - name: Install selected CC BY-NC originals by SHA and verify science unchanged
+        run: python scripts/manual_joey_photo_install_019.py
+      - name: Verify actual files, source, license and exact image hashes
+        run: |
+          python - <<'PY'
+          import json,hashlib,pathlib
+          from PIL import Image
+          r=json.loads(pathlib.Path("reports/manual-joey-install-019-20261016.json").read_text())
+          assert r["science_unchanged"]
+          for x in r["installed"]:
+              p=pathlib.Path(x["path"])
+              assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==x["sha256"]
+              with Image.open(p) as im:im.verify()
+              s=json.loads((p.parent.parent/"species.json").read_text())
+              i=[z for z in s["images"] if z.get("file")=="images/"+p.name]
+              assert len(i)==1 and i[0]["license"]=="CC BY-NC" and i[0]["creator"]=="Joey Santore"
+              assert i[0]["source_page"]==x["source_page"] and i[0]["public_reuse"].startswith("Noncommercial")
+              print("VERIFIED",s["id"],x["photo_id"])
+          print("Installed",len(r["installed"]),"photos, across",r["species_affected"],"species")
+          PY
+      - name: Commit reviewed noncommercial gallery photos, preserving original taxon science
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+users.noreply.github.com"
+          git add content/taxa/ reports/manual-joey-install-019-20261016.json reports/photo-coverage-latest.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Install Joey CC BY-NC study photos into 4 offline-empty cards [skip ci]"
+          for i in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep $((i*4))
+          done
+          exit 1
+# Retry after explicit repo-root Python import path correction.
