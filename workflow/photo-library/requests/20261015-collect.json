@@ -9,26 +9,28 @@
   "max_installed_local_photos": 2,
   "store": "private_GitHub_Release_and_git_catalog",
   "install_live_cards": false,
-  "request_sequence": 6,
+  "request_sequence": 7,
   "request_name": "Mass photo collection - next 40 unscanned sparse-gallery species",
   "wait_for_prior": "hays-photo-library-persist-main GitHub concurrency",
   "fresh_main_checkout": true,
-  "rerun_reason": "User requested another manual batch: next up to 40 genuinely unscanned sparse-photo species using public GBIF and PlantNet via GBIF; preserve credits, holds, claims, five automations; no learner installation.",
+  "rerun_reason": "User said keep going: collect next up to 40 genuinely unscanned sparse-photo species; preflight currently finds 27 remaining. Public GBIF and PlantNet via GBIF only; preserve holds, claims, licenses, credits and five schedules; no learner installation.",
   "prior_completed": [
     38760123960,
     38760929397,
     38762471564,
     38901179535,
-    38910186269
+    38910186269,
+    38925103720
   ],
   "deduped_starting_index": "workflow/photo-library/species-index.json",
   "preflight": {
-    "unique_candidates": 1010,
-    "stored_provisional_images": 956,
-    "species_scanned": 188,
-    "previous_batch": 38910186269,
-    "previous_batch_candidates": 237,
-    "previous_batch_stored_images": 226,
+    "unique_candidates": 1249,
+    "stored_provisional_images": 1192,
+    "species_scanned": 228,
+    "eligible_unscanned_sparse_species": 27,
+    "previous_batch": 38925103720,
+    "previous_batch_candidates": 239,
+    "previous_batch_stored_images": 236,
     "previous_batch_errors": 0,
     "previous_archive_sha256_and_size_match": true
   }
