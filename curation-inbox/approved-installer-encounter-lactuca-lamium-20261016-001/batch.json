@@ -1,7 +1,7 @@
 {
   "batch_id": "approved-installer-encounter-lactuca-lamium-20261016-001",
-  "mode": "validate_only",
+  "mode": "install",
   "require_exact_images": true,
-  "note": "Installer recovery handoff 2026-10-16: Lactuca serriola species.json staged; its SOURCES.txt and image-sources.csv writes rejected by connector safety checks. Lamium amplexicaule species.json rejected twice. No READY; do not run install until all files verified and mode restored to install. Current canonical 586 including Acer palmatum and Ginkgo biloba.",
-  "status": "blocked_incomplete_no_READY"
+  "note": "All six species/source/photo CSV files verified on main 2026-10-16; both species absent from 586-entry canonical manifest; no active conflicting claims. Four exact photo URLs staged; images are not physically installed until curation Action succeeds. Staged Lactuca photo_files_present=2 is stale and will be recomputed from actual downloads by curation_pipeline.py. Preserve range FAIL and native metric exclusions. READY must be added separately as final commit.",
+  "status": "ready_for_final_marker"
 }
