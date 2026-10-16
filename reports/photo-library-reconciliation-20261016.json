@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-16",
+  "kind": "photo_library_vs_canonical_future_cards",
+  "source_files": [
+    "workflow/photo-library/species-index.json",
+    "data/manifest.json",
+    "research-drafts/reconciliation/phase3-consolidated-card-workload-2026-10-15.json",
+    "workflow/mass-photo-match-20261015-joey-priority.json"
+  ],
+  "manifest_species_count": 586,
+  "original_future_concepts": 633,
+  "future_concepts_now_installed": 34,
+  "future_concepts_still_uninstalled": 599,
+  "library": {
+    "candidate_records": 773,
+    "distinct_species_with_candidates": 141,
+    "scanned_species": 148,
+    "stored_photo_files": 730,
+    "uninstalled_future_concepts_with_catalog_candidates": 0,
+    "uninstalled_future_concepts_with_stored_images": 0,
+    "uninstalled_future_concepts_scanned": 0
+  },
+  "joey": {
+    "uninstalled_future_concepts_with_exact_name_photo_leads": 187,
+    "example_next_targets": [
+      "Allowissadula holosericea",
+      "Anatherum tenuispatheum",
+      "Buddleja racemosa",
+      "Cardiospermum halicacabum",
+      "Carya illinoinensis",
+      "Ceanothus herbaceus",
+      "Celosia nitida",
+      "Cenchrus spinifex",
+      "Cevallia sinuata",
+      "Chamaecrista fasciculata",
+      "Chamaesaracha coniodes",
+      "Chamaesaracha coronopus",
+      "Chloracantha spinosa",
+      "Cnidoscolus texanus",
+      "Cochlospermum wrightii",
+      "Colubrina texensis",
+      "Condaliopsis obtusifolia",
+      "Cordia boissieri",
+      "Coryphantha echinus",
+      "Coryphantha sulcata",
+      "Cucumis melo",
+      "Cylindropuntia imbricata",
+      "Cylindropuntia leptocaulis",
+      "Cyperus retroflexus",
+      "Dasylirion texanum"
+    ]
+  },
+  "note": "Library scan currently prioritizes already installed cards needing photo enrichment. Joey inventory supplies separate candidate leads for uninstalled species; candidates are not identity-reviewed installation assets. Recheck manifest, active claims, synonyms, image licenses before scheduling installer.",
+  "handoff": "Continue independent manual bulk photo gathering and Joey photo enrichment; both should consult photo-library README/catalog first, de-duplicate photo_id/source URLs and never mark staged photos published. Installer lane should use existing indexed assets before new downloads. Do not change five automation schedules."
+}
