@@ -1,5 +1,12 @@
 # Hays Botany ID — Project Rules
 
+## 2026-10-16 first-card installation update — MULTISOURCE, NOT JOEY-ONLY
+
+**Current user-directed override:** Read `workflow/FIRST_CARD_MULTISOURCE_POLICY_20261016.md` before choosing any new learner-card candidate or photo acquisition method. For approved uninstalled Master Pool species, there is **no Joey-specific photograph prerequisite** and no fixed three-photo minimum. Reuse the permanent photo library, Calvin's own licensed/privately permitted observations, Joey's observations, or any correctly identified, separately verified, permitted exact-species photo source. One physically installed usable image + morphology-first LOOK HERE FIRST cue qualifies for **provisional** learner admission; complete galleries, verified anatomy arrows, and photo beauty remain downstream work. If no verifiable licensed photo is available, persist a precise NEEDS_FIRST_PHOTO handoff and continue with another species; do not invent or count an installed card. Keep taxon/alias/hybrid HOLDs, photo creator/license/rights, valid download and physical-file check, and native-range deferral intact.
+
+**Work split:** Approved Taxa Installer and first-card manual chats prioritize genuine uninstalled, nonduplicate, approved Master Pool concepts; separate manual sparse-information chat prepares scientific/photo-source research drafts for missing first cards without installing species owned by the installer. Existing Diagnostic Photo, Taxonomy, Genus, Family and manual library collector scopes are unchanged. Use the fresh manifest and claims, not dated snapshots. All five automation schedules remain unchanged.
+
+
 ## 2026-10-15 mandatory photo-library handoff — mass collection first
 
 **All ChatGPT project chats and five existing botany automations must consult `workflow/photo-library/README.md` before gathering, selecting or installing external photographs.** The user approved gathering broad candidate photo coverage *now*, persisting candidate metadata and private image archives, and allowing the existing installer, diagnostic photo, family/genus, and manual scientific lanes to **select and verify those candidates later**. This is not permission to auto-publish unverified images or change scientific findings. Search that library **before** repeating image research; source candidates are not installed cards. The mass collector is manual-only and must not change any of the five automation schedules or existing division of work. Preserve all original photo-level licenses and owner restrictions.
