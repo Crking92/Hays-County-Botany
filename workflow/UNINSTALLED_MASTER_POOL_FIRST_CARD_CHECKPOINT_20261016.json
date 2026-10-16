@@ -1,10 +1,10 @@
 {
-  "as_of": "2026-10-16 (verified after batches 015 and 016)",
+  "as_of": "2026-10-16 (verified after Phase3 batches 017 and 018)",
   "scope": "Immediate preflight-qualified subset, NOT the whole outstanding 1,282-row master pool",
   "source": "workflow/INSTALLER_PREFLIGHT_QUEUE_2026-10-15.json",
   "state": {
     "master_source_name_rows": 1282,
-    "canonical_learner_cards": 712,
+    "canonical_learner_cards": 746,
     "preflight_total": 100,
     "remaining_uninstalled_unclaimed": 12,
     "prepared_in_other_batch_011": 5,
@@ -13,7 +13,7 @@
     "remaining_without_joey_inventory_metadata": 11
   },
   "safety": "This is a dated installer-preflight subset, not total future distinct species. Refresh manifest and claims before selecting a target; accepted name and image rights matter; no county nativity gate.",
-  "next_action": "Now that 100-name preflight contains 12 uninstalled entries (five Batch011 reserved and seven needing taxonomy/hybrid/rank/specimen caution), prioritize remaining phase3 simple approved source-pool concepts with accepted-name POWO verification; install one verified physical photo plus LOOK HERE FIRST morphology. Batch 016 successfully began phase3 expansion. Never install HOLD/alias duplicate and keep sparse-data manual chat research-only.",
+  "next_action": "Verified Batch017 installed 16 provisional learner cards and Batch018 installed 18, with 34 new physical licensed photos. Prioritize fresh phase3 accepted simple binomials not already installed/claimed or reserved in separate Batch011. Preserve individual photo rights, one-photo provisional threshold, identity holds and native-range deferral. Next manual work should use a NEW numbered batch, do not re-run 017 or 018.",
   "remaining": [
     {
       "scientific_name": "Chloris × subdolichostachya",
@@ -22,8 +22,8 @@
         256
       ],
       "photo_leads_joey": 0,
-      "status": "IDENTITY_ALIAS_HYBRID_RANK_REVIEW_REQUIRED_BEFORE_INSTALL",
-      "media_priority": "SCIENTIFIC_CONCEPT_REVIEW_FIRST"
+      "status": "HYBRID_INFRASPECIFIC_OR_ALIAS_CAUTION_REVIEW",
+      "media_priority": "TAXON_CONCEPT_REVIEW_FIRST"
     },
     {
       "scientific_name": "Cordia boissieri",
@@ -42,8 +42,8 @@
         412
       ],
       "photo_leads_joey": 0,
-      "status": "REQUIRES_SPECIMEN_ID_REVIEW",
-      "media_priority": "SCIENTIFIC_CONCEPT_REVIEW_FIRST"
+      "status": "TAXON_IDENTITY_OR_SPECIMEN_REVIEW",
+      "media_priority": "TAXON_CONCEPT_REVIEW_FIRST"
     },
     {
       "scientific_name": "Galium texense",
@@ -52,8 +52,8 @@
         498
       ],
       "photo_leads_joey": 0,
-      "status": "IDENTITY_ALIAS_HYBRID_RANK_REVIEW_REQUIRED_BEFORE_INSTALL",
-      "media_priority": "SCIENTIFIC_CONCEPT_REVIEW_FIRST"
+      "status": "HYBRID_INFRASPECIFIC_OR_ALIAS_CAUTION_REVIEW",
+      "media_priority": "TAXON_CONCEPT_REVIEW_FIRST"
     },
     {
       "scientific_name": "Geum canadense",
@@ -72,8 +72,8 @@
         569
       ],
       "photo_leads_joey": 0,
-      "status": "IDENTITY_ALIAS_HYBRID_RANK_REVIEW_REQUIRED_BEFORE_INSTALL",
-      "media_priority": "SCIENTIFIC_CONCEPT_REVIEW_FIRST"
+      "status": "HYBRID_INFRASPECIFIC_OR_ALIAS_CAUTION_REVIEW",
+      "media_priority": "TAXON_CONCEPT_REVIEW_FIRST"
     },
     {
       "scientific_name": "Lantana camara",
@@ -82,8 +82,8 @@
         615
       ],
       "photo_leads_joey": 0,
-      "status": "REQUIRES_SPECIMEN_ID_REVIEW",
-      "media_priority": "SCIENTIFIC_CONCEPT_REVIEW_FIRST"
+      "status": "TAXON_IDENTITY_OR_SPECIMEN_REVIEW",
+      "media_priority": "TAXON_CONCEPT_REVIEW_FIRST"
     },
     {
       "scientific_name": "Lantana × strigocamara",
@@ -92,8 +92,8 @@
         616
       ],
       "photo_leads_joey": 0,
-      "status": "IDENTITY_ALIAS_HYBRID_RANK_REVIEW_REQUIRED_BEFORE_INSTALL",
-      "media_priority": "SCIENTIFIC_CONCEPT_REVIEW_FIRST"
+      "status": "HYBRID_INFRASPECIFIC_OR_ALIAS_CAUTION_REVIEW",
+      "media_priority": "TAXON_CONCEPT_REVIEW_FIRST"
     },
     {
       "scientific_name": "Pectis angustifolia var. fastigiata",
@@ -102,8 +102,8 @@
         840
       ],
       "photo_leads_joey": 0,
-      "status": "IDENTITY_ALIAS_HYBRID_RANK_REVIEW_REQUIRED_BEFORE_INSTALL",
-      "media_priority": "SCIENTIFIC_CONCEPT_REVIEW_FIRST"
+      "status": "HYBRID_INFRASPECIFIC_OR_ALIAS_CAUTION_REVIEW",
+      "media_priority": "TAXON_CONCEPT_REVIEW_FIRST"
     },
     {
       "scientific_name": "Robinia pseudoacacia",
@@ -138,7 +138,7 @@
   ],
   "previous_baseline": {
     "snapshot_date": "2026-10-16",
-    "canonical_learner_cards": 700,
+    "canonical_learner_cards": 712,
     "remaining_uninstalled_unclaimed": 12
   },
   "verified_recent_batches": {
@@ -177,15 +177,27 @@
       "blocked": 0,
       "source": "phase3 larger Master Pool",
       "report": "reports/master-pool-multisource-016-installed.json"
+    },
+    "017": {
+      "installed": 16,
+      "physical_images": 16,
+      "blocked": 0,
+      "report": "reports/master-pool-multisource-017-installed.json"
+    },
+    "018": {
+      "installed": 18,
+      "physical_images": 18,
+      "blocked": 0,
+      "report": "reports/master-pool-multisource-018-installed.json"
     }
   },
   "phase3_larger_master_pool": {
     "source": "research-drafts/reconciliation/phase3-consolidated-card-workload-2026-10-15.json",
     "dated_future_concepts": 633,
-    "now_represented_in_live_manifest": 160,
-    "uninstalled_exact_working_concepts": 473,
-    "uninstalled_simple_binomial_concepts": 448,
-    "uninstalled_simple_binomial_unclaimed_and_not_reserved": 434,
-    "caution": "These are a working upper-bound of distinct exact-name concepts, not necessarily 1:1 final species cards. Individual taxonomic acceptance, synonyms/holds and photos must be checked before installation."
+    "now_represented_in_live_manifest": 194,
+    "uninstalled_exact_working_concepts": 439,
+    "uninstalled_simple_binomial_concepts": 414,
+    "uninstalled_simple_binomial_unclaimed_and_not_reserved": 400,
+    "caution": "Working exact-name count, not a guaranteed count of distinct additional species. Taxonomic synonyms, identities, holds, ranks and permits can reduce final installs."
   }
 }
