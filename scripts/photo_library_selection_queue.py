@@ -5,6 +5,10 @@ R=pathlib.Path(".");L=R/"workflow/photo-library"
 OUT=R/"reports/photo-library-selection-queue-latest.json"
 MD=R/"reports/photo-library-selection-queue-latest.md"
 HOLD={"muhlenbergia-piniflora"}
+# Curated source-name aliases: these two historical determinations are already documented
+# in their canonical species records. Allow REVIEW only; identity still needs human validation.
+REVIEW_SOURCE_ALIASES={"anatherum-glomeratum":{"andropogon glomeratus"},
+                       "opuntia-engelmannii-var-lindheimeri":{"opuntia lindheimeri"}}
 def read(p):return json.loads(p.read_text(encoding="utf-8"))
 def key(s):return " ".join(str(s or "").strip().lower().replace("×","x ").split())
 def local_count(p,images):
@@ -77,7 +81,7 @@ def main():
             used.update(ph.get(k) for k in ("source_page","media_source_url","downloaded_from","direct_url") if ph.get(k))
         seen=set(); candidates=[]
         for x in sources.get(id,[]):
-            if key(x["scientific_name"])!=key(s.get("scientific_name")):continue
+            if key(x["scientific_name"])!=key(s.get("scientific_name")) and key(x["scientific_name"]) not in REVIEW_SOURCE_ALIASES.get(id,set()):continue
             if x["image_url"] in used:continue
             unique=x["image_url"] or (x["archive_tag"],x["archive_file"])
             if unique in seen:continue
