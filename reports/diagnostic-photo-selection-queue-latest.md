@@ -1,12 +1,12 @@
 # Diagnostic photo review queue — species with exactly one locally installed image
 
-Updated: 2026-10-17T02:43:28.033464+00:00
+Updated: 2026-10-17T02:54:39.035546+00:00
 
 No photos were installed. Only one-local-image cards included. Favor diagnostic organs and distinct views; identity requires manual review.
 
-Canonical species: **746**; galleries: 0=1, 1=74, 2=208, 3+=463.
-Local photo files per card: 0=1, 1=91, 2=257, 3+=397.
-Ready for manual image review: **67**; need more archived candidates: **24**; held/claimed: **0**.
+Canonical species: **746**; galleries: 0=1, 1=66, 2=211, 3+=468.
+Local photo files per card: 0=1, 1=83, 2=260, 3+=402.
+Ready for manual image review: **59**; need more archived candidates: **24**; held/claimed: **0**.
 
 ## First 20 library-backed review targets
 
