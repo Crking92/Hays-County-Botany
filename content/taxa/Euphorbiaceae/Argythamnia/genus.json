@@ -198,7 +198,7 @@
     }
   ],
   "existing_media_reuse": {
-    "note": "A. humilis currently has one provisional whole-voucher learner image with reuse rights unverified. It is NOT evidence for floral thresholds and must not be reused outside existing context without licensing review.",
+    "note": "Seven gallery files now reported physically present across all three species (2 aphoroides, 2 humilis, 3 simulans). Original voucher rights for humilis remain unverified; other photo-specific CC BY / CC BY-NC terms must be respected. No reproductive structures or arrows visually certified.",
     "photo_acquisition_owner": "Diagnostic Photo Polish"
   },
   "handoffs": [
@@ -216,6 +216,11 @@
       "lane": "Diagnostic Photo Polish",
       "target": "all three",
       "question": "Acquire matched, licensed reproductive macros keyed to the checklist; provisional A. humilis whole-voucher photo has unverified reuse rights."
+    },
+    {
+      "lane": "Diagnostic Photo Polish",
+      "target": "Argythamnia species trio",
+      "question": "Inspect the seven existing actual photo pixels before any reuse; capture matched leaf nodes, raceme length, dissected male flowers/stamens and ripe capsules with millimeter scale. Preserve each image's separate license."
     }
   ],
   "curation_status": {
@@ -269,7 +274,7 @@
     }
   ],
   "visual_lesson": {
-    "status": "one_existing_private_study_voucher_two_species_without_photos",
+    "status": "seven_species_gallery_files_present; anatomy_macros_and_annotation_pending",
     "title": "Three Argythamnia: measure the leaf stalk, then inspect the flowering raceme",
     "intro": "Photograph the node first. A. humilis has a visible petiole and short axillary raceme; A. aphoroides and A. simulans have essentially stalkless leaves and longer racemes. The last pair requires floral sex and stamen counts, not a broad habit impression.",
     "teaching_order": "leaf attachment → raceme length → unisexual versus bisexual inflorescence → stamen count → capsule",
@@ -282,7 +287,7 @@
         "photo_role": "study-only whole voucher",
         "look_for": "The existing voucher shows general plant and leaf position. To measure the 2–10 mm petiole or tiny 0.7–0.9 cm raceme, obtain a separate close-up with ruler.",
         "why_it_matters": "Petiole and short raceme distinguish humilis from the two sessile-leaved species.",
-        "status": "existing_physical_study_only_rights_unverified_no_public_reuse"
+        "status": "two_gallery_files_present_one_rights_unverified_anatomy_pending"
       },
       {
         "title": "2 · A. aphoroides: sessile leaves, unisexual racemes",
@@ -290,7 +295,7 @@
         "photo_role": "exact-species leaf-node and flower raceme",
         "look_for": "Leaves essentially without petioles; axillary raceme 3–8 cm. Confirm inflorescence sex and 10 stamens in a dissected male flower.",
         "why_it_matters": "The sex of the raceme helps separate it from A. simulans.",
-        "status": "photo_not_installed"
+        "status": "two_gallery_files_present_diagnostic_structure_unverified"
       },
       {
         "title": "3 · A. simulans: sessile leaves, bisexual racemes",
@@ -298,7 +303,7 @@
         "photo_role": "exact-species leaf-node and flower raceme",
         "look_for": "Stalkless leaves and long racemes; inspect both floral sexes on inflorescence and count 7–8 stamens in male flowers.",
         "why_it_matters": "Avoid calling it aphoroides from the leaf alone.",
-        "status": "photo_not_installed"
+        "status": "three_gallery_files_present_diagnostic_structure_unverified"
       },
       {
         "title": "4 · Confirm the fruit and male flower",
@@ -333,5 +338,103 @@
       "next_check": "Retrieve image IDs and verify the individual photograph license; observation license alone is not enough."
     },
     "guardrails": "Do not send READY to installer without verified direct image URLs and per-image attribution. Keep all existing taxon/range determinations and the humilis study-only image."
+  },
+  "comparison_cards": [
+    {
+      "title": "Find the leaf stalk: humilis versus the sessile pair",
+      "look_here_first": "Measure the petiole at the leaf node, then the entire axillary flowering raceme.",
+      "field_matrix": [
+        {
+          "character": "Leaf petiole",
+          "humilis": "2–10 mm",
+          "aphoroides": "absent / sessile",
+          "simulans": "absent / sessile"
+        },
+        {
+          "character": "Raceme length",
+          "humilis": "0.7–0.9 cm",
+          "aphoroides": "3–8 cm",
+          "simulans": "3.5–12 cm"
+        }
+      ],
+      "caution": "Measure actual nodes and intact racemes; a cropped or immature inflorescence is not a reliable length comparison."
+    },
+    {
+      "title": "Sessile-leaved pair: aphoroides versus simulans",
+      "look_here_first": "Inspect multiple complete inflorescences for male and female flowers, then dissect a male flower.",
+      "field_matrix": [
+        {
+          "character": "Flower-sex arrangement",
+          "aphoroides": "inflorescences unisexual",
+          "simulans": "inflorescences bisexual"
+        },
+        {
+          "character": "Stamens in male flower",
+          "aphoroides": "10, no staminodes",
+          "simulans": "7–8, no staminodes"
+        },
+        {
+          "character": "Raceme length",
+          "aphoroides": "3–8 cm",
+          "simulans": "3.5–12 cm"
+        }
+      ],
+      "caution": "Raceme lengths overlap; verify flower sex and actual stamen counts on several mature specimens."
+    },
+    {
+      "title": "Fruiting confirmation across all three",
+      "look_here_first": "Measure a mature capsule and seed with a millimeter ruler; inspect capsule hairs and seed surface.",
+      "field_matrix": [
+        {
+          "character": "Capsule length",
+          "aphoroides": "7–9 mm",
+          "humilis": "1.6–4.2 mm",
+          "simulans": "3.5–9 mm"
+        },
+        {
+          "character": "Seed length",
+          "aphoroides": "3.7–5 mm",
+          "humilis": "1.5–2.5 mm",
+          "simulans": "3.5–4.2 mm"
+        },
+        {
+          "character": "Capsule hairs",
+          "aphoroides": "tomentose to lanulose",
+          "humilis": "glabrous to hispidulous / strigillose",
+          "simulans": "hispidulous"
+        }
+      ],
+      "caution": "Fruit size overlaps for aphoroides and simulans; use the floral-sex/stamen key too. Exact fruit macros remain unverified."
+    }
+  ],
+  "photo_rights_inventory_20261017": {
+    "status": "canonical_species_gallery_files_present_not_anatomically_verified",
+    "total": 7,
+    "by_species": [
+      {
+        "id": "argythamnia-aphoroides",
+        "count": 2,
+        "licenses": [
+          "Eric Knight — CC BY 4.0",
+          "Washington State University Marion Ownbey Herbarium — CC BY-NC"
+        ]
+      },
+      {
+        "id": "argythamnia-humilis",
+        "count": 2,
+        "licenses": [
+          "UT Plant Resources Center / Lundell Herbarium — reuse rights unverified; review",
+          "Sam Kieschnick — CC BY"
+        ]
+      },
+      {
+        "id": "argythamnia-simulans",
+        "count": 3,
+        "licenses": [
+          "Joey Santore — CC BY-NC 4.0 (three individual photographs)"
+        ]
+      }
+    ],
+    "caution": "Species records report seven physical files. Gallery presence is not verification of leaf, flower or fruit anatomy. No new photos or arrows were installed; do not upgrade CC BY-NC or unknown reuse rights."
   }
 }
