@@ -73,7 +73,7 @@ def busy_ids():
     return claimed
 
 
-def select_taxa(limit, max_local, requested, exclude=None):
+def select_taxa(limit, max_local, requested, exclude=None, allow_requested_any_gallery=False):
     coverage = load("reports/photo-coverage-latest.json")
     canonical = {s["id"] for s in load("data/manifest.json")["species"]}
     busy = busy_ids()
@@ -91,6 +91,25 @@ def select_taxa(limit, max_local, requested, exclude=None):
     # Explicit source-concept guardrail must survive report reshaping.
     holds.add("muhlenbergia-piniflora")
     out = []
+    if allow_requested_any_gallery:
+        # Explicit diagnostic-review requests may include species with 3+ installed
+        # photos. They remain candidates; never edit those canonical galleries.
+        by_id = {s["id"]: s for s in load("data/manifest.json")["species"]}
+        for sid in sorted(requested):
+            if sid not in by_id or sid in busy or sid in holds or sid in exclude:
+                continue
+            entry = by_id[sid]
+            species_path = ROOT / entry["path"]
+            taxon = json.loads(species_path.read_text(encoding="utf-8"))
+            images = taxon.get("images") or []
+            files = sum(bool(im.get("file")) and not str(im.get("file")).startswith(("https://", "http://"))
+                        and (species_path.parent / str(im["file"])).is_file()
+                        for im in images if isinstance(im, dict))
+            name = taxon.get("scientific_name") or ""
+            if name:
+                out.append({"id": sid, "name": name, "files": files, "gallery": len(images)})
+        out.sort(key=lambda x: (x["files"], x["gallery"], x["id"]))
+        return out[:limit], len(out), coverage.get("generated_at_utc")
     for item in coverage["zero_one_two_photo_species"]:
         sid = item["id"]
         files = int(item.get("installed_local_files", 0))
@@ -170,8 +189,9 @@ def gbif(item, count, plantnet_dataset=False):
             if not same_name(item["name"], occ.get("scientificName") or ""):
                 continue
             oid = str(occ.get("key") or "")
+            from_this_observation = 0
             for media in occ.get("media") or []:
-                if len(matches) >= count:
+                if len(matches) >= count or from_this_observation >= 2:
                     break
                 if media.get("type") and str(media["type"]).lower() not in ("stillimage", "image"):
                     continue
@@ -196,6 +216,7 @@ def gbif(item, count, plantnet_dataset=False):
                         (occ.get("stateProvince") or "") + ", " + (occ.get("country") or ""))
                 if r["photo_license_status"] != "restricted":
                     matches.append(r)
+                    from_this_observation += 1
         time.sleep(.15)
     return matches
 
@@ -276,6 +297,7 @@ def main():
     ap.add_argument("--out", default="workflow/open-photo-candidates/manual-latest")
     ap.add_argument("--download", action="store_true")
     ap.add_argument("--skip-library-scanned", action="store_true", help="Avoid species already scanned in permanent photo-library batches")
+    ap.add_argument("--allow-requested-any-gallery", action="store_true", help="Diagnostic candidate review: explicit canonical IDs even with 3+ installed photos")
     args = ap.parse_args()
     if not (1 <= args.limit <= 60 and 1 <= args.per_species <= 8):
         ap.error("limit must be 1-60; per-species must be 1-8")
@@ -283,8 +305,11 @@ def main():
     if args.source == "plantnet" and not key:
         ap.error("PLANTNET_API_KEY required for the Pl@ntNet source")
     desired = {s.strip() for s in args.species.split(",") if s.strip()}
+    if args.allow_requested_any_gallery and not desired:
+        ap.error("--allow-requested-any-gallery requires explicit --species IDs")
     items, eligible, snapshot = select_taxa(args.limit, args.max_local, desired,
-                                           library_scanned_ids() if args.skip_library_scanned else set())
+                                           library_scanned_ids() if args.skip_library_scanned else set(),
+                                           args.allow_requested_any_gallery)
     out = pathlib.Path(args.out)
     out = out if out.is_absolute() else ROOT / out
     out.mkdir(parents=True, exist_ok=True)
