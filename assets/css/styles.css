@@ -1664,3 +1664,8 @@ body{
  .gallery-study-intro>span{flex:1 1 100%;font-size:.77rem}
  .focus-photo figcaption.gallery-photo-caption{padding:12px;gap:6px;font-size:.77rem}
 }
+
+/* Provisional-photo review destination: same scale as the main navigation. */
+.main-nav .photo-lab-nav{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:8px 11px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--muted);font:inherit;text-decoration:none;white-space:nowrap}
+.main-nav .photo-lab-nav:hover,.main-nav .photo-lab-nav:focus-visible{background:var(--accent-bg);border-color:var(--line);color:var(--accent-strong)}
+@media(max-width:760px){.topbar .main-nav .photo-lab-nav{flex:0 0 auto;min-height:40px;padding:9px 13px;border:1px solid #4d755b;background:#28503a;color:#ecf4e9}}
