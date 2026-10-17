@@ -1,12 +1,12 @@
 # Diagnostic photo review queue — species with exactly one locally installed image
 
-Updated: 2026-10-17T02:39:03.375957+00:00
+Updated: 2026-10-17T02:43:28.033464+00:00
 
 No photos were installed. Only one-local-image cards included. Favor diagnostic organs and distinct views; identity requires manual review.
 
-Canonical species: **746**; galleries: 0=1, 1=84, 2=201, 3+=460.
-Local photo files per card: 0=1, 1=101, 2=250, 3+=394.
-Ready for manual image review: **77**; need more archived candidates: **24**; held/claimed: **0**.
+Canonical species: **746**; galleries: 0=1, 1=74, 2=208, 3+=463.
+Local photo files per card: 0=1, 1=91, 2=257, 3+=397.
+Ready for manual image review: **67**; need more archived candidates: **24**; held/claimed: **0**.
 
 ## First 20 library-backed review targets
 
@@ -15,7 +15,6 @@ Ready for manual image review: **77**; need more archived candidates: **24**; he
 | *Centaurea melitensis* | 1 / 1 | 8 | 8 |
 | *Ceratostigma plumbaginoides* | 1 / 1 | 8 | 8 |
 | *Dasylirion texanum* | 1 / 1 | 8 | 8 |
-| *Erythrina herbacea* | 1 / 1 | 8 | 8 |
 | *Galium aparine* | 1 / 1 | 8 | 8 |
 | *Nandina domestica* | 1 / 1 | 8 | 8 |
 | *Perilla frutescens* | 1 / 1 | 8 | 8 |
@@ -26,12 +25,13 @@ Ready for manual image review: **77**; need more archived candidates: **24**; he
 | *Geranium carolinianum* | 1 / 1 | 8 | 7 |
 | *Kummerowia striata* | 1 / 1 | 8 | 7 |
 | *Melilotus indicus* | 1 / 1 | 8 | 7 |
-| *Melothria pendula* | 1 / 1 | 8 | 7 |
 | *Sphagneticola trilobata* | 1 / 1 | 8 | 7 |
 | *Tamarix aphylla* | 1 / 1 | 8 | 7 |
 | *Capsella bursa-pastoris* | 1 / 1 | 8 | 6 |
 | *Catalpa bignonioides* | 1 / 1 | 8 | 6 |
 | *Chondrilla juncea* | 1 / 1 | 8 | 6 |
+| *Cynoglossum officinale* | 1 / 1 | 8 | 6 |
+| *Diplotaxis muralis* | 1 / 1 | 8 | 6 |
 
 ## Install only after manual photo review
 
