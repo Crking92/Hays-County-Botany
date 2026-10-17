@@ -1,5 +1,15 @@
 # Permanent photo candidate library — shared operating contract
 
+## October 16: new manual diagnostic-view candidate collection lane
+
+The original sparse-species first-pass harvest covered 401 species, with 2,283 stored provisional photographs at the prior verified checkpoint. The user has approved an additional **candidate-gathering pass for already-photographed species** to increase useful visual perspectives, without performing bulk unreviewed installations.
+
+- Read `workflow/photo-library/requests/20261016-diagnostic-batch-001.json` for the exact initial 21 morphology-priority taxa and desired plant structures.
+- The new manually triggered `.github/workflows/photo-library-diagnostic-collect.yml` uses the existing GBIF + public Pl@ntNet source pipeline, may search taxa with 3+ installed images, takes no more than two photos per single occurrence, and persists files/metadata in the same private Release / indexed library format.
+- **Do not interpret the requested organ as proof of what a newly harvested photograph depicts.** GBIF photographs generally lack reliable organ labels. All results retain `exact_name_metadata_only_review_image` until a person checks the actual image; then select only genuinely useful distinct parts.
+- The new collection is manual-only and does not add or alter any of the five automations. Other photo/installer/genus/family chats may use these candidates **after** archive success and standard scientific/copyright/duplication review; protect taxonomic HOLDs.
+
+
 ## 2026-10-16 — Diagnostic-view candidate expansion (manual phase)
 
 **First-pass sparse-card collection complete:** 401 canonical species scanned, 2,283 provisional image files archived across sources at the checked snapshot. These are candidate images, not botanical/photo-part certifications or installations.
