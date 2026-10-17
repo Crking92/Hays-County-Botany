@@ -5,7 +5,7 @@ Source metadata is not an expert species confirmation. Do not edit scientific co
 import collections,copy,datetime,hashlib,io,json,os,pathlib,subprocess,sys,zipfile
 from PIL import Image,ImageOps
 R=pathlib.Path(".")
-REVIEW=R/"reports/manual-library-review-042-20261016/preview-manifest.json"
+REVIEW=R/"reports/manual-library-review-044-20261016/preview-manifest.json"
 SELECTION=R/"workflow/manual-photo-enrichment/library-selection-045-20261016.json"
 REPORT=R/"reports/manual-library-install-045-20261016.json"
 ARCH=pathlib.Path("/tmp/hays-photo-library-install-045")
