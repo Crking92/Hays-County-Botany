@@ -2,6 +2,10 @@
   "batch_id": "approved-installer-lupinus-melia-20261016-001",
   "mode": "validate_only",
   "require_exact_images": false,
-  "status": "reconciliation_needed_lupinus_already_canonical_melia_photo_review_pending",
-  "note": "2026-10-16 installer reconciliation: live manifest contains lupinus-texensis; DO NOT reinstall or overwrite its existing gallery. melia-azedarach remains noncanonical; its four Joey CC BY-NC photo URLs are unreviewed candidates, not verified installed media. Keep validate_only and withhold READY. Split Melia into a separate complete installation batch only after exact photo role/rights checks; do not publish this two-taxon batch as-is."
+  "status": "SUPERSEDED_BOTH_CANONICAL_20261017",
+  "note": "Live 2026-10-17 manifest independently confirms BOTH lupinus-texensis and melia-azedarach canonical. Lupinus has 3 and Melia has 2 images[] entries; retain canonical provenance and gallery, no duplicate installation. Previous pending-Melia source candidates are obsolete as first-card installation leads. This batch is superseded; keep validate_only and do NOT publish READY.",
+  "installed_canonical_paths": [
+    "content/taxa/Fabaceae/Lupinus/lupinus-texensis/species.json",
+    "content/taxa/Meliaceae/Melia/melia-azedarach/species.json"
+  ]
 }
