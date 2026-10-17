@@ -9,11 +9,11 @@
   "max_installed_local_photos": 2,
   "store": "private_GitHub_Release_and_git_catalog",
   "install_live_cards": false,
-  "request_sequence": 9,
-  "request_name": "Mass photo collection - next up to 40 new sparse-gallery species",
+  "request_sequence": 10,
+  "request_name": "First-pass photo library coverage — up to 24 remaining eligible unscanned sparse species",
   "wait_for_prior": "hays-photo-library-persist-main GitHub concurrency",
   "fresh_main_checkout": true,
-  "rerun_reason": "User requested Keep going after successful run 38984897722. Current canonical photo coverage shows 64 eligible unscanned sparse species, zero taxonomic HOLD substitutions, refresh claims and live catalog before selecting.",
+  "rerun_reason": "User says keep going; verified recent run 38993364540 successfully archived 289 photos. Fresh preflight finds 24 canonical sparse-gallery, unscanned and unclaimed species. Skip existing archive/claims/HOLD; no installs.",
   "prior_completed": [
     38760123960,
     38760929397,
@@ -24,11 +24,12 @@
   ],
   "deduped_starting_index": "workflow/photo-library/species-index.json",
   "preflight": {
-    "library_candidate_records": 1932,
-    "stored_provisional_photos": 1843,
-    "species_scanned": 337,
-    "eligible_unscanned_sparse_species": 64,
-    "prior_successful_run": 38984897722,
-    "coverage_snapshot": "2026-10-17T00:24:48.453748+00:00"
+    "candidate_library_records": 2227,
+    "stored_provisional_photos": 2132,
+    "species_scanned": 377,
+    "eligible_unscanned_sparse_species": 24,
+    "last_completed_run": 38993364540,
+    "archive_verified": true,
+    "photo_coverage_snapshot": "2026-10-17T00:24:48.453748+00:00"
   }
 }
