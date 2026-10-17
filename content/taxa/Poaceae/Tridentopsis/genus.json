@@ -213,6 +213,14 @@
     {
       "lane": "Diagnostic Photo Polish",
       "task": "Source and verify paired exact-species panicle, florets and lemma macros with credits/licensing; no generic photo hunting in this lane."
+    },
+    {
+      "lane": "Diagnostic Photo Fast-Fill",
+      "task": "Inspect four existing images for actual diagnostic features; source matched full-panicle, dissected spikelet, dorsal lemma and ligule views with photo-level rights. No unverified arrows."
+    },
+    {
+      "lane": "Approved Taxa Installer",
+      "task": "Both Tridentopsis species already canonical; do not duplicate cards. Historical Tridens source names remain crosswalks only."
     }
   ],
   "sources": [
@@ -249,11 +257,117 @@
     }
   ],
   "curation_status": {
-    "version": "1.0-two-species-morphology-framework",
-    "last_reviewed": "2026-10-09",
+    "version": "1.1-photo-led-comparison-recovery",
+    "last_reviewed": "2026-10-16",
     "genus_audit": "comparison_framework_built",
     "visual_status": "diagnostic_photo_set_pending",
     "canonical_taxa_installed_this_run": 0,
-    "native_range_decisions_changed_this_run": 0
+    "native_range_decisions_changed_this_run": 0,
+    "genus_lesson": "four anatomy roles and three comparison cards added; prior comparison matrix and scientific caveats preserved",
+    "gallery_records_reconciled": 4
+  },
+  "anatomy_lessons": [
+    {
+      "term": "Panicle",
+      "plain": "The entire branching flower cluster",
+      "look": "Photograph the entire mature head against a ruler; note how far primary branches spread from the axis.",
+      "species_comparison": "Published descriptions: T. buckleyana generally open/ovate (10–28 cm long); T. mutica tightly contracted (7–20(25) cm long). The provisional buckleyana card's compact/fluffy wording is under scientific review.",
+      "photo_role": "matched full mature panicles",
+      "status": "needs_verified_diagnostic_photo"
+    },
+    {
+      "term": "Spikelet and florets",
+      "plain": "The grass flowering unit and the individual florets inside",
+      "look": "Dissect several intact spikelets and count fertile florets, then measure length in mm.",
+      "species_comparison": "T. buckleyana typically 3–5 fertile florets; T. mutica 5–11; five florets and 8–10 mm spikelet lengths overlap.",
+      "photo_role": "paired dissected spikelets with mm ruler",
+      "status": "needs_verified_diagnostic_photo"
+    },
+    {
+      "term": "Lemma and veins",
+      "plain": "The outer bract around a single grass floret",
+      "look": "Use a hand lens or macro to find three veins and where hairs run along the central and lateral veins.",
+      "species_comparison": "Hair distribution is supporting only until regional keys and matched specimens are reconciled.",
+      "photo_role": "dorsal lemma macro at 10–20x",
+      "status": "needs_verified_diagnostic_photo"
+    },
+    {
+      "term": "Ligule and collar",
+      "plain": "Tiny tissue at the joint of leaf blade and sheath",
+      "look": "Open the blade-sheath junction; show the ciliate membranous ligule and measure its length.",
+      "species_comparison": "Both commonly ~0.5–1 mm; helps recognize anatomy but does not split these species.",
+      "photo_role": "collar and ligule macro",
+      "status": "needs_verified_diagnostic_photo"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "title": "Whole panicle silhouette",
+      "look_here_first": "Open, separated branches versus strongly contracted near-spike outline.",
+      "species_ids": [
+        "tridentopsis-buckleyana",
+        "tridentopsis-mutica"
+      ],
+      "caution": "The buckleyana species-card discrepancy remains unresolved; don't force ID from one partial head.",
+      "photo_status": "matched intact heads needed"
+    },
+    {
+      "title": "Floret counts and spikelet lengths",
+      "look_here_first": "Count 3–5 versus 5–11 florets in multiple mature spikelets and measure against mm scale.",
+      "species_ids": [
+        "tridentopsis-buckleyana",
+        "tridentopsis-mutica"
+      ],
+      "caution": "Five florets and 8–10 mm lengths overlap.",
+      "photo_status": "dissected spikelets needed"
+    },
+    {
+      "title": "Lemma hairs and ligule",
+      "look_here_first": "Check three-veined lemma hair placement; use ligule to confirm grass structures.",
+      "species_ids": [
+        "tridentopsis-buckleyana",
+        "tridentopsis-mutica"
+      ],
+      "caution": "Do not rely on shared short ciliate ligules or unverified pubescence claims alone.",
+      "photo_status": "verified lemma/collar macros needed"
+    }
+  ],
+  "photo_evidence_and_rights": {
+    "installed_gallery_count": 4,
+    "installed_records": [
+      {
+        "species_id": "tridentopsis-buckleyana",
+        "file": "images/gbif-first-4891719982-2ab076c5ce.jpg",
+        "creator": "jamiemandell",
+        "license": "CC BY-NC",
+        "source_page": "https://www.gbif.org/occurrence/4891719982",
+        "status": "installed provisional recognition, diagnostic anatomy not verified"
+      },
+      {
+        "species_id": "tridentopsis-mutica",
+        "file": "images/inat-first-713829409.jpg",
+        "creator": "Rachel",
+        "license": "CC BY 4.0",
+        "source_page": "https://www.inaturalist.org/photos/713829409",
+        "status": "installed recognition, diagnostic anatomy not verified"
+      },
+      {
+        "species_id": "tridentopsis-mutica",
+        "file": "images/joey-inat-667323408.jpg",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://www.inaturalist.org/photos/667323408",
+        "status": "installed additional view, diagnostic anatomy not verified"
+      },
+      {
+        "species_id": "tridentopsis-mutica",
+        "file": "images/joey-inat-667323452.jpg",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://www.inaturalist.org/photos/667323452",
+        "status": "installed additional view, diagnostic anatomy not verified"
+      }
+    ],
+    "rights_note": "CC BY-NC remains noncommercial; CC BY requires attribution. Source pages and creator rights retained. No genus-level macro or annotation has been visually verified, and no new photo binaries were added."
   }
 }
