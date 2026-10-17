@@ -5,8 +5,17 @@ rm -rf dist
 mkdir -p dist
 
 cp index.html dist/
+cp photo-review.html dist/
 cp manifest.webmanifest dist/
 cp sw.js dist/
+
+# Photo Lab is a real standalone route. Without this file, Cloudflare's
+# single-page-app fallback silently renders the learner homepage instead.
+test -s dist/photo-review.html
+if cmp -s dist/photo-review.html dist/index.html; then
+  echo "ERROR: Photo Lab route accidentally contains the homepage" >&2
+  exit 1
+fi
 
 cp -R assets dist/assets
 cp -R content dist/content
