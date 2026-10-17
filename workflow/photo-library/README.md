@@ -1,5 +1,15 @@
 # Permanent photo candidate library — shared operating contract
 
+## 2026-10-16 — Diagnostic-view candidate expansion (manual phase)
+
+**First-pass sparse-card collection complete:** 401 canonical species scanned, 2,283 provisional image files archived across sources at the checked snapshot. These are candidate images, not botanical/photo-part certifications or installations.
+
+**New manually triggered workflow:** `.github/workflows/photo-library-diagnostic-candidates.yml` with source script `scripts/diagnostic_photo_harvest.py`. The first saved target list and requested anatomical structures are `workflow/photo-library/requests/diagnostic-001.json`. It searches for **previously unseen media URLs** across additional GBIF occurrence pages, prioritizing Texas and diversifying source observations. The resulting `selected-species.json` inside each permanent private Release archive records the sought structures (grass ligules/spikelets, aster phyllaries, milkweed corona/hoods, etc.).
+
+**CRITICAL:** A target part listed in `wanted_parts` is **not** proof that the photograph shows it. Image search results, taxon names, and source media descriptions remain metadata-only until a human/model inspects actual pixels and verifies the exact species, anatomy, photo license, photographer credit and any copied or adapted conditions. Archive files are independent photo *candidates*; existing automations may choose/use them within their normal lanes but MUST NOT bulk-install unreviewed images or claim part-specific success just because a new archive exists.
+
+This collector is **manual-only**, not a new sixth automation, and intentionally does not alter installed species, canonical cards, scientific HOLD decisions, or schedules. It can search species already rich in local gallery photos when more diagnostic views are desired. Check current work claims at collection and again at installation; hold `muhlenbergia-piniflora` until its source concept is resolved.
+
 ## 2026-10-16 multisource first-card clarification
 
 The user approved replacing any **Joey-only** photo prerequisite for new canonical first cards: read `workflow/FIRST_CARD_MULTISOURCE_POLICY_20261016.md`. This archive is the **first source to check**, not a mandatory supplier of a first-card image. If a taxon has no suitable archived option, use Calvin's own authorized photos, Joey's, or properly licensed exact-species images from other sources. One physically downloaded, image-level rights-verified photo can support a **provisional** first card; photo archiving, metadata-only source matching or unreviewed GBIF labels do not count as installations. Keep individual attribution/private-use/CC BY-NC/SA restrictions intact. Diagnostic Photo Fast-Fill continues to work existing canonical galleries separately; bulk collector remains manual.
