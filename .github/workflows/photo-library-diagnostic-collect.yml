@@ -1,0 +1,102 @@
+name: Photo Library Diagnostic View Candidates
+
+# User-directed diagnostic candidate gathering only; never schedule or alter cards.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/photo-library/requests/20261016-diagnostic-batch-001.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hays-photo-library-persist-main
+  cancel-in-progress: false
+
+jobs:
+  diagnostic-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Refresh latest repo, claims and photo index
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B main origin/main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image handling dependency
+        run: python -m pip install --disable-pip-version-check Pillow
+      - name: Gather complementary review images from distinct source observations
+        env:
+          PLANTNET_API_KEY: ${{ secrets.PLANTNET_API_KEY }}
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/bulk_open_photo_harvest.py scripts/photo_library_archive.py
+          ids="$(python - <<'PY'
+          import json
+          with open("workflow/photo-library/requests/20261016-diagnostic-batch-001.json", encoding="utf-8") as f:
+              request = json.load(f)
+          print(",".join(request["species_ids"]))
+          PY
+          )"
+          python scripts/bulk_open_photo_harvest.py --source public --limit 30 --per-species 6 --max-local 2 --species "$ids" --allow-requested-any-gallery --download --out "$RUNNER_TEMP/harvest"
+      - name: Prepare private archive and metadata
+        env:
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python scripts/photo_library_archive.py prepare --input "$RUNNER_TEMP/harvest" --batch-id "diagnostic-$RUN_ID" --archive-dir "$RUNNER_TEMP/archives"
+      - name: Persist provisional review images as private GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          tag="hays-photo-library-diagnostic-$RUN_ID"
+          asset="$RUNNER_TEMP/archives/diagnostic-$RUN_ID-photos.zip"
+          success=0
+          for attempt in 1 2 3 4; do
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              if gh release upload "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --clobber; then success=1; break; fi
+            elif gh release create "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --prerelease --title "Photo diagnostic candidate review: diagnostic-$RUN_ID" --notes "Provisional photo candidates for visual morphology review; photo-level license, creator and source are in candidates.csv. NOT species-identity verified or installed."; then
+              success=1
+              break
+            fi
+            sleep $((attempt * 12))
+          done
+          if [[ "$success" != "1" ]]; then
+            echo "::error::Private release publish failed; temporary artifact will retain media for recovery"
+            exit 1
+          fi
+          python scripts/photo_library_archive.py published --batch-id "diagnostic-$RUN_ID"
+          python scripts/photo_library_archive.py rebuild
+      - name: Save durable searchable candidate inventory
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/batches workflow/photo-library/catalog.csv workflow/photo-library/species-index.json
+          git commit -m "Archive new diagnostic view candidates from separate botanical observations"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 4))
+          done
+          exit 1
+      - name: Save recovery files if publication fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostic-photo-library-candidate-recovery
+          path: |
+            workflow/photo-library/batches/
+            ${{ runner.temp }}/harvest/
+          retention-days: 14
+          if-no-files-found: ignore
