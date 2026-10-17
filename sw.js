@@ -1,7 +1,8 @@
-const CACHE_NAME = "hays-botany-v39";
+const CACHE_NAME = "hays-botany-v40";
 const CORE = [
   "./",
   "./index.html",
+  "./photo-review.html",
   "./manifest.webmanifest",
   "./assets/app-icon.svg",
   "./assets/css/styles.css",
