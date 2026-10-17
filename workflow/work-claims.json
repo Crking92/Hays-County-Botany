@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-15T11:24:33.068Z",
+  "updated_at": "2026-10-17T18:31:58.388Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9292,11 +9292,13 @@
       ],
       "lane": "manual-first-card-installer",
       "owner": "dedicated ChatGPT new-species one-photo learner chat",
-      "status": "queued",
+      "status": "released",
       "claimed_at": "2026-10-17T18:29:56.132Z",
       "expires_at": "2026-10-17T20:00:00-05:00",
       "release_when": "Batch 020 installer Action commits canonical cards or first-photo handoffs; canonical manifest supersedes this reservation",
-      "notes": "User requested safe concurrent operation with Approved Taxa Installer. This is a dedicated uninstalled Master Pool set; other chats should skip these 12 until installation/expiry. No county-range certification."
+      "notes": "User requested safe concurrent operation with Approved Taxa Installer. This is a dedicated uninstalled Master Pool set; other chats should skip these 12 until installation/expiry. No county-range certification.",
+      "released_at": "2026-10-17T18:31:58.388Z",
+      "release_reason": "Batch 020 GitHub Action succeeded; all 12 species present in canonical manifest with physically validated image according to installer report; reservation no longer needed."
     }
   ]
 }
