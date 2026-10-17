@@ -23,3 +23,12 @@ This report records incomplete **genus-lane** publication only. It is not a comp
 Alternanthera still needs visually verified, same-scale flower-head peduncle comparisons; `A. caracasana` versus `A. pungens` bract-tip macros; rooting-node photos of `A. philoxeroides`; and mature fruit/seed close-ups. The genus lesson references species-record paths and provenance but does **not** claim new photos installed or arrows verified.
 
 All other workers' claims, schedules, canonical species and range classifications remain untouched.
+
+## 2026-10-16 Lactuca unpublished lesson handoff
+
+- **Blocked path:** `content/taxa/Asteraceae/Lactuca/genus.json` (existing blob `fcfe6da69bcc7db2a4ef37af3f3876f751744c1a` at attempt).
+- **Prepared, not published:** four photo-role anatomy lessons (all-ligulate head/phyllaries; abaxial midrib prickles and clasping auricles; ripe cypsela face nerves; measured cypsela body versus beak), three comparison cards, current canonical status (only `lactuca-serriola` installed; `lactuca-ludoviciana` remains source-pool noncanonical), two physical existing image references with Harry Rose CC BY 2.0 and Matt Lavin CC BY-SA 2.0 rights, and an eight-candidate archived photo-library handoff (`mass-38925103720`). Original FNA references and seven-row comparison matrix would be preserved. No images or arrows were installed.
+- **Source artifacts:** existing genus JSON and `content/taxa/Asteraceae/Lactuca/lactuca-serriola/species.json`, `data/manifest.json`, `workflow/photo-library/species-index.json`, live `Master Plant Pool` and `Genus Study Index`.
+- **Exact failure:** GitHub connector returned `This tool call was blocked by OpenAI's safety checks. Please double check what you are sending.` This was not a confirmed 409/422 SHA conflict. No Lactuca content was committed.
+- **Next action:** check current genus lesson and active claims before selecting this recovery; only if safe, refresh blob SHA, rebuild and merge the prepared anatomy/photo-role lesson from the authoritative records, make one permitted write and verify on `main`. Do not bypass connector safety or mark this handoff complete.
+- **Separate successful genus this run:** `content/taxa/Poaceae/Bouteloua/genus.json` committed as `527656ed63b32f2ecf0876114b4c76a0453a8248` and re-fetched on `main`; four anatomy lessons, three comparison cards, 29 gallery-record inventory reconciliation, index and Sheet registrations already present. No photos or species installed.
