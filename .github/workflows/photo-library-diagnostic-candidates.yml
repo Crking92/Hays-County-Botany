@@ -1,0 +1,94 @@
+name: Diagnostic Photo Candidate Harvest
+
+# Manually requested anatomy-oriented PHOTO SOURCING only. No schedule.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/photo-library/requests/diagnostic-001.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hays-photo-library-persist-main
+  cancel-in-progress: false
+
+jobs:
+  collect-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Refresh current canonical state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git checkout -B main origin/main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo file validation library
+        run: python -m pip install --disable-pip-version-check Pillow
+      - name: Harvest NEW candidate images and record requested anatomical roles
+        env:
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/diagnostic_photo_harvest.py scripts/photo_library_archive.py
+          python scripts/diagnostic_photo_harvest.py --request workflow/photo-library/requests/diagnostic-001.json --out "$RUNNER_TEMP/diagnostic"
+          python scripts/photo_library_archive.py prepare --input "$RUNNER_TEMP/diagnostic" --batch-id "diagnostic-$RUN_ID" --archive-dir "$RUNNER_TEMP/archives"
+      - name: Persist photos in private GitHub Release (retry if transient error)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.run_id }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="hays-photo-library-diagnostic-$RUN_ID"
+          asset="$RUNNER_TEMP/archives/diagnostic-$RUN_ID-photos.zip"
+          archived=0
+          for attempt in 1 2 3 4; do
+            if gh release view "$tag" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              if gh release upload "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --clobber; then archived=1; break; fi
+            elif gh release create "$tag" "$asset" --repo "$GITHUB_REPOSITORY" --target "$(git rev-parse HEAD)" --prerelease --title "Provisional diagnostic candidates: diagnostic-$RUN_ID" --notes "Unverified photo candidates. See selected-species.json for anatomy wanted; do NOT treat the requested structure as proven in the photo. Review taxon identity, licensing and pixels before installation."; then
+              archived=1
+              break
+            fi
+            echo "::warning::Release publish attempt $attempt failed"
+            sleep $((12 * attempt))
+          done
+          if [[ "$archived" != "1" ]]; then
+            echo "::error::Could not publish durable photo archive; recovery artifact will remain"
+            exit 1
+          fi
+          python scripts/photo_library_archive.py published --batch-id "diagnostic-$RUN_ID"
+          python scripts/photo_library_archive.py rebuild
+      - name: Commit batch record and searchable photo index
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/batches workflow/photo-library/catalog.csv workflow/photo-library/species-index.json
+          git commit -m "Archive diagnostic photo candidates in private library $GITHUB_RUN_ID"
+          for attempt in 1 2 3 4; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((3 * attempt))
+          done
+          exit 1
+      - name: Preserve temporary recovery artifact if any step failed
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: diagnostic-photo-harvest-recovery
+          path: |
+            workflow/photo-library/batches/
+            ${{ runner.temp }}/diagnostic/
+          retention-days: 14
+          if-no-files-found: ignore
