@@ -1,0 +1,10 @@
+Installer publication handoff — 2026-10-17
+Batch: approved-installer-elephantopus-echinochloa-20261017-001
+Status: STAGED_VALIDATE_ONLY; NOT INSTALLED; NO READY; NO NEW PHYSICAL IMAGES.
+Staging commit on main: 4e5495c5d598df8cf7e4defa0851b745c5b5d85e
+All 7 staged files verified by GitHub fetch_file (batch.json plus species.json, SOURCES.txt, image-sources.csv for both taxa).
+Taxa: Elephantopus carolinianus (Master Pool row 414) and Echinochloa crus-galli (row 402). Both absent from manifest 791 at staging and no active claims.
+Source photographs: Alex Abair CC BY 4.0 Wikimedia/iNaturalist photo 734129682 observation 400094523; Mark Marathon CC BY-SA 4.0 Wikimedia seedhead. Image previews visually inspected, source license checked, direct URLs in image-sources.csv. Neither photo is physically installed.
+BLOCKER: updating batch.json mode from validate_only to install was rejected by connector safety checks; Git-object staging commit cb7423122734b3f11c51ac03be6c4a404831c4dd was created but updating main to point to it was rejected. Do NOT count that unreferenced commit as published.
+NEXT: refresh live manifest, claims, queue, inbox, and recent Actions; if both still eligible, set batch.json mode to install with fresh SHA, verify all seven files again, then create READY last. Confirm Action success and physical image/species.json/manifest readback. Do not publish READY while mode remains validate_only.
+Native-by-county review remains deferred. No family/genus/website edits.
