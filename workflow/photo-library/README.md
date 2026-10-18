@@ -1,5 +1,11 @@
 # Permanent photo candidate library — shared operating contract
 
+## October 17: user's first Photo Lab review is preserved in GitHub
+
+Photo Lab 001 review from the user is now saved as `workflow/photo-library/reviews/diagnostic-001-user-labels-20261017.json`. It contains **73 individually attributed, source-linked labels from 16 canonical species**, including **67 provisional potentially useful photo choices** and **six images the user marked "Unclear / not useful"**. The latter are explicitly excluded from any install shortlist. Other labeled images require true image-level identity/structure verification and ordinary gallery/claim duplicate checks; **these labels alone are NOT botanical approval for installing or captioning a photograph**.
+
+The user-facing `photo-review.html` now automatically shortlists photos when a useful part is chosen, and offers Copy review, Save review file, and Resume from file. Local controls don't write to GitHub; the review JSON above is the durable submitted result. Read it before gathering more photographs for those same species or reviewing this batch. Do not change the five standing automations or their workflows to consume provisional labels directly.
+
 ## October 16: new manual diagnostic-view candidate collection lane
 
 The original sparse-species first-pass harvest covered 401 species, with 2,283 stored provisional photographs at the prior verified checkpoint. The user has approved an additional **candidate-gathering pass for already-photographed species** to increase useful visual perspectives, without performing bulk unreviewed installations.
