@@ -10,14 +10,13 @@
       "Lactuca ludoviciana",
       "Lactuca serriola"
     ],
-    "canonical_species_count_at_build": 1,
-    "admission_note": "Both Master Pool taxa are learner-eligible; only L. serriola is physically installed in the canonical manifest. L. ludoviciana is a comparison and installer handoff, not an installed card. Preserve the existing introduced encounter role of L. serriola and defer county-range research.",
+    "canonical_species_count_at_build": 2,
+    "admission_note": "Both Master Plant Pool taxa are now canonical in the current manifest: L. ludoviciana has one provisional CC0 leaf-detail photo and L. serriola has two installed photos. Preserve the documented introduced encounter role of L. serriola; county-range research remains deferred.",
     "canonical_species_ids": [
+      "lactuca-ludoviciana",
       "lactuca-serriola"
     ],
-    "noncanonical_source_pool_taxa": [
-      "Lactuca ludoviciana"
-    ]
+    "noncanonical_source_pool_taxa": []
   },
   "shared_genus_characters": {
     "look_here_first": "Find milky latex on a broken leaf/stem and a head composed ONLY of strap-shaped ligulate florets (not ray florets surrounding a disk). Then inspect the mature beaked cypsela and count longitudinal nerves on EACH face; this is the decisive species separator.",
@@ -177,13 +176,23 @@
       "source_page": "https://commons.wikimedia.org/wiki/File:Lactuca_serriola_(4971023995).jpg",
       "status": "installed_file_present; exact_photo_part_not_visually_verified; annotation_pending",
       "public_reuse": "yes_with_attribution_and_ShareAlike"
+    },
+    {
+      "species_id": "lactuca-ludoviciana",
+      "source": "content/taxa/Asteraceae/Lactuca/lactuca-ludoviciana/species.json images[0]",
+      "file": "content/taxa/Asteraceae/Lactuca/lactuca-ludoviciana/images/commons-lactuca-ludoviciana-david-peden.jpg",
+      "creator": "David Peden (wafflemaster135)",
+      "license": "CC0 1.0",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Lactuca_ludoviciana_04.jpg",
+      "status": "installed_file_present; leaf_detail_provisional; mature_fruit_not_shown; annotation_pending",
+      "public_reuse": "CC0"
     }
   ],
-  "media_note": "Two L. serriola JPEG files were independently found on main; their recorded anatomical roles have not been pixel-verified and no arrows were added. L. ludoviciana has no canonical species gallery. Photo-library batch mass-38925103720 contains eight metadata-only L. serriola candidates, not installed or diagnostic-certified images.",
+  "media_note": "Both species canonical: L. ludoviciana has one provisional installed CC0 leaf-detail image, L. serriola has two installed credited images. Mature cypsela nervation and body/beak macros remain needs_photo; no anatomical arrows verified. External photo-library candidates are not installed.",
   "handoffs": [
     {
       "lane": "Approved Taxa Installer",
-      "request": "L. serriola is already canonical; do not reinstall it. L. ludoviciana remains Master Pool source-only and is eligible for the installer's separate accepted-identity/first-photo preflight. This genus lesson does not install it."
+      "request": "Both L. ludoviciana and L. serriola are already canonical; do not reinstall either. L. ludoviciana needs diagnostic photo enrichment through the photo lane, not a new first-card installation."
     },
     {
       "lane": "Taxonomy + Diagnostic Review",
