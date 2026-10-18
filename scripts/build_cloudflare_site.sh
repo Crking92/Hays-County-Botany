@@ -11,6 +11,7 @@ if compgen -G "dist/photo-review-batch-*.html" >/dev/null; then
   echo "ERROR: old Photo Lab batch galleries must not appear on the public site" >&2
   exit 1
 fi
+cp _headers dist/
 cp manifest.webmanifest dist/
 cp sw.js dist/
 
