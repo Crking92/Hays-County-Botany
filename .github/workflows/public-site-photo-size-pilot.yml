@@ -1,0 +1,66 @@
+name: Public Learner Photo Size Pilot
+
+# One-time preview on creation, then manual re-runs. No site deployment.
+# Source photos, canonical science, attribution and existing automations remain intact.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/public-site-photo-size-pilot.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: public-site-photo-size-pilot
+  cancel-in-progress: true
+
+jobs:
+  preview-optimization:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install photo tools
+        run: python -m pip install 'Pillow>=10,<12'
+      - name: Stage site only, not research or source artifacts
+        shell: bash
+        run: bash scripts/build_cloudflare_site.sh
+      - name: Optimize staged JPEG copies only
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/optimize_public_photo_copies.py \
+            --root dist --threshold-kb 750 --max-edge 2800 --quality 86 \
+            --report site-image-savings.json
+      - name: Confirm source content is unchanged
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --exit-code -- content/ data/ assets/ photo-review.html
+          test -s site-image-savings.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("site-image-savings.json").read_text())
+          assert not d["originals_changed"]
+          assert d["input_file_count"] > 100
+          print("Public staged site size before:", round(d["site_bytes_before"]/1_000_000,1), "MB")
+          print("Public staged site size after:", round(d["site_bytes_after"]/1_000_000,1), "MB")
+          print("Saved:", round(d["saved_bytes"]/1_000_000,1), "MB")
+          print("JPEG copies optimized:", d["photos_optimized"])
+          PY
+      - name: Upload numeric savings report (no photo originals)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hays-botany-site-photo-size-report
+          path: site-image-savings.json
+          if-no-files-found: warn
+          retention-days: 30
