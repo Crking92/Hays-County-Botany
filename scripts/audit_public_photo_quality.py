@@ -150,6 +150,10 @@ def main():
     (out / "quality-report.json").write_text(json.dumps(result,indent=2)+"\n")
     print(json.dumps({k:v for k,v in result.items() if k not in ("all_changed","warnings")},indent=2))
     print("QA flagged images requiring visual review:", len(result["warnings"]))
+    for flagged in result["warnings"][:20]:
+        print("REVIEW_NEEDED:", flagged["path"], "reason:", flagged.get("warning"),
+              "pixel_mean_absolute_error:", flagged.get("pixel_mean_absolute_error"),
+              "published_dimensions:", flagged.get("published_dims"))
     if errors:
         raise SystemExit(f"QA found {len(errors)} problems; report created, do not deploy")
 
