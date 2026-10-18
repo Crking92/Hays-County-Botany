@@ -8,6 +8,7 @@ from io import BytesIO
 from pathlib import Path
 import json
 import re
+from xml.etree import ElementTree
 
 from PIL import Image, ImageOps
 from photo_quality_audit import audit, load
@@ -48,6 +49,19 @@ def diagnostic_group(sp):
 def checksum_and_pixels(path):
     raw = path.read_bytes()
     digest = sha256(raw).hexdigest()
+    if path.suffix.lower() == ".svg":
+        # Browser-displayable vector art is not a JPEG; Pillow alone cannot decode it.
+        # Validate XML without fetching external resources. No fabricated pixel-hash.
+        root = ElementTree.fromstring(raw)
+        if root.tag != "{http://www.w3.org/2000/svg}svg":
+            raise ValueError("Not an SVG document")
+        viewbox = root.attrib.get("viewBox", "").replace(",", " ").split()
+        if len(viewbox) != 4:
+            raise ValueError("SVG has no numeric viewBox")
+        width, height = int(float(viewbox[2])), int(float(viewbox[3]))
+        if width <= 0 or height <= 0:
+            raise ValueError("SVG viewBox invalid")
+        return digest, width, height, None
     with Image.open(BytesIO(raw)) as pic:
         pic.verify()
     with Image.open(BytesIO(raw)) as pic:
@@ -99,7 +113,7 @@ def run():
             "id": sid, "scientific_name": str(sp.get("scientific_name") or sid),
             "path": rel, "family": str(sp.get("family") or ""), "genus": str(sp.get("genus") or ""),
             "gallery_entries": len(sp.get("images") or []),
-            "physical_photos": 0, "external_only": 0, "broken": [], "unreadable": [],
+            "physical_photos": 0, "vector_illustrations": 0, "external_only": 0, "broken": [], "unreadable": [],
             "small_photo_candidates": [], "same_source_photos": [], "exact_duplicates": [],
             "possible_visual_duplicates": [], "missing_attribution_or_license": [],
             "provisional_status_photos": 0, "explicitly_anatomy_verified_photos": 0,
@@ -144,13 +158,14 @@ def run():
                 row["unreadable"].append({"index": pos, "file": f, "error": type(e).__name__})
                 continue
             row["physical_photos"] += 1
+            if dh is None: row["vector_illustrations"] += 1
             cross_sha[digest].add(sid)
             if digest in seen_hash:
                 row["exact_duplicates"].append([seen_hash[digest], pos])
             seen_hash[digest] = pos
             if min(w, h) < 350: row["small_photo_candidates"].append({"index": pos, "dimensions": [w, h]})
             for idx, prev, previous_w, previous_h in hashes:
-                if (dh ^ prev).bit_count() <= 4 and abs(w/h - previous_w/previous_h) < 0.10:
+                if dh is not None and prev is not None and (dh ^ prev).bit_count() <= 4 and abs(w/h - previous_w/previous_h) < 0.10:
                     row["possible_visual_duplicates"].append([idx, pos])
             hashes.append((pos, dh, w, h))
         row["three_role_cues_in_metadata"] = sorted(role_cues)
@@ -183,6 +198,7 @@ def run():
         results.append(row)
         totals["gallery_entries"] += row["gallery_entries"]
         totals["physical_photo_files"] += row["physical_photos"]
+        totals["vector_illustrations"] += row["vector_illustrations"]
         totals["broken"] += len(row["broken"])
         totals["unreadable"] += len(row["unreadable"])
         totals["exact_duplicate_pairs"] += len(row["exact_duplicates"])
@@ -242,7 +258,8 @@ def run():
     ]
     for key, label in [
         ("manifest_species", "Canonical species"), ("gallery_entries", "Gallery image records"),
-        ("physical_photo_files", "Locally installed readable images"), ("cards_with_local_zero", "Cards with 0 readable local images"),
+        ("physical_photo_files", "Locally installed readable images (raster and validated SVG)"),
+        ("vector_illustrations", "Validated SVG illustrations"), ("cards_with_local_zero", "Cards with 0 readable local images"),
         ("cards_with_local_one", "Cards with 1"), ("cards_with_local_two", "Cards with 2"),
         ("cards_with_local_three_plus", "Cards with 3+"), ("broken", "Broken local references"),
         ("unreadable", "Unreadable image files"), ("exact_duplicate_pairs", "Exact duplicates within cards"),
