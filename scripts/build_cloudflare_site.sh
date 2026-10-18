@@ -5,7 +5,7 @@ rm -rf dist
 mkdir -p dist
 
 cp index.html dist/
-cp photo-review.html dist/
+cp photo-review*.html dist/  # Photo Lab batches each publish their own standalone page
 cp manifest.webmanifest dist/
 cp sw.js dist/
 
