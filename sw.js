@@ -1,8 +1,7 @@
-const CACHE_NAME = "hays-botany-v41";
+const CACHE_NAME = "hays-botany-v42";
 const CORE = [
   "./",
   "./index.html",
-  "./photo-review.html",
   "./manifest.webmanifest",
   "./assets/app-icon.svg",
   "./assets/css/styles.css",
@@ -36,6 +35,14 @@ self.addEventListener("fetch", event => {
 
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+
+  // Photo Lab is an actively changing review gallery. Never silently serve a
+  // cached old batch: always request the deployed version from the network.
+  // It is intentionally not pre-cached for offline use.
+  if (url.pathname.endsWith("/photo-review.html")) {
+    event.respondWith(fetch(request, { cache: "no-store" }));
+    return;
+  }
 
   event.respondWith(
     fetch(request)
