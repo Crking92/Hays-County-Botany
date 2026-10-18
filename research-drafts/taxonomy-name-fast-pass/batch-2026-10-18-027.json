@@ -1,0 +1,49 @@
+{
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 4,
+  "batch_id": "2026-10-18-027",
+  "checked_at": "2026-10-18",
+  "scope": "exception review: same-spelling nomenclatural homonym with two accepted concepts",
+  "range_audit": "DEFERRED",
+  "records": [
+    {
+      "source_pool": "Master Plant Pool",
+      "source_pool_row": 1042,
+      "override_row": 1141,
+      "source_name": "Schoenocaulon drummondii",
+      "source_author": null,
+      "accepted_name": null,
+      "genus": "Schoenocaulon",
+      "family": "Melanthiaceae",
+      "rank": "species",
+      "decision": "HOLD_IDENTITY",
+      "name_variants": [
+        {
+          "name": "Schoenocaulon drummondii A.Gray ex Hook. & Arn.",
+          "publication": "Bot. Beechey Voy.: 388 (1840)",
+          "nomenclatural_status": "nom. nud.",
+          "powo_accepted_concept": "Schoenocaulon ghiesbreghtii Greenm.",
+          "source_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:229787-2"
+        },
+        {
+          "name": "Schoenocaulon drummondii A.Gray ex Torr.",
+          "publication": "Rep. U.S. Mex. Bound., Bot. 2(2): 222 (1859)",
+          "nomenclatural_status": "nom. illeg. homonym. post.",
+          "powo_accepted_concept": "Schoenocaulon texanum Scheele",
+          "source_url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:540619-1"
+        }
+      ],
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:229787-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:540619-1"
+      ],
+      "caution": "Unattributed source-pool spelling matches two different historical names with distinct POWO accepted species concepts; do not map without original author/protologue or verified source specimen. Canonical Schoenocaulon texanum already exists, but this does not resolve the source row.",
+      "learner_action": "Keep source row identity held, do not install a duplicate or create an alias to either accepted species. Request original source taxon authority or voucher in future identity-review lane.",
+      "specimen_identity": "UNRESOLVED_SOURCE_CONCEPT",
+      "canonical_accepted_concept_present": "schoenocaulon-texanum",
+      "range_audit": "DEFERRED",
+      "previous_hold": "HOMONYM_AUTHORITY_HOLD",
+      "hold_resolution": "Retained after separate verification of both nomenclatural pathways"
+    }
+  ]
+}
