@@ -1,0 +1,59 @@
+name: Photo Lab 004 Archived Candidate Technical Screen
+
+# One-time first run, manual follow-ups; no canonical updates or deployments.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/photo-batch-004-technical-screen.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-photo-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install local image checker
+        run: python -m pip install 'Pillow>=10,<12'
+      - name: Download private immutable Batch 004 image Release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/hays-b004-release
+          gh release download hays-photo-library-diagnostic-39139862679 \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "diagnostic-39139862679-photos.zip" \
+            --dir /tmp/hays-b004-release
+          test -s /tmp/hays-b004-release/diagnostic-39139862679-photos.zip
+      - name: Verify archived pixels, detail level and repeated frames
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/screen_diagnostic_archive_batch004.py \
+            --archive /tmp/hays-b004-release/diagnostic-39139862679-photos.zip \
+            --archive-sha256 bc240efe530afd361a33049468e12520d15be61202654dc5e1cfd40f68e7d80c \
+            --shortlist-a workflow/photo-library/reviews/diagnostic-004-metadata-prefilter-a-20261018.json \
+            --shortlist-b workflow/photo-library/reviews/diagnostic-004-metadata-prefilter-b-20261018.json \
+            --out batch004-technical-review
+      - name: Confirm no canonical or repository edits
+        run: git diff --exit-code
+      - name: Save private contact sheets and technical audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hays-photo-batch004-technical-check
+          path: batch004-technical-review/
+          retention-days: 30
+          if-no-files-found: warn
