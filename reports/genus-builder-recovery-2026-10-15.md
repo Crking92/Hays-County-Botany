@@ -32,3 +32,11 @@ All other workers' claims, schedules, canonical species and range classification
 - **Exact failure:** GitHub connector returned `This tool call was blocked by OpenAI's safety checks. Please double check what you are sending.` This was not a confirmed 409/422 SHA conflict. No Lactuca content was committed.
 - **Next action:** check current genus lesson and active claims before selecting this recovery; only if safe, refresh blob SHA, rebuild and merge the prepared anatomy/photo-role lesson from the authoritative records, make one permitted write and verify on `main`. Do not bypass connector safety or mark this handoff complete.
 - **Separate successful genus this run:** `content/taxa/Poaceae/Bouteloua/genus.json` committed as `527656ed63b32f2ecf0876114b4c76a0453a8248` and re-fetched on `main`; four anatomy lessons, three comparison cards, 29 gallery-record inventory reconciliation, index and Sheet registrations already present. No photos or species installed.
+
+## 2026-10-18 Tridens retry — connector blocked
+
+- Path: `content/taxa/Poaceae/Tridens/genus.json`; latest blob at attempted write `d2d1e8ca80bde94b90b1bd737f18a39a0cc0fc1c`.
+- Intended change: correct the non-exclusive bare proximal branch distinction between *T. texanus* and *T. flavus*; retain the existing seven-row comparison, four anatomy steps, three cards; add four measured photo roles and six existing photo records with creator, license and source.
+- Source artifacts: current genus and Poaceae family lessons, three canonical `species.json` records, manifest, live Master Plant Pool rows 1199–1204, Genus Study Index row 121; all six existing JPEGs re-fetched on main.
+- Exact error: `This tool call was blocked by OpenAI's safety checks. Please double check what you are sending.` Not a confirmed GitHub SHA conflict. **No genus change committed.**
+- Next safe action: after coordination/claims check, re-fetch current genus SHA, prepare a small merge preserving intervening edits and try once; do not treat this retry as complete or overwrite other lanes.
