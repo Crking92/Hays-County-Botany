@@ -1,0 +1,48 @@
+{
+  "plan_id": "diagnostic-004-ready-not-launched",
+  "prepared_on": "2026-10-17",
+  "state": "staged_for_next_manual_user_review; DO NOT AUTO-RUN",
+  "launch_only_after": "Batch 003 user reviewed, saved and its provisional not-useful exclusions archived",
+  "launch_mechanism": "Revalidate current canonical manifest, taxonomic HOLDs, active worker claims and permanent library scan history, then copy approved IDs to workflow/photo-library/requests/diagnostic-batch-004.json (GitHub workflow triggers on request path).",
+  "species_ids": [
+    "asclepias-viridiflora",
+    "ambrosia-trifida",
+    "rudbeckia-maxima",
+    "verbesina-lindheimeri",
+    "ipomoea-lacunosa",
+    "ipomoea-triloba",
+    "cyperus-ochraceus",
+    "croton-lindheimerianus",
+    "euphorbia-fendleri",
+    "euphorbia-hypericifolia",
+    "euphorbia-villifera",
+    "quercus-vaseyana",
+    "salvia-ballotiflora",
+    "salvia-texana",
+    "sida-abutilifolia",
+    "oenothera-suffrutescens",
+    "eragrostis-spectabilis",
+    "paspalum-dilatatum",
+    "grindelia-lanceolata",
+    "quercus-macrocarpa"
+  ],
+  "source": "Public licensed GBIF and Pl@ntNet via GBIF",
+  "max_per_source_per_species": 6,
+  "must_not_run_while": "Photo Lab 003 contains unsaved user-visible labels in browser localStorage",
+  "image_review_focus": {
+    "Apocynaceae": "corona and flower structures, foliage, fruit follicles",
+    "Asteraceae": "phyllaries, heads, leaves and achene stage",
+    "Convolvulaceae": "sepals, leaf bases/lobes, fruits",
+    "Cyperaceae and Poaceae": "spikelets and ligules",
+    "Euphorbiaceae": "cyathia, glands, hairs and capsules",
+    "Quercus": "buds, acorn cup and leaf undersides",
+    "Lamiaceae": "calyx and flower shape"
+  },
+  "protections": [
+    "No edits to completed 001 and 002 GitHub review files.",
+    "No removal or replacement of Batch 003 live review until its labels are preserved.",
+    "Do not install candidate photos into species cards until image-level validation.",
+    "Do not alter five scheduled automations.",
+    "Skip any species gaining a claim, taxonomic HOLD or prior harvest before launch."
+  ]
+}
