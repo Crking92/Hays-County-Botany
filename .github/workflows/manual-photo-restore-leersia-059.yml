@@ -1,0 +1,86 @@
+name: Restore Missing Leersia Panicle 059
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-photo-restore-leersia-059.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-photo-recovery-leersia-059
+  cancel-in-progress: false
+jobs:
+  restore-one-original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install image validation
+        run: python -m pip install Pillow
+      - name: Download only the original identified Matt Lavin photograph from Wikimedia Commons
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          import hashlib, io, json, time
+          from PIL import Image
+          sp_path=Path("content/taxa/Poaceae/Leersia/leersia-oryzoides/species.json")
+          sp=json.loads(sp_path.read_text())
+          assert sp["id"]=="leersia-oryzoides"
+          file="images/leersia-oryzoides-panicle-matt-lavin.jpg"
+          entries=[p for p in sp.get("images",[]) if p.get("file")==file]
+          assert len(entries)==1
+          p=entries[0]
+          assert p.get("creator")=="Matt Lavin" and p.get("license")=="CC BY-SA 2.0"
+          assert p.get("source_page")=="https://commons.wikimedia.org/wiki/File:Leersia_oryzoides_(3880376141).jpg"
+          target=sp_path.parent/file
+          if target.exists():
+              print("Already restored:",target)
+              with Image.open(target) as im: im.verify()
+              raise SystemExit(0)
+          url="https://upload.wikimedia.org/wikipedia/commons/1/1c/Leersia_oryzoides_%283880376141%29.jpg"
+          last=None
+          for attempt in range(4):
+              try:
+                  req=Request(url,headers={"User-Agent":"HaysBotanyEducationalPhotoRecovery/1.0 (manual Github Actions restore; CC BY-SA 2.0 attribution in species record)","Accept":"image/jpeg"})
+                  with urlopen(req,timeout=24) as conn:
+                      raw=conn.read(7_000_000)
+                      assert conn.headers.get("Content-Type","").startswith("image/")
+                  assert 200_000 < len(raw) < 7_000_000
+                  with Image.open(io.BytesIO(raw)) as im:
+                      assert im.format=="JPEG"
+                      assert im.size==(2272,1704),("Wrong source image dimensions", im.size)
+                      im.verify()
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  target.write_bytes(raw)
+                  print("Restored exact Commons photo",target,len(raw),hashlib.sha256(raw).hexdigest())
+                  break
+              except Exception as exc:
+                  last=exc
+                  print("Original photo fetch error",type(exc).__name__,str(exc)[:180], "attempt",attempt+1,flush=True)
+                  time.sleep(2*(attempt+1))
+          else: raise RuntimeError("Could not safely restore source image: "+repr(last))
+          PY
+      - name: Preserve original species record and commit ONLY recovered photo
+        run: |
+          set -euo pipefail
+          test -s content/taxa/Poaceae/Leersia/leersia-oryzoides/images/leersia-oryzoides-panicle-matt-lavin.jpg
+          git diff --exit-code -- content/taxa/Poaceae/Leersia/leersia-oryzoides/species.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Leersia/leersia-oryzoides/images/leersia-oryzoides-panicle-matt-lavin.jpg
+          if git diff --cached --quiet; then echo "Image already present, no commit necessary"; exit 0; fi
+          git commit -m "Restore exact CC BY-SA Matt Lavin Leersia panicle photo [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
