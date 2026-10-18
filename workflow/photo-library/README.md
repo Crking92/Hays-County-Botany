@@ -1,5 +1,10 @@
 # Permanent photo candidate library — shared operating contract
 
+## October 17: second Photo Lab review preserved
+
+The user's **Batch 002 photo labeling** is durable in `workflow/photo-library/reviews/diagnostic-002-user-labels-20261017.json`. It covers **73 image records across 15 species**, preserving media credit, explicit roles, and original GBIF/Pl@ntNet source links. **62 are potential diagnostic candidates** and **11 were marked "Unclear / not useful" and MUST be excluded**. User export misleadingly printed SHORTLISTED on all 73, including the 11 unwanted photographs; the specific "Unclear / not useful" classification overrides the shortlist text. Do not install or mark any of these image candidates as verified until image pixels, taxonomy, copyright, structure and existing gallery uniqueness have been checked. Batch 001 review remains preserved separately. No standing automation has been changed to install these unreviewed candidates.
+
+
 ## October 17: user's first Photo Lab review is preserved in GitHub
 
 Photo Lab 001 review from the user is now saved as `workflow/photo-library/reviews/diagnostic-001-user-labels-20261017.json`. It contains **73 individually attributed, source-linked labels from 16 canonical species**, including **67 provisional potentially useful photo choices** and **six images the user marked "Unclear / not useful"**. The latter are explicitly excluded from any install shortlist. Other labeled images require true image-level identity/structure verification and ordinary gallery/claim duplicate checks; **these labels alone are NOT botanical approval for installing or captioning a photograph**.
