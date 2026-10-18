@@ -1,7 +1,7 @@
 {
   "batch_id": "master-pool-multisource-023-20261017",
   "date": "2026-10-17",
-  "status": "PARTIALLY_INSTALLED_NEEDS_FIRST_PHOTO",
+  "status": "CLOSED_12_PHOTO_READY_3_TEXT_ONLY_VISUAL_INCOMPLETE",
   "source": "Phase3 Master Pool 15 distinct uninstalled, unclaimed phase2 PREFLIGHT accepted concepts, start manifest 821",
   "source_file": "research-drafts/reconciliation/phase3-consolidated-card-workload-2026-10-15.json",
   "policy": "workflow/FIRST_CARD_MULTISOURCE_POLICY_20261016.md",
@@ -159,9 +159,11 @@
       "taxonomy_source": "https://powo.science.kew.org/results?q=Euphorbia%20roemeriana"
     }
   ],
-  "installed_count": 12,
+  "installed_count": 15,
   "installed_ids": [
     "aletris-aurea",
+    "cuscuta-indecora",
+    "cuscuta-obtusiflora",
     "cyperus-retroflexus",
     "diaperia-candida",
     "diaperia-prolifera",
@@ -172,45 +174,12 @@
     "heterotheca-villosa",
     "lemna-minor",
     "lepidium-virginicum",
-    "nolina-texana"
+    "nolina-texana",
+    "euphorbia-roemeriana"
   ],
-  "remaining_count": 3,
-  "needs_first_photo": [
-    {
-      "id": "cuscuta-indecora",
-      "scientific_name": "Cuscuta indecora",
-      "reason": "No research-grade exact-species Joey Texas photo with individually recorded reusable CC BY-NC rights was found in the saved Joey catalog; seek confirmed licensed other-source photo or exact owner-authorized original.",
-      "next_sources": [
-        "calvinking approved original iNaturalist inventory",
-        "iNaturalist exact-species research-grade photo with image-level license",
-        "GBIF/Wikimedia original source with confirmed photographer/license"
-      ],
-      "status": "NEEDS_FIRST_PHOTO"
-    },
-    {
-      "id": "cuscuta-obtusiflora",
-      "scientific_name": "Cuscuta obtusiflora",
-      "reason": "No research-grade exact-species Joey Texas photo with individually recorded reusable CC BY-NC rights was found in the saved Joey catalog; seek confirmed licensed other-source photo or exact owner-authorized original.",
-      "next_sources": [
-        "calvinking approved original iNaturalist inventory",
-        "iNaturalist exact-species research-grade photo with image-level license",
-        "GBIF/Wikimedia original source with confirmed photographer/license"
-      ],
-      "status": "NEEDS_FIRST_PHOTO"
-    },
-    {
-      "id": "euphorbia-roemeriana",
-      "scientific_name": "Euphorbia roemeriana",
-      "reason": "No research-grade exact-species Joey Texas photo with individually recorded reusable CC BY-NC rights was found in the saved Joey catalog; seek confirmed licensed other-source photo or exact owner-authorized original.",
-      "next_sources": [
-        "calvinking approved original iNaturalist inventory",
-        "iNaturalist exact-species research-grade photo with image-level license",
-        "GBIF/Wikimedia original source with confirmed photographer/license"
-      ],
-      "status": "NEEDS_FIRST_PHOTO"
-    }
-  ],
-  "last_verified_learner_count": 843,
+  "remaining_count": 0,
+  "needs_first_photo": [],
+  "last_verified_learner_count": 846,
   "installer_route": "Five installed via existing standard curation-inbox READY marker, run 39083512233, physically stored Joey CC BY-NC photos; do not re-run original 15-species script against installed taxa. Ten pending separately.",
   "install_run_url": "https://github.com/Crking92/Hays-County-Botany/actions/runs/39083512233",
   "recovery_runs": [
@@ -241,5 +210,13 @@
     }
   ],
   "updated_utc": "2026-10-18",
-  "remaining_photo_source_note": "Remaining three species require verified exact-species physical photographs with individual photographer and license metadata; do not install genus-level example images. Arizona Cooperative Extension has a CC BY-NC Cuscuta indecora lead by Anthony Mendoza but source image download has not yet been verified for the curation pipeline."
+  "remaining_photo_source_note": "These three are installed text-only, NOT visual/photo-complete. Zero-photo queue and canonical cards retain an explicit first-photo need; no false attribution or placeholder.",
+  "text_only_visual_incomplete": [
+    "cuscuta-indecora",
+    "cuscuta-obtusiflora",
+    "euphorbia-roemeriana"
+  ],
+  "visual_learner_photographed": 12,
+  "text_only_firstcard_install_run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/39088065117",
+  "visual_gap_handoff": "reports/photo-fast-fill-zero-queue.json"
 }
