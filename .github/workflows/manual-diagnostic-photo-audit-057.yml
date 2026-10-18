@@ -1,0 +1,66 @@
+name: Manual Learner Diagnostic Photo Audit 057
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-diagnostic-photo-audit-057.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hays-manual-diagnostic-audit-057
+  cancel-in-progress: false
+
+jobs:
+  audit-every-canonical-card:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install image inspection tools
+        run: python -m pip install Pillow
+      - name: Confirm existing photo-quality code still passes tests
+        run: python -m unittest discover -s tests -p 'test_photo_quality_audit.py' -v
+      - name: Audit the complete current learner without changing botanical records
+        run: |
+          python -m py_compile scripts/manual_diagnostic_photo_audit_057.py
+          python scripts/manual_diagnostic_photo_audit_057.py
+      - name: Validate report completeness and never modify species
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path("reports/diagnostic-photo-audit-057-20261017")
+          out=json.loads(base.with_suffix(".json").read_text())
+          manifest=json.loads(Path("data/manifest.json").read_text())
+          assert len(out["rows"]) == len(manifest["species"]) == out["summary"]["manifest_species"]
+          assert len({row["id"] for row in out["rows"]}) == len(manifest["species"])
+          assert out["summary"]["gallery_entries"] >= out["summary"]["physical_photo_files"]
+          assert base.with_suffix(".md").is_file()
+          print("COMPLETE audit of",len(out["rows"]),"species")
+          PY
+          if ! git diff --exit-code -- data/manifest.json content/taxa/; then
+            echo "Unexpected canonical species change" >&2
+            exit 1
+          fi
+      - name: Save only new audit reports and rebase past concurrent work
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/diagnostic-photo-audit-057-20261017.json reports/diagnostic-photo-audit-057-20261017.md
+          git commit -m "Audit 057: field-learner local photos and diagnostic metadata [skip ci]"
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
