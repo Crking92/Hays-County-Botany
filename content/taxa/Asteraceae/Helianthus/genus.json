@@ -26,7 +26,9 @@
     "version": "2.2-licensed-diagnostic-photo-pairs",
     "last_reviewed": "2026-10-08",
     "genus_lesson": "comparison_complete_current_two_species_set",
-    "visual_lock": "leaf_node_and_phyllary_paired_sources_live__matched-scale-local-upgrade_optional"
+    "visual_lock": "leaf_node_and_phyllary_paired_sources_live__matched-scale-local-upgrade_optional",
+    "anatomy_lesson_upgrade": "2026-10-17",
+    "photo_anatomy_state": "four_photo_roles_defined; diagnostic arrows pending"
   },
   "shared_genus_recognition": {
     "look_here_first": "Confirm a true sunflower head: many disk florets on one receptacle, yellow ray florets around the margin, and an involucre of green phyllaries beneath. Then use whole-plant architecture and leaves before tightening to phyllaries.",
@@ -337,6 +339,108 @@
       "source": "Flora of North America",
       "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=114871",
       "role": "generic context and caveat about difficult species delimitation"
+    }
+  ],
+  "anatomy_lessons": [
+    {
+      "title": "1 · Trace a mid-stem leaf to its node",
+      "term": "petiole, blade, node",
+      "plain": "A petiole is the stalk between the stem and leaf blade. Inspect several mature leaves halfway up the plant, not only basal or juvenile leaves.",
+      "look_for": "H. annuus usually has a broad toothed blade and obvious petiole; H. maximiliani often has a narrow blade attached nearly directly to the stem.",
+      "why_it_matters": "Attachment and blade outline remain usable before the plant flowers.",
+      "photo_role": "paired mid-stem nodes, matched ruler and side view",
+      "status": "needs_matched_photo",
+      "reference_status": "existing source-linked node references available, not same-scale verified",
+      "annotation_status": "pending"
+    },
+    {
+      "title": "2 · Count the strong veins and find the fold",
+      "term": "triplinerved, midrib, conduplicate",
+      "plain": "Triplinerved means three prominent veins start near the blade base; conduplicate means folded lengthwise into a V.",
+      "look_for": "Trace the basal veins of H. annuus and compare the dominant single midrib and often V-folded narrow H. maximiliani leaf.",
+      "why_it_matters": "Venation and longitudinal folding are stronger than color or head count.",
+      "photo_role": "paired leaf front and cross-section macro, veins marked only after pixel review",
+      "status": "needs_matched_photo",
+      "reference_status": "existing linked leaf images are study references; vein-arrow placement unverified",
+      "annotation_status": "pending"
+    },
+    {
+      "title": "3 · Turn a mature head sideways",
+      "term": "involucre, phyllary",
+      "plain": "The involucre is the set of green bracts beneath a sunflower head; each bract is a phyllary.",
+      "look_for": "H. annuus phyllaries often broad, about 5–8 mm wide; H. maximiliani often narrow, about 2–3 mm wide with long slender tips.",
+      "why_it_matters": "Measured bract width is a useful flowering confirmation when stems have been cut or regrown.",
+      "photo_role": "same-angle underside of mature heads with mm scale",
+      "status": "source_linked_reference_available; matched_scale_missing",
+      "reference_status": "two external licensed phyllary views already in visual_comparison, not locally installed",
+      "annotation_status": "pending"
+    },
+    {
+      "title": "4 · Check the base and head sequence",
+      "term": "taproot, rhizome, capitulum arrangement",
+      "plain": "An annual sunflower grows from a single-season root system; a perennial rhizome can send up shoots from connected underground stems.",
+      "look_for": "Compare annual taproot with rhizomatous H. maximiliani colony and document whether heads are terminal on branches or arranged along the upper stem.",
+      "why_it_matters": "The root system supports identification when foliage is atypical; head counts alone overlap.",
+      "photo_role": "root/crown excavation and whole upper flowering stem, same-scale",
+      "status": "needs_photo",
+      "reference_status": "no verified exact root-system photo assigned",
+      "annotation_status": "pending"
+    }
+  ],
+  "comparison_cards": [
+    {
+      "title": "Annual versus Maximilian — leaf and node",
+      "taxon_ids": [
+        "helianthus-annuus",
+        "helianthus-maximiliani"
+      ],
+      "look_here_first": "Choose three mature mid-stem leaves: broad petiolate 3-veined blades versus narrow short-stalked 1-nerved, often folded blades.",
+      "measurable_tie_breaker": "Petiole often several cm in annuus versus typically 0–2 cm in maximiliani; compare on the same plant stage.",
+      "photo_requirements": [
+        "matched node view",
+        "leaf base venation closeup",
+        "V-fold cross-section"
+      ],
+      "caution": "Young shoots, drought, regrowth and unusual leaves can obscure any one character."
+    },
+    {
+      "title": "Annual versus Maximilian — phyllaries",
+      "taxon_ids": [
+        "helianthus-annuus",
+        "helianthus-maximiliani"
+      ],
+      "look_here_first": "Flip mature heads and measure a representative middle phyllary, not a tip alone.",
+      "measurable_tie_breaker": "Annuus often 5–8 mm wide with relatively abrupt taper; maximiliani often 2–3 mm wide with slender gradually tapering tips.",
+      "photo_requirements": [
+        "underside of both mature heads at common scale",
+        "macro of a measured individual phyllary"
+      ],
+      "caution": "Phyllaries vary within a head; compare several on intact, mature involucres."
+    }
+  ],
+  "photo_rights_and_status": {
+    "installed_exact_species_local_files": {
+      "helianthus-annuus": 5,
+      "helianthus-maximiliani": 5
+    },
+    "local_file_status": "ten nonempty JPGs checked in canonical species directories, but the genus anatomy roles are not independently pixel-certified",
+    "local_rights": "All ten existing local species photos carry individual CC BY-NC credits and public reuse review; preserve attribution and noncommercial restrictions",
+    "external_references": "Six study comparisons in existing visual_comparison.items include linked Commons and NCSU images with their individual CC BY/CC BY-SA rights; links do not count as locally installed files",
+    "saved_video_frames": "Existing Joey Santore video frames are private-study references only, not public CC and not new local installs",
+    "annotations": "No arrows or coordinates verified or installed"
+  },
+  "handoffs": [
+    {
+      "lane": "diagnostic-photo",
+      "action": "Select and verify matched-scale mid-stem leaf/node, venation and leaf-fold, mature phyllary underside, and annual-root versus perennial-rhizome photographs; check permanent library first and confirm pixels before arrows."
+    },
+    {
+      "lane": "taxonomy-diagnostic",
+      "action": "Retain source-specific leaf and phyllary variability; investigate unusual mixed or regrowth material before asserting an exact species, without changing native-range decisions."
+    },
+    {
+      "lane": "installer",
+      "action": "Both canonical Helianthus species are already installed. Do not reinstall or alter species concepts from this genus lesson."
     }
   ]
 }
