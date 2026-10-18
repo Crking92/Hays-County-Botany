@@ -1,0 +1,64 @@
+{
+  "request_id": "diagnostic-batch-004",
+  "requested_at": "2026-10-18",
+  "user_approved": true,
+  "phase": "manual_diagnostic_photo_candidate_collection",
+  "manual_only": true,
+  "source": [
+    "GBIF public individually licensed observations",
+    "Pl@ntNet via GBIF individually licensed media"
+  ],
+  "species_ids": [
+    "asclepias-viridiflora",
+    "ambrosia-trifida",
+    "rudbeckia-maxima",
+    "verbesina-lindheimeri",
+    "ipomoea-lacunosa",
+    "ipomoea-triloba",
+    "cyperus-ochraceus",
+    "croton-lindheimerianus",
+    "euphorbia-fendleri",
+    "euphorbia-hypericifolia",
+    "euphorbia-villifera",
+    "quercus-vaseyana",
+    "salvia-ballotiflora",
+    "salvia-texana",
+    "sida-abutilifolia",
+    "oenothera-suffrutescens",
+    "eragrostis-spectabilis",
+    "paspalum-dilatatum",
+    "grindelia-lanceolata",
+    "quercus-macrocarpa"
+  ],
+  "per_source_per_species": 6,
+  "max_photos_per_observation": 2,
+  "skip_previously_scanned": true,
+  "existing_gallery_allowed": true,
+  "archive": "private GitHub Release ZIP and searchable species index",
+  "publish_active_photo_lab": false,
+  "archive_html_for_later_review": "photo-review-batch-004.html",
+  "preserve_live_gallery": "photo-review.html remains Batch 003 until user selections are submitted and saved",
+  "preserve_reviews": [
+    "workflow/photo-library/reviews/diagnostic-001-user-labels-20261017.json",
+    "workflow/photo-library/reviews/diagnostic-002-user-labels-20261017.json"
+  ],
+  "install_into_live_species_cards": false,
+  "review_goals": {
+    "Apocynaceae": "corona and flower structures, foliage, fruit follicles",
+    "Asteraceae": "phyllaries, heads, leaves and achene stage",
+    "Convolvulaceae": "sepals, leaf bases/lobes, fruits",
+    "Cyperaceae and Poaceae": "spikelets and ligules",
+    "Euphorbiaceae": "cyathia, glands, hairs and capsules",
+    "Quercus": "buds, acorn cup and leaf undersides",
+    "Lamiaceae": "calyx and flower shape"
+  },
+  "constraints": [
+    "Collection and release archiving only; no modification of live Photo Lab Batch 003",
+    "Do not erase or replace any unsaved user Batch 003 labels held in browser storage",
+    "Do not expose completed older Photo Lab galleries on Cloudflare",
+    "Do not install unreviewed candidate images on canonical cards",
+    "Respect exact botanical IDs, taxonomy HOLDs, claims, prior scans, individual image credits and CC license restrictions",
+    "Do not alter five scheduled automations"
+  ],
+  "launch_note": "User requested continuing photo gathering on October 18 while Batch 003 remains awaiting review. Collect and archive now, publish Batch 004 to live Photo Lab only after Batch 003 user review is durably saved."
+}
