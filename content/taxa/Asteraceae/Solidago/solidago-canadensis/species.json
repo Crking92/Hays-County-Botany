@@ -34,7 +34,7 @@
   "images": [
     {
       "file": "images/01-curated-reference.jpg",
-      "role": "curated taxon reference 1",
+      "role": "Recognize · upright narrow-leaved stem with branching yellow goldenrod flowerheads; lower stem and microscopic traits not shown",
       "creator": "(c) jonastid, some rights reserved (CC BY-NC)",
       "license": "cc-by-nc",
       "source_page": "https://www.inaturalist.org/taxa/67808",
@@ -47,7 +47,7 @@
     },
     {
       "file": "images/02-curated-reference.jpg",
-      "role": "curated taxon reference 2",
+      "role": "Look closer · arching yellow flowering sprays above narrow green leaves; phyllaries and lower-stem hair pattern unresolved",
       "creator": "(c) Lyudmila Ivanova, some rights reserved (CC BY-NC), uploaded by Lyudmila Ivanova",
       "license": "cc-by-nc",
       "source_page": "https://www.inaturalist.org/taxa/67808",
@@ -55,19 +55,6 @@
       "platform": "iNaturalist",
       "observation_id": "",
       "photo_id": "87573048",
-      "study_use": "yes",
-      "public_reuse": "review"
-    },
-    {
-      "file": "images/03-texas-reference.jpg",
-      "role": "Texas research-grade reference",
-      "creator": "(c) lan, some rights reserved (CC BY-NC)",
-      "license": "cc-by-nc",
-      "source_page": "https://www.inaturalist.org/observations/360436188",
-      "direct_image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/657694951/large.jpg",
-      "platform": "iNaturalist",
-      "observation_id": "360436188",
-      "photo_id": "657694951",
       "study_use": "yes",
       "public_reuse": "review"
     }
@@ -131,5 +118,30 @@
     "photo_current_count": 3,
     "photo_limitations": "Existing images retained; matched bottom-stem/underside macro with actual arrows still missing.",
     "version": "2.0-pair-comparison-20261013"
-  }
+  },
+  "unresolved_photo_references": [
+    {
+      "status": "PHOTO_IDENTITY_HOLD_MIXED_SCENE",
+      "previous_image_index": 2,
+      "inspected_at_local": "2026-10-17",
+      "original_gallery_record": {
+        "file": "images/03-texas-reference.jpg",
+        "role": "Texas research-grade reference",
+        "creator": "(c) lan, some rights reserved (CC BY-NC)",
+        "license": "cc-by-nc",
+        "source_page": "https://www.inaturalist.org/observations/360436188",
+        "direct_image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/657694951/large.jpg",
+        "platform": "iNaturalist",
+        "observation_id": "360436188",
+        "photo_id": "657694951",
+        "study_use": "yes",
+        "public_reuse": "review"
+      },
+      "image_file_preserved_in_repository": true,
+      "reason": "Full-size image visibly dominated by pink-white evening-primrose-like flowers and mixed foliage. No unambiguous Canada goldenrod subject or goldenrod reproductive structures can be confirmed. Metadata source observation alone does not establish useful exact-species teaching content.",
+      "next_step": "Review original iNaturalist observation/photo context and exact taxon subject before any reinstatement. Do not use pink flowers as Solidago diagnostic evidence.",
+      "display_policy": "Exclude from canonical image gallery pending photo identity review; preserve file, creator, license, source and observation ID."
+    }
+  ],
+  "photo_note": "Audit 064: one mixed-scene photo moved to unresolved_photo_references with physical file and provenance retained; remaining two show goldenrod flowers but cannot diagnose lower-stem hairs."
 }
