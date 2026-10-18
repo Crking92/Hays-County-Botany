@@ -1,5 +1,13 @@
 # Permanent photo candidate library — shared operating contract
 
+## October 17: latest-only Photo Lab presentation (Batch 003 onward)
+
+The user asked to hide completed Photo Lab Batch 001 and 002 review galleries from the public learner and start Batch 003. Both completed user reviews remain durably committed in `workflow/photo-library/reviews/` with their attribution and exclusions, and their images stay in private GitHub Release archives. **Do not delete or overwrite the reviews**.
+
+The live `photo-review.html` is now the *current review only*. The generator `scripts/photo_lab_batch_page.py` reads the immutable gallery UI from `workflow/photo-library/templates/photo-lab-gallery-template.html` and, only after successful image-archive publication, writes the active collection into `photo-review.html`. It also saves a separate per-batch HTML file in the repository as an audit artifact. Cloudflare's `scripts/build_cloudflare_site.sh` intentionally deploys only `photo-review.html`, **not** any `photo-review-batch-*.html` pages. The site's Photo Lab nav link stays stable; previously reviewed batches disappear from the live site without losing scientific provenance or reviewer decisions.
+
+Manual request `workflow/photo-library/requests/diagnostic-batch-003.json` targets 20 new, unscanned, unclaimed species and preserves all claim/taxonomy/image-rights restrictions. Five existing automations are unchanged. A user's labels remain unverified suggestions until expert image inspection.
+
 ## October 17: second Photo Lab review preserved
 
 The user's **Batch 002 photo labeling** is durable in `workflow/photo-library/reviews/diagnostic-002-user-labels-20261017.json`. It covers **73 image records across 15 species**, preserving media credit, explicit roles, and original GBIF/Pl@ntNet source links. **62 are potential diagnostic candidates** and **11 were marked "Unclear / not useful" and MUST be excluded**. User export misleadingly printed SHORTLISTED on all 73, including the 11 unwanted photographs; the specific "Unclear / not useful" classification overrides the shortlist text. Do not install or mark any of these image candidates as verified until image pixels, taxonomy, copyright, structure and existing gallery uniqueness have been checked. Batch 001 review remains preserved separately. No standing automation has been changed to install these unreviewed candidates.
