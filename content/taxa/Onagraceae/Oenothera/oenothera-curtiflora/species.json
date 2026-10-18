@@ -66,17 +66,8 @@
     "glass_root_garden_photo_install": "2026-10-14",
     "joey_inat_photo_install": "2026-10-15"
   },
-  "photo_note": "Diagnostic source page locked; exact downloadable photo provenance remains pending. Private owner-authorized Glass Root Garden photo physically installed 2026-10-14; source API rights retained separately. Joey Santore CC BY-NC 4.0 photo(s) provisionally installed; more diagnostic close-ups pending.",
+  "photo_note": "Diagnostic source page locked; exact downloadable photo provenance remains pending. Private owner-authorized Glass Root Garden photo physically installed 2026-10-14; source API rights retained separately. Joey Santore CC BY-NC 4.0 photo(s) provisionally installed; more diagnostic close-ups pending. Audit 059: nonexistent gallery filename archived in unresolved_photo_references without deleting its original source record.",
   "images": [
-    {
-      "file": "images/01-diagnostic-source.jpg",
-      "role": "Tall velveteen habit / tiny-flowered raceme reference",
-      "creator": "",
-      "license": "",
-      "source_page": "https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20curtiflora.html",
-      "study_use": "yes",
-      "public_reuse": "review"
-    },
     {
       "file": "images/glass-root-508886200-first-photo.jpg",
       "role": "Slender flowering stem and overall habit; small floral anatomy not resolved",
@@ -130,5 +121,24 @@
     "mode": "learner_fast_fill",
     "image_count": 2,
     "note": "Private owner-authorized first-photo coverage; fine diagnostic views remain pending."
-  }
+  },
+  "unresolved_photo_references": [
+    {
+      "status": "SOURCE_LEAD_ONLY_MISSING_PHYSICAL_PHOTO",
+      "previous_image_index": 0,
+      "checked_at": "2026-10-17",
+      "audit_reference": "reports/diagnostic-photo-audit-057-20261017.md",
+      "original_gallery_record": {
+        "file": "images/01-diagnostic-source.jpg",
+        "role": "Tall velveteen habit / tiny-flowered raceme reference",
+        "creator": "",
+        "license": "",
+        "source_page": "https://w3.biosci.utexas.edu/prc/K12/pages/Oenothera%20curtiflora.html",
+        "study_use": "yes",
+        "public_reuse": "review"
+      },
+      "repair_requirements": "UT Austin Williamson County taxon page is a botanical source, not a verified licensed photograph. Keep as research reference until exact media, photographer and reuse are verified.",
+      "display_policy": "Do not treat the missing file as installed; retain complete original source/provenance and re-add only after exact image, licensing and identity screening."
+    }
+  ]
 }
