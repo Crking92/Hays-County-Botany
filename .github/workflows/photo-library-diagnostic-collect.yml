@@ -5,7 +5,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'workflow/photo-library/requests/20261016-diagnostic-batch-001.json'
+      - 'workflow/photo-library/requests/diagnostic-batch-*.json'
 
 permissions:
   contents: write
@@ -40,12 +40,15 @@ jobs:
           python -m py_compile scripts/bulk_open_photo_harvest.py scripts/photo_library_archive.py
           ids="$(python - <<'PY'
           import json
-          with open("workflow/photo-library/requests/20261016-diagnostic-batch-001.json", encoding="utf-8") as f:
+          from pathlib import Path
+          requests = sorted(Path("workflow/photo-library/requests").glob("diagnostic-batch-*.json"))
+          if not requests: raise SystemExit("No diagnostic-batch-### request found")
+          with requests[-1].open(encoding="utf-8") as f:
               request = json.load(f)
           print(",".join(request["species_ids"]))
           PY
           )"
-          python scripts/bulk_open_photo_harvest.py --source public --limit 30 --per-species 6 --max-local 2 --species "$ids" --allow-requested-any-gallery --download --out "$RUNNER_TEMP/harvest"
+          python scripts/bulk_open_photo_harvest.py --source public --limit 30 --per-species 6 --max-local 2 --species "$ids" --allow-requested-any-gallery --skip-library-scanned --download --out "$RUNNER_TEMP/harvest"
       - name: Prepare private archive and metadata
         env:
           RUN_ID: ${{ github.run_id }}
@@ -76,12 +79,24 @@ jobs:
           fi
           python scripts/photo_library_archive.py published --batch-id "diagnostic-$RUN_ID"
           python scripts/photo_library_archive.py rebuild
+      - name: Publish separately labeled Photo Lab review gallery
+        env:
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          batch_number="$(python - <<'PY'
+          from pathlib import Path
+          files = sorted(Path("workflow/photo-library/requests").glob("diagnostic-batch-*.json"))
+          print(files[-1].stem.rsplit("-",1)[-1])
+          PY
+          )"
+          python scripts/photo_lab_batch_page.py --batch-id "diagnostic-$RUN_ID" --batch-number "$batch_number"
       - name: Save durable searchable candidate inventory
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add workflow/photo-library/batches workflow/photo-library/catalog.csv workflow/photo-library/species-index.json
+          git add workflow/photo-library/batches workflow/photo-library/catalog.csv workflow/photo-library/species-index.json photo-review.html photo-review-batch-*.html
           git commit -m "Archive new diagnostic view candidates from separate botanical observations"
           for attempt in 1 2 3 4; do
             git fetch origin main
