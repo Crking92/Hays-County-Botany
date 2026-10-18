@@ -1,0 +1,60 @@
+{
+  "request_id": "diagnostic-batch-003",
+  "requested_at": "2026-10-17",
+  "user_approved": true,
+  "phase": "manual_diagnostic_photo_candidate_collection",
+  "manual_only": true,
+  "source": [
+    "GBIF public licensed observations",
+    "Pl@ntNet GBIF occurrence media with individual license"
+  ],
+  "species_ids": [
+    "funastrum-cynanchoides",
+    "ambrosia-artemisiifolia",
+    "ambrosia-psilostachya",
+    "grindelia-ciliata",
+    "rudbeckia-hirta",
+    "verbesina-encelioides",
+    "verbesina-virginica",
+    "ipomoea-coccinea",
+    "cyperus-retroflexus",
+    "croton-lindheimeri",
+    "euphorbia-nutans",
+    "tragia-ramosa",
+    "quercus-marilandica",
+    "quercus-sinuata-var-breviloba",
+    "salvia-azurea",
+    "salvia-engelmannii",
+    "oenothera-calcicola",
+    "oenothera-speciosa",
+    "andropogon-gerardi",
+    "bouteloua-rigidiseta"
+  ],
+  "per_source_per_species": 6,
+  "max_photos_per_observation": 2,
+  "skip_previously_scanned": true,
+  "existing_gallery_allowed": true,
+  "preserve_reviews": [
+    "workflow/photo-library/reviews/diagnostic-001-user-labels-20261017.json",
+    "workflow/photo-library/reviews/diagnostic-002-user-labels-20261017.json"
+  ],
+  "archive": "private GitHub Release ZIP plus searchable species-index",
+  "publish_active_photo_lab": "photo-review.html",
+  "archive_html_not_for_deployment": "photo-review-batch-003.html",
+  "install_into_live_species_cards": false,
+  "review_goals": {
+    "milk vines": "corona, specialized reproductive parts, leaves, seed follicles",
+    "aster weeds": "head arrangement, phyllaries, leaves, fruits",
+    "Convolvulaceae": "leaf shape, sepals, flowers, capsules",
+    "sedge and grasses": "inflorescence, spikelets, awns, ligules",
+    "euphorbs and nettle-like relatives": "hairs, bracts, tiny reproductive organs, capsules",
+    "oaks": "leaf lobes, twigs/buds, acorn cups",
+    "salvias and primroses": "calyx, flower parts, leaf arrangement, fruits"
+  },
+  "rules": [
+    "Preserve all original photos and review classifications; hide completed reviews from public navigation without deleting repository data.",
+    "Do not claim photo actually depicts requested anatomy until an image is manually checked.",
+    "Respect licenses, photographers, exact taxon, taxonomic holds, prior scans and other worker claims.",
+    "Do not alter the five existing scheduled automations."
+  ]
+}
