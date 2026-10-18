@@ -3,5 +3,20 @@
   "mode": "validate_only",
   "require_exact_images": true,
   "visual_mode": "learner_fast_fill",
-  "note": "Installer-lane recovery of Echinochloa crus-galli only. Elephantopus carolinianus is already canonical from manual Batch 024 and MUST NOT be reinstalled. READY only after full validation and mode install."
+  "note": "Installer-lane recovery of Echinochloa crus-galli only. Elephantopus carolinianus is already canonical from manual Batch 024 and MUST NOT be reinstalled. READY only after full validation and mode install.",
+  "status": "BLOCKED_SOURCE_FILE_WRITE_20261017",
+  "recovery": {
+    "checked_at": "2026-10-17T23:47:39-05:00",
+    "verified_live_manifest_species_count": 865,
+    "echinochloa_canonical": false,
+    "elephantopus_canonical": true,
+    "missing_files": [
+      "taxa/Poaceae/Echinochloa/echinochloa-crus-galli/SOURCES.txt",
+      "taxa/Poaceae/Echinochloa/echinochloa-crus-galli/image-sources.csv"
+    ],
+    "preserved_original_batch": "approved-installer-elephantopus-echinochloa-20261017-001",
+    "source_license": "Mark Marathon, CC BY-SA 4.0, Wikimedia Commons File:Echinochloa_crus-galli_seedhead.jpg",
+    "blocker": "GitHub connector safety checks rejected copying both verified source files from original installer batch. No READY; no Action; no physical photo. Do not bypass connector restriction or count installed.",
+    "next": "Recheck manifest, claims and inbox; use authorized source-file write only if allowed; validate full isolated batch, then set install and publish READY last. Never run superseded two-species batch."
+  }
 }
