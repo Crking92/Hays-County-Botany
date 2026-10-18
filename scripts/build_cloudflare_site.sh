@@ -5,7 +5,12 @@ rm -rf dist
 mkdir -p dist
 
 cp index.html dist/
-cp photo-review*.html dist/  # Photo Lab batches each publish their own standalone page
+# Publish only the current Photo Lab review; completed batches remain archived in GitHub.
+cp photo-review.html dist/
+if compgen -G "dist/photo-review-batch-*.html" >/dev/null; then
+  echo "ERROR: old Photo Lab batch galleries must not appear on the public site" >&2
+  exit 1
+fi
 cp manifest.webmanifest dist/
 cp sw.js dist/
 
