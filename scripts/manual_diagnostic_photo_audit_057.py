@@ -10,7 +10,7 @@ import json
 import re
 
 from PIL import Image, ImageOps
-from scripts.photo_quality_audit import audit, load, required_roles
+from photo_quality_audit import audit, load
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "reports"
