@@ -1,0 +1,82 @@
+name: Verify Diagnostic Gallery Recovery 060
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-photo-recovery-verify-060.yml"
+permissions:
+  contents: write
+concurrency:
+  group: hays-diagnostic-photo-recovery-verify-060
+  cancel-in-progress: false
+jobs:
+  verify-all-current-cards:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install Pillow
+      - name: Check exact recovery records and live galleries
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          pairs={
+            "bouteloua-rigidiseta":"images/01-texas-grama-diagnostic-source.jpg",
+            "leersia-oryzoides":"images/leersia-oryzoides-panicle-matt-lavin.jpg",
+            "oenothera-curtiflora":"images/01-diagnostic-source.jpg",
+            "oenothera-suffulta":"images/01-diagnostic-source.jpg",
+            "yucca-constricta":"images/01-diagnostic-source.jpg",
+          }
+          manifest=json.loads(Path("data/manifest.json").read_text())
+          by_id={p["id"]:Path(p["path"]) for p in manifest["species"]}
+          for sid,missing in pairs.items():
+              file=by_id[sid]
+              species=json.loads(file.read_text())
+              preserved=[x for x in species.get("unresolved_photo_references",[]) if x.get("original_gallery_record",{}).get("file")==missing]
+              assert len(preserved)==1,(sid,"provenance not retained")
+              assert preserved[0]["original_gallery_record"].get("source_page"),(sid,"source missing")
+              gallery=species.get("images",[])
+              assert gallery and all(x.get("file")!=missing for x in gallery),(sid,"displaying false gallery entry")
+              for x in gallery:
+                  local=x.get("file","")
+                  assert local and (file.parent/local).is_file(),(sid,"missing file",local)
+              print("PASS",sid,len(gallery),"valid gallery files and source-only recovery lead")
+          PY
+      - name: Refresh complete live photo coverage and integrity audit
+        run: |
+          python -m unittest discover -s tests -p 'test_photo_quality_audit.py' -v
+          python scripts/refresh_photo_coverage_snapshot.py
+          python scripts/manual_diagnostic_photo_audit_057.py
+      - name: Verify zero broken gallery references and unchanged species
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j=json.loads(Path("reports/diagnostic-photo-audit-057-20261017.json").read_text())
+          assert len(j["rows"])==j["summary"]["manifest_species"]
+          assert j["summary"]["broken"]==0,j["summary"]["broken"]
+          assert j["summary"]["unreadable"]==0,j["summary"]["unreadable"]
+          print("ALL CHECKED",j["summary"]["manifest_species"],"species; no broken local references or unreadable image media")
+          PY
+          git diff --exit-code -- data/manifest.json content/taxa/
+      - name: Commit reports without overwriting canonical photo or botany edits
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/photo-coverage-latest.json reports/diagnostic-photo-audit-057-20261017.json reports/diagnostic-photo-audit-057-20261017.md
+          git commit -m "Refresh all-cards photo integrity audit after missing-source quarantine [skip ci]"
+          for attempt in 1 2 3; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
