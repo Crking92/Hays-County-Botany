@@ -1,0 +1,78 @@
+name: Refresh Diagnostic Role Audit 062
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-diagnostic-role-refresh-062.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-role-refresh-062
+  cancel-in-progress: false
+jobs:
+  current-inventory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install photo decoder
+        run: python -m pip install Pillow
+      - name: Refresh latest main branch before auditing
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Confirm seven teaching cards have valid photo role captions
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          ids=['bouteloua-curtipendula','asclepias-asperula','coreopsis-basalis','croton-texensis','solidago-altissima','euphorbia-cyathophora','quercus-laceyi']
+          manifest=json.loads(Path('data/manifest.json').read_text())
+          ref={x['id']:x['path'] for x in manifest['species']}
+          total=0
+          for sid in ids:
+              sp=json.loads(Path(ref[sid]).read_text())
+              imgs=sp['images']
+              assert imgs and all(p.get('role','').startswith(('Look closer ·','Recognize ·','Confirm clue ·')) for p in imgs),sid
+              assert all(p.get('creator') and p.get('source_page') for p in imgs),sid
+              total+=len(imgs)
+          assert total==31,total
+          print('Verified 31 plant-part photo labels and existing source credits across seven canonical cards')
+          PY
+      - name: Recheck all canonical gallery files and role metadata
+        run: |
+          python -m unittest discover -s tests -p test_photo_quality_audit.py -v
+          python scripts/refresh_photo_coverage_snapshot.py
+          python scripts/manual_diagnostic_photo_audit_057.py
+      - name: Assert complete, intact, read-only botanical source
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          a=json.loads(Path('reports/diagnostic-photo-audit-057-20261017.json').read_text())
+          m=json.loads(Path('data/manifest.json').read_text())
+          assert a['summary']['manifest_species']==len(m['species'])==len(a['rows'])
+          assert a['summary']['broken']==0 and a['summary']['unreadable']==0, a['summary']
+          print('Verified',len(a['rows']),'cards, no broken or unreadable installed image files')
+          PY
+          git diff --exit-code -- content/taxa/ data/manifest.json
+      - name: Publish refreshed reports, not photos or botany edits
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/photo-coverage-latest.json reports/diagnostic-photo-audit-057-20261017.json reports/diagnostic-photo-audit-057-20261017.md
+          git commit -m "Refresh diagnostic role audit after manual review 061 [skip ci]"
+          for attempt in 1 2 3 4; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
