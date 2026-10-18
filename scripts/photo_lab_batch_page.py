@@ -68,7 +68,7 @@ def main():
 
     if not photos:
         raise RuntimeError("No individually licensed photo candidates to review")
-    template_path = ROOT / "photo-review.html"
+    template_path = ROOT / "workflow/photo-library/templates/photo-lab-gallery-template.html"
     template = template_path.read_text(encoding="utf-8")
     payload = json.dumps(photos, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
     page, replaced = re.subn(
@@ -110,22 +110,21 @@ def main():
         "Look closer. Then decide.",
         "Batch " + number + ": Look closer. Then decide.",
     )
+    # The live Photo Lab should display the newest unreviewed collection only.
+    # Older pages and user reviews stay in GitHub history / photo-library records,
+    # but no completed batch is linked from the learner or deployed by Cloudflare.
+    page = re.sub(
+        r'<a class="back" href="\./photo-review-batch-\d{3}\.html">.*?</a>',
+        "",
+        page,
+    )
     page = page.replace(
         '<a class="back" href="./index.html">← Back to Visual Learner</a>',
-        '<a class="back" href="./photo-review.html">← First Photo Lab batch</a>'
-        ' <a class="back" href="./index.html">Visual Learner</a>',
+        '<a class="back" href="./index.html">← Visual Learner</a>',
     )
     target_name = "photo-review-batch-" + number + ".html"
     (ROOT / target_name).write_text(page, encoding="utf-8")
-
-    # Make the next batch discoverable from the original Photo Lab, without
-    # changing or clearing the browser-local labels for the first batch.
-    new_link = '<a class="back" href="./' + target_name + '">Photo Lab Batch ' + number + ' →</a>'
-    if new_link not in template:
-        if "</header>" not in template:
-            raise RuntimeError("Photo Lab header changed")
-        template = template.replace("</header>", new_link + "</header>", 1)
-        template_path.write_text(template, encoding="utf-8")
+    (ROOT / "photo-review.html").write_text(page, encoding="utf-8")
     print(json.dumps({
         "batch": batch_id, "number": number,
         "species": len(groups), "visible_review_photos": len(photos),
