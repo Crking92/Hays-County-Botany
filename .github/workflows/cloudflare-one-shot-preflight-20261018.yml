@@ -1,0 +1,51 @@
+name: Cloudflare Static Site One-Time Preflight (2026-10-18)
+# One-shot diagnosis only. Does NOT deploy or change the live Cloudflare Worker.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/cloudflare-one-shot-preflight-20261018.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-static-deployment-package:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reproduce Cloudflare build command
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/build_cloudflare_site.sh
+          test -f dist/photo-review.html
+          grep -q 'Photo Lab Batch 004' dist/photo-review.html
+          test -f dist/_headers
+          test -f dist/sw.js
+      - name: Check static asset deployment limits and required files
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import json
+          root=Path('dist')
+          files=[p for p in root.rglob('*') if p.is_file()]
+          too_large=[(str(p),p.stat().st_size) for p in files if p.stat().st_size>25*1024*1024]
+          print(json.dumps({
+            'file_count':len(files),
+            'uncompressed_bytes':sum(p.stat().st_size for p in files),
+            'max_file_size':max((p.stat().st_size for p in files),default=0),
+            'files_over_25MiB':too_large[:20],
+            'photo_lab_batch004': 'Photo Lab Batch 004' in (root/'photo-review.html').read_text(),
+            'has_headers':(root/'_headers').is_file()
+          },indent=2))
+          if len(files)>20000 or too_large: raise SystemExit('Workers Free static assets limit exceeded')
+          PY
+      - name: Validate Wrangler deployment packaging without publishing
+        shell: bash
+        run: |
+          set -euo pipefail
+          npx --yes wrangler@4 deploy --dry-run
