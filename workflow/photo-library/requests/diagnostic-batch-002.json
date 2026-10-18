@@ -1,0 +1,56 @@
+{
+  "request_id": "diagnostic-batch-002",
+  "requested_at": "2026-10-17",
+  "user_approved": true,
+  "phase": "manual_diagnostic_photo_candidate_collection",
+  "manual_only": true,
+  "preserve_completed_review": "workflow/photo-library/reviews/diagnostic-001-user-labels-20261017.json",
+  "source": [
+    "GBIF public licensed image observations",
+    "Pl@ntNet via GBIF with image-level licensing"
+  ],
+  "species_ids": [
+    "asclepias-oenotheroides",
+    "asclepias-texana",
+    "asclepias-verticillata",
+    "funastrum-crispum",
+    "coreopsis-basalis",
+    "coreopsis-tinctoria",
+    "solidago-canadensis",
+    "solidago-gigantea",
+    "symphyotrichum-ericoides",
+    "croton-fruticulosus",
+    "euphorbia-maculata",
+    "euphorbia-prostrata",
+    "euphorbia-serpens",
+    "bouteloua-gracilis",
+    "bouteloua-hirsuta",
+    "aristida-purpurea",
+    "quercus-muehlenbergii",
+    "quercus-stellata",
+    "ipomoea-lacunosa",
+    "ipomoea-lindheimeri"
+  ],
+  "per_source_per_species": 6,
+  "max_photos_per_single_observation": 2,
+  "skip_previously_scanned": true,
+  "allow_already_photographed_species": true,
+  "verify_each_image_before_install": true,
+  "publish_review_gallery": "photo-review-batch-002.html",
+  "archive": "private GitHub Release + searchable GitHub metadata",
+  "install_into_live_species_cards": false,
+  "priority_visual_roles": {
+    "milkweeds and milkvines": "flower corona/hoods, leaves, seed follicles",
+    "aster family": "phyllaries, flower heads, leaves, seed heads",
+    "spurges": "cyathia, glands, stem hairs, leaves and capsules",
+    "grasses": "inflorescence, spikelets, ligules and leaf base",
+    "oaks": "leaf undersides, buds and acorn cups",
+    "morning glories": "sepals, leaf lobes, flower and fruit"
+  },
+  "constraints": [
+    "Do not modify previously reviewed diagnostic-001 results or the existing five automations.",
+    "Preserve taxonomic holds, unresolved source concepts, species claims, identity uncertainty, photo-level licenses and image authors.",
+    "Candidate harvesting and user visual labeling are not scientific verification.",
+    "Do not install new photos on the species cards in this batch."
+  ]
+}
