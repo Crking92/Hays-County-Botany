@@ -64,17 +64,8 @@
     "glass_root_garden_photo_install": "2026-10-14",
     "joey_inat_photo_install": "2026-10-15"
   },
-  "photo_note": "Diagnostic photo source and creator are locked; exact direct download URL remains pending. Private owner-authorized Glass Root Garden photo physically installed 2026-10-14; source API rights retained separately. Joey Santore CC BY-NC 4.0 photo(s) provisionally installed; more diagnostic close-ups pending.",
+  "photo_note": "Diagnostic photo source and creator are locked; exact direct download URL remains pending. Private owner-authorized Glass Root Garden photo physically installed 2026-10-14; source API rights retained separately. Joey Santore CC BY-NC 4.0 photo(s) provisionally installed; more diagnostic close-ups pending. Audit 059: nonexistent gallery filename archived in unresolved_photo_references without deleting its original source record.",
   "images": [
-    {
-      "file": "images/01-texas-grama-diagnostic-source.jpg",
-      "role": "Whole plant / diagnostic inflorescence source",
-      "creator": "Larry Allain, U.S. Geological Survey",
-      "license": "USGS source; public-domain status not independently locked",
-      "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/3292",
-      "study_use": "yes",
-      "public_reuse": "review"
-    },
     {
       "file": "images/glass-root-498683355-first-photo.jpg",
       "role": "Small grass clump and spaced bristly inflorescence units; ligule and spikelet macro pending",
@@ -128,5 +119,24 @@
     "mode": "learner_fast_fill",
     "image_count": 2,
     "note": "Private owner-authorized first-photo coverage; fine diagnostic views remain pending."
-  }
+  },
+  "unresolved_photo_references": [
+    {
+      "status": "SOURCE_LEAD_ONLY_MISSING_PHYSICAL_PHOTO",
+      "previous_image_index": 0,
+      "checked_at": "2026-10-17",
+      "audit_reference": "reports/diagnostic-photo-audit-057-20261017.md",
+      "original_gallery_record": {
+        "file": "images/01-texas-grama-diagnostic-source.jpg",
+        "role": "Whole plant / diagnostic inflorescence source",
+        "creator": "Larry Allain, U.S. Geological Survey",
+        "license": "USGS source; public-domain status not independently locked",
+        "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/3292",
+        "study_use": "yes",
+        "public_reuse": "review"
+      },
+      "repair_requirements": "USGS WARC profile is a source-page lead only; exact image and public-domain status not yet independently checked.",
+      "display_policy": "Do not treat the missing file as installed; retain complete original source/provenance and re-add only after exact image, licensing and identity screening."
+    }
+  ]
 }
