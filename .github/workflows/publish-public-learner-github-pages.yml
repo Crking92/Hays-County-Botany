@@ -32,7 +32,7 @@ jobs:
       - name: Check repository is still private
         shell: bash
         env:
-          GH_TOKEN: \${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           visibility="$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)"
@@ -91,22 +91,22 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
       - name: Configure GitHub Pages
-        if: \${{ inputs.publish }}
+        if: ${{ inputs.publish }}
         uses: actions/configure-pages@v5
       - name: Package only public assets
-        if: \${{ inputs.publish }}
+        if: ${{ inputs.publish }}
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist/
 
   deploy-public-pages:
-    if: \${{ inputs.publish }}
+    if: ${{ inputs.publish }}
     needs: build-site
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment:
       name: github-pages
-      url: \${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read
       pages: write
