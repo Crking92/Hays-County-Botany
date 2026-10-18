@@ -98,7 +98,7 @@ $("#onlySaved").addEventListener("click",e=>{onlySaved=!onlySaved;e.currentTarge
 $("#copy").addEventListener("click",async()=>{
   const pick=reviewRows();
   if(!pick.length){notify("Nothing labeled yet. Choose a plant part or click + Shortlist.");return;}
-  const t=pick.map(x=>x.name+" | Visible part: "+x.visiblePart+" | "+(x.shortlisted?"SHORTLISTED":"LABELED ONLY")+" | "+x.url+" | "+x.credit+" | "+x.license+" | "+x.page).join("\\n");
+  const t=pick.map(x=>x.name+" | Visible part: "+x.visiblePart+" | "+(x.shortlisted?"SHORTLISTED":"LABELED ONLY")+" | "+x.url+" | "+x.credit+" | "+x.license+" | "+x.page).join("\n");
   try{await navigator.clipboard.writeText(t);notify("Copied "+pick.length+" reviewed photo links. Paste into ChatGPT.");}
   catch(e){window.prompt("Copy your photo review:",t);notify("Copy your review from the opened text box.");}
 });
