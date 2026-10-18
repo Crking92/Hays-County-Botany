@@ -55,6 +55,9 @@ const $=q=>document.querySelector(q);
 const esc=t=>String(t??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 let selected;try{selected=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){selected=new Set()}
 let roles;try{roles=JSON.parse(localStorage.getItem(KEY+"-roles")||"{}")}catch(e){roles={}}
+// A rejected candidate can never remain shortlisted, including after older cached sessions.
+for(const url of [...selected]) if(roles[url]==="Unclear / not useful") selected.delete(url);
+try{localStorage.setItem(KEY,JSON.stringify([...selected]))}catch(e){}
 const ROLE_CHOICES=["Unclassified","Whole plant","Leaves","Stem / hairs","Flower / reproductive parts","Aster phyllaries","Grass spikelets / ligule","Milkweed corona / pollinia","Fruit / seeds","Oak buds / acorns","Other diagnostic detail","Unclear / not useful"];
 let onlySaved=false;
 const validPhotoUrls=new Set(PHOTOS.map(x=>x.url));
