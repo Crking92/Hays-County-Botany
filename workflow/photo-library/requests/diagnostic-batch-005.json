@@ -1,0 +1,64 @@
+{
+  "request_id": "diagnostic-batch-005",
+  "requested_at": "2026-10-18",
+  "user_approved": true,
+  "manual_only": true,
+  "phase": "manual_diagnostic_photo_candidate_collection",
+  "description": "New unscanned canonical taxa with strong crew visual-ID value; prioritize source observation diversity and diagnostic reproductive morphology",
+  "source": [
+    "GBIF public individually licensed observation media",
+    "Pl@ntNet via GBIF individually licensed observation media"
+  ],
+  "species_ids": [
+    "asclepias-oenotheroides",
+    "asclepias-texana",
+    "asclepias-verticillata",
+    "cirsium-texanum",
+    "cirsium-undulatum",
+    "senna-lindheimeriana",
+    "senna-roemeriana",
+    "salvia-roemeriana",
+    "salvia-greggii",
+    "diospyros-texana",
+    "sideroxylon-lanuginosum",
+    "abutilon-fruticosum",
+    "phyla-nodiflora",
+    "bidens-laevis",
+    "verbena-halei",
+    "acalypha-phleoides",
+    "eryngium-leavenworthii",
+    "monarda-citriodora",
+    "monarda-punctata",
+    "conoclinium-coelestinum"
+  ],
+  "per_source_per_species": 6,
+  "max_photos_per_observation": 2,
+  "skip_previously_scanned": true,
+  "existing_gallery_allowed": true,
+  "archive": "private GitHub Release ZIP plus searchable species index",
+  "publish_active_photo_lab": false,
+  "archive_html_for_later_review": "photo-review-batch-005.html",
+  "preserve_live_gallery": "Keep Photo Lab 004 visible and its unsaved user browser labels intact",
+  "preserve_reviews": [
+    "workflow/photo-library/reviews/diagnostic-001-user-labels-20261017.json",
+    "workflow/photo-library/reviews/diagnostic-002-user-labels-20261017.json",
+    "workflow/photo-library/reviews/diagnostic-003-user-labels-20261018.json"
+  ],
+  "install_into_live_species_cards": false,
+  "review_goals": {
+    "Asclepias": "Milkweed hood and horn, corona, leaves and follicles",
+    "Cirsium": "Phyllaries and head bracts, stem and leaf spines, seeds",
+    "Senna": "Leaflet number and form, extrafloral nectaries, flowers and fruit",
+    "Salvia and Monarda": "Flower calyces, corollas and anthers, stems and leaves",
+    "Diospyros and Sideroxylon": "Twigs, leaf surfaces, flowers and fruit",
+    "Euphorbiaceae and Malvaceae": "Hairs, capsules, floral structures, leaves",
+    "Poaceae, Verbenaceae and Asteraceae": "Flower heads, reproductive detail, fruit and growth habit"
+  },
+  "restrictions": [
+    "Harvest may archive provisional exact-name licensed candidates only; it does not validate image-level species identity or organ",
+    "Never replace Photo Lab 004 during this archive-only batch; do not erase user review selections",
+    "Exclude already scanned species, cross-chat claims, taxonomic holds, unsupported photo licenses and previously saved URLs",
+    "Do not change canonical species content, installed gallery, prior batch reviews or five scheduled automations",
+    "Keep image files in private release ZIP and attribution, media-license and source metadata in the catalog"
+  ]
+}
