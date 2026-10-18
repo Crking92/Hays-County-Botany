@@ -1,0 +1,75 @@
+name: Deploy public Hays Botany learner (manual)
+
+# Build privately in GitHub Actions and deploy the existing Worker directly.
+# Cloudflare Workers Builds are intentionally NOT used. No on-push trigger:
+# numerous research/curation/photo commits should never launch deployments.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hays-botany-public-site-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy-public-learner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out latest private canonical source
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Check deploy credentials (never print tokens)
+        shell: bash
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [[ -z "$CF_TOKEN" ]]; then
+            echo "::error::Missing GitHub Actions secret CLOUDFLARE_API_TOKEN (Cloudflare Workers Edit token)."
+            exit 1
+          fi
+          if [[ -z "$CF_ACCOUNT" ]]; then
+            echo "::error::Missing GitHub Actions secret CLOUDFLARE_ACCOUNT_ID."
+            exit 1
+          fi
+
+      - name: Build only public website assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          bash scripts/build_cloudflare_site.sh
+          test -s dist/index.html
+          test -s dist/photo-review.html
+          test -s dist/_headers
+          test -s dist/sw.js
+          grep -q 'Photo Lab Batch' dist/photo-review.html
+          # Never send private source research, review exports, or workflow files
+          # as website assets. Build script whitelists the deployed directories.
+          for restricted in workflow reports curation-inbox curation-archive .github; do
+            test ! -e "dist/$restricted" || {
+              echo "::error::Private working directory found in public site: $restricted"
+              exit 1
+            }
+          done
+          echo "Deployment package ready: $(find dist -type f | wc -l) files"
+          du -sh dist
+
+      - name: Directly deploy public Worker with Wrangler
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.151.1"
+          command: deploy
+
+      - name: Confirm CI deployment step completed
+        shell: bash
+        run: |
+          echo "Wrangler completed. Verify the production Worker /photo-review.html version and photos in a fresh browser tab."
