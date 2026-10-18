@@ -1,0 +1,43 @@
+{
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 3,
+  "batch_id": "2026-10-18-011",
+  "checked_at": "2026-10-18",
+  "range_audit": "DEFERRED",
+  "recovery": {
+    "prior_unpublished_attempts": [
+      "batch-2026-10-18-004.json",
+      "batch-2026-10-18-006.json",
+      "batch-2026-10-18-009.json"
+    ],
+    "note": "Earlier GitHub publication attempts rejected; existing Master Plant Pool row 566 and override row 969 already contain scientific crosswalk. Publish evidence once, do not duplicate Sheet detail."
+  },
+  "records": [
+    {
+      "source_name": "Hygrophila lacustris",
+      "source_author": "(Schltdl. & Cham.) Nees",
+      "source_pool": "Master Plant Pool",
+      "source_pool_row": 566,
+      "override_row": 969,
+      "accepted_name": "Hygrophila costata Nees",
+      "genus": "Hygrophila",
+      "family": "Acanthaceae",
+      "rank": "species",
+      "decision": "SYNONYM_TO_ACCEPTED",
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:49712-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:49672-1"
+      ],
+      "synonyms": [
+        "Hygrophila lacustris (Schltdl. & Cham.) Nees",
+        "Ruellia lacustris Schltdl. & Cham."
+      ],
+      "caution": "POWO/WCVP places source combination under accepted H. costata. Taxon-name relationship only; original observation and photos not re-identified.",
+      "learner_action": "Preserve Hygrophila lacustris as searchable alias; do not install duplicate learner card. Hand off accepted concept to installer if needed.",
+      "checked_at": "2026-10-18",
+      "range_audit": "DEFERRED",
+      "specimen_identity": "NOT_CHECKED",
+      "sheet_mirror": "EXISTING_SCIENTIFIC_CROSSWALK_AT_OVERRIDE_ROW_969; new batch reference pending"
+    }
+  ]
+}
