@@ -1,0 +1,86 @@
+name: Install Field Crew Photo Batch 054
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/manual-library-photo-install-054.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hays-library-photo-install-054
+  cancel-in-progress: false
+
+jobs:
+  install-reviewed-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install Pillow
+      - name: Install only image files visually selected from permanent Release archive
+        run: python scripts/manual_library_photo_install_054.py
+      - name: Verify gallery files, attribution, archived licenses and unedited science
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib
+          from PIL import Image
+          audit=json.loads(pathlib.Path("reports/manual-library-install-054-20261017.json").read_text())
+          assert audit["science_unchanged"] is True
+          ids=set()
+          for image in audit["installed"]:
+              file=pathlib.Path(image["path"])
+              assert file.is_file() and len(file.read_bytes())>19000
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==image["sha256"]
+              with Image.open(file) as pic:pic.verify()
+              sp=json.loads((file.parent.parent/"species.json").read_text())
+              assert sp["id"]==image["id"]
+              record=[x for x in sp["images"] if x.get("file")=="images/"+file.name]
+              assert len(record)==1
+              p=record[0]
+              assert p["creator"]==image["creator"] and p["license"]==image["license"]
+              assert p["source_page"]==image["source_page"] and p["library_release_tag"]==image["release"]
+              assert p["photo_review"].startswith("Actual photographic content visually screened")
+              assert p["anatomy_arrows"].startswith("none")
+              ids.add(sp["id"])
+              print("VERIFIED",sp["id"],p["creator"],p["license"])
+          assert len(ids)==audit["species_affected"]
+          print("Verified images",len(audit["installed"]),"in",len(ids),"species")
+          PY
+      - name: Commit new gallery images and provenance without altering original species science
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/ reports/manual-library-install-054-20261017.json reports/photo-coverage-latest.json
+          if git diff --cached --quiet; then
+            echo 'No image installations met safety gates'
+            exit 0
+          fi
+          git commit -m "Install visually selected archived library photos into existing learner cards [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo 'Verified selected photos pushed to main'
+              exit 0
+            fi
+            sleep 4
+          done
+          echo 'Concurrent change prevented safe push; no overwrites'
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: manual-library-install-054-audit
+          path: reports/manual-library-install-054-20261017.json
+          retention-days: 30
+# Retry with exact Batch 044 preview manifest reference; prior run made no installations.
