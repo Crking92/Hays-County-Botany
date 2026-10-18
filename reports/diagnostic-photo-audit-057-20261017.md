@@ -1,6 +1,6 @@
 # Diagnostic photo audit 057 — entire Hays learner
 
-Generated: 2026-10-18T01:04:16.597793+00:00
+Generated: 2026-10-18T01:14:28.456091+00:00
 
 ## What this pass actually checks
 
@@ -22,8 +22,8 @@ Generated: 2026-10-18T01:04:16.597793+00:00
 | Unreadable image files | **0** |
 | Exact duplicates within cards | **0** |
 | Potential perceptual duplicates (review required) | **1** |
-| Cards without documented key structural role | **388** |
-| 3+ photo cards without documented key structural cue | **179** |
+| Cards without documented key structural role | **383** |
+| 3+ photo cards without documented key structural cue | **174** |
 | Identical image hashes across species (review required) | **0** |
 | Currently claim-owned cards held from new manual assignment | **1** |
 
@@ -56,12 +56,12 @@ Priority emphasizes broken/absent media and distinctive botanical structures. Ma
 | *asclepias-texana* | Apocynaceae | 5 | check milkweed_corona_hoods | 0 | 183 |
 | *asclepias-viridis* | Apocynaceae | 5 | role appears; verify pixels | 8 | 130 |
 | *Asclepias incarnata* | Apocynaceae | 2 | check milkweed_corona_hoods | 8 | 123 |
-| *asclepias-asperula* | Apocynaceae | 5 | check milkweed_corona_hoods | 8 | 113 |
 | *asclepias-tuberosa* | Apocynaceae | 5 | check milkweed_corona_hoods | 8 | 113 |
 | *Asclepias syriaca* | Apocynaceae | 2 | check milkweed_corona_hoods | 0 | 111 |
 | *Asclepias viridiflora* | Apocynaceae | 2 | check milkweed_corona_hoods | 0 | 111 |
 | *asclepias-oenotheroides* | Apocynaceae | 5 | check milkweed_corona_hoods | 0 | 101 |
 | *asclepias-verticillata* | Apocynaceae | 5 | check milkweed_corona_hoods | 0 | 101 |
+| *asclepias-asperula* | Apocynaceae | 5 | role appears; verify pixels | 8 | 30 |
 | *Asclepias curassavica* | Apocynaceae | 3 | role appears; verify pixels | 6 | 30 |
 | *Gonolobus suberosus var. granulatus* | Apocynaceae | 1 | check milkweed_vine_flower_structure | 0 | 126 |
 | *Matelea edwardsensis* | Apocynaceae | 2 | check milkweed_vine_flower_structure | 4 | 123 |
@@ -71,8 +71,8 @@ Priority emphasizes broken/absent media and distinctive botanical structures. Ma
 | *Funastrum cynanchoides* | Apocynaceae | 3 | role appears; verify pixels | 0 | 18 |
 | *Croton lindheimerianus* | Euphorbiaceae | 3 | check croton_female_flower_and_trichomes | 0 | 119 |
 | *Croton fruticulosus* | Euphorbiaceae | 3 | check croton_female_flower_and_trichomes | 6 | 113 |
-| *Croton texensis* | Euphorbiaceae | 3 | check croton_female_flower_and_trichomes | 6 | 113 |
 | *Croton monanthogynus* | Euphorbiaceae | 3 | check croton_female_flower_and_trichomes | 12 | 95 |
+| *Croton texensis* | Euphorbiaceae | 3 | check croton_female_flower_and_trichomes | 6 | 95 |
 | *Croton capitatus* | Euphorbiaceae | 2 | role appears; verify pixels | 8 | 58 |
 | *Croton lindheimeri* | Euphorbiaceae | 2 | role appears; verify pixels | 0 | 46 |
 | *Euphorbia maculata* | Euphorbiaceae | 1 | check euphorbia_cyathium_and_capsule | 12 | 156 |
@@ -80,9 +80,9 @@ Priority emphasizes broken/absent media and distinctive botanical structures. Ma
 | *Euphorbia hypericifolia* | Euphorbiaceae | 1 | check euphorbia_cyathium_and_capsule | 0 | 144 |
 | *Euphorbia spathulata* | Euphorbiaceae | 1 | check euphorbia_cyathium_and_capsule | 0 | 144 |
 | *Euphorbia marginata* | Euphorbiaceae | 3 | check euphorbia_cyathium_and_capsule | 8 | 113 |
-| *Euphorbia cyathophora* | Euphorbiaceae | 3 | check euphorbia_cyathium_and_capsule | 6 | 95 |
 | *Euphorbia serpens* | Euphorbiaceae | 5 | role appears; verify pixels | 12 | 48 |
 | *Euphorbia davidii* | Euphorbiaceae | 4 | role appears; verify pixels | 12 | 40 |
+| *Euphorbia cyathophora* | Euphorbiaceae | 3 | role appears; verify pixels | 6 | 30 |
 | *Euphorbia dentata* | Euphorbiaceae | 5 | role appears; verify pixels | 12 | 30 |
 | *Euphorbia heterophylla* | Euphorbiaceae | 3 | role appears; verify pixels | 11 | 30 |
 | *Quercus sinuata var. breviloba* | Fagaceae | 6 | check oak_acorn_cup_bud_and_leaf | 0 | 119 |

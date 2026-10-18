@@ -7,13 +7,13 @@
     "unreadable": 0,
     "exact_duplicate_pairs": 0,
     "possible_visual_duplicate_pairs": 1,
-    "no_role_macro_metadata": 388,
-    "three_plus_lacking_macro_cue": 179,
+    "no_role_macro_metadata": 383,
+    "three_plus_lacking_macro_cue": 174,
     "cards_with_local_zero": 1,
     "cards_with_local_one": 151,
     "cards_with_local_two": 273,
     "cards_with_local_three_plus": 411,
-    "audit_time_utc": "2026-10-18T01:04:16.597793+00:00",
+    "audit_time_utc": "2026-10-18T01:14:28.456091+00:00",
     "manifest_species": 836,
     "known_library_species": 448,
     "library_index_date": "2026-10-18T00:29:06.575113+00:00",
@@ -48,12 +48,12 @@
     "asclepias-texana",
     "asclepias-viridis",
     "asclepias-incarnata",
-    "asclepias-asperula",
     "asclepias-tuberosa",
     "asclepias-syriaca",
     "asclepias-viridiflora",
     "asclepias-oenotheroides",
     "asclepias-verticillata",
+    "asclepias-asperula",
     "asclepias-curassavica",
     "gonolobus-suberosus-var-granulatus",
     "matelea-edwardsensis",
@@ -63,8 +63,8 @@
     "funastrum-cynanchoides",
     "croton-lindheimerianus",
     "croton-fruticulosus",
-    "croton-texensis",
     "croton-monanthogynus",
+    "croton-texensis",
     "croton-capitatus",
     "croton-lindheimeri",
     "euphorbia-maculata",
@@ -72,9 +72,9 @@
     "euphorbia-hypericifolia",
     "euphorbia-spathulata",
     "euphorbia-marginata",
-    "euphorbia-cyathophora",
     "euphorbia-serpens",
     "euphorbia-davidii",
+    "euphorbia-cyathophora",
     "euphorbia-dentata",
     "euphorbia-heterophylla",
     "quercus-sinuata-var-breviloba",
@@ -3776,26 +3776,22 @@
       "explicitly_anatomy_verified_photos": 0,
       "explicitly_identity_verified_photos": 0,
       "three_role_cues_in_metadata": [
-        "look_closer"
+        "look_closer",
+        "recognize"
       ],
       "role_metadata_gaps": [
-        "leaf",
-        "corona"
+        "habit"
       ],
       "priority_structure": "milkweed_corona_hoods",
-      "priority_structure_role_cue": false,
+      "priority_structure_role_cue": true,
       "archive_candidates_indexed": 8,
       "claimed": [],
       "parts_to_recheck": "Inspect mature leaf shape and tip: antelopehorns usually has much narrower lanceolate/linear-lanceolate leaves, narrowly tapering to an acute point. Check dense terminal flower heads, often more rounded than in A. viridis, but do not use head shape alone. Its five corona hoods are present; a projecting horn is not the reliable split from ",
       "missing_teaching_steps_in_metadata": [
-        "confirm_clue",
-        "recognize"
+        "confirm_clue"
       ],
-      "review_flags": [
-        "specialized_diagnostic_role_not_documented",
-        "three_plus_without_documented_diagnostic_macro"
-      ],
-      "priority_score": 113
+      "review_flags": [],
+      "priority_score": 30
     },
     {
       "id": "asclepias-curassavica",
@@ -5609,30 +5605,29 @@
       "exact_duplicates": [],
       "possible_visual_duplicates": [],
       "missing_attribution_or_license": [],
-      "provisional_status_photos": 0,
+      "provisional_status_photos": 1,
       "explicitly_anatomy_verified_photos": 0,
       "explicitly_identity_verified_photos": 0,
-      "three_role_cues_in_metadata": [],
+      "three_role_cues_in_metadata": [
+        "confirm_clue",
+        "look_closer"
+      ],
       "role_metadata_gaps": [
-        "leaf",
-        "ligule"
+        "habit",
+        "leaf"
       ],
       "priority_structure": "grass_spikelet_and_ligule",
-      "priority_structure_role_cue": false,
+      "priority_structure_role_cue": true,
       "archive_candidates_indexed": 12,
       "claimed": [],
       "parts_to_recheck": "Look at the flowering stem: many short oat-like racemes project and droop from mostly one side of the central axis.",
       "missing_teaching_steps_in_metadata": [
-        "confirm_clue",
-        "look_closer",
         "recognize"
       ],
       "review_flags": [
-        "same_source_requires_dedup_review",
-        "specialized_diagnostic_role_not_documented",
-        "three_plus_without_documented_diagnostic_macro"
+        "same_source_requires_dedup_review"
       ],
-      "priority_score": 131
+      "priority_score": 30
     },
     {
       "id": "bouteloua-dactyloides",
@@ -10201,32 +10196,27 @@
       "exact_duplicates": [],
       "possible_visual_duplicates": [],
       "missing_attribution_or_license": [],
-      "provisional_status_photos": 0,
+      "provisional_status_photos": 1,
       "explicitly_anatomy_verified_photos": 0,
       "explicitly_identity_verified_photos": 0,
-      "three_role_cues_in_metadata": [],
-      "role_metadata_gaps": [
-        "habit",
-        "leaf",
-        "flower",
-        "phyllary"
-      ],
-      "priority_structure": "aster_phyllaries_and_reproductive_parts",
-      "priority_structure_role_cue": false,
-      "archive_candidates_indexed": 11,
-      "claimed": [],
-      "parts_to_recheck": "",
-      "missing_teaching_steps_in_metadata": [
+      "three_role_cues_in_metadata": [
         "confirm_clue",
         "look_closer",
         "recognize"
       ],
-      "review_flags": [
-        "same_source_requires_dedup_review",
-        "specialized_diagnostic_role_not_documented",
-        "three_plus_without_documented_diagnostic_macro"
+      "role_metadata_gaps": [
+        "habit"
       ],
-      "priority_score": 131
+      "priority_structure": "aster_phyllaries_and_reproductive_parts",
+      "priority_structure_role_cue": true,
+      "archive_candidates_indexed": 11,
+      "claimed": [],
+      "parts_to_recheck": "",
+      "missing_teaching_steps_in_metadata": [],
+      "review_flags": [
+        "same_source_requires_dedup_review"
+      ],
+      "priority_score": 12
     },
     {
       "id": "coreopsis-lanceolata",
@@ -10918,16 +10908,16 @@
       "exact_duplicates": [],
       "possible_visual_duplicates": [],
       "missing_attribution_or_license": [],
-      "provisional_status_photos": 2,
+      "provisional_status_photos": 0,
       "explicitly_anatomy_verified_photos": 0,
       "explicitly_identity_verified_photos": 0,
       "three_role_cues_in_metadata": [
+        "look_closer",
         "recognize"
       ],
       "role_metadata_gaps": [
-        "leaf",
-        "flower",
-        "fruit"
+        "habit",
+        "leaf"
       ],
       "priority_structure": "croton_female_flower_and_trichomes",
       "priority_structure_role_cue": false,
@@ -10935,14 +10925,13 @@
       "claimed": [],
       "parts_to_recheck": "Separate male and female plants, narrow leaves, unisexual inflorescences, and a distinctly warty capsule.",
       "missing_teaching_steps_in_metadata": [
-        "confirm_clue",
-        "look_closer"
+        "confirm_clue"
       ],
       "review_flags": [
         "specialized_diagnostic_role_not_documented",
         "three_plus_without_documented_diagnostic_macro"
       ],
-      "priority_score": 113
+      "priority_score": 95
     },
     {
       "id": "cryptantha-texana",
@@ -15146,20 +15135,21 @@
         "look_closer",
         "recognize"
       ],
-      "role_metadata_gaps": [],
+      "role_metadata_gaps": [
+        "habit",
+        "leaf",
+        "flower"
+      ],
       "priority_structure": "euphorbia_cyathium_and_capsule",
-      "priority_structure_role_cue": false,
+      "priority_structure_role_cue": true,
       "archive_candidates_indexed": 6,
       "claimed": [],
       "parts_to_recheck": "Start at the upper bracts: they are usually green with a sharply contrasting white, pink, or red base. Then inspect a cyathium: E. cyathophora has a single yellow-green gland that is sessile to substipitate, with an oblong opening and NO annular rim. Confirm with the glabrous capsule.",
       "missing_teaching_steps_in_metadata": [
         "confirm_clue"
       ],
-      "review_flags": [
-        "specialized_diagnostic_role_not_documented",
-        "three_plus_without_documented_diagnostic_macro"
-      ],
-      "priority_score": 95
+      "review_flags": [],
+      "priority_score": 30
     },
     {
       "id": "euphorbia-davidii",
@@ -26797,24 +26787,22 @@
       "explicitly_identity_verified_photos": 0,
       "three_role_cues_in_metadata": [
         "confirm_clue",
-        "look_closer"
+        "look_closer",
+        "recognize"
       ],
       "role_metadata_gaps": [
-        "habit",
-        "stem"
+        "habit"
       ],
       "priority_structure": "oak_acorn_cup_bud_and_leaf",
       "priority_structure_role_cue": true,
       "archive_candidates_indexed": 4,
       "claimed": [],
       "parts_to_recheck": "Start with several mature blue-green, glaucous leaves—not a single shade leaf. A broadly rounded or notched tip, pale papery/scaly bark, and a barrel-shaped nut whose ends can look flattened are the useful combination. If the plant is shrubby, compare the twig and cupule carefully with white shin oak.",
-      "missing_teaching_steps_in_metadata": [
-        "recognize"
-      ],
+      "missing_teaching_steps_in_metadata": [],
       "review_flags": [
         "same_source_requires_dedup_review"
       ],
-      "priority_score": 30
+      "priority_score": 12
     },
     {
       "id": "quercus-lyrata",
@@ -30893,29 +30881,24 @@
       "provisional_status_photos": 0,
       "explicitly_anatomy_verified_photos": 0,
       "explicitly_identity_verified_photos": 0,
-      "three_role_cues_in_metadata": [],
-      "role_metadata_gaps": [
-        "habit",
-        "leaf",
-        "flower",
-        "phyllary"
-      ],
-      "priority_structure": "aster_phyllaries_and_reproductive_parts",
-      "priority_structure_role_cue": false,
-      "archive_candidates_indexed": 12,
-      "claimed": [],
-      "parts_to_recheck": "For TALL goldenrod, inspect SHORT, FINE hairs low on a standing stem and a FIRM, often noticeably rough three-nerved middle leaf. Check if upper-mid leaves are entire or sparsely toothed. Compare Canada goldenrod: often thinner more serrated leaves and less crowded longer stem hairs — many characters overlap. Giant goldenrod tends to have",
-      "missing_teaching_steps_in_metadata": [
+      "three_role_cues_in_metadata": [
         "confirm_clue",
         "look_closer",
         "recognize"
       ],
-      "review_flags": [
-        "same_source_requires_dedup_review",
-        "specialized_diagnostic_role_not_documented",
-        "three_plus_without_documented_diagnostic_macro"
+      "role_metadata_gaps": [
+        "habit"
       ],
-      "priority_score": 131
+      "priority_structure": "aster_phyllaries_and_reproductive_parts",
+      "priority_structure_role_cue": true,
+      "archive_candidates_indexed": 12,
+      "claimed": [],
+      "parts_to_recheck": "For TALL goldenrod, inspect SHORT, FINE hairs low on a standing stem and a FIRM, often noticeably rough three-nerved middle leaf. Check if upper-mid leaves are entire or sparsely toothed. Compare Canada goldenrod: often thinner more serrated leaves and less crowded longer stem hairs — many characters overlap. Giant goldenrod tends to have",
+      "missing_teaching_steps_in_metadata": [],
+      "review_flags": [
+        "same_source_requires_dedup_review"
+      ],
+      "priority_score": 12
     },
     {
       "id": "solidago-canadensis",
