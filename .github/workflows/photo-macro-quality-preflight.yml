@@ -32,6 +32,7 @@ jobs:
         run: bash scripts/build_cloudflare_site.sh
       - name: Optimize site JPEG copies
         run: |
+          mkdir -p photo-visual-quality
           python scripts/optimize_public_photo_copies.py --root dist \
             --threshold-kb 750 --max-edge 2800 --quality 86 \
             --report photo-visual-quality/size-report.json
