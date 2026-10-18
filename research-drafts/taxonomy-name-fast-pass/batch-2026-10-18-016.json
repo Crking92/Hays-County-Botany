@@ -1,0 +1,40 @@
+{
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 3,
+  "batch_id": "2026-10-18-016",
+  "checked_at": "2026-10-18",
+  "range_audit": "DEFERRED",
+  "recovery": {
+    "previous_unpublished_attempts": [
+      "batch-2026-10-18-016.json",
+      "batch-2026-10-18-017.json"
+    ],
+    "note": "Prior attempts were blocked and had no durable GitHub record. Rechecked current main and existing Sheet crosswalk; this is the first successful new evidence attempt if commit verifies."
+  },
+  "records": [
+    {
+      "source_pool": "Master Plant Pool",
+      "source_name": "Hamatocactus hamatacanthus",
+      "source_author": "(Muehlenpf.) F.M.Knuth",
+      "source_pool_row": 528,
+      "override_row": 960,
+      "accepted_name": "Ferocactus hamatacanthus (Muehlenpf.) Britton & Rose",
+      "genus": "Ferocactus",
+      "family": "Cactaceae",
+      "rank": "species",
+      "decision": "SYNONYM_TO_ACCEPTED",
+      "synonyms": [
+        "Hamatocactus hamatacanthus (Muehlenpf.) F.M.Knuth",
+        "Echinocactus hamatacanthus Muehlenpf."
+      ],
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:103636-2"
+      ],
+      "caution": "POWO accepts two subspecies; the historic species-level combination cannot be assigned to either without specimen review. No homonym conflict identified for this combination in reviewed source.",
+      "learner_action": "Alias to accepted species concept; no duplicate card; defer specimen/photograph concept review.",
+      "checked_at": "2026-10-18",
+      "range_audit": "DEFERRED",
+      "specimen_identity": "NOT_CHECKED"
+    }
+  ]
+}
