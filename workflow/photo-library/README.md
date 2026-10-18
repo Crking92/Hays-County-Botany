@@ -1,5 +1,16 @@
 # Permanent photo candidate library — shared operating contract
 
+## October 18: Batch 004 full archive metadata screening and private technical pixel preflight
+
+Photo Lab Batch 004 remains available in the private repository as a permanent archive. The six-species first pass is `workflow/photo-library/reviews/diagnostic-004-metadata-prefilter-a-20261018.json`; the remaining 12 species are `workflow/photo-library/reviews/diagnostic-004-metadata-prefilter-b-20261018.json`.
+
+Together they cover **18 species and all 156 Batch 004 candidate records**, narrowing them to **54 media-level-licensed, independent-observation priority candidates** for actual image-level review. **Eleven existing gallery entries** were independently flagged for unclear/insufficient rights metadata. These concerns are for existing canonical image records, NOT proof that the 54 candidates are unlicensed. All priority candidates are still **HOLD: actual pictured taxon, organ detail and photo quality unverified**. Do not install or give verified botanical captions based on the metadata screening alone.
+
+The `Photo Lab 004 Archived Candidate Technical Screen` GitHub Action (`.github/workflows/photo-batch-004-technical-screen.yml`) reads the **unchanged private GitHub Release ZIP** for Batch 004, validates its SHA256 and decodes only the 54 selected archived image files. It builds private review contact sheets and checks source resolution, brightness, edge detail, EXIF/GPS concerns and duplicate-looking views. It does NOT identify plants, change species cards, install photos, alter the user's Batch 001–003 exclusions or deploy to Cloudflare. Check the GitHub Action conclusion and its private report artifact before relying on technical QA; not all images can be promoted merely for passing technical checks.
+
+**Cloudflare's automatic Git integration is disconnected by the user.** Continue saving botanical work to private GitHub; do not re-enable Cloudflare builds, use a paid Pages plan, or claim the frozen production website shows newer content.
+
+
 ## October 18: Photo Lab Batch 003 review saved; Batch 004 live; Batch 005 collecting separately
 
 - Batch 003 user review is durably saved at `workflow/photo-library/reviews/diagnostic-003-user-labels-20261018.json` (GitHub commit `f3153ad17bca0254d63f5fd407b8218117ac12f9`). The gallery had **86 labeled image records across 19 canonical species**: **68 shortlisted for subsequent image-level scientific review** and **18 explicitly marked "Unclear / not useful" and excluded**. Never install or revive those 18 exclusions. The other 68 are reviewer-selected candidates, not scientifically verified species/parts and not installed by this review.
