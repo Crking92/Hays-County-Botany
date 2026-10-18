@@ -1,0 +1,88 @@
+name: Public Learner Image Size Audit (one-time or manual)
+
+# One-time on creation, then manual on demand. It never deploys, changes
+# canonical images, writes to main, or touches botanical automations.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/public-site-budget-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hays-site-image-size-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Install image encoder
+        run: python -m pip install --disable-pip-version-check Pillow
+
+      - name: Build an isolated copy of the public website
+        run: |
+          set -euo pipefail
+          bash scripts/build_cloudflare_site.sh
+          grep -q 'Photo Lab Batch' dist/photo-review.html
+          test ! -e dist/workflow
+          test ! -e dist/research-drafts
+          test ! -e dist/curation-archive
+          test ! -e dist/reports
+
+      - name: Optimize staged large photos; preserve source
+        run: |
+          set -euo pipefail
+          python scripts/optimize_public_site_photos.py \
+            --site-dir dist \
+            --report "${{ runner.temp }}/site-photo-budget.json"
+
+      - name: Summarize public site budget and private-source growth
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, subprocess
+          from pathlib import Path
+          audit=json.loads((Path(os.environ["RUNNER_TEMP"])/"site-photo-budget.json").read_text())
+          lines=[
+            "## Hays Botany published site image budget",
+            "",
+            f"- Staged website before: **{audit['site_before_mib']} MiB**",
+            f"- Staged website after: **{audit['site_after_mib']} MiB**",
+            f"- Saved from website copy: **{audit['savings_mib']} MiB**",
+            f"- JPEGs reencoded: **{audit['jpeg_files_reencoded']} / {audit['jpeg_files']}**",
+            f"- Published-site warning at: **{audit['website_warning_limit_mib']} MiB**",
+            f"- Published-site safety stop at: **{audit['website_stop_limit_mib']} MiB**",
+            "",
+            "**Original private repository photos were not modified.**",
+          ]
+          tree=subprocess.check_output(["git","ls-tree","-r","-l","HEAD"], text=True)
+          tracked_bytes=0
+          for row in tree.splitlines():
+            if "\t" not in row: continue
+            before,_=row.split("\t",1)
+            size=before.split()[-1]
+            if size.isdigit(): tracked_bytes+=int(size)
+          lines+=["",f"- Current tracked file contents (not git history): **{tracked_bytes/1024**2:.1f} MiB**"]
+          with open(os.environ["GITHUB_STEP_SUMMARY"],"a",encoding="utf-8") as f:
+            f.write("\n".join(lines)+"\n")
+          print("\n".join(lines))
+          PY
+
+      - name: Preserve report only (never public learner files)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hays-public-site-size-audit
+          path: ${{ runner.temp }}/site-photo-budget.json
+          retention-days: 30
+          if-no-files-found: ignore
