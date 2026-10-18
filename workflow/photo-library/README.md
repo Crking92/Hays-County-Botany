@@ -1,5 +1,13 @@
 # Permanent photo candidate library — shared operating contract
 
+## October 18: Photo Lab Batch 003 review saved; Batch 004 live; Batch 005 collecting separately
+
+- Batch 003 user review is durably saved at `workflow/photo-library/reviews/diagnostic-003-user-labels-20261018.json` (GitHub commit `f3153ad17bca0254d63f5fd407b8218117ac12f9`). The gallery had **86 labeled image records across 19 canonical species**: **68 shortlisted for subsequent image-level scientific review** and **18 explicitly marked "Unclear / not useful" and excluded**. Never install or revive those 18 exclusions. The other 68 are reviewer-selected candidates, not scientifically verified species/parts and not installed by this review.
+- Batch 004 permanently archived **155 JPEG files across 18 species**, with **82 candidate photos** on `photo-review-batch-004.html`; batch ID `diagnostic-39139862679`, release recorded at `workflow/photo-library/batches/diagnostic-39139862679/archive.json`. Its exact content was promoted to live `photo-review.html` only **after** the complete Batch 003 review was saved and verified. Batch 003 remains preserved at `photo-review-batch-003.html` (not deployed in the current site's public gallery).
+- Batch 005 has been manually requested at `workflow/photo-library/requests/diagnostic-batch-005.json` for 20 new unscanned, canonical taxa. The source script's `publish_active_photo_lab:false` guard means this batch can archive candidates and create a dedicated batch page without replacing Batch 004 or browser-local reviewer labels. At the time of this note, Batch 005's archive outcome is not yet verified; check run 39142798568 and archive records before counting photos.
+- All five scheduled botany automations keep their existing schedules and scopes. Candidate collection and user-visible-part labels do not bypass botanical/taxonomic, copyright, work-claim, or installed-file tests.
+
+
 ## October 17: latest-only Photo Lab presentation (Batch 003 onward)
 
 The user asked to hide completed Photo Lab Batch 001 and 002 review galleries from the public learner and start Batch 003. Both completed user reviews remain durably committed in `workflow/photo-library/reviews/` with their attribution and exclusions, and their images stay in private GitHub Release archives. **Do not delete or overwrite the reviews**.
