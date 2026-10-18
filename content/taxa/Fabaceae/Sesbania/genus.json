@@ -10,8 +10,14 @@
       "Sesbania drummondii",
       "Sesbania herbacea"
     ],
-    "canonical_species_ids_present": [],
-    "source_pool_not_canonical": true
+    "canonical_species_ids_present": [
+      "sesbania-drummondii"
+    ],
+    "source_pool_not_canonical": false,
+    "noncanonical_source_pool_taxa": [
+      "Sesbania herbacea"
+    ],
+    "installed_status_note": "Manifest-verified 2026-10-17: S. drummondii is a provisional canonical learner with two recorded exact-species images; S. herbacea remains Master Plant Pool only and has no canonical species card. Genus study inclusion is not species installation."
   },
   "shared_genus_recognition": {
     "look_here_first": "Find an alternate, even-pinnate leaf with paired narrow leaflets and an axillary raceme of pea-type flowers. For species identification, inspect a mature ATTACHED pod in profile: short, broad, conspicuously FOUR-WINGED papery pod -> S. drummondii; very long, narrow pod WITHOUT BROAD PAPERY WINGS -> S. herbacea. Do not use round-versus-four-sided pod cross-section as an absolute key: published descriptions conflict for S. herbacea.",
@@ -89,7 +95,7 @@
     "Old S. herbacea stems can form tough woody fibers; stem woodiness alone is not a reliable perennial-versus-annual test.",
     "Leaflets can fold due to nyctinasty or handling; photograph fully spread leaves for counts and measurements.",
     "Rattlebush seeds are poisonous: never taste seeds or use plant parts as food.",
-    "Approved-source-pool presence supports a genus lesson; neither taxon becomes canonical or target-zone PASS from this file."
+    "Approved-source-pool presence supports a genus comparison, but does not certify range or install a species. S. drummondii is now a provisional canonical learner; S. herbacea remains noncanonical."
   ],
   "local_lookalikes": [
     {
@@ -174,7 +180,7 @@
     {
       "owner": "approved species installer / taxonomy lane",
       "scope": "Sesbania drummondii and Sesbania herbacea",
-      "detail": "Both approved source-pool names absent from canonical manifest at review; validate accepted taxon concepts and preserve independent range metadata before installation; not installed by this lesson."
+      "detail": "S. drummondii is already installed provisionally (two gallery records); do not reinstall. S. herbacea remains noncanonical source-pool material. Installer owns any eventual approved first card, and taxonomy lane owns identity/alias decisions. No native-range decision made."
     },
     {
       "owner": "diagnostic photo-polish",
@@ -221,10 +227,143 @@
   ],
   "curation_status": {
     "version": "1.0-genus-github-backfill",
-    "last_reviewed": "2026-10-11",
+    "last_reviewed": "2026-10-17",
     "structural_lesson": "built: morphology-first paired comparison",
-    "visual_lock": "photo roles specified, no acquired or installed genus photos claimed",
+    "visual_lock": "genus anatomy roles and installed-source metadata documented; diagnostic pixel review and annotations pending",
     "scientific_decisions": "unchanged",
     "species_installation": "not performed"
-  }
+  },
+  "genus_diagnostics": {
+    "look_here_first": "Locate an attached MATURE POD before naming the species. Compare broad papery longitudinal wings and length/width, then count flowers on an axillary raceme. On leaf-only plants, use Sesbania sp. until reproductive characters are available.",
+    "anatomy_photo_roles": [
+      {
+        "term": "papery pod wings",
+        "plain": "Four broad thin edges running along a short pod",
+        "where_to_look": "Four longitudinal edges of a mature, attached S. drummondii pod; photograph side and end views with a millimeter ruler",
+        "why": "The conspicuous broad wings distinguish drummondii from long, narrow, unwinged herbacea fruit",
+        "photo_role": "same-scale mature attached pod side and end views",
+        "status": "needs_anatomy_verified_photo",
+        "annotation_status": "pending"
+      },
+      {
+        "term": "pod sutures and cross section",
+        "plain": "Where a pod can split and what its cut end looks like",
+        "where_to_look": "Mature pods of both species, cut transversely and photographed with 1-mm scale",
+        "why": "Demonstrates wings and dehiscence; herbacea descriptions vary between round and four-angled, so cross-section alone is not a key",
+        "photo_role": "matched ripe pod cross-sections and sutures",
+        "status": "needs_photo",
+        "annotation_status": "pending"
+      },
+      {
+        "term": "axillary raceme",
+        "plain": "A stalk of several flowers growing from the angle between leaf and stem",
+        "where_to_look": "A complete flowering branch, showing leaf axil, raceme stalk and countable individual flowers",
+        "why": "Typically many flowers in drummondii versus fewer in herbacea, but flower number varies and is supporting only",
+        "photo_role": "whole axillary raceme with node and scale",
+        "status": "needs_verified_photo",
+        "annotation_status": "pending"
+      },
+      {
+        "term": "even-pinnate leaf and pea flower",
+        "plain": "Paired leaflets along one leaf axis; banner, wings and keel in one flower",
+        "where_to_look": "Spread one full leaf beside a ruler; dissect one mature flower to reveal petal groups and stamens",
+        "why": "Confirms Sesbania against bipinnate Mimosa and reduced-flower Amorpha; not a reliable species split by itself",
+        "photo_role": "leaflet-pair count and single-flower dissection",
+        "status": "needs_photo",
+        "annotation_status": "pending"
+      }
+    ]
+  },
+  "comparison_cards": [
+    {
+      "title": "Four-winged versus narrow unwinged mature pod",
+      "taxon_ids": [
+        "sesbania-drummondii"
+      ],
+      "comparison_taxon": "Sesbania herbacea — Master Plant Pool only, not canonical",
+      "look_here_first": "Photograph attached ripe fruit side-on with millimeter ruler; identify broad papery wings rather than merely four-sided contour.",
+      "caution": "Drummondii usually 42–80 × about 10 mm; herbacea usually 150–210+ × about 3.3–3.8 mm. Immature pods overlap; herbacea cross-section is described inconsistently.",
+      "photo_roles": [
+        "matched ripe pod side views",
+        "ripe pod cross sections"
+      ],
+      "annotation_status": "pending"
+    },
+    {
+      "title": "Many-flowered versus few-flowered axillary raceme",
+      "taxon_ids": [
+        "sesbania-drummondii"
+      ],
+      "comparison_taxon": "Sesbania herbacea — source-pool comparison",
+      "look_here_first": "Find raceme stalk emerging from leaf axil and count mature flowers, keeping the whole node in frame.",
+      "caution": "Drummondii often 12+; herbacea often 2–6. These are supporting ranges, not an absolute key.",
+      "photo_roles": [
+        "matched full flowering racemes",
+        "leaf axil macro"
+      ],
+      "annotation_status": "pending"
+    },
+    {
+      "title": "Sesbania versus joint-vetch and sensitive-briar",
+      "taxon_ids": [
+        "sesbania-drummondii"
+      ],
+      "comparison_taxon": "Aeschynomene spp. / Mimosa spp.",
+      "look_here_first": "Check one leaf's architecture and one mature pod: Sesbania even-pinnate with an unsegmented legume, Aeschynomene jointed loment, Mimosa bipinnate with stamen-rich flower heads.",
+      "caution": "Never substitute a look-alike's photograph as an exact Sesbania image.",
+      "photo_roles": [
+        "same-scale leaves showing rachis versus pinnae",
+        "mature segmented versus unsegmented pods"
+      ],
+      "annotation_status": "pending"
+    }
+  ],
+  "photo_rights_status": {
+    "canonical_species": "sesbania-drummondii",
+    "installed_gallery_records": 2,
+    "installed_photo_rights": [
+      {
+        "species_id": "sesbania-drummondii",
+        "file": "images/inat-566513341.jpg",
+        "creator": "Calvin King",
+        "license": "All rights reserved — owner-authorized private study",
+        "source_page": "https://www.inaturalist.org/photos/566513341",
+        "study_use": "private only",
+        "public_reuse": "no",
+        "status": "installed_exact_species_metadata; anatomy_not_verified"
+      },
+      {
+        "species_id": "sesbania-drummondii",
+        "file": "images/gbif-manual-5938619114-403e5ef30.jpg",
+        "creator": "Jackie T",
+        "license": "CC BY 4.0",
+        "source_page": "https://www.gbif.org/occurrence/5938619114",
+        "study_use": "follow original CC terms",
+        "public_reuse": "attribution under source-specific license",
+        "status": "installed_exact_species_metadata; anatomy_not_verified"
+      }
+    ],
+    "external_reference_note": "Existing Fabaceae family video handoff lists three S. herbacea frame roles. These are reference leads, not installed genus images and not an S. herbacea canonical gallery.",
+    "photo_gaps": [
+      "verified same-scale mature attached pods of both taxa",
+      "mature pod cross sections and suture closeups",
+      "complete axillary racemes with flower counts",
+      "leaflet-pair and single-flower dissection"
+    ],
+    "arrows": "none verified; coordinate review pending"
+  },
+  "targeted_handoffs": [
+    {
+      "lane": "Diagnostic Photo Polish / manual photo enrichment",
+      "request": "Review existing installed drummondii images at pixel level, then source both taxa's ripe attached pods side and end views, racemes and dissection macros; verify each image identity, anatomical visibility and license before arrows."
+    },
+    {
+      "lane": "Taxonomy + Diagnostic Review",
+      "request": "Independently verify herbacea pod cross-section conflict and current accepted concepts; preserve unresolved differences instead of promoting an unsupported absolute key."
+    },
+    {
+      "lane": "Approved Taxa Installer",
+      "request": "S. drummondii already canonical; do not reinstall. S. herbacea source-pool only; first card is installer-owned after normal identity and photo checks."
+    }
+  ]
 }
