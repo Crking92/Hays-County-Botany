@@ -1,6 +1,6 @@
 # Diagnostic photo audit 057 — entire Hays learner
 
-Generated: 2026-10-18T00:21:36.962345+00:00
+Generated: 2026-10-18T00:25:25.304183+00:00
 
 ## What this pass actually checks
 
@@ -12,13 +12,14 @@ Generated: 2026-10-18T00:21:36.962345+00:00
 |---|---:|
 | Canonical species | **821** |
 | Gallery image records | **2362** |
-| Locally installed readable images | **2121** |
+| Locally installed readable images (raster and validated SVG) | **2122** |
+| Validated SVG illustrations | **1** |
 | Cards with 0 readable local images | **1** |
 | Cards with 1 | **136** |
-| Cards with 2 | **274** |
-| Cards with 3+ | **410** |
+| Cards with 2 | **273** |
+| Cards with 3+ | **411** |
 | Broken local references | **5** |
-| Unreadable image files | **1** |
+| Unreadable image files | **0** |
 | Exact duplicates within cards | **0** |
 | Potential perceptual duplicates (review required) | **1** |
 | Cards without documented key structural role | **376** |
@@ -38,7 +39,6 @@ Priority emphasizes broken/absent media and distinctive botanical structures. Ma
 | *Yucca constricta* | Asparagaceae | 2 | role appears; verify pixels | 0 | 163 |
 | *Leersia oryzoides* | Poaceae | 3 | role appears; verify pixels | 8 | 145 |
 | *Bouteloua rigidiseta* | Poaceae | 2 | role appears; verify pixels | 0 | 143 |
-| *Oenothera triloba* | Onagraceae | 2 | role appears; verify pixels | 8 | 140 |
 | *Avena fatua* | Poaceae | 1 | check grass_spikelet_and_ligule | 8 | 156 |
 | *Bromus japonicus* | Poaceae | 1 | check grass_spikelet_and_ligule | 4 | 156 |
 | *Eleusine indica* | Poaceae | 1 | check grass_spikelet_and_ligule | 8 | 156 |
@@ -107,6 +107,7 @@ Priority emphasizes broken/absent media and distinctive botanical structures. Ma
 | *Arisaema dracontium* | Araceae | 1 | check general_field_ID_parts | 8 | 156 |
 | *Buglossoides arvensis* | Boraginaceae | 1 | check general_field_ID_parts | 8 | 156 |
 | *Camphora officinarum* | Lauraceae | 1 | check general_field_ID_parts | 4 | 156 |
+| *Catalpa bignonioides* | Bignoniaceae | 1 | check general_field_ID_parts | 8 | 156 |
 
 ## Review contract
 
