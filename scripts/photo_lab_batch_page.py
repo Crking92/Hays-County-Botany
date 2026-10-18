@@ -123,12 +123,25 @@ def main():
         '<a class="back" href="./index.html">← Visual Learner</a>',
     )
     target_name = "photo-review-batch-" + number + ".html"
+    # A later review batch may collect and archive photographs while the user
+    # still has unsaved labels on the current live Photo Lab. Keep that live
+    # gallery untouched until its selections are submitted and preserved.
+    request_path = ROOT / "workflow/photo-library/requests" / (
+        "diagnostic-batch-" + number + ".json"
+    )
+    request = (
+        json.loads(request_path.read_text(encoding="utf-8"))
+        if request_path.is_file() else {}
+    )
+    publish_active = request.get("publish_active_photo_lab", True) is not False
     (ROOT / target_name).write_text(page, encoding="utf-8")
-    (ROOT / "photo-review.html").write_text(page, encoding="utf-8")
+    if publish_active:
+        (ROOT / "photo-review.html").write_text(page, encoding="utf-8")
     print(json.dumps({
         "batch": batch_id, "number": number,
         "species": len(groups), "visible_review_photos": len(photos),
-        "page": target_name, "installed_into_learner": 0
+        "page": target_name, "active_photo_lab_updated": publish_active,
+        "installed_into_learner": 0
     }))
 
 
