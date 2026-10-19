@@ -13,7 +13,7 @@ import sys
 import time
 from pathlib import Path
 from datetime import datetime, timezone
-from urllib.parse import urlencode
+from urllib.parse import urlencode, urlparse
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError, URLError
 
@@ -32,6 +32,8 @@ BATCH=ROOT/"curation-inbox"/BATCH_ID
 OUTPUT=ROOT/"reports"/(BATCH_ID+"-installed.json")
 ALLOWED={
  "cc0":("CC0","Public domain dedication; verify attribution"),
+ "public-domain":("Public Domain","Public domain US National Park Service government employee image"),
+ "cc-by-4.0":("CC BY 4.0","Credit author; link license and state image has been resized, see https://creativecommons.org/licenses/by/4.0/"),
  "cc-by":("CC BY","Attribution required"),
  "cc-by-sa":("CC BY-SA","Attribution; ShareAlike requirements"),
  "cc-by-nc":("CC BY-NC","Attribution; noncommercial only"),
@@ -117,6 +119,60 @@ def license_photo(name, taxon_id, issues):
             if checked>=100:break
         if checked>=100:break
     return None
+
+def commons_exact_image(item, candidate):
+    """Retrieve a reviewer-identified, Wikimedia-licensed exact taxon photograph.
+
+    Independently confirms file format, dimensions, origin and strips EXIF/GPS.
+    Source taxon and copyright are declared from checked Wikimedia file description;
+    this is NOT an iNaturalist RG observation or completed visual anatomy review.
+    """
+    exact_name=item["scientific_name"]
+    source_taxon=candidate["name"]
+    expected_rank=("variety" if item.get("infraspecific_rank")=="variety" else
+                   "subspecies" if item.get("infraspecific_rank")=="subspecies" else "species")
+    expected_source_name=(item["genus"]+" "+item["epithet"]+" "+item["infraspecific_epithet"]
+                          if expected_rank!="species" else exact_name)
+    if (candidate.get("rank")!=expected_rank or source_taxon!=expected_source_name
+        or candidate.get("reviewed_exact_taxon") is not True):
+        raise ValueError("Commons source is not checked to the exact target rank")
+    source_page=candidate["source_page"]
+    direct_url=candidate["direct_url"]
+    if (urlparse(source_page).netloc!="commons.wikimedia.org"
+        or urlparse(direct_url).netloc!="upload.wikimedia.org"
+        or not urlparse(direct_url).path.lower().endswith((".jpg",".jpeg"))):
+        raise ValueError("Photo URLs must resolve to official Wikimedia Commons upload source")
+    code=candidate["license_code"]
+    if code not in ("public-domain","cc-by-4.0"):
+        raise ValueError("Unreviewed Commons license")
+    credit=candidate.get("creator")
+    if not credit or not candidate.get("photo_id") or not candidate.get("rights_reviewed"):
+        raise ValueError("Missing manually reviewed source rights or provenance")
+    if candidate.get("work_description") is None:
+        raise ValueError("No taxon-identity source description")
+    original=request(direct_url,12000000)
+    with Image.open(io.BytesIO(original)) as im:
+        im.verify()
+    with Image.open(io.BytesIO(original)) as im:
+        if im.format!="JPEG" or min(im.size)<500:
+            raise ValueError("Commons image is not a usable verified JPEG")
+        out=im.convert("RGB")
+        out.thumbnail((1800,1800))
+        buff=io.BytesIO()
+        out.save(buff,format="JPEG",quality=87,optimize=True)
+        payload=buff.getvalue()
+    with Image.open(io.BytesIO(payload)) as safe:
+        safe.verify()
+    with Image.open(io.BytesIO(payload)) as safe:
+        if safe.getexif():
+            raise ValueError("Input EXIF persisted in safety-stripped working JPEG")
+    return {
+        "bytes":payload,"photo_id":candidate["photo_id"],
+        "observation_id":candidate.get("observation_id","Commons sourced"),
+        "attribution":credit,"license_code":code,"image_url":direct_url,
+        "source_page":source_page,"observation_page":source_page,
+        "width":out.width,"height":out.height,"checked_candidates":1
+    }
 
 def read_state():
     manifest=json.loads(MANIFEST.read_text())
@@ -208,10 +264,15 @@ def build():
                     result["attempts"].append(alias+": direct name not explicitly preflighted")
                     continue
                 try:
-                    test_tid=exact_species_taxon(alias, alias_rank)
-                    test_photo=license_photo(alias,test_tid,result["attempts"])
+                    if candidate.get("type")=="commons_exact":
+                        test_tid=None
+                        test_photo=commons_exact_image(item,candidate)
+                        relation="commons_identified_exact_taxon"
+                    else:
+                        test_tid=exact_species_taxon(alias, alias_rank)
+                        test_photo=license_photo(alias,test_tid,result["attempts"])
                     if test_photo is None:
-                        result["attempts"].append(alias+": no research-grade licensed exact-taxon photo")
+                        result["attempts"].append(alias+": no usable licensed exact-taxon photo")
                         continue
                     photo_name=alias
                     photo_relation=relation
@@ -238,7 +299,7 @@ def build():
             shutil.copy2(path,folder/"images"/path.name)
             status=ALLOWED[p["license_code"]]
             row={
-                "file_name":path.name,"role":"Provisional species recognition photograph; diagnostic anatomy not visually certified",
+                "file_name":path.name,"role":"Provisional species recognition photograph; exact source taxon reviewed, diagnostic anatomy not visually certified",
                 "creator":p["attribution"],"license":status[0],"source_page":p["source_page"],
                 "direct_url":p["image_url"],"study_use":"Noncommercial botanical education",
                 "public_reuse":status[1],
@@ -254,19 +315,19 @@ def build():
                 "scientific_name":name,"common_name":item["common_name"],
                 "look_here_first":item["look_here_first"],
                 "curation_status":{"taxonomy_reviewed":False,"visual_reviewed":False,"photo_source_checked":True},
-                "photo_note":("iNaturalist research-grade observation from accepted child taxon " if photo_relation=="accepted_child" else ("iNaturalist research-grade observation under exact accepted scientific name " if photo_name==name else "iNaturalist research-grade observation under independently documented synonym "))+photo_name+"; photo license and bytes checked. The picture is a provisional species recognition image, not a verified diagnostic subspecies comparison.",
+                "photo_note":("Wikimedia Commons image documented to the exact taxon rank " if photo_relation=="commons_identified_exact_taxon" else ("iNaturalist research-grade observation from accepted child taxon " if photo_relation=="accepted_child" else ("iNaturalist research-grade observation under exact accepted scientific name " if photo_name==name else "iNaturalist research-grade observation under independently documented synonym ")))+photo_name+"; credited license and bytes checked; photo resized and metadata stripped. Provisional recognition only; diagnostic visual review remains pending.",
                 "taxonomy_source":item["taxonomy_source"],
-                "synonyms":[] if photo_name==name or photo_relation=="accepted_child" else [photo_name],
+                "synonyms":[] if photo_name==name or photo_relation in ("accepted_child","commons_identified_exact_taxon") else [photo_name],
                 "photo_observed_taxon":photo_name,
                 "photo_observed_taxon_relation":photo_relation,
-                "photo_taxonomy_note":"Taxonomic source documents the observation name as a matching taxon concept at its recorded rank; retain alternative-backbone flags and check photo anatomy separately.",
+                "photo_taxonomy_note":"Wikimedia file-level exact-taxonomy image source (not a live iNaturalist RG taxon) or independently reviewed scientific synonym; taxon rank preserved, visual anatomy still provisional.",
             }
             (folder/"species.json").write_text(json.dumps(species,indent=2)+"\n")
             (folder/"SOURCES.txt").write_text(
                 "Approved Master Plant Pool preflight; accepted species: "+item["taxonomy_source"]+
                 "\nTaxonomic name-synonym evidence: "+item["synonym_source"]+
                 "\nObserved scientific name (accepted or documented alias): "+photo_name+
-                "\nSource research-grade observation: "+p["observation_page"]+
+                ("\nWikimedia Commons reviewed source: " if photo_relation=="commons_identified_exact_taxon" else "\nSource research-grade observation: ")+p["observation_page"]+
                 "\nPhoto: "+p["source_page"]+
                 "\nAttribution: "+p["attribution"]+
                 "\nLicense: "+status[0]+"; "+status[1]+
