@@ -1,0 +1,63 @@
+{
+  "lane": "family-recognition-confusion-polish",
+  "family": "Oxalidaceae",
+  "target": "content/taxa/Oxalidaceae/family.json",
+  "observed_blob_sha": "ed31ccc9f7e0cb016a2daafc23952870d8f32792",
+  "status": "canonical_unpublished_connector_safety_rejection",
+  "recorded_date": "2026-10-18",
+  "source_tracker": "Family Study Index!N134:Q134",
+  "scope": "family-level photo-led anatomy lessons only",
+  "preserve": {
+    "existing_steps": 5,
+    "existing_comparisons": 1,
+    "accepted_taxa": [
+      "Oxalis drummondii",
+      "Oxalis dillenii",
+      "Oxalis albicans",
+      "Oxalis stricta",
+      "Oxalis violacea"
+    ],
+    "genus_routing": "Oxalis",
+    "native_range": "unchanged"
+  },
+  "anatomy_examples": [
+    {
+      "species": "Oxalis violacea",
+      "part": "leaf attachment",
+      "plain_label": "Three leaflets meet at the tip of one stalk",
+      "botanical_label": "palmately trifoliolate leaf, petiole",
+      "look_for": "Trace one petiole to the common point where three separate leaflets attach; compare Marsilea four-pinna leaves and Trifolium trifoliolate leaves with flowers.",
+      "photo_role": "exact-species leaf top and underside showing full petiole-to-leaflet junction",
+      "photo_status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caption": "Trace one violet woodsorrel leaf stalk to its three leaflets; leaflet count alone is not proof of family."
+    },
+    {
+      "species": "Oxalis dillenii",
+      "part": "flower center",
+      "plain_label": "Two sets of pollen stalks and five styles",
+      "botanical_label": "ten dimorphic stamens; five styles; superior ovary",
+      "look_for": "Show a flower face and dissection clearly separating five longer and five shorter stamens from the five styles; do not count hidden organs.",
+      "photo_role": "exact-species flower face and flower-center macro/dissection with scale",
+      "photo_status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caption": "Five long and five short stamens surround five styles in the woodsorrel flower."
+    },
+    {
+      "species": "Oxalis dillenii",
+      "part": "mature capsule",
+      "plain_label": "A dry fruit with five chambers",
+      "botanical_label": "five-locular loculicidal capsule",
+      "look_for": "Show intact and opened mature capsules with scale and chamber anatomy; only teach seed ejection with an actual documented sequence. Compare Geraniaceae's beaked schizocarp.",
+      "photo_role": "exact-species intact and opened mature capsule with scale; optional verified seed-release sequence",
+      "photo_status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caption": "A mature woodsorrel capsule has five chambers, unlike the long-beaked Geraniaceae fruit."
+    }
+  ],
+  "verified_photos": 0,
+  "photo_provenance_status": "no specific photo or creator/license verified; no image linked or installed",
+  "annotation_status": "all pending; no arrows approved",
+  "write_blocker": "GitHub update_file connector safety rejection on 2026-10-18; not a blob SHA conflict",
+  "next_action": "Re-read latest rules, claims, live Master Pool and canonical family blob; if unclaimed and examples absent, merge anatomy_examples only into visual_lesson, commit one family-only change, re-fetch main; then mirror publication status to Family Study Index Q134 without changing B:K."
+}
