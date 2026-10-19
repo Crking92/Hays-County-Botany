@@ -1,0 +1,70 @@
+name: Straggler Daisy Licensed Anatomical Macro Pass
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/straggler-daisy-macro-photos-20261019.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: targeted-straggler-daisy-two-macros-20261019
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install JPEG verification and annotation tools
+        run: python -m pip install --disable-pip-version-check requests Pillow
+      - name: Refresh current canonical state
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Download, annotate and inspect two exact-source licensed photos
+        run: python scripts/straggler_daisy_macro_photos_20261019.py
+      - name: Assert installed JPEGs, credit, original photos and provisional status
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          root=Path('content/taxa/Asteraceae/Calyptocarpus/calyptocarpus-vialis')
+          s=json.loads((root/'species.json').read_text())
+          images=s['images']
+          assert len(images)==5 and s['curation_status']['finished_field_id_pass']=='PASS_IN_PROGRESS'
+          for name in ('starr-3968-flower-phyllary-arrows.jpg','starr-3974-cypsela-awns-arrows.jpg'):
+              item=next(i for i in images if i['file'].endswith(name))
+              assert item['creator']=='Forest & Kim Starr' and item['license']=='CC BY 3.0'
+              f=root/item['file']
+              assert f.stat().st_size>40000 and f.stat().st_size<5000000
+              with Image.open(f) as im:
+                  im.verify()
+              print('ANATOMY JPEG VERIFIED:',f)
+          assert len([i for i in images if i['file'].startswith('images/library-review036')])==2
+          assert len([i for i in images if i['file'].startswith('images/inat-344357584')])==1
+          print('Existing three photos retained; scientific HOLD and unresolved details preserved')
+          PY
+      - name: Commit scoped installation without changing other photo work
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Asteraceae/Calyptocarpus/calyptocarpus-vialis/ reports/straggler-daisy-macro-photo-20261019.json
+          if git diff --cached --quiet; then
+            echo "Already installed"; exit 0
+          fi
+          git commit -m "Install two annotated licensed straggler daisy macro reference photos [skip ci]"
+          for n in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 4
+          done
+          exit 1
