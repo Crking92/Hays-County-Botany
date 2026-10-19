@@ -61,6 +61,8 @@ jobs:
           echo "Deployment package ready: $(find dist -type f | wc -l) files"
           du -sh dist
 
+      - name: Block release of restricted photos and private review gallery
+        run: python3 scripts/public_photo_rights_preflight.py --site dist
       - name: Directly deploy public Worker with Wrangler
         uses: cloudflare/wrangler-action@v4
         with:
