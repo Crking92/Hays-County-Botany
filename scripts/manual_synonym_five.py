@@ -162,17 +162,48 @@ def build():
         try:
             if suffix and not (item.get("infraspecific_crosswalk_verified") and "powo.science.kew.org/taxon/" in item.get("synonym_source","")):
                 result["status"]="HOLD_UNVERIFIED_INFRASPECIFIC_CROSSWALK";continue
-            photo_name=item["photo_lookup_name"]
-            if photo_name==name and not item.get("exact_source_rank_reviewed") or photo_name.lower().replace(" ","-") in installed or photo_name.lower().replace(" ","-") in active:
-                result["status"]="HOLD_SYNONYM_DUPLICATE_OR_CLAIMED"
-                continue
+            # Distinct, pre-verified Kew synonyms are alternatives, never
+            # guesses based on a visually similar parent species. Each source
+            # must be at its exact iNaturalist taxon rank and observation rank.
+            candidates=item.get("photo_lookup_candidates") or [{
+                "name":item["photo_lookup_name"],
+                "rank":item.get("photo_lookup_rank","species"),
+                "source":item["synonym_source"],
+            }]
+            p=None
+            photo_name=None
+            tid=None
+            for candidate in candidates:
+                alias=candidate["name"]
+                alias_rank=candidate.get("rank","species")
+                source=candidate.get("source") or item["synonym_source"]
+                if "powo.science.kew.org/taxon/" not in source:
+                    result["attempts"].append(alias+": source lacks exact Kew taxon link")
+                    continue
+                alias_slug=alias.lower().replace(".","").replace("×","x").replace(" ","-")
+                if alias_slug in installed or alias_slug in active:
+                    result["attempts"].append(alias+": existing canonical/claimed concept, skipping")
+                    continue
+                if alias==name and not item.get("exact_source_rank_reviewed"):
+                    result["attempts"].append(alias+": direct name not explicitly preflighted")
+                    continue
+                try:
+                    test_tid=exact_species_taxon(alias, alias_rank)
+                    test_photo=license_photo(alias,test_tid,result["attempts"])
+                    if test_photo is None:
+                        result["attempts"].append(alias+": no research-grade licensed exact-taxon photo")
+                        continue
+                    photo_name=alias
+                    tid=test_tid
+                    p=test_photo
+                    result["synonym_evidence_url"]=source
+                    break
+                except Exception as exc:
+                    result["attempts"].append(alias+": "+str(exc)[:130])
+            if p is None:
+                result["status"]="NEEDS_FIRST_PHOTO_OR_SOURCE_CHECK";continue
             result["photo_lookup_name"]=photo_name
-            result["synonym_evidence_url"]=item["synonym_source"]
-            tid=exact_species_taxon(photo_name, item.get("photo_lookup_rank", "species"))
             result["iNaturalist_taxon_id"]=tid
-            p=license_photo(photo_name,tid,result["attempts"])
-            if not p:
-                result["status"]="NEEDS_FIRST_PHOTO";continue
             path=STAGING/slug/("inat-"+p["photo_id"]+".jpg")
             path.parent.mkdir(parents=True,exist_ok=True)
             path.write_bytes(p["bytes"])
