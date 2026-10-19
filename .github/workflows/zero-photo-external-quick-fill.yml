@@ -22,7 +22,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: zero-photo-external-quick-fill
+  group: botany-curation-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
