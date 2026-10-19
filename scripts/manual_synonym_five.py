@@ -132,7 +132,7 @@ def read_state():
 
 def build():
     plan=json.loads(PLAN.read_text())
-    allowed={p["accepted_working_name"]:{"slug":p["slug"],"caution":None} for p in json.loads(PREFLIGHT.read_text())["concepts"] if any(d in p.get("decisions",[]) for d in ("CONFIRMED_ROUTE_TO_ACCEPTED_SPECIES","CONFIRMED_ACCEPTED_TARGET_NOT_IN_POOL","CONFIRMED_ROUTE_TO_ACCEPTED_DESTINATION","ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE","CONFIRMED_SYNONYM_TO_ACCEPTED_SPECIES_FRESH_CHECK","CONFIRMED_KEW_TARGET_WITH_REGIONAL_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_FERN_BACKBONE_CAUTION","CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_BRYOPHYTE_BACKBONE","PREFLIGHT","CONFIRMED_SYNONYM_TO_ACCEPTED_SUBSPECIES_FRESH_CHECK"))}
+    allowed={p["accepted_working_name"]:{"slug":p["slug"],"caution":None} for p in json.loads(PREFLIGHT.read_text())["concepts"] if any(d in p.get("decisions",[]) for d in ("CONFIRMED_ROUTE_TO_ACCEPTED_SPECIES","CONFIRMED_ACCEPTED_TARGET_NOT_IN_POOL","CONFIRMED_ROUTE_TO_ACCEPTED_DESTINATION","ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE","CONFIRMED_SYNONYM_TO_ACCEPTED_SPECIES_FRESH_CHECK","CONFIRMED_KEW_TARGET_WITH_REGIONAL_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_FERN_BACKBONE_CAUTION","CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_BRYOPHYTE_BACKBONE","PREFLIGHT","CONFIRMED_SYNONYM_TO_ACCEPTED_SUBSPECIES_FRESH_CHECK","CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION"))}
     installed,active,queued=read_state()
     if BATCH.exists() or OUTPUT.exists():raise RuntimeError("Batch or report exists, refusing overwrite")
     results=[]
@@ -145,6 +145,12 @@ def build():
             result["status"]="HOLD_NOT_PREFLIGHT_CLEARED";continue
         if slug in installed or slug in active or slug in queued:
             result["status"]="SKIP_INSTALLED_CLAIMED_OR_HELD";continue
+        if item.get("source_rank_caution_reviewed"):
+            concept=next((x for x in json.loads(PREFLIGHT.read_text())["concepts"] if x.get("slug")==slug),None)
+            if (not concept or "CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION" not in concept.get("decisions",[])
+                or item.get("infraspecific_rank")!="subspecies"
+                or item.get("photo_lookup_rank")!="subspecies"):
+                result["status"]="HOLD_SOURCE_RANK_CAUTION_UNRESOLVED";continue
         # Accept a named variety/subspecies only with an explicitly spelled-out
         # Kew name crosswalk to the exact infraspecific concept. Species-level
         # photo names are never silently converted from the parent species.
@@ -173,10 +179,18 @@ def build():
             p=None
             photo_name=None
             tid=None
+            photo_relation="documented_synonym"
             for candidate in candidates:
                 alias=candidate["name"]
                 alias_rank=candidate.get("rank","species")
                 source=candidate.get("source") or item["synonym_source"]
+                relation=candidate.get("relation","documented_synonym")
+                if relation=="accepted_child":
+                    if (suffix or hybrid or alias_rank not in ("subspecies","variety")
+                        or not alias.startswith(name+" ") or "powo.science.kew.org/taxon/" not in source):
+                        result["attempts"].append(alias+": invalid accepted-child scope");continue
+                elif relation!="documented_synonym":
+                    result["attempts"].append(alias+": unreviewed taxon relationship");continue
                 if "powo.science.kew.org/taxon/" not in source:
                     result["attempts"].append(alias+": source lacks exact Kew taxon link")
                     continue
@@ -194,6 +208,7 @@ def build():
                         result["attempts"].append(alias+": no research-grade licensed exact-taxon photo")
                         continue
                     photo_name=alias
+                    photo_relation=relation
                     tid=test_tid
                     p=test_photo
                     result["synonym_evidence_url"]=source
@@ -203,6 +218,7 @@ def build():
             if p is None:
                 result["status"]="NEEDS_FIRST_PHOTO_OR_SOURCE_CHECK";continue
             result["photo_lookup_name"]=photo_name
+            result["photo_source_relation"]=photo_relation
             result["iNaturalist_taxon_id"]=tid
             path=STAGING/slug/("inat-"+p["photo_id"]+".jpg")
             path.parent.mkdir(parents=True,exist_ok=True)
@@ -232,9 +248,11 @@ def build():
                 "scientific_name":name,"common_name":item["common_name"],
                 "look_here_first":item["look_here_first"],
                 "curation_status":{"taxonomy_reviewed":False,"visual_reviewed":False,"photo_source_checked":True},
-                "photo_note":("iNaturalist research-grade observation under exact accepted scientific name " if photo_name==name else "iNaturalist research-grade observation under independently documented synonym ")+photo_name+"; photo license and bytes checked. Independent image-anatomy review still pending.",
+                "photo_note":("iNaturalist research-grade observation from accepted child taxon " if photo_relation=="accepted_child" else ("iNaturalist research-grade observation under exact accepted scientific name " if photo_name==name else "iNaturalist research-grade observation under independently documented synonym "))+photo_name+"; photo license and bytes checked. The picture is a provisional species recognition image, not a verified diagnostic subspecies comparison.",
                 "taxonomy_source":item["taxonomy_source"],
-                "synonyms":[] if photo_name==name else [photo_name],
+                "synonyms":[] if photo_name==name or photo_relation=="accepted_child" else [photo_name],
+                "photo_observed_taxon":photo_name,
+                "photo_observed_taxon_relation":photo_relation,
                 "photo_taxonomy_note":"Taxonomic source documents the observation name as a matching taxon concept at its recorded rank; retain alternative-backbone flags and check photo anatomy separately.",
             }
             (folder/"species.json").write_text(json.dumps(species,indent=2)+"\n")
