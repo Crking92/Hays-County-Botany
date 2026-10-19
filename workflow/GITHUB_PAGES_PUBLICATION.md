@@ -1,5 +1,21 @@
 # Public GitHub Pages from a private Hays Botany repository
 
+## October 19, 2026 — simpler single-repository route selected by owner
+
+The owner prefers to make the EXISTING `Crking92/Hays-County-Botany` repository PUBLIC and publish GitHub Pages from that repository, with no Cloudflare or Codespaces. The manual workflow `.github/workflows/publish-public-learner-github-pages.yml` is updated for this route: it builds a filtered noncommercial educational website snapshot via `scripts/build_public_pages_snapshot.py`, excludes the private Photo Lab web page, and runs public-image-rights checks before Pages publication.
+
+**Read this before changing visibility:** Making the original repo PUBLIC exposes **EVERY SOURCE FILE and its Git history immediately**, not merely the Pages website, whether or not the URL is shared. This includes existing private photo study files, licensed-restricted third-party media, private research drafts, old review and workflow files. The website's filtered output does **not** hide those original repo files. The action of publishing existing raw third-party material is not cured by a statement that the site is educational or noncommercial. Check for copyright/privacy problems before changing repository visibility. Github visibility settings are changed by the owner, not by this workflow.
+
+Simplified path after reviewing the exposure risk:
+1. Original repository **Settings → General → Danger Zone → Change repository visibility → Public**.
+2. Original repository **Settings → Pages → Build and deployment → Source = GitHub Actions**.
+3. **Actions → Publish Hays Botany on GitHub Pages (manual)**: preview with publish unchecked, review its output/rights audit; then run with publish checked.
+4. Verify GitHub Actions build and deploy jobs succeeded; on iPhone open **https://crking92.github.io/Hays-County-Botany/** in Safari and use Share → Add to Home Screen.
+
+**Status:** A manual workflow was updated but visibility and Pages settings have NOT been changed by ChatGPT. A new successful filtered full-site publish is NOT yet verified. Preserve private permissions and scientific/source records until the owner changes visibility. The older *private-repo Pages plan* instructions below are historical and do not describe the new preferred route.
+
+---
+
 **Status 2026-10-18:** workflow prepared; NOT deployed or proven live.
 GitHub source repository `Crking92/Hays-County-Botany` remains **private**.
 Only the whitelisted learner's static `dist/` asset package is ever uploaded publicly.
