@@ -1,0 +1,70 @@
+name: Photo Lab 004 Full-Resolution Visual Review (private)
+
+# One-time first run; manual re-run only. No installed photos or deployment.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/photo-batch-004-fullres-review.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export-selected-original-pixels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - name: Download checksum-locked private photo archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/b004
+          gh release download hays-photo-library-diagnostic-39139862679 \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'diagnostic-39139862679-photos.zip' --dir /tmp/b004
+          echo 'bc240efe530afd361a33049468e12520d15be61202654dc5e1cfd40f68e7d80c  /tmp/b004/diagnostic-39139862679-photos.zip' | sha256sum -c
+      - name: Export selected originals without touching canonical files
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, zipfile, hashlib
+          from pathlib import Path
+          root=Path('fullres-review-004');root.mkdir(exist_ok=True)
+          chosen=['asclepias-viridiflora','cyperus-ochraceus','eragrostis-spectabilis','euphorbia-villifera','quercus-vaseyana','salvia-texana']
+          d=json.loads(Path('workflow/photo-library/reviews/diagnostic-004-contact-visual-roles-20261018.json').read_text())
+          a=d['photo_recommendations']
+          original=Path('/tmp/b004/diagnostic-39139862679-photos.zip')
+          rows=[]
+          with zipfile.ZipFile(original) as src:
+            names=src.namelist()
+            for n,p in enumerate(x for x in a if x['canonical_id'] in chosen):
+              wanted=p['archive_file']
+              paths=[q for q in names if q==wanted or q.endswith('/'+wanted)]
+              if len(paths)!=1:raise RuntimeError('archive exact filename mismatch: '+wanted)
+              binary=src.read(paths[0])
+              if not binary[:2]==b'\xff\xd8':raise RuntimeError('not a JPEG: '+wanted)
+              output=root / p['canonical_id'] / f'{n+1:02d}-{Path(wanted).name}'
+              output.parent.mkdir(parents=True,exist_ok=True)
+              output.write_bytes(binary)
+              rows.append({**p,'private_fullres_file':str(output),'sha256':hashlib.sha256(binary).hexdigest()})
+          assert len(rows)==18,len(rows)
+          (root/'index.json').write_text(json.dumps({'status':'PRIVATE_FULLRES_VISUAL_REVIEW_ONLY','photo_count':len(rows),'records':rows,'canonical_modified':False,'public_deploy':False},indent=2))
+          print('Exported 18 full-size licensed candidate JPEGs for detailed diagnostic inspection.')
+          PY
+      - name: Verify no source changes
+        run: git diff --exit-code
+      - name: Upload private image inspection bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: batch004-six-species-fullres-private-review
+          path: fullres-review-004/
+          retention-days: 7
