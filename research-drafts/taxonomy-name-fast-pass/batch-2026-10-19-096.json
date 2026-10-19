@@ -1,0 +1,59 @@
+{
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 4,
+  "batch_id": "2026-10-19-096",
+  "checked_at": "2026-10-19",
+  "taxonomy_authority": "POWO / WCVP 2026; specific source URLs per record",
+  "range_audit": "DEFERRED",
+  "specimen_identity": "NOT_CHECKED",
+  "scope": "accepted-name, author, family, genus, rank, synonym and homonym review only; no native-range audit or canonical species edits",
+  "counts": {
+    "ACCEPTED": 0,
+    "SYNONYM_TO_ACCEPTED": 1,
+    "ACCEPTED_WITH_CONCEPT_CAUTION": 1,
+    "HOLD_IDENTITY": 0
+  },
+  "records": [
+    {
+      "source_name": "Vitis cinerea var. helleri",
+      "accepted_name": "Vitis berlandieri Planch.",
+      "family": "Vitaceae",
+      "genus": "Vitis",
+      "rank": "species",
+      "decision": "SYNONYM_TO_ACCEPTED",
+      "master_pool_row": 1257,
+      "override_row": 395,
+      "canonical_id": "vitis-berlandieri",
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:68576-1"
+      ],
+      "synonyms_checked": [
+        "Vitis cinerea var. helleri (L.H.Bailey) M.O.Moore",
+        "Vitis cordifolia var. helleri L.H.Bailey",
+        "Vitis helleri (L.H.Bailey) Small"
+      ],
+      "concept_caution": "POWO/WCVP maps historical var. helleri to accepted V. berlandieri; Flora of North America (2016) used alternative V. cinerea var. helleri treatment. Preserve original variety name as alias, not a separate learner."
+    },
+    {
+      "source_name": "Vitis palmata",
+      "accepted_name": "Vitis palmata Vahl",
+      "family": "Vitaceae",
+      "genus": "Vitis",
+      "rank": "species",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "master_pool_row": 1259,
+      "override_row": 464,
+      "canonical_id": "vitis-palmata",
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:311399-2",
+        "https://powo.science.kew.org/taxon/68928-1"
+      ],
+      "synonyms_checked": [
+        "Vitis riparia var. palmata (Vahl) Planch.",
+        "Vitis vinifera var. palmata (Vahl) Kuntze",
+        "Vitis palmata Leconte"
+      ],
+      "concept_caution": "Author-sensitive homonym: Vitis palmata Vahl is accepted; Vitis palmata Leconte is an illegitimate later homonym mapped by POWO to V. labrusca. Do not conflate. Existing range HOLD untouched."
+    }
+  ]
+}
