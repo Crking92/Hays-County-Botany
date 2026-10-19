@@ -145,6 +145,10 @@ def build():
             result["status"]="HOLD_NOT_PREFLIGHT_CLEARED";continue
         if slug in installed or slug in active or slug in queued:
             result["status"]="SKIP_INSTALLED_CLAIMED_OR_HELD";continue
+        concept=next((x for x in json.loads(PREFLIGHT.read_text())["concepts"] if x.get("slug")==slug),None)
+        if (concept and "CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION" in concept.get("decisions",[])
+            and not item.get("source_rank_caution_reviewed")):
+            result["status"]="HOLD_SOURCE_RANK_CAUTION_UNRESOLVED";continue
         if item.get("source_rank_caution_reviewed"):
             concept=next((x for x in json.loads(PREFLIGHT.read_text())["concepts"] if x.get("slug")==slug),None)
             if (not concept or "CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION" not in concept.get("decisions",[])
@@ -191,8 +195,10 @@ def build():
                         result["attempts"].append(alias+": invalid accepted-child scope");continue
                 elif relation!="documented_synonym":
                     result["attempts"].append(alias+": unreviewed taxon relationship");continue
-                if "powo.science.kew.org/taxon/" not in source:
-                    result["attempts"].append(alias+": source lacks exact Kew taxon link")
+                fna_bicornis=(slug=="persicaria-bicornis" and alias==name and alias_rank=="species"
+                              and "efloras.org/florataxon.aspx?flora_id=1&taxon_id=250060696" in source)
+                if "powo.science.kew.org/taxon/" not in source and not fna_bicornis:
+                    result["attempts"].append(alias+": source lacks exact POWO or approved FNA species reference")
                     continue
                 alias_slug=alias.lower().replace(".","").replace("×","x").replace(" ","-")
                 if alias_slug in installed or alias_slug in active:
