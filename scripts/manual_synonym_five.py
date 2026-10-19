@@ -197,16 +197,16 @@ def build():
                 "scientific_name":name,"common_name":item["common_name"],
                 "look_here_first":item["look_here_first"],
                 "curation_status":{"taxonomy_reviewed":False,"visual_reviewed":False,"photo_source_checked":True},
-                "photo_note":"iNaturalist research-grade observation under independently documented scientific synonym "+photo_name+"; photo license and bytes checked. Independent image-anatomy review still pending.",
+                "photo_note":("iNaturalist research-grade observation under exact accepted scientific name " if photo_name==name else "iNaturalist research-grade observation under independently documented synonym ")+photo_name+"; photo license and bytes checked. Independent image-anatomy review still pending.",
                 "taxonomy_source":item["taxonomy_source"],
-                "synonyms":[photo_name],
+                "synonyms":[] if photo_name==name else [photo_name],
                 "photo_taxonomy_note":"Taxonomic source documents the observation name as a matching taxon concept at its recorded rank; retain alternative-backbone flags and check photo anatomy separately.",
             }
             (folder/"species.json").write_text(json.dumps(species,indent=2)+"\n")
             (folder/"SOURCES.txt").write_text(
                 "Approved Master Plant Pool preflight; accepted species: "+item["taxonomy_source"]+
                 "\nTaxonomic name-synonym evidence: "+item["synonym_source"]+
-                "\nPhotographed under scientific synonym: "+photo_name+
+                "\nObserved scientific name (accepted or documented alias): "+photo_name+
                 "\nSource research-grade observation: "+p["observation_page"]+
                 "\nPhoto: "+p["source_page"]+
                 "\nAttribution: "+p["attribution"]+
