@@ -1,5 +1,10 @@
 # Hays Botany Work Coordination
 
+## 2026-10-19 published/cancelled-work reconciliation
+
+See `reports/automation-publication-recovery-audit-20261019.md` before retrying older rejected or cancelled work. The 61 recently cancelled `Visual Learner Photo Quality Queue` Actions were superseded read-only QA checks, not lost photo installations. Staged first-card recovery for `Malus ioensis` was successfully installed (Action 39261484459; real JPEG verified). The remaining four older curation-inbox folders are superseded/validate-only; do not blindly add READY. Prior genus/family/taxonomy connector rejection handoffs may already be canonical—check live manifest, lesson index, and reviewed handoff status. Remaining real work includes the four verified zero-photo canonical species and actual photo-level rights/diagnostic review. Keep all five worker scopes and schedules unchanged.
+
+
 ## 2026-10-16 multisource first-card policy and separate sparse-data research chat
 
 Read `workflow/FIRST_CARD_MULTISOURCE_POLICY_20261016.md` for the user-approved **first-time card** prerequisite update. First-card installation for uninstalled approved Master Plant Pool species is now **source-neutral**: no Joey/photo-inventory match is necessary; one physically verified, usable, attributed, exact-taxon licensed image + LOOK HERE FIRST cue is sufficient for a provisional card. Search existing project and permanent photo archives, Calvin's own authorized iNaturalist, Joey, and other confirmed-licensed iNaturalist/GBIF/Wikimedia/public-domain sources. No usable image => durable NEEDS_FIRST_PHOTO handoff and keep selecting another eligible species; **do not claim installed**. County-native checks remain paused; taxon identity/alias/parent HOLD and image rights are non-negotiable.
