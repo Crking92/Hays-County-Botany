@@ -1,0 +1,42 @@
+name: One-time Straggler Daisy Archived Photo License Audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/straggler-daisy-two-licenses-audit.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Read original photo-specific licenses from GBIF and iNaturalist
+        run: |
+          python - <<'PY'
+          import json,urllib.request,urllib.error
+          pairs=[('Dan Johnson',5938419383,605224453),('Linda Jo Conn',5938617170,604953893)]
+          def get(url):
+            try:
+              req=urllib.request.Request(url,headers={'User-Agent':'HaysBotanyPhotoLicenseAudit/1.0','Accept':'application/json'})
+              with urllib.request.urlopen(req,timeout=20) as r:return json.load(r)
+            except Exception as e:return {'error':str(e)}
+          for name,occ,pid in pairs:
+            gbif=get('https://api.gbif.org/v1/occurrence/'+str(occ))
+            photo=get('https://api.inaturalist.org/v1/photos/'+str(pid))
+            gbif_media=gbif.get('media',[])
+            print(json.dumps({'creator':name,'occurrence':occ,'photo_id':pid,
+              'gbif_record':{'license':gbif.get('license'),'rightsHolder':gbif.get('rightsHolder'),
+              'references':gbif.get('references'),'publisher':gbif.get('publisher'),
+              'media':[{'identifier':x.get('identifier'),'license':x.get('license'),
+                        'rightsHolder':x.get('rightsHolder'),'creator':x.get('creator')} for x in gbif_media]},
+              'inat_photo_response':{'error':photo.get('error'),
+                'total_results':photo.get('total_results'),
+                'results':[{'id':x.get('id'),'license_code':x.get('license_code'),
+                            'attribution':x.get('attribution')} for x in photo.get('results',[])[:3]]}
+             },ensure_ascii=False))
+          PY
