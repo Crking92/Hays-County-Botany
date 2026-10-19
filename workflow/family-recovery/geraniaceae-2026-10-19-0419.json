@@ -1,0 +1,107 @@
+{
+  "lane": "family-recognition-confusion-polish",
+  "family": "Geraniaceae",
+  "target": "content/taxa/Geraniaceae/family.json",
+  "observed_blob_sha": "5bfa05c6bf99f490b5246e99661bcb0e764db065",
+  "status": "canonical_unpublished_connector_safety_rejection",
+  "recorded_date": "2026-10-19",
+  "sheet_mirror": "Family Study Index!N44:Q44 updated and independently verified 2026-10-19; formula-owned B:K unchanged",
+  "scope": "Family morphology and part-specific photo lessons only; no species installs, native-range audit, or UI",
+  "preserve": {
+    "existing_steps": 4,
+    "existing_comparisons": 2,
+    "video_reference": "Erodium texanum provisional; preserve review caveat",
+    "master_pool_species": [
+      "Erodium cicutarium",
+      "Erodium texanum",
+      "Geranium carolinianum",
+      "Geranium texanum"
+    ]
+  },
+  "look_here_first": "For the local Erodium/Geranium pattern, find the persistent beak and five one-seeded mericarps of the mature schizocarp; confirm the flower center, then use leaf division to route genus. Do not use petal color alone or extend this exact pattern to all Geraniaceae.",
+  "genus_routing": [
+    {
+      "genus": "Erodium",
+      "cue": "Usually pinnately divided leaves; five fertile stamens and five sterile staminodes; long-beaked fruit with twisting awns"
+    },
+    {
+      "genus": "Geranium",
+      "cue": "Usually palmately divided leaves; typically ten fertile stamens; beaked five-mericarps fruit"
+    }
+  ],
+  "confusable_families": [
+    {
+      "family": "Oxalidaceae",
+      "separator": "Oxalis has a five-locular capsule without the long stylar beak of local Geraniaceae"
+    },
+    {
+      "family": "Linaceae",
+      "separator": "Linum has a capsule, sometimes with false septa, rather than a five-mericarps beaked schizocarp"
+    }
+  ],
+  "anatomy_examples": [
+    {
+      "species": "Erodium cicutarium",
+      "part": "flower center",
+      "plain_label": "Five pollen-bearing stalks and five sterile look-alikes",
+      "botanical_label": "five fertile stamens; five staminodes",
+      "photo_role": "exact-species flower-center macro/dissection with anthers and sterile staminodes resolved; matched Geranium carolinianum center",
+      "photo_status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caption": "Count anther-bearing stamens separately from sterile staminodes."
+    },
+    {
+      "species": "Geranium carolinianum",
+      "part": "mature fruit",
+      "plain_label": "Five one-seeded pieces peel away from a long beak",
+      "botanical_label": "five mericarps; beaked schizocarp; persistent stylar column",
+      "photo_role": "exact-species intact and opened ripe fruit with scale; compare Oxalis capsule",
+      "photo_status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caption": "Five seed-bearing mericarps separate from a persistent beak."
+    },
+    {
+      "species": "Erodium cicutarium",
+      "part": "awn and mericarp",
+      "plain_label": "Coiling tail on one seed-bearing piece",
+      "botanical_label": "hygroscopic awn; one-seeded mericarp",
+      "photo_role": "exact-species detached mericarp and twisted awn with scale; optional verified same-specimen dry/wet sequence",
+      "photo_status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caption": "The awn can twist with moisture; demonstrate motion only with an observed sequence."
+    },
+    {
+      "species": "Geranium carolinianum",
+      "part": "leaf",
+      "plain_label": "Major lobes radiate from the leaf stalk",
+      "botanical_label": "palmately divided lamina; stipules",
+      "photo_role": "exact-species leaf blade and petiole/node matched with Erodium cicutarium pinnately divided leaf",
+      "photo_status": "needs_photo",
+      "annotation_status": "annotation_pending",
+      "caption": "Leaf division helps route genus but cannot confirm family without flowers or fruit."
+    }
+  ],
+  "photo_verification": {
+    "exact_image_ids": 0,
+    "verified_creators": 0,
+    "verified_licenses": 0,
+    "verified_anatomical_arrows": 0,
+    "note": "These are precise photo requests, not verified or installed images."
+  },
+  "sources": [
+    {
+      "title": "Kew POWO Geraniaceae",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30001521-2/general-information"
+    },
+    {
+      "title": "Kew POWO Erodium",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30013005-2/general-information"
+    },
+    {
+      "title": "Burke Herbarium / FNA Geranium carolinianum",
+      "url": "https://burkeherbarium.org/imagecollection/taxon.php?Taxon=Geranium+carolinianum"
+    }
+  ],
+  "blocker": "Two GitHub update_file writes to canonical Geraniaceae family.json rejected by connector safety checks, not SHA conflicts; canonical file re-fetch needed before any future merge.",
+  "next_action": "On a future family run, verify canonical absence, refresh claims and blob SHA, merge only family fields and anatomy_examples while preserving existing steps, comparisons, video reference and taxon caveat; commit and verify on main, then mirror status to Family Study Index Q44."
+}
