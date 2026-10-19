@@ -118,7 +118,9 @@ def main() -> None:
         "biggest_savings": sorted(changed, key=lambda x: x["saved_bytes"], reverse=True)[:25],
         "errors": errors
     }
-    Path(args.report).write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    report_path = Path(args.report)
+    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print(json.dumps({k: v for k, v in report.items() if k not in ("biggest_savings",)}, indent=2))
     if errors:
         raise SystemExit(f"Encountered {len(errors)} JPEG processing errors; see report")
