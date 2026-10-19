@@ -2,8 +2,13 @@ name: Publish Hays Botany on GitHub Pages (manual)
 
 # One-repository public GitHub Pages path. All repo source/history become public when owner changes visibility; website snapshot still filters media.
 # GitHub Pages must first be enabled at Settings > Pages > GitHub Actions.
-# Never rebuild on research/photo commits. Manual only.
+# Never rebuild on generic research/photo commits. A narrowly scoped
+# manual finished-field-ID marker can publish the current rights-filtered site.
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/field-id-publication/*.json'
   workflow_dispatch:
     inputs:
       publish:
@@ -30,7 +35,7 @@ jobs:
           ref: main
           persist-credentials: false
       - name: Verify owner has made repository public for publishing
-        if: ${{ inputs.publish }}
+        if: ${{ github.event_name == 'push' || inputs.publish }}
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -94,16 +99,16 @@ jobs:
       - name: Validate final image-rights filtered website before publication
         run: python scripts/public_photo_rights_preflight.py --site dist --noncommercial
       - name: Configure GitHub Pages
-        if: ${{ inputs.publish }}
+        if: ${{ github.event_name == 'push' || inputs.publish }}
         uses: actions/configure-pages@v5
       - name: Package only public assets
-        if: ${{ inputs.publish }}
+        if: ${{ github.event_name == 'push' || inputs.publish }}
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist/
 
   deploy-public-pages:
-    if: ${{ inputs.publish }}
+    if: ${{ github.event_name == 'push' || inputs.publish }}
     needs: build-site
     runs-on: ubuntu-latest
     timeout-minutes: 20
