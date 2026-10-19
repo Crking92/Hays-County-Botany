@@ -59,10 +59,12 @@ def api(route, params=None):
     if params:url+="?"+urlencode(params)
     return json.loads(request(url,5500000))
 
-def exact_species_taxon(name):
-    data=api("taxa/autocomplete",{"q":name,"per_page":20}).get("results",[])
-    hits=[x for x in data if x.get("name")==name and x.get("rank")=="species"]
-    if len(hits)!=1:raise ValueError("No unique exact accepted-rank species in live iNaturalist taxonomy")
+def exact_species_taxon(name, rank="species"):
+    if rank not in ("species","subspecies","variety"):
+        raise ValueError("Unsupported source name rank: "+str(rank))
+    data=api("taxa/autocomplete",{"q":name,"per_page":30}).get("results",[])
+    hits=[x for x in data if x.get("name")==name and x.get("rank")==rank and x.get("is_active", True)]
+    if len(hits)!=1:raise ValueError("No unique exact "+rank+" source taxon in live iNaturalist taxonomy for "+name)
     return hits[0]["id"]
 
 def license_photo(name, taxon_id, issues):
@@ -158,12 +160,12 @@ def build():
             if suffix and not (item.get("infraspecific_crosswalk_verified") and "powo.science.kew.org/taxon/" in item.get("synonym_source","")):
                 result["status"]="HOLD_UNVERIFIED_INFRASPECIFIC_CROSSWALK";continue
             photo_name=item["photo_lookup_name"]
-            if photo_name==name or photo_name.lower().replace(" ","-") in installed or photo_name.lower().replace(" ","-") in active:
+            if photo_name==name and not item.get("exact_source_rank_reviewed") or photo_name.lower().replace(" ","-") in installed or photo_name.lower().replace(" ","-") in active:
                 result["status"]="HOLD_SYNONYM_DUPLICATE_OR_CLAIMED"
                 continue
             result["photo_lookup_name"]=photo_name
             result["synonym_evidence_url"]=item["synonym_source"]
-            tid=exact_species_taxon(photo_name)
+            tid=exact_species_taxon(photo_name, item.get("photo_lookup_rank", "species"))
             result["iNaturalist_taxon_id"]=tid
             p=license_photo(photo_name,tid,result["attempts"])
             if not p:
@@ -198,7 +200,7 @@ def build():
                 "photo_note":"iNaturalist research-grade observation under independently documented scientific synonym "+photo_name+"; photo license and bytes checked. Independent image-anatomy review still pending.",
                 "taxonomy_source":item["taxonomy_source"],
                 "synonyms":[photo_name],
-                "photo_taxonomy_note":"Taxonomic source documents the observation name as a matching scientific synonym; retain alternative-backbone flags and check photo anatomy separately.",
+                "photo_taxonomy_note":"Taxonomic source documents the observation name as a matching taxon concept at its recorded rank; retain alternative-backbone flags and check photo anatomy separately.",
             }
             (folder/"species.json").write_text(json.dumps(species,indent=2)+"\n")
             (folder/"SOURCES.txt").write_text(
