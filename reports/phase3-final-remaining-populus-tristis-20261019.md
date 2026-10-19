@@ -1,4 +1,22 @@
-# Phase 3 — remaining alternative-taxonomy concept: Populus tristis
+# Phase 3 — Populus tristis final accepted-name resolution
+
+## RESOLVED — final black cottonwood installation (2026-10-19)
+
+**Outcome: completed** after the historical HOLD review below. Main-branch `data/manifest.json` contains **1,185** canonical learner cards and **zero remaining unrepresented slugs** in the 633-concept Phase 3 reconciliation. This closes the **Phase 3 accepted-first-card pass**, not all visual anatomy curation, county nativity review, or the full 1,282-source-row universe.
+
+- Installed canonical ID: `populus-tristis`; displayed name **Populus tristis Fisch.** under the project’s Kew POWO/WCVP working-name backbone.
+- Searchable synonym and familiar Flora of North America name: **Populus trichocarpa Torr. & A.Gray ex Hook.** The documented alternative-taxonomic treatment is retained in `taxonomic_note`; no duplicate `populus-trichocarpa` card was created.
+- Kew accepted name and synonym: https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:776895-1 ; FNA alternative: https://beta.floranorthamerica.org/Populus_trichocarpa .
+- Exact botanical-name photo source: Wikimedia Commons `Populus trichocarpa new leaves in spring 2.jpg` by **Thayne Tuason** (https://commons.wikimedia.org/wiki/File:Populus_trichocarpa_new_leaves_in_spring_2.jpg), under **CC BY-SA 4.0** (https://creativecommons.org/licenses/by-sa/4.0/). File decoded, JPEG resized to 1,800 × 1,202, EXIF/GPS removed, source license, author, original source page, modifications and `PUBLIC-WEB-CLEARED` permission scope persisted in canonical species and archived image-sources CSV. Reuse and adapted versions require CC BY-SA attribution, source/license links and ShareAlike treatment.
+- **Native-range caution:** POWO lists western North America/Baja California Norte, **not Texas**. No Hays County native status is claimed and detailed county audits remain paused. No introduced/invasive badge is inferred without its own evidence.
+- **Provisional learner only:** original photo represents spring leaves, not a verified set of mature leaf, catkin, bud and bark diagnostic views. Future photo-rich morphology polish should add separate credited reference shots and especially distinguish `Populus deltoides`.
+- GitHub installation: [successful v2 first-card run](https://github.com/Crking92/Hays-County-Botany/actions/runs/39277911007); report `reports/manual-last-phase3-populus-20261019-v2-installed.json`. First source-format attempt was correctly blocked: `reports/manual-last-phase3-populus-20261019-installed.json`; no false first-attempt addition.
+- Existing five scheduled workers unchanged; Cloudflare disconnected, Pages not enabled. This is verified **private GitHub data**, not confirmation of an updated public website.
+
+---
+
+### Historical hold analysis (retained for provenance)
+
 Date: 2026-10-19
 Status: HOLD — explicit accepted-name backbone decision required, **not a photograph problem**.
 
