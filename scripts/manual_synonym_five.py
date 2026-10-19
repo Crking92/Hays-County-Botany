@@ -130,7 +130,7 @@ def read_state():
 
 def build():
     plan=json.loads(PLAN.read_text())
-    allowed={p["accepted_working_name"]:{"slug":p["slug"],"caution":None} for p in json.loads(PREFLIGHT.read_text())["concepts"] if any(d in p.get("decisions",[]) for d in ("CONFIRMED_ROUTE_TO_ACCEPTED_SPECIES","CONFIRMED_ACCEPTED_TARGET_NOT_IN_POOL","CONFIRMED_ROUTE_TO_ACCEPTED_DESTINATION","ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE","CONFIRMED_SYNONYM_TO_ACCEPTED_SPECIES_FRESH_CHECK","CONFIRMED_KEW_TARGET_WITH_REGIONAL_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_FERN_BACKBONE_CAUTION","CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_BRYOPHYTE_BACKBONE","PREFLIGHT"))}
+    allowed={p["accepted_working_name"]:{"slug":p["slug"],"caution":None} for p in json.loads(PREFLIGHT.read_text())["concepts"] if any(d in p.get("decisions",[]) for d in ("CONFIRMED_ROUTE_TO_ACCEPTED_SPECIES","CONFIRMED_ACCEPTED_TARGET_NOT_IN_POOL","CONFIRMED_ROUTE_TO_ACCEPTED_DESTINATION","ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE","CONFIRMED_SYNONYM_TO_ACCEPTED_SPECIES_FRESH_CHECK","CONFIRMED_KEW_TARGET_WITH_REGIONAL_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_FERN_BACKBONE_CAUTION","CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_BRYOPHYTE_BACKBONE","PREFLIGHT","CONFIRMED_SYNONYM_TO_ACCEPTED_SUBSPECIES_FRESH_CHECK"))}
     installed,active,queued=read_state()
     if BATCH.exists() or OUTPUT.exists():raise RuntimeError("Batch or report exists, refusing overwrite")
     results=[]
@@ -143,9 +143,20 @@ def build():
             result["status"]="HOLD_NOT_PREFLIGHT_CLEARED";continue
         if slug in installed or slug in active or slug in queued:
             result["status"]="SKIP_INSTALLED_CLAIMED_OR_HELD";continue
-        if name!=item["genus"]+" "+item["epithet"] or slug!=name.lower().replace(" ","-"):
+        # Accept a named variety/subspecies only with an explicitly spelled-out
+        # Kew name crosswalk to the exact infraspecific concept. Species-level
+        # photo names are never silently converted from the parent species.
+        expected_base=item["genus"]+" "+item["epithet"]
+        rank_label=item.get("infraspecific_rank")
+        infra_epithet=item.get("infraspecific_epithet")
+        suffix={"variety":"var.","subspecies":"subsp."}.get(rank_label)
+        expected_name=(expected_base+" "+suffix+" "+infra_epithet) if (suffix and infra_epithet) else expected_base
+        normalized=expected_name.lower().replace(".","").replace(" ","-")
+        if name!=expected_name or slug!=normalized or (rank_label and not (suffix and infra_epithet)):
             result["status"]="HOLD_IDENTITY_OR_SLUG";continue
         try:
+            if suffix and not (item.get("infraspecific_crosswalk_verified") and "powo.science.kew.org/taxon/" in item.get("synonym_source","")):
+                result["status"]="HOLD_UNVERIFIED_INFRASPECIFIC_CROSSWALK";continue
             photo_name=item["photo_lookup_name"]
             if photo_name==name or photo_name.lower().replace(" ","-") in installed or photo_name.lower().replace(" ","-") in active:
                 result["status"]="HOLD_SYNONYM_DUPLICATE_OR_CLAIMED"
@@ -180,6 +191,7 @@ def build():
                 w.writeheader();w.writerow(row)
             species={
                 "id":slug,"family":item["family"],"genus":item["genus"],"species":item["epithet"],
+                **({"entry_type":"infraspecific_taxon","infraspecific_rank":rank_label,"infraspecific_epithet":infra_epithet} if suffix else {}),
                 "scientific_name":name,"common_name":item["common_name"],
                 "look_here_first":item["look_here_first"],
                 "curation_status":{"taxonomy_reviewed":False,"visual_reviewed":False,"photo_source_checked":True},
