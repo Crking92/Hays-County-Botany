@@ -175,7 +175,10 @@ def build(root: Path, noncommercial: bool) -> dict:
         elif file.suffix.lower() == ".json":
             if file.name not in ALLOWED_DOCS and "/terms/" not in file.as_posix():
                 file.unlink()
-        elif file.suffix.lower() in {".csv", ".txt", ".md", ".pdf", ".zip", ".html", ".mp4", ".mov"}:
+        else:
+            # Fail closed: only canonical lesson JSON and cleared photo bytes
+            # belong in the publicly cloned content tree. Remove every other
+            # file type, not just known private extensions.
             file.unlink()
 
     # The public repository should not run Jekyll on source JSON or asset paths.
