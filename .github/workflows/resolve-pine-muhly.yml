@@ -1,0 +1,46 @@
+name: Resolve pine muhly source-name and photo gap
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "workflow/muhlenbergia-name-repair-20261019.json"
+permissions:
+  contents: write
+concurrency:
+  group: botany-curation-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  replace-source-concept:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - run: python -m py_compile scripts/resolve_muhlenbergia_piniflora_20261019.py
+      - name: Resolve invalid source label and verify public photo sources
+        run: python scripts/resolve_muhlenbergia_piniflora_20261019.py
+      - name: Commit physically verified corrected learner card and retained provenance
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A content/taxa/Poaceae/Muhlenbergia research-drafts/muhlenbergia-piniflora data/manifest.json data/project.json reports/muhlenbergia-name-repair-20261019.json reports/photo-coverage-latest.json reports/photo-fast-fill-zero-queue.json
+          if git diff --cached --quiet; then
+            echo "No content changes to commit"
+            exit 0
+          fi
+          git commit -m "Replace invalid pine muhly label with photo-backed Muhlenbergia dubia [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep $((attempt * 2))
+          done
+          exit 1
