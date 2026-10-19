@@ -1,0 +1,137 @@
+name: Prepare and publish public-only Hays Botany Pages site
+
+# Run manually only. This builds in the PRIVATE source repository and only
+# pushes a rights-filtered static snapshot to a separate PUBLIC repo.
+# Do not make the source repository public or connect Cloudflare.
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Push a vetted website snapshot to public destination? Default previews only."
+        required: true
+        type: boolean
+        default: false
+      public_repo:
+        description: "Dedicated PUBLIC website-only repository (create it separately first)"
+        required: true
+        type: string
+        default: "Crking92/Hays-Botany-Public"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hays-botany-website-only-publication
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - name: Check out source privately
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+
+      - name: Verify original repository is still private
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)" = "true" || {
+            echo "::error::Never run this exporter from a public master repository"
+            exit 1
+          }
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Prepare a public-safe learner snapshot
+        run: |
+          python -m pip install "Pillow>=10,<12"
+          python scripts/build_public_pages_snapshot.py --noncommercial
+          test -s dist/index.html
+          test -s dist/data/manifest.json
+          test -e dist/.nojekyll
+          test ! -e dist/photo-review.html
+          test ! -e dist/workflow
+          test ! -e dist/research-drafts
+
+      - name: Enforce GitHub Pages website size and see excluded media
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          dist=Path("dist")
+          count=sum(1 for p in dist.rglob("*") if p.is_file())
+          size=sum(p.stat().st_size for p in dist.rglob("*") if p.is_file())
+          result=json.loads(Path("reports/public-pages-snapshot-latest.json").read_text())
+          print(f"Publishable: {count} files; {size/1_000_000:.1f} MB")
+          print("Approved site photographs:",result["counts"].get("approved_photos",0))
+          print("Restricted/unreviewed image records excluded:",result["holds_total"])
+          print("Species without public-cleared gallery photos:",result["counts"].get("cards_without_public_photos",0))
+          if size>900_000_000:
+              raise SystemExit("GitHub Pages size ceiling/safety budget exceeded")
+          if result["counts"].get("species_checked",0)<100:
+              raise SystemExit("Expected learner species missing from website export")
+          PY
+
+      - name: Attach private audit and preview data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-website-rights-audit
+          path: reports/public-pages-snapshot-latest.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Upload website-only snapshot for owner preview
+        if: ${{ !inputs.publish }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-website-preview
+          path: dist/
+          include-hidden-files: true
+          retention-days: 3
+          if-no-files-found: error
+
+      - name: Publish approved snapshot to separately created PUBLIC repo
+        if: ${{ inputs.publish }}
+        env:
+          GH_TOKEN: ${{ secrets.PUBLIC_PAGES_REPO_TOKEN }}
+          TARGET_REPO: ${{ inputs.public_repo }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -z "$GH_TOKEN" ]]; then
+            echo "::error::Set private source Actions secret PUBLIC_PAGES_REPO_TOKEN (fine-grained PAT Contents write for PUBLIC destination only)"
+            exit 1
+          fi
+          if [[ ! "$TARGET_REPO" =~ ^Crking92/[A-Za-z0-9._-]+$ ]]; then
+            echo "::error::Destination must be a dedicated Crking92/* PUBLIC repository"
+            exit 1
+          fi
+          if [[ "$TARGET_REPO" == "$GITHUB_REPOSITORY" ]]; then
+            echo "::error::Never overwrite the private source"
+            exit 1
+          fi
+          if [[ "$(gh repo view "$TARGET_REPO" --json isPrivate --jq .isPrivate)" != "false" ]]; then
+            echo "::error::Destination repository is not public"
+            exit 1
+          fi
+          gh auth setup-git
+          git clone --depth=1 "https://github.com/$TARGET_REPO.git" pages-public
+          rsync -a --delete --exclude='.git' --exclude='.github' dist/ pages-public/
+          cd pages-public
+          git config user.name "Hays Botany publishing workflow"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Public site is already current."
+          else
+            git commit -m "Publish rights-filtered Hays Botany learner snapshot"
+            git push origin HEAD:main
+          fi
