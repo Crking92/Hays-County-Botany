@@ -92,7 +92,7 @@ jobs:
           retention-days: 14
           if-no-files-found: warn
       - name: Validate final image-rights filtered website before publication
-        run: python scripts/public_photo_rights_preflight.py --site dist
+        run: python scripts/public_photo_rights_preflight.py --site dist --noncommercial
       - name: Configure GitHub Pages
         if: ${{ inputs.publish }}
         uses: actions/configure-pages@v5
