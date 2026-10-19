@@ -1,0 +1,81 @@
+{
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 4,
+  "batch_id": "2026-10-19-019",
+  "checked_at": "2026-10-19",
+  "authority": "POWO/WCVP 2026; direct taxon pages checked 2026-10-19",
+  "range_audit": "DEFERRED",
+  "specimen_identity": "NOT_CHECKED",
+  "source_pool": "Master Plant Pool",
+  "scope": "accepted name, spelling, rank, genus, family, synonym and homonym only; no range audit or photo/specimen ID",
+  "counts": {
+    "ACCEPTED": 1,
+    "SYNONYM_TO_ACCEPTED": 1,
+    "ACCEPTED_WITH_CONCEPT_CAUTION": 1,
+    "HOLD_IDENTITY": 0
+  },
+  "records": [
+    {
+      "source_name": "Krigia caespitosa",
+      "accepted_name": "Krigia cespitosa (Raf.) K.L.Chambers",
+      "family": "Asteraceae",
+      "genus": "Krigia",
+      "rank": "species",
+      "decision": "SYNONYM_TO_ACCEPTED",
+      "name_status": "source_orthographic_variant_not_formal_synonym",
+      "override_row": 807,
+      "master_pool_row": 609,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:133930-2"
+      ],
+      "synonyms_checked": [
+        "Serinia cespitosa Raf. — POWO homotypic synonym",
+        "Krigia caespitosa — source spelling variant; not listed as a separate formal synonym"
+      ],
+      "concept_caution": "POWO accepted epithet is cespitosa, not caespitosa. POWO recognizes var. cespitosa and var. gracilis; source species-level entry does not establish a variety.",
+      "learner_action": "normalize source spelling as search alias, not separate learner card"
+    },
+    {
+      "source_name": "Krigia occidentalis",
+      "accepted_name": "Krigia occidentalis Nutt.",
+      "family": "Asteraceae",
+      "genus": "Krigia",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "name_status": "accepted",
+      "override_row": 808,
+      "master_pool_row": 610,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:227651-1"
+      ],
+      "synonyms_checked": [
+        "Adopogon occidentalis (Nutt.) Kuntze — homotypic synonym",
+        "Cymbia occidentalis Standl. — heterotypic synonym",
+        "Krigia occidentalis var. mutica Torr. & A.Gray — heterotypic synonym"
+      ],
+      "concept_caution": "Keep distinct from Krigia cespitosa; historical var. mutica does not warrant another species card.",
+      "learner_action": "preserve accepted species"
+    },
+    {
+      "source_name": "Digitaria ciliaris",
+      "accepted_name": "Digitaria ciliaris (Retz.) Koeler",
+      "family": "Poaceae",
+      "genus": "Digitaria",
+      "rank": "species",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "name_status": "accepted",
+      "override_row": 809,
+      "master_pool_row": 381,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2"
+      ],
+      "synonyms_checked": [
+        "Panicum ciliare Retz. — homotypic basionym",
+        "Digitaria sanguinalis var. ciliaris (Retz.) Parl. — homotypic synonym",
+        "Digitaria adscendens (Kunth) Henrard — heterotypic synonym"
+      ],
+      "concept_caution": "Extensive historical D. sanguinalis complex synonyms; do not equate independently accepted Digitaria sanguinalis species with D. ciliaris merely from historical infraspecific combination.",
+      "learner_action": "preserve accepted D. ciliaris concept; no specimen ID inference"
+    }
+  ]
+}
