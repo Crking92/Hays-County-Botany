@@ -1,5 +1,17 @@
 # Phase 3 first-card continuation — verified checkpoint, October 18–19, 2026
 
+## Fresh verified handoff — October 19, 2026 (batch 004 + synonym batch 002)
+- Canonical `data/manifest.json`: **1,137 species**, confirmed after commit `981eb03a9c`. Earlier 1,119 / 66-backlog values below are historical snapshots, not the current count.
+- Another lane's `reports/phase3-accepted-firstcard-004-installed.json` independently installed **13** provisional first-photo cards (1,120 → 1,133); that work must not be repeated.
+- This recovery lane created `workflow/phase3-synonym-photo-002-20261019.json`, `scripts/phase3_synonym_photo_002.py`, and `.github/workflows/phase3-synonym-photo-002.yml`. GitHub run [39258653397](https://github.com/Crking92/Hays-County-Botany/actions/runs/39258653397) **succeeded**, committing **4/4 newly installed** provisional cards and **4/4 physically present photo files** (1,133 → 1,137) in `reports/phase3-synonym-photo-002-installed.json`. No blocked records.
+- `Valeriana amarella` ← `Valerianella amarella` — iNaturalist photo 7237652, Chuck Sexton, CC BY-NC.
+- `Munroa pulchella` ← `Dasyochloa pulchella` — iNaturalist photo 227453246, Don Rideout, CC BY-NC.
+- `Sclerocactus warnockii` ← `Echinomastus warnockii` — iNaturalist photo 637939830, Michelle W., CC BY.
+- `Thelypteris ovata` ← `Pelazoneuron ovatum` — iNaturalist photo 336557398, Turner Brockman, CC BY-SA. Do **not** substitute `Thelypteris ovata var. lindheimeri`; Kew maps it to distinct `Thelypteris lindheimeri`.
+- Remaining media/name questions: `Cleome dodecandra` and `Cleome trachysperma` are distinct under Kew; iNaturalist's broader `Polanisia dodecandra` species concept could mix them, so require verified infraspecific resolution rather than selecting a random species photo. `Hedeoma serpyllifolia` has a Kew-documented infraspecific synonym but no verified species-rank photo bridge; `Lappula texana` similarly remains unresolved.
+- Preserve 12 separately held source concepts unless specifically cleared, and keep paused county nativity audits, existing five automations, other worker claims, and Cloudflare-disconnected setup unchanged. Recalculate remaining candidate count against the live manifest and merged claims rather than subtracting unverified counts.
+
+
 ## Latest verified state
 - Canonical learner manifest: **1,119** species, read from `data/manifest.json` after completed workflow run 39201037290.
 - Working Phase 3 distinct accepted-name source concepts left uninstalled: **66**; **41** have simple binomial names and **25** are more complicated infraspecific/hybrid concepts. These are candidate identities, **not 66 guaranteed new cards**; final synonym and identity checks may lower total.
