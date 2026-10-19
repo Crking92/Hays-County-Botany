@@ -6,7 +6,7 @@
 
 - `Malus ioensis`: the Approved Taxa Installer's complete, staged `approved-installer-malus-ioensis-20261019-001` batch lacked READY. New source/license check verified Krzysztof Ziarnek (Kenraiz), Wikimedia Commons `Malus_ioensis_kz03.jpg`, CC BY-SA 4.0; identity and diagnostic details remain provisional. Collision-free manifest/claims preflight. READY commit `dfb16db83113bdcfd4c0fc92a2a146c5c109e4a0`; [curation Action 39261484459](https://github.com/Crking92/Hays-County-Botany/actions/runs/39261484459) **success**. Canonical species path `content/taxa/Rosaceae/Malus/malus-ioensis/species.json`, a 116,318-byte physical JPEG, image record, license/source metadata and `data/manifest.json` were re-fetched and confirmed. Count at that successful completion: **1,149**; later runs may increase it. The image is a flowering-branch first look, **not** mature fruit confirmation.
 - Previously blocked `Geraniaceae` family anatomy/identification lesson was merged in commit `3155daf8b1fabfe6648ae682cbfb8be987c6e978` and verified; four photo-role requests remain `needs_photo/annotation_pending`. Its recovery handoff now says `canonical_published_verified`.
-- A GitHub photo-validation script crash from missing report directory was fixed on `main` in commit `1b5010212e0b20dbab65261db6b38618f4b26565`; source photos are untouched. The fix was read-back verified; **a subsequent successful full preflight run has not been confirmed**.
+- A GitHub photo-validation script crash from missing report directory was fixed on `main` in commit `1b5010212e0b20dbab65261db6b38618f4b26565`; source photos are untouched. The fix was read-back verified; **a subsequent full read-only diagnostic-photo preflight run succeeded**: [GitHub Action 39262684396](https://github.com/Crking92/Hays-County-Botany/actions/runs/39262684396)..
 
 ## Cancelled GitHub Actions ≠ unpublished work
 
@@ -35,7 +35,7 @@ Other older handoffs such as limestone ferns and the first-35 `Amorphophallus ti
 2. `Leersia oryzoides`: one optional exact-source panicle photo still blocked by Commons HTTP 429; existing gallery remains usable. Reuse verified private archive or retry conservatively later, without fabricating a recovered file.
 3. `Asclepias viridis`: five existing private photos are not yet independently cleared for public reuse because image-level photographer/rights provenance is missing. `Pluchea camphorata` also has a metadata/source-rights follow-up. Keep honest restrictions.
 4. Remaining library media candidates and macro/anatomy arrows are selection/diagnostic-review tasks. Archive metadata alone does not authorize installation or botanical arrow labels.
-5. The diagnostic-photo site-copy QA workflow requires a new successful run **at current code** to confirm the report-directory fix; do not rerun the old commit's failed job and call that verification.
+5. **RESOLVED:** A fresh diagnostic-photo site-copy QA run at current code ([Action 39262684396](https://github.com/Crking92/Hays-County-Botany/actions/runs/39262684396)) completed successfully after the report-directory fix. No need to repeat the failed old SHA.
 
 ## Routing / safe next steps
 
