@@ -60,7 +60,7 @@ def api(route, params=None):
     return json.loads(request(url,5500000))
 
 def exact_species_taxon(name, rank="species"):
-    if rank not in ("species","subspecies","variety"):
+    if rank not in ("species","subspecies","variety","hybrid"):
         raise ValueError("Unsupported source name rank: "+str(rank))
     data=api("taxa/autocomplete",{"q":name,"per_page":30}).get("results",[])
     hits=[x for x in data if x.get("name")==name and x.get("rank")==rank and x.get("is_active", True)]
