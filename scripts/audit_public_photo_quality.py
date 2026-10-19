@@ -96,8 +96,12 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     if not (src / "data/manifest.json").is_file() or not (dist / "index.html").is_file():
         raise SystemExit("Requires private source checkout and built staged public site")
+    # A rights-filtered PUBLIC site intentionally omits some source photographs.
+    # Only inspect JPEGs actually staged for publication. The separate
+    # public-photo rights gate checks which files may be included; this QA
+    # checks the pixel quality, safety and origin of INCLUDED JPEG copies.
     files = sorted(
-        p.relative_to(src) for p in (src / "content").rglob("*")
+        p.relative_to(dist) for p in (dist / "content").rglob("*")
         if p.is_file() and p.suffix.lower() in (".jpg", ".jpeg")
     )
     errors = []
@@ -105,8 +109,8 @@ def main():
     photo_total = 0
     for rel in files:
         staged = dist / rel
-        if not staged.exists():
-            errors.append({"path":str(rel),"reason":"missing public JPEG"})
+        if not (src / rel).is_file():
+            errors.append({"path":str(rel),"reason":"public JPEG lacks original source file"})
             continue
         photo_total += 1
         a, b = src / rel, staged
@@ -137,7 +141,11 @@ def main():
     result = {
         "mode":"read_only_before_and_after_anatomical_quality_review",
         "site_published":False,
-        "jpeg_source_count":len(files),
+        "jpeg_source_count":sum(
+            1 for p in (src / "content").rglob("*")
+            if p.is_file() and p.suffix.lower() in (".jpg", ".jpeg")
+        ),
+        "jpeg_eligible_in_site":len(files),
         "jpeg_found_in_site":photo_total,
         "changed_photo_count":len(changed),
         "total_bytes_saved_by_changed_photos":sum(x["source_bytes_saved"] for x in changed),
