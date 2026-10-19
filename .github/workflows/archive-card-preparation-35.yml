@@ -1,0 +1,52 @@
+name: Archive first 35 reviewed research photos
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/archive-card-preparation-35.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: card-preparation-35-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image decoder
+        run: python -m pip install Pillow==11.3.0
+      - name: Verify source hashes, decode and strip EXIF
+        run: python scripts/archive_card_preparation_review.py --input research-drafts/card-preparation-20261016/photo-review-001.json --output /tmp/reviewed-first35
+      - name: Publish and verify private research archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: hays-card-preparation-35-20261016
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/$GITHUB_REPOSITORY" --jq '.private' | grep -qx true
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --title "First 35 reviewed research photo handoff" --notes "Private research archive only. 47 reviewed photos for 29 taxa. Individual owner-private, NC and SA restrictions remain in image-sources.json and CSV. No learner installation."
+          fi
+          gh release upload "$TAG" /tmp/reviewed-first35/reviewed-photos.zip /tmp/reviewed-first35/archive-receipt.json --clobber
+          gh release download "$TAG" --pattern reviewed-photos.zip --dir /tmp/reviewed-first35-readback
+          python - <<'PY'
+          import base64, hashlib, json, os, subprocess
+          from pathlib import Path
+          receipt = json.loads(Path("/tmp/reviewed-first35/archive-receipt.json").read_text())
+          actual = hashlib.sha256(Path("/tmp/reviewed-first35-readback/reviewed-photos.zip").read_bytes()).hexdigest()
+          assert actual == receipt["zip_sha256"], "Published ZIP hash mismatch"
+          receipt.update(status="PRIVATE_RELEASE_UPLOADED_AND_READBACK_VERIFIED", date_verified="2026-10-19", release_url=f'https://github.com/{os.environ["GITHUB_REPOSITORY"]}/releases/tag/hays-card-preparation-35-20261016', run_url=f'https://github.com/{os.environ["GITHUB_REPOSITORY"]}/actions/runs/{os.environ["GITHUB_RUN_ID"]}', published_zip_sha256=actual)
+          path = "reports/card-preparation-first35-photo-archive.json"
+          endpoint = f'repos/{os.environ["GITHUB_REPOSITORY"]}/contents/{path}'
+          body = dict(message="Record verified private archive for first 35 research photo review", content=base64.b64encode(json.dumps(receipt, indent=2).encode()).decode())
+          previous = subprocess.run(["gh","api",endpoint],capture_output=True,text=True)
+          if previous.returncode == 0: body["sha"] = json.loads(previous.stdout)["sha"]
+          Path("/tmp/receipt-api-body.json").write_text(json.dumps(body))
+          subprocess.run(["gh","api",endpoint,"--method","PUT","--input","/tmp/receipt-api-body.json"],check=True,stdout=subprocess.DEVNULL)
+          print(json.dumps(receipt, indent=2))
+          PY
