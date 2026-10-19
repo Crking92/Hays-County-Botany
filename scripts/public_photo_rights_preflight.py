@@ -17,14 +17,16 @@ OWNER_NAMES = {"calvin king", "glass root garden", "calvin king / glass root gar
 PUBLIC_CC = re.compile(r"\bcc\s*[- ]?by(?:[- ]?sa)?\b", re.I)
 CC_ZERO = re.compile(r"\bcc\s*[- ]?0\b", re.I)
 PUBLIC_DOMAIN = re.compile(r"public domain|\bpd[- ]?mark\b", re.I)
-RESTRICTED = re.compile(r"\bnc\b|noncommercial|private.?study|private.?use|all rights reserved|no public|not cleared", re.I)
+UNPUBLISHABLE = re.compile(r"private.?study|private.?use|all rights reserved|no public|not cleared", re.I)
+NONCOMMERCIAL = re.compile(r"\bnc\b|noncommercial", re.I)
+NO_DERIVATIVES = re.compile(r"\bnd\b|no[- ]?derivatives", re.I)
 
 
 def clean(text):
     return str(text or "").strip().lower()
 
 
-def photo_rights(record):
+def photo_rights(record, noncommercial=False):
     creator = clean(record.get("creator") or record.get("photographer"))
     lic = clean(record.get("license"))
     source = record.get("source_page") or record.get("photo_source_url") or record.get("source_url")
@@ -36,18 +38,25 @@ def photo_rights(record):
         return None
     if explicitly_private:
         return "public_reuse is explicitly denied/limited and no verified owner exception"
-    if RESTRICTED.search(lic) or "by-nc" in lic or "by-nd" in lic:
-        return "conditional/restricted image license (NC/ND/private); needs specific review"
+    if UNPUBLISHABLE.search(lic):
+        return "private-use/all-rights-reserved image license; public display not permitted"
+    if NO_DERIVATIVES.search(lic):
+        return "no-derivatives image requires separate adaptation review"
     if not source:
         return "missing individual image source page / rights evidence"
     if CC_ZERO.search(lic) or PUBLIC_DOMAIN.search(lic):
         return None
     if PUBLIC_CC.search(lic) and creator:
+        # The exporter and the rights preflight must agree: a documented
+        # CC BY-NC photo is eligible ONLY for the user-confirmed, standalone,
+        # strictly noncommercial educational GitHub Pages display.
+        if NONCOMMERCIAL.search(lic) and not noncommercial:
+            return "CC BY-NC needs confirmed noncommercial website use or permission"
         return None
     return "missing or unsupported public-web license / attribution"
 
 
-def inspect(site: Path):
+def inspect(site: Path, noncommercial=False):
     reasons = []
     referenced = set()
     content = site / "content" / "taxa"
@@ -70,7 +79,7 @@ def inspect(site: Path):
             referenced.add(target.resolve())
             if not target.is_file():
                 reasons.append((str(sp.relative_to(site)), f"gallery image missing: {filename}"))
-            problem = photo_rights(img)
+            problem = photo_rights(img, noncommercial=noncommercial)
             if problem:
                 reasons.append((str(sp.relative_to(site)), f"{filename}: {problem}"))
     for file in content.rglob("*"):
@@ -86,12 +95,13 @@ def inspect(site: Path):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--site", default="dist")
+    p.add_argument("--noncommercial", action="store_true", help="Confirm publication is a stand-alone strictly noncommercial educational site")
     p.add_argument("--limit", type=int, default=15)
     args = p.parse_args()
     site = Path(args.site)
     if not (site / "index.html").is_file():
         raise SystemExit("Public-rights audit FAILED: missing staged site index.html")
-    cards, images, issues = inspect(site)
+    cards, images, issues = inspect(site, noncommercial=args.noncommercial)
     print(f"Checked {cards} species records, {images} referenced gallery paths.")
     print(f"Public image/candidate-page rights holds: {len(issues)}.")
     for path, reason in issues[:args.limit]:
