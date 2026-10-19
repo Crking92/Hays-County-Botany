@@ -1,0 +1,96 @@
+{
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 4,
+  "checked_at": "2026-10-19",
+  "authority": "POWO/WCVP 2026 and NPSOT as labeled; checked 2026-10-19",
+  "range_audit": "DEFERRED",
+  "specimen_identity": "NOT_CHECKED",
+  "source_pool": "Master Plant Pool",
+  "scope": "accepted name, author, rank, genus, family, synonym and concept only; no native-range or specimen/photo verification",
+  "records": [
+    {
+      "source_name": "Lithospermum incisum",
+      "accepted_name": "Lithospermum incisum Lehm.",
+      "family": "Boraginaceae",
+      "genus": "Lithospermum",
+      "rank": "species",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "name_status": "accepted",
+      "override_row": 797,
+      "master_pool_row": 654,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:118088-1"
+      ],
+      "synonyms_checked": [
+        "Batschia longiflora Pursh — listed homotypic synonym",
+        "Lithospermum longiflorum (Pursh) Spreng. — illegitimate later homonym"
+      ],
+      "concept_caution": "Historical longiflorum combination is illegitimate; author-sensitive mapping, no inferred specimen identity.",
+      "learner_action": "preserve distinct accepted species"
+    },
+    {
+      "source_name": "Lithospermum mirabile",
+      "accepted_name": "Lithospermum mirabile Small",
+      "family": "Boraginaceae",
+      "genus": "Lithospermum",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "name_status": "accepted",
+      "override_row": 798,
+      "master_pool_row": 655,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/141819-2"
+      ],
+      "synonyms_checked": [
+        "Lithospermum parksii I.M.Johnst. — heterotypic synonym",
+        "Lithospermum parksii var. rugulosum I.M.Johnst. — heterotypic synonym"
+      ],
+      "concept_caution": "Keep parksii names as aliases, no duplicate card or observation re-ID.",
+      "learner_action": "preserve accepted species"
+    },
+    {
+      "source_name": "Onosmodium bejarense",
+      "accepted_name": null,
+      "provisional_mapping": "Likely orthographic source error for Onosmodium bejariense DC.; if verified, POWO maps that name to Lithospermum caroliniense var. caroliniense",
+      "family": "Boraginaceae",
+      "genus": "Onosmodium (unverified source spelling); accepted candidate Lithospermum",
+      "rank": "source_spelling_unverified",
+      "decision": "HOLD_IDENTITY",
+      "name_status": "unverified_source_spelling",
+      "override_row": 799,
+      "master_pool_row": 788,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:174475-2",
+        "https://www.ipni.org/n/174475-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77223843-1"
+      ],
+      "synonyms_checked": [
+        "Onosmodium bejariense DC. — documented synonym, but source spelling bejarense not independently established"
+      ],
+      "concept_caution": "Do not silently convert unmatched spelling into a verified formal synonym; require source provenance or taxon ID before alias assignment. Distinguish name check from specimen check.",
+      "learner_action": "hold identity mapping; do not create duplicate"
+    },
+    {
+      "source_name": "Onosmodium bejariense var. bejariense",
+      "accepted_name": null,
+      "provisional_mapping": "Onosmodium bejariense DC. maps in POWO to Lithospermum caroliniense var. caroliniense; the NPSOT nominal-variety source concept requires independent crosswalk confirmation",
+      "family": "Boraginaceae",
+      "genus": "Onosmodium (historic); candidate accepted Lithospermum",
+      "rank": "historic_nominate_variety",
+      "decision": "HOLD_IDENTITY",
+      "name_status": "source_variety_not_independently_verified_in_POWO",
+      "override_row": 800,
+      "master_pool_row": 789,
+      "source_urls": [
+        "https://www.npsot.org/posts/native-plant/onosmodium-bejariense-var-bejariense/",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:174475-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77223843-1"
+      ],
+      "synonyms_checked": [
+        "Onosmodium bejariense DC. — synonym of Lithospermum caroliniense var. caroliniense; this does not independently verify the precise historic nominate variety"
+      ],
+      "concept_caution": "NPSOT uses historical autonym; POWO shows different historical varieties can map to different accepted species (e.g. hispidissimum). Do not auto-collapse this source variety without concept verification.",
+      "learner_action": "hold infraspecific concept crosswalk; no new card"
+    }
+  ]
+}
