@@ -1,0 +1,101 @@
+name: Install Photo Lab 004 Three Provisional Views
+
+# One-shot GitHub content installer. No Cloudflare deployment or site refresh.
+# Re-runs are manual only. Do not alter the five standing botany automations.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/photo-b004-provisional-first3-install.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: photo-b004-first3-licensed-installer
+  cancel-in-progress: false
+
+jobs:
+  install-three:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image validation dependency
+        run: python -m pip install 'Pillow>=10,<12'
+      - name: Download immutable Batch 004 private Release archive
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/hays-b004-source
+          gh release download hays-photo-library-diagnostic-39139862679 \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'diagnostic-39139862679-photos.zip' \
+            --dir /tmp/hays-b004-source
+          echo 'bc240efe530afd361a33049468e12520d15be61202654dc5e1cfd40f68e7d80c  /tmp/hays-b004-source/diagnostic-39139862679-photos.zip' | sha256sum -c
+      - name: Install into fresh main and publish source changes with safe retries
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5 6; do
+            echo "Installing 3 provisional photos against latest main, attempt $attempt/6"
+            git fetch --quiet origin main
+            git reset --hard origin/main
+            python scripts/install_diagnostic_b004_first3.py \
+              /tmp/hays-b004-source/diagnostic-39139862679-photos.zip
+            git add -- \
+              content/taxa/Apocynaceae/Asclepias/asclepias-viridiflora/species.json \
+              content/taxa/Apocynaceae/Asclepias/asclepias-viridiflora/image-sources.csv \
+              content/taxa/Apocynaceae/Asclepias/asclepias-viridiflora/images/diagnostic004-648395540-juvenile-habit.jpg \
+              content/taxa/Cyperaceae/Cyperus/cyperus-ochraceus/species.json \
+              content/taxa/Cyperaceae/Cyperus/cyperus-ochraceus/image-sources.csv \
+              content/taxa/Cyperaceae/Cyperus/cyperus-ochraceus/images/diagnostic004-plantnet-5109507665-spikelets.jpg \
+              content/taxa/Lamiaceae/Salvia/salvia-texana/species.json \
+              content/taxa/Lamiaceae/Salvia/salvia-texana/image-sources.csv \
+              content/taxa/Lamiaceae/Salvia/salvia-texana/images/diagnostic004-627129092-purple-flower-calyx.jpg \
+              reports/photo-batch004-first3-provisional-installer.json
+            if git diff --cached --quiet; then
+              echo "All three photos already installed, nothing to commit"
+              exit 0
+            fi
+            git commit -m "Install three licensed provisional botanical teaching views from Batch 004"
+            if git push origin HEAD:main; then
+              echo "GitHub publish successful. Cloudflare deployment intentionally not triggered."
+              exit 0
+            fi
+            sleep "$((attempt * 3))"
+          done
+          echo "::error::Could not push after six fresh-main rebuild attempts."
+          exit 1
+      - name: Verify installed records and local JPEG headers from latest main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --quiet origin main
+          git reset --hard origin/main
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          r=json.loads(Path("reports/photo-batch004-first3-provisional-installer.json").read_text())
+          assert r["source_archive"]=="diagnostic-39139862679"
+          assert r["taxon_and_native_metadata_unchanged"]
+          assert not r["deployment_performed"]
+          for x in r["photos_installed"]:
+              im=Path(x["photo"])
+              assert im.is_file() and im.stat().st_size==x["bytes"]
+              with Image.open(im) as p:
+                  p.verify()
+              print("VERIFIED",x["species_id"],x["creator"],x["license"])
+          print("Verified installed photos:",len(r["photos_installed"]))
+          PY
