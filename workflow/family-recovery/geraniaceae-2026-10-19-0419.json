@@ -3,7 +3,7 @@
   "family": "Geraniaceae",
   "target": "content/taxa/Geraniaceae/family.json",
   "observed_blob_sha": "5bfa05c6bf99f490b5246e99661bcb0e764db065",
-  "status": "canonical_unpublished_connector_safety_rejection",
+  "status": "canonical_published_verified",
   "recorded_date": "2026-10-19",
   "sheet_mirror": "Family Study Index!N44:Q44 updated and independently verified 2026-10-19; formula-owned B:K unchanged",
   "scope": "Family morphology and part-specific photo lessons only; no species installs, native-range audit, or UI",
@@ -102,6 +102,9 @@
       "url": "https://burkeherbarium.org/imagecollection/taxon.php?Taxon=Geranium+carolinianum"
     }
   ],
-  "blocker": "Two GitHub update_file writes to canonical Geraniaceae family.json rejected by connector safety checks, not SHA conflicts; canonical file re-fetch needed before any future merge.",
-  "next_action": "On a future family run, verify canonical absence, refresh claims and blob SHA, merge only family fields and anatomy_examples while preserving existing steps, comparisons, video reference and taxon caveat; commit and verify on main, then mirror status to Family Study Index Q44."
+  "blocker": "Resolved: reviewed recovery content published to canonical family.json and verified on main",
+  "next_action": "Do not republish the four anatomy examples. Source exact-species photo-level rights and macro images; annotate only after visual verification. Family Study Index Q44 status may be synchronized later; formula-owned columns must remain unchanged.",
+  "published_commit": "3155daf8b1fabfe6648ae682cbfb8be987c6e978",
+  "published_blob_sha": "e5a14b4927838f6c926e9b63bc10f3c014bfcd47",
+  "published_at": "2026-10-19"
 }
