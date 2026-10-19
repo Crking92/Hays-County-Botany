@@ -1,0 +1,11 @@
+# First 35 research drafts — current installer handoff
+
+Verified against main on 2026-10-19: the manifest has 1,120 canonical entries. **34 of this research chat's first 35 taxa are now canonical through other lanes.** Their 54 gallery records each point to a nonempty physical file in the matching species images directory. This is file-presence verification, not a fresh pixel, identity or browser-render audit of those installers' selections. Do not create duplicate cards or replace their photos.
+
+**One uninstalled concept remains: Amorphophallus titanum.** No active shared claim or research-queue record for it was found at this check. Approved source-pool row and prior taxonomy evidence are preserved in `research-drafts/card-preparation-20261016/preparation-002.json`. The source-vetted identification text and three inspected original candidate images are recorded in the first-35 review; two distinct views were selected: iNaturalist observation 1263752, photos 1586626 and 1586628, attributed to save_titan_arum_project, CC BY-NC-SA. Retain the original watermark and noncommercial/ShareAlike restrictions. This exotic ornamental record does not imply Hays County nativity or occurrence.
+
+The installer should refresh manifest aliases, live claims, queue and inbox, verify the archived files and current rights, then use the normal provisional first-card pipeline if the concept remains eligible. This handoff grants no permission to overwrite another worker and creates no curation READY marker. The research lane has installed zero cards.
+
+Review: `research-drafts/card-preparation-20261016/photo-review-001.json` — 103 candidate files decoded and inspected, 47 selected photo references across 29 taxa; six photograph-specific uncertainties retained in the historical review. Canonical installation by another lane does not itself resolve those research uncertainties. The report separates the Oct 16 review from this Oct 19 reconciliation.
+
+Archive receipt: `reports/card-preparation-first35-photo-archive.json` (only successful private-release upload and download-hash readback count as published). Archive workflow: `.github/workflows/archive-card-preparation-35.yml`; one-time/manual, no scheduled trigger, no learner edits. All five scheduled botany automations remain unchanged.
