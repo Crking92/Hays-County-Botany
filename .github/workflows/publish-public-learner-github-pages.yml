@@ -1,6 +1,6 @@
 name: Publish Hays Botany on GitHub Pages (manual)
 
-# PRIVATE source repository, PUBLIC whitelisted web assets.
+# One-repository public GitHub Pages path. All repo source/history become public when owner changes visibility; website snapshot still filters media.
 # GitHub Pages must first be enabled at Settings > Pages > GitHub Actions.
 # Never rebuild on research/photo commits. Manual only.
 on:
@@ -24,20 +24,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - name: Check out private source
+      - name: Check out latest source
         uses: actions/checkout@v4
         with:
           ref: main
           persist-credentials: false
-      - name: Check repository is still private
+      - name: Verify owner has made repository public for publishing
+        if: ${{ inputs.publish }}
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           visibility="$(gh api "repos/$GITHUB_REPOSITORY" --jq .private)"
-          test "$visibility" = true || {
-            echo "::error::Source repository is not private"
+          test "$visibility" = false || {
+            echo "::error::For a free GitHub Pages site, make the repository public in Settings before publishing"
             exit 1
           }
       - uses: actions/setup-python@v5
@@ -45,8 +46,8 @@ jobs:
           python-version: "3.11"
       - name: Install published-image conversion tools
         run: python -m pip install 'Pillow>=10,<12'
-      - name: Stage only public learner assets
-        run: bash scripts/build_cloudflare_site.sh
+      - name: Build rights-filtered educational public learner
+        run: python scripts/build_public_pages_snapshot.py --noncommercial
       - name: Optimize website-only JPEG copies
         run: |
           mkdir -p page-quality-audit
@@ -63,10 +64,10 @@ jobs:
           set -euo pipefail
           git diff --exit-code -- content/ data/ assets/ photo-review.html
           test -s dist/index.html
-          test -s dist/photo-review.html
+          test ! -e dist/photo-review.html
           test -s dist/data/manifest.json
           test -s dist/manifest.webmanifest
-          for restricted in workflow reports research-drafts research-queue.json curation-inbox curation-archive .github photo-review-batch-003.html photo-review-batch-005.html; do
+          for restricted in workflow reports research-drafts research-queue.json curation-inbox curation-archive .github photo-review.html photo-review-batch-003.html photo-review-batch-005.html; do
             test ! -e "dist/$restricted" || { echo "::error::Private project content in site: $restricted"; exit 1; }
           done
           python - <<'PY'
@@ -90,8 +91,7 @@ jobs:
           path: page-quality-audit/
           retention-days: 14
           if-no-files-found: warn
-      - name: Block release of restricted photos and private review gallery
-        if: ${{ inputs.publish }}
+      - name: Validate final image-rights filtered website before publication
         run: python scripts/public_photo_rights_preflight.py --site dist
       - name: Configure GitHub Pages
         if: ${{ inputs.publish }}
