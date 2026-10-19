@@ -35,6 +35,7 @@ ALLOWED={
  "public-domain":("Public Domain","Public domain US National Park Service government employee image"),
  "cc-by-4.0":("CC BY 4.0","Credit author; link license and state image has been resized, see https://creativecommons.org/licenses/by/4.0/"),
  "cc-by-sa-4.0":("CC BY-SA 4.0","Credit author; image resized and metadata stripped; adapted image under CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/"),
+ "cc-by-2.0":("CC BY 2.0","Credit creator, include source/license link, note resize and removal of EXIF/GPS https://creativecommons.org/licenses/by/2.0/"),
  "cc-by":("CC BY","Attribution required"),
  "cc-by-sa":("CC BY-SA","Attribution; ShareAlike requirements"),
  "cc-by-nc":("CC BY-NC","Attribution; noncommercial only"),
@@ -152,7 +153,7 @@ def commons_exact_image(item, candidate):
         or not urlparse(direct_url).path.lower().endswith((".jpg",".jpeg"))):
         raise ValueError("Photo URLs must resolve to official Wikimedia Commons upload source")
     code=candidate["license_code"]
-    if code not in ("public-domain","cc-by-4.0","cc-by-sa-4.0"):
+    if code not in ("public-domain","cc-by-4.0","cc-by-sa-4.0","cc-by-2.0"):
         raise ValueError("Unreviewed Commons license")
     credit=candidate.get("creator")
     if not credit or not candidate.get("photo_id") or not candidate.get("rights_reviewed"):
@@ -163,8 +164,8 @@ def commons_exact_image(item, candidate):
     with Image.open(io.BytesIO(original)) as im:
         im.verify()
     with Image.open(io.BytesIO(original)) as im:
-        if im.format!="JPEG" or min(im.size)<500:
-            raise ValueError("Commons image is not a usable verified JPEG")
+        if im.format not in ("JPEG","MPO","PNG","WEBP") or min(im.size)<500:
+            raise ValueError("Commons raster failed format/dimension gate; format="+str(im.format)+" size="+str(im.size))
         out=im.convert("RGB")
         out.thumbnail((1800,1800))
         buff=io.BytesIO()
@@ -184,7 +185,7 @@ def commons_exact_image(item, candidate):
         "photo_license_url":candidate.get("license_url"),
         "photo_publication_scope":"PUBLIC-WEB-CLEARED",
         "photo_modifications":"Resized and JPEG re-encoded; all embedded EXIF/GPS metadata stripped",
-        "photo_commercial_reuse":code in ("public-domain","cc-by-4.0","cc-by-sa-4.0")
+        "photo_commercial_reuse":code in ("public-domain","cc-by-4.0","cc-by-sa-4.0","cc-by-2.0")
     }
 
 def read_state():
