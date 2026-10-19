@@ -53,7 +53,9 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return False, "missing creator"
     if any(t in license_text for t in ("all rights reserved", "private", "unknown", "not cleared", "no license")):
         return False, "unknown/private/all-rights-reserved license"
-    if re.search(r"\bby[- ]?nd\b|no[- ]?deriv", license_text):
+    # Detect ND in *all* CC orderings, including cc-by-nc-nd and cc-by-nd.
+    # The old by-nd-only pattern missed licenses with NC before ND.
+    if re.search(r"(?:^|[-\s])nd(?:$|[-\s])|no[- ]?deriv", license_text):
         return False, "no-derivatives license not screened for annotated lessons"
     if re.search(r"\bcc\s*0\b|cc0|public domain|\bpd[- ]?mark\b", license_text):
         return True, "CC0 / public domain"
