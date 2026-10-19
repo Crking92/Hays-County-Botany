@@ -22,10 +22,18 @@
     "installed_photos": 0
   },
   "archive": {
-    "status": "PENDING_ONE_TIME_ARCHIVE",
+    "status": "PRIVATE_RELEASE_UPLOADED_AND_READBACK_VERIFIED",
     "tag": "hays-card-preparation-35-20261016",
     "asset": "reviewed-photos.zip",
-    "private_only": true
+    "private_only": true,
+    "release_url": "https://github.com/Crking92/Hays-County-Botany/releases/tag/hays-card-preparation-35-20261016",
+    "run_url": "https://github.com/Crking92/Hays-County-Botany/actions/runs/39256094244",
+    "zip_sha256": "c429d0a17b4cc8f8733d6ec9d9c2489fd84ed9f495b75280159bcc7c3ad80e37",
+    "zip_bytes": 13225445,
+    "receipt": "reports/card-preparation-first35-photo-archive.json",
+    "photos": 47,
+    "species": 29,
+    "exif_removed": true
   },
   "gate_note": "A reviewed photo handoff is not a canonical install or a fully verified local identification key. Minimal provisional cards are allowed under FIRST_CARD_MULTISOURCE_POLICY_20261016; local comparison/photo role gaps stay explicit.",
   "rejected_or_unselected_notes": [
@@ -3776,5 +3784,18 @@
       "observation_id": 26710244,
       "licensed_candidates": 3
     }
-  ]
+  ],
+  "latest_reconciliation": {
+    "date": "2026-10-19",
+    "manifest_count": 1120,
+    "first35_canonical_by_other_lanes": 34,
+    "physical_gallery_files_confirmed": 54,
+    "missing_gallery_files": 0,
+    "remaining_uninstalled": [
+      "amorphophallus-titanum"
+    ],
+    "scope": "File-presence verification of other lanes' current canonical galleries; no new pixel/identity/render audit of those files. This research lane installed no cards.",
+    "handoff": "workflow/card-preparation-first35-installer-handoff-20261019.md",
+    "historical_blockers_note": "Six Oct 16 photo-selection blockers remain research notes; do not delete them or interpret later canonical presence as proof that their scientific issues were resolved."
+  }
 }
