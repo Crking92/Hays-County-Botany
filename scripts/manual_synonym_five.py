@@ -148,12 +148,15 @@ def build():
         # Accept a named variety/subspecies only with an explicitly spelled-out
         # Kew name crosswalk to the exact infraspecific concept. Species-level
         # photo names are never silently converted from the parent species.
-        expected_base=item["genus"]+" "+item["epithet"]
+        hybrid=item.get("is_hybrid", False)
+        expected_base=item["genus"]+" "+("× " if hybrid else "")+item["epithet"]
         rank_label=item.get("infraspecific_rank")
         infra_epithet=item.get("infraspecific_epithet")
         suffix={"variety":"var.","subspecies":"subsp."}.get(rank_label)
+        if hybrid and rank_label:
+            result["status"]="HOLD_HYBRID_RANK_COMPLEXITY";continue
         expected_name=(expected_base+" "+suffix+" "+infra_epithet) if (suffix and infra_epithet) else expected_base
-        normalized=expected_name.lower().replace(".","").replace(" ","-")
+        normalized=expected_name.lower().replace(".","").replace("×","x").replace(" ","-")
         if name!=expected_name or slug!=normalized or (rank_label and not (suffix and infra_epithet)):
             result["status"]="HOLD_IDENTITY_OR_SLUG";continue
         try:
@@ -194,6 +197,7 @@ def build():
             species={
                 "id":slug,"family":item["family"],"genus":item["genus"],"species":item["epithet"],
                 **({"entry_type":"infraspecific_taxon","infraspecific_rank":rank_label,"infraspecific_epithet":infra_epithet} if suffix else {}),
+                **({"entry_type":"hybrid_taxon","is_hybrid":True,"taxonomic_note":"Accepted hybrid × formula and scientific concept verified against Kew; the iNaturalist observation omits the multiplication symbol in its taxon label. Distinguishing hybrid anatomy requires separate visual review."} if hybrid else {}),
                 "scientific_name":name,"common_name":item["common_name"],
                 "look_here_first":item["look_here_first"],
                 "curation_status":{"taxonomy_reviewed":False,"visual_reviewed":False,"photo_source_checked":True},
