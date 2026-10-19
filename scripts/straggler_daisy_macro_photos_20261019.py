@@ -89,7 +89,9 @@ def get_photo(item):
     assert u.scheme == "https" and u.hostname == "upload.wikimedia.org"
     assert u.path.endswith("Starr_050210-"+item["id"]+"_Calyptocarpus_vialis.jpg")
     response = requests.get(item["url"], timeout=45, headers={
-        "User-Agent": "HaysCountyBotanyEducationalPhotoReview/1.0 (GitHub Actions; Wikimedia attribution recorded)"})
+        "User-Agent": "HaysCountyBotanyEducationalPhotoReview/1.0 (https://github.com/Crking92/Hays-County-Botany; educational reuse)",
+        "Referer": item["page"],
+        "Accept": "image/jpeg,image/*;q=0.8"})
     response.raise_for_status()
     if len(response.content) < 50000 or len(response.content) > 12000000:
         raise ValueError("Unexpected original image size: " + item["id"])
