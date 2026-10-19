@@ -34,6 +34,7 @@ ALLOWED={
  "cc0":("CC0","Public domain dedication; verify attribution"),
  "public-domain":("Public Domain","Public domain US National Park Service government employee image"),
  "cc-by-4.0":("CC BY 4.0","Credit author; link license and state image has been resized, see https://creativecommons.org/licenses/by/4.0/"),
+ "cc-by-sa-4.0":("CC BY-SA 4.0","Credit author; image resized and metadata stripped; adapted image under CC BY-SA 4.0 https://creativecommons.org/licenses/by-sa/4.0/"),
  "cc-by":("CC BY","Attribution required"),
  "cc-by-sa":("CC BY-SA","Attribution; ShareAlike requirements"),
  "cc-by-nc":("CC BY-NC","Attribution; noncommercial only"),
@@ -133,7 +134,15 @@ def commons_exact_image(item, candidate):
                    "subspecies" if item.get("infraspecific_rank")=="subspecies" else "species")
     expected_source_name=(item["genus"]+" "+item["epithet"]+" "+item["infraspecific_epithet"]
                           if expected_rank!="species" else exact_name)
-    if (candidate.get("rank")!=expected_rank or source_taxon!=expected_source_name
+    powo_black_cottonwood_bridge=(
+        item.get("slug")=="populus-tristis"
+        and source_taxon=="Populus trichocarpa"
+        and candidate.get("taxonomic_alias_verified") is True
+        and item.get("taxonomic_backbone_reviewed")=="POWO/WCVP"
+        and candidate.get("source")=="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:776895-1"
+    )
+    if (candidate.get("rank")!=expected_rank or
+        not (source_taxon==expected_source_name or powo_black_cottonwood_bridge)
         or candidate.get("reviewed_exact_taxon") is not True):
         raise ValueError("Commons source is not checked to the exact target rank")
     source_page=candidate["source_page"]
@@ -143,7 +152,7 @@ def commons_exact_image(item, candidate):
         or not urlparse(direct_url).path.lower().endswith((".jpg",".jpeg"))):
         raise ValueError("Photo URLs must resolve to official Wikimedia Commons upload source")
     code=candidate["license_code"]
-    if code not in ("public-domain","cc-by-4.0"):
+    if code not in ("public-domain","cc-by-4.0","cc-by-sa-4.0"):
         raise ValueError("Unreviewed Commons license")
     credit=candidate.get("creator")
     if not credit or not candidate.get("photo_id") or not candidate.get("rights_reviewed"):
@@ -171,7 +180,11 @@ def commons_exact_image(item, candidate):
         "observation_id":candidate.get("observation_id","Commons sourced"),
         "attribution":credit,"license_code":code,"image_url":direct_url,
         "source_page":source_page,"observation_page":source_page,
-        "width":out.width,"height":out.height,"checked_candidates":1
+        "width":out.width,"height":out.height,"checked_candidates":1,
+        "photo_license_url":candidate.get("license_url"),
+        "photo_publication_scope":"PUBLIC-WEB-CLEARED",
+        "photo_modifications":"Resized and JPEG re-encoded; all embedded EXIF/GPS metadata stripped",
+        "photo_commercial_reuse":code in ("public-domain","cc-by-4.0","cc-by-sa-4.0")
     }
 
 def read_state():
@@ -188,7 +201,7 @@ def read_state():
 
 def build():
     plan=json.loads(PLAN.read_text())
-    allowed={p["accepted_working_name"]:{"slug":p["slug"],"caution":None} for p in json.loads(PREFLIGHT.read_text())["concepts"] if any(d in p.get("decisions",[]) for d in ("CONFIRMED_ROUTE_TO_ACCEPTED_SPECIES","CONFIRMED_ACCEPTED_TARGET_NOT_IN_POOL","CONFIRMED_ROUTE_TO_ACCEPTED_DESTINATION","ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE","CONFIRMED_SYNONYM_TO_ACCEPTED_SPECIES_FRESH_CHECK","CONFIRMED_KEW_TARGET_WITH_REGIONAL_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_FERN_BACKBONE_CAUTION","CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_BRYOPHYTE_BACKBONE","PREFLIGHT","CONFIRMED_SYNONYM_TO_ACCEPTED_SUBSPECIES_FRESH_CHECK","CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION"))}
+    allowed={p["accepted_working_name"]:{"slug":p["slug"],"caution":None} for p in json.loads(PREFLIGHT.read_text())["concepts"] if any(d in p.get("decisions",[]) for d in ("CONFIRMED_ROUTE_TO_ACCEPTED_SPECIES","CONFIRMED_ACCEPTED_TARGET_NOT_IN_POOL","CONFIRMED_ROUTE_TO_ACCEPTED_DESTINATION","ACCEPTED_INSTALLER_PREFLIGHT_CANDIDATE","CONFIRMED_SYNONYM_TO_ACCEPTED_SPECIES_FRESH_CHECK","CONFIRMED_KEW_TARGET_WITH_REGIONAL_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_FERN_BACKBONE_CAUTION","CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_BACKBONE_CAUTION","CONFIRMED_TARGET_WITH_BRYOPHYTE_BACKBONE","PREFLIGHT","CONFIRMED_SYNONYM_TO_ACCEPTED_SUBSPECIES_FRESH_CHECK","CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION","CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_TAXONOMY_CAUTION"))}
     installed,active,queued=read_state()
     if BATCH.exists() or OUTPUT.exists():raise RuntimeError("Batch or report exists, refusing overwrite")
     results=[]
@@ -205,6 +218,11 @@ def build():
         if (concept and "CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION" in concept.get("decisions",[])
             and not item.get("source_rank_caution_reviewed")):
             result["status"]="HOLD_SOURCE_RANK_CAUTION_UNRESOLVED";continue
+        if concept and "CONFIRMED_KEW_TARGET_WITH_ALTERNATIVE_TAXONOMY_CAUTION" in concept.get("decisions",[]):
+            if not (slug=="populus-tristis" and item.get("taxonomic_backbone_reviewed")=="POWO/WCVP"
+                and item.get("photo_lookup_name")=="Populus trichocarpa"
+                and item.get("taxonomy_source")=="https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:776895-1"):
+                result["status"]="HOLD_ALTERNATIVE_TAXONOMY_NOT_REVIEWED";continue
         if item.get("source_rank_caution_reviewed"):
             concept=next((x for x in json.loads(PREFLIGHT.read_text())["concepts"] if x.get("slug")==slug),None)
             if (not concept or "CONFIRMED_ACCEPTED_TARGET_WITH_SOURCE_RANK_CAUTION" not in concept.get("decisions",[])
@@ -304,6 +322,10 @@ def build():
                 "direct_url":p["image_url"],"study_use":"Noncommercial botanical education",
                 "public_reuse":status[1],
                 "observation_id":p["observation_id"],"photo_id":p["photo_id"],
+                "license_url":p.get("photo_license_url",""),
+                "publication_scope":p.get("photo_publication_scope","CONDITIONAL_UNREVIEWED"),
+                "modification_notice":p.get("photo_modifications",""),
+                "commercial_reuse_allowed":str(p.get("photo_commercial_reuse",False)).lower(),
             }
             with (folder/"image-sources.csv").open("w",newline="",encoding="utf-8") as f:
                 w=csv.DictWriter(f,fieldnames=list(row))
@@ -317,7 +339,13 @@ def build():
                 "curation_status":{"taxonomy_reviewed":False,"visual_reviewed":False,"photo_source_checked":True},
                 "photo_note":("Wikimedia Commons image documented to the exact taxon rank " if photo_relation=="commons_identified_exact_taxon" else ("iNaturalist research-grade observation from accepted child taxon " if photo_relation=="accepted_child" else ("iNaturalist research-grade observation under exact accepted scientific name " if photo_name==name else "iNaturalist research-grade observation under independently documented synonym ")))+photo_name+"; credited license and bytes checked; photo resized and metadata stripped. Provisional recognition only; diagnostic visual review remains pending.",
                 "taxonomy_source":item["taxonomy_source"],
-                "synonyms":[] if photo_name==name or photo_relation in ("accepted_child","commons_identified_exact_taxon") else [photo_name],
+                "synonyms":[] if photo_name==name or photo_relation=="accepted_child" else [photo_name],
+                **({"taxonomic_note":item["taxonomic_note"]} if item.get("taxonomic_note") else {}),
+                **({"native_range_note":item["native_range_note"]} if item.get("native_range_note") else {}),
+                "photo_publication_rights":{"scope":p.get("photo_publication_scope","CONDITIONAL_UNREVIEWED"),
+                  "license_url":p.get("photo_license_url"),
+                  "change_notice":p.get("photo_modifications"),
+                  "commercial_use_allowed":p.get("photo_commercial_reuse")},
                 "photo_observed_taxon":photo_name,
                 "photo_observed_taxon_relation":photo_relation,
                 "photo_taxonomy_note":"Wikimedia file-level exact-taxonomy image source (not a live iNaturalist RG taxon) or independently reviewed scientific synonym; taxon rank preserved, visual anatomy still provisional.",
@@ -331,6 +359,9 @@ def build():
                 "\nPhoto: "+p["source_page"]+
                 "\nAttribution: "+p["attribution"]+
                 "\nLicense: "+status[0]+"; "+status[1]+
+                ("\nPhoto license URL: "+p["photo_license_url"] if p.get("photo_license_url") else "")+
+                ("\nPhoto public display scope: "+p["photo_publication_scope"] if p.get("photo_publication_scope") else "")+
+                ("\nPhoto alterations: "+p["photo_modifications"] if p.get("photo_modifications") else "")+
                 "\nDiagnostic photo appearance and look-alikes: further visual review required. Native county research deferred.\n"
             )
             result["status"]="PREPARED"
