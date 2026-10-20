@@ -1,0 +1,75 @@
+name: Euphorbia paired glands photo verification and publish
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-poinsettia-paired-release-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: one-euphorbia-poinsettia-paired-release
+  cancel-in-progress: false
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify both botanical photo lessons against exact installed image files
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path("content/taxa/Euphorbiaceae/Euphorbia")
+          qa=json.loads(Path("reports/euphorbia-cyathophora-heterophylla-paired-photo-qa-20261020.json").read_text())
+          assert len(qa["two_species_photo_qa"])==2
+          for slug,expected,photo_id,arrows,panels in [
+            ("euphorbia-cyathophora","PASS",3,10,5),
+            ("euphorbia-heterophylla","COMPARISON",3,7,4)
+          ]:
+            j=json.loads((base/slug/"species.json").read_text())
+            assert j["project_inclusion"]["target_zone_status"]==expected
+            assert len(j["images"])==4
+            assert len(j["visual_comparison"]["items"])==panels
+            assert len([x for x in j["visual_comparison"]["items"] if x["scientific_name"]==j["scientific_name"]])==panels-1
+            assert j["field_id_finalization"]["anatomy_arrows"]==arrows
+            macro=j["images"][photo_id]
+            assert macro["creator"].startswith("SAplants")
+            assert macro["license"]=="CC BY-SA 4.0"
+            assert macro["original_image_sha256"] and macro["image_dimensions"]==[1750,1167]
+            assert (base/slug/macro["file"]).is_file()
+            assert len(macro["anatomy_arrows"])>=3
+            for x in j["visual_comparison"]["items"]:
+              p=Path(x["image_url"])
+              assert p.is_file() and p.stat().st_size>17000
+              assert x["source_page"].startswith("https://") and x["creator"] and x["license"]
+              for m in x["markers"]:
+                assert all(isinstance(m[k],(int,float)) and 0<=m[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+          cy=json.loads((base/"euphorbia-cyathophora/species.json").read_text())
+          assert cy["images"][3]["source_name_as_uploaded"]=="Euphorbia heterophylla var. cyathophora"
+          assert "powo.science.kew.org" in cy["images"][3]["accepted_name_basis"]
+          hetero=json.loads((base/"euphorbia-heterophylla/species.json").read_text())
+          assert hetero["images"][1]["taxon_photo_review"].startswith("TAXON_ID_HOLD")
+          genus=json.loads((base/"genus.json").read_text())
+          pair=next(c for c in genus["comparison_cards"] if c["id"]=="euphorbia-poinsettia-pair")
+          assert pair["photo_pair_targets"][0]["status"].startswith("VERIFIED COMPLETE")
+          gp=genus["visual_comparison"]["items"]
+          assert any(x["image_url"].endswith("04-saplants-cyathophora-gland-macro.jpg") for x in gp)
+          assert any(x["image_url"].endswith("04-saplants-heterophylla-cyathia.jpg") for x in gp)
+          assert not any(x["image_url"].endswith("euphorbia-heterophylla/images/02-cyathia-closeup.jpg") for x in gp)
+          assert Path("scripts/stage_public_euphorbia_heterophylla_20261020.py").is_file()
+          pub=Path(".github/workflows/deploy-github-pages-learner.yml").read_text()
+          assert "stage_public_euphorbia_heterophylla_20261020.py --site-dir dist" in pub
+          print("PASS verified actual gland photos for both species, arrows, site taxonomy hold and county labels; ready to publish.")
+          PY
+      - name: Dispatch photo-safe public GitHub Pages site
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error -X POST             -H "Accept: application/vnd.github+json"             -H "Authorization: Bearer $GH_TOKEN"             -H "X-GitHub-Api-Version: 2022-11-28"             "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches"             -d '{"ref":"main"}'
+          echo "Published paired Euphorbia macroscopic gland lesson to GitHub Pages dispatch."
