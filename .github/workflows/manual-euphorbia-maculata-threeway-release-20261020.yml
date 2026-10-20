@@ -37,7 +37,7 @@ jobs:
           assert all(x["public_reuse"]=="yes" for x in j["images"][1:])
           assert len(j["visual_comparison"]["items"])==4
           assert sum(len(x["markers"]) for x in j["visual_comparison"]["items"])==8
-          assert "TRANSVERSE" in j["look_here_first"] and "NOT" in j["field_photo_quickcheck"]["warning"]
+          assert "TRANSVERSE" in j["look_here_first"] and "LONGITUDINAL" in j["field_photo_quickcheck"]["warning"]
           assert "longitudinal" not in j["morphology_keys"]["seed"].lower()
           for item in j["visual_comparison"]["items"]:
             path=Path(item["image_url"])
