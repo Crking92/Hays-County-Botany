@@ -3,7 +3,7 @@
   "date": "2026-10-20",
   "species_id": "solanum-nigrescens",
   "status": "PASS_IN_PROGRESS",
-  "scope": "User-explicitly requested new divine nightshade field-ID card with a completed botany/relative-comparison lesson and four verified exact-species photos. The user has not yet checked iPhone annotation positions; native-by-Hays County judgment remains a hold.",
+  "scope": "User-directed native/county provisional divine nightshade field lesson, now with four initial exact-species Florida CC BY photos plus three image-verified Mexican research fruit/calyx/ripening photos under CC BY 4.0; exact-source cropped images and teaching markers published through existing rights-filtered site workflow.",
   "purpose": "Trigger existing rights-filtered public GitHub Pages build following successful physical photo installation; do not bypass source licensing, actual image bytes, photo integrity, GPS stripping, size or restricted-asset preflights.",
   "changed": [
     "content/taxa/Solanaceae/Solanum/solanum-nigrescens/species.json",
@@ -11,15 +11,26 @@
     "content/taxa/Solanaceae/Solanum/solanum-nigrescens/SOURCES.txt",
     "content/taxa/Solanaceae/Solanum/solanum-nigrescens/image-sources.csv",
     "content/taxa/Solanaceae/Solanum/genus.json",
-    "data/manifest.json"
+    "data/manifest.json",
+    "content/taxa/Solanaceae/Solanum/solanum-nigrescens/images/05-ripe-fruit-cluster-fig03a.jpg",
+    "content/taxa/Solanaceae/Solanum/solanum-nigrescens/images/06-single-fruit-calyx-fig03c.jpg",
+    "content/taxa/Solanaceae/Solanum/solanum-nigrescens/images/07-berry-ripening-sequence-fig14.jpg",
+    "reports/solanum-nigrescens-fruit-install-20261020.json"
   ],
   "photos": {
-    "physically_installed": 4,
-    "main_gallery_annotated_photos": 4,
+    "physically_installed": 7,
     "source_specific_license": "CC BY 4.0",
-    "creator": "Alex Abair",
-    "underlying_photos": "iNaturalist observation 103616257",
-    "stored_images_exif_stripped": true
+    "main_gallery_annotated_photos": 6,
+    "main_gallery_arrows": 15,
+    "lookalike_photo_panels": 1,
+    "fruit_photos": 3,
+    "fruit_photo_anatomy_arrows": 6,
+    "first_four_credit": "Alex Abair (Florida iNaturalist)",
+    "new_figures": "2023 Ramírez-Olvera & Sandoval-Villa article Fig 3(a), Fig 3(c), Fig 14 (Texcoco Mexico research population)",
+    "fruit_photo_creators": [
+      "Sara Monzerrat Ramírez-Olvera",
+      "Jorge Manuel Valdez-Carrasco"
+    ]
   },
   "comparisons": {
     "primary": "Solanum americanum",
@@ -33,14 +44,18 @@
   },
   "guardrails": [
     "No claim that Florida photos prove Texas county occurrence.",
-    "No falsely labeled mature nigrescens fruit photo. All four actual species photos are habit/flower/buds.",
     "American black nightshade fruit clearly labeled as a DIFFERENT species in compare-only panel.",
     "External source copyright and attribution CC BY 4.0 remain, modifications recorded.",
-    "Phone arrow positions require owner review before visual approval."
+    "Phone arrow positions require owner review before visual approval.",
+    "New figs 3(a), 3(c), 14 exact S. nigrescens fruit photographs are credited CC BY 4.0 scholarly material, crop adaptations disclosed.",
+    "No Hays provenance claim from the Mexican cultivated research plant voucher or Florida field photos.",
+    "Main fruit arrow targets inspected against actual JPEG pixels. User phone-view signoff pending."
   ],
   "remaining": [
-    "Ripe nigrescens fruit + appressed/spreading calyx side view (photo not yet installed).",
-    "Flower macro with ruler for 1.8–2.5 mm anther comparison.",
-    "Verify user iPhone arrows and thumbnail presentation after deployment."
-  ]
+    "User iPhone visual review of new fruit and calyx arrows in swipe views 5–6.",
+    "Confirm mobile readability for six-stage ripening Figure 14 (photo 7), no added arrows.",
+    "Measured anther-length macro with a ruler remains desired; county-native adjudication remains deferred."
+  ],
+  "last_updated": "2026-10-20",
+  "publication_pass": 2
 }
