@@ -5,6 +5,7 @@ on:
     paths:
       - ".github/workflows/manual-solanum-nigrescens-fruit-photo-stage-20261020.yml"
       - "scripts/manual_solanum_nigrescens_fruit_sources_20261020.py"
+      - "scripts/manual_solanum_nigrescens_fruit_crops_20261020.py"
   workflow_dispatch:
 permissions:
   contents: write
@@ -29,8 +30,12 @@ jobs:
           git fetch origin main
           git checkout -B main origin/main
           python -m py_compile scripts/manual_solanum_nigrescens_fruit_sources_20261020.py
-      - name: Get cited figures for pixel review only
-        run: python scripts/manual_solanum_nigrescens_fruit_sources_20261020.py
+      - name: Verify original figures exist before making crops
+        run: |
+          test -s workflow/photo-library/candidates/solanum-nigrescens-fruit-20261020/solanum-nigrescens-paper-fig003.png
+          test -s workflow/photo-library/candidates/solanum-nigrescens-fruit-20261020/solanum-nigrescens-paper-fig014.png
+      - name: Create small attributed photo-review crops only
+        run: python scripts/manual_solanum_nigrescens_fruit_crops_20261020.py
       - name: Verify staged candidate image metadata
         run: |
           python - <<'PY'
@@ -52,7 +57,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add workflow/photo-library/candidates/solanum-nigrescens-fruit-20261020 reports/solanum-nigrescens-scholarly-fruit-candidates-20261020.json
+          git add workflow/photo-library/candidates/solanum-nigrescens-fruit-20261020 reports/solanum-nigrescens-scholarly-fruit-preview-20261020.json
           if git diff --cached --quiet;then echo "No new figures";exit 0;fi
           git commit -m "Stage licensed divine nightshade scholarly fruit figures for visual source review [skip ci]"
           for attempt in 1 2 3 4 5;do
