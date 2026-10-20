@@ -1,0 +1,59 @@
+name: Annotate Two Verified Whorls on Pennywort Photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-hydrocotyle-verticillata-two-arrows-20261020.yml"
+      - "scripts/manual_hydrocotyle_verticillata_anatomy_arrows_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hydrocotyle-verticillata-two-whorl-arrows
+  cancel-in-progress: false
+jobs:
+  annotate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests Pillow
+      - run: python scripts/manual_hydrocotyle_verticillata_anatomy_arrows_20261020.py
+      - name: Verify all six physical originals and revised whorl labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          base=Path('content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-verticillata')
+          s=json.loads((base/'species.json').read_text())
+          assert len(s['images'])==6 and s['images'][0]['license']=='CC BY-SA 2.0'
+          e=next(x for x in s['images'] if x['file'].endswith('sam-694125616-full-whorled-axis.jpg'))
+          assert e['manual_arrow_review']=='2026-10-20-two-verified-whorls'
+          assert e['license']=='CC BY'
+          assert s['project_inclusion']['target_zone_status']=='UNRESOLVED'
+          assert s['curation_status']['finished_field_id_pass']=='PASS_IN_PROGRESS'
+          for x in s['images']:
+            f=base/x['file']
+            assert f.exists() and f.stat().st_size>25000
+            with Image.open(f) as im:im.verify()
+          print('All 6 sources valid; 2 whorl labels, taxonomic HOLD unchanged.')
+          PY
+      - name: Commit one-species anatomical illustration without other workflow changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-verticillata/
+          if git diff --cached --quiet;then exit 0;fi
+          git commit -m "Add 2 verified whorl arrows to pennywort stalk without clearing taxon hold [skip ci]"
+          for n in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 4
+          done
+          exit 1
