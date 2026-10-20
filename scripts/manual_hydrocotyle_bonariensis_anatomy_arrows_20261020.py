@@ -17,11 +17,11 @@ candidates={str(x["photo_id"]):x for x in m["candidates"]}
 SETS=[
  {"pid":"666145212","file":"williamkjones-666145212-primary-umbel-rays.jpg",
  "arrows":[("Umbel ray junction",(.497,.520),(.05,.16)),
-           ("A primary ray",(.621,.440),(.62,.19))],
+           ("A primary ray",(.588,.480),(.62,.19))],
  "role":"Confirm the compound inflorescence clue: whole umbrella-like branching node (umbel-ray junction) and one of several primary rays labeled. Secondary whorls and accepted voucher ID are not established by this image alone."},
  {"pid":"590221868","file":"sam-590221868-compound-axis-hand-scale.jpg",
  "arrows":[("Main branch point",(.455,.745),(.055,.57)),
-           ("Primary ray",(.586,.645),(.64,.46))],
+           ("Primary ray",(.551,.644),(.64,.46))],
  "role":"Look closer: hand-held flowering/fruiting head with primary rays converging at main node and a ray labeled. The groups at ray tips show additional flowers; do not claim full mature secondary whorl internode sequence from this photo."},
  {"pid":"479454106","file":"sandy-loam22-479454106-leaf-underside-petiole.jpg",
  "arrows":[("Petiole to underside",(.514,.394),(.035,.085))],
@@ -64,7 +64,7 @@ def obtain(p,sha):
 done=[]
 for t in SETS:
  entry=next(x for x in j["images"] if x["file"]=="images/"+t["file"])
- if entry.get("manual_arrow_review")=="2026-10-20-source-hash-correct":
+ if entry.get("manual_arrow_review")=="2026-10-20-final-pixel-correction":
   done.append(t["file"]);continue
  assert entry["license"]=="CC BY" and entry["source_photo_id"]==t["pid"]
  im=obtain(candidates[t["pid"]],entry["source_sha256"])
@@ -76,10 +76,10 @@ for t in SETS:
  entry["role"]=t["role"]
  entry["modifications"]="Original resized/reencoded, EXIF removed, then "+str(len(t["arrows"]))+" source-hash-verified yellow anatomical labels added; artist's arrows selected by manual source pixel review."
  entry["anatomy_arrows"]=[{"label":label,"target_fraction":list(point)} for label,point,_ in t["arrows"]]
- entry["manual_arrow_review"]="2026-10-20-source-hash-correct"
+ entry["manual_arrow_review"]="2026-10-20-final-pixel-correction"
  entry["photo_review"]+=" Exact media original SHA verified, anatomical coordinates selected by human full-size photo inspection; final installed derivative to be re-read before publishing."
  done.append(t["file"])
-j["curation_status"]["anatomy_image_install"]="2026-10-20 three SHA-matched individual CC BY images with labeled branchpoint, primary rays and underside petiole insertion. Need final readback of committed JPEG derivatives."
+j["curation_status"]["anatomy_image_install"]="2026-10-20 full image QA flagged both original primary-ray arrows as off-target; corrected primary-ray coordinates on SHA-matched originals. Check latest committed pixels, branchpoint and underside petiole arrow previously passed."
 j["curation_status"]["required_to_finish"]=[
  "Full size post-commit pixel check of three arrowed photo derivatives",
  "Taxonomic voucher review under bonariensis versus historical H. verticillata var. triradiata; preserve all valid competing concepts",
