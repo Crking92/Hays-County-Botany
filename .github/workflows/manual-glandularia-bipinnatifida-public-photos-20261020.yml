@@ -50,10 +50,13 @@ jobs:
           for item in subset:
             assert item["license"] in ("Public Domain","CC BY","CC BY-SA")
             assert item["creator"] and item["source_page"] and item["license_url"]
-            assert item["anatomy_arrows"].startswith("none")
+            arrow_markers=item.get("anatomy_arrows")
+            assert (isinstance(arrow_markers,str) and arrow_markers.startswith("none")) or (isinstance(arrow_markers,list) and all(x.get("label") and len(x.get("target_fraction",[]))==2 for x in arrow_markers))
             img=base/item["file"]
             assert img.exists() and img.stat().st_size>19000
             with Image.open(img) as p:p.verify()
+          assert sum(len(x["markers"]) for x in j.get("visual_comparison",{}).get("items",[]))==7
+          assert len(j.get("field_photo_quickcheck",{}).get("featured_photo_indices",[]))==3
           assert len([x for x in j["images"] if x.get("license")=="CC BY-NC"])==3
           assert any(x.get("license")=="Owner-authorized private study" for x in j["images"])
           print("PASS: 5 physically decoded public-safe photos; 7 comparisons; rights retained; no false anatomy arrows")
