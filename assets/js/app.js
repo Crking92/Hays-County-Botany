@@ -1791,7 +1791,7 @@ function fieldPhotoQuickcheck(sp){
     visual_comparison:{
       instance_id:sp.id+"-fast",
       title:key.heading || "Field ID: follow the arrows",
-      subtitle:"Start here in the field. The photo labels distinguish actual petals, modified bracts, and the calyx tube.",
+      subtitle:"Start here in the field. Every arrow marks a visible, photo-verified structure; unverified or missing anatomy is not labeled.",
       items:featured
     }
   };
