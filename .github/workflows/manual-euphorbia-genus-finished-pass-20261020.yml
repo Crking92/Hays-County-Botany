@@ -55,6 +55,38 @@ jobs:
           assert "seed" in g["comparison_cards"][2]["caution"].lower()
           print("PASS: 13 copyright-safe reusable image panels, 10 image-verified annotated sources, 14 arrows, 4 science comparisons; 13 restricted/unverified references held from public comparison panel.")
           PY
+      - name: Verify species dentata photo-first closeout
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          base=Path("content/taxa/Euphorbiaceae/Euphorbia/")
+          j=json.loads((base/"euphorbia-dentata/species.json").read_text())
+          assert j["id"]=="euphorbia-dentata"
+          assert j["project_inclusion"]["target_zone_status"]=="PASS"
+          assert j["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
+          assert j["field_photo_quickcheck"]["featured_photo_indices"]==[0,1,2]
+          panels=j["visual_comparison"]["items"]
+          assert len(panels)==4
+          assert len([x for x in panels if x["scientific_name"]=="Euphorbia dentata"])==3
+          assert len([x for x in panels if x["scientific_name"]=="Euphorbia davidii"])==1
+          assert sum(len(x["markers"]) for x in panels)==8
+          for p in panels:
+            assert p["license"] in ("CC BY-SA","CC BY 2.0")
+            assert Path(p["image_url"]).is_file() and Path(p["image_url"]).stat().st_size>15000
+            assert p["source_page"].startswith("https://")
+            for m in p["markers"]:
+              assert 0<=m["target_x"]<=100 and 0<=m["target_y"]<=100
+          assert len(j["images"])==5
+          assert sum("public reuse not granted" in x["license"] for x in j["images"])==2
+          for p in panels:
+            assert "private-study" not in p["image_url"]
+          report=json.loads(Path("reports/euphorbia-dentata-field-id-20261020.json").read_text())
+          assert report["verified_arrows"]==8 and len(report["all_evidence"])==4
+          assert len(report["restricted_existing_photo_holds"])==2
+          assert "seed" in j["field_id_finalization"]["field_training_status"].lower()
+          print("PASS: E. dentata 3 source-real verified photos + E. davidii lookalike, 8 arrows, 2 restricted sources not used for annotated lesson, seed/hair science holds.")
+          PY
       - name: Request current GitHub Pages public build
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
