@@ -1,0 +1,175 @@
+name: Install Exact Eastern Black Nightshade Calyx and Flower Photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-emulans-figure16-install-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: solanum-emulans-verified-anatomy-figure16-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Install exactly inspected CC BY scholarly panels and anatomy markers
+        shell: bash
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import csv,json,hashlib
+          base=Path("content/taxa/Solanaceae/Solanum/solanum-emulans")
+          source=Path("workflow/photo-library/candidates/solanum-emulans-20261020")
+          card=base/"species.json"
+          j=json.loads(card.read_text(encoding="utf-8"))
+          assert j["id"]=="solanum-emulans"
+          assert j["project_inclusion"]["target_zone_status"]=="PROVISIONAL" and j["native_metrics_excluded"] is True
+          current={r.get("file") for r in j["images"]}
+          if "images/06-developing-green-fruit-calyx-figure16d.jpg" in current:
+            print("SKIP: Verified Figure 16 already installed, do not overwrite any annotations.");raise SystemExit(0)
+          if any(x.startswith("images/04-") or x.startswith("images/05-") or x.startswith("images/06-") for x in current):
+            raise SystemExit("Some figure16 panels already installed; manual reconciliation required")
+          article="https://phytokeys.pensoft.net/article/31738/element/2/116/"
+          file_page="https://phytokeys.pensoft.net/article/31738/download/fig/116/"
+          license="https://creativecommons.org/licenses/by/4.0/"
+          defs=[
+            dict(src="figure16-b-leaf-underside-preview.jpg",dest="04-leaf-underside-figure16b.jpg",
+             figure="Figure 16B",collection="Nee 61306",
+             role="TRUE undersurface of ovate leaf and small unbranched white-flower inflorescence",
+             caption="Michael Nee's photographed LEAF UNDERSIDE at left, held flat with a finger; flowering axis with tiny white flowers at right. Holes are insect damage, NOT diagnostic leaf features. Exact S. emulans Figure 16B.",
+             markers=[
+               dict(label="LEAF UNDERSIDE",label_x=2,label_y=13,target_x=40,target_y=41),
+               dict(label="Small flower cluster",label_x=63,label_y=82,target_x=78,target_y=45)
+             ]),
+            dict(src="figure16-c-flower-preview.jpg",dest="05-flower-anthers-figure16c.jpg",
+             figure="Figure 16C",collection="Nee 61357",
+             role="Tiny white star flower, yellow pollen anthers, and multiple unopened buds",
+             caption="Michael Nee's exact-species flower panel. The little YELLOW cluster hangs from the open white COROLLA. Unopened pale buds radiate from green pedicels. Anther length requires a measured macro; no ruler appears in this photo.",
+             markers=[
+               dict(label="YELLOW anthers",label_x=2,label_y=78,target_x=60,target_y=78),
+               dict(label="WHITE corolla lobe",label_x=70,label_y=87,target_x=73,target_y=71),
+               dict(label="Unopened flower bud",label_x=11,label_y=5,target_x=27,target_y=13)
+             ]),
+            dict(src="figure16-d-green-fruit-calyx-preview.jpg",dest="06-developing-green-fruit-calyx-figure16d.jpg",
+             figure="Figure 16D",collection="Nee 61357",
+             role="Key diagnostic: GREEN DEVELOPING berries with green calyx lobes appressed/spreading across fruit and attached fruit stalks",
+             caption="EXACT-SPECIES Figure 16D demonstrates a cluster of GREEN DEVELOPING berries (NOT a mature black berry), with distinct five-lobed green CALYCES sitting AGAINST the developing fruit. The horizontal stalk from main stem is the inflorescence axis / PEDUNCLE, and each individual berry has its own PEDICEL. It cannot demonstrate ripe fruit detachment or black fruit color.",
+             markers=[
+               dict(label="Calyx lobes on upper fruit",label_x=50,label_y=4,target_x=81,target_y=27),
+               dict(label="CALYX against green berry",label_x=52,label_y=93,target_x=78,target_y=79),
+               dict(label="GREEN immature berry",label_x=2,label_y=78,target_x=61,target_y=63),
+               dict(label="Cluster stalk (peduncle)",label_x=3,label_y=24,target_x=44,target_y=48)
+             ])
+          ]
+          rows=[];panels=[]
+          for i,d in enumerate(defs):
+            inp=source/d["src"];assert inp.is_file(),f"Missing visually inspected source panel {inp}"
+            with Image.open(inp) as im:
+              assert im.width>=700 and im.height>=550, "Unexpected figure crop layout"
+              out=base/"images"/d["dest"];out.parent.mkdir(parents=True,exist_ok=True)
+              im.convert("RGB").save(out,"JPEG",quality=90,optimize=True,exif=b"")
+            with Image.open(out) as check:check.verify()
+            sha=hashlib.sha256(out.read_bytes()).hexdigest()
+            rec={"file":"images/"+d["dest"],"role":d["role"],
+             "creator":"Michael Nee (photograph); Knapp et al. (2019, Figure 16 layout)",
+             "license":"CC BY 4.0","license_url":license,"source_page":article,
+             "source_figure":d["figure"],"source_specimen":d["collection"],
+             "media_source_url":file_page,"sha256":sha,"image_dimensions":[im.width,im.height],
+             "public_reuse":"yes","study_use":"yes","visual_role_reviewed":True,
+             "modifications":"Cropped to original Figure 16 "+d["figure"][-1]+" panel, converted JPEG, removed EXIF/GPS; overlay arrows separate. Original paper credits M. Nee."}
+            rows.append(rec)
+            panels.append({"label":str(len(j["images"])+i+1)+" — "+d["role"],
+             "scientific_name":"Solanum emulans",
+             "image_url":"content/taxa/Solanaceae/Solanum/solanum-emulans/"+rec["file"],
+             "image_fit":"contain","image_role":d["role"],"caption":d["caption"]+
+              " © Michael Nee / Knapp et al. (2019), PhytoKeys 123 Figure 16, CC BY 4.0. Cropped from published plate.",
+             "why_it_matters":"View and annotate genuinely visible reproductive structures, never infer unshown ripe fruit or exact anther measurements.",
+             "creator":rec["creator"],"license":rec["license"],"license_url":license,
+             "source_page":article,"source_figure":d["figure"],"markers":d["markers"]})
+          j["images"].extend(rows)
+          vals=j["visual_comparison"]["items"]
+          index=next((i for i,v in enumerate(vals) if v.get("scientific_name")!="Solanum emulans"),len(vals))
+          vals[index:index]=panels
+          j["visual_comparison"]["title"]="Eastern black nightshade: short anthers and APPRESSED fruiting calyx"
+          j["visual_comparison"]["subtitle"]="Six true-species teaching views from two field photographers and Michael Nee's 2019 four-panel scientific plate (3 credited crops). The fruit calyx photograph is of GREEN DEVELOPING, not ripe black fruit. Two additional differently labeled look-alikes."
+          j["visual_comparison"]["memory_rule"]="Short anthers (like S. americanum), but calyx stays appressed/spreading against developing/ripe fruit, with ripe berry typically leaving with its pedicel. Confirm fully mature berry separately."
+          j["visual_comparison"]["overlay_note"]="3 research source Figure 16 crops are CC BY 4.0 adaptations of M. Nee's original photographs in Knapp et al (2019). Anatomical arrows are separate SVG overlays; phone review and fully ripe fruit photo remain outstanding."
+          j["photo_note"]+=" Installed authentic Michael Nee Figure 16B/C/D panel crops of leaf underside, short-anther flowers and appressed developing-fruit calyces under article CC BY 4.0; modified crops/credits tracked. Figure D does not show fully ripe black berries."
+          j["field_photo_quickcheck"]["missing"]=[
+            "Ripe purple-black Solanum emulans berry in side view, with intact mature fruit calyx and attached pedicel. Michael Nee's Figure 16D shows GREEN developing berries only.",
+            "Measured flower anther/filament macro with millimeter scale to separate S. emulans vs S. americanum.",
+            "Owner iPhone visual approval of 3 new panels' arrow targets, especially developing calyx lobes.",
+            "Hays County county-native verification still on HOLD."
+          ]
+          j["field_photo_quickcheck"]["fruit_photo_status"]="PASS_DEVELOPING_GREEN_FRUIT_CALYX_FIGURE16D_INSTALLED; MATURE_BLACK_FRUIT_HOLD"
+          j["curation_status"]["photo_files_present"]=len(j["images"])
+          j["curation_status"]["photo_metadata_count"]=len(j["images"])
+          j["curation_status"]["photo_hold"]="RIPE_PURPLE_BLACK_FRUIT_STILL_MISSING; FIG16D_GREEN_CALYX_INSTALLED"
+          j["curation_status"]["fruit_calyx_source_review"]="PASS_2019_NEE_FIGURE16D_DEVELOPING_CALYX_NOT_MATURE"
+          j["curation_status"]["field_id_finish_status"]="PASS_IN_PROGRESS"
+          j["learner_visual_status"]["image_count"]=len(j["images"])
+          j["learner_visual_status"]["note"]="Six exact-species photo views (3 field / 3 scholarly panel crops) and two distinct-species look-alike comparisons. Green developing fruit calyx verified; still requires a mature black berry and phone arrow approval."
+          j.setdefault("field_id_reference_sources",[]).append("https://phytokeys.pensoft.net/article/31738/element/2/116/")
+          card.write_text(json.dumps(j,indent=2,ensure_ascii=False)+"\n")
+          ledger=base/"image-sources.csv"
+          with ledger.open(newline="",encoding="utf-8") as f:
+            reader=csv.DictReader(f);keys=reader.fieldnames;existing=list(reader)
+          with ledger.open("w",newline="",encoding="utf-8") as f:
+            writer=csv.DictWriter(f,fieldnames=keys);writer.writeheader()
+            writer.writerows(existing+[{k:rec.get(k,"") for k in keys} for rec in rows])
+          sources=base/"SOURCES.txt"
+          with sources.open("a",encoding="utf-8") as f:
+            f.write("\nINSTALLED research photos: Figure 16B, 16C, 16D of Knapp et al (2019) PhytoKeys 123, DOI 10.3897/phytokeys.123.31738, exact open figure https://phytokeys.pensoft.net/article/31738/element/2/116/; photographer Michael Nee, research collections Nee 61357 / Nee 61306; CC BY 4.0. Adaptation: panel cropped, EXIF removed, arrows applied independently. Fig 16D GREEN DEVELOPING fruits, not mature black.\n")
+          audit={"species":"Solanum emulans","date":"2026-10-20","photo_source":"Knapp et al 2019, Figure 16, photographer M. Nee","new_photo_views":3,
+            "new_marked_arrows":sum(len(d["markers"]) for d in defs),"new_total_photos":len(j["images"]),
+            "panels":[{"figure":r["source_figure"],"sha256":r["sha256"],"credit":r["creator"],"source":article} for r in rows],
+            "status":"PASS_IN_PROGRESS","real_green_calyx_evidence":True,"fully_ripe_berry_hold":True,
+            "phone_arrow_review_pending":True,"range_hold_preserved":True}
+          r=Path("reports/solanum-emulans-figure16-installed-20261020.json");r.write_text(json.dumps(audit,indent=2)+"\n")
+          print("INSTALLED",len(rows),"new photos; species total",len(j["images"]),"new arrows",audit["new_marked_arrows"])
+          PY
+      - name: Validate exact images, scientific stage and licensing
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          b=Path("content/taxa/Solanaceae/Solanum/solanum-emulans")
+          j=json.loads((b/"species.json").read_text())
+          assert len(j["images"])==6
+          assert len(j["visual_comparison"]["items"])==8
+          assert len([x for x in j["visual_comparison"]["items"] if x.get("scientific_name")=="Solanum emulans"])==6
+          assert j["project_inclusion"]["target_zone_status"]=="PROVISIONAL" and j["native_metrics_excluded"] is True
+          assert "MATURE" in j["field_photo_quickcheck"]["fruit_photo_status"]
+          for a in j["images"][3:]:
+            assert a["creator"].startswith("Michael Nee") and a["license"]=="CC BY 4.0" and a["source_figure"]
+            p=b/a["file"];assert p.is_file() and p.stat().st_size>20000
+            with Image.open(p) as im:im.verify()
+            print("PASS",a["file"],a["source_figure"])
+          print("PASS: No falsely mature fruit evidence; no Hays county-native claim.")
+          PY
+      - name: Commit species images and provenance only after checks pass
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Solanaceae/Solanum/solanum-emulans/ reports/solanum-emulans-figure16-installed-20261020.json
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Install true Solanum emulans Michael Nee fruit-calyx and flower photos with arrows [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Verified anatomy lessons pushed.";exit 0
+            fi
+            git rebase --abort || true;sleep 4
+          done
+          exit 1
