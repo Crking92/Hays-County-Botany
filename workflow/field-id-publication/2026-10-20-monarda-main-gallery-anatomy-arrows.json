@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "reason": "User specifically reports missing arrows in Monarda punctata main viewing area; make the ACTUAL main swipe carousel show photo-level diagnostic markers (not only later photo lesson).",
+  "status": "PUBLISHED_SOURCE_PENDING_DEPLOY_QA",
+  "changed": [
+    "assets/js/app.js",
+    "assets/css/styles.css",
+    "index.html",
+    "sw.js"
+  ],
+  "implementation": "Existing verified species visual_comparison markers matched by exact photo source_page or URL to installed/externally hosted exact-species gallery images. Arrow labels and SVG placed as overlay within main swipe photo button; positionGalleryArrowStages computes visible object-fit:contain image coordinates after image load and on resize; thumbnail shows ↗ Annotated.",
+  "verification": {
+    "js_syntax": "PASS",
+    "marker_mapping_checked_using_actual_species_json": true,
+    "monarda-punctata": {
+      "main_gallery_photos": 6,
+      "annotated_photo_count": 4,
+      "total_arrow_labels": 6
+    },
+    "monarda-citriodora": {
+      "main_gallery_photos": 8,
+      "annotated_photo_count": 2,
+      "total_arrow_labels": 4
+    },
+    "limitations": [
+      "Browser viewport pixel screenshot/mobile arrow placement not yet independently validated; image fitting and annotations now have programmatic checks.",
+      "Unannotated gallery photos remain unannotated; no invented anatomical targets.",
+      "External Commons macro photos need network to load."
+    ]
+  },
+  "cache": {
+    "app_js_query_version": 48,
+    "sw_cache_version": "hays-botany-v45"
+  },
+  "source_commits": [
+    "ccf6e2f327259b473ebfe9af8b1a0c63af2b01d9",
+    "19b7cc8549288d980847f66f87235bbcb4064bdd",
+    "c998eeaa260cbb814364c4e95ccdb27863b0b0e8",
+    "c64aaaf31e09f0a3fa216622bd97a3e04902cf15"
+  ]
+}
