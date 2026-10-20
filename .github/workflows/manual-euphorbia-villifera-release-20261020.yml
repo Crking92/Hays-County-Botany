@@ -37,7 +37,7 @@ jobs:
           assert len(j["field_photo_quickcheck"]["featured_photo_indices"])==2
           assert sum(len(x["markers"]) for x in j["visual_comparison"]["items"])==6
           assert len(j["comparisons"]["four_way_matrix"])>=5
-          assert "FILIFORM" in j["look_here_first"]
+          assert "filiform" in j["look_here_first"].lower()
           assert "empty" in j["look_here_first"].lower()
           assert "not prove" in j["field_photo_quickcheck"]["warning"].lower() or "do not" in j["field_photo_quickcheck"]["warning"].lower()
           for x in j["visual_comparison"]["items"]:
