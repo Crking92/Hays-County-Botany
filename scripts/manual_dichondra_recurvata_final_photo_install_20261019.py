@@ -56,8 +56,14 @@ def annotate(im,role):
  return im
 def retrieve(row,role):
  pid=str(row["photo_id"])
- for kind in ("original","large"):
-  url="https://inaturalist-open-data.s3.amazonaws.com/photos/"+pid+"/"+kind+".jpg"
+ base_url=row.get("photo_url","")
+ urls=[
+  base_url.replace("/large.","/original."),
+  base_url,
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/"+pid+"/original.jpg",
+  "https://inaturalist-open-data.s3.amazonaws.com/photos/"+pid+"/large.jpg"
+ ]
+ for url in dict.fromkeys(urls):
   try:
    r=session.get(url,timeout=35);r.raise_for_status()
    if not 40000<len(r.content)<16000000:continue
