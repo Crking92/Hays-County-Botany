@@ -1,0 +1,34 @@
+{
+  "kind": "controlled_rights_filtered_public_pages_release",
+  "date": "2026-10-20",
+  "reason": "Two canonical previously photo-free public cards now have exact-species, individual CC BY 4.0 iNaturalist photo files, bytes and source metadata verified on main.",
+  "source_head_sha_before_marker": "1e61bc328e87cb68e6bb37aceee2e159e72a94fa",
+  "website": "https://crking92.github.io/Hays-County-Botany/",
+  "workflow": ".github/workflows/publish-public-learner-github-pages.yml",
+  "noncommercial_educational": true,
+  "expected_photo_gap_reduction": 2,
+  "independently_verified": [
+    {
+      "species": "Ludwigia octovalvis",
+      "path": "content/taxa/Onagraceae/Ludwigia/ludwigia-octovalvis/species.json",
+      "species_json_blob_sha": "aaf46d37790dd35d9ae78548a23a9e47e33cc08e",
+      "physical_photo_path": "content/taxa/Onagraceae/Ludwigia/ludwigia-octovalvis/images/public-alex-abair-ludwigia-fruit.jpg",
+      "creator": "Alex Abair",
+      "license": "CC BY 4.0",
+      "source": "https://www.inaturalist.org/photos/50612016",
+      "sha256": "2d58733dde15efd35313205fa9214ed7fd9b2265a096be6a0de3dafe4dcd3fe1"
+    },
+    {
+      "species": "Symphyotrichum ericoides",
+      "path": "content/taxa/Asteraceae/Symphyotrichum/symphyotrichum-ericoides/species.json",
+      "species_json_blob_sha": "9270bf5b9ac9e52a3e762bb9899e0d4fab1dc0cb",
+      "physical_photo_path": "content/taxa/Asteraceae/Symphyotrichum/symphyotrichum-ericoides/images/public-annika-lindqvist-heath-aster.jpg",
+      "creator": "Annika Lindqvist",
+      "license": "CC BY 4.0",
+      "source": "https://www.inaturalist.org/photos/97520834",
+      "sha256": "8548e624d46feab6be1f74ba56c0251480bef57cec37ce3212d86cbad7ffbcd2"
+    }
+  ],
+  "release_guardrails": "Do not bypass rights, content, EXIF, photo pixel and build-size QA; publish only if GitHub Pages Action succeeds; a commit is not itself deployment.",
+  "audit": "reports/public-gap-inat-recovery-20261020.json"
+}
