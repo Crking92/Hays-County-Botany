@@ -1,0 +1,100 @@
+name: Recover Open-Access Eastern Black Nightshade Figure 16
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-emulans-figure16-alt-source-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: solanum-emulans-figure16-open-access-review
+  cancel-in-progress: false
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install --disable-pip-version-check requests 'Pillow>=10,<12'
+      - name: Retrieve exact article figure through NCBI open-access archive or credited research image
+        shell: bash
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python - <<'PY'
+          import requests,tarfile,io,xml.etree.ElementTree as ET,hashlib,json,re
+          from pathlib import Path
+          from PIL import Image,ImageOps
+          root=Path("workflow/photo-library/candidates/solanum-emulans-20261020");root.mkdir(parents=True,exist_ok=True)
+          s=requests.Session();s.headers.update({"User-Agent":"HaysBotanyID/1.0 (open access botanical figure verification)","Accept":"*/*"})
+          tries=[];staged=None
+          def verify_and_stage(url,content,kind):
+            global staged
+            if not 25_000 < len(content) < 18_000_000:raise ValueError("unexpected figure-image byte length")
+            p=Image.open(io.BytesIO(content));p.verify()
+            p=Image.open(io.BytesIO(content))
+            if min(p.size)<500:raise ValueError("insufficient source resolution")
+            im=ImageOps.exif_transpose(p).convert("RGB");im.thumbnail((2300,2400),Image.Resampling.LANCZOS)
+            dest=root/"figure16-nee-source-preview.jpg"
+            im.save(dest,"JPEG",quality=89,optimize=True,exif=b"")
+            with Image.open(dest) as test:test.verify()
+            staged=dict(photo=str(dest),source=url,repository_kind=kind,dimensions=list(im.size),sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),creator="Michael Nee (photo panels); Knapp, Barboza, Bohs & Särkinen (2019 figure arrangement)",license="CC BY 4.0",figure="PhytoKeys 123: Figure 16, Solanum emulans, panels A–D",source_doi="https://doi.org/10.3897/phytokeys.123.31738",review_status="STAGED_FOR_PIXEL_INSPECTION_NOT_CANONICAL",county_nativeness="NO CLAIM")
+          # Route 1: NCBI PMC's OA package contains manuscript figures as distinct JPEGs.
+          try:
+            r=s.get("https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi",params={"id":"PMC6554266"},timeout=25);r.raise_for_status()
+            root_xml=ET.fromstring(r.content)
+            href=None
+            for link in root_xml.findall(".//link"):
+              if link.get("format")=="tgz":href=link.get("href");break
+            if href:
+              url=href.replace("ftp://ftp.ncbi.nlm.nih.gov/","https://ftp.ncbi.nlm.nih.gov/").replace("ftp://","https://")
+              r=s.get(url,timeout=65);r.raise_for_status()
+              if len(r.content)>85_000_000:raise ValueError("Archive exceeds budget")
+              with tarfile.open(fileobj=io.BytesIO(r.content),mode="r:gz") as tar:
+                entries=[m for m in tar.getmembers() if m.isfile() and re.search(r"(?:g0?16|fig(?:ure)?0?16)[^/]*\.(jpg|jpeg|png|tif|tiff)$",m.name,re.I)]
+                tries.append({"route":"NCBI OA archive","archive":url,"matching_entries":[m.name for m in entries]})
+                for m in sorted(entries,key=lambda m:m.size,reverse=True):
+                  if m.size>18_000_000:continue
+                  try:
+                    raw=tar.extractfile(m).read()
+                    verify_and_stage(url+"#"+m.name,raw,"PMC Open Access package")
+                    break
+                  except Exception as e:tries.append({"route":"OA member","file":m.name,"error":str(e)[:170]})
+            else:tries.append({"route":"NCBI OA API","error":"No tgz link","body":r.text[:600]})
+          except Exception as e:tries.append({"route":"NCBI OA package","error":str(e)[:240]})
+          # Route 2: the exact published photo plate from ResearchGate (not an inferred look-alike).
+          if staged is None:
+            url="https://www.researchgate.net/figure/publication/333803092/figure/fig16/AS%3A11431281210275888%401702039464610/Solanum-emulans-Raf-A-Leaves-and-buds-B-leaf-abaxial-surface-and-inflorescence-C-buds.jpg"
+            try:
+              r=s.get(url,timeout=25,headers={"User-Agent":"Mozilla/5.0"});r.raise_for_status()
+              verify_and_stage(url,r.content,"Photo of exact Figure 16 from research figure page")
+            except Exception as e:tries.append({"route":"ResearchGate exact Figure 16","error":str(e)[:240]})
+          report={"date":"2026-10-20","species_id":"solanum-emulans","status":"STAGED_NEEDS_VISUAL_INSPECTION" if staged else "EXACT_FIGURE_16_UNAVAILABLE",
+                  "photo":staged,"attempts":tries,"canonical_species_not_modified":True,
+                  "source_figure_description":"Knapp et al (2019), Figure 16: A leaves and buds, B leaf undersurface and inflorescence, C opening flowers, D immature developing berries with appressed fruiting calyx; Michael Nee photos",
+                  "IMPORTANT":"Figure 16D shows DEVELOPING fruit, not proven fully dark ripe berries. Do not claim mature berry photograph unless visible.",
+                  "source_credit":"Michael Nee, Figure 16, CC BY 4.0, PhytoKeys 123 (2019), DOI:10.3897/phytokeys.123.31738"}
+          out=Path("reports/solanum-emulans-figure16-oa-source-review-20261020.json");out.parent.mkdir(exist_ok=True)
+          out.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
+          print("SOURCE_RESULT",report["status"],"photo",staged and staged["dimensions"],"attempts",tries)
+          PY
+      - name: Commit only source image candidate if present plus report
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/solanum-emulans-figure16-oa-source-review-20261020.json
+          if test -f workflow/photo-library/candidates/solanum-emulans-20261020/figure16-nee-source-preview.jpg;then
+            git add workflow/photo-library/candidates/solanum-emulans-20261020/figure16-nee-source-preview.jpg
+          fi
+          git diff --cached --quiet && exit 0
+          git commit -m "Stage authentic Michael Nee S. emulans fruit-calyx plate if retrievable [skip ci]"
+          for i in 1 2 3 4 5;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            git rebase --abort || true;sleep 4
+          done
+          exit 1
