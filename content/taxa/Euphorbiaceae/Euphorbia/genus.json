@@ -176,21 +176,22 @@
     "species_detail_pass_completed": "2026-10-07"
   },
   "curation_status": {
-    "version": "2.6-white-bract-paired-source-photo-verified",
+    "version": "2.7-source-verified-sandmat-fruit-seed",
     "genus_audit": "CREW_READY_MULTI_GROUP_COMPARISON; FINE_GLAND_AND_SEED_MACROS_PENDING",
     "last_reviewed": "2026-10-20",
-    "public_comparison_photo_count": 15,
-    "public_comparison_annotated_source_count": 12,
+    "public_comparison_photo_count": 17,
+    "public_comparison_annotated_source_count": 16,
     "public_comparison_photo_hold_count": 13,
     "photo_note": "Original indexed study photos preserved as source references. Public genus panel filters rights and adds only visually confirmed arrows. Species-level galleries retain their own licensing gates.",
-    "public_comparison_verified_arrow_count": 18,
+    "public_comparison_verified_arrow_count": 30,
     "poinsettia_gland_pair": "TRUE_MACRO_VERIFIED_BOTH_SPECIES",
     "poinsettia_photo_id_hold": "Older heterophylla Psumuseum pink-bracted photo conflicts with typical FNA description; source image excluded from public teaching until independent verification.",
-    "white_bracted_pair": "CREW_READY_FOR_BRACTS; ADAXIAL_HAIR_MACRO_PENDING"
+    "white_bracted_pair": "CREW_READY_FOR_BRACTS; ADAXIAL_HAIR_MACRO_PENDING",
+    "sandmat_pair": "CREW_READY_CAPSULE_SEED_STIPULE; NODE_ROOT_PUBLIC_MACRO_PENDING"
   },
   "visual_comparison": {
     "title": "Euphorbia — begin with habit, then the tiny real reproductive parts",
-    "subtitle": "E. bicolor narrow bracts vs E. marginata broader bracts: source-photo inspected, with white gland-appendage arrows. Important second species key: hairy TOP blade in bicolor vs mostly smooth TOP in marginata still needs matched photo proof.",
+    "subtitle": "Both tiny sandmats now have true labelled macro photographs: prostrata HAIRY capsule keels and strongly RIDGED seeds vs serpens GLABROUS fruit and smooth seed; stipule photos show which node structure to inspect. Rooted-node photo remains restricted study evidence.",
     "memory_rule": "Euphorbia = tiny CYATHIUM (not a normal flower) + 3-lobed CAPSULE. First sort WHITE-bracted / POINSETTIA-looking / TOOTHED erect / SANDMAT. Then look at the part that truly separates the two likely species. Colored bracts, red spots and white latex are supporting clues, not final proof.",
     "items": [
       {
@@ -365,15 +366,22 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_prostrata_sl26.jpg",
         "markers": [
           {
-            "label": "Hairs on capsule keels",
-            "label_x": 7,
-            "label_y": 28,
-            "target_x": 24,
-            "target_y": 55
+            "label": "Capsule keel hairs",
+            "label_x": 8,
+            "label_y": 30,
+            "target_x": 22,
+            "target_y": 63
+          },
+          {
+            "label": "Fruit lobe face",
+            "label_x": 65,
+            "label_y": 17,
+            "target_x": 58,
+            "target_y": 52
           }
         ],
         "image_fit": "contain",
-        "image_pixel_audit": "2026-10-20 exact source JPEG visually inspected; markers reference original image percentages, not a separate unviewed photo"
+        "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
         "label": "Matted sandmat — glabrous capsule",
@@ -386,15 +394,22 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_serpens_fruit.jpg",
         "markers": [
           {
-            "label": "Smooth, glabrous capsule",
-            "label_x": 63,
-            "label_y": 63,
-            "target_x": 49,
-            "target_y": 34
+            "label": "Glabrous fruit surface",
+            "label_x": 8,
+            "label_y": 20,
+            "target_x": 46,
+            "target_y": 47
+          },
+          {
+            "label": "Three-lobed capsule",
+            "label_x": 64,
+            "label_y": 81,
+            "target_x": 55,
+            "target_y": 61
           }
         ],
         "image_fit": "contain",
-        "image_pixel_audit": "2026-10-20 exact source JPEG visually inspected; markers reference original image percentages, not a separate unviewed photo"
+        "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
         "label": "Prostrate sandmat — stipule at a hairy node",
@@ -407,9 +422,24 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_prostrata_sl15.jpg",
         "study_use": "yes",
         "public_reuse": "yes",
-        "markers": [],
+        "markers": [
+          {
+            "label": "Pale pointed stipule",
+            "label_x": 69,
+            "label_y": 68,
+            "target_x": 59,
+            "target_y": 53
+          },
+          {
+            "label": "Curly stem hairs",
+            "label_x": 7,
+            "label_y": 63,
+            "target_x": 31,
+            "target_y": 70
+          }
+        ],
         "image_fit": "contain",
-        "image_pixel_audit": "Existing documented licensed diagnostic view; no new arrow until actual image part inspected"
+        "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
         "label": "Matted sandmat — broad fused stipule scale",
@@ -422,9 +452,24 @@
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_serpens_sl36.jpg",
         "study_use": "yes",
         "public_reuse": "yes",
-        "markers": [],
+        "markers": [
+          {
+            "label": "Broad fused stipule",
+            "label_x": 8,
+            "label_y": 30,
+            "target_x": 45,
+            "target_y": 35
+          },
+          {
+            "label": "Swollen smooth node",
+            "label_x": 69,
+            "label_y": 59,
+            "target_x": 50,
+            "target_y": 50
+          }
+        ],
         "image_fit": "contain",
-        "image_pixel_audit": "Existing documented licensed diagnostic view; no new arrow until actual image part inspected"
+        "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
         "label": "Hairy sandmat — node location, stipules still unverified",
@@ -454,15 +499,22 @@
         "public_reuse": "yes",
         "markers": [
           {
-            "label": "Transverse seed ridges",
-            "label_x": 10,
-            "label_y": 83,
-            "target_x": 18,
-            "target_y": 36
+            "label": "Strong transverse ridges",
+            "label_x": 7,
+            "label_y": 73,
+            "target_x": 16,
+            "target_y": 42
+          },
+          {
+            "label": "Another ridged seed",
+            "label_x": 64,
+            "label_y": 78,
+            "target_x": 61,
+            "target_y": 43
           }
         ],
         "image_fit": "contain",
-        "image_pixel_audit": "2026-10-20 exact source JPEG visually inspected; markers reference original image percentages, not a separate unviewed photo"
+        "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
         "label": "Matted sandmat — smooth seed surface",
@@ -477,15 +529,22 @@
         "public_reuse": "yes",
         "markers": [
           {
-            "label": "Smooth seed face",
-            "label_x": 9,
-            "label_y": 64,
-            "target_x": 54,
-            "target_y": 44
+            "label": "No strong crosswise ribs",
+            "label_x": 6,
+            "label_y": 35,
+            "target_x": 51,
+            "target_y": 49
+          },
+          {
+            "label": "One mature seed",
+            "label_x": 63,
+            "label_y": 76,
+            "target_x": 58,
+            "target_y": 61
           }
         ],
         "image_fit": "contain",
-        "image_pixel_audit": "2026-10-20 exact source JPEG visually inspected; markers reference original image percentages, not a separate unviewed photo"
+        "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
         "label": "Glass Root Garden: white-topped bicolor in local landscape",
@@ -535,9 +594,65 @@
             "target_y": 43.5
           }
         ]
+      },
+      {
+        "label": "Prostrate sandmat — spreading mat",
+        "scientific_name": "Euphorbia prostrata",
+        "image_role": "Full growing habit and opposite leaves",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-prostrata/images/euphorbia-prostrata-provisional-face.jpg",
+        "caption": "The plant grows as a flat spreading mat with small opposite leaves. Stem nodes are visible but soil prevents confirming lack of roots. This photo is NOT a node-root diagnosis.",
+        "creator": "Harry Rose",
+        "license": "CC BY 2.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_prostrata_plant.jpg",
+        "markers": [
+          {
+            "label": "Spreading shoot",
+            "label_x": 70,
+            "label_y": 15,
+            "target_x": 72,
+            "target_y": 27
+          },
+          {
+            "label": "Opposite leaf pair",
+            "label_x": 63,
+            "label_y": 66,
+            "target_x": 80,
+            "target_y": 78
+          }
+        ],
+        "image_fit": "contain",
+        "image_pixel_audit": "Real local JPEG inspected 2026-10-20; no inferred root or missing flower structures"
+      },
+      {
+        "label": "Matted sandmat — true cyathium, NOT a mat photo",
+        "scientific_name": "Euphorbia serpens",
+        "image_role": "Macro of true tiny reduced floral cup with dark nectar glands and white appendages",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-serpens/images/euphorbia-serpens-provisional-face.jpg",
+        "caption": "Four purple-dark glands with small white appendages surround the tiny flowers inside a CYATHIUM; NOT a photo of the whole mat. A cyathium is not a mature green three-lobed capsule.",
+        "creator": "Rahooda",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_serpens_flower.jpg",
+        "markers": [
+          {
+            "label": "Dark nectar glands",
+            "label_x": 66,
+            "label_y": 12,
+            "target_x": 70,
+            "target_y": 28
+          },
+          {
+            "label": "White gland appendages",
+            "label_x": 5,
+            "label_y": 58,
+            "target_x": 39,
+            "target_y": 45
+          }
+        ],
+        "image_fit": "contain",
+        "image_pixel_audit": "Real local JPEG inspected 2026-10-20; no inferred root or missing flower structures"
       }
     ],
-    "overlay_note": "Each image is credited to its source: Lisa Winnett-Pequeno CC BY 4.0; Glass Root Garden direct owner license CC BY 4.0; H. Zell CC BY-SA 3.0; Cbaile19 CC0 1.0. Anatomical arrows checked on actual saved JPEG pixels. Joey Santore's separate CC BY-NC study image is not included in this public genus comparison.",
+    "overlay_note": "Public genus source photos licensed CC BY or CC BY-SA, individual photographers credited and source URLs preserved. Serpens node-root image credited Nathan Taylor CC BY-NC-SA is kept in canonical research only, not on public genus board. Saved-JPEG coordinate annotations inspected against original pixels.",
     "instance_id": "euphorbia-central-texas-v3-20261020",
     "study_only_intro": "Sources listed below may be valuable for botanical research, but their original images are intentionally not embedded in this public-facing genus comparison because individual public redistribution terms are unverified or restrictive. Open at the source.",
     "study_only_photo_links": [
@@ -868,47 +983,63 @@
         "euphorbia-serpens",
         "euphorbia-villifera"
       ],
-      "look_here_first": "First photograph where tiny leaves meet the stems: node-rooting and stipule type. Then examine THREE-lobed capsules and mature seeds with 1–2 mm ruler. Spots can be absent even in E. maculata.",
+      "look_here_first": "CREEPING EUPHORBIA: first inspect an ACTUAL stem node for adventitious roots and fused vs free stipules. Then distinguish two source-photo-proven species: E. PROSTRATA = HAIRS along green capsule KEELS and strong crosswise SEED RIDGES; E. SERPENS = glabrous 3-lobed capsule, smooth seed without strong transverse ribs and broad fused white-pink stipule scales. One small red leaf spot or a low mat habit doesn't decide a species.",
       "field_matrix": [
         {
           "character": "Rooting at nodes",
-          "prostrata": "Usually does not root at nodes",
-          "serpens": "Often roots at nodes; inspect each actual node",
-          "villifera": "Often more ascending; roots insufficient"
+          "prostrata": "Generally does not root at nodes",
+          "serpens": "Often roots at soil-contact nodes",
+          "warning": "Actual roots may be hidden below soil, inspect multiple nodes"
         },
         {
-          "character": "Stipules",
-          "prostrata": "Upper free/lower fused in botanical key",
-          "serpens": "Broad fused deltate scales",
-          "villifera": "Filiform; detailed macro missing"
+          "character": "Stipules at node",
+          "prostrata": "Upper side free pointed, lower side fused; pale stipule can be photographed",
+          "serpens": "Broad fused whitish-to-pink scale",
+          "warning": "One-side photos can't prove both stipule configurations"
         },
         {
-          "character": "Capsule",
-          "prostrata": "Hairs along keel",
-          "serpens": "Glabrous",
-          "maculata": "Appressed hairs over fruit faces"
+          "character": "Capsule surface",
+          "prostrata": "Longer curled hairs on raised capsule keels and towards base",
+          "serpens": "Glabrous capsule",
+          "warning": "Both are THREE-lobed fruits, not seeds"
         },
         {
-          "character": "Mature seeds",
-          "prostrata": "Sharp transverse ridges",
-          "serpens": "Smooth surface",
-          "maculata": "Rounded transverse ridges"
+          "character": "Seed coat",
+          "prostrata": "Strong narrow transverse ridges",
+          "serpens": "No prominent transverse ridges, appears smooth",
+          "warning": "Original source bars DIFFER (prostrata 2 mm; serpens 1 mm)"
+        },
+        {
+          "character": "Stem/leaf hairs",
+          "prostrata": "Often curl-haired and minutely toothed leaf margins",
+          "serpens": "Glabrous stem, entire leaf margins",
+          "warning": "Need close macro"
         }
       ],
-      "caution": "Not all prostrate spurges are native to Hays County. Never assume a leaf spot alone proves E. maculata. Compare seeds at actual mm scales, not screen size.",
+      "caution": "The two species have good public macro photographs proving hairy-vs-hairless fruit and ridged-vs-smooth seed; original scale bars show 2 mm versus 1 mm, so don't compare screen widths. Rooting node E. serpens is shown in an additional exact-species study photograph by Nathan Taylor, but it is marked CC BY-NC-SA and remains out of public distribution. Current prostrata stipule photo shows only one face; the free-versus-fused bilateral split needs new angles.",
       "photo_pair_targets": [
         {
-          "role": "3-way capsule surface",
-          "status": "Prostrata and serpens reusable photographs; villifera photo rights pending"
+          "role": "Public reusable prostrata hairy fruit vs serpens smooth fruit",
+          "status": "PHOTO VERIFIED: both original macro JPEGs plus arrows, publicly reusable CC BY-SA"
         },
         {
-          "role": "3-way mature seed faces",
-          "status": "Prostrata ridged and serpens smooth photos source-reviewed; maculata matched public macro pending"
+          "role": "Prostrata ribbed vs serpens smooth seed",
+          "status": "PHOTO VERIFIED: both saved physical files, source scale bars 2 mm vs 1 mm"
+        },
+        {
+          "role": "Broad fused serpens vs pointed prostrata stipule",
+          "status": "PARTIAL PHOTO VERIFIED: visible pale stipule shapes; 2-sided prostrata fuse/free attachment still not demonstrable"
+        },
+        {
+          "role": "Root at exact serpens node vs nonrooted prostrata node",
+          "status": "PHOTO GAP ON PUBLIC SITE: node-root photo restricted to noncommercial source study; seek CC BY/CC0 equivalent"
         }
       ],
       "references": [
         "https://w3.biosci.utexas.edu/prc/K12/pages/Euphorbia%20prostrata.html"
-      ]
+      ],
+      "reviewed_at": "2026-10-20",
+      "taxonomy_guardrail": "Both stay PROJECT PROVISIONAL and excluded from confirmed native county metric until county-range reconciliation; field morphology does not certify nativity."
     }
   ],
   "diagnostic_photo_needs": [
