@@ -1,0 +1,38 @@
+name: Screen Licensed Bonariensis Diagnostic Photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-hydrocotyle-bonariensis-photo-screen-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-time-bonariensis-contact-screen
+  cancel-in-progress: false
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check requests Pillow
+      - run: python scripts/manual_hydrocotyle_bonariensis_photo_screen_20261020.py
+      - name: Archive photo contact sheet as review-only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/reviews/hydrocotyle-bonariensis-20261020/
+          if git diff --cached --quiet;then exit 0;fi
+          git commit -m "Archive provisional CC-licensed bonariensis photo visual review [skip ci]"
+          for try in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 3
+          done
+          exit 1
