@@ -71,7 +71,7 @@
     "field_id_finish_status": "PASS_IN_PROGRESS",
     "last_field_id_reviewed": "2026-10-20"
   },
-  "photo_note": "Two pre-existing physical licensed photos visually inspected 2026-10-20 (habit; flower and green fruit), plus 3 externally linked exact-species Wikimedia Commons macro photos (white flower, black ripe fruit cluster, reflexed fruiting calyx). Original photo licenses/bytes preserved. All arrows are non-destructive overlays. Macro anther measurement and mobile visual QA remain pending.",
+  "photo_note": "Two pre-existing physical licensed photos visually inspected 2026-10-20 (habit; flower and green fruit), plus 3 externally linked exact-species Wikimedia Commons macro photos (white flower, black ripe fruit cluster, reflexed fruiting calyx). Original photo licenses/bytes preserved. All arrows are non-destructive overlays. Macro anther measurement and mobile visual QA remain pending. Flower macro arrow coordinates corrected after user phone screenshot; not yet user-approved.",
   "images": [
     {
       "file": "images/solanum-americanum-provisional-face.jpg",
@@ -304,7 +304,7 @@
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Solanum_americanum_flower1_%2816004152357%29.jpg?utm_campaign=index&utm_content=original&utm_source=commons.wikimedia.org",
         "image_fit": "contain",
         "image_role": "High-resolution small white flower with short plump yellow anthers, on flower stalks",
-        "caption": "Macro photograph from Australia, credited to Harry Rose. The white star (joined corolla lobes) surrounds the little plump, clustered yellow ANTHERS. In American black nightshade these anthers are short—usually about 0.7–1.5 mm. The long green stalk is a flower-bearing axis/pedicel, not a floral style. Small white flowers alone do NOT distinguish every member of the black-nightshade group.",
+        "caption": "Macro photograph from Australia, credited to Harry Rose. The white star (joined corolla lobes) surrounds the little plump, clustered yellow ANTHERS. In American black nightshade these anthers are short—usually about 0.7–1.5 mm. The long green stalk is a flower-bearing axis/pedicel, not a floral style. Small white flowers alone do NOT distinguish every member of the black-nightshade group. Arrow target verification: white corolla lobe of central flower, yellow anther cluster at its center, and the narrow pedicel supporting the hanging unopened flower bud at lower right.",
         "why_it_matters": "Short anthers are among the most reliable measured splits from S. nigrescens; exact 1 mm measurement still needs scale/hand lens.",
         "creator": "Harry Rose",
         "license": "CC BY 2.0",
@@ -315,24 +315,25 @@
             "label": "SHORT yellow anthers",
             "label_x": 65,
             "label_y": 12,
-            "target_x": 47,
-            "target_y": 46
+            "target_x": 48,
+            "target_y": 50
           },
           {
             "label": "White corolla lobes",
             "label_x": 3,
             "label_y": 21,
-            "target_x": 53,
-            "target_y": 53
+            "target_x": 43,
+            "target_y": 33
           },
           {
-            "label": "Flower stalk",
-            "label_x": 72,
+            "label": "Bud pedicel (stalk)",
+            "label_x": 42,
             "label_y": 76,
-            "target_x": 58,
-            "target_y": 66
+            "target_x": 67,
+            "target_y": 59
           }
-        ]
+        ],
+        "photo_status": "2026-10-20: Retargeted three nondestructive anatomy overlays from user's iPhone screenshot of exact Commons photo: isolated upper-left white corolla lobe (43,33), yellow anther cluster of central flower (48,50), and narrow stalk of drooping bud (67,59). Label updated to 'Bud pedicel (stalk)'. Source photo and creator/license unchanged; final published phone check pending."
       },
       {
         "label": "4 — RIPE FRUIT: glossy BLACK berries and backward calyx",
@@ -466,8 +467,8 @@
     "comparison_photo_panels": 2,
     "note": "Two existing canonical photo files inspected; three new Commons photos checked visually with original file URLs, CC BY/CC BY-SA licenses, and exact-species labels. Main gallery arrows target plainly visible features; mobile rendering still needs owner's visual check before final PASS.",
     "outstanding": [
+      "Check new flower photo 1 arrows on deployed phone display: yellow anthers vs white corolla vs stalk of unopened bud.",
       "Confirm updated site published and all three new Commons links load in swipe viewer.",
-      "Check physical phone arrow overlay, especially tiny calyx lobes and flower anthers.",
       "For highest-confidence Morelloid split, find macro with scale showing measured 0.7–1.5 mm anthers and compare S. emulans/nigrescens."
     ],
     "citations": [
@@ -476,6 +477,30 @@
       "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250131502",
       "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=250044964",
       "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200020597"
-    ]
+    ],
+    "arrow_correction": {
+      "date": "2026-10-20",
+      "photo": "Solanum_americanum_flower1_(16004152357).jpg",
+      "basis": "User-supplied published phone screenshot with photo fit and previous arrowheads visible; anchor positions chosen against photographed anatomical structures.",
+      "targets": [
+        {
+          "label": "SHORT yellow anthers",
+          "target_x": 48,
+          "target_y": 50
+        },
+        {
+          "label": "White corolla lobes",
+          "target_x": 43,
+          "target_y": 33
+        },
+        {
+          "label": "Bud pedicel (stalk)",
+          "target_x": 67,
+          "target_y": 59
+        }
+      ],
+      "scope": "Only flower macro panel marker targets/third label and field-study notes changed. Underlying source photo, rights and all other photo annotations untouched.",
+      "awaiting": "User confirm final arrows on published phone viewer."
+    }
   }
 }
