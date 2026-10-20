@@ -79,7 +79,7 @@ def retrieve(row,role):
    if len(out.getvalue())<25000:continue
    with Image.open(io.BytesIO(out.getvalue())) as check:check.verify()
    return out.getvalue(),sha,list(annotated.size),url
-  except Exception as e:print("Candidate fetch",pid,kind,str(e)[:100])
+  except Exception as e:print("Candidate fetch",pid,url,str(e)[:100])
  raise RuntimeError("Could not retrieve original or large for "+pid)
 def main():
  man=json.loads((ROOT/"data/manifest.json").read_text())
