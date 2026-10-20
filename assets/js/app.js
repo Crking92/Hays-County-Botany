@@ -1085,13 +1085,18 @@ function galleryMarkersFor(sp,img){
   if(!Array.isArray(panels)||!img)return [];
   const src=imagePath(sp,img);
   const source=String(img.source_page||"").trim();
-  const match=panels.find(function(p){
-    if(!p || p.scientific_name!==scientificName(sp) || !Array.isArray(p.markers) || !p.markers.length) return false;
-    if(source && String(p.source_page||"").trim()===source)return true;
-    const a=String(p.image_url||"").split("?")[0].replace(/%2C/gi,",");
-    const b=String(src||"").split("?")[0].replace(/%2C/gi,",");
-    return a===b;
+  const candidates=panels.filter(function(p){
+    return p && p.scientific_name===scientificName(sp) &&
+      Array.isArray(p.markers) && p.markers.length;
   });
+  const normalized=function(v){return String(v||"").split("?")[0].replace(/%2C/gi,",");};
+  // Exact photo file is definitive: multiple different images may share one GBIF
+  // occurrence/source page. Never reuse another photo's anatomical arrow map.
+  let match=candidates.find(function(p){return normalized(p.image_url)===normalized(src);});
+  if(!match && source){
+    const sameSource=candidates.filter(function(p){return String(p.source_page||"").trim()===source;});
+    if(sameSource.length===1)match=sameSource[0];
+  }
   if(!match)return [];
   return match.markers.filter(function(m){
     return m && typeof m.label==="string" && m.label.trim() &&
