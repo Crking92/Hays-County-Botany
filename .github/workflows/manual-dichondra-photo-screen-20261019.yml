@@ -1,0 +1,38 @@
+name: Manual Carolina Ponyfoot Photo Contact Screening
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-dichondra-photo-screen-20261019.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-dichondra-contact-20261019
+  cancel-in-progress: false
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - run: python scripts/manual_dichondra_photo_screen_20261019.py
+      - name: Commit candidate-contact sheet only, no canonical changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/reviews/dichondra-carolinensis-20261019/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive reviewed Carolina ponyfoot photo contact sheet as candidates only [skip ci]"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
