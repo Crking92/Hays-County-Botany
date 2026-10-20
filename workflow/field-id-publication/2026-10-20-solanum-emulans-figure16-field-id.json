@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "species_id": "solanum-emulans",
+  "status": "PASS_IN_PROGRESS",
+  "purpose": "Publish verified Michael Nee scholarly exact Solanum emulans Figure 16 B/C/D botanical photo crops and real anatomically located SVG arrows through the existing GitHub Pages rights/photo checks.",
+  "changes": [
+    "content/taxa/Solanaceae/Solanum/solanum-emulans/species.json",
+    "content/taxa/Solanaceae/Solanum/solanum-emulans/images/04-leaf-underside-figure16b.jpg",
+    "content/taxa/Solanaceae/Solanum/solanum-emulans/images/05-flower-anthers-figure16c.jpg",
+    "content/taxa/Solanaceae/Solanum/solanum-emulans/images/06-developing-green-fruit-calyx-figure16d.jpg",
+    "content/taxa/Solanaceae/Solanum/solanum-emulans/image-sources.csv",
+    "content/taxa/Solanaceae/Solanum/solanum-emulans/SOURCES.txt"
+  ],
+  "photo_sources": {
+    "new_crops": 3,
+    "total_exact_species_views": 6,
+    "new_arrows": 9,
+    "total_exact_species_photo_arrows": 17,
+    "photographer": "Michael Nee",
+    "published_in": "Knapp, Barboza, Bohs & Särkinen 2019, PhytoKeys 123, Figure 16 B/C/D",
+    "original_figure": "https://phytokeys.pensoft.net/article/31738/element/2/116/",
+    "license": "CC BY 4.0",
+    "modifications": "Cropped documented exact figure panels, JPEG format + EXIF/GPS stripping, SVG arrow overlays separate from image."
+  },
+  "science_guardrails": [
+    "Figure 16D clearly shows developing GREEN berries, not a mature purple-black berry.",
+    "Visible developing-fruit calyx appressed/spreading confirmed visually from source plate, but fully ripe fruit calyx photo still missing.",
+    "Do not label field fruit detachment behavior as photo-proven (behavior documented by FNA/revision).",
+    "Maintain PROVISIONAL Hays range and native_metrics_excluded=true.",
+    "Don't bypass public rights filter or photo-quality checks.",
+    "Only mark visually approved after iPhone check of arrows."
+  ],
+  "pending": [
+    "User phone QA for new three photo views (#4–6), especially calyx labels.",
+    "A photo of completely mature purple-black Solanum emulans fruit with calyx visible, if suitable licensed exact-source photo is found.",
+    "Optional macro with millimeter ruler showing tiny anther and comparatively longer filament."
+  ],
+  "status_policy": "PASS_IN_PROGRESS pending owner's visual check and future fully ripe fruit enrichment"
+}
