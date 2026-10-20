@@ -51,11 +51,23 @@
   ],
   "guards": "Original media unchanged, no new physical source photo writes; separate learner drawn SVG arrows and source/creator/license retained, including ShareAlike. Mobile arrows require user review. Do not substitute shiny fruit color for all black-nightshade identification criteria.",
   "remaining": [
-    "Published phone gallery full swipe/arrow/readability QA.",
+    "Verify three corrected arrows in main iPhone swipe viewer after GitHub Pages deployment; specifically yellow anthers, isolated white corolla, and drooping bud pedicel.",
     "Verify Commons image urls still load and if image-specific licensing fails do not silently publish.",
     "Morelloid species anther length scale macro upgrade later."
   ],
-  "publication_pass": 2,
+  "publication_pass": 3,
   "presentation_update": "Species-level comparisons.field_matrix are now rendered in a visible but collapsible Detailed species look-alike key drawer; this fixes previously hidden evidence rows in existing species cards. Avoid overwhelming the main photo viewer.",
-  "last_updated": "2026-10-20"
+  "last_updated": "2026-10-20",
+  "arrow_correction": {
+    "source": "user iPhone screenshot 2026-10-20",
+    "species": "Solanum americanum",
+    "commons_photo": "https://commons.wikimedia.org/wiki/File:Solanum_americanum_flower1_(16004152357).jpg",
+    "changes": [
+      "White corolla arrow -> isolated upper-left white petal lobe, x43/y33",
+      "Yellow anther arrow -> yellow center of main flower, x48/y50",
+      "Flower stalk changed to 'Bud pedicel (stalk)' -> green stalk above drooping bud, x67/y59"
+    ],
+    "policy": "Non-destructive SVG markers only; unchanged photo/licensing/creator. All other photo arrows unchanged. Owner phone validation still required.",
+    "source_commit": "ad22b97d2f5d98f18661f52ac6efde994300a357"
+  }
 }
