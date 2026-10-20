@@ -75,7 +75,7 @@ jobs:
           exit 1
       - name: Publish verified updated learner to GitHub Pages
         env:
-          GH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
         run: |
           set -euo pipefail
