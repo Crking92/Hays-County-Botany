@@ -1,0 +1,77 @@
+name: Install Divine Nightshade Licensed Field Photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-nigrescens-firstcard-20261020.yml"
+      - "scripts/manual_solanum_nigrescens_firstcard_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-solanum-nigrescens-firstcard
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Prepare image verifier
+        run: python -m pip install --disable-pip-version-check requests 'Pillow>=10,<12'
+      - name: Refresh main and check Python syntax
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/manual_solanum_nigrescens_firstcard_20261020.py
+      - name: Download and install exact species original photos
+        run: python scripts/manual_solanum_nigrescens_firstcard_20261020.py
+      - name: Verify source photos and science holds before commit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          p=Path('content/taxa/Solanaceae/Solanum/solanum-nigrescens')
+          j=json.loads((p/'species.json').read_text())
+          m=json.loads(Path('data/manifest.json').read_text())
+          g=json.loads(Path('content/taxa/Solanaceae/Solanum/genus.json').read_text())
+          assert j['scientific_name']=='Solanum nigrescens'
+          assert j['project_inclusion']['target_zone_status']=='PROVISIONAL' and j['native_metrics_excluded'] is True
+          assert len([x for x in m['species'] if x['id']=='solanum-nigrescens'])==1
+          assert 'solanum-nigrescens' in g['project_scope']['species_ids']
+          assert 1<=len(j['images'])<=4
+          assert len(j['visual_comparison']['items'])==len(j['images'])+1
+          for a in j['images']:
+            f=p/a['file']
+            assert a['creator']=='Alex Abair' and a['license']=='CC BY 4.0'
+            assert a['source_page'].startswith('https://commons.wikimedia.org/wiki/File:Solanum_nigrescens_')
+            assert f.exists() and f.stat().st_size>12000
+            assert 'fruit' not in a['role'].lower()
+            with Image.open(f) as im: im.verify()
+          print('PASS:',len(j['images']),'exact-species photos physically verified; no fruit claims')
+          PY
+      - name: Commit first-card media and manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Solanaceae/Solanum/solanum-nigrescens/ \
+            content/taxa/Solanaceae/Solanum/genus.json data/manifest.json \
+            reports/solanum-nigrescens-firstcard-install-20261020.json
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Install licensed divine nightshade photos and provisional ID [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Pushed verified first-card."
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep 4
+          done
+          exit 1
