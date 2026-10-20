@@ -365,7 +365,7 @@ function genusVisualComparison(data){
     out+='<img data-diagnostic-image src="'+esc(photoSrc)+'" alt="'+esc((item.label||item.scientific_name||"Diagnostic plant")+" — "+(item.image_role||"diagnostic view"))+'" loading="lazy" style="object-fit:'+fit+';object-position:center '+focus+'">';
     if(safePhotoSrc) out+='</a>';
     if(markers.length){
-      const arrowId="diagnosticArrow"+index;
+      const arrowId="diagnosticArrow"+String(v.instance_id || data.id || data.name || "visual").replace(/[^a-z0-9]/gi,"")+"-"+index;
       out+='<div class="diagnostic-arrow-stage" data-diag-stage hidden><svg class="diagnostic-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
       markers.forEach(function(m){
         const lx=Number(m.label_x||8), ly=Number(m.label_y||10), tx=Number(m.target_x||50), ty=Number(m.target_y||50);
@@ -431,6 +431,14 @@ document.addEventListener("load",function(e){
   }
 },true);
 window.addEventListener("resize",positionDiagnosticArrowStages,{passive:true});
+/* The original lesson lived inside a closed <details> drawer. Lazy-loaded
+   images can finish while hidden; when the user opens the drawer, reposition
+   the overlay after layout even if no new image load event fires. */
+document.addEventListener("toggle",function(e){
+  if(e.target && e.target.matches && e.target.matches("details")){
+    window.requestAnimationFrame(positionDiagnosticArrowStages);
+  }
+},true);
 
 function genusComparePanel(genus,members){
   if(!members || members.length<2) return "";
@@ -1694,6 +1702,37 @@ function taxonomyLessonShortcuts(sp){
     '<button class="taxonomy-lesson-jump" type="button" data-jump="parts">Explore 3 levels of plant-part photos ↓</button>'+
   '</section>';
 }
+/* Species-specific, always-visible field decision guide: reuse exactly
+   inspected photographic arrow evidence, not a generic unverified icon. */
+function fieldPhotoQuickcheck(sp){
+  const key=sp&&sp.field_photo_quickcheck;
+  const visual=sp&&sp.visual_comparison;
+  if(!key || !visual || !Array.isArray(visual.items) || !Array.isArray(key.featured_photo_indices)) return "";
+  const featured=key.featured_photo_indices.map(function(i){return visual.items[i];}).filter(function(item){
+    return item && item.scientific_name===scientificName(sp) && Array.isArray(item.markers) &&
+      item.markers.length && item.image_url;
+  });
+  if(!featured.length)return "";
+  const steps=Array.isArray(key.steps)?key.steps:[];
+  const mini={
+    visual_comparison:{
+      instance_id:sp.id+"-fast",
+      title:key.heading || "Field ID: follow the arrows",
+      subtitle:"Start here in the field. The photo labels distinguish actual petals, modified bracts, and the calyx tube.",
+      items:featured
+    }
+  };
+  return '<section class="monarda-photo-first"><div class="monarda-photo-first-intro">'+
+    '<div class="eyebrow">Field identification · arrows on real photos</div>'+
+    '<h2>Look here first — then compare</h2>'+
+    '<ol class="monarda-photo-first-steps">'+steps.map(function(step){
+      return '<li>'+esc(step)+'</li>';
+    }).join("")+'</ol>'+
+    (key.field_rule?'<p class="diagnostic-overlay-note">'+esc(key.field_rule)+'</p>':"")+
+    '</div>'+genusVisualComparison(mini)+
+    (key.warning?'<p class="monarda-photo-first-warning">'+esc(key.warning)+'</p>':"")+
+    '</section>';
+}
 function plantView(){
   const sp=selectedSpecies(); if(!sp) return homeView();
   const p=familyProfile(sp.family)||{}, c=callout(sp)||{}, terms=termsForSpecies(sp,state.difficulty==="simple"?3:(state.difficulty==="terms"?7:12));
@@ -1710,6 +1749,7 @@ function plantView(){
   out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="parts">Next: inspect the plant parts ↓</button>' : '')+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
+  if(!state.quizMode || state.quizRevealed) out+=fieldPhotoQuickcheck(sp);
   if(!state.quizMode || state.quizRevealed) out+=botanyPartExamples(sp,genusData);
   out+='<div class="study-drawer-grid">';
   const similarStart=out.length;
