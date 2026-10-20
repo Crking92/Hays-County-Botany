@@ -1,0 +1,62 @@
+name: Install Bermudagrass Licensed Diagnostic Gallery
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-cynodon-dactylon-diagnostic-photos-20261020.yml"
+      - "scripts/manual_cynodon_dactylon_install_photos_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-cynodon-dactylon-six-photo-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check requests Pillow
+      - name: Refresh live GitHub state to prevent concurrent edits
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - run: python scripts/manual_cynodon_dactylon_install_photos_20261020.py
+      - name: Validate all 8 JPEGs, licenses, nonnative status
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          base=Path('content/taxa/Poaceae/Cynodon/cynodon-dactylon')
+          c=json.loads((base/'species.json').read_text())
+          assert len(c['images'])==8 and c['project_inclusion']['target_zone_status']=='INTRODUCED_NOT_NATIVE'
+          assert c['images'][0]['file']=='images/inat-136428732.jpg'
+          assert c['images'][1]['file']=='images/library-review052-b8e271bb0d86343.jpg'
+          assert all(x['license'] in ('CC BY','CC BY-SA','CC0') for x in c['images'])
+          for x in c['images']:
+            p=base/x['file']
+            assert p.is_file() and p.stat().st_size>18000,p
+            with Image.open(p) as im:im.verify()
+            print('OK',x['file'],x['creator'],x['license'])
+          print('8 files, all public-source photo licenses, native-zone holds correct')
+          PY
+      - name: Commit only canonical bermuda photos / metadata / exact report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Cynodon/cynodon-dactylon/ reports/cynodon-dactylon-six-diagnostic-photo-20261020.json
+          if git diff --cached --quiet; then exit 0;fi
+          git commit -m "Install 6 licensed bermudagrass grass-anatomy photos; preserve introduced label [skip ci]"
+          for n in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 3
+          done
+          exit 1
