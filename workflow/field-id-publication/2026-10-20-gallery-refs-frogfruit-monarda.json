@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "purpose": "Publish explicit owner-requested fix for main photo carousel counts: show licensed exact-species external diagnostic photos in same swipe gallery, distinguish from physically installed JPEGs",
+  "status": "EXPLICIT_PUBLICATION_USER_CONFIRMED_DIAGNOSTIC_GALLERY",
+  "changed": [
+    "assets/js/app.js",
+    "content/taxa/Verbenaceae/Phyla/phyla-nodiflora/species.json",
+    "content/taxa/Lamiaceae/Monarda/monarda-citriodora/species.json"
+  ],
+  "expected": {
+    "phyla-nodiflora": {
+      "installed": 3,
+      "external": 4,
+      "main_swipe_total": 7
+    },
+    "monarda-citriodora": {
+      "installed": 5,
+      "external": 3,
+      "main_swipe_total": 8
+    }
+  },
+  "implementation": "Presentation-only galleryImagesFor joins existing physical image records to exact-species, Creative Commons licensed, credited Wikimedia Commons references. Original manifest image counts and existing image index anchors stay unchanged. No other taxa affected without an explicit gallery_external_refs list.",
+  "photo_policy": "Rights-filtered public site only. Third-party look-alike photos remain exclusively within comparisons. Every external item retains Commons source, creator, license and license URL; originals unmodified.",
+  "commits": [
+    "b7b250c83f23249fe1ecf3f6254cb733bb110867",
+    "c3e6032a1e9889ee9b2fb5406916a318266517d8",
+    "02199e276fab6fcd8688b0da254c6bea930ab08f",
+    "54d8177e14552b1844186f3e27bebf5b73650f9a"
+  ]
+}
