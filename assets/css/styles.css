@@ -1684,3 +1684,17 @@ body{
   .monarda-photo-first{padding:.75rem;}
   .monarda-photo-first .diagnostic-photo-label{font-size:.72rem;max-width:44%;}
 }
+
+/* Anatomy labels on the MAIN plant photo viewer.
+   Overlay is fitted to visible object-fit:contain image pixels by JS. */
+.focus-photo-image{position:relative;overflow:hidden}
+.focus-photo-image .gallery-arrow-stage{position:absolute;z-index:2;pointer-events:none;overflow:visible}
+.gallery-arrow-stage[hidden]{display:none!important}
+.gallery-arrow-layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.gallery-arrow-layer line{stroke:#fff;stroke-width:2.4;vector-effect:non-scaling-stroke;filter:drop-shadow(0 1px 2px rgba(0,0,0,.88))}
+.gallery-arrow-layer marker path{fill:#fff}
+.gallery-arrow-label{position:absolute;z-index:2;max-width:42%;padding:.35rem .45rem;border:1px solid rgba(255,255,255,.38);border-radius:7px;background:rgba(11,19,13,.86);color:#fff;font-size:clamp(.64rem,1.15vw,.9rem);font-weight:750;line-height:1.17;text-align:left;box-shadow:0 2px 4px rgba(0,0,0,.4)}
+@media(max-width:700px){
+  .gallery-arrow-label{font-size:.68rem;padding:.24rem .3rem;max-width:41%}
+  .gallery-arrow-layer line{stroke-width:1.9}
+}
