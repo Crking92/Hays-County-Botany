@@ -50,7 +50,9 @@
     "Umbellata may produce additional whorls; inspect the whole axis.",
     "Crowded upper whorls of verticillata may appear as a single cluster.",
     "Use fruit only as supporting evidence; leaves alone do not distinguish the species.",
-    "Precise verticillata measurements from UT Austin refer to var. triradiata."
+    "Precise verticillata measurements from UT Austin refer to var. triradiata.",
+    "CURRENT TAXONOMY WARNING: older H. verticillata var. triradiata names in local floras are assigned to H. bonariensis by Kew POWO; do not silently merge variety claims into accepted H. verticillata.",
+    "Inflorescence may branch in H. verticillata; use a full fertile specimen and consider H. bonariensis when terminal rays themselves bear whorls."
   ],
   "lookalikes": [
     {
@@ -114,9 +116,9 @@
     "https://gobotany.nativeplanttrust.org/dkey/hydrocotyle/"
   ],
   "curation_status": {
-    "status": "genus_field_key_ready_species_gallery_finish_in_progress",
-    "last_reviewed": "2026-10-20",
-    "remaining_photo_gap": "full matched reproductive axes and leaf underside / mature ribbed fruit macros"
+    "status": "genus_pair_key_filled_taxon_exception_hold",
+    "reviewed_on": "2026-10-20",
+    "remaining_photo_gap": "Need fully verified three-way H. umbellata vs verticillata vs bonariensis flowering axes + mature fruit macros"
   },
   "curated_on": "2026-10-20",
   "crew_quick_field_key": [
@@ -142,8 +144,18 @@
     },
     {
       "species_id": "hydrocotyle-verticillata",
-      "anatomy": "Seek full flowering axis with several spaced whorls, not leaf alone",
-      "limitation": "Matched full axis and fruit macro still require confirmation"
+      "anatomy": "Selected photographs of source-labeled whorled spike with small tiers; selected source image is not independent voucher proof of accepted species (var. triradiata issue).",
+      "limitation": "No genuine matched same-scale flowering stalk alongside H. umbellata and H. bonariensis yet; check Kew synonymy HOLD."
     }
-  ]
+  ],
+  "taxonomy_exception_20261020": {
+    "status": "HOLD_FOR_RECONCILIATION_accepted_species_vs_historical_variety",
+    "issue": "Kew POWO 2026 accepts Hydrocotyle verticillata Thunb., BUT synonymizes Hydrocotyle verticillata var. triradiata (A.Rich.) Fernald with H. bonariensis, while the older local UT Williamson County flora still describes that variety within H. verticillata.",
+    "crew_rule": "Do not treat older var. triradiata descriptions or photos, or source-labeled iNaturalist images alone, as a fully verified voucher of accepted H. verticillata. A reproductive voucher or taxonomic expert may be needed for unusual branched stalks.",
+    "sources": [
+      "https://powo.science.kew.org/taxon/843759-1",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1105522-2",
+      "https://w3.biosci.utexas.edu/prc/K12/pages/Hydrocotyle%20verticillata%20triradiata.html"
+    ]
+  }
 }
