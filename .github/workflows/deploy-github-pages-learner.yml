@@ -54,32 +54,58 @@ jobs:
             --site-dir dist --report "${{ runner.temp }}/pages-photo-budget.json" \
             --warn-mib 750 --stop-mib 920
 
-      - name: Strip EXIF only from staged public WebP copies
+      - name: Strip WebP metadata and withhold one known unreadable comparison illustration
         shell: bash
         run: |
           python - <<'PY'
+          import json
           from pathlib import Path
           from PIL import Image, ImageOps
-          processed=0
-          for p in Path("dist/content").rglob("*.webp"):
-            with Image.open(p) as im:
-              needs_clean=bool(im.info.get("exif")) or bool(im.getexif())
-              if not needs_clean:
-                continue
-              if getattr(im, "is_animated", False):
-                raise RuntimeError(f"Unsafe animated WebP cannot be silently flattened: {p}")
-              clean=ImageOps.exif_transpose(im)
-              clean.load()
-              if clean.mode not in ("RGB","RGBA"):
-                clean=clean.convert("RGBA" if "A" in clean.getbands() else "RGB")
-              target=p.with_name(p.name+".clean")
-              clean.save(target,format="WEBP",lossless=True,method=6)
-            with Image.open(target) as verified:
-              verified.verify()
-            target.replace(p)
-            processed+=1
-            print("Cleaned staged WebP source metadata:",p)
-          print(f"Staged WebP metadata stripped: {processed}; repository originals untouched.")
+          base=Path("dist")
+          broken_plate="content/taxa/Convolvulaceae/Ipomoea/images/ipomoea-calyx-corolla-comparison.webp"
+          cleaned=0
+          excluded=0
+          for p in (base/"content").rglob("*.webp"):
+            rel=p.relative_to(base).as_posix()
+            try:
+              with Image.open(p) as im:
+                needs_clean=bool(im.info.get("exif")) or bool(im.getexif())
+                if not needs_clean:
+                  continue
+                if getattr(im,"is_animated",False):
+                  raise RuntimeError("Animated image needs review: "+rel)
+                clean=ImageOps.exif_transpose(im)
+                clean.load()
+                if clean.mode not in ("RGB","RGBA"):
+                  clean=clean.convert("RGBA" if "A" in clean.getbands() else "RGB")
+                target=p.with_name(p.name+".clean")
+                clean.save(target,format="WEBP",lossless=True,method=6)
+              with Image.open(target) as check:
+                check.verify()
+              target.replace(p)
+              cleaned+=1
+              print("Staged metadata cleaned:",rel)
+            except Exception as exc:
+              if rel != broken_plate:
+                raise RuntimeError("Unexpected unreadable WebP requires review: "+rel) from exc
+              # Do not publish a corrupt illustration or invent its contents.
+              # The canonical image and genus JSON in the source tree remain unchanged.
+              genus=base/"content/taxa/Convolvulaceae/Ipomoea/genus.json"
+              obj=json.loads(genus.read_text(encoding="utf-8"))
+              visual=obj["visual_comparison"]
+              if visual.get("plate_image_url") != broken_plate:
+                raise RuntimeError("Unexpected reference to corrupt comparison plate") from exc
+              visual["plate_image_url"]=""
+              visual["plate_caption"] = (
+                "The diagnostic comparison illustration is temporarily withheld while "
+                "the source image is repaired. Use the verified written comparison and "
+                "the individual species photographs instead."
+              )
+              genus.write_text(json.dumps(obj,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+              p.unlink()
+              excluded+=1
+              print("Staged corrupt plate withheld; genus lesson retained:",rel,repr(exc))
+          print(f"Staged WebP source metadata cleaned: {cleaned}; unreadable known plate withheld: {excluded}. Original repository files untouched.")
           PY
 
       - name: Reject unsafe embedded EXIF GPS metadata
