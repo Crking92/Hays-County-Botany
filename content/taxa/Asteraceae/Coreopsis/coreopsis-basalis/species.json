@@ -21,16 +21,23 @@
     "phyllaries": "Outer involucre of narrow bracts beneath broader inner phyllaries.",
     "fruit": "Cypselae flattened, typically with 2 short awns and small marginal teeth/scales.",
     "best_field_traits": [
-      "finely divided leaves",
-      "small yellow heads",
-      "dark basal blotch on rays",
-      "slender annual habit"
-    ]
+      "Longer outer calyculus bractlets beneath a mature head (usually 6–9 mm in FNA; photograph side/underside with scale).",
+      "Longer inner phyllaries (usually 7–9+ mm) and relatively long head stalks (6–15+ cm).",
+      "Basal/cauline leaves simple or 1–2-pinnately lobed with relatively broad terminal lobes; assess several leaves, not a single unusual one.",
+      "Yellow rays often with a reddish-brown basal spot or band, supportive only and shared with C. tinctoria."
+    ],
+    "comparison_training": "Against Coreopsis tinctoria: compare OUTER head bractlets first (C. basalis usually 6–9 mm; C. tinctoria 1–3+ mm), inner phyllaries (7–9+ versus 4–7[–9] mm), and head stalks (6–15+ versus usually 1–5 cm). C. tinctoria usually has more finely divided stem leaves with narrow threadlike lobes. Flower color alone overlaps. Central Texas narrow-leaved C. basalis can resemble historical C. wrightii concepts; do not force a separate name without taxonomy review."
   },
   "photo_strategy": {
     "method": "targeted iNaturalist API",
     "target_count": 5,
-    "selection_logic": "Prefer curated taxon photos plus multiple views from one Central Texas/Texas observation."
+    "selection_logic": "Prefer curated taxon photos plus multiple views from one Central Texas/Texas observation.",
+    "remaining_need": "Public-web-cleared close-ups of mature head underside showing calyculus and inner phyllaries WITH SCALE, leaf node plus basal and stem leaves, and whole habit. Existing photos are physically present but their third-party NC/unknown-rights status has NOT been cleared for public display. Photo 02 is marked all-rights-reserved/unknown and must not be treated as public-cleared. Do not annotate structures without full-resolution visual confirmation.",
+    "diagnostic_photo_roles": [
+      "Recognize: entire flowering annual and branching pattern (photo/rights review pending).",
+      "Look closer: basal and stem leaves in one frame, including degree of lobing (photo/rights review pending).",
+      "Confirm: side/underside of mature head with scale showing long outer calyculus bractlets and inner phyllaries (NEEDS_DIAGNOSTIC_PHOTO; public-web-cleared)."
+    ]
   },
   "images": [
     {
@@ -107,6 +114,32 @@
     "last_reviewed": "2026-09-30",
     "photo_metadata_count": 5,
     "photo_files_present": 5,
-    "photo_backfill_source": "historical taxa.zip migration"
+    "photo_backfill_source": "historical taxa.zip migration",
+    "field_id_polish": "2026-10-19: morphology/measurements cross-checked against FNA; existing image bytes located in repository, but no photo-by-photo full-resolution anatomical audit or public-display rights clearance. PROVISIONAL; NOT FINALIZED. NEEDS_PUBLIC_PHOTO and NEEDS_DIAGNOSTIC_PHOTO. No new images installed."
+  },
+  "look_here_first": "Start below a mature flower head: measure the long, narrow OUTER involucral bracts (calyculus; usually 6–9 mm), then the inner phyllaries (about 7–9+ mm). Check the mostly simple or few-lobed lower leaves and long bare head stalk (peduncle; often 6–15+ cm). Dark red at the ray bases is NOT enough: plains coreopsis (C. tinctoria) can share that color.",
+  "comparisons": {
+    "key_distinctions": "Against Coreopsis tinctoria: compare OUTER head bractlets first (C. basalis usually 6–9 mm; C. tinctoria 1–3+ mm), inner phyllaries (7–9+ versus 4–7[–9] mm), and head stalks (6–15+ versus usually 1–5 cm). C. tinctoria usually has more finely divided stem leaves with narrow threadlike lobes. Flower color alone overlaps. Central Texas narrow-leaved C. basalis can resemble historical C. wrightii concepts; do not force a separate name without taxonomy review.",
+    "look_alikes": [
+      {
+        "taxon": "Coreopsis tinctoria",
+        "separate_by": "Measure outer calyculus bractlets and inspect several cauline leaves; small bractlets and threadlike segments favor C. tinctoria.",
+        "caution": "Both can have yellow rays with red-brown basal markings; never identify from flower color alone."
+      },
+      {
+        "taxon": "Coreopsis wrightii (historical segregate)",
+        "separate_by": "Some narrow-leaved western C. basalis have been treated under this name; refer naming decisions to taxonomy lane.",
+        "caution": "Taxon-concept comparison, not proof of a distinct local species."
+      }
+    ],
+    "unreliable_alone": [
+      "Red/maroon blotch on ray bases",
+      "One unusually divided leaf",
+      "Flower size without a scale"
+    ],
+    "sources": [
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=242412738",
+      "https://www.efloras.org/florataxon.aspx?flora_id=1&taxon_id=200023718"
+    ]
   }
 }
