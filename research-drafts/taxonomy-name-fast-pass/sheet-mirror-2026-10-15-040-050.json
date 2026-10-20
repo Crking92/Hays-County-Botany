@@ -4,6 +4,7 @@
   "checked_at": "2026-10-15",
   "published_batches": [
     "040",
+    "041",
     "042",
     "043",
     "044",
@@ -14,15 +15,9 @@
     "049",
     "050"
   ],
-  "unpublished_batches": [
-    {
-      "batch": "041",
-      "source_name": "Boltonia diffusa",
-      "blocker": "GitHub create_file safety check rejected initial and reduced retry; not mirrored or counted"
-    }
-  ],
+  "unpublished_batches": [],
   "counts": {
-    "ACCEPTED": 10,
+    "ACCEPTED": 11,
     "SYNONYM_TO_ACCEPTED": 0,
     "ACCEPTED_WITH_CONCEPT_CAUTION": 0,
     "HOLD_IDENTITY": 0
@@ -41,7 +36,8 @@
     636,
     637,
     13,
-    645
+    645,
+    593
   ],
   "master_pool_rows": [
     141,
@@ -53,8 +49,22 @@
     163,
     164,
     166,
-    167
+    167,
+    142
   ],
-  "verification": "10/10 override Z readback verified and 10/10 formula-driven Master Plant Pool propagation independently read back. Prior R evidence preserved; no native-range research.",
-  "scope": "Name fast-pass only; no canonical or other-lane writes."
+  "verification": "11/11 override Z evidence and 11/11 formula-derived Master Pool names verified including recovered Boltonia diffusa; historical failed attempt retained in recovered_batches. Prior R evidence preserved; no range audit.",
+  "scope": "Name fast-pass only; no canonical or other-lane writes.",
+  "recovered_batches": [
+    {
+      "batch": "041",
+      "source_name": "Boltonia diffusa",
+      "historical_blocker": "GitHub create_file safety check rejected initial and reduced retry; not mirrored or counted",
+      "recovery_status": "ALREADY_PUBLISHED_AND_MIRRORED_VERIFIED",
+      "evidence_path": "research-drafts/taxonomy-name-fast-pass/batch-2026-10-15-041.json",
+      "verified_override_row": 593,
+      "verified_master_pool_row": 142,
+      "reconciled_at": "2026-10-19"
+    }
+  ],
+  "reconciliation_note": "2026-10-19: corrected stale ledger after independent GitHub Batch 041 and Sheet row 593 / derived row 142 readback. Historical failed write is provenance only; no scientific or Sheet re-write."
 }
