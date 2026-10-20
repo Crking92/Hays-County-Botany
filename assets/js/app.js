@@ -1674,7 +1674,7 @@ function botanyPartExamples(sp,genusData){
     botanyPartGroup("genus","Genus · "+sp.genus,"Find the features shared by close relatives.",genusItems,genusButton,genusCue)+
     botanyPartGroup("species","Species · "+scientificName(sp),"Inspect this plant’s own photo gallery and ID clues.",speciesItems,"",speciesCue)+
     '</div>'+
-    '<details class="part-photo-note"><summary>About photos, labels and arrows</summary><p>Photos are currently unmarked. A named feature is a <b>place to investigate</b>, not a verified arrow on the photo. We can add arrows to the exact structure after visual review.</p></details>'+
+    '<details class="part-photo-note"><summary>About photos, labels and arrows</summary><p>General part examples may be unmarked. When an exact botanical structure has been reviewed, its arrows appear in the <b>Field identification</b> photo guide and the <b>Diagnostic photo comparisons</b> panel; otherwise the named part is a place to investigate, not a verified arrow. Always examine the full-resolution source for fine calyx teeth.</p></details>'+
     '</section>';
 }
 
