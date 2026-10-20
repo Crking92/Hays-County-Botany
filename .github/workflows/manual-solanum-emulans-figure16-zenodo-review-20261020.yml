@@ -1,0 +1,120 @@
+name: Recover Eastern Black Nightshade Research Figure 16
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-emulans-figure16-zenodo-review-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: solanum-emulans-figure16-staging
+  cancel-in-progress: false
+jobs:
+  recover-figure:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install requests 'Pillow>=10,<12'
+      - name: Find exact Figure 16 and stage a legally credited image only
+        shell: bash
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python - <<'PY'
+          import io,json,re,hashlib,html
+          from pathlib import Path
+          import requests
+          from PIL import Image,ImageOps
+          s=requests.Session();s.headers.update({"User-Agent":"HaysBotanyCrewEducation/1.0 (research figure 16 licensing review)","Accept":"application/json,image/jpeg,image/png,*/*;q=0.7"})
+          ROOT=Path("workflow/photo-library/candidates/solanum-emulans-20261020");ROOT.mkdir(parents=True,exist_ok=True)
+          queries=[
+            '"Solanum emulans" "Figure 16"',
+            '"Figure 16" "Morelloid"',
+            '"Figure 16" "Knapp" "PhytoKeys"',
+            'doi:"10.3897/phytokeys.123.31738.figure16"',
+            '"phytokeys.123.31738" "Figure 16"',
+            'title:"Figure 16" AND publication_date:[2019 TO 2020]'
+          ]
+          matches=[];search_errors=[]
+          for q in queries:
+            try:
+              response=s.get("https://zenodo.org/api/records",params={"q":q,"size":100},timeout=30)
+              response.raise_for_status()
+              data=response.json();hits=data.get("hits",{}).get("hits",[])
+              print("QUERY",q,"HITS",len(hits))
+              for rec in hits:
+                rid=rec.get("id")
+                md=rec.get("metadata") or {}
+                title=html.unescape(re.sub(r"<[^>]+>"," ",md.get("title","")))
+                description=html.unescape(re.sub(r"<[^>]+>"," ",md.get("description","")))
+                text=(title+" "+description+" "+json.dumps(md.get("related_identifiers",[]))).lower()
+                # Exact numbered figure AND paper/article ID OR the exact species in figure caption.
+                if not re.search(r"\bfigure\s*16\b",title,re.I):continue
+                if not ("solanum emulans" in text or "31738" in text or "morelloid clade" in text):continue
+                if "figure 16 from" not in title.lower() and "figure 16" not in title.lower():continue
+                matches.append((rid,title,description,rec))
+            except Exception as e:search_errors.append({"query":q,"error":str(e)[:200]})
+          unique={x[0]:x for x in matches};reports=[];files=[]
+          for rid,title,desc,r in unique.items():
+            file_list=r.get("files",[])
+            candidate=dict(record_id=rid,title=title,description=desc[:1000],record_url=f"https://zenodo.org/records/{rid}",
+             license=(r.get("metadata",{}).get("license") or {}).get("id",""),source_files=[z.get("key","") for z in file_list])
+            reports.append(candidate)
+            if "solanum emulans" not in (title+" "+desc).lower():
+              # Do not assume article Figure 16 is correct if species caption unavailable.
+              print("HOLD ambiguous Figure 16",rid,title);continue
+            for f in file_list:
+              key=f.get("key","")
+              if not key.lower().endswith((".jpg",".jpeg",".png",".tif",".tiff")):continue
+              url=(f.get("links") or {}).get("self") or (f.get("links") or {}).get("content")
+              if not url:continue
+              try:
+                response=s.get(url,timeout=35);response.raise_for_status()
+                assert 30000<len(response.content)<18_000_000
+                original=Image.open(io.BytesIO(response.content));original.verify()
+                pic=Image.open(io.BytesIO(response.content))
+                assert min(pic.size)>500,"Research plate too small"
+                picture=ImageOps.exif_transpose(pic).convert("RGB")
+                picture.thumbnail((2100,2300),Image.Resampling.LANCZOS)
+                dest=ROOT/"figure16-nee-source-preview.jpg";picture.save(dest,"JPEG",quality=89,optimize=True,exif=b"")
+                with Image.open(dest) as check:check.verify()
+                files.append(dict(record_id=rid,title=title,record_url=candidate["record_url"],source_file=url,
+                  staged_path=str(dest),sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),dimensions=list(picture.size),
+                  image_creator="Michael Nee (photo plate); Knapp et al. 2019 (article)",
+                  source_article="https://doi.org/10.3897/phytokeys.123.31738",
+                  source_credit="Figure 16, Solanum emulans, panels A–D; A/C/D Nee 61357, B Nee 61306",
+                  reuse_license="CC BY 4.0 (PhytoKeys article)",license_url="https://creativecommons.org/licenses/by/4.0/",
+                  review_status="STAGED_IMAGE_NEEDS_BOTANICAL_PIXEL_INSPECTION_NOT_CANONICAL",
+                  note="This is a resized candidate; do not add it to species.json until every annotated anatomical target is visually checked."))
+                break
+              except Exception as e:
+                search_errors.append({"record_id":rid,"source":url,"error":str(e)[:140]})
+            if files:break
+          report=dict(date="2026-10-20",species_id="solanum-emulans",
+            status="FIGURE16_STAGED_PENDING_REVIEW" if files else "FIGURE16_NOT_RECOVERED",
+            expected="PhytoKeys 123 (2019) Figure 16, original photos by Michael Nee, exact S. emulans",
+            search_results=reports,downloaded=files,errors=search_errors,
+            canonical_species_untouched=True,county_range_untouched=True)
+          out=Path("reports/solanum-emulans-figure16-zenodo-source-review-20261020.json");out.parent.mkdir(exist_ok=True)
+          out.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
+          print("RESULT",report["status"],"matches",len(reports),"downloaded",len(files))
+          PY
+      - name: Commit source inspection materials only, never overwrite species
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/solanum-emulans-figure16-zenodo-source-review-20261020.json \
+            workflow/photo-library/candidates/solanum-emulans-20261020/figure16-nee-source-preview.jpg
+          git diff --cached --quiet && exit 0
+          git commit -m "Stage exact S. emulans figure 16 Nee photo for pixel review [skip ci]"
+          for k in 1 2 3 4 5;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            git rebase --abort || true;sleep 4
+          done
+          exit 1
