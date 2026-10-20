@@ -1,0 +1,63 @@
+name: Install Whorled Pennywort Licensed Diagnostic Photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-hydrocotyle-verticillata-finished-photos-20261020.yml"
+      - "scripts/manual_hydrocotyle_verticillata_finished_photos_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-species-hydrocotyle-verticillata-five-photos
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check requests Pillow
+      - name: Check latest main source
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Download and install licensed whorled pennywort sources
+        run: python scripts/manual_hydrocotyle_verticillata_finished_photos_20261020.py
+      - name: Verify full six-photo gallery and original CC rights
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          p=Path('content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-verticillata')
+          j=json.loads((p/'species.json').read_text())
+          assert len(j['images'])==6
+          assert j['images'][0]['license']=='CC BY-SA 2.0'
+          assert j['project_inclusion']['target_zone_status']=='UNRESOLVED'
+          assert j['curation_status']['finished_field_id_pass']=='PASS_IN_PROGRESS'
+          for entry in j['images']:
+            f=p/entry['file']
+            assert f.is_file() and f.stat().st_size>25000
+            with Image.open(f) as z:z.verify()
+            print('Verified',f,entry['creator'],entry['license'])
+          assert len([x for x in j['images'][1:] if x['license']=='CC BY'])==5
+          PY
+      - name: Commit only Hydrocotyle verticillata and exact photo report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-verticillata/ reports/hydrocotyle-verticillata-finished-photo-20261020.json
+          if git diff --cached --quiet;then exit 0;fi
+          git commit -m "Install licensed whorled pennywort photo roles preserving Kew taxon hold [skip ci]"
+          for n in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 4
+          done
+          exit 1
