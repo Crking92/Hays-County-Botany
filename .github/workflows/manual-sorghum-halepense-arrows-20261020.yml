@@ -1,0 +1,57 @@
+name: Add Source-Verified Johnsongrass Anatomy Arrows
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-sorghum-halepense-arrows-20261020.yml"
+      - "scripts/manual_sorghum_halepense_anatomy_arrows_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-sorghum-halepense-anatomy-arrows
+  cancel-in-progress: false
+jobs:
+  annotate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests Pillow
+      - run: python scripts/manual_sorghum_halepense_anatomy_arrows_20261020.py
+      - name: Validate original-licensed eight photographs, annotations and rejected nonplant photo
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          p=Path('content/taxa/Poaceae/Sorghum/sorghum-halepense')
+          j=json.loads((p/'species.json').read_text())
+          assert len(j['images'])==8 and j['project_inclusion']['target_zone_status']=='INTRODUCED_NOT_NATIVE'
+          assert all('inat-154485533' not in x['file'] for x in j['images'])
+          assert len([x for x in j['images'] if x.get('manual_arrow_review')=='2026-10-20-source_sha_annotations'])==3
+          for x in j['images']:
+            f=p/x['file']
+            assert f.stat().st_size>19000
+            assert x['creator'] and x['source_page'] and x['license']=='CC BY'
+            with Image.open(f) as photo:photo.verify()
+          print('Verified 8 actual photos, exact source CC BY credits, 3 anatomical overlays, rejected original omitted')
+          PY
+      - name: Commit only verified Sorghum halepense photo derivatives
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Sorghum/sorghum-halepense/
+          if git diff --cached --quiet;then exit 0;fi
+          git commit -m "Annotate source-SHA Johnsongrass midrib, plume stigma and panicle anatomy [skip ci]"
+          for attempt in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 4
+          done
+          exit 1
