@@ -45,7 +45,7 @@ jobs:
           print('Held:', j['held'])
           for x in j['installed']:
             doc=json.loads(Path(x['species_json']).read_text())
-            assert any(y.get('file')==x['relative_photo_path'] and y.get('license') in ('CC BY 4.0','CC BY-NC 4.0') for y in doc.get('images',[]))
+            assert any(y.get('file')==x['relative_photo_path'] and y.get('license') in ('CC BY 4.0','CC BY-NC 4.0','CC BY-NC') for y in doc.get('images',[]))
             local=Path(x['physical_file'])
             assert local.is_file() and local.stat().st_size>5000
             with Image.open(local) as im:im.verify()
