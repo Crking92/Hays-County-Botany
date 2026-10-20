@@ -42,31 +42,38 @@ SOURCES=[
 def load(p): return json.loads(p.read_text(encoding="utf-8"))
 def save(p,j): p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(j,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
 def get_image(entry):
+    """Try individually identified primary iNaturalist open-data media, then Commons originals.
+    Both URLs must refer to the *same verified iNaturalist photo ID* from the Commons page.
+    No substitute photo or species is permitted."""
     pid=entry["pid"]
-    url=f'https://upload.wikimedia.org/wikipedia/commons/{entry["hash"]}/Solanum_nigrescens_{pid}.jpg'
+    commons=f'https://upload.wikimedia.org/wikipedia/commons/{entry["hash"]}/Solanum_nigrescens_{pid}.jpg'
+    inat=f'https://inaturalist-open-data.s3.amazonaws.com/photos/{pid}/original.jpg'
+    fallback=f'https://inaturalist-open-data.s3.amazonaws.com/photos/{pid}/large.jpg'
     session=requests.Session()
-    session.headers.update({"User-Agent":"HaysCountyBotanyLearner/1.0 (public educational visual ID; Wikimedia Commons CC BY attribution)","Accept":"image/jpeg,image/*;q=0.8"})
+    session.headers.update({"User-Agent":"HaysCountyBotanyLearner/1.0 (verified Creative Commons public photo research)","Accept":"image/jpeg,image/*;q=0.8"})
     errors=[]
-    # Only the vetted exact Commons file, not an unrelated image from search.
-    for tries in range(3):
-        try:
-            response=session.get(url,timeout=32)
-            response.raise_for_status()
-            if len(response.content)<25000 or len(response.content)>12_000_000:raise ValueError("unexpected byte size")
-            picture=Image.open(io.BytesIO(response.content))
-            picture.verify()
-            picture=Image.open(io.BytesIO(response.content))
-            if min(picture.size)<450:raise ValueError("source resolution too small")
-            image=ImageOps.exif_transpose(picture).convert("RGB")
-            image.thumbnail((1800,1800),Image.Resampling.LANCZOS)
-            out=IMAGE_DIR/(entry["stem"]+".jpg")
-            IMAGE_DIR.mkdir(parents=True,exist_ok=True)
-            image.save(out,format="JPEG",quality=88,optimize=True,exif=b"")
-            with Image.open(out) as reread:reread.verify()
-            return out,url,hashlib.sha256(out.read_bytes()).hexdigest(),list(image.size)
-        except (requests.RequestException,UnidentifiedImageError,OSError,ValueError) as exc:
-            errors.append(str(exc)[:180]);time.sleep(2+tries*2)
-    raise RuntimeError("Photo "+pid+" download failed: "+"; ".join(errors))
+    # First try source iNaturalist open data to avoid Wikimedia's rate-limited raw originals.
+    for url in (inat,fallback,commons):
+        for tries in range(2):
+            try:
+                response=session.get(url,timeout=20)
+                response.raise_for_status()
+                if len(response.content)<25000 or len(response.content)>12_000_000:raise ValueError("unexpected byte size")
+                raw=Image.open(io.BytesIO(response.content))
+                raw.verify()
+                picture=Image.open(io.BytesIO(response.content))
+                if min(picture.size)<450:raise ValueError("source resolution too small")
+                image=ImageOps.exif_transpose(picture).convert("RGB")
+                image.thumbnail((1800,1800),Image.Resampling.LANCZOS)
+                out=IMAGE_DIR/(entry["stem"]+".jpg")
+                IMAGE_DIR.mkdir(parents=True,exist_ok=True)
+                image.save(out,format="JPEG",quality=88,optimize=True,exif=b"")
+                with Image.open(out) as reread:reread.verify()
+                return out,url,hashlib.sha256(out.read_bytes()).hexdigest(),list(image.size)
+            except (requests.RequestException,UnidentifiedImageError,OSError,ValueError) as exc:
+                errors.append(str(exc)[:130])
+                if tries==0:time.sleep(1)
+    raise RuntimeError("Photo "+pid+" all same-photo sources failed: "+"; ".join(errors))
 
 def main():
     if (ROOT/"species.json").exists():
