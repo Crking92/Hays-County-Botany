@@ -1,0 +1,38 @@
+name: Screen Hydrocotyle verticillata Public Photo Candidates
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-hydrocotyle-verticillata-photo-screen-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-time-verticillata-photo-screen-20261020
+  cancel-in-progress: false
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check requests Pillow
+      - run: python scripts/manual_hydrocotyle_verticillata_photo_screen_20261020.py
+      - name: Archive only provisional contact and media-source rights screen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/reviews/hydrocotyle-verticillata-20261020/
+          if git diff --cached --quiet; then exit 0;fi
+          git commit -m "Archive provisional licensed whorled pennywort photo screening [skip ci]"
+          for n in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0;fi
+            sleep 3
+          done
+          exit 1
