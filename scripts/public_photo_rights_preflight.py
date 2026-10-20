@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fail-closed first-pass media-rights gate for PUBLIC static-site deployment.
 
-This script does not modify the private canonical site, metadata, or images.
+This script does not modify canonical source JSON, metadata, or images. The source repository may be PUBLIC; the rights-filtered Pages build cannot make source-committed restricted originals private.
 A PASS is a necessary screening result, not a legal opinion or full content audit.
 Run only on a public deployment candidate AFTER the normal build.
 """
