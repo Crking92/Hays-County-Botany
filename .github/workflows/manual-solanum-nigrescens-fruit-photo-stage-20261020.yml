@@ -1,0 +1,65 @@
+name: Stage Divine Nightshade Scholarly Fruit Photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-nigrescens-fruit-photo-stage-20261020.yml"
+      - "scripts/manual_solanum_nigrescens_fruit_sources_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-solanum-nigrescens-scholarly-photo-staging
+  cancel-in-progress: false
+jobs:
+  stage-photo-candidates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check requests 'Pillow>=10,<12'
+      - name: Refresh and source-check
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/manual_solanum_nigrescens_fruit_sources_20261020.py
+      - name: Get cited figures for pixel review only
+        run: python scripts/manual_solanum_nigrescens_fruit_sources_20261020.py
+      - name: Verify staged candidate image metadata
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          r=json.loads(Path("reports/solanum-nigrescens-scholarly-fruit-candidates-20261020.json").read_text())
+          assert r["no_install_until_review"] and r["files"]
+          for item in r["files"]:
+            assert item["license"]=="CC BY 4.0" and item["creator"] and item["source_page"]
+            assert "CANDIDATE" in item["review_status"]
+            f=Path(item["candidate_image"])
+            assert f.exists()
+            with Image.open(f) as im:im.verify()
+          assert not Path("content/taxa/Solanaceae/Solanum/solanum-nigrescens/images/05-fruit-cluster.jpg").exists()
+          print("CANDIDATES VERIFIED ONLY; NO SPECIES MEDIA WRITE")
+          PY
+      - name: Commit archival images without canonical installation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add workflow/photo-library/candidates/solanum-nigrescens-fruit-20261020 reports/solanum-nigrescens-scholarly-fruit-candidates-20261020.json
+          if git diff --cached --quiet;then echo "No new figures";exit 0;fi
+          git commit -m "Stage licensed divine nightshade scholarly fruit figures for visual source review [skip ci]"
+          for attempt in 1 2 3 4 5;do
+            if git pull --rebase origin main && git push origin HEAD:main;then
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep 3
+          done
+          exit 1
