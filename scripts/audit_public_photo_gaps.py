@@ -8,6 +8,7 @@ Refresh after verified 2026-10-20 CC BY recovery of Ludwigia and Symphyotrichum.
 Refresh after verified 2026-10-20 Tinantia noncommercial CC BY-NC and new Arbutus/Dalea exact-source CC BY first photos.
 Refresh after individually licensed CC BY first public images installed for Asclepias texana, Asclepias viridis, and Senna roemeriana; retain existing science and private-research images untouched.
 Recheck Amorpha fruticosa, Dermatophyllum secundiflorum, Matelea reticulata public faces installed 2026-10-20 with individual CC BY photo records.
+Refresh after source-verified CC BY physical public photos added to Berberis swaseyi, Canna glauca, and Stillingia texana on 2026-10-20.
 """
 from __future__ import annotations
 
