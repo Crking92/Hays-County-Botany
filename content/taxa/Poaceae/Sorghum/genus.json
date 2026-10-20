@@ -10,12 +10,15 @@
       "Sorghum halepense"
     ],
     "source_pool_count": 2,
-    "canonical_species_ids": [],
+    "canonical_species_ids": [
+      "sorghum-bicolor",
+      "sorghum-halepense"
+    ],
     "source_pool_curated_flags": [
       "No",
       "No"
     ],
-    "learner_status": "comparison/reference genus text only. Neither species is installed in data/manifest.json and this lane does not approve or install them.",
+    "learner_status": "Both species are in data/manifest.json as installed learner cards; source-pool and county native decisions remain separate. S. halepense user-directed finished text pass 2026-10-20; rhizome and detailed ligule photos still missing.",
     "native_range_guardrail": "Both are introduced grasses in Central Texas; they are not counted among confirmed native target-zone taxa. S. bicolor includes cultivated grain/forage forms and escaped shattercane; S. halepense is invasive Johnsongrass."
   },
   "shared_genus_recognition": {
@@ -213,7 +216,7 @@
     }
   ],
   "scientific_cautions": [
-    "Neither taxon is presently canonical; this genus backfill does not install them or alter source-pool approval.",
+    "Both source taxa currently appear as canonical learner species in data/manifest.json. Their original source-pool Curated flag, native range approval and individual photo/diagnostic states must be kept separate from learner installation.",
     "Both are introduced to Central Texas; S. bicolor is African-origin cultivated, S. halepense Eurasian/African-origin introduced invasive. This is not a native-only recommendation.",
     "Domestic S. bicolor may be a nonrhizomatous perennial in frost-free settings, so do not equate 'can resprout' with halepense; belowground creeping rhizomes are the stronger character.",
     "Shattercane is a feral/weedy S. bicolor form with shattering seeds and sometimes open heads. It defeats simplistic panicle and seed-retention shortcuts.",
@@ -236,7 +239,7 @@
     {
       "owner": "Species Installer / Master Pool Reconciler",
       "target": "Sorghum bicolor and S. halepense",
-      "request": "Both source entries currently Curated=No and are not in canonical manifest; no installation requested by this genus lesson. If future learning admission, keep both introduced/weed comparison labels and species-level science separate."
+      "request": "Both species ALREADY installed in manifest; do NOT duplicate. Update existing cards and genus lesson only, preserve non-native scientific range decisions and old rejected image audit."
     }
   ],
   "scientific_sources": [
@@ -273,15 +276,15 @@
   ],
   "curation_status": {
     "version": "1.1-visual-genus-20261015",
-    "last_reviewed": "2026-10-11",
+    "last_reviewed": "2026-10-20",
     "taxa": "two source names, no canonical species",
     "comparison_rows": 7,
     "photo_locks": 7,
-    "visual_status": "Four structured anatomy lessons and three comparison cards; no installed photos or verified arrows.",
-    "scientific_decisions": "unchanged",
-    "species_installation": "none"
+    "visual_status": "S. halepense field key rewritten and photo gallery being upgraded; S. bicolor existing comparator preserved",
+    "scientific_decisions": "Texas introduced Johnsongrass per Kew; existing source pool decision preserved",
+    "species_installation": "Both canonical in manifest; no new duplication"
   },
-  "look_here_first": "LOOK HERE FIRST: confirm a true grass leaf collar, then find one intact PAIR of spikelets (fertile sessile spikelet + stalked pedicellate companion). Next check naturally exposed belowground stems: creeping segmented rhizomes strongly support Johnsongrass (S. halepense); fibrous nonrhizomatous base supports typical S. bicolor. Finally compare whole panicle. Feral shattercane and hybrids can overlap; don't use the white midrib or head color as proof.",
+  "look_here_first": "First confirm Sorghum anatomy by showing a FULL sessile fertile spikelet + its developed stalked pedicellate partner, not just a pale leaf midrib. For Johnsongrass compare a true 2–6 mm CILIATE MEMBRANOUS ligule and scaly underground spreading rhizomes with buds and nodes; typical cultivated bicolor has no extensive rhizomes. Native Sorghastrum nutans differs in reduced pedicellate spikelet. Check feral shattercane/hybrid uncertainties.",
   "shared_traits": [
     "Jointed culms with sheathing leaves, ligules and terminal branched panicles.",
     "At raceme tips, a sessile fruiting spikelet is paired with a pedicellate companion; use a hand lens to confirm both.",
@@ -365,5 +368,11 @@
       }
     ],
     "rights_and_status": "No canonical Sorghum species or installed genus photographs. All future image candidates require exact-species identification, photographer credit, image-level license and public-reuse check. Do not add arrows until source pixels are examined."
-  }
+  },
+  "photo_role_status": {
+    "sorghum_halepense": "Two preexisting public-CC panicle JPEGs + six additional actual photos pending isolated installer; a rejected hand-only nonplant picture must remain excluded.",
+    "sorghum_bicolor": "Existing canonical species card, outside this manual finished pass; do not alter.",
+    "unresolved_comparisons": "Need actual rhizome scale node vs fibrous S. bicolor base and true paired spikelet macrophotograph. Use source photos with exact organ visible and mm ruler."
+  },
+  "curated_on": "2026-10-20"
 }
