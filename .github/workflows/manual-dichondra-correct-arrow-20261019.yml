@@ -1,0 +1,58 @@
+name: Correct Carolina Ponyfoot Petal Arrow
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-dichondra-correct-arrow-20261019.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: targeted-dichondra-petal-arrow-correction
+  cancel-in-progress: false
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests Pillow
+      - name: Fix corolla arrow at exact visually confirmed petal location
+        run: python scripts/manual_dichondra_fix_flower_arrow_20261019.py
+      - name: Verify all six photo bytes and original source rights
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          p=Path('content/taxa/Convolvulaceae/Dichondra/dichondra-carolinensis')
+          j=json.loads((p/'species.json').read_text())
+          assert len(j['images'])==6
+          assert j['images'][0]['file']=='images/inat-250869976.jpg'
+          for x in j['images']:
+            f=p/x['file']
+            assert f.is_file() and f.stat().st_size>25000
+            with Image.open(f) as im:im.verify()
+          e=next(x for x in j['images'] if x['file'].endswith('alex-258349465-flower-face-arrows.jpg'))
+          assert e['creator']=='Alex Abair' and e['license']=='CC BY 4.0'
+          assert 'corrected' in e['photo_review']
+          print('Corrected corolla arrow and six real photos verified')
+          PY
+      - name: Publish correction to canonical single species
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Convolvulaceae/Dichondra/dichondra-carolinensis/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Correct Dichondra five-lobed corolla arrow onto actual pale petal [skip ci]"
+          for n in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 3
+          done
+          exit 1
