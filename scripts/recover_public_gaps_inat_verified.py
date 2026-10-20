@@ -5,6 +5,7 @@ This script independently checks *current photo-specific* Creative Commons
 permissions in iNaturalist observation API; never assumes that observation
 licensing or a project source flag grants photo reuse. The user has confirmed
 a stand-alone strictly noncommercial educational GitHub Pages website.
+The QA now recognizes old CC BY-NC wording while still requiring live photo-level CC verification.
 Newly downloaded copies are resized as JPEG with EXIF/GPS stripped.
 Never bypass active claims, identity holds, unverified photo rights, or pages QA.
 """
