@@ -1,0 +1,75 @@
+name: Install Divine Nightshade Ripe Fruit and Calyx
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-nigrescens-fruit-install-20261020.yml"
+      - "scripts/manual_solanum_nigrescens_fruit_install_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-solanum-nigrescens-scholarly-fruit-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Refresh latest canonical and preflight script
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/manual_solanum_nigrescens_fruit_install_20261020.py
+      - name: Install exact-species scholarly fruit photos
+        run: python scripts/manual_solanum_nigrescens_fruit_install_20261020.py
+      - name: Validate cropped fruit evidence, credits, and county science hold
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          base=Path("content/taxa/Solanaceae/Solanum/solanum-nigrescens")
+          j=json.loads((base/"species.json").read_text())
+          assert j["id"]=="solanum-nigrescens"
+          assert j["project_inclusion"]["target_zone_status"]=="PROVISIONAL"
+          assert j["native_metrics_excluded"] is True
+          imgs=j["images"]
+          assert len(imgs)==7 and len(j["visual_comparison"]["items"])==8
+          assert len([p for p in j["visual_comparison"]["items"] if p["scientific_name"]=="Solanum nigrescens"])==7
+          for a in imgs[-3:]:
+            f=base/a["file"]
+            assert a["license"]=="CC BY 4.0" and a["creator"] and a["license_url"]
+            assert a["source_page"]=="https://www.mdpi.com/2223-7747/12/8/1645"
+            assert a["source_figure"] and a["modifications"] and f.stat().st_size>16000
+            with Image.open(f) as im:im.verify()
+            print("VERIFIED",a["source_figure"],f,a["creator"])
+          assert len(j["visual_comparison"]["items"][-4]["markers"])==3
+          assert len(j["visual_comparison"]["items"][-3]["markers"])==3
+          assert len(j["visual_comparison"]["items"][-2]["markers"])==0
+          print("PASS: 7 real exact-species files; fruit/calyx scale preserved and 6 new arrow anchors. Range hold retained.")
+          PY
+      - name: Commit only verified fruit media and source reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Solanaceae/Solanum/solanum-nigrescens/ reports/solanum-nigrescens-fruit-install-20261020.json
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Install CC BY scholarly S. nigrescens mature fruit and calyx photos with credited arrows [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Verified fruit/calyx lesson pushed."
+              exit 0
+            fi
+            git rebase --abort || true
+            sleep 4
+          done
+          exit 1
