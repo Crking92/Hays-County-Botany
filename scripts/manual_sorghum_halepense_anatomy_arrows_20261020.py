@@ -13,7 +13,7 @@ s=json.loads(CARD.read_text());assert s["id"]=="sorghum-halepense" and len(s["im
 src={str(x["photo_id"]):x for x in json.loads(SCREEN.read_text())["candidates"]}
 TARGETS=[
  {"id":"753122016","file":"lindajo-753122016-white-midrib-blade.jpg",
- "arrows":[("Pale midrib",(.337,.663),(.065,.76))],
+ "arrows":[("Pale midrib",(.303,.663),(.065,.76))],
  "role":"Look closer — true bright pale longitudinal central midrib of broad Johnson grass leaf visible on left blade; note white midrib by itself is NOT species diagnostic."},
  {"id":"753122364","file":"lindajo-753122364-spikelet-closeup.jpg",
  "arrows":[("Feathery stigma",(.372,.265),(.60,.055))],
@@ -55,7 +55,7 @@ def decorate(im,arrows):
  return im
 for target in TARGETS:
  row=next(x for x in s["images"] if x["file"]=="images/"+target["file"])
- if row.get("manual_arrow_review")=="2026-10-20-final-pixel-verified":continue
+ if row.get("manual_arrow_review")=="2026-10-20-pale-midrib-adjusted":continue
  assert row["license"]=="CC BY" and str(row["source_photo_id"])==target["id"]
  orig=get_source(src[target["id"]],row["original_image_sha256"])
  file=BASE/"images"/target["file"];assert file.exists()
@@ -65,7 +65,7 @@ for target in TARGETS:
  with Image.open(file) as check:check.verify()
  row["role"]=target["role"]
  row["anatomy_arrows"]=[{"label":label,"target_fraction":list(pt)} for label,pt,_ in target["arrows"]]
- row["manual_arrow_review"]="2026-10-20-final-pixel-verified"
+ row["manual_arrow_review"]="2026-10-20-pale-midrib-adjusted"
  row["modifications"]="Source-original SHA-matched, downsized and reencoded with labeled yellow anatomical arrow; EXIF removed."
  row["photo_review"]+=" Source SHA-256 matched and arrow coordinate manually chosen from full physical original; final post-commit image readback required."
 s["curation_status"]["manual_annotations"]="2026-10-20 three clear source-SHA-vetted labels created for midrib, feathery stigma and red panicle. Post-commit full pixel review required."
