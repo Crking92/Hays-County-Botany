@@ -1,0 +1,73 @@
+name: Recover public photo gaps via verified Flickr originals
+
+# Single triggered batch; not a sixth recurring ChatGPT automation.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/recover_public_gaps_flickr_three.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hays-public-photo-flickr-three
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: Checkout current canonical main and work claims
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install JPEG integrity library
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Recover exact author and photo ID from Flickr with Commons rights evidence
+        run: python scripts/recover_public_gaps_flickr_three.py
+      - name: Verify recovery, links, and affected paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          j = json.loads(Path('reports/public-gap-flickr-three-20261020.json').read_text())
+          print('Successful local installs:', [x['taxon'] for x in j['installed']])
+          print('Held:', j['held'])
+          for x in j['installed']:
+            file=Path(x['physical_file'])
+            assert file.is_file() and file.stat().st_size>5000
+            doc=json.loads(Path(x['species_json']).read_text())
+            assert any(y.get('file')==x['relative_photo_path'] and y.get('license_url')=='https://creativecommons.org/licenses/by/2.0/' for y in doc['images'])
+          PY
+          git status --short
+      - name: Stage ONLY successful new photos, species records, and exact audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Hays Botany photo recovery"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python - <<'PY'
+          from pathlib import Path
+          import json, subprocess
+          p='reports/public-gap-flickr-three-20261020.json'
+          j=json.loads(Path(p).read_text())
+          paths=[p]
+          for entry in j['installed']:
+            paths.extend([entry['species_json'],entry['physical_file']])
+          subprocess.run(['git','add','--',*paths],check=True)
+          PY
+          if git diff --cached --quiet; then
+            echo "No canonical gallery changed; only verified report is already current"
+          else
+            git commit -m "Photos: publishably licensed Flickr faces for held species [skip ci]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push origin HEAD:main
+          fi
