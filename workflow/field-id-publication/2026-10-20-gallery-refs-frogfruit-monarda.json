@@ -1,12 +1,14 @@
 {
-  "version": 1,
+  "version": 2,
   "date": "2026-10-20",
   "purpose": "Publish explicit owner-requested fix for main photo carousel counts: show licensed exact-species external diagnostic photos in same swipe gallery, distinguish from physically installed JPEGs",
   "status": "EXPLICIT_PUBLICATION_USER_CONFIRMED_DIAGNOSTIC_GALLERY",
   "changed": [
     "assets/js/app.js",
     "content/taxa/Verbenaceae/Phyla/phyla-nodiflora/species.json",
-    "content/taxa/Lamiaceae/Monarda/monarda-citriodora/species.json"
+    "content/taxa/Lamiaceae/Monarda/monarda-citriodora/species.json",
+    "index.html",
+    "sw.js"
   ],
   "expected": {
     "phyla-nodiflora": {
@@ -26,6 +28,13 @@
     "b7b250c83f23249fe1ecf3f6254cb733bb110867",
     "c3e6032a1e9889ee9b2fb5406916a318266517d8",
     "02199e276fab6fcd8688b0da254c6bea930ab08f",
-    "54d8177e14552b1844186f3e27bebf5b73650f9a"
-  ]
+    "54d8177e14552b1844186f3e27bebf5b73650f9a",
+    "8c9002b1d4ac4fa43c31d7386d60e414dd26a86a",
+    "88649aedef077302b61ead6147197fca1825e019"
+  ],
+  "cache_refresh": {
+    "script_version": 46,
+    "service_worker_cache": "hays-botany-v43",
+    "reason": "Prevent stale PWA learner from continuing to show 3/5 after source update"
+  }
 }
