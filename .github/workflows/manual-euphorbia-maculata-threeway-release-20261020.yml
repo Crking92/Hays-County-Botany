@@ -1,0 +1,71 @@
+name: Euphorbia maculata three-way sandmat release
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-maculata-threeway-release-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: euphorbia-maculata-threeway-20261020
+  cancel-in-progress: false
+jobs:
+  validate-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Check four source photos, eight arrows, local-range and photo-rights holds
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          b=Path("content/taxa/Euphorbiaceae/Euphorbia")
+          j=json.loads((b/"euphorbia-maculata/species.json").read_text())
+          g=json.loads((b/"genus.json").read_text())
+          qa=json.loads(Path("reports/euphorbia-maculata-threeway-verified-20261020.json").read_text())
+          assert j["scientific_name"]=="Euphorbia maculata"
+          assert j["native_metrics_excluded"] is True
+          assert j["project_inclusion"]["target_zone_status"]=="NOT_REVIEWED_COUNTY"
+          assert j["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
+          assert len(j["images"])==5
+          assert j["images"][0]["license"]=="CC BY-NC" and j["images"][0]["public_reuse"]=="no"
+          assert all(x["public_reuse"]=="yes" for x in j["images"][1:])
+          assert len(j["visual_comparison"]["items"])==4
+          assert sum(len(x["markers"]) for x in j["visual_comparison"]["items"])==8
+          assert "TRANSVERSE" in j["look_here_first"] and "NOT" in j["field_photo_quickcheck"]["warning"]
+          assert "longitudinal" not in j["morphology_keys"]["seed"].lower()
+          for item in j["visual_comparison"]["items"]:
+            path=Path(item["image_url"])
+            assert path.is_file() and path.stat().st_size>14000
+            assert item["creator"] and item["source_page"].startswith("https://")
+            assert item["license"] in ("CC BY 2.0","CC BY-SA 4.0")
+            for marker in item["markers"]:
+              assert all(isinstance(marker[k],(int,float)) and 0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+          pair=next(x for x in g["comparison_cards"] if x["id"]=="euphorbia-sandmat-group")
+          assert len(pair["photo_pair_targets"])==4 and "TRANSVERSE" in pair["caution"]
+          panels=[x for x in g["visual_comparison"]["items"] if x["scientific_name"] in ("Euphorbia maculata","Euphorbia prostrata","Euphorbia serpens")]
+          assert len(panels)==11 and sum(x["scientific_name"]=="Euphorbia maculata" for x in panels)==3
+          assert all(Path(x["image_url"]).is_file() for x in panels)
+          assert not any("inat-91881491.jpg" in x["image_url"] for x in panels)
+          assert qa["annotation_arrow_count"]==8 and len(qa["source_photo_evidence"])==4
+          assert Path("scripts/stage_public_euphorbia_maculata_20261020.py").is_file()
+          deploy=Path(".github/workflows/deploy-github-pages-learner.yml").read_text()
+          assert "stage_public_euphorbia_maculata_20261020.py --site-dir dist" in deploy
+          print("PASS four licensed actual maculata photos, 8 arrows, 11 3-way reference photos, native/range uncertainty retained, old NC excluded.")
+          PY
+      - name: Dispatch public-safe GitHub Pages build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
