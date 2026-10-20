@@ -366,7 +366,7 @@ function genusVisualComparison(data){
     if(safePhotoSrc) out+='</a>';
     if(markers.length){
       const arrowId="diagnosticArrow"+String(v.instance_id || data.id || data.name || "visual").replace(/[^a-z0-9]/gi,"")+"-"+index;
-      out+='<div class="diagnostic-arrow-stage" data-diag-stage hidden><svg class="diagnostic-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
+      out+='<div class="diagnostic-arrow-stage" data-diag-stage hidden><svg class="diagnostic-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="'+arrowId+'" markerUnits="userSpaceOnUse" markerWidth="1.8" markerHeight="1.8" refX="1.6" refY=".9" orient="auto"><path d="M0,0 L1.8,.9 L0,1.8 z"></path></marker></defs>';
       markers.forEach(function(m){
         const lx=Number(m.label_x||8), ly=Number(m.label_y||10), tx=Number(m.target_x||50), ty=Number(m.target_y||50);
         out+='<line x1="'+lx+'" y1="'+ly+'" x2="'+tx+'" y2="'+ty+'" marker-end="url(#'+arrowId+')"></line>';
@@ -1105,8 +1105,8 @@ function galleryArrowOverlay(sp,markers){
   const arrowId="swipeArrow"+String(sp.id||"plant").replace(/[^a-z0-9]/gi,"");
   let html='<div class="gallery-arrow-stage" data-gallery-arrow-stage hidden>'+
     '<svg class="gallery-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">'+
-    '<defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'+
-    '<path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
+    '<defs><marker id="'+arrowId+'" markerUnits="userSpaceOnUse" markerWidth="1.8" markerHeight="1.8" refX="1.6" refY=".9" orient="auto">'+
+    '<path d="M0,0 L1.8,.9 L0,1.8 z"></path></marker></defs>';
   markers.forEach(function(m){
     html+='<line x1="'+Number(m.label_x)+'" y1="'+Number(m.label_y)+
       '" x2="'+Number(m.target_x)+'" y2="'+Number(m.target_y)+
