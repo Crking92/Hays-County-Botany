@@ -85,7 +85,7 @@ function galleryImagesFor(sp){
       typeof img.file==="string" &&
       /^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\//i.test(img.file) &&
       /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(img.source_page||"") &&
-      /^CC BY(?:-SA)? [0-9]/i.test(img.license||"") &&
+      /^(?:CC BY(?:-SA)?|CC0) [0-9]/i.test(img.license||"") &&
       img.public_reuse==="yes" && !!img.creator && !!img.license_url;
   }));
 }
