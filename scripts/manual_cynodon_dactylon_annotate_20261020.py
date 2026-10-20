@@ -14,13 +14,13 @@ j=json.loads(FILE.read_text());assert j["id"]=="cynodon-dactylon" and len(j["ima
 c={str(x["photo_id"]):x for x in json.loads(SCREEN.read_text())["candidates"]}
 SETS=[
  {"id":"410585092","file":"jimmex-410585092-collar-hair-fringe.jpg",
-  "arrows":[("Collar hair tuft",(.74,.28),(.03,.06))],
+  "arrows":[("Collar hair tuft",(.715,.335),(.03,.06))],
   "role":"Look closer: genuine white tuft of hairs at leaf collar/sheath junction; the microscopic INNER short ligule (approx. 0.5 mm) is NOT separately measured or certified."},
  {"id":"410585069","file":"jimmex-410585069-spikelet-macro.jpg",
-  "arrows":[("Spikelets",(.55,.56),(.30,.06)),("Exserted anther",(.692,.667),(.58,.86))],
+  "arrows":[("One spikelet",(.584,.646),(.30,.06)),("Dangling anther",(.579,.730),(.56,.86))],
   "role":"Confirm clue: small one-sided spikelets on slender finger and dangling brownish anther exposed from an individual grass flower. Pink feathery stigmas also visible but not separately labeled."},
  {"id":"410585068","file":"jimmex-410585068-finger-seedhead.jpg",
-  "arrows":[("Fingerlike ray",(.719,.36),(.62,.09)),("Shared tip",(.48,.867),(.06,.72))],
+  "arrows":[("Fingerlike ray",(.701,.482),(.62,.09)),("Shared branch point",(.488,.823),(.025,.72))],
   "role":"Recognize it: terminal DIGITATE seedhead; several slender unilateral spikelet-bearing fingers and the nearly common point from which they radiate."}
 ]
 S=requests.Session();S.headers.update({"User-Agent":"HaysCountyBotanyMacroLabels/1.0 (github.com/Crking92/Hays-County-Botany)"})
@@ -55,7 +55,7 @@ def fetch(src,expected):
  raise RuntimeError("Identical SHA original unavailable for "+pid)
 for t in SETS:
  x=next(z for z in j["images"] if z["file"]=="images/"+t["file"])
- if x.get("manual_arrow_review")=="2026-10-20-source-original-labeled":continue
+ if x.get("manual_arrow_review")=="2026-10-20-pixel-corrected":continue
  assert x["license"]=="CC0" and str(x["source_photo_id"])==t["id"]
  src=c[t["id"]]
  im=draw_photo(fetch(src,x["original_image_sha256"]),t["arrows"])
@@ -64,7 +64,7 @@ for t in SETS:
  x["role"]=t["role"]
  x["modifications"]="From SHA-verified original, resized JPEG, EXIF removed; original-safe anatomy arrow adaptation added."
  x["anatomy_arrows"]=[{"label":label,"target_fraction":list(point)} for label,point,_ in t["arrows"]]
- x["manual_arrow_review"]="2026-10-20-source-original-labeled"
+ x["manual_arrow_review"]="2026-10-20-pixel-corrected"
  x["photo_review"]+=" Exact source original SHA-256 matched. Arrowpoints manually selected against prior inspected full-size photo, awaiting committed derivative QA."
 j["curation_status"]["photo_annotation_install"]="2026-10-20 three exact-original CC0 anatomy overlays prepared. Must re-open actual committed JPEGs for arrow-tip certification."
 j["curation_status"]["required_to_finish"]=[
