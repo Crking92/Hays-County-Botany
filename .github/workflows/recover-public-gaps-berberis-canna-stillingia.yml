@@ -1,0 +1,83 @@
+name: Recover Swasey berberis Canna glauca and Texas stillingia public photos
+
+# One-shot, user-requested three-species photo recovery; not an additional recurring task.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/recover_public_gaps_berberis_canna_stillingia.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hays-berberis-canna-stillingia-photo-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout current main, exact species and claims
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image integrity verifier
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Verify individual photo copyright, species and physical bytes
+        run: python scripts/recover_public_gaps_berberis_canna_stillingia.py
+      - name: Verify exact canonical records and report
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          r=json.loads(Path('reports/public-gap-berberis-canna-stillingia-20261020.json').read_text())
+          assert set(r['attempted_taxa'])=={'berberis-swaseyi','canna-glauca','stillingia-texana'}
+          print('Installed:', [x['taxon'] for x in r['installed']])
+          print('Held:', r['held'])
+          for x in r['installed']:
+            sp=Path(x['species_json'])
+            doc=json.loads(sp.read_text())
+            img=[p for p in doc.get('images',[]) if p.get('file')==x['relative_photo_path']]
+            assert len(img)==1, x['taxon']
+            assert img[0].get('license') in {'CC BY 4.0','CC BY-NC 4.0'}
+            assert img[0].get('source_photo_id') == x['photo_id']
+            p=Path(x['physical_file'])
+            assert p.is_file() and p.stat().st_size>6500
+            with Image.open(p) as image:
+              assert min(image.size)>=400
+              assert not image.info.get('exif')
+              image.verify()
+          PY
+          git status --short
+      - name: Commit only successful photo and species changes plus exact report
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Hays Botany source-verified photo recovery"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          path='reports/public-gap-berberis-canna-stillingia-20261020.json'
+          r=json.loads(Path(path).read_text())
+          files=[path]
+          for x in r['installed']:
+            files.extend([x['species_json'],x['physical_file']])
+          subprocess.run(['git','add','--',*files],check=True)
+          PY
+          if git diff --cached --quiet; then
+            echo "Nothing new; do not claim a new installation"
+          else
+            git commit -m "Photos: recover individually licensed Berberis, Canna and Stillingia faces [skip ci]"
+            git -c rebase.autoStash=true pull --rebase origin main
+            git push origin HEAD:main
+          fi
