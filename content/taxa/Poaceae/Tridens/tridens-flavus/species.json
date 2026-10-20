@@ -9,7 +9,7 @@
   "common_name": "Purpletop / redtop tridens",
   "synonyms": [],
   "taxonomic_note": "Current accepted source name retained.",
-  "look_here_first": "Tall tufted perennial whose broad open panicle turns reddish purple, often creating a hazy purple seedhead above the foliage.",
+  "look_here_first": "At the blade/sheath COLLAR, find a very short hairy ligule (fringe often about 0.5 mm), not a conspicuous translucent membrane. Then check the broad, open, often drooping terminal panicle with separate reddish-purple spikelets; colors can fade or be yellowish, so confirm the collar and panicle structure. The panicle branches can feel sticky/oily ('greasegrass').",
   "county_occurrences_target_zone": [
     "Hays"
   ],
@@ -33,7 +33,15 @@
       "spikelets/panicle often reddish purple",
       "ligule a fringe of hairs"
     ],
-    "comparison_training": "By far the tallest and most visibly purple member of this batch. The broad reddish-purple panicle separates it quickly from the narrow white seedhead of T. albescens."
+    "comparison_training": "By far the tallest and most visibly purple member of this batch. The broad reddish-purple panicle separates it quickly from the narrow white seedhead of T. albescens.",
+    "field_sequence": [
+      "1. Look at the base: multiple upright culms from a tufted perennial crown, often about 60–180 cm tall, with overlapping somewhat flattened lower sheaths.",
+      "2. Pull back a leaf blade and inspect its inner collar: ligule is a SHORT FRINGE OF HAIRS, about 0.5 mm; the collar often has additional hairs. No projecting auricles.",
+      "3. Measure a leaf blade where possible: usually 3–10 mm wide, flat and tapering; leaf color or white midrib alone is not proof.",
+      "4. Check a mature head: an airy, pyramid-shaped open panicle with branches often bending/drooping at the tips; spikelets often purple or reddish, occasionally yellow.",
+      "5. With a hand lens, check multi-flowered spikelets (often about 5–10 mm) rather than the tiny one-flowered spikelets of redtop bentgrass. Note sticky/oily mature panicle branches as supporting, not sole, evidence."
+    ],
+    "diagnostic_warning": "Purple color is seasonal and shared by other grasses; inspect the hairy ligule and multi-flowered spikelets before assigning this species."
   },
   "curation_status": {
     "version": "1.0-b111-provisional",
@@ -89,5 +97,75 @@
     "filled_at": "2026-10-06",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
   },
-  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling."
+  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling.",
+  "comparisons": {
+    "field_comparison_matrix": [
+      {
+        "taxon": "Tridens flavus",
+        "head": "Open, often drooping purple or yellowish panicle with 5–10 mm multi-flowered spikelets.",
+        "collar": "Very short hair-fringe ligule (~0.5 mm); often hairy collar.",
+        "crew_rule": "Photograph collar and mature spikelets with scale."
+      },
+      {
+        "taxon": "Sorghum halepense",
+        "head": "Larger, often open sorghum panicle with paired sessile and pedicelled spikelets.",
+        "collar": "Conspicuous 2–6 mm ciliate MEMBRANOUS ligule, not just a tiny hair fringe.",
+        "crew_rule": "Check rhizomes and paired spikelets before calling tall grass Johnsongrass."
+      },
+      {
+        "taxon": "Panicum virgatum",
+        "head": "Open panicle with small spikelets, often green/tan; can be purplish.",
+        "collar": "Different ligule and spikelet structure; not a 5–10 mm multi-flowered Tridens spikelet.",
+        "crew_rule": "Check spikelet construction, not color."
+      },
+      {
+        "taxon": "Eragrostis spectabilis",
+        "head": "Purple cloud-like panicle but typically lower plant with dense, fine branching and much smaller spikelets.",
+        "collar": "Use collar and whole plant scale in addition to panicle shape.",
+        "crew_rule": "Compare height and individual spikelets."
+      },
+      {
+        "taxon": "Agrostis gigantea",
+        "head": "Open redtop panicle but very small ONE-flowered spikelets, unlike purpletop's multi-flowered spikelets.",
+        "collar": "Use magnification to count florets.",
+        "crew_rule": "Do not identify from red seedhead alone."
+      }
+    ],
+    "crew_key": "Hair-fringe ligule + open drooping panicle + multi-flowered spikelets; purple is a clue, not a verdict."
+  },
+  "diagnostic_image_needs": [
+    {
+      "role": "Habit / open panicle",
+      "file": "images/tridens-flavus-provisional-face.jpg",
+      "status": "FILE_PRESENT_VISUAL_ANATOMY_UNVERIFIED"
+    },
+    {
+      "role": "Collar and ~0.5 mm hairy ligule macro",
+      "status": "NEEDS_DIAGNOSTIC_PHOTO"
+    },
+    {
+      "role": "Multi-flowered spikelet with scale",
+      "status": "NEEDS_DIAGNOSTIC_PHOTO"
+    },
+    {
+      "role": "Open purple panicle branchlets",
+      "file": "images/gbif-manual-5938077663-d036cbb75.jpg",
+      "status": "SOURCE_REQUESTED_ROLE_ONLY; PIXELS_NOT_VERIFIED"
+    }
+  ],
+  "field_id_finalization": {
+    "review_date": "2026-10-20",
+    "stage": "PROVISIONAL",
+    "flags": [
+      "NEEDS_DIAGNOSTIC_PHOTO",
+      "annotation_pending"
+    ],
+    "physical_images_verified_by_github_metadata": 2,
+    "photo_review": "Two nonzero GitHub blobs on main (246544 and 350344 bytes), recorded public domain and CC BY. Source image pixels, specific anatomy and browser display not independently verified; retain original image roles and metadata; no arrows.",
+    "scientific_sources": [
+      "https://rangeplants.tamu.edu/plant/purpletop/",
+      "https://extension.illinois.edu/grasses/purpletop",
+      "https://gobotany.nativeplanttrust.org/species/tridens/flavus/"
+    ]
+  }
 }
