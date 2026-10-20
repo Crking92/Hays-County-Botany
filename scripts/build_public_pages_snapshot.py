@@ -2,8 +2,9 @@
 """Create a separately publishable, filtered Hays Botany web snapshot.
 
 This is for the stand-alone NONCOMMERCIAL educational GitHub Pages site.
-Never make the original, private source repository public.  The output is
-dist/ only; originals, canonical JSON and photo metadata are not edited.
+The canonical repository is publicly accessible as of October 20, 2026.
+The rights-filtered output is dist/ only; source JSON/photo files are not edited.
+The website filter cannot conceal any originals already committed to public GitHub.
 No Photo Lab review page or restricted/unsupported photo bytes are shipped.
 
 Image-level rights checks are conservative, not a substitute for the
@@ -203,7 +204,8 @@ def build(root: Path, noncommercial: bool) -> dict:
         assert not (site / private_dir).exists()
     report = {
         "site_type": "stand-alone noncommercial educational GitHub Pages",
-        "source_repo_remains_private": True,
+        "source_repo_remains_private": False,
+        "source_repo_visibility_note": "public as of 2026-10-20; recheck GitHub Settings if changed",
         "photo_lab_excluded": True,
         "noncommercial_assumption": noncommercial,
         "counts": dict(tally),
@@ -224,4 +226,4 @@ if __name__ == "__main__":
     result = build(Path("."), opts.noncommercial)
     print(json.dumps(result["counts"], indent=2))
     print("Held photo records:", result["holds_total"])
-    print("Public preview staged in dist; private source unchanged.")
+    print("Public preview staged in dist; canonical source unchanged (source repository is public).")
