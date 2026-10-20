@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "date": "2026-10-20",
   "species_id": "solanum-elaeagnifolium",
   "title": "Silverleaf nightshade photo-led field ID",
@@ -23,7 +23,10 @@
     "external_sources": [
       "https://commons.wikimedia.org/wiki/File:Solanum_elaeagnifolium_46235528.jpg",
       "https://commons.wikimedia.org/wiki/File:Solanum_elaeagnifolium_12552834.jpg"
-    ]
+    ],
+    "main_species_photos": 5,
+    "main_gallery_arrows": 10,
+    "external_comparison_only_panels": 3
   },
   "comparison": {
     "separated": [
@@ -33,7 +36,22 @@
       "Croton capitatus"
     ],
     "photo_lookalike": "Solanum rostratum (buffalobur), two comparison-only photos",
-    "guardrail": "A purple flower or orange prickle alone does not confirm species; unarmed populations occur; not all S. elaeagnifolium anthers precisely equal."
+    "guardrail": "A purple flower or orange prickle alone does not confirm species; unarmed populations occur; not all S. elaeagnifolium anthers precisely equal.",
+    "photo_lookalikes": [
+      {
+        "taxon": "Solanum dimidiatum",
+        "role": "Mature smooth exposed yellow fruit, visually inspected existing CC0 1.0 species photo",
+        "creator": "Vince Hale",
+        "source": "https://www.gbif.org/occurrence/6131302561",
+        "annotated_arrows": 1
+      },
+      {
+        "taxon": "Solanum rostratum",
+        "role": "Bright yellow flower, one strikingly long curved anther, prickly enlarged calyx",
+        "annotated_panels": 2
+      }
+    ],
+    "guidance": "Yellow mature berry alone cannot identify silverleaf nightshade. S. dimidiatum also has yellow ripe berries. Compare leaf silvery felt vs broad greener lobes, typical fruit size, and spiny enclosing calyx of buffalobur."
   },
   "rights": "Maintain three installed originals + credits; new sources exact-species original Commons CC BY 4.0 with photographer Alex Abair; external hosting, not falsely counted as local image files; lookalike original photos not included in species gallery.",
   "science": "UT Austin Williamson County plus peer-reviewed revision of S. elaeagnifolium group and Texas A&M AgriLife; county-native metrics exclusion and original taxonomy status preserved.",
@@ -45,5 +63,6 @@
   ],
   "requirements": "Build rights-filtered standalone noncommercial educational site; avoid changing other five workers; publish explicitly from this marker.",
   "scientific_source_correction_commit": "27e59c7a3446163e4ba51f532dea5da92e09f56a",
-  "scientific_source_correction": "Original fast-fill note 'equal stamens' is not absolute and old 'C. dimidiatum' genus typo fixed. Silverleaf anther lengths can be somewhat unequal but not like buffalobur giant curved anther."
+  "scientific_source_correction": "Original fast-fill note 'equal stamens' is not absolute and old 'C. dimidiatum' genus typo fixed. Silverleaf anther lengths can be somewhat unequal but not like buffalobur giant curved anther.",
+  "new_comparison_commit": "5d6331a2ea34fa350ecd1efcce0e295537af38a7"
 }
