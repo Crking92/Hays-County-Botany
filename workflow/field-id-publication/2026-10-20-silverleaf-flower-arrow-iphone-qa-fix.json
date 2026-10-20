@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "species_id": "solanum-elaeagnifolium",
+  "issue": "User supplied iPhone screenshot showing huge triangular white SVG arrowheads obscuring a silverleaf nightshade flower's yellow anthers, plus imprecise style/stigma arrow endpoint.",
+  "status": "PHOTO_PIXEL_QA_TARGETED_FIX_PENDING_LIVE_CHECK",
+  "changed_files": [
+    "content/taxa/Solanaceae/Solanum/solanum-elaeagnifolium/species.json",
+    "assets/js/app.js",
+    "index.html",
+    "sw.js"
+  ],
+  "fixes": [
+    {
+      "target": "yellow pollen-bearing anthers on lower violet flower",
+      "before": [
+        48,
+        70
+      ],
+      "after": [
+        42,
+        64.5
+      ],
+      "coordinates": "original image percents"
+    },
+    {
+      "target": "thin projecting pale style with stigma at tip",
+      "before": [
+        46,
+        64
+      ],
+      "after": [
+        48.5,
+        56.5
+      ],
+      "coordinates": "original image percents",
+      "moved_label_to": [
+        61,
+        52
+      ]
+    },
+    {
+      "target": "giant white arrowhead",
+      "before": "SVG 7x7 marker units multiplied by visual coordinate scale and strokeWidth",
+      "after": "SVG compact 1.8x1.8 marker with markerUnits=userSpaceOnUse",
+      "applies_to": [
+        "main photo carousel",
+        "diagnostic photo comparison"
+      ],
+      "reason": "Arrowheads must not cover anthers, style or petals"
+    }
+  ],
+  "credit": "Existing source Alex Abair · CC BY 4.0 unchanged, underlying flower photograph unchanged.",
+  "cache": {
+    "app_js_version": 49,
+    "offline_cache": "hays-botany-v46"
+  },
+  "commits": [
+    "be410361e9c82cd902f534691c429ee354fb66c4",
+    "3cec7c902c1deae66524533cae4d500fbc177e1d",
+    "304401e4389a4e62334d0f72dffd2d25c6717554",
+    "8259f8be5ebe3bc3885d5e2f1723c4193687c96c"
+  ],
+  "remaining": [
+    "Confirm mobile photo arrows now visually smaller and both corrected flower pointers land on the visible anthers and stigma",
+    "Do not mark FINISHED_FIELD_ID_PASS until visual follow-up",
+    "Normal source and photo license preflight must pass"
+  ]
+}
