@@ -54,6 +54,34 @@ jobs:
             --site-dir dist --report "${{ runner.temp }}/pages-photo-budget.json" \
             --warn-mib 750 --stop-mib 920
 
+      - name: Strip EXIF only from staged public WebP copies
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          processed=0
+          for p in Path("dist/content").rglob("*.webp"):
+            with Image.open(p) as im:
+              needs_clean=bool(im.info.get("exif")) or bool(im.getexif())
+              if not needs_clean:
+                continue
+              if getattr(im, "is_animated", False):
+                raise RuntimeError(f"Unsafe animated WebP cannot be silently flattened: {p}")
+              clean=ImageOps.exif_transpose(im)
+              clean.load()
+              if clean.mode not in ("RGB","RGBA"):
+                clean=clean.convert("RGBA" if "A" in clean.getbands() else "RGB")
+              target=p.with_name(p.name+".clean")
+              clean.save(target,format="WEBP",lossless=True,method=6)
+            with Image.open(target) as verified:
+              verified.verify()
+            target.replace(p)
+            processed+=1
+            print("Cleaned staged WebP source metadata:",p)
+          print(f"Staged WebP metadata stripped: {processed}; repository originals untouched.")
+          PY
+
       - name: Reject unsafe embedded EXIF GPS metadata
         shell: bash
         run: |
