@@ -1806,6 +1806,39 @@ function fieldPhotoQuickcheck(sp){
     (key.warning?'<p class="monarda-photo-first-warning">'+esc(key.warning)+'</p>':"")+
     '</section>';
 }
+/* Source-backed matrix rows are a curated species-level field lesson.
+   This makes stored comparisons visible; do not imply uninstalled comparison
+   species have their own verified learner cards or image annotations. */
+function speciesFieldMatrix(sp){
+  const data=sp && sp.comparisons;
+  const rows=data && Array.isArray(data.field_matrix) ? data.field_matrix : [];
+  if(!rows.length) return "";
+  let out='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Real field decisions</div><h2>Which nightshade is it?</h2></div></div>'+
+    '<p class="section-intro">Compare reproductive structures, not just flower or fruit color. Uninstalled look-alikes are research comparisons, not confirmed learner species cards.</p>'+
+    '<div class="diagnostic-visual-grid">';
+  rows.forEach(function(row){
+    if(!row || typeof row!=="object")return;
+    const name=row.taxon||row.scientific_name||"Comparison species";
+    const decision=row.quick_rule||row.field_decision||"";
+    out+='<article class="learning-card"><div class="eyebrow">Species field key</div><h3>'+esc(name)+'</h3><div class="anatomy-teach-steps">';
+    Object.keys(row).forEach(function(k){
+      if(["taxon","scientific_name","quick_rule","field_decision"].includes(k))return;
+      const v=row[k];
+      if(v==null || typeof v!=="string" || !v.trim())return;
+      out+='<div class="anatomy-teach-step"><b>'+esc(titleCase(k.replace(/_/g," ")))+'</b><p>'+esc(v)+'</p></div>';
+    });
+    if(decision)out+='<div class="anatomy-teach-step"><b>How to decide</b><p>'+esc(decision)+'</p></div>';
+    out+='</div></article>';
+  });
+  out+='</div>';
+  const cautions=Array.isArray(data.not_reliable_alone)?data.not_reliable_alone:[];
+  if(cautions.length){
+    out+='<details class="anatomy-next-step"><summary>Traits that are NOT enough alone</summary><ul>';
+    cautions.forEach(function(t){if(typeof t==="string"&&t.trim())out+='<li>'+esc(t)+'</li>';});
+    out+='</ul></details>';
+  }
+  return out+'</section>';
+}
 function plantView(){
   const sp=selectedSpecies(); if(!sp) return homeView();
   const p=familyProfile(sp.family)||{}, c=callout(sp)||{}, terms=termsForSpecies(sp,state.difficulty==="simple"?3:(state.difficulty==="terms"?7:12));
@@ -1832,6 +1865,7 @@ function plantView(){
   out+='</div></section>';
   out=out.slice(0,similarStart)+studyDrawer("3 · Check the look-alikes",similar.length?("Compare "+similar.length+" other plants before confirming your ID."):"No comparison plants curated yet; revisit after photo study.",out.slice(similarStart),"compare");
   if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=studyDrawer("Diagnostic photo comparisons","Use documented photo evidence to check distinguishing structures.",genusVisualComparison(sp),"photo");
+  if(!state.quizMode && sp.comparisons && Array.isArray(sp.comparisons.field_matrix) && sp.comparisons.field_matrix.length) out+=studyDrawer("Detailed species look-alike key","Compare anthers, berry surfaces, mature calyx lobes and fruit stalks to avoid false IDs.",speciesFieldMatrix(sp),"compare");
   if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Study the family & genus","Open full lessons for deeper structural evidence.",taxonomyLessonShortcuts(sp),"photo");
   const vocabStart=out.length;
   if(state.difficulty!=="simple"){
