@@ -1,0 +1,70 @@
+name: Euphorbia Genus Verified Field-ID Release
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-genus-finished-pass-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: manual-euphorbia-genus-finished-pass
+  cancel-in-progress: false
+jobs:
+  validate-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Validate real image paths, rights, annotations and hold semantics
+        run: |
+          python - <<'PY'
+          import json, re
+          from pathlib import Path
+          p=Path("content/taxa/Euphorbiaceae/Euphorbia/genus.json")
+          g=json.loads(p.read_text())
+          v=g["visual_comparison"]
+          photos=v["items"]
+          assert len(photos)==13
+          assert len(g["field_groups"])==4
+          assert len(g["comparison_cards"])==4
+          assert len(v["rights_hold_reference_items"])==13
+          assert len(v["study_only_photo_links"])>=4
+          assert g["curation_status"]["genus_audit"].startswith("CREW_READY")
+          for item in photos:
+            assert re.fullmatch(r"CC BY(?:-SA)?(?:\s+[0-9.]+)?|Public domain",item["license"],flags=re.I), item["license"]
+            path=Path(item["image_url"])
+            assert path.is_file() and path.stat().st_size>15000, path
+            assert item["creator"] and item["source_page"].startswith("https://")
+            for m in item.get("markers",[]):
+              assert len(m["label"])>3
+              assert all(isinstance(m[k], (int,float)) and 0<=m[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+          count=sum(len(x.get("markers",[])) for x in photos)
+          assert count==14
+          assert sum(bool(x.get("markers")) for x in photos)==10
+          assert not any("private-study" in x["image_url"] for x in photos)
+          report=json.loads(Path("reports/euphorbia-genus-field-id-20261020.json").read_text())
+          assert report["verified_arrows"]==count and report["annotated_photos"]==10
+          assert len(report["source_evidence"])==10
+          for item in report["source_evidence"]:
+            assert Path(item["file"]).is_file()
+          assert "rim" in g["comparison_cards"][1]["caution"]
+          assert "seed" in g["comparison_cards"][2]["caution"].lower()
+          print("PASS: 13 copyright-safe reusable image panels, 10 image-verified annotated sources, 14 arrows, 4 science comparisons; 13 restricted/unverified references held from public comparison panel.")
+          PY
+      - name: Request current GitHub Pages public build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo "Euphorbia public learner release requested"
