@@ -83,7 +83,7 @@ function galleryImagesFor(sp){
   return installed.concat(extras.filter(function(img){
     return img && img.gallery_species_id===sp.id &&
       typeof img.file==="string" &&
-      /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//i.test(img.file) &&
+      /^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\//i.test(img.file) &&
       /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(img.source_page||"") &&
       /^CC BY(?:-SA)? [0-9]/i.test(img.license||"") &&
       img.public_reuse==="yes" && !!img.creator && !!img.license_url;
