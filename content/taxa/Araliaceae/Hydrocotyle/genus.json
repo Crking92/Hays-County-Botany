@@ -118,7 +118,8 @@
   "curation_status": {
     "status": "genus_pair_key_filled_taxon_exception_hold",
     "reviewed_on": "2026-10-20",
-    "remaining_photo_gap": "Need fully verified three-way H. umbellata vs verticillata vs bonariensis flowering axes + mature fruit macros"
+    "remaining_photo_gap": "Need fully verified three-way H. umbellata vs verticillata vs bonariensis flowering axes + mature fruit macros",
+    "photo_pair_upgrade": "2026-10-20 (umbellata 6 photos, verticillata 6 photos, taxonomic variety exception retained)"
   },
   "curated_on": "2026-10-20",
   "crew_quick_field_key": [
@@ -144,8 +145,9 @@
     },
     {
       "species_id": "hydrocotyle-verticillata",
-      "anatomy": "Selected photographs of source-labeled whorled spike with small tiers; selected source image is not independent voucher proof of accepted species (var. triradiata issue).",
-      "limitation": "No genuine matched same-scale flowering stalk alongside H. umbellata and H. bonariensis yet; check Kew synonymy HOLD."
+      "anatomy": "Licensed source-identified Texas photo with 2 manually validated whorl arrows (top/middle and lower clusters) and peltate-like leaf top",
+      "limitation": "Shows real tiers, but this iNaturalist research-grade source is not an independent reproductive voucher under Kew's var. triradiata = H. bonariensis disagreement.",
+      "image_index": 2
     }
   ],
   "taxonomy_exception_20261020": {
@@ -157,5 +159,20 @@
       "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1105522-2",
       "https://w3.biosci.utexas.edu/prc/K12/pages/Hydrocotyle%20verticillata%20triradiata.html"
     ]
+  },
+  "crew_photo_comparison_activity": {
+    "title": "Dollarweed or whorled pennywort? Look at the whole inflorescence.",
+    "umbellata": {
+      "species_id": "hydrocotyle-umbellata",
+      "image_index": 1,
+      "look_for": "Crowded many-flowered terminal white umbel held near round peltate leaf, long flower stalk not in full view."
+    },
+    "verticillata": {
+      "species_id": "hydrocotyle-verticillata",
+      "image_index": 2,
+      "look_for": "Separated whorls along flowering/fruiting axis annotated from source-labeled research-grade image."
+    },
+    "critical_warning": "Inflorescence structure is a strong genus-comparison clue, NOT species proof in every plant; modern Kew H. bonariensis synonyms include older H. verticillata var. triradiata. Check full reproductive branching, fruit and voucher when needed.",
+    "crew_prompt": "If you can only see a round leaf, leave it Hydrocotyle sp. Photograph the whole flowering stalk and leaf underside. Does it have one crowded terminal head or multiple separated small whorls?"
   }
 }
