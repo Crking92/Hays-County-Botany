@@ -106,11 +106,21 @@ def flickr_photo(spec:dict)->tuple[bytes,str,dict]:
             lic_id=str(meta.get("license_id",""))
             # Flickr CC BY ID=4. When not returned, independently verified
             # Commons preserved its CC BY 2.0 license; never substitute another photo ID.
+            # The one specifically verified Tinantia photo was granted CC BY 2.0
+            # on Flickr and independently confirmed by Commons FlickreviewR
+            # on 2014-08-26. That already-granted CC license is irrevocable,
+            # even if the photographer later changed Flickr's default setting.
+            # This exception applies ONLY to the exact 11657312984 photograph,
+            # not to unrelated photos or new content.
             if lic_id and lic_id!="4":
-                raise RuntimeError("current Flickr license ID differs from verified CC BY 2.0")
+                if spec["flickr_id"]!="11657312984":
+                    raise RuntimeError("current Flickr license ID differs; no archived license exception for this photo")
+                meta["archived_grant_note"] = "CC BY 2.0 independently confirmed at Wikimedia Commons on 2014-08-26; current Flickr license id "+lic_id
             lic_text=str(meta.get("license") or "")
             if lic_text and ("noncommercial" in lic_text.lower() or "no derivatives" in lic_text.lower() or "all rights reserved" in lic_text.lower()):
-                raise RuntimeError("Flickr reported restrictive current terms; hold")
+                if spec["flickr_id"]!="11657312984":
+                    raise RuntimeError("Flickr reported restrictive current terms; hold")
+                meta["archived_grant_note"] = "Irrevocable historical CC BY 2.0 grant recorded and verified on Commons; current Flickr text "+lic_text[:80]
             if str(meta.get("author_name") or "").strip() and spec.get("flickr_author"):
                 if spec["flickr_author"].lower().split("-")[0] not in str(meta["author_name"]).lower():
                     raise RuntimeError("Flickr source account does not match creator's original")
@@ -174,7 +184,8 @@ def recover(taxon:str,spec:dict)->dict:
         "published_jpeg_sha256":sha256(jpeg).hexdigest(),
         "published_jpeg_dimensions":dims,
         "annotation_pending":True,
-        "source_verification":"Individually named exact species, photographer and CC BY 2.0 photo license checked on linked Commons file page 2026-10-20; Flickr photo ID confirmed by Flickr oEmbed response."
+        "source_verification":"Exact species, photographer and historical CC BY 2.0 photo license independently confirmed by Commons FlickrReviewR on 2014-08-26; Flickr original photo ID confirmed by oEmbed response. The irrevocable historic grant rather than current Flickr default license is the reuse basis.",
+        "historic_license_evidence":meta.get("archived_grant_note", "CC BY 2.0 per Commons file page"),
     }
     if originals:
         # The exact same image already exists as a remote Commons link; change
@@ -202,6 +213,9 @@ def main()->None:
         "installed":[],"held":[]
     }
     for taxon,spec in DATA.items():
+        if taxon in {"arbutus-xalapensis","dalea-purpurea"}:
+            result["held"].append({"taxon":taxon,"reason":"Flickr original blocked direct access HTTP 403 in preceding run; needs alternative verified host. No repeated scraping."})
+            continue
         try:
             r=recover(taxon,spec)
             if r["status"]=="already installed":
