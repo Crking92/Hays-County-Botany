@@ -1,0 +1,99 @@
+name: Recover Exact Eastern Black Nightshade Figure DOI
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-emulans-figure16-doi-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: solanum-emulans-doi-figure16-check
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install requests 'Pillow>=10,<12'
+      - name: Resolve figure-specific scholarly DOI to exact figure media
+        shell: bash
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python - <<'PY'
+          import io,json,re,hashlib
+          from pathlib import Path
+          import requests
+          from PIL import Image,ImageOps
+          s=requests.Session();s.headers["User-Agent"]="HaysBotanyVisualLearner/1.0 (scholarly figure DOI audit)"
+          doi="10.3897/phytokeys.123.31738.figure16"
+          details=[];medias=[];success=None
+          target_urls=[
+            "https://api.datacite.org/dois/"+doi,
+            "https://doi.org/"+doi,
+            "https://zenodo.org/api/records?q="+doi
+          ]
+          for url in target_urls:
+            try:
+              r=s.get(url,timeout=22);details.append({"url":url,"http_status":r.status_code,"resolved_url":r.url,"bytes":len(r.content)})
+              r.raise_for_status()
+              # DOI metadata and redirects MUST point to Figure 16, not another figure.
+              if "api.datacite.org" in url:
+                data=r.json().get("data",{}).get("attributes",{})
+                details.append({"doi_title":data.get("titles"),"doi_link":data.get("url")})
+                if data.get("url"):medias.append(data["url"])
+              else:
+                if re.search(r"zenodo.org/(?:records|record)/\d+",r.url):medias.append(r.url)
+                if url.endswith(doi) and r.headers.get("Content-Type","").startswith("application/json"):
+                  for h in r.json().get("hits",{}).get("hits",[]):medias.append("https://zenodo.org/records/"+str(h["id"]))
+            except Exception as e:details.append({"error_url":url,"error":str(e)[:200]})
+          for u in list(dict.fromkeys(medias)):
+            try:
+              m=re.search(r"/(?:record|records)/(\d+)",u)
+              if not m:continue
+              id=m.group(1)
+              rr=s.get(f"https://zenodo.org/api/records/{id}",timeout=22);rr.raise_for_status()
+              metadata=rr.json().get("metadata",{})
+              text=(metadata.get("title","")+" "+metadata.get("description","")).lower()
+              if "figure 16" not in text or ("solanum emulans" not in text and "31738" not in text):
+                details.append({"record_id":id,"decision":"REJECT: not exact figure16 or source paper"});continue
+              for f in rr.json().get("files",[]):
+                if not f.get("key","").lower().endswith((".jpeg",".jpg",".png",".tif",".tiff")):continue
+                link=(f.get("links") or {}).get("self")
+                if not link:continue
+                raw=s.get(link,timeout=30);raw.raise_for_status()
+                im=Image.open(io.BytesIO(raw.content));im.verify();im=Image.open(io.BytesIO(raw.content))
+                if min(im.size)<450:continue
+                pic=ImageOps.exif_transpose(im).convert("RGB");pic.thumbnail((2200,2500),Image.Resampling.LANCZOS)
+                folder=Path("workflow/photo-library/candidates/solanum-emulans-20261020");folder.mkdir(parents=True,exist_ok=True)
+                out=folder/"figure16-nee-doi-preview.jpg";pic.save(out,"JPEG",quality=88,optimize=True,exif=b"")
+                success={"file":str(out),"record":u,"source_media":link,"dimensions":list(pic.size),"sha256":hashlib.sha256(out.read_bytes()).hexdigest(),"license":"CC BY 4.0","credit":"Michael Nee (photographic panels); Knapp et al. 2019","review":"PROVISIONAL_STAGE_REQUIRES_PIXEL_CONFIRMATION"}
+                break
+              if success:break
+            except Exception as e:details.append({"metadata_media_url":u,"error":str(e)[:200]})
+          report={"species":"Solanum emulans","figure_doi":doi,"status":"STAGED_DOI_FIGURE_FOR_VISUAL_REVIEW" if success else "DOI_FIGURE_NOT_RETRIEVED","candidate":success,"lookup_trail":details,"canonical_species_modified":False}
+          fp=Path("reports/solanum-emulans-figure16-doi-20261020.json")
+          fp.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
+          print("DOI RESULT",report["status"],success and success["dimensions"],"logs",details)
+          PY
+      - name: Commit source audit and any exact match only
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/solanum-emulans-figure16-doi-20261020.json
+          if test -s workflow/photo-library/candidates/solanum-emulans-20261020/figure16-nee-doi-preview.jpg;then
+            git add workflow/photo-library/candidates/solanum-emulans-20261020/figure16-nee-doi-preview.jpg
+          fi
+          git diff --cached --quiet && exit 0
+          git commit -m "Check exact S emulans Figure 16 persistent DOI and media [skip ci]"
+          for i in 1 2 3 4 5;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            git rebase --abort || true;sleep 3
+          done
+          exit 1
