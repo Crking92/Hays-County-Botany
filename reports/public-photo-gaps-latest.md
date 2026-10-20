@@ -1,11 +1,11 @@
 # Public learner photo gaps — source eligibility scan
 
-Generated (UTC): 2026-10-20T16:34:12.956991+00:00
+Generated (UTC): 2026-10-20T16:48:00.155722+00:00
 
 - Canonical species: **1186**
-- Public-photo-free species: **25**
+- Public-photo-free species: **23**
 - Physically photo-free species: **2**
-- Recorded site-eligible photographs: **2299**
+- Recorded site-eligible photographs: **2301**
 
 This is a source-record/physical-byte audit using the current noncommercial Pages policy, NOT proof that a photo's upstream license or botanical ID is correct. No source content was changed.
 
@@ -31,8 +31,6 @@ This is a source-record/physical-byte audit using the current noncommercial Page
 | *asclepias-viridis* | `PUBLIC_LICENSE_OR_METADATA_HOLD` | 5 | missing verified individual photo source |
 | *Arbutus xalapensis* | `MIXED_FILE_AND_RIGHTS_HOLD` | 2 | external URL is not a verified local photograph; unknown/private/all-rights-reserved license |
 | *Dalea purpurea* | `MIXED_FILE_AND_RIGHTS_HOLD` | 2 | external URL is not a verified local photograph; unknown/private/all-rights-reserved license |
-| *Ludwigia octovalvis* | `MIXED_FILE_AND_RIGHTS_HOLD` | 2 | external URL is not a verified local photograph; unknown/private/all-rights-reserved license |
-| *Symphyotrichum ericoides* | `MIXED_FILE_AND_RIGHTS_HOLD` | 1 | external URL is not a verified local photograph; unknown/private/all-rights-reserved license |
 | *Tinantia anomala* | `MIXED_FILE_AND_RIGHTS_HOLD` | 2 | explicit private-use / no-public-reuse restriction; external URL is not a verified local photograph |
 | *Cuscuta obtusiflora* | `NO_IMAGE_RECORD` | 0 | No image records |
 | *Muhlenbergia piniflora* | `NO_IMAGE_RECORD` | 0 | No image records |
