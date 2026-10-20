@@ -37,7 +37,8 @@ with ledger.open(newline="") as f:
 for row in rows:
  if row.get("file_name")=="alex-258349465-flower-face-arrows.jpg":
   row["role"]=source["role"]
-  row["modifications"]="Resized JPEG, EXIF removed; anatomy arrow corrected to a creamy corolla lobe after full-scale inspection"
+  if "modifications" in headers:
+   row["modifications"]="Resized JPEG, EXIF removed; anatomy arrow corrected to a creamy corolla lobe after full-scale inspection"
 with ledger.open("w",newline="") as f:
  writer=csv.DictWriter(f,fieldnames=headers,lineterminator="\n")
  writer.writeheader();writer.writerows(rows)
