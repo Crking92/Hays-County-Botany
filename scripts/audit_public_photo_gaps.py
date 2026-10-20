@@ -6,6 +6,7 @@ Does NOT relicense, copy, edit or install source photographs or publish the webs
 This is an eligibility PRE-SCREEN based on recorded rights, not external license proof.
 Refresh after verified 2026-10-20 CC BY recovery of Ludwigia and Symphyotrichum.
 Refresh after verified 2026-10-20 Tinantia noncommercial CC BY-NC and new Arbutus/Dalea exact-source CC BY first photos.
+Refresh after individually licensed CC BY first public images installed for Asclepias texana, Asclepias viridis, and Senna roemeriana; retain existing science and private-research images untouched.
 """
 from __future__ import annotations
 
