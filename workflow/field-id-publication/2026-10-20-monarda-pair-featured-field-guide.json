@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "species_ids": [
+    "monarda-citriodora",
+    "monarda-punctata"
+  ],
+  "purpose": "User requests real completed photo-first field ID and actual on-page annotated structures, not more drafts. Show priority labeled real photographs immediately, make Monarda genus paired bract/calyx view explicit; refresh site offline caching.",
+  "status": "PASS_IN_PROGRESS_PUBLISHED_VISUAL_FIELD_GUIDE_PENDING_LIVE_PIXEL_QA",
+  "changed": [
+    "assets/js/app.js",
+    "assets/css/styles.css",
+    "content/taxa/Lamiaceae/Monarda/genus.json",
+    "content/taxa/Lamiaceae/Monarda/monarda-citriodora/species.json",
+    "content/taxa/Lamiaceae/Monarda/monarda-punctata/species.json",
+    "index.html",
+    "sw.js"
+  ],
+  "source_commits": [
+    "6efa7fa47593baf0982577e2bfedad356176863b",
+    "955dd2ebe41826cf46720da22e6c4c4c916ff7cf",
+    "d8cb9ec1a60e83597a32c2e406cdb5d29225dd4a",
+    "911368964d945db27793905fc5e8d75f9ebee798",
+    "30f21890eccba31d4bb6779dc4dc944d82ecbfca",
+    "78d7f2b8e6a2895813d7ec3b2d36822b93ce64c3",
+    "bcbfecb48b15c23b9aba888db0461dd6b7a45f65",
+    "d5f9756b7d5f10024142126eb0dd60de55a8ec83"
+  ],
+  "field_featured": {
+    "citriodora": {
+      "photo_panels": 2,
+      "arrow_targets": 4
+    },
+    "punctata": {
+      "photo_panels": 3,
+      "arrow_targets": 5
+    },
+    "genus": {
+      "paired_photos": 4,
+      "reused_marker_targets": 6
+    }
+  },
+  "scientific_sources": [
+    "https://fwbg.org/wp-content/uploads/2025/04/FNCT_0618-1076-Fab-Zygo.pdf",
+    "https://w3.biosci.utexas.edu/prc/K12/pdf/Monarda%20punctata%20intermedia",
+    "https://w3.biosci.utexas.edu/prc/K12/pdf/Monarda%20citriodora%20citriodora"
+  ],
+  "mobile_change": "For Monarda pair, immediately visible annotated photo guide before general part gallery; diagnostic arrow stages reposition on <details> open; app.js v47 and PWA hays-botany-v44",
+  "cautions": [
+    "No full-browser mobile screenshot/image geometry QA yet; do not mark FINISHED_FIELD_ID_PASS",
+    "Calyx teeth lengths vary in M. punctata infraspecific taxa; do not infer a strict species split from a single character",
+    "Monarda stanfieldii calyx plug referenced only via botanist post; third-party photo not embedded without image rights",
+    "External Wikimedia Commons photos remain externally hosted; public website requires internet for these macro views"
+  ],
+  "remaining": [
+    "Mobile/desktop rendered image and arrow tip cross-check",
+    "Direct matched same-scale calyx teeth macro if feasible",
+    "Image-level reuse permission for M. stanfieldii plug view if illustrated on site"
+  ]
+}
