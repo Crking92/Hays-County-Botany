@@ -66,6 +66,9 @@ jobs:
       - name: Withhold noncommercial spotted spurge image from public staged site
         run: python scripts/stage_public_euphorbia_maculata_20261020.py --site-dir dist
 
+      - name: Withhold E villifera restricted and rights-unverified source images
+        run: python scripts/stage_public_euphorbia_villifera_20261020.py --site-dir dist
+
       - name: Shrink only staged website JPEGs and enforce size budget
         run: |
           python scripts/optimize_public_site_photos.py \
