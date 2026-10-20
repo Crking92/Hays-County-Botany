@@ -1077,6 +1077,71 @@ function genusView(){
   out+='</div>';
   return out;
 }
+/* Main swipe carousel uses the SAME vetted original-image marker coordinates
+   as the species diagnostic lesson. Do not assign the markers to look-alike
+   photos or guess at photo coordinate scaling. */
+function galleryMarkersFor(sp,img){
+  const panels=sp && sp.visual_comparison && sp.visual_comparison.items;
+  if(!Array.isArray(panels)||!img)return [];
+  const src=imagePath(sp,img);
+  const source=String(img.source_page||"").trim();
+  const match=panels.find(function(p){
+    if(!p || p.scientific_name!==scientificName(sp) || !Array.isArray(p.markers) || !p.markers.length) return false;
+    if(source && String(p.source_page||"").trim()===source)return true;
+    const a=String(p.image_url||"").split("?")[0].replace(/%2C/gi,",");
+    const b=String(src||"").split("?")[0].replace(/%2C/gi,",");
+    return a===b;
+  });
+  if(!match)return [];
+  return match.markers.filter(function(m){
+    return m && typeof m.label==="string" && m.label.trim() &&
+      ["label_x","label_y","target_x","target_y"].every(function(k){
+        return Number.isFinite(Number(m[k])) && Number(m[k])>=0 && Number(m[k])<=100;
+      });
+  });
+}
+function galleryArrowOverlay(sp,markers){
+  if(!markers.length)return "";
+  const arrowId="swipeArrow"+String(sp.id||"plant").replace(/[^a-z0-9]/gi,"");
+  let html='<div class="gallery-arrow-stage" data-gallery-arrow-stage hidden>'+
+    '<svg class="gallery-arrow-layer" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">'+
+    '<defs><marker id="'+arrowId+'" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">'+
+    '<path d="M0,0 L7,3.5 L0,7 z"></path></marker></defs>';
+  markers.forEach(function(m){
+    html+='<line x1="'+Number(m.label_x)+'" y1="'+Number(m.label_y)+
+      '" x2="'+Number(m.target_x)+'" y2="'+Number(m.target_y)+
+      '" marker-end="url(#'+arrowId+')"></line>';
+  });
+  html+='</svg>';
+  markers.forEach(function(m){
+    html+='<span class="gallery-arrow-label" style="left:'+Number(m.label_x)+
+      '%;top:'+Number(m.label_y)+'%">'+esc(m.label)+'</span>';
+  });
+  return html+'</div>';
+}
+/* Photo element uses object-fit: contain. Place the arrow stage exactly on
+   the rendered image rectangle, NOT on the letterboxed button background. */
+function positionGalleryArrowStages(){
+  document.querySelectorAll(".focus-photo-image [data-gallery-arrow-stage]").forEach(function(stage){
+    const button=stage.parentElement,photo=button&&button.querySelector("img[data-gallery-image]");
+    if(!photo||!photo.naturalWidth||!photo.naturalHeight||!photo.clientWidth||!photo.clientHeight){
+      stage.hidden=true;return;
+    }
+    const scale=Math.min(photo.clientWidth/photo.naturalWidth,photo.clientHeight/photo.naturalHeight);
+    const width=photo.naturalWidth*scale,height=photo.naturalHeight*scale;
+    stage.style.left=((photo.clientWidth-width)/2)+"px";
+    stage.style.top=(photo.offsetTop+(photo.clientHeight-height)/2)+"px";
+    stage.style.width=width+"px";stage.style.height=height+"px";
+    stage.hidden=false;
+  });
+}
+document.addEventListener("load",function(e){
+  if(e.target && e.target.matches && e.target.matches("img[data-gallery-image]")){
+    window.requestAnimationFrame(positionGalleryArrowStages);
+  }
+},true);
+window.addEventListener("resize",positionGalleryArrowStages,{passive:true});
+
 function photoCarousel(sp){
   const imgs=galleryImagesFor(sp);
   if(!imgs.length) return '<div class="focus-photo-empty">No curated photo installed yet.</div>';
@@ -1091,14 +1156,16 @@ function photoCarousel(sp){
   const diagnostic=galleryPhotoScore(img)>=53;
   const check=diagnostic?anatomyFieldCue(sp,role):"";
   const sourceKind=img.external_reference?"Externally hosted licensed photo (not downloaded)":"Installed learner photo";
+  const markers=galleryMarkersFor(sp,img);
   let out='<div class="species-gallery">'+
     '<div class="gallery-study-intro"><b>'+(diagnostic?"Diagnostic study view":"Plant overview / reference")+'</b>'+
     '<span>'+(diagnostic?"Inspect the named structures, then confirm against another view.":"Swipe or tap a thumbnail to inspect another plant structure.")+'</span></div>'+
-    '<figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'"></button>'+
+    '<figure class="focus-photo"><button class="focus-photo-image" type="button" data-photo-step="1" aria-label="Next photo"><img data-gallery-image src="'+imagePath(sp,img)+'" alt="'+esc(scientificName(sp))+' — '+esc(role)+'">'+galleryArrowOverlay(sp,markers)+'</button>'+
     '<div class="photo-topline"><span>'+esc(role)+'</span><b>'+(position+1)+' / '+imgs.length+'</b></div>';
   if(imgs.length>1) out+='<button class="photo-arrow prev" type="button" data-photo-step="-1" aria-label="Previous photo">‹</button><button class="photo-arrow next" type="button" data-photo-step="1" aria-label="Next photo">›</button>';
   out+='<figcaption class="gallery-photo-caption">'+
-    (check?'<strong>Look for:</strong> '+esc(check)+'<small>Based on this species’ written morphological record; the photo has no new verified arrow.</small>':"")+
+    (markers.length?'<strong>↗ '+markers.length+' anatomy arrow'+(markers.length===1?"":"s")+' on this photograph</strong>':'')+
+    (check?'<strong>Look for:</strong> '+esc(check)+(markers.length?'<small>Compare this field clue with the marked structures.</small>':'<small>Based on the species record; this particular photograph has no anatomy arrows.</small>'):"")+
     '<span>'+esc(sourceKind)+(vetted?" · Study role reviewed":"")+'</span>'+
     '<span>'+esc(credit||"Source metadata retained in species record")+'</span>'+
     (img.source_page?'<a href="'+esc(img.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':"")+ (img.license_url?'<a href="'+esc(img.license_url)+'" target="_blank" rel="noopener noreferrer">Image license ↗</a>':"")+
@@ -1107,8 +1174,9 @@ function photoCarousel(sp){
     out+='<div class="photo-filmstrip" role="group" aria-label="Choose a plant photo">';
     order.forEach(function(actualIndex,rank){
       const photo=imgs[actualIndex],label=photo.role||photo.view||("Photo "+(rank+1));
-      out+='<button type="button" class="photo-thumbnail'+(actualIndex===idx?' active':'')+'" data-photo-index="'+actualIndex+'" aria-pressed="'+String(actualIndex===idx)+'" aria-label="Show photo '+(rank+1)+' of '+imgs.length+': '+esc(label)+'">'+
-        '<img src="'+imagePath(sp,photo)+'" alt="" loading="lazy"><span>'+esc(label)+'</span></button>';
+      const note=galleryMarkersFor(sp,photo).length?"↗ Annotated · ":"";
+      out+='<button type="button" class="photo-thumbnail'+(actualIndex===idx?' active':'')+'" data-photo-index="'+actualIndex+'" aria-pressed="'+String(actualIndex===idx)+'" aria-label="Show photo '+(rank+1)+' of '+imgs.length+': '+esc(note+label)+'">'+
+        '<img src="'+imagePath(sp,photo)+'" alt="" loading="lazy"><span>'+esc(note+label)+'</span></button>';
     });
     out+='</div>';
   }
@@ -1958,7 +2026,7 @@ function render(){
   if(state.view==="home") els.app.innerHTML=homeView();
   else if(state.view==="family") els.app.innerHTML=familyView();
   else if(state.view==="genus") els.app.innerHTML=genusView();
-  else if(state.view==="plant") els.app.innerHTML=plantView();
+  else if(state.view==="plant"){ els.app.innerHTML=plantView(); window.requestAnimationFrame(positionGalleryArrowStages); }
   else if(state.view==="compare") els.app.innerHTML=compareView();
   else if(state.view==="browse") els.app.innerHTML=browseView();
   else if(state.view==="glossary") els.app.innerHTML=glossaryView();
