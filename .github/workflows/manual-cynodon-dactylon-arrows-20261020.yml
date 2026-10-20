@@ -1,0 +1,58 @@
+name: Add Bermudagrass Collar and Seedhead Arrows
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-cynodon-dactylon-arrows-20261020.yml"
+      - "scripts/manual_cynodon_dactylon_annotate_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-cynodon-dactylon-three-anatomy-arrows
+  cancel-in-progress: false
+jobs:
+  annotate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check requests Pillow
+      - run: python scripts/manual_cynodon_dactylon_annotate_20261020.py
+      - name: Check public photo rights, eight bytes and conservation status
+        run: |
+          python - <<'PY'
+          import json
+          from PIL import Image
+          from pathlib import Path
+          base=Path('content/taxa/Poaceae/Cynodon/cynodon-dactylon')
+          c=json.loads((base/'species.json').read_text())
+          assert len(c['images'])==8
+          assert c['project_inclusion']['target_zone_status']=='INTRODUCED_NOT_NATIVE'
+          annotated=[x for x in c['images'] if x.get('manual_arrow_review')=='2026-10-20-source-original-labeled']
+          assert len(annotated)==3
+          for x in c['images']:
+            f=base/x['file']
+            assert f.stat().st_size>18000
+            assert x['source_page'] and x['creator'] and x['license'] in ('CC BY','CC BY-SA','CC0')
+            with Image.open(f) as im:im.verify()
+          print('8 real licensed photos, 3 accurate-source anatomy arrows, species nonnative')
+          PY
+      - name: Commit canonical Cynodon photos only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Cynodon/cynodon-dactylon/
+          if git diff --cached --quiet;then exit 0;fi
+          git commit -m "Label bermudagrass collar hairs, grass spikelets and terminal fingers using licensed originals [skip ci]"
+          for i in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 3
+          done
+          exit 1
