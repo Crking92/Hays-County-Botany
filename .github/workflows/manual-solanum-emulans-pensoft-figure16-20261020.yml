@@ -1,0 +1,103 @@
+name: Extract Pensoft Solanum emulans Figure 16 Image
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-emulans-pensoft-figure16-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: solanum-emulans-pensoft-figure16
+  cancel-in-progress: false
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install requests beautifulsoup4 'Pillow>=10,<12'
+      - name: Inspect exact figure DOI page and retrieve high-resolution picture
+        shell: bash
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python - <<'PY'
+          import requests,io,os,re,json,hashlib,urllib.parse
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          from PIL import Image,ImageOps
+          s=requests.Session();s.headers.update({"User-Agent":"Mozilla/5.0 (compatible; HaysBotanyID/1.0)", "Accept":"text/html,image/webp,image/jpeg,image/png,*/*;q=0.9"})
+          page="https://phytokeys.pensoft.net/article/31738/element/2/116/"
+          r=s.get(page,timeout=28);r.raise_for_status()
+          soup=BeautifulSoup(r.text,"html.parser")
+          meta=[];links=[]
+          for el in soup.find_all(["meta","img","a","source","link"]):
+            attrs=el.attrs
+            for key in ("content","src","href","data-src","data-large","data-original","data-full","data-hires","srcset"):
+              val=attrs.get(key)
+              if not isinstance(val,str) or not val.startswith(("http","/","//")):continue
+              absolute=urllib.parse.urljoin(page,val.split(" ")[0])
+              if re.search(r"\.(?:jpe?g|png|webp|tif)(?:\?|$)|/image|/fig/|/zoom/|/element/2/",absolute,re.I):
+                attrs_desc=" ".join(str(attrs.get(x,"")) for x in ("alt","title","itemprop","property"))
+                links.append({"url":absolute,"tag":el.name,"attribute":key,"description":attrs_desc[:180]})
+          for el in soup.find_all(["meta"]):
+            if el.get("property","").startswith(("og:","twitter:")):meta.append({k:str(v)[:200] for k,v in el.attrs.items()})
+          unique={}
+          for link in links:unique.setdefault(link["url"],link)
+          def rank(link):
+            u=link["url"].lower(); desc=link["description"].lower()
+            return (int("figure 16" in desc or "solanum emulans" in desc)*100+
+                    int("116" in u)*50+int("fig" in u)*15+int("article" in u)*10+
+                    int(link["attribute"]=="data-original")*25+
+                    int(link["tag"]=="img")*10)
+          ordered=sorted(unique.values(),key=rank,reverse=True)
+          results=[];stored=[]
+          for entry in ordered[:35]:
+            url=entry["url"]
+            try:
+              rr=s.get(url,timeout=12)
+              if not rr.ok or len(rr.content)<25000 or len(rr.content)>17_000_000:continue
+              pic=Image.open(io.BytesIO(rr.content));pic.verify()
+              pic=Image.open(io.BytesIO(rr.content))
+              if min(pic.size)<400:continue
+              im=ImageOps.exif_transpose(pic).convert("RGB")
+              results.append({**entry,"dimensions":list(im.size),"bytes":len(rr.content)})
+              if len(stored)<3 and ("fig" in url.lower() or "116" in url or len(stored)==0):
+                im.thumbnail((2400,2500),Image.Resampling.LANCZOS)
+                dest=Path("workflow/photo-library/candidates/solanum-emulans-20261020/pensoft-figure16-"+str(len(stored)+1)+".jpg")
+                dest.parent.mkdir(parents=True,exist_ok=True)
+                im.save(dest,"JPEG",quality=89,optimize=True,exif=b"")
+                stored.append({"file":str(dest),"url":url,"image_dimensions":list(im.size),"sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),
+                  "status":"IMAGE_CANDIDATE_REQUIRES_BOTANICAL_VISUAL_REVIEW","source_figure":"Solanum emulans Figure 16 by Michael Nee, article doi:10.3897/phytokeys.123.31738","license":"CC BY 4.0"})
+            except Exception as e:continue
+          report={"species":"Solanum emulans","doi_resolved_figure_page":page,
+             "status":"IMAGE_CANDIDATES_STAGED" if stored else "PENSOFT_IMAGE_EXTRACTION_HOLD",
+             "page_title":soup.title.get_text(" ",strip=True) if soup.title else "",
+             "page_mentions_figure16":bool(re.search(r"figure\s*16",soup.get_text(" "),re.I)),
+             "page_mentions_sol_emulans":"Solanum emulans" in soup.get_text(" "),
+             "all_candidate_urls":ordered[:70],"verified_image_results":results,"staged_image_paths":stored,"og_metadata":meta,
+             "original_rights":"Figure 16 from Knapp et al. 2019, PhytoKeys 123 CC BY 4.0, photos Michael Nee.",
+             "canonical_species_not_modified":True}
+          out=Path("reports/solanum-emulans-pensoft-figure16-review-20261020.json")
+          out.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
+          print("RESULT",report["status"],"page",report["page_title"],"verified",results[:4],"stored",stored)
+          PY
+      - name: Commit verified candidates, not canonical gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/solanum-emulans-pensoft-figure16-review-20261020.json
+          for f in workflow/photo-library/candidates/solanum-emulans-20261020/pensoft-figure16-*.jpg;do
+            test -f "$f" && git add "$f" || true
+          done
+          git diff --cached --quiet && exit 0
+          git commit -m "Review exact Michael Nee S emulans figure 16 Pensoft image candidates [skip ci]"
+          for k in 1 2 3 4 5;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            git rebase --abort || true;sleep 4
+          done
+          exit 1
