@@ -5,6 +5,8 @@ Photo-level source/copyright was independently checked on current iNaturalist
 photo pages and Wikimedia Commons on 2026-10-20. Use existing canonical photo
 records, no license changes or taxonomy updates, and save actual EXIF-free JPEGs.
 Commons returned 429 for the identical images; fetch iNaturalist's actual source.
+This rerun uses the corrected GitHub commit step; the prior Action downloaded both
+images but mistakenly staged the older Commons report rather than these galleries.
 """
 from __future__ import annotations
 
