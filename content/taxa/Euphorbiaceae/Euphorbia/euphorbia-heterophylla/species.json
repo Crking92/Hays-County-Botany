@@ -124,7 +124,7 @@
   },
   "learner_role": "COMPARISON",
   "curation_status": {
-    "version": "2.1-high-res-gland-rim-verified",
+    "version": "2.2-gland-pair-verified-pink-photo-review",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
@@ -135,16 +135,17 @@
     "last_reviewed": "2026-10-20",
     "photo_metadata_count": 4,
     "photo_files_present": 4,
-    "finished_field_id_pass": "PASS_IN_PROGRESS",
+    "finished_field_id_pass": "CREW_READY_GLAND_VERIFIED_WITH_TAXON_PHOTO_HOLD",
     "field_id_text_reviewed": true,
     "annotated_real_photo_count": 3,
     "verified_arrow_count": 7,
     "required_to_finish": [
-      "Matched E. cyathophora verified oblong rimless gland photo and compare at similar scale",
-      "Keep pink-bracted Psumuseum image off public site pending taxon confirmation",
-      "Optional true mature seed caruncle/keeled cross section photo"
+      "Resolve the identity of old pink-bracted Commons image from Psumuseum",
+      "Optional mature seed and caruncle macro",
+      "Optional local Hays area specimen confirming presence; preserve COMPARISON range label"
     ],
-    "saplants_verified_photo_added": "2026-10-20"
+    "saplants_verified_photo_added": "2026-10-20",
+    "comparison_photos": 1
   },
   "photo_note": "Detailed visual-ID pass: three physical exact-species images selected to cover habit, cyathia, and fruit. A tighter annular-rim gland macro remains the main visual gap. 2026-10-20: Psumuseum 02 image's vivid pink bracts raise exact species ID question; excluded from diagnostic lesson and flagged for replacement in public staging.",
   "images": [
@@ -264,7 +265,7 @@
     "mode": "field_photo_first_source_pixel_anatomy",
     "image_count": 4,
     "filled_at": "2026-10-07",
-    "note": "Current high-res SAplants photo proves yellow-green annular-rimmed round gland opening, not just showing bract color. Source photo pixel-verified and credited. Taxon-ID held source not used as training panel.",
+    "note": "Three high-quality illustrated heterophylla structure photos include actual circular annular gland rim; companion cyathophora source photo demonstrates contrasting oblong rimless gland. Existing photo ID hold remains; type and nativity COMPARISON preserved.",
     "annotated_photo_count": 3,
     "verified_arrow_count": 7
   },
@@ -304,8 +305,8 @@
   },
   "visual_comparison": {
     "instance_id": "euphorbia-heterophylla-20261020-verified",
-    "title": "Euphorbia heterophylla — photo-first ID against its closest look-alike",
-    "subtitle": "REAL micro-anatomy now verified: circular gland opening with raised ANNULAR RIM in a licensed 1750 px photo, supported by green-bract and fruit photos. Cyathophora's oval/rimless comparison still requires equal-scale verification.",
+    "title": "Painted spurge — CIRCULAR raised-rim gland vs wild poinsettia's oblong gland",
+    "subtitle": "Exact source photos show TRUE round openings with raised annular rims (heterophylla) next to oblong rimless glands of E. cyathophora. Both are source-licensed, independently arrow-reviewed.",
     "items": [
       {
         "label": "Identify GREEN upper bracts and reproductive cluster",
@@ -397,40 +398,70 @@
             "target_y": 32
           }
         ]
+      },
+      {
+        "label": "Compare wild poinsettia's OBLONG rimless gland",
+        "scientific_name": "Euphorbia cyathophora",
+        "image_role": "True visual comparison species: two flattened oblong nectar gland mouths and scarlet red modified floral bracts",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-cyathophora/images/04-saplants-cyathophora-gland-macro.jpg",
+        "creator": "SAplants",
+        "license": "CC BY-SA 4.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_heterophylla_var._cyathophora_1DS-II_2-6098.jpg",
+        "image_fit": "contain",
+        "caption": "This image is the OTHER species, accepted E. cyathophora (historical name E. heterophylla var. cyathophora). Its yellow-green gland opening is flattened into an OBLONG slot without the circular raised ring of E. heterophylla. Look at the structure, not red petals; those scarlet parts are bracts.",
+        "why_it_matters": "We have both authenticated gland shapes from closely comparable, openly licensed macro photographs.",
+        "markers": [
+          {
+            "label": "Oblong gland without raised circular rim",
+            "label_x": 4,
+            "label_y": 45,
+            "target_x": 33.7,
+            "target_y": 50.5
+          },
+          {
+            "label": "Separate three-lobed capsule",
+            "label_x": 65,
+            "label_y": 75,
+            "target_x": 48.8,
+            "target_y": 42.8
+          }
+        ]
       }
     ],
-    "overlay_note": "Source-labelled SAplants historical variety heterophylla, CC BY-SA 4.0. Two real yellow-green gland mouths and raised rings arrow-reviewed on the saved high-resolution original, with a developing capsule labeled separately. Previous pink-bracted Psumuseum photograph remains on taxon identity hold and outside this comparison."
+    "overlay_note": "Actual heterophylla var. heterophylla and historical var. cyathophora photographs © SAplants, CC BY-SA 4.0. Kew POWO confirms var. cyathophora is synonymous with accepted E. cyathophora. Existing Psumuseum pink-bracted heterophylla file remains on taxon-ID hold, outside this training panel."
   },
   "field_photo_quickcheck": {
     "heading": "Painted spurge: GREEN bracts support, the round gland confirms",
     "featured_photo_indices": [
       1,
-      0,
-      2
+      3,
+      0
     ],
     "steps": [
-      "Recognize the upper mostly-green bracts, but treat color as supporting evidence only.",
-      "ZOOM the new SAplants macro: the round yellow-green cyathial gland opening is a small structure separate from the much larger three-lobed capsule.",
-      "Find the raised annular ring around that gland. This is the characteristic FNA uses to distinguish heterophylla.",
-      "Compare with cyathophora, whose gland opening is oblong with no annular rim. If the gland is not in view, keep the pair unresolved."
+      "Observe usually GREEN or paler-green upper bracts, but don't force an ID from leaf color.",
+      "Look at the new high-resolution heterophylla photo: its one yellow-green gland has a CIRCULAR mouth with a raised annular rim.",
+      "Compare to the cyathophora photo: its yellow-green gland is a FLATTENED OBLONG trough without a raised circular rim.",
+      "Three-lobed green fruits are capsules on BOTH species; they are not gland openings."
     ],
-    "field_rule": "Best species confirmation: ROUND gland opening + clearly raised ANNULAR RIM in the saved high-resolution anatomy photo, backed by usual green bracts. Not a yellow seed, not a big green capsule.",
-    "warning": "The ring has now been demonstrated in one heterophylla source photograph. The older pink-bracted image still requires taxon-level reidentification and should not be used as heterophylla evidence. Similar-looking color alone is unreliable."
+    "field_rule": "Round cyathial gland opening with raised annular rim supports E. heterophylla; oblong rimless gland supports E. cyathophora. The photo pair now actually illustrates BOTH forms.",
+    "warning": "Older pink-bracted Psumuseum photo has an ID conflict and is withheld from the diagnostic lesson/public staged gallery pending verification. Local Hays-area voucher photos are still welcome."
   },
   "field_id_finalization": {
     "review_date": "2026-10-20",
     "stage": "PASS_IN_PROGRESS",
     "text_review": "FNA cyathophora/heterophylla section Poinsettia key verified",
-    "photo_review": "2026-10-20: image-level inspection of two existing exact-species photos + one newly installed high-resolution SAplants CC BY-SA 4.0 macro. Anatomical circular gland mouth and raised rim are genuinely visible in this 1750x1167 macro, and three-lobed fruit separately verified. Seven arrows total on three exact species photos. Older Psumuseum salmon-bracted photograph is held due conflicting species clue.",
+    "photo_review": "2026-10-20 three exact heterophylla source panels including SAplants high-resolution true circular annular-rimmed gland; two original green-bract/fruit photos. Fourth panel is true cyathophora synonym-authenticated macro, visibly oblong rimless opening. Nine total source-pixel-checked annotations across 4 panels. Older Psumuseum image remains withheld pending ID due colored red bases.",
     "anatomy_arrows": 7,
     "annotated_real_photos": 3,
-    "crew_status": "READY_FOR_CREW_GLAND_CONFIRMATION; MATCHED_CYATHOPHORA_ANNULAR_RIM_COMPARISON_AND_SEED_MACRO_PENDING",
+    "crew_status": "CREW_READY_MICROGLAND_PHOTO_CLOSED; TAXON_PHOTO_HOLD_AND_LOCAL_PROVENANCE_PENDING",
     "taxon_photo_exception": "02-cyathia-closeup.jpg is tagged heterophylla on Wikimedia Commons but has salmon/red basal bracts; identity needs independent voucher-style verification before it teaches heterophylla.",
     "remaining_photo_gaps": [
-      "Paired E. cyathophora gland under identical magnification",
-      "Seed angular/caruncle macro with reference scale",
-      "Independent taxon-ID review of older pink-bracted Psumuseum image"
-    ]
+      "Independent identification of old bright salmon pink-bracted Psumuseum image before enabling it",
+      "Optional Hays County heterophylla gland photograph for introduced local occurrence",
+      "Optional mature seed caruncle and dorsal keel macro"
+    ],
+    "other_taxon_comparison_photos": 1,
+    "comparison_arrow_count": 2
   },
   "diagnostic_photo_requirements": [
     {
