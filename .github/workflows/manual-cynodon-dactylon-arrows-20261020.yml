@@ -35,7 +35,7 @@ jobs:
           c=json.loads((base/'species.json').read_text())
           assert len(c['images'])==8
           assert c['project_inclusion']['target_zone_status']=='INTRODUCED_NOT_NATIVE'
-          annotated=[x for x in c['images'] if x.get('manual_arrow_review')=='2026-10-20-source-original-labeled']
+          annotated=[x for x in c['images'] if x.get('manual_arrow_review')=='2026-10-20-pixel-corrected']
           assert len(annotated)==3
           for x in c['images']:
             f=base/x['file']
