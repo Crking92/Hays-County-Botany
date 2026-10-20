@@ -1,0 +1,64 @@
+name: Install Carolina Ponyfoot Five Licensed Diagnostic Images
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-dichondra-finished-photos-20261019.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: carolina-ponyfoot-single-species-five-licensed-photos
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install JPEG decoder
+        run: python -m pip install --disable-pip-version-check Pillow requests
+      - name: Refresh latest main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Install verified licensed anatomy images without changing taxon
+        run: python scripts/manual_dichondra_finished_photos_20261019.py
+      - name: Verify all six original and new JPEGs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          p=Path('content/taxa/Convolvulaceae/Dichondra/dichondra-carolinensis')
+          j=json.loads((p/'species.json').read_text())
+          photos=j['images']
+          assert len(photos)==6
+          assert photos[0]['file']=='images/inat-250869976.jpg'
+          assert j['curation_status']['finished_field_id_pass']=='PASS_IN_PROGRESS'
+          assert len([x for x in photos[1:] if x['creator']=='Alex Abair' and x['license']=='CC BY 4.0'])==5
+          for x in photos:
+            file=p/x['file']
+            assert file.exists() and file.stat().st_size>25000, file
+            with Image.open(file) as im:im.verify()
+            print('VERIFIED PHOTO',x['file'],x['creator'])
+          print('Status: six real JPEGs and all rights labels verified, taxonomy preserved')
+          PY
+      - name: Commit only Carolina ponyfoot photos and exact metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Convolvulaceae/Dichondra/dichondra-carolinensis/ reports/dichondra-carolinensis-finished-photo-20261019.json
+          if git diff --cached --quiet; then echo 'No new files to install';exit 0;fi
+          git commit -m "Install five publicly licensed Carolina ponyfoot diagnostic views and checked arrows [skip ci]"
+          for n in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 4
+          done
+          exit 1
