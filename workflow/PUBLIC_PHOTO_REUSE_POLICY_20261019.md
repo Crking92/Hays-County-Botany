@@ -1,4 +1,25 @@
-# PUBLIC PHOTO REUSE GATE — effective 2026-10-19
+# PUBLIC PHOTO REUSE GATE — effective 2026-10-19 (updated October 20)
+
+## 2026-10-20 UPDATE — CURRENT PUBLIC NONCOMMERCIAL LEARNER (supersedes outdated hosting/intent statements below)
+
+**User-confirmed intended use:** The GitHub repository and GitHub Pages learner are PUBLIC, but this is a personally maintained, educational field-identification work-in-progress, not actively promoted or intended for commercial use. Public availability is still publication; a low visitor count or educational purpose alone does not confer rights to third-party material. The approved site is https://crking92.github.io/Hays-County-Botany/. Keep the current rights-filtered GitHub Pages snapshot build and its diagnostics rather than switching back to Cloudflare or copying raw source wholesale.
+
+**Temporary first-pass photo policy:** A usable correctly identified **one-photo** species card can be shown while better whole-plant/leaf/flower/fruit images and diagnostic arrows are being sourced. “Temporary” means incomplete *curation*, not temporary exemption from copyrights, image-level permission, or attribution. Existing authorized images should remain visible pending replacements; do not remove them solely because they are provisional or have only one useful view. Continue marked NEEDS_DIAGNOSTIC_PHOTO / annotation_pending / NEEDS_PUBLIC_PHOTO handoffs, and replace poorer photos when a verified better option is available.
+
+**What may appear in this strictly noncommercial educational public build:**
+- Individually sourced CC0/public domain, CC BY and CC BY-SA photos with full creator/source/license attribution, license links and adaptation/ShareAlike obligations; plus verified owner-created Glass Root Garden photos with documented site-specific public-display consent.
+- **CC BY-NC and CC BY-NC-SA** photos can be used provisionally here *where the image-level license and credit are verified*, provided the actual stand-alone site continues to be genuinely noncommercial, suitable for the applicable NC license, and any SA/change conditions are met. User's current educational/noncommercial purpose is affirmative intent, not a blanket finding that every page/use qualifies. If monetization, affiliate/sales promotion, sponsorship or another commercial context is introduced, review/restrict NC assets BEFORE that change. Never strip the NC terms or credit. Prefer CC BY/SA/CC0 alternatives as good replacements become available.
+- Extra source-specific permission is acceptable only when recorded per image and applicable to public website distribution and any proposed edits.
+
+**What cannot be enabled merely by this update:** third-party private-study-only/no-public-use photos, known all-rights-reserved without web permission, unknown source or license, unidentified exact taxon, unreviewed video frames, or files lacking actual image bytes. Keep these out of the *public website* and preserve precise replacement/permission tasks. An academic intention or lack of advertising of the URL does not license them. If such files already reside in the publicly accessible *source repository*, the website filter cannot hide them from GitHub visitors; flag them for a separate source-history and permissions audit, without deleting science or altering a photographer's license.
+
+**Publication routine:** GitHub canonical species/photo updates are not automatically live. Continue the existing `.github/workflows/publish-public-learner-github-pages.yml` rights-filtered educational snapshot workflow and controlled `workflow/field-id-publication/*.json` marker. Confirm an Action succeeded and its deployment SHA before saying a card/photo is visible. Do not bypass the rights preflight, image integrity, EXIF/GPS stripping, or restricted-folder gate to raise the public-photo count. This policy update alone does not trigger redeployment. Public Learner Readiness owns release checks; Diagnostic Photo owns media replacement; Species Card Finalization owns field-ID details; New Species Installer owns first cards; Taxonomy owns name holds. Family/Genus workers are paused while these five run.
+
+**Next phase:** After aligning policy, enumerate the live `cards_without_public_photos` list (25 at the last confirmed build, not necessarily current). Route per-species source/rights problems and exact replacements through the photo worker, not blanket publication of excluded bytes.
+
+**Interpret the 2026-10-19 text below as historical where it describes a private repository, disabled Pages, or NC media as categorically ineligible even for this now-confirmed noncommercial public educational site.** The image-specific licensing safeguards otherwise remain in force.
+
+
 
 **User request:** The Hays Botany learner and crew's Everyday Plants curriculum are intended to become **public knowledge on a publicly viewable website**. From this date forward, *select and install only photos with individually documented permission for public web display under the site's intended use*, even while the canonical GitHub source repository remains private. This rule takes priority over older private-study-only first-card/photo-enrichment allowances.
 
