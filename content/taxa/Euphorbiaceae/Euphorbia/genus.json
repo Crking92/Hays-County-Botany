@@ -149,7 +149,7 @@
     },
     {
       "if": "Creeping flat mat of tiny opposite leaves",
-      "then": "SANDMAT THREE-WAY: examine 3-lobed capsule first: face hairs = maculata; keel hairs = prostrata; no hairs = serpens. Seeds: shallow low transverse / strong transverse / smooth respectively. Red spots are unreliable."
+      "then": "SANDMAT KEY: capsule face hairs maculata, capsule keel hairs prostrata, smooth capsules serpens OR villifera. For smooth-fruited specimens check villifera's typically erect habit, separate threadlike stipules and papillate leaf surfaces versus serpens' prostrate rooted mat and fused triangular stipules; microscopic villifera diagnostics on PHOTO HOLD."
     },
     {
       "if": "Plant's leaves/bracts or capsule don't fit these groups",
@@ -176,23 +176,24 @@
     "species_detail_pass_completed": "2026-10-07"
   },
   "curation_status": {
-    "version": "2.8-maculata-prostrata-serpens-three-way",
+    "version": "2.9-villifera-four-way-qa-photo-holds",
     "genus_audit": "CREW_READY_MULTI_GROUP_COMPARISON; FINE_GLAND_AND_SEED_MACROS_PENDING",
     "last_reviewed": "2026-10-20",
-    "public_comparison_photo_count": 20,
-    "public_comparison_annotated_source_count": 19,
+    "public_comparison_photo_count": 21,
+    "public_comparison_annotated_source_count": 21,
     "public_comparison_photo_hold_count": 13,
     "photo_note": "Original indexed study photos preserved as source references. Public genus panel filters rights and adds only visually confirmed arrows. Species-level galleries retain their own licensing gates.",
-    "public_comparison_verified_arrow_count": 36,
+    "public_comparison_verified_arrow_count": 42,
     "poinsettia_gland_pair": "TRUE_MACRO_VERIFIED_BOTH_SPECIES",
     "poinsettia_photo_id_hold": "Older heterophylla Psumuseum pink-bracted photo conflicts with typical FNA description; source image excluded from public teaching until independent verification.",
     "white_bracted_pair": "CREW_READY_FOR_BRACTS; ADAXIAL_HAIR_MACRO_PENDING",
     "sandmat_pair": "CREW_READY_CAPSULE_SEED_STIPULE; NODE_ROOT_PUBLIC_MACRO_PENDING",
-    "sandmat_threeway": "CREW_READY_FRUIT_SEED_ALL_THREE_PHOTOGRAPHED"
+    "sandmat_threeway": "CREW_READY_FRUIT_SEED_ALL_THREE_PHOTOGRAPHED",
+    "sandmat_fourway": "CREW_READY_FOR_FIELD_KEYS; VILLIFERA_DECISIVE_MICRO_PHOTOS_PENDING"
   },
   "visual_comparison": {
     "title": "Euphorbia — begin with habit, then the tiny real reproductive parts",
-    "subtitle": "NOW THREE-WAY field comparison on real photos: MACULATA hairy across capsule faces/weak crosswise seed wrinkles, PROSTRATA hairy at capsule keels/strong seed ribs, SERPENS glabrous fruit/smooth seed. Also compare stipules. Same-mm-scale plate and local provenance still pending.",
+    "subtitle": "Four-sandmat comparison: maculata capsule face hairs, prostrata keel hairs, serpens smooth fruit + fused stipules, villifera typically ASCENDING with glabrous capsule and threadlike stipules (unresolved at photo level). Villifera's papillae and internally empty fruit tip are not proven by available images.",
     "memory_rule": "Euphorbia = tiny CYATHIUM (not a normal flower) + 3-lobed CAPSULE. First sort WHITE-bracted / POINSETTIA-looking / TOOTHED erect / SANDMAT. Then look at the part that truly separates the two likely species. Colored bracts, red spots and white latex are supporting clues, not final proof.",
     "items": [
       {
@@ -473,19 +474,42 @@
         "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
-        "label": "Hairy sandmat — node location, stipules still unverified",
+        "label": "Find the opposite leaf junction and separate fruit",
         "scientific_name": "Euphorbia villifera",
-        "image_role": "Node close-up / leaf attachments and narrow pale appendages",
+        "image_role": "Closeup source photograph of opposite foliage attaching to red stem and green developing capsule beside node",
         "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-villifera/images/08-node-leaf-attachments.jpg",
-        "caption": "Find the junction of the leaf stalks with the red stem. Narrow pale appendages are visible at the lower-left node, but this photo does not securely distinguish stipules from hairs. Use it to locate the node; distinct filiform stipules remain a missing diagnostic macro.",
+        "caption": "The reddish main stem forks at a leaf junction. A developing green three-lobed capsule sits just LEFT of the upper node; its branching styles are visible at the tip. Fine whitish threads exist around the leaf base, but they are NOT resolved well enough to identify confidently as individual threadlike stipules.",
         "creator": "Chet Burrier",
-        "license": "CC BY",
+        "license": "CC BY 4.0",
         "source_page": "https://www.inaturalist.org/observations/207003160",
         "study_use": "yes",
         "public_reuse": "yes",
-        "markers": [],
+        "markers": [
+          {
+            "label": "Leaf attachment node",
+            "label_x": 71,
+            "label_y": 64,
+            "target_x": 67,
+            "target_y": 52
+          },
+          {
+            "label": "Developing 3-lobed capsule",
+            "label_x": 5,
+            "label_y": 30,
+            "target_x": 37,
+            "target_y": 41
+          },
+          {
+            "label": "Branching styles above fruit",
+            "label_x": 16,
+            "label_y": 75,
+            "target_x": 45,
+            "target_y": 47
+          }
+        ],
         "image_fit": "contain",
-        "image_pixel_audit": "Existing documented licensed diagnostic view; no new arrow until actual image part inspected"
+        "image_pixel_audit": "2026-10-20 source photo visually checked: green developing fruit, projecting styles and true node; ambiguous pale fibers not labeled as true stipules.",
+        "why_it_matters": "Teaches where to aim a loupe at the leaf axil, separates fruit and leaves, and avoids pretending every white hair is a stipule."
       },
       {
         "label": "Prostrate sandmat — transverse seed ridges",
@@ -741,9 +765,45 @@
         ],
         "image_pixel_audit": "2026-10-20 exact saved JPEG retrieved and visually inspected. No arrow for a structure absent from the image.",
         "source_evidence": "2026-10-20 saved source JPEG independently inspected"
+      },
+      {
+        "label": "Hairy leaf faces and smooth-looking capsule",
+        "scientific_name": "Euphorbia villifera",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-villifera/images/04-villous-leaf-hairs.jpg",
+        "image_role": "Detailed verified exact-species image with dense soft villous hairs on leaves and a small colored external fruit",
+        "source_page": "https://www.inaturalist.org/observations/71492483",
+        "creator": "Matt Berger",
+        "license": "CC BY 4.0",
+        "image_fit": "contain",
+        "caption": "Long, soft hairs are plainly visible on the leaf edges and surfaces. A rounded reddish fruit or developed reproductive structure is visible near the center; the external surface looks smooth. This photo does NOT reveal the capsule's internal empty tip, a seed, or tiny cellular papillae.",
+        "why_it_matters": "Helps recognize the villous form and why hairs on leaves cannot by themselves separate species: E. villifera can also have sparse or absent hairs.",
+        "markers": [
+          {
+            "label": "Long soft leaf hairs",
+            "label_x": 4,
+            "label_y": 30,
+            "target_x": 31,
+            "target_y": 43
+          },
+          {
+            "label": "Smooth-looking fruit exterior",
+            "label_x": 62,
+            "label_y": 35,
+            "target_x": 56,
+            "target_y": 52
+          },
+          {
+            "label": "Hairy lower leaf",
+            "label_x": 64,
+            "label_y": 71,
+            "target_x": 60,
+            "target_y": 64
+          }
+        ],
+        "image_pixel_audit": "2026-10-20 actual saved original photo inspected; no inferred internal capsule tip or stipule/hair identity"
       }
     ],
-    "overlay_note": "All public images individually licensed CC BY/CC BY-SA/CC0, credited at source. New E. maculata macros © Stefan.lefnaer CC BY-SA 4.0. Legacy CC BY-NC E. maculata and CC BY-NC-SA E. serpens originals are not displayed in this public comparison.",
+    "overlay_note": "Two E. villifera photo views © Matt Berger and Chet Burrier, both CC BY 4.0, included as learning references. No rights-unverified UT photographs or CC BY-NC photos are featured. Annotation arrows point only to observed leaves/hairs, node, and fruit exterior.",
     "instance_id": "euphorbia-central-texas-v3-20261020",
     "study_only_intro": "Sources listed below may be valuable for botanical research, but their original images are intentionally not embedded in this public-facing genus comparison because individual public redistribution terms are unverified or restrictive. Open at the source.",
     "study_only_photo_links": [
@@ -1067,76 +1127,95 @@
     },
     {
       "id": "euphorbia-sandmat-group",
-      "title": "Sandmat spurges: three-way CAPSULE hair and SEED key",
+      "title": "Sandmat Euphorbia: FOUR-WAY capsule hairs, stipules and seed key",
       "taxon_ids": [
         "euphorbia-maculata",
         "euphorbia-prostrata",
         "euphorbia-serpens",
         "euphorbia-villifera"
       ],
-      "look_here_first": "IGNORE RED SPOTS FOR FINAL ID. Locate a 3-lobed capsule and check hair DISTRIBUTION: E. maculata = short APPRESSED hairs spread across capsule FACES; E. prostrata = longer curled/projecting hairs mainly along capsule KEELS; E. serpens = capsule GLABROUS. Then inspect SEED texture: maculata = few LOW SUBTLE CROSSWISE ridges; prostrata = STRONG repeated sharp TRANSVERSE ridges; serpens = smooth, lacking strong ribs. Check leaf-base stipules and rooting nodes for backup; the 3 species' source photos show different magnifications.",
+      "look_here_first": "FIRST SORT HABIT: villifera usually ascends upright (rarely prostrate), the other three typically creep. Then examine the actual 3-lobed capsule: MACULATA has fine hairs spread across capsule FACES; PROSTRATA shows hairs along raised KEELS; SERPENS is GLABROUS; VILLIFERA is also GLABROUS, so do NOT confuse villifera with serpens on capsule hairs alone. Villifera needs separate FILIFORM stipules + PAPILLATE leaf blades and often elongated empty-tipped capsule cocci (microscopy/dissection required). Seed confirmation: MACULATA weak transverse ribs; PROSTRATA strong transverse ridges; SERPENS smooth; VILLIFERA smooth or faintly rugose/weakly cross-ridged. Photo evidence for villifera stipules, papillae, seed and coccus internal tip is still incomplete.",
       "field_matrix": [
         {
-          "character": "Capsule hairs",
-          "maculata": "Fine appressed hairs spread across entire fruit FACES",
-          "prostrata": "Hairs concentrated on raised KEELS/base",
-          "serpens": "Smooth / glabrous"
+          "character": "Typical habit",
+          "villifera": "UPRIGHT/ascending (rarely prostrate)",
+          "maculata": "Low mat",
+          "prostrata": "Flat mat",
+          "serpens": "Flat mat, often rooting at nodes"
         },
         {
-          "character": "Seed texture",
-          "maculata": "Low, inconspicuous TRANSVERSE shallow ridges/wrinkles",
-          "prostrata": "Strong sharply raised TRANSVERSE ridges",
-          "serpens": "Smooth / lacks strong transverse ridges"
+          "character": "3-lobed capsule surface",
+          "villifera": "GLABROUS; elongated cocci may have empty distal tip (not proven by current photo)",
+          "maculata": "Fine appressed HAIRS across faces",
+          "prostrata": "Hairs concentrated along raised KEELS",
+          "serpens": "GLABROUS"
         },
         {
-          "character": "At stem node",
-          "maculata": "Narrow separate stipules, rooting usually absent",
-          "prostrata": "Upper pointed stipules free, lower fused; roots usually absent",
-          "serpens": "Broad fused scale, often roots at soil-contact node"
+          "character": "Stipules",
+          "villifera": "SEPARATE fine threadlike/filiform 0.3–0.7 mm; true closeup still needed",
+          "maculata": "Narrow pointed",
+          "prostrata": "Upper side separate/lower fused",
+          "serpens": "Broad FUSED triangular scales"
         },
         {
-          "character": "Leaf spot",
-          "maculata": "Often red center, can be absent",
-          "prostrata": "Usually no red spot",
-          "serpens": "Typically no dark patch"
+          "character": "Leaf/stem surface",
+          "villifera": "PAPILLATE under strong magnification; hairy usually, glabrous sometimes",
+          "maculata": "Fine appressed hairs, red spot often but NOT always",
+          "prostrata": "Curled hairs on stems",
+          "serpens": "Generally glabrous"
         },
         {
-          "character": "Foliage/stem",
-          "maculata": "Short hairs, unequal leaf bases, minutely toothed",
-          "prostrata": "Curly hairs, often minutely toothed",
-          "serpens": "Glabrous leaves and stem, margins entire"
+          "character": "True mature seed",
+          "villifera": "Smooth, faintly wrinkled or LOW transverse ridges (source photo lacking)",
+          "maculata": "LOW weak transverse ridges",
+          "prostrata": "STRONG transverse ridges",
+          "serpens": "Smooth/no strong ridges"
         },
         {
-          "character": "Strongest public photo",
-          "maculata": "Face-hairy true capsule AND low-ridge seed installed",
-          "prostrata": "Keel-hairy capsule AND sharply ribbed seed installed",
-          "serpens": "Hairless capsule AND smooth seed installed"
+          "character": "Node rooting",
+          "villifera": "Not usually a creeping rooting mat",
+          "maculata": "Generally absent",
+          "prostrata": "Generally absent",
+          "serpens": "Often rooted at soil-contact nodes"
+        },
+        {
+          "character": "Photo confidence",
+          "villifera": "2 public source annotated photos show hair, fruit exterior, stem node ONLY; microscopic diagnosis HOLD",
+          "maculata": "Fruit-face hair and shallow seed ribs verified in macro photos",
+          "prostrata": "Keel hairs and sharply ribbed seed verified",
+          "serpens": "Broad fused stipule, glabrous capsule and smooth seed verified"
         }
       ],
-      "caution": "CRITICAL SCIENCE UPDATE: an old E. maculata card incorrectly taught LONGITUDINAL seed ridges. FNA specifies 3–4 LOW TRANSVERSE ridges. These are weaker than the prominent prostrata crosswise ribs; serpens is smooth. All three now have exact-species saved photographs showing hair DISTRIBUTION and seed texture, but at different source magnifications. A red leaf spot, a mat habit, or one node without visible roots is insufficient for confident naming. Three-way source pictures are from outside Texas and do not prove any county nativity.",
+      "caution": "Hairy leaves alone do NOT prove E. villifera (some individuals are glabrous), and a smooth capsule alone DOES NOT separate it from E. serpens. Some pale fibers at nodes are leaf hairs, not automatically a verified filiform stipule. The actual internal empty capsule lobe tip needs dissection; 2 villifera public photos currently show only supportive exterior structures. Other three sandmats have stronger complete capsule/seed macro sets. Seed-photo bars across species differ, so do not use onscreen size for measurements. County nativity stays pending/provisional for ALL four species.",
       "photo_pair_targets": [
         {
-          "role": "3-way capsule face/keel/hairless comparison",
-          "status": "PASS: maculata all-face appressed hairs; prostrata keel hairs; serpens hairless, three publicly licensed inspected closeups"
+          "role": "Three-species capsule hairs + villifera outer fruit",
+          "status": "Maculata/prostrata/serpens real diagnostic photos PASS. Villifera glabrous external fruit visible in photo, but internal elongated empty lobe tip NOT documented."
         },
         {
-          "role": "3-way mature seed comparison",
-          "status": "PASS: maculata LOW transverse wrinkles, prostrata HIGH/sharp transverse ridges, serpens smooth. Different source-photo scale bars; not equal-calibrated composite"
+          "role": "Four mature seeds with scale",
+          "status": "Maculata/prostrata/serpens source-photo macros present; villifera authentic mature seed structure missing, mixed palm material unassigned and not featured."
         },
         {
-          "role": "3-way stipule/node",
-          "status": "PARTIAL: maculata narrow pointed, prostrata pale pointed one side, serpens broad fused scale. Stem-side proof incomplete."
+          "role": "Four stipule configurations",
+          "status": "Serpens broad fused scales, maculata and prostrata small stipules photo-supported; villifera true distinct filiform stipule NOT resolved from hairy node photo."
         },
         {
-          "role": "Rooting at nodes",
-          "status": "PARTIAL/PUBLIC GAP: restricted serpens rooted-node photo not reproduced, nor proof of nonrooting at photographed prostrata/maculata nodes."
+          "role": "Papillate villifera leaf vs nonpapillate counterparts",
+          "status": "MICROSCOPIC FOTO GAP; not arrowed"
+        },
+        {
+          "role": "Whole habit and node-rooting four-way",
+          "status": "Villifera ascending habit and serpens rooted node both require publicly reusable high-quality macros/whole-plant photographs."
         }
       ],
       "references": [
-        "https://w3.biosci.utexas.edu/prc/K12/pages/Euphorbia%20prostrata.html"
+        "https://w3.biosci.utexas.edu/prc/K12/pages/Euphorbia%20prostrata.html",
+        "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242321553",
+        "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=318097"
       ],
       "reviewed_at": "2026-10-20",
-      "taxonomy_guardrail": "E. maculata county label remains NOT_REVIEWED_COUNTY and native_metrics_excluded, alongside provisional prostrata and serpens. These lessons teach ID not local native approval."
+      "taxonomy_guardrail": "Villifera remains PROJECT PROVISIONAL despite Texas native FNA and Hays legacy observation; not counted in native metrics. Maculata NOT_REVIEWED_COUNTY and prostrata/serpens PROVISIONAL all unchanged."
     }
   ],
   "diagnostic_photo_needs": [
