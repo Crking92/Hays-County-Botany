@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "purpose": "Explicit manual user-requested new Hydrocotyle bonariensis field-ID and public-photo lesson, not a scheduled bot or county native approval.",
+  "species_id": "hydrocotyle-bonariensis",
+  "user_requested": "Build Hydrocotyle bonariensis as the third genus lookalike after H. umbellata and H. verticillata, with real licensed morphology photographs, accurate arrows, taxonomic nuance, and GitHub Pages publication.",
+  "status": "PASS_IN_PROGRESS",
+  "field_training_status": "READY_FOR_THREE_WAY_BRANCHING_COMPARISON_WITH_TAXONOMIC_AND_COUNTY_HOLDS",
+  "files": [
+    "content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-bonariensis/species.json",
+    "content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-bonariensis/images/",
+    "content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-bonariensis/image-sources.csv",
+    "content/taxa/Araliaceae/Hydrocotyle/genus.json",
+    "data/manifest.json",
+    "reports/hydrocotyle-bonariensis-photo-install-20261020.json"
+  ],
+  "photos": {
+    "existing": 0,
+    "installed_real": 6,
+    "manual_arrow_images": 3,
+    "individual_photo_license": "All six iNaturalist source photo license_code=cc-by; exact subversion unconfirmed, photographer and source page preserved. Original JPEGs preserved at source; derivatives strip EXIF and resized; 3 derivatives carry annotated arrows.",
+    "source_ids": [
+      "688462223",
+      "666145212",
+      "590221868",
+      "517271319",
+      "479454106",
+      "479454142"
+    ],
+    "anatomical_review": "3 full-size committed arrowed photos read back; green umbel branchpoint, primary rays, and underside petiole insertion point verified. Early off-target ray arrows corrected on exact SHA-matched originals.",
+    "install_run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/39433678151",
+    "corrected_anatomy_run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/39434465518",
+    "outstanding": [
+      "Need reproductive voucher/accepted species vs older verticillata var triradiata name",
+      "Need clearer whole secondary whorled-ray sequence and mature schizocarp mm fruit photo"
+    ]
+  },
+  "taxon": {
+    "accepted_name": "Hydrocotyle bonariensis Comm. ex Lam. (Kew POWO)",
+    "prior_synonym_issue": "Kew places Hydrocotyle verticillata var. triradiata under bonariensis. Older local Texas floras place var. triradiata under verticillata; leave explicit scientific uncertainty and no silent renames.",
+    "state_native_source": "Kew accepts Texas native state range; BONAP Hays and target-west counties not vetted",
+    "county_status": "UNRESOLVED",
+    "native_metrics_excluded": true
+  },
+  "comparison_pair": [
+    "Hydrocotyle umbellata",
+    "Hydrocotyle verticillata",
+    "Hydrocotyle bonariensis"
+  ],
+  "publish_policy": "Only rights-filtered public GitHub Pages, no Cloudflare, no automation change, and success only after actual deployment result.",
+  "publication_version": 1
+}
