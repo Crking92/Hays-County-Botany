@@ -69,7 +69,10 @@
     "photo_files_present": 2,
     "gbif_manual_photo_enrichment": "2026-10-15",
     "field_id_finish_status": "PASS_IN_PROGRESS",
-    "last_field_id_reviewed": "2026-10-20"
+    "last_field_id_reviewed": "2026-10-20",
+    "photo_arrow_user_approved": true,
+    "photo_arrow_user_approved_date": "2026-10-20",
+    "flower_macro_arrow_approval": "PASS_USER_VISUALLY_APPROVED"
   },
   "photo_note": "Two pre-existing physical licensed photos visually inspected 2026-10-20 (habit; flower and green fruit), plus 3 externally linked exact-species Wikimedia Commons macro photos (white flower, black ripe fruit cluster, reflexed fruiting calyx). Original photo licenses/bytes preserved. All arrows are non-destructive overlays. Macro anther measurement and mobile visual QA remain pending. Flower macro arrow coordinates corrected after user phone screenshot; not yet user-approved.",
   "images": [
@@ -467,7 +470,6 @@
     "comparison_photo_panels": 2,
     "note": "Two existing canonical photo files inspected; three new Commons photos checked visually with original file URLs, CC BY/CC BY-SA licenses, and exact-species labels. Main gallery arrows target plainly visible features; mobile rendering still needs owner's visual check before final PASS.",
     "outstanding": [
-      "Check new flower photo 1 arrows on deployed phone display: yellow anthers vs white corolla vs stalk of unopened bud.",
       "Confirm updated site published and all three new Commons links load in swipe viewer.",
       "For highest-confidence Morelloid split, find macro with scale showing measured 0.7–1.5 mm anthers and compare S. emulans/nigrescens."
     ],
@@ -500,7 +502,11 @@
         }
       ],
       "scope": "Only flower macro panel marker targets/third label and field-study notes changed. Underlying source photo, rights and all other photo annotations untouched.",
-      "awaiting": "User confirm final arrows on published phone viewer."
-    }
+      "awaiting": "User confirm final arrows on published phone viewer.",
+      "status": "PASS_USER_VISUALLY_APPROVED",
+      "user_approved_at_date": "2026-10-20"
+    },
+    "flower_macro_arrow_status": "PASS_USER_VISUALLY_APPROVED",
+    "flower_macro_approval_note": "User visually inspected corrected published flower photograph arrows and replied 'That's perfect!' on 2026-10-20. Approved only the three flower-macro annotation positions. Other outstanding botanical comparison/macro tasks remain separately tracked."
   }
 }
