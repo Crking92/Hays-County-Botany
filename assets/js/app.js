@@ -74,6 +74,21 @@ function speciesBase(sp){
   return entry && entry.path ? entry.path.replace(/\/species\.json$/,"") : "";
 }
 function imagesFor(sp){ return (Array.isArray(sp.images)?sp.images:[]).filter(function(x){ return x && x.file; }); }
+/* Installed images remain canonical and unchanged. Optional licensed EXACT-SPECIES
+   public external references can also be swiped in the gallery; this does not
+   alter canonical image IDs or anchors used throughout family/genus lessons. */
+function galleryImagesFor(sp){
+  const installed=imagesFor(sp);
+  const extras=Array.isArray(sp.gallery_external_refs)?sp.gallery_external_refs:[];
+  return installed.concat(extras.filter(function(img){
+    return img && img.gallery_species_id===sp.id &&
+      typeof img.file==="string" &&
+      /^https:\/\/upload\.wikimedia\.org\/wikipedia\/commons\//i.test(img.file) &&
+      /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(img.source_page||"") &&
+      /^CC BY(?:-SA)? [0-9]/i.test(img.license||"") &&
+      img.public_reuse==="yes" && !!img.creator && !!img.license_url;
+  }));
+}
 function imagePath(sp,img){
   if(!img || !img.file) return "";
   if(/^https?:\/\//i.test(img.file)) return img.file;
@@ -98,7 +113,7 @@ function galleryPhotoScore(img){
   return 0;
 }
 function galleryPhotoOrder(sp){
-  const imgs=imagesFor(sp), fallback=defaultPhotoIndex(sp);
+  const imgs=galleryImagesFor(sp), fallback=defaultPhotoIndex(sp);
   return imgs.map(function(img,index){return {index,score:galleryPhotoScore(img)+(index===fallback?1:0)};})
     .sort(function(a,b){return b.score-a.score || a.index-b.index;})
     .map(function(x){return x.index;});
@@ -1055,7 +1070,7 @@ function genusView(){
   return out;
 }
 function photoCarousel(sp){
-  const imgs=imagesFor(sp);
+  const imgs=galleryImagesFor(sp);
   if(!imgs.length) return '<div class="focus-photo-empty">No curated photo installed yet.</div>';
   const order=galleryPhotoOrder(sp), best=order[0];
   let idx=state.photoIndex[sp.id]===undefined?best:state.photoIndex[sp.id];
@@ -1067,7 +1082,7 @@ function photoCarousel(sp){
   const vetted=Boolean(img.visual_role_reviewed || img.diagnostic_role_verified || img.annotation_verified);
   const diagnostic=galleryPhotoScore(img)>=53;
   const check=diagnostic?anatomyFieldCue(sp,role):"";
-  const sourceKind=img.external_reference?"Externally hosted reference":"Gallery-linked view";
+  const sourceKind=img.external_reference?"Externally hosted licensed photo (not downloaded)":"Installed learner photo";
   let out='<div class="species-gallery">'+
     '<div class="gallery-study-intro"><b>'+(diagnostic?"Diagnostic study view":"Plant overview / reference")+'</b>'+
     '<span>'+(diagnostic?"Inspect the named structures, then confirm against another view.":"Swipe or tap a thumbnail to inspect another plant structure.")+'</span></div>'+
@@ -1078,7 +1093,7 @@ function photoCarousel(sp){
     (check?'<strong>Look for:</strong> '+esc(check)+'<small>Based on this species’ written morphological record; the photo has no new verified arrow.</small>':"")+
     '<span>'+esc(sourceKind)+(vetted?" · Study role reviewed":"")+'</span>'+
     '<span>'+esc(credit||"Source metadata retained in species record")+'</span>'+
-    (img.source_page?'<a href="'+esc(img.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':"")+
+    (img.source_page?'<a href="'+esc(img.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':"")+ (img.license_url?'<a href="'+esc(img.license_url)+'" target="_blank" rel="noopener noreferrer">Image license ↗</a>':"")+
     '</figcaption></figure>';
   if(imgs.length>1){
     out+='<div class="photo-filmstrip" role="group" aria-label="Choose a plant photo">';
@@ -2159,14 +2174,14 @@ function handleClick(e){
   const famInfo=e.target.closest("[data-family-info]"); if(famInfo){ openFamilyModal(famInfo.dataset.familyInfo); return; }
   const photoThumb=e.target.closest("[data-photo-index]");
   if(photoThumb){
-    const sp=selectedSpecies(), imgs=sp?imagesFor(sp):[];
+    const sp=selectedSpecies(), imgs=sp?galleryImagesFor(sp):[];
     const index=Number(photoThumb.dataset.photoIndex);
     if(sp && Number.isInteger(index) && index>=0 && index<imgs.length){ state.photoIndex[sp.id]=index; render(); }
     return;
   }
   const photo=e.target.closest("[data-photo-step]");
   if(photo){
-    const sp=selectedSpecies(), imgs=sp?imagesFor(sp):[];
+    const sp=selectedSpecies(), imgs=sp?galleryImagesFor(sp):[];
     if(sp && imgs.length){
       const order=galleryPhotoOrder(sp);
       const current=state.photoIndex[sp.id]===undefined?order[0]:state.photoIndex[sp.id];
