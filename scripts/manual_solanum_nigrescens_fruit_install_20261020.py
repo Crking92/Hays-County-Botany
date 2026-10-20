@@ -115,6 +115,12 @@ def main():
       rows.append({k:a.get(k,"") for k in cols})
     with csvfile.open("w",newline="",encoding="utf-8") as out:
       w=csv.DictWriter(out,fieldnames=cols);w.writeheader();w.writerows(rows)
+  sourcefile=ROOT/"SOURCES.txt"
+  if sourcefile.is_file():
+    note=sourcefile.read_text(encoding="utf-8")
+    note=note.replace("No current photo illustrates verified ripe S. nigrescens berries/calyx. Do not infer fruit from these photos.", "Previous flower-only photos do not show fruit. As of 2026-10-20, Figures 3(a), 3(c), and 14 from the CC BY 4.0 2023 study provide real mature berry, calyx, and ripening images.")
+    note=note.replace("Additional scientific ripe fruit figures: https://www.mdpi.com/2223-7747/12/8/1645 (Figure 3). Requires separate image-integrity review before installation.", "Installed fruit image source: https://www.mdpi.com/2223-7747/12/8/1645 (Figure 3[a], Figure 3[c], Figure 14). 2023 study Ramírez-Olvera and Sandoval-Villa; fig3[a], fig14 photos by Sara Monzerrat Ramírez-Olvera; fig3[c] photo by Jorge Manuel Valdez-Carrasco. Creative Commons BY 4.0. Cropped, converted and credited. Original source PDF/figures remain preserved in archived review sources; no Hays occurrence is inferred.")
+    sourcefile.write_text(note,encoding="utf-8")
   report={"date":"2026-10-20","species_id":"solanum-nigrescens","status":"PASS_IN_PROGRESS",
     "source":"Ramírez-Olvera & Sandoval-Villa 2023, Plants 12(8) 1645, doi:10.3390/plants12081645",
     "license":"CC BY 4.0", "added_photo_files":records,
