@@ -154,7 +154,7 @@
     "Learner approved"
   ],
   "curation_status": {
-    "version": "2.0-photo-annotated-dentata-davidii-pair",
+    "version": "2.1-seed-photo-annotated",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
@@ -168,17 +168,18 @@
     "photo_files_present": 5,
     "field_id_text_reviewed": true,
     "finished_field_id_pass": "PASS_IN_PROGRESS",
-    "annotated_real_photo_count": 2,
-    "verified_source_photo_arrows": 5,
+    "annotated_real_photo_count": 3,
+    "verified_source_photo_arrows": 7,
     "lookalike_photo_comparison_count": 2,
     "lookalike_photo_arrows": 2,
     "required_to_finish": [
-      "Matched public-safe mature davidii vs dentata seed macros with mm scale",
-      "Matched public-safe underside-leaf hair macros",
-      "Verify public builder excludes 2 copyrighted species-gallery photographs",
-      "Retain Texas introduced/native authority conflict and metrics exclusion"
+      "Get public exact-species matched dentata mature seed macro (davidii seed already installed)",
+      "Get public matched underside leaf hairs",
+      "Verify no research-only image is staged on public Pages",
+      "Preserve Texas county nativity authority conflict. Do not automatically count as confirmed native."
     ],
-    "seedimages_exact_species_seed_installed": "2026-10-20"
+    "seedimages_exact_species_seed_installed": "2026-10-20",
+    "seed_rights_source_verified": true
   },
   "diagnostic_image_needs": [
     "whole plant",
@@ -188,7 +189,7 @@
     "mature seed macro with scale",
     "matched E. dentata vs E. davidii seed comparison"
   ],
-  "photo_note": "Detailed first-pass physical media uses two exact-species Wikimedia Commons photographs from Andrey Zharkikh's Euphorbia davidii series. Seed and abaxial-hair macros remain the critical next visual targets. Polish pass adds a matched private-study abaxial-hair macro and mature-seed macro from the same photographer/source as its paired comparison species.",
+  "photo_note": "Detailed first-pass physical media uses two exact-species Wikimedia Commons photographs from Andrey Zharkikh's Euphorbia davidii series. Seed and abaxial-hair macros remain the critical next visual targets. Polish pass adds a matched private-study abaxial-hair macro and mature-seed macro from the same photographer/source as its paired comparison species. 2026-10-20: CSU/USDA SeedImages 1080×720 public-domain mature seed photograph installed and two anatomy arrows checked against actual JPG; no caruncle or angular section labels claimed.",
   "unreliable_characters": [
     "overall habit by itself",
     "leaf shape by itself",
@@ -311,24 +312,40 @@
       "public_reuse": "yes",
       "study_use": "Public botanical crew education with attribution and source-rights link",
       "modifications": "Re-encoded as JPEG without EXIF, original subject/scale not changed; no anatomy arrows added.",
-      "photo_review": "SeedImages lists exact species E. davidii and corresponding photographic plate BAT003312_IMG0089. Copyright page says public domain except otherwise noted; no individual image notice on displayed caption. Source-pixel annotation needs independent visual readback.",
-      "anatomy_arrows": "none; source photo pixel review required before marking seed tubercles"
+      "photo_review": "SeedImages lists exact species E. davidii and corresponding photographic plate BAT003312_IMG0089. Copyright page says public domain except otherwise noted; no individual image notice on displayed caption. Source-pixel annotation needs independent visual readback. 2026-10-20 manual real-pixel inspection PASS: 1080x720 five separated seeds, raised irregular wartlike surface projections. The photo does NOT establish calibrated size or cross-section.",
+      "anatomy_arrows": [
+        {
+          "label": "Wartlike raised seed-coat bumps",
+          "target_fraction": [
+            0.74,
+            0.2
+          ]
+        },
+        {
+          "label": "Separate mature seed (not fruit capsule)",
+          "target_fraction": [
+            0.22,
+            0.64
+          ]
+        }
+      ],
+      "manual_arrow_review": "2026-10-20: the exact local 1080x720 image was retrieved from GitHub after install and directly inspected. The top right seed's clearly raised tubercles and lower-left discrete seed are visible, markers placed using image percentages; caruncle, hilum, raphe, exact scale divisions, and cross-section were deliberately NOT marked."
     }
   ],
   "learner_visual_status": {
     "status": "provisional_learner_ready",
-    "mode": "two_public_davidii_anatomy_photos_plus_two_dentata_comparison",
+    "mode": "three_real_davidii_photos_seed_tubercles_annotated_plus_two_dentata_compares",
     "image_count": 5,
     "filled_at": "2026-10-07",
-    "note": "Photo-first David's spurge and E. dentata comparison use public CC real image sources. Existing two copyrighted research-photo originals remain marked nonpublic and are withheld from newly annotated gallery. True seed/underleaf-hair species differentiation remains text-only. Source-labelled USDA-supported SeedImages public-domain seed photo now locally stored; photo-level arrows pending saved pixels review.",
-    "public_annotated_photos": 2,
-    "verified_annotation_arrows": 5,
+    "note": "One high-quality 1080x720, source-labelled public-domain E. davidii mature seed photo shows real irregular surface bumps. Five total canonical images (2 research restricted); public gallery stages three reusable species images plus two dentata comparison images via lesson. Underleaf hairs and matched dentata mature seed remain pending.",
+    "public_annotated_photos": 3,
+    "verified_annotation_arrows": 7,
     "lookalike_compare_photos": 2
   },
   "visual_comparison": {
     "instance_id": "euphorbia-davidii-photo-evidence-20261020",
-    "title": "David's spurge: recognize the group, then prove the species",
-    "subtitle": "Two original CC BY 2.0 David's spurge photographs and two public-safe E. dentata comparison photos. Arrows identify only the observable branching, toothed leaves and developing three-lobed capsules, NOT the missing seed/hair micro-characters.",
+    "title": "David's spurge: branching stems, capsules and REAL mature seeds",
+    "subtitle": "Three open-rights exact-species photos (including a CSU/USDA SeedImages mature seed macro) and two public E. dentata photos; nine source-image-checked arrows. Remaining important comparison: matching dentata seed and hair macro.",
     "items": [
       {
         "label": "Recognize David's spurge in a dry open site",
@@ -430,25 +447,53 @@
             "target_y": 52
           }
         ]
+      },
+      {
+        "label": "Look closer: real mature David's spurge SEEDS",
+        "scientific_name": "Euphorbia davidii",
+        "image_role": "Actual high-resolution mature seed bodies with very visible uneven raised tubercles and ruler beneath",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-davidii/images/seedimages-bat003312-davidii-seeds.jpg",
+        "creator": "Pottorff, Larsen & Crowl / Colorado State University SeedImages; hosted by USDA-APHIS-PPQ ITP",
+        "license": "Public domain (SeedImages site default; individual caption has no separate restricted credit)",
+        "source_page": "https://idtools.org/seedimages/index.cfm?entityID=61251&packageID=2289",
+        "image_fit": "contain",
+        "caption": "The upper seed's surface has irregular, strongly raised wartlike bumps (tubercles). All five objects are individual mature SEEDS, not green three-lobed capsules. A ruler is present but the spacing/units are not independently verified, so do not claim a measured dimension from the image. One view does not prove angular cross-section.",
+        "why_it_matters": "At last the crew can see what the FNA seed-sculpture description is talking about. Compare with E. dentata's smoother/evenly finely tuberculate and typically more rounded mature seeds, but obtain a matched photo of that species before calling the pair visually finished.",
+        "markers": [
+          {
+            "label": "Wartlike raised seed-coat bumps",
+            "label_x": 54,
+            "label_y": 7,
+            "target_x": 74,
+            "target_y": 20
+          },
+          {
+            "label": "Separate mature seed (not fruit capsule)",
+            "label_x": 8,
+            "label_y": 75,
+            "target_x": 22,
+            "target_y": 64
+          }
+        ]
       }
     ],
-    "overlay_note": "Andrey Zharkikh CC BY 2.0 photographs of E. davidii; Max Licher / University of Arizona CC BY-SA E. dentata photographs. The two S.R. Turner MissouriPlants photos remain research-only and are not used in this public photo lesson."
+    "overlay_note": "The new E. davidii seeds photographed by Colorado State University SeedImages (Pottorff, Larsen & Crowl), hosted by USDA APHIS PPQ ITP, are public domain by the source's standard image rights statement; acknowledged with source links. Andrey Zharkikh E. davidii photos CC BY 2.0; Max Licher E. dentata images CC BY-SA. The two S.R. Turner copyrighted study photos remain outside this visual lesson and are withheld from the staged public gallery."
   },
   "field_photo_quickcheck": {
     "heading": "David's spurge: leaf underside & mature seed, not the red stem",
     "featured_photo_indices": [
-      0,
       1,
+      4,
       2
     ],
     "steps": [
-      "Identify an upright branched spurge with toothed leaves and small green 3-lobed fruits.",
-      "Compare the same toothed margin in E. dentata: it is NOT unique to davidii.",
-      "Turn a mature leaf OVER: SHORT, STIFF TAPERED hairs and possible little pustular bases support davidii.",
-      "See a truly mature seed under magnification: ANGULAR with irregular bumps favors davidii, compared with rounded/even bumps of dentata."
+      "Begin at a branch tip: identify developing 3-lobed fruit and coarsely toothed leaves.",
+      "Now look at the actual E. davidii mature SEED photograph: the coat has coarse wartlike tubercles.",
+      "Compare the dentata leaf photo—coarse teeth are shared. The opposite species has smaller, more rounded, evenly finely pebbled seeds, but its matching public seed picture remains missing.",
+      "For a confident living field plant, examine underside leaf hairs (short/stiff/tapered for davidii, long/weak/threadlike for dentata)."
     ],
     "field_rule": "Toothed leaves + green 3-lobed capsules = E. dentata/davidii GROUP until underside hairs and/or fully mature seeds are documented.",
-    "warning": "None of the public photos shows an actual detailed lower-leaf hair base or seed sculpture. Do not label tiny gland apertures or seed ridges that are not resolved."
+    "warning": "The SeedImages photograph demonstrates authentic davidii seed bumps, not two-seed-species comparison or independent angular cross-sectional proof. The seed scale is present but divisions have not been independently calibrated. Stiff underside leaf hair bases remain missing."
   },
   "diagnostic_photo_requirements": [
     {
@@ -478,8 +523,8 @@
     },
     {
       "role": "Mature seed sculpture & angular cross section",
-      "status": "CRITICAL_RIGHTS_SAFE_MACRO_MISSING",
-      "need": "1 mm scale, two orientations, compare irregular tubercles to dentata fine even bumps."
+      "status": "SOURCE_VERIFIED_DAVIDII_SEED_MACRO_INSTALLED; CROSS_SECTION_AND_PAIRED_DENTATA_STILL_NEEDED",
+      "need": "Seed surface and raised tubercles visually demonstrated in 1080x720 source image; angular side section requires second camera orientation; paired dentata seed remains missing."
     },
     {
       "role": "Separately isolated cyathium gland and female flower",
@@ -491,19 +536,18 @@
     "review_date": "2026-10-20",
     "stage": "PASS_IN_PROGRESS",
     "text_review": "PASS_FNA_PAIR_KEY",
-    "annotated_real_photos": 2,
-    "verified_anatomy_arrows": 5,
+    "annotated_real_photos": 3,
+    "verified_anatomy_arrows": 7,
     "lookalike_comparison_photo": 2,
     "lookalike_comparison_arrows": 2,
-    "field_training_status": "CREW_READY_TO_RECOGNIZE_DENTATA_DAVIDII_GROUP; SPECIES_DIAGNOSTIC_MACROS_PENDING",
-    "photo_review": "Two exact-species credited Andrey Zharkikh CC BY 2.0 locally stored JPGs visually inspected; five targets on branching stems, terminal heads, toothed red-tipped leaf and actual green 3-lobed capsules. Two real E. dentata CC BY-SA photos also previously inspected in paired lesson and now pointed in this card. No arrows on minuscule seed sculpture, abaxial hair bases or cyathial gland opening. Public copyrighted MissouriPlants files must be excluded from staged website. An additional labelled E. davidii seed photograph is physically installed from CSU/USDA SeedImages (public-domain default); must review actual saved pixels before annotating; stiff underside hair macro still missing.",
+    "field_training_status": "CREW_READY_FOR_DAVIDII_HABIT_FRUIT_AND_SEED_SURFACE; UNDERLEAF_HAIRS_AND_PAIRED_SEED_PHOTO_PENDING",
+    "photo_review": "2026-10-20: three exact-species photographs source-pixel checked. Two Wikimedia CC BY 2.0 photographed upright branches, toothed leaves and swollen three-lobed capsules (5 markers); real CSU/USDA SeedImages 1080x720 seed photo confirmed wartlike tubercles and clearly separate seeds (2 markers). Two E. dentata public images show analogous leaves/fruit (2 markers). Copyrighted S.R. Turner study photos not shown in public comparison panel. No arrow claims precise raphe/caruncle, measured seed dimensions, true angular cross-section or abaxial hair bases.",
     "photo_rights_note": "Preserve canonical private-study photos in the repository for future source checks; the public build should withhold both restricted S.R. Turner JPEGs. Existing two public CC BY images are retained with their exact Commons source pages.",
     "missing": [
-      "10× or stronger abaxial hair-base and filament close-up with public reuse confirmed",
-      "mature capsule with 1 mm scale",
-      "independent native-county target-zone resolution, currently authority-conflicted",
-      "Assess SeedImages photo's visible angular seed cross-section and irregular low bumps before claiming independently verified arrows",
-      "Find equal-scale comparative E. dentata seed; seed photo alone does not prove paired-species traits"
+      "Public-rights matched E. dentata mature seed close-up at comparable mm scale",
+      "Matching leaf underside stiff vs weak hairs with magnification, clearly resolving hair bases",
+      "Independent photo of seed cross-section of E. davidii and E. dentata at identical orientation and scale",
+      "County-level range / POWO Texas introduction versus GRIN Texas native conflict remains unresolved"
     ]
   },
   "curated_sources": [
