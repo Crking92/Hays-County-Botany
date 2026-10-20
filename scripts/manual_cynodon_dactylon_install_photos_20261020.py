@@ -32,7 +32,7 @@ def download(row):
    if not 26000<len(response.content)<16500000:continue
    with Image.open(io.BytesIO(response.content)) as old:
     old.load();image=ImageOps.exif_transpose(old).convert("RGB")
-   if min(image.size)<420:continue
+   if min(image.size)<320:continue  # allow supplemental old 540x337 node image, not a diagnostic macro
    image.thumbnail((1450,1450),Image.Resampling.LANCZOS)
    buf=io.BytesIO();image.save(buf,format="JPEG",quality=90,optimize=True,progressive=True)
    data=buf.getvalue()
