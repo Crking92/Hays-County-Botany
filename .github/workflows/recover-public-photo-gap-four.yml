@@ -58,8 +58,8 @@ jobs:
           import json
           import subprocess
           from pathlib import Path
-          j = json.loads(Path('reports/public-gap-commons-recovery-20261020.json').read_text())
-          paths = ['reports/public-gap-commons-recovery-20261020.json']
+          j = json.loads(Path('reports/public-gap-inat-recovery-20261020.json').read_text())
+          paths = ['reports/public-gap-inat-recovery-20261020.json']
           for x in j['installed']:
             paths.extend([x['species_json'], x['physical_file']])
           subprocess.run(['git','add','--',*paths],check=True)
