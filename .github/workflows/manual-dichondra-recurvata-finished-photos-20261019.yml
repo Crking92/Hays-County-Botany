@@ -1,0 +1,62 @@
+name: Install Dichondra recurvata Licensed Diagnostic Gallery
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-dichondra-recurvata-finished-photos-20261019.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-species-dichondra-recurvata-gallery
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - name: Read latest canonical species and prevent collisions
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Download licensed exact-species photo references and annotate
+        run: python scripts/manual_dichondra_recurvata_final_photo_install_20261019.py
+      - name: Validate seven real JPEGs and existing rights
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          p=Path('content/taxa/Convolvulaceae/Dichondra/dichondra-recurvata')
+          j=json.loads((p/'species.json').read_text())
+          assert len(j['images'])==7
+          assert j['images'][0]['file']=='images/inat-7297738.jpg'
+          assert j['images'][0]['license']=='CC BY-NC'
+          assert j['curation_status']['finished_field_id_pass']=='PASS_IN_PROGRESS'
+          for x in j['images']:
+            img=p/x['file']
+            assert img.exists() and img.stat().st_size>25000,img
+            with Image.open(img) as check:check.verify()
+          assert len([x for x in j['images'] if x['license']=='CC BY'])==6
+          print('VERIFIED seven images, source credits, native metadata untouched')
+          PY
+      - name: Commit only Dichondra recurvata canonical files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Convolvulaceae/Dichondra/dichondra-recurvata/ reports/dichondra-recurvata-photo-install-20261019.json
+          if git diff --cached --quiet; then echo 'No changes';exit 0;fi
+          git commit -m "Install six CC BY Dichondra recurvata teaching photos with cautious arrows [skip ci]"
+          for i in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0;fi
+            sleep 3
+          done
+          exit 1
