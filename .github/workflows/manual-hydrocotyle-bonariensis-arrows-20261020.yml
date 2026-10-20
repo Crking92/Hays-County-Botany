@@ -36,7 +36,7 @@ jobs:
           assert len(c['images'])==6 and c['project_inclusion']['native_metrics_excluded'] is True
           assert c['project_inclusion']['target_zone_status']=='UNRESOLVED'
           assert c['curation_status']['finished_field_id_pass']=='PASS_IN_PROGRESS'
-          labeled=[z for z in c['images'] if z.get('manual_arrow_review')=='2026-10-20-source-hash-correct']
+          labeled=[z for z in c['images'] if z.get('manual_arrow_review')=='2026-10-20-final-pixel-correction']
           assert len(labeled)==3
           for x in c['images']:
             f=p/x['file']
