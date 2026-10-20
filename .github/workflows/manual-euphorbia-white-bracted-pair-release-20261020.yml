@@ -1,0 +1,83 @@
+name: Publish Euphorbia bicolor and marginata field ID pair
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-white-bracted-pair-release-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: one-euphorbia-white-bracted-pair-release
+  cancel-in-progress: false
+jobs:
+  verify-then-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify both real photo annotation maps, lookalike and licensing rules
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          prefix=Path("content/taxa/Euphorbiaceae/Euphorbia")
+          qa=json.loads(Path("reports/euphorbia-white-bracted-pair-photo-qa-20261020.json").read_text())
+          assert len(qa["species_records"])==2
+          for name,n,counts in [
+            ("euphorbia-bicolor","Euphorbia bicolor",(3,6)),
+            ("euphorbia-marginata","Euphorbia marginata",(3,8)),
+          ]:
+            j=json.loads((prefix/name/"species.json").read_text())
+            assert j["scientific_name"]==n
+            assert j["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
+            assert len(j["visual_comparison"]["items"])==counts[0]
+            assert sum(len(x["markers"]) for x in j["visual_comparison"]["items"])==counts[1]
+            assert len(j["field_photo_quickcheck"]["featured_photo_indices"])==counts[0]
+            assert j["comparisons"]["confused_with"] and "Euphorbia" in j["comparisons"]["confused_with"][0]
+            assert "upper" in j["look_here_first"].lower()
+            for x in j["visual_comparison"]["items"]:
+              file=Path(x["image_url"])
+              assert file.is_file() and file.stat().st_size>15000, file
+              assert x["creator"] and x["source_page"] and x["license"]
+              for marker in x["markers"]:
+                assert marker["label"]
+                assert all(0<=float(marker[k])<=100 for k in ("label_x","label_y","target_x","target_y"))
+          b=json.loads((prefix/"euphorbia-bicolor/species.json").read_text())
+          m=json.loads((prefix/"euphorbia-marginata/species.json").read_text())
+          assert b["project_inclusion"]["native_metrics_excluded"] is True
+          assert "UNRESOLVED" in b["project_inclusion"]["target_zone_status"]
+          assert m["project_inclusion"]["target_zone_status"]=="PASS"
+          assert len(b["images"])==3 and len(m["images"])==4
+          assert m["images"][2]["license"]=="CC BY-NC 4.0"
+          assert m["images"][3]["license"]=="CC0 1.0"
+          assert Path("scripts/stage_public_euphorbia_marginata_20261020.py").exists()
+          deploy=Path(".github/workflows/deploy-github-pages-learner.yml").read_text()
+          assert "stage_public_euphorbia_marginata_20261020.py --site-dir dist" in deploy
+          genus=json.loads((prefix/"genus.json").read_text())
+          pair=next(x for x in genus["comparison_cards"] if x["id"]=="euphorbia-white-bracted-pair")
+          assert "NOT" in pair["caution"]
+          photos=[x for x in genus["visual_comparison"]["items"]
+                  if x["scientific_name"] in ("Euphorbia bicolor","Euphorbia marginata")]
+          assert len(photos)==4
+          assert all(Path(x["image_url"]).is_file() for x in photos)
+          assert len(qa["genus_white_bracted_panels"])==4
+          print("PASS two correctly keyed species, 14 exact-image annotation arrows, 4 genus comparison photos, range holds and strict licensing.")
+          PY
+      - name: Dispatch verified public site build on GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo "GitHub Pages publish requested for E. bicolor and E. marginata paired photo training."
