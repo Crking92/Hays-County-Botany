@@ -60,6 +60,9 @@ jobs:
       - name: Restrict marginata gallery to strict public photo licenses
         run: python scripts/stage_public_euphorbia_marginata_20261020.py --site-dir dist
 
+      - name: Withhold restricted E serpens root image from public gallery
+        run: python scripts/stage_public_euphorbia_serpens_20261020.py --site-dir dist
+
       - name: Shrink only staged website JPEGs and enforce size budget
         run: |
           python scripts/optimize_public_site_photos.py \
