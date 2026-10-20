@@ -130,7 +130,7 @@
   },
   "learner_role": "PROJECT_NATIVE",
   "curation_status": {
-    "version": "2.0-broad-bract-photo-annotated",
+    "version": "2.1-cc0-flowering-canopy-corrected",
     "taxonomy_reviewed": true,
     "range_reviewed": true,
     "morphology_reviewed": true,
@@ -143,13 +143,14 @@
     "photo_files_present": 4,
     "joey_inat_photo_install": "2026-10-15",
     "finished_field_id_pass": "CREW_READY_WITH_PHOTO_CLOSEOUT_PENDING",
-    "annotated_real_photo_count": 2,
-    "verified_arrow_count": 5,
+    "annotated_real_photo_count": 3,
+    "verified_arrow_count": 8,
     "required_to_finish": [
       "Full-plant source-licensed photograph",
       "Macro upper leaf/bract face proving relative smoothness",
       "Matched bicolor upper bract face with hairs under same light",
-      "Public rights stage must withhold Joey's original CC BY-NC image if following strict site policy"
+      "Public rights stage must withhold Joey's original CC BY-NC image if following strict site policy",
+      "True whole-plant photograph; installed CC0 Cbaile19 photo was canopy closeup"
     ],
     "cc0_whole_plant_installed": "2026-10-20"
   },
@@ -239,7 +240,7 @@
     },
     {
       "file": "images/04-cbaile19-marginata-whole-habit-cc0.jpg",
-      "role": "WHOLE-PLANT recognition: externally photographed complete Euphorbia marginata habit in Pennsylvania, not Hays County provenance; photo only proves plant growth form.",
+      "role": "Look closer: large broad white-edged modified upper bracts, multiple tiny green-and-white reproductive cyathia; NOT a whole plant or Hays County voucher.",
       "creator": "Cbaile19 (Wikimedia Commons)",
       "license": "CC0 1.0",
       "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
@@ -258,8 +259,31 @@
         1313
       ],
       "modifications": "EXIF stripped and JPEG resized; no anatomical arrows have been added yet",
-      "anatomy_arrows": "none; saved-pixel manual inspection pending",
-      "photo_review": "Original Commons source labels E. marginata photographed in Pennsylvania and explicitly publishes under CC0. Whole-habit teaching only pending image-pixel review."
+      "anatomy_arrows": [
+        {
+          "label": "Broad white-margined BRACT",
+          "target_fraction": [
+            0.64,
+            0.49200000000000005
+          ]
+        },
+        {
+          "label": "White gland appendages (not petals)",
+          "target_fraction": [
+            0.43,
+            0.435
+          ]
+        },
+        {
+          "label": "Tiny cyathium center",
+          "target_fraction": [
+            0.39,
+            0.406
+          ]
+        }
+      ],
+      "photo_review": "2026-10-20 manual saved JPEG view at 1750x1313: original source CC0 photograph shows ONLY a flowering canopy/macro, NOT an entire plant. Broad upper bracts, white gland appendages, and tiny central cyathia are clearly visible. Source collected in Pennsylvania, not evidence of Hays provenance.",
+      "manual_arrow_review": "2026-10-20 original saved JPEG visually inspected before placing three arrows: broad white-margined upper bract, distinct white appendages, tiny cyathium center. No pretend hair-count or 3-lobed fruit photo."
     }
   ],
   "learner_visual_status": {
@@ -267,9 +291,9 @@
     "mode": "two_public_safe_source_photo_annotated_views",
     "image_count": 4,
     "filled_at": "2026-10-07",
-    "note": "Two public-safe real photographs visibly demonstrate broad leaves/bracts versus hairy stem, true cyathial heads. Third Joey Santore CC BY-NC is research-only in canonical gallery but excluded from public gallery stage; need calibrated hair/fruit macro. CC0 exact-species full-habit source is physically installed, pending arrow pixel QA.",
-    "annotated_photo_count": 2,
-    "verified_annotation_arrows": 5
+    "note": "3 distinct public licensed annotated photos installed, including CC0 close-up canopy rather than purported whole plant. Hairs on actual upper FACE, whole flowering habit and public fruit macro still missing.",
+    "annotated_photo_count": 3,
+    "verified_annotation_arrows": 8
   },
   "unreliable_characters": [
     "amount of white coloration by itself",
@@ -317,7 +341,7 @@
   "visual_comparison": {
     "instance_id": "euphorbia-marginata-matched-pair-20261020",
     "title": "Snow-on-the-mountain: BROAD bracts, check the smooth upper FACE",
-    "subtitle": "Two licensed source-verified real-photo lessons, one NPS and one Wikimedia. Arrows distinguish broad green leaf, hairy STEM, white-margined bracts and actual reproductive cyathia; none claim a magnified smooth leaf surface.",
+    "subtitle": "Three physically saved publicly reusable annotated photographs: upper broad leaf versus hairy stem, broad white-edged flowering heads, and CC0 detail of modified leaf versus true tiny cyathia. Full plant habit and hair-surface microscope photos remain pending.",
     "items": [
       {
         "label": "Broad upper leaf versus hairy stem",
@@ -381,39 +405,75 @@
             "target_y": 31
           }
         ]
+      },
+      {
+        "label": "CC0 canopy close-up: BRACT versus cyathium",
+        "scientific_name": "Euphorbia marginata",
+        "image_role": "Close-up of white-margined broad modified leaves and tiny cyathial reproductive center, source-labelled CC0 photograph",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-marginata/images/04-cbaile19-marginata-whole-habit-cc0.jpg",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_marginata,_2015-07-22,_Beechview,_01.jpg",
+        "creator": "Cbaile19 (Wikimedia Commons)",
+        "license": "CC0 1.0",
+        "image_fit": "contain",
+        "caption": "Large broad white-edged blades are BRACTS, modified leaves. Tiny white gland appendages appear surrounding green/yellow reduced reproductive centers. This is an INFLORESCENCE CLOSE-UP from Pennsylvania, not the entire plant or a Hays County specimen.",
+        "why_it_matters": "The enlarged source-licensed view clearly separates two visually showy, often confused organs: the modified leaf and cyathial white gland appendages.",
+        "markers": [
+          {
+            "label": "Broad white-margined BRACT",
+            "label_x": 70,
+            "label_y": 11,
+            "target_x": 64,
+            "target_y": 49.2
+          },
+          {
+            "label": "White gland appendages (not petals)",
+            "label_x": 62,
+            "label_y": 79,
+            "target_x": 43,
+            "target_y": 43.5
+          },
+          {
+            "label": "Tiny cyathium center",
+            "label_x": 8,
+            "label_y": 51,
+            "target_x": 39,
+            "target_y": 40.6
+          }
+        ]
       }
     ],
-    "overlay_note": "Jim Pisarowicz / NPS (public domain federal work), and H. Zell Wikimedia Commons (CC BY-SA 3.0) source images. Joey Santore CC BY-NC 4.0 macro remains in canonical research source with its original rights; withheld from the public comparison module."
+    "overlay_note": "Jim Pisarowicz/NPS public domain; H. Zell CC BY-SA 3.0; Cbaile19 Wikimedia CC0 1.0. Source photos viewed directly and arrows on actual visible components only. Joey Santore CC BY-NC 4.0 photo stays in research archive, not featured in strict-license public lesson."
   },
   "field_photo_quickcheck": {
     "heading": "Snow-on-the-mountain: broad bracts, then inspect TOP of leaf",
     "featured_photo_indices": [
       0,
+      2,
       1
     ],
     "steps": [
       "Look for the larger BROAD white-edged bracts, and ignore any little narrow secondary ones as a stand-alone character.",
-      "Remember white 'petals' are modified BRACTS and tiny gland APPENDAGES; the actual flowers are within small cyathia.",
+      "Use the new CC0 close-up to distinguish broad white-margined BRACTS from the SMALL white gland appendages around actual cyathia.",
       "Observe hairy stems in the NPS photo, next to the broad GREEN leaf: hair on stem does not mean hair on upper leaf.",
       "Turn a true mature upper leaf/bract TOP upwards under strong light. Smooth/glabrous upper face supports marginata; upper-face hairs + very long narrow bracts favor bicolor."
     ],
     "field_rule": "Broad mature white-margined bracts + smooth TOP face = *E. marginata*. Photo shows shape and a hairy stem, but a calibrated upper-face hair close-up is still pending.",
-    "warning": "Do NOT claim the whole *E. marginata* plant is hairless. Do NOT rely on neat white rims versus patchy white."
+    "warning": "Do NOT claim the whole *E. marginata* plant is hairless. Do NOT rely on neat white rims versus patchy white. The newest CC0 image is a flowering canopy CLOSE-UP, NOT a verified full-plant image; continue to request whole habit."
   },
   "field_id_finalization": {
     "review_date": "2026-10-20",
     "stage": "PASS_IN_PROGRESS",
     "text_review": "PASS_FNA_EFLORAS_200012570_AND_TEXAS_RANGELAND",
-    "photo_review": "Two source-licensed saved images reviewed pixel by pixel: NPS photo shows broad leaf surface and clearly distinct hairy stem, white-edged bracts; H. Zell photo shows broad decorated bracts and tiny reproductive cyathia. Five arrows indicate visible objects ONLY. Third Joey Santore CC BY-NC macro has striking real gland appendages and hairy capsules but remains research-only in public photos pending permission context.",
-    "annotated_real_photos": 2,
-    "verified_anatomy_arrows": 5,
+    "photo_review": "Two source-licensed saved images reviewed pixel by pixel: NPS photo shows broad leaf surface and clearly distinct hairy stem, white-edged bracts; H. Zell photo shows broad decorated bracts and tiny reproductive cyathia. Five arrows indicate visible objects ONLY. Third Joey Santore CC BY-NC macro has striking real gland appendages and hairy capsules but remains research-only in public photos pending permission context. Additional Cbaile19 CC0 1750x1313 canopy image reviewed and 3 visible organ markers placed; previous false 'full plant' photo metadata corrected promptly.",
+    "annotated_real_photos": 3,
+    "verified_anatomy_arrows": 8,
     "crew_status": "CREW_READY_BROAD_BRACTS_HAIR_PLACEMENT_LESSON; TOP_SURFACE_MACRO_AND_FULL_HABIT_PENDING",
     "photo_rights": "NPS public domain and H Zell CC BY-SA 3.0 safe public; Joey Santore CC BY-NC 4.0 kept for research and original credit, not promoted to unrestricted public gallery.",
     "remaining": [
       "Matched calibrated adaxial glabrous bract macro",
-      "Source-verified full-plant habit photo",
       "Public reusable clear true 3-lobed hairy capsule photo",
-      "Matched bicolor bract/hair comparator with identical mm scale"
+      "Matched bicolor bract/hair comparator with identical mm scale",
+      "Actual full plant habit source photo (new CC0 picture only shows canopy)"
     ]
   },
   "diagnostic_photo_requirements": [
@@ -431,7 +491,7 @@
     },
     {
       "role": "True full erect flowering habit",
-      "status": "NEEDS_PUBLIC_SAFE_WHOLE_PLANT"
+      "status": "STILL_NEEDS_TRUE_WHOLE_PLANT_CC0_WAS_CANOPY_ONLY"
     },
     {
       "role": "Mostly glabrous UPPER leaf surface verified under side-light",
