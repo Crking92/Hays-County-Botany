@@ -5,6 +5,7 @@ Uses the same rights() function as the existing noncommercial GitHub Pages build
 Does NOT relicense, copy, edit or install source photographs or publish the website.
 This is an eligibility PRE-SCREEN based on recorded rights, not external license proof.
 Refresh after verified 2026-10-20 CC BY recovery of Ludwigia and Symphyotrichum.
+Refresh after verified 2026-10-20 Tinantia noncommercial CC BY-NC and new Arbutus/Dalea exact-source CC BY first photos.
 """
 from __future__ import annotations
 
