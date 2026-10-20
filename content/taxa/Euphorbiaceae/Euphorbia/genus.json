@@ -149,7 +149,7 @@
     },
     {
       "if": "Creeping flat mat of tiny opposite leaves",
-      "then": "SANDMAT GROUP: check rooting at nodes + exact stipules, then capsule and seed with mm scale. E. prostrata / E. serpens / E. villifera / E. maculata need care."
+      "then": "SANDMAT THREE-WAY: examine 3-lobed capsule first: face hairs = maculata; keel hairs = prostrata; no hairs = serpens. Seeds: shallow low transverse / strong transverse / smooth respectively. Red spots are unreliable."
     },
     {
       "if": "Plant's leaves/bracts or capsule don't fit these groups",
@@ -176,22 +176,23 @@
     "species_detail_pass_completed": "2026-10-07"
   },
   "curation_status": {
-    "version": "2.7-source-verified-sandmat-fruit-seed",
+    "version": "2.8-maculata-prostrata-serpens-three-way",
     "genus_audit": "CREW_READY_MULTI_GROUP_COMPARISON; FINE_GLAND_AND_SEED_MACROS_PENDING",
     "last_reviewed": "2026-10-20",
-    "public_comparison_photo_count": 17,
-    "public_comparison_annotated_source_count": 16,
+    "public_comparison_photo_count": 20,
+    "public_comparison_annotated_source_count": 19,
     "public_comparison_photo_hold_count": 13,
     "photo_note": "Original indexed study photos preserved as source references. Public genus panel filters rights and adds only visually confirmed arrows. Species-level galleries retain their own licensing gates.",
-    "public_comparison_verified_arrow_count": 30,
+    "public_comparison_verified_arrow_count": 36,
     "poinsettia_gland_pair": "TRUE_MACRO_VERIFIED_BOTH_SPECIES",
     "poinsettia_photo_id_hold": "Older heterophylla Psumuseum pink-bracted photo conflicts with typical FNA description; source image excluded from public teaching until independent verification.",
     "white_bracted_pair": "CREW_READY_FOR_BRACTS; ADAXIAL_HAIR_MACRO_PENDING",
-    "sandmat_pair": "CREW_READY_CAPSULE_SEED_STIPULE; NODE_ROOT_PUBLIC_MACRO_PENDING"
+    "sandmat_pair": "CREW_READY_CAPSULE_SEED_STIPULE; NODE_ROOT_PUBLIC_MACRO_PENDING",
+    "sandmat_threeway": "CREW_READY_FRUIT_SEED_ALL_THREE_PHOTOGRAPHED"
   },
   "visual_comparison": {
     "title": "Euphorbia — begin with habit, then the tiny real reproductive parts",
-    "subtitle": "Both tiny sandmats now have true labelled macro photographs: prostrata HAIRY capsule keels and strongly RIDGED seeds vs serpens GLABROUS fruit and smooth seed; stipule photos show which node structure to inspect. Rooted-node photo remains restricted study evidence.",
+    "subtitle": "NOW THREE-WAY field comparison on real photos: MACULATA hairy across capsule faces/weak crosswise seed wrinkles, PROSTRATA hairy at capsule keels/strong seed ribs, SERPENS glabrous fruit/smooth seed. Also compare stipules. Same-mm-scale plate and local provenance still pending.",
     "memory_rule": "Euphorbia = tiny CYATHIUM (not a normal flower) + 3-lobed CAPSULE. First sort WHITE-bracted / POINSETTIA-looking / TOOTHED erect / SANDMAT. Then look at the part that truly separates the two likely species. Colored bracts, red spots and white latex are supporting clues, not final proof.",
     "items": [
       {
@@ -650,9 +651,99 @@
         ],
         "image_fit": "contain",
         "image_pixel_audit": "Real local JPEG inspected 2026-10-20; no inferred root or missing flower structures"
+      },
+      {
+        "label": "Look closer: narrow stipule and hairy stem",
+        "scientific_name": "Euphorbia maculata",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-maculata/images/03-stefan-leaf-stipule.jpg",
+        "image_role": "Source microscope photograph of narrow reddish pointed stipule, leaf attachments and fine hairs",
+        "caption": "The narrow reddish pointed appendage at the leaf base is a stipule; numerous small hairs project from the adjoining stem. The source includes a 5 mm scale. This view does not prove all leaf-base asymmetry or lack of node roots. Pair this with real prostrata and serpens capsules/seeds already in the genus panel.",
+        "why_it_matters": "A real microscopic example of the structure normally skipped when someone guesses from leaf color.",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_maculata_sl13.jpg",
+        "creator": "Stefan.lefnaer",
+        "license": "CC BY-SA 4.0",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "Narrow pointed stipule",
+            "label_x": 72,
+            "label_y": 31,
+            "target_x": 50,
+            "target_y": 42
+          },
+          {
+            "label": "Fine stem hairs",
+            "label_x": 10,
+            "label_y": 63,
+            "target_x": 35,
+            "target_y": 44
+          }
+        ],
+        "image_pixel_audit": "2026-10-20 exact saved JPEG retrieved and visually inspected. No arrow for a structure absent from the image.",
+        "source_evidence": "2026-10-20 saved source JPEG independently inspected"
+      },
+      {
+        "label": "Confirm: short hairs spread across capsule faces",
+        "scientific_name": "Euphorbia maculata",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-maculata/images/04-stefan-fruit-entirely-hairy.jpg",
+        "image_role": "Close view of multiple actual three-lobed capsules with appressed fine pale hairs across the rounded faces",
+        "caption": "Unlike E. prostrata's hairs concentrated on capsule KEELS, E. maculata has fine appressed hairs scattered across the rounded FRUIT FACES as well. Pinkish styles at the fruit tips are not individual petals. Original source 5 mm scale. Pair this with real prostrata and serpens capsules/seeds already in the genus panel.",
+        "why_it_matters": "This capsule hair placement is the best visible difference between two hairy sandmats.",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_maculata_sl18.jpg",
+        "creator": "Stefan.lefnaer",
+        "license": "CC BY-SA 4.0",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "Hairs across fruit FACE",
+            "label_x": 68,
+            "label_y": 19,
+            "target_x": 66,
+            "target_y": 35
+          },
+          {
+            "label": "Hairy 3-lobed capsule",
+            "label_x": 8,
+            "label_y": 61,
+            "target_x": 34,
+            "target_y": 52
+          }
+        ],
+        "image_pixel_audit": "2026-10-20 exact saved JPEG retrieved and visually inspected. No arrow for a structure absent from the image.",
+        "source_evidence": "2026-10-20 saved source JPEG independently inspected"
+      },
+      {
+        "label": "Confirm: shallow transverse seed furrows",
+        "scientific_name": "Euphorbia maculata",
+        "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-maculata/images/05-stefan-seeds-shallow-furrows.jpg",
+        "image_role": "Six individual mature seeds, some with visible shallow low crosswise grooves, original 2 mm scale",
+        "caption": "Subtle shallow grooves run ACROSS several seeds, easiest on the lower right seed. These are NOT lengthwise ribs. E. prostrata has MUCH stronger raised transverse ridges; E. serpens lacks prominent repeated crosswise ridges. Different source-photo scale bars mean do not compare seed size by screen display. Pair this with real prostrata and serpens capsules/seeds already in the genus panel.",
+        "why_it_matters": "Corrects an earlier misleading longitudinal-ridge claim. A paired seed comparison is now possible.",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_maculata_sl20.jpg",
+        "creator": "Stefan.lefnaer",
+        "license": "CC BY-SA 4.0",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "Shallow crosswise seed furrows",
+            "label_x": 64,
+            "label_y": 62,
+            "target_x": 78,
+            "target_y": 63
+          },
+          {
+            "label": "Individual mature seed",
+            "label_x": 9,
+            "label_y": 26,
+            "target_x": 19,
+            "target_y": 26
+          }
+        ],
+        "image_pixel_audit": "2026-10-20 exact saved JPEG retrieved and visually inspected. No arrow for a structure absent from the image.",
+        "source_evidence": "2026-10-20 saved source JPEG independently inspected"
       }
     ],
-    "overlay_note": "Public genus source photos licensed CC BY or CC BY-SA, individual photographers credited and source URLs preserved. Serpens node-root image credited Nathan Taylor CC BY-NC-SA is kept in canonical research only, not on public genus board. Saved-JPEG coordinate annotations inspected against original pixels.",
+    "overlay_note": "All public images individually licensed CC BY/CC BY-SA/CC0, credited at source. New E. maculata macros © Stefan.lefnaer CC BY-SA 4.0. Legacy CC BY-NC E. maculata and CC BY-NC-SA E. serpens originals are not displayed in this public comparison.",
     "instance_id": "euphorbia-central-texas-v3-20261020",
     "study_only_intro": "Sources listed below may be valuable for botanical research, but their original images are intentionally not embedded in this public-facing genus comparison because individual public redistribution terms are unverified or restrictive. Open at the source.",
     "study_only_photo_links": [
@@ -976,70 +1067,76 @@
     },
     {
       "id": "euphorbia-sandmat-group",
-      "title": "Sandmats — stop guessing from red leaf spots",
+      "title": "Sandmat spurges: three-way CAPSULE hair and SEED key",
       "taxon_ids": [
         "euphorbia-maculata",
         "euphorbia-prostrata",
         "euphorbia-serpens",
         "euphorbia-villifera"
       ],
-      "look_here_first": "CREEPING EUPHORBIA: first inspect an ACTUAL stem node for adventitious roots and fused vs free stipules. Then distinguish two source-photo-proven species: E. PROSTRATA = HAIRS along green capsule KEELS and strong crosswise SEED RIDGES; E. SERPENS = glabrous 3-lobed capsule, smooth seed without strong transverse ribs and broad fused white-pink stipule scales. One small red leaf spot or a low mat habit doesn't decide a species.",
+      "look_here_first": "IGNORE RED SPOTS FOR FINAL ID. Locate a 3-lobed capsule and check hair DISTRIBUTION: E. maculata = short APPRESSED hairs spread across capsule FACES; E. prostrata = longer curled/projecting hairs mainly along capsule KEELS; E. serpens = capsule GLABROUS. Then inspect SEED texture: maculata = few LOW SUBTLE CROSSWISE ridges; prostrata = STRONG repeated sharp TRANSVERSE ridges; serpens = smooth, lacking strong ribs. Check leaf-base stipules and rooting nodes for backup; the 3 species' source photos show different magnifications.",
       "field_matrix": [
         {
-          "character": "Rooting at nodes",
-          "prostrata": "Generally does not root at nodes",
-          "serpens": "Often roots at soil-contact nodes",
-          "warning": "Actual roots may be hidden below soil, inspect multiple nodes"
+          "character": "Capsule hairs",
+          "maculata": "Fine appressed hairs spread across entire fruit FACES",
+          "prostrata": "Hairs concentrated on raised KEELS/base",
+          "serpens": "Smooth / glabrous"
         },
         {
-          "character": "Stipules at node",
-          "prostrata": "Upper side free pointed, lower side fused; pale stipule can be photographed",
-          "serpens": "Broad fused whitish-to-pink scale",
-          "warning": "One-side photos can't prove both stipule configurations"
+          "character": "Seed texture",
+          "maculata": "Low, inconspicuous TRANSVERSE shallow ridges/wrinkles",
+          "prostrata": "Strong sharply raised TRANSVERSE ridges",
+          "serpens": "Smooth / lacks strong transverse ridges"
         },
         {
-          "character": "Capsule surface",
-          "prostrata": "Longer curled hairs on raised capsule keels and towards base",
-          "serpens": "Glabrous capsule",
-          "warning": "Both are THREE-lobed fruits, not seeds"
+          "character": "At stem node",
+          "maculata": "Narrow separate stipules, rooting usually absent",
+          "prostrata": "Upper pointed stipules free, lower fused; roots usually absent",
+          "serpens": "Broad fused scale, often roots at soil-contact node"
         },
         {
-          "character": "Seed coat",
-          "prostrata": "Strong narrow transverse ridges",
-          "serpens": "No prominent transverse ridges, appears smooth",
-          "warning": "Original source bars DIFFER (prostrata 2 mm; serpens 1 mm)"
+          "character": "Leaf spot",
+          "maculata": "Often red center, can be absent",
+          "prostrata": "Usually no red spot",
+          "serpens": "Typically no dark patch"
         },
         {
-          "character": "Stem/leaf hairs",
-          "prostrata": "Often curl-haired and minutely toothed leaf margins",
-          "serpens": "Glabrous stem, entire leaf margins",
-          "warning": "Need close macro"
+          "character": "Foliage/stem",
+          "maculata": "Short hairs, unequal leaf bases, minutely toothed",
+          "prostrata": "Curly hairs, often minutely toothed",
+          "serpens": "Glabrous leaves and stem, margins entire"
+        },
+        {
+          "character": "Strongest public photo",
+          "maculata": "Face-hairy true capsule AND low-ridge seed installed",
+          "prostrata": "Keel-hairy capsule AND sharply ribbed seed installed",
+          "serpens": "Hairless capsule AND smooth seed installed"
         }
       ],
-      "caution": "The two species have good public macro photographs proving hairy-vs-hairless fruit and ridged-vs-smooth seed; original scale bars show 2 mm versus 1 mm, so don't compare screen widths. Rooting node E. serpens is shown in an additional exact-species study photograph by Nathan Taylor, but it is marked CC BY-NC-SA and remains out of public distribution. Current prostrata stipule photo shows only one face; the free-versus-fused bilateral split needs new angles.",
+      "caution": "CRITICAL SCIENCE UPDATE: an old E. maculata card incorrectly taught LONGITUDINAL seed ridges. FNA specifies 3–4 LOW TRANSVERSE ridges. These are weaker than the prominent prostrata crosswise ribs; serpens is smooth. All three now have exact-species saved photographs showing hair DISTRIBUTION and seed texture, but at different source magnifications. A red leaf spot, a mat habit, or one node without visible roots is insufficient for confident naming. Three-way source pictures are from outside Texas and do not prove any county nativity.",
       "photo_pair_targets": [
         {
-          "role": "Public reusable prostrata hairy fruit vs serpens smooth fruit",
-          "status": "PHOTO VERIFIED: both original macro JPEGs plus arrows, publicly reusable CC BY-SA"
+          "role": "3-way capsule face/keel/hairless comparison",
+          "status": "PASS: maculata all-face appressed hairs; prostrata keel hairs; serpens hairless, three publicly licensed inspected closeups"
         },
         {
-          "role": "Prostrata ribbed vs serpens smooth seed",
-          "status": "PHOTO VERIFIED: both saved physical files, source scale bars 2 mm vs 1 mm"
+          "role": "3-way mature seed comparison",
+          "status": "PASS: maculata LOW transverse wrinkles, prostrata HIGH/sharp transverse ridges, serpens smooth. Different source-photo scale bars; not equal-calibrated composite"
         },
         {
-          "role": "Broad fused serpens vs pointed prostrata stipule",
-          "status": "PARTIAL PHOTO VERIFIED: visible pale stipule shapes; 2-sided prostrata fuse/free attachment still not demonstrable"
+          "role": "3-way stipule/node",
+          "status": "PARTIAL: maculata narrow pointed, prostrata pale pointed one side, serpens broad fused scale. Stem-side proof incomplete."
         },
         {
-          "role": "Root at exact serpens node vs nonrooted prostrata node",
-          "status": "PHOTO GAP ON PUBLIC SITE: node-root photo restricted to noncommercial source study; seek CC BY/CC0 equivalent"
+          "role": "Rooting at nodes",
+          "status": "PARTIAL/PUBLIC GAP: restricted serpens rooted-node photo not reproduced, nor proof of nonrooting at photographed prostrata/maculata nodes."
         }
       ],
       "references": [
         "https://w3.biosci.utexas.edu/prc/K12/pages/Euphorbia%20prostrata.html"
       ],
       "reviewed_at": "2026-10-20",
-      "taxonomy_guardrail": "Both stay PROJECT PROVISIONAL and excluded from confirmed native county metric until county-range reconciliation; field morphology does not certify nativity."
+      "taxonomy_guardrail": "E. maculata county label remains NOT_REVIEWED_COUNTY and native_metrics_excluded, alongside provisional prostrata and serpens. These lessons teach ID not local native approval."
     }
   ],
   "diagnostic_photo_needs": [
