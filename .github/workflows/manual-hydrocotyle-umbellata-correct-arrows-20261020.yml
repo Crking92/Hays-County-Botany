@@ -1,0 +1,57 @@
+name: Correct Dollarweed Leaf and Flower Arrows
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-hydrocotyle-umbellata-correct-arrows-20261020.yml"
+      - "scripts/manual_hydrocotyle_umbellata_fix_arrows_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: dollarweed-two-arrow-pixel-correction-20261020
+  cancel-in-progress: false
+jobs:
+  correct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install Pillow requests
+      - run: python scripts/manual_hydrocotyle_umbellata_fix_arrows_20261020.py
+      - name: Verify all six image bytes and corrected CC BY credit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path('content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-umbellata')
+          j=json.loads((root/'species.json').read_text())
+          assert len(j['images'])==6
+          assert j['images'][1]['license']=='CC BY 4.0'
+          v=next(x for x in j['images'] if x['file'].endswith('sam-633285519-leaf-and-head-arrows.jpg'))
+          assert v['manual_arrow_review']=='2026-10-20-corrected-visual-readback'
+          for x in j['images']:
+            p=root/x['file']
+            assert p.stat().st_size>20000
+            with Image.open(p) as i:i.verify()
+          print('All six source-licensed physical photos verified')
+          PY
+      - name: Commit one-species only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Araliaceae/Hydrocotyle/hydrocotyle-umbellata/
+          if git diff --cached --quiet;then exit 0;fi
+          git commit -m "Correct two dollarweed botanical arrowheads after installed-pixel QA [skip ci]"
+          for i in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 3
+          done
+          exit 1
