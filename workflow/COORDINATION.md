@@ -1,5 +1,14 @@
 # Hays Botany Work Coordination
 
+## 2026-10-20 public education + temporary licensed photo clarification (latest override)
+
+The owner confirms https://crking92.github.io/Hays-County-Botany/ is a **publicly accessible but not actively promoted, noncommercial educational field learner**. The canonical source repository is also PUBLIC. Being public is not the same as commercially exploited; being educational or unpromoted is not by itself a copyright permission. Current governing publication/rights rules are in `PROJECT_RULES.md` (2026-10-20 ACTIVE PUBLIC LEARNER MODE) and `workflow/PUBLIC_PHOTO_REUSE_POLICY_20261019.md` (2026-10-20 UPDATE), superseding older private-repo/Pages-disabled language elsewhere.
+
+**Interim galleries:** Existing one-photo/provisional species cards may appear publicly while better views are sourced **when image-specific public web display is already allowed** (including verified NC/NC-SA under the genuinely noncommercial site conditions). Maintain source, creator, original license/terms, attribution, any SA/change notices, and verified image bytes. Do not replace a missing-macro quality issue with a rights restriction. Continue NEEDS_DIAGNOSTIC_PHOTO independently of NEEDS_PUBLIC_PHOTO. Missing/unknown/private-only/all-rights-reserved third-party web permission remains a hold; no blanket education exemption. The source repo's own directly accessible images also require auditing because the website's filter cannot hide the originals on GitHub.
+
+Keep the five-worker division and the **existing** rights-filtered GitHub Pages publication marker workflow unchanged: New Species Installer, Species Card Finalization, Diagnostic Photo Fast-Fill, Taxonomy Name Fast-Pass, Public Learner Readiness. The paused Family/Genus automations and their published modules are preserved. No generic raw photo deployment or automatic Pages build on every canonical commit. Website readiness should use the latest successful build's card-by-card rights holds, not assume the last 25-photo-free snapshot remains current.
+
+
 ## 2026-10-20 user-approved five-worker species/public-pages priority (supersedes older worker-schedule instructions)
 
 The user explicitly approved shifting effort from additional family/genus polish to new species, improved field-ID cards, publicly permitted photos and reliable GitHub Pages publication. **Five active hourly tasks; no sixth active worker.** The prior Family Similarity Polish and Genus Comparison Builder automations are **paused, not deleted**; preserve all canonical family/genus modules, pending scientific lessons and handoffs for later resumption. Any earlier directive in this document to keep those two enabled/unchanged is superseded by this latest user instruction.
