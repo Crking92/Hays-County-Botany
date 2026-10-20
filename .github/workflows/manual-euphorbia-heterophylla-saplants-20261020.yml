@@ -1,0 +1,60 @@
+name: Install source-verified heterophylla cyathium close-up
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-heterophylla-saplants-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-heterophylla-saplants-photo
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - run: python scripts/manual_euphorbia_heterophylla_confirmed_commons_20261020.py
+      - name: Validate source image and preserve flagged original
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          b=Path("content/taxa/Euphorbiaceae/Euphorbia/euphorbia-heterophylla")
+          j=json.loads((b/"species.json").read_text())
+          assert j["project_inclusion"]["target_zone_status"]=="COMPARISON"
+          assert len(j["images"])==4
+          assert j["images"][1]["taxon_photo_review"].startswith("TAXON_ID_HOLD")
+          assert j["images"][3]["license"]=="CC BY-SA 4.0"
+          f=b/j["images"][3]["file"]
+          with Image.open(f) as image:
+            assert image.width>=700 and image.height>=700
+            image.verify()
+          assert f.stat().st_size>17000
+          print("PASS source labelled exact variant, named author, CC BY-SA 4.0; existing photo hold retained")
+          PY
+      - name: Commit one verified photo and species citation
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Euphorbiaceae/Euphorbia/euphorbia-heterophylla/ reports/euphorbia-heterophylla-saplants-install-20261020.json
+          if git diff --cached --quiet; then echo "Already present"; exit 0; fi
+          git commit -m "Add credited, source-specific heterophylla close-up"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
