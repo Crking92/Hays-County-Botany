@@ -54,6 +54,9 @@ jobs:
       - name: Withhold restricted David's spurge microscope photographs from public website
         run: python scripts/stage_public_euphorbia_davidii_20261020.py --site-dir dist
 
+      - name: Withhold heterophylla taxon-ID review photo from public copy
+        run: python scripts/stage_public_euphorbia_heterophylla_20261020.py --site-dir dist
+
       - name: Shrink only staged website JPEGs and enforce size budget
         run: |
           python scripts/optimize_public_site_photos.py \
