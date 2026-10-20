@@ -1,0 +1,63 @@
+name: Install Johnsongrass Public Licensed Diagnostic Gallery
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-sorghum-halepense-photo-install-20261020.yml"
+      - "scripts/manual_sorghum_halepense_install_photos_20261020.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-manual-sorghum-halepense-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - run: python scripts/manual_sorghum_halepense_install_photos_20261020.py
+      - name: Validate 8 real photographs, old photo rejection, and nonnative status
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          base=Path('content/taxa/Poaceae/Sorghum/sorghum-halepense')
+          j=json.loads((base/'species.json').read_text())
+          assert len(j['images'])==8
+          assert j['project_inclusion']['target_zone_status']=='INTRODUCED_NOT_NATIVE'
+          assert j['curation_status']['finished_field_id_pass']=='PASS_IN_PROGRESS'
+          assert len(j['unresolved_photo_references'])>=1
+          assert all('inat-154485533' not in x['file'] for x in j['images'])
+          for x in j['images']:
+            p=base/x['file']
+            assert p.exists() and p.stat().st_size>19000
+            assert x['license'] in ('CC BY','CC0','CC BY-SA')
+            assert x['creator'] and x['source_page']
+            with Image.open(p) as img:img.verify()
+          print('8 real public-licensed credited images, rejected nonplant photo absent, introduced status intact')
+          PY
+      - name: Commit species gallery and report only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Sorghum/sorghum-halepense/ reports/sorghum-halepense-photo-upgrade-20261020.json
+          if git diff --cached --quiet;then exit 0;fi
+          git commit -m "Install 6 public-licensed Johnsongrass teaching photos, retain rhizome photo HOLD [skip ci]"
+          for attempt in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 3
+          done
+          exit 1
