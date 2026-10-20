@@ -4,6 +4,7 @@
 Uses the same rights() function as the existing noncommercial GitHub Pages builder.
 Does NOT relicense, copy, edit or install source photographs or publish the website.
 This is an eligibility PRE-SCREEN based on recorded rights, not external license proof.
+Refresh after verified 2026-10-20 CC BY recovery of Ludwigia and Symphyotrichum.
 """
 from __future__ import annotations
 
