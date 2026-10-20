@@ -1,8 +1,18 @@
 # Hays Botany ID
 
-Private working repository for a Central Texas **visual botany learner + curation system**.
+Public working repository for a Central Texas **visual botany learner + curation system**.
 
 This working tree was rebuilt on 2026-09-30 from the current curation packages. The old GitHub React/Vite snapshot was intentionally discarded because it was no longer the active build.
+
+## Public educational learner — current operating mode
+
+[Open the GitHub Pages visual learner](https://crking92.github.io/Hays-County-Botany/).
+
+As of October 20, 2026, the repository and site are publicly accessible. The owner currently uses the learner as a **noncommercial educational work-in-progress**, not a promoted commercial project. One good licensed view is enough for a provisional species card; further diagnostic photos, arrows and look-alikes can be refined later. Some photos are reused under CC BY, CC BY-SA or CC BY-NC and retain their **individual creator, license and attribution conditions**. Glass Root Garden original photos may instead have site-specific permission; site display does not grant blanket redistribution rights.
+
+The GitHub Pages build is **rights-filtered** and published separately after verification via `.github/workflows/publish-public-learner-github-pages.yml`. A file committed to GitHub is not proof it appears on the website. The site filters unsupported image records, but the source repository itself is public: files committed here can be accessed directly, independently of the website. Do not add unsourced, all-rights-reserved, private-only or unverified media under the assumption that educational purpose makes it reusable. Replacement-photo handoffs preserve the distinction between NEEDS_PUBLIC_PHOTO and NEEDS_DIAGNOSTIC_PHOTO.
+
+Read `PROJECT_RULES.md`, `workflow/PUBLIC_PHOTO_REUSE_POLICY_20261019.md` (October 20 update) and `workflow/COORDINATION.md` for current licensing, publication and five-worker responsibilities.
 
 ## Purpose
 
