@@ -4,19 +4,30 @@
   "family": "Asteraceae",
   "common_group": "marsh-elders / sumpweeds",
   "project_scope": {
-    "selection_mode": "Approved Master Plant Pool pair; genus-level lesson only, neither species currently in canonical manifest",
+    "selection_mode": "Approved Master Plant Pool pair, both represented by canonical learner cards; genus lesson only",
     "source_pool": "Hays_Botany_ID_Master_Curation_Tracker > Master Plant Pool, rows 590–591; Genus Study Index row 118",
     "included_source_pool_taxa": [
       "Iva angustifolia",
       "Iva annua"
     ],
-    "canonical_species_ids_present": [],
-    "species_installation": "independent, not performed in this lane"
+    "canonical_species_ids_present": [
+      "iva-annua",
+      "iva-asperifolia-var-angustifolia"
+    ],
+    "species_installation": "Both learner concepts already installed; no canonical species added or changed by genus lane.",
+    "accepted_name_mapping": {
+      "source_pool_name": "Iva angustifolia Nutt. ex DC.",
+      "canonical_name": "Iva asperifolia var. angustifolia (Nutt. ex DC.) B.L.Turner",
+      "canonical_id": "iva-asperifolia-var-angustifolia",
+      "relationship": "homotypic synonym / accepted variety under POWO; FNA key uses older Iva angustifolia name",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60451320-2",
+      "instruction": "Search and compare under both names; never create an independent duplicate Iva angustifolia card."
+    }
   },
   "shared_genus_recognition": {
-    "look_here_first": "Find the inconspicuous, rayless Asteraceae heads crowded along a spike-like flowering axis. Flip an intact head sideways: verify its involucre and individual florets, then measure a mature leaf's petiole and check whether its margin is toothed. Do not identify from flower color.",
+    "look_here_first": "Start with mature mid-stem leaves: measure petiole length and blade width, check the entire versus toothed edge, then examine a mature head's involucre and outer phyllary seams. Photograph lower and upper nodes to learn opposite-to-alternate phyllotaxy; leaf arrangement alone does not distinguish the two taxa.",
     "shared_traits": [
-      "Annual herbs in this study pair, with alternate simple leaves bearing minute gland dots and roughened surfaces.",
+      "Annual herbs in this study pair with simple rough, gland-dotted leaves; lower stem leaves can be opposite and upper leaves alternate. Check multiple nodes before describing leaf arrangement.",
       "Small rayless (discoid-looking) capitula borne in roughly spike-like arrays; each head has an involucre, receptacular paleae, and separate functionally pistillate and staminate florets.",
       "Dry one-seeded cypselas develop after flowering; examine the whole head and florets with magnification to confirm Asteraceae."
     ],
@@ -58,13 +69,19 @@
       "Iva angustifolia": "Often 20–60 cm, occasionally over 100 cm; flowering commonly Sep–Nov",
       "Iva annua": "Often 50–100 cm, occasionally over 150 cm; flowering commonly Jul–Nov",
       "weight": "CONTEXT ONLY: high overlap"
+    },
+    {
+      "character": "leaf arrangement by stem position",
+      "Iva angustifolia": "Opposite lower leaves, often alternate above (accepted learner concept: I. asperifolia var. angustifolia)",
+      "Iva annua": "Lower leaves generally opposite; upper leaves may be alternate",
+      "weight": "SHARED/NOT DIAGNOSTIC: compare several lower and upper nodes; prioritize petiole, margin and phyllary characters"
     }
   ],
   "look_here_first_sequence": [
     {
       "step": 1,
       "inspect": "a mature mid-stem leaf at its stem attachment",
-      "decision": "Very narrow entire blade + petiole 0–2 mm favors I. angustifolia; wider toothed blade + petiole usually 5–20 mm favors I. annua."
+      "decision": "Very narrow entire blade + petiole 0–2 mm favors I. angustifolia; wider toothed blade + petiole usually 5–20 mm favors I. annua. Also record opposite lower versus alternate upper leaf nodes as a shared teaching feature, not a species tie-breaker."
     },
     {
       "step": 2,
@@ -85,10 +102,11 @@
   "scientific_cautions": [
     "Do not treat number of florets as an absolute binary key: Flora of North America uses open-ended counts, especially for I. angustifolia.",
     "Both grow in disturbed and often moist sites; habitat cannot replace leaf/involucre anatomy.",
-    "The source index is not the canonical species manifest. These two names are learning targets, not newly installed species.",
-    "I. angustifolia is sometimes recorded under I. texensis or infraspecific synonym concepts; avoid creating duplicate cards until taxonomy installer resolves them.",
+    "Both source-pool names are represented in the current canonical manifest: Iva annua and Iva asperifolia var. angustifolia (source-pool Iva angustifolia is a synonym). No new species install is needed.",
+    "Flora of North America uses Iva angustifolia, whereas the canonical learner uses accepted Iva asperifolia var. angustifolia (POWO); retain synonym search and do not create a duplicate. Historical I. texensis usage requires separate taxonomic review, not an automatic alias decision.",
     "I. annua's leaf outline is variable; prioritize the combination of petiole length, teeth, and phyllary union.",
-    "No native-range PASS or county certification is made by this genus lesson."
+    "No native-range PASS or county certification is made by this genus lesson.",
+    "Both taxa may show opposite lower leaves and alternate upper leaves; do not teach 'all leaves alternate' as a genus diagnosis or a species separator. Photograph a sequence of nodes."
   ],
   "local_lookalike_routing": [
     {
@@ -167,8 +185,8 @@
   "dependencies": [
     {
       "owner": "approved-species installer / taxonomy lane",
-      "scope": "I. angustifolia and I. annua",
-      "detail": "Source-pool species currently not installed in canonical manifest; validate accepted names, aliases (notably I. texensis) and any scientific holds before separate species installation. This lesson does not install either."
+      "scope": "Iva annua and Iva asperifolia var. angustifolia",
+      "detail": "Both accepted learner concepts are already canonical; do not reinstall. Preserve source-pool Iva angustifolia as an alias to the existing variety, and route any unresolved I. texensis identity question to taxonomy review."
     },
     {
       "owner": "taxonomic diagnostic review",
@@ -196,14 +214,29 @@
       "title": "Flora of North America — Iva annua",
       "url": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=220006879",
       "supports": "I. annua measurements, distinct phyllaries and head counts"
+    },
+    {
+      "title": "Kew POWO — accepted Iva asperifolia var. angustifolia and Iva angustifolia synonym",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60451320-2",
+      "supports": "accepted infraspecific name and homotypic synonym"
+    },
+    {
+      "title": "UT Austin Plant Resources Center — Iva asperifolia var. angustifolia morphology",
+      "url": "https://w3.biosci.utexas.edu/prc/K12/pages/Iva%20asperifolia%20angustifolia.html",
+      "supports": "opposite lower and alternate upper leaves, measured reproductive parts"
+    },
+    {
+      "title": "Missouri State University — Iva annua identification",
+      "url": "https://ag.missouristate.edu/PBTrewatha/annual-marshelder.htm",
+      "supports": "opposite lower leaves, sometimes alternate upper leaves"
     }
   ],
   "curation_status": {
-    "version": "1.1-iva-photo-led-anatomy-recovery",
-    "last_reviewed": "2026-10-11",
+    "version": "1.2-iva-canonical-alias-phyllotaxy-photo-rights-reconciliation",
+    "last_reviewed": "2026-10-19",
     "structural_lesson": "comparison built from published diagnostic key",
-    "visual_lock": "four anatomy roles and three comparisons added; exact-species diagnostic photos still needed; no arrows verified",
-    "species_installation": "not performed",
+    "visual_lock": "Four existing anatomy lessons and three comparisons retained; four installed image files checked, exact anatomy/annotation not verified; matched macro roles pending.",
+    "species_installation": "Both canonical learner concepts preexisting; none installed in genus lane.",
     "scientific_decisions": "unchanged"
   },
   "anatomy_lessons": [
@@ -215,10 +248,10 @@
         "Iva angustifolia",
         "Iva annua"
       ],
-      "look_for": "Measure several fully expanded mid-stem leaves at their stem attachment: 0–2 mm in I. angustifolia versus usually 5–20 mm in I. annua. Include a ruler and full leaf margin; small immature leaves can mislead.",
+      "look_for": "Measure several fully expanded mid-stem leaves at their stem attachment: 0–2 mm in I. angustifolia versus usually 5–20 mm in I. annua. Include a ruler and full leaf margin; small immature leaves can mislead. Record whether lower leaves are opposite and upper leaves alternate; this is a shared pattern, not the species split.",
       "why_it_matters": "The combination of leaf stalk, blade width and entire versus toothed edge is the first useful field split.",
       "photo_role": "matched exact-species node + full leaf + millimeter scale",
-      "photo_status": "needed; no genus-installed verified diagnostic photo",
+      "photo_status": "Existing four species gallery files confirmed on main; none certified to demonstrate petiole measurements or node phyllotaxy; paired scale photos needed.",
       "annotation_status": "pending image-specific verification"
     },
     {
@@ -273,7 +306,7 @@
       ],
       "look_here_first": "Measure mid-stem petioles and check entire narrow versus toothed broader leaves; confirm phyllary fusion on mature heads.",
       "caution": "Leaf sizes, plant heights and floret counts vary; never force an ID from a single young leaf.",
-      "status": "source-pool comparison; neither species installed in canonical manifest"
+      "status": "Both canonical learner concepts installed; comparison anatomy remains provisional and unannotated."
     },
     {
       "title": "Iva versus ragweed",
@@ -298,11 +331,49 @@
     }
   ],
   "media_and_rights": {
-    "installed_exact_species_photo_claim": "none in this genus lesson; both Iva taxa absent from current canonical manifest",
+    "installed_exact_species_photo_claim": "Four physical JPEGs confirmed on main: three Iva annua, one Iva asperifolia var. angustifolia. Image existence and metadata verified; exact botanical anatomy/arrow targets remain unverified.",
     "reference_status": "Flora of North America keys are scientific text references, not installed or visually verified photos",
     "candidate_status": "Photo-library candidate records require exact-image identity and image-level licensing checks before selection",
-    "reuse_rule": "Retain photographer, source page, exact license and any private-use restrictions; CC BY-NC does not imply commercial reuse, owner permission does not imply public CC licensing",
-    "annotation_status": "No image-specific arrow coordinates or verified macro demonstrations published"
+    "reuse_rule": "Four existing private learner photos retain their original individual rights. Two CC BY-NC records are not publication-ready without deployment eligibility or permission; CC BY and CC BY-SA require exact license/version verification and compliant attribution, including ShareAlike on adaptations. No new photos or arrows installed.",
+    "annotation_status": "No image-specific arrow coordinates or verified macro demonstrations published",
+    "installed_species_image_inventory": [
+      {
+        "species_id": "iva-annua",
+        "path": "content/taxa/Asteraceae/Iva/iva-annua/images/inat-98747913.jpg",
+        "creator": "Curtis Eckerman",
+        "license": "CC BY-NC (version not specified)",
+        "source_page": "https://www.inaturalist.org/photos/98747913",
+        "status": "installed_file_present; exact diagnostic anatomy not certified",
+        "public_web": "CONDITIONAL: noncommercial site eligibility or specific photographer permission must be verified"
+      },
+      {
+        "species_id": "iva-annua",
+        "path": "content/taxa/Asteraceae/Iva/iva-annua/images/library-review047-f8a7095e6fba6f5.jpg",
+        "creator": "Linda Jo Conn",
+        "license": "CC BY (exact version unverified)",
+        "source_page": "https://www.gbif.org/occurrence/5938067615",
+        "status": "installed_file_present; provisional source determination",
+        "public_web": "PENDING: check photo-level license version, credit and exact identification before public publication"
+      },
+      {
+        "species_id": "iva-annua",
+        "path": "content/taxa/Asteraceae/Iva/iva-annua/images/library-review047-ed64f20532e8be6.jpg",
+        "creator": "Richard Aguirre",
+        "license": "CC BY-SA (exact version unverified)",
+        "source_page": "https://www.gbif.org/occurrence/5110255981",
+        "status": "installed_file_present; provisional source determination",
+        "public_web": "PENDING: verify photo-level license version, attribution and ShareAlike adaptation conditions"
+      },
+      {
+        "species_id": "iva-asperifolia-var-angustifolia",
+        "path": "content/taxa/Asteraceae/Iva/iva-asperifolia-var-angustifolia/images/inat-4583677.jpg",
+        "creator": "blake hendon",
+        "license": "CC BY-NC (version not specified)",
+        "source_page": "https://www.inaturalist.org/photos/4583677",
+        "status": "installed_file_present; exact diagnostic anatomy not certified",
+        "public_web": "CONDITIONAL: noncommercial site eligibility or specific photographer permission must be verified"
+      }
+    ]
   },
   "targeted_handoffs": [
     {
@@ -317,8 +388,13 @@
     },
     {
       "lane": "Approved Taxa Installer",
-      "scope": "Iva angustifolia / I. annua",
-      "request": "Both names are in live Master Plant Pool but neither in current canonical manifest; independently assess accepted concepts and licensed photo requirements before any installation."
+      "scope": "Iva annua / Iva asperifolia var. angustifolia",
+      "request": "Both learner concepts already canonical; do not reinstall. Keep Iva angustifolia synonym mapped to the existing variety. No species or photo changes requested."
+    },
+    {
+      "lane": "Diagnostic Photo Fast-Fill",
+      "scope": "Iva paired phyllotaxy and reproductive macros",
+      "request": "Existing four JPEGs are physically present but diagnostic anatomy unverified. Prioritize public-web-cleared same-scale lower/upper nodes, mature petiole and leaf margins, outer phyllary seam, and head dissection; certify arrow coordinates only after actual image inspection."
     }
   ]
 }
