@@ -1,5 +1,19 @@
 # Hays Botany Work Coordination
 
+## 2026-10-20 user-approved five-worker species/public-pages priority (supersedes older worker-schedule instructions)
+
+The user explicitly approved shifting effort from additional family/genus polish to new species, improved field-ID cards, publicly permitted photos and reliable GitHub Pages publication. **Five active hourly tasks; no sixth active worker.** The prior Family Similarity Polish and Genus Comparison Builder automations are **paused, not deleted**; preserve all canonical family/genus modules, pending scientific lessons and handoffs for later resumption. Any earlier directive in this document to keep those two enabled/unchanged is superseded by this latest user instruction.
+
+Current division of ownership:
+- **New Species Installer** (hourly): sole scheduled owner of new Master Plant Pool first-card admissions and curation-inbox READY/Action installation; must verify accepted identity, true uninstalled state, public-web-cleared first photo, file bytes and manifest readback. Do not retry superseded staged batches.
+- **Species Card Finalization** (hourly): polish **existing** canonical species recognition, look-alikes and photo-specific diagnostics; never compete for first-time species installation.
+- **Diagnostic Photo Fast-Fill** (hourly): existing canonical species' missing/one-photo gallery breadth, diagnostic angles and rights-cleared media; check zero-photo and public-photo holds without relabeling private media.
+- **Taxonomy Name Fast-Pass** (hourly): accepted names/synonyms/identity holds only; county-native audit remains deferred.
+- **Public Learner Readiness** (hourly): track public-rights exclusions, image integrity, missing public photos and whether GitHub Pages actually includes the latest verified canonical work; owns controlled public publishing via the **existing** `.github/workflows/publish-public-learner-github-pages.yml` workflow and its narrow `workflow/field-id-publication/*.json` marker, not arbitrary research commits.
+
+**Publication is a separate verified step:** canonical GitHub commits do not alone prove webpage deployment. The public Pages workflow produces a rights-filtered noncommercial snapshot and performs safety checks before release to https://crking92.github.io/Hays-County-Botany/. Neither installer nor photo/finalization workers should bypass the release gate. Preserve individual creator/license/source details; NC media require actual noncommercial-use verification or explicit relevant permission; never publish unclear/private-only images, inaccurate arrow placements or private review materials. Do not change website code merely to satisfy an automation run. All workers must check live manifest, claims and relevant Actions, use fresh SHA/merge, verify durable outcomes, and respect one another's lanes.
+
+
 ## 2026-10-19 published/cancelled-work reconciliation
 
 See `reports/automation-publication-recovery-audit-20261019.md` before retrying older rejected or cancelled work. The 61 recently cancelled `Visual Learner Photo Quality Queue` Actions were superseded read-only QA checks, not lost photo installations. Staged first-card recovery for `Malus ioensis` was successfully installed (Action 39261484459; real JPEG verified). The remaining four older curation-inbox folders are superseded/validate-only; do not blindly add READY. Prior genus/family/taxonomy connector rejection handoffs may already be canonical—check live manifest, lesson index, and reviewed handoff status. Remaining real work includes the four verified zero-photo canonical species and actual photo-level rights/diagnostic review. Keep all five worker scopes and schedules unchanged.
