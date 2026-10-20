@@ -1,0 +1,85 @@
+name: Euphorbia villifera four-way field lesson public release
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-villifera-release-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: one-euphorbia-villifera-field-release
+  cancel-in-progress: false
+jobs:
+  verify-then-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Verify real photos, six arrows, four way key, nativity and photo-rights holds
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path("content/taxa/Euphorbiaceae/Euphorbia")
+          j=json.loads((root/"euphorbia-villifera/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          qa=json.loads(Path("reports/euphorbia-villifera-field-id-photo-qa-20261020.json").read_text())
+          assert j["scientific_name"]=="Euphorbia villifera"
+          assert j["project_inclusion"]["target_zone_status"]=="PROVISIONAL"
+          assert j["native_metrics_excluded"] is True
+          assert j["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
+          assert len(j["images"])==9
+          assert len(j["visual_comparison"]["items"])==2
+          assert len(j["field_photo_quickcheck"]["featured_photo_indices"])==2
+          assert sum(len(x["markers"]) for x in j["visual_comparison"]["items"])==6
+          assert len(j["comparisons"]["four_way_matrix"])>=5
+          assert "FILIFORM" in j["look_here_first"]
+          assert "empty" in j["look_here_first"].lower()
+          assert "not prove" in j["field_photo_quickcheck"]["warning"].lower() or "do not" in j["field_photo_quickcheck"]["warning"].lower()
+          for x in j["visual_comparison"]["items"]:
+            path=Path(x["image_url"])
+            assert path.exists() and path.stat().st_size>15000,path
+            assert "villifera" in str(path)
+            assert x["license"].startswith("CC BY") and "NC" not in x["license"]
+            assert x["creator"] and x["source_page"].startswith("https://")
+            assert len(x["markers"])==3
+            for m in x["markers"]:
+              assert m["label"]
+              assert all(0<=m[k]<=100 for k in ("target_x","target_y","label_x","label_y"))
+          restricted=[x for x in j["images"] if x.get("public_reuse")!="yes"]
+          public=[x for x in j["images"] if x.get("public_reuse")=="yes"]
+          assert len(restricted)==6 and len(public)==3
+          assert all(x["license"].startswith("CC BY") for x in public)
+          assert any(x["file"].startswith("images/06-") for x in public)
+          genuspair=next(x for x in g["comparison_cards"] if x["id"]=="euphorbia-sandmat-group")
+          assert len(genuspair["field_matrix"])>=7
+          assert "FOUR-WAY" in genuspair["title"]
+          assert "empty" in genuspair["look_here_first"].lower()
+          group=[x for x in g["visual_comparison"]["items"] if x["scientific_name"]=="Euphorbia villifera"]
+          assert len(group)==2
+          assert all(Path(x["image_url"]).exists() for x in group)
+          assert sum(len(x["markers"]) for x in group)==6
+          assert qa["verified_anatomy_arrows"]==6 and len(qa["photo_evidence"])==2
+          assert qa["public_eligible_photo_count"]==3 and len(qa["restricted_from_pages"])==6
+          assert Path("scripts/stage_public_euphorbia_villifera_20261020.py").is_file()
+          deploy=Path(".github/workflows/deploy-github-pages-learner.yml").read_text()
+          assert "stage_public_euphorbia_villifera_20261020.py --site-dir dist" in deploy
+          print("PASS: verified 2 photo-source maps, 6 structure-only arrows, 4-way key, 6 photo-rights holds, county provisional science.")
+          PY
+      - name: Publish verified licensed public site on GitHub Pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo "Requested release of E. villifera four-way learner with restricted gallery images withheld."
