@@ -1,5 +1,10 @@
 # Hays Botany Work Coordination
 
+## 2026-10-20 FAST MANUAL CARD-FINISHING ENTRYPOINT (latest focused scope)
+
+See [ACTIVE_CARD_MODE_20261020.md](ACTIVE_CARD_MODE_20261020.md) first when a user asks to finish an **existing** learner card. Narrow target species/genus reads replace wholesale source-pool, photo-library and county review on every turn. Do not re-run new-card minimum photo or admission gates on already installed species. Inspect active claim for target/scope and current SHA prior to commits, and retain the existing source-by-source photo licensing, truthful photo-arrow evidence and separate public publishing QA. Google Sheet edits occur only for meaningful new admissions / taxonomy or milestone changes, not ordinary species-photo refinements. Historical workflows below apply only when their lane is actually invoked; five scheduled workers unchanged.
+
+
 ## 2026-10-20 public education + temporary licensed photo clarification (latest override)
 
 The owner confirms https://crking92.github.io/Hays-County-Botany/ is a **publicly accessible but not actively promoted, noncommercial educational field learner**. The canonical source repository is also PUBLIC. Being public is not the same as commercially exploited; being educational or unpromoted is not by itself a copyright permission. Current governing publication/rights rules are in `PROJECT_RULES.md` (2026-10-20 ACTIVE PUBLIC LEARNER MODE) and `workflow/PUBLIC_PHOTO_REUSE_POLICY_20261019.md` (2026-10-20 UPDATE), superseding older private-repo/Pages-disabled language elsewhere.
