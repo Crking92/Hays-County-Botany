@@ -39,11 +39,11 @@
     ]
   },
   "curation_status": {
-    "version": "2.1-photo-led-comparison-2026-10-14",
+    "version": "2.2-sorghastrum-nutans-anatomy-photo-added-20261021",
     "last_reviewed": "2026-10-21",
     "comparison_text_complete": true,
     "visual_lock": "one installed image visually verified; matched diagnostic photos and S. elliottii face pending",
-    "indiangrass_field_pass_20261021": true,
+    "indiangrass_field_pass_20261021": "Real ligule and bare-pedicel photos physically installed; other Sorghastrum species canonical science not modified.",
     "indiangrass_macro_enrichment_20261021": "two licensed Matt Lavin Commons macro photos physically installed; arrows still need pixel QA"
   },
   "visual_status": "field_comparison_ready_photo_gaps",
@@ -214,49 +214,55 @@
         "sorghastrum-nutans",
         "sorghastrum-elliottii"
       ],
-      "look_here_first": "Open the leaf collar to see the ligule membrane between the pointed side projections.",
+      "look_here_first": "Start on Matt Lavin's now-installed REAL S. nutans collar photo: a membrane projects from the sheath between pointed side projections. S. elliottii collar needs a separate source-authenticated same-scale photograph; don't assert it lacks the structure.",
       "difference": "A prominent rifle-sight-like collar is characteristic of S. nutans; S. elliottii collar needs direct verified comparative documentation.",
-      "caution": "Do not claim a clean absence in S. elliottii from missing photos.",
+      "caution": "Source-author and CC BY-SA 2.0 confirmed and physical JPEG checked; exact pixel-arrow placements and direct S. elliottii 1-mm paired collar still pending.",
       "photo_roles": [
-        "matched collar macros with scale",
-        "S. nutans collar viewed front and side"
+        "Now-installed real S. nutans membranous collar photo",
+        "Matched S. elliottii collar macro with mm scale (MISSING)"
       ]
+    },
+    {
+      "title": "Indiangrass versus big bluestem, switchgrass and Johnsongrass",
+      "taxon_ids": [
+        "sorghastrum-nutans",
+        "sorghastrum-elliottii"
+      ],
+      "look_here_first": "Collar first: S. nutans has a long notched membranous ligule with pointed rifle-sight sides; big bluestem has a short hairy ligule and turkey-foot seedhead, switchgrass has a triangular dense hair ligule and airy panicle. Indiangrass's paired-position sterile spikelet is absent, leaving a NAKED pedicel; Johnsongrass retains developed pedicelled spikelets.",
+      "field_matrix": [
+        {
+          "character": "Collar",
+          "indiangrass": "Prominent stiff membranous rifle-sight",
+          "big_bluestem": "Short hairs",
+          "switchgrass": "Dense ligular hairs",
+          "johnsongrass": "No conspicuous rifle-sight"
+        },
+        {
+          "character": "Inflorescence",
+          "indiangrass": "ONE branched golden plume",
+          "big_bluestem": "Distinct 2–6 finger turkey foot",
+          "switchgrass": "Very airy panicle",
+          "johnsongrass": "Open large panicle"
+        },
+        {
+          "character": "Spikelet partner",
+          "indiangrass": "Awned fertile sessile spikelet plus bare sterile pedicel",
+          "big_bluestem": "Paired developed sessile and pedicelled spikelets",
+          "switchgrass": "Different unpaired type",
+          "johnsongrass": "Developed pedicelled sterile spikelets"
+        }
+      ],
+      "photo_roles": [
+        "Installed Matt Lavin S. nutans true collar CC BY-SA 2.0",
+        "Installed Matt Lavin S. nutans naked pedicel CC BY-SA 2.0"
+      ],
+      "caution": "S. elliottii still needs truly attached awn comparison: do not use leaf/habit/height alone for that species."
     }
   ],
   "visual_comparison": {
-    "status": "Indiangrass ligule/collar plus paired spikelet/pedicel real photos physically installed; reciprocal S. elliottii attached-awn diagnostic comparisons still pending.",
-    "teaching_order": "real licenced ligule/collar → whole panicle → real fertile spikelet and NAKED pedicels → mature awn measurement → matched S. elliottii diagnostic closeup",
+    "status": "Both missing S. nutans anatomy photos now physically installed and source/license verified. Exact arrows not registered; matched S. elliottii awns and 1-mm collar scale still need photography.",
+    "teaching_order": "FIRST: licensed REAL S. nutans membranous collar photo → SECOND: one golden branched panicle → THIRD: licensed REAL sessile spikelet plus NAKED pedicel → FOURTH: measured intact awns and mature panicle density to distinguish S. elliottii.",
     "items": [
-      {
-        "species_id": "sorghastrum-nutans",
-        "scientific_name": "Sorghastrum nutans",
-        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sorghastrum%20nutans%201zz.jpg",
-        "image_role": "whole flowering habit",
-        "creator": "David J. Stang",
-        "license": "CC BY-SA 4.0",
-        "public_reuse": "yes",
-        "source_page": "https://commons.wikimedia.org/wiki/File:Sorghastrum_nutans_1zz.jpg",
-        "observed_anatomy": "Existing exact-species source metadata describes whole-plant flowering habit; binary not inspected in this run.",
-        "caption": "External reference for overall Indiangrass habit; do not label small collar or spikelet parts from this distant view.",
-        "visual_status": "external_reference; annotation_pending",
-        "markers": []
-      },
-      {
-        "species_id": "sorghastrum-nutans",
-        "scientific_name": "Sorghastrum nutans",
-        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sorghastrum%20nutans%20566649681.jpg",
-        "image_role": "panicle architecture",
-        "creator": "Alex Abair",
-        "license": "CC BY 4.0",
-        "public_reuse": "yes",
-        "source_page": "https://commons.wikimedia.org/wiki/File:Sorghastrum_nutans_566649681.jpg",
-        "observation_id": "313766834",
-        "photo_id": "566649681",
-        "observed_anatomy": "Species metadata lists a panicle field view; actual external image not visually checked in this run.",
-        "caption": "External reference for the shape of the mature panicle; individual awn bends and ligules still require close-ups.",
-        "visual_status": "external_reference; annotation_pending",
-        "markers": []
-      },
       {
         "label": "INDIANGRASS — real ligule/collar CC photo",
         "scientific_name": "Sorghastrum nutans",
@@ -292,6 +298,36 @@
         "species_id": "sorghastrum-nutans",
         "observed_anatomy": "Original photographer labels leaf-collar ligule or naked pedicels, respectively; no new pixel arrows yet.",
         "visual_status": "physical_source_verified_arrow_review_pending"
+      },
+      {
+        "species_id": "sorghastrum-nutans",
+        "scientific_name": "Sorghastrum nutans",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sorghastrum%20nutans%201zz.jpg",
+        "image_role": "whole flowering habit",
+        "creator": "David J. Stang",
+        "license": "CC BY-SA 4.0",
+        "public_reuse": "yes",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sorghastrum_nutans_1zz.jpg",
+        "observed_anatomy": "Existing exact-species source metadata describes whole-plant flowering habit; binary not inspected in this run.",
+        "caption": "External reference for overall Indiangrass habit; do not label small collar or spikelet parts from this distant view.",
+        "visual_status": "external_reference; annotation_pending",
+        "markers": []
+      },
+      {
+        "species_id": "sorghastrum-nutans",
+        "scientific_name": "Sorghastrum nutans",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sorghastrum%20nutans%20566649681.jpg",
+        "image_role": "panicle architecture",
+        "creator": "Alex Abair",
+        "license": "CC BY 4.0",
+        "public_reuse": "yes",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Sorghastrum_nutans_566649681.jpg",
+        "observation_id": "313766834",
+        "photo_id": "566649681",
+        "observed_anatomy": "Species metadata lists a panicle field view; actual external image not visually checked in this run.",
+        "caption": "External reference for the shape of the mature panicle; individual awn bends and ligules still require close-ups.",
+        "visual_status": "external_reference; annotation_pending",
+        "markers": []
       }
     ],
     "photo_gaps": [
@@ -299,8 +335,7 @@
       "Both: paired mature attached awns with mm scale to compare bends and lengths on voucher-confirmed specimens.",
       "Both: fertile sessile spikelet and naked sterile pedicel macros, same magnification.",
       "Both: local or project-region authenticated flowering plant with whole panicle and basal tuft.",
-      "Indiangrass licensed ligule macro installed. Need pixel-checked ligule arrows and second collar angle with 1-mm reference.",
-      "Matt Lavin bare-pedicel spikelet macro installed. Need full-size labeled contrast with S. elliottii before closing genus."
+      "S. nutans CC BY-SA collar and naked-pedicel macros physically installed; precise arrow coordinates and 1-mm calibrated local closeup remain."
     ],
     "handoff": "Use the two existing provisional S. elliottii species images before collecting replacements; do not claim S. elliottii has zero images. Keep Joey video frame private. Publish only rights-verified Wikimedia Commons reference media and preserve cultivar exclusions. Anatomy arrows wait for verified pixels."
   },
