@@ -197,28 +197,28 @@
     "memory_rule": "Euphorbia = tiny CYATHIUM (not a normal flower) + 3-lobed CAPSULE. First sort WHITE-bracted / POINSETTIA-looking / TOOTHED erect / SANDMAT. Then look at the part that truly separates the two likely species. Colored bracts, red spots and white latex are supporting clues, not final proof.",
     "items": [
       {
-        "label": "Bicolor: exceptionally narrow white-edged bracts",
+        "label": "Bicolor diagnostic close-up: single white-edged bract and central cyathia",
         "scientific_name": "Euphorbia bicolor",
         "image_role": "Directly inspected reproductive canopy, real modified bracts and cyathium appendages",
         "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-bicolor/images/01-habit-white-bracts.jpg",
-        "caption": "This exact BICOLOR image shows several LONG LINEAR to narrowly oblanceolate white-margined bracts and tiny white gland appendages. Upper-surface bract HAIRS are the vital second distinction from marginata, but this particular image doesn't clearly resolve hairs on the TOP of a leaf.",
+        "caption": "Use the exact visible bract blade and small central cyathium group; this photograph cannot demonstrate hairs on the top/adaxial leaf surface.",
         "creator": "Lisa Winnett-Pequeno",
         "license": "CC BY 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Euphorbia_bicolor.jpg",
         "markers": [
           {
-            "label": "Long narrow white-edged bract",
-            "label_x": 65,
-            "label_y": 13,
-            "target_x": 71,
-            "target_y": 47
+            "label": "One narrow white-edged bract",
+            "label_x": 60,
+            "label_y": 12,
+            "target_x": 73,
+            "target_y": 53
           },
           {
-            "label": "White gland appendages (not petals)",
+            "label": "Tiny central cyathia",
             "label_x": 7,
-            "label_y": 61,
-            "target_x": 46,
-            "target_y": 52
+            "label_y": 68,
+            "target_x": 48,
+            "target_y": 56
           }
         ],
         "image_fit": "contain",
@@ -572,7 +572,7 @@
         "image_pixel_audit": "2026-10-20 actual original locally stored JPEG individually visually reviewed: marker endpoints point to pictured organ, not to inferred roots/whole stipule structure."
       },
       {
-        "label": "Glass Root Garden: white-topped bicolor in local landscape",
+        "label": "Glass Root Garden: bicolor canopy recognition (no anatomy arrows)",
         "scientific_name": "Euphorbia bicolor",
         "image_url": "content/taxa/Euphorbiaceae/Euphorbia/euphorbia-bicolor/images/glass-root-garden-564413728-white-bracts-and-floral-clusters.jpg",
         "image_role": "Photographed natural bicolor branching canopy and distinctly narrow bracts",
@@ -580,17 +580,9 @@
         "license": "CC BY 4.0",
         "source_page": "https://www.inaturalist.org/photos/564413728",
         "image_fit": "contain",
-        "caption": "The owner's Texas observation shows numerous long narrow pale bracts on branching white flowering heads. This photo documents foliage form in a local restoration context; it is NOT an upper leaf-hair microphoto.",
+        "caption": "Broad plant recognition photo. Repeated narrow white-margined bracts visible, but reproductive organs overlap and cannot be pointed out precisely here. Use the dedicated close-up.",
         "why_it_matters": "Hays-area ecological context and scale of bicolor bract clusters.",
-        "markers": [
-          {
-            "label": "Slender white-margined bracts",
-            "label_x": 61,
-            "label_y": 11,
-            "target_x": 73,
-            "target_y": 34
-          }
-        ]
+        "markers": []
       },
       {
         "label": "CC0 marginata: broad bracts, separate tiny cyathia",
@@ -1518,22 +1510,29 @@
           "rule": "Shared genus/family recognition, not good splitting characters"
         }
       ],
-      "caution": "The installed publicly reusable photos demonstrate different BRACT SHAPES and the difference between a hairy STEM and an upper leaf face. They do NOT independently show a matched 10× hair-on-top versus hairless-top pair. A phone photo of white leaves alone only proves the bicolor/marginata group. Secondary marginata bracts can also be narrow.",
+      "caution": "2026-10-21 image QA: Glass Root Garden bicolor flowering overview had two misleading pointers into overlapping bracts and was demoted to UNANNOTATED recognition. The separate close-up now shows one clearly targeted narrow bract and central cyathia. No current bicolor image proves hairs on the UPPER/adaxial leaf or bract face, and no clean capsule macro is installed. Width of white edging alone cannot separate bicolor from marginata.",
       "photo_pair_targets": [
         {
           "role": "Matched mature bract outline pair",
-          "status": "PUBLIC_PHOTOS_INSTALLED: 2 licensed source images plus user's Glass Root Garden bracts and one CC0 marginata close-up. Shape differences arrowed; matching same-scale leaves still recommended."
+          "status": "Bicolor close-up has two precise bract/cyathium pointers; wide Glass Root Garden photos now unannotated. Marginata comparison still present, but same-scale bicolor-vs-marginata bract pair is still desirable."
         },
         {
           "role": "Matched leaf UPPER-FACE pubescence at 10×",
-          "status": "CRITICAL_REMAINING_PHOTO_GAP: current photos show bicolor narrow bracts and marginata hairy stem, but do NOT certify hairs vs smooth UPPER blade."
+          "status": "CRITICAL PHOTO GAP UNRESOLVED. None of the current bicolor or marginata comparisons confirms matched adaxial-surface trichomes; do not mistake stem/marginal hairs for upper-face hairs."
         },
         {
           "role": "Gland appendages versus three-lobed hairy capsule",
-          "status": "White gland appendages in existing reusable closeups, capsule pubescence still lacks matching public licensed photograph."
+          "status": "Central group of tiny cyathia shown in existing bicolor closer photo; gland-fringe and mature three-lobed capsule-hair macro remain unresolved and should not be labelled in broad shots."
         }
       ],
-      "reviewed_at": "2026-10-20"
+      "reviewed_at": "2026-10-20",
+      "photo_annotation_review": {
+        "date": "2026-10-21",
+        "bicolor_diagnostic_annotated_photos": 1,
+        "bicolor_diagnostic_arrows": 2,
+        "bicolor_unannotated_recognition_gallery_photos": 2,
+        "priority": "Matched 10x+ upper/adaxial mature bract or leaf face of bicolor vs marginata, then separate true mature 3-lobed capsule"
+      }
     },
     {
       "id": "euphorbia-poinsettia-pair",
