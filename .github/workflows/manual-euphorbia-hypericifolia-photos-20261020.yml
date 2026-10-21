@@ -1,0 +1,73 @@
+name: Install hypericifolia four verified diagnostic images
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-hypericifolia-photos-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hypericifolia-four-photos-manual
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Refresh latest canonical source before exact-species installation
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Download exact species Commons views; verify source rights and image bytes
+        run: python scripts/manual_euphorbia_hypericifolia_finished_photos_20261020.py
+      - name: Verify four images and preserve original and county-range evidence
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Euphorbiaceae/Euphorbia/euphorbia-hypericifolia")
+          card=json.loads((base/"species.json").read_text())
+          assert card["id"]=="euphorbia-hypericifolia"
+          assert len(card["images"])==5
+          assert card["images"][0]["file"]=="images/inat-338600902.jpg"
+          assert card["images"][0]["license"]=="CC BY"
+          for i in card["images"][1:]:
+            assert i["creator"]=="M108t" and i["license"]=="CC BY 4.0" and i["public_reuse"]=="yes"
+            path=base/i["file"]
+            assert path.is_file() and path.stat().st_size>18000
+            with Image.open(path) as im:
+              assert min(im.size)>=650
+              im.verify()
+          assert len(card["comparisons"]["field_matrix"])>=5
+          assert card["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
+          assert not card.get("native_target_zone_calculated")
+          print("PASS four reusable photographed details; existing face/rights preserved, no county-native auto promotion.")
+          PY
+      - name: Commit physical images, exact citations and morphology review
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Euphorbiaceae/Euphorbia/euphorbia-hypericifolia/ reports/euphorbia-hypericifolia-m108t-fourphoto-20261020.json
+          if git diff --cached --quiet; then
+            echo "Photos already installed and verified."
+            exit 0
+          fi
+          git commit -m "Install and credit four E. hypericifolia habit cyathium and stipule photos"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo "Verified installed photo commit pushed to main."
+              exit 0
+            fi
+            sleep 4
+          done
+          exit 1
