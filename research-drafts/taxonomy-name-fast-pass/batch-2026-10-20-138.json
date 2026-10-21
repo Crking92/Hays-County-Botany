@@ -1,0 +1,105 @@
+{
+  "lane": "taxonomy-name-fast-pass",
+  "phase": 4,
+  "batch_id": "2026-10-20-138",
+  "checked_date": "2026-10-20",
+  "authority": "POWO/WCVP direct species/rank pages; ITIS and USACE where noted",
+  "scope": "accepted-name, rank, genus/family, synonyms/homonyms only",
+  "range_audit": "DEFERRED",
+  "specimen_identity": "NOT_CHECKED",
+  "counts": {
+    "ACCEPTED": 0,
+    "SYNONYM_TO_ACCEPTED": 1,
+    "ACCEPTED_WITH_CONCEPT_CAUTION": 3,
+    "HOLD_IDENTITY": 0
+  },
+  "records": [
+    {
+      "source_pool": "Master Plant Pool",
+      "source_name_preserved_for_search": true,
+      "range_audit": "DEFERRED",
+      "specimen_identity": "NOT_CHECKED",
+      "checked_date": "2026-10-20",
+      "source_name": "Thelesperma filifolium var. filifolium",
+      "accepted_name": "Thelesperma filifolium (Hook.) A.Gray",
+      "genus": "Thelesperma",
+      "family": "Asteraceae",
+      "rank": "species",
+      "source_rank": "variety",
+      "decision": "SYNONYM_TO_ACCEPTED",
+      "override_row": 116,
+      "master_pool_row": 1168,
+      "source_urls": [
+        "https://itis.gov/servlet/SingleRpt/SingleRpt?print_version=PRT&search_topic=TSN&search_value=530639&source=to_print",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:255463-1"
+      ],
+      "synonym_note": "ITIS treats Thelesperma filifolium var. filifolium as not accepted, synonym of accepted T. filifolium (Hook.) A.Gray. POWO accepts species without recognized accepted varieties; historical T. filifolium var. intermedium is also synonym of species. Do not treat source variety as independent learner species.",
+      "concept_action": "Map historical nominate-variety source label to existing thelesperma-filifolium species; preserve alias and source rank."
+    },
+    {
+      "source_pool": "Master Plant Pool",
+      "source_name_preserved_for_search": true,
+      "range_audit": "DEFERRED",
+      "specimen_identity": "NOT_CHECKED",
+      "checked_date": "2026-10-20",
+      "source_name": "Thelesperma megapotamicum var. ambiguum",
+      "accepted_name": "Thelesperma megapotamicum var. ambiguum (A.Gray) Shinners",
+      "genus": "Thelesperma",
+      "family": "Asteraceae",
+      "rank": "variety",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "override_row": 375,
+      "master_pool_row": 1169,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:250998-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:255473-1"
+      ],
+      "synonym_note": "POWO accepts the variety under T. megapotamicum; homotypic synonym Thelesperma ambiguum A.Gray, heterotypic synonym T. fraternum Shinners. Alternative taxonomic treatments recognize T. ambiguum at species rank; do not confuse accepted parent species with this variety.",
+      "concept_action": "Preserve current variety-rank canonical concept and alias mapping; no installation or range decision."
+    },
+    {
+      "source_pool": "Master Plant Pool",
+      "source_name_preserved_for_search": true,
+      "range_audit": "DEFERRED",
+      "specimen_identity": "NOT_CHECKED",
+      "checked_date": "2026-10-20",
+      "source_name": "Thelypteris kunthii",
+      "accepted_name": "Thelypteris kunthii (Desv.) C.V.Morton",
+      "genus": "Thelypteris",
+      "family": "Aspleniaceae",
+      "project_family_retained": "Thelypteridaceae",
+      "rank": "species",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "override_row": 1193,
+      "master_pool_row": 1172,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:251400-2",
+        "https://wetland-plants.sec.usace.army.mil/plant/THKU/"
+      ],
+      "synonym_note": "POWO/WCVP accepts T. kunthii and places it in Aspleniaceae, whereas USACE National Wetland Plant List uses Thelypteridaceae; Pelazoneuron kunthii and Thelypteris normalis are historical names. Family classification is authority-dependent; preserve project family index for separate backbone reconciliation.",
+      "concept_action": "Record authority discrepancy only; do not edit canonical family, family/genus modules or derived Sheet family columns."
+    },
+    {
+      "source_pool": "Master Plant Pool",
+      "source_name_preserved_for_search": true,
+      "range_audit": "DEFERRED",
+      "specimen_identity": "NOT_CHECKED",
+      "checked_date": "2026-10-20",
+      "source_name": "Tillandsia recurvata",
+      "accepted_name": "Tillandsia recurvata (L.) L.",
+      "genus": "Tillandsia",
+      "family": "Bromeliaceae",
+      "rank": "species",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "override_row": 1199,
+      "master_pool_row": 1178,
+      "source_urls": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1194855-2",
+        "https://powo.science.kew.org/taxon/254198-2",
+        "https://powo.science.kew.org/taxon/317247-2"
+      ],
+      "synonym_note": "POWO accepts Tillandsia recurvata (L.) L.; Renealmia recurvata L. is homotypic synonym. Tillandsia recurvata (Gaudich.) Baker is an illegitimate later homonym synonymized to Vriesea recurvata, NOT this accepted species; author citation prevents erroneous alias mapping.",
+      "concept_action": "Retain accepted Tillandsia recurvata (L.) L. and distinguish author-specific later homonym; no canonical change."
+    }
+  ]
+}
