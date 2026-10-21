@@ -1,5 +1,10 @@
 # Hays Botany ID — Project Rules
 
+## 2026-10-20 CURRENT OPERATIONAL PRIORITY — FAST FINISHED-CARD MODE
+
+**Start here for ordinary requests:** [workflow/ACTIVE_CARD_MODE_20261020.md](workflow/ACTIVE_CARD_MODE_20261020.md). This compact instruction supersedes older *workflow-order and repeated-research requirements* for existing learner-card finishing and look-alike/genus updates. Existing cards do NOT need repeated first-card/one-photo admission or county-native auditing. Read detailed rules selectively only when the task raises taxonomy, photo licensing, a new installation, or another actual conflict. Do not skip the unchanged public-photo rights, true-image/arrow verification, GitHub coordination/merge safety, or Pages release protections. Google Sheets mirrors meaningful milestone changes only; no per-photo mirror writes. Five current automations remain unchanged.
+
+
 ## 2026-10-20 ACTIVE PUBLIC LEARNER MODE — USER-APPROVED (supersedes inconsistent older publication assumptions)
 
 The source GitHub repository **is public** and https://crking92.github.io/Hays-County-Botany/ is a public, user-maintained, **noncommercial educational** work-in-progress. It is not actively promoted, but *public still means anyone can access it*; neither an educational objective nor an unshared URL automatically grants rights to third-party images. Use `workflow/PUBLIC_PHOTO_REUSE_POLICY_20261019.md` **2026-10-20 UPDATE** as the controlling detailed policy. Do not cite an older private-repository/disabled-GitHub-Pages statement as the current setup.
