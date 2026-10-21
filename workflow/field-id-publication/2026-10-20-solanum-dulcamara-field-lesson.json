@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "date": "2026-10-20",
+  "species_id": "solanum-dulcamara",
+  "status": "FIELD_READY_PHOTO_GAPS",
+  "purpose": "Publish the finished-pass botanical field recognition and image-verified arrows for the existing dulcamara species, plus tight genus comparison. Use regular rights-filtered Pages pipeline only.",
+  "changed": [
+    "content/taxa/Solanaceae/Solanum/solanum-dulcamara/species.json",
+    "content/taxa/Solanaceae/Solanum/genus.json"
+  ],
+  "images": {
+    "real_original_source_files": 2,
+    "annotated_exact_species_images": 2,
+    "anatomy_arrows": 7,
+    "lookalike_photo_panels": 1,
+    "ripe_fruit_calyx_source_present": true
+  },
+  "provenance": [
+    {
+      "creator": "Andrew Macumber",
+      "image": "images/solanum-dulcamara-provisional-face.jpg",
+      "license": "CC0 1.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Solanum_dulcamara_208336874.jpg"
+    },
+    {
+      "creator": "Piermario Maculan",
+      "image": "images/gbif-manual-5938120478-afc591fbf.jpg",
+      "license": "CC0 1.0",
+      "source": "https://www.gbif.org/occurrence/5938120478"
+    },
+    {
+      "creator": "Joey Santore",
+      "role": "DISTINCT S. triquetrum lookalike comparison only",
+      "license": "CC BY-NC 4.0",
+      "condition": "strictly noncommercial educational comparison with photographer credit",
+      "source": "https://www.inaturalist.org/observations/270192408"
+    }
+  ],
+  "guardrails": [
+    "Do not modify native metrics or nonnative comparison status.",
+    "Retain exact source photo bytes, creator and license metadata.",
+    "No false claim about green-eye or measured anther length from these photographs.",
+    "Public release retains noncommercial photo licensing, rights QA and EXIF/GPS stripping.",
+    "No additional image downloads/changed binary files, only legitimate source-photo SVG arrow overlay data."
+  ],
+  "remaining": [
+    "User iPhone verification of 7 new diagnostic arrows on two original photos.",
+    "Higher-resolution exact flower green-white eye with millimeter-scale anther macro.",
+    "Whole branched 7–40 flower cluster view and petal/pedicel details.",
+    "Local provenance not independently certified; native-range review deferred."
+  ],
+  "note": "Single purpose-specific marker; no routine Sheets update since existing canonical species identity unchanged."
+}
