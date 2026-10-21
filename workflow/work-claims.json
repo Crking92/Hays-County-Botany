@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T12:26:52.763Z",
+  "updated_at": "2026-10-21T12:27:56.353Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9677,11 +9677,13 @@
       ],
       "lane": "taxonomy-name-fast-pass",
       "owner": "Taxonomy Name Fast-Pass hourly worker",
-      "status": "active",
+      "status": "released",
       "claimed_at": "2026-10-21T12:26:52.763Z",
       "expires_at": "2026-10-21T14:26:52.763Z",
       "release_when": "Batch 144 evidence GitHub readback and optional keyed Sheet mirror readback, or safe abandonment",
-      "notes": "Recover preexisting unclaimed 2026-10-21 Batch 144 handoff; name evidence only; no range/specimen or other lane changes."
+      "notes": "Recover preexisting unclaimed 2026-10-21 Batch 144 handoff; name evidence only; no range/specimen or other lane changes.",
+      "released_at": "2026-10-21T12:27:56.353Z",
+      "release_reason": "Batch 144 GitHub evidence commit 3919f7c verified (8 records), Sheet keyed override and derived pool readback 8/8; handoff status update was safety-blocked and remains historical, but canonical batch exists."
     }
   ]
 }
