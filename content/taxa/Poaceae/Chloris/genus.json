@@ -4,20 +4,21 @@
   "name": "Chloris",
   "common_group": "Windmillgrasses",
   "project_scope": {
-    "selection_mode": "Three installed canonical species plus two approved source-pool comparison dependencies",
+    "selection_mode": "Five currently installed canonical manifest Chloris entries: species card FINISH/ENRICH",
     "species_ids": [
+      "chloris-andropogonoides",
       "chloris-cucullata",
       "chloris-verticillata",
-      "chloris-virgata"
+      "chloris-virgata",
+      "chloris-x-subdolichostachya"
     ],
-    "species_count": 3,
-    "source_pool_noncanonical": [
-      "Chloris andropogonoides",
-      "Chloris ×subdolichostachya"
-    ],
-    "range_status": "All three canonical cards currently RANGE_UNRESOLVED; do not count as confirmed target-zone natives"
+    "species_count": 5,
+    "source_pool_noncanonical": [],
+    "range_status": "All three canonical cards currently RANGE_UNRESOLVED; do not count as confirmed target-zone natives",
+    "scientific_review_scope": "Photo-led recognition and explicit hybrid uncertainty, no county native range audit",
+    "note": "Previous genus scope incorrectly counted only three installed canonical entries. Manifest also contains C. andropogonoides and C. × subdolichostachya. Species-level taxon photo determinations still remain provisional where originally flagged."
   },
-  "look_here_first": "LOOK HERE FIRST: Photograph the WHOLE flowering head before collecting a mature spikelet. Ask whether the racemes form crowded tiers, widely separated tiers, or one terminal fan. Then use a hand lens to inspect the upper sterile lemma (hood shape), fertile lemma awn, and marginal hairs.",
+  "look_here_first": "Trace the WHOLE FLOWERING AXIS, not merely one spikelet-bearing branch. Distinguish LONG SLIM radiating arms (C. andropogonoides), SHORT CROWDED racemes (C. cucullata), LONG arms on SEPARATED tiers (C. verticillata), a FEATHERY terminal fan (C. virgata), and a SOURCE-REPORTED intermediate hybrid candidate (C. × subdolichostachya). Then use 10–20× to see the fertile versus UPPER STERILE lemma, their awns, hood and hairs. None of the source images independently proves a confirmed hybrid or microscopic species ID.",
   "shared_genus_traits": [
     "Warm-season grasses with radiating fingerlike racemes carrying spikelets along one side; the windmill silhouette alone is not species-diagnostic.",
     "Each spikelet has glumes and a fertile floret with one or more reduced sterile florets above it. The fertile and sterile lemmas may bear different awns.",
@@ -25,20 +26,34 @@
   ],
   "quick_key": [
     {
-      "if": "Several CLOSELY packed tiers of SHORT racemes, upper sterile lemma rounded and swollen like a hood, awns very short",
-      "then": "Chloris cucullata"
+      "cue": "Slim elongated radiating spikelet-bearing racemes in a windmillhead",
+      "candidate": "C. andropogonoides (slimspike)",
+      "confirm": "Full head whorl spacing, mature fertile and sterile lemma + awns; photo source ID provisional"
     },
     {
-      "if": "Widely SEPARATED whorls of LONG racemes, often one upright terminal branch, both lemma awns comparatively long",
-      "then": "Chloris verticillata"
+      "cue": "Crowded comparatively short racemes at upper axis",
+      "candidate": "C. cucullata (hooded)",
+      "confirm": "Rounded inflated UPPER STERILE lemma and short awns actually measured; don't arrow whole green cluster as hood"
     },
     {
-      "if": "Racemes chiefly one TERMINAL digitate fan; annual tuft and conspicuous long hairs on fertile lemma margins",
-      "then": "Chloris virgata"
+      "cue": "Several long radiating branches from visibly SEPARATED whorls, sometimes terminal erect raceme",
+      "candidate": "C. verticillata (tumble)",
+      "confirm": "Mature fertile lemma awn roughly 4.8–9 mm, upper sterile lemma awn roughly 3.2–7 mm; exact ranges variable"
     },
     {
-      "if": "Intermediate between hooded and tumble windmillgrass",
-      "then": "Consider Chloris ×subdolichostachya; source-pool comparison only, taxonomy/installer dependency"
+      "cue": "Pale feathery cluster of several long terminal racemes, typically an annual",
+      "candidate": "C. virgata (feather fingergrass)",
+      "confirm": "Long apical fertile lemma marginal hairs; root crown and head whorl structure"
+    },
+    {
+      "cue": "Intermediate-looking windmillhead in source-labeled hybrid occurrence",
+      "candidate": "C. × subdolichostachya (shortspike hybrid) — PROVISIONAL",
+      "confirm": "Intermediate 2–5 mm fertile lemma awn and 1–2 mm upper sterile awn; parent characters, independent voucher/expert specimen; head alone is NOT hybrid evidence"
+    },
+    {
+      "cue": "Mixed or incomplete characters; no mature spikelet available",
+      "candidate": "Chloris sp.",
+      "confirm": "Do not force a species or hybrid call from windmill silhouette or county location"
     }
   ],
   "species_comparison_matrix": [
@@ -160,7 +175,11 @@
         "chloris-verticillata"
       ],
       "look_for": "Future verified intermediate hybrid spikelet and whole head; no generic substitution."
-    }
+    },
+    "Get separate measured FERTILE lemma awn, UPPER STERILE lemma awn and sterile hood photo from C. cucullata / C. verticillata / alleged hybrid.",
+    "Show true annual crown for C. virgata and separately apex hairs of fertile lemma.",
+    "For C. andropogonoides, obtain whole head with ruler and botanical validated spikelet; compare with verticillata.",
+    "Source-photo identity for hybrid remains provisional, do not use its photo as a completed taxon confirmation."
   ],
   "handoffs": [
     {
@@ -206,7 +225,11 @@
     "stage": "genus_framework_ready_photo_pending",
     "reviewed_at": "2026-10-14",
     "species_installed_here": 0,
-    "photo_led_status": "two_installed_photos_visually_verified_microscopic_roles_pending"
+    "photo_led_status": "two_installed_photos_visually_verified_microscopic_roles_pending",
+    "manual_chloris_five_20261020": "Existing 5 manifest cards photo-led; 8 real genus images with visible-part arrow annotations",
+    "species_count_reconciled": 5,
+    "visual_stage": "FIELD_READY_PHOTO_GAPS_AND_PROVISIONAL_HYBRID",
+    "native_range_originals_preserved": true
   },
   "genus_diagnostics": {
     "look_here_first": "Find complete flowering racemes and count their tiers; then inspect mature sterile lemma hood, fertile and sterile awns, and fertile lemma hairs.",
@@ -248,53 +271,257 @@
     "warning": "Head color, whorl arrangement and awn length can overlap; hybrids require review."
   },
   "visual_comparison": {
-    "status": "Three installed exact-species image files fetched and visually inspected: two photographs and one botanical illustration; matched microscopic diagnostics remain missing.",
+    "title": "Chloris windmillgrasses — all five installed taxa with real source photos",
+    "subtitle": "Eight actual existing photographs inspected October 20. Physical original rights and source metadata retained. Arrows point only to visible radiating racemes, branch junctions and foliage; microscopic hoods, hairs and awns need new macros. Hybrid photo is a SOURCE-ID CANDIDATE.",
+    "memory_rule": "WHOLE HEAD → WHERE BRANCHES ATTACH → FERTILE VERSUS UPPER STERILE LEMMA. Some species are inseparable from a distant windmill view.",
     "items": [
       {
-        "species_id": "chloris-cucullata",
+        "label": "1 · Long slim radiating racemes",
+        "scientific_name": "Chloris andropogonoides",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-andropogonoides/images/inat-649943218.jpg",
+        "image_fit": "contain",
+        "image_role": "Slender branches radiate from central flowering head over a hand",
+        "caption": "Fine racemes emerge from a central junction and radiate toward the frame edges. Source observation calls this slimspike windmillgrass. No glumes, lemma or awn are resolved well enough to certify species.",
+        "why_it_matters": "Introduces the slender windmill shape and the correct next anatomical target.",
+        "creator": "(c) cyano_corax_19, some rights reserved (CC BY-NC)",
+        "license": "CC BY-NC",
+        "source_page": "https://www.inaturalist.org/photos/649943218",
+        "photo_status": "Existing exact-source physical image visually examined on 2026-10-20; arrows point only at structures that are visible. Source photograph taxon ID not independently voucher-verified; license/credit retained, public gate separately required.",
+        "markers": [
+          {
+            "label": "Windmill hub",
+            "label_x": 61,
+            "label_y": 16,
+            "target_x": 48,
+            "target_y": 37
+          },
+          {
+            "label": "Long slender branch",
+            "label_x": 5,
+            "label_y": 39,
+            "target_x": 23,
+            "target_y": 41
+          }
+        ]
+      },
+      {
+        "label": "1 · Short radiating branches in a crowded head",
+        "scientific_name": "Chloris cucullata",
         "image_url": "content/taxa/Poaceae/Chloris/chloris-cucullata/images/chloris-cucullata-fonseca-head.jpg",
+        "image_fit": "contain",
+        "image_role": "Photo shows short crowded radiating racemes and their central junction",
+        "caption": "The main Chloris head has multiple narrow radiating racemes at right, many with short spikelets. A separate dense foreground structure is not used for the hood diagnosis. The diagnostic inflated upper sterile lemma is NOT shown.",
+        "why_it_matters": "The distinction between whole flowering head and a microscopic sterile lemma matters.",
         "creator": "Juan Carlos Fonseca Mata",
         "license": "CC BY-SA 4.0",
-        "public_reuse": "yes",
         "source_page": "https://commons.wikimedia.org/wiki/File:Pasto_verdillo_papalote_(Chloris_cucullata)_ago19.jpg",
-        "observed_anatomy": "Crowded short spikelet-bearing branches next to longer radiating racemes. No hooded sterile lemma resolved.",
-        "caption": "Crowded short racemes are visible; inspect a separate spikelet macro for the hood.",
-        "visual_status": "installed_verified; annotation_pending",
-        "markers": []
+        "photo_status": "Existing exact-source physical image visually examined on 2026-10-20; arrows point only at structures that are visible. Source photograph taxon ID not independently voucher-verified; license/credit retained, public gate separately required.",
+        "markers": [
+          {
+            "label": "Radiating raceme",
+            "label_x": 76,
+            "label_y": 18,
+            "target_x": 76,
+            "target_y": 34
+          },
+          {
+            "label": "Branch junction",
+            "label_x": 73,
+            "label_y": 80,
+            "target_x": 59,
+            "target_y": 55
+          }
+        ]
       },
       {
-        "species_id": "chloris-virgata",
+        "label": "2 · Dry windmill head against fingers",
+        "scientific_name": "Chloris cucullata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-cucullata/images/gbif-manual-5938583480-22df7a7e4.jpg",
+        "image_fit": "contain",
+        "image_role": "Dry radiating branches with actual spikelet rows",
+        "caption": "Short dried branchlets and several branches join near the hand. This is a dry windmillhead, not a verified image of the inflated hood; spikelet parts require dissection.",
+        "why_it_matters": "Existing additional photograph can teach attachment and spacing.",
+        "creator": "CH Hemphill",
+        "license": "CC BY",
+        "source_page": "https://www.gbif.org/occurrence/5938583480",
+        "photo_status": "Existing exact-source physical image visually examined on 2026-10-20; arrows point only at structures that are visible. Source photograph taxon ID not independently voucher-verified; license/credit retained, public gate separately required.",
+        "markers": [
+          {
+            "label": "Dry branchlet",
+            "label_x": 6,
+            "label_y": 39,
+            "target_x": 29,
+            "target_y": 40
+          },
+          {
+            "label": "Branch hub",
+            "label_x": 76,
+            "label_y": 64,
+            "target_x": 48,
+            "target_y": 48
+          }
+        ]
+      },
+      {
+        "label": "1 · Long branching head across fingers",
+        "scientific_name": "Chloris verticillata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-verticillata/images/joey-inat-712172198.jpg",
+        "image_fit": "contain",
+        "image_role": "Handheld actual long one-sided spikelet-bearing racemes and flowering axis",
+        "caption": "Long greenish racemes arise along the upper axis and individual spikelets occupy one side. The full extent of tiers is partly cut off, so do not claim exact whorl count or awn lengths.",
+        "why_it_matters": "The most useful existing REAL flowering photo, better than drawing alone.",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://www.inaturalist.org/photos/712172198",
+        "photo_status": "Existing exact-source physical image visually examined on 2026-10-20; arrows point only at structures that are visible. Source photograph taxon ID not independently voucher-verified; license/credit retained, public gate separately required.",
+        "markers": [
+          {
+            "label": "Long one-sided raceme",
+            "label_x": 4,
+            "label_y": 19,
+            "target_x": 23,
+            "target_y": 24
+          },
+          {
+            "label": "Main flowering axis",
+            "label_x": 73,
+            "label_y": 79,
+            "target_x": 55,
+            "target_y": 65
+          }
+        ]
+      },
+      {
+        "label": "2 · Rooted perennial-looking plant",
+        "scientific_name": "Chloris verticillata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-verticillata/images/joey-inat-607044827.jpg",
+        "image_fit": "contain",
+        "image_role": "A vegetative grass bunch with narrow blades and stems near ground",
+        "caption": "The photo shows narrow leaves and a rooted-looking patch, with a hand near a reproductive stem. Roots and age were not checked; the perennial habit is not independently established by this image.",
+        "why_it_matters": "Shows leaf and crown context without inventing roots or annual/perennial state.",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://www.inaturalist.org/photos/607044827",
+        "photo_status": "Existing exact-source physical image visually examined on 2026-10-20; arrows point only at structures that are visible. Source photograph taxon ID not independently voucher-verified; license/credit retained, public gate separately required.",
+        "markers": [
+          {
+            "label": "Narrow leaf blades",
+            "label_x": 75,
+            "label_y": 57,
+            "target_x": 52,
+            "target_y": 55
+          }
+        ]
+      },
+      {
+        "label": "1 · Pale feathery terminal head",
+        "scientific_name": "Chloris virgata",
         "image_url": "content/taxa/Poaceae/Chloris/chloris-virgata/images/chloris-virgata-matt-lavin-habit.jpg",
+        "image_fit": "contain",
+        "image_role": "Crowded upright racemes and feathery branches",
+        "caption": "Long pale racemes rise closely together from the base of this pictured seedhead. Fertile-lemma apical hairs cannot be isolated from the overall featheriness.",
+        "why_it_matters": "Teaches structure resolved in the existing physical photograph, not microscopic diagnosis.",
         "creator": "Matt Lavin",
         "license": "CC BY-SA 2.0",
-        "public_reuse": "yes",
         "source_page": "https://commons.wikimedia.org/wiki/File:Chloris_virgata_-_20377468966.jpg",
-        "observed_anatomy": "Upright pale racemes closely grouped near the flowering head tip. Lemma margin hairs and basal crown not resolved.",
-        "caption": "See terminal raceme grouping; the hair fringe needs a separate macro.",
-        "visual_status": "installed_verified; annotation_pending",
-        "markers": []
+        "photo_status": "Exact source image inspected 2026-10-20; taxon determined by archived observation and not independently re-vouchered. All credited photo rights unchanged; arrows only on clear structures.",
+        "markers": [
+          {
+            "label": "Upright raceme",
+            "label_x": 8,
+            "label_y": 15,
+            "target_x": 38,
+            "target_y": 30
+          },
+          {
+            "label": "Head base",
+            "label_x": 76,
+            "label_y": 85,
+            "target_x": 52,
+            "target_y": 74
+          }
+        ]
       },
       {
-        "species_id": "chloris-verticillata",
-        "image_url": "content/taxa/Poaceae/Chloris/chloris-verticillata/images/chloris-verticillata-usda-illustration.png",
-        "creator": "USDA",
-        "license": "Public domain",
-        "public_reuse": "yes",
-        "source_page": "https://commons.wikimedia.org/wiki/File:Chloris_verticillata_HC-1950.png",
-        "observed_anatomy": "Installed PNG fetched and visually inspected: line drawing shows several clearly separated tiers of radiating racemes, spikelet-bearing branch details and a small inset of a spikelet; it is a drawing, not a real photograph or measured microscopic dissection.",
-        "caption": "Installed botanical drawing shows separated tiers of long racemes; a real same-scale photograph and sterile/fertile lemma macros are still needed.",
-        "visual_status": "installed_verified; botanical_illustration_not_photo; annotation_pending",
-        "markers": []
+        "label": "2 · Seedhead closeup against finger",
+        "scientific_name": "Chloris virgata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-virgata/images/gbif-manual-6130021980-5f3c2f570.jpg",
+        "image_fit": "contain",
+        "image_role": "Macro shows pointed reproductive parts along dry finger-like racemes",
+        "caption": "The individual seedhead raceme and pointed edges are visible; the microscopic origin of any hair is unresolved.",
+        "why_it_matters": "Teaches structure resolved in the existing physical photograph, not microscopic diagnosis.",
+        "creator": "Augusto Olmos Mercado",
+        "license": "CC0 1.0",
+        "source_page": "https://www.gbif.org/occurrence/6130021980",
+        "photo_status": "Exact source image inspected 2026-10-20; taxon determined by archived observation and not independently re-vouchered. All credited photo rights unchanged; arrows only on clear structures.",
+        "markers": [
+          {
+            "label": "Raceme",
+            "label_x": 7,
+            "label_y": 38,
+            "target_x": 60,
+            "target_y": 40
+          },
+          {
+            "label": "Pale pointed parts",
+            "label_x": 77,
+            "label_y": 19,
+            "target_x": 61,
+            "target_y": 35
+          }
+        ]
+      },
+      {
+        "label": "1 · Source-identified hybrid candidate head",
+        "scientific_name": "Chloris × subdolichostachya",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-x-subdolichostachya/images/inat-341942574.jpg",
+        "image_fit": "contain",
+        "image_role": "Purple brown radiating racemes with distinct central hub",
+        "caption": "The photographed grass has slender radiating spikelet-bearing branches over a hand. The source calls it the hybrid, but true parentage and intermediate florets have not been independently demonstrated.",
+        "why_it_matters": "Teaches structure resolved in the existing physical photograph, not microscopic diagnosis.",
+        "creator": "(c) Brand R, some rights reserved (CC BY)",
+        "license": "CC BY",
+        "source_page": "https://www.inaturalist.org/photos/341942574",
+        "photo_status": "Exact source image inspected 2026-10-20; taxon determined by archived observation and not independently re-vouchered. All credited photo rights unchanged; arrows only on clear structures.",
+        "markers": [
+          {
+            "label": "Radiating head hub",
+            "label_x": 67,
+            "label_y": 74,
+            "target_x": 42,
+            "target_y": 51
+          },
+          {
+            "label": "Slender raceme",
+            "label_x": 8,
+            "label_y": 14,
+            "target_x": 29,
+            "target_y": 29
+          }
+        ]
       }
     ],
-    "photo_gaps": [
-      "C. verticillata rights-cleared real whole flowering head showing spaced whorls",
-      "Three matched mature heads with whorl spacing and ruler",
-      "C. cucullata rounded upper sterile lemma macro with scale",
-      "C. virgata and C. verticillata fertile lemma apical hair macros",
-      "Three species fertile and sterile awn measurements from dissected spikelets"
-    ],
-    "handoff": "Diagnostic Photo Polish: acquire rights-cleared matched views and verify precise arrow positions. Taxonomy + Diagnostic Review: preserve hybrid C. ×subdolichostachya uncertainty."
+    "overlay_note": "All eight panels are REAL existing photographs; the previously installed USDA Chloris verticillata drawing is still kept in the original genus/species study record but not counted as a real photo. No image bytes changed. Original licenses and credits per occurrence retained, including CC BY-NC, CC BY-SA and CC0. All taxon/photo determinations provisional unless independent keys and measured anatomy verified; no native-range status changed.",
+    "study_only_photo_links": [
+      {
+        "label": "Flora of North America Chloris genus treatment",
+        "url": "https://biorepo.neonscience.org/portal/taxa/index.php?clid=8705&pid=&taxauthid=1&tid=1533",
+        "look_for": "Spikelet florets, unilateral racemes, awn characters",
+        "reuse": "Reference only; photo rights separately verified"
+      },
+      {
+        "label": "Kew hybrid description",
+        "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1/general-information",
+        "look_for": "Intermediate fertile/sterile awns and accepted hybrid parentage",
+        "reuse": "Scientific reference, not photo licensing"
+      },
+      {
+        "label": "Flora of North America-based key",
+        "url": "https://gobotany.nativeplanttrust.org/dkey/chloris/",
+        "look_for": "C. cucullata vs C. verticillata sterile lemma and whorls",
+        "reuse": "Scientific reference"
+      }
+    ]
   },
   "comparison_cards": [
     {
@@ -303,13 +530,13 @@
         "chloris-cucullata",
         "chloris-verticillata"
       ],
-      "look_here_first": "Compare whorl spacing, then inspect the upper sterile lemma.",
-      "difference": "C. cucullata has crowded short racemes and a swollen rounded upper sterile lemma; C. verticillata has longer racemes in spaced whorls and longer awns.",
-      "caution": "C. ×subdolichostachya may be intermediate. Head silhouette alone is insufficient.",
+      "look_here_first": "Crowded short versus spaced long branching TIERS; confirm under 10–20×.",
+      "difference": "C. cucullata's sterile upper lemma forms a conspicuous rounded HOOD, with short awns. C. verticillata is less hooded with long fertile/sterile lemma awns and spaced whorls.",
+      "caution": "Hybrid can be intermediate. Existing heads don't expose a measured hood or awn; no automatic species proof.",
       "photo_roles": [
-        "matched whole heads",
-        "hooded sterile lemma macro",
-        "two awns with mm scale"
+        "head and branch junction same scale",
+        "upper sterile lemma macro",
+        "fertile/sterile awns with mm ruler"
       ]
     },
     {
@@ -318,14 +545,47 @@
         "chloris-virgata",
         "chloris-verticillata"
       ],
-      "look_here_first": "Check terminal versus separated raceme whorls, then the fertile lemma margin.",
-      "difference": "C. virgata is usually annual with a terminal fan and conspicuous long apical fertile-lemma hairs; C. verticillata is perennial with separated raceme whorls.",
-      "caution": "Awn lengths and raceme lengths overlap. Basal crown and lemma hairs require a close view.",
+      "look_here_first": "Terminal feathered fan versus spaced whorls + annual versus perennial crown.",
+      "difference": "C. virgata typically an annual with long apical fertile-lemma hairs; C. verticillata perennial and often several whorl levels.",
+      "caution": "The pictured fuzz cannot be assigned to a particular fertile lemma without dissected spikelets.",
       "photo_roles": [
-        "matched complete flowering heads",
-        "fertile lemma apical hair macro",
-        "basal crown with nodes"
+        "true whole head showing whorl spacing",
+        "basal growth crown",
+        "fertile lemma tip hair macro"
+      ]
+    },
+    {
+      "title": "Slimspike versus tumble versus hybrid candidate",
+      "taxon_ids": [
+        "chloris-andropogonoides",
+        "chloris-verticillata",
+        "chloris-x-subdolichostachya"
+      ],
+      "look_here_first": "See the entire long thin radiating head; look for whorl tiers and measure two awns in mature spikelets.",
+      "difference": "Slimspike may have particularly fine radiating branches, tumble has longer tiered whorls, and source-labeled hybrid can appear intermediate. Awn, fertile/sterile lemma and true hood distinctions are necessary.",
+      "caution": "Hybrid photo and slimspike source photo are not independently expert-verified. Intermediate-looking stems alone should not certify hybrid identity.",
+      "photo_roles": [
+        "matched whole heads with scale",
+        "one-sided raceme structure",
+        "fertile and sterile lemma profile and awn macro"
+      ]
+    },
+    {
+      "title": "Hybrid compared with both named parents",
+      "taxon_ids": [
+        "chloris-x-subdolichostachya",
+        "chloris-cucullata",
+        "chloris-verticillata"
+      ],
+      "look_here_first": "Inspect both parent structures then compare actual upper sterile lemma of putative hybrid.",
+      "difference": "C. × subdolichostachya is an accepted hybrid cucullata × verticillata with reported intermediate awn morphology.",
+      "caution": "A photograph of a parent is NOT a photo of the hybrid; preserve candidate status until expert morphology confirmed.",
+      "photo_roles": [
+        "two parent photos plainly labeled DIFFERENT TAXA",
+        "source-hybrid candidate head",
+        "voucher-ready dissected glumes/lemmas"
       ]
     }
-  ]
+  ],
+  "visual_status": "FIVE MANIFEST SPECIES INCLUDED; 8 SOURCE PHOTOS WITH VISIBLE HEAD ANNOTATIONS; MICRODIAGNOSTICS & HYBRID ID PENDING"
 }
