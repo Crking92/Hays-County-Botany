@@ -39,10 +39,15 @@ def fetch(session,name):
     license_url=html.unescape(meta["LicenseUrl"]["value"])
     artist=text_only(meta["Artist"]["value"])
     assert artist and len(artist)<220,(name,artist)
-    assert "creativecommons.org/licenses/by" in license_url,(name,license_url)
-    assert "nd" not in license_url.lower().split("/licenses/")[-1].split("/")[0]
-    assert re.search(r"/licenses/by(?:-sa)?/[234]\.0/?$",license_url),(name,license_url)
-    assert ("CC BY" in license_name or "CC-BY" in license_name),(name,license_name)
+    # Image-level Commons CC0 declarations are PUBLIC-SAFE, too. Check the exact
+    # verified LicenseUrl; never infer permission from the Commons filename.
+    if re.search(r"creativecommons\.org/publicdomain/zero/1\.0",license_url):
+        license_name="CC0 1.0"
+        license_url="https://creativecommons.org/publicdomain/zero/1.0/"
+    else:
+        assert "creativecommons.org/licenses/by" in license_url,(name,license_url)
+        assert re.search(r"/licenses/by(?:-sa)?/[234]\.0/?$",license_url),(name,license_url)
+        assert ("CC BY" in license_name or "CC-BY" in license_name),(name,license_name)
     url=record.get("thumburl") or record["url"]
     assert url.startswith("https://")
     binary=session.get(url,timeout=80)
