@@ -133,7 +133,7 @@ for sp in PHOTO_SPECS:
 
 # Extend source-credit manifest with new exact-species photo records.
 with SOURCES.open(newline="",encoding="utf-8") as fh:
- reader=csv.DictReader(fh);fields=reader.fieldnames;credits=list(reader)
+ reader=csv.DictReader(fh);fields=reader.fieldnames;credits=[{k:v for k,v in row.items() if k in fields} for row in reader]
 existing={row["file_name"] for row in credits}
 for sp in PHOTO_SPECS:
  v=source_map[sp["id"]];r=rows[sp["id"]]
@@ -145,7 +145,7 @@ for sp in PHOTO_SPECS:
  "public_reuse":"yes ONLY for genuinely noncommercial education with photo credit and CC BY-NC",
  "observation_id":str(v["observation_id"]),"photo_id":str(v["photo_id"])})
 with SOURCES.open("w",newline="",encoding="utf-8") as fh:
- writer=csv.DictWriter(fh,fieldnames=fields);writer.writeheader();writer.writerows(credits)
+ writer=csv.DictWriter(fh,fieldnames=fields,extrasaction="ignore");writer.writeheader();writer.writerows(credits)
 
 pair=next(v for v in g["comparison_cards"] if v["id"]=="euphorbia-golondrina-simulans-gland-appendages")
 pair["reviewed_at"]="2026-10-21"
