@@ -1,0 +1,70 @@
+name: One-time install purple deadnettle with licensed real photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-lamium-purpureum-firstcard-20261021.yml"
+      - "scripts/manual_lamium_purpureum_firstcard_20261021.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-time-lamium-purpureum-manual-photo-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - name: Validate script syntax
+        run: python -m py_compile scripts/manual_lamium_purpureum_firstcard_20261021.py
+      - name: Re-read current branch before editing
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Download, validate, and install exactly two credited photo files
+        run: python scripts/manual_lamium_purpureum_firstcard_20261021.py
+      - name: Validate physical file, cards, and licenses
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          p=Path("content/taxa/Lamiaceae/Lamium/lamium-purpureum")
+          c=json.loads((p/"species.json").read_text())
+          genus=json.loads(Path("content/taxa/Lamiaceae/Lamium/genus.json").read_text())
+          m=json.loads(Path("data/manifest.json").read_text())
+          assert c["id"]=="lamium-purpureum"
+          assert len(c["images"])==2
+          assert "lamium-purpureum" in genus["project_scope"]["canonical_species_ids"]
+          assert sum(z["id"]=="lamium-purpureum" for z in m["species"])==1
+          assert c["project_inclusion"]["native_metrics_excluded"]
+          for img in c["images"]:
+            f=p/img["file"]
+            assert f.is_file() and f.stat().st_size>15000
+            assert img["source_page"].startswith("https://commons.wikimedia.org/wiki/")
+            assert img["creator"] and img["license"]
+            with Image.open(f) as check: check.verify()
+          print("PASS — 2 physical licensed photographs, manifest, genus, introduced status")
+          PY
+      - name: Commit only Lamium new media and related updates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Lamiaceae/Lamium/ data/manifest.json data/project.json reports/manual-lamium-purpureum-firstcard-20261021.json
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Install licensed purple deadnettle first-card photos and paired Lamium key"
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort || true
+            sleep $((attempt * 3))
+          done
+          exit 1
