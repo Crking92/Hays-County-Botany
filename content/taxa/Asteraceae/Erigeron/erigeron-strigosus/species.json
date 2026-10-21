@@ -14,10 +14,10 @@
     "photo_files_present": 4,
     "morphology_reviewed": true,
     "last_reviewed": "2026-10-21",
-    "version": "1.2-strigosus-public-commons-external-photo-20261021",
-    "visual_status": "FIELD READY, PHOTO GAPS. Four physically installed exact-species photos (not only one), 14 reviewed arrow overlays across six visual panels including two look-alikes; leaf-base, stem hairs, single cypsela/involucre scale still need macros.",
+    "version": "1.4-strigosus-usgs-clasping-compare-20261021",
+    "visual_status": "Crew-closeout: 4 physical exact E. strigosus photos plus visibly labeled non-target USGS Philadelphia CLASPING leaf photo; accurate comparison key finished. One missing exact nonclasping same-scale closeup + fruit macro; never declare photographic full completion without these.",
     "physical_commons_install": "2026-10-21",
-    "field_training_status": "FIELD_READY_PHOTO_GAPS"
+    "field_training_status": "CREW_CLOSEOUT_DIAGNOSTIC_SPECIALIST_GAPS"
   },
   "photo_note": "Four licensed source photos physically installed, including foliage/habit and a pressed specimen; first Chris Stahl photo includes a dog. Diagnostic macro targets not yet verified.",
   "taxonomy_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:94159-2",
@@ -159,7 +159,14 @@
       "A small white daisy head is shared across many Asteraceae; not a diagnosis by itself.",
       "The installed Chris Stahl image is sourced as E. strigosus but alone cannot independently resolve variety, leaf-base details, stem hair angles or root system.",
       "The look-alike panels are correctly labeled OTHER species, not additional E. strigosus source photographs."
-    ]
+    ],
+    "paired_leaf_base_closeout": {
+      "current": "E. philadelphicus USGS public-domain photo now VISIBLY demonstrates contrasting partial CLASP; E. strigosus stored CC leaf/stem picture documents narrow foliage but a precise nonclasping node is not fully resolved.",
+      "source_image": "https://warcapps.usgs.gov/PlantID/Image/GivenFile?file=Erigeron+philadelphicus_3637.JPG&id=2993",
+      "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/2993",
+      "if_in_doubt": "Use Erigeron sp. or compare with another mature leaf from same plant; flower color and leaf margins alone are insufficient.",
+      "status": "PRACTICAL_FIELD_PAIR_CLOSED_EXPERT_PAIRED_NODE_PHOTO_PENDING"
+    }
   },
   "photo_diagnostic_lesson": {
     "title": "Prairie fleabane — the thin-petaled daisy with a fine-hair clue",
@@ -204,7 +211,7 @@
   },
   "visual_comparison": {
     "title": "Prairie fleabane: flower anatomy and two honest look-alikes",
-    "subtitle": "Four physically installed E. strigosus photographs (the original iNaturalist field photo plus three Commons CC BY photographs), and two explicitly OTHER-species comparison panels. Fourteen visually inspected marker coordinates; root/collar/hair angles and ripe fruit macro still pending.",
+    "subtitle": "Four physically stored E. strigosus photos, plus several honest DIFFERENT SPECIES comparison views. Public-domain USGS Philadelphia image now shows the actual CLASPING side of the leaf-base contrast. The prairie source foliage shows narrow leaves/hairy stems, but does not conclusively show a matched full nonclasping node; photography remains needed for textbook finish.",
     "items": [
       {
         "label": "1 · PRAIRIE FLEABANE — exact source flowered stem",
@@ -397,6 +404,42 @@
           }
         ],
         "photo_status": "PHYSICAL_VERIFIED_2026-10-21: existing displayed photo + anatomy markers retained; mobile overlay signoff pending"
+      },
+      {
+        "label": "LOOK-ALIKE — Philadelphia's CLASPING leaf base (not prairie)",
+        "scientific_name": "Erigeron philadelphicus",
+        "image_url": "https://warcapps.usgs.gov/PlantID/Image/GivenFile?file=Erigeron+philadelphicus_3637.JPG&id=2993",
+        "image_fit": "contain",
+        "creator": "Larry Allain, U.S. Geological Survey",
+        "license": "Public domain (USGS Plants of Louisiana guide)",
+        "license_url": "https://warcapps.usgs.gov/PlantID/Home/About",
+        "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/2993",
+        "image_role": "DIFFERENT SPECIES USGS PUBLIC DOMAIN: shows upper leaves partly clasp on Erigeron philadelphicus, contrasting E. strigosus usually nonclasping.",
+        "caption": "COMPARE-ONLY: photo is of E. PHILADELPHICUS, NOT PRAIRIE FLEABANE. USGS photo shows upper green leaf bases broadening as they partly clasp the hairy stem. For E. strigosus look for tapered/subpetiolate usually nonclasping upper leaf insertion on the actual plant, and supporting hairs/rays.",
+        "why_it_matters": "BEST photo-evidenced difference versus prairie fleabane: Philadelphia's upper leaves are often clasping/auriculate, while prairie fleabane usually has narrow, nonclasping upper leaves. The recorded USGS public-domain reuse terms permit this source-linked panel.",
+        "markers": [
+          {
+            "label": "Clasping upper leaf base",
+            "label_x": 1,
+            "label_y": 22,
+            "target_x": 48,
+            "target_y": 47
+          },
+          {
+            "label": "Hairy stem surface",
+            "label_x": 65,
+            "label_y": 9,
+            "target_x": 51,
+            "target_y": 25
+          }
+        ],
+        "annotation_status": "Three visible anatomical arrow targets visually reviewed on USGS search returned image: clasping upper base, actual stem hair and lower stem-leaf junction. Source-image original NOT altered; link may have hotlink restrictions and therefore merits owner phone visual check.",
+        "attribution": {
+          "creator": "Larry Allain, U.S. Geological Survey",
+          "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/2993",
+          "license": "Public domain (USGS Plants of Louisiana guide)",
+          "license_evidence": "https://warcapps.usgs.gov/PlantID/Home/About"
+        }
       }
     ],
     "annotation_status": "Six panels and fourteen existing arrow overlays retained after replacing three external Commons image URLs with locally downloaded, physically checked source-identical image files. Phone overlay signoff pending.",
@@ -497,8 +540,8 @@
       "Compare whole branching leafy habit; foliage margins can be ENTIRE OR TOOTHED, not a binary identification clue.",
       "Look at fresh white-rayed heads (about 50–100 rays) and compare the still-missing same-scale Philadelphia clasping leaf macro."
     ],
-    "field_rule": "Usually nonclasping narrow leaves + short ascending/appressed stem hairs + clearly rayed daisy heads; multiple characters needed.",
-    "warning": "The original flower photo includes a dog. The three better Commons images have since been physically installed, so duplicate online gallery copies should not appear."
+    "field_rule": "Crew field rule: E. strigosus often narrow nonclasping upper leaves, appressed/ascending hairs, ~50–100 rays. The comparison section now PHOTOGRAPHS Philadelphia's contrasting partly clasping leaf base; do not infer a fully documented nonclasping closeup from unsharp prairie source images.",
+    "warning": "Matched pair NOT yet fully photographed at equivalent scale; after exhausting verified sources this remains an expert/photo-polish gap, not a reason to keep reworking the complete field key."
   },
   "diagnostic_photo_targets": [
     {
