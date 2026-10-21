@@ -1,0 +1,63 @@
+name: Scout source-licensed Euphorbia ophthalmica macro photos once
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-ophthalmica-photo-scout-20261021.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-ophthalmica-photo-scout
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Align latest main to preserve parallel species work
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Collect small individually licensed photo shortlist, NOT canonical
+        run: python scripts/manual_euphorbia_ophthalmica_photo_scout_20261021.py
+      - name: Verify each exact saved image
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          base=Path("photo-lab/2026-10-21-euphorbia-ophthalmica-scout")
+          j=json.loads((base/"manifest.json").read_text())
+          assert j["taxon"]=="Euphorbia ophthalmica"
+          pics=[x for x in j["candidate_photos"] if "file" in x]
+          assert pics
+          assert len(pics)<=14
+          for x in pics:
+            assert x["taxon_from_api"]=="Euphorbia ophthalmica"
+            assert x["photo_license_code"] in {"cc0","cc-by","cc-by-sa","cc-by-nc"}
+            assert x["photo_id"] and x["observation_id"] and x["photo_src_page"]
+            with Image.open(x["file"]) as p:p.verify()
+            assert Path(x["file"]).stat().st_size>16000
+          print("PASS:",len(pics),"UNREVIEWED source-licensed verified candidate JPEGs; not species gallery")
+          PY
+      - name: Commit only preliminary photos to photo lab, not published species
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add photo-lab/2026-10-21-euphorbia-ophthalmica-scout/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive licensed exact-name ophthalmica macro candidates for manual anatomy review"
+          for attempt in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
