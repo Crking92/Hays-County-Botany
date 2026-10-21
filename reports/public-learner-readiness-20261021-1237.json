@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "worker": "public-learner-readiness",
+  "checked_at": "2026-10-21T17:37:00Z",
+  "source_main_sha_observed": "7e42dffb20281c7c1854f7baf4f9de8ff1a7652b",
+  "latest_successful_pages": {
+    "run_id": 39644492666,
+    "source_sha": "9e971137ec8924378979c5e72c06b0bfb52853cc",
+    "completed_at_utc": "2026-10-21T17:35:38Z",
+    "url": "https://crking92.github.io/Hays-County-Botany/",
+    "live_http_or_mobile_render_verified": false
+  },
+  "newer_pages_run": {
+    "run_id": 39644682070,
+    "source_sha": "7e42dffb20281c7c1854f7baf4f9de8ff1a7652b",
+    "status_at_check": "in_progress",
+    "release_marker": "workflow/field-id-publication/2026-10-21-euphorbia-eriantha-5-photo-13-arrows.json",
+    "do_not_trigger_duplicate": true
+  },
+  "latest_successful_build": {
+    "canonical_species": 1190,
+    "public_photos": 2371,
+    "cards_without_public_photos": 11,
+    "cards_with_one_public_photo": 547,
+    "held_records": 460,
+    "excluded_rights": 227,
+    "noncommercial_conditional_photos": 890,
+    "cc_by_or_by_sa": 1121,
+    "cc0_or_pd": 301,
+    "owner_authorized": 59,
+    "public_rights_preflight_holds": 0,
+    "image_quality_hard_errors": 0
+  },
+  "handoffs": [
+    {
+      "lane": "NEEDS_SITE_QA",
+      "species_id": "euphorbia-eriantha",
+      "scope": "new four CC BY-NC 4.0 photos and 13 annotated arrows",
+      "finding": "Image-level metadata contains photo_review='Diagnostic structures and arrow placement NOT yet visually assessed' for four images, while manual_arrow_review and the release marker say those arrows were visually examined. This may be stale intake wording, not a proven bad arrow.",
+      "next_action": "Existing-card finalizer should reconcile status against actual saved JPEGs; public QA should check mobile arrow tip coordinates and visible credits/license/change notices. Do not assert arrow placement correct until rendered.",
+      "image_ids": [
+        753175091,
+        751280401,
+        751049952,
+        749199014
+      ]
+    },
+    {
+      "lane": "NEEDS_PUBLIC_PHOTO",
+      "species_id": "euphorbia-eriantha",
+      "finding": "No proven macro for inward-curled hairy gland appendages or detached mature carunculate seed with scale; current images only teach leaves, cyathial groups, hairy developing capsules and branching.",
+      "next_action": "Diagnostic Photo worker sources exact-taxon, rights-cleared closeups; preserve current 5 images."
+    },
+    {
+      "lane": "NEEDS_PUBLIC_PHOTO",
+      "species_ids": [
+        "cuscuta-obtusiflora",
+        "muhlenbergia-piniflora"
+      ],
+      "finding": "Source zero-photo queue dated 2026-10-19 still lists these two with no image records; current public build has 11 photo-free cards. Individual full list must be refreshed before changing photos.",
+      "next_action": "Diagnostic Photo worker owns sourcing; preserve Muhlenbergia identity hold."
+    }
+  ],
+  "rights_limits": "NC conditional on genuinely noncommercial site and image-level licensing; site cannot be independently loaded from this environment; source iNaturalist pages could not be independently opened. Automated EXIF/GPS and restricted-folder gates passed in latest successful run, not a manual upstream legal or pixel inspection.",
+  "release_decision": "HOLD: newer rights-filtered release already in progress; no marker or workflow modification."
+}
