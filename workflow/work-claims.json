@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T12:27:56.353Z",
+  "updated_at": "2026-10-21T17:13:00Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9684,6 +9684,27 @@
       "notes": "Recover preexisting unclaimed 2026-10-21 Batch 144 handoff; name evidence only; no range/specimen or other lane changes.",
       "released_at": "2026-10-21T12:27:56.353Z",
       "release_reason": "Batch 144 GitHub evidence commit 3919f7c verified (8 records), Sheet keyed override and derived pool readback 8/8; handoff status update was safety-blocked and remains historical, but canonical batch exists."
+    },
+    {
+      "claim_id": "taxonomy-name-fast-pass-20261021-145-recovery",
+      "scope_kind": "taxonomy_name_exception_batch",
+      "taxa": [
+        "sceptridium-biternatum",
+        "schedonnardus-paniculatus",
+        "schoenocaulon-texanum",
+        "sedum-nuttallii",
+        "selaginella-arenicola",
+        "senega-lutea",
+        "seymeria-texana",
+        "sideranthus-spinulosus"
+      ],
+      "lane": "taxonomy-name-fast-pass",
+      "owner": "manual taxonomy recovery",
+      "status": "active",
+      "claimed_at": "2026-10-21T12:13:00-05:00",
+      "expires_at": "2026-10-21T14:13:00-05:00",
+      "release_when": "Batch 145 GitHub and keyed Sheet readback or safe abandonment",
+      "notes": "Recovery of existing eight-record unpublished evidence; no range/media/learner changes."
     }
   ]
 }
