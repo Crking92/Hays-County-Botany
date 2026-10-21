@@ -1,5 +1,8 @@
 # First-card multisource installation policy — effective 2026-10-16
 
+> **2026-10-20 SCOPE CLARIFICATION:** This one-photo minimum, source-pool admission and associated full checks are **FIRST-TIME INSTALL ONLY**. They must NOT be rerun for existing canonical species when a user requests finished species cards, macro photographs, arrows or look-alike/genus improvements. For those requests, follow [ACTIVE_CARD_MODE_20261020.md](ACTIVE_CARD_MODE_20261020.md). All factual ID/photo-rights and concurrency safeguards still apply.
+
+
 **Status: ACTIVE. User-directed.** This policy supersedes any earlier first-card rule that makes *Joey Santore coverage*, a specific observation source, three photos, or polished diagnostic galleries a prerequisite. It applies to the **Approved Taxa Installer**, manual first-card batches, and any first-card GitHub installer. It does not reassign the canonical-photo, family, genus, taxonomy or collector lanes.
 
 ## Objective
