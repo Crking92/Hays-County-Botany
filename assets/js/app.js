@@ -1813,7 +1813,7 @@ function speciesFieldMatrix(sp){
   const data=sp && sp.comparisons;
   const rows=data && Array.isArray(data.field_matrix) ? data.field_matrix : [];
   if(!rows.length) return "";
-  let out='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Real field decisions</div><h2>Which nightshade is it?</h2></div></div>'+
+  let out='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Real field decisions</div><h2>Which look-alike is it?</h2></div></div>'+
     '<p class="section-intro">Compare reproductive structures, not just flower or fruit color. Uninstalled look-alikes are research comparisons, not confirmed learner species cards.</p>'+
     '<div class="diagnostic-visual-grid">';
   rows.forEach(function(row){
