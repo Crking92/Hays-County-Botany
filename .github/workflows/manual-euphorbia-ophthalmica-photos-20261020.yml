@@ -48,7 +48,7 @@ jobs:
             assert f.is_file() and f.stat().st_size>10000
             with Image.open(f) as im:im.verify()
           for image in d["images"][1:]:
-            assert "creativecommons.org/licenses/by" in image["license_url"]
+            assert ("creativecommons.org/licenses/by" in image["license_url"] or "creativecommons.org/publicdomain/zero/" in image["license_url"])
             assert image["creator"] and image["public_reuse"]=="yes"
             assert image["source_page"].startswith("https://commons.wikimedia.org/wiki/File:")
             assert image["source_sha256"]
