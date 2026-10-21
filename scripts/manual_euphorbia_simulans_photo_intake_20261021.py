@@ -14,7 +14,7 @@ from PIL import Image, ImageOps
 BASE=Path("content/taxa/Euphorbiaceae/Euphorbia/euphorbia-simulans")
 CARD=BASE/"species.json"
 CSV=BASE/"image-sources.csv"
-REPORT=Path("reports/euphorbia-simulans-photo-intake-20261020.json")
+REPORT=Path("reports/euphorbia-simulans-photo-intake-20261021.json")
 API="https://api.inaturalist.org/v1/observations"
 TAXON=275405
 LICENCES={
@@ -105,7 +105,7 @@ def main():
     print("Real original reviewed-source photo downloads:",len(selected))
     if not selected:
         REPORT.parent.mkdir(parents=True,exist_ok=True)
-        REPORT.write_text(json.dumps({"species":"Euphorbia simulans","status":"NO_NEW_VERIFIABLE_LICENCED_PHOTO","date":"2026-10-20",
+        REPORT.write_text(json.dumps({"species":"Euphorbia simulans","status":"NO_NEW_VERIFIABLE_LICENCED_PHOTO","date":"2026-10-21",
           "research_grade_total":result.get("total_results"),"source_photo_candidates":len(eligible),
           "note":"Original Nathan Taylor CC BY-NC photo unchanged. No made-up extra gallery count. Manual external search or photographer submissions needed."},indent=2)+"\n")
         return
@@ -128,7 +128,7 @@ def main():
           "anatomy_arrows":[],**meta
         })
     j["curation_status"].update({"photo_metadata_count":len(j["images"]),"photo_files_present":len(j["images"]),
-       "photo_source_checked":True,"new_photo_source_verified_on":"2026-10-20"})
+       "photo_source_checked":True,"new_photo_source_verified_on":"2026-10-21"})
     j["learner_visual_status"].update({"image_count":len(j["images"]),
       "note":str(len(selected))+" supplementary separately licensed real photos added from exact research-grade taxon; photo-specific anatomy arrow QA pending, scientific plant key already drafted. No Hays native claim."})
     j["field_id_finalization"]["new_photo_source_count"]=len(selected)
@@ -146,7 +146,7 @@ def main():
     with CSV.open("w",newline="",encoding="utf-8") as f:
         writer=csv.DictWriter(f,fieldnames=cols,lineterminator="\n");writer.writeheader();writer.writerows(rows)
     REPORT.parent.mkdir(parents=True,exist_ok=True)
-    REPORT.write_text(json.dumps({"species":"Euphorbia simulans","date":"2026-10-20",
+    REPORT.write_text(json.dumps({"species":"Euphorbia simulans","date":"2026-10-21",
       "research_grade_observations_returned":result.get("total_results"),"photo_candidates":len(eligible),
       "installed":[{"photo_id":ph["id"],"observation_id":obs["id"],"creator":creator,"license":LICENCES[code][0],
                     "path":str(dest),"sha":meta["image_source_sha256"]} for obs,ph,code,creator,meta,dest,data in selected],
