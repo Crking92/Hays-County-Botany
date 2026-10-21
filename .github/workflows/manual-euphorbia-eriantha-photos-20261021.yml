@@ -42,7 +42,8 @@ jobs:
           assert j["images"][0]["license"]=="CC BY"
           assert j["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
           assert 1<=len(j["images"])<=5
-          assert j["field_id_finalization"]["real_source_photos_annotated"]==0
+          assert j["field_id_finalization"]["real_source_photos_annotated"]==1
+          assert len(j["images"][0].get("anatomy_arrows", []))==3  # preserve already-verified original anatomy overlays
           for im in j["images"]:
             f=base/im["file"]
             assert f.exists() and f.stat().st_size>10000
