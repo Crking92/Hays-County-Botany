@@ -37,3 +37,15 @@ Baseline snapshot on 2026-10-14: 1,282 Master Plant Pool rows, 545 canonical spe
 ## Automation instructions
 
 **Taxonomy + Diagnostic Review** is the **single owner of new name-pass batches** unless a manual chat chooses a disjoint reserved set. For now it should prioritize Phase 1 and hand off 8–12 high-confidence names per run, with a small separately tracked `HOLD_IDENTITY` list. It should not spend a run on the county-range backlog or perform photo installs. When Phase 1 unreviewed backlog is exhausted, switch automatically to Phase 2 canonical name checks, then Phases 3/4. Other enabled automations continue their current independent roles.
+
+
+## Taxonomy-only lightweight claim recovery (2026-10-21)
+
+This section governs the Taxonomy Name Fast-Pass worker only; do not change other lanes' claim protocol.
+
+- Before reserving, read canonical batch evidence, target-specific active claims, and the lease expiration. A canonical verified batch wins over an expired or stale claim; never republish it.
+- Prefer a compact **per-batch** record at `workflow/taxonomy-claims/<batch-id>.json` rather than rewriting the large historical `workflow/work-claims.json`. Record batch ID, owner, exact taxa, claimed_at, expires_at (two hours), intended evidence path, status, and verified commit SHA if published. Create only after checking the target path and both legacy and new claims. Existing live legacy claims still take precedence.
+- Use create-once for new claim files. Do not overwrite another worker's claim. If the per-batch claim write is rejected, do not publish without a safe reservation; preserve the research handoff and choose another eligible target.
+- After publishing, verify the canonical batch file on main. Try to update **only that small claim file** to released with its fresh blob SHA. If release fails for a non-conflict safety/permission denial, do not retry via another route; the canonical batch remains completed and the claim expires naturally. On a genuine stale-SHA conflict, refetch/merge and retry once.
+- Legacy `workflow/work-claims.json` remains readable as historical coordination; do not rewrite it solely to release a taxonomy claim. Never interpret expired historical `active` records as a current lock without checking their expiration and canonical publication.
+- Preserve existing scientific and Sheet restrictions, exact evidence, source URLs, decisions, and original range/identity states. No automation schedule or other lane changes.
