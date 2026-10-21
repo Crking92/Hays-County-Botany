@@ -14,7 +14,7 @@
     ],
     "species_count": 5,
     "source_pool_noncanonical": [],
-    "range_status": "All three canonical cards currently RANGE_UNRESOLVED; do not count as confirmed target-zone natives",
+    "range_status": "Previously documented county native-range evidence remains UNCHANGED for all five installed Chloris entries; do not count previously range-unresolved taxa as confirmed target-zone natives.",
     "scientific_review_scope": "Photo-led recognition and explicit hybrid uncertainty, no county native range audit",
     "note": "Previous genus scope incorrectly counted only three installed canonical entries. Manifest also contains C. andropogonoides and C. × subdolichostachya. Species-level taxon photo determinations still remain provisional where originally flagged."
   },
@@ -183,24 +183,32 @@
   ],
   "handoffs": [
     {
-      "lane": "Taxonomy + Diagnostic Review",
+      "lane": "Diagnostic Photo Fast-Fill",
       "taxa": [
-        "Chloris andropogonoides",
-        "Chloris ×subdolichostachya"
+        "chloris-cucullata",
+        "chloris-verticillata",
+        "chloris-virgata"
       ],
-      "need": "Reconcile exact source concepts and diagnostic traits, especially naturally occurring hybrid versus parents, before separate learner cards or firm key branches."
+      "need": "Matched complete mature flowering heads, isolated sterile and fertile lemmas, verified hood/crown of hairs and separate mm-scale awn measurements. No microdiagnostic or microscopic arrow inferred from the present images."
     },
     {
-      "lane": "Approved Taxa Installer",
+      "lane": "Species Card Finalization",
       "taxa": [
-        "Chloris andropogonoides",
-        "Chloris ×subdolichostachya"
+        "chloris-andropogonoides",
+        "chloris-x-subdolichostachya"
       ],
-      "need": "Approved source-pool records not among the three canonical manifest species; check taxonomy decisions and installation readiness. Do not install from this lane."
+      "need": "Both species already have canonical species.json and existing licensed photos. Improve specimen-level certainty: slimspike true floral traits and independently vouchered natural hybrid versus parent sterile lemmas; do not re-run first-card admission."
     },
     {
-      "lane": "Diagnostic Photo Polish",
-      "need": "Matched head and mature-spikelet photos with correct arrows for hood, awns and fertile-lemma fringe."
+      "lane": "Public Learner Readiness",
+      "taxa": [
+        "chloris-andropogonoides",
+        "chloris-cucullata",
+        "chloris-verticillata",
+        "chloris-virgata",
+        "chloris-x-subdolichostachya"
+      ],
+      "need": "Build from existing photo-rights-filtered assets; verify creator, individual CC licenses, EXIF/GPS stripping, and true Pages deployment. Hybrid remains provisional, not species-FINISHED."
     }
   ],
   "scientific_sources": [
@@ -222,14 +230,15 @@
     }
   ],
   "curation_status": {
-    "stage": "genus_framework_ready_photo_pending",
+    "stage": "FIELD_READY_PHOTO_GAPS_AND_PROVISIONAL_HYBRID",
     "reviewed_at": "2026-10-14",
     "species_installed_here": 0,
     "photo_led_status": "two_installed_photos_visually_verified_microscopic_roles_pending",
     "manual_chloris_five_20261020": "Existing 5 manifest cards photo-led; 8 real genus images with visible-part arrow annotations",
     "species_count_reconciled": 5,
     "visual_stage": "FIELD_READY_PHOTO_GAPS_AND_PROVISIONAL_HYBRID",
-    "native_range_originals_preserved": true
+    "native_range_originals_preserved": true,
+    "historical_three_species_handoff_corrected": "2026-10-20"
   },
   "genus_diagnostics": {
     "look_here_first": "Find complete flowering racemes and count their tiers; then inspect mature sterile lemma hood, fertile and sterile awns, and fertile lemma hairs.",
