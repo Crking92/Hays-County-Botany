@@ -1,0 +1,70 @@
+name: Install Philadelphia Fleabane Public Diagnostic Gallery
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-erigeron-philadelphicus-photo-install-20261021.yml"
+      - "scripts/manual_erigeron_philadelphicus_install_photos_20261021.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-manual-erigeron-philadelphicus-photo-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - name: Load current main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Install three individually licensed Wikimedia Commons photographs
+        run: python scripts/manual_erigeron_philadelphicus_install_photos_20261021.py
+      - name: Verify actual image files and public-source metadata
+        run: |
+          python - <<'PY'
+          import csv,json
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Asteraceae/Erigeron/erigeron-philadelphicus")
+          j=json.loads((base/"species.json").read_text())
+          assert j["id"]=="erigeron-philadelphicus"
+          assert j["scientific_name"]=="Erigeron philadelphicus"
+          assert len(j["images"])==4
+          assert j["curation_status"]["photo_files_present"]==4
+          names={Path(x["file"]).name for x in j["images"]}
+          assert {"commons-cbaile19-beechview-2025-flowers.jpg",
+                  "commons-doug-mcgrady-32051004951.jpg",
+                  "commons-alpsdake-s2-flower.jpg"}.issubset(names)
+          for x in j["images"]:
+            p=base/x["file"]
+            assert p.is_file() and p.stat().st_size>19000, str(p)
+            assert x["creator"] and x["source_page"]
+            with Image.open(p) as frame:frame.verify()
+          assert {x["license"] for x in j["images"]}=={"CC BY-NC","CC0","CC BY 2.0","CC BY-SA 4.0"}
+          with (base/"image-sources.csv").open(newline="") as f:rows=list(csv.DictReader(f))
+          assert len(rows)==4
+          print("All four original photographs installed with source attribution. No unverifiable anatomical arrows added.")
+          PY
+      - name: Commit new images and source ledger only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Asteraceae/Erigeron/erigeron-philadelphicus/ reports/erigeron-philadelphicus-three-public-photos-20261021.json
+          if git diff --cached --quiet; then echo "Already current"; exit 0; fi
+          git commit -m "Install three public-licensed Philadelphia fleabane photographs for photo QA"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
