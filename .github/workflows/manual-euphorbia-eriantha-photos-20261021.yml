@@ -1,0 +1,72 @@
+name: Source Euphorbia eriantha exact licensed photo set
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-eriantha-photos-20261021.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-eriantha-photo-intake
+  cancel-in-progress: false
+jobs:
+  source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Refresh fresh main state before writing species
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Pull exact species research-grade licensed photographs from iNaturalist
+        run: python scripts/manual_euphorbia_eriantha_photo_intake_20261021.py
+      - name: Verify photo metadata, real JPEG bytes, conservation of source record
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Euphorbiaceae/Euphorbia/euphorbia-eriantha")
+          j=json.loads((base/"species.json").read_text())
+          assert j["scientific_name"]=="Euphorbia eriantha"
+          assert j["images"][0]["file"]=="images/inat-181384310.jpg"
+          assert j["images"][0]["license"]=="CC BY"
+          assert j["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
+          assert 1<=len(j["images"])<=5
+          assert j["field_id_finalization"]["real_source_photos_annotated"]==0
+          for im in j["images"]:
+            f=base/im["file"]
+            assert f.exists() and f.stat().st_size>10000
+            with Image.open(f) as p:
+              p.verify()
+          for im in j["images"][1:]:
+            assert im["observation_id"] and im["photo_id"]
+            assert im["creator"] and im["source_page"].startswith("https://www.inaturalist.org/photos/")
+            assert im["license_url"].startswith("https://creativecommons.org/")
+            assert im["public_reuse"]=="yes"
+            assert im["anatomy_arrows"]==[]
+          report=json.loads(Path("reports/euphorbia-eriantha-photo-intake-20261021.json").read_text())
+          assert report["species"]=="Euphorbia eriantha"
+          print("PASS:",len(j["images"]),"actual images with per-photo licences, no fabricated anatomical arrow verification.")
+          PY
+      - name: Preserve validated photos and pending-macro evidence to GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Euphorbiaceae/Euphorbia/euphorbia-eriantha/ reports/euphorbia-eriantha-photo-intake-20261021.json
+          if git diff --cached --quiet; then echo "Verified no new photo files"; exit 0; fi
+          git commit -m "Install exact-name licensed eriantha photos with public credit and physical QA"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
