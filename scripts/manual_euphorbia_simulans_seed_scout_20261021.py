@@ -18,7 +18,7 @@ for oid,expected in OBSERVATIONS.items():
   ob=response.json()["results"][0]
   taxon=(ob.get("taxon") or {}).get("name","")
   assert taxon==expected or (expected=="Euphorbia theriaca" and taxon=="Euphorbia theriaca var. theriaca"), f"Taxon is {taxon}, not {expected}"
-  for ph in (ob.get("photos") or [])[:10]:
+  for ph in (ob.get("photos") or [])[:30]:
    pid=ph.get("id")
    lic=(ph.get("license_code") or "").lower()
    if lic not in ALLOWED or not pid:
