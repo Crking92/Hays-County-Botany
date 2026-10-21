@@ -9,7 +9,7 @@
   "common_name": "Plains lovegrass",
   "synonyms": [],
   "taxonomic_note": "Accepted by current Kew/POWO. Kew treats Eragrostis intermedia var. appressa and Eragrostis lugens var. major as synonyms of the species; learner remains species-level.",
-  "look_here_first": "Start at the panicle and sheath collar. Plains lovegrass is a tufted perennial with an extremely open, airy panicle whose tiny spikelets sit on long divergent pedicels. Leaf sheaths are mostly glabrous, with hairs concentrated near the sheath apex/collar rather than being shaggy throughout.",
+  "look_here_first": "First read the open, airy, broadly ovate mature panicle. Then inspect the sheath SURFACE and the sheath throat: typically rather smooth away from the apex, with conspicuous throat/collar hairs. Check several panicle branch junctions; occasional axil hairs do not make this E. hirsuta. Confirm from mature spikelets and local key, not color alone.",
   "county_occurrences_target_zone": [
     "Hays",
     "Gillespie",
@@ -60,9 +60,11 @@
     "confused_with": [
       "Eragrostis hirsuta",
       "Eragrostis trichodes",
-      "Eragrostis cilianensis"
+      "Eragrostis spectabilis",
+      "Eragrostis cilianensis",
+      "Panicum capillare"
     ],
-    "key_distinctions": "Bigtop lovegrass is conspicuously hairier: its leaf sheaths are hirsute and panicle branch axils are bearded. It is commonly taller with a larger panicle. E. intermedia has mostly smooth sheaths and only sparse axillary hairs. Sand lovegrass often shows conspicuous long hair tufts at the sheath apex/collar and a taller, narrow-based plant with a large diffuse panicle; use sheath/collar hair placement and spikelet/panicle architecture rather than overall airiness alone. Stinkgrass is an annual with a much coarser, denser-looking panicle and gland-dotted lemmas; crushed young plants may have a strong odor. It is introduced in Texas."
+    "key_distinctions": "E. hirsuta usually has more conspicuous hairs on the sheath surface/margins and bearded panicle axils; E. trichodes commonly has a taller, elongated diffuse panicle and long hairs concentrated at the sheath throat, with spikelets sometimes near branch tips. E. spectabilis can make an exceptionally broad loose purple tumbleweed-like panicle. Witchgrass (Panicum capillare) has a different spikelet construction; dissect before using color or openness."
   },
   "tags": [
     "Poaceae",
@@ -81,7 +83,9 @@
     "photo_metadata_count": 6,
     "photo_files_present": 3,
     "grass_training_pass": "2026-10-20-crew-photo-anatomy-sequence",
-    "grass_visual_completion": "PENDING_VERIFIED_COLLAR_BRANCH_AXIL_SPIKELET_MACROS"
+    "grass_visual_completion": "PENDING_VERIFIED_COLLAR_BRANCH_AXIL_SPIKELET_MACROS",
+    "crew_visual_finish_20261020": "PANICLE_STRUCTURE_ARROWS_VERIFIED; sheath/collar and measured spikelet missing",
+    "photo_morphology_gate": "PARTIAL — panicle habit visible, ID level not independently proven"
   },
   "photo_note": "Diagnostic photo roles are verified in the deep-review draft; exact reusable selections remain a later visual-polish task. Joey Santore photo additions are rights-limited CC BY-NC and botanical ID provisional.",
   "images": [
@@ -225,5 +229,184 @@
     "source_disagreement": "Texas A&M describes shorter pedicels than spikelets and 5–11 florets, while UT Austin and FNA/SEINet describe generally longer pedicels and a variable floret range. Do not silently force these contradictory characters into a beginner key. Collect comparative specimen photos and reconcile.",
     "photo_arrows": "NOT INSTALLED by this pass; only add anatomical arrows after checking exact image pixels and annotation rights",
     "outcome": "Text-based field photography/identification sequence strengthened; NOT visually finished, no new photo or native-range claim."
+  },
+  "field_id_finish_pass": {
+    "level": "PHOTO_LED_TEACHING_PASS — species-level microscopic confirmation pending",
+    "looked_at": "Existing credited Joey Santore local photos: whole rocky-site clump, hand-held open panicle, and intact seedhead. Photo pixels examined 2026-10-20; no visible collar or measured mature spikelets in these photos.",
+    "crew_summary": "Plains lovegrass often looks like a loose, nearly transparent branching cloud over a grass tuft. Ask the crew to find the sheath/collar before separating it from other airy lovegrasses.",
+    "lookalike_logic": [
+      "Bigtop: test sheath hairiness along the sheath body and bearded panicle axils.",
+      "Sand: inspect comparatively elongated panicle, throat hairs and spikelet placement.",
+      "Purple lovegrass: very broadly spread flexible panicle, often much more showy/tumbleweed-like.",
+      "Witchgrass: grass panicle silhouette can overlap, but reproductive spikelet structure differs."
+    ],
+    "difficult_id_guardrails": [
+      "Sheath hair placement requires a real collar view; none of these three inspected images provides it.",
+      "Texas A&M and FNA-linked treatments differ on pedicel-to-spikelet ratios and floret descriptions; do not teach those as absolute photo-alone splits.",
+      "No new local range certification was performed; preserve accepted taxon and county evidence.",
+      "The source observation identification is not a specimen-level independent expert redetermination."
+    ],
+    "publish_check": "Canonical teaching lesson committed; not proof of live GitHub Pages publication. Public license conditions unchanged.",
+    "source_links": [
+      "https://rangeplants.tamu.edu/plant/plains-lovegrass/",
+      "https://rangeplants.tamu.edu/plant/sand-lovegrass/",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2/general-information",
+      "https://swbiodiversity.org/seinet/taxa/index.php?clid=2935&taxauthid=1&taxon=1632"
+    ]
+  },
+  "field_photo_quickcheck": {
+    "version": 1,
+    "heading": "Plains lovegrass: don't stop at the airy panicle",
+    "steps": [
+      "Find a true branched panicle and a few tiny separate spikelets on thin branches; use the hand-held photographs as shape references.",
+      "Inspect the sheath BODY versus throat/collar under 10×: E. intermedia is usually less hairy along the sheath surface than bigtop lovegrass.",
+      "Check at least two lower panicle branch junctions and mature spikelets; compare with E. hirsuta and E. trichodes before deciding."
+    ],
+    "field_rule": "Panicle openness alone is a hint. Without sheath and mature spikelet macro, keep Eragrostis sp.",
+    "warning": "No collar, ligule, sheath-surface or measured floret photo is yet locked in this card. The visible arrows only mark macro architecture, NOT microscopic proof.",
+    "featured_photo_indices": [
+      0,
+      1
+    ],
+    "evidence_sources": [
+      "https://rangeplants.tamu.edu/plant/plains-lovegrass/",
+      "https://rangeplants.tamu.edu/plant/sand-lovegrass/",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2/general-information",
+      "https://swbiodiversity.org/seinet/taxa/index.php?clid=2935&taxauthid=1&taxon=1632"
+    ]
+  },
+  "visual_comparison": {
+    "title": "Plains lovegrass — fine panicle versus hairy look-alikes",
+    "subtitle": "Existing true photographs inspected individually. Arrows point to visible branches and spikelets only; fine diagnostic sheath hairs still require an additional photograph.",
+    "memory_rule": "AIRY ≠ IDENTIFIED. Find the sheath, collar and branch axils before saying intermedia.",
+    "items": [
+      {
+        "label": "1 · Tiny dark spikelets along fine panicle branches",
+        "scientific_name": "Eragrostis intermedia",
+        "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-intermedia/images/joey-review019-9b2acdc3f4dc45bc.jpg",
+        "image_fit": "contain",
+        "image_role": "Hand-held mature branching panicle with fine branches and dark elongated spikelets",
+        "caption": "Dark narrow spikelets are visible individually above the hand. The arrows identify a spikelet and the fine branch supporting many of them, not a measured floret.",
+        "why_it_matters": "Separates reproductive structure from the broad overall cloud.",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC",
+        "source_page": "https://www.inaturalist.org/photos/602173932",
+        "photo_status": "EXISTING_LICENSED_LOCAL_IMAGE; original pixels directly inspected 2026-10-20; taxon from credited source, not independently vouchered; arrows identify only visible plant structures; final phone-layout QA pending",
+        "markers": [
+          {
+            "label": "Single spikelet",
+            "label_x": 80,
+            "label_y": 12,
+            "target_x": 62,
+            "target_y": 29
+          },
+          {
+            "label": "Fine panicle branch",
+            "label_x": 4,
+            "label_y": 14,
+            "target_x": 45,
+            "target_y": 21
+          }
+        ],
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+      },
+      {
+        "label": "2 · Rooted open-site bunch habit",
+        "scientific_name": "Eragrostis intermedia",
+        "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-intermedia/images/joey-review019-6427cea3dfc2c3fb.jpg",
+        "image_fit": "contain",
+        "image_role": "Clump in gravelly open terrain with fine stems and low foliage",
+        "caption": "The central green leafy clump appears in dry limestone gravel; fine flowering stems extend above and around it. This is a habit cue, not a root/collar detail.",
+        "why_it_matters": "Shows how a small basal tuft can support a surprisingly broad flowering cloud.",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC",
+        "source_page": "https://www.inaturalist.org/photos/602173941",
+        "photo_status": "EXISTING_LICENSED_LOCAL_IMAGE; original pixels directly inspected 2026-10-20; taxon from credited source, not independently vouchered; arrows identify only visible plant structures; final phone-layout QA pending",
+        "markers": [
+          {
+            "label": "Grass clump",
+            "label_x": 63,
+            "label_y": 82,
+            "target_x": 48,
+            "target_y": 63
+          }
+        ],
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+      },
+      {
+        "label": "3 · A complete airy panicle",
+        "scientific_name": "Eragrostis intermedia",
+        "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-intermedia/images/joey-review019-fb3301474d930704.jpg",
+        "image_fit": "contain",
+        "image_role": "Open branching seedhead against pale ground",
+        "caption": "Several thin panicle branches carry dark spikelets across the field of view. The photographed panicle does not reveal diagnostic sheath hairs.",
+        "why_it_matters": "Recognition at walking distance; do not confuse a branching panicle with an individual spikelet.",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC",
+        "source_page": "https://www.inaturalist.org/photos/602173952",
+        "photo_status": "EXISTING_LICENSED_LOCAL_IMAGE; original pixels directly inspected 2026-10-20; taxon from credited source, not independently vouchered; arrows identify only visible plant structures; final phone-layout QA pending",
+        "markers": [
+          {
+            "label": "Panicle branches",
+            "label_x": 77,
+            "label_y": 14,
+            "target_x": 46,
+            "target_y": 29
+          }
+        ],
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/"
+      },
+      {
+        "label": "4 · COMPARE: bigtop's hairy sheath",
+        "scientific_name": "Eragrostis hirsuta",
+        "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-hirsuta/images/gbif-first-6500108129-1f4b8bbc1e.jpg",
+        "image_fit": "contain",
+        "image_role": "DIFFERENT species: visible sheath surface hairs on E. hirsuta",
+        "caption": "This comparison is bigtop lovegrass, not plains lovegrass. Unlike our available plains panicle photos, it clearly shows sheath hairs and collar tufts.",
+        "why_it_matters": "Teaches exactly where the crew should look next in real plants.",
+        "creator": "Becky Dill",
+        "license": "CC0 1.0",
+        "source_page": "https://www.gbif.org/occurrence/6500108129",
+        "photo_status": "EXISTING_LICENSED_LOCAL_IMAGE; original pixels directly inspected 2026-10-20; taxon from credited source, not independently vouchered; arrows identify only visible plant structures; final phone-layout QA pending",
+        "markers": [
+          {
+            "label": "Hairy sheath",
+            "label_x": 4,
+            "label_y": 10,
+            "target_x": 75,
+            "target_y": 27
+          }
+        ]
+      },
+      {
+        "label": "5 · COMPARE: sand's very fine pedicels",
+        "scientific_name": "Eragrostis trichodes",
+        "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-trichodes/images/library-review014-a11a4bf2229e32c.jpg",
+        "image_fit": "contain",
+        "image_role": "DIFFERENT species: sand lovegrass tiny spikelets",
+        "caption": "This is sand lovegrass, not E. intermedia. Thin flowering branches and elongated pale spikelets look similar to the present species.",
+        "why_it_matters": "Compare branch architecture while remembering that both need sheath and spikelet confirmation.",
+        "creator": "Sam Kieschnick",
+        "license": "CC BY",
+        "source_page": "https://www.gbif.org/occurrence/6579815747",
+        "photo_status": "EXISTING_LICENSED_LOCAL_IMAGE; original pixels directly inspected 2026-10-20; taxon from credited source, not independently vouchered; arrows identify only visible plant structures; final phone-layout QA pending"
+      }
+    ],
+    "overlay_note": "Three intermedia images are existing CC BY-NC Joey Santore credits for the present NONCOMMERCIAL learner; hirsuta and trichodes are explicitly DIFFERENT SPECIES comparison photos and never inserted into intermedia's exact-species gallery. Browser annotations are coordinates in original photo frames. No exact sheath macro or vein/gland measurement is claimed.",
+    "study_only_intro": "Diagnostic source descriptions (reference/link only; do not treat text snippets as image rights).",
+    "study_only_photo_links": [
+      {
+        "label": "Texas A&M plains lovegrass",
+        "url": "https://rangeplants.tamu.edu/plant/plains-lovegrass/",
+        "look_for": "Habit, throat hairiness and lower panicle axils",
+        "reuse": "Reference website; use media only with separately verified permission"
+      },
+      {
+        "label": "FNA treatment via SEINet",
+        "url": "https://swbiodiversity.org/seinet/taxa/index.php?clid=2935&taxauthid=1&taxon=1632",
+        "look_for": "Panicle, sheath, ligule and spikelet character limits",
+        "reuse": "Scientific reference"
+      }
+    ]
   }
 }
