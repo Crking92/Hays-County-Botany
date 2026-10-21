@@ -20,7 +20,7 @@ assert s["scientific_name"]=="Euphorbia simulans"
 assert len(s["images"])==5 and sum(len(x.get("anatomy_arrows",[])) for x in s["images"])==11,"Expected existing 5 licensed field images, 11 arrows"
 entries={(r.get("observation"),r.get("photo_id")):r for r in manifest["records"] if r.get("file")}
 session=requests.Session();session.headers["User-Agent"]="HaysCountyBotany/1.0 educational licensing QA"
-seed_pid=5336985
+seed_pid=5336967
 r=session.get(f"https://api.inaturalist.org/v1/observations/{OBS_SIM}",timeout=30);r.raise_for_status()
 obs=r.json()["results"][0]
 assert obs["taxon"]["name"]=="Euphorbia simulans"
@@ -75,9 +75,9 @@ selected=[
  "role":"Separate smooth three-lobed green capsule next to a red-glanded cyathium",
  "caption":"Left: smooth glabrous green THREE-LOBED capsule is a fruit. Right: a narrow involucre bears red-purple nectar glands on its rim and is a cyathium, NOT another capsule. Two different reproductive structures are visible at the same node; photographed scale is not calibrated.",
  "arrows":[{"label":"Smooth three-lobed capsule (fruit)","target_fraction":[.292,.47]},{"label":"Purple cyathium glands (not fruit)","target_fraction":[.757,.17]}]},
- { "id":seed_pid,"file":"images/nathan-5336985-weakly-ridged-mature-seeds.jpg",
+ { "id":seed_pid,"file":"images/nathan-5336967-weakly-ridged-mature-seeds.jpg",
  "role":"True pale four-angled E. simulans seeds: low faint rugose crosswise wrinkles, source authored half-mm scale",
- "caption":"TRUE mature E. simulans seeds photographed by Nathan Taylor, half-millimeter scale divisions noted by author. Several seed faces show shallow uneven wrinkles rather than the deep transverse grooves of E. theriaca var. theriaca. The upper-right seed is the clearest individual example. Compare real separately labeled species—not an edited replacement seed image.",
+ "caption":"TRUE mature E. simulans seeds photographed by Nathan Taylor, half-millimeter scale divisions noted by author. Several seed faces show shallow uneven wrinkles rather than the deep transverse grooves of E. theriaca var. theriaca. Several photographed seed faces show weak irregular rugosity; the upper-right seed is a useful example. Compare real separately labeled species—not an edited replacement seed image.",
  "arrows":[{"label":"Low uneven crosswise wrinkles","target_fraction":[.736,.202]},{"label":"True pale seed, not capsule","target_fraction":[.782,.583]}]}
 ]
 with SOURCE.open(newline="",encoding="utf-8") as f:
@@ -147,7 +147,7 @@ s["field_photo_quickcheck"]={
 s["field_id_finalization"].update({"stage":"FIELD_READY_WITH_OPTIONAL_SCALED_STIPULE_GAP","review_date":"2026-10-21",
  "real_source_photos_annotated":8,"verified_anatomy_arrows":17,"canonical_photo_count":8,
  "remaining":["Clearly isolated same-node pair of 0.5–0.7 mm subulate stipules with measurement scale","Optional second gland side-angle at mm scale; present genuine glands visibly distinguishable","BONAP/NAPA county nativity badge intentionally NOT promoted"],
- "seed_resolution":"PASSED: authenticated photolevel-licensed actual E simulans four-angled seeds 5336985 versus separately attributed genuine E theriaca seed 5337479 with source-described 0.5-mm divisions. Shallow simulans wrinkles visibly differ from deep theriaca ridges.",
+ "seed_resolution":"PASSED: authenticated photolevel-licensed actual E simulans four-angled seeds 5336967 versus separately attributed genuine E theriaca seed 5337479 with source-described 0.5-mm divisions. Shallow simulans wrinkles visibly differ from deep theriaca ridges.",
  "gland_resolution":"PASSED: source 5336725 shows red-purple elliptic cyathial glands without white gland appendages.",
  "fruit_resolution":"PASSED: source 5336727 shows three-lobed smooth green capsule distinct from red-glanded cyathium",
  "photo_review":"8 exact-species authenticated CC BY-NC JPEGs saved and visually inspected, 17 arrows on visible parts only. Separate theriaca comparison image not mislabeled."})
@@ -172,11 +172,11 @@ comp=next(x for x in g["comparison_cards"] if x["id"]=="euphorbia-golondrina-sim
 comp["reviewed_at"]="2026-10-21"
 comp["look_here_first"]="PHOTO CONFIRMED: SIMULANS (round short entire opposite leaves, distinct PURPLE elliptical UNAPPENDAGED glands; actual green smooth 3-lobed fruit; larger four-angled true seeds with SHALLOW irregular crosswise wrinkles). GOLONDRINA (longer narrow entire leaves and WHITE crescent appendages around deeply concave subcircular glands). VERY CLOSE THERIACA var. theriaca requires SEED: photographer-attributed authentic E. theriaca has deeper 2–4 cross ridges on smaller ripe seeds versus E. simulans faint 5–7 wrinkles; real comparison views are shown with separate TAXON labels. SERPENS has broad fused node stipules and prostrata hairy-keel fruit. Never label the different species seed as E. simulans.";
 comp["comparison_status_2026_10_21"]={"simulans_gallery_photos":8,"simulans_arrowed_views":8,"simulans_arrow_count":17,
- "seed_pair_matched":"AUTHENTIC true E. simulans 5336985 and E. theriaca 5337479 by Nathan Taylor, photo-specific CC BY-NC, 0.5mm scale units author states",
+ "seed_pair_matched":"AUTHENTIC true E. simulans 5336967 and E. theriaca 5337479 by Nathan Taylor, photo-specific CC BY-NC, 0.5mm scale units author states",
  "gland_pair":"E. simulans true unappendaged purple glands now pictured; E. golondrina actual white crescents pictured, exact ellipse measurements not calibrated",
  "remaining":["Scaled E. simulans and golondrina stipule closeup","Local BONAP/NAPA county tag not promoted"]};
 comp["photo_pair_targets"]=[{**x,"status":(
- "NOW PHOTO PASSED: Nathan Taylor exact-species seed 5336985 shows pale four-angled larger weakly wrinkled E. simulans seed. Nathan Taylor separate E. theriaca 5337479 clearly labeled shows smaller seeds with deep grooved 2–4 ridges. Both original photo-licensed CC BY-NC, author-provided 0.5mm scale ticks."
+ "NOW PHOTO PASSED: Nathan Taylor exact-species seed 5336967 shows pale four-angled larger weakly wrinkled E. simulans seed. Nathan Taylor separate E. theriaca 5337479 clearly labeled shows smaller seeds with deep grooved 2–4 ridges. Both original photo-licensed CC BY-NC, author-provided 0.5mm scale ticks."
  if x["role"].startswith("True mature seeds") or "Simulans versus theriaca" in x["role"] else
  "NOW PHOTO PASSED: E. simulans original macro 5336725 has unappendaged red-purple nectar glands; absence of white crescents contrasted with labeled golondrina original source. Exact gland width not scaled."
  if "Simulans gland" in x["role"] else
@@ -190,7 +190,7 @@ new_g.append({"scientific_name":"Euphorbia theriaca","label":"E. theriaca var. t
  "image_url":ref_url,"image_role":"Different correctly labeled species true mature seeds with deep repeated cross ridges",
  "source_page":reference["iNaturalist_url"],"creator":reference["attribution"],
  "license":LICENSE,"license_url":LICENSE_URL,"image_fit":"contain",
- "caption":"Nathan Taylor's separate E. theriaca var. theriaca observation (4435298). Smaller pale seeds show 2–4 very deep transverse grooves. Compare with E. simulans seed 5336985 on original photographer-attributed image, whose wrinkles are shallower. The same photograph is NOT an E. simulans specimen.",
+ "caption":"Nathan Taylor's separate E. theriaca var. theriaca observation (4435298). Smaller pale seeds show 2–4 very deep transverse grooves. Compare with E. simulans seed 5336967 on original photographer-attributed image, whose wrinkles are shallower. The same photograph is NOT an E. simulans specimen.",
  "markers":[{"label":"Deep transverse seed grooves","target_x":47,"target_y":23,"label_x":8,"label_y":8},{"label":"True E. theriaca seed (not simulans)","target_x":73,"target_y":32,"label_x":62,"label_y":72}],
  "image_pixel_audit":"2026-10-21 actual cached source pixels manually inspected from original Nathan Taylor E. theriaca seed photo; author states half-mm scale ticks; note this is a different species."})
 g["visual_comparison"]["items"]=[v for v in g["visual_comparison"]["items"] if all(v.get("image_url")!=w["image_url"] for w in new_g)]
