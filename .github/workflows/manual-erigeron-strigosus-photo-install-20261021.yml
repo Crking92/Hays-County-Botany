@@ -1,0 +1,83 @@
+name: Install Prairie Fleabane CC BY Photo Gallery
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-erigeron-strigosus-photo-install-20261021.yml"
+      - "scripts/manual_erigeron_strigosus_install_photos_20261021.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-manual-erigeron-strigosus-photo-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - name: Load current main before species edit
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Install three verified Wikimedia Commons photos
+        run: python scripts/manual_erigeron_strigosus_install_photos_20261021.py
+      - name: Verify real files, licensing, anatomy markers, and canonical identity
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Asteraceae/Erigeron")
+          j=json.loads((base/"erigeron-strigosus/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          assert j["id"] == "erigeron-strigosus"
+          assert j["scientific_name"] == "Erigeron strigosus"
+          assert len(j["images"]) == 4
+          assert len(j["visual_comparison"]["items"]) == 6
+          assert len(g["visual_comparison"]["items"]) == 10
+          assert all("erigeron-strigosus" in g["project_scope"]["canonical_species_ids"] for _ in [0])
+          for item in j["images"]:
+            fp=base/"erigeron-strigosus"/item["file"]
+            assert fp.exists() and fp.stat().st_size > 19000, str(fp)
+            assert item["license"] in ("CC BY", "CC BY 2.0", "CC BY 4.0")
+            assert item["creator"] and item["source_page"]
+            with Image.open(fp) as im: im.verify()
+          expected={
+           "commons-sandy-301327401-leaf-stem.jpg",
+           "commons-sandy-301327364-leafy-habit.jpg",
+           "commons-dean-6295169491-pressed-voucher.jpg"}
+          assert expected.issubset({Path(i["file"]).name for i in j["images"]})
+          for x in (j,g):
+            for panel in x["visual_comparison"]["items"]:
+              assert panel.get("image_url", "").find("thumb.wikimedia.org") == -1, "External photo remains"
+              for marker in panel.get("markers",[]):
+                assert all(isinstance(marker[k],(float,int)) and 0<=marker[k]<=100 for k in
+                     ("label_x","label_y","target_x","target_y"))
+          assert sum(len(i.get("markers",[])) for i in j["visual_comparison"]["items"]) == 14
+          assert sum(len(i.get("markers",[])) for i in g["visual_comparison"]["items"]) == 23
+          with (base/"erigeron-strigosus/image-sources.csv").open(newline="") as f:
+            rows=list(csv.DictReader(f))
+          assert len(rows) == 4
+          print("PASS: all 4 local images valid and licensed; two look-alike comparisons and existing accurate markers intact")
+          PY
+      - name: Commit photo binaries and records
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Asteraceae/Erigeron/erigeron-strigosus/ content/taxa/Asteraceae/Erigeron/genus.json reports/erigeron-strigosus-three-physical-commons-20261021.json
+          if git diff --cached --quiet; then echo "No change"; exit 0; fi
+          git commit -m "Install three CC BY prairie fleabane photographs and correct local gallery links"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
