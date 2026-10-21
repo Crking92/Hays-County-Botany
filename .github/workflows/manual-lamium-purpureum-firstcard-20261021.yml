@@ -43,7 +43,7 @@ jobs:
           genus=json.loads(Path("content/taxa/Lamiaceae/Lamium/genus.json").read_text())
           m=json.loads(Path("data/manifest.json").read_text())
           assert c["id"]=="lamium-purpureum"
-          assert len(c["images"])==2
+          assert len(c["images"])==4
           assert "lamium-purpureum" in genus["project_scope"]["canonical_species_ids"]
           assert sum(z["id"]=="lamium-purpureum" for z in m["species"])==1
           assert c["project_inclusion"]["native_metrics_excluded"]
@@ -53,7 +53,7 @@ jobs:
             assert img["source_page"].startswith("https://commons.wikimedia.org/wiki/")
             assert img["creator"] and img["license"]
             with Image.open(f) as check: check.verify()
-          print("PASS — 2 physical licensed photographs, manifest, genus, introduced status")
+          print("PASS — 4 physical licensed photographs, manifest, genus, introduced status")
           PY
       - name: Commit only Lamium new media and related updates
         run: |
