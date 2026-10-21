@@ -52,7 +52,7 @@
       "study_use": "yes",
       "public_reuse": "yes; retain attribution",
       "modifications": "EXIF removed and JPEG normalized; no anatomy overlays",
-      "photo_review": "Exact Research Grade source record and actual pixels reviewed; provisional first-pass view"
+      "photo_review": "2026-10-21 pixel pass: several fresh white-rayed heads, small fruiting pappus and thin branching flowering shoots visible among grasses. Root crown not visible; plant identity relies on linked source determination, not this image alone."
     },
     {
       "file": "images/gbif-manual-6131542687-8ab0fbd47.jpg",
@@ -71,7 +71,7 @@
         1350,
         1013
       ],
-      "photo_review": "Exact source determination, individually licensed media, downloaded pixels, and basic near-duplicate filter checked. Anatomy NOT visually confirmed.",
+      "photo_review": "2026-10-21 pixel pass: white rays, yellow disc, and neighboring mature pappus are well resolved in this photo. Root crown, basal leaves, and fine phyllary/stem hairs remain unavailable.",
       "anatomy_arrows": "not added; image anatomy not verified",
       "study_use": "follow individual license conditions; noncommercial only for CC BY-NC",
       "public_reuse": "Respect recorded photo-specific license",
@@ -88,8 +88,84 @@
   "learner_visual_status": {
     "status": "provisional_learner_ready",
     "mode": "learner_fast_fill",
-    "image_count": 1,
-    "note": "First exact photograph installed; additional diagnostic views pending."
+    "image_count": 2,
+    "note": "Two physical licensed photos confirmed and visually reviewed 2026-10-21. Flower and fruit anatomy can be taught, but perennial woody crown diagnosis still needs proper close-up."
   },
-  "photo_note": "First exact licensed photo physically installed 2026-10-14; fine diagnostic gallery pending. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling."
+  "photo_note": "First exact licensed photo physically installed 2026-10-14; fine diagnostic gallery pending. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling.",
+  "visual_comparison": {
+    "title": "Plains fleabane — flowers and pappus, not root proof",
+    "subtitle": "Two existing CC BY credited photos inspected; markers distinguish fresh flowers from wind-borne fruiting pappus. Neither proves the woody perennial crown.",
+    "items": [
+      {
+        "label": "1 · Branching flower stalks among grasses",
+        "image_url": "content/taxa/Asteraceae/Erigeron/erigeron-modestus/images/inat-717619901-first-photo.jpg",
+        "caption": "Multiple white-rayed heads and some spent, fluffy seed heads amid mixed vegetation. Basal crown is hidden, so do not use this picture to demonstrate perennial root characters.",
+        "creator": "Suanne Pyle",
+        "license": "CC BY",
+        "source_page": "https://www.inaturalist.org/photos/717619901",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "Fresh ray-flowered head",
+            "label_x": 4,
+            "label_y": 15,
+            "target_x": 29,
+            "target_y": 24
+          },
+          {
+            "label": "Spent head with pappus",
+            "label_x": 3,
+            "label_y": 58,
+            "target_x": 25,
+            "target_y": 47
+          }
+        ],
+        "annotation_status": "visible flower and fruit targets qa pass",
+        "why_it_matters": "Crew sees the plant's look in a grassy site, and how pappus-stage heads differ from flowers."
+      },
+      {
+        "label": "2 · Fresh flower beside mature pappus",
+        "image_url": "content/taxa/Asteraceae/Erigeron/erigeron-modestus/images/gbif-manual-6131542687-8ab0fbd47.jpg",
+        "caption": "One clearly open head has white outer ray florets and yellow inner disc; fuzzy head to the left is fruiting pappus, not extra white petals. Crown and diagnostic phyllary macros still missing.",
+        "creator": "Vicki Schmidt",
+        "license": "CC BY",
+        "source_page": "https://www.gbif.org/occurrence/6131542687",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "White ray florets",
+            "label_x": 80,
+            "label_y": 15,
+            "target_x": 57,
+            "target_y": 30
+          },
+          {
+            "label": "Yellow disc florets",
+            "label_x": 75,
+            "label_y": 60,
+            "target_x": 55,
+            "target_y": 38
+          },
+          {
+            "label": "Mature white pappus",
+            "label_x": 4,
+            "label_y": 15,
+            "target_x": 34,
+            "target_y": 38
+          }
+        ],
+        "annotation_status": "visible flower and fruit targets qa pass",
+        "why_it_matters": "Strong first-stage comparison: the familiar daisy face becomes a white feathery fruit head; do not confuse those two stages."
+      }
+    ],
+    "annotation_policy": "All targets have visible tissues in the pixels. No invented woody-crown, hair, or phyllary arrows; owner mobile arrow-tip signoff pending."
+  },
+  "crew_field_sequence": [
+    "Examine the rooted base: older woody crown and persistent basal stems are stronger clues than head color.",
+    "Inspect leaf shape and diminishing upper leaves; do not assign overlapping grass leaves in a photo to the fleabane.",
+    "Compare fresh rays, phyllaries, and fine hairs with E. geiseri using a lens and ruler.",
+    "A showy daisy-like head by itself cannot separate E. modestus from E. geiseri.",
+    "If roots are unavailable, record Erigeron sp. or a provisional comparison; preserve unresolved county native-range status."
+  ],
+  "diagnostic_source": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=250066635"
 }
