@@ -6,7 +6,7 @@
   "scientific_name": "Sorghum bicolor",
   "authority": "(L.) Moench",
   "common_name": "Sorghum",
-  "look_here_first": "LOOK HERE FIRST: Look for a robust, upright grass with broad, flat, often pale-midribbed leaf blades and a conspicuous terminal panicle made of many short branches bearing paired spikelets. Panicles vary from open and branching to compact in cultivated varieties. Check the broad leaves and clustered grain heads together; do not identify it solely by panicle density.",
+  "look_here_first": "Look for a tall upright grass with broad flat blades and a terminal grain-bearing panicle. Panicles can be open or compact in cultivated sorghum: panicle shape alone is not a species test. At the leaf collar examine the membranous ligule, then check the paired spikelets and mature grains. If distinguishing Johnsongrass, inspect for thick scaly underground rhizomes only where digging is permitted.",
   "project_inclusion": {
     "learner_admission_status": "APPROVED_FROM_SOURCE_POOL",
     "source_pool": "Master Plant Pool row 1110",
@@ -21,13 +21,28 @@
       "license": "CC BY-SA 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Sorghum_bicolor_(4055518651).jpg",
       "study_use": "private_educational",
-      "public_reuse": "cc_by_sa_2.0_attribution_sharealike"
+      "public_reuse": "cc_by_sa_2.0_attribution_sharealike",
+      "caption": "Robust upright stalks, broad leaves and branched terminal panicles are visible; this view cannot verify the ligule, paired spikelets, grain shattering or rhizomes."
     }
   ],
   "diagnostic_image_needs": [
-    "spikelet pair macro showing sessile and pedicellate spikelets",
-    "leaf ligule and collar",
-    "alternate compact grain-head varieties"
+    {
+      "file": "images/sorghum-bicolor-lavin-panicles-4055518651.jpg",
+      "role": "Whole plant, broad leaves and terminal panicles",
+      "status": "INSTALLED_PIXELS_REVIEWED"
+    },
+    {
+      "role": "Leaf collar and membranous ligule, close-up",
+      "status": "NEEDS_DIAGNOSTIC_PHOTO"
+    },
+    {
+      "role": "Paired spikelets and mature grains with scale",
+      "status": "NEEDS_DIAGNOSTIC_PHOTO"
+    },
+    {
+      "role": "Rhizome/root comparison with Johnsongrass where permitted",
+      "status": "NEEDS_DIAGNOSTIC_PHOTO"
+    }
   ],
   "curation_status": {
     "taxonomy_reviewed": true,
@@ -44,5 +59,46 @@
     "filled_at": "2026-10-19",
     "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
   },
-  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
+  "morphology_keys": {
+    "field_sequence": [
+      "Recognize: robust erect grass with broad flat leaves, often showing a pale midrib, and a terminal panicle of short flowering branches.",
+      "Look closer: inspect the leaf collar for the ligule and the flowering branches for paired spikelets; a distant panicle photo cannot resolve these.",
+      "Confirm against Johnsongrass: established S. halepense is a perennial spreading via thick scaly underground rhizomes; cultivated S. bicolor usually lacks this rhizomatous system.",
+      "Shattercane is a weedy form within the S. bicolor complex, not automatically a distinct species. Examine mature grain shattering and agricultural context; color and open-versus-compact heads alone are insufficient."
+    ]
+  },
+  "comparisons": {
+    "key_distinctions": "Johnsongrass (S. halepense): persistent scaly underground rhizomes in established plants. Shattercane: weedy S. bicolor forms that shed mature grain more readily than most domesticated grain sorghum; panicle compactness varies and cannot reliably distinguish them.",
+    "field_comparison_matrix": [
+      {
+        "taxon": "Sorghum bicolor (cultivated grain sorghum)",
+        "diagnostic": "Broad leaves and variable terminal panicles; usually no spreading thick scaly rhizomes.",
+        "field_action": "Inspect collar and spikelets, then mature grain attachment."
+      },
+      {
+        "taxon": "Sorghum halepense (Johnsongrass)",
+        "diagnostic": "Perennial with substantial scaly underground rhizomes; panicles often open.",
+        "field_action": "Check established root/rhizome system where disturbance is permitted."
+      },
+      {
+        "taxon": "Shattercane (weedy S. bicolor complex)",
+        "diagnostic": "Mature grain often shatters readily; variable panicle form overlaps cultivated sorghum.",
+        "field_action": "Observe grain shedding and crop context; avoid overconfident photo-only separation."
+      }
+    ]
+  },
+  "field_id_finalization": {
+    "review_date": "2026-10-20",
+    "stage": "PROVISIONAL",
+    "flags": [
+      "NEEDS_DIAGNOSTIC_PHOTO",
+      "annotation_pending"
+    ],
+    "photo_review": "Existing Matt Lavin CC BY-SA 2.0 photograph fetched and visually inspected: panicles, leaves and stalks visible; no ligule, paired spikelets, grain-shattering detail or rhizomes resolved. Preserve source attribution and ShareAlike requirements. No arrows drawn.",
+    "scientific_sources": [
+      "https://cals.cornell.edu/weed-science/weed-profiles/shattercane",
+      "https://cals.cornell.edu/weed-science/weed-profiles/johnsongrass"
+    ]
+  }
 }
