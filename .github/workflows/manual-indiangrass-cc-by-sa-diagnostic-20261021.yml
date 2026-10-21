@@ -1,0 +1,63 @@
+name: Install public-safe Indiangrass ligule and spikelet photos
+on:
+  push:
+    paths:
+      - .github/workflows/manual-indiangrass-cc-by-sa-diagnostic-20261021.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-sorghastrum-nutans-cc-sa-20261021
+  cancel-in-progress: false
+jobs:
+  verify-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Individually verify Wikimedia license, author, exact ID, bytes and install
+        run: python scripts/sorghastrum_nutans_two_commons_macros_20261021.py
+      - name: Check true saved JPEGs, two matching visual panels, preserved identity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          from PIL import Image
+          p=Path("content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans/species.json")
+          g=Path("content/taxa/Poaceae/Sorghastrum/genus.json")
+          s=json.loads(p.read_text()); gen=json.loads(g.read_text())
+          assert s["id"]=="sorghastrum-nutans"
+          assert s["project_inclusion"]["target_zone_status"]=="PASS"
+          assert gen["name"]=="Sorghastrum"
+          added=[x for x in s["images"] if "matt-lavin-cc-by-sa-2-" in str(x["file"])]
+          assert len(added)==2
+          for a in added:
+              assert a["creator"]=="Matt Lavin" and a["license"]=="CC BY-SA 2.0"
+              assert a["public_reuse"]=="yes"
+              f=p.parent/a["file"];assert f.exists() and f.stat().st_size>45000
+              with Image.open(f) as im:im.verify()
+              print("PHYSICAL JPEG VERIFIED",f,a["source_page"])
+          a=[x for x in s["visual_comparison"]["items"] if "matt-lavin-cc-by-sa-2-" in x.get("image_url","")]
+          b=[x for x in gen["visual_comparison"]["items"] if "matt-lavin-cc-by-sa-2-" in x.get("image_url","")]
+          assert len(a)==len(b)==2
+          assert all(not x["markers"] for x in a)
+          PY
+      - name: Commit only this canonical species and genus
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans/ content/taxa/Poaceae/Sorghastrum/genus.json
+          if git diff --cached --quiet; then echo "No-op; already installed"; exit 0; fi
+          git commit -m "Add CC BY-SA Indiangrass true collar ligule and spikelet macros [skip ci]"
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
