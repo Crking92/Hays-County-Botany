@@ -83,7 +83,7 @@ def main():
             existing=js(CARD)
             pics=existing.get("images",[])
             assert len(pics)>=1 and all((NEW/item["file"]).exists() for item in pics)
-            print("ALREADY INSTALLED, no modifications")
+            enrich_flower_macros()
             return
         raise RuntimeError("Partial install: manifest/card mismatch; manual reconciliation required")
     claims=js(ROOT/"workflow/work-claims.json").get("claims",[])
@@ -273,5 +273,93 @@ def gen_scope(x):
     return x.get("project_scope",{}).get("canonical_species_ids",[])
 def genis(x):
     return x.get("name")=="Lamium" and x.get("family")=="Lamiaceae"
+
+def enrich_flower_macros():
+    """Add two separately licensed physical flowering detail views to existing canonical card.
+    Never modify fields of any other genus/taxon or change the admitted identity."""
+    target=NEW
+    card=js(CARD)
+    genus=js(GEN)
+    if card["id"]!=ID or ID not in gen_scope(genus):raise RuntimeError("Must already be installed")
+    flowers=[
+       {"title":"Lamium_purpureum_377747368.jpg",
+        "file":"images/commons-alex-abair-flower.jpg","creator":"Alexander Abair",
+        "license":"CC BY 4.0","license_url":"https://creativecommons.org/licenses/by/4.0/",
+        "role":"Flowering L. purpureum original France source; image depicts purple corolla with calyx, site-verified taxon source."},
+       {"title":"Lamium_purpureum_flowers.jpg",
+        "file":"images/commons-muriel-bendel-flower.jpg","creator":"MurielBendel",
+        "license":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/",
+        "role":"Additional flower/branch macro of L. purpureum from Switzerland, distinct source; flower parts pending arrow review."}
+    ]
+    current={x["file"] for x in card.get("images",[])}
+    if all(item["file"] in current for item in flowers):
+        assert all((target/item["file"]).exists() for item in flowers)
+        print("Flower enhancement already installed")
+        return
+    assert not any(item["file"] in current or (target/item["file"]).exists() for item in flowers), "Partial flower photo install; review required"
+    package=[]
+    for item in flowers:
+        data,dims,url,digest=get_source(item)
+        package.append((item,data,dims,url,digest))
+        time.sleep(.6)
+    for item,data,dims,url,digest in package:
+        f=target/item["file"]
+        f.parent.mkdir(parents=True,exist_ok=True)
+        f.write_bytes(data)
+        with Image.open(f) as test:test.verify()
+        meta=dict(item)
+        meta.update(source_page=source_page(item["title"]),
+            source_platform="Wikimedia Commons",downloaded_from=url,
+            sha256=digest,image_dimensions=list(dims),
+            study_use="Public educational botanical field guide",
+            public_reuse="Wikimedia per-photo creator and CC license validated; attribution and ShareAlike apply.",
+            modifications="Downloaded verified Commons thumbnail; JPEG normalized and EXIF/GPS stripped; website arrows remain separate.")
+        card["images"].append(meta)
+        panel={
+          "label":"PURPLE DEADNETTLE — new licensed real flower anatomy source",
+          "scientific_name":N,
+          "image_url":str(target/item["file"]),
+          "image_fit":"contain",
+          "creator":item["creator"],"license":item["license"],"license_url":item["license_url"],
+          "source_page":meta["source_page"],"image_role":item["role"],
+          "caption":"True flowering purple deadnettle. Flower/anatomy source from an individually licensed Wikimedia Commons file; no claim of Texas locality. Detailed arrow placements pending direct image pixel review.",
+          "why_it_matters":"Independent close flower view will allow hood, lower lip, and calyx cues to be highlighted after image-specific arrow review.",
+          "markers":[],
+          "photo_status":"Physically installed with creator and exact CC license, source-pixel anatomical arrow QA not yet completed."
+        }
+        card["visual_comparison"]["items"].append(panel)
+        genus["visual_comparison"]["items"].append(dict(panel))
+    card["curation_status"].update(photo_metadata_count=len(card["images"]),
+        photo_files_present=len(card["images"]),last_reviewed="2026-10-21",
+        version="1.1-purpureum-four-physical-photo-20261021",
+        visual_status="FIELD READY PHOTO GAPS: four distinct individually licensed physical exact species photos (2 whole plant and 2 flower details). Existing visible arrow targets preserved; new flower photos pending anatomical arrow review and mature nutlets/upper petiole macros remain needed.")
+    card["learner_visual_status"]["image_count"]=len(card["images"])
+    card["visual_comparison"]["subtitle"]="Four physically installed licensed exact purple deadnettle photos (two whole plant, two flowering details) plus correctly labeled henbit comparison. Existing visible arrows retained; newly installed flower views need arrow verification. The short upper petiole and nutlets remain genuine high-value missing macros."
+    genus["curation_status"].update(actual_source_species_image_files=2+len(card["images"]),
+        version="1.2-lamium-extra-flower-macros-20261021",
+        last_reviewed="2026-10-21",
+        photo_panels=len(genus["visual_comparison"]["items"]))
+    genus["visual_comparison"]["subtitle"]="Two installed Lamium species: henbit has 2 physical photos; purple deadnettle has 4 physical photos (2 plant, 2 new flower views). All linked creator/license metadata preserved. The lower versus upper leaf attachment remains the main ID distinction; detailed petiole/nutlet macros still needed."
+    write(CARD,card)
+    write(GEN,genus)
+    csvfile=target/"image-sources.csv"
+    with csvfile.open(newline="",encoding="utf-8") as f:
+        rows=list(csv.DictReader(f));fields=list(rows[0])
+    for item,data,dims,url,digest in package:
+        row={"file_name":Path(item["file"]).name,"creator":item["creator"],"license":item["license"],
+             "source_page":source_page(item["title"]),"direct_url":url,"role":item["role"],
+             "public_reuse":"Exact Commons CC BY/SA source rights verified"}
+        rows.append(row)
+    with csvfile.open("w",newline="",encoding="utf-8") as f:
+        writer=csv.DictWriter(f,fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(rows)
+    rep=js(REPORT);rep["images"]=len(card["images"])
+    rep["additional_flower_images"]=[item["file"] for item in flowers]
+    rep["source_licenses"]=list(dict.fromkeys(rep["source_licenses"]+[item["license"] for item in flowers]))
+    rep["note"]="Flower image pixels installed and verified; arrows deliberately withheld on new images until visual inspection."
+    write(REPORT,rep)
+    print(json.dumps({"enriched":ID,"physical_total":len(card["images"])}))
+
 if __name__=="__main__":
     main()
