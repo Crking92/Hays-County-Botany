@@ -1,0 +1,102 @@
+name: Stage Verified Plains Black Nightshade Figure 22
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-solanum-interius-figure22-stage-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: manual-solanum-interius-figure22-source
+  cancel-in-progress: false
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python -m pip install --disable-pip-version-check requests beautifulsoup4 'Pillow>=10,<12'
+      - name: Resolve exact figure DOI and inspect Pensoft image metadata
+        shell: bash
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python - <<'PY'
+          import io,json,hashlib,re,urllib.parse
+          from pathlib import Path
+          import requests
+          from PIL import Image,ImageOps
+          from bs4 import BeautifulSoup
+          DOI="https://doi.org/10.3897/phytokeys.123.31738.figure22"
+          OUTPUT=Path("workflow/photo-library/candidates/solanum-interius-20261020")
+          REPORT=Path("reports/solanum-interius-figure22-source-20261020.json")
+          OUTPUT.mkdir(parents=True,exist_ok=True);REPORT.parent.mkdir(exist_ok=True)
+          session=requests.Session()
+          session.headers.update({"User-Agent":"Mozilla/5.0 (compatible; HaysBotanyCrewID/1.0)","Accept":"text/html,image/jpeg,image/png,image/*;q=0.8"})
+          errors=[];found=[];meta=[];urlfinal=None
+          try:
+            page=session.get(DOI,timeout=28);page.raise_for_status()
+            urlfinal=page.url
+            if not ("phytokeys.pensoft.net/article/31738" in urlfinal and "/element/2/" in urlfinal):
+              raise ValueError("DOI did not resolve to exact Pensoft article Figure 22 URL")
+            soup=BeautifulSoup(page.text,"html.parser")
+            cap=soup.get_text(" ",strip=True)
+            if not re.search(r"Figure\s*22",cap,re.I):raise ValueError("Pensoft page does not label Figure 22")
+            refs=[]
+            for a in soup.find_all(["a","img","meta","source"]):
+              for key in ("href","data-src","src","content","data-original"):
+                val=a.get(key)
+                if not isinstance(val,str):continue
+                u=urllib.parse.urljoin(urlfinal,val)
+                if "download/fig/" in u or "binary.pensoft.net/fig/" in u:
+                  refs.append((u,a.name,key))
+            refs=list(dict.fromkeys(refs))
+            refs.sort(key=lambda e:(int("download/fig/" in e[0]),int("binary.pensoft.net/fig/" in e[0])),reverse=True)
+            for u,tag,attr in refs[:12]:
+              try:
+                resp=session.get(u,timeout=27);resp.raise_for_status()
+                if not 30000<len(resp.content)<18000000:continue
+                raw=Image.open(io.BytesIO(resp.content));raw.verify()
+                raw=Image.open(io.BytesIO(resp.content))
+                if raw.width<700 or raw.height<600:continue
+                pic=ImageOps.exif_transpose(raw).convert("RGB");pic.thumbnail((2400,2400),Image.Resampling.LANCZOS)
+                dst=OUTPUT/"figure22-full-photo-plate.jpg"
+                pic.save(dst,"JPEG",quality=91,optimize=True,exif=b"")
+                with Image.open(dst) as test:test.verify()
+                found.append({"file":str(dst),"url":u,"dimensions":list(pic.size),
+                  "sha256":hashlib.sha256(dst.read_bytes()).hexdigest(),
+                  "creator":"Michael Nee (photos A–C); Tiina Särkinen (photo D); Knapp et al. 2019 figure layout",
+                  "source_url":urlfinal,"source_figure":"Figure 22, Solanum interius, A habit B flowering branch C developing fruit D mature fruit",
+                  "license":"CC BY 4.0","license_url":"https://creativecommons.org/licenses/by/4.0/",
+                  "status":"STAGED_FOR_ANATOMY_PIXEL_REVIEW_ONLY"})
+                break
+              except Exception as e:errors.append({"url":u,"error":str(e)[:200]})
+            meta=[{"url":a,"tag":b,"attribute":c} for a,b,c in refs[:25]]
+          except Exception as e:errors.append({"url":DOI,"error":str(e)[:260]})
+          report={"species_id":"solanum-interius","status":"REVIEW_IMAGE_STAGED" if found else "FIGURE_SOURCE_UNAVAILABLE",
+             "doi":DOI,"resolved":urlfinal,"images":found,"links":meta,"errors":errors,"species_card_modified":False,
+             "photo_geography":"Original researchers' collections, not verified Hays County occurrence",
+             "other_possible_source":"Original paper Figure 21 C. Banks line drawings",
+             "guardrails":"Exact figure only; photo labels and calyx arrows not assigned before reviewing image."}
+          REPORT.write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
+          print("RESULT",report["status"],"files",[(x["file"],x["dimensions"]) for x in found],"resolved",urlfinal,"errors",errors)
+          PY
+      - name: Save only source review candidates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/solanum-interius-figure22-source-20261020.json
+          if test -s workflow/photo-library/candidates/solanum-interius-20261020/figure22-full-photo-plate.jpg;then
+            git add workflow/photo-library/candidates/solanum-interius-20261020/figure22-full-photo-plate.jpg
+          fi
+          git diff --cached --quiet && exit 0
+          git commit -m "Stage Solanum interius Figure 22 exact licensed research photos for visual review [skip ci]"
+          for k in 1 2 3 4 5;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            git rebase --abort || true;sleep 3
+          done
+          exit 1
