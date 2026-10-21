@@ -1,0 +1,78 @@
+name: Publish checked Euphorbia simulans true seed and gland comparison once
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-simulans-closeout-20261021.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-verified-simulans-seed-and-gland-publish
+  cancel-in-progress: false
+jobs:
+  closeout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Refresh actual latest canonical branch before changes
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify source license and pixels and install only manually checked images
+        run: python scripts/manual_euphorbia_simulans_closeout_20261021.py
+      - name: Validate exact photos, IDs, annotation count and separate theriaca
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          root=Path("content/taxa/Euphorbiaceae/Euphorbia")
+          s=json.loads((root/"euphorbia-simulans/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          assert s["scientific_name"]=="Euphorbia simulans"
+          assert len(s["images"])==8
+          assert sum(len(i.get("anatomy_arrows",[])) for i in s["images"])==18
+          photos={i.get("photo_id"):i for i in s["images"]}
+          for p in [5336725,5336727,5336967]:
+              assert p in photos
+              assert photos[p]["observation_id"]==4434982
+              assert photos[p]["license"]=="CC BY-NC 4.0"
+              assert photos[p]["public_reuse"].startswith("yes")
+              assert photos[p]["source_page"].endswith(str(p))
+          for img in s["images"]:
+              p=root/"euphorbia-simulans"/img["file"]
+              assert p.exists() and p.stat().st_size>12000
+              with Image.open(p) as im:im.verify()
+              for a in img.get("anatomy_arrows",[]):
+                  assert len(a["target_fraction"])==2
+                  assert all(0<=n<=1 for n in a["target_fraction"])
+          th=root/"comparison-media/nathan-theriaca-5337479-strongly-ridged-seeds.jpg"
+          assert th.exists()
+          with Image.open(th) as im:im.verify()
+          assert all(i["scientific_name"]=="Euphorbia simulans" for i in s["visual_comparison"]["items"])
+          comp=[i for i in g["visual_comparison"]["items"] if i.get("scientific_name")=="Euphorbia theriaca" and "5337479" in i.get("image_url","")]
+          assert len(comp)==1 and comp[0]["source_page"].endswith("5337479")
+          print("PASS: 8 simulans source files, 18 annotations, real photographed seed and separate theriaca comparator")
+          PY
+      - name: Save photograph bytes and source attribution without stomping concurrent edits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Euphorbiaceae/Euphorbia/euphorbia-simulans/ content/taxa/Euphorbiaceae/Euphorbia/comparison-media/ content/taxa/Euphorbiaceae/Euphorbia/genus.json reports/euphorbia-simulans-anatomy-and-theriaca-seed-closeout-20261021.json
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Publish E simulans gland fruit seed macros and true E theriaca seed comparison"
+          for attempt in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            git rebase --abort || true
+            sleep 3
+          done
+          exit 1
