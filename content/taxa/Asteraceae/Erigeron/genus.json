@@ -14,9 +14,9 @@
     "pending_canonical_installer": [],
     "source_pool_synonym": "Conyza canadensis maps to Erigeron canadensis, no duplicate species card",
     "science_status": "Native-target-county certification is not settled by this genus reconciliation; retain each species' own unresolved/previous statuses.",
-    "lesson_scope": "All FIVE named Erigeron taxa have canonical species files in current manifest as of 2026-10-21. Existing taxonomy/range unreviewed fields remain authoritative. Strigosus and philadelphicus are one-photo provisional covers now being enriched, not uninstalled source pool."
+    "lesson_scope": "Five of five canonical Erigeron cards installed, with 16 physical exact-species photographs in total. Genus now teaches four visible side-by-side decision lessons and 13 existing arrowed photo panels. Morphology is field-ready with true photographic gaps; count does not include E. annuus, tenuis or tenellus. County-native range certification remains unchanged."
   },
-  "look_here_first": "LOOK HERE FIRST by group: A) Horseweed E. canadensis: rosette → tall narrow-leaved stem → very tiny upper heads, later pappus fluff. B) Daisy fleabanes: look at how upper leaf bases meet stem, hair direction with a hand lens, persistence/teeth of basal foliage and fresh ray length/number. E. strigosus usually has nonclasping narrow upper leaves and appressed/ascending hairs, but teeth and life cycle vary. E. philadelphicus often has CLASPING upper leaves and more numerous rays; E. annuus often spreading stem hairs. E. geiseri annual slender root, E. modestus woody perennial crown. Do not key them from flower color alone.",
+  "look_here_first": "FIVE-SPECIES FIELD KEY. Tiny inconspicuously rayed terminal HEADS on a tall narrow-leaved stalk → E. canadensis (horseweed). Showy daisy rays? Check the BASE: slender annual taproot → E. geiseri; mature woody perennial crown → E. modestus. For leafy many-headed fleabanes check UPPER LEAF BASE: normally nonclasping, often ~50–100 rays → E. strigosus; clasping/auriculate, often ~150–250+ rays → E. philadelphicus. Use multiple characters. Do not identify from flower color alone.",
   "shared_traits": [
     "Asteraceae composite capitula with many minute florets",
     "Alternate leaves on horseweed (other Erigeron leaf architecture varies)",
@@ -504,7 +504,8 @@
         "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Erigeron_philadelphicus_s2.jpg/960px-Erigeron_philadelphicus_s2.jpg",
         "source_page": "https://commons.wikimedia.org/wiki/File:Erigeron_philadelphicus_s2.jpg"
       }
-    ]
+    ],
+    "memory_rule": "TINY HEAD PLUME = HORSEWEED. SHOWY FLEABANES: ROOT (annual GEISERI vs woody MODESTUS) and UPPER LEAF BASE (nonclasping PRAIRIE vs clasping PHILADELPHIA)."
   },
   "photo_diagnostic_targets": [
     "True opening flower-head photo with ruler, showing ~3–4 mm-long involucre and minute fresh rays on horseweed; existing 03 and 04 photographs are fruiting instead",
@@ -523,13 +524,14 @@
     "https://www.worldfloraonline.org/taxon/wfo-0000129910"
   ],
   "curation_status": {
-    "version": "1.6-philadelphicus-3-new-genus-panels-20261021",
+    "version": "1.7-five-species-rendered-field-matrix-20261021",
     "last_reviewed": "2026-10-21",
     "photo_panels": 13,
     "physical_installer_status": "Five existing Erigeron taxa remain canonical, statuses unchanged. Genus adds 3 Wikimedia-linked philadelphicus diagnostic images (node/ray/underside) to prior 10, now 13 photo panels with 29 overlays. E. philadelphicus species has 1 physical and 4 external Commons images. No photos falsely counted physically installed.",
     "scientific_status": "native Texas confirmed at state level, strict 3-county zone unresolved",
     "visual_lesson_standard": "Field recognition staging, actual-pixel photo corrections, genus comparison (E. geiseri annual correction), correct per-photo attribution preserved.",
-    "photo_review_note": "Philadelphia leaf photo shows central attachment yet overlap obscures complete clasp; CC BY-SA flower demonstrates fine pink-white rays; Jay Sturner underside shows green phyllary cup. No fake root/fruit/leaf-ear count. Photos outside Hays County; local nativity not checked."
+    "photo_review_note": "Existing 13 genus panels/29 arrows unchanged. Remaining key gaps: actual horseweed fresh ray macro; Geiser's vs modestus matched root crowns and fruit microscopy; prairie vs Philadelphia matched upper leaf insertions/hairs. Four comparison cards now have field_matrix visibly rendered by app.",
+    "field_guide_status": "FIVE_OF_FIVE_FIELD_READY_PHOTO_GAPS"
   },
   "genus_diagnostics": {
     "flower_heads": "All Erigeron members are composite-family plants bearing capitula (flower heads with many little florets), not single big flowers. HORSEWEED has extremely small heads with barely visible short rays; many other fleabanes have obvious longer daisy-like rays. Don't generalize horseweed's almost rayless look to the whole genus.",
@@ -637,27 +639,133 @@
         "erigeron-strigosus",
         "erigeron-philadelphicus"
       ],
-      "look_here_first": "Head size and ray length; check whole plant",
-      "status": "six_panel_photo_compare_present_diagnostic_macro_gaps"
+      "look_here_first": "Start with a fresh flower head and the WHOLE plant. Horseweed produces hundreds of tiny pale heads high on a single leafy stem. The other four species have more conspicuous white or pink daisy rays.",
+      "field_matrix": [
+        {
+          "character": "Fresh rays",
+          "horseweed": "Minute, barely visible; ~3–4 mm-long involucre",
+          "others": "Clearly projecting white/pink rays around yellow disc",
+          "strength": "Strong at flowering"
+        },
+        {
+          "character": "Plant architecture",
+          "horseweed": "One tall leafy stalk, narrow alternate leaves, many terminal branches",
+          "others": "Often shorter, fewer heads per branch; full plant varies",
+          "strength": "Supporting"
+        },
+        {
+          "character": "Late white fluff",
+          "horseweed": "White pappus around fruits, NOT white petals",
+          "others": "Also make seed pappus; fluff alone proves neither identity nor species",
+          "strength": "Stage warning"
+        }
+      ],
+      "caution": "A previously labeled horseweed 'flower macro' actually shows ripe pappus. A true fresh ray macro with a ruler is still missing."
     },
     {
-      "title": "Geiser's versus modest fleabane",
+      "title": "Geiser's versus plains fleabane",
       "species_ids": [
         "erigeron-geiseri",
         "erigeron-modestus"
       ],
-      "look_here_first": "Perennial crown, stem hairs and phyllary details in combination",
-      "status": "flower_and_fruit_photo_pass_present_crown_hair_macro_gaps"
+      "look_here_first": "Inspect the plant BASE. Geiser's is an annual with a slender, herbaceous taproot; plains fleabane is usually a perennial with a woody persistent crown. Fresh flower ray measurements alone overlap.",
+      "field_matrix": [
+        {
+          "character": "Root/crown",
+          "geiseri": "Slender annual taproot, simple herbaceous crown",
+          "modestus": "Usually woody or lignified perennial crown, old stem bases often persistent",
+          "strength": "Highest priority"
+        },
+        {
+          "character": "Habit",
+          "geiseri": "5–40 cm, erect, 1–20 diffuse heads; basal leaves often wither",
+          "modestus": "8–40 cm; early 1 big head, later many branched smaller heads",
+          "strength": "Supporting; season matters"
+        },
+        {
+          "character": "Stem hairs",
+          "geiseri": "Lower spreading/deflexed, upper straighter/appressed",
+          "modestus": "Often similarly spreading lower hairs; overlap",
+          "strength": "Supporting only"
+        },
+        {
+          "character": "Ray florets",
+          "geiseri": "44–70, 3–6 mm",
+          "modestus": "24–65 (sometimes more), 4–7+ mm",
+          "strength": "Ranges overlap"
+        },
+        {
+          "character": "Mature cypsela",
+          "geiseri": "~0.7–0.9 mm; outer scales + 9–11 inner pappus bristles",
+          "modestus": "~1.1–1.4 mm; outer setae + (5–)12–17 inner bristles",
+          "strength": "Microscope and ruler required"
+        }
+      ],
+      "caution": "Neither current flower gallery proves the key crown and hair characters. E. modestus is a variable polyploid complex; uncertain specimens need voucher work."
     },
     {
-      "title": "Prairie versus Philadelphia fleabane — both installed",
+      "title": "Prairie versus Philadelphia fleabane",
       "species_ids": [
         "erigeron-strigosus",
-        "erigeron-philadelphicus",
-        "erigeron-canadensis"
+        "erigeron-philadelphicus"
       ],
-      "look_here_first": "Use the upper STEM LEAF BASE first: philadelphicus often CLASPS/AURICULATE-CLASPS and has many fine rays (FNA 150–250+); strigosus upper leaves usually NONCLASPING with 50–100 rays. Horseweed's small pale heads are a separate branch. Existing photographs illustrate near the node, but not every clasping ear; precise paired node macros pending.",
-      "status": "licensed_vegetative_rays_and_involucre_visuals_present_true_clasping_macro_missing"
+      "look_here_first": "Look closely at the UPPER STEM LEAF BASE. Prairie usually has NONCLASPING upper leaves. Philadelphia usually CLASPS the stem with ear-shaped auricles. Then compare lower stem hairs and head ray number.",
+      "field_matrix": [
+        {
+          "character": "Upper leaf base",
+          "prairie": "Usually nonclasping, narrower",
+          "philadelphia": "Clasping/auriculate with ear-shaped lobes",
+          "strength": "Best field separator"
+        },
+        {
+          "character": "Fresh rays",
+          "prairie": "50–100, usually 4–6 mm",
+          "philadelphia": "150–250 (sometimes 400), usually 5–10 mm",
+          "strength": "Useful but measured"
+        },
+        {
+          "character": "Lower foliage",
+          "prairie": "Basal leaves often persist; edges ENTIRE OR TOOTHED",
+          "philadelphia": "Often broader, crenate/serrate or lobed; may wither",
+          "strength": "Supporting"
+        },
+        {
+          "character": "Stem hairs",
+          "prairie": "Usually ascending to appressed",
+          "philadelphia": "Often longer spreading lower hairs; finer/appressed upper",
+          "strength": "Close-up needed"
+        },
+        {
+          "character": "Flower color",
+          "prairie": "White to occasionally pinkish/bluish",
+          "philadelphia": "White through pink/lavender",
+          "strength": "Unreliable"
+        }
+      ],
+      "caution": "Existing images show where to examine the leaf insertion, but do not unambiguously prove the entire clasping auricles. Matched node photos still needed."
+    },
+    {
+      "title": "Additional look-alikes — NOT part of the five-card count",
+      "species_ids": [],
+      "look_here_first": "Erigeron annuus, E. tenuis and E. tenellus are relevant comparison names only, not installed cards or verified Hays native occurrences.",
+      "field_matrix": [
+        {
+          "character": "Erigeron annuus",
+          "field_cue": "Coarser lower foliage and sometimes spreading stem hairs; can mimic E. strigosus",
+          "photo_need": "Rooted plant, lower leaves and stem hairs"
+        },
+        {
+          "character": "Erigeron tenuis",
+          "field_cue": "Some forms overlap E. modestus or E. philadelphicus; check root, leaf insertion and pappus",
+          "photo_need": "Voucher and fruit macro"
+        },
+        {
+          "character": "Erigeron tenellus",
+          "field_cue": "More clearly clasping leaves, often 95–160 or more rays versus 44–70 of geiseri",
+          "photo_need": "Paired leaf node and fresh head"
+        }
+      ],
+      "caution": "BONAP/NAPA county review required before considering any for native-zone admission. No new taxa installed."
     }
   ],
   "handoffs": [
