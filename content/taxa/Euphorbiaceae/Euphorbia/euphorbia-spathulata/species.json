@@ -5,32 +5,132 @@
   "species": "spathulata",
   "scientific_name": "Euphorbia spathulata",
   "common_name": "Warty spurge",
-  "look_here_first": "Find small cyathia among the leaves, then check cyathial glands and the three-lobed capsules under magnification.",
+  "look_here_first": "START WITH THE GREEN FLOWERING TIPS, THEN CHECK FRUIT. Warty spurge (E. spathulata) is a small hairless annual with alternate, spoon-shaped stem leaves and repeatedly forked upper branches. The broad leaflike bracts at the cyathia stay DISTINCT instead of making the strongly fused green cup of E. roemeriana. Under a hand lens, the green 3-lobed capsule has LOW ROUNDED WARTS; the tiny cyathial nectar glands have NO HORNS. Do not claim those microscopic features from the current hand-held whole-tip photo—it shows green flowering-bract clusters, not diagnostic capsule surface or seed sculpture.",
   "curation_status": {
-    "taxonomy_reviewed": false,
-    "visual_reviewed": false,
+    "taxonomy_reviewed": true,
+    "visual_reviewed": true,
     "photo_source_checked": true,
     "photo_metadata_count": 1,
-    "photo_files_present": 1
+    "photo_files_present": 1,
+    "reviewed_on": "2026-10-21",
+    "field_status": "PROVISIONAL_MORE_DIAGNOSTIC_PHOTOS_NEEDED"
   },
-  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
-  "taxonomy_source": "https://powo.science.kew.org/results?q=Euphorbia%20spathulata",
+  "photo_note": "One existing individually CC BY-NC source photo visually inspected 2026-10-21; one conservative annotation shows an actual flowering-bract cluster. Photo cannot establish diagnostic capsule warts or glands. Prior one-photo coverage remains; not a finished diagnostic photo gallery.",
+  "taxonomy_source": "https://efloras.org/florataxon.aspx?flora_id=1&taxon_id=242416545",
   "images": [
     {
       "file": "images/inat-126053272.jpg",
-      "role": "Provisional species recognition photograph; diagnostic anatomy not visually certified",
+      "role": "Real recognition view of terminal green bract clusters; diagnostic warty fruit not resolved",
       "creator": "(c) Jared Gorrell, some rights reserved (CC BY-NC)",
       "license": "CC BY-NC",
       "source_page": "https://www.inaturalist.org/photos/126053272",
       "study_use": "Noncommercial botanical education",
-      "public_reuse": "Attribution; noncommercial only"
+      "public_reuse": "Attribution; noncommercial only",
+      "anatomy_arrows": [
+        {
+          "label": "Leaflike green bracts at flowering tip",
+          "target_fraction": [
+            0.482,
+            0.518
+          ]
+        }
+      ],
+      "caption": "Hand-held flowering-tip view. The arrow indicates the clustered green leaflike bracts; individual bract-to-bract separation, cyathial gland horns and the low rounded capsule warts cannot be confirmed at this image scale. Do not treat the unrelated broad toothed leaves below the hand as Euphorbia foliage.",
+      "manual_arrow_review": "2026-10-21 saved exact 1024×768 iNaturalist JPEG opened and inspected. One conservative arrow to obvious leafy green flowering cluster. No purported warty fruit, naked seed, gland horn or measuring arrow."
     }
   ],
   "learner_visual_status": {
     "status": "provisional_learner_ready",
-    "mode": "learner_fast_fill",
+    "mode": "one_checked_habit_photo_plus_field_comparison",
     "image_count": 1,
     "filled_at": "2026-10-18",
-    "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
-  }
+    "note": "One inspected real licensed flowering-tip photo with one safe arrow; FNA field key and reciprocal Roemer's spurge comparison now supplied. Needs warty fruit and separated bracts to finish.",
+    "verified_arrow_count": 1
+  },
+  "morphology_keys": {
+    "family_pattern": "Euphorbiaceae; upright leafy Euphorbia subgenus Esula with tiny cyathia (specialized flowering units) rather than ordinary petals.",
+    "habit": "Hairless annual with slender upright, often basally branched shoots and repeatedly forked terminal reproductive branches.",
+    "leaves": "Stem leaves alternate and typically spatulate to oblanceolate, usually with finely serrulate margins; inspect several mature leaves rather than only bracts.",
+    "paired_bracts": "Paired upper dichasial bracts separate (distinct), often broadly ovate or triangular, sometimes with fine-toothed edges; not half-fused as in E. roemeriana.",
+    "cyathia": "Small green cup-like flowering units; 4–5 nectar glands without horns, requiring strong close-up to verify.",
+    "fruit": "Mature capsule shallowly 3-lobed and covered with small LOW ROUNDED verrucae (warts), a key difference from the smooth capsules of E. roemeriana.",
+    "seed": "Variable brown to dark-purple seeds; smooth, finely ridged or netlike-reticulate surfaces across geographic populations. Do not impose a universal reticulate seed texture on Texas specimens.",
+    "source_note": "Flora of North America, Euphorbia spathulata Lam. (taxon_id=242416545). Native-by-county review is paused; FNA is used for anatomy, not a finished Hays BONAP/NAPA badge."
+  },
+  "comparisons": {
+    "confused_with": [
+      "Euphorbia roemeriana",
+      "Euphorbia commutata",
+      "Euphorbia longicruris"
+    ],
+    "field_matrix": [
+      {
+        "character": "Paired bracts",
+        "spathulata": "Distinct; margins can be finely serrulate",
+        "roemeriana": "Joined into cup for ~half their length",
+        "commutata": "Mostly distinct; additional characters required",
+        "longicruris": "Distinct to basal join but strongly overlapping at tips"
+      },
+      {
+        "character": "Capsule surface",
+        "spathulata": "LOW ROUNDED WARTS (verrucose)",
+        "roemeriana": "Smooth",
+        "commutata": "Smooth",
+        "longicruris": "Smooth"
+      },
+      {
+        "character": "Gland horns",
+        "spathulata": "Absent",
+        "roemeriana": "Short and slightly convergent",
+        "commutata": "Must inspect close-up",
+        "longicruris": "Longer and divergent"
+      },
+      {
+        "character": "Best current photo proof",
+        "spathulata": "Only broad flowering bracts; warts not resolved",
+        "roemeriana": "Cyathia and smooth fruit plus detached pitted seed macros",
+        "commutata": "Not yet installed as matched photo",
+        "longicruris": "Not yet installed as matched photo"
+      }
+    ],
+    "caution": "An apparently cup-shaped green whorl is not proof of bract fusion: isolate one pair and inspect the basal seam. Do not use the one spathulata habit photo as proof of warty capsule or seed sculpture."
+  },
+  "field_photo_quickcheck": {
+    "heading": "FIND THE FRUIT WARTS",
+    "steps": [
+      "Photograph complete rooted plant, then stem leaves and margin teeth in focus.",
+      "Get close enough to isolate one pair of green dichasial bracts: confirm they are separate instead of fused halfway.",
+      "Photograph several fully developed green capsules at 10× or higher; look for small low rounded warts covering lobes.",
+      "Take a high-magnification cyathium view to confirm gland horns absent (do not substitute yellow color alone).",
+      "Optional: photograph a mature loose seed from two angles with 1mm scale; Texas seed texture may be smooth or reticulate."
+    ],
+    "warning": "Current sole photograph does not resolve gland horns, diagnostic warty capsules or seeds. Keep this one-photo species provisional for field diagnosis pending those photos."
+  },
+  "diagnostic_image_needs": [
+    {
+      "role": "mature warty 3-lobed fruit macro",
+      "priority": "highest",
+      "requirements": "Exact species; sharp lateral and front views showing low rounded capsule verrucae; copyright compatible with educational website"
+    },
+    {
+      "role": "separate paired dichasial bracts",
+      "priority": "highest",
+      "requirements": "Clear bases of two bracts and visible serrulate margin where present"
+    },
+    {
+      "role": "gland horn absence macro",
+      "priority": "high",
+      "requirements": "10–30× focused cyathium cup showing glands without horns"
+    },
+    {
+      "role": "habit and actual stem leaves",
+      "priority": "medium",
+      "requirements": "Whole rooted herb and leaf margins free of unrelated foreground plants"
+    },
+    {
+      "role": "mature detached seed",
+      "priority": "medium",
+      "requirements": "Exact Texas taxon source; seed coat close-up with millimeter scale if available"
+    }
+  ]
 }
