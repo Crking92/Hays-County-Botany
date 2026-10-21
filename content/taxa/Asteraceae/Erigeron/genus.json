@@ -7,17 +7,16 @@
     "canonical_species_ids": [
       "erigeron-canadensis",
       "erigeron-geiseri",
-      "erigeron-modestus"
-    ],
-    "pending_canonical_installer": [
+      "erigeron-modestus",
       "erigeron-philadelphicus",
       "erigeron-strigosus"
     ],
+    "pending_canonical_installer": [],
     "source_pool_synonym": "Conyza canadensis maps to Erigeron canadensis, no duplicate species card",
-    "science_status": "Preserve previously published UNRESOLVED range statuses of geiseri and modestus; horseweed independently pending 3-county verification",
-    "lesson_scope": "Three species confirmed installed in current canonical manifest; E. philadelphicus and E. strigosus are source-pool candidates only, not installed. Native-range evidence remains unchanged."
+    "science_status": "Native-target-county certification is not settled by this genus reconciliation; retain each species' own unresolved/previous statuses.",
+    "lesson_scope": "All FIVE named Erigeron taxa have canonical species files in current manifest as of 2026-10-21. Existing taxonomy/range unreviewed fields remain authoritative. Strigosus and philadelphicus are one-photo provisional covers now being enriched, not uninstalled source pool."
   },
-  "look_here_first": "LOOK HERE FIRST: 1) inspect full rooted plant (horseweed annual/winter-annual rosette → tall leafy stem); 2) check NARROW ALTERNATE stem leaves and strongly terminal branching; 3) with hand lens, distinguish fresh tiny heads with involucres about 3–4 mm LONG and rays ~0.5–1 mm from larger showy-rayed fleabanes; 4) recognize the white pappus as LATER FRUIT, not flowers. E. geiseri is annual with slender taproot; E. modestus has woody perennial base.",
+  "look_here_first": "LOOK HERE FIRST by group: A) Horseweed E. canadensis: rosette → tall narrow-leaved stem → very tiny upper heads, later pappus fluff. B) Daisy fleabanes: look at how upper leaf bases meet stem, hair direction with a hand lens, persistence/teeth of basal foliage and fresh ray length/number. E. strigosus usually has nonclasping narrow upper leaves and appressed/ascending hairs, but teeth and life cycle vary. E. philadelphicus often has CLASPING upper leaves and more numerous rays; E. annuus often spreading stem hairs. E. geiseri annual slender root, E. modestus woody perennial crown. Do not key them from flower color alone.",
   "shared_traits": [
     "Asteraceae composite capitula with many minute florets",
     "Alternate leaves on horseweed (other Erigeron leaf architecture varies)",
@@ -34,13 +33,13 @@
     {
       "character": "Flower head",
       "horseweed": "Numerous tiny heads with INVOLUCRES about 3–4 mm LONG; short pale rays ~0.5–1 mm can be inconspicuous. Avoid treating mature white seed fluff as fresh rays.",
-      "fleabanes": "Often larger daisy-like heads with visibly extending white or lavender rays",
+      "fleabanes": "E. strigosus usually has showy white rays (~50–100 at ~4–6 mm). E. philadelphicus has many more finer rays (~150–250+). Numbers overlap in field quality; measure a fresh head and check leaves/hairs.",
       "photo_need": "Fresh OPEN flowering head front + side, millimeter ruler; a fruit pappus picture does not prove ray length."
     },
     {
       "character": "Leaves",
       "horseweed": "Narrow sessile linear-oblanceolate stem leaves, frequently shallowly toothed low down",
-      "fleabanes": "Often broader basal leaves, fewer cauline leaves in some species",
+      "fleabanes": "E. strigosus upper narrow leaves usually do NOT clasp; lower leaves often persist and may be entire or toothed. E. philadelphicus upper leaves often clasp; E. annuus often coarser leaves and spreading hairs.",
       "photo_need": "Leaf at lower, middle, upper nodes with scale"
     },
     {
@@ -53,12 +52,12 @@
   "lookalike_warnings": [
     "Conyza canadensis is an older/alternative genus combination, not a second horseweed species.",
     "Conyza bonariensis and C. sumatrensis may appear as lookalikes in disturbed plants, but detailed head/hair characters needed; don't claim all are local or native.",
-    "All three species E. canadensis, E. geiseri and E. modestus are installed in the learner; do not re-admit any as new species. E. philadelphicus and E. strigosus remain source-pool-only candidates.",
+    "All five species E. canadensis, geiseri, modestus, philadelphicus and strigosus are installed in the learner as separate canonical cards; the latter two currently have ONE provisional exact-species photo each, NOT fully finished photo galleries. Never treat them as uninstalled or duplicate a prior card.",
     "Horseweed tiny flowers are not goldenrod: goldenrod has YELLOW composite heads with much more showy yellow rays."
   ],
   "visual_comparison": {
     "title": "Horseweed versus two showy fleabanes — photo anatomy",
-    "subtitle": "Four licensed horseweed photos plus two credited source-identified fleabane panels. Ten existing horseweed arrows and five additional cross-species arrows show visible structures. Root-crown, hair-direction and matched involucre macros still pending.",
+    "subtitle": "All five canonical species now represented: four horseweed stage panels, Geiser's and modest fleabanes, plus prairie and Philadelphia fleabane flower reference panels. PHOTO GAP: only one source-identified prairie photo (dog + handheld stem); a complete habit and macro proof are missing. Arrow targets point only at actual visible structures.",
     "items": [
       {
         "label": "1. WINTER ROSETTE — WATCH THE OTHER PLANT",
@@ -232,9 +231,63 @@
         "annotation_status": "visible flower and fruit targets qa pass",
         "why_it_matters": "Strong first-stage comparison: the familiar daisy face becomes a white feathery fruit head; do not confuse those two stages.",
         "species_id": "erigeron-modestus"
+      },
+      {
+        "label": "7. PRAIRIE FLEABANE — REAL FRESH DAISIES",
+        "scientific_name": "Erigeron strigosus",
+        "image_url": "content/taxa/Asteraceae/Erigeron/erigeron-strigosus/images/inat-691026483.jpg",
+        "image_fit": "contain",
+        "creator": "Chris Stahl",
+        "license": "CC BY",
+        "source_page": "https://www.inaturalist.org/photos/691026483",
+        "caption": "Correctly labeled E. strigosus observation showing thin white ray florets and yellow discs on a flowering shoot. Photo dominated by dog/hand; hairs and stem leaf clasping NOT provable.",
+        "markers": [
+          {
+            "label": "White ray florets",
+            "label_x": 1,
+            "label_y": 48,
+            "target_x": 23,
+            "target_y": 62
+          },
+          {
+            "label": "Yellow central disc",
+            "label_x": 70,
+            "label_y": 52,
+            "target_x": 57,
+            "target_y": 61
+          }
+        ],
+        "image_role": "Exact-source provisional prairie fleabane flower photo, NOT certified full plant diagnostic image"
+      },
+      {
+        "label": "8. PHILADELPHIA FLEABANE — LOOK-ALIKE, DIFFERENT SPECIES",
+        "scientific_name": "Erigeron philadelphicus",
+        "image_url": "content/taxa/Asteraceae/Erigeron/erigeron-philadelphicus/images/inat-209922345.jpg",
+        "image_fit": "contain",
+        "creator": "Donald L'Heureux",
+        "license": "CC BY-NC",
+        "source_page": "https://www.inaturalist.org/photos/209922345",
+        "caption": "DIFFERENT species with numerous fine white-pale rays and yellow discs. Usually clasping upper leaf base (not shown clearly in image). One-photograph provisional source; don't infer leaf base from this picture.",
+        "markers": [
+          {
+            "label": "Numerous fine rays",
+            "label_x": 2,
+            "label_y": 13,
+            "target_x": 33,
+            "target_y": 13
+          },
+          {
+            "label": "Yellow disc",
+            "label_x": 64,
+            "label_y": 35,
+            "target_x": 42,
+            "target_y": 39
+          }
+        ],
+        "image_role": "Different exact species, compare-only under noncommercial license"
       }
     ],
-    "annotation_status": "Ten photo-viewer arrow overlays target visible tissues, including warning of neighboring Draba; mobile view awaits owner signoff. Photo 03 was previously and inaccurately called fresh flowers; now explicitly fruiting.",
+    "annotation_status": "Six prior genus panels retain 15 arrows; two new fleur panels contribute FOUR genus-overlays (two each), for 19 total. E. strigosus species comparison view separately has SEVEN arrows across a one-photo exact source and two different species. Mobile arrows not yet user signed off.",
     "part_examples": [
       {
         "title": "1 · Begin with the winter rosette",
@@ -274,6 +327,22 @@
         "look_for": "Bring same-scale photos with a ruler: horseweed with green involucre ~3–4 mm LONG and very short fresh whitish marginal rays, versus E. strigosus or E. philadelphicus with obviously longer daisy-like rays.",
         "why_it_matters": "A direct visual pair teaches how ray length and head architecture separate common confusions without mistaking flower color for a full ID.",
         "status": "needs_photo"
+      },
+      {
+        "title": "6 · Prairie fleabane's true white rays",
+        "role": "fresh open Erigeron strigosus head",
+        "anchor_species_id": "erigeron-strigosus",
+        "image_file": "images/inat-691026483.jpg",
+        "look_for": "White rays around yellow disc on a slender flowering shoot (dog in background); strong composite-head clue but NOT sufficient for species alone.",
+        "why_it_matters": "Contrasts with the tiny, hard-to-see rays of horseweed. Stem hair/leaf-base macros missing."
+      },
+      {
+        "title": "7 · Philadelphia fleabane's many rays",
+        "role": "fresh open Erigeron philadelphicus heads",
+        "anchor_species_id": "erigeron-philadelphicus",
+        "image_file": "images/inat-209922345.jpg",
+        "look_for": "Many slender pale rays around yellow discs; do NOT claim photo proves clasping upper leaves.",
+        "why_it_matters": "Crew comparison: true tie-breaker involves leaf attachment and stem hairs as well as head measurements."
       }
     ]
   },
@@ -283,7 +352,8 @@
     "Close alternate stem nodes and a hairy margin on horseweed with 1 mm scale",
     "Detached cypsela with white pappus at 1 mm scale and source-verifiable exact species",
     "Texas-area horseweed rosette and bolted plant (current 4 photos from outside Texas are morphology only)",
-    "Geiseri/modestus existing photo arrows show plainly visible flowers and pappus, not definitive species separation; require rooted and lens-level macros before teaching a final species diagnosis."
+    "Geiseri/modestus existing photo arrows show plainly visible flowers and pappus, not definitive species separation; require rooted and lens-level macros before teaching a final species diagnosis.",
+    "E. strigosus complete habit without dog/hand, plus photo-verified alternate upper leaf attachment, lower stem hair angle, flower involucre macro and cypsela corona; leads cited in its species.json"
   ],
   "sources": [
     "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:203653-1",
@@ -291,13 +361,13 @@
     "https://www.worldfloraonline.org/taxon/wfo-0000129910"
   ],
   "curation_status": {
-    "version": "1.3-erigeron-three-species-visible-arrows-20261021",
+    "version": "1.4-five-canonical-fleabane-two-photo-compare-20261021",
     "last_reviewed": "2026-10-21",
-    "photo_panels": 6,
-    "physical_installer_status": "Four existing horseweed photos plus one reused source-identified image each from E. geiseri and E. modestus, all physically present; new cross-species genus panels reuse credited files. Genus gallery has 15 markers (horseweed 10 + geiseri 2 + modestus 3). Fresh open horseweed head and definitive fleabane root, stem-hair and phyllary macros still missing.",
+    "photo_panels": 8,
+    "physical_installer_status": "All five species have canonical cards; genus gallery reuses E. canadensis (4), geiseri (1), modestus (1), E. strigosus (1), E. philadelphicus (1) physical images. No newly obtained photo bytes. Total 8 panels and 19 overlay arrow markers; not all photo roles diagnostic. Mobile QA pending.",
     "scientific_status": "native Texas confirmed at state level, strict 3-county zone unresolved",
     "visual_lesson_standard": "Field recognition staging, actual-pixel photo corrections, genus comparison (E. geiseri annual correction), correct per-photo attribution preserved.",
-    "photo_review_note": "Four fleabane images checked in species cards with ten additional species-level arrows. The genus gallery reuses one photo and 2/3 arrow placements respectively for cross-species comparison, preserving ten earlier horseweed markers."
+    "photo_review_note": "Existing Chris Stahl dog-dominated prairie fleabane photo and Donald L'Heureux Philadelphia fleabane photo inspected. Source picture not sufficient to establish strigosus hair direction, nonclasping leaf base, mature pappus, local variety, or native county. Keep exact public-image licensing."
   },
   "genus_diagnostics": {
     "flower_heads": "All Erigeron members are composite-family plants bearing capitula (flower heads with many little florets), not single big flowers. HORSEWEED has extremely small heads with barely visible short rays; many other fleabanes have obvious longer daisy-like rays. Don't generalize horseweed's almost rayless look to the whole genus.",
@@ -348,6 +418,20 @@
         "Showy fleabane-like rays; measurements may overlap E. geiseri",
         "Compare basal leaves, hair distribution and involucre",
         "Needs paired voucher-confirmed specimens"
+      ],
+      [
+        "Erigeron strigosus",
+        "Annual / biennial / short-lived perennial, sometimes rhizomatous by variety; basal leaves often persist",
+        "Many showy white rays (FNA 50–100), ~4–6 mm; loose branched clusters",
+        "Narrow, progressively reduced upper leaves usually nonclasping; margins entire OR toothed; mostly appressed/ascending hairs",
+        "Key-based field lesson; root, leaf node and stem hairs NOT photo-proven in current one-photo source"
+      ],
+      [
+        "Erigeron philadelphicus",
+        "Annual, biennial or short-lived perennial, fibrous rooted",
+        "Many very fine rays (FNA ~150–250, sometimes more), white or pink",
+        "Upper stem leaves typically clasp with auriculate bases; often coarser basal teeth; flower color not definitive",
+        "One provisional photo; leaf-base macro still needed"
       ]
     ]
   },
@@ -387,7 +471,9 @@
       "species_ids": [
         "erigeron-canadensis",
         "erigeron-geiseri",
-        "erigeron-modestus"
+        "erigeron-modestus",
+        "erigeron-strigosus",
+        "erigeron-philadelphicus"
       ],
       "look_here_first": "Head size and ray length; check whole plant",
       "status": "six_panel_photo_compare_present_diagnostic_macro_gaps"
@@ -402,13 +488,14 @@
       "status": "flower_and_fruit_photo_pass_present_crown_hair_macro_gaps"
     },
     {
-      "title": "Source-pool fleabanes for installer review",
+      "title": "Prairie versus Philadelphia fleabane — both installed",
       "species_ids": [
+        "erigeron-strigosus",
         "erigeron-philadelphicus",
-        "erigeron-strigosus"
+        "erigeron-canadensis"
       ],
-      "look_here_first": "Do not treat as installed; installer must verify accepted concepts and source-pool records",
-      "status": "installer_handoff_only"
+      "look_here_first": "Inspect fresh heads, leaf-base clasping, basal leaf teeth and fine stem hair angles; horseweed provides tiny-head control",
+      "status": "canonical_source_photos_and_comparison_overlays_present_diagnostic_macros_gaps"
     }
   ],
   "handoffs": [
@@ -417,12 +504,12 @@
       "need": "Exact-species matched geiseri/modestus crowns, stem hairs and phyllary macros; inspect image anatomy before adding arrows. Existing horseweed images retain original creator/license and installed status."
     },
     {
-      "lane": "installer",
-      "need": "Review source-pool Erigeron philadelphicus and E. strigosus; no genus-lane install or range decision."
-    },
-    {
       "lane": "taxonomy",
       "need": "Verify fine-scale geiseri/modestus discriminators against herbarium keys; avoid unsupported non-overlapping numeric cutoffs."
+    },
+    {
+      "lane": "diagnostic_photo_fast_fill",
+      "need": "E. strigosus has only one photograph with a dog dominating. Source-qualified Wikimedia CC BY Commons leads 301327401 and 301327364 by Sandy Wolkenberg plus Dean Wm. Taylor CC BY 2.0 photo; image pixels/attribution/rights and exact taxon must be screened and physically installed before count. Priority: intact habit, leaf-base node, stem hair macro and fresh flower front/side; preserve NC conditional policy on philadelphicus source."
     }
   ]
 }
