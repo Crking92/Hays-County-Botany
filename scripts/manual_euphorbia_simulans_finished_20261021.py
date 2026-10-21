@@ -24,8 +24,28 @@ seed_pid=5336985
 r=session.get(f"https://api.inaturalist.org/v1/observations/{OBS_SIM}",timeout=30);r.raise_for_status()
 obs=r.json()["results"][0]
 assert obs["taxon"]["name"]=="Euphorbia simulans"
-seed_meta=next(ph for ph in obs["photos"] if ph.get("id")==seed_pid)
-assert (seed_meta.get("license_code") or "").lower()=="cc-by-nc","Seed photo licence not allowed"
+seed_meta=next((ph for ph in obs.get("photos",[]) if ph.get("id")==seed_pid),None)
+if not seed_meta:
+ # The 2019 Nathan Taylor journal explicitly links the E. simulans seed panel to
+ # observation 4434982; observation API may expose only the first ten photo entries.
+ print("Observation photo IDs:",[x.get("id") for x in obs.get("photos",[])],flush=True)
+ print("Observation nested photo ids:",[x.get("photo",{}).get("id") for x in obs.get("observation_photos",[])],flush=True)
+ seed_meta=next((x.get("photo",{}) for x in obs.get("observation_photos",[]) if x.get("photo",{}).get("id")==seed_pid),None)
+if not seed_meta:
+ for endpoint in [f"https://api.inaturalist.org/v1/photos/{seed_pid}",f"https://www.inaturalist.org/photos/{seed_pid}.json"]:
+  try:
+   r=session.get(endpoint,timeout=25)
+   print("Photo metadata endpoint",endpoint,"status",r.status_code,"type",r.headers.get("Content-Type"),flush=True)
+   if not r.ok:continue
+   data=r.json()
+   candidates=(data.get("results") or [data]) if isinstance(data,dict) else data
+   candidate=next((x for x in candidates if isinstance(x,dict) and x.get("id")==seed_pid),None)
+   if candidate and candidate.get("license_code") and candidate.get("url"):
+    seed_meta=candidate
+    break
+  except Exception as error: print("Photo metadata error",str(error)[:150],flush=True)
+assert seed_meta and (seed_meta.get("license_code") or "").lower()=="cc-by-nc","Photo-level CC BY-NC not verified; do NOT publish seed"
+assert ("nathan" in (seed_meta.get("attribution") or "").lower()), "Seed is not individually credited to Nathan Taylor"
 url=seed_meta["url"]
 url=url.replace("/square.","/large.").replace("/small.","/large.").replace("/medium.","/large.").replace("/thumb.","/large.")
 r=session.get(url,timeout=30);r.raise_for_status()
