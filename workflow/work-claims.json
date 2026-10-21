@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-17T18:31:58.388Z",
+  "updated_at": "2026-10-20T21:03:00-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9638,6 +9638,27 @@
         "79a8dc2ac88ef19a6414d5e27c193dccd3f5acce",
         "3529467287c7c44f172f8c25a9e7202bfc5adbad"
       ]
+    },
+    {
+      "claim_id": "taxonomy-name-fast-pass-20261020-142",
+      "scope_kind": "species_batch",
+      "taxa": [
+        "urtica-chamaedryoides",
+        "vitex-agnus-castus",
+        "warnockia-scutellarioides",
+        "wedelia-acapulcensis",
+        "wedelia-acapulcensis-var-hispida",
+        "wolffia-columbiana",
+        "xanthium-strumarium",
+        "zephyranthes-chlorosolen"
+      ],
+      "lane": "taxonomy-name-fast-pass",
+      "owner": "Taxonomy Name Fast-Pass hourly worker",
+      "status": "active",
+      "claimed_at": "2026-10-20T21:03:00-05:00",
+      "expires_at": "2026-10-20T23:03:00-05:00",
+      "release_when": "Batch 142 evidence and safe Sheet mirrors verified or explicitly abandoned",
+      "notes": "Phase 4 accepted-name exception research only; no range, media, canonical or other lane changes."
     }
   ]
 }
