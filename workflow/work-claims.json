@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T07:25:09.811Z",
+  "updated_at": "2026-10-21T12:26:52.763Z",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9661,6 +9661,27 @@
       "notes": "Phase 4 accepted-name exception research only; no range, media, canonical or other lane changes.",
       "released_at": "2026-10-21T07:25:09.811Z",
       "release_reason": "Recovered Batch 142: GitHub commit 9bc35f4f7068ba337952f1d2760c902517f59dae, 8/8 override and derived Master Pool Z readback verified."
+    },
+    {
+      "claim_id": "taxonomy-name-fast-pass-20261021-144-recovery",
+      "scope_kind": "taxonomy_name_exception_batch",
+      "taxa": [
+        "hibiscus-moscheutos",
+        "ipomoea-cordatotriloba-var-cordatotriloba",
+        "liatris-punctata-var-mucronata",
+        "ludwigia-leptocarpa",
+        "monarda-fistulosa",
+        "parthenocissus-heptaphylla",
+        "parthenocissus-inserta",
+        "parthenocissus-quinquefolia"
+      ],
+      "lane": "taxonomy-name-fast-pass",
+      "owner": "Taxonomy Name Fast-Pass hourly worker",
+      "status": "active",
+      "claimed_at": "2026-10-21T12:26:52.763Z",
+      "expires_at": "2026-10-21T14:26:52.763Z",
+      "release_when": "Batch 144 evidence GitHub readback and optional keyed Sheet mirror readback, or safe abandonment",
+      "notes": "Recover preexisting unclaimed 2026-10-21 Batch 144 handoff; name evidence only; no range/specimen or other lane changes."
     }
   ]
 }
