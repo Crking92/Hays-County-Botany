@@ -48,7 +48,7 @@ jobs:
             assert x.get("creator") and x.get("license") and x.get("source_page")
             for mark in x.get("anatomy_arrows",[]):
               assert all(0<=v<=1 for v in mark["target_fraction"])
-          for pid in [5336725,5336727,5336985]:
+          for pid in [5336725,5336727,5336967]:
             rec=next(x for x in j["images"] if x.get("photo_id")==pid)
             assert rec["observation_id"]==4434982 and "CC BY-NC" in rec["license"]
           c=next(x for x in g["comparison_cards"] if x["id"]=="euphorbia-golondrina-simulans-gland-appendages")
