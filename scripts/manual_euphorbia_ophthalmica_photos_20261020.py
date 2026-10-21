@@ -41,7 +41,7 @@ def fetch(session,name):
     assert artist and len(artist)<220,(name,artist)
     assert "creativecommons.org/licenses/by" in license_url,(name,license_url)
     assert "nd" not in license_url.lower().split("/licenses/")[-1].split("/")[0]
-    assert re.search(r"/licenses/by(?:-sa)?/[234]\.0/",license_url),(name,license_url)
+    assert re.search(r"/licenses/by(?:-sa)?/[234]\.0/?$",license_url),(name,license_url)
     assert ("CC BY" in license_name or "CC-BY" in license_name),(name,license_name)
     url=record.get("thumburl") or record["url"]
     assert url.startswith("https://")
