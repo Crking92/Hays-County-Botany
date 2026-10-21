@@ -61,13 +61,13 @@
     "annotation_status": "pending verified pixels",
     "manual_crew_grass_upgrade": "2026-10-20",
     "triad_photos_inspected": true,
-    "genus_photo_annotation_state": "VISIBLE_ANATOMY_ARROWS_CONFIRMED; missing collar and panicle axil reference photos",
+    "genus_photo_annotation_state": "2026-10-21: photo-visible arrows revised and source pixels checked for priority two; matched collar/axil/metric spikelet images still missing",
     "canonical_species_count_unchanged": 7,
     "trio_visual_lesson": "2026-10-20 species genus learner lesson; existing photos with explicit evidence and gaps",
     "seven_species_crew_comparison_pass": "2026-10-20",
     "existing_photo_anchors_added": 7,
     "photo_panel_arrows_verified_at_visible_structure_level": true,
-    "seven_species_visual_finish": "FIELD_READY_PHOTO_GAPS"
+    "seven_species_visual_finish": "FIELD_READY_PHOTO_GAPS; diagnostic hairy-sheath vs panicle distinctions tightened 2026-10-21"
   },
   "visual_anchors": [
     {
@@ -233,19 +233,19 @@
         "eragrostis-intermedia",
         "eragrostis-trichodes"
       ],
-      "look_here_first": "Sheath, collar and panicle-branch axils, then whole panicle",
+      "look_here_first": "Compare MULTIPLE mature sheaths: margins, apex, upper surface, collar/ligule; then lower panicle-branch axils and whole panicle. Hairs overlap, so test more than one character.",
       "photo_requirements": [
         "matched collar/sheath macro",
         "branch-axil macro",
         "whole-panicle same-scale"
       ],
-      "field_photo_comparison": "Sheath BODY vs sheath THROAT; panicle branch axils; magnified mature florets.",
+      "field_photo_comparison": "Exact-source bigtop sheath hairs ARE photographed; plains photographed panicle/spikelets but not sheath; sand photographed tiny spikelets but not collar. These are different parts, NOT matched proof of the three-way key.",
       "actual_images_from_existing_learner": [
         "content/taxa/Poaceae/Eragrostis/eragrostis-hirsuta/images/gbif-first-6500108129-1f4b8bbc1e.jpg",
         "content/taxa/Poaceae/Eragrostis/eragrostis-intermedia/images/joey-review019-9b2acdc3f4dc45bc.jpg",
         "content/taxa/Poaceae/Eragrostis/eragrostis-trichodes/images/library-review014-a11a4bf2229e32c.jpg"
       ],
-      "review_status": "Bigtop hairs visible; other matched collar macros needed"
+      "review_status": "2026-10-21: fresh pixel-inspection confirmed two distinct types of available evidence (bigtop sheath hairs, plains panicle and spikelets). Plains and sand collars, all comparative panicle-axil macros and scale-based spikelets still missing."
     },
     {
       "title": "Cloud versus clustered spikelets",
@@ -285,7 +285,7 @@
       "review_status": "General images inspected; decisive gland and involute cross-section photos still missing"
     }
   ],
-  "look_here_first": "GRASS FIRST: confirm a real node/sheath, a short hair-fringe ligule and small several-flowered spikelets; then LOVEGRASS: use the whole panicle branch pattern, sheath hair distribution and mature spikelet anatomy. FOR THIS THREE-WAY SET, inspect hair ACROSS the sheath (hirsuta) versus mainly at the mouth (intermedia/trichodes), then compare a complete mature panicle. Color or a transparent seedhead alone never settles species.",
+  "look_here_first": "LOVEGRASS FIRST: find the panicle, several-flowered spikelets and hair-fringe ligule. For the three airy species, inspect multiple SHEATHS from base to collar and compare exact hair DISTRIBUTION. Bigtop often has obvious upper-sheath/margin hairs (sometimes extending across the body); plains often has a comparatively less-hairy sheath body but a conspicuously hairy collar; sand has strong throat hairs. This is a ranking of clues, NOT an absolute binary. Then check complete mature panicle, lower axils and measured spikelets; a purple cloud alone is not identification.",
   "shared_traits": [
     "Poaceae with spikelets bearing multiple florets and usually many small, overlapping lemmas.",
     "Panicle branching and spikelet spacing vary across the seven installed lovegrasses.",
@@ -420,7 +420,7 @@
       "look_for": "Photographed fine branching and intact spikelets: start with intermedia and trichodes photo-led comparison; do not guess the number of florets from a distant view.",
       "photo_role": "same-scale mature panicle and branch macros",
       "status": "photo-led group examples now available, dissected spikelet still missing",
-      "annotation_status": "macroscopic spikelet/branch arrows confirmed 2026-10-20"
+      "annotation_status": "2026-10-21: directly inspected plains panicle JPEG and verified arrows to separate spikelet and hair-thin panicle branch"
     },
     {
       "title": "2 · Find the collar and sheath throat",
@@ -429,7 +429,7 @@
       "look_for": "The bigtop sheath macro visibly shows long hairs along the sheath; the comparable intermedia and trichodes collar macros are missing, so do not mislabel their photos.",
       "photo_role": "paired exact-species sheath/collar and branch-axil macros",
       "status": "bigtop sheath macro annotated; two comparison collar macros still missing",
-      "annotation_status": "bigtop true sheath-hair arrows installed 2026-10-20"
+      "annotation_status": "2026-10-21: directly inspected bigtop CC0 sheath JPEG and verified two markers to long hairs on sheath body and at leaf junction; no measured ligule or comparative plain/sand collar image"
     },
     {
       "title": "3 · Open a spikelet",
@@ -467,12 +467,12 @@
   ],
   "quick_key": [
     {
-      "if": "The sheath surface/margins have conspicuous long spreading hairs, not just a tuft at the blade junction",
-      "then": "Favor Eragrostis hirsuta; next inspect hairy panicle branch axils and mature spikelets."
+      "if": "Several mature sheaths show prominent long hairs especially along upper margins and apices, possibly extending across much of the sheath",
+      "then": "Favor E. hirsuta, especially where hair is not limited to collar; hair density varies, so verify mature reproductive anatomy and compare E. intermedia."
     },
     {
-      "if": "Sheath body is comparatively smooth, but the throat/collar has hairs; flowering head open and ovate",
-      "then": "Favor Eragrostis intermedia; compare with sand, purple and other airy lovegrasses."
+      "if": "Sheath surface is comparatively sparsely hairy but has long conspicuous collar/throat hairs; panicle open, ovate to pyramidal",
+      "then": "Favor E. intermedia only provisionally; it too may have hairy upper sheath margins and lower panicle axils. Compare mature spikelets and E. trichodes."
     },
     {
       "if": "Tall bunch with long arching leaves, a particularly large diffuse panicle and long hairs at sheath THROAT",
@@ -501,7 +501,7 @@
   ],
   "visual_comparison": {
     "title": "Eragrostis — seven lovegrasses through real anatomy photos",
-    "subtitle": "Seven species in the canonical learner. Photo panels separate the three airy grasses, the loose purple cloud versus red clustered spikelets, and narrow-leaved mourning lovegrass versus glandular annual stinkgrass. Some are preserved herbarium specimens, not living plants.",
+    "subtitle": "The seven existing lovegrass species remain installed. New arrows on the two priority photo panels show real sheath hairs vs individual spikelets/branches; without matched photos, these are illustrations of DIFFERENT structures, not a complete paired key.",
     "memory_rule": "COLLARS + CLUSTERS + GLANDS + LEAF ROLLING. Panicle color alone will get you into trouble.",
     "items": [
       {
@@ -510,19 +510,26 @@
         "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-hirsuta/images/gbif-first-6500108129-1f4b8bbc1e.jpg",
         "image_fit": "contain",
         "image_role": "Hairy sheath",
-        "caption": "The long hairs are actually visible on the sheath surface and near the opening. This is the strongest immediately visible contrast.",
+        "caption": "The original Becky Dill CC0 photograph clearly shows long hairs ON green sheaths as well as near the blade junction. These are visible characters, not a ligule measurement; bigtop hair density varies between sheaths.",
         "why_it_matters": "The whole sheath is visibly hairy; the other example photos lack diagnostic collar views.",
         "creator": "Becky Dill",
         "license": "CC0 1.0",
         "source_page": "https://www.gbif.org/occurrence/6500108129",
-        "photo_status": "EXISTING_CC0_LOCAL; pixels inspected and arrow to visible sheath hair region",
+        "photo_status": "Existing CC0 image checked directly 2026-10-21, two browser-only markers on real sheath hairs",
         "markers": [
           {
-            "label": "Sheath hairs",
-            "label_x": 9,
-            "label_y": 59,
+            "label": "Sheath-surface hairs",
+            "label_x": 7,
+            "label_y": 58,
             "target_x": 46,
             "target_y": 66
+          },
+          {
+            "label": "Hairs near blade junction",
+            "label_x": 74,
+            "label_y": 12,
+            "target_x": 53,
+            "target_y": 47
           }
         ]
       },
@@ -532,12 +539,28 @@
         "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-intermedia/images/joey-review019-9b2acdc3f4dc45bc.jpg",
         "image_fit": "contain",
         "image_role": "Airy mature panicle",
-        "caption": "The hand-backed fine open inflorescence shows separated dark spikelets; no collar/sheath is included. Exact photographed individual retains Joey CC BY-NC attribution and photo-level terms for publication.",
+        "caption": "The real Joey Santore image shows many separate, dark narrow spikelets carried on capillary branches; arrows mark visible structures only. It has no sheath or collar, so cannot prove the less-hairy sheath criterion.",
         "why_it_matters": "Illustrates the panicle shape but cannot prove the sheaths are smooth.",
         "creator": "Joey Santore",
         "license": "CC BY-NC",
         "source_page": "https://www.inaturalist.org/photos/602173932",
-        "photo_status": "EXISTING_CC_BY_NC_CANONICAL; inspect noncommercial photo-level rights before new public annotated use; no markers"
+        "photo_status": "Existing CC BY-NC source-image pixels checked 2026-10-21; two accurate visible-structure markers, photo-level noncommercial public-use terms retained",
+        "markers": [
+          {
+            "label": "Single spikelet",
+            "label_x": 79,
+            "label_y": 12,
+            "target_x": 62,
+            "target_y": 29
+          },
+          {
+            "label": "Fine panicle branch",
+            "label_x": 5,
+            "label_y": 13,
+            "target_x": 45,
+            "target_y": 21
+          }
+        ]
       },
       {
         "label": "Sand — fine branches and pale spikelets",
@@ -751,7 +774,7 @@
         ]
       }
     ],
-    "overlay_note": "Images 1–3 from already installed species galleries; do not treat different frames as matched measurements. Need one aligned collar/ligule + branch-axil photo set of three verified species to finish the lesson. Seven-species photo additions direct to existing original local file paths, licensed metadata preserved in species records. Red cluster and broad panicle arrows are visible; do not infer small glands, rolled blade cross-section or floret counts from these photos. Historical herbarium voucher images are preserved specimens. Matched comparison scales and exact rights confirmations remain open.",
+    "overlay_note": "2026-10-21 direct reinspection of existing public-rights-recorded Bigtop and Plains JPEG bytes. The first panel targets hairs physically visible on the sheath; second panel targets branch/spikelet only, and DOES NOT show the collar. Bigtop photo CC0; Plains image Joey Santore CC BY-NC with creator and original source credit retained and conditional noncommercial deployment. Other eight existing panels/markers preserved. No measured ligule, panicle axil or taxon-final spikelet arrow inferred. Species range and native metrics unchanged. Final mobile-layout check remains pending.",
     "study_only_photo_links": [
       {
         "label": "Kew/GrassBase morphology",
@@ -789,10 +812,10 @@
     "characters": [
       {
         "character": "Sheath surface",
-        "intermedia": "Mostly glabrous; hairs commonly near margins/apex",
-        "hirsuta": "Noticeably hirsute across sheath surface",
+        "intermedia": "Often sparse pubescence on sheath margins; hairy apex and collar; do not assume perfectly glabrous sheaths",
+        "hirsuta": "Hairs usually prominent near sheath apex/margins, sometimes elsewhere across the body; individual sheaths vary",
         "trichodes": "Throat hairs emphasized rather than uniformly hirsute sheath",
-        "strength": "High-value comparison on multiple mature leaves"
+        "strength": "Relative hair distribution over several sheaths: useful but variable, not a yes/no species determination"
       },
       {
         "character": "Sheath mouth/collar",
@@ -823,7 +846,7 @@
         "strength": "Stop-rule"
       }
     ],
-    "limitations": "The current photographic set does not supply matched magnified collars for all three species; no three-way morphological species-final claim from panicle-only photos.",
+    "limitations": "Image set now has four directly inspected arrowed anatomical/architectural regions in two species, but no matched photographed collars across all three; sheath pubescence is variable. No independent three-way species proof from panicle-only examples.",
     "source_urls": [
       "https://rangeplants.tamu.edu/plant/plains-lovegrass/",
       "https://rangeplants.tamu.edu/plant/sand-lovegrass/",
@@ -843,12 +866,12 @@
       "proof": "Photograph clustered spikelets plus mature dissection; do not use color alone."
     },
     {
-      "cue": "Tiny branching panicle, relatively smooth sheath surfaces with some hairs near throat",
+      "cue": "Open ovate to pyramidal panicle of fine branches bearing small separate spikelets; usually sparser sheath-body hairs but conspicuous collar hairs",
       "taxon": "Eragrostis intermedia",
       "proof": "Compare sheath BODY and collar plus lower panicle branch axils."
     },
     {
-      "cue": "Long spreading sheath-surface hairs plus often bearded flowering branch axils",
+      "cue": "Large diffuse panicle plus prominent long hairs on the sheath apices/margins, sometimes across much of the sheath surface; branch axils may be bearded",
       "taxon": "Eragrostis hirsuta",
       "proof": "Show a sheath-surface hair macro, then panicle-branch axils; county native status unresolved."
     },
