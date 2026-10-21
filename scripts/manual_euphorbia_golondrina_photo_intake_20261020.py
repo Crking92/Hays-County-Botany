@@ -29,10 +29,10 @@ def fetch_image(session,photo):
     assert small.startswith("https://"),small
     # iNat's photo response provides a signed original domain/photo id; replace
     # only its documented photo size segment, never its domain/id/extension.
-    url=re.sub(r"/(?:square|small|medium|large|thumb)\\.", "/original.",small)
+    url=re.sub(r"/(?:square|small|medium|large|thumb)\.", "/original.",small)
     if url==small:
         url=re.sub(r"/(?:square|small|medium|large|thumb)/", "/original/",small)
-    for candidate in (url, re.sub(r"/original\\.", "/large.",url)):
+    for candidate in (url, re.sub(r"/original\.", "/large.",url)):
         try:
             r=session.get(candidate,timeout=50)
             r.raise_for_status()
