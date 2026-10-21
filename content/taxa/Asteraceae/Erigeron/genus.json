@@ -53,12 +53,12 @@
   "lookalike_warnings": [
     "Conyza canadensis is an older/alternative genus combination, not a second horseweed species.",
     "Conyza bonariensis and C. sumatrensis may appear as lookalikes in disturbed plants, but detailed head/hair characters needed; don't claim all are local or native.",
-    "Erigeron geiseri and Erigeron modestus already have separate species cards; only add horseweed as one new taxon.",
+    "All three species E. canadensis, E. geiseri and E. modestus are installed in the learner; do not re-admit any as new species. E. philadelphicus and E. strigosus remain source-pool-only candidates.",
     "Horseweed tiny flowers are not goldenrod: goldenrod has YELLOW composite heads with much more showy yellow rays."
   ],
   "visual_comparison": {
-    "title": "Horseweed — the rosette, stem, tiny flower, and fluff",
-    "subtitle": "Four credited exact-species photographs: 1 winter rosette, 1 flowering-height plant, 2 FRUITING-stage close-ups. Fruit-structure confusion corrected and ten visually inspected arrow targets placed. A true open-flower macro is missing.",
+    "title": "Horseweed versus two showy fleabanes — photo anatomy",
+    "subtitle": "Four licensed horseweed photos plus two credited source-identified fleabane panels. Ten existing horseweed arrows and five additional cross-species arrows show visible structures. Root-crown, hair-direction and matched involucre macros still pending.",
     "items": [
       {
         "label": "1. WINTER ROSETTE — WATCH THE OTHER PLANT",
@@ -169,6 +169,69 @@
             "target_y": 46
           }
         ]
+      },
+      {
+        "label": "Flowering Geiser's fleabane: showy rays",
+        "image_url": "content/taxa/Asteraceae/Erigeron/erigeron-geiseri/images/gbif-manual-1837096832-4decc28e1.jpg",
+        "caption": "Several pale-rayed daisy-like heads with yellow disc centers. Mixed grass leaves and shoots should not be assigned to this species without tracing each stem.",
+        "creator": "Andy Newman",
+        "license": "CC BY-NC",
+        "source_page": "https://www.gbif.org/occurrence/1837096832",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "Pale ray florets",
+            "label_x": 3,
+            "label_y": 25,
+            "target_x": 22,
+            "target_y": 39
+          },
+          {
+            "label": "Yellow central disc",
+            "label_x": 57,
+            "label_y": 5,
+            "target_x": 54,
+            "target_y": 19
+          }
+        ],
+        "annotation_status": "visible flower structure qa pass; mixed-vegetation caution",
+        "why_it_matters": "Recognize the obvious rays that separate showier fleabanes from tiny-headed horseweed; cannot separate E. geiseri from E. modestus by petals alone.",
+        "species_id": "erigeron-geiseri"
+      },
+      {
+        "label": "Plains fleabane: fresh flower versus fruit",
+        "image_url": "content/taxa/Asteraceae/Erigeron/erigeron-modestus/images/gbif-manual-6131542687-8ab0fbd47.jpg",
+        "caption": "One clearly open head has white outer ray florets and yellow inner disc; fuzzy head to the left is fruiting pappus, not extra white petals. Crown and diagnostic phyllary macros still missing.",
+        "creator": "Vicki Schmidt",
+        "license": "CC BY",
+        "source_page": "https://www.gbif.org/occurrence/6131542687",
+        "image_fit": "contain",
+        "markers": [
+          {
+            "label": "White ray florets",
+            "label_x": 80,
+            "label_y": 15,
+            "target_x": 57,
+            "target_y": 30
+          },
+          {
+            "label": "Yellow disc florets",
+            "label_x": 75,
+            "label_y": 60,
+            "target_x": 55,
+            "target_y": 38
+          },
+          {
+            "label": "Mature white pappus",
+            "label_x": 4,
+            "label_y": 15,
+            "target_x": 34,
+            "target_y": 38
+          }
+        ],
+        "annotation_status": "visible flower and fruit targets qa pass",
+        "why_it_matters": "Strong first-stage comparison: the familiar daisy face becomes a white feathery fruit head; do not confuse those two stages.",
+        "species_id": "erigeron-modestus"
       }
     ],
     "annotation_status": "Ten photo-viewer arrow overlays target visible tissues, including warning of neighboring Draba; mobile view awaits owner signoff. Photo 03 was previously and inaccurately called fresh flowers; now explicitly fruiting.",
@@ -219,7 +282,8 @@
     "Same-scale photographed head of correctly identified E. strigosus / E. philadelphicus, with rays clearly protruding",
     "Close alternate stem nodes and a hairy margin on horseweed with 1 mm scale",
     "Detached cypsela with white pappus at 1 mm scale and source-verifiable exact species",
-    "Texas-area horseweed rosette and bolted plant (current 4 photos from outside Texas are morphology only)"
+    "Texas-area horseweed rosette and bolted plant (current 4 photos from outside Texas are morphology only)",
+    "Geiseri/modestus existing photo arrows show plainly visible flowers and pappus, not definitive species separation; require rooted and lens-level macros before teaching a final species diagnosis."
   ],
   "sources": [
     "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:203653-1",
@@ -227,12 +291,13 @@
     "https://www.worldfloraonline.org/taxon/wfo-0000129910"
   ],
   "curation_status": {
-    "version": "1.2-horseweed-mislabel-fix-ten-arrows-20261020",
-    "last_reviewed": "2026-10-20",
-    "photo_panels": 4,
-    "physical_installer_status": "VERIFIED previously: four exact species JPEGs present. Photo 03 and photo 04 BOTH show pappus-stage fruiting heads. Ten accurate overlay arrow targets have been added to their existing photographs and rosette/stem. Fresh ray-floret macro remains missing; mobile arrow signoff pending.",
+    "version": "1.3-erigeron-three-species-visible-arrows-20261021",
+    "last_reviewed": "2026-10-21",
+    "photo_panels": 6,
+    "physical_installer_status": "Four existing horseweed photos plus one reused source-identified image each from E. geiseri and E. modestus, all physically present; new cross-species genus panels reuse credited files. Genus gallery has 15 markers (horseweed 10 + geiseri 2 + modestus 3). Fresh open horseweed head and definitive fleabane root, stem-hair and phyllary macros still missing.",
     "scientific_status": "native Texas confirmed at state level, strict 3-county zone unresolved",
-    "visual_lesson_standard": "Field recognition staging, actual-pixel photo corrections, genus comparison (E. geiseri annual correction), correct per-photo attribution preserved."
+    "visual_lesson_standard": "Field recognition staging, actual-pixel photo corrections, genus comparison (E. geiseri annual correction), correct per-photo attribution preserved.",
+    "photo_review_note": "Four fleabane images checked in species cards with ten additional species-level arrows. The genus gallery reuses one photo and 2/3 arrow placements respectively for cross-species comparison, preserving ten earlier horseweed markers."
   },
   "genus_diagnostics": {
     "flower_heads": "All Erigeron members are composite-family plants bearing capitula (flower heads with many little florets), not single big flowers. HORSEWEED has extremely small heads with barely visible short rays; many other fleabanes have obvious longer daisy-like rays. Don't generalize horseweed's almost rayless look to the whole genus.",
@@ -290,7 +355,7 @@
     {
       "term": "basal crown",
       "plain": "Where the stems join the roots",
-      "look_for": "Annual horseweed taproot/rosette versus perennial crowns of the other installed fleabanes",
+      "look_for": "Compare the annual horseweed rosette/taproot and E. geiseri's slender annual taproot with E. modestus's usually woody perennial crown; early-season E. modestus can look annual.",
       "photo_role": "whole excavated base with ruler",
       "status": "needs_photo"
     },
@@ -325,7 +390,7 @@
         "erigeron-modestus"
       ],
       "look_here_first": "Head size and ray length; check whole plant",
-      "status": "diagnostic_photo_pending"
+      "status": "six_panel_photo_compare_present_diagnostic_macro_gaps"
     },
     {
       "title": "Geiser's versus modest fleabane",
@@ -334,7 +399,7 @@
         "erigeron-modestus"
       ],
       "look_here_first": "Perennial crown, stem hairs and phyllary details in combination",
-      "status": "diagnostic_photo_pending"
+      "status": "flower_and_fruit_photo_pass_present_crown_hair_macro_gaps"
     },
     {
       "title": "Source-pool fleabanes for installer review",
