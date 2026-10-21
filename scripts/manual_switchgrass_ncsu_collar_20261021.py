@@ -71,7 +71,7 @@ def photo_panel():
       "why_it_matters":"Decisive early routing from conspicuous upright Indiangrass membrane; hairy collars alone also occur on witchgrass, so cross-check annual/perennial and panicle.",
       "markers":[
           {"label":"White collar hairs","label_x":70,"label_y":10,"target_x":44,"target_y":51},
-          {"label":"Switchgrass leaf blade","label_x":73,"label_y":82,"target_x":51,"target_y":77}
+          {"label":"Leaf sheath below collar","label_x":73,"label_y":82,"target_x":51,"target_y":77}
       ],
       "annotation_status":"Two targets selected from visually inspected original NC State photograph, without transformations beyond EXIF-free JPEG encoding; owner mobile alignment QA pending."
     }
