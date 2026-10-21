@@ -1814,7 +1814,7 @@ function speciesFieldMatrix(sp){
   const rows=data && Array.isArray(data.field_matrix) ? data.field_matrix : [];
   if(!rows.length) return "";
   let out='<section class="section-block"><div class="section-heading"><div><div class="eyebrow">Real field decisions</div><h2>Which look-alike is it?</h2></div></div>'+
-    '<p class="section-intro">Compare reproductive structures, not just flower or fruit color. Uninstalled look-alikes are research comparisons, not confirmed learner species cards.</p>'+
+    '<p class="section-intro">'+(sp.family==="Poaceae"?"For grasses, compare flowering-branch origins, leaf collars and sheaths, then matched mature spikelets. A nonflowering or mown plant may require a tentative ID.":"Compare reproductive structures, not just flower or fruit color. Uninstalled look-alikes are research comparisons, not confirmed learner species cards.")+'</p>'+
     '<div class="diagnostic-visual-grid">';
   rows.forEach(function(row){
     if(!row || typeof row!=="object")return;
@@ -1865,7 +1865,7 @@ function plantView(){
   out+='</div></section>';
   out=out.slice(0,similarStart)+studyDrawer("3 · Check the look-alikes",similar.length?("Compare "+similar.length+" other plants before confirming your ID."):"No comparison plants curated yet; revisit after photo study.",out.slice(similarStart),"compare");
   if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=studyDrawer("Diagnostic photo comparisons","Use documented photo evidence to check distinguishing structures.",genusVisualComparison(sp),"photo");
-  if(!state.quizMode && sp.comparisons && Array.isArray(sp.comparisons.field_matrix) && sp.comparisons.field_matrix.length) out+=studyDrawer("Detailed species look-alike key","Compare anthers, berry surfaces, mature calyx lobes and fruit stalks to avoid false IDs.",speciesFieldMatrix(sp),"compare");
+  if(!state.quizMode && sp.comparisons && Array.isArray(sp.comparisons.field_matrix) && sp.comparisons.field_matrix.length) out+=studyDrawer("Detailed species look-alike key",sp.family==="Poaceae"?"Compare attached racemes, leaf sheaths, collar hairs and mature spikelets to avoid false grass IDs.":"Compare the actual distinguishing structures and field checks, not just overall appearance.",speciesFieldMatrix(sp),"compare");
   if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Study the family & genus","Open full lessons for deeper structural evidence.",taxonomyLessonShortcuts(sp),"photo");
   const vocabStart=out.length;
   if(state.difficulty!=="simple"){
