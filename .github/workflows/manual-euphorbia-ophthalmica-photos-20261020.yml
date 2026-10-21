@@ -1,0 +1,69 @@
+name: Install four exact species ophthalmica diagnostic photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/manual-euphorbia-ophthalmica-photos-20261020.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-manual-euphorbia-ophthalmica-photo-intake
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --disable-pip-version-check Pillow requests
+      - name: Refresh current source
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Download verified Wikimedia source photos
+        run: python scripts/manual_euphorbia_ophthalmica_photos_20261020.py
+      - name: Verify all photo bytes rights and no inferred nativity
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json
+          root=Path("content/taxa/Euphorbiaceae/Euphorbia/euphorbia-ophthalmica")
+          d=json.loads((root/"species.json").read_text())
+          assert d["scientific_name"]=="Euphorbia ophthalmica"
+          assert len(d["images"])==5
+          assert d["images"][0]["license"]=="CC BY-NC"
+          assert d["curation_status"].get("visual_reviewed") is False
+          assert d["field_id_finalization"]["stage"]=="PASS_IN_PROGRESS"
+          assert d["images"][0]["file"]=="images/inat-153476082.jpg"
+          for image in d["images"]:
+            f=root/image["file"]
+            assert f.is_file() and f.stat().st_size>10000
+            with Image.open(f) as im:im.verify()
+          for image in d["images"][1:]:
+            assert "creativecommons.org/licenses/by" in image["license_url"]
+            assert image["creator"] and image["public_reuse"]=="yes"
+            assert image["source_page"].startswith("https://commons.wikimedia.org/wiki/File:")
+            assert image["source_sha256"]
+            assert image["anatomy_arrows"]==[]
+          print("PASS: five real photo files, four verified Commons licenses, no fabricated arrows or native classification.")
+          PY
+      - name: Commit only new photos and relevant source records
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Euphorbiaceae/Euphorbia/euphorbia-ophthalmica/ reports/euphorbia-ophthalmica-commons-photo-intake-20261020.json
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m "Install four licensed Euphorbia ophthalmica diagnostic source photographs"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
