@@ -46,7 +46,10 @@ def photo_rights(record, noncommercial=False):
             noncommercial
             and creator in JOEY_CREATORS
             and str(source or "").startswith("https://www.youtube.com/watch?v=")
-            and frame_id.startswith("jvid-")
+            and bool(re.fullmatch(
+                r"(?:jvid-)?" + re.escape(str(source).split("?v=", 1)[1].split("&", 1)[0]) + r"-[0-9]+",
+                frame_id,
+            ))
         ):
             return None
         return "invalid or out-of-scope Joey creator-permission marker"
