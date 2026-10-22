@@ -1,0 +1,94 @@
+name: Install Jim Conrad Uvalde bushy bluestem public-domain photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-anatherum-bushy-uvalde-jim-conrad-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: hays-physical-anatherum-uvalde-jim-conrad-20261022
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo validator
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Fetch canonical current branch
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify precise public-domain sources, download, process and update
+        run: python scripts/install_anatherum_glomeratum_uvalde_jim_conrad_20261022.py
+      - name: Validate real physical images and unchanged native/identity holds
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json,hashlib
+          root=Path('content/taxa/Poaceae/Anatherum')
+          s=json.loads((root/'anatherum-glomeratum/species.json').read_text())
+          g=json.loads((root/'genus.json').read_text())
+          r=json.loads(Path('reports/anatherum-glomeratum-jim-conrad-uvalde-import-20261022.json').read_text())
+          assert s['id']=='anatherum-glomeratum' and g['project_scope']['species_count']==3
+          assert len(r['files'])==3
+          assert r['result']=='PHYSICALLY_INSTALLED_THREE_JIM_CONRAD_UVALDE_PHOTOS'
+          for x in r['files']:
+              p=Path(x['file'])
+              assert p.is_file() and p.stat().st_size>9000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==x['archived_sha256']
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and min(im.size)>=350
+                  assert not im.getexif().get(34853)
+                  im.verify()
+              entry=next(i for i in s['images'] if i.get('file')=='images/'+p.name)
+              assert entry['creator']=='Jim Conrad' and entry['source_page']=='https://backyardnature.net/n/h/andropog.htm'
+              assert 'Public domain' in entry['license']
+              assert entry['archived_sha256']==x['archived_sha256']
+              assert sum(v['image_url']==x['file'] for v in s['visual_comparison']['items'])==1
+              assert sum(v['image_url']==x['file'] for v in g['visual_comparison']['items'])==1
+          assert len(s['visual_comparison']['items'])==6
+          assert len(g['visual_comparison']['items'])==9
+          assert sum(len(x.get('markers',[])) for x in s['visual_comparison']['items'])==8
+          assert sum(len(x.get('markers',[])) for x in g['visual_comparison']['items'])==8
+          assert len(s['historical_photo_exclusions'])==3
+          assert s['county_occurrences_target_zone']==['Hays','Travis','Williamson']
+          print('PASS: 3 physical JPEGs, actual source/creator/PD credits, 8 visible-only arrows, all original science preserved')
+          PY
+      - name: Commit only scoped photos/metadata/publication marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Anatherum/anatherum-glomeratum/ content/taxa/Poaceae/Anatherum/genus.json
+          git add reports/anatherum-glomeratum-jim-conrad-uvalde-import-20261022.json
+          git add workflow/field-id-publication/2026-10-22-anatherum-bushy-uvalde-three-physical-pd.json
+          if git diff --cached --quiet; then echo 'Already installed; no duplicate commit'; exit 0; fi
+          git commit -m 'Install three Jim Conrad Dry Frio public-domain bushy bluestem photos [skip ci]'
+          for n in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
+      - name: Dispatch rights-filtered public Pages build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --fail-with-body --silent --show-error -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo 'Requested verified public learner release'
