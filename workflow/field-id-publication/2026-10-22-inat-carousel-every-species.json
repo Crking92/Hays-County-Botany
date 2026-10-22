@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "public_site_learner_feature",
+  "title": "Every species gets an optional sideways iNaturalist photo carousel",
+  "user_request": "Add a button for each species allowing side-scroll of iNaturalist photographs.",
+  "merged_pull_request": 33,
+  "merge_commit": "b92f04045a69044eca6b43d555983764642a0ebc",
+  "changed": [
+    "index.html",
+    "assets/js/inat-gallery.js",
+    "assets/css/inat-gallery.css"
+  ],
+  "functionality": [
+    "Click-to-load; top shortcut and lower expand/collapse",
+    "Sideways scrolling with mobile swipe and arrow controls",
+    "Prioritize Hays County, Central Texas and Texas observed plants",
+    "Research Grade, scientific-name matching",
+    "Individual photographer credit, image license and direct iNaturalist source",
+    "Exclude unlicensed/ND/incorrect taxon images",
+    "External visual examples are not canonical field-diagnostic evidence"
+  ],
+  "policy": "Existing rights-filtered noncommercial GitHub Pages pipeline preserved; no species/photo files, taxonomy decisions or automation schedules changed.",
+  "validation": "JavaScript syntax, mock API response license filtering, taxon and observation quality filtering, carousel state after rerender passed. Live iNaturalist service still requires browser availability."
+}
