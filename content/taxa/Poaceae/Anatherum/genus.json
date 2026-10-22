@@ -4,14 +4,15 @@
   "name": "Anatherum",
   "common_group": "Bushy/broomsedge bluestems",
   "project_scope": {
-    "selection_mode": "B030 taxonomy-reconciled comparison",
+    "selection_mode": "Existing three canonical Anatherum species FINISH/ENRICH and genus key only; no first card or native-range reassignment",
     "species_ids": [
       "anatherum-glomeratum",
+      "anatherum-tenuispatheum",
       "anatherum-virginicum"
     ],
-    "species_count": 2,
+    "species_count": 3,
     "holds": [],
-    "note": "Both A. glomeratum and A. virginicum are installed canonical learner species; both species.json records currently carry PASS labels, which are preserved pending any separate scientific review. Familiar aliases are Andropogon glomeratus and Andropogon virginicus. A. glomeratum's current PASS basis lists Williamson County, which is outside the project target-county list; flag for targeted audit rather than changing species-level range decisions here. Do not conflate source-pool A. tenuispatheum with either canonical taxon."
+    "note": "Three species are canonical per current manifest, including A. tenuispatheum installed as a provisional card. Original A. glomeratum county PASS and A. virginicum PASS are preserved; A. glomeratum third-county Williamson outside target, needs separate audit. Historical var. pumilus photo now a taxonomic comparison for A. tenuispatheum, not verified glomeratum."
   },
   "study_strategy": {
     "priority": [
@@ -25,22 +26,32 @@
   },
   "comparison_lesson": {
     "quick_split": [
-      "Anatherum glomeratum (bushy) — a broad dense white-silky brush at upper culm; small paired racemes crowded with leafy spathelets.",
-      "Anatherum virginicum (broomsedge) — more separate narrow spathe-held silky racemes, often a taller narrower flowering outline.",
-      "Schizachyrium scoparium (little) — many SHORT fuzzy racemes dispersed on separate upper leafy branches.",
-      "Andropogon gerardi (big) — a few exposed stout racemes, often turkey-foot.",
-      "Bothriochloa ischaemum (KR) — several relatively slender, elongated terminal fingers; inspect spikelets and leaf collar before removal."
+      "Anatherum glomeratum (bushy) — many short densely grouped white-silky paired racemes in a broad crown; source-confirmed Texas macro still required.",
+      "Anatherum virginicum (broomsedge) — separated narrow silky flowering groups partly enclosed by conspicuous flattened upper spathes; two licensed original photos now in genus panel.",
+      "Anatherum tenuispatheum — distinct accepted taxon, linked to old Andropogon tenuispatheus and old Andropogon glomeratus var. pumilus. Current photo is provisional; use a vouchered measured spathe/raceme/spikelet, NOT old broad bushy habit alone.",
+      "Andropogon gerardi (big bluestem) — few stout exposed turkey-foot branches; canonical under Andropogon, not a duplicate genus member.",
+      "Schizachyrium scoparium (little bluestem) — shorter scattered short silky racemes on upper leafy branches.",
+      "Bothriochloa ischaemum (KR) — introduced, several long slender terminal fingers; leaf collar/spikelet confirms."
     ],
-    "caveat": "Both species are canonical and currently PASS under their existing species-level county decisions. The genus comparison needs matched reproductive photographs; A. virginicum currently lacks an images[] gallery."
+    "caveat": "Current POWO 2026 distinguishes A. tenuispatheum from A. glomeratum, with old var. pumilus under the former. Three species installed in manifest, one provisional taxon photo. No Hays nativity claim recalculated."
   },
   "curation_status": {
     "version": "2.0-two-canonical-comparison-2026-10-14",
     "last_reviewed": "2026-10-21",
-    "bushy_field_pair_lesson_20261021": true
+    "bushy_field_pair_lesson_20261021": true,
+    "photo_panel_reconciliation_20261022": {
+      "canonical_species": 3,
+      "physical_source_pictures": 4,
+      "genus_photo_panels": 5,
+      "panels_anatomically_arrowed": 0,
+      "native_range_untouched": true,
+      "taxonomic_photo_misassociation_flagged": true,
+      "status": "FIELD_READY_PHOTO_GAPS"
+    }
   },
-  "visual_status": "field_comparison_ready_photo_gaps",
+  "visual_status": "FIELD_READY_PHOTO_GAPS — 3 installed species, 5 genus panels with image-level source/license credits, no invented anatomical arrows. Actual same-specimen spathe/raceme/spikelet macros and regionally voucher-confirmed A. glomeratum and A. tenuispatheum still missing.",
   "fast_fill_note": "Anatherum glomeratum now has a 3-image FAST-FILL gallery. Synonym-based images are used only because the canonical record explicitly maps Andropogon glomeratus to accepted Anatherum glomeratum.",
-  "look_here_first": "BUSHY A. glomeratum: dense oblong cottony BRUSH of clustered short paired silky racemes with spathes. BROOMSEDGE A. virginicum: narrower, more individually sheath-held raceme pairs. Open the crown to follow actual structure; fall color is not proof.",
+  "look_here_first": "THREE INSTALLED ANATHERUM BLUESTEMS: true bushy A. glomeratum forms a broad dense silk-brushed crown; broomsedge A. virginicum has more separated narrow partly spathe-enclosed silky pairs. A. tenuispatheum is a third accepted species; do not identify it from fluffy habit alone and do not misapply old 'Andropogon glomeratus var. pumilus' photos to bushy A. glomeratum. At 10–20×, photograph each paired raceme, upper spathe, sessile/pedicellate spikelets, true hairs and measurable awns. Keep uncertain plants Anatherum sp.",
   "shared_genus_traits": [
     "Warm-season perennial tufted grasses with leaf sheaths, ligules and narrow blades.",
     "Upper culms bear inflorescence units subtended by spathe-like leafy sheaths.",
@@ -49,36 +60,36 @@
   ],
   "species_comparison_matrix": [
     {
-      "character": "Whole flowering crown",
-      "anatherum-glomeratum": "Broad, densely clustered brushlike/cottony terminal mass; shortened upper branches crowded together.",
-      "anatherum-virginicum": "Narrower, looser or elongated flowering outline; raceme units distributed along upper branches."
+      "character": "Current canonical identity",
+      "anatherum-glomeratum": "Accepted A. glomeratum (older Andropogon glomeratus at species rank)",
+      "anatherum-virginicum": "Accepted A. virginicum (older Andropogon virginicus)",
+      "anatherum-tenuispatheum": "Accepted A. tenuispatheum (older Andropogon tenuispatheus and A. glomeratus var. pumilus)"
     },
     {
-      "character": "Rame versus spathe",
-      "anatherum-glomeratum": "Paired silky rames often reach or protrude from subtending spathes; crowded units form the bushy crown.",
-      "anatherum-virginicum": "Short paired or grouped rames mostly partly enclosed by conspicuous flattened spathe-like sheaths."
+      "character": "Gross flowering head",
+      "anatherum-glomeratum": "Broad dense crowded silvery/cottony paired raceme brush",
+      "anatherum-virginicum": "Narrower, more distinctly separated spathe-held silky racemes",
+      "anatherum-tenuispatheum": "Do not teach a species-proof head silhouette from current archived gallery; compare mature documented spathes and rames"
     },
     {
-      "character": "Rame and sheath size (supporting)",
-      "anatherum-glomeratum": "Rames commonly 1–3 cm, with spathes of roughly similar length in older regional treatments.",
-      "anatherum-virginicum": "Rames commonly 1–3 cm; spathes often about 2.5–6 cm. Size overlaps; inspect exposure and architecture."
+      "character": "Most important macro",
+      "anatherum-glomeratum": "Match true dense paired-raceme crown and spathe against labelled Texas voucher",
+      "anatherum-virginicum": "Label one intact upper flattened spathe with paired racemes of same stem",
+      "anatherum-tenuispatheum": "Voucher-confirmed mature spathe/raceme + sessile/pedicellate spikelet dimensions, not historical var. pumilus habit"
     },
     {
-      "character": "Growth context (secondary only)",
-      "anatherum-glomeratum": "Frequently low, moist drainage edges, ditches and pond margins.",
-      "anatherum-virginicum": "Frequently upland old fields, sandy/disturbed ground; can also occur near bushy bluestem."
-    },
-    {
-      "character": "Useful close-up",
-      "anatherum-glomeratum": "Photograph a dense group of paired rames at the upper node and their enclosing spathes.",
-      "anatherum-virginicum": "Photograph one separated inflorescence unit with spathe, paired rames and their exposed lengths."
+      "character": "Current photo-evidence confidence",
+      "anatherum-glomeratum": "Archived CC0 pressed source-determined glomeratum; exact macro not verified",
+      "anatherum-virginicum": "2 physically archived CC BY species-labelled photographs, no new macro arrows",
+      "anatherum-tenuispatheum": "1 physically archived CC BY-NC provisional source photo + 1 Hawaiian historical var. pumilus comparison-only"
     }
   ],
   "quick_comparison_steps": [
-    "1. Start with the whole mature inflorescence: dense rounded brush (glomeratum) versus more elongated and separated units (virginicum).",
-    "2. Zoom in on one paired-rame unit and label the spathe, peduncle and two rames.",
-    "3. Compare whether rames are protruding or mostly sheath-enclosed; inspect several units because development changes exposure.",
-    "4. If uncertain, photograph mature spikelets, sheath attachment and full plant; do not identify by dry-season orange color or habitat alone."
+    "1. WHOLE plant: decide broad crowded brush versus separate spathe-held upper flowering units; do not use winter orange color as species proof.",
+    "2. CURRENT NAMES: keep A. glomeratum, A. virginicum and A. tenuispatheum distinct; check old Andropogon synonyms, especially var. pumilus.",
+    "3. SOURCE PHOTO: use only source-labelled glomeratum museum image for bushy; source-labelled Hawaiian var. pumilus belongs to a DIFFERENT modern taxon concept and remains comparison-only.",
+    "4. SCALE: on same vouchered plant photograph intact spathe, two rames, paired sessile/pedicellate spikelet positions, rachis hairs and awn with millimeter scale.",
+    "5. If uncertain, Anatherum sp. / bluestem candidate. Do not act on native/introduced management decisions without species determination and separate county-range review."
   ],
   "overlap_and_cautions": [
     "Both have silky hairs, paired rames and similar spikelet sizes; those shared traits do not separate the species.",
@@ -87,7 +98,8 @@
     "Wet versus dry habitat is supporting context only; broomsedge and bushy bluestem can grow together.",
     "A. virginicum is already canonical with species-level PASS status. The older genus-level HOLD text was stale and is superseded by the species record.",
     "The live Master Plant Pool currently lists the two canonical concepts under familiar Andropogon source names; its Anatherum genus row instead counts Anatherum tenuispatheum. Do not manually overwrite Genus Study Index formula columns C:M to mask this source-name mismatch.",
-    "Range data integrity: A. glomeratum species.json lists Hays, Travis and Williamson as three target counties, but Williamson is not in PROJECT_RULES.md target zone. Treat its current PASS as a recorded species status requiring targeted Taxonomy + Diagnostic Review; do not use this genus lesson to independently certify a third target county."
+    "Range data integrity: A. glomeratum species.json lists Hays, Travis and Williamson as three target counties, but Williamson is not in PROJECT_RULES.md target zone. Treat its current PASS as a recorded species status requiring targeted Taxonomy + Diagnostic Review; do not use this genus lesson to independently certify a third target county.",
+    "IMPORTANT CURRENT POWO SPLIT (2026): Andropogon glomeratus (unranked binomial) is synonym of Anatherum glomeratum, but Andropogon glomeratus var. pumilus is synonym of a SEPARATELY ACCEPTED species, Anatherum tenuispatheum. This makes old Hawaiian var. pumilus photo records unsuitable as A. glomeratum species-example evidence. A. tenuispatheum also differs from A. virginicum (Andropogon virginicus). Never collapse these three canonical installed species or recertify county nativity from image names. Review A. glomeratum existing county PASS separately; its recorded Williamson County is outside project target zone."
   ],
   "local_source_pool_lookalikes": [
     {
@@ -151,18 +163,31 @@
         "anatherum-virginicum"
       ],
       "annotation": "compare turkey-foot open digitate racemes to spathe-enclosed Anatherum units"
+    },
+    {
+      "role": "taxonomy concept comparison for historical Andropogon glomeratus var. pumilus",
+      "taxa": [
+        "anatherum-glomeratum",
+        "anatherum-tenuispatheum"
+      ],
+      "annotation": "Do NOT attribute var. pumilus photos to A. glomeratum under current POWO; require independently verified local vouchers"
     }
   ],
   "existing_media_references": [
     {
       "species_id": "anatherum-glomeratum",
       "source": "content/taxa/Poaceae/Anatherum/anatherum-glomeratum/species.json",
-      "note": "Hawaiian var. pumilus Commons images are not independently species-diagnostic Hays photos; CC0 pressed source-determined specimen exists. See corrected field_id_finish_pass and visual_comparison."
+      "note": "Original CC0 museum specimen retained; historical Hawaiian var. pumilus image correctly relabelled separate A. tenuispatheum taxon comparison, no micro arrows."
     },
     {
       "species_id": "anatherum-virginicum",
       "source": "content/taxa/Poaceae/Anatherum/anatherum-virginicum/species.json",
-      "note": "No images[] gallery currently; diagnostic photo acquisition remains needed."
+      "note": "Two physical source-labelled CC BY images already present, integrated into species/genus panels with exact rights; field-only, no invented anatomy arrows."
+    },
+    {
+      "species_id": "anatherum-tenuispatheum",
+      "source": "content/taxa/Poaceae/Anatherum/anatherum-tenuispatheum/species.json",
+      "note": "One public noncommercial CC BY-NC original taxon photo, plus explicitly separate Hawaiian historical var. pumilus image, Kew synonym verified, diagnosis provisional."
     }
   ],
   "handoffs": [
@@ -181,6 +206,10 @@
     {
       "lane": "Taxonomy + Diagnostic Review",
       "task": "Check A. glomeratum species.json county_occurrences_target_zone (Hays, Travis, Williamson): Williamson is not a project target county. Find a third exact in-zone county or correct species-level native-range classification in taxonomy lane. Do not infer it from statewide occurrence or silently change status in genus lane."
+    },
+    {
+      "lane": "Taxonomy + BONAP native-range audit",
+      "task": "Review A. glomeratum project PASS because documented counties Hays, Travis, Williamson have only two qualifying target-zone counties and current Kew country/state listing does not explicitly support Texas. Preserve existing PASS until owning reviewer supplies BONAP county evidence. Do not turn A. tenuispatheum into a presumed local native from Kew state-level Texas listing."
     }
   ],
   "sources": [
@@ -198,6 +227,97 @@
       "title": "Texas A&M Plants of Texas Rangelands broomsedge",
       "url": "https://rangeplants.tamu.edu/plant/broomsedge-bluestem/",
       "scope": "local habitat and upper sheath architecture"
+    },
+    {
+      "title": "Kew POWO — A. tenuispatheum accepted name and synonyms incl var. pumilus",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1",
+      "scope": "accepted separate taxon from A. glomeratum; historical var. pumilus mapped here"
+    },
+    {
+      "title": "Kew POWO — A. glomeratum accepted",
+      "url": "https://powo.science.kew.org/taxon/77339188-1",
+      "scope": "distinct accepted species and Andropogon glomeratus binomial synonym"
     }
-  ]
+  ],
+  "visual_comparison": {
+    "title": "ANATHERUM — three canonical bluestems, correct taxon labels",
+    "subtitle": "Five photographic comparison panels from existing locally archived media and licensed historical Commons source: true bushy source specimen (1), broomsedge (2), tenuispatheum (1), historic Midway var. pumilus (1). Zero new anatomical arrows until pixel-confirmed.",
+    "memory_rule": "DENSE BRUSH = bushy candidate; SEPARATE SPATHES = broomsedge candidate; VAR. PUMILUS HISTORICAL PHOTO = tenuispatheum name, NOT glomeratum. Actual paired racemes and hairy spikelet anatomy complete the ID.",
+    "items": [
+      {
+        "image_fit": "contain",
+        "markers": [],
+        "label": "BUSHY BLUESTEM — archival source-determined specimen (provisional)",
+        "scientific_name": "Anatherum glomeratum",
+        "image_url": "content/taxa/Poaceae/Anatherum/anatherum-glomeratum/images/library-review023-4f904cecc94a127.jpg",
+        "image_role": "Already archived CC0 museum specimen determined Andropogon glomeratus (synonym of A. glomeratum); image anatomy not independently verified.",
+        "caption": "This archived pressed specimen bears the historic A. glomeratus identification. Its exact dense-crown and paired-raceme anatomy has not yet been visually checked at native image resolution. Use the genus morphology lesson but do not use this picture alone as a species-proof voucher.",
+        "why_it_matters": "Provides source-labelled botanical context without borrowing a Hawaiian photo belonging to a different accepted taxonomic concept.",
+        "creator": "Ingrid P. Lin",
+        "license": "CC0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "source_page": "https://www.gbif.org/occurrence/3960439471",
+        "photo_status": "Existing local JPEG, source identified under Andropogon glomeratus; anatomical arrows remain pending actual pixel QA, no change to accepted identity/range decisions."
+      },
+      {
+        "image_fit": "contain",
+        "markers": [],
+        "label": "BROOMSEDGE — slender branches on photographed flowering culm",
+        "scientific_name": "Anatherum virginicum",
+        "image_url": "content/taxa/Poaceae/Anatherum/anatherum-virginicum/images/inat-750285705-first-photo.jpg",
+        "image_role": "Existing physically archived CC BY source photo of source-determined broomsedge showing narrow reddish culms and slender upper branches; spikelet organ detail not certified.",
+        "caption": "Look for narrow, rather separate flowering branches carrying short racemes partly enclosed in the leafy spathes of the upper stem. Seasonal orange-red colors support recognition only. This photograph has not been reviewed closely enough to label an actual spathe, fertile sessile spikelet, pedicellate position or ligule.",
+        "why_it_matters": "Gives the genus lesson its first canonical broomsedge field context instead of comparing two textual paragraphs.",
+        "creator": "haydenmolo",
+        "license": "CC BY",
+        "source_page": "https://www.inaturalist.org/photos/750285705",
+        "photo_status": "Archived research-grade determined source; prior metadata describes pixels as reviewed for provisional habit only. No anatomy arrows without fresh pixel check."
+      },
+      {
+        "image_fit": "contain",
+        "markers": [],
+        "label": "BROOMSEDGE — additional licensed species-labelled photograph",
+        "scientific_name": "Anatherum virginicum",
+        "image_url": "content/taxa/Poaceae/Anatherum/anatherum-virginicum/images/gbif-manual-5938030520-130443b8a.jpg",
+        "image_role": "Second physically archived CC BY source-determined broomsedge gallery image, organ-specific role unverified.",
+        "caption": "Second broomsedge gallery perspective kept as provisional for user checking on the public species page. Until verified, do not claim the tiny leaf collar, paired racemes or spikelet hairs are visible.",
+        "why_it_matters": "Puts the existing photographed taxon alongside bushy bluestem for useful first-pass comparison, while clearly documenting the precise missing macro.",
+        "creator": "Lauren McLaurin",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_page": "https://www.gbif.org/occurrence/5938030520",
+        "photo_status": "Existing local archived GBIF/iNaturalist image with per-photo source and CC BY 4.0 in intake. No new organ arrows; PROVISIONAL — USER PHOTO REVIEW PENDING."
+      },
+      {
+        "image_fit": "contain",
+        "markers": [],
+        "label": "A. TENUISPATHEUM — source-identified provisional grass photograph",
+        "scientific_name": "Anatherum tenuispatheum",
+        "image_url": "content/taxa/Poaceae/Anatherum/anatherum-tenuispatheum/images/inat-171915634.jpg",
+        "image_role": "One existing physically archived CC BY-NC source-determined specimen; diagnostic reproductive anatomy not inspected.",
+        "caption": "This third canonical Anatherum species is a distinct accepted taxon, not a second broomsedge or a duplicate glomeratum installation. The existing source label is provisional without a matched flowering unit, narrow spathe, paired mature spikelets and scale.",
+        "why_it_matters": "Corrects the earlier two-species genus coverage omission and lets crew learners see the independent third species card.",
+        "creator": "Linda Jo Conn",
+        "license": "CC BY-NC",
+        "source_page": "https://www.inaturalist.org/photos/171915634",
+        "photo_status": "Existing archived licensed photo, scientific source determination not independently vouched. PROVISIONAL — USER PHOTO REVIEW PENDING; no diagnostic arrows."
+      },
+      {
+        "image_fit": "contain",
+        "markers": [],
+        "label": "HISTORICAL var. pumilus — Kew places this name under A. tenuispatheum",
+        "scientific_name": "Anatherum tenuispatheum",
+        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Starr-150330-0402-Andropogon%20glomeratus%20var%20pumilus-habit-Parade%20Field%20Sand%20Island-Midway%20Atoll%20%2840428508425%29.jpg",
+        "image_role": "Different accepted taxon name under 2026 POWO: Andropogon glomeratus var. pumilus is a synonym of Anatherum tenuispatheum; original photo identified from Midway Atoll; taxon identity not independently vouchered.",
+        "caption": "This exact Hawaiian image was formerly displayed as bushy bluestem (A. glomeratum), but the source explicitly calls it Andropogon glomeratus var. pumilus. POWO 2026 assigns that name to A. tenuispatheum. It must NOT be shown as verified ordinary A. glomeratum from Hays County. Image remains historical comparison-only until photo source and plant determination are independently checked.",
+        "why_it_matters": "Avoids training crews on the wrong accepted taxon from older synonym-based photographs.",
+        "creator": "Forest & Kim Starr",
+        "license": "CC BY 3.0 US",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/us/",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Starr-150330-0402-Andropogon_glomeratus_var_pumilus-habit-Parade_Field_Sand_Island-Midway_Atoll_(40428508425).jpg",
+        "photo_status": "Historic source category under var. pumilus, synonym explicitly mapped by Kew to A. tenuispatheum; provenance Midway Hawaii, not Hays; comparison only. No structural arrows; no inference of species-confirmed original pixels."
+      }
+    ],
+    "overlay_note": "2026-10-22: 3/3 canonical existing species represented, five credited panels. Four preexisting archived JPGs, one historical licensed external photo. No new bytes, range statuses, or arrows. Original rights and provenance preserved; ambiguous species and pixels explicitly provisional."
+  }
 }
