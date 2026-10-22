@@ -1,0 +1,80 @@
+{
+  "batch_id": "grass-bothriochloa-torreyana-laguroides-boundary-2026-10-22-001",
+  "date_checked": "2026-10-22",
+  "lane": "taxonomy-only",
+  "family": "Poaceae",
+  "source_pool_spelling": "Bothriochloa laguroides (legacy source-pool label; infraspecific identity cannot be inferred from bare binomial)",
+  "canonical_taxon_id": "bothriochloa-torreyana",
+  "canonical_species_path": "content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/species.json",
+  "canonical_species_blob_sha_read_only": "372e5d60fa63dbbee27e9b0a43f426acb3b714f6",
+  "decisions": [
+    {
+      "source_name": "Bothriochloa torreyana (Steud.) Scrivanti & Anton",
+      "accepted_name": "Bothriochloa torreyana (Steud.) Scrivanti & Anton",
+      "rank": "species",
+      "genus": "Bothriochloa",
+      "family": "Poaceae",
+      "name_status": "ACCEPTED",
+      "decision": "retain existing canonical card; no rename",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77113531-1"
+    },
+    {
+      "source_name": "Bothriochloa laguroides subsp. torreyana (Steud.) Allred & Gould",
+      "accepted_name": "Bothriochloa torreyana (Steud.) Scrivanti & Anton",
+      "rank": "subspecies to accepted species",
+      "genus": "Bothriochloa",
+      "family": "Poaceae",
+      "name_status": "SYNONYM_TO_ACCEPTED",
+      "decision": "historical explicitly qualified torreyana maps to existing canonical concept, not a second card",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35198-2"
+    },
+    {
+      "source_name": "Bothriochloa laguroides var. torreyana (Steud.) M.Marchi & Longhi-Wagner",
+      "accepted_name": "Bothriochloa torreyana (Steud.) Scrivanti & Anton",
+      "rank": "variety to accepted species",
+      "genus": "Bothriochloa",
+      "family": "Poaceae",
+      "name_status": "SYNONYM_TO_ACCEPTED",
+      "decision": "qualified torreyana maps to canonical concept",
+      "source": "https://powo.science.kew.org/taxon/20000604-1"
+    },
+    {
+      "source_name": "Dichanthium torreyanum (Steud.) D.L.Fu",
+      "accepted_name": "Bothriochloa torreyana (Steud.) Scrivanti & Anton",
+      "rank": "species combination to accepted species",
+      "genus": "Dichanthium (historical combination)",
+      "family": "Poaceae",
+      "name_status": "SYNONYM_TO_ACCEPTED",
+      "decision": "2024 combination is not a separate species card",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77361699-1"
+    },
+    {
+      "source_name": "Bothriochloa laguroides (DC.) Herter",
+      "accepted_name": "Bothriochloa laguroides (DC.) Herter",
+      "rank": "species",
+      "genus": "Bothriochloa",
+      "family": "Poaceae",
+      "name_status": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "decision": "distinct accepted species; do NOT globally alias unqualified laguroides to torreyana; original source concept must be checked before identity mapping; no new card from this audit",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35197-2"
+    }
+  ],
+  "authority_note": "POWO / WCVP 2026 accepts torreyana and laguroides as distinct species; POWO cites Scrivanti, Norrmann & Anton (2013), Phytotaxa 89:24–42, as species-boundary evidence for torreyana.",
+  "source_pool_reconciliation": "Existing canonical species note already documents project-specific legacy B. laguroides merge into B. torreyana. This evidence does not reverse or broaden that historical project decision. Bare B. laguroides records from other sources remain identity-sensitive.",
+  "scientific_guardrails": {
+    "original_scientific_PASS_FAIL_HOLD_UNRESOLVED": "UNCHANGED",
+    "native_range_audit": "DEFERRED",
+    "specimen_or_photo_identity": "NOT VERIFIED",
+    "taxonomic_holds": "Preserve source-observation identity caution for unqualified Bothriochloa laguroides; no automatic new taxon admission",
+    "other_workers_files_modified": false
+  },
+  "canonical_changes": [],
+  "intended_handoff": "Search/alias reconciliation may use exact torreyana-qualified names and Dichanthium torreyanum. Require source-level identity review for unqualified B. laguroides; do not merge distinct species or install from this evidence.",
+  "references": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77113531-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35197-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35198-2",
+    "https://powo.science.kew.org/taxon/20000604-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77361699-1"
+  ]
+}
