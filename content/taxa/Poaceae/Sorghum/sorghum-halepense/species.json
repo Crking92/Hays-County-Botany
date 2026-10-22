@@ -5,7 +5,7 @@
   "species": "halepense",
   "scientific_name": "Sorghum halepense",
   "common_name": "Johnsongrass",
-  "look_here_first": "LOOSE PURPLISH OPEN PANICLE + VERY OBVIOUS PALE WHITE LEAF MIDRIB are quick clues. CONFIRM by gently exposing an underground RHIZOME: thick, cream-white to tan, SCALE-COVERED horizontal stems with true joints/nodes, buds and attached shoots. At the COLLAR the ligule is a 2–6 mm MEMBRANE often conspicuously fringed with hairs; no auricles. Under a 10× lens a short terminal raceme shows spikelets in PAIRS: a shiny, fertile SESSILE (directly attached) spikelet alongside a PEDICELLATE (stalked) companion. Distinguish from desirable native Indiangrass and switchgrass before removal. A midrib or panicle silhouette alone is not enough.",
+  "look_here_first": "JOHNSONGRASS (INTRODUCED, INVASIVE): rather tall PERENNIAL Sorghum with broad flat leaves sometimes showing pale white midrib and often an OPEN purplish panicle. Neither color nor a white midrib proves ID. STRONG CONFIRMATION is long, creeping, jointed SCALY UNDERGROUND RHIZOMES with root-bearing nodes, seen in the existing actual Austin source photo. A true collar photo shows a fringe of hairs at the membranous ligule region (membrane length not measured). Fertile sessile spikelet plus companion pedicelled unit needs an intact mature macro. Don't dig or transport viable rhizome fragments unnecessarily.",
   "curation_status": {
     "taxonomy_reviewed": true,
     "visual_reviewed": false,
@@ -30,9 +30,10 @@
     "manual_annotations": "2026-10-20 three clear source-SHA-vetted labels created for midrib, feathery stigma and red panicle. Post-commit full pixel review required.",
     "annotated_gallery_pixel_review": "2026-10-20: full-size committed real JPEGs inspected, re-rendered on source SHA matching originals. Pale midrib arrow landed on actual bright central vein (shifted after first QA), red panicle arrow on reddish branching inflorescence, feathery stigma arrow on visible branching style tissue. No false rhizome/ligule/full paired spikelet labels.",
     "field_training_status": "READY_FOR_CREW_RECOGNITION; RHIZOME_LIGULE_AND_COMPLETE_PAIR_MACRO_PENDING",
-    "field_visual_sync_20261022": "Five pre-existing verified source-labelled photo roles assembled, no new arrows or image bytes, still lacks matched underground/collar/spikelet macros."
+    "field_visual_sync_20261022": "Five pre-existing verified source-labelled photo roles assembled, no new arrows or image bytes, still lacks matched underground/collar/spikelet macros.",
+    "manual_johnsongrass_rhizome_field_upgrade_20261022": "FIELD_READY_PHOTO_GAPS"
   },
-  "photo_note": "2026-10-20 user-directed field-ID text pass. Existing 2 actual published-safe GBIF photo JPEGs opened and inspected; only panicle roles visible. Historical third CC BY-NC image of human hand without identifiable plant intentionally EXCLUDED, preserved as audit record. Additional exact-species source-licensed photos now in screening, no new photos prematurely counted. 2026-10-20: six source-licensed Texas source photos added after 48-image visual screen; historical hand-only CC BY-NC remains outside displayed gallery. 8 actual photos, provisional identification confidence. 2026-10-20: Commons rhizome and collar partial-anatomy photos added under verified CC BY-SA 4.0 and CC BY-SA 2.0 source licensing; no new unverified arrow. Total ten.",
+  "photo_note": "2026-10-20 user-directed field-ID text pass. Existing 2 actual published-safe GBIF photo JPEGs opened and inspected; only panicle roles visible. Historical third CC BY-NC image of human hand without identifiable plant intentionally EXCLUDED, preserved as audit record. Additional exact-species source-licensed photos now in screening, no new photos prematurely counted. 2026-10-20: six source-licensed Texas source photos added after 48-image visual screen; historical hand-only CC BY-NC remains outside displayed gallery. 8 actual photos, provisional identification confidence. 2026-10-20: Commons rhizome and collar partial-anatomy photos added under verified CC BY-SA 4.0 and CC BY-SA 2.0 source licensing; no new unverified arrow. Total ten. 2026-10-22: source rhizome, collar and full panicle images pixel-inspected. Actual root stem nodes shown; precise buds, ligule mm and paired spikelets not certified, no invented arrows or science/range changes.",
   "taxonomy_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422139-1",
   "images": [
     {
@@ -298,11 +299,11 @@
     }
   ],
   "learner_visual_status": {
-    "status": "provisional_learner_ready",
+    "status": "field_ready_photo_gaps",
     "mode": "species_photo_enriched_ten_real_images_rhizome_and_ligule_partial",
     "image_count": 10,
     "filled_at": "2026-10-16",
-    "note": "10 publicly reusable attributed real photographs, including CC BY-SA Austin rhizome and photographed hairy collar. Three earlier arrows remain manually pixel-verified. No new unverified arrows. Full exposed ligule membrane with measurement, rhizome buds macro, and complete spikelet pair still pending."
+    "note": "Five actual source-labelled diagnostic panels (including real rhizome and collar) field-ready; mature paired spikelet macro, measured ligule and rhizome bud scale still pending."
   },
   "unresolved_photo_references": [
     {
@@ -349,7 +350,13 @@
     "roots": "Fine fibrous roots from stem bases and rhizome nodes; lateral root ≠ rhizome unless buds and stem joints are present.",
     "season": "Warm-season growth and flowering/seed production; returns from rhizomes after frost and mowing when viable.",
     "habitat": "Roadside grass edges, disturbed sunny prairie and restoration beds, drainages, wet ditches and stream banks, cultivated fields, disturbed grassland patches. Introduced throughout Texas.",
-    "caution": "Perennial rhizomes and open panicle distinguish it from many natives/annuals only as combined characters; shattercane and sorghum hybrids can overlap."
+    "caution": "Perennial rhizomes and open panicle distinguish it from many natives/annuals only as combined characters; shattercane and sorghum hybrids can overlap.",
+    "what_to_photograph_for_confirmation": [
+      "Actual segmented underground rhizome with distinct nodes, buds/scales and 1-cm scale (safe handling, avoid propagation)",
+      "Unfolded collar 10× with true whole membrane edge and ruler",
+      "One intact mature sessile fertile and pedicelled spikelet pair, mm scale",
+      "Whole plant including inflorescence, leaf white midrib and base from same ID-vouchered specimen"
+    ]
   },
   "comparisons": {
     "confused_with": [
@@ -480,16 +487,25 @@
   ],
   "field_id_finalization": {
     "review_date": "2026-10-20",
-    "stage": "PROVISIONAL",
+    "stage": "FIELD_READY_PHOTO_GAPS",
     "flags": [
-      "NEEDS_DIAGNOSTIC_PHOTO"
+      "NEEDS_PAIRED_SPIKELET_MACRO",
+      "NEEDS_MEASURED_LIGULE",
+      "NEEDS_BUD_NODE_MACRO"
     ],
     "accepted_name_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422139-1",
     "diagnostic_sources": [
       "https://cals.cornell.edu/weed-science/weed-profiles/johnsongrass",
       "https://sorghum.ucdavis.edu/sites/g/files/dgvnsk14556/files/inline-files/301894.pdf"
     ],
-    "photo_review": "2026-10-20: 10 real credited CC BY / CC BY-SA files. Two Commons photos added: clear pale segmented rhizome and hairy collar/ligule fringe. No new arrows or false measurable membrane claims. Three earlier annotated source-verified arrows remain. Complete paired spikelet macro, measurable ligule membrane and node/bud closeup are pending; two old photograph license versions to reconfirm."
+    "photo_review": "Actual existing Austin source rhizome, true collar region and whole red panicle visually re-examined. Real joints and root attachment on underground rhizome verified; exact buds and membrane length unmeasured. Pair spikelet macro still missing; original preprinted arrows unchanged.",
+    "photo_gaps": [
+      "Actual segmented underground rhizome with distinct nodes, buds/scales and 1-cm scale (safe handling, avoid propagation)",
+      "Unfolded collar 10× with true whole membrane edge and ruler",
+      "One intact mature sessile fertile and pedicelled spikelet pair, mm scale",
+      "Whole plant including inflorescence, leaf white midrib and base from same ID-vouchered specimen"
+    ],
+    "original_taxonomy_native_exclusion_preserved": true
   },
   "entry_type": "species",
   "authority": "(L.) Pers.",
@@ -666,5 +682,14 @@
       }
     ],
     "overlay_note": "Existing original CC BY/CC BY-SA photo files linked for the public learner, old printed arrows preserved. Missing matched Johnsongrass/bicolor subterranean crowns and millimeter paired spikelets remain. No new image bytes."
+  },
+  "field_id_finish_pass": {
+    "stage": "FIELD_READY_PHOTO_GAPS",
+    "true_local_image_records": 10,
+    "physical_teaching_panels": 5,
+    "spikelet_macro_status": "NEEDS_PHOTO",
+    "root_and_collar_pixel_check": "PASSED",
+    "new_image_files": 0,
+    "new_arrows": 0
   }
 }
