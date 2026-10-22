@@ -28,6 +28,22 @@ ALLOWED_DATA = {
     "manifest.json", "project.json", "learning-layer.json", "lesson-index.json"
 }
 OWNER = {"calvin king", "glass root garden", "calvin king / glass root garden"}
+JOEY_CREDITED_PERMISSION = "JOEY_CREDITED_PUBLIC_LEARNER_20261021"
+JOEY_CREATORS = {"joey santore", "joey santore / crime pays but botany doesn't"}
+
+
+def credited_joey_frame(item: dict, noncommercial: bool) -> bool:
+    """User-attested site-specific permission; NOT a change to the source license."""
+    creator = str(item.get("creator") or "").strip().lower()
+    source = str(item.get("source_page") or "").strip()
+    frame_id = str(item.get("source_record_id") or "").strip()
+    return (
+        noncommercial
+        and item.get("site_specific_public_permission") == JOEY_CREDITED_PERMISSION
+        and creator in JOEY_CREATORS
+        and source.startswith("https://www.youtube.com/watch?v=")
+        and frame_id.startswith("jvid-")
+    )
 
 
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
@@ -48,6 +64,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         # Public display on this learner was expressly granted by the owner,
         # including older 'private' metadata: DO NOT rewrite historic licenses.
         return True, "Glass Root Garden photo: site-specific owner permission"
+    if credited_joey_frame(item, noncommercial):
+        return True, "Joey frame: credited noncommercial site permission"
     if reuse in {"no", "false", "private", "private_study_only"}:
         return False, "explicit private-use / no-public-reuse restriction"
     if not creator and not re.search(r"cc\s*0|cc0|public domain|\bpd\s*mark\b", license_text):
@@ -116,6 +134,10 @@ def build(root: Path, noncommercial: bool) -> dict:
             else:
                 file.unlink()
 
+    grant = json.loads((root / "workflow" / "JOEY_PHOTO_CREDITED_PUBLIC_PERMISSION_20261021.json").read_text(encoding="utf-8"))
+    if grant.get("authorization_id") != JOEY_CREDITED_PERMISSION:
+        raise RuntimeError("Joey permission registry ID mismatch; cannot publish its media")
+    permitted_frames = set(grant.get("authorized_images", []))
     approved_paths: set[Path] = set()
     holds = []
     tally = Counter()
@@ -135,6 +157,15 @@ def build(root: Path, noncommercial: bool) -> dict:
             if not path.is_relative_to(site) or not path.is_file():
                 holds.append({"species": doc.get("id"), "reason": "missing or unsafe photo file"})
                 continue
+            # Only enumerated historic original Joey frames gain the user-attested
+            # site-specific credit exception. A filename match alone is NOT enough:
+            # creator + video origin + frame ID must also match.
+            key = str(doc.get("id") or "") + "/" + filename
+            if key in permitted_frames:
+                candidate = dict(img)
+                candidate["site_specific_public_permission"] = JOEY_CREDITED_PERMISSION
+                if credited_joey_frame(candidate, noncommercial):
+                    img = candidate
             ok, reason = rights(img, noncommercial)
             if not ok:
                 tally["excluded_rights"] += 1
@@ -150,6 +181,15 @@ def build(root: Path, noncommercial: bool) -> dict:
                 holds.append({"species": doc.get("id"), "photo": filename, "reason": "unreadable public photo: " + str(exc)[:100]})
                 continue
             approved_paths.add(path)
+            if credited_joey_frame(img, noncommercial):
+                # The source's old private-study statement stays intact on main.
+                # The generated public-site copy gives visitors an accurate,
+                # visible permission/attribution note instead.
+                img = dict(img)
+                img["historical_license_label"] = img.get("license")
+                img["historical_public_reuse_label"] = img.get("public_reuse")
+                img["license"] = "Credited educational website use (permission reported by project owner)"
+                img["public_reuse"] = "yes — site-specific user-attested creator permission"
             accepted.append(img)
             tally["approved_photos"] += 1
             tally["rights_" + reason[:24]] += 1
