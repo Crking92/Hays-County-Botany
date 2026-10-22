@@ -17,7 +17,7 @@
     "source_pool_crosswalk": "The live Master Plant Pool still indexes these two under Tridens; they are already installed as accepted Tridentopsis species. Do not create duplicate cards. Tridens eragrostoides is a separate unresolved historical source-pool name and is NOT silently included in this two-species comparison.",
     "native_range_guardrail": "Both canonical records retain provisional target-zone range labels and remain excluded from confirmed-native metrics."
   },
-  "look_here_first": "On a mature flowering stem, inspect the WHOLE PANICLE before looking at color: widely separated, spreading branches and an open, broadly ovate outline suggest T. buckleyana; closely ascending branches making a very narrow, nearly spike-like panicle suggest T. mutica. Then count florets on several intact spikelets and inspect the three-veined lemma under magnification.",
+  "look_here_first": "TRIDENTOPSIS: inspect the ENTIRE flowering panicle. T. buckleyana has a genuinely OPEN, OVATE head with long separated, spreading or ascending branches (shown by the Buckleyana source photo); T. mutica has a very narrow, almost SPIKE-LIKE head with short erect appressed branches (shown by three source photos). Species separation needs MORE: count 3–5 versus 5–11 fertile florets in 3 intact mature spikelets, and inspect 3-nerve lemma hairs under magnification. 5 florets and 8–10 mm spikelet lengths OVERLAP. Both retain provisional county status.",
   "shared_genus_traits": [
     "Warm-season perennial grasses with sheathed leaves, a ligule at the blade/sheath junction, and panicles of laterally compressed multi-flowered spikelets.",
     "Each floret is enclosed by a lemma and palea; outer glumes remain distinguishable. Both species have three-veined lemmas and can show basal lemma pubescence.",
@@ -75,15 +75,16 @@
     }
   ],
   "quick_comparison_steps": [
-    "Confirm grass anatomy at a node and ligule, then isolate a true multi-flowered spikelet.",
-    "Photograph the entire mature panicle from the side; open/spreading vs tightly contracted is the primary split.",
-    "Count fertile florets on three intact spikelets; 3–4 supports buckleyana, 6–11 supports mutica; a count of 5 is not decisive.",
-    "Measure spikelet length, but do not use 8–10 mm as a standalone decision.",
-    "Dissect a mature floret and label the three lemma veins and hair placement; leave an uncertain specimen at Tridentopsis sp. rather than force a name."
+    "OPEN WHOLE PANICLE and measure its proportions: buckleyana's primary branches stand far apart; mutica is a slender erect near-spike.",
+    "Find a complete mature 1–multi-flowered spikelet rather than a stray bract; count 3 ripe heads: usually 3–5 fertile florets for buckleyana, 5–11 for mutica.",
+    "A count of exactly 5 and a spikelet 8–10 mm are NOT diagnostic; photograph floret arrangement and lateral compression and use a mature specimen.",
+    "At 10–20× inspect the back of an actual detached LEMMA and its three nerves and pubescent regions. Do not label hairs unseen in current photos.",
+    "Ligules in both taxa are short ciliate membranes (roughly 0.5–1 mm); useful grass morphology, NOT a split.",
+    "Historical Tridens names are synonyms of already installed Tridentopsis cards and not new admissions; retain range metrics exclusion."
   ],
   "overlap_and_cautions": [
     "Both species are perennial bunchgrasses; height, blade width, ligule length, purple tinge, and spikelet length overlap.",
-    "T. buckleyana's existing provisional species card calls the inflorescence 'compact' and 'fluffy', whereas the detailed GrassBase/Kew description gives an open, ovate panicle with separated branches. Treat this as a targeted card-level morphology discrepancy for Taxonomy + Diagnostic Review; the genus lesson uses the cited panicle architecture and does not silently edit the species card.",
+    "The former 'compact fluffy' wording in T. buckleyana's species card was corrected on 2026-10-21 against Kew GrassBase and the stored photo; open ovate panicle is the appropriate first-pass cue. Do not pretend that one head proves the taxon or resolves glume/lemma anatomy.",
     "The source pool's Tridens buckleyanus and Tridens muticus are historical names for these canonical species, not additional learner taxa.",
     "T. mutica's base may be shortly rhizomatous; do not infer species from apparent rhizomes in a partial or damaged specimen.",
     "Some old references place these taxa in Tridens; compare accepted names and morphological descriptions, not just the historical genus label."
@@ -197,32 +198,33 @@
   ],
   "existing_media_references": [],
   "media_note": "No exact species/Joey frame or license has been newly verified in this run. Do not represent these requested diagnostic shots as installed photographs; Diagnostic Photo Polish owns acquisition and provenance.",
-  "handoffs": [
-    {
+  "handoffs": {
+    "0": {
       "lane": "Taxonomy + Diagnostic Review",
       "task": "Resolve T. buckleyana canonical species-card 'compact/fluffy panicle' wording against GrassBase/Kew open ovate 10–28 cm panicle, and verify specimen-level variation before changing the species card."
     },
-    {
+    "1": {
       "lane": "Taxonomy + Diagnostic Review",
       "task": "Verify lemma lateral-nerve pubescence as a reliable separator against regional keys and clarify historical Tridens eragrostoides concept; preserve accepted-name mapping."
     },
-    {
+    "2": {
       "lane": "Genus Study Index / formula reconciliation",
       "task": "The live Master Plant Pool uses Tridens buckleyanus and Tridens muticus; add accepted-name crosswalk in the appropriate mapping/formula workflow so Tridentopsis A:B index keys count these two without overwriting C:M."
     },
-    {
+    "3": {
       "lane": "Diagnostic Photo Polish",
       "task": "Source and verify paired exact-species panicle, florets and lemma macros with credits/licensing; no generic photo hunting in this lane."
     },
-    {
+    "4": {
       "lane": "Diagnostic Photo Fast-Fill",
       "task": "Inspect four existing images for actual diagnostic features; source matched full-panicle, dissected spikelet, dorsal lemma and ligule views with photo-level rights. No unverified arrows."
     },
-    {
+    "5": {
       "lane": "Approved Taxa Installer",
       "task": "Both Tridentopsis species already canonical; do not duplicate cards. Historical Tridens source names remain crosswalks only."
-    }
-  ],
+    },
+    "field_photo_needed": "2 matched mature whole panicles with scale; three floret counts and 1-mm spikelet macros per species; 10–20x dorsal 3-nerve lemma surfaces; 0.5–1 mm ciliate ligule and rooted crown. Avoid repeat historic native audit."
+  },
   "sources": [
     {
       "type": "canonical",
@@ -258,22 +260,28 @@
   ],
   "curation_status": {
     "version": "1.1-photo-led-comparison-recovery",
-    "last_reviewed": "2026-10-16",
+    "last_reviewed": "2026-10-21",
     "genus_audit": "comparison_framework_built",
-    "visual_status": "diagnostic_photo_set_pending",
+    "visual_status": "FIELD_READY_PHOTO_GAPS",
     "canonical_taxa_installed_this_run": 0,
     "native_range_decisions_changed_this_run": 0,
     "genus_lesson": "four anatomy roles and three comparison cards added; prior comparison matrix and scientific caveats preserved",
-    "gallery_records_reconciled": 4
+    "gallery_records_reconciled": 4,
+    "photo_panels": 4,
+    "verified_visible_gross_arrow_targets": 9,
+    "existing_local_jpegs_preserved": 4,
+    "additions_local_bytes": 0,
+    "science_range_holds_unchanged": true,
+    "manual_tridentopsis_20261021": "species_and_genus_photo_key_committed"
   },
   "anatomy_lessons": [
     {
       "term": "Panicle",
       "plain": "The entire branching flower cluster",
       "look": "Photograph the entire mature head against a ruler; note how far primary branches spread from the axis.",
-      "species_comparison": "Published descriptions: T. buckleyana generally open/ovate (10–28 cm long); T. mutica tightly contracted (7–20(25) cm long). The provisional buckleyana card's compact/fluffy wording is under scientific review.",
+      "species_comparison": "Kew GrassBase buckleyana: open ovate head 10–28 cm long, long distant branches; FNA mutica: strongly contracted 7–20(25) cm, only ~0.3–0.8 cm wide. Original Buckleyana compact/fluffy text corrected 2026-10-21; source photos show appropriate gross branch separation.",
       "photo_role": "matched full mature panicles",
-      "status": "needs_verified_diagnostic_photo"
+      "status": "visible_branch_pattern_photographed; matched_full_head_scale_still_needed"
     },
     {
       "term": "Spikelet and florets",
@@ -281,7 +289,7 @@
       "look": "Dissect several intact spikelets and count fertile florets, then measure length in mm.",
       "species_comparison": "T. buckleyana typically 3–5 fertile florets; T. mutica 5–11; five florets and 8–10 mm spikelet lengths overlap.",
       "photo_role": "paired dissected spikelets with mm ruler",
-      "status": "needs_verified_diagnostic_photo"
+      "status": "heads visible in 4 archived JPGs; precise floret counts still need dissected measured macros"
     },
     {
       "term": "Lemma and veins",
@@ -308,8 +316,8 @@
         "tridentopsis-buckleyana",
         "tridentopsis-mutica"
       ],
-      "caution": "The buckleyana species-card discrepancy remains unresolved; don't force ID from one partial head.",
-      "photo_status": "matched intact heads needed"
+      "caution": "Buckleyana's stored photo genuinely shows long separated branches; old species-card compact/fluffy error corrected. Still source-labelled/provisional, so compare whole flowering culms.",
+      "photo_status": "4 existing real photographs visually checked, 9 panicle/spikelet arrows; matched whole heads with ruler still needed"
     },
     {
       "title": "Floret counts and spikelet lengths",
@@ -368,6 +376,202 @@
         "status": "installed additional view, diagnostic anatomy not verified"
       }
     ],
-    "rights_note": "CC BY-NC remains noncommercial; CC BY requires attribution. Source pages and creator rights retained. No genus-level macro or annotation has been visually verified, and no new photo binaries were added."
-  }
+    "rights_note": "CC BY-NC remains noncommercial; CC BY requires attribution. Source pages and creator rights retained. No genus-level macro or annotation has been visually verified, and no new photo binaries were added.",
+    "visually_inspected_original_jpgs": 4,
+    "gross_arrow_targets": 9,
+    "local_files_added": 0,
+    "science_nativity_review_unchanged": true
+  },
+  "visual_comparison": {
+    "title": "TRIDENTOPSIS — open Buckleyana versus narrow slim tridens",
+    "subtitle": "Four original individually licensed source-labelled grass photographs visually inspected. 9 arrows show only branch separation, contracted heads and visible spikelet groupings; no misleading microscopic labels.",
+    "memory_rule": "BUCKLEYANA OPEN SPREADING / MUTICA NARROW UPRIGHT; always verify florets and lemma hairs; 5 florets overlap.",
+    "items": [
+      {
+        "label": "Buckley tridens — open and separated mature panicle",
+        "scientific_name": "Tridentopsis buckleyana",
+        "image_url": "content/taxa/Poaceae/Tridentopsis/tridentopsis-buckleyana/images/gbif-first-4891719982-2ab076c5ce.jpg",
+        "image_fit": "contain",
+        "image_role": "Existing original archived REAL taxon-labelled photograph visually inspected from GitHub; original source identification provisional",
+        "caption": "Actual source-labelled dry inflorescence has long, visibly separated primary branches, with a few distant spikelets. This supports the open panicle clue; the photo does NOT expose the 3–5-floret counts or vein hairs.",
+        "why_it_matters": "Teaches visible panicle branch spacing and overlapping spikelets; not proof of 10–20× lemma anatomy or measured floret counts.",
+        "creator": "jamiemandell",
+        "license": "CC BY-NC",
+        "license_url": "http://creativecommons.org/licenses/by-nc/4.0/",
+        "source_page": "https://www.gbif.org/occurrence/4891719982",
+        "markers": [
+          {
+            "label": "Widely spaced primary branches",
+            "label_x": 4,
+            "label_y": 14,
+            "target_x": 53,
+            "target_y": 52
+          },
+          {
+            "label": "Long flowering branch",
+            "label_x": 69,
+            "label_y": 15,
+            "target_x": 57,
+            "target_y": 40
+          },
+          {
+            "label": "Distant spikelets",
+            "label_x": 77,
+            "label_y": 68,
+            "target_x": 63,
+            "target_y": 35
+          }
+        ],
+        "photo_status": "Actual GitHub JPG pixels personally visually checked 2026-10-21. Only plainly visible gross-structure arrows. Creator/license unmodified. Exact source determination is not an independent voucher review."
+      },
+      {
+        "label": "Slim tridens — narrow, appressed inflorescence",
+        "scientific_name": "Tridentopsis mutica",
+        "image_url": "content/taxa/Poaceae/Tridentopsis/tridentopsis-mutica/images/inat-first-713829409.jpg",
+        "image_fit": "contain",
+        "image_role": "Existing original archived REAL taxon-labelled photograph visually inspected from GitHub; original source identification provisional",
+        "caption": "Rachel's source-labelled plant photographed beside fingers has a thin, nearly spike-like flowering head with spikelets grouped along an upright axis. Finger is NOT a mm scale and lemma hairs are not resolved.",
+        "why_it_matters": "Teaches visible panicle branch spacing and overlapping spikelets; not proof of 10–20× lemma anatomy or measured floret counts.",
+        "creator": "Rachel",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_page": "https://www.inaturalist.org/photos/713829409",
+        "markers": [
+          {
+            "label": "Narrow spike-like panicle",
+            "label_x": 5,
+            "label_y": 10,
+            "target_x": 28,
+            "target_y": 28
+          },
+          {
+            "label": "Appressed spikelets",
+            "label_x": 69,
+            "label_y": 33,
+            "target_x": 29,
+            "target_y": 39
+          }
+        ],
+        "photo_status": "Actual GitHub JPG pixels personally visually checked 2026-10-21. Only plainly visible gross-structure arrows. Creator/license unmodified. Exact source determination is not an independent voucher review."
+      },
+      {
+        "label": "Slim tridens — repeated purple contracted heads",
+        "scientific_name": "Tridentopsis mutica",
+        "image_url": "content/taxa/Poaceae/Tridentopsis/tridentopsis-mutica/images/joey-inat-667323408.jpg",
+        "image_fit": "contain",
+        "image_role": "Existing original archived REAL taxon-labelled photograph visually inspected from GitHub; original source identification provisional",
+        "caption": "Joey Santore's source-labelled photograph shows several slim purple-tinged heads from the same observation, useful for recognizing color and contracted architecture. Purple is not diagnostic and no floret count is verified.",
+        "why_it_matters": "Teaches visible panicle branch spacing and overlapping spikelets; not proof of 10–20× lemma anatomy or measured floret counts.",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "source_page": "https://www.inaturalist.org/photos/667323408",
+        "markers": [
+          {
+            "label": "Purple clustered units",
+            "label_x": 56,
+            "label_y": 10,
+            "target_x": 36,
+            "target_y": 24
+          },
+          {
+            "label": "Contracted upright head",
+            "label_x": 4,
+            "label_y": 70,
+            "target_x": 11,
+            "target_y": 33
+          }
+        ],
+        "photo_status": "Actual GitHub JPG pixels personally visually checked 2026-10-21. Only plainly visible gross-structure arrows. Creator/license unmodified. Exact source determination is not an independent voucher review."
+      },
+      {
+        "label": "Slim tridens — enlarged attached spikelets",
+        "scientific_name": "Tridentopsis mutica",
+        "image_url": "content/taxa/Poaceae/Tridentopsis/tridentopsis-mutica/images/joey-inat-667323452.jpg",
+        "image_fit": "contain",
+        "image_role": "Existing original archived REAL taxon-labelled photograph visually inspected from GitHub; original source identification provisional",
+        "caption": "Joey Santore's second view displays several slender inflorescence axes and purple-white overlapping spikelets; attachment and broad head shape are visible but exact spikelet length, glumes and lemma nerve hairs need dissected ruler photos.",
+        "why_it_matters": "Teaches visible panicle branch spacing and overlapping spikelets; not proof of 10–20× lemma anatomy or measured floret counts.",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "source_page": "https://www.inaturalist.org/photos/667323452",
+        "markers": [
+          {
+            "label": "Overlapping spikelets",
+            "label_x": 4,
+            "label_y": 13,
+            "target_x": 34,
+            "target_y": 22
+          },
+          {
+            "label": "Slim flowering axis",
+            "label_x": 74,
+            "label_y": 74,
+            "target_x": 79,
+            "target_y": 45
+          }
+        ],
+        "photo_status": "Actual GitHub JPG pixels personally visually checked 2026-10-21. Only plainly visible gross-structure arrows. Creator/license unmodified. Exact source determination is not an independent voucher review."
+      }
+    ],
+    "overlay_note": "These are four original archived real JPGs: 1 Buckleyana (CC BY-NC) and 3 mutica (CC BY, CC BY-NC from Joey Santore). Per-photo creator/source/license preserved. No new local bytes or crop distortion; exact taxon source IDs remain provisional."
+  },
+  "visual_needs": [
+    {
+      "shot": "Two intact mature panicles at same scale, including full branching outline",
+      "characters": [
+        "open ovate vs very contracted panicle",
+        "branch angle and spacing"
+      ],
+      "priority": 1,
+      "status": "needed"
+    },
+    {
+      "shot": "Matched lower and middle primary branches with scale",
+      "characters": [
+        "long separated branches vs short appressed branches"
+      ],
+      "priority": 1,
+      "status": "needed"
+    },
+    {
+      "shot": "Three dissected intact spikelets per species with florets numbered",
+      "characters": [
+        "3–5 vs 5–11 fertile florets",
+        "7–10 vs 8–13 mm spikelet length"
+      ],
+      "priority": 1,
+      "status": "needed"
+    },
+    {
+      "shot": "Matched lemma dorsal macros at 10–20× with veins labeled",
+      "characters": [
+        "midvein vs lateral vein hair extent",
+        "lemma apex"
+      ],
+      "priority": 1,
+      "status": "needed"
+    },
+    {
+      "shot": "Collar/ligule and rolled blade macro, both species",
+      "characters": [
+        "shared ciliate membranous ligule",
+        "overlapping blade width"
+      ],
+      "priority": 2,
+      "status": "needed"
+    },
+    {
+      "shot": "Basal crown, lower sheaths and first culm node",
+      "characters": [
+        "tufting",
+        "knotty short-rhizomatous base",
+        "sheath hairs"
+      ],
+      "priority": 2,
+      "status": "needed"
+    }
+  ],
+  "visual_status": "FIELD_READY_PHOTO_GAPS: both canonical species have usable first-pass panicle identification and four source-credited photos with 9 visible arrow targets. Matched mature spikelets, floret counts, lemma nerve hairs, ligule macro and rooted bases still missing."
 }
