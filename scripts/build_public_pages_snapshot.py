@@ -68,6 +68,28 @@ HARMS_SITE_PERMISSION = "BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
 HARMS_EXACT_LICENSE = "© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
 
 
+# Independent site-specific, photo-by-photo Carolina canarygrass permission.
+# Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
+# No blanket waiver for any other copyrighted UT PRC images.
+HARMS_PHCA_IMAGE_IDS = frozenset({"PHCA6-b","PHCA6-i","PHCA6-j","PHCA6-S","PHCA6-L"})
+
+
+def permitted_harms_phalaris(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Phalaris caroliniana":
+        return False
+    return any(item.get("source_page") == HARMS_BASE + "pages/" + photo_id + ".html"
+               and item.get("source_image") == HARMS_BASE + "images/" + photo_id + ".jpg"
+               for photo_id in HARMS_PHCA_IMAGE_IDS)
+
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -100,7 +122,7 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
-    if permitted_harms_wintergrass(item, noncommercial):
+    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
         # Public display on this learner was expressly granted by the owner,
