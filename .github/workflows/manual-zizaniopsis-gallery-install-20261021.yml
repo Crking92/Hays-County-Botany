@@ -1,0 +1,76 @@
+name: Install verified giant cutgrass wetland habit and collar photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-zizaniopsis-gallery-install-20261021.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-zizaniopsis-singleton-20261021
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Refresh exact canonical main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Promote physically inspected exact-source CC BY files
+        run: python scripts/install_zizaniopsis_vetted_habit_collar_20261021.py
+      - name: Validate photo bytes, arrow locations and source credit
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Poaceae/Zizaniopsis")
+          s=json.loads((base/"zizaniopsis-miliacea/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          r=json.loads(Path("reports/zizaniopsis-giant-cutgrass-gallery-20261021.json").read_text())
+          assert s["scientific_name"]=="Zizaniopsis miliacea"
+          assert g["project_scope"]["species_count"]==1
+          assert r["photos"]==len(s["images"])==3
+          assert len(s["visual_comparison"]["items"])==len(g["visual_comparison"]["items"])==3
+          assert r["arrows"]==6
+          for record in r["new_photos"]:
+            p=Path(record["file"])
+            assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==record["sha256"]
+            with Image.open(p) as im:
+              assert im.format=="JPEG" and not im.getexif().get(34853)
+              im.verify()
+            photo=next(x for x in s["images"] if x.get("photo_id")==record["photo_id"])
+            assert photo["license"]=="CC BY 4.0" and photo["creator"]=="Alex Abair"
+          for obj in [g,s]:
+            assert sum(len(x.get("markers",[])) for x in obj["visual_comparison"]["items"])==6
+            for panel in obj["visual_comparison"]["items"]:
+              for a in panel.get("markers",[]):
+                assert all(0<=a[k]<=100 for k in ["label_x","label_y","target_x","target_y"])
+          assert r["science_native_county_preserved"] is True
+          print("PASS real JPEGs, per-photo license, marker coordinates, science scope")
+          PY
+      - name: Commit two verified photos, both lessons, CSV and single publication marker
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Zizaniopsis/zizaniopsis-miliacea/ content/taxa/Poaceae/Zizaniopsis/genus.json
+          git add reports/zizaniopsis-giant-cutgrass-gallery-20261021.json workflow/field-id-publication/manual-zizaniopsis-singleton-20261021.json
+          if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
+          git commit -m 'Install two licensed giant cutgrass habit and collar photos and publish corrected field key [skip ci]'
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
