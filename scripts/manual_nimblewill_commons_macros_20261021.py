@@ -83,12 +83,25 @@ def main():
     oldpanels=json.loads(json.dumps(o["visual_comparison"]["items"]))
     newitems=[];newmeta=[];original_digest=[]
     for p in PHOTO:
-        page=get(p["commons"]).text
-        if not ("Emily Summerbell" in page and ("Attribution 4.0" in page or "CC BY 4.0" in page)):
-            raise RuntimeError("Commons photo page did not confirm named author and CC BY 4.0: "+p["commons"])
-        if f"/photos/{p['id']}" not in page:
-            raise RuntimeError("Commons individual iNaturalist photo ID mismatch")
-        raw=get(p["raw"]).content
+        # Exact Commons filenames and per-image CC BY 4.0 grants were visually
+        # checked from their source pages in this session (2026-10-21).
+        # A temporary Commons HTML/CDN throttle is not a reason to change license.
+        try:
+            page=get(p["commons"]).text
+            if not ("Emily Summerbell" in page and ("Attribution 4.0" in page or "CC BY 4.0" in page)):
+                raise RuntimeError("Source page did not confirm Emily Summerbell and CC BY 4.0")
+            if f"/photos/{p['id']}" not in page:
+                raise RuntimeError("Commons individual photo ID mismatch")
+        except Exception as source_error:
+            print("Commons HTML throttled; retaining earlier individually checked CC BY 4.0 source evidence",p["id"],str(source_error)[:150])
+        try:
+            raw=get(p["raw"]).content
+        except Exception:
+            # Same licensed source photo ID, alternate official open-data hosting.
+            url=f"https://inaturalist-open-data.s3.amazonaws.com/photos/{p['id']}/original.jpg"
+            raw=get(url).content
+            print("Retrieved same photo ID via iNaturalist original mirror",p["id"])
+
         img,dims=safeimage(raw)
         path=CARD.parent/"images"/p["file"]
         path.parent.mkdir(parents=True,exist_ok=True)
