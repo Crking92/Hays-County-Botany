@@ -1,6 +1,6 @@
 # Three-section website redesign — development branch (2026-10-22)
 
-Status: **IN PROGRESS — DO NOT MERGE/PUBLISH UNTIL QA IS COMPLETE.**
+Status: **MERGED TO MAIN 2026-10-22 — GitHub Pages release requested; verify the separate publish Action before claiming live deployment.**
 
 Goal: one Hays Botany site with three top-level experiences:
 1. **Learner**: illustrated scrolling beginner course and species lessons; species first, then look-alikes, genus, family, additional gallery and expandable full reference.
@@ -32,3 +32,6 @@ Validation performed so far:
 - Do not automatically call any species finished merely because it appears in the scrolling layout.
 
 No automation schedules were changed by this branch.
+## 2026-10-22 permanent-site approval and implementation
+
+The owner approved making Learner the default for every installed species and retaining Field ID/Quiz substantially unchanged. PR #30 was merged as `80bc82ddfea2a7c7aa89f02d779feab44845f393`. The packaging script now includes all three HTML routes; the rights-filtered builder continues excluding private Photo Lab and unsupported images. Each public build generates `data/learner-search-index.json` for names, genus and family. Service-worker cache incorporates a shell content hash so returning phone visitors can receive the redesigned site. Existing five automations and canonical species/genus/family records were not modified for this redesign. Desktop/mobile synthetic learner tests passed; the separate GitHub Pages build and licensing/quality checks are the publication acceptance gate. The controlled public marker is `workflow/field-id-publication/2026-10-22-permanent-learner-redesign.json`; actual live publication requires its GitHub Actions run to complete successfully. The previously staged preview/branch remains historical.
