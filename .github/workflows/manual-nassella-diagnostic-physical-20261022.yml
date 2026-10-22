@@ -29,7 +29,7 @@ jobs:
           git fetch origin main
           git checkout -B main origin/main
           python -m py_compile scripts/archive_nassella_harms_usda_20261022.py
-      - name: Archive verified copyrighted-education and USDA public-domain originals
+      - name: Archive six previously verified Harms originals and retain throttled USDA source externally
         run: python scripts/archive_nassella_harms_usda_20261022.py
       - name: Confirm exact source hashes real JPEGs no GPS and source-specific permission
         run: |
@@ -41,8 +41,8 @@ jobs:
           s=json.loads((root/"nassella-leucotricha/species.json").read_text())
           g=json.loads((root/"genus.json").read_text())
           r=json.loads(Path("reports/nassella-wintergrass-diagnostic-physical-20261022.json").read_text())
-          assert r["result"]=="SEVEN_NASSELLA_DIAGNOSTIC_JPEGS_ARCHIVED"
-          assert len(r["files"])==7 and s["curation_status"]["photo_files_present"]==9
+          assert r["result"]=="SIX_HARMS_NASSELLA_DIAGNOSTIC_JPEGS_ARCHIVED"
+          assert len(r["files"])==6 and s["curation_status"]["photo_files_present"]==8
           assert len(s["visual_comparison"]["items"])==12 and len(g["visual_comparison"]["items"])==10
           assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
           for entry in r["files"]:
@@ -60,7 +60,7 @@ jobs:
           for h in hs:
               assert h["site_specific_public_permission"]=="BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
               assert h["license"]=="© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
-          print("PASS: seven real image files, source hashes, author rights, no EXIF/GPS, 12 panels, original county science")
+          print("PASS: six real Harms image files, source hashes, author-only education rights, no EXIF/GPS, USDA source still external")
           PY
       - name: Commit only single species/genus, new image files and provenance report
         run: |
@@ -72,7 +72,7 @@ jobs:
           git add reports/nassella-wintergrass-diagnostic-physical-20261022.json
           git add workflow/field-id-publication/2026-10-22-nassella-wintergrass-physical-diagnostic.json
           if git diff --cached --quiet;then echo "No-op canonical already contains these originals";exit 0;fi
-          git commit -m "Archive 6 Harms attributed educational wintergrass photographs and 1 USDA public-domain fruit [skip ci]"
+          git commit -m "Archive 6 physically verified credited Bob Harms wintergrass anatomy photographs [skip ci]"
           for try in 1 2 3; do
             if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
             sleep 5
