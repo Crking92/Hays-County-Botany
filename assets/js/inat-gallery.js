@@ -131,7 +131,7 @@
     return result;
   }
   function header(name) {
-    return '<section class="lessonpart inat-explore" id="inatExplore">'+
+    return '<section class="lessonpart inat-explore" id="inatExplore" data-inat-species="'+escapeHTML(name)+'">'+
       '<div class="stepbar">Explore more examples</div>'+
       '<h2>iNaturalist observation photos</h2>'+
       '<p class="intro">See additional community photographs of <i>' + escapeHTML(name) +
@@ -202,9 +202,14 @@
     }
   }
   document.addEventListener('click', function(event) {
-    const button = event.target.closest('[data-inat-open], [data-inat-scroll]');
+    const button = event.target.closest('[data-inat-jump], [data-inat-open], [data-inat-scroll]');
     if (!button) return;
-    if (button.hasAttribute('data-inat-open')) {
+    if (button.hasAttribute('data-inat-jump')) {
+      const section = document.getElementById('inatExplore');
+      const target = section && section.querySelector('[data-inat-open]');
+      if (target && target.getAttribute('aria-expanded') !== 'true') toggle(target);
+      if (section) section.scrollIntoView({behavior:'smooth', block:'start'});
+    } else if (button.hasAttribute('data-inat-open')) {
       toggle(button);
     } else {
       const strip = document.getElementById('inatPhotoStrip');
