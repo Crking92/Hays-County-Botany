@@ -1,0 +1,77 @@
+name: Verify and install PD Chasmanthium single-spikelet macro
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-chasmanthium-pd-macro-20261021.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-chasmanthium-singleton-pd-macro
+  cancel-in-progress: false
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Refresh canonical main
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify source hash, physical JPEG and synchronized cards
+        run: python scripts/install_chasmanthium_pd_macro_20261021.py
+      - name: Validate imported photo rights, image and real arrow coordinates
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          root=Path("content/taxa/Poaceae/Chasmanthium")
+          s=json.loads((root/"chasmanthium-latifolium/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          r=json.loads(Path("reports/chasmanthium-pd-macro-import-20261021.json").read_text())
+          assert s["scientific_name"]=="Chasmanthium latifolium"
+          assert g["project_scope"]["species_count"]==1
+          assert len(s["visual_comparison"]["items"])==len(g["visual_comparison"]["items"])==4
+          assert sum(len(x.get("markers",[])) for x in s["visual_comparison"]["items"])==10
+          assert sum(len(x.get("markers",[])) for x in g["visual_comparison"]["items"])==10
+          assert r["result"]=="JIM_CONRAD_PD_PHOTO_PHYSICALLY_INSTALLED"
+          path=Path(r["image_file"])
+          assert path.is_file()
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==r["archived_sha256"]
+          with Image.open(path) as im:
+              assert im.format=="JPEG" and im.size==(400,678)
+              assert not im.getexif().get(34853)
+              im.verify()
+          assert s["visual_comparison"]["items"][-1]["image_url"]==str(path)
+          assert g["visual_comparison"]["items"][-1]["image_url"]==str(path)
+          assert any(x.get("file")=="images/"+path.name and x.get("creator")=="Jim Conrad" for x in s["images"])
+          for obj in (g,s):
+            for x in obj["visual_comparison"]["items"]:
+              for a in x.get("markers",[]):
+                assert all(isinstance(a[k],(int,float)) and 0<=a[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+          print("PASS: image bytes, individual public domain source, creator, 10 arrows, 4+4 galleries and unchanged one-species scope")
+          PY
+      - name: Commit only the controlled photo, card and publish marker
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Chasmanthium/chasmanthium-latifolium/ content/taxa/Poaceae/Chasmanthium/genus.json
+          git add reports/chasmanthium-pd-macro-import-20261021.json workflow/field-id-publication/manual-chasmanthium-singleton-pd-20261021.json
+          if git diff --cached --quiet; then echo 'Existing physical content, no-op'; exit 0; fi
+          git commit -m 'Physically install Jim Conrad author-PD inland sea oats spikelet macro and publish field lesson [skip ci]'
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
