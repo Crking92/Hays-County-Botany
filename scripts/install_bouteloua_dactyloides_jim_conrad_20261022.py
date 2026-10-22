@@ -93,8 +93,10 @@ def main():
                 pane["image_url"]=str(dest)
                 pane["photo_status"]="PHYSICALLY ARCHIVED Jim Conrad author-public-domain source Uvalde male grass photograph. Actual original and archived SHA256 recorded, EXIF/GPS cleaned; annotations only to visible organs. No female structures or actual rooted stolon node alleged."
         vals={"file_name":name,"role":role,"creator":"Jim Conrad","license":"Public domain by author","license_url":RIGHTS,
-          "source_page":PAGE,"direct_url":src,"study_use":"Public crew botanical field education",
-          "public_reuse":"Author original public domain","modifications":"RGB re-encoded EXIF/GPS removed, no source pixels painted"}
+          "platform":"Backyard Nature / Jim Conrad","observation_id":"2014-06-01-Dry-Frio-Uvalde","photo_id":original,
+          "source_page":PAGE,"direct_url":src,"direct_image_url":src,
+          "study_use":"Public crew botanical field education","public_reuse":"Author original public domain",
+          "modifications":"RGB re-encoded EXIF/GPS removed, no source pixels painted"}
         rows.append({k:vals.get(k,"") for k in headers})
     with CSV.open("w",newline="",encoding="utf8") as f:
         writer=csv.DictWriter(f,fieldnames=headers,lineterminator="\n");writer.writeheader();writer.writerows(rows)
