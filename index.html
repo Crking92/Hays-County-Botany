@@ -18,7 +18,18 @@ const nameFromId=id=>String(id).split('-').map((x,i)=>i===0?x[0].toUpperCase()+x
 const validURL=v=>typeof v==='string'&&/^https:\/\//i.test(v);
 const addr=p=>p&&/^(https:\/\/)/i.test(p)?p:RAW+String(p||'').replace(/^\//,'');
 const live=p=>p&&/^https:\/\//i.test(p)?p:LIVE+String(p||'').replace(/^\//,'');
-const imgPermitted=v=>{const l=lower(v?.license);const reuse=lower(v?.public_reuse);return !!v&&!!v.creator&&!!v.source_page&&validURL(v.source_page)&&(/cc by|cc0|public domain/.test(l)||(/cc by-nc/.test(l)&&/yes|noncommercial|cc0 or|credit/.test(reuse)))&& !/private.only|not permitted|unknown|unverified/.test(reuse)};
+const imgPermitted=v=>{
+  if(!v||!v.creator||!validURL(v.source_page))return false;
+  const license=lower(v.license).replace(/\s+/g,' ').trim();
+  const reuse=lower(v.public_reuse).trim();
+  // Never assume CC BY-NC means CC BY. Explicitly screen noncommercial
+  // permissions and avoid unresolved and no-derivatives assets.
+  const openLicense=/^(?:cc0(?:[ \d.]|$)|public domain|pd(?:[ \d.]|$)|cc by(?:-sa)?(?:[ \d.]|$))/.test(license) && !/(?:-nd|-nc)/.test(license);
+  const ncLicense=/^cc by-nc(?:-sa)?(?:[ \d.]|$)/.test(license);
+  const ncAllowed=ncLicense && /(?:noncommercial|\byes\b|with credit|credited public educational)/.test(reuse);
+  const unresolved=/(?:review|pending|unknown|unverified|private.only|not permitted|not authorized|needs.permission|no public)/.test(reuse);
+  return (openLicense||ncAllowed)&&!unresolved;
+};
 const imsrc=(sp,x)=>{const p=x?.image_url||x?.file||'';if(!p)return '';if(validURL(p))return p;if(p.startsWith('content/'))return live(p);const base=state.entries.find(e=>e.id===sp.id)?.path?.replace(/species\.json$/,'')||`content/taxa/${sp.family}/${sp.genus}/${sp.id}/`;return live(base+p)};
 const sourceMeta=x=>`<div class="figcap">${E(x.creator||'Photographer credited in source')} · ${E(x.license||'License in source')} ${validURL(x.source_page)?` · <a href="${E(x.source_page)}" target="_blank" rel="noopener noreferrer">Original photo ↗</a>`:''}${validURL(x.license_url)?` · <a href="${E(x.license_url)}" target="_blank" rel="noopener noreferrer">License ↗</a>`:''}</div>`;
 function media(sp,x,markers){const src=imsrc(sp,x);if(!src)return `<div class="info">This diagnostic photograph is still missing.</div>`;const a=(Array.isArray(markers)?markers:[]).filter(m=>m && ['label_x','label_y','target_x','target_y'].every(k=>Number.isFinite(Number(m[k]))&&Number(m[k])>=0&&Number(m[k])<=100));const arrows=a.length?`<div class="overlay"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="arr" markerWidth="3.4" markerHeight="3.4" refX="2.5" refY="1.7" orient="auto"><path d="M0 0 L3.4 1.7 L0 3.4 Z" fill="#f7e6a0"/></marker></defs>${a.map(m=>`<line x1="${+m.label_x}" y1="${+m.label_y}" x2="${+m.target_x}" y2="${+m.target_y}" marker-end="url(#arr)"/>`).join('')}</svg>${a.map(m=>`<span class="markerlabel" style="left:${+m.label_x}%;top:${+m.label_y}%">${E(m.label)}</span>`).join('')}</div>`:'';return `<figure class="figure"><div class="image-wrap"><img src="${E(src)}" alt="${E(x.image_role||x.role||sp.scientific_name)}" loading="lazy" onerror="this.alt='Photo currently unavailable on the published site';this.style.minHeight='180px'">${arrows}</div>${sourceMeta(x)}</figure>`}
