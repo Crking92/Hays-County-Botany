@@ -28,9 +28,22 @@ jobs:
         run: |
           git fetch origin main
           git checkout -B main origin/main
+      - name: Detect already installed exact Sam photo IDs (concurrency-safe)
+        id: existing
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          p=Path("content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii/species.json")
+          s=json.loads(p.read_text())
+          found={int(i.get("inaturalist_photo_id") or i.get("photo_id") or 0) for i in s.get("images",[])}
+          print("installed="+("true" if {4920088,5077102}.issubset(found) else "false"))
+          PY
       - name: Promote two previously staged verified wild seep photos
+        if: steps.existing.outputs.installed != 'true'
         run: python scripts/install_muhlenbergia_reverchonii_wild_panicles_20261021.py
       - name: Verify actual local photos, rights and science holds
+        if: steps.existing.outputs.installed != 'true'
         run: |
           python - <<'PY'
           import json
@@ -60,6 +73,7 @@ jobs:
           print("PASS: source photo record, file-byte integrity, four visible-point arrows, range/source holds")
           PY
       - name: Commit only matched species, genus, CSV, photographs and publication request
+        if: steps.existing.outputs.installed != 'true'
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -74,6 +88,7 @@ jobs:
           done
           exit 1
       - name: Request public Pages rebuild after successful push
+        if: steps.existing.outputs.installed != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
