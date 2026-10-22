@@ -17,9 +17,10 @@
     "photo_files_present": 1,
     "manual_chloris_field_pass": "2026-10-20",
     "visual_finish": "PROVISIONAL_HYBRID_SOURCE_ID — parentage taxon accepted, source photograph and actual hybrid floret identity require voucher review",
-    "manual_chloris_visual_pass": "2026-10-20"
+    "manual_chloris_visual_pass": "2026-10-20",
+    "manual_hybrid_parent_photo_curation_20261022": "PROVISIONAL_HYBRID_SOURCE_ID"
   },
-  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
+  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it. 2026-10-22: added actual Joey Santore C. verticillata photo as second parent, label DIFFERENT SPECIES; still no voucher/microscopic hybrid-level certification; science unchanged.",
   "taxonomy_source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
   "synonyms": [],
   "photo_taxonomy_note": "Taxonomic source documents the observation name as a matching taxon concept at its recorded rank; retain alternative-backbone flags and check photo anatomy separately.",
@@ -35,11 +36,11 @@
     }
   ],
   "learner_visual_status": {
-    "status": "provisional_learner_ready",
+    "status": "provisional_hybrid_identity_hold_photo_enriched",
     "mode": "learner_fast_fill",
     "image_count": 1,
     "filled_at": "2026-10-19",
-    "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+    "note": "1 source-labelled hybrid candidate + TWO actual parent species head photos; hybrid itself not independently specimen confirmed. Fine lemma/awn measurements and voucher needed."
   },
   "comparisons": {
     "confused_with": [
@@ -86,8 +87,8 @@
     ]
   },
   "visual_comparison": {
-    "title": "Chloris × subdolichostachya — inspected field ID photographs",
-    "subtitle": "Actual existing licensed photos with markers on only visible photographed structures. Comparison-only image is from a different named species.",
+    "title": "Hybrid windmillgrass: source candidate and both separate parent species",
+    "subtitle": "Actual source-labelled candidate and both real photographed parent species, but NO independent hybrid-voucher/mature sterile lemma proof.",
     "memory_rule": "Photograph the full radiating head, but treat it as a visual reference of the source-reported hybrid rather than a diagnosis.",
     "items": [
       {
@@ -131,24 +132,43 @@
         "license": "CC BY-SA 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Pasto_verdillo_papalote_(Chloris_cucullata)_ago19.jpg",
         "photo_status": "Exact photo of a DIFFERENT species with original credit. Comparison-only; never included in this species' exact-image gallery."
+      },
+      {
+        "label": "PARENT 2 (different species) — tumble windmillgrass",
+        "scientific_name": "Chloris verticillata",
+        "image_url": "content/taxa/Poaceae/Chloris/chloris-verticillata/images/joey-inat-712172198.jpg",
+        "image_fit": "contain",
+        "creator": "Joey Santore",
+        "license": "CC BY-NC 4.0",
+        "source_page": "https://www.inaturalist.org/photos/712172198",
+        "image_role": "Actual physically archived parent Chloris verticillata image, distinctly NOT hybrid, with tiered slender windmill flowering branches",
+        "caption": "TRUE PARENT C. verticillata, NOT the hybrid. Joey Santore's recorded photo shows radiating branches on different levels; parent can show longer awns and less inflated sterile lemma compared to hooded C. cucullata. Individual fertile and sterile floret structures cannot be measured here.",
+        "why_it_matters": "Show BOTH known accepted parents before discussing intermediate hybrid appearance, without calling parent photos exact hybrid vouchers.",
+        "markers": [],
+        "photo_status": "Previously archived source photo of separate parent C. verticillata with individual CC BY-NC rights and credit; actual local file known. No invisible floret arrows."
       }
     ],
-    "overlay_note": "No new media bytes or assumed photo permissions. Rights and authorship copied from current image records; noncommercial and SA conditions preserved. Botanical illustrations not conflated with real photographs. Submillimeter lemma/awn distinctions not labeled without actual calibrated macros. Genus and native-range status preserved."
+    "overlay_note": "FIRST image is source-reported candidate only. Other two are separate parents C. cucullata and C. verticillata, not proof of hybrid. A mature stereo-microscope voucher with BOTH fertile and sterile awn lengths is essential."
   },
   "field_id_finish_pass": {
     "pass_id": "chloris-20261020-five",
-    "stage": "PROVISIONAL_HYBRID_SOURCE_ID — parentage taxon accepted, source photograph and actual hybrid floret identity require voucher review",
-    "recognition": "This is the accepted NATURAL HYBRID Chloris cucullata × C. verticillata. A head with seemingly intermediate raceme length or crowding is NOT by itself proof of hybrid identity. The provisional source image depicts a windmill head; verify mature sterile lemma shape, both awns, parental characters, a voucher and source concept before certifying an individual.",
+    "stage": "PROVISIONAL_HYBRID_SOURCE_ID",
+    "recognition": "Accepted natural hybrid C. cucullata × C. verticillata, but photo only shows a source-labelled windmill head. Hybrid identity requires fertile+sterile lemma morphology, matching parental context and vouchered specimen.",
     "lookalikes": "Kew accepts ×subdolichostachya as the cucullata × verticillata hybrid and describes intermediate features: racemes digitate 5–16, longer than some hooded heads; fertile lemma awn 2–5 mm, upper sterile lemma awn 1–2 mm, upper sterile lemma oblong rather than dramatically orbicular. These overlap parent characters; do not use a photograph of a windmill silhouette to confirm parentage.",
     "what_to_photograph": [
       "An authenticated hybrid voucher and exact-source field plant documented with collector data.",
       "Matched three-way entire heads at same scale: cucullata, verticillata, and suspected hybrid.",
       "Dissected hybrid sterile lemma shape, fertile awn and sterile awn at millimeter scale.",
-      "Parent habitat coexistence / specimen confirmation notes as supplementary evidence, not a substitute for dissection."
+      "Parent habitat coexistence / specimen confirmation notes as supplementary evidence, not a substitute for dissection.",
+      "Measure separate fertile lemma awn ~2–5 mm and upper sterile lemma awn ~1–2 mm on a source-validated specimen; shoot the sterile lemma shape at 20×"
     ],
     "photo_review": "Original pixels of all selected local photos were examined, arrows on actual visible parts only.",
     "taxonomic_reclassification": false,
     "range_or_nativity_review": "PRESERVED without county audit",
-    "public_release": "GitHub content commit does not prove Pages deployment."
+    "public_release": "GitHub content commit does not prove Pages deployment.",
+    "parent_photos_now_compared": 2,
+    "exact_hybrid_photo_independently_validated": false,
+    "public_note": "2 credited distinct parent species examples do NOT establish source candidate as hybrid",
+    "new_files": 0
   }
 }
