@@ -47,9 +47,10 @@
       "native_range_untouched": true,
       "taxonomic_photo_misassociation_flagged": true,
       "status": "FIELD_READY_PHOTO_GAPS"
-    }
+    },
+    "usgs_bushy_20261022": "USGS source photo true var. glomeratus external provisional; six credited genus panels; 2 safe visible head-level arrows, unchanged county and historic science holds"
   },
-  "visual_status": "FIELD_READY_PHOTO_GAPS — 3 installed species, 5 genus panels with image-level source/license credits, no invented anatomical arrows. Actual same-specimen spathe/raceme/spikelet macros and regionally voucher-confirmed A. glomeratum and A. tenuispatheum still missing.",
+  "visual_status": "FIELD_READY_PHOTO_GAPS — three installed species, six genus panels including true USGS bushy flowering heads, two visible head-only arrows; measured paired racemes and real local var. glomeratus voucher photo still missing.",
   "fast_fill_note": "Anatherum glomeratum now has a 3-image FAST-FILL gallery. Synonym-based images are used only because the canonical record explicitly maps Andropogon glomeratus to accepted Anatherum glomeratum.",
   "look_here_first": "THREE INSTALLED ANATHERUM BLUESTEMS: true bushy A. glomeratum forms a broad dense silk-brushed crown; broomsedge A. virginicum has more separated narrow partly spathe-enclosed silky pairs. A. tenuispatheum is a third accepted species; do not identify it from fluffy habit alone and do not misapply old 'Andropogon glomeratus var. pumilus' photos to bushy A. glomeratum. At 10–20×, photograph each paired raceme, upper spathe, sessile/pedicellate spikelets, true hairs and measurable awns. Keep uncertain plants Anatherum sp.",
   "shared_genus_traits": [
@@ -210,6 +211,15 @@
     {
       "lane": "Taxonomy + BONAP native-range audit",
       "task": "Review A. glomeratum project PASS because documented counties Hays, Travis, Williamson have only two qualifying target-zone counties and current Kew country/state listing does not explicitly support Texas. Preserve existing PASS until owning reviewer supplies BONAP county evidence. Do not turn A. tenuispatheum into a presumed local native from Kew state-level Texas listing."
+    },
+    {
+      "lane": "BONAP native-range targeted verification",
+      "task": "A. glomeratum currently lists Hays, Travis, Williamson: only Hays and Travis are target counties. BONAP 2014 maps file Andropogon glomeratus but county-native map cannot yet be read as 3 qualifying in-zone counties; Kew POWO accepted A. glomeratum distribution unexpectedly omits Texas, while NPSOT and Texas Parks Wildlife discuss bushy bluestem in the state. Preserve species PASS and source evidence, flag exact county/provenance re-audit rather than silently counting Williamson or treating statewide presence as third target county.",
+      "sources": [
+        "https://bonap.net/Napa/TaxonMaps/Genus/County/Andropogon",
+        "https://powo.science.kew.org/taxon/77339188-1",
+        "https://www.npsot.org/posts/native-plant/andropogon-glomeratus/"
+      ]
     }
   ],
   "sources": [
@@ -240,10 +250,42 @@
     }
   ],
   "visual_comparison": {
-    "title": "ANATHERUM — three canonical bluestems, correct taxon labels",
-    "subtitle": "Five photographic comparison panels from existing locally archived media and licensed historical Commons source: true bushy source specimen (1), broomsedge (2), tenuispatheum (1), historic Midway var. pumilus (1). Zero new anatomical arrows until pixel-confirmed.",
+    "title": "ANATHERUM — flowering true bushy bluestem versus broomsedge and tenuispatheum",
+    "subtitle": "Six credited panels including new USGS true var. glomeratus flowerhead with two visible head-level arrows, existing regional broomsedge photos and historical var. pumilus correctly labelled different accepted taxon. Need mm-scale spathe/paired-spikelet macro.",
     "memory_rule": "DENSE BRUSH = bushy candidate; SEPARATE SPATHES = broomsedge candidate; VAR. PUMILUS HISTORICAL PHOTO = tenuispatheum name, NOT glomeratum. Actual paired racemes and hairy spikelet anatomy complete the ID.",
     "items": [
+      {
+        "label": "TRUE BUSHY BLUESTEM — several dense flowering clusters (USGS Louisiana var. glomeratus)",
+        "scientific_name": "Anatherum glomeratum",
+        "image_url": "https://warcapps.usgs.gov/PlantID/Image/GivenFile?file=Andropogon+glomeratus+var.+glomeratus_inflorescence+4.JPG&id=2784",
+        "image_fit": "contain",
+        "image_role": "Actual USGS photograph source-labelled Andropogon glomeratus var. glomeratus; many short crowded silky inflorescence groups and narrow surrounding leaves are visible. Original photograph has no accurate mm scale for rachis/spathe microanatomy.",
+        "caption": "Three narrow, strongly clustered pale-silky flowering plumes rise along a grass culm. The USGS identifies the pictured taxon as Andropogon glomeratus var. glomeratus (modern A. glomeratum, distinct from old var. pumilus). These are genuine visible flowering-cluster features; individual rachilla joints, the precise paired spathes, sessile/pedicellate spikelets, awns and ligule need a dissected millimeter-scale photo. The picture is from Louisiana, NOT proof of occurrence in Hays County.",
+        "why_it_matters": "Adds true var. glomeratus flowering-head architecture for field learning without conflating the Hawaiian var. pumilus/modern A. tenuispatheum records.",
+        "creator": "Larry Allain, U.S. Geological Survey",
+        "license": "Public domain — U.S. Geological Survey",
+        "license_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+        "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/2784",
+        "source_image": "https://warcapps.usgs.gov/PlantID/Image/GivenFile?file=Andropogon+glomeratus+var.+glomeratus_inflorescence+4.JPG&id=2784",
+        "source_determination": "Andropogon glomeratus var. glomeratus (USGS Plants of Louisiana image filename and species page); independent herbarium voucher not confirmed",
+        "photo_status": "PUBLIC DOMAIN SOURCE-IDENTIFIED EXACT INFRASPECIFIC NAME — EXTERNAL PROVISIONAL USER REVIEW PENDING; photo seen via USGS photo search source 2026-10-22; physically archived GitHub JPEG NOT yet installed. Visible whole-cluster arrows only; no exact spathe or floret positions asserted.",
+        "markers": [
+          {
+            "label": "Dense silky flowering cluster",
+            "label_x": 70,
+            "label_y": 8,
+            "target_x": 62,
+            "target_y": 31
+          },
+          {
+            "label": "Separate flowering cluster",
+            "label_x": 4,
+            "label_y": 77,
+            "target_x": 22,
+            "target_y": 57
+          }
+        ]
+      },
       {
         "image_fit": "contain",
         "markers": [],
@@ -318,6 +360,6 @@
         "photo_status": "Historic source category under var. pumilus, synonym explicitly mapped by Kew to A. tenuispatheum; provenance Midway Hawaii, not Hays; comparison only. No structural arrows; no inference of species-confirmed original pixels."
       }
     ],
-    "overlay_note": "2026-10-22: 3/3 canonical existing species represented, five credited panels. Four preexisting archived JPGs, one historical licensed external photo. No new bytes, range statuses, or arrows. Original rights and provenance preserved; ambiguous species and pixels explicitly provisional."
+    "overlay_note": "2026-10-22: 3/3 canonical existing species represented, five credited panels. Four preexisting archived JPGs, one historical licensed external photo. No new bytes, range statuses, or arrows. Original rights and provenance preserved; ambiguous species and pixels explicitly provisional. USGS official Larry Allain PD flowering head externally linked as provisional, two gross-feature arrows, not physical bytes. Photo is Louisiana, not evidence of Hays nativity. Original 5 photo panels retained."
   }
 }
