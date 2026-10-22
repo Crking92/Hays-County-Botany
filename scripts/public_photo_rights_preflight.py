@@ -41,7 +41,8 @@ def photo_rights(record, noncommercial=False):
     # The publisher inserts this marker only for explicitly enumerated frames.
     # Validate it again here, including creator, video source and record ID.
     if clean(record.get("site_specific_public_permission")) == JOEY_CREDITED_PERMISSION.lower():
-        frame_id = clean(record.get("source_record_id"))
+        # YouTube IDs are case-sensitive; do not lowercase archived frame IDs.
+        frame_id = str(record.get("source_record_id") or "").strip()
         if (
             noncommercial
             and creator in JOEY_CREATORS
