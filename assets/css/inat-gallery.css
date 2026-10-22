@@ -1,0 +1,17 @@
+/* Independent, on-demand iNaturalist photo gallery. No diagnostic arrow overlays. */
+.inat-explore{scroll-margin-top:95px}
+.inat-launch{min-height:44px;display:inline-flex;align-items:center;margin:5px 0 14px}
+.inat-photo-jump{margin:12px 0 5px}
+.inat-controls{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:16px 0 11px}
+.inat-controls .button{padding:10px 14px;font-size:.87rem}
+.inat-strip{gap:14px;scroll-padding-inline:12px;scrollbar-width:thin;overscroll-behavior-x:contain}
+.inat-strip:focus-visible{outline:3px solid #aa7927;outline-offset:3px}
+.inat-tile{width:285px;min-width:255px;max-width:78vw}
+.inat-tile img{width:100%;height:225px;object-fit:contain;background:#e7ece5}
+.inat-tile .tilebody{font-size:.87rem}
+.inat-tile .role{font-weight:720}
+.inat-tile small{margin:4px 0;overflow-wrap:anywhere}
+.inat-tile a{font-size:.85rem}
+.inat-explore [data-inat-drawer][hidden]{display:none!important}
+.inat-explore .loading{justify-content:flex-start}
+@media(max-width:640px){.inat-controls{gap:8px}.inat-controls .mini{order:-1;width:100%}.inat-tile{width:265px;min-width:235px}.inat-tile img{height:210px}}
