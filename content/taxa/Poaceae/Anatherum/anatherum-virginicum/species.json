@@ -59,7 +59,8 @@
     "last_reviewed": "2026-10-06",
     "photo_metadata_count": 2,
     "photo_files_present": 2,
-    "gbif_manual_photo_enrichment": "2026-10-15"
+    "gbif_manual_photo_enrichment": "2026-10-15",
+    "field_photo_comparison_20261022": "Two existing source-licensed physical panels integrated, no new photos, no invented arrows; historical taxonomy/range untouched"
   },
   "photo_note": "Diagnostic roles are defined in the deep-review draft; exact reusable photos remain for the learner photo-backfill lanes. First exact licensed photo physically installed 2026-10-14; fine diagnostic gallery pending. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling.",
   "images": [
@@ -111,10 +112,10 @@
     }
   ],
   "learner_visual_status": {
-    "status": "provisional_learner_ready",
+    "status": "field_ready_photo_gaps",
     "mode": "learner_fast_fill",
-    "image_count": 1,
-    "note": "First exact photograph installed; additional diagnostic views pending."
+    "image_count": 2,
+    "note": "Two already archived public-permitted CC BY photographs assembled into photo-led lesson; actual raceme/spathe/glume detail and any arrows pending pixel inspection."
   },
   "field_id_lesson": {
     "status": "FIELD-READY, PHOTO GAPS",
@@ -157,7 +158,44 @@
         "status": "NEEDS_DIAGNOSTIC_PHOTO: sharp intact leaf collar"
       }
     ],
-    "annotation_status": "annotation_pending: existing photos have not been visually verified for these exact organs; no coordinates added",
+    "annotation_status": "2 source-labelled credited archived photo panels displayed without anatomical arrows; true spathe/raceme/spikelet annotations remain pending high-resolution pixel review.",
     "public_photo_note": "Both existing CC BY images and source/license metadata preserved; no new media rights asserted."
+  },
+  "visual_comparison": {
+    "title": "BROOMSEDGE — distinguish scattered spathe-held racemes from dense bushy crown",
+    "subtitle": "Two previously archived broomsedge photographs with source/licensing; no new anatomy arrows until actual pixels establish spathe and spikelet organs.",
+    "memory_rule": "BROOMSEDGE = more individually separated silky, spathe-held upper racemes; BUSHY = dense clustered terminal brush. A. tenuispatheum is separate accepted species, not just another photo of either.",
+    "items": [
+      {
+        "image_fit": "contain",
+        "markers": [],
+        "label": "BROOMSEDGE — slender branches on photographed flowering culm",
+        "scientific_name": "Anatherum virginicum",
+        "image_url": "content/taxa/Poaceae/Anatherum/anatherum-virginicum/images/inat-750285705-first-photo.jpg",
+        "image_role": "Existing physically archived CC BY source photo of source-determined broomsedge showing narrow reddish culms and slender upper branches; spikelet organ detail not certified.",
+        "caption": "Look for narrow, rather separate flowering branches carrying short racemes partly enclosed in the leafy spathes of the upper stem. Seasonal orange-red colors support recognition only. This photograph has not been reviewed closely enough to label an actual spathe, fertile sessile spikelet, pedicellate position or ligule.",
+        "why_it_matters": "Gives the genus lesson its first canonical broomsedge field context instead of comparing two textual paragraphs.",
+        "creator": "haydenmolo",
+        "license": "CC BY",
+        "source_page": "https://www.inaturalist.org/photos/750285705",
+        "photo_status": "Archived research-grade determined source; prior metadata describes pixels as reviewed for provisional habit only. No anatomy arrows without fresh pixel check."
+      },
+      {
+        "image_fit": "contain",
+        "markers": [],
+        "label": "BROOMSEDGE — additional licensed species-labelled photograph",
+        "scientific_name": "Anatherum virginicum",
+        "image_url": "content/taxa/Poaceae/Anatherum/anatherum-virginicum/images/gbif-manual-5938030520-130443b8a.jpg",
+        "image_role": "Second physically archived CC BY source-determined broomsedge gallery image, organ-specific role unverified.",
+        "caption": "Second broomsedge gallery perspective kept as provisional for user checking on the public species page. Until verified, do not claim the tiny leaf collar, paired racemes or spikelet hairs are visible.",
+        "why_it_matters": "Puts the existing photographed taxon alongside bushy bluestem for useful first-pass comparison, while clearly documenting the precise missing macro.",
+        "creator": "Lauren McLaurin",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "source_page": "https://www.gbif.org/occurrence/5938030520",
+        "photo_status": "Existing local archived GBIF/iNaturalist image with per-photo source and CC BY 4.0 in intake. No new organ arrows; PROVISIONAL — USER PHOTO REVIEW PENDING."
+      }
+    ],
+    "overlay_note": "Both locally archived existing images and original rights preserved; leaf, inflorescence and habit text comes from existing canonical botanical review, not newly asserted micro-annotations. User can review both on public species page; all arrows pending actual pixel QA."
   }
 }
