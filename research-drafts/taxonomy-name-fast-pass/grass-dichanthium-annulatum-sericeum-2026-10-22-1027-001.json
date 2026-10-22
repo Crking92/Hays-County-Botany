@@ -1,0 +1,72 @@
+{
+  "evidence_id": "grass-dichanthium-annulatum-sericeum-2026-10-22-1027-001",
+  "reviewed_at": "2026-10-22T10:27:17-05:00",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Poaceae accepted-name, synonym and rank evidence only",
+  "taxonomy_backbone": "Kew Plants of the World Online / World Checklist of Vascular Plants (2026)",
+  "claim_path": "workflow/taxonomy-claims/grass-dichanthium-annulatum-sericeum-2026-10-22-1027-001.json",
+  "items": [
+    {
+      "canonical_id": "dichanthium-annulatum",
+      "canonical_path": "content/taxa/Poaceae/Dichanthium/dichanthium-annulatum/species.json",
+      "canonical_blob_sha_at_review": "b610b71be05b2a450fd82377dd834421ebb42fe9",
+      "accepted_name": "Dichanthium annulatum (Forssk.) Stapf",
+      "name_status": "ACCEPTED",
+      "rank": "species",
+      "synonym_examples": [
+        "Andropogon annulatus Forssk.",
+        "Sorghum annulatum (Forssk.) Kuntze"
+      ],
+      "accepted_infraspecific": [
+        "Dichanthium annulatum var. annulatum",
+        "Dichanthium annulatum var. papillosum (Hochst. ex A.Rich.) De Wet & J.R.Harlan"
+      ],
+      "concept_boundary": {
+        "historical_name": "Dichanthium annulatum var. fecundum (S.T.Blake) De Wet & J.R.Harlan",
+        "accepted_name": "Dichanthium fecundum S.T.Blake",
+        "status": "distinct accepted species; do not automatically merge historical variety into D. annulatum"
+      },
+      "decision": "ACCEPTED_WITH_HISTORICAL_VARIETY_CONCEPT_CAUTION",
+      "identity_status": "EXISTING_IDENTITY_NOT_INDEPENDENTLY_VERIFIED",
+      "sources": [
+        "https://powo.science.kew.org/taxon/398528-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:398541-1"
+      ]
+    },
+    {
+      "canonical_id": "dichanthium-sericeum",
+      "canonical_path": "content/taxa/Poaceae/Dichanthium/dichanthium-sericeum/species.json",
+      "canonical_blob_sha_at_review": "09b90048d0f2d0a060d33c547d4743fdc57cceae",
+      "accepted_name": "Dichanthium sericeum (R.Br.) A.Camus",
+      "name_status": "ACCEPTED",
+      "rank": "species",
+      "homotypic_synonyms": [
+        "Andropogon sericeus R.Br.",
+        "Sorghum sericeum (R.Br.) Kuntze"
+      ],
+      "accepted_infraspecific": [
+        "Dichanthium sericeum subsp. humilius (J.M.Black) B.K.Simon",
+        "Dichanthium sericeum subsp. polystachyum (Benth.) B.K.Simon",
+        "Dichanthium sericeum subsp. sericeum"
+      ],
+      "concept_boundary": {
+        "historical_name": "Andropogon sericeus var. polystachyus Benth.",
+        "accepted_name": "Dichanthium sericeum subsp. polystachyum (Benth.) B.K.Simon",
+        "status": "accepted subspecies, not a separate accepted species; do not assign unidentified species-rank records to subspecies"
+      },
+      "decision": "ACCEPTED_WITH_INFRASPECIFIC_RANK_CAUTION",
+      "identity_status": "EXISTING_IDENTITY_NOT_INDEPENDENTLY_VERIFIED",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:398571-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:955558-1"
+      ]
+    }
+  ],
+  "science_guardrails": [
+    "Existing scientific PASS/FAIL/HOLD/UNRESOLVED and original source determinations remain unchanged.",
+    "Taxonomic acceptance does not verify existing photographs or source observation identity.",
+    "No hybrid inference or subspecies assignment without source-level evidence.",
+    "No county nativity audit or species-card, genus/family, installation, photo, or Pages edits."
+  ],
+  "canonical_files_modified": false
+}
