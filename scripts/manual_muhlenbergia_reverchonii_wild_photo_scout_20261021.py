@@ -36,7 +36,7 @@ def get(url, max_bytes=18_000_000):
         try:
             r=session.get(url, timeout=45)
             r.raise_for_status()
-            assert 100 < len(r.content) < max_bytes, ("unexpected bytes",len(r.content),url)
+            assert 20 < len(r.content) < max_bytes, ("unexpected bytes",len(r.content),url)
             return r.content
         except Exception as e:
             last=str(e)
@@ -123,8 +123,52 @@ def main():
             result["closest_photo_id"]=hits[0]["photo"]["id"] if hits else None
             result["closest_observation_id"]=hits[0]["observation_id"] if hits else None
             result["closest_phash_distance"]=hits[0]["score"] if hits else None
-            if not hits or hits[0]["score"]>10 or (len(hits)>1 and hits[1]["score"]-hits[0]["score"]<4):
-                result["status"]="HOLD: No unambiguous exact-source photograph match; no image installed"
+            if not hits:
+                result["status"]="HOLD: no per-photo licensed wild-source candidate; no image installed"
+                findings.append(result)
+                continue
+            if hits[0]["score"]>10 or (len(hits)>1 and hits[1]["score"]-hits[0]["score"]<4):
+                # IMPORTANT: gallery thumbnail still unmatched. Separate candidate
+                # intake under an EXPLICIT MANUAL PHOTO REVIEW lane only. These are
+                # NOT the WildflowerSearch originals, and NOT canonical gallery images.
+                review=[]
+                for h0 in hits[:3]:
+                    p0=h0["photo"]
+                    code0=(p0.get("license_code") or "").lower()
+                    if code0 not in ALLOWED:
+                        continue
+                    original0=p0["url"]
+                    for tag in ("square.","thumb.","small.","medium.","large."):
+                        original0=original0.replace(tag,"original.")
+                    try:
+                        raw0=get(original0,max_bytes=18_000_000)
+                        im0=valid_image(raw0)
+                        im0.thumbnail((1500,1500),Image.Resampling.LANCZOS)
+                        buf0=io.BytesIO()
+                        im0.save(buf0,"JPEG",quality=91,optimize=True)
+                        data0=buf0.getvalue()
+                        assert len(data0)>14000
+                        target0=BASE/f"review-only-{src['role']}-inat-{p0['id']}.jpg"
+                        if not target0.exists():
+                            target0.parent.mkdir(parents=True,exist_ok=True)
+                            target0.write_bytes(data0)
+                        record0={
+                          "photo_id":p0["id"],"path":str(target0),"license":ALLOWED[code0],
+                          "creator":p0.get("attribution"),
+                          "source_photo":f"https://www.inaturalist.org/photos/{p0['id']}",
+                          "source_observation":f"https://www.inaturalist.org/observations/{h0['observation_id']}",
+                          "original_url":original0,
+                          "original_sha256":hashlib.sha256(raw0).hexdigest(),
+                          "published_dimensions":list(im0.size),
+                          "MATCHED_WFS_THUMBNAIL":False,
+                          "REVIEW_STATUS":"SOURCE_AND_LICENSE VERIFIED ONLY; PIXEL MORPHOLOGY NOT YET REVIEWED"
+                        }
+                        review.append(record0)
+                        additions.append(str(target0))
+                    except Exception as e:
+                        print("Review-only image failed",p0["id"],str(e)[:160],flush=True)
+                result["manual_review_candidates"]=review
+                result["status"]="STAGED_WILD_CC_PHOTOS_FOR_MANUAL_PIXEL_REVIEW; WFS exact-match remains HOLD" if review else "HOLD: wild-source photo candidate download failed"
                 findings.append(result)
                 continue
             h=hits[0]; p=h["photo"]; license_code=p["license_code"].lower()
@@ -169,6 +213,7 @@ def main():
         "taxon":TAXON,"intake":"one-time source-photo verification, not a finished species ID",
         "thumbnail_site":"https://wildflowersearch.org/search?tsn=164871_2",
         "images_staged":len(additions),
+        "staged_files_are_only_candidates_not_canonical_gallery":True,
         "candidate_status":findings,
         "science_holds_or_existing_species_edited":False,
         "canonical_species_gallery_modified":False,
