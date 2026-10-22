@@ -1,0 +1,91 @@
+{
+  "batch_id": "grass-setaria-parviflora-reverchonii-scheelei-2026-10-22-0529-001",
+  "checked_at": "2026-10-22",
+  "lane": "taxonomy-only",
+  "family": "Poaceae",
+  "authority": "Royal Botanic Gardens Kew POWO / World Checklist of Vascular Plants (2026)",
+  "claim_path": "workflow/taxonomy-claims/grass-setaria-three-names-2026-10-22-0529-001.json",
+  "canonical_files_read_only": [
+    {
+      "path": "content/taxa/Poaceae/Setaria/setaria-parviflora/species.json",
+      "sha": "917e92b87c20b1f2535c31bcd6628102a38de606"
+    },
+    {
+      "path": "content/taxa/Poaceae/Setaria/setaria-reverchonii/species.json",
+      "sha": "a0c02e8388b2e2dd784887736481a55d7f27f3eb"
+    },
+    {
+      "path": "content/taxa/Poaceae/Setaria/setaria-scheelei/species.json",
+      "sha": "b2b97c038024e17201a29fec0fc5b21f2bbbdbca"
+    }
+  ],
+  "decisions": [
+    {
+      "source_name": "Setaria parviflora (Poir.) Kerguélen",
+      "accepted_name": "Setaria parviflora (Poir.) Kerguélen",
+      "rank": "species",
+      "decision": "ACCEPTED; preserve installed species",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:943811-1"
+    },
+    {
+      "source_name": "Setaria geniculata (Poir.) P.Beauv.",
+      "accepted_name": "Setaria parviflora (Poir.) Kerguélen",
+      "rank": "species synonym",
+      "decision": "SYNONYM; exact unqualified name maps to parviflora, no duplicate card",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1076134-2"
+    },
+    {
+      "source_name": "Panicum geniculatum Poir.",
+      "accepted_name": "Setaria parviflora (Poir.) Kerguélen",
+      "rank": "species synonym",
+      "decision": "SYNONYM; do not create separate card",
+      "url": "https://powo.science.kew.org/taxon/77245185-1"
+    },
+    {
+      "source_name": "Setaria geniculata var. pauciseta É.Desv.",
+      "accepted_name": "Setaria brownii Desv.",
+      "rank": "variety name to accepted species",
+      "decision": "SPECIES-BOUNDARY CAUTION: do not collapse all geniculata varieties to S. parviflora; source identity requires exact epithet and authorship",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235183-2"
+    },
+    {
+      "source_name": "Setaria reverchonii (Vasey) Pilg.",
+      "accepted_name": "Setaria reverchonii (Vasey) Pilg.",
+      "rank": "species",
+      "decision": "ACCEPTED; preserve installed species; POWO lists three accepted subspecies: firmula, ramiseta, reverchonii. No unsupported subspecies assignment.",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2"
+    },
+    {
+      "source_name": "Panicum reverchonii Vasey",
+      "accepted_name": "Setaria reverchonii (Vasey) Pilg.",
+      "rank": "species synonym",
+      "decision": "HOMOTYPIC SYNONYM",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2"
+    },
+    {
+      "source_name": "Setaria scheelei (Steud.) Hitchc.",
+      "accepted_name": "Setaria scheelei (Steud.) Hitchc.",
+      "rank": "species",
+      "decision": "ACCEPTED; preserve installed species; distinct from reverchonii and parviflora",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235267-2"
+    },
+    {
+      "source_name": "Panicum scheelei Steud.",
+      "accepted_name": "Setaria scheelei (Steud.) Hitchc.",
+      "rank": "species synonym",
+      "decision": "HOMOTYPIC SYNONYM",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235267-2"
+    }
+  ],
+  "guardrails": {
+    "canonical_changes": [],
+    "scientific_PASS_FAIL_HOLD_UNRESOLVED": "UNCHANGED",
+    "photo_or_specimen_identity": "NOT VERIFIED",
+    "county_nativeness": "NOT AUDITED",
+    "infraspecific_assignments": "NOT INFERRED",
+    "installation": "NONE",
+    "taxonomy_reviewed_flags": "UNCHANGED",
+    "other_workers_files_modified": false
+  },
+  "handoff": "Preserve three distinct installed accepted species. Resolve historical aliases only when full source name/author/rank matches; geniculata var. pauciseta belongs to distinct S. brownii. Keep species-level S. reverchonii pending specimen-supported subspecies determination."
+}
