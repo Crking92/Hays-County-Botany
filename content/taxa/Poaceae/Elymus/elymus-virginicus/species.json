@@ -53,7 +53,7 @@
       {
         "taxon": "Texas wintergrass · Nassella leucotricha",
         "where_to_look": "Determine spike vs branching PANICLE: look for continuous crowded rachis nodes with MULTIPLE florets in each spikelet.",
-        "this_species": "CANADA has one terminal unbranched spike, with multi-flowered spikelets at successive rachis nodes, each with its own outer glumes and multiple lemma awns.",
+        "this_species": "VIRGINIA has a single terminal unbranched SPIKE with multiflowered spikelets attached at successive rachis nodes, each spikelet enclosed by glumes and containing several awned lemmas.",
         "look_alike": "Wintergrass has loose branching panicle of ONE-flowered hardened spikelets, each floret with ONE extremely long twisted awn and a sharp callus.",
         "quick_rule": "Multi-flowered spikelets along one central SPIKE = Elymus; isolated one-flowered grains along branching PANICLE = Nassella."
       },
@@ -67,7 +67,7 @@
       {
         "taxon": "Other Elymus / hybrid forms",
         "where_to_look": "Inspect leaf auricles, actual glume basal width and spikelet floret number, then use regional dichotomous key.",
-        "this_species": "Canada tends to long drooping heads; glumes narrow straight basal form.",
+        "this_species": "VIRGINIA typically has a more upright, compact mature spike and pale, hard, outward-bowed U-shaped glume bases; verify several mature attached spikelets.",
         "look_alike": "Elymus glaucus, other wildryes and Canada × Virginia intermediate crosses overlap in habit and awns.",
         "quick_rule": "Contradictory morphology → Elymus sp., do not force two-species classification."
       }
@@ -319,5 +319,56 @@
       "visual_role_reviewed": true,
       "note": "Additional licensed external diagnostic study source, from Montana. Photo arrows on this exact source verified at 544×1344; not locally installed."
     }
-  ]
+  ],
+  "field_id_finish_pass": {
+    "stage": "FIELD_READY_PHOTO_GAPS",
+    "look_here_first": "Virginia wildrye: inspect several MATURE attached rachis nodes for paired multiflowered spikelets and pale, thickened glume bases that bow outward like a U. An upright compact spike with shorter, less-divergent awns supports the ID; head posture alone is not decisive against Canada wildrye or intermediates.",
+    "crew_field_check": [
+      "Photograph one whole attached mature spike from base to tip with a centimeter ruler, showing its posture relative to the upper sheath.",
+      "At 10–20×, photograph two separate intact rachis nodes with paired spikelets and their outer glumes, using a 1-mm scale; label the rachis, glumes and lemma awns only where visible.",
+      "Measure and record glume basal shape and awn length from the same specimen rather than applying an unverified photo-based cutoff; compare multiple mature nodes with Canada wildrye.",
+      "Expose a leaf collar to show the small auricles and membranous ligule; these support Elymus, not a Virginia-versus-Canada species ID.",
+      "If head posture, glume-base curvature and awn spread conflict, retain Elymus sp. pending voucher/hybrid review."
+    ],
+    "lookalike_separation": [
+      {
+        "taxon": "Elymus canadensis",
+        "check": "Canada more often has a nodding open mature spike, long outward-spreading awns and narrow relatively straight V-like glume bases; compare several attached nodes because forms can hybridize."
+      },
+      {
+        "taxon": "Hordeum spp.",
+        "check": "Barleys often have three spikelets at a rachis node and commonly one floret per spikelet; Elymus typically has paired multiflowered spikelets."
+      },
+      {
+        "taxon": "Nassella leucotricha",
+        "check": "Texas wintergrass has a branched panicle with single-flowered sharp-callused awned spikelets, not one central spike with multiflowered spikelets."
+      }
+    ],
+    "diagnostic_photo_handoff": [
+      {
+        "role": "mature glume-base pair with mm ruler",
+        "status": "NEEDS_DIAGNOSTIC_PHOTO",
+        "note": "An existing source-credited Montana macro demonstrates U-bowed bases; a same-plant measured Hays-area macro and independent specimen determination remain absent."
+      },
+      {
+        "role": "whole mature spike and upper sheath",
+        "status": "NEEDS_DIAGNOSTIC_PHOTO",
+        "note": "Photograph full intact spike with cm scale from a local source-identified plant."
+      },
+      {
+        "role": "true collar, auricles and ligule",
+        "status": "NEEDS_DIAGNOSTIC_PHOTO",
+        "note": "Sharp same-plant leaf-junction closeup; genus support only."
+      },
+      {
+        "role": "paired multiflowered spikelets and lemma awns",
+        "status": "NEEDS_DIAGNOSTIC_PHOTO",
+        "note": "Intact rachis node, glumes, florets and awn origin with 1-mm ruler."
+      }
+    ],
+    "annotation_status": "Existing visually reviewed gross-feature arrows preserved; annotation_pending for any new measured local macro. No new coordinates added.",
+    "public_readiness": "NEEDS_SITE_QA; no Pages deployment attempted or verified",
+    "photo_rights": "Preserve two existing Matt Lavin CC BY-SA 2.0 images, original source pages and attribution/ShareAlike obligations. No new image installed.",
+    "science_status": "Target-zone county range unresolved; no new native certification or hybrid determination."
+  }
 }
