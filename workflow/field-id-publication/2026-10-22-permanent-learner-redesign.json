@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "user_authorized_site_redesign_publication",
+  "title": "Permanent scrolling Learner homepage for all installed species",
+  "user_approval": "User asked to make new Learner design permanent for everything; keep Field ID and Quiz familiar.",
+  "layout": {
+    "default": "Learner",
+    "sections": [
+      "Learner",
+      "Field ID",
+      "Quiz"
+    ],
+    "learner_paths": [
+      "botany_basics",
+      "species_scrolling_lessons"
+    ],
+    "all_current_species": "generated from canonical manifest; no species files altered"
+  },
+  "implementation": {
+    "merged_pull_request": 30,
+    "merge_commit": "80bc82ddfea2a7c7aa89f02d779feab44845f393",
+    "source_files": [
+      "index.html",
+      "field-id.html",
+      "quiz.html",
+      "scripts/build_cloudflare_site.sh",
+      "scripts/build_public_pages_snapshot.py",
+      "sw.js",
+      ".github/workflows/publish-public-learner-github-pages.yml"
+    ],
+    "common_name_index": "dist/data/learner-search-index.json auto-generated during rights-filtered publication"
+  },
+  "release_policy": "Use existing GitHub Pages noncommercial rights-filtered snapshot, sanitize copy EXIF/GPS, pass photo quality and image rights preflight. Do not publish private Photo Lab, unapproved photos, or draft research.",
+  "field_and_quiz_unchanged_engine": true,
+  "canonical_taxonomy_photo_metadata_unchanged": true,
+  "automations_unchanged": true
+}
