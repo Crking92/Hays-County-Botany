@@ -5,7 +5,7 @@
   "species": "distichum",
   "scientific_name": "Paspalum distichum",
   "common_name": "Knotgrass",
-  "look_here_first": "In damp compacted ground or at pond margins, look for CREEPING STOLONS (aboveground runners), and a seedhead with usually TWO slender one-sided racemes spreading from the same terminal area like a little V. A two-branch seedhead without the rooted runner could be Bahia grass or another Paspalum, so collect growth-base evidence too.",
+  "look_here_first": "KNOTGRASS / WETLAND PASPALUM: often TWO narrow one-sided V-shaped flowering racemes, but that alone is not a species ID. It spreads in wet ground by surface STOLONS that root at nodes. The original photo proves the two-raceme V; the NEW licensed meadow photo shows low mat-like habit but does NOT prove individual rooted nodes. Separate from P. notatum (bahia grass) with a true runner and mature spikelet anatomy.",
   "taxonomy_source": "https://powo.science.kew.org/results?q=Paspalum%20distichum",
   "curation_status": {
     "taxonomy_reviewed": false,
@@ -14,7 +14,12 @@
     "photo_metadata_count": 1,
     "photo_files_present": 1,
     "manual_paspalum_visual_pass": "2026-10-20",
-    "visual_finish": "FIELD_READY_PHOTO_GAPS — genuine two-raceme photograph; rooted stolon and measured spikelets missing"
+    "visual_finish": "FIELD_READY_PHOTO_GAPS — genuine two-raceme photograph; rooted stolon and measured spikelets missing",
+    "manual_paspalum_photo_refine_20261021": "FIELD_READY_PHOTO_GAPS",
+    "original_photo_files_untouched": true,
+    "new_local_files": 0,
+    "external_references_added": 1,
+    "nativity_unchanged": true
   },
   "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
   "identification_caution": "Photographed in Australia; vegetative and spikelet measurements remain unverified.",
@@ -30,11 +35,11 @@
     }
   ],
   "learner_visual_status": {
-    "status": "provisional_learner_ready",
+    "status": "field_ready_photo_gaps",
     "mode": "learner_fast_fill",
     "image_count": 1,
     "filled_at": "2026-10-18",
-    "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+    "note": "Visible field lesson refined with locally archived original photos and one provisional licensed Commons photo. No county audit or unverified anatomy."
   },
   "morphology_keys": {
     "crew_field_steps": [
@@ -56,12 +61,18 @@
       "Paspalum floridanum",
       "Paspalum dilatatum"
     ],
-    "key_distinctions": "Knotgrass combines wet-ground creeping stolons with usually paired (rarely three) unilateral flowering racemes. Bahia grass can produce two racemes but differs in low turf/rhizome architecture and spikelet structure. Thin paspalum may form just one or a few flowering branches but has different leafy habit and varietal hair traits; Florida paspalum forms robust upright bunches and bigger oval spikelets."
+    "key_distinctions": "Search actual growing horizontal stems and root-bearing nodes, rather than interpreting two racemes alone. Bahia grass P. notatum also often makes two racemes; grass-root habit and mature upper-glume/spikelet measurements must corroborate. The Australian wetland image is not proof of Texas nativity.",
+    "do_not_use_alone": [
+      "Number of racemes without the entire flowering axis",
+      "Habitat, height, or vegetative tuft in isolation",
+      "Microscopic glume hairs or spikelet length inferred from a photo without scale"
+    ],
+    "field_identification_note": "Pair the two-raceme photo with a legal close field photo exposing a rooted aboveground stolon node and centimeter ruler. Photograph complete leaf collar and a ripened spikelet; preserve geography and nativity uncertainty."
   },
   "visual_comparison": {
     "title": "Paspalum distichum — photographed field ID and look-alikes",
     "subtitle": "Photos already in the Hays library, inspected individually. Annotations point ONLY to visible shapes/parts; small hairs/glumes and exact species determinations await specimen proof.",
-    "memory_rule": "In damp compacted ground or at pond margins, look for CREEPING STOLONS (aboveground runners), and a seedhead with usually TWO slender one-sided racemes spreading from the same terminal area like a little V. A two-branch seedhead without the rooted runner could be Bahia grass or another Paspalum, so collect growth-base evidence too.",
+    "memory_rule": "COUNT COMPLETE RACEMES → MEASURE 5 RIPE SPIKELETS → CHECK MARGINAL HAIRS → ROOTED BASE/COLLAR. DALLIS few large silky; VASEY many small silky; FLORIDA few big round; PUBIFLORUM smaller oval; SETACEUM narrow variable; DISTICHUM two + real stolons.",
     "items": [
       {
         "label": "1 · Paired flowering racemes in a V",
@@ -111,22 +122,48 @@
         "license": "CC BY 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_setaceum_49099686.jpg",
         "photo_status": "DIFFERENT SPECIES comparison-only; source identification provisional, not part of exact-species canonical gallery."
+      },
+      {
+        "label": "KNOTGRASS — wetland groundcover habit",
+        "scientific_name": "Paspalum distichum",
+        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/Paspalum_distichum_habit5_%288250226941%29.jpg/960px-Paspalum_distichum_habit5_%288250226941%29.jpg",
+        "image_fit": "contain",
+        "image_role": "Groundcover-scale habitat image of source-labelled Australian knotgrass growing in a wet meadow; no individual root nodes visible",
+        "caption": "Harry Rose's Australian source-labelled wetland photograph illustrates a low, dense, mat-forming grass patch. It does NOT show distinct rooting stolon nodes, so the image is context for patch habit and not proof of underground rooting or Hays County origin.",
+        "why_it_matters": "Pairs the original close V-shaped two-raceme flowering image with a real landscape-scale low wet-site form, while recording that nodes still need their own close-up.",
+        "creator": "Harry Rose (Macleay Grass Man)",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_distichum_habit5_(8250226941).jpg",
+        "markers": [
+          {
+            "label": "Low mat of grass",
+            "label_x": 4,
+            "label_y": 78,
+            "target_x": 50,
+            "target_y": 62
+          }
+        ],
+        "photo_status": "Wikimedia Flickr license checked and 960px actual pixels viewed 2026-10-21. PROVISIONAL — USER PHOTO REVIEW PENDING. Habitat-scale gross arrow only; rooting stolon and flowers are NOT visible."
       }
     ],
-    "overlay_note": "No new or fabricated photos added. Source photographer and original per-photo CC terms retained, including BY-NC and BY-SA. Comparison photo is explicitly a DIFFERENT SPECIES. Arrows are screen-coordinate descriptions for visible gross structures only; website filtering, license version, mobile placement, and microscopic validation remain independent QA."
+    "overlay_note": "No new or fabricated photos added. Source photographer and original per-photo CC terms retained, including BY-NC and BY-SA. Comparison photo is explicitly a DIFFERENT SPECIES. Arrows are screen-coordinate descriptions for visible gross structures only; website filtering, license version, mobile placement, and microscopic validation remain independent QA. 2026-10-21: Key refined against intact-head, ripened spikelet and collar distinctions; original panels/arrows retained. One new licensed Commons reference is provisionally displayed for public user review, not stored as local JPEG. No BONAP/native-status changes."
   },
   "field_photo_quickcheck": {
     "version": 1,
     "heading": "Paspalum: what to inspect",
     "steps": [
-      "Photograph the two seedhead branches from their common point; the existing image unmistakably shows a pair of spreading reproductive racemes.",
-      "Zoom into each one-sided spikelet row and distinguish green spikelets from the dark protruding anthers and stigmas.",
-      "Photograph a REAL stolon with roots coming from a node in moist ground; none of the present project photos shows the rooted habit."
+      "Pair the two-raceme photo with a legal close field photo exposing a rooted aboveground stolon node and centimeter ruler. Photograph complete leaf collar and a ripened spikelet; preserve geography and nativity uncertainty.",
+      "First show the WHOLE head, then ONE one-sided raceme and attached spikelets. Never treat a photograph of one branch as total raceme count.",
+      "Obtain a real intact mature spikelet and measure it with 1-mm reference; use margin hair pattern and glumes to separate close Paspalum taxa.",
+      "Photograph blade/sheath joint and same-plant rootstock; knotgrass needs actually rooted horizontal stolons, not merely a low mat.",
+      "If plant photo is source-labelled only, keep identity tentative and leave existing county-native fields unchanged."
     ],
     "field_rule": "Knotgrass combines wet-ground creeping stolons with usually paired (rarely three) unilateral flowering racemes. Bahia grass can produce two racemes but differs in low turf/rhizome architecture and spikelet structure. Thin paspalum may form just one or a few flowering branches but has different leafy habit and varietal hair traits; Florida paspalum forms robust upright bunches and bigger oval spikelets.",
-    "warning": "These project photographs can teach the pictured organs, not unseen ligule/spikelet hairs or a proved voucher ID.",
+    "warning": "Gross photo structures are references, NOT expert confirmation. Even new licensed images are PROVISIONAL — USER PHOTO REVIEW PENDING and not proof of Hays County presence.",
     "featured_photo_indices": [
-      0
+      0,
+      2
     ],
     "evidence_sources": [
       "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184275-2/general-information",
@@ -134,9 +171,9 @@
     ]
   },
   "field_id_finish_pass": {
-    "stage": "FIELD_READY_PHOTO_GAPS — genuine two-raceme photograph; rooted stolon and measured spikelets missing",
-    "field_recognition": "In damp compacted ground or at pond margins, look for CREEPING STOLONS (aboveground runners), and a seedhead with usually TWO slender one-sided racemes spreading from the same terminal area like a little V. A two-branch seedhead without the rooted runner could be Bahia grass or another Paspalum, so collect growth-base evidence too.",
-    "lookalike_separation": "Knotgrass combines wet-ground creeping stolons with usually paired (rarely three) unilateral flowering racemes. Bahia grass can produce two racemes but differs in low turf/rhizome architecture and spikelet structure. Thin paspalum may form just one or a few flowering branches but has different leafy habit and varietal hair traits; Florida paspalum forms robust upright bunches and bigger oval spikelets.",
+    "stage": "FIELD_READY_PHOTO_GAPS",
+    "field_recognition": "KNOTGRASS / WETLAND PASPALUM: often TWO narrow one-sided V-shaped flowering racemes, but that alone is not a species ID. It spreads in wet ground by surface STOLONS that root at nodes. The original photo proves the two-raceme V; the NEW licensed meadow photo shows low mat-like habit but does NOT prove individual rooted nodes. Separate from P. notatum (bahia grass) with a true runner and mature spikelet anatomy.",
+    "lookalike_separation": "Search actual growing horizontal stems and root-bearing nodes, rather than interpreting two racemes alone. Bahia grass P. notatum also often makes two racemes; grass-root habit and mature upper-glume/spikelet measurements must corroborate. The Australian wetland image is not proof of Texas nativity.",
     "photography_targets": [
       "Whole plant patch and creeping stolon rooting at nodes on moist soil.",
       "Head photographed straight on from branching joint, showing the paired racemes.",
@@ -144,7 +181,8 @@
       "Close blade/sheath collar and a mature spikelet for P. notatum discrimination."
     ],
     "photograph_review": "Each selected exact-source JPEG inspected visually; no specimen redetermination claimed.",
-    "naming_and_native_review": "Unchanged from existing canonical record",
-    "pages_deployment": "Not yet verified"
+    "naming_and_native_review": "Original canonical fields preserved; no native-by-county audit.",
+    "pages_deployment": "Not yet verified",
+    "manual_20261021_photo_audit": "Real genus/source photo evidence reused. Any added external Commons image verified photo+permitted license and provisional public preview; no microscopic anatomy claimed from blurry source."
   }
 }
