@@ -59,6 +59,33 @@ def credited_joey_frame(item: dict, noncommercial: bool) -> bool:
     )
 
 
+# Narrow site-specific reuse grant: Bob Harms personally states these own Selected
+# Central Texas Monocots images are free for scientific/educational use WITH credit.
+# This is NOT a general photo license or a Creative Commons substitution.
+HARMS_ALLOWED_IDS = frozenset({"NALE3-L", "NALE3-J5", "NALE3-s", "NALE3-j6", "NALE3-9", "NALE3-d"})
+HARMS_BASE = "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/"
+HARMS_SITE_PERMISSION = "BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
+HARMS_EXACT_LICENSE = "© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
+
+
+def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial:
+        return False
+    if item.get("creator") != "Bob Harms" or item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Nassella leucotricha":
+        return False
+    page = item.get("source_page")
+    img = item.get("source_image")
+    return any(page == HARMS_BASE + "pages/" + photo_id + ".html" and
+               img == HARMS_BASE + "images/" + photo_id + ".jpg"
+               for photo_id in HARMS_ALLOWED_IDS)
+
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -73,6 +100,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
+    if permitted_harms_wintergrass(item, noncommercial):
+        return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
         # Public display on this learner was expressly granted by the owner,
         # including older 'private' metadata: DO NOT rewrite historic licenses.
