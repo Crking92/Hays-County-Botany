@@ -1,0 +1,55 @@
+{
+  "type": "manual_field_id_publication",
+  "requested_at": "2026-10-21",
+  "title": "Cenchrus field sandbur photo lesson, correct stale genus count and 2026 taxonomy caution",
+  "reason": "After Paspalum, finish installed Cenchrus spinifex species and genus. Genus file incorrectly said zero despite physically existing canonical species. Reuse its three original real licensed JPGs, annotate only actually visible burs, grass blades and flowering head with 9 arrows, compare classic regional bristle counts, and note April 2026 Texas revision reinstating additional taxa. Original science/native status, rights and five automations untouched.",
+  "scope": {
+    "family": "Poaceae",
+    "genus": "Cenchrus",
+    "species": [
+      "cenchrus-spinifex"
+    ],
+    "comparison_only": [
+      "Cenchrus longispinus",
+      "Cenchrus echinatus",
+      "Cenchrus incertus",
+      "Setaria spp.",
+      "Cenchrus ciliaris"
+    ],
+    "new_species": 0
+  },
+  "source_commits": [
+    "a27a48bf00626d254cc8c565cdf8256c51c954b5",
+    "a3935c004e6a0583a412a3a4f9b1ed416047895e"
+  ],
+  "qa": {
+    "genus_and_species_json_readback": true,
+    "canonical_species_installed": 1,
+    "genus_stale_zero_corrected": true,
+    "original_local_JPEGs_pixel_inspected": 3,
+    "new_media_files": 0,
+    "photo_panels": 3,
+    "visible_arrow_targets": 9,
+    "all_photo_creator_and_rights_fields_present": true,
+    "arrow_coordinates_in_bounds": true,
+    "no_unphotographed_microanatomy_arrows": true,
+    "source_species_photographic_determination_still_provisional": true,
+    "rights_versions_preserved_not_invented": true,
+    "native_county_not_newly_certified": true,
+    "texas_2026_taxonomic_revision_preserved_as_caution": true,
+    "field_status": "FIELD_READY_PHOTO_GAPS",
+    "remaining_true_gaps": [
+      "Mature undamaged spinifex/longispinus burs ruler side and basal views",
+      "Total bristle count including tiny elements and cupule bases",
+      "Actual forceps-exposed spikelets and glumes",
+      "Same-plant collar/ligule with a millimeter ruler",
+      "Expert voucher using Wipff 2026 Texas spinifex-group revision"
+    ]
+  },
+  "references": [
+    "https://journals.brit.org/jbrit/article/view/1461",
+    "https://gobotany.nativeplanttrust.org/dkey/cenchrus/",
+    "https://www.burkeherbarium.org/imagecollection/taxon.php?Taxon=Cenchrus+longispinus"
+  ],
+  "publication_policy": "Single controlled rights-filtered GitHub Pages trigger; require both build-site and deploy-public-pages jobs successful before claiming publication."
+}
