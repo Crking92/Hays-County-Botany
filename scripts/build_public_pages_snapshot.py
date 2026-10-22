@@ -128,16 +128,23 @@ def build(root: Path, noncommercial: bool) -> dict:
 
     # Do not publish the PRIVATE candidate review gallery.
     (site / "photo-review.html").unlink(missing_ok=True)
-    html = (site / "index.html").read_text(encoding="utf-8")
-    html, count = re.subn(
-        r'<a\s+class="photo-lab-nav"[^>]*>.*?</a>',
-        "",
-        html,
-        flags=re.I | re.S,
-    )
-    if count != 1:
-        raise RuntimeError("Cannot safely remove Photo Lab link; HTML layout changed")
-    (site / "index.html").write_text(html, encoding="utf-8")
+    # The Learner no longer has a Photo Lab nav item. The unchanged Field ID
+    # and Quiz interfaces do. Remove that private-review link from all three
+    # public pages, and never add the Photo Lab route to the public snapshot.
+    for name in ("index.html", "field-id.html", "quiz.html"):
+        page = site / name
+        if not page.is_file():
+            raise RuntimeError(f"Required public section missing from staged site: {name}")
+        html = page.read_text(encoding="utf-8")
+        html, _ = re.subn(
+            r'<a\s+class="photo-lab-nav"[^>]*>.*?</a>',
+            "",
+            html,
+            flags=re.I | re.S,
+        )
+        if "photo-lab-nav" in html:
+            raise RuntimeError(f"Unremoved Photo Lab navigation on public {name}")
+        page.write_text(html, encoding="utf-8")
 
     data = site / "data"
     for file in data.iterdir():
@@ -237,12 +244,43 @@ def build(root: Path, noncommercial: bool) -> dict:
             # file type, not just known private extensions.
             file.unlink()
 
+    # Lightweight name index for every public species. Regenerate on each
+    # publish so the beginner search automatically includes newly installed
+    # species without manually editing the website or canonical records.
+    public_names = []
+    for species_path in sorted((site / "content" / "taxa").rglob("species.json")):
+        sp = json.loads(species_path.read_text(encoding="utf-8"))
+        sid = sp.get("id")
+        if not isinstance(sid, str) or not sid:
+            continue
+        public_names.append({
+            "id": sid,
+            "scientific_name": sp.get("scientific_name") or
+                " ".join(str(sp.get(k) or "").strip() for k in ("genus", "species")).strip(),
+            "common_name": sp.get("common_name") or "",
+            "genus": sp.get("genus") or "",
+            "family": sp.get("family") or "",
+        })
+    (data / "learner-search-index.json").write_text(
+        json.dumps({"version": 1, "species": public_names}, ensure_ascii=False,
+                   separators=(",", ":")) + "\n", encoding="utf-8"
+    )
+    tally["learner_search_entries"] = len(public_names)
+
     # The public repository should not run Jekyll on source JSON or asset paths.
     (site / ".nojekyll").write_text("", encoding="utf-8")
     # Force phone home-screen service workers to refresh when published.
     sw = site / "sw.js"
     if sw.is_file():
-        state = str(tally["approved_photos"]) + "-" + str(tally["species_checked"])
+        # Bust offline cache when layout/code changes even if plant counts do not.
+        import hashlib
+        digest = hashlib.sha256()
+        for page_name in ("index.html", "field-id.html", "quiz.html"):
+            digest.update((site / page_name).read_bytes())
+        digest.update((site / "assets" / "js" / "app.js").read_bytes())
+        state = (str(tally["approved_photos"]) + "-" +
+                 str(tally["species_checked"]) + "-" +
+                 digest.hexdigest()[:12])
         code = sw.read_text(encoding="utf-8")
         code, _ = re.subn(
             r'const CACHE_NAME = "[^"]+";',
