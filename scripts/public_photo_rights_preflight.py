@@ -14,6 +14,8 @@ from pathlib import Path
 
 MEDIA_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".tif", ".tiff"}
 OWNER_NAMES = {"calvin king", "glass root garden", "calvin king / glass root garden"}
+JOEY_CREDITED_PERMISSION = "JOEY_CREDITED_PUBLIC_LEARNER_20261021"
+JOEY_CREATORS = {"joey santore", "joey santore / crime pays but botany doesn't"}
 PUBLIC_CC = re.compile(r"\bcc\s*[- ]?by(?:[- ]?sa)?\b", re.I)
 CC_ZERO = re.compile(r"\bcc\s*[- ]?0\b", re.I)
 PUBLIC_DOMAIN = re.compile(r"public domain|\bpd[- ]?mark\b", re.I)
@@ -36,6 +38,18 @@ def photo_rights(record, noncommercial=False):
     is_owner = creator in OWNER_NAMES and bool(source) and bool(photo_id)
     if is_owner:  # Separately recorded site-specific owner authorization, not a Creative Commons license.
         return None
+    # The publisher inserts this marker only for explicitly enumerated frames.
+    # Validate it again here, including creator, video source and record ID.
+    if clean(record.get("site_specific_public_permission")) == JOEY_CREDITED_PERMISSION.lower():
+        frame_id = clean(record.get("source_record_id"))
+        if (
+            noncommercial
+            and creator in JOEY_CREATORS
+            and str(source or "").startswith("https://www.youtube.com/watch?v=")
+            and frame_id.startswith("jvid-")
+        ):
+            return None
+        return "invalid or out-of-scope Joey creator-permission marker"
     if explicitly_private:
         return "public_reuse is explicitly denied/limited and no verified owner exception"
     if UNPUBLISHABLE.search(lic):
