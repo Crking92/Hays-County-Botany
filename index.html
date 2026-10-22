@@ -68,7 +68,11 @@ function normalizePanel(sp,item){
     source_page:record.source_page||item.source_page,public_reuse:record.public_reuse,
     site_specific_public_permission:record.site_specific_public_permission};
  }
- return imgPermitted(item)?item:null;
+ // Externally hosted panels must have a photo-level Commons origin and
+ // a supported license; ordinary search thumbnails are not web permissions.
+ const commonsImage=/^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\//i.test(src);
+ const commonsSource=/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(item.source_page||'');
+ return (commonsImage&&commonsSource&&imgPermitted(item))?item:null;
 }
 function orderedPanels(sp){
   const all=(sp.visual_comparison?.items||[]).map(x=>normalizePanel(sp,x)).filter(Boolean);
