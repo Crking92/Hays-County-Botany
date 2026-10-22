@@ -1,0 +1,54 @@
+{
+  "record_type": "grass_taxonomy_evidence",
+  "reviewed_at": "2026-10-22",
+  "scope": "Poaceae; name/rank/synonym verification only",
+  "status": "ACCEPTED_NAMES_CONFIRMED_NO_CANONICAL_CHANGES",
+  "claim_id": "grass-disakisperma-erioneuron-2026-10-22-001",
+  "taxa": [
+    {
+      "canonical_id": "disakisperma-dubium",
+      "canonical_path": "content/taxa/Poaceae/Disakisperma/disakisperma-dubium/species.json",
+      "last_checked_blob_sha": "9b8e1648ac3d4e8cb21f4f7d849e8b629d878444",
+      "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "verified_synonyms": [
+        "Chloris dubia Kunth",
+        "Diplachne dubia (Kunth) Scribn.",
+        "Leptochloa dubia (Kunth) Nees"
+      ],
+      "name_concept_caution": "Historical Leptochloa dubia is homotypic synonym, not a second canonical taxon. Source photo identification not independently reviewed.",
+      "powo": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+      "primary_literature": [
+        "Peterson, P.M. et al. (2012). A molecular phylogeny and classification of Leptochloa sensu lato and related genera. Annals of Botany 109:1317–1330. doi:10.1093/aob/mcs077",
+        "Snow, N., Peterson, P.M. & Romaschenko, K. (2013). Systematics of Disakisperma. PhytoKeys 26:21–70."
+      ],
+      "previous_taxonomy_reviewed": false
+    },
+    {
+      "canonical_id": "erioneuron-pilosum",
+      "canonical_path": "content/taxa/Poaceae/Erioneuron/erioneuron-pilosum/species.json",
+      "last_checked_blob_sha": "7cf9856e9c8ac7eee4e2ffef188481673fea5926",
+      "accepted_name": "Erioneuron pilosum (Buckley) Nash",
+      "rank": "species",
+      "decision": "ACCEPTED",
+      "verified_homotypic_synonyms": [
+        "Uralepis pilosa Buckley",
+        "Triodia pilosa (Buckley) Merr.",
+        "Sieglingia pilosa (Buckley) Nash"
+      ],
+      "name_concept_caution": "Erioneuron avenaceum and E. nealleyi are separately accepted by Kew; do not collapse unqualified E. avenaceum into E. pilosum based on some variety-level synonyms. No source-photo ID validated.",
+      "powo": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:95653-2",
+      "powo_genus": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:295912-2",
+      "previous_taxonomy_reviewed": false
+    }
+  ],
+  "guardrails": [
+    "Do not change native-range PASS/FAIL/HOLD/UNRESOLVED.",
+    "Accepted nomenclature does not verify underlying specimen or photo identity.",
+    "Do not change canonical species cards, genus lessons, manifests or Pages in taxonomy lane.",
+    "Preserve current photo gaps and scientific holds."
+  ],
+  "source_backbone": "Royal Botanic Gardens, Kew, POWO / World Checklist of Vascular Plants, accessed 2026-10-22",
+  "commit_intent": "Publish narrow accepted-name evidence only"
+}
