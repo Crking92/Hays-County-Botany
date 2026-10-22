@@ -36,6 +36,24 @@ def main():
     assert genus["project_scope"]["species_count"]==7
     assert genus["project_scope"]["flags"][0].startswith("muhlenbergia-piniflora")
     assert genus["project_scope"]["flags"][1].startswith("muhlenbergia-paniculata")
+    # Another manual grass lane may have physically installed these exact photo IDs
+    # under different canonical filenames. Their work always wins.
+    existing_photo_ids=set()
+    for img in card["images"]:
+        ident=img.get("inaturalist_photo_id") or img.get("photo_id")
+        if ident is not None:
+            existing_photo_ids.add(int(ident))
+    all_source_ids={photo_id for photo_id,*_ in CANDIDATES}
+    already_sources=all_source_ids & existing_photo_ids
+    if already_sources==all_source_ids:
+        for photo_id in all_source_ids:
+            rec=next(x for x in card["images"] if int(x.get("inaturalist_photo_id") or x.get("photo_id") or 0)==photo_id)
+            assert rec.get("creator")=="Sam Kieschnick" and rec.get("license")=="CC BY"
+            assert (S.parent/rec["file"]).is_file()
+        print("Already installed by concurrent grass work: source IDs match, rights and files valid. NOOP.")
+        return
+    if already_sources:
+        raise RuntimeError("Partially installed by concurrent work; refusing duplicate or overwrite: "+str(already_sources))
     if all(any(x.get("file")=="images/"+name for x in card["images"]) for _,name,*_ in CANDIDATES):
         for _,name,*_ in CANDIDATES:assert (S.parent/"images"/name).is_file()
         print("Already installed; no-op");return
