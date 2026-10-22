@@ -256,7 +256,7 @@
     "vegetative_broomsedge_vs_bushy": {
       "source": "Hagenbuch & Lemke 2015 Phytoneuron 2015-4 pages 26,34 (PDF indices 25,33), Texas Hill Country living and herbarium specimens",
       "url": "https://www.phytoneuron.net/2015Phytoneuron/04PhytoN-HillCountryGrasses.pdf",
-      "first_character": "Examine BOTH sides of a fresh sheath margin, not dried orange color. Bushy: sheaths compressed and keeled with both sheath margins hairy; broomsedge: upper sheaths more rounded and inner sheath margin usually hairless, outer occasionally ciliate.",
+      "first_character": "On fresh sheaths inspect the shape and WHICH margin has hairs. Bushy often laterally compressed/keeled with pilose open margins; broomsedge is VARIABLE and may also have conspicuous margin/collar hairs. This is NOT a safe binary species diagnosis. Compare flowering architecture and calibrated spikelets.",
       "vegetative_matrix": [
         {
           "character": "Leaf-sheath shape",
@@ -265,8 +265,8 @@
         },
         {
           "character": "Leaf-sheath margin hairs",
-          "bushy": "Both distinct/open sheath margins visibly PILOSE (hairy); key's strongest field clue",
-          "broomsedge": "Margins mostly entire and nearly hairless; OUTER margin can have sparse cilia; inner margin glabrous in diagnostic key"
+          "bushy": "Texas Hill Country treatment: both open margins pilose; hair amount can vary and photo positioning matters.",
+          "broomsedge": "Texas Hill Country treatment: often nearly entire, sometimes outer ciliate; other regional sources explicitly document long margin/base hairs, so NOT reliably hairless. Both margins must be imaged."
         },
         {
           "character": "Ligule",
@@ -289,7 +289,88 @@
           "broomsedge": "Need same-voucher 1 mm paired spikelet and bract details; avoid relying on winter color"
         }
       ],
-      "critical_photo_gap": "Matched FRESH correctly oriented leaf sheaths showing inner and outer hair margins, true blade/sheath junction and 1mm ligule; no sourced macro yet."
+      "critical_photo_gap": "Leaf/sheath micro PHOTO gap: need matched correctly determined living Texas specimens, one photo to prove inner opened SHEATH margin and a second to prove outer SHEATH margin, then the true collar/ligule and ruler. Existing USGS broomsedge leaf/stem photos show some hairs near the sheath, but neither is yet proven to show both identifiable margins with enough resolution. University/extension photos with unclear public reuse rights must not be installed.",
+      "source_caution": {
+        "reviewed": "2026-10-22",
+        "summary": "IMPORTANT REVISION (2026-10-22): Do NOT key bushy versus broomsedge as simple 'hairy sheaths = glomeratum, hairless = virginicum'. The 2015 Texas Hill Country key describes hair on the distinct/open bushy sheath margins and generally entire broomsedge margins, sometimes with cilia on the outer edge. However Missouri, Texas A&M and Oklahoma sources explicitly show or describe broomsedge sheath or leaf-base hairs too. Species, growth stage, which margin is imaged, and geographic treatment can change the apparent difference. Inspect actual UPPER sheath shape and both separated margins on the SAME confirmed plant; treat hairs as one supporting character only. Big mature flowering architecture and measured rames/spikelets remain needed for confident separation.",
+        "additional_authorities": [
+          {
+            "name": "Missouri WeedID / broomsedge description",
+            "url": "https://weedid.missouri.edu/weedinfo.cfm?weed_id=23"
+          },
+          {
+            "name": "Oklahoma State broomsedge plant profile",
+            "url": "https://extension.okstate.edu/programs/plant-id/plant-profiles/broomsedge-bluestem"
+          },
+          {
+            "name": "Texas A&M Rangelands broomsedge",
+            "url": "https://rangeplants.tamu.edu/plant/broomsedge-bluestem/nggallery/slideshow"
+          },
+          {
+            "name": "Flora Novae Angliae (Andropogon key)",
+            "url": "https://gobotany.nativeplanttrust.org/dkey/andropogon/"
+          },
+          {
+            "name": "Texas Hill Country vegetative descriptions",
+            "url": "https://www.phytoneuron.net/2015Phytoneuron/04PhytoN-HillCountryGrasses.pdf"
+          }
+        ],
+        "photo_candidates": [
+          {
+            "taxon": "Anatherum glomeratum",
+            "site": "University of Florida IFAS",
+            "url": "https://plant-directory.ifas.ufl.edu/site/assets/files/1297/andglo4.0x1800.jpg",
+            "source_page": "https://plant-directory.ifas.ufl.edu/plant-directory/andropogon-glomeratus/",
+            "credit": "Ann Murray / University of Florida",
+            "license_status": "RESTRICTED / permission unknown for public republishing; LINK ONLY; do not import",
+            "role": "True source-labeled bushy stem with sheathing leaf and visible marginal hairs; actual INNER vs OUTER margin not fully demonstrated"
+          },
+          {
+            "taxon": "Anatherum virginicum",
+            "site": "USGS Plants of Louisiana",
+            "url": "https://warcapps.usgs.gov/PlantID/Image/GivenFile?file=Andropogon+virginicus_2714.JPG&id=2793&size=w",
+            "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/2793",
+            "credit": "USGS Plants of Louisiana (specific photographer not yet confirmed)",
+            "license_status": "POTENTIALLY FEDERAL PUBLIC DOMAIN; CHECK IMAGE-SPECIFIC AUTHOR/RIGHTS BEFORE PUBLIC IMPORT",
+            "role": "Actual green broomsedge sheath/stem region with sparse outward hairs at overlap; visible does NOT establish both margins"
+          },
+          {
+            "taxon": "Anatherum virginicum",
+            "site": "USGS Plants of Louisiana",
+            "url": "https://warcapps.usgs.gov/PlantID/Image/GivenFile?file=Andropogon+virginiana_2695.JPG&id=2793",
+            "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/2793",
+            "credit": "USGS Plants of Louisiana (specific photographer not yet confirmed)",
+            "license_status": "POTENTIALLY FEDERAL PUBLIC DOMAIN; CHECK IMAGE-SPECIFIC AUTHOR/RIGHTS BEFORE PUBLIC IMPORT",
+            "role": "Leaf sheath node context, short marginal hairs, no confirmed opened two-sided inner/outer edge"
+          },
+          {
+            "taxon": "Anatherum virginicum",
+            "site": "Oklahoma State University Extension",
+            "url": "https://extension.okstate.edu/programs/plant-id/plant-profiles/broomsedge/images/broomsedge-bluestem-blades-folded-near-collar.jpg",
+            "source_page": "https://extension.okstate.edu/programs/plant-id/plant-profiles/broomsedge-bluestem",
+            "credit": "Oklahoma State University Extension (individual photographer unverified)",
+            "license_status": "IMAGE REUSE NOT ESTABLISHED, REFERENCE ONLY",
+            "role": "Very good illustrative photograph of actual hairs near collar and folded leaf"
+          },
+          {
+            "taxon": "Anatherum virginicum",
+            "site": "Missouri State University",
+            "url": "https://ag.missouristate.edu/PBTrewatha/_Files/Broomsedge5.jpg",
+            "source_page": "https://ag.missouristate.edu/PBTrewatha/broomsedge.htm",
+            "credit": "Pamela Borden Trewatha / Missouri State (image photographer unverified)",
+            "license_status": "IMAGE REUSE NOT ESTABLISHED, REFERENCE ONLY",
+            "role": "Detached green broomsedge leaf/sheath sections with several long hairs; not a matched two-margin face-on macro"
+          }
+        ],
+        "annotation_status": "NO NEW DIAGNOSTIC ANATOMY ARROWS: available photos do not prove consistent paired sheath-margin differences or all have verified public reuse rights",
+        "best_next_captures": [
+          "Same confirmed glomeratum plant: one opened inner sheath margin with mm scale",
+          "Same confirmed glomeratum plant: outer margin with mm scale",
+          "Same confirmed virginicum plant: opened inner + outer margins in matched frame",
+          "Measured attached blade/sheath ligule and upper sheath cross-section of each plant"
+        ],
+        "public_reuse_gate": "Do not copy images without exact image-specific rights and creator; existing photo/gallery files remain untouched"
+      }
     }
   },
   "visual_comparison": {
