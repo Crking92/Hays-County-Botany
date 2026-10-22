@@ -1,0 +1,60 @@
+{
+  "type": "targeted_native_range_evidence_review",
+  "checked_at": "2026-10-22",
+  "scientific_name": "Anatherum glomeratum",
+  "synonym_in_BONAP": "Andropogon glomeratus",
+  "scope": "Only this canonical species and existing county list; no broad range audit",
+  "canonical_prior_state": {
+    "project_inclusion_target_zone_status": "PASS",
+    "native_target_zone_calculated": true,
+    "counties_recorded": [
+      "Hays",
+      "Travis",
+      "Williamson"
+    ],
+    "reported_target_count": 3
+  },
+  "target_zone_filter": {
+    "valid_recorded": [
+      "Hays",
+      "Travis"
+    ],
+    "not_in_project_zone": [
+      "Williamson"
+    ],
+    "currently_qualified_count_from_record": 2,
+    "policy_required_count": 3,
+    "county_status_recommendation": "FLAG_REVIEW; preserve prior status until owning range/taxonomy reviewer makes authorized evidence-backed changes"
+  },
+  "authorities_checked": [
+    {
+      "source": "BONAP/NAPA legacy genus county species map",
+      "url": "https://bonap.net/Napa/TaxonMaps/Genus/County/Andropogon",
+      "finding": "Andropogon glomeratus is indexed at species rank in BONAP's historic 2014 county-map genus list; text access cannot establish whether any third project-zone county is reliably mapped native, and newer accepted Anatherum classification is not used. Do not infer county nativity from its presence in genus list."
+    },
+    {
+      "source": "Kew POWO accepted A. glomeratum",
+      "url": "https://powo.science.kew.org/taxon/77339188-1",
+      "finding": "Accepted binomial current but backbone state-native list does not include Texas at this check. Regional taxonomy/range interpretation conflicts with statewide Texas field references."
+    },
+    {
+      "source": "Kew POWO A. tenuispatheum name distinction",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1",
+      "finding": "This separately accepted grass is native to Texas in current POWO treatment; historic Andropogon glomeratus var. pumilus is under A. tenuispatheum and should not become an A. glomeratum county/photo record."
+    },
+    {
+      "source": "Native Plant Society of Texas bushy bluestem",
+      "url": "https://www.npsot.org/posts/native-plant/andropogon-glomeratus/",
+      "finding": "Texas state/ecoregion-level inclusion, including Edwards Plateau; county-level three-county proof not supplied by this page."
+    },
+    {
+      "source": "USGS Plants of Louisiana true var glomeratus photograph",
+      "url": "https://warcapps.usgs.gov/PlantID/Species/Details/2784",
+      "finding": "Photograph under true var. glomeratus concept is diagnostic gross flowering structure, but a Louisiana photo provides zero Hays-specific native-range evidence."
+    }
+  ],
+  "next_action": "Using BONAP/NAPA image-level atlas county map under historical Andropogon glomeratus, visually inspect Hays, Travis and other project target counties; corroborate at least one further in-zone county with herbarium voucher or county-specific flora and recent accepted taxon split. If no third is supported, owning reviewer revisits PASS with user approval; do not silently overwrite native metrics here.",
+  "science_changes_made": false,
+  "canonical_status_unchanged": true,
+  "taxonomic_photo_caution": "Avoid treating Andropogon glomeratus var. pumilus photos as current A. glomeratum."
+}
