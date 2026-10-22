@@ -93,7 +93,7 @@ def main():
            "public_reuse":"Yes, attribution+ShareAlike 2.0 conditions" if k=="octoflora" else "Yes, US historic federal public-domain plate"})
         for panel in panels:
             panel["image_url"]=str(dest)
-            panel["photo_status"]="PHYSICALLY ARCHIVED real source file with verified public rights and original/archived SHA256; metadata/GPS removed. Real feature-level annotations only, no verified local voucher or micron-scale glume/ligule measurement. "+("Historical drawing, NOT modern photograph." if k=="versuta" else "Real out-of-state flora photograph. User public review pending."))
+            panel["photo_status"]="PHYSICALLY ARCHIVED real source file with verified public rights and original/archived SHA256; metadata/GPS removed. Real feature-level annotations only, no verified local voucher or micron-scale glume/ligule measurement. "+("Historical drawing, NOT modern photograph." if k=="versuta" else "Real out-of-state flora photograph. User public review pending.")
         columns,rows=source_tables[k]
         values={"file_name":filename,"role":role,"creator":author,"license":lic,"source_page":src,"direct_url":remote,
                 "study_use":"Public noncommercial field education","public_reuse":"YES; attribution+SA conditions" if k=="octoflora" else "YES; US historical public domain",
