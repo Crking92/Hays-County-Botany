@@ -1,0 +1,69 @@
+name: One-time publish vetted wild seep muhly lessons
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-publish-seep-muhly-20261021.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: write
+concurrency:
+  group: one-time-hays-seep-muhly-pages-request
+  cancel-in-progress: false
+jobs:
+  validate-and-dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Validate exact species CC source paths and visible photo panels
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          b=Path("content/taxa/Poaceae/Muhlenbergia/")
+          j=json.loads((b/"muhlenbergia-reverchonii/species.json").read_text())
+          g=json.loads((b/"genus.json").read_text())
+          assert j["scientific_name"]=="Muhlenbergia reverchonii"
+          expected={58493566:"CC BY-NC",4920088:"CC BY",5077102:"CC BY"}
+          assert len(j["images"])==6
+          assert len(j["visual_comparison"]["items"])==7
+          assert len(g["visual_comparison"]["items"])==12
+          for id_,lic in expected.items():
+              photo=next(x for x in j["images"] if x.get("inaturalist_photo_id")==id_)
+              assert photo["license"]==lic and photo["creator"] and photo["source_page"]
+              f=b/"muhlenbergia-reverchonii"/photo["file"]
+              assert f.is_file() and f.stat().st_size>14000
+              with f.open("rb") as fd: assert fd.read(3)==bytes([255,216,255])
+              q=next(x for x in j["visual_comparison"]["items"] if x.get("image_url")==f.as_posix())
+              assert q["license"]==lic and q["markers"]
+              for marker in q["markers"]:
+                  assert all(0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+          assert g["project_scope"]["species_count"]==7
+          assert "muhlenbergia-piniflora" in g["project_scope"]["flags"][0]
+          assert "muhlenbergia-paniculata" in g["project_scope"]["flags"][1]
+          print("PASS: 3 exact physical photos, per-photo licenses, gross structure arrows, genus holds")
+          PY
+      - name: Dispatch official GitHub Pages rights-filtered learner workflow
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          code=$(curl --silent --show-error --output /tmp/dispatch-response.txt --write-out '%{http_code}' \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}')
+          cat /tmp/dispatch-response.txt
+          if [[ "$code" != "204" ]]; then
+            echo "::error::Pages workflow dispatch failed with HTTP $code"
+            exit 1
+          fi
+          echo "PASS: Pages workflow dispatch accepted with HTTP 204; deployment outcome must be verified separately."
