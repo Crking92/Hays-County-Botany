@@ -1,0 +1,80 @@
+{
+  "batch_id": "grass-cenchrus-spinifex-2026-10-22-1327-001",
+  "reviewed_at": "2026-10-22",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Poaceae existing canonical name/concept verification only",
+  "source_canonical_path": "content/taxa/Poaceae/Cenchrus/cenchrus-spinifex/species.json",
+  "source_canonical_blob_sha_at_review": "28fdd65bbd8267dbb2e2c1d02c14866e7f2369ae",
+  "taxa": [
+    {
+      "canonical_id": "cenchrus-spinifex",
+      "source_pool_spelling": "Cenchrus spinifex",
+      "current_project_name": "Cenchrus spinifex",
+      "powo_accepted_name": "Cenchrus spinifex Cav.",
+      "family": "Poaceae",
+      "genus": "Cenchrus",
+      "rank": "species",
+      "powo_status": "ACCEPTED",
+      "decision": "ACCEPTED_WITH_CONCEPT_CAUTION",
+      "identity_status": "HOLD_EXACT_SOURCE_SPECIMEN_ID",
+      "decision_for_installer": "EXISTING_CANONICAL_ONLY__NO_NEW_CARD",
+      "nomenclatural_sources": [
+        {
+          "authority": "Kew POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395325-1",
+          "checked": "2026-10-22",
+          "finding": "Cenchrus spinifex Cav. accepted at species rank; 13 heterotypic synonyms include C. albertsonii Runyon, C. incertus M.A.Curtis, C. roseus E.Fourn. ex Hemsl. and C. strictus Chapm."
+        },
+        {
+          "authority": "Wipff (2026), Journal of the Botanical Research Institute of Texas 20(1):1-44",
+          "url": "https://journals.brit.org/jbrit/article/view/1461",
+          "doi": "10.17348/jbrit.v20.i1.1461",
+          "published": "2026-04-15",
+          "checked": "2026-10-22",
+          "finding": "Type- and voucher-based Texas revision reinstates C. albertsonii, C. incertus, C. roseus, C. strictus, C. bambusoides and describes C. densiflorus Wipff; narrower species circumscriptions than currently shown by POWO for several names."
+        }
+      ],
+      "name_relationships": [
+        {
+          "name": "Cenchrus incertus M.A.Curtis",
+          "powo_treatment": "HETEROTYPIC_SYNONYM_OF_C_SPINIFEX",
+          "wipff_2026_treatment": "REINSTATED_SPECIES",
+          "decision": "HOLD_CONCEPT_MAPPING"
+        },
+        {
+          "name": "Cenchrus albertsonii Runyon",
+          "powo_treatment": "HETEROTYPIC_SYNONYM_OF_C_SPINIFEX",
+          "wipff_2026_treatment": "REINSTATED_SPECIES",
+          "decision": "HOLD_CONCEPT_MAPPING"
+        },
+        {
+          "name": "Cenchrus roseus E.Fourn. ex Hemsl.",
+          "powo_treatment": "HETEROTYPIC_SYNONYM_OF_C_SPINIFEX",
+          "wipff_2026_treatment": "REINSTATED_SPECIES",
+          "decision": "HOLD_CONCEPT_MAPPING"
+        },
+        {
+          "name": "Cenchrus strictus Chapm.",
+          "powo_treatment": "HETEROTYPIC_SYNONYM_OF_C_SPINIFEX",
+          "wipff_2026_treatment": "REINSTATED_SPECIES",
+          "decision": "HOLD_CONCEPT_MAPPING"
+        },
+        {
+          "name": "Cenchrus densiflorus Wipff",
+          "powo_treatment": "NOT_CONFIRMED_AS_ACCEPTED_IN_CHECKED_POWO_C_SPINIFEX_RECORD",
+          "wipff_2026_treatment": "NEW_SPECIES_FROM_SOUTH_TEXAS",
+          "decision": "HOLD_SEPARATE_SPECIES_ADMISSION"
+        }
+      ],
+      "conflict": "Current POWO/WCVP broad synonymy is in explicit taxon-concept tension with Wipff's 2026 type-based Texas revision. Preserve both as attributed, do not claim one universally resolved, and do not convert original observations/photographs labeled C. spinifex to reinstated segregates without mature-bur/voucher evidence.",
+      "photo_identity_hold": "Existing canonical photographs have source-level determinations but lack independently verified complete mature fascicles and contemporary key/voucher confirmation. Preserve existing provisional source identity and scientific holds.",
+      "hybrid_hold": "No hybrid determination made; any existing hybrid holds are untouched.",
+      "county_native_audit": "DEFERRED_UNCHANGED",
+      "scientific_statuses": "PASS/FAIL/HOLD/UNRESOLVED unchanged",
+      "canonical_change": "NONE",
+      "media_change": "NONE"
+    }
+  ],
+  "review_outcome": "One existing Poaceae species accepted by POWO; document conflict with 2026 Texas segregate revision as unresolved source-concept issue, not an automatic synonym remapping.",
+  "commit_policy": "Evidence only; no canonical species, photos, lessons, installer, county nativity, Pages or Sheets edits."
+}
