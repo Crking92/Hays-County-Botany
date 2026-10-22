@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17251b">
+<title>Photo Lab Batch 006 | Hays Botany</title>
+<style>
+:root{color-scheme:dark;--bg:#17211b;--panel:#23342b;--line:#415d49;--text:#e9f1e9;--muted:#b3c5b6;--accent:#c4ddae}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.48 system-ui,-apple-system,Segoe UI,sans-serif}
+button,input{font:inherit}button{cursor:pointer}a{color:#d7e8ba}
+.top{padding:17px clamp(16px,4vw,52px);border-bottom:1px solid var(--line);display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.back{color:var(--accent);text-decoration:none}.brand{font-weight:800;font-size:1.15rem}
+main{max-width:1330px;margin:auto;padding:clamp(16px,3vw,35px)}
+h1{font-size:clamp(1.55rem,3vw,2.5rem);line-height:1.12;margin:0 0 12px}
+.lede{max-width:860px;color:var(--muted);margin-bottom:18px}
+.warning{border:1px solid #73826a;background:#2b3c2e;padding:14px 18px;border-radius:14px;margin:14px 0 22px;max-width:960px}
+.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 0 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:3}
+input[type=search]{flex:1 1 240px;min-width:200px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#27372e;color:var(--text)}
+button{border:1px solid var(--line);padding:9px 12px;color:var(--text);border-radius:10px;background:#304538}
+button:hover{border-color:var(--accent)}button[aria-pressed=true]{background:#4d6344;color:#fff;border-color:#c4ddae}
+#stats{color:var(--muted);font-size:.92rem}
+.group{scroll-margin-top:95px;margin:29px 0 44px}
+.group h2{font:600 1.42rem Georgia,serif;margin:0 0 5px}.group .detail{color:var(--muted);font-size:.88rem;margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,235px),1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--panel);display:flex;flex-direction:column}
+.photo{display:block;width:100%;aspect-ratio:4/3;background:#16231b;overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform .2s}.photo:hover img{transform:scale(1.04)}
+.info{padding:11px 12px;display:grid;gap:5px;flex:1}
+.source{color:var(--muted);font-size:.79rem;overflow-wrap:anywhere}
+.upload{border:1px solid var(--line);padding:9px 12px;color:var(--text);border-radius:10px;background:#304538;cursor:pointer;white-space:nowrap}.upload input{display:none}.upload:hover{border-color:var(--accent)}#feedback{color:var(--accent);font-size:.84rem;flex-basis:100%}.credit{font-size:.84rem}.role-label{display:grid;gap:4px;color:var(--muted);font-size:.78rem;margin-top:4px}.role-label select{width:100%;background:#31483b;border:1px solid var(--line);border-radius:8px;padding:7px 9px;color:var(--text);font:inherit}.actions{display:flex;align-items:center;gap:9px;justify-content:space-between;margin-top:8px}
+.actions button{font-size:.85rem;padding:7px 10px}.empty{padding:30px;color:var(--muted)}
+.foot{padding:26px 0 40px;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line)}
+@media(max-width:600px){.controls{top:0}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.credit{font-size:.78rem}.actions{flex-wrap:wrap}.info{padding:9px}}
+</style></head>
+<body>
+<header class="top"><div class="brand">✣ Hays Botany · Photo Lab 006</div><a class="back" href="./index.html">← Visual Learner</a></header>
+<main>
+<h1>Batch 006: Look closer. Then decide.</h1>
+<p class="lede">Real botanical-photo candidates from the first diagnostic batch. Inspect flower parts, phyllaries, leaf bases, fruits, hairs and other identification clues. Keep the useful viewpoints, not just the prettiest flowers.</p>
+<div class="warning"><strong>Provisional photo review — not verified plant identifications.</strong> These images are licensed candidates gathered from GBIF and Pl@ntNet. Original observation identifications and diagnostic structure still need visual verification. Shortlisting does not install anything into a species card or send changes to GitHub.</div>
+<section class="controls" aria-label="Review tools">
+<input id="filter" type="search" placeholder="Filter species or photographer…" aria-label="Search candidates">
+<button id="onlySaved" aria-pressed="false">Show shortlisted only</button>
+<button id="copy" title="Copy all your botanical-part labels, even if not separately shortlisted">Copy review</button>
+<button id="download" title="Save all your photo labels and choices as a JSON file">Save review file</button>
+<label class="upload" title="Restore a saved review">Resume from file<input type="file" id="import" accept=".json,application/json"></label>
+<span id="stats"></span><span id="feedback" role="status" aria-live="polite"></span>
+</section>
+<div id="galleries"></div>
+<footer class="foot">Batch: <a href="https://github.com/Crking92/Hays-County-Botany/actions/runs/39704168823">Diagnostic 006</a> · This page shows 3 species and 12 attributed provisional images from separate source observations. Source links open the GBIF record. Thumbnail previews display directly from the original source. Photo credit and license are shown individually. Plant-part labels count as review selections. Save review file for a durable backup, or paste Copy review into ChatGPT. Resume from file restores a saved review. Labels do not automatically install photos.</footer>
+</main>
+<script>
+const PHOTOS=[{"id":"eriochloa-sericea","name":"Eriochloa sericea","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/605415229/original.jpg","page":"https://www.gbif.org/occurrence/5938631934","credit":"sonoresmore","license":"CC0","observation":"5938631934","source":"GBIF","archiveFile":"staged_images/eriochloa-sericea/gbif-50e9c086460c2c.jpg"},{"id":"eriochloa-sericea","name":"Eriochloa sericea","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/631609481/original.jpg","page":"https://www.gbif.org/occurrence/6188249735","credit":"Cleveland Powell","license":"CC BY","observation":"6188249735","source":"GBIF","archiveFile":"staged_images/eriochloa-sericea/gbif-91a4d01c32d6db.jpg"},{"id":"eriochloa-sericea","name":"Eriochloa sericea","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/632912345/original.jpg","page":"https://www.gbif.org/occurrence/6188378681","credit":"Theresa Strickler","license":"CC BY","observation":"6188378681","source":"GBIF","archiveFile":"staged_images/eriochloa-sericea/gbif-c0ce7c1e23ac1a.jpg"},{"id":"eriochloa-sericea","name":"Eriochloa sericea","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/634462799/original.jpg","page":"https://www.gbif.org/occurrence/6195636885","credit":"sonoresmore","license":"CC0","observation":"6195636885","source":"GBIF","archiveFile":"staged_images/eriochloa-sericea/gbif-9bcab2a33c5979.jpg"},{"id":"hilaria-belangeri","name":"Hilaria belangeri","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/609320724/original.jpg","page":"https://www.gbif.org/occurrence/6131199500","credit":"CH Hemphill","license":"CC BY","observation":"6131199500","source":"GBIF","archiveFile":"staged_images/hilaria-belangeri/gbif-4ad3480e9fe0bb.jpg"},{"id":"hilaria-belangeri","name":"Hilaria belangeri","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/632021091/original.jpg","page":"https://www.gbif.org/occurrence/6188545123","credit":"Cody Stricker","license":"CC BY","observation":"6188545123","source":"GBIF","archiveFile":"staged_images/hilaria-belangeri/gbif-fda4532ce0ec5c.jpg"},{"id":"hilaria-belangeri","name":"Hilaria belangeri","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/668071280/original.jpg","page":"https://www.gbif.org/occurrence/6398686692","credit":"Chet Burrier","license":"CC BY","observation":"6398686692","source":"GBIF","archiveFile":"staged_images/hilaria-belangeri/gbif-8d9ec2679484e5.jpg"},{"id":"hilaria-belangeri","name":"Hilaria belangeri","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/668082470/original.jpg","page":"https://www.gbif.org/occurrence/6422343010","credit":"Chet Burrier","license":"CC BY","observation":"6422343010","source":"GBIF","archiveFile":"staged_images/hilaria-belangeri/gbif-1bee3c097b89c8.jpg"},{"id":"hilaria-mutica","name":"Hilaria mutica","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/565852418/original.jpg","page":"https://www.gbif.org/occurrence/5908693860","credit":"Eric Knight","license":"CC BY","observation":"5908693860","source":"GBIF","archiveFile":"staged_images/hilaria-mutica/gbif-acd75c5dc7c989.jpg"},{"id":"hilaria-mutica","name":"Hilaria mutica","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/383275529/original.jpeg","page":"https://www.gbif.org/occurrence/5909167878","credit":"harrier","license":"CC BY","observation":"5909167878","source":"GBIF","archiveFile":"staged_images/hilaria-mutica/gbif-46281db24fbbbf.jpg"},{"id":"hilaria-mutica","name":"Hilaria mutica","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/425341520/original.jpg","page":"https://www.gbif.org/occurrence/5909034107","credit":"Clifton Ladd, C.W.B.","license":"CC BY","observation":"5909034107","source":"GBIF","archiveFile":"staged_images/hilaria-mutica/gbif-ea548e1c47917b.jpg"},{"id":"hilaria-mutica","name":"Hilaria mutica","url":"https://inaturalist-open-data.s3.amazonaws.com/photos/440796502/original.jpeg","page":"https://www.gbif.org/occurrence/5062857243","credit":"Clifton Ladd, C.W.B.","license":"CC BY","observation":"5062857243","source":"GBIF","archiveFile":"staged_images/hilaria-mutica/gbif-078e5f684fccaa.jpg"}];
+const KEY="hays-botany-photo-review-diagnostic-006";
+const $=q=>document.querySelector(q);
+const esc=t=>String(t??"").replace(/[&<>"']/g,ch=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
+let selected;try{selected=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){selected=new Set()}
+let roles;try{roles=JSON.parse(localStorage.getItem(KEY+"-roles")||"{}")}catch(e){roles={}}
+// A rejected candidate can never remain shortlisted, including after older cached sessions.
+for(const url of [...selected]) if(roles[url]==="Unclear / not useful") selected.delete(url);
+try{localStorage.setItem(KEY,JSON.stringify([...selected]))}catch(e){}
+const ROLE_CHOICES=["Unclassified","Whole plant","Leaves","Stem / hairs","Flower / reproductive parts","Aster phyllaries","Grass spikelets / ligule","Milkweed corona / pollinia","Fruit / seeds","Oak buds / acorns","Other diagnostic detail","Unclear / not useful"];
+let onlySaved=false;
+const validPhotoUrls=new Set(PHOTOS.map(x=>x.url));
+function hasLabel(x){return !!roles[x.url]&&roles[x.url]!=="Unclassified"}
+function reviewedPhotos(){return PHOTOS.filter(x=>selected.has(x.url)||hasLabel(x))}
+function reviewRows(){return reviewedPhotos().map(x=>({...x,visiblePart:roles[x.url]||"Unclassified",shortlisted:selected.has(x.url),reviewStatus:"Provisional user label; identity and structure not botanically verified"}))}
+function saveBrowserReview(){
+  try{
+    localStorage.setItem(KEY,JSON.stringify([...selected]));
+    localStorage.setItem(KEY+"-roles",JSON.stringify(roles));
+  }catch(e){document.querySelector("#feedback").textContent="Browser storage unavailable. Use Save review file for a backup."}
+}
+function notify(message){document.querySelector("#feedback").textContent=message}
+function imagePreview(u){return /^https:\/\/inaturalist-open-data\.s3\.amazonaws\.com\/photos\/\d+\/original\.jpg$/.test(u)?u.replace("/original.jpg","/medium.jpg"):u}
+function groups(){const q=$("#filter").value.trim().toLowerCase();
+const filtered=PHOTOS.filter(x=>(!onlySaved||selected.has(x.url))&&(!q||(x.name+" "+x.credit+" "+x.id).toLowerCase().includes(q)));
+const m=new Map();for(const x of filtered){if(!m.has(x.id))m.set(x.id,[]);m.get(x.id).push(x)}return m}
+function render(){const g=groups(),sections=[];
+for(const [id,images] of g){let name=images[0].name;
+sections.push('<section class="group"><h2><i>'+esc(name)+'</i></h2><p class="detail">'+images.length+' candidate viewpoints · Source labels do not prove diagnostic plant parts</p><div class="grid">'+images.map(x=>{
+const on=selected.has(x.url);
+return '<article class="card"><a class="photo" href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer" aria-label="Enlarge '+esc(x.name)+' photo"><img loading="lazy" src="'+esc(imagePreview(x.url))+'" alt="Provisional candidate image, '+esc(x.name)+'. Identity not yet verified."></a><div class="info"><div class="credit">© '+esc(x.credit)+' · '+esc(x.license)+'</div><div class="source">'+esc(x.source)+' · <a href="'+esc(x.page)+'" target="_blank" rel="noopener noreferrer">Original observation</a></div><label class="role-label">What can you actually see?<select data-role="'+esc(x.url)+'">'+ROLE_CHOICES.map(role=>'<option value="'+esc(role)+'"'+((roles[x.url]||"Unclassified")===role?' selected':'')+'>'+esc(role)+'</option>').join('')+'</select></label><div class="actions"><button data-url="'+esc(x.url)+'" aria-pressed="'+(on?'true':'false')+'">'+(on?'✓ Shortlisted':'+ Shortlist')+'</button><a href="'+esc(x.url)+'" target="_blank" rel="noopener noreferrer">Enlarge ↗</a></div></div></article>'
+}).join('')+'</div></section>')}
+$("#galleries").innerHTML=sections.join("")||'<div class="empty">No candidates match these filters.</div>';
+$("#stats").textContent=PHOTOS.length+" photos · "+PHOTOS.filter(hasLabel).length+" labeled · "+selected.size+" shortlisted";
+document.querySelectorAll("select[data-role]").forEach(s=>s.addEventListener("change",()=>{
+  const u=s.dataset.role,role=s.value;
+  roles[u]=role;
+  if(role!=="Unclassified"&&role!=="Unclear / not useful")selected.add(u);
+  if(role==="Unclear / not useful")selected.delete(u);
+  saveBrowserReview();render();
+  notify(role==="Unclear / not useful"?"Saved as not useful; excluded from shortlist.":"Part label saved, and photo added to shortlist.");
+}));
+document.querySelectorAll("button[data-url]").forEach(b=>b.addEventListener("click",()=>{
+  const u=b.dataset.url;
+  if(selected.has(u))selected.delete(u);else selected.add(u);
+  saveBrowserReview();render();notify("Your shortlist was updated and saved in this browser.");
+}));}
+$("#filter").addEventListener("input",render);
+$("#onlySaved").addEventListener("click",e=>{onlySaved=!onlySaved;e.currentTarget.setAttribute("aria-pressed",String(onlySaved));render()});
+$("#copy").addEventListener("click",async()=>{
+  const pick=reviewRows();
+  if(!pick.length){notify("Nothing labeled yet. Choose a plant part or click + Shortlist.");return;}
+  const t=pick.map(x=>x.name+" | Visible part: "+x.visiblePart+" | "+(x.shortlisted?"SHORTLISTED":"LABELED ONLY")+" | "+x.url+" | "+x.credit+" | "+x.license+" | "+x.page).join("\n");
+  try{await navigator.clipboard.writeText(t);notify("Copied "+pick.length+" reviewed photo links. Paste into ChatGPT.");}
+  catch(e){window.prompt("Copy your photo review:",t);notify("Copy your review from the opened text box.");}
+});
+$("#download").addEventListener("click",()=>{
+  const reviewed=reviewRows();
+  if(!reviewed.length){notify("Label a photo or add one to your shortlist first.");return;}
+  const report={format:"hays-botany-photo-lab-review-v1",batch:"diagnostic-39704168823",savedAt:new Date().toISOString(),provisional:true,reviews:reviewed};
+  const blob=new Blob([JSON.stringify(report,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="hays-botany-photo-review-"+new Date().toISOString().slice(0,10)+".json";
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1500);
+  notify("Downloaded review with "+reviewed.length+" labeled or shortlisted photos.");
+});
+$("#import").addEventListener("change",async e=>{
+  const file=e.target.files&&e.target.files[0];if(!file)return;
+  try{
+    const doc=JSON.parse(await file.text());
+    if(doc.format!=="hays-botany-photo-lab-review-v1"||!Array.isArray(doc.reviews))throw Error("Unrecognized review file");
+    let count=0;
+    for(const row of doc.reviews){
+      if(!row||!validPhotoUrls.has(row.url))continue;
+      if(typeof row.visiblePart==="string"&&ROLE_CHOICES.includes(row.visiblePart)&&row.visiblePart!=="Unclassified")roles[row.url]=row.visiblePart;
+      if(row.shortlisted===true&&row.visiblePart!=="Unclear / not useful")selected.add(row.url);
+      count++;
+    }
+    saveBrowserReview();render();notify("Restored "+count+" photo reviews.");
+  }catch(err){notify("Could not restore review: "+err.message)}
+  e.target.value="";
+});
+render();
+</script></body></html>
