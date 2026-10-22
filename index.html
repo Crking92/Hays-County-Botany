@@ -1,83 +1,127 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#234b36">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Hays Botany">
-  <title>Hays Botany Visual Learner</title>
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="assets/app-icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="assets/css/styles.css?v=32">
-</head>
-<body>
-<header class="topbar">
-  <button id="brandHome" class="brand" type="button" aria-label="Hays Botany home">
-    <span class="brand-mark" aria-hidden="true">✣</span>
-    <span><strong>Hays Botany</strong><small>visual field learner</small></span>
-  </button>
-  <nav class="main-nav" aria-label="Main navigation">
-    <button type="button" data-nav="home">Home</button>
-    <button type="button" data-nav="browse">Browse</button>
-    <button type="button" data-nav="compare">Compare</button>
-    <button type="button" data-nav="glossary">Terms</button>
-    <button type="button" data-nav="approvals">Approvals</button>
-    <a class="photo-lab-nav" href="./photo-review.html?batch=004-20261018" target="_blank" rel="noopener noreferrer" title="Open the separate diagnostic Photo Lab page">Photo Lab ↗</a>
-  </nav>
-  <div class="header-tools">
-    <div class="difficulty" role="group" aria-label="Learning difficulty">
-      <button type="button" data-difficulty="simple">Simple</button>
-      <button type="button" data-difficulty="terms">Learn terms</button>
-      <button type="button" data-difficulty="field">Field botany</button>
-    </div>
-    <button id="quizToggle" class="quiz-toggle" type="button">Quiz: off</button>
-  </div>
-</header>
-
-<section class="search-dock" aria-label="Plant search">
-  <div class="search-wrap">
-    <span class="search-icon" aria-hidden="true">⌕</span>
-    <input id="globalSearch" autocomplete="off" placeholder="Search a plant, genus, common name, or family…" aria-label="Search plants">
-    <button id="clearSearch" class="search-clear" type="button" aria-label="Clear search">×</button>
-    <div id="searchResults" class="search-results" hidden></div>
-  </div>
-</section>
-
-<main id="app" class="app-shell" tabindex="-1">
-  <section class="loading-card">
-    <strong>Loading the visual learner…</strong>
-    <span>Building your local plant library.</span>
-  </section>
-</main>
-
-<div id="modalRoot"></div>
-<script src="assets/js/app.js?v=51"></script>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="theme-color" content="#244a36"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hays Botany"><link rel="manifest" href="./manifest.webmanifest"><title>Hays Botany | Learner</title><link rel="icon" href="https://crking92.github.io/Hays-County-Botany/assets/app-icon.svg" type="image/svg+xml">
+<style>
+:root{--green:#244a38;--deep:#173c2c;--sage:#dce8d9;--cream:#f7f6ef;--text:#26362c;--muted:#627167;--accent:#d6a84b;--line:#dde3d7;--paper:#fffdf8;--shadow:0 12px 35px rgba(21,48,32,.08)}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;line-height:1.6}button,input{font:inherit}button{cursor:pointer}a{color:#206248}a:hover{text-decoration-thickness:2px}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #aa7927;outline-offset:3px}.top{position:sticky;top:0;background:rgba(255,253,248,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);z-index:10}.nav{max-width:1190px;margin:auto;padding:12px 23px;display:flex;align-items:center;justify-content:space-between;gap:16px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.025em;color:var(--deep);font-size:1.14rem}.brandmark{background:var(--deep);color:#fff;border-radius:11px;padding:7px 12px;font-size:1.45rem}.tabs{display:flex;gap:5px;flex-wrap:wrap}.tabs button{border:0;padding:10px 15px;border-radius:10px;background:none;color:#4a5d51;font-weight:650}.tabs button.active{color:white;background:var(--deep)}.preview-pill{font-size:.69rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#63502a;background:#f6eacb;border:1px solid #d8bf75;border-radius:100px;padding:5px 9px;white-space:nowrap}.wrap{max-width:1130px;padding:28px 22px 90px;margin:auto}.hero{background:var(--deep);border-radius:24px;color:#fff;padding:47px 46px;position:relative;overflow:hidden;box-shadow:var(--shadow)}.hero:after{content:'✳';position:absolute;right:42px;top:-82px;color:rgba(204,239,207,.11);font-size:330px;pointer-events:none}.kicker{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#c8a555}.hero h1{font-family:Georgia,serif;font-size:clamp(2.1rem,5vw,4.3rem);line-height:1.08;max-width:700px;margin:9px 0 15px;letter-spacing:-.04em}.hero p{font-size:1.07rem;max-width:620px;color:#e0ebe2}.paths{display:grid;grid-template-columns:1fr 1fr;gap:19px;margin:25px 0 45px}.choice{background:var(--paper);border:1px solid var(--line);padding:30px;border-radius:18px;display:flex;align-items:flex-start;flex-direction:column;box-shadow:var(--shadow)}.choice h2{font-family:Georgia,serif;line-height:1.2;margin:10px 0;font-size:1.7rem}.choice p{margin:0 0 23px;color:var(--muted);flex:1}.choice .ico{background:var(--sage);color:var(--green);font-size:1.4rem;border-radius:10px;padding:9px 13px}.button{border:1px solid var(--green);background:var(--green);color:white;border-radius:10px;font-weight:700;padding:12px 18px;text-decoration:none;display:inline-block}.button:hover{background:#386548;color:white;text-decoration:none}.button.secondary{background:transparent;color:var(--green)}.button.secondary:hover{background:var(--sage)}.button.small{font-size:.9rem;padding:8px 13px}.subheading{display:flex;justify-content:space-between;gap:15px;align-items:end;margin:40px 0 15px}.subheading h2{font-family:Georgia,serif;margin:0;font-size:1.9rem}.muted{color:var(--muted)}.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:23px;margin:18px 0}.crumb{margin:0 0 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:.91rem;color:var(--muted)}.crumb button{border:0;background:none;color:#226048;padding:0;text-decoration:underline}.lessonhead{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:center;padding:30px;background:#e6eee2;border-radius:18px}.lessonhead h1{font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.5rem);line-height:1.12;margin:10px 0}.lessonhead p{font-size:1.04rem}.latin{font-style:italic;color:#4b6955}.heroimg{width:100%;aspect-ratio:5/4;object-fit:cover;border-radius:13px;background:#dae2d4}.overview{padding:20px 0 12px;max-width:850px}.overview h2,.lessonpart h2{font-family:Georgia,serif;font-size:clamp(1.55rem,3.5vw,2.35rem);line-height:1.18;margin:0 0 15px}.overview p{font-size:1.07rem}.stepbar{font-weight:800;text-transform:uppercase;font-size:.73rem;letter-spacing:.13em;color:#567b5e;margin-bottom:9px}.lessonpart{border-top:1px solid var(--line);padding:40px 0;max-width:970px;margin:0 auto}.lessonpart .intro{max-width:750px;color:#4a6353}.figure{margin:22px 0 10px}.image-wrap{position:relative;width:100%;background:#ecf0e9;border-radius:13px;overflow:hidden;line-height:0}.image-wrap img{display:block;width:100%;height:auto;object-fit:contain;line-height:normal}.image-wrap .overlay{position:absolute;inset:0;pointer-events:none}.overlay svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}.overlay line{stroke:#f7e6a0;stroke-width:.72;filter:drop-shadow(0 1px 2px #22392a);stroke-linecap:round}.markerlabel{position:absolute;background:rgba(15,48,30,.90);color:#fff;font-size:clamp(.62rem,1.3vw,.86rem);border:1px solid #e9dea7;border-radius:5px;padding:2px 7px;line-height:1.22;max-width:32%;font-weight:750;transform:translateY(-50%);white-space:normal}.figcap{font-size:.88rem;color:#657267;margin:9px 0}.explain{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:15px}.hint{background:#e8eee2;padding:18px;border-radius:12px;border-left:4px solid #64886f}.hint b{display:block;margin-bottom:7px;color:#28563a}.copy{padding:10px 8px}.copy b{color:#28563a}.looklist{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:17px}.look{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px}.look b{display:block}.familyrow{display:grid;grid-template-columns:1fr 1fr;gap:15px}.familyrow .panel{margin:0}.familyrow h3{font-family:Georgia,serif;font-size:1.6rem;margin:4px 0}.familyrow .badge{display:inline-block;border-radius:100px;padding:4px 9px;font-size:.73rem;font-weight:800;background:var(--sage);color:#2d553a}.photostrip{display:flex;gap:13px;overflow-x:auto;scroll-snap-type:x mandatory;padding:5px 2px 20px}.tile{min-width:240px;width:265px;max-width:76vw;flex:0 0 auto;scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.tile img{display:block;width:100%;height:205px;object-fit:cover;background:#e7ece5}.tile .tilebody{padding:13px}.tile .role{font-size:.89rem;font-weight:760;line-height:1.4}.tile small{display:block;font-size:.76rem;color:var(--muted);line-height:1.45;margin:7px 0}.tile a{font-size:.83rem}.search{width:100%;border:1px solid #adbeb0;padding:14px 16px;border-radius:11px;background:white;font-size:1.02rem}.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:11px;margin-top:15px}.result{border:1px solid var(--line);border-radius:13px;background:white;text-align:left;padding:16px;color:var(--text);font-weight:650}.result:hover{border-color:#447458;background:#f3f8ef}.result small{display:block;color:var(--muted);font-weight:400}.sectionnum{font-size:.71rem;font-weight:850;color:#4f8059;text-transform:uppercase;letter-spacing:.11em}.course{display:grid;grid-template-columns:1fr 1.2fr;align-items:center;gap:20px;background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;margin:18px 0}.course h2{font-family:Georgia,serif;font-size:1.75rem;margin:5px 0}.course img{width:100%;height:290px;object-fit:cover;border-radius:12px;background:#e7ece5}.footer{font-size:.87rem;color:var(--muted);border-top:1px solid var(--line);padding-top:20px;margin-top:50px}.info{background:#f2ecd9;border:1px solid #dcd0a4;color:#665424;padding:16px;border-radius:12px;margin:22px 0}.mini{font-size:.84rem;color:#627167}.error{color:#983e35}.record details{border-top:1px solid var(--line);padding:12px 0}.record summary{cursor:pointer;font-weight:750}.record pre{font-size:.83rem;line-height:1.55;white-space:pre-wrap;word-break:break-word;color:#4a574f;font-family:inherit}.record ul{margin:10px 0;padding-left:22px}.record li{margin:5px 0}.status{padding:6px 10px;border-radius:40px;font-size:.74rem;background:#e2efe3;color:#24633c;font-weight:700}.loading{display:flex;justify-content:center;padding:40px;color:var(--muted)}.mapbuttons{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.badge-note{background:#f2ebd6;padding:3px 8px;border-radius:7px;font-size:.78rem;color:#675329}.footnav{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}@media(max-width:780px){.nav{gap:10px;padding:8px 13px;flex-wrap:wrap}.brand{font-size:1rem}.brandmark{padding:6px 9px}.preview-pill{margin-left:auto}.tabs{width:100%;justify-content:space-between}.tabs button{flex:1;padding:8px}.wrap{padding:15px 13px 60px}.hero{padding:35px 25px}.hero:after{font-size:210px;right:-35px;top:-18px}.paths,.lessonhead,.explain,.familyrow,.course{grid-template-columns:1fr}.course img{height:210px;order:-1}.lessonhead{padding:22px}.lessonpart{padding:31px 0}.markerlabel{font-size:.62rem;padding:2px 4px;max-width:40%}.choice{padding:23px}.tabs{gap:1px}}
+.tabs a{display:inline-block;text-decoration:none;border:0;padding:10px 15px;border-radius:10px;background:none;color:#4a5d51;font-weight:750}.tabs a.active{background:var(--deep);color:#fff}.tabs a:focus-visible,.tabs button:focus-visible,.button:focus-visible{outline:3px solid #ca9e42;outline-offset:3px}.figcap a{display:inline}.record pre{white-space:pre-wrap;overflow-wrap:anywhere}.lesson-status{background:#f6edda;border:1px solid #dbbe7d;padding:10px 13px;border-radius:10px;color:#594521;margin:10px 0}.lesson-status strong{display:block}.skip-link{position:absolute;left:-9999px;top:10px;background:#fff;padding:12px;z-index:50}.skip-link:focus{left:14px}html{scroll-padding-top:90px}</style></head><body>
+<a class="skip-link" href="#app">Skip to lessons</a><header class="top"><div class="nav"><div class="brand"><span class="brandmark">✣</span> Hays Botany</div><span class="preview-pill">Illustrated botanical lessons</span><nav class="tabs" aria-label="Learning areas"><a href="./index.html" class="active" aria-current="page">Learner</a><a href="./field-id.html">Field ID</a><a href="./quiz.html">Quiz</a></nav></div></header><main id="app" class="wrap"></main>
 <script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function(){
-      const localDev = location.hostname === "localhost" || location.hostname === "127.0.0.1";
-      if (localDev) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations){
-          return Promise.all(registrations.map(function(registration){ return registration.unregister(); }));
-        }).then(function(){
-          if ("caches" in window) {
-            return caches.keys().then(function(keys){
-              return Promise.all(keys.filter(function(key){ return key.indexOf("hays-botany-") === 0; }).map(function(key){ return caches.delete(key); }));
-            });
-          }
-        }).catch(function(err){
-          console.warn("Hays Botany local cache cleanup failed:", err);
-        });
-      } else if (location.protocol === "https:") {
-        navigator.serviceWorker.register("sw.js").catch(function(err){
-          console.warn("Hays Botany service worker registration failed:", err);
-        });
-      }
-    });
-  }
-</script>
-</body>
-</html>
+'use strict';
+// Production learner shell: reads rights-filtered public content; no browser writes to the scientific repository.
+const SAME_SITE=/^https?:$/.test(location.protocol)&&(['localhost','127.0.0.1','crking92.github.io'].includes(location.hostname));
+const RAW=SAME_SITE?'./':'https://raw.githubusercontent.com/Crking92/Hays-County-Botany/main/';
+const LIVE=SAME_SITE?'./':'https://crking92.github.io/Hays-County-Botany/';
+const state={nameIndex:new Map(),tab:'learner',view:'home',entries:[{id:'phyla-nodiflora',path:'content/taxa/Verbenaceae/Phyla/phyla-nodiflora/species.json'},{id:'cynodon-dactylon',path:'content/taxa/Poaceae/Cynodon/cynodon-dactylon/species.json'},{id:'poa-arachnifera',path:'content/taxa/Poaceae/Poa/poa-arachnifera/species.json'}],species:null,genus:null,family:null,error:'',filter:'',loaded:false};
+const app=document.getElementById('app');
+const E=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const lower=x=>String(x||'').toLowerCase();
+const nameFromId=id=>String(id).split('-').map((x,i)=>i===0?x[0].toUpperCase()+x.slice(1):x).join(' ');
+const validURL=v=>typeof v==='string'&&/^https:\/\//i.test(v);
+const addr=p=>p&&/^(https:\/\/)/i.test(p)?p:RAW+String(p||'').replace(/^\//,'');
+const live=p=>p&&/^https:\/\//i.test(p)?p:LIVE+String(p||'').replace(/^\//,'');
+const imgPermitted=v=>{
+  if(!v||!v.creator||!validURL(v.source_page))return false;
+  const license=lower(v.license).replace(/\s+/g,' ').trim();
+  const reuse=lower(v.public_reuse).trim();
+  if(/(?:review|pending|unknown|unverified|private.only|not permitted|not authorized|needs.permission|no public)/.test(reuse))return false;
+  if(/(?:all rights reserved|private.study|no.deriv|\bnd\b)/.test(license))return false;
+  if(/^cc0(?:[ \d.]|$)|^public domain|^pd[ \d.]|^cc by(?:-sa)?(?:[ \d.]|$)/.test(license))return true;
+  if(/^cc by-nc(?:-sa)?(?:[ \d.]|$)/.test(license))return true; // strictly noncommercial Pages site
+  const credit=lower(v.creator);
+  if(v.site_specific_public_permission==='JOEY_CREDITED_PUBLIC_LEARNER_20261021' &&
+     credit.startsWith('joey santore')&&v.source_page.startsWith('https://www.youtube.com/watch?v='))return true;
+  if(/credited educational website use/.test(license)&&credit.startsWith('joey santore'))return true;
+  return false;
+};
+const imsrc=(sp,x)=>{const p=x?.image_url||x?.file||'';if(!p)return '';if(validURL(p))return p;if(p.startsWith('content/'))return live(p);const base=state.entries.find(e=>e.id===sp.id)?.path?.replace(/species\.json$/,'')||`content/taxa/${sp.family}/${sp.genus}/${sp.id}/`;return live(base+p)};
+const sourceMeta=x=>`<div class="figcap">${E(x.creator||'Photographer credited in source')} · ${E(x.license||'License in source')} ${validURL(x.source_page)?` · <a href="${E(x.source_page)}" target="_blank" rel="noopener noreferrer">Original photo ↗</a>`:''}${validURL(x.license_url)?` · <a href="${E(x.license_url)}" target="_blank" rel="noopener noreferrer">License ↗</a>`:''}</div>`;
+function media(sp,x,markers){const src=imsrc(sp,x);if(!src)return `<div class="info">This diagnostic photograph is still missing.</div>`;const a=(Array.isArray(markers)?markers:[]).filter(m=>m && ['label_x','label_y','target_x','target_y'].every(k=>Number.isFinite(Number(m[k]))&&Number(m[k])>=0&&Number(m[k])<=100));const arrows=a.length?`<div class="overlay"><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="arr" markerWidth="3.4" markerHeight="3.4" refX="2.5" refY="1.7" orient="auto"><path d="M0 0 L3.4 1.7 L0 3.4 Z" fill="#f7e6a0"/></marker></defs>${a.map(m=>`<line x1="${+m.label_x}" y1="${+m.label_y}" x2="${+m.target_x}" y2="${+m.target_y}" marker-end="url(#arr)"/>`).join('')}</svg>${a.map(m=>`<span class="markerlabel" style="left:${+m.label_x}%;top:${+m.label_y}%">${E(m.label)}</span>`).join('')}</div>`:'';return `<figure class="figure"><div class="image-wrap"><img src="${E(src)}" alt="${E(x.image_role||x.role||sp.scientific_name)}" loading="lazy" onerror="this.alt='Photo currently unavailable on the published site';this.style.minHeight='180px'">${arrows}</div>${sourceMeta(x)}</figure>`}
+function resetScroll(){window.scrollTo({top:0,behavior:'instant'})}
+function navigate(view){state.tab='learner';state.view=view;resetScroll();render()}
+function home(){return `<section class="hero"><div class="kicker">Learn how to see plants</div><h1>Plant identification starts with noticing.</h1><p>Follow real botanical photographs and learn what each structure tells you. Start from the beginning—or choose a plant you want to recognize.</p></section><div class="paths"><article class="choice"><span class="ico">✥</span><h2>Learn the basics</h2><p>Start with growth habit, leaf attachment, and flower structures. No plant experience needed, and all the examples are real plants.</p><button class="button" data-view="basics">Begin botanical basics →</button></article><article class="choice"><span class="ico">❀</span><h2>Study a species</h2><p>Pick a plant and read along as diagnostic photos, arrows, comparisons, then genus and family teach you how to recognize it.</p><button class="button" data-view="browse">Browse species lessons →</button></article></div><div class="info"><b>The new Learner lives alongside your original Field ID and Quiz tools. Every species can grow as the photo and research library improves, without requiring finished photos or a completed second pass.</div><div class="subheading"><h2>Start with a familiar plant</h2></div><div class="results"><button class="result" data-plant="phyla-nodiflora">Frogfruit <small>Opposite leaves · flower-head stalk · look-alikes</small></button><button class="result" data-plant="cynodon-dactylon">Bermudagrass <small>Runners · collar hairs · fingerlike flowering heads</small></button><button class="result" data-plant="poa-arachnifera">Texas bluegrass <small>Perennial growth · flower sex · diagnostic photo gaps</small></button></div>`}
+function basics(){const steps=[{title:'First, see the whole plant',look:'Habit is your first clue',body:'Before getting lost in tiny details, check whether a plant is creeping across soil, growing as a clump, climbing, or forming a shrub. For frogfruit, notice the low spreading mat.',image:'content/taxa/Verbenaceae/Phyla/phyla-nodiflora/images/02-mat-habit.jpg',creator:'Dinesh Valke',license:'CC BY-SA 2.0',source_page:'https://commons.wikimedia.org/wiki/File:Phyla_nodiflora_(L.)_Greene_(48918376436).jpg'}, {title:'Then trace the leaves',look:'Find the stem node',body:'A node is the place where leaves or branches attach to a stem. Two leaves attached opposite one another can be a useful clue. Next ask where each leaf is widest and where the teeth begin.',image:'content/taxa/Verbenaceae/Phyla/phyla-nodiflora/images/01-flowers-leaves.jpg',creator:'Forest & Kim Starr',license:'CC BY 3.0',source_page:'https://commons.wikimedia.org/wiki/File:Starr_080605-6676_Phyla_nodiflora.jpg'},{title:'Look carefully at what seems to be a flower',look:'One head can contain many flowers',body:'Frogfruit looks like it has a small button at the end of a stalk. That button contains many tiny individual flowers. Look for the leafless stalk and how it attaches to the stem.',image:'content/taxa/Verbenaceae/Phyla/phyla-nodiflora/images/01-flowers-leaves.jpg',creator:'Forest & Kim Starr',license:'CC BY 3.0',source_page:'https://commons.wikimedia.org/wiki/File:Starr_080605-6676_Phyla_nodiflora.jpg'},{title:'Compare before naming',look:'One clue is rarely enough',body:'Creeping habits, opposite leaves, or pale flowers can occur in more than one plant. Look for a combination of visible characters and learn what your photograph cannot confirm.',image:'content/taxa/Verbenaceae/Phyla/phyla-nodiflora/images/02-mat-habit.jpg',creator:'Dinesh Valke',license:'CC BY-SA 2.0',source_page:'https://commons.wikimedia.org/wiki/File:Phyla_nodiflora_(L.)_Greene_(48918376436).jpg'}];return `<div class="crumb"><button data-view="home">Learner home</button> › Botanical basics</div><section class="hero"><div class="kicker">Your first four observations</div><h1>How to look at a plant</h1><p>Read the text beside the real photograph, find that feature yourself, then continue scrolling. The point is to train your eyes, not memorize a stack of definitions.</p></section>${steps.map((s,i)=>`<article class="course"><div><div class="sectionnum">Beginner basics · ${i+1} / ${steps.length}</div><h2>${E(s.title)}</h2><p><b>${E(s.look)}</b></p><p>${E(s.body)}</p><p class="mini">A real photo, shown without invented anatomical arrows.</p>${i===steps.length-1?`<button class="button" data-plant="phyla-nodiflora">Continue into frogfruit's species lesson →</button>`:''}</div><div>${media({id:'phyla-nodiflora',family:'Verbenaceae',genus:'Phyla'}, {image_url:s.image,creator:s.creator,license:s.license,source_page:s.source_page,image_role:s.title},[])}</div></article>`).join('')}<div class="footnav"><button class="button secondary" data-view="browse">Browse species lessons →</button><button class="button secondary" data-view="home">Back to Learner home</button></div>`}
+function displayName(id){const n=state.nameIndex.get(id);return n?.scientific_name||nameFromId(id)}
+function matchesSearch(e,q){
+ if(!q)return true;
+ const n=state.nameIndex.get(e.id)||{};
+ const sci=lower(n.scientific_name||e.id.replaceAll('-',' '));
+ const common=lower(n.common_name);
+ return [e.id,sci,common,lower(n.genus),lower(n.family)].some(x=>x.includes(q));
+}
+function searchResultsHTML(){
+ const q=lower(state.filter.trim());
+ const rows=state.entries.filter(e=>matchesSearch(e,q)).slice(0,100);
+ return rows.map(e=>{const n=state.nameIndex.get(e.id)||{};
+  return `<button class="result" data-plant="${E(e.id)}"><b>${E(n.common_name||displayName(e.id))}</b><small><i>${E(displayName(e.id))}</i> · ${E(n.family||'Species lesson')} · Start lesson →</small></button>`;
+ }).join('')||'<p>No matching taxa in the current plant library.</p>';
+}
+function browse(){
+ return `<div class="crumb"><button data-view="home">Learner home</button> › Species lessons</div><section class="hero"><div class="kicker">Species library</div><h1>Pick a plant to learn.</h1><p>All installed species use the same scroll-through format, whether first-pass, photo-gap or polished. Lessons get richer as new photos and research are published.</p></section><section class="panel"><label for="speciesSearch"><b>Search the existing plant library</b></label><input id="speciesSearch" class="search" placeholder="Search common name, scientific name, genus, or family…" value="${E(state.filter)}" autocomplete="off"><div class="mini" id="indexcount">${state.loaded?`${state.entries.length} species in your library.`:'Loading public GitHub index…'}</div><div class="results" id="browseResults">${searchResultsHTML()}</div></section>`;
+}
+function normalizePanel(sp,item){
+ const src=item?.image_url||'';
+ if(!src||item.scientific_name!==sp.scientific_name)return null;
+ if(!validURL(src)){
+  // Do not resuscitate an annotated image that the public snapshot rejected.
+  const record=(sp.images||[]).find(x=>imsrc(sp,x).split('?')[0]===imsrc(sp,item).split('?')[0]);
+  if(!record)return null;
+  return {...item,creator:record.creator||item.creator,license:record.license||item.license,
+    source_page:record.source_page||item.source_page,public_reuse:record.public_reuse,
+    site_specific_public_permission:record.site_specific_public_permission};
+ }
+ // Externally hosted panels must have a photo-level Commons origin and
+ // a supported license; ordinary search thumbnails are not web permissions.
+ const commonsImage=/^https:\/\/(?:upload|thumb)\.wikimedia\.org\/wikipedia\/commons\//i.test(src);
+ const commonsSource=/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(item.source_page||'');
+ return (commonsImage&&commonsSource&&imgPermitted(item))?item:null;
+}
+function orderedPanels(sp){
+  const all=(sp.visual_comparison?.items||[]).map(x=>normalizePanel(sp,x)).filter(Boolean);
+  const seen=new Set(all.map(x=>imsrc(sp,x).split('?')[0]));
+  // Some species are first-pass cards: reuse individually authorized, installed photos
+  // as recognition views without pretending an anatomy arrow has been verified.
+  (sp.images||[]).filter(x=>x&&x.file).forEach(img=>{
+    const url=imsrc(sp,img).split('?')[0];
+    if(!url||seen.has(url))return;
+    seen.add(url);
+    all.push({image_url:img.file,creator:img.creator,license:img.license,license_url:img.license_url,
+      source_page:img.source_page,public_reuse:img.public_reuse,
+      scientific_name:sp.scientific_name,image_role:img.role||img.view||'Reference photo',
+      label:img.role||img.view||'Study the plant in context',
+      caption:'This is a source-credited reference photograph. Inspect the parts actually visible; it has no separately verified diagnostic overlay.',
+      why_it_matters:'A recognition view helps establish the plant’s overall appearance, but this image alone may not confirm its identity.',
+      markers:[],reference_only:true});
+  });
+  const habit=x=>/habit|whole plant|mat|field|growth|recognition/i.test([x.image_role,x.label].join(' '));
+  return all.sort((a,b)=>Number(habit(b))-Number(habit(a)));
+}
+function overview(sp,photos){const first=photos[0]||sp.images?.find(x=>x&&x.file);return `<section class="lessonhead"><div><div class="kicker">An illustrated species lesson</div><h1>${E(sp.common_name||sp.scientific_name)}</h1><div class="latin">${E(sp.scientific_name)}</div><p>Watch the plant take shape as you scroll. Learn the clues first, compare the possible look-alikes, then put it into its genus and family.</p><div class="mapbuttons"><a class="button small" href="#firstPhoto">Start reading ↓</a><a class="button secondary small" href="#photos">Explore photos ↓</a></div></div><div>${first?`<img class="heroimg" src="${E(imsrc(sp,first))}" alt="${E(sp.scientific_name)}" onerror="this.style.display='none'">${sourceMeta(first)}`:'<div class="info">No rights-cleared identity photograph in this published card yet.</div>'}</div></section>`}
+function checkList(sp){const key=sp.morphology_keys||{},v=key.best_field_traits||key.high_value_field_traits||[];if(!Array.isArray(v)||!v.length)return '';return `<section class="lessonpart" id="diagnostic"><div class="stepbar">Remember these clues</div><h2>What would you look for again?</h2><div class="looklist">${v.map((x,i)=>`<div class="look"><span class="sectionnum">Clue ${i+1}</span><p>${E(x)}</p></div>`).join('')}</div></section>`}
+function learningPhotos(sp,photos){if(!photos.length){return `<section class="lessonpart" id="firstPhoto"><h2>Learn from diagnostic photos</h2><p class="info">This species doesn't yet have a public-safe annotated visual-comparison set in the record. We preserve the existing photos below and mark the lesson as needing diagnostic photo enrichment.</p></section>`}return photos.map((p,i)=>`<article class="lessonpart" ${i===0?'id="firstPhoto"':''}><div class="stepbar">Look ${i+1} of ${photos.length} · Real photo</div><h2>${E(p.label||p.image_role||'Examine this plant structure')}</h2>${p.image_role?`<p class="intro">${E(p.image_role)}</p>`:''}${media(sp,{...p,role:p.image_role},p.markers)}<div class="explain"><div class="hint"><b>Look closely</b>${E(p.caption||'Inspect the documented field characters shown in the photograph.')}</div><div class="copy"><b>Why it matters</b><p>${E(p.why_it_matters||sp.look_here_first||'Compare this feature with a different view of the same plant.')}</p>${(p.markers||[]).length?'<span class="status">Existing ID arrows shown — check placement</span>':'<span class="badge-note">No verified arrow for this photo</span>'}</div></div></article>`).join('')}
+function comparisons(sp){const cmp=sp.comparisons||{};let matrix=Array.isArray(cmp.field_matrix)?cmp.field_matrix:[];let v=cmp.key_distinctions||sp.visual_comparison?.memory_rule||'';const extra=(sp.visual_comparison?.items||[]).filter(x=>x&&x.scientific_name&&x.scientific_name!==sp.scientific_name&&imgPermitted(x)).slice(0,6);return `<section class="lessonpart" id="lookalikes"><div class="stepbar">The identification check</div><h2>Now compare the look-alikes</h2><p class="intro">An overall resemblance isn't enough. Match leaf and flower structures and notice where the evidence is still uncertain.</p>${v?`<div class="hint">${E(v)}</div>`:''}<div class="looklist">${matrix.map(r=>`<div class="look"><b>${E(r.taxon||r.lookalike||'Comparison')}</b><p>${E(r.difference||r.usual_pattern||r.other||'')}</p>${r.limitation?`<small class="muted">Caution: ${E(r.limitation)}</small>`:''}</div>`).join('')}</div>${extra.length?`<div class="subheading"><h2>Matched comparison photographs</h2></div>${extra.map(p=>`<div class="panel"><b>${E(p.scientific_name)} · ${E(p.label||'Look-alike')}</b>${media(sp,p,p.markers)}<p>${E(p.caption||p.why_it_matters||'')}</p></div>`).join('')}`:''}</section>`}
+function taxonomy(sp,g,f){const ga=g?.genus_recognition?.look_here_first||g?.look_here_first||g?.study_strategy?.look_here_first||g?.genus_diagnostics?.where_to_look_first||'Study the shared traits of its close relatives.';const fa=f?.family_diagnostics?.where_to_look_first||f?.family_diagnostics?.field_tip||'Study the structure shared by this wider family.';return `<section class="lessonpart" id="taxonomy"><div class="stepbar">Zoom out near the end</div><h2>Where does this plant belong?</h2><p class="intro">Now that you recognize this species, see which characteristics connect it to related plants.</p><div class="familyrow"><div class="panel"><span class="badge">Genus lesson</span><h3><i>${E(sp.genus)}</i></h3><p>${E(ga)}</p><p class="mini">${Array.isArray(g?.morphological_comparison_matrix)?g.morphological_comparison_matrix.length+' existing genus comparisons available in the full reference.':''}</p></div><div class="panel"><span class="badge">Family lesson</span><h3>${E(sp.family)}</h3><p>${E(fa)}</p><p class="mini">Existing family anatomy lessons remain in the original site; this preview doesn't replace them.</p></div></div></section>`}
+function gallery(sp){const raw=Array.isArray(sp.images)?sp.images:[];const extras=Array.isArray(sp.gallery_external_refs)?sp.gallery_external_refs:[];const items=[...raw.filter(x=>x&&x.file),...extras.filter(x=>x&&x.file&&imgPermitted(x)&&/^https:\/\/(?:upload|thumb)\.wikimedia\.org\//i.test(x.file)&&/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/i.test(x.source_page))];const tx=x=>/texas/i.test([x.source_platform,x.source_location,x.photo_location,x.locality,x.source_observation_location].join(' '));items.sort((a,b)=>Number(tx(b))-Number(tx(a)));return `<section class="lessonpart" id="photos"><div class="stepbar">Keep looking</div><h2>More photographs of this plant</h2><p class="intro">A separate sideways-scrolling photo library. Here you can explore variations without interrupting the guided lesson. Texas-confirmed provenance is prioritized when the existing metadata supports it.</p>${items.length?`<div class="photostrip">${items.map(x=>`<article class="tile"><img src="${E(imsrc(sp,x))}" alt="${E(x.role||sp.scientific_name)}" loading="lazy" onerror="this.style.display='none'"><div class="tilebody"><div class="role">${E(x.role||x.view||'Species reference')}</div>${tx(x)?'<span class="status">Texas source verified</span>':''}<small>${E(x.creator)} · ${E(x.license)}</small><a href="${E(x.source_page)}" target="_blank" rel="noopener noreferrer">Original photo ↗</a></div></article>`).join('')}</div>`:'<div class="info">No additional gallery photos with adequate public reuse metadata were selected here yet. This does not remove any existing canonical photographs.</div>'}<div class="mini">This gallery does not automatically pull arbitrary iNaturalist results. Additional Texas observations will need photo-specific license, exact-species and provenance screening before appearing on the public learner.</div></section>`}
+function fullReference(sp){return `<section class="lessonpart record"><div class="stepbar">Nothing discarded</div><h2>Complete botanical notes</h2><p class="intro">Every original field stays intact in GitHub. These expandable notes reveal the dense source material without interrupting the beginner story.</p><details><summary>All detailed morphology keys</summary><pre>${E(JSON.stringify(sp.morphology_keys||{},null,2))}</pre></details><details><summary>Original comparisons and caveats</summary><pre>${E(JSON.stringify(sp.comparisons||{},null,2))}</pre></details><details><summary>Photo and annotation metadata</summary><pre>${E(JSON.stringify({images:sp.images||[],visual_comparison:sp.visual_comparison||{}},null,2))}</pre></details><details><summary>Complete original species record</summary><pre>${E(JSON.stringify(sp,null,2))}</pre></details><div class="footnav"><a class="button secondary" href="./field-id.html">Open Field ID →</a><button class="button secondary" data-view="browse">Study another plant →</button></div></section>`}
+function plantView(){const sp=state.species;if(!sp)return '<div class="loading">Loading the requested species and its canonical lessons…</div>';const p=orderedPanels(sp);const sparse=p.length<3||/photo.gap|provisional|pending/i.test(String(sp.curation_status?.visual_finish||sp.learner_visual_status?.status||''));const progress=sparse?`<div class="lesson-status"><strong>Learning card in progress</strong>${p.length} authorized teaching photo${p.length===1?'':'s'} currently available. Unphotographed diagnostic parts are described, not presented as if verified. As the library grows, this lesson gains new images automatically.</div>`:'';return `<div class="crumb"><button data-view="home">Learner</button> › <button data-view="browse">Species lessons</button> › ${E(sp.scientific_name)}</div>${overview(sp,p)}${progress}<div class="overview"><div class="stepbar">Before you zoom in</div><h2>Here's where to start looking</h2><p>${E(sp.look_here_first||'Start with overall shape, leaf attachment, and the reproductive structures visible in the photos.')}</p></div>${learningPhotos(sp,p)}${checkList(sp)}${comparisons(sp)}${taxonomy(sp,state.genus,state.family)}${gallery(sp)}${fullReference(sp)}`}
+function render(){app.innerHTML=state.view==='basics'?basics():state.view==='browse'?browse():state.view==='plant'?plantView():home()}
+async function fetchJson(path){const r=await fetch(addr(path),{cache:'no-store'});if(!r.ok)throw Error(r.status+' '+path);return r.json()}
+async function openPlant(id){state.tab='learner';state.view='plant';state.species=null;state.genus=null;state.family=null;resetScroll();render();try{const entry=state.entries.find(x=>x.id===id);if(!entry)throw Error('Species not found in the public manifest: '+id);const sp=await fetchJson(entry.path);state.species=sp;render();const folder=entry.path.replace(/[^/]+\/species\.json$/,'');const familyPath=`content/taxa/${sp.family}/family.json`;const genusPath=`content/taxa/${sp.family}/${sp.genus}/genus.json`;const d=await Promise.allSettled([fetchJson(genusPath),fetchJson(familyPath)]);state.genus=d[0].status==='fulfilled'?d[0].value:null;state.family=d[1].status==='fulfilled'?d[1].value:null;render();}catch(e){app.innerHTML=`<div class="crumb"><button data-view="browse">Species lessons</button></div><div class="panel error"><h2>Could not load this species</h2><p>${E(e.message)}</p><p>Internet access is required because this preview reads the current published GitHub data rather than including a duplicate species library.</p><button class="button" data-view="browse">Back to browse</button></div>`}}
+async function init(){render();try{
+ const data=await fetchJson('data/manifest.json');
+ state.entries=Array.isArray(data.species)?data.species:[];
+ // The publisher regenerates this name index from the same canonical species set.
+ // If a developer has not built a snapshot yet, scientific-name browsing still works.
+ try{const index=await fetchJson('data/learner-search-index.json');
+  if(Array.isArray(index.species))state.nameIndex=new Map(index.species.filter(x=>x&&x.id).map(x=>[x.id,x]));
+ }catch(e){console.info('Optional common-name search index not yet built; using scientific names.',e.message)}
+ state.loaded=true;if(state.view==='browse')render();
+}catch(e){state.loaded=false;state.error=e.message;document.querySelectorAll('#indexcount').forEach(x=>x.textContent='Unable to load GitHub index: '+e.message)}}
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-view],button[data-plant]');if(!b)return;if(b.dataset.view){navigate(b.dataset.view);return}if(b.dataset.plant){openPlant(b.dataset.plant);return}});
+document.addEventListener('input',e=>{if(e.target.id==='speciesSearch'){const s=e.target.selectionStart;state.filter=e.target.value;document.getElementById('browseResults').innerHTML=searchResultsHTML();}});
+init();
+// Keep the existing installable phone/desktop experience after the redesign.
+// GitHub Pages ships a filtered snapshot and its cache fingerprint changes
+// whenever the three-section shell or legacy field-ID engine changes.
+if ('serviceWorker' in navigator && location.protocol==='https:') {
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(e=>console.warn('Offline cache unavailable',e)));
+}
+</script><footer class="wrap footer"><b>Hays Botany — redesigned website review</b><p>Species science and photographic source records remain canonical in GitHub. New material appears as the plant library is published; the original Field ID and Quiz tools are preserved.</p></footer></body></html>
