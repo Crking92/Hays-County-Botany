@@ -1,0 +1,90 @@
+name: Install USGS true bushy bluestem flowering photograph
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-anatherum-glomeratum-usgs-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: hays-one-time-true-bushy-bluestem-usgs-photo
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pillow for verified image processing
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Fetch latest canonical species and genus
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify public-domain USGS photo bytes and preserve taxonomic holds
+        run: python scripts/install_anatherum_glomeratum_usgs_20261022.py
+      - name: Validate actual stored image and credited public metadata
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          b=Path('content/taxa/Poaceae/Anatherum')
+          s=json.loads((b/'anatherum-glomeratum/species.json').read_text())
+          g=json.loads((b/'genus.json').read_text())
+          r=json.loads(Path('reports/bushy-bluestem-usgs-physical-photo-20261022.json').read_text())
+          p=Path(r['file'])
+          assert p.is_file() and p.stat().st_size>12000
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==r['archived_sha256']
+          with Image.open(p) as im:
+              assert im.format=='JPEG' and min(im.size)>=350
+              assert not im.getexif().get(34853)
+              im.verify()
+          assert s['scientific_name']=='Anatherum glomeratum'
+          assert g['project_scope']['species_count']==3
+          assert s['visual_comparison']['items'][0]['image_url']==str(p)
+          assert g['visual_comparison']['items'][0]['image_url']==str(p)
+          assert sum(len(x.get('markers',[])) for x in s['visual_comparison']['items'])==2
+          assert sum(len(x.get('markers',[])) for x in g['visual_comparison']['items'])==2
+          assert any(x.get('file')=='images/'+p.name and 'U.S. Geological Survey' in x.get('creator','') for x in s['images'])
+          assert len(s['historical_photo_exclusions'])==3
+          for obj in (s,g):
+              for img in obj['visual_comparison']['items']:
+                  assert img.get('creator') and img.get('license') and img.get('source_page')
+          print('PASS: real sanitized JPEG and original USGS rights, 2 true flowerhead arrows, taxonomy/range history preserved')
+          PY
+      - name: Commit only scoped archival photo, metadata and release marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Anatherum/anatherum-glomeratum/ content/taxa/Poaceae/Anatherum/genus.json
+          git add reports/bushy-bluestem-usgs-physical-photo-20261022.json
+          git add workflow/field-id-publication/2026-10-22-bushy-bluestem-usgs-photo-physical.json
+          if git diff --cached --quiet; then echo 'Already installed: no duplicate commit'; exit 0; fi
+          git commit -m 'Archive USGS Larry Allain true bushy bluestem flowering photo [skip ci]'
+          for n in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
+      - name: Request the normal rights-filtered Pages build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo 'Requested post-install rights-filtered public Pages release'
