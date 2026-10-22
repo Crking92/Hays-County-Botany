@@ -1,0 +1,80 @@
+name: Archive licensed wintergrass anatomical photos to GitHub
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-nassella-diagnostic-physical-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-nassella-harms-usda-onetime-photo-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: Checkout freshest repository state
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh canonical main and validate installer syntax
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_nassella_harms_usda_20261022.py
+      - name: Archive verified copyrighted-education and USDA public-domain originals
+        run: python scripts/archive_nassella_harms_usda_20261022.py
+      - name: Confirm exact source hashes real JPEGs no GPS and source-specific permission
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          root=Path("content/taxa/Poaceae/Nassella")
+          s=json.loads((root/"nassella-leucotricha/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          r=json.loads(Path("reports/nassella-wintergrass-diagnostic-physical-20261022.json").read_text())
+          assert r["result"]=="SEVEN_NASSELLA_DIAGNOSTIC_JPEGS_ARCHIVED"
+          assert len(r["files"])==7 and s["curation_status"]["photo_files_present"]==9
+          assert len(s["visual_comparison"]["items"])==12 and len(g["visual_comparison"]["items"])==10
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          for entry in r["files"]:
+              fp=Path(entry["path"])
+              assert fp.is_file() and fp.stat().st_size>6000
+              assert hashlib.sha256(fp.read_bytes()).hexdigest()==entry["archived_sha256"]
+              with Image.open(fp) as img:
+                  assert img.format=="JPEG" and not img.getexif().get(34853)
+                  img.verify()
+              rec=[x for x in s["images"] if x.get("file")=="images/"+fp.name]
+              assert len(rec)==1 and rec[0]["creator"]==entry["creator"]
+              assert any(x["image_url"]==str(fp) for x in s["visual_comparison"]["items"])
+          hs=[x for x in s["images"] if x.get("creator")=="Bob Harms"]
+          assert len(hs)==6
+          for h in hs:
+              assert h["site_specific_public_permission"]=="BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
+              assert h["license"]=="© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
+          print("PASS: seven real image files, source hashes, author rights, no EXIF/GPS, 12 panels, original county science")
+          PY
+      - name: Commit only single species/genus, new image files and provenance report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Nassella/nassella-leucotricha/
+          git add content/taxa/Poaceae/Nassella/genus.json
+          git add reports/nassella-wintergrass-diagnostic-physical-20261022.json
+          git add workflow/field-id-publication/2026-10-22-nassella-wintergrass-physical-diagnostic.json
+          if git diff --cached --quiet;then echo "No-op canonical already contains these originals";exit 0;fi
+          git commit -m "Archive 6 Harms attributed educational wintergrass photographs and 1 USDA public-domain fruit [skip ci]"
+          for try in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 5
+          done
+          exit 1
