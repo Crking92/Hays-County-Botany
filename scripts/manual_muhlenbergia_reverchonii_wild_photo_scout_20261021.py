@@ -21,10 +21,10 @@ TAXON_ID = 165570
 SOURCES = [
     {"role":"open_panicle","observation":36950498,
      "thumbnail":"https://storage.googleapis.com/wildflowersearchv11.appspot.com/img/Muhlenbergia_reverchonii.jpg",
-     "match_author":"Matt"},
+     "match_author":"Matt","user_login":"drbh2o","year":2025},
     {"role":"spikelet_detail","observation":4246792,
      "thumbnail":"https://storage.googleapis.com/wildflowersearchv11.appspot.com/sds/Muhlenbergia_reverchonii.jpg",
-     "match_author":"Sam"},
+     "match_author":"Sam","user_login":"sambiology","year":2016},
 ]
 ALLOWED={"cc0":"CC0","cc-by":"CC BY","cc-by-nc":"CC BY-NC","cc-by-sa":"CC BY-SA"}
 session=requests.Session()
@@ -74,34 +74,54 @@ def main():
         try:
             thumb=valid_image(get(src["thumbnail"],max_bytes=4_000_000))
             assert 280 <= min(thumb.size), ("tiny source",thumb.size)
-            api=json.loads(get(f"https://api.inaturalist.org/v1/observations/{src['observation']}",max_bytes=8_000_000))
-            assert api["total_results"]==1
-            obs=api["results"][0]
-            assert obs["taxon"]["id"] == TAXON_ID and obs["taxon"]["name"] == TAXON
-            assert obs.get("captive") in (False,None)
-            desc=(obs.get("description") or "").lower()
-            assert not any(s in desc for s in ("'undaunted'","'autumn embers'","cultivar","garden planting"))
-            photos=obs.get("photos") or []
-            assert photos, "observation has no photos"
+            # Image-gallery links may point to an older observation even when
+            # the currently displayed image is from a DIFFERENT same-author observation.
+            # Search the author and photographed year; match actual pixels, not page order.
+            records=[]
+            original_api=json.loads(get(f"https://api.inaturalist.org/v1/observations/{src['observation']}",max_bytes=8_000_000))
+            records += original_api.get("results") or []
+            api_url=(f"https://api.inaturalist.org/v1/observations?taxon_id={TAXON_ID}"
+                     f"&user_id={src['user_login']}&year={src['year']}&photos=true&per_page=100")
+            matching_api=json.loads(get(api_url,max_bytes=12_000_000))
+            records += (matching_api.get("results") or [])[:70]
+            result["source_author"]=src["user_login"]
+            result["author_year"]=src["year"]
+            unique={}
+            for obs in records:
+                if obs.get("id") not in unique:
+                    unique[obs.get("id")]=obs
+            result["observations_considered"]=len(unique)
             hits=[]
-            for p in photos:
-                code=(p.get("license_code") or "").lower()
-                if code not in ALLOWED:
+            for obs in unique.values():
+                if not obs.get("taxon") or obs["taxon"].get("id")!=TAXON_ID or obs["taxon"].get("name")!=TAXON:
                     continue
-                attribution=(p.get("attribution") or "")
-                if src["match_author"].lower() not in attribution.lower() and src["match_author"].lower() not in (obs.get("user",{}).get("name") or "").lower() and src["match_author"].lower() not in (obs.get("user",{}).get("login") or "").lower():
+                if obs.get("captive") not in (False,None):
                     continue
-                medium=p["url"].replace("square.","large.").replace("thumb.","large.").replace("small.","large.").replace("medium.","large.")
-                try:
-                    raw=get(medium,max_bytes=16_000_000)
-                    im=valid_image(raw)
-                    score=similarity(thumb,im)
-                    hits.append({"photo":p,"score":score,"image":im,"raw":raw,"source_url":medium})
-                except Exception as exc:
-                    print("photo skipped",p.get("id"),str(exc)[:150])
+                user=obs.get("user") or {}
+                if user.get("login")!=src["user_login"]:
+                    continue
+                desc=(obs.get("description") or "").lower()
+                if any(v in desc for v in ("'undaunted'","'autumn embers'","cultivar","garden planting")):
+                    continue
+                for p in (obs.get("photos") or []):
+                    code=(p.get("license_code") or "").lower()
+                    if code not in ALLOWED or not p.get("url"):
+                        continue
+                    attribution=(p.get("attribution") or "")
+                    if src["match_author"].lower() not in attribution.lower() and src["match_author"].lower() not in (user.get("name") or "").lower() and src["match_author"].lower() not in user.get("login","").lower():
+                        continue
+                    medium=p["url"].replace("square.","medium.").replace("thumb.","medium.").replace("small.","medium.")
+                    try:
+                        raw=get(medium,max_bytes=8_000_000)
+                        im=valid_image(raw)
+                        score=similarity(thumb,im)
+                        hits.append({"photo":p,"score":score,"image":im,"raw":raw,"source_url":medium,"observation_id":obs["id"]})
+                    except Exception as exc:
+                        print("photo skipped",p.get("id"),str(exc)[:150],flush=True)
             hits.sort(key=lambda x:x["score"])
             result["candidate_photos_checked"]=len(hits)
             result["closest_photo_id"]=hits[0]["photo"]["id"] if hits else None
+            result["closest_observation_id"]=hits[0]["observation_id"] if hits else None
             result["closest_phash_distance"]=hits[0]["score"] if hits else None
             if not hits or hits[0]["score"]>10 or (len(hits)>1 and hits[1]["score"]-hits[0]["score"]<4):
                 result["status"]="HOLD: No unambiguous exact-source photograph match; no image installed"
@@ -127,7 +147,7 @@ def main():
             assert not target.exists(), "already staged; do not overwrite"
             target.parent.mkdir(parents=True,exist_ok=True)
             target.write_bytes(data)
-            result.update({"status":"STAGED_EXACT_MATCH_FOR_MANUAL_PIXEL_QA","photo_id":p["id"],"creator":p.get("attribution"),
+            result.update({"status":"STAGED_EXACT_MATCH_FOR_MANUAL_PIXEL_QA", "source_observation":f"https://www.inaturalist.org/observations/{h['observation_id']}","photo_id":p["id"],"creator":p.get("attribution"),
                            "license":ALLOWED[license_code],
                            "license_code":license_code,
                            "source_photo":f"https://www.inaturalist.org/photos/{p['id']}",
