@@ -1,0 +1,91 @@
+name: Physically install Uvalde buffalograss sex and collar photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-bouteloua-dactyloides-jim-conrad-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: hays-onetime-jim-buffalo-photo-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install real-JPEG source verifier
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Refresh canonical main to avoid other-chat overwrites
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify source author/public-domain real photos and archive no-GPS files
+        run: python scripts/install_bouteloua_dactyloides_jim_conrad_20261022.py
+      - name: Validate file hashes, license/photo role, and seven species scope
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          base=Path('content/taxa/Poaceae/Bouteloua')
+          s=json.loads((base/'bouteloua-dactyloides/species.json').read_text())
+          g=json.loads((base/'genus.json').read_text())
+          report=json.loads(Path('reports/bouteloua-dactyloides-jim-conrad-sex-and-ligule-20261022.json').read_text())
+          assert s['id']=='bouteloua-dactyloides'
+          assert g['project_scope']['canonical_species_count']==7
+          assert len(report['files'])==3
+          assert report['result']=='THREE_JIM_CONRAD_BUFFALO_PD_JPEGS_PHYSICALLY_STORED'
+          for f in report['files']:
+              p=Path(f['path'])
+              assert p.is_file() and p.stat().st_size>10000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==f['archived_sha256']
+              with Image.open(p) as img:
+                  assert img.format=='JPEG' and min(img.size)>380
+                  assert not img.getexif().get(34853)
+                  img.verify()
+              rec=next(x for x in s['images'] if x.get('file')=='images/'+p.name)
+              assert rec['creator']=='Jim Conrad' and 'Public domain' in rec['license']
+              assert rec['source_page']=='https://www.backyardnature.net/n/h/bufgrass.htm'
+              assert sum(x['image_url']==str(p) for x in s['visual_comparison']['items'])==1
+          assert len(s['visual_comparison']['items'])==7
+          assert len(g['visual_comparison']['items'])==14
+          assert sum(len(x.get('markers',[])) for x in s['visual_comparison']['items'])==8
+          assert all(x.get('creator') and x.get('license') and x.get('source_page') for x in g['visual_comparison']['items'])
+          print('PASS: 3 real Uvalde photos, cleaned bytes, photographer credits, 8 visible species arrows, genus count 7')
+          PY
+      - name: Commit only source photo and canonical species/genus changes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bouteloua/bouteloua-dactyloides/ content/taxa/Poaceae/Bouteloua/genus.json
+          git add reports/bouteloua-dactyloides-jim-conrad-sex-and-ligule-20261022.json
+          git add workflow/field-id-publication/2026-10-22-buffalograss-jim-conrad-male-ligule-photos.json
+          if git diff --cached --quiet; then echo 'Canonical physical files already installed: no-op'; exit 0; fi
+          git commit -m 'Archive three Uvalde Jim Conrad buffalograss sex and collar images [skip ci]'
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
+      - name: Dispatch standard rights-filtered GitHub Pages release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --fail-with-body --silent --show-error -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo 'Requested public-rights-checked Pages release after real image archiving'
