@@ -1,0 +1,75 @@
+{
+  "audit_date": "2026-10-21",
+  "audited_repo": "Crking92/Hays-County-Botany",
+  "scope": "Read-only reconciliation of canonical species.json galleries for photo-recovery-joey-004, 005, 006. Does not change image binaries, species galleries, license decisions or scientific holds.",
+  "historical_manifest_files": [
+    "workflow/photo-recovery-joey-004.json",
+    "workflow/photo-recovery-joey-005.json",
+    "workflow/photo-recovery-joey-006.json"
+  ],
+  "prior_binary_check": {
+    "expected_recovered_jpegs": 36,
+    "files_found_on_main": 36,
+    "missing_files": 0,
+    "note": "Physical JPEG check was completed in previous manual recovery session, reported in handoff. Not a fresh file-byte revalidation in this gallery audit."
+  },
+  "live_gallery_check": {
+    "canonical_species_checked": 23,
+    "expected_historical_accepted_photos": 36,
+    "unresolved_gallery_link_gaps": 0,
+    "batch004": {
+      "accepted_at_install": 14,
+      "currently_linked_video_records": {
+        "dermatophyllum-secundiflorum": 3,
+        "tetraneuris-linearifolia": 3,
+        "penstemon-cobaea": 2,
+        "scutellaria-drummondii": 2,
+        "eryngium-leavenworthii": 2,
+        "chrysactinia-mexicana": 2
+      }
+    },
+    "batch005": {
+      "accepted_at_install": 17,
+      "currently_linked_video_records": {
+        "adiantum-capillus-veneris": 1,
+        "amorpha-fruticosa": 2,
+        "castilleja-lindheimeri": 1,
+        "ilex-decidua": 1,
+        "juniperus-virginiana": 1,
+        "liatris-punctata": 1,
+        "marshallia-caespitosa": 1,
+        "mimosa-borealis": 1,
+        "sapindus-drummondii": 1,
+        "senna-lindheimeriana": 1,
+        "sorghastrum-nutans": 1,
+        "symphyotrichum-ericoides": 1,
+        "yucca-arkansana": 2,
+        "yucca-pallida": 2
+      }
+    },
+    "batch006": {
+      "newly_accepted_at_install": 5,
+      "current_video_records": {
+        "arbutus-xalapensis": 2,
+        "ludwigia-octovalvis": 2,
+        "stillingia-texana": 8
+      },
+      "note": "Stillingia gallery currently holds eight saved Joey video-frame records, some from the earlier 003 recovery. Batch 006's five newly recovered records were a subset: Arbutus two, Ludwigia two, Stillingia one."
+    },
+    "rights_note": "All inspected Joey video-frame gallery records explicitly have public_reuse=false or public_reuse='no', license private-study only. Canonical presence does not equal approved public display."
+  },
+  "intentionally_excluded": [
+    {
+      "taxon": "canna-glauca",
+      "record_id": "jvid-Hr3nBxvgCv4-014",
+      "reason": "Ovary/fruit specimen out of focus in original batch 006; not a missing-gallery error."
+    }
+  ],
+  "next_lane": "Diagnostic photo enrichment of existing canonical taxa. Prioritize Sida abutilifolia and S. spinosa fresh node, trichome, flower-base and mature schizocarp macros; then evaluate Croton, Ambrosia, Cyperus and Portulaca by live per-species gap evidence. Reuse verified photo library before outside searches. Do not assert organ ID, arrow coordinates or public rights without image-level checks.",
+  "no_mutations": {
+    "recovery_branches_merged": 0,
+    "existing_species_changed": 0,
+    "automations_changed": 0,
+    "taxonomy_range_changed": 0
+  }
+}
