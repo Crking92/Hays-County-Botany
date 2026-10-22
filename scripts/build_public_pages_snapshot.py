@@ -42,10 +42,20 @@ def credited_joey_frame(item: dict, noncommercial: bool) -> bool:
         and item.get("site_specific_public_permission") == JOEY_CREDITED_PERMISSION
         and creator in JOEY_CREATORS
         and source.startswith("https://www.youtube.com/watch?v=")
-        and bool(re.fullmatch(
-            r"(?:jvid-)?" + re.escape(source.split("?v=", 1)[1].split("&", 1)[0]) + r"-[0-9]+",
-            frame_id,
-        ))
+        and (
+            bool(re.fullmatch(
+                r"(?:jvid-)?" + re.escape(source.split("?v=", 1)[1].split("&", 1)[0]) + r"-[0-9]+",
+                frame_id,
+            ))
+            or (
+                not frame_id
+                and source == "https://www.youtube.com/watch?v=Y7A530PjEbU"
+                and item.get("file") in {
+                    "images/chrysactinia-mexicana_habit-source-label_03-40.jpg",
+                    "images/chrysactinia-mexicana_flower-head-leaves_04-00.jpg",
+                }
+            )
+        )
     )
 
 
