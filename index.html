@@ -62,15 +62,113 @@ function matchesSearch(e,q){
  const common=lower(n.common_name);
  return [e.id,sci,common,lower(n.genus),lower(n.family)].some(x=>x.includes(q));
 }
+
+function taxonomyMeta(entry){
+ const parts=String(entry.path||'').split('/');
+ const n=state.nameIndex.get(entry.id)||{};
+ return {family:String(n.family||parts[2]||''),genus:String(n.genus||parts[3]||'')};
+}
+function groupedTaxa(rank){
+ const map=new Map();
+ state.entries.forEach(entry=>{
+  const names=taxonomyMeta(entry),family=names.family,genus=names.genus;
+  if(!family||(rank==='genera'&&!genus))return;
+  const key=rank==='families'?family:family+'/'+genus;
+  if(!map.has(key))map.set(key,{family:family,genus:rank==='genera'?genus:'',name:rank==='families'?family:genus,count:0});
+  map.get(key).count++;
+ });
+ return Array.from(map.values()).sort((a,b)=>a.name.localeCompare(b.name)||a.family.localeCompare(b.family));
+}
+function browseScope(entry){
+ const info=taxonomyMeta(entry);
+ return (!state.selectedFamily||info.family===state.selectedFamily)&&
+        (!state.selectedGenus||info.genus===state.selectedGenus);
+}
 function searchResultsHTML(){
  const q=lower(state.filter.trim());
- const rows=state.entries.filter(e=>matchesSearch(e,q)).slice(0,100);
- return rows.map(e=>{const n=state.nameIndex.get(e.id)||{};
-  return `<button class="result" data-plant="${E(e.id)}"><b>${E(n.common_name||displayName(e.id))}</b><small><i>${E(displayName(e.id))}</i> · ${E(n.family||'Species lesson')} · Start lesson →</small></button>`;
- }).join('')||'<p>No matching taxa in the current plant library.</p>';
+ if(state.browseRank==='families'||state.browseRank==='genera'){
+  const groups=groupedTaxa(state.browseRank).filter(g=>
+   (!state.selectedFamily||g.family===state.selectedFamily)&&
+   (!q||lower(g.name).includes(q)||lower(g.family).includes(q))
+  );
+  const visible=groups.slice(0,state.browseLimit);
+  const nodes=visible.map(g=>{
+   if(state.browseRank==='families'){
+    return '<button type="button" class="result" data-group-family="'+E(g.family)+'"><b>'+E(g.name)+'</b><small>'+g.count+' species · Browse genera →</small></button>';
+   }
+   return '<button type="button" class="result" data-group-genus="'+E(g.genus)+'" data-group-parent="'+E(g.family)+'"><b><i>'+E(g.name)+'</i></b><small>'+E(g.family)+' · '+g.count+' species · Browse species →</small></button>';
+  }).join('');
+  return '<div class="mini browse-summary">'+groups.length+' '+(state.browseRank==='families'?'families':'genera')+' found'+(q?' for this search':'')+'.</div>'+
+   '<div class="results">'+(nodes||'<p>No matching groups.</p>')+'</div>'+
+   (visible.length<groups.length?'<button class="button secondary" type="button" data-browse-more>Show more ('+(groups.length-visible.length)+' remaining)</button>':'');
+ }
+ const matches=state.entries.filter(e=>browseScope(e)&&matchesSearch(e,q));
+ const visible=matches.slice(0,state.browseLimit);
+ const nodes=visible.map(e=>{
+  const n=state.nameIndex.get(e.id)||{};
+  return '<button type="button" class="result" data-plant="'+E(e.id)+'"><b>'+E(n.common_name||displayName(e.id))+'</b><small><i>'+E(displayName(e.id))+'</i> · '+E(taxonomyMeta(e).family||'Species lesson')+' · Start lesson →</small></button>';
+ }).join('');
+ return '<div class="mini browse-summary">'+matches.length+' species found'+(q?' for this search':'')+'.</div>'+
+  '<div class="results">'+(nodes||'<p>No matching species.</p>')+'</div>'+
+  (visible.length<matches.length?'<button class="button secondary" type="button" data-browse-more>Show more ('+(matches.length-visible.length)+' remaining)</button>':'');
+}
+function taxonomyIntroduction(){
+ const detail=state.taxonomyInfo;
+ if(!detail)return '';
+ const r=detail.record||{};
+ let text='';
+ if(detail.rank==='family'){
+  const d=r.family_diagnostics||{};
+  text=d.where_to_look_first||d.field_tip||(r.visual_lesson&&r.visual_lesson.intro)||'Explore the genera in this family to understand their shared botanical structures.';
+ }else{
+  text=(r.genus_recognition&&r.genus_recognition.look_here_first)||r.look_here_first||
+   (r.shared_genus_recognition&&r.shared_genus_recognition.look_here_first)||
+   (r.study_strategy&&r.study_strategy.look_here_first)||
+   'Explore the species in this genus and study their identification differences.';
+ }
+ if(typeof text!=='string')text='Study these plants and their distinguishing features.';
+ return '<div class="panel"><div class="stepbar">'+(detail.rank==='family'?'Family recognition':'Genus recognition')+'</div><p>'+E(text)+'</p><small class="muted">From the current canonical '+detail.rank+' lesson. Species lessons contain additional identification photos and comparisons.</small></div>';
 }
 function browse(){
- return `<div class="crumb"><button data-view="home">Learner home</button> › Species lessons</div><section class="hero"><div class="kicker">Species library</div><h1>Pick a plant to learn.</h1><p>All installed species use the same scroll-through format, whether first-pass, photo-gap or polished. Lessons get richer as new photos and research are published.</p></section><section class="panel"><label for="speciesSearch"><b>Search the existing plant library</b></label><input id="speciesSearch" class="search" placeholder="Search common name, scientific name, genus, or family…" value="${E(state.filter)}" autocomplete="off"><div class="mini" id="indexcount">${state.loaded?`${state.entries.length} species in your library.`:'Loading public GitHub index…'}</div><div class="results" id="browseResults">${searchResultsHTML()}</div></section>`;
+ const family=state.selectedFamily,genus=state.selectedGenus,rank=state.browseRank;
+ const title=genus||family||(rank==='families'?'Choose a plant family.':rank==='genera'?'Explore plant genera.':'Pick a plant to learn.');
+ const summary=genus?'The species below belong to this genus. Open one for its scrolling identification lesson.':
+  family?'Choose a genus within this family to explore its species.':
+  'Browse the entire installed library by botanical family, genus, or species.';
+ const nav='<div class="browse-modes" role="group" aria-label="Browse by taxonomic rank">'+
+ ['families','genera','species'].map(r=>
+  '<button type="button" class="browse-mode" data-browse-mode="'+r+'" aria-pressed="'+String(rank===r)+'"><strong>'+
+  (r==='families'?'Families':r==='genera'?'Genera':'Species')+'</strong><small>'+
+  (r==='species'?state.entries.length:groupedTaxa(r).length)+' '+(r==='species'?'cards':'groups')+'</small></button>'
+ ).join('')+'</div>';
+ const crumbs='<div class="browse-guide"><button class="button secondary" type="button" data-view="home">← Learner home</button>'+
+  (family?'<button type="button" class="button secondary" data-browse-mode="families">All families</button><button type="button" class="button secondary" data-group-family="'+E(family)+'">'+E(family)+'</button>':'')+
+  (genus?'<strong>› <i>'+E(genus)+'</i></strong>':'')+'</div>';
+ const label=rank==='families'?'families':rank==='genera'?'genera':'species, common names, genera, or families';
+ return crumbs+'<section class="hero"><div class="kicker">Full botanical library · '+state.entries.length+' installed species</div><h1>'+E(title)+'</h1><p>'+E(summary)+'</p></section>'+
+ '<section class="panel"><div class="subheading" style="margin:0 0 7px"><h2>Browse by rank</h2></div>'+nav+taxonomyIntroduction()+
+ '<label for="speciesSearch"><b>Search '+E(label)+'</b></label>'+
+ '<input id="speciesSearch" class="search" placeholder="Search '+E(label)+'…" value="'+E(state.filter)+'" autocomplete="off">'+
+ '<div class="mini" id="indexcount">'+(state.loaded?'Results from the current public botanical library.':'Loading full botanical index…')+'</div>'+
+ '<div id="browseResults">'+searchResultsHTML()+'</div></section>';
+}
+async function openFamilyBrowse(family){
+ state.browseRank='genera';state.selectedFamily=family;state.selectedGenus='';state.filter='';state.browseLimit=100;state.taxonomyInfo=null;navigate('browse');
+ try{
+  const r=await fetchJson('content/taxa/'+encodeURIComponent(family)+'/family.json');
+  if(state.selectedFamily===family&&!state.selectedGenus&&state.view==='browse'){
+   state.taxonomyInfo={rank:'family',record:r};render();
+  }
+ }catch(e){console.info('Optional family lesson unavailable:',family)}
+}
+async function openGenusBrowse(family,genus){
+ state.browseRank='species';state.selectedFamily=family;state.selectedGenus=genus;state.filter='';state.browseLimit=100;state.taxonomyInfo=null;navigate('browse');
+ try{
+  const r=await fetchJson('content/taxa/'+encodeURIComponent(family)+'/'+encodeURIComponent(genus)+'/genus.json');
+  if(state.selectedFamily===family&&state.selectedGenus===genus&&state.view==='browse'){
+   state.taxonomyInfo={rank:'genus',record:r};render();
+  }
+ }catch(e){console.info('Optional genus lesson unavailable:',family,genus)}
 }
 function normalizePanel(sp,item){
  const src=item?.image_url||'';
@@ -128,10 +226,21 @@ async function init(){render();try{
  try{const index=await fetchJson('data/learner-search-index.json');
   if(Array.isArray(index.species))state.nameIndex=new Map(index.species.filter(x=>x&&x.id).map(x=>[x.id,x]));
  }catch(e){console.info('Optional common-name search index not yet built; using scientific names.',e.message)}
- state.loaded=true;if(state.view==='browse')render();
+ state.loaded=true;if(state.view==='browse'||state.view==='home')render();
 }catch(e){state.loaded=false;state.error=e.message;document.querySelectorAll('#indexcount').forEach(x=>x.textContent='Unable to load GitHub index: '+e.message)}}
-document.addEventListener('click',e=>{const b=e.target.closest('button[data-view],button[data-plant]');if(!b)return;if(b.dataset.view){navigate(b.dataset.view);return}if(b.dataset.plant){openPlant(b.dataset.plant);return}});
-document.addEventListener('input',e=>{if(e.target.id==='speciesSearch'){const s=e.target.selectionStart;state.filter=e.target.value;document.getElementById('browseResults').innerHTML=searchResultsHTML();}});
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button[data-browse-mode],button[data-group-family],button[data-group-genus],button[data-browse-more],button[data-view],button[data-plant]');
+ if(!b)return;
+ if(b.dataset.browseMode){
+  state.browseRank=b.dataset.browseMode;state.selectedFamily='';state.selectedGenus='';state.taxonomyInfo=null;state.filter='';state.browseLimit=100;navigate('browse');return;
+ }
+ if(b.dataset.groupFamily){openFamilyBrowse(b.dataset.groupFamily);return;}
+ if(b.dataset.groupGenus){openGenusBrowse(b.dataset.groupParent,b.dataset.groupGenus);return;}
+ if(b.hasAttribute('data-browse-more')){state.browseLimit+=100;document.getElementById('browseResults').innerHTML=searchResultsHTML();return;}
+ if(b.dataset.view){navigate(b.dataset.view);return;}
+ if(b.dataset.plant){openPlant(b.dataset.plant);return;}
+});
+document.addEventListener('input',e=>{if(e.target.id==='speciesSearch'){state.filter=e.target.value;state.browseLimit=100;document.getElementById('browseResults').innerHTML=searchResultsHTML();}});
 init();
 // Keep the existing installable phone/desktop experience after the redesign.
 // GitHub Pages ships a filtered snapshot and its cache fingerprint changes
