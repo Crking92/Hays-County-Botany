@@ -1,0 +1,48 @@
+{
+  "type": "grass_public_readiness_publication",
+  "requested_at": "2026-10-22T08:36:03Z",
+  "title": "Rights-filtered Poaceae field-card catch-up",
+  "reason": "Nine reviewed source commits since last verified Pages deployment add text-only taxonomy evidence, Virginia wildrye field key, wild oat measured floret comparisons, and purple threeawn local-image reference repair. Existing canonical photos and licenses remain unchanged; existing published rights preflight passed on prior source. Publish only if the established full noncommercial site builder, current image-rights preflight, restricted-content, size and image QA gates all pass.",
+  "scope": {
+    "family": "Poaceae",
+    "species": [
+      "aristida-purpurea",
+      "elymus-virginicus",
+      "avena-fatua"
+    ],
+    "taxonomy_evidence": [
+      "disakisperma-dubium",
+      "erioneuron-pilosum",
+      "hilaria-belangeri",
+      "hilaria-mutica"
+    ],
+    "new_species": 0,
+    "new_photo_bytes": 0
+  },
+  "source_check": {
+    "main_before_marker": "a2dc979a0f47ea3f690225e01a5db960e0df924d",
+    "previous_verified_deployed_sha": "2ee3edceed6e8f59638ed40acb2228f518d0dde1",
+    "commits_ahead": 9,
+    "active_pages_runs_at_check": 0,
+    "active_release_claims_at_check": 0,
+    "latest_photo_quality_run": 39743891238,
+    "latest_photo_quality_conclusion": "success",
+    "prior_pages_rights_preflight": "success at prior SHA; MUST pass again at current SHA"
+  },
+  "guardrails": {
+    "publication_workflow": ".github/workflows/publish-public-learner-github-pages.yml",
+    "noncommercial": true,
+    "rights_filter_required": true,
+    "fail_closed_on_any_preflight_error": true,
+    "do_not_claim_live_until_deploy_verified": true,
+    "live_mobile_arrow_qa_pending": true,
+    "manual_photo_holds_unchanged": [
+      "bothriochloa-torreyana",
+      "muhlenbergia-piniflora"
+    ],
+    "photo_license_version_check_pending": [
+      "avena-fatua"
+    ]
+  },
+  "status": "PUBLICATION_REQUESTED_NOT_YET_DEPLOYED"
+}
