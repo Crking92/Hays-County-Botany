@@ -1,0 +1,117 @@
+{
+  "type": "manual_field_id_publication",
+  "requested_at": "2026-10-22",
+  "title": "Grass learner exception closeout: ten photo-led promotions, four science holds, piniflora last",
+  "baseline": {
+    "canonical_grass_species": 112,
+    "canonical_grass_genera": 53,
+    "archived_grass_image_files": 263,
+    "prior_field_ready_photo_gaps": 97,
+    "original_exception_count_excluding_muhlenbergia_piniflora": 14
+  },
+  "result": {
+    "field_ready_with_photo_gaps": 107,
+    "field_ready_status_promotions": 10,
+    "photo_or_identification_holds_remaining": 4,
+    "final_explicit_user_defer": "Muhlenbergia piniflora — DO NOT MODIFY OR QUEUE UNTIL ALL OTHER GRASSES"
+  },
+  "field_ready_upgrades": [
+    {
+      "taxon": "Panicum capillare",
+      "panels": 4,
+      "original_native_status": "PASS"
+    },
+    {
+      "taxon": "Panicum coloratum",
+      "panels": 3,
+      "original_native_status": "FAIL — introduced"
+    },
+    {
+      "taxon": "Panicum hallii",
+      "panels": 4,
+      "original_native_status": "PASS"
+    },
+    {
+      "taxon": "Sorghum bicolor",
+      "panels": 3,
+      "original_native_status": "UNRESOLVED, native metrics excluded"
+    },
+    {
+      "taxon": "Sorghum halepense",
+      "panels": 5,
+      "original_native_status": "INTRODUCED_NOT_NATIVE"
+    },
+    {
+      "taxon": "Eragrostis hirsuta",
+      "panels": 5,
+      "original_native_status": "UNRESOLVED — user learner admission"
+    },
+    {
+      "taxon": "Eragrostis intermedia",
+      "panels": 5,
+      "original_native_status": "PASS"
+    },
+    {
+      "taxon": "Eragrostis trichodes",
+      "panels": 5,
+      "original_native_status": "PASS"
+    },
+    {
+      "taxon": "Hilaria belangeri",
+      "panels": 4,
+      "critical_gap": "Connected hairy aboveground stolon rooting nodes"
+    },
+    {
+      "taxon": "Hilaria mutica",
+      "panels": 4,
+      "critical_gap": "Connected subterranean short scaly rhizomes"
+    }
+  ],
+  "reviewed_but_not_promoted": [
+    {
+      "taxon": "Sorghastrum elliottii",
+      "stage": "PROVISIONAL_SOURCE_ID_HOLD",
+      "now_photos": 4,
+      "needs": "Mature awn + sessile fertile spikelet/naked pedicel and collar measured on independent voucher; county-zone nativity unresolved"
+    },
+    {
+      "taxon": "Chloris × subdolichostachya",
+      "stage": "PROVISIONAL_HYBRID_SOURCE_ID",
+      "now_photos": 3,
+      "needs": "Verified hybrid voucher, dissected fertile and upper sterile lemmas with two awn lengths; current reference shows unconfirmed candidate and TWO actual parent species photos"
+    },
+    {
+      "taxon": "Muhlenbergia ×involuta",
+      "stage": "PROVISIONAL_NO_VETTED_LIVE_HYBRID_IMAGE",
+      "now_photos": 5,
+      "needs": "Source-vouchered live hybrid field photograph and actual ligule/mature spikelet; current plate is MULTI-TAXON old illustration and other photos are both parents"
+    },
+    {
+      "taxon": "Anatherum tenuispatheum",
+      "stage": "PROVISIONAL_SPECIES_REPRODUCTIVE_ID_HOLD",
+      "now_photos": 4,
+      "needs": "Measured mature spathe plus paired sessile/pedicelled spikelets, awn/hair structure and independent voucher; historic var. pumilus is synonymous with this species but Hawai‘i source not local nativity proof"
+    }
+  ],
+  "explicit_defer": {
+    "taxon": "Muhlenbergia piniflora",
+    "position": "ABSOLUTE_LAST",
+    "status": "not touched this pass",
+    "note": "No species edit, admission, photo annotation or taxonomic hold clearance requested in this batch"
+  },
+  "quality": {
+    "fourteen_canonical_species_json_rechecked": true,
+    "exact_photo_rights_and_source_records_retained": true,
+    "project_range_certifications_unmodified": true,
+    "older_annotations_preserved": true,
+    "no_new_jpeg_files": true,
+    "critical_unphotographed_anatomy_not_arrowed": true,
+    "distinct_species_comparison_photo_labels_explicit": true,
+    "rights_filtered_noncommercial_publication_required": true,
+    "not_claiming_four_science_holds_closed": true
+  },
+  "history": {
+    "updates": "3 Panicum + genus, 2 Sorghum + genus, 3 Eragrostis + genus, 2 Hilaria + genus; Sorghastrum, Chloris hybrid, Muhlenbergia hybrid, Anatherum source ID cards + genus evidence-hold comparisons"
+  },
+  "publication_policy": "A successful commit or successful photo QA does not by itself prove the public website updated; verify both build-site and deploy-public-pages in associated GitHub Action run."
+}
