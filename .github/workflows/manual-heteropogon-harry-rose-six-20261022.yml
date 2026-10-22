@@ -1,0 +1,96 @@
+name: Archive six CC BY tanglehead diagnostic images in GitHub
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-heteropogon-harry-rose-six-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: hays-heteropogon-harry-rose-six-20261022
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out canonical main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source-image verifier and metadata scrubber
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh latest canonical state before any writes
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify exact six CC-licensed source files, decode, scrub and update learner
+        run: |
+          python -m py_compile scripts/install_tanglehead_harry_rose_six_20261022.py
+          python scripts/install_tanglehead_harry_rose_six_20261022.py
+      - name: Verify six real JPEGs, hashes, credits and preserved anatomy holds
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json
+          from PIL import Image
+          folder=Path('content/taxa/Poaceae/Heteropogon/heteropogon-contortus')
+          s=json.loads((folder/'species.json').read_text())
+          g=json.loads((folder.parent/'genus.json').read_text())
+          r=json.loads(Path('reports/heteropogon-harry-rose-physical-six-20261022.json').read_text())
+          assert r['result']=='SIX_HARRY_ROSE_CC_BY_2_JPEGS_ARCHIVED' and len(r['files'])==6
+          assert s['id']=='heteropogon-contortus' and g['name']=='Heteropogon'
+          assert len(s['images'])==9 and len(s['visual_comparison']['items'])==12 and len(g['visual_comparison']['items'])==7
+          assert s['curation_status']['photo_files_present']==9
+          assert s['field_id_finish_pass']['stage'].startswith('FIELD_READY_PHOTO_GAPS')
+          for row in r['files']:
+              f=Path(row['path'])
+              assert f.is_file() and f.stat().st_size>15000
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==row['archived_sha256']
+              with Image.open(f) as im:
+                  assert im.format=='JPEG' and not im.getexif().get(34853)
+                  im.verify()
+              rec=[x for x in s['images'] if x.get('file')=='images/'+f.name]
+              assert len(rec)==1 and rec[0]['creator']=='Harry Rose (Macleay Grass Man)' and rec[0]['license']=='CC BY 2.0'
+              assert any(x['image_url']==str(f) for x in s['visual_comparison']['items'])
+          print('PASS: six real, CC BY attributed physical image files, scaled/EXIF-free, 12 teaching panels and original scientific holds')
+          PY
+      - name: Commit only tanglehead image archive, attributed cards, and handoff evidence
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Heteropogon/heteropogon-contortus/
+          git add content/taxa/Poaceae/Heteropogon/genus.json
+          git add reports/heteropogon-harry-rose-physical-six-20261022.json
+          git add workflow/field-id-publication/2026-10-22-tanglehead-six-physical-cc-by-photos.json
+          if git diff --cached --quiet; then
+            echo 'No new photos to archive; no-op'
+            exit 0
+          fi
+          git commit -m 'Archive six source-verified CC BY Harry Rose tanglehead diagnostic photos [skip ci]'
+          for n in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 5
+          done
+          exit 1
+      - name: Request standard rights-filtered public Pages deployment
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --fail-with-body --silent --show-error -X POST \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/publish-public-learner-github-pages.yml/dispatches" \
+            -d '{"ref":"main","inputs":{"publish":"true"}}'
+          echo 'Requested standard licensed website release following successful physical archive'
