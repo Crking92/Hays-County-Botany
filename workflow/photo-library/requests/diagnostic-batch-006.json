@@ -1,0 +1,49 @@
+{
+  "request_id": "diagnostic-batch-006",
+  "requested_at": "2026-10-21",
+  "requested_by": "manual Grass Diagnostic Photo Fast-Fill run",
+  "user_approved": true,
+  "manual_only": true,
+  "phase": "manual_grass_diagnostic_photo_candidate_collection",
+  "description": "Narrow existing-canonical Poaceae one-photo cards; collect complementary diagnostically useful licensed candidates in small batch, archive first, then visually review before any canonical install.",
+  "species_ids": [
+    "eriochloa-sericea",
+    "hilaria-belangeri",
+    "hilaria-mutica"
+  ],
+  "source": [
+    "GBIF publicly licensed individually attributed media",
+    "Pl@ntNet via GBIF where individual photo rights are compatible"
+  ],
+  "max_photos_per_observation": 2,
+  "per_source_per_species": 6,
+  "skip_previously_scanned": true,
+  "existing_gallery_allowed": true,
+  "archive": "Durable photo-library Release and searchable species index; no automatic canonical photo installation",
+  "publish_active_photo_lab": false,
+  "preserve_reviews": true,
+  "diagnostic_priorities": {
+    "eriochloa-sericea": [
+      "Same-spikelet side macro clearly showing cup-like collar at pedicel",
+      "True leaf ligule hair ring with mm scale",
+      "Whole perennial bunch and pressed raceme branches"
+    ],
+    "hilaria-belangeri": [
+      "Attached aboveground runner crossing soil with rooted woolly nodes and 1 mm scale",
+      "Mature 3-spikelet group in intact inflorescence",
+      "Short plant habit and rolled/drought-curling leaves"
+    ],
+    "hilaria-mutica": [
+      "Intact ground-level crown exposing thick scaly rhizome and absence of aerial stolon",
+      "Mature 3-spikelet fascicle and zig-zag disarticulating inflorescence axis",
+      "Taller stiff gray-green blades and tufted growth habit"
+    ]
+  },
+  "guardrails": [
+    "This harvest identifies candidate source observations only, not photographed organs or proven independent species IDs.",
+    "Require original creator/source/photo-license/version and physically saved media before promotion; keep NC/SA terms.",
+    "Do not add arrows until exact pixels and botanical organs are visually verified.",
+    "Do not alter taxonomy, county-native metrics, genus/family cards, schedules, or unrelated workers.",
+    "Preserve current single canonical species photos; do not count archive photos as installed."
+  ]
+}
