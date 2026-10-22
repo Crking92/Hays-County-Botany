@@ -110,10 +110,18 @@ def main():
     session.headers["User-Agent"]="Hays-County-Botany-CreditedEducationalPhotoArchiver/1.0 (github.com/Crking92/Hays-County-Botany)"
     staged=[]
     for job in jobs:
+        if job["code"]=="USDA":
+            # Commons original is HTTP 429 throttled; do not keep retrying or
+            # block six successfully source-verified Bob Harms originals.
+            # The public-domain USDA image remains its existing credited remote link.
+            print("USDA SOURCE HOLD: Commons HTTP 429. Original remote panel retained, not counted as archived.",flush=True)
+            continue
         raw,actual=download(session,job["url"])
-        data,dims,cleandims=verify_and_scrub(raw,expected=(900,600) if job["code"]=="USDA" else None)
+        data,dims,cleandims=verify_and_scrub(raw)
         staged.append((job,raw,data,actual,dims,cleandims))
         print("SOURCE JPEG VERIFIED",job["code"],dims,len(raw),len(data),flush=True)
+    if len(staged)!=6 or {x[0]["code"] for x in staged}!=set(CODES):
+        raise RuntimeError("Expected all six licensed Harms originals before any commit")
 
     report=[]
     for job,raw,data,actual,dims,cleandims in staged:
@@ -147,16 +155,16 @@ def main():
         writer=csv.DictWriter(fh,fieldnames=cols,lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
-    s["curation_status"]["photo_files_present"]=9
+    s["curation_status"]["photo_files_present"]=8
     s["curation_status"]["photo_metadata_count"]=10
-    s["curation_status"]["nassella_seven_real_archived_20261022"]="6 copyrighted Harms scientific/educational-attribution originals + 1 USDA PD actual fruit now physically archived in canonical species folder; 2 prior CC BY archives preserved. One existing CC BY-NC outdoor view remains remote.";
-    s["field_id_finish_pass"]["diagnostic_photo_20261022"]["new_local_binary_files"]=7
-    s["field_id_finish_pass"]["diagnostic_photo_20261022"]["source_archiving"]="7 verified JPEGs, hashes and EXIF/GPS removal; 6 Harms credit-only, 1 USDA PD"
-    s["visual_comparison"]["subtitle"]+=" 6 Harms + 1 USDA diagnostic photos are physically archived in GitHub now.";
-    s["visual_comparison"]["overlay_note"]+=" 7 now locally stored verified real images. Existing fine-arrow positions retained on original USDA 900x600 original, RGB resave preserving dimensions.";
-    s["field_photo_quickcheck"]["warning"]+=" 7 exact-source Harms/USDA real JPEGs physically stored; do not confuse educational permission with Creative Commons grant.";
-    g["visual_comparison"]["subtitle"]+=" Four Harms genus photo references plus original USDA fruit now point to physically stored species images.";
-    g["curation_status"]["nassella_physical_anatomy_photo_archive_20261022"]="7 new physical species photos, of which four Harms and one USDA also reused within genus; no extra copies, original photographer attribution/rights preserved.";
+    s["curation_status"]["nassella_six_real_archived_20261022"]="Six copyrighted Harms education-with-credit originals physically stored in canonical species images/ and two existing CC BY files retained. USDA public-domain fruit and Abilene CC BY-NC view remain external due source throttle or no download."
+    s["field_id_finish_pass"]["diagnostic_photo_20261022"]["new_local_binary_files"]=6
+    s["field_id_finish_pass"]["diagnostic_photo_20261022"]["source_archiving"]="Six physical verified Bob Harms JPEGs with SHA256 EXIF/GPS removal; USDA external SOURCE HOLD HTTP 429"
+    s["visual_comparison"]["subtitle"]+=" Six Harms anatomical images now physically stored in GitHub; USDA PD fruit still external because of 429 throttling."
+    s["visual_comparison"]["overlay_note"]+=" Six new physically stored real photographs; existing USDA overlay markers remain on unchanged external 900x600 original. No duplicate 429 attempt."
+    s["field_photo_quickcheck"]["warning"]+=" Six exact Harms originals physically stored under limited educational permission, not CC; USDA PD image remains external, not counted as locally archived."
+    g["visual_comparison"]["subtitle"]+=" Four Harms genus panels now reference the same physically stored species images; USDA remains remote."
+    g["curation_status"]["nassella_physical_anatomy_photo_archive_20261022"]="Six new physical source species photos, four also reused within genus; the existing USDA original remains external owing to HTTP 429, exact credits untouched."
     for k,v in preserved.items():
         if json.dumps(s.get(k),sort_keys=True)!=v:
             raise RuntimeError("Protected species science changed; abort")
@@ -164,22 +172,23 @@ def main():
         raise RuntimeError("Protected genus taxonomy scope changed; abort")
     assert len(s["images"])==10 and len(s["visual_comparison"]["items"])==12 and len(g["visual_comparison"]["items"])==10
     save(SP,s);save(GN,g)
-    save(REPORT,{"result":"SEVEN_NASSELLA_DIAGNOSTIC_JPEGS_ARCHIVED","files":report,
-                 "new_physical_files":7,"existing_physical_files":2,
-                 "new_Harms_educational_credit_only":6,"new_USDA_public_domain":1,
+    save(REPORT,{"result":"SIX_HARMS_NASSELLA_DIAGNOSTIC_JPEGS_ARCHIVED","files":report,
+                 "new_physical_files":6,"existing_physical_files":2,
+                 "new_Harms_educational_credit_only":6,"new_USDA_public_domain":0,
+                 "USDA_reference_still_external":"Commons HTTP 429 — existing USDA public-domain gallery remains source-linked",
                  "species_panels":12,"genus_panels":10,
                  "original_taxonomy_and_nativity_unchanged":True,
                  "status":"FIELD_READY_PHOTO_GAPS",
                  "last_mile":"Same Hays rooted-flowering plant and mm measured true inner ligule/crown with attached mature callus."})
     save(MARK,{"type":"manual_field_id_publication","date":"2026-10-22",
-               "title":"Archive seven physically verified Texas wintergrass diagnostic photos",
+               "title":"Archive six physically verified Texas wintergrass diagnostic photos",
                "taxon":"Nassella leucotricha","report":str(REPORT),
-               "new_physical_files":7,"source_license":"6 Bob Harms author education permission with credit (non-CC); 1 USDA public domain",
+               "new_physical_files":6,"source_license":"Six Bob Harms author educational permission with credit (not CC); USDA public-domain image stays external (HTTP 429)",
                "reusable_only_for_documented_science_education":True,
                "user_review":"ordinary public species page; provisional",
                "science_status":"FIELD_READY_PHOTO_GAPS",
                "county_nativity_unchanged":True})
-    print("SEVEN_REAL_NASSELLA_PHOTOS_ARCHIVED",flush=True)
+    print("SIX_HARMS_REAL_NASSELLA_PHOTOS_ARCHIVED__USDA_REMOTE_HOLD",flush=True)
 
 if __name__=="__main__":
     main()
