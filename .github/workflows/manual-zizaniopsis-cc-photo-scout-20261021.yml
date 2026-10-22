@@ -1,0 +1,63 @@
+name: Stage licensed Zizaniopsis detail photos for exact pixel review
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-zizaniopsis-cc-photo-scout-20261021.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: one-time-zizaniopsis-cc-photo-scout
+  cancel-in-progress: false
+jobs:
+  stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh and verify source originals
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/manual_zizaniopsis_cc_photo_scout_20261021.py
+      - name: Check report, actual photo rights and sanitized JPEGs
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          r=json.loads(Path("reports/zizaniopsis-cc-by-photo-review-20261021.json").read_text())
+          assert r["taxon"]=="Zizaniopsis miliacea" and r["canonical_gallery_changed"] is False
+          for p in r["candidates"]:
+            if p["status"]=="PHYSICALLY_STAGED_FOR_PIXEL_REVIEW_ONLY":
+              f=Path(p["path"])
+              assert f.is_file() and f.stat().st_size>12000
+              assert p["license"]=="CC BY 4.0" and p["creator"]=="Alex Abair"
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==p["sanitized_sha256"]
+              with Image.open(f) as im:
+                assert im.format=="JPEG" and not im.getexif().get(34853)
+                im.verify()
+          print("PASS: verified source and per-image credit. Candidates only; canonical unchanged.")
+          PY
+      - name: Commit only review JPEGs and source-rights report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/zizaniopsis-cc-by-photo-review-20261021.json
+          git add workflow/photo-lab/zizaniopsis-miliacea/cc-by-alex-abair-20261021/ || true
+          if git diff --cached --quiet; then echo "No new source files"; exit 0; fi
+          git commit -m 'Stage licensed Alex Abair giant cutgrass candidate JPEGs for precise visual QA [skip ci]'
+          for i in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
