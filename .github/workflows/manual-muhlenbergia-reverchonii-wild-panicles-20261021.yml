@@ -1,0 +1,87 @@
+name: Install verified wild seep muhly CC BY panicle photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-muhlenbergia-reverchonii-wild-panicles-20261021.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: hays-one-time-wild-seep-muhly-panicle-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Refresh latest source and scoped cards
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Promote two previously staged verified wild seep photos
+        run: python scripts/install_muhlenbergia_reverchonii_wild_panicles_20261021.py
+      - name: Verify actual local photos, rights and science holds
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Poaceae/Muhlenbergia")
+          s=json.loads((base/"muhlenbergia-reverchonii/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          expected=["open-panicle-sam-4920088.jpg","small-spikelets-sam-5077102.jpg"]
+          assert g["project_scope"]["species_count"]==7
+          assert g["project_scope"]["flags"][0].startswith("muhlenbergia-piniflora")
+          assert g["project_scope"]["flags"][1].startswith("muhlenbergia-paniculata")
+          assert s["scientific_name"]=="Muhlenbergia reverchonii"
+          assert len(s["visual_comparison"]["items"])>=6
+          assert len(g["visual_comparison"]["items"])==11
+          for filename in expected:
+              path=base/"muhlenbergia-reverchonii/images"/filename
+              assert path.exists() and path.stat().st_size>14000
+              with Image.open(path) as im:
+                  im.verify()
+              record=next(x for x in s["images"] if x.get("file")=="images/"+filename)
+              assert record["creator"]=="Sam Kieschnick" and record["license"]=="CC BY"
+              assert record["source_page"].startswith("https://www.inaturalist.org/photos/")
+              assert record["archived_image_sha256"]
+          assert sum(len(p.get("markers",[])) for p in s["visual_comparison"]["items"][:2])==4
+          assert len(json.loads(Path("workflow/field-id-publication/manual-reverchonii-wild-sam-panicle-20261021.json").read_text())["photo_ids"])==2
+          print("PASS: source photo record, file-byte integrity, four visible-point arrows, range/source holds")
+          PY
+      - name: Commit only matched species, genus, CSV, photographs and publication request
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii/ content/taxa/Poaceae/Muhlenbergia/genus.json
+          git add workflow/field-id-publication/manual-reverchonii-wild-sam-panicle-20261021.json
+          if git diff --cached --quiet; then echo "Previously installed; no changes"; exit 0; fi
+          git commit -m "Install Sam Kieschnick wild seep muhly licensed open-panicle and spikelet photos [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
+      - name: Request public Pages rebuild after successful push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl --fail-with-body --silent --show-error \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$GITHUB_REPOSITORY/actions/workflows/deploy-github-pages-learner.yml/dispatches" \
+            -d '{"ref":"main"}'
+          echo "GitHub Pages build requested after rights-checked seep panicle images committed"
