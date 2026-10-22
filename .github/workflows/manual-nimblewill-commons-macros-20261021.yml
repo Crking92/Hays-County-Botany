@@ -1,0 +1,80 @@
+name: Install two verified CC BY 4.0 nimblewill diagnostic photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-nimblewill-commons-macros-20261021.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-manual-nimblewill-commons-photo-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoding and HTTP tooling
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh canonical state
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Install exact CC-licensed Emily Summerbell images
+        run: python scripts/manual_nimblewill_commons_macros_20261021.py
+      - name: Verify source bytes, photograph rights, markers and protected holds
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          root=Path("content/taxa/Poaceae/Muhlenbergia")
+          s=json.loads((root/"muhlenbergia-schreberi/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          r=json.loads(Path("reports/nimblewill-commons-macros-20261021.json").read_text())
+          assert s["scientific_name"]=="Muhlenbergia schreberi"
+          assert g["project_scope"]["species_count"]==7
+          assert g["project_scope"]["flags"][0].startswith("muhlenbergia-piniflora")
+          assert g["project_scope"]["flags"][1].startswith("muhlenbergia-paniculata")
+          assert r["result"]=="TWO_INDIVIDUALLY_CC_BY_VERIFIED_NIMBLEWILL_JPEGS_CANONICAL"
+          assert r["images_installed"]==2 and r["new_browser_arrows"]==3
+          assert len(g["visual_comparison"]["items"])>=14
+          for photo in r["photos"]:
+              path=Path(photo["photo_file"])
+              assert path.is_file() and path.stat().st_size>30000
+              assert hashlib.sha256(path.read_bytes()).hexdigest()==photo["sha256"]
+              with Image.open(path) as im:
+                  assert im.format=="JPEG"
+                  assert not im.getexif().get(34853)
+                  im.verify()
+              entry=next(x for x in s["images"] if x.get("photo_id")==photo["photo_id"])
+              assert entry["creator"]=="Emily Summerbell" and entry["license"]=="CC BY 4.0"
+              assert entry["source_page"].startswith("https://www.inaturalist.org/photos/")
+              assert entry["license_url"]=="https://creativecommons.org/licenses/by/4.0/"
+          for item in s["visual_comparison"]["items"]:
+              for a in item.get("markers",[]):
+                  assert all(isinstance(a[k],(int,float)) and 0<=a[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+          print("PASS: two exact images, CC BY 4.0 source evidence, no EXIF GPS, genus and species arrows, native-range hold intact")
+          PY
+      - name: Commit only nimblewill images and comparison files
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Muhlenbergia/muhlenbergia-schreberi/ content/taxa/Poaceae/Muhlenbergia/genus.json
+          git add reports/nimblewill-commons-macros-20261021.json workflow/field-id-publication/manual-nimblewill-commons-macros-20261021.json
+          if git diff --cached --quiet; then echo "No updates to publish"; exit 0; fi
+          git commit -m "Add credited Commons nimblewill tight panicle and leaf/sheath macro to learner [skip ci]"
+          for attempt in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
