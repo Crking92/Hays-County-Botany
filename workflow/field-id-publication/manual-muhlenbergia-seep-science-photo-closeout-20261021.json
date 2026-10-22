@@ -1,0 +1,47 @@
+{
+  "type": "manual_field_id_publication",
+  "requested_at": "2026-10-21",
+  "title": "Seep muhly photo-accurate field lesson and macro evidence closeout",
+  "scope": {
+    "family": "Poaceae",
+    "genus": "Muhlenbergia",
+    "species": "Muhlenbergia reverchonii",
+    "new_species": 0,
+    "new_image_files": 0,
+    "existing_species_photos": 5,
+    "genus_species_count": 7
+  },
+  "changes": [
+    "Correct stale Lindheimer lookalike caption claiming seep flowers are absent; three real source-verified seep flowering photos are already installed",
+    "Complete concise crew first-photo to ligule to spikelet measured field key",
+    "Add source-based anatomical targets (membranous ligule; 2 shorter glumes; one awned lemma), without false arrows",
+    "Record that UT Austin Bob Harms MURE2-L and MURE2-S image originals could not be retrieved because remote host timed out in GitHub Actions",
+    "Synchronize genus contrast and keep science/taxonomy/native/copyright holds"
+  ],
+  "commits": [
+    "d504e38a3e461b78c95b805add59e445061c97ff",
+    "a5575c8da39366ff1106fe84eeba9f39f79fbe0d"
+  ],
+  "qa": {
+    "species_json_readback": true,
+    "genus_json_readback": true,
+    "species_panels": 7,
+    "genus_panels": 12,
+    "genus_existing_arrows": 15,
+    "preserved_image_and_source_rights": true,
+    "unlicensed_images_added": 0,
+    "diagnostic_bob_harms_images_downloaded": 0,
+    "no_false_anatomical_markers": true,
+    "project_taxon_range_unchanged": true
+  },
+  "remaining_true_photo_gaps": [
+    "Independent high-res attached seep-muhly ligule/sheath macro with millimeter scale",
+    "Mature dissected spikelet macro showing TWO glumes, awned lemma, actual scale and validated botanical ID"
+  ],
+  "science_ledger": [
+    "Kew GrassBase ligule usually 2–4(–9) mm but local descriptions differ; no absolute cutoff",
+    "Kew says glumes generally 1–2.5(–3) mm and fertile lemma awn 0.5–3(–6) mm; use actual fresh specimens and mature structures",
+    "M. ×involuta hybrid, M. piniflora source name and M. paniculata source photo scientific holds preserved"
+  ],
+  "deployment_policy": "Trigger existing workflow/field-id-publication/*.json GitHub Pages rights-filtered publish on push. Do not claim deployed until workflow completed successfully and Pages SHA verified."
+}
