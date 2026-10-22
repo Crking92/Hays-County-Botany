@@ -37,6 +37,28 @@ HARMS_SITE_PERMISSION = "BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
 HARMS_EXACT_LICENSE = "© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
 
 
+# Independent site-specific, photo-by-photo Carolina canarygrass permission.
+# Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
+# No blanket waiver for any other copyrighted UT PRC images.
+HARMS_PHCA_IMAGE_IDS = frozenset({"PHCA6-b","PHCA6-i","PHCA6-j","PHCA6-S","PHCA6-L"})
+
+
+def permitted_harms_phalaris(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Phalaris caroliniana":
+        return False
+    return any(item.get("source_page") == HARMS_BASE + "pages/" + photo_id + ".html"
+               and item.get("source_image") == HARMS_BASE + "images/" + photo_id + ".jpg"
+               for photo_id in HARMS_PHCA_IMAGE_IDS)
+
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -65,7 +87,7 @@ def photo_rights(record, noncommercial=False):
     is_owner = creator in OWNER_NAMES and bool(source) and bool(photo_id)
     if is_owner:  # Separately recorded site-specific owner authorization, not a Creative Commons license.
         return None
-    if permitted_harms_wintergrass(record, noncommercial):
+    if permitted_harms_wintergrass(record, noncommercial) or permitted_harms_phalaris(record, noncommercial):
         return None  # Explicit photographed author educational-use permission, still copyrighted.
     # The publisher inserts this marker only for explicitly enumerated frames.
     # Validate it again here, including creator, video source and record ID.
