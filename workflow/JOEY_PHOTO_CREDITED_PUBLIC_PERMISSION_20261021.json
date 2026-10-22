@@ -8,7 +8,7 @@
     "Joey Santore / Crime Pays But Botany Doesn't",
     "Joey Santore"
   ],
-  "photo_origin_rule": "Only these individually enumerated previously accepted original Joey YouTube video frames, with source_record_id formatted either videoID-NN or jvid-videoID-NN and matching the YouTube source ID; source file must exist physically. No third-party content or rejected images.",
+  "photo_origin_rule": "Individual whitelist keys are required, with Joey creator + original YouTube source + source-matching videoID-NN or jvid-videoID-NN archival ID. The two exact Chrysactinia mexicana keys in legacy_idless_exceptions are additionally eligible without record IDs only when creator, file and the original video URL match. No new arbitrary ID-less frames or rejected media allowed.",
   "scope_note": "Photos listed below span the video-frame galleries of the 23 affected species. Some were installed in Joey batch 003; the historical 004-006 accepted recovery count remains 36. Historical private-study license labels and original rights fields are preserved in canonical source records; a limited permission overlay is used for the public learner.",
   "authorized_images": [
     "dermatophyllum-secundiflorum/images/dermatophyllum-secundiflorum_silvery-foliage_00-21-44.0.jpg",
@@ -58,5 +58,17 @@
   "excluded": [
     "canna-glauca/images/canna-glauca_ovary-fruit_00-21-45.9.jpg"
   ],
-  "warning": "Owner attestation is not independently verified creator documentation. If creator disputes permission or site commercial status changes, disable this overlay and reassess. Never treat user credit alone as a CC license."
+  "warning": "Owner attestation is not independently verified creator documentation. If creator disputes permission or site commercial status changes, disable this overlay and reassess. Never treat user credit alone as a CC license.",
+  "legacy_idless_exceptions": [
+    {
+      "key": "chrysactinia-mexicana/images/chrysactinia-mexicana_habit-source-label_03-40.jpg",
+      "source_page": "https://www.youtube.com/watch?v=Y7A530PjEbU",
+      "note": "Older canonically accepted frame has original creator and source-video attribution but no source_record_id. Do not fabricate one."
+    },
+    {
+      "key": "chrysactinia-mexicana/images/chrysactinia-mexicana_flower-head-leaves_04-00.jpg",
+      "source_page": "https://www.youtube.com/watch?v=Y7A530PjEbU",
+      "note": "Same narrow legacy exception."
+    }
+  ]
 }
