@@ -1,0 +1,114 @@
+name: Manual Grass Photos To Species Gallery 006
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-grass-candidate-gallery-006-20261021.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hays-grass-gallery-preview-006
+  cancel-in-progress: false
+
+jobs:
+  publish-provisional-galleries:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Check out latest main with history
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Install image verification dependency
+        run: |
+          python -m pip install 'Pillow>=10,<12'
+      - name: Stage existing archival photos on canonical grass cards
+        run: |
+          python -m py_compile scripts/manual_grass_candidate_gallery_006_20261021.py
+          python scripts/manual_grass_candidate_gallery_006_20261021.py
+      - name: Validate exact local files and preserved author attribution
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          from collections import Counter
+          from PIL import Image
+          r=json.loads(pathlib.Path('reports/manual-grass-gallery-preview-006-20261021.json').read_text())
+          assert r['archive_sha256_verified'] and r['taxonomy_science_unchanged']
+          assert r['diagnostic_arrows_added']==0
+          assert r['installed'], "No images installed"
+          counts=Counter()
+          for row in r['installed']:
+              f=pathlib.Path(row['file'])
+              assert f.is_file() and f.stat().st_size>=12000
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==row['sha256']
+              with Image.open(f) as im:
+                  im.verify()
+              sp=json.loads((f.parent.parent/'species.json').read_text())
+              matches=[p for p in sp['images'] if p.get('file')=='images/'+f.name]
+              assert sp['id']==row['id'] and len(matches)==1
+              img=matches[0]
+              assert img['creator']==row['creator'] and img['license']==row['license']
+              assert img['license'] in {'CC0','CC BY'}
+              assert img['source_page']==row['source']
+              assert img.get('anatomy_arrows','').startswith('none;')
+              assert 'PROVISIONAL' in img.get('photo_review','')
+              assert img.get('license_url') and img.get('media_source_url')
+              counts[sp['id']]+=1
+          assert set(counts)=={'eriochloa-sericea','hilaria-belangeri','hilaria-mutica'}
+          print('PUBLIC GALLERY PROVISIONAL IMAGES:',dict(counts))
+          PY
+      - name: Publish new photos, original credits and narrow Pages trigger
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          mkdir -p workflow/field-id-publication
+          python - <<'PY'
+          import json,os,pathlib
+          report=json.loads(pathlib.Path('reports/manual-grass-gallery-preview-006-20261021.json').read_text())
+          marker=pathlib.Path('workflow/field-id-publication')/('grass-gallery-review-'+os.environ['GITHUB_RUN_ID']+'.json')
+          marker.write_text(json.dumps({
+            'intent':'Publish new sourced and licensed but botanical-ID-provisional grass photos on the public species cards for the user to inspect',
+            'photo_gallery_report':'reports/manual-grass-gallery-preview-006-20261021.json',
+            'photo_count':len(report['installed']),
+            'species':sorted({i['id'] for i in report['installed']}),
+            'license_and_creator':'Individually recorded for each original GBIF media asset',
+            'photo_status':'PROVISIONAL — the user reviews the pictures on the public learner; no arrow is approved',
+            'science_status':'No scientific taxon/native-range changes',
+          },indent=2)+'\n')
+          print('Pages release marker:',marker)
+          PY
+          git add \
+            content/taxa/Poaceae/Eriochloa/eriochloa-sericea \
+            content/taxa/Poaceae/Hilaria/hilaria-belangeri \
+            content/taxa/Poaceae/Hilaria/hilaria-mutica \
+            reports/manual-grass-gallery-preview-006-20261021.json \
+            workflow/field-id-publication/grass-gallery-review-*.json
+          git diff --cached --quiet && { echo 'No reviewed photos to install'; exit 1; }
+          git commit -m 'Install attributed provisional grass photo galleries for direct field-learner review'
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then
+              echo 'Provisional image gallery committed and Pages publication requested'
+              exit 0
+            fi
+            sleep 4
+          done
+          echo 'Concurrent changes prevented safe photo commit'
+          exit 1
+      - name: Save full photo installation report if run fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grass-gallery-review-006-recovery
+          path: reports/manual-grass-gallery-preview-006-20261021.json
+          retention-days: 14
+          if-no-files-found: warn
