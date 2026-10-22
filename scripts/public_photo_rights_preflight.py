@@ -28,6 +28,33 @@ def clean(text):
     return str(text or "").strip().lower()
 
 
+# Narrow site-specific reuse grant: Bob Harms personally states these own Selected
+# Central Texas Monocots images are free for scientific/educational use WITH credit.
+# This is NOT a general photo license or a Creative Commons substitution.
+HARMS_ALLOWED_IDS = frozenset({"NALE3-L", "NALE3-J5", "NALE3-s", "NALE3-j6", "NALE3-9", "NALE3-d"})
+HARMS_BASE = "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/"
+HARMS_SITE_PERMISSION = "BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
+HARMS_EXACT_LICENSE = "© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
+
+
+def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial:
+        return False
+    if item.get("creator") != "Bob Harms" or item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Nassella leucotricha":
+        return False
+    page = item.get("source_page")
+    img = item.get("source_image")
+    return any(page == HARMS_BASE + "pages/" + photo_id + ".html" and
+               img == HARMS_BASE + "images/" + photo_id + ".jpg"
+               for photo_id in HARMS_ALLOWED_IDS)
+
+
 def photo_rights(record, noncommercial=False):
     creator = clean(record.get("creator") or record.get("photographer"))
     lic = clean(record.get("license"))
@@ -38,6 +65,8 @@ def photo_rights(record, noncommercial=False):
     is_owner = creator in OWNER_NAMES and bool(source) and bool(photo_id)
     if is_owner:  # Separately recorded site-specific owner authorization, not a Creative Commons license.
         return None
+    if permitted_harms_wintergrass(record, noncommercial):
+        return None  # Explicit photographed author educational-use permission, still copyrighted.
     # The publisher inserts this marker only for explicitly enumerated frames.
     # Validate it again here, including creator, video source and record ID.
     if clean(record.get("site_specific_public_permission")) == JOEY_CREDITED_PERMISSION.lower():
