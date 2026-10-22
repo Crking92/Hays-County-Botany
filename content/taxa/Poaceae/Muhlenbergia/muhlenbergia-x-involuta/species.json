@@ -55,7 +55,8 @@
     "photo_files_present": 1,
     "manual_muhly_field_pass": "2026-10-20",
     "visual_finish": "PROVISIONAL — hybrid accepted but no inspected exact-hybrid field photograph; parent photos are comparison only",
-    "muhly_hybrid_study_link_20261021": "UT Austin and Kew morphology references added as view-only; parent images not misclassified as hybrid; no photo rights or range change"
+    "muhly_hybrid_study_link_20261021": "UT Austin and Kew morphology references added as view-only; parent images not misclassified as hybrid; no photo rights or range change",
+    "manual_hybrid_pictures_parent_photo_20261022": "PROVISIONAL_NO_VETTED_LIVE_HYBRID_IMAGE"
   },
   "images": [
     {
@@ -85,13 +86,13 @@
     }
   ],
   "learner_visual_status": {
-    "status": "provisional_learner_ready",
+    "status": "provisional_hybrid_image_hold",
     "mode": "learner_fast_fill",
     "image_count": 1,
     "filled_at": "2026-10-05",
-    "note": "Presentation fast-fill only; existing scientific taxonomy/range status is unchanged. Initial gallery is intentionally below the ~3-image target; the current public-domain botanical plate is an interim exact-species reference pending clean rights-verified field photographs."
+    "note": "Historical multi-taxon illustrated source plus REAL two different parent flowering-head photos; ZERO source-vouched live Muhlenbergia ×involuta photograph, actual hybrid ligule/mature spikelet still missing."
   },
-  "photo_note": "Full-resolution BHL plate mirrored locally for offline reference. This multi-taxon plate is NOT a verified live M. ×involuta photograph; exact living-plant views remain missing.",
+  "photo_note": "Full-resolution BHL plate mirrored locally for offline reference. This multi-taxon plate is NOT a verified live M. ×involuta photograph; exact living-plant views remain missing. 2026-10-22: source-honest five-panel display includes marked public-domain MULTI-TAXON BHL plate and actual separate Lindheimer + seep parent flowering photos. No verified living hybrid photo or independent flower dissection. This evidence hold is explicit; range unchanged.",
   "comparisons": {
     "confused_with": [
       "Muhlenbergia lindheimeri",
@@ -101,10 +102,52 @@
     "key_distinctions": "Lindheimer generally makes a larger, coarser more erect bunch with comparatively contracted dense flowering branches; seep muhly makes a smaller fine tuft with an airy delicate head. This natural hybrid may be intermediate and is particularly risky to force from habit-only photos. Ornamental pink-flowered M. capillaris is not a substitute ID."
   },
   "visual_comparison": {
-    "title": "Canyon muhly — recognize both PARENTS before calling the hybrid",
-    "subtitle": "The two images below are different parent species. The hybrid's existing illustration is historical and multi-taxon; an exact hybrid photograph is still required.",
+    "title": "Canyon muhly ×involuta — historic taxon plate and both REAL parents",
+    "subtitle": "Five comparison/illustration panels. There is still ZERO verified live exact-hybrid specimen photograph. Parent photos are NOT the hybrid.",
     "memory_rule": "Intermediate habit ≠ hybrid proof. Require hybrid-specific evidence.",
     "items": [
+      {
+        "label": "HISTORIC ILLUSTRATION — multi-taxon BHL page, locate only labeled M. involuta figure",
+        "scientific_name": "Muhlenbergia ×involuta",
+        "image_url": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-x-involuta/images/bhl42021050-multi-taxon-plate-56b0df5b20f3.jpg",
+        "image_fit": "contain",
+        "creator": "A. S. Hitchcock and Agnes Chase / Biodiversity Heritage Library",
+        "license": "Public Domain Mark 1.0",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Manual_of_the_grasses_of_the_United_States_(Page_411)_BHL42021050.jpg",
+        "image_role": "ONLY a historic public-domain illustrated page with several different named taxa, NOT an image of a live hybrid plant",
+        "caption": "Biodiversity Heritage Library/USDA historical grass illustration plate contains MULTIPLE Muhlenbergia taxa. Use ONLY its individually captioned 'M. involuta' figure as period botanical context. Other diagrams are OTHER species; not a living photo or verification of the hybrid's whole field appearance.",
+        "why_it_matters": "Provides an actual source reference for the accepted hybrid name without inventing a field photograph or confusing its true parents.",
+        "markers": [],
+        "photo_status": "Actually physically archived public-domain BHL page; DO NOT promote to independently verified actual live hybrid visual identification."
+      },
+      {
+        "label": "TRUE PARENT · Lindheimer's muhly — coarse dense flowering head",
+        "scientific_name": "Muhlenbergia lindheimeri",
+        "image_url": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-lindheimeri/images/library-review014-dcbb8d77b0350f1.jpg",
+        "image_fit": "contain",
+        "image_role": "Larger coarse fountainlike parent",
+        "caption": "This photograph is TRUE Muhlenbergia lindheimeri (PARENT), NOT ×involuta. Larger dense upright bunch and crowded head provide one real endpoint of hybrid comparison.",
+        "why_it_matters": "Builds parent comparison; not counted as a photograph of Muhlenbergia ×involuta",
+        "creator": "IDClaire",
+        "license": "CC BY",
+        "source_page": "https://www.gbif.org/occurrence/6251481788",
+        "photo_status": "PARENT SPECIES COMPARISON ONLY, NOT HYBRID. Existing project source photo, structure originally visually reviewed 2026-10-20. No arrows on presumed hybrid anatomy.",
+        "markers": []
+      },
+      {
+        "label": "TRUE PARENT · seep muhly — wild open panicle",
+        "scientific_name": "Muhlenbergia reverchonii",
+        "image_url": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii/images/seep-muhly-sam-4920088.jpg",
+        "image_fit": "contain",
+        "creator": "Sam Kieschnick",
+        "license": "CC BY",
+        "source_page": "https://www.inaturalist.org/photos/4920088",
+        "image_role": "Actual separate source-licensed wild flowering seep muhly image, parent not hybrid",
+        "caption": "TRUE M. reverchonii (PARENT), NOT ×involuta. Real wild open thin panicle contrasts strongly with the denser Lindheimer photo. The cross might be morphologically intermediate but that alone NEVER proves hybrid identity.",
+        "why_it_matters": "Comparing REAL reproductive heads of both accepted parent species is more useful than juxtaposing only vegetative clumps.",
+        "markers": [],
+        "photo_status": "Actual physically archived source-confirmed parent species wild image, separate CC BY creator, no hybrid claim."
+      },
       {
         "label": "PARENT comparison only — Lindheimer muhly",
         "scientific_name": "Muhlenbergia lindheimeri",
@@ -132,10 +175,10 @@
         "photo_status": "PARENT SPECIES COMPARISON ONLY, NOT HYBRID. Existing project source photo, structure originally visually reviewed 2026-10-20. No arrows on presumed hybrid anatomy."
       }
     ],
-    "overlay_note": "Parent images ONLY (M. lindheimeri and M. reverchonii) and historic multi-taxon botanical plate in the original gallery; none is verified as a current live M. ×involuta photograph. For scientific PHOTO STUDY only, UT Austin Plant Resources Center has labeled canyon muhly whole-plant, inflorescence and ligule/sheath views at https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/Muhlenbergia-text.html . They are NOT imported or licensed for this public card; exact-source vouchered photo remains an explicit unmet need. POWO accepts natural hybrid M. lindheimeri × M. reverchonii. Don't identify 'intermediate-looking' plants as hybrid without measured characters and sound original determination."
+    "overlay_note": "First panel is a multiple-species historical illustration; ALL OTHER four photos show Lindheimer or seep muhly parents. None is an actual photographed verified hybrid, and no attached ligule or spikelet macro for ×involuta exists."
   },
   "field_id_finish_pass": {
-    "stage": "PROVISIONAL — verified hybrid concept/parentage, two parent comparison photos only; no independently validated exact-hybrid live photo or ligule/spikelet macro",
+    "stage": "PROVISIONAL_NO_VETTED_LIVE_HYBRID_IMAGE",
     "crew_recognition": "This is a NATURAL HYBRID: M. lindheimeri × M. reverchonii. Expect an upright perennial dense tuft intermediate in overall stature and foliage between the two parents, often with firm folded blades and an open flowering panicle. A middle-sized clump alone does not diagnose this hybrid: seek true collar/ligule, leaf fold, mature spikelet comparison and well-documented parental context.",
     "lookalikes": "Lindheimer generally makes a larger, coarser more erect bunch with comparatively contracted dense flowering branches; seep muhly makes a smaller fine tuft with an airy delicate head. This natural hybrid may be intermediate and is particularly risky to force from habit-only photos. Ornamental pink-flowered M. capillaris is not a substitute ID.",
     "photo_targets": [
@@ -159,6 +202,11 @@
         "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2/general-information",
         "reuse": "Science reference, not a reusable image license"
       }
-    ]
+    ],
+    "source_parent_photos_confirmed": true,
+    "old_multitaxon_plate_public_domain": true,
+    "exact_hybrid_live_photograph_present": false,
+    "no_false_credible_photo_claims": true,
+    "county_native_status_preserved": true
   }
 }
