@@ -68,7 +68,7 @@ jobs:
           git add content/taxa/Poaceae/Zizaniopsis/zizaniopsis-miliacea/ content/taxa/Poaceae/Zizaniopsis/genus.json
           git add reports/zizaniopsis-giant-cutgrass-gallery-20261021.json workflow/field-id-publication/manual-zizaniopsis-singleton-20261021.json
           if git diff --cached --quiet; then echo "Already installed"; exit 0; fi
-          git commit -m 'Install two licensed giant cutgrass habit and collar photos and publish corrected field key [skip ci]'
+          git commit -m 'Install two licensed giant cutgrass habit and collar photos and publish corrected field key'
           for attempt in 1 2 3 4 5; do
             if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
             sleep 4
