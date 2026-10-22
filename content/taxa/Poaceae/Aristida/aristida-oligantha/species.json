@@ -95,7 +95,13 @@
     "manual_library_install_018": "2026-10-16",
     "manual_aristida_crew_key_20261021": "FIELD_READY_PHOTO_GAPS",
     "visual_finish": "FIELD_READY_PHOTO_GAPS",
-    "usgs_oligantha_panicle_added_20261022": "New credited public-domain USGS actual oldfield seedhead photo, two obvious awn/stem arrows, external provisional until physical archive; existing 6 original image records unchanged."
+    "usgs_oligantha_panicle_added_20261022": "New credited public-domain USGS actual oldfield seedhead photo, two obvious awn/stem arrows, external provisional until physical archive; existing 6 original image records unchanged.",
+    "library_first_fallback_20261022": {
+      "physical_original_images_reused": 2,
+      "panels_added": 2,
+      "external_usgs_download": "GITHUB_ACTION_TIMEOUT run 39804064274 — NO PHYSICAL_USGS_FILE",
+      "public_photo_status": "FIELD_READY_PHOTO_GAPS"
+    }
   },
   "photo_note": "Diagnostic roles defined; exact reusable image lock remains later visual-polish work. Manual library-first complementary photo selection installed; independent diagnostic ID review pending.",
   "images": [
@@ -239,9 +245,37 @@
   },
   "visual_comparison": {
     "title": "OLDFIELD THREEAWN — verified government-source long awns and multi-veined glume confirmation",
-    "subtitle": "A source-confirmed USGS public-domain oldfield photograph now leads the gallery. Two arrows point only to visible gross awns/branch axis. Lower-glume 3–7 veins and ~18–25 mm near-equal glume pair remain a true diagnostic PHOTO GAP.",
+    "subtitle": "Two physically archived CC0 oldfield reference photos now lead the lesson, then a genuine external USGS public-domain oldfield awn photo, an oldfield Commons photo and a clearly marked different-species purple example. Glume vein/ruler macros remain missing.",
     "memory_rule": "OLD FIELD = ANNUAL + long EQUAL glumes and 3–7 lower veins. PURPLE = PERENNIAL + lower glume about HALF upper and one vein.",
     "items": [
+      {
+        "label": "OLDFIELD — actual archived stem, branching and hand scale",
+        "scientific_name": "Aristida oligantha",
+        "image_url": "content/taxa/Poaceae/Aristida/aristida-oligantha/images/library-review018-1a6ad82504a3f70.jpg",
+        "image_fit": "contain",
+        "image_role": "Look closer · narrow wiry branching grass stem and purplish joint held against fingers; spikelets and glumes absent from frame",
+        "caption": "Previously archived CC0 specimen-labelled photo of a fine branching culm with purplish joint and a hand for scale. The exact mature glume pair, veins and annual rooted base lie out of frame.",
+        "why_it_matters": "Gives whole-stem context and a real local image rather than assuming the externally hosted USGS photo will load.",
+        "creator": "sonoresmore",
+        "license": "CC0",
+        "source_page": "https://www.gbif.org/occurrence/6479801433",
+        "markers": [],
+        "photo_status": "ALREADY physically archived exact-taxon/source-labelled, image file metadata and attribution retained in species images[]. Only broad description of existing intake role; no newly placed anatomical arrows, species determination provisional at microscopic level."
+      },
+      {
+        "label": "OLDFIELD — actual archived long awns crossing wiry panicle",
+        "scientific_name": "Aristida oligantha",
+        "image_url": "content/taxa/Poaceae/Aristida/aristida-oligantha/images/library-review018-4373805d8c058c4.jpg",
+        "image_fit": "contain",
+        "image_role": "Recognize · fine wiry flowering stems and long radiating awns spread across an open grassy patch, with hand for size",
+        "caption": "Previously archived CC0 photo shows multiple wispy stalks and their long spreading bristlelike awns above green surroundings with hand scale. Do not treat neighboring awns as one lemma's complete three-awn set; lower-glume veins are not resolvable.",
+        "why_it_matters": "An actual physically stored long-awned flowering architecture lesson.",
+        "creator": "sonoresmore",
+        "license": "CC0",
+        "source_page": "https://www.gbif.org/occurrence/6479801433",
+        "markers": [],
+        "photo_status": "ALREADY physically archived exact-taxon/source-labelled, image file metadata and attribution retained in species images[]. Only broad description of existing intake role; no newly placed anatomical arrows, species determination provisional at microscopic level."
+      },
       {
         "label": "OLDFIELD THREEAWN — USGS long spreading awns along flowering stalk",
         "scientific_name": "Aristida oligantha",
@@ -329,7 +363,7 @@
         "photo_status": "500×667 source visually inspected 2026-10-21; coarse visible-awn arrow only"
       }
     ],
-    "overlay_note": "Coarse arrows only: no original photo resolves exact glume length or backlit venation. CC0 source from Minnesota, CC BY-SA 2.0 source from Idaho; neither is a Hays specimen. USGS Louisiana Aristida oligantha_0001.JPG linked as provisional PD reference, photographer individual not asserted, two arrows to actually visible gross awn architecture. No claim that one awn target proves exact attached lemma. No physical image bytes yet."
+    "overlay_note": "Coarse arrows only: no original photo resolves exact glume length or backlit venation. CC0 source from Minnesota, CC BY-SA 2.0 source from Idaho; neither is a Hays specimen. USGS Louisiana Aristida oligantha_0001.JPG linked as provisional PD reference, photographer individual not asserted, two arrows to actually visible gross awn architecture. No claim that one awn target proves exact attached lemma. No physical image bytes yet. Existing local CC0 stems/awns added as two zero-arrow panels; existing USGS source image is EXTERNAL because one-time downloader timed out in CI. Physical library was inspected for identity/source/organ roles but NOT newly micro-measured."
   },
   "field_photo_quickcheck": {
     "heading": "Oldfield threeawn — follow the actual awn, then MEASURE",
@@ -352,7 +386,8 @@
     "Backlit lower glume 10–20× showing separate 3–7 veins",
     "One lemma's actual three awn limbs in focus, with mm ruler",
     "Paired rooted A. purpurea for perennial vs annual habit",
-    "Shoot all three awns on ONE isolated floret separately from a mm-scale LOWER/UPPER pair; source-labelled USGS whole-head image DOES NOT establish lemma attachment or 3–7 lower glume veins."
+    "Shoot all three awns on ONE isolated floret separately from a mm-scale LOWER/UPPER pair; source-labelled USGS whole-head image DOES NOT establish lemma attachment or 3–7 lower glume veins.",
+    "Provider issue: USGS Louisiana externally linked reference might fail remote loading; rely on original physically archived CC0 oldfield flowering image roles on normal learner first. Need actual mm-scale glume pair."
   ],
   "field_id_references": [
     "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325343-2/general-information",
