@@ -47,10 +47,20 @@ def photo_rights(record, noncommercial=False):
             noncommercial
             and creator in JOEY_CREATORS
             and str(source or "").startswith("https://www.youtube.com/watch?v=")
-            and bool(re.fullmatch(
-                r"(?:jvid-)?" + re.escape(str(source).split("?v=", 1)[1].split("&", 1)[0]) + r"-[0-9]+",
-                frame_id,
-            ))
+            and (
+                bool(re.fullmatch(
+                    r"(?:jvid-)?" + re.escape(str(source).split("?v=", 1)[1].split("&", 1)[0]) + r"-[0-9]+",
+                    frame_id,
+                ))
+                or (
+                    not frame_id
+                    and str(source) == "https://www.youtube.com/watch?v=Y7A530PjEbU"
+                    and record.get("file") in {
+                        "images/chrysactinia-mexicana_habit-source-label_03-40.jpg",
+                        "images/chrysactinia-mexicana_flower-head-leaves_04-00.jpg",
+                    }
+                )
+            )
         ):
             return None
         return "invalid or out-of-scope Joey creator-permission marker"
