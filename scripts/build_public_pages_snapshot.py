@@ -42,7 +42,10 @@ def credited_joey_frame(item: dict, noncommercial: bool) -> bool:
         and item.get("site_specific_public_permission") == JOEY_CREDITED_PERMISSION
         and creator in JOEY_CREATORS
         and source.startswith("https://www.youtube.com/watch?v=")
-        and frame_id.startswith("jvid-")
+        and bool(re.fullmatch(
+            r"(?:jvid-)?" + re.escape(source.split("?v=", 1)[1].split("&", 1)[0]) + r"-[0-9]+",
+            frame_id,
+        ))
     )
 
 
