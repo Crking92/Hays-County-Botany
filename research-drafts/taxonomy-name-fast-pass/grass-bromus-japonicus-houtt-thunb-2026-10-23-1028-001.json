@@ -1,0 +1,112 @@
+{
+  "schema": "grass-taxonomy-name-verification-v1",
+  "batch_id": "grass-bromus-japonicus-houtt-thunb-2026-10-23-1028-001",
+  "review_date": "2026-10-23",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Existing canonical Poaceae only; no range/photo/card edits",
+  "claim_path": "workflow/taxonomy-claims/grass-bromus-japonicus-houtt-thunb-2026-10-23-1028-001.json",
+  "taxa": [
+    {
+      "canonical_id": "bromus-japonicus",
+      "canonical_path": "content/taxa/Poaceae/Bromus/bromus-japonicus/species.json",
+      "canonical_blob_sha_reviewed": "477631032c72b0c9de100dc80f802614878d3ccf",
+      "learner_name": "Bromus japonicus",
+      "accepted_name": "Bromus japonicus Houtt.",
+      "family": "Poaceae",
+      "genus": "Bromus",
+      "rank": "species",
+      "accepted_status": "ACCEPTED",
+      "decision": "PASS_ACCEPTED_SPECIES_WITH_AUTHOR_HOMONYM_AND_INFRASPECIFIC_BOUNDARY_CAUTION",
+      "authorship_caution": {
+        "accepted": "Bromus japonicus Houtt., Nat. Hist. 2(13): 315 (1782)",
+        "later_homonym": "Bromus japonicus Thunb., Syst. Veg. ed. 14: 119 (1784)",
+        "later_homonym_status": "illegitimate later homonym, mapped by POWO to B. japonicus subsp. japonicus",
+        "policy": "Do not assign Thunb. as the valid accepted author; retain authorship when interpreting older records."
+      },
+      "species_level_homotypic_synonyms": [
+        "Bromus arvensis var. japonicus (Houtt.) Fiori",
+        "Bromus japonicus subsp. typicus Pénzes (not validly published)",
+        "Serrafalcus japonicus (Houtt.) Wilmott"
+      ],
+      "accepted_infraspecifics": [
+        "Bromus japonicus subsp. anatolicus (Boiss. & Heldr.) Pénzes",
+        "Bromus japonicus subsp. japonicus"
+      ],
+      "cross_species_historical_names": [
+        {
+          "historical": "Bromus japonicus var. pectinatus (Thunb.) Asch. & Graebn.",
+          "accepted": "Bromus pectinatus Thunb.",
+          "status": "SYNONYM_TO_OTHER_ACCEPTED_SPECIES"
+        },
+        {
+          "historical": "Bromus japonicus var. acutidens Melderis",
+          "accepted": "Bromus pectinatus Thunb.",
+          "status": "SYNONYM_TO_OTHER_ACCEPTED_SPECIES"
+        },
+        {
+          "historical": "Bromus japonicus var. aegyptiacus (Tausch) Asch., Schweinf. & Muschl.",
+          "accepted": "Bromus aegyptiacus",
+          "status": "SYNONYM_TO_OTHER_ACCEPTED_SPECIES"
+        }
+      ],
+      "identity_hold": "HOLD: Existing gallery source identification not independently vouchered; accepted name does not confirm image identity or subspecies. No subspecies inferred from images.",
+      "hybrid_status": "UNRESOLVED/NOT ASSESSED: no individual hybrid claim was evaluated; preserve any existing hybrid HOLD.",
+      "native_range_audit": "DEFERRED; no county-native decision made",
+      "canonical_changes": "NONE",
+      "installation_decision": "Keep existing single B. japonicus species card; do not create duplicates from synonyms or historical rank combinations.",
+      "sources": [
+        {
+          "authority": "POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/60459493-2",
+          "supports": "accepted species authorship, three species-level synonyms, two accepted subspecies"
+        },
+        {
+          "authority": "IPNI",
+          "url": "https://www.ipni.org/n/60459493-2",
+          "supports": "Houtt. 1782 publication and Thunb. 1784 later homonym"
+        },
+        {
+          "authority": "POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77238045-1",
+          "supports": "Thunb. later illegitimate homonym"
+        },
+        {
+          "authority": "POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77188475-1",
+          "supports": "accepted subsp. anatolicus"
+        },
+        {
+          "authority": "POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:74858-3",
+          "supports": "accepted subsp. japonicus and its synonym scope"
+        },
+        {
+          "authority": "POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77266530-1",
+          "supports": "var. pectinatus mapped to B. pectinatus"
+        },
+        {
+          "authority": "POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77266078-1",
+          "supports": "var. acutidens mapped to B. pectinatus"
+        },
+        {
+          "authority": "POWO/WCVP",
+          "url": "https://powo.science.kew.org/taxon/77266520-1",
+          "supports": "var. aegyptiacus mapped to B. aegyptiacus"
+        }
+      ]
+    }
+  ],
+  "preservation": {
+    "scientific_pass_fail_hold_unresolved": "Unchanged in canonical files",
+    "photo_identity": "HOLD preserved",
+    "other_worker_files": "Untouched",
+    "species_card_enrichment": false,
+    "photo_sourcing": false,
+    "genus_family_lessons": false,
+    "installation": false,
+    "county_nativity_audit": false,
+    "pages": false
+  }
+}
