@@ -363,6 +363,21 @@ def permitted_harms_elymus_virginicus(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
                for ident in HARMS_ELVI3_IDS)
 
+# Nine exact original photographed Elymus canadensis Selected Central Texas Monocots images.
+# Credit Bob Harms, copyrighted author's educational/scientific use grant, NOT CC.
+HARMS_ELCA4_IDS = frozenset({"ELCA4-b", "ELCA4-I", "ELCA4-i1", "ELCA4-J1", "ELCA4-J", "ELCA4-J3", "ELCA4-S", "ELCA4-d", "ELCA4-L"})
+
+def permitted_harms_elymus_canadensis(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE or item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/" or item.get("source_taxon_name") != "Elymus canadensis":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+pid+".html" and
+               item.get("source_image") == HARMS_BASE+"images/"+pid+".jpg"
+               for pid in HARMS_ELCA4_IDS)
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -391,6 +406,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Bob Harms exact Leptochloa dubia / accepted Disakisperma dubium educational credited originals"
     if permitted_harms_limnodea(item, noncommercial):
         return True, "Copyright Bob Harms exact selected Ozarkgrass originals educational-with-credit, NOT CC"
+    if permitted_harms_elymus_canadensis(item, noncommercial):
+        return True, "Bob Harms nine exact Elymus canadensis original Central Texas educational credited photographs; copyrighted NOT CC"
     if permitted_harms_elymus_virginicus(item, noncommercial):
         return True, "Bob Harms exact Elymus virginicus Selected Monocots originals, credited educational reuse NOT CC"
     if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_little_bluestem(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial) or permitted_harms_spco(item, noncommercial):
