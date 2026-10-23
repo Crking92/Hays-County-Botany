@@ -1,0 +1,84 @@
+{
+  "schema": "grass-taxonomy-name-verification-v1",
+  "batch_id": "grass-chloris-x-subdolichostachya-nomenclature-2026-10-23-1222-001",
+  "review_date": "2026-10-23",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Existing canonical Poaceae hybrid only; accepted name, rank, parentage, synonyms, and individual identity hold. No card, photo, lessons, county range, Pages or installer work.",
+  "claim_path": "workflow/taxonomy-claims/grass-chloris-x-subdolichostachya-nomenclature-2026-10-23-1222-001.json",
+  "taxa": [
+    {
+      "canonical_id": "chloris-x-subdolichostachya",
+      "canonical_path": "content/taxa/Poaceae/Chloris/chloris-x-subdolichostachya/species.json",
+      "canonical_blob_sha_reviewed": "af04ec59ae5b5a6a81eed9f766cfe7086f04767e",
+      "learner_name": "Chloris × subdolichostachya",
+      "accepted_name": "Chloris × subdolichostachya Müll.Hal.",
+      "rank": "named interspecific hybrid (nothotaxon)",
+      "family": "Poaceae",
+      "accepted_status": "ACCEPTED_HYBRID",
+      "decision": "PASS_ACCEPTED_NAMED_HYBRID_WITH_PHOTOGRAPHIC_IDENTITY_HOLD",
+      "first_publication": "Botanische Zeitung (Berlin) 19:341 (1861)",
+      "hybrid_formula": "Chloris cucullata Bisch. × Chloris verticillata Nutt.",
+      "parent_species": [
+        {
+          "name": "Chloris cucullata Bisch.",
+          "status": "ACCEPTED",
+          "canonical_path": "content/taxa/Poaceae/Chloris/chloris-cucullata/species.json",
+          "blob_sha_reviewed": "e8fd0c2d9b64b1ce19eaed04b421edc9a6d3a7f7"
+        },
+        {
+          "name": "Chloris verticillata Nutt.",
+          "status": "ACCEPTED",
+          "canonical_path": "content/taxa/Poaceae/Chloris/chloris-verticillata/species.json",
+          "blob_sha_reviewed": "37d7a2fc632568dbf5279334add524159c8d26f5"
+        }
+      ],
+      "heterotypic_synonyms": [
+        "Chloris × brevispica Nash",
+        "Chloris × latisquamea Nash",
+        "Chloris verticillata var. aristulata Torr. & A.Gray",
+        "Chloris verticillata var. intermedia Vasey"
+      ],
+      "homotypic_synonyms": [],
+      "rank_boundary": "The accepted name denotes a named interspecific hybrid, not a third ordinary parent species; historical C. verticillata variety names above map to the hybrid in POWO/WCVP, not automatically to C. verticillata Nutt.",
+      "identity_hold": "HOLD: The installed iNaturalist source-labelled candidate image is not an independently authenticated hybrid voucher. Neither parent comparison nor flowering-head silhouette establishes this individual as hybrid. Keep individual identity provisional until diagnostic spikelet/lemma evidence and specimen-level verification.",
+      "hybrid_hold": "PASS only for published nothotaxon and parent formula; individual specimen determination remains HOLD.",
+      "range_hold": "County nativity and native-metrics classification NOT ASSESSED and unchanged.",
+      "primary_evidence": "USDA-NRCS September 2020 Welder Germplasm release documents naturally occurring seed-producing C. cucullata × C. verticillata, accession 9085260/PI 645601; this does not authenticate the learner photograph.",
+      "sources": [
+        {
+          "authority": "POWO/WCVP 2026",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+          "supports": "accepted named hybrid, authorship, first publication, formula and four heterotypic synonyms"
+        },
+        {
+          "authority": "POWO/WCVP 2026",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395849-1",
+          "supports": "accepted parent C. cucullata Bisch."
+        },
+        {
+          "authority": "POWO/WCVP 2026",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:991601-1",
+          "supports": "accepted parent C. verticillata Nutt."
+        },
+        {
+          "authority": "USDA NRCS E. Kika de la Garza PMC and Texas Native Seeds, September 2020",
+          "url": "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf",
+          "supports": "authenticated natural hybrid formula and Welder Germplasm accession; no link to learner photo"
+        }
+      ]
+    }
+  ],
+  "preservation": {
+    "scientific_pass_fail_hold_unresolved": "No canonical PASS/FAIL/HOLD/UNRESOLVED fields changed",
+    "photographic_identity": "HOLD retained",
+    "county_nativity": "Not audited; unchanged",
+    "hybrid": "Taxon PASS only; individual hybrid HOLD",
+    "other_worker_files": "Untouched",
+    "species_card_enrichment": false,
+    "photo_sourcing": false,
+    "genus_family_lessons": false,
+    "installation": false,
+    "pages": false
+  },
+  "notes": "Taxonomy evidence only. Four Kew heterotypic synonyms are historical aliases of the hybrid and should not trigger additional species installation. Current canonical hybrid photo identification remains provisional."
+}
