@@ -33,14 +33,14 @@
 <a class="skip-link" href="#app">Skip to lessons</a><header class="top"><div class="nav"><div class="brand"><span class="brandmark">✣</span> Hays Botany</div><span class="preview-pill">Illustrated botanical lessons</span><nav class="tabs" aria-label="Learning areas"><a href="./index.html" class="active" aria-current="page">Learner</a><a href="./field-id.html">Field ID</a><a href="./quiz.html">Quiz</a><button type="button" class="glossary-nav" data-view="glossary">Glossary</button></nav></div></header><main id="app" class="wrap"></main>
 <script src="./assets/js/inat-gallery.js?v=2"></script>
 <script src="./assets/js/glossary-photo-media.js?v=1"></script>
-<script src="./assets/js/learner-glossary.js?v=2"></script>
+<script src="./assets/js/learner-glossary.js?v=3"></script>
 <script>
 'use strict';
 // Production learner shell: reads rights-filtered public content; no browser writes to the scientific repository.
 const SAME_SITE=/^https?:$/.test(location.protocol)&&(['localhost','127.0.0.1','crking92.github.io'].includes(location.hostname));
 const RAW=SAME_SITE?'./':'https://raw.githubusercontent.com/Crking92/Hays-County-Botany/main/';
 const LIVE=SAME_SITE?'./':'https://crking92.github.io/Hays-County-Botany/';
-const state={nameIndex:new Map(),browseRank:'species',selectedFamily:'',selectedGenus:'',taxonomyInfo:null,browseLimit:100,tab:'learner',view:'home',entries:[{id:'phyla-nodiflora',path:'content/taxa/Verbenaceae/Phyla/phyla-nodiflora/species.json'},{id:'cynodon-dactylon',path:'content/taxa/Poaceae/Cynodon/cynodon-dactylon/species.json'},{id:'poa-arachnifera',path:'content/taxa/Poaceae/Poa/poa-arachnifera/species.json'}],species:null,genus:null,family:null,error:'',filter:'',loaded:false};
+const state={nameIndex:new Map(),browseRank:'species',selectedFamily:'',selectedGenus:'',taxonomyInfo:null,browseLimit:100,tab:'learner',view:(new URLSearchParams(location.search).get('view')==='glossary'?'glossary':'home'),entries:[{id:'phyla-nodiflora',path:'content/taxa/Verbenaceae/Phyla/phyla-nodiflora/species.json'},{id:'cynodon-dactylon',path:'content/taxa/Poaceae/Cynodon/cynodon-dactylon/species.json'},{id:'poa-arachnifera',path:'content/taxa/Poaceae/Poa/poa-arachnifera/species.json'}],species:null,genus:null,family:null,error:'',filter:'',loaded:false};
 const app=document.getElementById('app');
 const E=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const lower=x=>String(x||'').toLowerCase();
