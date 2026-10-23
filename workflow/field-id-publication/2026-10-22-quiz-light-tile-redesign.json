@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "public_quiz_redesign",
+  "title": "Light photo-first quiz matching Learner and Field ID",
+  "user_request": "Sweet let’s do the quiz page now! Just update it to match the rest",
+  "pull_request": 41,
+  "merge_commit": "f5c07629512a354df4902c9f43aeeeeafabbdb7c",
+  "features": [
+    "Responsive Hays Botany light-mode header, Glossary link and start tiles",
+    "Photo ID questions from approved, rights-filtered public species thumbnails; source and creator credit displayed",
+    "Four unique options, reveal/correctness feedback, next question and session summary",
+    "Optional plant family practice filter",
+    "147-term canonical glossary quiz with source-credited botanical diagram/photos after reveal",
+    "Direct link to exact full species lesson and botanical glossary",
+    "Classic Quiz retained for all old quiz workflows",
+    "Mobile and offline route caching"
+  ],
+  "files": [
+    "quiz.html",
+    "quiz-classic.html",
+    "assets/js/quiz-tiles.js",
+    "assets/css/quiz-tiles.css",
+    "scripts/build_cloudflare_site.sh",
+    "scripts/build_public_pages_snapshot.py",
+    "sw.js"
+  ],
+  "tests": [
+    "JavaScript syntax and mock DOM photo quiz PASS",
+    "Attribution and no premature clues PASS",
+    "Reveal, next and family filter PASS",
+    "Glossary term questions and illustrations PASS",
+    "Quiz layout and navigation PASS",
+    "No changes to canonical scientific/photo records",
+    "Preserve rights preflight and builder"
+  ],
+  "rights": "Only rights-filtered public thumbnails from field-id-index.json enter quiz. No external arbitrary photos or user data disclosure.",
+  "publication": "Use existing GitHub Pages rights-filtered static site workflow."
+}
