@@ -39,6 +39,12 @@ function show(key,from){
   (Array.isArray(v.aliases)&&v.aliases.length?'<p class="term-aliases"><b>Also called:</b> '+v.aliases.map(esc).join(', ')+'</p>':'')+
   '<button class="button secondary" type="button" data-glossary-close>Back to lesson</button>';
  if(window.HaysGlossaryMedia)window.HaysGlossaryMedia.hydrate(overlay);
+ // Native Field ID species popups occupy the browser's top layer.
+ // Keep the term definition inside that same dialog so the definition
+ // is visible above the photos and crew can return to the same ID card.
+ const host=from&&typeof from.closest==='function'&&from.closest('dialog[open]');
+ const target=host||document.body;
+ if(overlay.parentNode!==target)target.appendChild(overlay);
  overlay.hidden=false;document.body.classList.add('term-dialog-open');
  overlay.querySelector('button').focus();
 }
