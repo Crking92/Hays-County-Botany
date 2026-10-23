@@ -1,0 +1,23 @@
+/* Learner glossary and keyboard-friendly term definitions. */
+.glossary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:11px;margin-top:20px}
+.glossary-card{display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:13px;padding:17px;background:#fff;text-align:left;line-height:1.5;color:var(--text)}
+.glossary-card:hover{background:#f3f8ef;border-color:#447458}
+.glossary-card strong{font-size:1.02rem;color:var(--deep)}
+.glossary-card span{font-size:.88rem;color:var(--muted);font-weight:400}
+.glossary-card[hidden]{display:none!important}
+.glossary-term-link{font:inherit;border:0;border-bottom:2px dotted #41805c;border-radius:0;padding:0 1px;background:#eef5e9;color:#225c39;cursor:pointer;display:inline;font-weight:650;line-height:inherit;text-decoration:none}
+.glossary-term-link:hover{background:#d1e7ca;color:#123a28;border-bottom-style:solid}
+.glossary-term-link:focus-visible,.glossary-card:focus-visible{outline:3px solid #aa7927;outline-offset:2px}
+.term-dialog-open{overflow:hidden}
+.term-dialog-backdrop{position:fixed;inset:0;z-index:5000;background:rgba(12,34,23,.62);display:flex;justify-content:center;align-items:center;padding:18px}
+.term-dialog-backdrop[hidden]{display:none!important}
+.term-dialog{width:min(650px,100%);max-height:min(760px,90dvh);overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 55px rgba(0,0,0,.25);padding:29px;position:relative;color:var(--text)}
+.term-dialog h2{font-family:Georgia,serif;font-size:2rem;line-height:1.2;margin:8px 30px 12px 0}
+.term-dialog h3{font-size:.91rem;margin:0 0 3px;color:var(--green)}
+.term-dialog-field{margin:17px 0}.term-dialog-field p{margin:4px 0}
+.term-dialog-close{position:absolute;right:15px;top:12px;font-size:1.7rem;background:#e6eee2;border:0;border-radius:12px;width:43px;height:43px;color:var(--deep)}
+.term-plain{font-size:1.13rem;font-weight:590;background:#e7eee2;padding:17px;border-radius:12px}
+.term-say,.term-aliases{color:var(--muted);font-size:.92rem}
+.tabs .glossary-nav{border:0;background:none;color:#4a5d51;padding:10px 15px;font-weight:750;font-size:inherit;border-radius:10px}
+.tabs .glossary-nav.active,.tabs .glossary-nav:hover{background:var(--deep);color:white}
+@media(max-width:640px){.term-dialog{padding:21px;max-height:90dvh}.tabs .glossary-nav{flex:1;padding:8px 5px}.glossary-grid{grid-template-columns:1fr}}
