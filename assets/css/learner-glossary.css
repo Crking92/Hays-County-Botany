@@ -21,3 +21,30 @@
 .tabs .glossary-nav{border:0;background:none;color:#4a5d51;padding:10px 15px;font-weight:750;font-size:inherit;border-radius:10px}
 .tabs .glossary-nav.active,.tabs .glossary-nav:hover{background:var(--deep);color:white}
 @media(max-width:640px){.term-dialog{padding:21px;max-height:90dvh}.tabs .glossary-nav{flex:1;padding:8px 5px}.glossary-grid{grid-template-columns:1fr}}
+
+/* Restored botanical glossary photos, sourced from the existing learning layer. */
+.glossary-card{overflow:hidden}
+.glossary-card .glossary-media{margin:-17px -17px 10px;background:#e8eee6}
+.glossary-media-tile .glossary-photo-stage{width:100%;height:165px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.glossary-media-tile .glossary-media-img{width:100%;height:100%;object-fit:contain;background:#edf2e9}
+.glossary-photo-placeholder{display:flex;align-items:center;justify-content:center;width:100%;min-height:135px;padding:16px;background:#eef2e9;color:var(--muted);font-size:.84rem;font-style:italic;text-align:center}
+.glossary-media-detail{margin:20px 0;border-radius:14px;border:1px solid var(--line);overflow:hidden;background:#edf2ea}
+.glossary-media-detail .glossary-photo-stage{position:relative;line-height:0;max-width:100%;display:flex;align-items:center;justify-content:center}
+.glossary-media-detail .glossary-media-img{display:block;width:100%;height:auto;max-height:370px;object-fit:contain;background:#e5ebdf}
+.glossary-photo-caption{background:#fff;padding:12px 16px;line-height:1.55;font-size:.87rem}
+.glossary-photo-caption strong{display:block;font-size:.98rem}
+.glossary-photo-caption p{margin:4px 0 9px}
+.glossary-photo-caption small{display:block;color:var(--muted);margin:7px 0}
+.glossary-source-link{margin-top:7px}
+.glossary-photo-pointer-layer{position:absolute;inset:0;pointer-events:none;line-height:normal}
+.glossary-photo-pointer-layer[hidden]{display:none}
+.glossary-photo-arrows{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.glossary-photo-arrows line{stroke:#f4c55c;stroke-width:.65;vector-effect:non-scaling-stroke;filter:drop-shadow(0 1px 2px #132519)}
+.glossary-photo-arrowlabel{position:absolute;transform:translate(-50%,-50%);background:rgba(19,48,30,.91);color:#fff;padding:3px 5px;border-radius:5px;font-size:clamp(.55rem,1.45vw,.74rem);font-weight:750;text-align:center;max-width:37%;white-space:normal}
+.glossary-pointers-toggle{margin:10px 0 0}
+.glossary-photo-review-note{font-size:.76rem}
+@media(max-width:640px){
+ .glossary-card .glossary-media{margin:-17px -17px 10px}
+ .glossary-media-detail .glossary-media-img{max-height:260px}
+ .glossary-photo-arrowlabel{font-size:.57rem;padding:2px 3px}
+}
