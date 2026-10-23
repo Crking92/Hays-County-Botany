@@ -247,14 +247,27 @@ function visualCoverage(sp){
 function photosFor(sp,path){
  const list=Array.isArray(sp.images)?sp.images.slice(0,36):[];
  const parent=path.slice(0,path.lastIndexOf('/')+1);
+ const panels=Array.isArray(sp.visual_comparison?.items)?sp.visual_comparison.items:[];
  const parts=list.filter(x=>x&&typeof x.file==='string'&&
   !x.file.includes('..')&&!x.file.startsWith('/')&&!x.file.includes('\\')).map(item=>{
-  const path=safePath(parent+item.file);
-  if(!path)return '';
+  const canonical=parent+item.file;
+  const photoPath=safePath(canonical);
+  if(!photoPath)return '';
+  // Match only this species' exact archived photo; never transfer arrows from look-alikes.
+  const panel=panels.find(p=>p&&p.scientific_name===sp.scientific_name&&
+   typeof p.image_url==='string'&&p.image_url.replace(/^\\.\\//,'')===canonical);
+  const valid=panel&&Array.isArray(panel.markers)?panel.markers.filter(m=>m&&
+   typeof m.label==='string'&&m.label.trim()&&
+   ['label_x','label_y','target_x','target_y'].every(k=>Number.isFinite(Number(m[k]))&&Number(m[k])>=0&&Number(m[k])<=100)):[];
+  const arrow=valid.length?'<div class="detail-photo-overlay" aria-label="Identification arrows">'+
+   '<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><defs><marker id="field-arrowhead" markerWidth="3.4" markerHeight="3.4" refX="2.5" refY="1.7" orient="auto"><path d="M0 0 L3.4 1.7 L0 3.4 Z" fill="#f7e6a0"/></marker></defs>'+
+   valid.map(m=>'<line x1="'+Number(m.label_x)+'" y1="'+Number(m.label_y)+'" x2="'+Number(m.target_x)+'" y2="'+Number(m.target_y)+'" marker-end="url(#field-arrowhead)"/>').join('')+'</svg>'+
+   valid.map(m=>'<span class="detail-arrow-label" style="left:'+Number(m.label_x)+'%;top:'+Number(m.label_y)+'%">'+esc(m.label)+'</span>').join('')+'</div>':'';
   const link=/^https:\/\//.test(item.source_page||'')?'<a href="'+esc(item.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':'';
-  return '<figure class="detail-photo"><img src="'+esc(path)+'" loading="lazy" alt="'+esc(item.role||sp.scientific_name)+'">'+
+  return '<figure class="detail-photo"><div class="detail-photo-image"><img src="'+esc(photoPath)+'" loading="lazy" alt="'+esc(item.role||sp.scientific_name)+'">'+arrow+'</div>'+
    '<figcaption><span>'+esc(item.role||'Plant reference')+'</span>'+
    '<small>'+esc(item.creator||'Source credited in canonical record')+' · '+esc(item.license||'')+'</small>'+
+   (valid.length?'<small class="detail-arrow-count">'+valid.length+' saved identification arrow'+(valid.length===1?'':'s')+'</small>':'')+
    link+'</figcaption></figure>';
  }).filter(Boolean);
  return parts.length?'<div class="detail-gallery" aria-label="Licensed species photographs">'+parts.join('')+'</div>':
