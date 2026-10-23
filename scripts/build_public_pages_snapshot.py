@@ -442,6 +442,7 @@ def build(root: Path, noncommercial: bool) -> dict:
             "common_name": sp.get("common_name") or "",
             "thumbnail": thumb,
             "photo_count": len(filtered),
+            "cue": str(sp.get("look_here_first") or "").strip()[:190],
         })
     (data / "learner-search-index.json").write_text(
         json.dumps({"version": 1, "species": public_names}, ensure_ascii=False,
