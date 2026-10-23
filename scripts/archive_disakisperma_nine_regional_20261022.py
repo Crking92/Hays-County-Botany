@@ -56,7 +56,7 @@ def source_for(row):
 for row in ROWS:
   ident=row["id"]
   source,page,creator,license,license_url,source_taxon=source_for(row)
-  dest=DEST/(("bob-harms-green-sprangletop-"+ident.lower()) if row["type"]=="harms" else ("jim-conrad-uvalde-green-sprangletop-"+ident))+".jpg"
+  dest=DEST/((("bob-harms-green-sprangletop-"+ident.lower()) if row["type"]=="harms" else ("jim-conrad-uvalde-green-sprangletop-"+ident))+".jpg")
   if dest.is_file():raise RuntimeError("Avoid overwriting an existing image without source SHA recheck: "+str(dest))
   last=None
   for retry in range(3):
