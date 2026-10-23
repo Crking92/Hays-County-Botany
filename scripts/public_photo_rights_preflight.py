@@ -250,7 +250,29 @@ def permitted_harms_eriochloa_sericea(record, noncommercial=False):
         and record.get("source_image") == HARMS_BASE+"images/ERSE5-9.jpg"
     )
 
-def photo_rights(record, noncommercial=False):
+# Five source-specific Bob Harms green sprangletop images, identified originally
+# as Leptochloa dubia (= accepted Disakisperma dubium). Licensed by their creator
+# ONLY for properly credited scientific / educational use, not Creative Commons.
+HARMS_LEDU_IDS = frozenset({"LEDU-i","LEDU-j","LEDU-j2","LEDU-S","LEDU-d"})
+
+def permitted_harms_disakisperma(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Leptochloa dubia" or item.get("accepted_taxon_name") != "Disakisperma dubium":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+ident+".html" and
+               item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
+               for ident in HARMS_LEDU_IDS)
+
+def photo_rights(
+    if permitted_harms_disakisperma(record, noncommercial):
+        return Nonerecord, noncommercial=False):
     if permitted_harms_eriochloa_sericea(record, noncommercial):
         return None
     if permitted_harms_hopia(record, noncommercial):
