@@ -10,7 +10,8 @@ const memberName=item=>item.common_name||item.scientific_name||item.id||'Unnamed
 const latinName=item=>item.scientific_name||String(item.id||'').replace(/-/g,' ');
 const safePath=path=>{
  if(typeof path!=='string'||/^(?:https?:|\/)/i.test(path)||path.includes('..')||path.includes('\\'))return '';
- if(!/^(?:content\/taxa\/[a-z0-9_/-]+(?:\.(?:jpg|jpeg|png|webp)|\/species\.json))$/i.test(path))return '';
+ if(!/^content\/taxa\//i.test(path)||![...path].every(ch=>/[a-z0-9_\/.() -]/i.test(ch))||
+    !/\.(?:json|jpg|jpeg|png|webp)$/i.test(path))return '';
  return './'+path.split('/').map(encodeURIComponent).join('/');
 };
 const photo=(item,kind)=>{
@@ -113,7 +114,7 @@ function renderResultsOnly(){
 }
 function change(rank,family,genus){
  state.rank=rank;state.family=family||'';state.genus=genus||'';state.query='';state.limit=60;
- render();document.getElementById('fieldApp').scrollIntoView({block:'start',behavior:'instant'});
+ render();document.getElementById('fieldApp').scrollIntoView({block:'start',behavior:'auto'});
 }
 function firstText(value,max){
  return String(value||'').replace(/\s+/g,' ').slice(0,max);
