@@ -1,0 +1,80 @@
+name: Archive actual CC BY-SA purpletop Tridens spikelet micro JPEG
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-tridens-flavus-lavin-spikelet-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-tridens-flavus-one-lavin-spikelet-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install and compile photo quality tools
+        run: |
+          python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+          python -m py_compile scripts/archive_tridens_flavus_lavin_spikelet_20261022.py
+      - name: Download exact original and update source-safe gallery
+        run: python scripts/archive_tridens_flavus_lavin_spikelet_20261022.py
+      - name: Validate saved original bytes, real pixel size, source record and arrows
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,'scripts')
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          sp=Path('content/taxa/Poaceae/Tridens/tridens-flavus/species.json')
+          gp=Path('content/taxa/Poaceae/Tridens/genus.json')
+          s=json.loads(sp.read_text());g=json.loads(gp.read_text())
+          r=json.loads(Path('reports/tridens-flavus-real-lavin-spikelet-20261022.json').read_text())
+          assert s['id']=='tridens-flavus' and len(s['images'])==3
+          assert len(s['visual_comparison']['items'])==7
+          assert len(g['visual_comparison']['items'])==7
+          assert s['curation_status']['range_reviewed']==False
+          assert 'FIELD_READY_PHOTO_GAPS' in s['field_id_finish_pass']['stage']
+          assert r['creator']=='Matt Lavin' and r['dimensions']==[668,704]
+          p=Path(r['archived_file'])
+          assert p.is_file() and p.stat().st_size>16000
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==r['archived_sha256']
+          with Image.open(p) as im:
+              assert im.format=='JPEG' and im.mode=='RGB' and im.size==(668,704)
+              assert not im.getexif().get(34853)
+              im.verify()
+          media=next(x for x in s['images'] if x.get('file')=='images/'+p.name)
+          assert media['license']=='CC BY-SA 2.0' and media['creator']=='Matt Lavin'
+          assert rights(media,True)[0] and photo_rights(media,True) is None
+          p0=next(x for x in s['visual_comparison']['items'] if x.get('image_url')==str(p))
+          assert len(p0['markers'])==2
+          for m in p0['markers']:
+              assert all(0<=m[k]<=100 for k in ('label_x','label_y','target_x','target_y'))
+          print('PASS: actual original real pixels, exact-source license, conservative arrows, species and genus panels',flush=True)
+          PY
+      - name: Commit canonical exact one-photo improvement
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Tridens/tridens-flavus/ content/taxa/Poaceae/Tridens/genus.json
+          git add reports/tridens-flavus-real-lavin-spikelet-20261022.json
+          git add workflow/field-id-publication/2026-10-22-tridens-flavus-lavin-spikelet.json
+          if git diff --cached --quiet; then echo "Already installed; no duplicate"; exit 0; fi
+          git commit -m 'Archive Matt Lavin purpletop Tridens actual 668px multi-flowered spikelet macro [skip ci]'
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
