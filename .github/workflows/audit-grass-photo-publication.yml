@@ -1,0 +1,35 @@
+name: Audit every grass gallery photo on main
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/audit_grass_photo_publication.py
+      - .github/workflows/audit-grass-photo-publication.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: grass-photo-integrity-audit
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check canonical species photos against real files
+        run: python scripts/audit_grass_photo_publication.py
+      - name: Publish audit report to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/grass-photo-publish-integrity-audit.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish full grass gallery binary-integrity audit report"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
