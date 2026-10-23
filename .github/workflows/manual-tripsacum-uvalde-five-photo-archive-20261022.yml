@@ -1,0 +1,71 @@
+name: Archive five original Uvalde eastern gamagrass diagnostic photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-tripsacum-uvalde-five-photo-archive-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-tripsacum-conrad-original-five-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pixel inspection requirements
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Compile and run exact-source educational photo archiver
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/archive_tripsacum_uvalde_conrad_five_20261022.py
+          python scripts/archive_tripsacum_uvalde_conrad_five_20261022.py
+      - name: Validate binary JPEGs, exact scientific identification and recorded rights
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          s=json.loads(Path('content/taxa/Poaceae/Tripsacum/tripsacum-dactyloides/species.json').read_text())
+          g=json.loads(Path('content/taxa/Poaceae/Tripsacum/genus.json').read_text())
+          r=json.loads(Path('reports/tripsacum-uvalde-conrad-five-physical-20261022.json').read_text())
+          assert len(r['files'])==5 and len(s['images'])==10
+          assert len(s['visual_comparison']['items'])==7 and len(g['visual_comparison']['items'])==5
+          assert s['curation_status']['photo_files_present']==7
+          assert 'FIELD_READY_PHOTO_GAPS' in s['field_id_finish_pass']['stage']
+          assert s['county_occurrences_target_zone']==['Hays','Travis','Williamson']
+          for x in r['files']:
+              p=Path(x['local_file'])
+              assert p.is_file() and p.stat().st_size>3000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==x['archived_sha256']
+              assert x['creator']=='Jim Conrad'
+              assert x['rights_url']=='https://www.backyardnature.net/j/copyrite.htm'
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and im.mode=='RGB' and not im.getexif().get(34853)
+                  im.verify()
+          print('PASS: five actual photos, source/rights, EXIF and field-ready holds',flush=True)
+          PY
+      - name: Commit actual vetted JPEGs and canonical website references
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Tripsacum/tripsacum-dactyloides/ content/taxa/Poaceae/Tripsacum/genus.json
+          git add reports/tripsacum-uvalde-conrad-five-physical-20261022.json
+          git add workflow/field-id-publication/2026-10-22-tripsacum-five-uvalde-physical-release.json
+          if git diff --cached --quiet; then echo 'Already archived and indexed, no duplicate commit'; exit 0; fi
+          git commit -m 'Archive five original Jim Conrad Uvalde gamagrass photos in public learner [skip ci]'
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
