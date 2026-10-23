@@ -1,0 +1,74 @@
+name: Archive five sourced Bob Harms big bluestem diagnostic JPEGs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-andropogon-big-five-harms-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-andropogon-gerardi-five-physical-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 26
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install and compile source-image verifier
+        run: |
+          python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+          python -m py_compile scripts/archive_andropogon_big_harms_five_20261022.py scripts/build_public_pages_snapshot.py scripts/public_photo_rights_preflight.py
+      - name: Archive original photos, validate metadata and generate careful teaching references
+        run: python scripts/archive_andropogon_big_harms_five_20261022.py
+      - name: Check exact image rights, source hash and guarded public-site eligibility
+        run: |
+          python - <<'PY'
+          import hashlib, json, sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,'scripts')
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          d=json.loads(Path('content/taxa/Poaceae/Andropogon/andropogon-gerardi/species.json').read_text())
+          r=json.loads(Path('reports/andropogon-big-five-harms-real-jpegs-20261022.json').read_text())
+          assert d['id']=='andropogon-gerardi' and len(r['entries'])==5
+          assert len(d['images'])==10 and d['curation_status']['photo_files_present']==8
+          assert len(d['visual_comparison']['items'])==15
+          assert 'FIELD_READY_PHOTO_GAPS' in d['field_id_finish_pass']['stage']
+          assert r['verified_new_files']==5
+          for q in r['entries']:
+              p=Path(q['path'])
+              assert p.is_file() and p.stat().st_size>7000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==q['archived_sha256']
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and im.mode=='RGB' and not im.getexif().get(34853)
+                  im.verify()
+              media=next(m for m in d['images'] if m.get('file')=='images/'+p.name)
+              assert media['creator']=='Bob Harms'
+              assert rights(media,True)[0],(media,rights(media,True))
+              assert photo_rights(media,True) is None,(media,photo_rights(media,True))
+          print('PASS five physical copyrighted author-permitted photos through BOTH public rights filters',flush=True)
+          PY
+      - name: Save only actually archived canonical photographs
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Andropogon/andropogon-gerardi/
+          git add reports/andropogon-big-five-harms-real-jpegs-20261022.json
+          git add workflow/field-id-publication/2026-10-22-andropogon-five-physical-harms-release.json
+          if git diff --cached --quiet; then echo "Already archived; no duplicate commit"; exit 0; fi
+          git commit -m 'Archive five real scaled Bob Harms big bluestem anatomical JPEGs [skip ci]'
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
