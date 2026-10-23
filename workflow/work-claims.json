@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-21T17:13:00Z",
+  "updated_at": "2026-10-23T17:29:35-05:00",
   "purpose": "Shared anti-duplication reservations for Hays Botany chats and automations. Canonical manifest, durable queue/drafts, and curation-inbox state always outrank stale claims.",
   "policy": {
     "canonical_manifest_wins": true,
@@ -9705,6 +9705,24 @@
       "expires_at": "2026-10-21T14:13:00-05:00",
       "release_when": "Batch 145 GitHub and keyed Sheet readback or safe abandonment",
       "notes": "Recovery of existing eight-record unpublished evidence; no range/media/learner changes."
+    },
+    {
+      "claim_id": "automation-grass-taxonomy-setaria-scheelei-20261023-1729",
+      "scope_kind": "taxonomy_only_evidence",
+      "taxa": [
+        "setaria-scheelei"
+      ],
+      "families": [
+        "Poaceae"
+      ],
+      "scope_key": "research-drafts/taxonomy-name-fast-pass/grass-setaria-scheelei-orthography-2026-10-23-1729-001.json",
+      "lane": "grass-taxonomy-verification / taxonomy-only",
+      "owner": "Grass Taxonomy Verification automation",
+      "status": "active",
+      "claimed_at": "2026-10-23T17:29:35-05:00",
+      "expires_at": "2026-10-23T19:29:35-05:00",
+      "release_when": "After taxonomy-only evidence commit and independent readback, or documented abandonment.",
+      "notes": "Existing canonical Setaria scheelei only; POWO accepted name, five synonyms, IPNI vs POWO basionym orthography discrepancy. Do not modify species card or science holds."
     }
   ]
 }
