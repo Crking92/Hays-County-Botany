@@ -6,8 +6,8 @@ mkdir -p dist
 
 cp index.html dist/
 # Three public front doors share the same canonical plant-library assets.
-cp field-id.html field-id-classic.html quiz.html dist/
-test -s dist/field-id.html && test -s dist/field-id-classic.html && test -s dist/quiz.html
+cp field-id.html field-id-classic.html quiz.html quiz-classic.html dist/
+test -s dist/field-id.html && test -s dist/field-id-classic.html && test -s dist/quiz.html && test -s dist/quiz-classic.html
 # Publish only the current Photo Lab review; completed batches remain archived in GitHub.
 cp photo-review.html dist/
 if compgen -G "dist/photo-review-batch-*.html" >/dev/null; then
