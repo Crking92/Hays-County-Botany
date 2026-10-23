@@ -1,4 +1,5 @@
 name: Archive one real scaled KR ligule zone photo
+# Retry with official Commons thumbnail endpoint if original CDN responds 429.
 on:
   push:
     branches: [main]
@@ -50,7 +51,7 @@ jobs:
           p=Path(r["physical_file"])
           assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r["archived_sha256"]
           with Image.open(p) as im:
-              assert im.format=="JPEG" and im.size==(2568,1989) and not im.getexif().get(34853)
+              assert im.format=="JPEG" and im.size in ((2568,1989),(1280,991),(960,744)) and not im.getexif().get(34853)
               im.verify()
           record=next(x for x in s["images"] if x.get("source_page")=="https://commons.wikimedia.org/wiki/File:Bothriochloa_ischaemum_sl1.jpg")
           assert record["creator"]=="Stefan.lefnaer" and record["license"]=="CC BY-SA 4.0"
