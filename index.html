@@ -246,7 +246,18 @@ function render(){
 }
 async function fetchJson(path){const r=await fetch(addr(path),{cache:'no-store'});if(!r.ok)throw Error(r.status+' '+path);return r.json()}
 async function openPlant(id){state.tab='learner';state.view='plant';state.species=null;state.genus=null;state.family=null;resetScroll();render();try{const entry=state.entries.find(x=>x.id===id);if(!entry)throw Error('Species not found in the public manifest: '+id);const sp=await fetchJson(entry.path);state.species=sp;render();const folder=entry.path.replace(/[^/]+\/species\.json$/,'');const familyPath=`content/taxa/${sp.family}/family.json`;const genusPath=`content/taxa/${sp.family}/${sp.genus}/genus.json`;const d=await Promise.allSettled([fetchJson(genusPath),fetchJson(familyPath)]);state.genus=d[0].status==='fulfilled'?d[0].value:null;state.family=d[1].status==='fulfilled'?d[1].value:null;render();}catch(e){app.innerHTML=`<div class="crumb"><button data-view="browse">Species lessons</button></div><div class="panel error"><h2>Could not load this species</h2><p>${E(e.message)}</p><p>This lesson loads from the current public plant library. Check your connection and try again.</p><button class="button" data-view="browse">Back to browse</button></div>`}}
-async function init(){render();try{
+async function loadGlossary(){
+ if(!window.HaysGlossary)return;
+ try{
+  const layer=await fetchJson('data/learning-layer.json');
+  if(layer&&layer.terms)window.HaysGlossary.setTerms(layer.terms);
+  else window.HaysGlossary.setError('No glossary terms found in the botanical library.');
+ }catch(err){
+  window.HaysGlossary.setError('Could not load botanical vocabulary: '+err.message);
+ }
+ if(['glossary','plant','basics','home'].includes(state.view))render();
+}
+async function init(){render();loadGlossary();try{
  const data=await fetchJson('data/manifest.json');
  state.entries=Array.isArray(data.species)?data.species:[];
  // The publisher regenerates this name index from the same canonical species set.
