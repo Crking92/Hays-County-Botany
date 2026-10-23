@@ -55,7 +55,50 @@
     "photo_files_present": 2,
     "manual_library_install_020": "2026-10-16",
     "manual_crew_visual_field_pass": "2026-10-20",
-    "visual_readiness": "FIELD_READY_PHOTO_GAPS — cluster architecture visible; need measured spikelet/floret and collar macro"
+    "visual_readiness": "FIELD_READY_PHOTO_GAPS — cluster architecture visible; need measured spikelet/floret and collar macro",
+    "diagnostic_photo_fast_fill_20261023_binary_audit": {
+      "date": "2026-10-23",
+      "scope": "Existing canonical JPEG integrity and visible-organ verification; no new JPEGs or arrows",
+      "verified_jpegs": [
+        {
+          "file": "images/library-review020-e71d8f340eb3ca2.jpg",
+          "sha": "02144c58fb02d1a81e3ea46b12b524a48f91e541",
+          "bytes": 503941,
+          "dimensions": [
+            1200,
+            1400
+          ],
+          "jpeg_soi_eoi_pass": true,
+          "app1_exif": false,
+          "creator": "Linda Jo Conn",
+          "license": "CC BY (version not independently verified)",
+          "source": "https://www.gbif.org/occurrence/6147320683"
+        },
+        {
+          "file": "images/library-review020-81f7056a8f7e733.jpg",
+          "sha": "369cc0dcfd6baf26c721f6b2ba5dcae1bac8855c",
+          "bytes": 291762,
+          "dimensions": [
+            1050,
+            1400
+          ],
+          "jpeg_soi_eoi_pass": true,
+          "app1_exif": false,
+          "creator": "Sam Kieschnick",
+          "license": "CC BY (version not independently verified)",
+          "source": "https://www.gbif.org/occurrence/6185193899"
+        }
+      ],
+      "review": "Sam Kieschnick image visibly has sparse small pale spikelet groups along thin branches, not the dense pink-red clusters in Linda Jo Conn image. Do not use pale photo as independent diagnostic confirmation of exact taxon.",
+      "remaining": [
+        "NEEDS_PUBLIC_PHOTO: same-plant ligule at 0.1–1mm scale",
+        "NEEDS_PUBLIC_PHOTO: mature spikelet and separate glumes/lemma/palea at 1mm scale",
+        "NEEDS_PUBLIC_PHOTO: matched E. spectabilis comparison"
+      ],
+      "annotation_pending": true,
+      "installed_photos": 0,
+      "new_arrows": 0
+    }
   },
   "images": [
     {
@@ -151,7 +194,7 @@
     "filled_at": "2026-10-05",
     "note": "Presentation fast-fill only; existing scientific taxonomy/range status is unchanged. Exact-species remote images retain source and rights metadata and may be replaced by stronger local/diagnostic images later."
   },
-  "photo_note": "Manual library-first complementary photo selection installed; independent diagnostic ID review pending.",
+  "photo_note": "Manual library-first complementary photo selection installed; independent diagnostic ID review pending. 2026-10-23: both archived JPEGs byte-verified (795703 total), and the sparse dried photo caption corrected. No new files/arrows. Photo-level CC BY versions still require source reconfirmation.",
   "comparisons": {
     "confused_with": [
       "Eragrostis spectabilis",
@@ -166,7 +209,7 @@
     "heading": "Eragrostis secundiflora — follow the real-photo field cues",
     "steps": [
       "START with the USGS inflorescence image: follow a PRIMARY PANICLE BRANCH, then identify several separate, crowded, many-flowered SPIKELETS. The spikelets are not individual seeds.",
-      "COMPARE the existing reddish and dried head photographs: clustered spikelets remain the useful character after red pigment fades; color by itself is not identification.",
+      "COMPARE the reddish and dried photographs: the pale Sam Kieschnick view shows sparser groups than the dense reddish Linda Jo Conn view. Do not treat them as equally diagnostic proof of this species; verify mature spikelet anatomy.",
       "FIND the leaf BLADE-SHEATH JUNCTION on a fresh specimen and focus at 10–20×. Photograph the very short ciliate/hair-fringed ligule, separately from the longer hairs that may occur at the top (mouth) of the sheath; do not label sheath-mouth hairs as the ligule.",
       "PHOTOGRAPH one intact flattened mature spikelet against a 1-mm ruler, then a carefully separated lower and upper glume, individual lemma and palea. Count attached florets only where clear; published counts are not measurements of these photos.",
       "PLACE a matched E. spectabilis panicle beside it at the same scale and maturity. Red lovegrass tends to crowd several chunkier spikelets together; purple lovegrass has a more openly spreading, airy flowering structure.",
@@ -177,7 +220,7 @@
       1
     ],
     "field_rule": "Teach CLUSTERS on the branching panicle first; confirm separate flattened many-flowered SPIKELETS and the actual tiny blade-sheath ligule (not longer sheath-mouth hairs) with a 1-mm scale. E. spectabilis is comparatively airy and spread out.",
-    "warning": "Existing USGS photos show clustered inflorescence architecture; the two archived library photographs are provisional broad views. No existing record certifies sheath-mouth hair insertion, ligule macro, glume/lemma separation, or a measured floret count. Do not make arrows to these invisible organs. The third remote derivative image remains publication-rights-review, not a verified archive.",
+    "warning": "Existing USGS photos show clustered inflorescence architecture; the two archived library photographs are provisional broad views. No existing record certifies sheath-mouth hair insertion, ligule macro, glume/lemma separation, or a measured floret count. Do not make arrows to these invisible organs. The third remote derivative image remains publication-rights-review, not a verified archive. The 2026-10-23 byte audit found both existing JPEGs intact and without APP1; the pale photo is not a dense-cluster macro. Exact photo license versions and independently vouchered identification remain pending.",
     "evidence_sources": [
       "https://warcapps.usgs.gov/PlantID/Species/Details/2965",
       "https://biorepo.neonscience.org/portal/taxa/index.php?clid=8680&taxauthid=1&tid=32035",
@@ -200,7 +243,7 @@
         "creator": "Linda Jo Conn",
         "license": "CC BY",
         "source_page": "https://www.gbif.org/occurrence/6147320683",
-        "photo_status": "EXISTING CANONICAL LOCAL IMAGE. Pixel contents inspected 2026-10-20. Source-level taxon identification not independently re-vouchered. Browser arrows only to clearly visible structures; no microscopic characters inferred.",
+        "photo_status": "EXISTING JPEG physically byte-verified 2026-10-23: 503941 bytes, 1200×1400, Git blob 02144c58fb02d1a81e3ea46b12b524a48f91e541, no APP1. Coarse arrows only. Exact species not independently vouchered; CC BY version needs original-photo confirmation.",
         "markers": [
           {
             "label": "Crowded spikelets",
@@ -219,17 +262,17 @@
         ]
       },
       {
-        "label": "2 · Dried clusters along narrow flowering branches",
+        "label": "2 · Dried flowering branch — source ID provisional",
         "scientific_name": "Eragrostis secundiflora",
         "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-secundiflora/images/library-review020-81f7056a8f7e733.jpg",
         "image_fit": "contain",
-        "image_role": "Pale mature groups of tightly crowded spikelets",
-        "caption": "The small pale brown groups are visible against fingers at the ends of thin flowering branches. No detailed glumes or floret count can be resolved.",
-        "why_it_matters": "Shows color variation after seed ripening and the architecture without red coloration.",
+        "image_role": "Pale small spikelet groups spaced along slender flowering branches",
+        "caption": "Small pale spikelet groups are spaced along narrow flowering branches against fingers. Unlike the first red-flowering photograph, this does not show dense clusters; source species determination is provisional, and glumes/individual florets cannot be measured.",
+        "why_it_matters": "A cautionary dried-stage view; color and sparse branch architecture do not independently identify red lovegrass.",
         "creator": "Sam Kieschnick",
         "license": "CC BY",
         "source_page": "https://www.gbif.org/occurrence/6185193899",
-        "photo_status": "EXISTING CANONICAL LOCAL IMAGE. Pixel contents inspected 2026-10-20. Source-level taxon identification not independently re-vouchered. Browser arrows only to clearly visible structures; no microscopic characters inferred.",
+        "photo_status": "EXISTING JPEG physically byte-verified 2026-10-23: 291762 bytes, 1050×1400, Git blob 369cc0dcfd6baf26c721f6b2ba5dcae1bac8855c, no APP1. Coarse arrows only. Exact species not independently vouchered; CC BY version needs original-photo confirmation.",
         "markers": [
           {
             "label": "Cluster of spikelets",
@@ -291,7 +334,7 @@
       "Mature isolated spikelet opened to show stacked florets and glumes.",
       "Leaf sheath and collar/ligule macro, and matched panicle branch next to E. spectabilis."
     ],
-    "photo_evidence_limits": "Source photo #1 is strongly pink-purple with easily visible spikelet clusters, #2 shows dried clusters. Neither resolves ligule hairs or mature floret count. Red grama, Tridens and other grasses also have clustered spikelets; inspect the exact branching plan.",
+    "photo_evidence_limits": "Source photo #1 is strongly pink-purple with easily visible spikelet clusters, #2 shows dried clusters. Neither resolves ligule hairs or mature floret count. Red grama, Tridens and other grasses also have clustered spikelets; inspect the exact branching plan. The 2026-10-23 byte-verified Sam Kieschnick photo shows sparse pale spikelet groups, not the same dense reddish architecture as Linda Jo Conn's photo; preserve source-ID provisional status.",
     "photo_inspection": "Existing selected local photos directly inspected 2026-10-20; all arrows placed on visible coarse plant structures, not inferred microscopic features.",
     "morphology_source_urls": [
       "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:322572-2/general-information"
