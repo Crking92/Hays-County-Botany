@@ -215,6 +215,25 @@ def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
                for photo_id in HARMS_ALLOWED_IDS)
 
 
+# Five original Bob Harms Selected Monocots BIG bluestem micro photographs.
+# Source-specific, credited, educational/noncommercial website use only; NOT CC.
+HARMS_ANGE_IDS = frozenset({"ANGE-i", "ANGE-j1", "ANGE-L", "ANGE-9", "ANGE-d"})
+
+def permitted_harms_big_bluestem(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Andropogon gerardii":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+pid+".html"
+               and item.get("source_image") == HARMS_BASE+"images/"+pid+".jpg"
+               for pid in HARMS_ANGE_IDS)
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -229,6 +248,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
+    if permitted_harms_big_bluestem(item, noncommercial):
+        return True, "Bob Harms exact Andropogon gerardii Selected Monocots photo, educational with credit, NOT CC"
     if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_little_bluestem(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial) or permitted_harms_spco(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
