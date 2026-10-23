@@ -19,7 +19,7 @@ for i,fn in enumerate(candidates):
   api="https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata&format=json&titles="+urllib.parse.quote(title)
   info=next(iter(json.loads(get(api))["query"]["pages"].values()))["imageinfo"][0]
   meta=info["extmetadata"]; license=meta.get("LicenseShortName",{}).get("value","").upper().replace("-","").replace(" ","")
-  assert license in ("CC0","CCBY2.0","CCBY3.0","CCBY4.0","CCBYSA2.0","CCBYSA3.0","CCBYSA4.0","PUBLICDOMAIN"),license
+  assert license in ("CC0","CCBY2.0","CCBY3.0","CCBY3.0US","CCBY4.0","CCBYSA2.0","CCBYSA3.0","CCBYSA4.0","PUBLICDOMAIN"),license
   author=html.unescape(re.sub("<[^>]+>","",meta.get("Artist",{}).get("value",""))).strip()
   assert author
   raw=get(info["url"]); assert 12000<len(raw)<15000000
