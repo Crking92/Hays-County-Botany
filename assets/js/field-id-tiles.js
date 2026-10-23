@@ -266,6 +266,9 @@ function renderDetail(sp,entry){
  '<h2 id="fieldDetailTitle">'+esc(sp.common_name||entry.common_name||sp.scientific_name)+'</h2>'+
  '<p class="detail-latin"><i>'+esc(sp.scientific_name||entry.scientific_name)+'</i></p></div>'+
  '<button class="close" type="button" data-close aria-label="Close field card">×</button></div>'+
+ // The same rights-filtered iNaturalist carousel used in the Learner opens
+ // here, immediately below the plant name and before the saved diagnostics.
+ (window.HaysINatGallery ? window.HaysINatGallery.section(sp) : '')+
  '<p class="photo-count">Publicly eligible photographs: '+(Array.isArray(sp.images)?sp.images.length:0)+
  (Array.isArray(sp.images)&&sp.images.length>36?' (first 36 displayed here; see full Learner for the remainder)':'')+'</p>'+
  photosFor(sp,entry.path)+
