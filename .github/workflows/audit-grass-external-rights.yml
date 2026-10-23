@@ -1,0 +1,32 @@
+name: Grass external photo rights triage
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/audit_grass_external_rights.py
+      - .github/workflows/audit-grass-external-rights.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: grass-external-rights-triage
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/audit_grass_external_rights.py
+      - name: Publish per-image triage report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/grass-external-rights-and-importance-triage.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record per-image grass external rights and morphology priorities"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
