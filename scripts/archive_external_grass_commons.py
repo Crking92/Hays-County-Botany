@@ -90,6 +90,7 @@ def main():
    mapping={previous:str(reference).replace("\\","/")}
    card=replace_urls(card,mapping)
    card["images"][ix]["file"]=new_file
+   card["images"][ix]["archived_original_url"]=previous
    card.setdefault("learner_visual_status",{})["image_count"]=len(card["images"])
    p.write_text(json.dumps(card,indent=2,ensure_ascii=False)+"\n")
    report["archived"].append({"species":taxon,"source":previous,"dest":str(reference),"license":license})
