@@ -160,5 +160,28 @@
     "smithsonian_source": "https://www.si.edu/object/chloris-andropogonoides-e-fourn:nmnhbotany_10607789",
     "smithsonian_import_status": "403 Forbidden: no image archived; leave public photo count unchanged",
     "next_photo": "Acquire herbarium scan or live mature spikelet/lemma macro with verified publication license"
+  },
+  "public_gallery_recovery_20261023": {
+    "status": "PHOTO_GAPS_HELD",
+    "licensed_photo_count": 0,
+    "existing_archived_photo_count": 1,
+    "failed_sources": [
+      {
+        "source": "https://www.si.edu/object/chloris-andropogonoides-e-fourn:nmnhbotany_10607789",
+        "result": "403 during automated retrieval; public-domain item metadata does not equal saved photo"
+      },
+      {
+        "source": "https://www.inaturalist.org/photos/348830581",
+        "result": "404 from attempted API endpoint; no image file saved; do not assume source itself is permanently missing"
+      }
+    ],
+    "search_priority": [
+      "Original iNaturalist photo/license via observation or photo source, not unsupported /v1/photos/{id} assumption",
+      "Wikimedia Commons category Chloris andropogonoides: locate individual files and author licenses",
+      "Texas herbarium voucher with explicitly downloadable open-license high-resolution scan",
+      "Exact-species field macro showing unilateral raceme, sterile lemma and fertile lemma, awn with ruler"
+    ],
+    "publication_rule": "Do not count CC BY-NC photo as open-reuse gallery; don't mark card 100% until physical open images, inspected diagnostic macros and deployed gallery are verified.",
+    "taxonomy_reference": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395792-1"
   }
 }
