@@ -1,7 +1,7 @@
 /* Hays Botany compact Field ID. All facts/photos come from filtered public plant records. */
 (function(){
 'use strict';
-const state={records:[],rank:'families',family:'',genus:'',query:'',limit:60,selected:null,cache:new Map(),loading:true};
+const state={records:[],rank:'families',family:'',genus:'',query:'',limit:60,selected:null,cache:new Map(),groupCache:new Map(),loading:true};
 const root=document.getElementById('fieldApp');
 const dialog=document.getElementById('fieldDetail');
 const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -10,8 +10,9 @@ const memberName=item=>item.common_name||item.scientific_name||item.id||'Unnamed
 const latinName=item=>item.scientific_name||String(item.id||'').replace(/-/g,' ');
 const safePath=path=>{
  if(typeof path!=='string'||/^(?:https?:|\/)/i.test(path)||path.includes('..')||path.includes('\\'))return '';
- if(!/^content\/taxa\//i.test(path)||![...path].every(ch=>/[a-z0-9_\/.() -]/i.test(ch))||
-    !/\.(?:json|jpg|jpeg|png|webp)$/i.test(path))return '';
+ if(!/^content\/taxa\//i.test(path)||!/\.(?:json|jpg|jpeg|png|webp)$/i.test(path))return '';
+ const segments=path.split('/');
+ if(segments.length<4||segments.some(v=>!v||v==='.'||v==='..'||/[?#&<>\x00-\x1f]/.test(v)))return '';
  return './'+path.split('/').map(encodeURIComponent).join('/');
 };
 const photo=(item,kind)=>{
@@ -22,6 +23,41 @@ const photo=(item,kind)=>{
   '<div class="tile-image no-photo" aria-hidden="true"><span>✳</span></div>';
 };
 const sorted=(a,b)=>a.localeCompare(b);
+const textItems=(v,max=12)=>Array.isArray(v)?v.filter(x=>typeof x==='string').slice(0,max):
+ typeof v==='string'?[v]:[];
+function listHTML(items){
+ return items.length?'<ul>'+items.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'';
+}
+function groupCue(record,rank){
+ const d=rank==='families'?record.family_diagnostics||{}:record.recognition||{};
+ const main=rank==='families'?(d.where_to_look_first||d.field_tip||record.look_here_first):
+  (record.look_here_first||d.where_to_look_first||d.look_here_first);
+ const priority=rank==='genera'?textItems(d.priority,3):[];
+ if(!main&&!priority.length)return '';
+ return '<div class="group-tip lessonpart"><strong>Look here first · '+(rank==='families'?'Family':'Genus')+'</strong>'+
+  (main?'<p>'+esc(main)+'</p>':'')+listHTML(priority)+'</div>';
+}
+async function loadGroupCue(){
+ const rank=state.family&&!state.genus?'families':state.genus?'genera':null;
+ if(!rank)return;
+ const path=rank==='families'?'content/taxa/'+state.family+'/family.json':
+  'content/taxa/'+state.family+'/'+state.genus+'/genus.json';
+ const el=document.getElementById('fieldGroupClue');
+ if(!el)return;
+ try{
+  let data=state.groupCache.get(path);
+  if(!data){
+   const r=await fetch(safePath(path),{cache:'no-store'});
+   if(!r.ok)return;
+   data=await r.json();state.groupCache.set(path,data);
+  }
+  const target=document.getElementById('fieldGroupClue');
+  if(!target||target.dataset.source!==path)return;
+  target.innerHTML=groupCue(data,rank);
+  if(window.HaysGlossary)window.HaysGlossary.enhance(target);
+ }catch(err){console.info('Group field hint unavailable',path);}
+}
+
 function groups(rank){
  const lookup=new Map();
  for(const p of state.records){
@@ -44,7 +80,14 @@ function filtered(){
    (!q||low([p.common_name,p.scientific_name,p.family,p.genus,p.cue].join(' ')).includes(q)))
    .sort((a,b)=>sorted(memberName(a),memberName(b)));
  }
- return groups(state.rank).filter(g=>!q||low(g.name+' '+g.family).includes(q));
+ // Search common/scientific species names even while browsing families
+ // and genera. This lets a crew member find the correct group from the top.
+ const matches=new Set(state.records.filter(p=>
+  !q||low([p.common_name,p.scientific_name,p.family,p.genus,p.cue].join(' ')).includes(q)
+ ).map(p=>state.rank==='families'?p.family:p.family+'|||'+p.genus));
+ return groups(state.rank).filter(g=>
+  !q||low(g.name+' '+g.family).includes(q)||
+  matches.has(state.rank==='families'?g.family:g.family+'|||'+g.genus));
 }
 function tile(item){
  if(state.rank==='families')return '<button class="field-tile" data-family="'+esc(item.family)+'">'+
@@ -84,6 +127,7 @@ function render(){
  const cards=results.slice(0,state.limit).map(tile).join('');
  root.innerHTML='<div class="field-intro"><p class="eyebrow">Quick field reference</p><h1>'+esc(title)+'</h1>'+
  '<p>'+esc(summary)+'</p></div>'+crumbs+
+ (state.family?'<div id="fieldGroupClue" data-source="'+esc(state.genus?'content/taxa/'+state.family+'/'+state.genus+'/genus.json':'content/taxa/'+state.family+'/family.json')+'"></div>':'')+
  '<section class="browse-tools"><div class="rank-tabs" role="group" aria-label="Browse by family, genus or species">'+tabs+'</div>'+
  '<label for="fieldSearch">Search the plant library</label>'+
  '<input id="fieldSearch" type="search" placeholder="Search common names, botanical names, or families…" value="'+esc(state.query)+'" autocomplete="off">'+
@@ -114,33 +158,94 @@ function renderResultsOnly(){
 }
 function change(rank,family,genus){
  state.rank=rank;state.family=family||'';state.genus=genus||'';state.query='';state.limit=60;
- render();document.getElementById('fieldApp').scrollIntoView({block:'start',behavior:'auto'});
+ render();loadGroupCue();document.getElementById('fieldApp').scrollIntoView({block:'start',behavior:'auto'});
 }
 function firstText(value,max){
  return String(value||'').replace(/\s+/g,' ').slice(0,max);
 }
+function cueSteps(sp){
+ const mor=sp.morphology_keys||{},fin=sp.field_id_finish_pass||{},photo=sp.field_photo_quickcheck||{};
+ for(const candidate of [mor.crew_20_second_sequence,fin.crew_field_sequence,photo.steps,mor.best_field_traits]){
+  const safe=Array.isArray(candidate)?candidate.map(v=>typeof v==='string'?v:v&&typeof v==='object'&&typeof v.text==='string'?v.text:v&&typeof v==='object'&&typeof v.cue==='string'?v.cue:null).filter(Boolean):[];
+  if(safe.length)return safe;
+ }
+ return [sp.look_here_first||'Check leaf attachment and flowering structures against confirmed photographs.'];
+}
 function cues(sp){
- const mor=sp.morphology_keys||{},steps=mor.crew_20_second_sequence||mor.best_field_traits||[];
- if(Array.isArray(steps)&&steps.length)return steps.slice(0,5).filter(x=>typeof x==='string').map(x=>'<li>'+esc(x)+'</li>').join('');
- return '<li>'+esc(sp.look_here_first||'Look at the leaf attachment and flowering structures. Confirm against a verified photo.')+'</li>';
+ return listHTML(cueSteps(sp).slice(0,5));
 }
 function fullMorph(sp){
  const morphology=sp.morphology_keys||{};
  const entries=Object.entries(morphology).filter(([key,v])=>
   key!=='crew_20_second_sequence'&&key!=='best_field_traits'&&
-  (typeof v==='string'||Array.isArray(v))).slice(0,24);
- return entries.map(([key,v])=>
-  '<div class="note-field"><b>'+esc(key.replace(/_/g,' '))+'</b><p>'+esc(Array.isArray(v)?v.join(' · '):v)+'</p></div>').join('');
+  (typeof v==='string'||Array.isArray(v)));
+ return entries.map(([key,v])=>{
+  const safe=typeof v==='string'?[v]:v.filter(x=>typeof x==='string').slice(0,12);
+  if(!safe.length)return '';
+  return '<div class="note-field"><b>'+esc(key.replace(/_/g,' '))+'</b>'+
+   (safe.length===1?'<p>'+esc(safe[0])+'</p>':listHTML(safe))+'</div>';
+ }).filter(Boolean).join('');
+}
+function comparisonMatrix(sp){
+ const comp=sp.comparisons||{};
+ const rows=Array.isArray(comp.field_matrix)?comp.field_matrix.slice(0,10):[];
+ const clean=rows.map(row=>{
+  if(!row||typeof row!=='object')return '';
+  const label=row.taxon||row.lookalike||row.with||row.species||row.name||'Comparison';
+  const parts=[
+   ['Look at',row.where_to_look||row.focus||row.look_here_first],
+   ['Identification',row.usual_pattern||row.rule||row.cue||row.other],
+   ['This plant',row.little_bluestem||row.frogfruit],
+   ['Limitations',row.limitation||row.caution]
+  ].filter(([,value])=>typeof value==='string'&&value.trim());
+  return '<article class="comparison-mini"><b>'+esc(label)+'</b>'+
+   parts.map(([label,v])=>'<p><strong>'+esc(label)+':</strong> '+esc(v)+'</p>').join('')+'</article>';
+ }).filter(Boolean).join('');
+ const paired=comp.detailed_pair&&typeof comp.detailed_pair==='object'?comp.detailed_pair:{};
+ const rules=textItems(paired.quick_split,5);
+ const warnings=textItems(comp.do_not_trust_alone||comp.not_reliable_alone,8);
+ return (rules.length?'<h4>Fast local comparison</h4>'+listHTML(rules):'')+
+  (clean?'<h4>Comparison details</h4><div class="comparison-list">'+clean+'</div>':'')+
+  (warnings.length?'<h4>Do not rely on these alone</h4>'+listHTML(warnings):'');
 }
 function lookalikes(sp){
  const cp=sp.comparisons||{};
- const confused=Array.isArray(cp.confused_with)?cp.confused_with.slice(0,8):[];
+ const confused=Array.isArray(cp.confused_with)?cp.confused_with.slice(0,12):[];
  return (confused.length?'<p class="lookalike-names"><b>Look-alikes:</b> '+confused.map(esc).join(' · ')+'</p>':'')+
-  (cp.key_distinctions?'<p>'+esc(cp.key_distinctions)+'</p>':'')+
-  (cp.taxonomy_caution?'<p class="caution"><b>Taxonomy caution:</b> '+esc(cp.taxonomy_caution)+'</p>':'');
+  (typeof cp.key_distinctions==='string'?'<p>'+esc(cp.key_distinctions)+'</p>':'')+
+  (typeof cp.taxonomy_caution==='string'?'<p class="caution"><b>Taxonomy caution:</b> '+esc(cp.taxonomy_caution)+'</p>':'')+
+  comparisonMatrix(sp);
+}
+function confirmation(sp){
+ const morph=sp.morphology_keys||{};
+ const checks=sp.field_photo_quickcheck||{};
+ const fin=sp.field_id_finish_pass||{};
+ const notes=[
+  ['Important caution',checks.warning],
+  ['Stop at genus when uncertain',morph.when_to_stop_at_genus],
+  ['Advanced confirmation',morph.advanced_confirmation],
+  ['What to photograph',sp.what_to_photograph_for_confirmation||morph.what_to_photograph_for_confirmation],
+  ['Identification guardrails',fin.science_guardrails]
+ ];
+ return notes.map(([label,v])=>{
+  const items=textItems(v,8);
+  return items.length?'<div class="note-field"><b>'+esc(label)+'</b>'+
+   (items.length===1?'<p>'+esc(items[0])+'</p>':listHTML(items))+'</div>':'';
+ }).filter(Boolean).join('');
+}
+function visualCoverage(sp){
+ const visual=sp.learner_visual_status||{},curation=sp.curation_status||{},fin=sp.field_id_finish_pass||{};
+ const flag=[visual.status,curation.visual_finish,fin.status,fin.stage].filter(x=>typeof x==='string').join(' ');
+ const gaps=textItems(fin.true_photo_gaps,5);
+ const incomplete=/PHOTO.GAPS|PENDING|PROVISIONAL|IN_PROGRESS|HOLD|UNFINISHED/i.test(flag);
+ if(!incomplete&&!gaps.length)return '';
+ return '<div class="photo-coverage-caution"><b>Photo lesson still being improved</b>'+
+  '<p>Use several matching structures before confirming an identification. Existing photographs may not show every required diagnostic feature.</p>'+
+  (gaps.length?'<details><summary>Photographs still needed</summary>'+listHTML(gaps)+'</details>':'')+
+  '</div>';
 }
 function photosFor(sp,path){
- const list=Array.isArray(sp.images)?sp.images.slice(0,10):[];
+ const list=Array.isArray(sp.images)?sp.images.slice(0,36):[];
  const parent=path.slice(0,path.lastIndexOf('/')+1);
  const parts=list.filter(x=>x&&typeof x.file==='string'&&
   !x.file.includes('..')&&!x.file.startsWith('/')&&!x.file.includes('\\')).map(item=>{
@@ -161,16 +266,22 @@ function renderDetail(sp,entry){
  '<h2 id="fieldDetailTitle">'+esc(sp.common_name||entry.common_name||sp.scientific_name)+'</h2>'+
  '<p class="detail-latin"><i>'+esc(sp.scientific_name||entry.scientific_name)+'</i></p></div>'+
  '<button class="close" type="button" data-close aria-label="Close field card">×</button></div>'+
+ '<p class="photo-count">Publicly eligible photographs: '+(Array.isArray(sp.images)?sp.images.length:0)+
+ (Array.isArray(sp.images)&&sp.images.length>36?' (first 36 displayed here; see full Learner for the remainder)':'')+'</p>'+
  photosFor(sp,entry.path)+
+ visualCoverage(sp)+
  '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+ 
  '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+esc(sp.look_here_first||entry.cue||'Start with mature leaves and any reproductive structures.')+'</p></div>'+
  '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>'+
  '<details class="detail-expand lessonpart"><summary>Look-alikes and cautions</summary>'+
  (lookalikes(sp)||'<p>No verified comparison text has been entered yet.</p>')+'</details>'+
+ '<details class="detail-expand lessonpart"><summary>Confirmation, cautions and what to photograph</summary>'+
+ (confirmation(sp)||'<p>No additional confirmation notes have been recorded for this species yet.</p>')+'</details>'+
  '<details class="detail-expand lessonpart"><summary>More botanical details</summary>'+
  (fullMorph(sp)||'<p>Additional morphological notes have not been added yet.</p>')+'</details>'+
  '<div class="dialog-foot"><button type="button" class="close-secondary" data-close>Back to tiles</button>'+
- '<a href="./index.html?view=glossary" class="open-learner">Illustrated glossary ↗</a><a href="./index.html" class="open-learner">Full Learner ↗</a></div></div>';
+ '<a href="./index.html?view=glossary" class="open-learner">Illustrated glossary ↗</a>'+
+ '<a href="./index.html?species='+encodeURIComponent(entry.id)+'" class="open-learner">Full species lesson ↗</a></div></div>';
  dialog.showModal();
  if(window.HaysGlossary)window.HaysGlossary.enhance(dialog);
  dialog.querySelector('[data-close]').focus();
