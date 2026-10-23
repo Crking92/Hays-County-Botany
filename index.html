@@ -267,7 +267,15 @@ async function init(){render();loadGlossary();try{
  try{const index=await fetchJson('data/learner-search-index.json');
   if(Array.isArray(index.species))state.nameIndex=new Map(index.species.filter(x=>x&&x.id).map(x=>[x.id,x]));
  }catch(e){console.info('Optional common-name search index not yet built; using scientific names.',e.message)}
- state.loaded=true;if(state.view==='browse'||state.view==='home')render();
+ state.loaded=true;
+ // Species-specific link from the compact Field ID. Only navigate to an
+ // exact species entry in the already-loaded public manifest.
+ const requestedSpecies=new URLSearchParams(location.search).get('species');
+ if(state.view!=='glossary'&&requestedSpecies&&state.entries.some(e=>e.id===requestedSpecies)){
+  openPlant(requestedSpecies);
+  return;
+ }
+ if(state.view==='browse'||state.view==='home')render();
 }catch(e){state.loaded=false;state.error=e.message;document.querySelectorAll('#indexcount').forEach(x=>x.textContent='Unable to load GitHub index: '+e.message)}}
 document.addEventListener('click',e=>{
  const b=e.target.closest('button[data-browse-mode],button[data-group-family],button[data-group-genus],button[data-browse-more],button[data-view],button[data-plant]');
