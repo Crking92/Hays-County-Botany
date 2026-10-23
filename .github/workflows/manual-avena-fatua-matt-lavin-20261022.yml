@@ -1,0 +1,79 @@
+name: Archive real wild oat ligule, callus and spikelet photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-avena-fatua-matt-lavin-20261022.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-avena-fatua-lavin-real-photos-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo tools
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh latest canonical state
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_avena_fatua_matt_lavin_20261022.py
+      - name: Archive only actual licensed decoded originals
+        run: python scripts/archive_avena_fatua_matt_lavin_20261022.py
+      - name: Verify all images and preserved credit and science holds
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          d=Path('content/taxa/Poaceae/Avena')
+          s=json.loads((d/'avena-fatua/species.json').read_text())
+          g=json.loads((d/'genus.json').read_text())
+          r=json.loads(Path('reports/avena-fatua-actual-anatomy-photos-20261022.json').read_text())
+          assert r['result']=='LICENSED_AVENA_REAL_PHOTOS_ARCHIVED' and len(r['files'])>=2
+          assert {'3885429615','3884459917'}.issubset({x['source_photo_id'] for x in r['files']})
+          assert len(s['images'])==len(r['files'])+1
+          assert len(s['visual_comparison']['items'])==len(r['files'])+1
+          assert len(g['visual_comparison']['items'])==len(r['files'])+1
+          assert s['field_id_finish_pass']['stage'].startswith('FIELD_READY_PHOTO_GAPS')
+          assert s['field_id_finish_pass']['visible_structure_arrows']==2
+          for entry in r['files']:
+              p=Path(entry['path'])
+              assert p.is_file() and p.stat().st_size>7000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==entry['archived_sha256']
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and not im.getexif().get(34853)
+                  im.verify()
+              rec=next(x for x in s['images'] if x['file']=='images/'+p.name)
+              assert rec['creator']=='Matt Lavin' and rec['license']=='CC BY-SA 2.0'
+              assert rec['license_url']=='https://creativecommons.org/licenses/by-sa/2.0/'
+              assert any(x['image_url']==str(p) for x in s['visual_comparison']['items'])
+          print('PASS: real source verified local rights-attributed wild oat ligule and hairy callus; strict holds maintained')
+          PY
+      - name: Commit only verified wild oat source files and lesson
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Avena/avena-fatua/
+          git add content/taxa/Poaceae/Avena/genus.json
+          git add reports/avena-fatua-actual-anatomy-photos-20261022.json
+          git add workflow/field-id-publication/2026-10-22-avena-fatua-local-anatomy-photo-pass.json
+          if git diff --cached --quiet; then echo 'NO_CHANGES'; exit 0; fi
+          git commit -m 'Archive real CC BY-SA Matt Lavin wild oat ligule/callus anatomy and clarify crew key [skip ci]'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
