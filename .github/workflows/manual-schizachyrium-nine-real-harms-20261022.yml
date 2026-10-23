@@ -1,0 +1,84 @@
+name: Archive 9 real source-verified little-bluestem anatomy photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-schizachyrium-nine-real-harms-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-little-bluestem-nine-original-harms-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install real image verification tools
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh latest canonical and check script
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_schizachyrium_scoparium_harms_nine_20261022.py
+      - name: Download and verify all 9 exact originals with license and source
+        run: python scripts/archive_schizachyrium_scoparium_harms_nine_20261022.py
+      - name: Audit nine genuine photos with hashes, permissions and honest 100-percent holds
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          root=Path("content/taxa/Poaceae/Schizachyrium")
+          s=json.loads((root/"schizachyrium-scoparium/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          report=json.loads(Path("reports/schizachyrium-little-bluestem-nine-real-harms-20261022.json").read_text())
+          assert report["result"]=="NINE_AUTHENTIC_HARMS_LITTLE_BLUESTEM_JPEGS_ARCHIVED"
+          assert len(report["files"])==9
+          assert s["curation_status"]["photo_files_present"]==14
+          assert len(s["images"])==14 and len(s["visual_comparison"]["items"])==16
+          assert len(g["visual_comparison"]["items"])==15 and g["project_scope"]["species_count"]==1
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          assert len(s["field_photo_quickcheck"]["steps"])==10
+          for r in report["files"]:
+              p=Path(r["file"])
+              assert p.is_file() and p.stat().st_size>5000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==r["archived_SHA256"]
+              with Image.open(p) as im:
+                  assert im.format=="JPEG" and not im.getexif().get(34853)
+                  im.verify()
+              imgs=[m for m in s["images"] if m.get("file")=="images/"+p.name]
+              assert len(imgs)==1 and imgs[0]["creator"]=="Bob Harms"
+              assert imgs[0]["source_taxon_name"]=="Schizachyrium scoparium"
+              assert imgs[0]["site_specific_public_permission"]=="BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
+              assert imgs[0]["license"]=="© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
+              assert sum(x.get("image_url")==str(p) for x in s["visual_comparison"]["items"])==1
+          for m in s["images"]:
+              if m.get("license")=="license not verified":
+                  assert m.get("public_reuse")=="no"
+          print("PASS nine real source images, original localized biological photos, credited rights, no GPS, no fabricated microscopic finality")
+          PY
+      - name: Commit canonical source photos, panels and provenance only
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Schizachyrium/schizachyrium-scoparium/
+          git add content/taxa/Poaceae/Schizachyrium/genus.json
+          git add reports/schizachyrium-little-bluestem-nine-real-harms-20261022.json
+          git add workflow/field-id-publication/2026-10-22-little-bluestem-nine-anatomy-harms.json
+          if git diff --cached --quiet;then echo "No-op already archived";exit 0;fi
+          git commit -m "Archive 9 credited genuine Central Texas little-bluestem anatomy JPEGs and 16-panel lesson [skip ci]"
+          for i in 1 2 3 4;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 5
+          done
+          exit 1
