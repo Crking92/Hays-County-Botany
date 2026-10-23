@@ -289,7 +289,7 @@ def build(root: Path, noncommercial: bool) -> dict:
     # The Learner no longer has a Photo Lab nav item. The unchanged Field ID
     # and Quiz interfaces do. Remove that private-review link from all three
     # public pages, and never add the Photo Lab route to the public snapshot.
-    for name in ("index.html", "field-id.html", "quiz.html"):
+    for name in ("index.html", "field-id.html", "field-id-classic.html", "quiz.html"):
         page = site / name
         if not page.is_file():
             raise RuntimeError(f"Required public section missing from staged site: {name}")
@@ -406,6 +406,7 @@ def build(root: Path, noncommercial: bool) -> dict:
     # publish so the beginner search automatically includes newly installed
     # species without manually editing the website or canonical records.
     public_names = []
+    field_tiles = []
     for species_path in sorted((site / "content" / "taxa").rglob("species.json")):
         sp = json.loads(species_path.read_text(encoding="utf-8"))
         sid = sp.get("id")
@@ -419,11 +420,45 @@ def build(root: Path, noncommercial: bool) -> dict:
             "genus": sp.get("genus") or "",
             "family": sp.get("family") or "",
         })
+        # Only use the filtered PUBLIC species JSON and its retained photos.
+        # Never pull a thumbnail from pre-filter canonical records, unapproved
+        # external references or the private Photo Lab.
+        filtered = sp.get("images") if isinstance(sp.get("images"), list) else []
+        first = next(
+            (img for img in filtered if isinstance(img, dict)
+             and isinstance(img.get("file"), str)
+             and (species_path.parent / img["file"]).is_file()),
+            None,
+        )
+        thumb = ""
+        if first is not None:
+            thumb = (species_path.parent / first["file"]).relative_to(site).as_posix()
+        field_tiles.append({
+            "id": sid,
+            "path": species_path.relative_to(site).as_posix(),
+            "family": sp.get("family") or "",
+            "genus": sp.get("genus") or "",
+            "scientific_name": sp.get("scientific_name") or "",
+            "common_name": sp.get("common_name") or "",
+            "thumbnail": thumb,
+            "thumbnail_creator": (first or {}).get("creator") or "",
+            "thumbnail_license": (first or {}).get("license") or "",
+            "thumbnail_source": (first or {}).get("source_page") or "",
+            "photo_count": len(filtered),
+            "cue": str(sp.get("look_here_first") or "").strip()[:190],
+        })
     (data / "learner-search-index.json").write_text(
         json.dumps({"version": 1, "species": public_names}, ensure_ascii=False,
                    separators=(",", ":")) + "\n", encoding="utf-8"
     )
     tally["learner_search_entries"] = len(public_names)
+    # A compact, rights-filtered, photo-enabled tile directory. The Field ID
+    # app retrieves full canonical detail only when an individual tile opens.
+    (data / "field-id-index.json").write_text(
+        json.dumps({"version": 1, "species": field_tiles}, ensure_ascii=False,
+                   separators=(",", ":")) + "\n", encoding="utf-8"
+    )
+    tally["field_id_tile_entries"] = len(field_tiles)
 
     # The public repository should not run Jekyll on source JSON or asset paths.
     (site / ".nojekyll").write_text("", encoding="utf-8")
@@ -433,9 +468,11 @@ def build(root: Path, noncommercial: bool) -> dict:
         # Bust offline cache when layout/code changes even if plant counts do not.
         import hashlib
         digest = hashlib.sha256()
-        for page_name in ("index.html", "field-id.html", "quiz.html"):
+        for page_name in ("index.html", "field-id.html", "field-id-classic.html", "quiz.html"):
             digest.update((site / page_name).read_bytes())
         digest.update((site / "assets" / "js" / "app.js").read_bytes())
+        digest.update((site / "assets" / "js" / "field-id-tiles.js").read_bytes())
+        digest.update((site / "assets" / "css" / "field-id-tiles.css").read_bytes())
         state = (str(tally["approved_photos"]) + "-" +
                  str(tally["species_checked"]) + "-" +
                  digest.hexdigest()[:12])

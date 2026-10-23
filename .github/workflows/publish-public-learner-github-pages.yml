@@ -70,8 +70,12 @@ jobs:
           git diff --exit-code -- content/ data/ assets/ photo-review.html
           test -s dist/index.html
           test -s dist/field-id.html
+          test -s dist/field-id-classic.html
+          test -s dist/assets/js/field-id-tiles.js
+          test -s dist/assets/css/field-id-tiles.css
           test -s dist/quiz.html
           test -s dist/data/learner-search-index.json
+          test -s dist/data/field-id-index.json
           test ! -e dist/photo-review.html
           test -s dist/data/manifest.json
           test -s dist/manifest.webmanifest
