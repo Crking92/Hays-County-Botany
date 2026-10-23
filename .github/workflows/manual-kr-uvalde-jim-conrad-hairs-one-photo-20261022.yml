@@ -1,0 +1,89 @@
+name: Archive one Uvalde KR bluestem papilla-hair photo with arrows
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-kr-uvalde-jim-conrad-hairs-one-photo-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-kr-jim-conrad-original-1-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install JPEG verification tools
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh canonical files, compile exact-one-photo installer
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_kr_jim_conrad_papilla_hairs_20261022.py
+      - name: Download exact original source and archive one real photo
+        run: python scripts/archive_kr_jim_conrad_papilla_hairs_20261022.py
+      - name: Validate true pixels and photo-specific original rights
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib, sys
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          folder=Path("content/taxa/Poaceae/Bothriochloa")
+          s=json.loads((folder/"bothriochloa-ischaemum/species.json").read_text())
+          g=json.loads((folder/"genus.json").read_text())
+          report=json.loads(Path("reports/kr-jim-conrad-uvalde-papilla-hair-photo-20261022.json").read_text())
+          assert report["result"]=="ONE_TRUE_UVALDE_KR_LEAF_BASE_HAIR_PHOTO_ARCHIVED"
+          assert report["new_real_photo_count"]==1
+          assert len(s["visual_comparison"]["items"])==17 and len(g["visual_comparison"]["items"])==12
+          assert len(s["images"])==8 and s["curation_status"]["photo_files_present"]==6
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          p=Path(report["photo"])
+          assert p.is_file() and p.stat().st_size>11000
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==report["archived_sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and im.width>=475 and im.height>=330
+              assert not im.getexif().get(34853)
+              im.verify()
+          record=next(x for x in s["images"] if x["file"]=="images/"+p.name)
+          assert record["creator"]=="Jim Conrad"
+          assert "Public domain" in record["license"]
+          assert record["source_page"]=="https://www.backyardnature.net/n/h/kingblue.htm"
+          assert record["license_url"]=="https://www.backyardnature.net/j/copyrite.htm"
+          assert rights(record,True)[0] and photo_rights(record,True) is None
+          sp=[x for x in s["visual_comparison"]["items"] if x["image_url"]==str(p)]
+          gp=[x for x in g["visual_comparison"]["items"] if x["image_url"]==str(p)]
+          assert len(sp)==len(gp)==1
+          assert len(sp[0]["markers"])==len(gp[0]["markers"])==2
+          assert sp[0]["scientific_name"]=="Bothriochloa ischaemum"
+          assert all(0<=m[k]<=100 for m in sp[0]["markers"] for k in ("label_x","label_y","target_x","target_y"))
+          assert not any("measured ligule" in m["label"].lower() for m in sp[0]["markers"])
+          print("PASS 1 actual public-domain original + 2 broad physically visible hair-target arrows; crucial macro science gaps preserved",flush=True)
+          PY
+      - name: Commit only one new copyrighted-free original and canonical notes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum/
+          git add content/taxa/Poaceae/Bothriochloa/genus.json
+          git add reports/kr-jim-conrad-uvalde-papilla-hair-photo-20261022.json
+          git add workflow/field-id-publication/2026-10-22-kr-uvalde-papilla-hairs-one-photo.json
+          if git diff --cached --quiet; then echo "ALREADY_ARCHIVED_NOOP"; exit 0; fi
+          git commit -m 'Archive one Jim Conrad Uvalde KR leaf-base hair image with two credited source arrows [skip ci]'
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
