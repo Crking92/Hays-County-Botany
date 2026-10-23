@@ -23,7 +23,7 @@ def info_for(url):
  elif parts.netloc=="upload.wikimedia.org":
   name=urllib.parse.unquote(parts.path.split("/")[-1])
  else:raise ValueError("Not a Wikimedia source URL")
- api="https://commons.wikimedia.org/w/api.php?"+urllib.parse.urlencode({"action":"query","prop":"imageinfo","iiprop":"url|extmetadata","titles":"File:"+name,"format":"json"})
+ api="https://commons.wikimedia.org/w/api.php?"+urllib.parse.urlencode({"action":"query","prop":"imageinfo","iiprop":"url|extmetadata","iiurlwidth":1800,"titles":"File:"+name,"format":"json"})
  pages=json.loads(fetch(api))["query"]["pages"]
  page=next(iter(pages.values()))
  if "imageinfo" not in page:raise ValueError("Commons file not found: "+name)
@@ -69,7 +69,7 @@ def main():
      raise ValueError("Source vs Commons license differs: "+source.get("license","")+" / "+license)
    creator=html.unescape(re.sub(r"<[^>]*>","",metadata.get("Artist",{}).get("value",""))).strip()
    if not creator and norm not in ("PUBLICDOMAIN","CC0","PDM","NORESTRICTIONS"):raise ValueError("Missing image-level creator credit")
-   payload=fetch(info["url"])
+   payload=fetch(info.get("thumburl") or info["url"])
    if not 10000<len(payload)<25000000:raise ValueError("Unexpected image byte length")
    image=Image.open(io.BytesIO(payload));image.verify()
    image=Image.open(io.BytesIO(payload)).convert("RGB")
@@ -85,7 +85,7 @@ def main():
    source["archived_original_commons_filename"]=name
    source["archive_license_verified"]=license
    source["archive_creator_metadata"]=creator
-   source["archive_status"]="LOCALLY_STORED; original source attribution and anatomy notes preserved"
+   source["archive_status"]="LOCALLY_STORED; original source attribution and anatomy notes preserved"\n   source["archive_download_variant"]="Commons resized derivative <=1800 px when available; full original fallback"
    reference=p.parent/new_file
    mapping={previous:str(reference).replace("\\","/")}
    card=replace_urls(card,mapping)
