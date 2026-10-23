@@ -1,0 +1,86 @@
+name: Archive eleven real credited rough-dropseed photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-sporobolus-clandestinus-harms-eleven-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-onetime-spcl-11-original-images-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoding tools
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Confirm latest main and compile guarded installer
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_sporobolus_clandestinus_harms_20261022.py
+          python -m py_compile scripts/build_public_pages_snapshot.py scripts/public_photo_rights_preflight.py
+      - name: Download and decode ALL eleven author-determined original photos before installing any
+        run: python scripts/archive_sporobolus_clandestinus_harms_20261022.py
+      - name: Audit original credits, actual local bytes and narrow public rights
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json, hashlib, sys
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Sporobolus")
+          sp=json.loads((base/"sporobolus-clandestinus/species.json").read_text())
+          gn=json.loads((base/"genus.json").read_text())
+          report=json.loads(Path("reports/sporobolus-clandestinus-physical-harms-eleven-20261022.json").read_text())
+          assert report["result"]=="ELEVEN_REAL_HARMS_ROUGH_DROPSEED_IMAGES_PHYSICALLY_ARCHIVED"
+          assert len(report["files"])==11
+          assert len(sp["images"])==14 and sp["curation_status"]["photo_files_present"]==13
+          assert len(sp["visual_comparison"]["items"])==15 and len(gn["visual_comparison"]["items"])==33
+          assert sp["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          for f in report["files"]:
+              p=Path(f["image_path"])
+              assert p.is_file() and p.stat().st_size>7000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==f["archived_sha256"]
+              with Image.open(p) as img:
+                  assert img.format=="JPEG" and not img.getexif().get(34853)
+                  img.verify()
+              record=next(i for i in sp["images"] if i["file"]=="images/"+p.name)
+              assert record["creator"]=="Bob Harms"
+              assert record["source_taxon_name"]=="Sporobolus clandestinus"
+              assert record["site_specific_public_permission"]=="BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
+              assert rights(record,True)[0] and photo_rights(record,True) is None
+              assert not rights(record,False)[0]
+              assert sum(i["image_url"]==str(p) for i in sp["visual_comparison"]["items"])==1
+              assert sum(i["image_url"]==str(p) for i in gn["visual_comparison"]["items"])==1
+          print("PASS 11 real attributed local JPEGs, 13 physical rough-dropseed photos total; still FIELD_READY_PHOTO_GAPS")
+          PY
+      - name: Commit narrowly scoped proof and learner content
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Sporobolus/sporobolus-clandestinus/
+          git add content/taxa/Poaceae/Sporobolus/genus.json
+          git add reports/sporobolus-clandestinus-physical-harms-eleven-20261022.json
+          git add reports/grass-diagnostic-progress-live-20261022.json
+          git add workflow/field-id-publication/2026-10-22-sporobolus-clandestinus-eleven-archived-harms.json
+          if git diff --cached --quiet; then echo 'ALREADY_ARCHIVED_NOOP'; exit 0; fi
+          git commit -m 'Archive 11 educational-use rough-dropseed originals with source hashes [skip ci]'
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
