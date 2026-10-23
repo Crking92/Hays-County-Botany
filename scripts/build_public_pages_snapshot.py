@@ -90,6 +90,28 @@ def permitted_harms_phalaris(item: dict, noncommercial: bool) -> bool:
                for photo_id in HARMS_PHCA_IMAGE_IDS)
 
 
+
+# Exact credited educational use for eight already source-vetted S. vaginiflorus
+# photographs by Bob Harms. NOT a Creative Commons grant for other reuse.
+SPVA_IDS = frozenset({"SPVA-a3","SPVA-b1","SPVA-c","SPVA-i","SPVA-J1","SPVA-j2","SPVA-d","SPVA-L"})
+SPVA_LICENSE = "© Bob Harms — scientific/educational use permitted with photographer credit ONLY (NOT Creative Commons)"
+
+def permitted_harms_spva(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != SPVA_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Sporobolus vaginiflorus":
+        return False
+    return any(item.get("source_page") == HARMS_BASE + "pages/" + ident + ".html"
+               and item.get("source_image") == HARMS_BASE + "images/" + ident + ".jpg"
+               for ident in SPVA_IDS)
+
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -122,7 +144,7 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
-    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial):
+    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
         # Public display on this learner was expressly granted by the owner,
