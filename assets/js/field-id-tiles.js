@@ -15,7 +15,9 @@ const safePath=path=>{
 };
 const photo=(item,kind)=>{
  const path=safePath(item.thumbnail);
- return path?'<div class="tile-image"><img loading="lazy" decoding="async" src="'+esc(path)+'" alt="'+esc(memberName(item))+' — example '+esc(kind)+' member" onerror="this.closest(\'.tile-image\').classList.add(\'photo-missing\');this.remove()"></div>':
+ const credit=[item.thumbnail_creator,item.thumbnail_license].filter(Boolean).join(' · ');
+ return path?'<div class="tile-image"><img loading="lazy" decoding="async" src="'+esc(path)+'" alt="'+esc(memberName(item))+' — example '+esc(kind)+' member" onerror="this.closest(\'.tile-image\').classList.add(\'photo-missing\');this.remove()">'+
+  (credit?'<span class="tile-photo-credit">'+esc(credit)+'</span>':'')+'</div>':
   '<div class="tile-image no-photo" aria-hidden="true"><span>✳</span></div>';
 };
 const sorted=(a,b)=>a.localeCompare(b);
@@ -46,11 +48,11 @@ function filtered(){
 function tile(item){
  if(state.rank==='families')return '<button class="field-tile" data-family="'+esc(item.family)+'">'+
   photo(item.example,'family')+'<div class="tile-body"><span class="rank-label">Family</span>'+
-  '<strong>'+esc(item.name)+'</strong><span class="tile-sub">'+item.count+' species in library</span>'+
+  '<strong>'+esc(item.name)+'</strong><span class="tile-sub">'+item.count+' species in library · example: '+esc(memberName(item.example))+'</span>'+
   '<span class="tile-action">See genera →</span></div></button>';
  if(state.rank==='genera')return '<button class="field-tile" data-genus="'+esc(item.genus)+'" data-parent-family="'+esc(item.family)+'">'+
   photo(item.example,'genus')+'<div class="tile-body"><span class="rank-label">'+esc(item.family)+' · Genus</span>'+
-  '<strong><i>'+esc(item.name)+'</i></strong><span class="tile-sub">'+item.count+' species</span>'+
+  '<strong><i>'+esc(item.name)+'</i></strong><span class="tile-sub">'+item.count+' species · example: '+esc(memberName(item.example))+'</span>'+
   '<span class="tile-action">See species →</span></div></button>';
  return '<button class="field-tile" data-species="'+esc(item.id)+'" aria-label="Open '+esc(memberName(item))+' identification card">'+
   photo(item,'species')+'<div class="tile-body"><span class="rank-label">'+esc(item.family)+'</span>'+
