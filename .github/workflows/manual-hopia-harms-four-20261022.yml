@@ -1,0 +1,76 @@
+name: Physically archive four regional vine mesquite anatomical photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-hopia-harms-four-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-hopia-bob-harms-source-specific-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pixel and source verification packages
+        run: |
+          python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+          python -m py_compile scripts/archive_hopia_bob_harms_four_diagnostic_20261022.py scripts/build_public_pages_snapshot.py scripts/public_photo_rights_preflight.py
+      - name: Retrieve exact region-labelled originals and register public genus/science panels
+        run: python scripts/archive_hopia_bob_harms_four_diagnostic_20261022.py
+      - name: Verify physical source, attribution, exact image-level rights and each JPEG
+        run: |
+          python - <<'PY'
+          import sys,json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          s=json.loads(Path("content/taxa/Poaceae/Hopia/hopia-obtusa/species.json").read_text())
+          g=json.loads(Path("content/taxa/Poaceae/Hopia/genus.json").read_text())
+          r=json.loads(Path("reports/hopia-obtusa-four-harms-original-anatomy-20261022.json").read_text())
+          assert s["id"]=="hopia-obtusa" and s["project_inclusion"]["target_zone_status"]=="PASS"
+          assert r["true_new_files"]==4 and len(r["photos"])==4
+          assert len(s["images"])==9 and len(s["visual_comparison"]["items"])==8 and len(g["visual_comparison"]["items"])==8
+          assert s["curation_status"]["photo_files_present"]==6
+          assert "FIELD_READY_PHOTO_GAPS" in s["field_id_finish_pass"]["stage"]
+          for photo in r["photos"]:
+              file=Path(photo["local"])
+              assert file.is_file() and file.stat().st_size>5000
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==photo["sha256"]
+              with Image.open(file) as im:
+                  assert im.format=="JPEG" and im.mode=="RGB" and not im.getexif().get(34853)
+                  im.verify()
+              m=next(x for x in s["images"] if x.get("file")=="images/"+file.name)
+              assert m["creator"]=="Bob Harms" and m["source_taxon_name"]=="Panicum obtusum"
+              assert m["accepted_taxon_name"]=="Hopia obtusa"
+              assert rights(m,True)[0] and photo_rights(m,True) is None
+              assert len([x for x in s["visual_comparison"]["items"] if x.get("image_url")==str(file)])==1
+          print("PASS: four real originals, exact legal site-specific use and original botanical synonym, no invented root labels",flush=True)
+          PY
+      - name: Commit only real downloaded binary media and canonical lessons
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Hopia/hopia-obtusa/ content/taxa/Poaceae/Hopia/genus.json
+          git add reports/hopia-obtusa-four-harms-original-anatomy-20261022.json
+          git add workflow/field-id-publication/2026-10-22-hopia-obtusa-harms-four-physical.json
+          if git diff --cached --quiet; then echo "Already archived, no duplication"; exit 0; fi
+          git commit -m 'Physically archive four original Bob Harms vine mesquite photos under credited educational reuse [skip ci]'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
