@@ -1,0 +1,33 @@
+name: Archive Festuca versuta historical plate
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_festuca_versuta_1906_plate.py
+      - .github/workflows/archive-festuca-versuta-plate.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-festuca-versuta-plate
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/archive_festuca_versuta_1906_plate.py
+      - name: Commit verified plate and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Festuca/festuca-versuta/ reports/festuca-versuta-plate-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive public-domain Festuca versuta historical plate"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
