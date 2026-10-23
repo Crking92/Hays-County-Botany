@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "public_site_ui_navigation",
+  "title": "Compact tile-based Field ID replacing old dense default",
+  "user_request": "Field ID short and sweet, tiles, clicking each tile reveals more information.",
+  "merged_pull_request": 37,
+  "merge_commit": "5f41cf749dbf16151a554ce6541afabf95f74a22",
+  "surface": "field-id.html",
+  "preserved": [
+    "field-id-classic.html (original advanced Field ID and Compare)",
+    "quiz.html unchanged",
+    "index.html full Learner unchanged",
+    "canonical species/genus/family and diagnostic photos unchanged"
+  ],
+  "new_index": "dist/data/field-id-index.json from approved public species/photos only",
+  "user_experience": [
+    "Photo family tiles → genus tiles → species tiles",
+    "Search common names, botanical names, and families",
+    "Tap species opens short ID with photos, clues, look-alikes and optional deeper details",
+    "Phone responsive",
+    "No up-front download of all species JSON"
+  ],
+  "safety": [
+    "Original copyright metadata retained",
+    "Photo thumbnails generated only after rights filtering",
+    "Photo Lab not published on public Pages",
+    "Existing quality and license release workflow unchanged",
+    "All five automations unchanged"
+  ],
+  "validation": [
+    "JavaScript syntax passed",
+    "Mock navigation family → genus → species → licensed photo modal passed",
+    "Index generation and public page packaging checked",
+    "Pages build explicitly checks tile assets, advanced page and field-id-index.json"
+  ]
+}
