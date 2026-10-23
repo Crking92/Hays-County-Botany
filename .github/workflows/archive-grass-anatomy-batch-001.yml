@@ -1,0 +1,34 @@
+name: Archive grass anatomy batch 001
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_grass_anatomy_batch_001.py
+      - .github/workflows/archive-grass-anatomy-batch-001.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: grass-anatomy-batch-001
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Download and archive four verified source photographs
+        run: python scripts/archive_grass_anatomy_batch_001.py
+      - name: Commit physical JPEGs and updated species cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eleusine/eleusine-indica/ content/taxa/Poaceae/Bromus/bromus-japonicus/ content/taxa/Poaceae/Bromus/bromus-lanceolatus/
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive licensed grass ligule and spikelet diagnostic photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
