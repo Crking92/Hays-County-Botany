@@ -67,8 +67,8 @@ def main():
             raise RuntimeError(ident+" source is not an authentic source JPEG")
         with Image.open(BytesIO(raw)) as original:
             original.load()
-            if original.format!="JPEG" or min(original.size)<300 or max(original.size)>4500:
-                raise RuntimeError(ident+" unexpected source image dimensions")
+            if original.format!="JPEG" or min(original.size)<160 or max(original.size)>4500:
+                raise RuntimeError(ident+" unexpected source image dimensions "+repr(original.size))
             clean=ImageOps.exif_transpose(original).convert("RGB")
             dims=list(clean.size)
         bio=BytesIO();clean.save(bio,format="JPEG",quality=94,optimize=True)
