@@ -1,0 +1,78 @@
+name: Archive original Texas KR bluestem and publish native ID photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-kr-texas-head-native-compare-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-one-time-kr-tyler-original-and-native-compare-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python image and HTTP dependencies
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh and compile guarded installer
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_kr_texas_tyler_cannon_20261022.py
+      - name: Archive actual creator-licensed original CC BY source with hash proof
+        run: python scripts/archive_kr_texas_tyler_cannon_20261022.py
+      - name: Confirm image bytes license and scientific native safeguards
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,sys
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Bothriochloa")
+          s=json.loads((base/"bothriochloa-ischaemum/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          r=json.loads(Path("reports/kr-bluestem-tyler-cannon-texas-photo-physical-20261022.json").read_text())
+          assert r["result"]=="ONE_SOURCE_VERIFIED_TEXAS_KR_ORIGINAL_ARCHIVED"
+          assert len(s["images"])==7 and s["curation_status"]["photo_files_present"]==5
+          assert len(s["visual_comparison"]["items"])==16 and len(g["visual_comparison"]["items"])==11
+          assert s["native_metrics_excluded"] and s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          p=Path(r["physical_path"]);assert p.is_file() and p.stat().st_size>12000
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==r["archived_sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and not im.getexif().get(34853)
+              im.verify()
+          x=next(v for v in s["images"] if v.get("inaturalist_photo_id")==93518931)
+          assert x["creator"]=="Tyler Cannon" and x["license"]=="CC BY 4.0"
+          assert rights(x,True)[0] and photo_rights(x,True) is None
+          assert sum(y["image_url"]==str(p) for y in s["visual_comparison"]["items"])==1
+          assert sum(y["image_url"]==str(p) for y in g["visual_comparison"]["items"])==1
+          print("PASS KR archive, creator/photo rights, local image and photo-gallery validation")
+          PY
+      - name: Commit only original photographed KR and source audit fields
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum/
+          git add content/taxa/Poaceae/Bothriochloa/genus.json
+          git add reports/kr-bluestem-tyler-cannon-texas-photo-physical-20261022.json
+          git add workflow/field-id-publication/2026-10-22-kr-native-comparison-and-physical-texas-photo.json
+          if git diff --cached --quiet; then echo ALREADY_ARCHIVED_NOOP; exit 0; fi
+          git commit -m 'Archive real Texas KR CC BY head and release 16-panel native comparison [skip ci]'
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
