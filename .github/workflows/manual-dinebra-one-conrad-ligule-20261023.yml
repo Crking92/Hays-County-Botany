@@ -1,0 +1,93 @@
+name: Install one real mucronata ligule and sheath hair photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-dinebra-one-conrad-ligule-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-one-source-conrad-mucronata-ligule-20261023
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source JPEG audit libraries
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh and compile guarded one-photo installer
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_dinebra_mucronata_conrad_ligule_20261023.py
+      - name: Archive exactly one authentic source mucronata ligule photo
+        run: python scripts/archive_dinebra_mucronata_conrad_ligule_20261023.py
+      - name: Inspect source identity, photo rights and precise anatomical labels
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,sys
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          root=Path("content/taxa/Poaceae/Dinebra")
+          s=json.loads((root/"dinebra-panicea-subsp-mucronata/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          rep=json.loads(Path("reports/dinebra-mucronata-conrad-original-ligule-20261023.json").read_text())
+          assert rep["result"]=="ONE_PUBLIC_DOMAIN_EXACT_SUBSPECIES_LIGULE_PHOTO_ARCHIVED"
+          assert rep["new_originals"]==1 and rep["new_visible_structure_arrows"]==2
+          assert rep["true_ligule_confirmed"] and not rep["true_ligule_mm_measured"]
+          assert not rep["single_papilla_base_confirmed"] and not rep["microscopic_upper_glume_tip_confirmed"]
+          assert len(s["images"])==7 and s["curation_status"]["photo_files_present"]==7
+          assert len(s["visual_comparison"]["items"])==len(g["visual_comparison"]["items"])==11
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          p=Path(rep["photo_file"])
+          assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==rep["archive_sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and 500<=im.width<=850 and 400<=im.height<=750
+              assert not im.getexif().get(34853)
+              im.verify()
+          rec=next(z for z in s["images"] if z.get("source_image")=="https://www.backyardnature.net/n/19/190322lg.jpg")
+          assert rec["creator"]=="Jim Conrad" and rec["source_taxon_name"]=="Dinebra panicea subsp. mucronata"
+          assert "Public domain" in rec["license"]
+          assert rec["license_url"]=="https://www.backyardnature.net/j/copyrite.htm"
+          assert rights(rec,True)[0] and photo_rights(rec,True) is None
+          panels=[z for z in s["visual_comparison"]["items"] if z["image_url"]==str(p)]
+          matching=[z for z in g["visual_comparison"]["items"] if z["image_url"]==str(p)]
+          assert len(panels)==len(matching)==1
+          v=panels[0];assert len(v["markers"])==2
+          assert "ligule" in v["markers"][0]["label"].lower()
+          assert "sheath" in v["markers"][1]["label"].lower()
+          assert all(0<=a[k]<=100 for a in v["markers"] for k in ("label_x","label_y","target_x","target_y"))
+          assert "NO millimeter ruler" in v["caption"]
+          for panel in s["visual_comparison"]["items"]:
+              if panel.get("scientific_name")=="Dinebra panicea subsp. brachiata":
+                  assert panel["taxon_comparison_only"] is True
+          print("PASS genuine correct-subspecies Jim Conrad PD original, real distinct ligule and sheath hairs, no guessed scale/papillae")
+          PY
+      - name: Commit one real JPEG and source-labelled species and genus gallery
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Dinebra/dinebra-panicea-subsp-mucronata/
+          git add content/taxa/Poaceae/Dinebra/genus.json
+          git add reports/dinebra-mucronata-conrad-original-ligule-20261023.json
+          git add workflow/field-id-publication/2026-10-23-dinebra-mucronata-conrad-ligule-one-photo.json
+          if git diff --cached --quiet; then echo ALREADY_INSTALLED_NOOP; exit 0; fi
+          git commit -m 'Dinebra: one original public-domain mucronata ligule and separate sheath hair arrows [skip ci]'
+          for retry in 1 2 3 4; do
+              if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+              sleep 5
+          done
+          exit 1
