@@ -1,0 +1,55 @@
+name: Reconcile corrected pine muhly manifest
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/repair-pine-muhly-manifest-20261023.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update manifest and history without reordering other species
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+          base=Path("content/taxa/Poaceae/Muhlenbergia")
+          good=base/"muhlenbergia-dubia/species.json"
+          assert good.is_file()
+          assert json.loads(good.read_text())["scientific_name"]=="Muhlenbergia dubia"
+          p=Path("data/manifest.json")
+          d=json.loads(p.read_text())
+          matches=[s for s in d["species"] if s["id"] in ("muhlenbergia-dubia","muhlenbergia-piniflora")]
+          assert len(matches)==1, matches
+          if matches[0]["id"]=="muhlenbergia-piniflora":
+              matches[0]["id"]="muhlenbergia-dubia"
+              matches[0]["path"]=good.as_posix()
+              p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+"\n")
+          h=Path("research-drafts/muhlenbergia-piniflora/draft.json")
+          old=json.loads(h.read_text())
+          old["draft_status"]="RESOLVED_SOURCE_TYPO_CORRECTED_CANONICAL"
+          old["taxonomy"]["status"]="RESOLVED_INVALID_SOURCE_LABEL"
+          old["taxonomy"]["accepted_taxon"]="Muhlenbergia dubia E.Fourn."
+          old["taxonomy"]["original_label_is_botanical_synonym"]=False
+          old["provisional_promotion"]["canonical_path"]=good.as_posix()
+          h.write_text(json.dumps(old,indent=2,ensure_ascii=False)+"\n")
+          # Historical source retained as a draft, not a second canonical species.
+          old_file=base/"muhlenbergia-piniflora/species.json"
+          if old_file.exists():
+              old_file.unlink()
+          check=json.loads(p.read_text())
+          assert len([s for s in check["species"] if s["id"]=="muhlenbergia-dubia"])==1
+          assert not any(s["id"]=="muhlenbergia-piniflora" for s in check["species"])
+      - name: Commit guarded correction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/manifest.json research-drafts/muhlenbergia-piniflora/draft.json content/taxa/Poaceae/Muhlenbergia/muhlenbergia-piniflora/species.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Finish pine muhly manifest reconciliation"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
