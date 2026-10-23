@@ -112,6 +112,25 @@ def permitted_harms_spva(item: dict, noncommercial: bool) -> bool:
                for ident in SPVA_IDS)
 
 
+# Exact original copyrighted hairyseed paspalum photographs: Bob Harms grants
+# scientific/educational use with individual creator credit, NOT a CC grant.
+HARMS_PAPU_IDS = frozenset({"PAPU5-I","PAPU5-J","PAPU5-J1","PAPU5-L"})
+
+def permitted_harms_papu(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Paspalum pubiflorum":
+        return False
+    return any(item.get("source_page") == HARMS_BASE + "pages/" + i + ".html" and
+               item.get("source_image") == HARMS_BASE + "images/" + i + ".jpg"
+               for i in HARMS_PAPU_IDS)
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -144,7 +163,7 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
-    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial):
+    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_papu(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
         # Public display on this learner was expressly granted by the owner,
