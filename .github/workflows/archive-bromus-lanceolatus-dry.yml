@@ -1,0 +1,33 @@
+name: Archive Bromus lanceolatus licensed spikelets
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_bromus_lanceolatus_dry.py
+      - .github/workflows/archive-bromus-lanceolatus-dry.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-bromus-lanceolatus-dry
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/archive_bromus_lanceolatus_dry.py
+      - name: Commit JPEG and species gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Bromus/bromus-lanceolatus/ reports/bromus-lanceolatus-dry-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive exact-species Bromus lanceolatus spikelet photograph"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
