@@ -13,7 +13,8 @@ GN=BASE/"genus.json"
 CSV=SP.parent/"image-sources.csv"
 REPORT=Path("reports/kr-bluestem-tyler-cannon-texas-photo-physical-20261022.json")
 MARK=Path("workflow/field-id-publication/2026-10-22-kr-native-comparison-and-physical-texas-photo.json")
-PHOTO="https://inaturalist-open-data.s3.amazonaws.com/photos/93518931/original.jpeg"
+PHOTOS=("https://inaturalist-open-data.s3.amazonaws.com/photos/93518931/original.jpg",
+       "https://upload.wikimedia.org/wikipedia/commons/a/a3/Bothriochloa_ischaemum_var._songarica.jpg")
 WEB="https://commons.wikimedia.org/wiki/File:Bothriochloa_ischaemum_var._songarica.jpg"
 LIC="CC BY 4.0"
 DEST=SP.parent/"images/tyler-cannon-texas-kr-var-songarica-cc-by4.jpg"
@@ -46,8 +47,21 @@ def main():
         rd=csv.DictReader(f); fields=list(rd.fieldnames or []); rows=list(rd)
     if "file_name" not in fields or any(r.get("file_name")==DEST.name for r in rows):
         raise RuntimeError("Missing registry schema or existing filename")
-    r=requests.get(PHOTO,timeout=40,headers={"User-Agent":"HaysBotanyLicensedOriginalImageArchive/1.0"})
-    r.raise_for_status()
+    r=None
+    failures=[]
+    for candidate in PHOTOS:
+        try:
+            v=requests.get(candidate,timeout=35,headers={"User-Agent":"HaysBotanyLicensedOriginalImageArchive/1.0"})
+            v.raise_for_status()
+            if not (v.content.startswith(b"\xff\xd8\xff") and len(v.content)>20000):
+                raise RuntimeError("not a JPEG")
+            r=v
+            print("SOURCE VERIFIED",candidate,flush=True)
+            break
+        except Exception as exc:
+            failures.append(candidate+" "+str(exc)[:100])
+    if r is None:
+        raise RuntimeError("No verified licensed source binary. No changes. "+repr(failures))
     raw=r.content
     if not 20000<len(raw)<9000000 or not raw.startswith(b"\xff\xd8\xff"):
         raise RuntimeError("Photo source unavailable/not a usable JPEG")
@@ -66,7 +80,7 @@ def main():
     original_hash=hashlib.sha256(raw).hexdigest()
     archive_hash=hashlib.sha256(out).hexdigest()
     pic.update({
-        "file":"images/"+DEST.name,"source_original_file":original,"direct_media_source":PHOTO,
+        "file":"images/"+DEST.name,"source_original_file":original,"direct_media_source":r.url,
         "license_url":"https://creativecommons.org/licenses/by/4.0/",
         "source_original_sha256":original_hash,"archive_sha256":archive_hash,
         "source_original_dimensions":dims,"archived_dimensions":list(clean.size),
@@ -88,7 +102,7 @@ def main():
        "oneGenuinePhotoArchived":True,"license":LIC,"source":WEB,"status":"FIELD_READY_PHOTO_GAPS"}
     vals={"file_name":DEST.name,"role":pic["role"],"creator":"Tyler Cannon","license":LIC,
           "license_url":"https://creativecommons.org/licenses/by/4.0/","source_page":WEB,
-          "direct_url":PHOTO,"study_use":"Noncommercial public educational website",
+          "direct_url":r.url,"study_use":"Noncommercial public educational website",
           "public_reuse":"yes, CC BY 4.0","modifications":pic["modifications"]}
     rows.append({col:vals.get(col,"") for col in fields})
     assert all(json.dumps(s.get(k),sort_keys=True)==v for k,v in protected.items())
