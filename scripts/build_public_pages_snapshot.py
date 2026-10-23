@@ -285,6 +285,26 @@ def permitted_harms_eriochloa_sericea(item: dict, noncommercial: bool) -> bool:
         and item.get("source_image") == HARMS_BASE+"images/ERSE5-9.jpg"
     )
 
+# Five source-specific Bob Harms green sprangletop images, identified originally
+# as Leptochloa dubia (= accepted Disakisperma dubium). Licensed by their creator
+# ONLY for properly credited scientific / educational use, not Creative Commons.
+HARMS_LEDU_IDS = frozenset({"LEDU-i","LEDU-j","LEDU-j2","LEDU-S","LEDU-d"})
+
+def permitted_harms_disakisperma(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Leptochloa dubia" or item.get("accepted_taxon_name") != "Disakisperma dubium":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+ident+".html" and
+               item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
+               for ident in HARMS_LEDU_IDS)
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -307,6 +327,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Bob Harms exact Andropogon gerardii Selected Monocots photo, educational with credit, NOT CC"
     if permitted_harms_hopia(item, noncommercial):
         return True, "Bob Harms exact source Panicum obtusum / accepted Hopia obtusa Selected Monocots, educational credited permission; NOT CC"
+    if permitted_harms_disakisperma(item, noncommercial):
+        return True, "Bob Harms exact Leptochloa dubia / accepted Disakisperma dubium educational credited originals"
     if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_little_bluestem(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial) or permitted_harms_spco(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
