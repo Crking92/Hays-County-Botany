@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 """Strict source-reviewed anatomy archive; one failure does not stop remaining taxa."""
-import json,urllib.parse,urllib.request,io,pathlib,hashlib
+import json,urllib.parse,urllib.request,urllib.error,io,pathlib,hashlib,time
 from PIL import Image
 items=[{"genus":"Poa","id":"poa-annua","file":"Poa annua spikelet6 (8038355821).jpg","creator":"Harry Rose","license":"CC BY 2.0","role":"Close photographed spikelet with florets and visible anthers"},{"genus":"Poa","id":"poa-annua","file":"Poa annua spikelet9 (8038350836).jpg","creator":"Harry Rose","license":"CC BY 2.0","role":"Floret detail showing actual palea"},{"genus":"Hordeum","id":"hordeum-pusillum","file":"Hordeum pusillum (6180951213).jpg","creator":"Matt Lavin","license":"CC BY-SA 2.0","role":"True central and lateral spikelets; glumes and floret structure"},{"genus":"Festuca","id":"festuca-octoflora","file":"Vulpia octoflora (6243569951).jpg","creator":"Matt Lavin","license":"CC BY-SA 2.0","role":"Closely spaced lemmas and shorter awns, taxon labeled Vulpia octoflora"},{"genus":"Festuca","id":"festuca-octoflora","file":"Vulpia octoflora (6243565745).jpg","creator":"Matt Lavin","license":"CC BY-SA 2.0","role":"One-sided inflorescence and actual projecting lemma awns"}]
+def fetch_with_retry(req, timeout=60):
+ for attempt in range(5):
+  try:
+   with urllib.request.urlopen(req,timeout=timeout) as resp:
+    return resp.read()
+  except urllib.error.HTTPError as error:
+   if error.code not in (429,500,502,503,504) or attempt==4: raise
+   pause=min(120,20*(attempt+1))
+   print("Rate limit/backoff",error.code,pause,flush=True)
+   time.sleep(pause)
 errors=[]
 for it in items:
  try:
@@ -11,12 +21,12 @@ for it in items:
   title="File:"+it["file"]
   url="https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata&format=json&titles="+urllib.parse.quote(title)
   req=urllib.request.Request(url,headers={"User-Agent":"Hays-County-Botany/1.0 (botanical educational archive)"})
-  with urllib.request.urlopen(req,timeout=50) as response: pages=json.load(response)["query"]["pages"]
+  pages=json.loads(fetch_with_retry(req,timeout=50))["query"]["pages"]
   info=next(iter(pages.values()))["imageinfo"][0]
   actual=info.get("extmetadata",{}).get("LicenseShortName",{}).get("value","").upper().replace("-","").replace(" ","")
   expected=it["license"].upper().replace("-","").replace(" ","")
   assert expected in actual,(title,actual,expected)
-  with urllib.request.urlopen(urllib.request.Request(info["url"],headers={"User-Agent":"Hays-County-Botany/1.0"}),timeout=70) as response: raw=response.read()
+  raw=fetch_with_retry(urllib.request.Request(info["url"],headers={"User-Agent":"Hays-County-Botany/1.0"}),timeout=70)
   assert 12000<len(raw)<19000000
   im=Image.open(io.BytesIO(raw));im.verify(); im=Image.open(io.BytesIO(raw)).convert("RGB")
   assert im.width>=350 and im.height>=350
