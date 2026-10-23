@@ -1,0 +1,94 @@
+name: Archive four correctly labelled Dinebra sibling-subspecies photos
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/manual-dinebra-brachiata-four-photo-comparisons-20261023.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-dinebra-other-sibling-four-20261023
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install JPEG integrity validation
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh and compile guarded source installer
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_dinebra_brachiata_comparisons_20261023.py
+      - name: Archive four original brachiata photographs ONLY as other-subspecies comparison
+        run: python scripts/archive_dinebra_brachiata_comparisons_20261023.py
+      - name: Validate source rights, species safety, photo bytes and counts
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,sys,hashlib
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights,permitted_harms_dinebra_brachiata_comparison
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Dinebra")
+          s=json.loads((base/"dinebra-panicea-subsp-mucronata/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          report=json.loads(Path("reports/dinebra-mucronata-brachiata-four-pictures-and-native-lookalike-20261023.json").read_text())
+          assert report["status"]=="FOUR_ACTUAL_OTHER_SUBSPECIES_LICENSED_HARMS_PHOTOS_ARCHIVED"
+          assert report["real_new_source_photos"]==4 and report["exact_mucronata_macro_added"]==0
+          assert len(s["visual_comparison"]["items"])==len(g["visual_comparison"]["items"])==9
+          assert len(s["images"])==5 and s["curation_status"]["photo_files_present"]==5
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          ids=set()
+          for rec in s["images"][1:]:
+              assert rec["source_taxon_name"]=="Dinebra panicea subsp. brachiata"
+              assert rec["taxon_comparison_only"] is True
+              assert permitted_harms_dinebra_brachiata_comparison(rec,True)
+              assert rights(rec,True)[0] and photo_rights(rec,True) is None
+              assert rec["source_page"] not in ids
+              ids.add(rec["source_page"])
+              bad=dict(rec,source_taxon_name="Dinebra panicea subsp. mucronata")
+              assert not permitted_harms_dinebra_brachiata_comparison(bad,True)
+              assert photo_rights(bad,True) is not None
+              p=base/"dinebra-panicea-subsp-mucronata"/rec["file"]
+              assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==rec["archived_sha256"]
+              with Image.open(p) as im:
+                  assert im.format=="JPEG" and min(im.size)>=300
+                  assert not im.getexif().get(34853)
+                  im.verify()
+          assert len(ids)==4
+          for i in range(3,7):
+              assert s["visual_comparison"]["items"][i]["scientific_name"]=="Dinebra panicea subsp. brachiata"
+              assert s["visual_comparison"]["items"][i]["taxon_comparison_only"] is True
+              assert s["visual_comparison"]["items"][i]["markers"]==[]
+          for i in range(7,9):
+              assert s["visual_comparison"]["items"][i]["scientific_name"]=="Disakisperma dubium"
+              assert len(s["visual_comparison"]["items"][i]["markers"])==2
+              assert s["visual_comparison"]["items"][i]["image_url"].startswith("content/taxa/Poaceae/Disakisperma")
+          print("PASS four source-authorized original sibling photos, two real annotated native green sprangletop panels, canonical mucronata remains unproven.")
+          PY
+      - name: Commit only exact source images and canonical lesson changes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Dinebra/dinebra-panicea-subsp-mucronata/
+          git add content/taxa/Poaceae/Dinebra/genus.json
+          git add reports/dinebra-mucronata-brachiata-four-pictures-and-native-lookalike-20261023.json
+          git add workflow/field-id-publication/2026-10-23-dinebra-sprangletop-six-reusable-comparisons.json
+          if git diff --cached --quiet; then echo ALREADY_INSTALLED_NOOP; exit 0; fi
+          git commit -m 'Dinebra: 4 credited sibling-anatomy originals and 2 real native comparison panels [skip ci]'
+          for retry in 1 2 3 4; do
+              if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+              sleep 5
+          done
+          exit 1
