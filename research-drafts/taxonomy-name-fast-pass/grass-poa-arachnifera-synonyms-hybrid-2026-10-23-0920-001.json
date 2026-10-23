@@ -1,0 +1,92 @@
+{
+  "batch_id": "grass-poa-arachnifera-synonyms-hybrid-2026-10-23-0920-001",
+  "reviewed_at": "2026-10-23T09:20:49-05:00",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Existing canonical Poaceae only; taxonomy evidence, not a species-card change",
+  "source_pool_name": "Poa arachnifera",
+  "canonical_id": "poa-arachnifera",
+  "canonical_path": "content/taxa/Poaceae/Poa/poa-arachnifera/species.json",
+  "canonical_sha_verified_before_evidence": "8785d9af4fecc7c13360561ef23896b6bdfeaee7",
+  "accepted_name": "Poa arachnifera Torr.",
+  "accepted_rank": "species",
+  "family": "Poaceae",
+  "genus": "Poa",
+  "powo_wcvp_status": "accepted",
+  "first_publication": "R.B.Marcy, Explor. Red River Louisiana: 301 (1853)",
+  "taxonomic_decision": "PASS_ACCEPTED_SPECIES_WITH_HETEROTYPIC_SYNONYMS_AND_HYBRID_IDENTITY_HOLD",
+  "synonyms": [
+    {
+      "name": "Poa arachnifera var. glabrata Vasey ex Beal",
+      "type": "heterotypic",
+      "current_accepted": "Poa arachnifera Torr.",
+      "note": "Historical variety synonym, not an independently accepted learner concept under current POWO/WCVP."
+    },
+    {
+      "name": "Poa densiflora Buckley",
+      "type": "heterotypic",
+      "current_accepted": "Poa arachnifera Torr."
+    },
+    {
+      "name": "Poa glabrescens Nash",
+      "type": "heterotypic",
+      "current_accepted": "Poa arachnifera Torr."
+    }
+  ],
+  "accepted_infraspecifics": "No accepted infraspecific taxa listed on consulted POWO species page; do not infer that a historical variety is an independently accepted current rank.",
+  "hybrid_concept": {
+    "parents": [
+      "Poa arachnifera Torr.",
+      "Poa pratensis L."
+    ],
+    "status": "Documented artificial interspecific breeding hybrids; no separate named accepted hybrid taxon asserted from POWO in this review.",
+    "decision": "HOLD_IDENTITY_FOR_INDIVIDUAL_HYBRID_PHOTOS_AND_CULTIVARS",
+    "evidence": "Texas A&M AggieTurf explicitly identifies hybrid bluegrass as Poa arachnifera × Poa pratensis, including multiple marketed turf cultivars; peer-reviewed cultivar registration documents F1 cross and parents. Do not collapse cultivated hybrids into pure Texas bluegrass or infer an individual photo is hybrid."
+  },
+  "identity_and_source_conflicts": [
+    {
+      "status": "HOLD",
+      "subject": "Existing learner photographic identity",
+      "reason": "Accepted nomenclature and genuine source-labelled photos do not independently voucher every photo or establish parentage of a particular plant."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Floral sex presentation across secondary authorities",
+      "reason": "Texas A&M Rangelands describes male and female flowers on different plants; a USDA government-hosted 2010 grass account states male and female spikelets on same plant. Treat that latter conflict as source discrepancy; do not rewrite existing sex-based diagnosis or infer individual sex from unsupported images without authoritative flora/voucher recheck."
+    }
+  ],
+  "native_range_audit": "DEFERRED_NOT_REVIEWED",
+  "existing_scientific_states": "PRESERVED; no PASS/FAIL/HOLD/UNRESOLVED overrides to canonical species",
+  "installation_decision": "NO_NEW_CARD; existing canonical accepted species retained; synonyms are aliases; hybrid cultivars not automatically merged",
+  "source_urls": [
+    {
+      "authority": "Kew POWO/WCVP",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30352829-2",
+      "supports": "accepted name, author, first publication, 3 heterotypic synonyms, no listed accepted infraspecifics"
+    },
+    {
+      "authority": "Texas A&M Plants of Texas Rangelands",
+      "url": "https://rangeplants.tamu.edu/plant/texas-bluegrass/nggallery/thumbnails",
+      "supports": "sex separation in Texas bluegrass; not a photo-voucher verification"
+    },
+    {
+      "authority": "Texas A&M AggieTurf",
+      "url": "https://aggieturf.tamu.edu/texas-turfgrasses/kentucky-bluegrass-and-hybrid-bluegrass/",
+      "supports": "P. arachnifera × P. pratensis turf hybrid cultivars"
+    },
+    {
+      "authority": "Meeks et al. 2015, Journal of Plant Registrations",
+      "url": "https://acsess.onlinelibrary.wiley.com/doi/full/10.3198/jpr2014.03.0015crc",
+      "supports": "documented F1 Texas bluegrass × Kentucky bluegrass cultivar parentage"
+    },
+    {
+      "authority": "USDA government-hosted grass account (2010)",
+      "url": "https://www.govinfo.gov/content/pkg/GOVPUB-A-PURL-gpo24344/pdf/GOVPUB-A-PURL-gpo24344.pdf",
+      "supports": "conflicting sex statement; treat as unresolved secondary-source discrepancy"
+    }
+  ],
+  "guardrails": [
+    "No species-card, media, genus/family, county range, Pages, or Sheet edits",
+    "Do not infer identity of individual learner photographs or bred hybrids from nomenclature",
+    "Preserve scientific holds; evidence-only commit under taxonomy lane"
+  ]
+}
