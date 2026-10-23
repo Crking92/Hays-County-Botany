@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "public_learner_ui_publication",
+  "title": "Expand licensed iNaturalist scroller directly below existing top species button",
+  "user_approved_request": "I like placement of the inat button but when clicked have side scroller open right there just below the button.",
+  "merged_pull_request": 35,
+  "merge_commit": "5a27cd2655c076c9bb2a50ba4fab75fe006a7e23",
+  "changed": [
+    "index.html",
+    "assets/js/inat-gallery.js",
+    "assets/css/inat-gallery.css"
+  ],
+  "behavior": [
+    "Original top species gallery button remains in place",
+    "Swipeable licensed photo gallery expands directly beneath button without page scrolling",
+    "Remove duplicate lower iNaturalist gallery section",
+    "Collapse/reopen with in-memory cache and rerender continuity",
+    "All original teaching photos and attribution unchanged"
+  ],
+  "verification": [
+    "JavaScript syntax valid",
+    "Photo gallery placed once next to top button",
+    "No automatic scrolling in click handler",
+    "Mock allowed photo and denied ND filtering passed",
+    "Collapse/reopen and async loading passed"
+  ],
+  "release": "Use existing rights-filtered noncommercial Pages build and image QA; do not alter canonical botanical records, Field ID, Quiz or automations."
+}
