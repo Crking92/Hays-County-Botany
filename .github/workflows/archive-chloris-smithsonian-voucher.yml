@@ -1,0 +1,33 @@
+name: Archive Smithsonian Chloris voucher
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_chloris_smithsonian_voucher.py
+      - .github/workflows/archive-chloris-smithsonian-voucher.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-chloris-smithsonian
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/archive_chloris_smithsonian_voucher.py
+      - name: Commit source-checked voucher and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Chloris/chloris-andropogonoides/ reports/chloris-smithsonian-voucher-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive Smithsonian Chloris voucher if identity and image validation pass"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
