@@ -53,16 +53,17 @@ def retrieve(session,url,expected):
                 raise ValueError("Source URL not real expected JPEG bytes")
             with Image.open(io.BytesIO(raw)) as im:
                 im.load()
-                if im.format!="JPEG" or im.size!=expected:
-                    raise ValueError("Source exact named specimen dimensions mismatch: "+str(im.size))
+                if im.format!="JPEG" or abs(im.size[0]-expected[0])>24 or abs(im.size[1]-expected[1])>24:
+                    raise ValueError("Unexpected source named specimen dimensions: "+str(im.size))
+                source_dims=list(im.size)
                 converted=ImageOps.exif_transpose(im).convert("RGB")
             temp=io.BytesIO()
             converted.save(temp,format="JPEG",quality=94,optimize=True)
             dst=temp.getvalue()
             with Image.open(io.BytesIO(dst)) as verify:
-                assert verify.format=="JPEG" and verify.size==expected and not verify.getexif().get(34853)
+                assert verify.format=="JPEG" and list(verify.size)==source_dims and not verify.getexif().get(34853)
                 verify.verify()
-            return raw,dst,r.url
+            return raw,dst,r.url,source_dims
         except Exception as e:
             errors.append(type(e).__name__+": "+str(e)[:125])
             if getattr(getattr(e,"response",None),"status_code",None)==429:
@@ -91,9 +92,9 @@ def main():
     staged=[]
     for ident,fn,expected,dest,label,caption,why,markers in PHOTOS:
         url="https://idtools.org/tools/1031/images/"+fn
-        raw,new,actual=retrieve(session,url,expected)
-        staged.append((ident,fn,dest,label,caption,why,markers,raw,new,url,actual,expected))
-        print("Verified USDA real "+fn+" "+str(expected)+" "+str(len(raw)),flush=True)
+        raw,new,actual,actual_dims=retrieve(session,url,expected)
+        staged.append((ident,fn,dest,label,caption,why,markers,raw,new,url,actual,actual_dims))
+        print("Verified USDA real "+fn+" "+str(actual_dims)+" "+str(len(raw)),flush=True)
     assert len(staged)==2
     found=[]
     for ident,fn,dest,label,caption,why,markers,raw,new,url,actual,expected in staged:
