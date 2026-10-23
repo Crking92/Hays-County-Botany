@@ -151,6 +151,28 @@ def permitted_harms_spcl(item: dict, noncommercial: bool) -> bool:
                and item.get("source_image") == HARMS_BASE + "images/" + pid + ".jpg"
                for pid in SPCL_IDS)
 
+# Source- and variety-specific scientific/educational credit exception for these
+# original Bob Harms composite-dropseed photographs. Copyrighted, NOT CC.
+SPCO_IDS = frozenset(["SPCOD3-b","SPCOD3-i","SPCOD3-J0","SPCOD3-J1","SPCOD3-v","SPCOM-b","SPCOM-j1","SPCOM-8"])
+SPCO_LICENSE = "© Bob Harms — scientific/educational use with credit only (NOT Creative Commons)"
+
+def permitted_harms_spco(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != SPCO_LICENSE or item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Sporobolus compositus":
+        return False
+    for pid in SPCO_IDS:
+        variety = "Sporobolus compositus var. drummondii" if pid.startswith("SPCOD3-") else "Sporobolus compositus var. macer"
+        if (item.get("source_page") == HARMS_BASE + "pages/" + pid + ".html"
+            and item.get("source_image") == HARMS_BASE + "images/" + pid + ".jpg"
+            and item.get("source_taxon") == variety):
+            return True
+    return False
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -183,7 +205,7 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
-    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial):
+    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial) or permitted_harms_spco(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
         # Public display on this learner was expressly granted by the owner,
