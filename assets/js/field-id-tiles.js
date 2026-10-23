@@ -12,7 +12,7 @@ const safePath=path=>{
  if(typeof path!=='string'||/^(?:https?:|\/)/i.test(path)||path.includes('..')||path.includes('\\'))return '';
  if(!/^content\/taxa\//i.test(path)||!/\.(?:json|jpg|jpeg|png|webp)$/i.test(path))return '';
  const segments=path.split('/');
- if(segments.length<5||segments.some(v=>!v||v==='.'||v==='..'||/[?#&<>\x00-\x1f]/.test(v)))return '';
+ if(segments.length<4||segments.some(v=>!v||v==='.'||v==='..'||/[?#&<>\x00-\x1f]/.test(v)))return '';
  return './'+path.split('/').map(encodeURIComponent).join('/');
 };
 const photo=(item,kind)=>{
