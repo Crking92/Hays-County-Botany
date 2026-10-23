@@ -13,6 +13,8 @@ on:
   push:
     paths:
       - 'workflow/photo-review-candidates/chloris-virgata-20261023.json'
+      - 'scripts/commons_photo_review_import.py'
+      - '.github/workflows/grass-commons-photo-review.yml'
 permissions:
   contents: read
 concurrency:
