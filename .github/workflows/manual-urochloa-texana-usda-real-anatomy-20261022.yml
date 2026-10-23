@@ -1,0 +1,86 @@
+name: Archive USDA Texas signalgrass real spikelet/glume photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-urochloa-texana-usda-real-anatomy-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-urochloa-texana-usda-real-images-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - name: Check out current canonical grass project
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image integrity verifier
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh latest canonical state
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_urochloa_texana_usda_anatomy_20261022.py
+      - name: Verify source license and archive exactly two identified real USDA anatomy JPEGs
+        run: python scripts/archive_urochloa_texana_usda_anatomy_20261022.py
+      - name: Validate two real images 1mm scale rights and original botanical science
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          base=Path('content/taxa/Poaceae/Urochloa')
+          sp=json.loads((base/'urochloa-texana/species.json').read_text())
+          gn=json.loads((base/'genus.json').read_text())
+          report=json.loads(Path('reports/urochloa-texana-usda-real-spikelet-floret-20261022.json').read_text())
+          assert report['result']=='TWO_REAL_USDA_TEXAS_SIGNALGRASS_ANATOMY_JPEGS_ARCHIVED'
+          assert len(report['images'])==2
+          assert sp['id']=='urochloa-texana' and gn['name']=='Urochloa'
+          assert len(sp['images'])==4 and sp['curation_status']['photo_files_present']==4
+          assert len(sp['visual_comparison']['items'])==7 and len(gn['visual_comparison']['items'])==7
+          assert len(sp['field_photo_quickcheck']['steps'])==13
+          assert sp['field_id_finish_pass']['stage']=='FIELD_READY_PHOTO_GAPS'
+          assert gn['project_scope']['species_count']==3
+          for record in report['images']:
+              f=Path(record['file'])
+              assert f.is_file() and f.stat().st_size>9000
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==record['archive_sha256']
+              with Image.open(f) as im:
+                  assert im.format=='JPEG' and list(im.size)==record['dimensions']
+                  assert not im.getexif().get(34853)
+                  im.verify()
+              metadata=[x for x in sp['images'] if x['file']=='images/'+f.name]
+              assert len(metadata)==1
+              assert metadata[0]['source_taxon_name']=='Urochloa texana'
+              assert metadata[0]['license']=='Public Domain (U.S. federal government work)'
+              assert 'Julia L. Scher' in metadata[0]['creator']
+              panels=[x for x in sp['visual_comparison']['items'] if x['image_url']==str(f)]
+              assert len(panels)==1 and len(panels[0]['markers']) in (2,4)
+              assert any(x['image_url']==str(f) for x in gn['visual_comparison']['items'])
+          print('PASS two actual government attributed measured TEXANA images, original science intact, no unlicensed root/ligule')
+          PY
+      - name: Commit only licensed USDA taxon media species/genus and exact evidence
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Urochloa/urochloa-texana/
+          git add content/taxa/Poaceae/Urochloa/genus.json
+          git add reports/urochloa-texana-usda-real-spikelet-floret-20261022.json
+          git add workflow/field-id-publication/2026-10-22-urochloa-texana-usda-true-spikelets.json
+          if git diff --cached --quiet; then echo 'Verified already present, no-op'; exit 0; fi
+          git commit -m 'Archive real USDA public-domain Texas signalgrass glume faces and floret-grain macro [skip ci]'
+          for retry in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
