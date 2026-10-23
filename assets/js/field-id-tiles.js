@@ -226,7 +226,7 @@ function confirmation(sp){
  }).filter(Boolean).join('');
 }
 function photosFor(sp,path){
- const list=Array.isArray(sp.images)?sp.images.slice(0,10):[];
+ const list=Array.isArray(sp.images)?sp.images.slice(0,36):[];
  const parent=path.slice(0,path.lastIndexOf('/')+1);
  const parts=list.filter(x=>x&&typeof x.file==='string'&&
   !x.file.includes('..')&&!x.file.startsWith('/')&&!x.file.includes('\\')).map(item=>{
@@ -247,16 +247,21 @@ function renderDetail(sp,entry){
  '<h2 id="fieldDetailTitle">'+esc(sp.common_name||entry.common_name||sp.scientific_name)+'</h2>'+
  '<p class="detail-latin"><i>'+esc(sp.scientific_name||entry.scientific_name)+'</i></p></div>'+
  '<button class="close" type="button" data-close aria-label="Close field card">×</button></div>'+
+ '<p class="photo-count">Publicly eligible photographs: '+(Array.isArray(sp.images)?sp.images.length:0)+
+ (Array.isArray(sp.images)&&sp.images.length>36?' (first 36 displayed here; see full Learner for the remainder)':'')+'</p>'+
  photosFor(sp,entry.path)+
  '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+ 
  '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+esc(sp.look_here_first||entry.cue||'Start with mature leaves and any reproductive structures.')+'</p></div>'+
  '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>'+
  '<details class="detail-expand lessonpart"><summary>Look-alikes and cautions</summary>'+
  (lookalikes(sp)||'<p>No verified comparison text has been entered yet.</p>')+'</details>'+
+ '<details class="detail-expand lessonpart"><summary>Confirmation, cautions and what to photograph</summary>'+
+ (confirmation(sp)||'<p>No additional confirmation notes have been recorded for this species yet.</p>')+'</details>'+
  '<details class="detail-expand lessonpart"><summary>More botanical details</summary>'+
  (fullMorph(sp)||'<p>Additional morphological notes have not been added yet.</p>')+'</details>'+
  '<div class="dialog-foot"><button type="button" class="close-secondary" data-close>Back to tiles</button>'+
- '<a href="./index.html?view=glossary" class="open-learner">Illustrated glossary ↗</a><a href="./index.html" class="open-learner">Full Learner ↗</a></div></div>';
+ '<a href="./index.html?view=glossary" class="open-learner">Illustrated glossary ↗</a>'+
+ '<a href="./index.html?species='+encodeURIComponent(entry.id)+'" class="open-learner">Full species lesson ↗</a></div></div>';
  dialog.showModal();
  if(window.HaysGlossary)window.HaysGlossary.enhance(dialog);
  dialog.querySelector('[data-close]').focus();
