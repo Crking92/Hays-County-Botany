@@ -131,6 +131,26 @@ def permitted_harms_papu(item: dict, noncommercial: bool) -> bool:
                item.get("source_image") == HARMS_BASE + "images/" + i + ".jpg"
                for i in HARMS_PAPU_IDS)
 
+# Strict image-level permission for original Selected Central Texas Monocots
+# rough dropseed photographs. Copyright remains with Bob Harms; NOT CC.
+SPCL_IDS = frozenset(["SPCL-a","SPCL-a1","SPCL-b","SPCL-I","SPCL-i1","SPCL-I2","SPCL-J","SPCL-J1","SPCL-J2","SPCL-S","SPCL-L"])
+SPCL_LICENSE = "© Bob Harms — free for scientific/educational use with proper credit only (NOT CC)"
+
+def permitted_harms_spcl(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != SPCL_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Sporobolus clandestinus":
+        return False
+    return any(item.get("source_page") == HARMS_BASE + "pages/" + pid + ".html"
+               and item.get("source_image") == HARMS_BASE + "images/" + pid + ".jpg"
+               for pid in SPCL_IDS)
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -163,7 +183,7 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
-    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_papu(item, noncommercial):
+    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
         # Public display on this learner was expressly granted by the owner,
