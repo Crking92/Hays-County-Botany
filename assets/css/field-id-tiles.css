@@ -128,3 +128,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
  #fieldDetail .inat-tile img{height:170px}
  #fieldDetail .inat-controls .button{padding:10px}
 }
+
+/* Keep saved anatomy arrows aligned to the actual image on mobile and desktop. */
+.detail-photo-image{position:relative;width:100%;background:#e3e9e0;line-height:0}
+.detail-photo .detail-photo-image img{display:block;width:100%;height:auto;object-fit:contain}
+.detail-photo-overlay{position:absolute;inset:0;pointer-events:none}
+.detail-photo-overlay svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.detail-photo-overlay line{stroke:#f7e6a0;stroke-width:.8;stroke-linecap:round;filter:drop-shadow(0 1px 2px #173c2c)}
+.detail-arrow-label{position:absolute;transform:translateY(-50%);max-width:42%;padding:2px 4px;border-radius:4px;border:1px solid #e9dea7;background:rgba(15,48,30,.92);color:white;font-size:10px;font-weight:750;line-height:1.2;white-space:normal}
+.detail-photo figcaption .detail-arrow-count{color:#28563a;font-weight:700}
