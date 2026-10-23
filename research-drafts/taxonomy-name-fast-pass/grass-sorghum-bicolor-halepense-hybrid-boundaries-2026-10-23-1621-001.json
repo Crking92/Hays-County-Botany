@@ -1,0 +1,237 @@
+{
+  "batch_id": "grass-sorghum-bicolor-halepense-hybrid-boundaries-2026-10-23-1621-001",
+  "date_checked": "2026-10-23",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Sorghum",
+  "canonical_taxon_ids": [
+    "sorghum-bicolor",
+    "sorghum-halepense"
+  ],
+  "canonical_species_paths_read_only": {
+    "sorghum-bicolor": "content/taxa/Poaceae/Sorghum/sorghum-bicolor/species.json",
+    "sorghum-halepense": "content/taxa/Poaceae/Sorghum/sorghum-halepense/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "sorghum-bicolor": "f390eff7b7588f96183a69f481211c74147ed3ad",
+    "sorghum-halepense": "96e9a58bc8697ee7679cf7e7f23ac4cc83c2fda0"
+  },
+  "source_pool_spellings": [
+    "Sorghum bicolor (L.) Moench — Sorghum / cultivated sorghum",
+    "Sorghum halepense (L.) Pers. — Johnsongrass"
+  ],
+  "primary_decision": "PASS_BOTH_ACCEPTED_SPECIES_WITH_DISTINCT_HYBRID_AND_HISTORICAL_RANK_BOUNDARY_HOLDS",
+  "decisions": [
+    {
+      "source_name": "Sorghum bicolor (L.) Moench",
+      "accepted_name": "Sorghum bicolor (L.) Moench",
+      "rank": "species",
+      "name_status": "ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_ACCEPTED_NAME_AUTHOR",
+      "action": "Retain existing sorghum-bicolor species card and authorship; do not infer cultivated subspecies from photographs.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422090-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum halepense (L.) Pers.",
+      "accepted_name": "Sorghum halepense (L.) Pers.",
+      "rank": "species",
+      "name_status": "ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_ACCEPTED_NAME_AUTHOR",
+      "action": "Retain separate Johnsongrass concept; authorship (L.) Pers. is verified although current species.json omits authority field. No canonical write in taxonomy-only lane.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422139-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum bicolor accepted infraspecific ranks",
+      "accepted_name": "Sorghum bicolor (L.) Moench",
+      "rank": "species with two subspecies and one nothosubspecies",
+      "name_status": "POWO_ACCEPTED_INFRASPECIFICS",
+      "scientific_decision": "PASS_RANK_TREATMENT_WITH_IDENTITY_HOLD",
+      "action": "Recognize subsp. bicolor, subsp. verticilliflorum, and nothosubsp. drummondii as distinct accepted infraspecific concepts under S. bicolor. Do not assign existing crop/shattercane photographs to any subspecies without independent evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422090-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:3296834-4",
+        "https://powo.science.kew.org/taxon/77083517-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:974585-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum bicolor nothosubsp. drummondii (Nees ex Steud.) de Wet ex Davidse",
+      "accepted_name": "Sorghum bicolor nothosubsp. drummondii (Nees ex Steud.) de Wet ex Davidse",
+      "rank": "nothosubspecies",
+      "name_status": "ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_ACCEPTED_HYBRID_RANK_WITH_PHOTO_IDENTITY_HOLD",
+      "action": "POWO parent formula S. bicolor subsp. bicolor × S. bicolor subsp. verticilliflorum. Historic S. × drummondii is a synonym; no third learner card and no identification of existing shattercane photos as this hybrid.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:974585-1",
+        "https://www.ipni.org/n/974585-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum × drummondii (Nees ex Steud.) Millsp. & Chase",
+      "accepted_name": "Sorghum bicolor nothosubsp. drummondii (Nees ex Steud.) de Wet ex Davidse",
+      "rank": "historical named hybrid at species rank",
+      "name_status": "HOMOTYPIC_SYNONYM_UNDER_POWO",
+      "scientific_decision": "PASS_SYNONYM_WITH_RANK_CAUTION",
+      "action": "Preserve searchable historical alias and × sign; do not treat as S. halepense or separate approved learner species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:974585-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum × sudanense (Piper) Stapf",
+      "accepted_name": "Sorghum bicolor nothosubsp. drummondii (Nees ex Steud.) de Wet ex Davidse",
+      "rank": "historical named hybrid at species rank",
+      "name_status": "HETEROTYPIC_SYNONYM_UNDER_POWO",
+      "scientific_decision": "PASS_SYNONYM_WITH_CONCEPT_CAUTION",
+      "action": "Sudangrass alias maps to the accepted nothosubspecies under POWO; do not infer parentage for a specific field observation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422219-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:974585-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum halepense var. sudanense (Piper) Soó",
+      "accepted_name": "Sorghum bicolor nothosubsp. drummondii (Nees ex Steud.) de Wet ex Davidse",
+      "rank": "historical variety",
+      "name_status": "HETEROTYPIC_SYNONYM_CROSS_SPECIES",
+      "scientific_decision": "PASS_AUTHOR_RANK_SENSITIVE_MAPPING",
+      "action": "Despite halepense in its historical combination, map this exact name to bicolor nothosubsp. drummondii, not to Johnsongrass.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77292806-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:974585-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum halepense subsp. sativum (Hack.) Trab.",
+      "accepted_name": "Sorghum bicolor subsp. bicolor",
+      "rank": "historical subspecies",
+      "name_status": "SYNONYM_CROSS_SPECIES",
+      "scientific_decision": "PASS_AUTHOR_RANK_SENSITIVE_MAPPING",
+      "action": "Historical halepense combination resolves to cultivated S. bicolor subsp. bicolor under POWO; do not merge into S. halepense.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77256601-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:3296834-4"
+      ]
+    },
+    {
+      "source_name": "Sorghum halepense var. mekongense A.Camus",
+      "accepted_name": "Hemisorghum mekongense",
+      "rank": "historical variety",
+      "name_status": "SYNONYM_OUTSIDE_SORGHUM",
+      "scientific_decision": "PASS_CROSS_GENUS_BOUNDARY",
+      "action": "Name belongs to Hemisorghum mekongense under POWO, not to Johnsongrass. Record historical boundary only; no unrelated taxon installation or review.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77292503-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum halepense var. muticum (Hack.) Grossh.",
+      "accepted_name": "Sorghum halepense (L.) Pers.",
+      "rank": "historical variety",
+      "name_status": "SYNONYM_POWO",
+      "scientific_decision": "PASS_INFRASPECIFIC_SYNONYM",
+      "action": "Keep as historical alias of Johnsongrass; no new variety card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:443468-4",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422139-1"
+      ]
+    },
+    {
+      "source_name": "Sorghum × almum Parodi",
+      "accepted_name": "Sorghum × almum Parodi",
+      "rank": "named artificial hybrid",
+      "name_status": "RECOGNIZED_ARTIFICIAL_HYBRID_POWO",
+      "scientific_decision": "PASS_NAMED_HYBRID_EXISTENCE_WITH_INDIVIDUAL_ID_HOLD",
+      "action": "POWO gives parentage S. bicolor × S. halepense. Distinct from accepted Johnsongrass and distinct from S. bicolor nothosubsp. drummondii. Do not create a new card or assign this hybrid to existing photos.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422070-1",
+        "https://doi.org/10.3906/bot-1606-8"
+      ]
+    },
+    {
+      "source_name": "Historical evolutionary hybrid origin of Sorghum halepense",
+      "accepted_name": "Sorghum halepense (L.) Pers.",
+      "rank": "accepted species with ancient hybrid ancestry",
+      "name_status": "GENOMIC_EVIDENCE_NOT_A_NOMENCLATURAL_HYBRID_RANK",
+      "scientific_decision": "PASS_SPECIES_STATUS_HOLD_SPECIMEN_LEVEL_HYBRID_INFERENCE",
+      "action": "Paterson et al. (2020) document S. bicolor × S. propinquum origin and introgression. Ancient ancestry does NOT rename S. halepense as S. × almum and cannot establish parentage of any individual Texas specimen.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422139-1",
+        "https://doi.org/10.3389/fgene.2020.00317"
+      ]
+    }
+  ],
+  "conflict_and_hold_summary": {
+    "accepted_species_names": "PASS — S. bicolor (L.) Moench and S. halepense (L.) Pers.",
+    "historical_synonym_and_rank_mappings": "PASS — author/rank sensitive, especially halepense var. sudanense and subsp. sativum crossing accepted concepts",
+    "hybrid_nothosubspecies": "PASS nomenclature; HOLD specimen/photo assignment to S. bicolor nothosubsp. drummondii",
+    "artificial_hybrid": "PASS named S. × almum; HOLD individual plant hybrid identification",
+    "johnsongrass_ancient_hybrid_origin": "Documented primary genomic study; distinct from modern artificial S. × almum",
+    "shattercane_vernacular_scope": "UNRESOLVED at individual observation level; shattercane is not an automatic taxonomic rank or voucher of drummondii",
+    "individual_photographic_identity": "HOLD_PRESERVED_NOT_INDEPENDENTLY_VERIFIED",
+    "native_range_county_audit": "NOT_ASSESSED_UNCHANGED",
+    "scientific_pass_fail_hold_unresolved_overrides": 0
+  },
+  "references": [
+    {
+      "source": "POWO/WCVP Sorghum bicolor species and three accepted infraspecifics",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422090-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "POWO/WCVP Sorghum halepense species",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422139-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "POWO/WCVP S. bicolor nothosubsp. drummondii",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:974585-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "IPNI 1993 name publication, subsp. drummondii",
+      "url": "https://www.ipni.org/n/974585-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "POWO/WCVP Sorghum × almum hybrid",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422070-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "POWO/WCVP historical var. sudanense mapping",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77292806-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "POWO/WCVP historical subsp. sativum mapping",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77256601-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "POWO/WCVP historical var. mekongense mapping",
+      "url": "https://powo.science.kew.org/taxon/77292503-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "Liu et al. (2017), genomic in situ hybridization, Turkish Journal of Botany 41:11–24",
+      "url": "https://doi.org/10.3906/bot-1606-8",
+      "checked": "2026-10-23"
+    },
+    {
+      "source": "Paterson et al. (2020), genomic evolution of Johnsongrass, Frontiers in Genetics 11:317",
+      "url": "https://doi.org/10.3389/fgene.2020.00317",
+      "checked": "2026-10-23"
+    }
+  ],
+  "handoff": "Two canonical Poaceae species retain accepted names; preserve accepted rank distinctions of bicolor subsp. bicolor, subsp. verticilliflorum, and nothosubsp. drummondii. Sudan grass historical names may misleadingly contain halepense yet resolve to bicolor hybrid concept. Sorghum × almum is a separate named artificial bicolor × halepense hybrid, not an automatic identification of any learner photo. No installation, card enrichment, genus/family, photo, county range or Pages changes.",
+  "canonical_species_modified": false,
+  "photo_sourcing_or_installation": false,
+  "genus_family_lessons_modified": false,
+  "county_native_audit_performed": false,
+  "pages_changed": false
+}
