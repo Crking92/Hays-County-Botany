@@ -1,0 +1,77 @@
+name: Archive seven actual public licensed Buckley tridens anatomical photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-buckley-tridens-seven-cc-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-buckley-tridens-seven-original-20261023
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Install original-image tools and compile archive script
+        run: |
+          python -m pip install 'Pillow>=10,<12' 'requests>=2.31,<3'
+          python -m py_compile scripts/archive_buckley_tridens_seven_cc_20261023.py scripts/build_public_pages_snapshot.py scripts/public_photo_rights_preflight.py
+      - name: Download seven exact source original research-grade CC BY photographs
+        run: python scripts/archive_buckley_tridens_seven_cc_20261023.py
+      - name: Verify source, full original dimensions and public photo rights
+        run: |
+          python - <<'PY'
+          import sys,json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          s=json.loads(Path('content/taxa/Poaceae/Tridentopsis/tridentopsis-buckleyana/species.json').read_text())
+          g=json.loads(Path('content/taxa/Poaceae/Tridentopsis/genus.json').read_text())
+          r=json.loads(Path('reports/buckley-tridens-seven-source-public-photos-20261023.json').read_text())
+          assert s['id']=='tridentopsis-buckleyana' and r['installed_originals']==7
+          assert len(s['images'])==8 and s['curation_status']['photo_files_present']==8
+          assert len(s['visual_comparison']['items'])==11 and len(g['visual_comparison']['items'])==11
+          assert s['images'][0]['license']=='CC BY-NC'
+          assert s['native_metrics_excluded']==True
+          assert 'FIELD_READY_PHOTO_GAPS' in s['field_id_finish_pass']['stage']
+          for rec in r['photos']:
+              file=Path(rec['file'])
+              assert file.is_file() and file.stat().st_size>14000
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==rec['saved_sha256']
+              with Image.open(file) as im:
+                  assert im.format=='JPEG' and im.mode=='RGB' and min(im.size)>=600 and not im.getexif().get(34853)
+                  assert list(im.size)==rec['dims']
+                  im.verify()
+              media=next(x for x in s['images'] if x.get('file')=='images/'+file.name)
+              assert media['license']=='CC BY 4.0' and media['original_source_taxon_name']=='Tridens buckleyanus'
+              assert media['accepted_taxon_name']=='Tridentopsis buckleyana'
+              assert rights(media,True)[0],(file,rights(media,True))
+              assert photo_rights(media,True) is None,(file,photo_rights(media,True))
+              assert len([q for q in s['visual_comparison']['items'] if q.get('image_url')==str(file)])==1
+              assert len([q for q in g['visual_comparison']['items'] if q.get('image_url')==str(file)])==1
+          print("PASS seven public CC BY EXACT source correctly synonymized high-res JPEGs, two rights gates, unchanged county native hold",flush=True)
+          PY
+      - name: Commit only real source-checked JPEGs and canonical species genus changes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Tridentopsis/tridentopsis-buckleyana/ content/taxa/Poaceae/Tridentopsis/genus.json
+          git add reports/buckley-tridens-seven-source-public-photos-20261023.json
+          git add workflow/field-id-publication/2026-10-23-buckley-tridens-seven-source-photos.json
+          if git diff --cached --quiet; then echo 'No duplicate changes'; exit 0; fi
+          git commit -m 'Archive seven verified research-grade CC BY Buckley tridens diagnostic originals [skip ci]'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
