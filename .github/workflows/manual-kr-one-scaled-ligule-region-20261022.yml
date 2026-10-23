@@ -1,0 +1,80 @@
+name: Archive one real scaled KR ligule zone photo
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/manual-kr-one-scaled-ligule-region-20261022.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-kr-lefnaer-sl1-one-photo
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Compile fresh one-photo guarded installer
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_kr_stefan_ligule_scale_20261022.py
+      - name: Download exact original and validate before changing science
+        run: python scripts/archive_kr_stefan_ligule_scale_20261022.py
+      - name: Check original image bytes, photo license, and honest anatomy status
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys,json,hashlib
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Bothriochloa")
+          s=json.loads((base/"bothriochloa-ischaemum/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          r=json.loads(Path("reports/kr-stefan-lefnaer-sl1-ligule-region-20261022.json").read_text())
+          assert r["result"]=="ONE_REAL_2MM_SPECIES_LEVEL_LIGULE_ZONE_PHOTO_ARCHIVED"
+          assert r["not_Texas_songarica_voucher"] and r["one_photo_added"]==1
+          assert len(s["images"])==9 and s["curation_status"]["photo_files_present"]==7
+          assert len(s["visual_comparison"]["items"])==18 and len(g["visual_comparison"]["items"])==13
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          p=Path(r["physical_file"])
+          assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r["archived_sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and im.size==(2568,1989) and not im.getexif().get(34853)
+              im.verify()
+          record=next(x for x in s["images"] if x.get("source_page")=="https://commons.wikimedia.org/wiki/File:Bothriochloa_ischaemum_sl1.jpg")
+          assert record["creator"]=="Stefan.lefnaer" and record["license"]=="CC BY-SA 4.0"
+          assert rights(record,True)[0] and photo_rights(record,True) is None
+          panels=[x for x in s["visual_comparison"]["items"] if x["image_url"]==str(p)]
+          assert len(panels)==1 and len(panels[0]["markers"])==2
+          assert panels[0]["scientific_name"]=="Bothriochloa ischaemum"
+          assert "exact free" in panels[0]["photo_status"]
+          assert len([x for x in g["visual_comparison"]["items"] if x["image_url"]==str(p)])==1
+          print("PASS 1 real scale-bearing image, two broad arrows, licenses, protected scientific hold")
+          PY
+      - name: Commit exactly one image, credits, and lesson panels
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum/
+          git add content/taxa/Poaceae/Bothriochloa/genus.json
+          git add reports/kr-stefan-lefnaer-sl1-ligule-region-20261022.json
+          git add workflow/field-id-publication/2026-10-22-kr-one-scaled-ligule-region-photo.json
+          if git diff --cached --quiet; then echo ALREADY_PRESENT_NOOP; exit 0; fi
+          git commit -m 'Archive one authentic 2mm scaled B ischaemum ligule-zone photo [skip ci]'
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
