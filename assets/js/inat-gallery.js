@@ -225,7 +225,7 @@
         'data-inat-open aria-expanded="' + (record && record.open ? 'true' : 'false') + '"');
       if (record && record.open) {
         markup = markup.replace('data-inat-drawer hidden', 'data-inat-drawer')
-          .replace('Explore iNaturalist Photos ↓', 'Hide iNaturalist Photos ↑')
+          .replace('Explore iNaturalist photos ↓', 'Hide iNaturalist Photos ↑')
           .replace('<div id="inatPhotoDrawer" data-inat-drawer></div>',
             '<div id="inatPhotoDrawer" data-inat-drawer>' + body(record) + '</div>');
       }
