@@ -328,7 +328,24 @@ def permitted_harms_elymus_virginicus(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
                for ident in HARMS_ELVI3_IDS)
 
+# Nine exact original photographed Elymus canadensis Selected Central Texas Monocots images.
+# Credit Bob Harms, copyrighted author's educational/scientific use grant, NOT CC.
+HARMS_ELCA4_IDS = frozenset({"ELCA4-b", "ELCA4-I", "ELCA4-i1", "ELCA4-J1", "ELCA4-J", "ELCA4-J3", "ELCA4-S", "ELCA4-d", "ELCA4-L"})
+
+def permitted_harms_elymus_canadensis(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE or item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/" or item.get("source_taxon_name") != "Elymus canadensis":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+pid+".html" and
+               item.get("source_image") == HARMS_BASE+"images/"+pid+".jpg"
+               for pid in HARMS_ELCA4_IDS)
+
 def photo_rights(record, noncommercial=False):
+    if permitted_harms_elymus_canadensis(record, noncommercial):
+        return None
     if permitted_harms_elymus_virginicus(record, noncommercial):
         return None
     if permitted_harms_dinebra_brachiata_comparison(record, noncommercial):
