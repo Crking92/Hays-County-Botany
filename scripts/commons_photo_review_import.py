@@ -23,7 +23,7 @@ meta=info.get("extmetadata",{})
 clean=lambda key: re.sub("<[^>]+>"," ",meta.get(key,{}).get("value","")).strip()
 license_short=clean("LicenseShortName")
 license_url=clean("LicenseUrl")
-if not (re.search(r"\\bCC0\\b|\\bCC BY\\b|Public domain",license_short,re.I) or "creativecommons.org/licenses/by/" in license_url or "creativecommons.org/publicdomain/" in license_url):
+if not (re.search(r"\bCC0\b|\bCC BY\b|Public domain",license_short,re.I) or "creativecommons.org/licenses/by/" in license_url or "creativecommons.org/publicdomain/" in license_url):
     raise SystemExit("License not recognized as project-approved; no download")
 url=info["url"]
 if urllib.parse.urlparse(url).hostname not in ("upload.wikimedia.org","commons.wikimedia.org"):
