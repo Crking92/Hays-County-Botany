@@ -1,0 +1,38 @@
+{
+  "type": "grass_one_photo_public_archive_candidates",
+  "date": "2026-10-23",
+  "species": "Digitaria cognata",
+  "canonical_path": "content/taxa/Poaceae/Digitaria/digitaria-cognata/species.json",
+  "existing_species_photo_count": 1,
+  "status": "SOURCE_RIGHTS_VERIFIED__BINARY_ARCHIVE_NOT_YET_COMPLETED",
+  "candidates": [
+    {
+      "source_page": "https://commons.wikimedia.org/wiki/File:Digitaria_cognata_iNat-99737795.jpg",
+      "original_photo": "https://www.inaturalist.org/photos/99737795",
+      "creator": "Shaun Pogacnik",
+      "license": "CC0 1.0",
+      "role": "Flowering architecture, airy reddish panicle and distant spikelets",
+      "original_file": "Digitaria cognata iNat-99737795.jpg",
+      "archive_target": "content/taxa/Poaceae/Digitaria/digitaria-cognata/images/shaun-pogacnik-99737795.jpg"
+    },
+    {
+      "source_page": "https://commons.wikimedia.org/wiki/File:Digitaria_cognata_iNat-99737817.jpg",
+      "original_photo": "https://www.inaturalist.org/photos/99737817",
+      "creator": "Shaun Pogacnik",
+      "license": "CC0 1.0",
+      "role": "Second taxon-labeled flowering/seedhead view, verify pixels for nonredundant structure",
+      "original_file": "Digitaria cognata iNat-99737817.jpg",
+      "archive_target": "content/taxa/Poaceae/Digitaria/digitaria-cognata/images/shaun-pogacnik-99737817.jpg"
+    }
+  ],
+  "required_steps": [
+    "Download original photo JPEG binary from each exact Commons file page",
+    "Strip EXIF/GPS and retain quality",
+    "Check photos against current existing gallery and taxon",
+    "Archive physical bytes at target paths in GitHub",
+    "Update species images[] references and source attribution with current SHA",
+    "Review actual pixels for arrow-safe details, no unverified organ claims",
+    "Read back image paths and confirm successful Pages deployment"
+  ],
+  "safety": "Candidate sources only; NOT yet installed, archived, published or botanically certified. County/range fields unchanged."
+}
