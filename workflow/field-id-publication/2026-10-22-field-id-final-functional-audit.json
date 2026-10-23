@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "field_id_functional_completeness_audit",
+  "title": "Compact Field ID final cross-rank coverage, comparisons, evidence and links",
+  "requested_scope": "Make sure no key species/family/genus ID information is missing in the Field ID interface before moving on.",
+  "merged_pull_request": 39,
+  "merge_commit": "8e0c2c5baa1e4c4c0b4826862145679a74f60642",
+  "installed_library_checked": {
+    "species": 1191,
+    "unique_species_ids": 1191,
+    "families": 146,
+    "genera": 599,
+    "duplicate_ids": 0
+  },
+  "findings_fixed": [
+    "Family recognition/diagnostic content was not displayed from canonical family.json; now loads on drilldown.",
+    "Genus recognition cues were not displayed from canonical genus.json; now loads.",
+    "Searching from Family/Genus rank could not find a plant by common name; now can.",
+    "Field ID omitted rich lookalike matrices and local comparison distinctions; now rendered in optional expandable sections.",
+    "Field ID omitted many existing certainty and what-to-photograph guardrails; now displayed.",
+    "Original detail gallery stopped after 10 photos; now allows first 36 with honest count and a full species lesson link.",
+    "Species full-Learner link led to homepage; now links directly to target species via verified manifest ID.",
+    "Arrays of structured morphological objects could display as [object Object]; now only safe readable text is displayed.",
+    "Photo-gap/provisional status and remaining diagnostic photo targets were hidden; now flagged.",
+    "Safe paths with valid Unicode filenames no longer silently excluded; retain traversal protections.",
+    "Family.json four-segment path was initially rejected during revised path-safety audit; corrected and retested."
+  ],
+  "science_preservation": "Original canonical species, genus, family, image-credit and taxonomic data unchanged, including every HOLD/PHOTO_GAPS and provisional flag. New UI only.",
+  "tests": [
+    "JavaScript syntax for Field ID and Learner",
+    "1191 unique manifest entries",
+    "Hays family→genus→species navigation",
+    "Search frogfruit from family rank",
+    "Poaceae family recognition",
+    "Schizachyrium genus recognition",
+    "Schizachyrium scoparium vs KR bluestem rich comparison",
+    "Phyla nodiflora look-alike matrix",
+    "Unfinished photographic evidence warning and specific gap list",
+    "Species deep-link to Learner",
+    "No raw [object Object] text",
+    "Existing publishing photo-rights gate remains active",
+    "Quiz and advanced Field ID unchanged"
+  ],
+  "remaining_nonblocking": "Species-by-species photographic review and difficult botanical identifications remain ongoing; audit does not claim every plant is 100% photo-complete or scientifically final. User can continue viewing annotated source photo arrows for correction.",
+  "publish": "GitHub Pages rights-filtered workflow with existing QA and privacy restrictions must succeed."
+}
