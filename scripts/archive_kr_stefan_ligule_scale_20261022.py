@@ -51,13 +51,32 @@ def main():
   reader=csv.DictReader(f);cols=list(reader.fieldnames or []);rows=list(reader)
  if "file_name" not in cols or any(x.get("file_name")==DST.name for x in rows):
   raise RuntimeError("Unexpected photo source CSV")
- r=requests.get(SOURCE,timeout=40,headers={"User-Agent":"HaysBotanyEducationalPhotoResearch/1.0","Accept":"image/jpeg,image/*"})
- r.raise_for_status();raw=r.content
+ candidates=[
+  SOURCE,
+  "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Bothriochloa_ischaemum_sl1.jpg/1280px-Bothriochloa_ischaemum_sl1.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Bothriochloa_ischaemum_sl1.jpg/960px-Bothriochloa_ischaemum_sl1.jpg",
+ ]
+ raw=None;selected_url=None;errors=[]
+ for url in candidates:
+  try:
+   r=requests.get(url,timeout=28,headers={
+    "User-Agent":"Hays-County-Botany/1.0 (educational field-ID; official Wikimedia Commons attributed image)",
+    "Accept":"image/jpeg,image/*"})
+   r.raise_for_status()
+   if not(r.content.startswith(b"\xff\xd8\xff") and 30000<len(r.content)<7000000):
+    raise RuntimeError("Non-image response")
+   raw=r.content;selected_url=r.url
+   print("SOURCE IMAGE ACCEPTED",url,len(raw),flush=True)
+   break
+  except Exception as exc:
+   errors.append(url+" "+str(exc)[:125])
+ if raw is None:
+  raise RuntimeError("ALL original+thumbnail Wikimedia image endpoints unavailable, no partial installation: "+repr(errors))
  if not (raw.startswith(b"\xff\xd8\xff") and 30000<len(raw)<7000000):
   raise RuntimeError("Real source JPEG not available")
  with Image.open(io.BytesIO(raw)) as original:
   original.load();dims=tuple(original.size)
-  if original.format!="JPEG" or not (dims[0]==2568 and dims[1]==1989):
+  if original.format!="JPEG" or dims not in ((2568,1989),(1280,991),(960,744)):
    raise RuntimeError("Original source dimensions changed; refuse inaccurate annotated arrows")
   clean=ImageOps.exif_transpose(original).convert("RGB")
  out=io.BytesIO();clean.save(out,format="JPEG",quality=92,optimize=True)
@@ -81,6 +100,7 @@ def main():
   "original_sha256":hashlib.sha256(raw).hexdigest(),
   "archived_sha256":hashlib.sha256(payload).hexdigest(),
   "source_original_dimensions":list(dims),"archived_dimensions":list(dims),
+  "verified_download_url":selected_url,
   "modifications":"Original RGB JPEG re-encoded and EXIF/GPS removed; reversible two broad non-destructive overlay markers; no crop or invented anatomical structures",
   "photo_review":"Original full-frame source visually inspected; at 2mm reference scale collar region and hairs are visible, but opened 0.5–1.5mm ciliate free ligule edge cannot be defined pixel-exactly.",
   "anatomy_arrows":"Two broad visible real features: collar/ligule zone and long hairs, not precise free membrane edge",
@@ -144,7 +164,7 @@ def main():
   "result":"ONE_REAL_2MM_SPECIES_LEVEL_LIGULE_ZONE_PHOTO_ARCHIVED",
   "species":"Bothriochloa ischaemum","not_Texas_songarica_voucher":True,
   "source":PAGE,"original":SOURCE,"creator":CREATOR,"license":LIC,
-  "physical_file":str(DST),"source_dimensions":list(dims),
+  "physical_file":str(DST),"source_dimensions":list(dims),"verified_download_url":selected_url,
   "original_sha256":record["original_sha256"],"archived_sha256":record["archived_sha256"],
   "one_photo_added":1,"two_broad_arrows":2,"species_panels":18,"genus_panels":13,
   "local_species_photo_files":7,
