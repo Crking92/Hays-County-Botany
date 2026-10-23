@@ -1,0 +1,88 @@
+name: Archive one real Texas cupgrass basal cup diagnostic photo
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/manual-eriochloa-one-real-basal-cup-20261022.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: eriochloa-sericea-exact-one-original-basal-cup-20261022
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original photograph validation
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh and compile single-source exact taxon script
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_eriochloa_sericea_harms_cup_20261022.py
+      - name: Physically archive precisely one real E sericea original
+        run: python scripts/archive_eriochloa_sericea_harms_cup_20261022.py
+      - name: Verify photo pixels, creator-specific rights and preserved gaps
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys,json,hashlib
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights,permitted_harms_eriochloa_sericea
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Eriochloa")
+          s=json.loads((base/"eriochloa-sericea/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          r=json.loads(Path("reports/eriochloa-sericea-harms-basal-cup-one-20261022.json").read_text())
+          assert r["result"]=="ONE_REAL_ERIOCHLOA_SERICEA_BASAL_CUP_PHOTO_ARCHIVED"
+          assert r["added_real_photos"]==1 and r["new_visible_basal_cup_arrows"]==1
+          assert len(s["images"])==8 and s["curation_status"]["photo_files_present"]==8
+          assert len(s["visual_comparison"]["items"])==4 and len(g["visual_comparison"]["items"])==4
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          p=Path(r["photo"])
+          assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r["archived_sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and im.width>=450 and im.height>=310
+              assert not im.getexif().get(34853)
+              im.verify()
+          rec=next(x for x in s["images"] if x.get("source_page")=="https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/pages/ERSE5-9.html")
+          assert rec["creator"]=="Bob Harms" and rec["source_taxon_name"]=="Eriochloa sericea"
+          assert permitted_harms_eriochloa_sericea(rec,True)
+          assert rights(rec,True)[0] and photo_rights(rec,True) is None
+          fake=dict(rec,source_image="https://w3.biosci.utexas.edu/prc/DigFlora/KR/unrelated.jpg")
+          assert not permitted_harms_eriochloa_sericea(fake,True)
+          assert photo_rights(fake,True) is not None
+          matching=[x for x in s["visual_comparison"]["items"] if x["image_url"]==str(p)]
+          cross=[x for x in g["visual_comparison"]["items"] if x["image_url"]==str(p)]
+          assert len(matching)==len(cross)==1
+          panel=matching[0]; assert len(panel["markers"])==2
+          assert panel["markers"][0]["target_x"]==76.5 and panel["markers"][0]["target_y"]==92.5
+          assert "DETACHED" in panel["photo_status"]
+          assert "true hair-fringe" in s["field_id_finish_pass"]["stage"]
+          print("PASS original source pixels and exact author-licensed rights; 1 visible basal cup arrow; still honest attached pedicel and ligule gaps")
+          PY
+      - name: Commit one original plus exact creator citation and lesson
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Eriochloa/eriochloa-sericea/
+          git add content/taxa/Poaceae/Eriochloa/genus.json
+          git add reports/eriochloa-sericea-harms-basal-cup-one-20261022.json
+          git add workflow/field-id-publication/2026-10-22-eriochloa-sericea-real-basal-cup-photo.json
+          if git diff --cached --quiet; then echo "ALREADY_INSTALLED_NOOP"; exit 0; fi
+          git commit -m 'Eriochloa: archive 1 actual Texas cupgrass basal cup and arrow it [skip ci]'
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
