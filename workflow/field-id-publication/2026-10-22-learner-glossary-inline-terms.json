@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "public_learner_vocabulary_navigation",
+  "user_request": "Add a glossary somewhere in the Learner and make botanical terms within lessons clickable.",
+  "pull_request": 34,
+  "merge_commit": "32881ef9dd0d92199473fb179f9911e9872e94f2",
+  "files": [
+    "index.html",
+    "assets/js/learner-glossary.js",
+    "assets/css/learner-glossary.css",
+    "sw.js"
+  ],
+  "features": [
+    "Glossary header navigation",
+    "147 existing botanical terms loaded from learning-layer.json",
+    "searchable term list with plain/formal definitions",
+    "inline clickable botanical vocabulary in learning lessons",
+    "accessible definition popup with pronunciation and where-to-look teaching",
+    "offline cache includes new glossary assets"
+  ],
+  "tests": [
+    "JavaScript syntax",
+    "147/147 terms rendered",
+    "inline links for node ligule glume lemma",
+    "avoid annotating raw JSON/code",
+    "no changes to Field ID/Quiz or botanical science"
+  ],
+  "release_policy": "Existing rights-filtered public Pages build and image QA apply. No new third-party media."
+}
