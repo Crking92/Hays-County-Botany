@@ -1,0 +1,91 @@
+{
+  "batch_id": "grass-paspalum-setaceum-pubiflorum-rank-boundaries-2026-10-23-0328-001",
+  "lane": "taxonomy-name-fast-pass",
+  "reviewed_at": "2026-10-23",
+  "scope": "Existing canonical Poaceae species only; POWO/WCVP accepted names, synonymy, rank, homonym and source concept; no card or nativity edits",
+  "claim_path": "workflow/taxonomy-claims/grass-paspalum-setaceum-pubiflorum-rank-boundaries-2026-10-23-0328-001.json",
+  "taxa": [
+    {
+      "source_name": "Paspalum setaceum",
+      "canonical_path": "content/taxa/Poaceae/Paspalum/paspalum-setaceum/species.json",
+      "canonical_sha_at_review": "42d9235d8d41770946f32c038032b81db9d416be",
+      "accepted_name": "Paspalum setaceum Michx.",
+      "family": "Poaceae",
+      "genus": "Paspalum",
+      "rank": "species",
+      "powo_status": "accepted",
+      "scientific_decision": "PASS_ACCEPTED_NAME_WITH_HOMONYM_AND_INFRASPECIFIC_CONCEPT_CAUTION",
+      "accepted_infraspecifics": [
+        {
+          "name": "Paspalum setaceum var. setaceum",
+          "status": "accepted",
+          "photo_identity": "UNRESOLVED"
+        },
+        {
+          "name": "Paspalum setaceum var. longe-pedunculatum (Leconte) Alph.Wood",
+          "status": "accepted",
+          "basionym": "Paspalum longe-pedunculatum Leconte",
+          "photo_identity": "UNRESOLVED"
+        }
+      ],
+      "critical_nonmatching_names": [
+        {
+          "name": "Paspalum setaceum var. pubiflorum Vasey",
+          "rank": "variety",
+          "powo_relation": "homotypic synonym of separately accepted Paspalum palmeri Chase, NOT Paspalum pubiflorum Rupr. ex E.Fourn.",
+          "decision": "DO_NOT_ALIAS_TO_EITHER_INSTALLED_CARD_WITHOUT_AUTHORSHIP_CONCEPT_CHECK"
+        },
+        {
+          "name": "Paspalum setaceum var. dispar R.Guzmán",
+          "rank": "variety",
+          "powo_relation": "heterotypic synonym of separately accepted Paspalum ligulare Nees",
+          "decision": "DO_NOT_TREAT_AS_ACCEPTED_P_SETACEUM_VARIETY"
+        },
+        {
+          "name": "Paspalum setaceum Raspail",
+          "rank": "species",
+          "powo_relation": "illegitimate name, homotypic synonym of Microchloa indica (L.f.) P.Beauv.; different name authorship and taxon",
+          "decision": "AUTHORSHIP_REQUIRED_BEFORE_ALIAS"
+        }
+      ],
+      "specimen_identity": "HOLD_VARIETY_AND_SOURCE_PHOTO_IDENTITY_UNRESOLVED",
+      "action": "Retain one P. setaceum Michx. species card; document accepted varieties and divergent historical names; do not automatically reassign photographs, species or varieties.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325365-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184678-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184523-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414362-1",
+        "https://powo.science.kew.org/taxon/408465-1"
+      ]
+    },
+    {
+      "source_name": "Paspalum pubiflorum",
+      "canonical_path": "content/taxa/Poaceae/Paspalum/paspalum-pubiflorum/species.json",
+      "canonical_sha_at_review": "f8d831c6591b77ddc98ca7e968bb98150263fbf5",
+      "accepted_name": "Paspalum pubiflorum Rupr. ex E.Fourn.",
+      "family": "Poaceae",
+      "genus": "Paspalum",
+      "rank": "species",
+      "powo_status": "accepted",
+      "scientific_decision": "PASS_ACCEPTED_DISTINCT_SPECIES_WITH_PUBIFLORUM_EPITHET_CAUTION",
+      "historical_synonym_example": {
+        "name": "Paspalum geminum Nash",
+        "relation": "heterotypic synonym of P. pubiflorum"
+      },
+      "identity_boundary": "Accepted P. pubiflorum Rupr. ex E.Fourn. is NOT P. setaceum var. pubiflorum Vasey, which Kew assigns to P. palmeri Chase. Do not merge similarly worded historical epithets without author and rank.",
+      "specimen_identity": "HOLD_SOURCE_PHOTO_IDENTITY_PROVISIONAL; accepted nomenclature is not specimen verification",
+      "action": "Preserve separate P. pubiflorum canonical species; no photo reassignment, no hybrid decision.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184614-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184523-2"
+      ]
+    }
+  ],
+  "cross_taxon_guardrail": "P. setaceum Michx. and P. pubiflorum Rupr. ex E.Fourn. remain separate accepted canonical species. P. setaceum var. pubiflorum Vasey belongs to P. palmeri Chase, not either learner card. Preserve source author, rank, original determinations and scientific holds.",
+  "hybrid_review": "No hybrid determination established; no hybrid HOLD released.",
+  "preserve_scientific_states": "All existing PASS/FAIL/HOLD/UNRESOLVED and original source/photo identification records unchanged; nomenclatural acceptance alone cannot clear an identification HOLD.",
+  "native_range_audit": "DEFERRED",
+  "canonical_files_modified": false,
+  "photo_or_range_changed": false,
+  "installation_or_genus_lessons_changed": false
+}
