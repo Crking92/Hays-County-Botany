@@ -61,7 +61,7 @@ for ident,title,caption in DATA:
     raise ValueError("Missing original JPEG")
    with Image.open(io.BytesIO(raw)) as img:
     img.load()
-    if img.format!="JPEG" or min(img.size)<120:
+    if img.format!="JPEG" or min(img.size)<45:
      raise ValueError("Wrong source image or invalid dimensions")
     clean=ImageOps.exif_transpose(img).convert("RGB")
     dims=list(img.size)
