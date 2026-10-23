@@ -1,0 +1,36 @@
+name: Archive giant reed Commons diagnostic photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_arundo_commons_panels.py
+      - .github/workflows/archive-arundo-commons-panels.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-arundo-commons-panels
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/archive_arundo_commons_panels.py
+      - name: Commit successful image archives
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Arundo/arundo-donax/ reports/arundo-commons-photo-archive-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive verified giant reed diagnostic photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
