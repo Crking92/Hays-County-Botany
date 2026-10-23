@@ -1,0 +1,79 @@
+name: Archive nine actual Canada wildrye diagnostic photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-elymus-canadensis-harms-nine-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-canadensis-harms-nine-exact-originals-20261023
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install JPEG/source validators and check production source syntax
+        run: |
+          python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+          python -m py_compile scripts/archive_elymus_canadensis_nine_harms_originals_20261023.py scripts/build_public_pages_snapshot.py scripts/public_photo_rights_preflight.py
+      - name: Download and record nine original author-determined anatomical JPEGs
+        run: python scripts/archive_elymus_canadensis_nine_harms_originals_20261023.py
+      - name: Check original physical hashes and both public-use rights gates
+        run: |
+          python - <<'PY'
+          import hashlib,json,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,'scripts')
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          sp=Path('content/taxa/Poaceae/Elymus/elymus-canadensis/species.json')
+          gp=Path('content/taxa/Poaceae/Elymus/genus.json')
+          rp=Path('reports/elymus-canadensis-nine-harms-real-anatomy-20261023.json')
+          s=json.loads(sp.read_text()); g=json.loads(gp.read_text()); r=json.loads(rp.read_text())
+          assert s['id']=='elymus-canadensis' and r['archived_new_photo_files']==9
+          assert len(s['images'])==11 and s['curation_status']['photo_files_present']==11
+          assert len(s['visual_comparison']['items'])==13 and len(g['visual_comparison']['items'])==19
+          assert s['curation_status']['range_reviewed']==False
+          assert 'FIELD_READY_PHOTO_GAPS' in s['field_id_finish_pass']['stage']
+          for q in r['photos']:
+              p=Path(q['local_file'])
+              assert p.is_file() and p.stat().st_size>5000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==q['archive_sha256']
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and im.mode=='RGB' and list(im.size)==q['dimensions']
+                  assert not im.getexif().get(34853)
+                  im.verify()
+              media=next(m for m in s['images'] if m.get('file')=='images/'+p.name)
+              assert media['creator']=='Bob Harms' and media['source_taxon_name']=='Elymus canadensis'
+              assert rights(media,True)[0],(q['ident'],rights(media,True))
+              assert photo_rights(media,True) is None,(q['ident'],photo_rights(media,True))
+              assert len([v for v in s['visual_comparison']['items'] if v.get('image_url')==str(p)])==1
+              assert len([v for v in g['visual_comparison']['items'] if v.get('image_url')==str(p)])==1
+          print('PASS: nine actual source-determined Central Texas Canada wildrye original photographic JPEGs and both rights gates')
+          PY
+      - name: Commit verified photo bytes, source metadata, and teaching panels
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Elymus/elymus-canadensis/ content/taxa/Poaceae/Elymus/genus.json
+          git add reports/elymus-canadensis-nine-harms-real-anatomy-20261023.json
+          git add workflow/field-id-publication/2026-10-23-elymus-canadensis-nine-real-harms-photos.json
+          if git diff --cached --quiet; then echo 'Already archived'; exit 0; fi
+          git commit -m 'Archive nine actual source-verified Canada wildrye anatomical photo originals [skip ci]'
+          for i in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
