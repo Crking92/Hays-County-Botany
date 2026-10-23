@@ -3,6 +3,7 @@ const CORE = [
   "./",
   "./index.html",
   "./assets/js/learner-glossary.js",
+  "./assets/js/glossary-photo-media.js",
   "./assets/css/learner-glossary.css",
   "./field-id.html",
   "./quiz.html",
