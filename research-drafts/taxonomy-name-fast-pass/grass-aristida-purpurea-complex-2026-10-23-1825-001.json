@@ -1,0 +1,191 @@
+{
+  "batch_id": "grass-aristida-purpurea-complex-2026-10-23-1825-001",
+  "date_checked": "2026-10-23",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Aristida",
+  "canonical_taxon_ids": [
+    "aristida-purpurea"
+  ],
+  "canonical_species_paths_read_only": {
+    "aristida-purpurea": "content/taxa/Poaceae/Aristida/aristida-purpurea/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "aristida-purpurea": "f16765ee9ee492e83724a44b0bfd7c5c40767a42"
+  },
+  "claim_id": "grass-aristida-purpurea-complex-2026-10-23-1825-001",
+  "claim_path": "workflow/taxonomy-claims/grass-aristida-purpurea-complex-2026-10-23-1825-001.json",
+  "primary_decision": "PASS_ACCEPTED_ARISTIDA_PURPUREA_WITH_UNRESOLVED_AUTHORITY_RANK_CIRCUMSCRIPTION_AND_SPECIMEN_ID_HOLD",
+  "decisions": [
+    {
+      "source_name": "Aristida purpurea Nutt.",
+      "accepted_name": "Aristida purpurea Nutt.",
+      "rank": "species",
+      "name_status": "ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_ACCEPTED_NAME_AND_AUTHOR",
+      "action": "Retain installed species and Nutt. authorship; published 1835. POWO treats this species as accepted and lists 22 heterotypic synonyms; do not assume those 22 cover all historical varieties formerly included by other authorities.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2"
+      ]
+    },
+    {
+      "source_name": "Aristida purpurea var. longiseta (Steud.) Vasey",
+      "accepted_name": "Aristida longiseta Steud.",
+      "rank": "historical variety -> accepted species",
+      "name_status": "HOMOTYPIC_SYNONYM_OF_SEPARATELY_ACCEPTED_SPECIES_POWO",
+      "scientific_decision": "PASS_POWO_SPECIES_BOUNDARY",
+      "action": "Under POWO, the historical A. purpurea var. longiseta is a synonym of accepted A. longiseta, not automatically an alias to the narrow A. purpurea species concept. Older FNA/USFS/NMSU sources include it as a variety of a broader A. purpurea. Do not automatically relabel any installed A. purpurea photographs or specimen records without individual evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/19242-2",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur",
+        "https://pubs.nmsu.edu/sale/documents/GrassesNewMexico_2016.pdf"
+      ]
+    },
+    {
+      "source_name": "Aristida purpurea var. fendleriana (Steud.) Vasey",
+      "accepted_name": "Aristida fendleriana Steud.",
+      "rank": "historical variety -> accepted species",
+      "name_status": "HOMOTYPIC_SYNONYM_OF_SEPARATELY_ACCEPTED_SPECIES_POWO",
+      "scientific_decision": "PASS_POWO_SPECIES_BOUNDARY",
+      "action": "POWO recognizes A. fendleriana as accepted and lists var. fendleriana as its homotypic synonym. Var. fendleri Vasey is a heterotypic, nomen nudum synonym of A. fendleriana; keep full name and status distinct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/19192-2"
+      ]
+    },
+    {
+      "source_name": "Aristida purpurea var. nealleyi (Vasey) Allred",
+      "accepted_name": "Aristida glauca (Nees) Walp.",
+      "rank": "historical variety -> accepted species",
+      "name_status": "HETEROTYPIC_SYNONYM_OF_SEPARATELY_ACCEPTED_SPECIES_POWO",
+      "scientific_decision": "PASS_POWO_SPECIES_BOUNDARY",
+      "action": "POWO places var. nealleyi under separately accepted A. glauca. It lists A. purpurea var. glauca as homotypic synonym of A. glauca. ITIS and USFS historical accounts may recognize var. nealleyi under A. purpurea: preserve source-specific rank/circumscription.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185315",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur"
+      ]
+    },
+    {
+      "source_name": "Aristida purpurea var. curvifolia (E.Fourn.) Allred",
+      "accepted_name": "Aristida curvifolia E.Fourn.",
+      "rank": "historical variety -> accepted species",
+      "name_status": "HOMOTYPIC_SYNONYM_OF_SEPARATELY_ACCEPTED_SPECIES_POWO",
+      "scientific_decision": "PASS_POWO_SPECIES_BOUNDARY",
+      "action": "POWO accepts A. curvifolia separately and places var. curvifolia as its synonym; the 1995 Allred & Valdes-Reyna primary paper reports reinstating A. curvifolia. Do not conflate this historical variety with A. purpurea sensu stricto.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272625-2",
+        "https://doi.org/10.2307/3392251"
+      ]
+    },
+    {
+      "source_name": "Aristida purpurea complex in Allred (1984)",
+      "accepted_name": "Multiple accepted POWO species plus A. purpurea",
+      "rank": "1984 one species/seven varieties vs current POWO split species",
+      "name_status": "AUTHORITY_SPECIFIC_CIRCUMSCRIPTION_CONFLICT",
+      "scientific_decision": "UNRESOLVED_AUTHORITY_RANK_CONCEPT",
+      "action": "Allred's 1984 morphometric revision grouped the Purpureae complex as one species with seven varieties, whereas current POWO accepts several of those names as separate species. Preserve both treatments with their dates. Do not apply broad 1984/1997 specimen concepts as automatic evidence for POWO's narrower name concept.",
+      "sources": [
+        "https://doi.org/10.2307/2806599",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+        "https://powo.science.kew.org/taxon/19242-2",
+        "https://powo.science.kew.org/taxon/19192-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272625-2",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur"
+      ]
+    },
+    {
+      "source_name": "Historical field-ID descriptions including var. longiseta",
+      "accepted_name": "Aristida purpurea Nutt. (current installed card)",
+      "rank": "species-level description, variety-aware",
+      "name_status": "DIAGNOSTIC_CONCEPT_CAUTION",
+      "scientific_decision": "HOLD_SOURCE_CONCEPT_TO_PHOTO_MAPPING",
+      "action": "The canonical card currently uses variety-aware glume measurements, including var. longiseta. Those morphology statements may describe broad A. purpurea sensu FNA/USFS rather than narrow POWO A. purpurea; taxonomy-only review cannot determine which installed photos or measurements apply to the narrower concept. Hand off to specimen/field-ID review without editing species card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+        "https://powo.science.kew.org/taxon/19242-2",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur",
+        "https://pubs.nmsu.edu/sale/documents/GrassesNewMexico_2016.pdf"
+      ]
+    },
+    {
+      "source_name": "Aristida purpurea individual observations and hybrid claims",
+      "accepted_name": "Aristida purpurea Nutt.",
+      "rank": "specimen/photo and hybrid identity",
+      "name_status": "NOT_INDEPENDENTLY_VERIFIED",
+      "scientific_decision": "HOLD_INDIVIDUAL_PHOTOGRAPHIC_IDENTITY_AND_HYBRID_INFERENCE",
+      "action": "A name PASS is not a verified identification of individual learner photographs, a variety assignment, or evidence of hybrid parentage. Preserve existing PASS/FAIL/HOLD/UNRESOLVED scientific states and any photo/source identity holds; no new hybrid assertion.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+        "https://doi.org/10.2307/2806599",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur"
+      ]
+    }
+  ],
+  "conflict_and_hold_summary": {
+    "accepted_name": "PASS: Aristida purpurea Nutt. remains accepted under POWO/WCVP.",
+    "historic_variety_crosswalk": "PASS under POWO: longiseta -> A. longiseta; fendleriana -> A. fendleriana; nealleyi -> A. glauca; curvifolia -> A. curvifolia. These are authority-specific mappings, not photo-level determinations.",
+    "taxonomic_circumscription": "UNRESOLVED authority conflict: Allred 1984 one species/seven varieties vs POWO separate accepted species.",
+    "learner_measurement_scope": "HOLD: existing variety-aware glume lesson may incorporate characters from taxa POWO treats as separate species; no card edits in taxonomy-only lane.",
+    "photo_identity": "HOLD: no individual specimen or installed photograph independently identified in this pass.",
+    "hybrid_identity": "HOLD: no hybrid parentage established.",
+    "range": "Not audited; canonical target-zone PASS untouched."
+  },
+  "references": [
+    {
+      "authority": "Kew POWO/WCVP",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+      "checked": "2026-10-23"
+    },
+    {
+      "authority": "Kew POWO/WCVP — Aristida longiseta",
+      "url": "https://powo.science.kew.org/taxon/19242-2",
+      "checked": "2026-10-23"
+    },
+    {
+      "authority": "Kew POWO/WCVP — Aristida fendleriana",
+      "url": "https://powo.science.kew.org/taxon/19192-2",
+      "checked": "2026-10-23"
+    },
+    {
+      "authority": "Kew POWO/WCVP — Aristida glauca",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1",
+      "checked": "2026-10-23"
+    },
+    {
+      "authority": "Kew POWO/WCVP — Aristida curvifolia",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272625-2",
+      "checked": "2026-10-23"
+    },
+    {
+      "authority": "Allred 1984, Brittonia 36:382-395, original morphometric revision",
+      "url": "https://doi.org/10.2307/2806599",
+      "checked": "2026-10-23",
+      "note": "Abstract/full author-supplied copy consulted; broad seven-variety treatment."
+    },
+    {
+      "authority": "Allred & Valdes-Reyna 1995, Novon 5:209-222",
+      "url": "https://doi.org/10.2307/3392251",
+      "checked": "2026-10-23",
+      "note": "Primary taxonomic revision reinstates A. curvifolia."
+    },
+    {
+      "authority": "USDA Forest Service FEIS, Janet Howard 1997",
+      "url": "https://research.fs.usda.gov/feis/species-reviews/aripur",
+      "checked": "2026-10-23",
+      "note": "Historical broad five-variety species treatment."
+    },
+    {
+      "authority": "Allred, Field Guide to Grasses of New Mexico",
+      "url": "https://pubs.nmsu.edu/sale/documents/GrassesNewMexico_2016.pdf",
+      "checked": "2026-10-23",
+      "note": "Uses historical variety key, including longiseta and nealleyi."
+    }
+  ],
+  "handoff": "Taxonomy evidence only. A separate authorized botanical specimen/field-ID reviewer should reconcile which narrow POWO species concept each source photo or diagnostic measurement represents. Preserve old source names, photo provenance and original statuses; do not auto-reassign species.",
+  "canonical_species_modified": false,
+  "photo_sourcing_or_installation": false,
+  "genus_family_lessons_modified": false,
+  "county_native_audit_performed": false,
+  "pages_changed": false
+}
