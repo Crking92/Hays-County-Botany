@@ -10,8 +10,9 @@ const memberName=item=>item.common_name||item.scientific_name||item.id||'Unnamed
 const latinName=item=>item.scientific_name||String(item.id||'').replace(/-/g,' ');
 const safePath=path=>{
  if(typeof path!=='string'||/^(?:https?:|\/)/i.test(path)||path.includes('..')||path.includes('\\'))return '';
- if(!/^content\/taxa\//i.test(path)||![...path].every(ch=>/[a-z0-9_\/.() -]/i.test(ch))||
-    !/\.(?:json|jpg|jpeg|png|webp)$/i.test(path))return '';
+ if(!/^content\/taxa\//i.test(path)||!/\.(?:json|jpg|jpeg|png|webp)$/i.test(path))return '';
+ const segments=path.split('/');
+ if(segments.length<5||segments.some(v=>!v||v==='.'||v==='..'||/[?#&<>\x00-\x1f]/.test(v)))return '';
  return './'+path.split('/').map(encodeURIComponent).join('/');
 };
 const photo=(item,kind)=>{
@@ -79,7 +80,14 @@ function filtered(){
    (!q||low([p.common_name,p.scientific_name,p.family,p.genus,p.cue].join(' ')).includes(q)))
    .sort((a,b)=>sorted(memberName(a),memberName(b)));
  }
- return groups(state.rank).filter(g=>!q||low(g.name+' '+g.family).includes(q));
+ // Search common/scientific species names even while browsing families
+ // and genera. This lets a crew member find the correct group from the top.
+ const matches=new Set(state.records.filter(p=>
+  !q||low([p.common_name,p.scientific_name,p.family,p.genus,p.cue].join(' ')).includes(q)
+ ).map(p=>state.rank==='families'?p.family:p.family+'|||'+p.genus));
+ return groups(state.rank).filter(g=>
+  !q||low(g.name+' '+g.family).includes(q)||
+  matches.has(state.rank==='families'?g.family:g.family+'|||'+g.genus));
 }
 function tile(item){
  if(state.rank==='families')return '<button class="field-tile" data-family="'+esc(item.family)+'">'+
