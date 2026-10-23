@@ -1,0 +1,126 @@
+{
+  "batch_id": "grass-panicum-virgatum-homonym-rank-2026-10-23-1426-001",
+  "date_checked": "2026-10-23",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Panicum",
+  "canonical_taxon_id": "panicum-virgatum",
+  "canonical_species_path": "content/taxa/Poaceae/Panicum/panicum-virgatum/species.json",
+  "canonical_species_blob_sha_read_only": "2bc343099b5a51a882913d7831a84260a3f00450",
+  "source_pool_spelling": "Panicum virgatum L. — switchgrass",
+  "primary_decision": "PASS_ACCEPTED_SPECIES_WITH_HISTORICAL_VARIETY_RANK_AND_AUTHOR_SENSITIVE_NAME_COLLISION",
+  "decisions": [
+    {
+      "source_name": "Panicum virgatum L.",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "species",
+      "name_status": "ACCEPTED",
+      "scientific_decision": "PASS_ACCEPTED_NAME_AND_AUTHOR",
+      "action": "Keep one existing switchgrass learner concept; no renaming.",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1"
+    },
+    {
+      "source_name": "Chasea virgata (L.) Nieuwl.",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "species, historical generic combination",
+      "name_status": "HOMOTYPIC_SYNONYM",
+      "scientific_decision": "PASS_SYNONYM",
+      "action": "Historical alias only, no duplicate species card.",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1"
+    },
+    {
+      "source_name": "Milium virgatum (L.) Lunell",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "species, historical generic combination",
+      "name_status": "HOMOTYPIC_SYNONYM",
+      "scientific_decision": "PASS_SYNONYM",
+      "action": "Historical alias only.",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1"
+    },
+    {
+      "source_name": "Panicum virgatum var. cubense Griseb.",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "variety",
+      "name_status": "HETEROTYPIC_SYNONYM_UNDER_POWO",
+      "scientific_decision": "PASS_POWO_SYNONYM_WITH_HISTORICAL_RANK_CAUTION",
+      "action": "Preserve historical variety spelling and source attribution; do not infer variety from field photo.",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182675-2"
+    },
+    {
+      "source_name": "Panicum virgatum subsp. cubense (Griseb.) Borhidi",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "subspecies",
+      "name_status": "SYNONYM_UNDER_POWO",
+      "scientific_decision": "PASS_POWO_SYNONYM_WITH_HISTORICAL_RANK_CAUTION",
+      "action": "Retain rank-specific historical alias, not separately accepted POWO subspecies.",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182674-2"
+    },
+    {
+      "source_name": "Panicum virgatum var. spissum H.P.Linder",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "variety",
+      "name_status": "HETEROTYPIC_SYNONYM_UNDER_POWO",
+      "scientific_decision": "PASS_POWO_SYNONYM_WITH_HISTORICAL_RANK_CAUTION",
+      "action": "Keep historical variety source concept without creating new card.",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1"
+    },
+    {
+      "source_name": "Panicum virgatum Roxb. ex Steud.",
+      "accepted_name": "Panicum sumatrense Roth",
+      "rank": "historical species-level name, pro syn.",
+      "name_status": "SYNONYM_OF_SEPARATE_ACCEPTED_SPECIES",
+      "scientific_decision": "PASS_AUTHOR_SENSITIVE_DIFFERENT_TAXON",
+      "action": "Do not map the author-specific Roxb. ex Steud. name to switchgrass. This is cited pro syn. by POWO; avoid calling it a validly published accepted homonym.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413538-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413287-1"
+      ]
+    },
+    {
+      "source_name": "Panicum coloratum Walter",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "species",
+      "name_status": "ILLEGITIMATE_LATER_HOMONYM_AND_HETEROTYPIC_SYNONYM",
+      "scientific_decision": "PASS_AUTHOR_SENSITIVE_SYNONYM",
+      "action": "Do not confuse with separately accepted Panicum coloratum L.; retain authorship and nomenclatural status.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77244574-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:410989-1"
+      ]
+    }
+  ],
+  "authority_rank_context": {
+    "POWO_WCVP": "Species accepted; historical var. cubense, subsp. cubense, var. spissum treated as synonyms; no accepted infraspecifics listed on the species page.",
+    "USFS_FEIS_1993": "Older switchgrass account recognizes varieties cubense and spissum.",
+    "decision": "PASS current POWO species name; preserve authority-specific historical varieties. No reassignment of existing plants to varieties.",
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1",
+      "https://research.fs.usda.gov/feis/species-reviews/panvir"
+    ]
+  },
+  "scientific_guardrails": {
+    "accepted_species_name": "PASS",
+    "accepted_species_author": "PASS",
+    "historical_synonyms": "PASS",
+    "author_sensitive_different_species_name": "PASS",
+    "historical_infraspecific_rank": "PASS_POWO_MAPPING; alternative historical ranks preserved",
+    "specimen_photo_identity": "HOLD — name review does not authenticate individual photographs",
+    "cultivar_or_ecotype_identity": "HOLD — no cultivar/ecotype identification established",
+    "hybrid_parentage": "HOLD — no hybrid identification established",
+    "original_scientific_PASS_FAIL_HOLD_UNRESOLVED": "UNCHANGED",
+    "native_range_audit": "DEFERRED; prior native-range statuses and metrics unchanged",
+    "canonical_species_modified": false,
+    "other_workers_files_modified": false
+  },
+  "handoff": "Existing switchgrass card is correctly named Panicum virgatum L. Keep historical varieties as source-specific aliases; avoid author-insensitive Panicum virgatum Roxb. ex Steud. conflation with accepted Panicum sumatrense. Panicum coloratum Walter (illegitimate later homonym) must not be conflated with accepted P. coloratum L.",
+  "references": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413538-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413287-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182675-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182674-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77244574-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:410989-1",
+    "https://research.fs.usda.gov/feis/species-reviews/panvir"
+  ]
+}
