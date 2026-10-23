@@ -155,25 +155,75 @@ function change(rank,family,genus){
 function firstText(value,max){
  return String(value||'').replace(/\s+/g,' ').slice(0,max);
 }
+function cueSteps(sp){
+ const mor=sp.morphology_keys||{},fin=sp.field_id_finish_pass||{},photo=sp.field_photo_quickcheck||{};
+ for(const candidate of [mor.crew_20_second_sequence,fin.crew_field_sequence,photo.steps,mor.best_field_traits]){
+  const safe=Array.isArray(candidate)?candidate.map(v=>typeof v==='string'?v:v&&typeof v==='object'&&typeof v.text==='string'?v.text:v&&typeof v==='object'&&typeof v.cue==='string'?v.cue:null).filter(Boolean):[];
+  if(safe.length)return safe;
+ }
+ return [sp.look_here_first||'Check leaf attachment and flowering structures against confirmed photographs.'];
+}
 function cues(sp){
- const mor=sp.morphology_keys||{},steps=mor.crew_20_second_sequence||mor.best_field_traits||[];
- if(Array.isArray(steps)&&steps.length)return steps.slice(0,5).filter(x=>typeof x==='string').map(x=>'<li>'+esc(x)+'</li>').join('');
- return '<li>'+esc(sp.look_here_first||'Look at the leaf attachment and flowering structures. Confirm against a verified photo.')+'</li>';
+ return listHTML(cueSteps(sp).slice(0,5));
 }
 function fullMorph(sp){
  const morphology=sp.morphology_keys||{};
  const entries=Object.entries(morphology).filter(([key,v])=>
   key!=='crew_20_second_sequence'&&key!=='best_field_traits'&&
-  (typeof v==='string'||Array.isArray(v))).slice(0,24);
- return entries.map(([key,v])=>
-  '<div class="note-field"><b>'+esc(key.replace(/_/g,' '))+'</b><p>'+esc(Array.isArray(v)?v.join(' · '):v)+'</p></div>').join('');
+  (typeof v==='string'||Array.isArray(v)));
+ return entries.map(([key,v])=>{
+  const safe=typeof v==='string'?[v]:v.filter(x=>typeof x==='string').slice(0,12);
+  if(!safe.length)return '';
+  return '<div class="note-field"><b>'+esc(key.replace(/_/g,' '))+'</b>'+
+   (safe.length===1?'<p>'+esc(safe[0])+'</p>':listHTML(safe))+'</div>';
+ }).filter(Boolean).join('');
+}
+function comparisonMatrix(sp){
+ const comp=sp.comparisons||{};
+ const rows=Array.isArray(comp.field_matrix)?comp.field_matrix.slice(0,10):[];
+ const clean=rows.map(row=>{
+  if(!row||typeof row!=='object')return '';
+  const label=row.taxon||row.lookalike||row.with||row.species||row.name||'Comparison';
+  const parts=[
+   ['Look at',row.where_to_look||row.focus||row.look_here_first],
+   ['Identification',row.usual_pattern||row.rule||row.cue||row.other],
+   ['This plant',row.little_bluestem||row.frogfruit],
+   ['Limitations',row.limitation||row.caution]
+  ].filter(([,value])=>typeof value==='string'&&value.trim());
+  return '<article class="comparison-mini"><b>'+esc(label)+'</b>'+
+   parts.map(([label,v])=>'<p><strong>'+esc(label)+':</strong> '+esc(v)+'</p>').join('')+'</article>';
+ }).filter(Boolean).join('');
+ const paired=comp.detailed_pair&&typeof comp.detailed_pair==='object'?comp.detailed_pair:{};
+ const rules=textItems(paired.quick_split,5);
+ const warnings=textItems(comp.do_not_trust_alone||comp.not_reliable_alone,8);
+ return (rules.length?'<h4>Fast local comparison</h4>'+listHTML(rules):'')+
+  (clean?'<h4>Comparison details</h4><div class="comparison-list">'+clean+'</div>':'')+
+  (warnings.length?'<h4>Do not rely on these alone</h4>'+listHTML(warnings):'');
 }
 function lookalikes(sp){
  const cp=sp.comparisons||{};
- const confused=Array.isArray(cp.confused_with)?cp.confused_with.slice(0,8):[];
+ const confused=Array.isArray(cp.confused_with)?cp.confused_with.slice(0,12):[];
  return (confused.length?'<p class="lookalike-names"><b>Look-alikes:</b> '+confused.map(esc).join(' · ')+'</p>':'')+
-  (cp.key_distinctions?'<p>'+esc(cp.key_distinctions)+'</p>':'')+
-  (cp.taxonomy_caution?'<p class="caution"><b>Taxonomy caution:</b> '+esc(cp.taxonomy_caution)+'</p>':'');
+  (typeof cp.key_distinctions==='string'?'<p>'+esc(cp.key_distinctions)+'</p>':'')+
+  (typeof cp.taxonomy_caution==='string'?'<p class="caution"><b>Taxonomy caution:</b> '+esc(cp.taxonomy_caution)+'</p>':'')+
+  comparisonMatrix(sp);
+}
+function confirmation(sp){
+ const morph=sp.morphology_keys||{};
+ const checks=sp.field_photo_quickcheck||{};
+ const fin=sp.field_id_finish_pass||{};
+ const notes=[
+  ['Important caution',checks.warning],
+  ['Stop at genus when uncertain',morph.when_to_stop_at_genus],
+  ['Advanced confirmation',morph.advanced_confirmation],
+  ['What to photograph',sp.what_to_photograph_for_confirmation||morph.what_to_photograph_for_confirmation],
+  ['Identification guardrails',fin.science_guardrails]
+ ];
+ return notes.map(([label,v])=>{
+  const items=textItems(v,8);
+  return items.length?'<div class="note-field"><b>'+esc(label)+'</b>'+
+   (items.length===1?'<p>'+esc(items[0])+'</p>':listHTML(items))+'</div>':'';
+ }).filter(Boolean).join('');
 }
 function photosFor(sp,path){
  const list=Array.isArray(sp.images)?sp.images.slice(0,10):[];
