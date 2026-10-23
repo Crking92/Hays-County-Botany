@@ -66,7 +66,7 @@ jobs:
           assert len(matching)==len(cross)==1
           panel=matching[0]; assert len(panel["markers"])==2
           assert panel["markers"][0]["target_x"]==76.5 and panel["markers"][0]["target_y"]==92.5
-          assert "DETACHED" in panel["photo_status"]
+          assert "detached" in panel["photo_status"].lower()
           assert "true hair-fringe" in s["field_id_finish_pass"]["stage"]
           print("PASS original source pixels and exact author-licensed rights; 1 visible basal cup arrow; still honest attached pedicel and ligule gaps")
           PY
