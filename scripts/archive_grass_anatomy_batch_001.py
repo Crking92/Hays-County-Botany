@@ -2,7 +2,7 @@
 """Batch archive vetted diagnostic Commons photographs into exact-species grass folders."""
 import json,urllib.parse,urllib.request,io,pathlib
 from PIL import Image
-photos=[["Eleusine","eleusine-indica","Eleusine indica ligule1 (6974723960).jpg","Harry Rose","CC BY 2.0","True ligule: short membrane and hair fringe"],["Eleusine","eleusine-indica","Eleusine indica spikelet2 annotated (6974711762).jpg","Harry Rose","CC BY 2.0","Annotated flattened spikelet and glume lemma anatomy"],["Bromus","bromus-japonicus","Bromus japonicus (3860476601).jpg","Matt Lavin","CC BY-SA 2.0","Individual spikelet, rounded lemmas and awns"],["Bromus","bromus-lanceolatus","Bromus lanceolatus dry.jpg","Yves Bas","CC BY-SA 4.0","Dry flowering structure; check Commons rights live"]]
+photos=[["Eleusine","eleusine-indica","Eleusine indica ligule1 (6974723960).jpg","Harry Rose","CC BY 2.0","True ligule: short membrane and hair fringe"],["Eleusine","eleusine-indica","Eleusine indica spikelet2 annotated (6974711762).jpg","Harry Rose","CC BY 2.0","Annotated flattened spikelet and glume lemma anatomy"],["Bromus","bromus-japonicus","Bromus japonicus (3860476601).jpg","Matt Lavin","CC BY-SA 2.0","Individual spikelet, rounded lemmas and awns"],["Bromus","bromus-lanceolatus","Bromus lanceolatus dry.jpg","Yves Bas","CC BY 4.0","Dry flowering structure; check Commons rights live"]]
 for genus,species,filename,creator,license,role in photos:
     base=pathlib.Path("content/taxa/Poaceae")/genus/species
     p=base/"species.json"
