@@ -99,3 +99,32 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .photo-coverage-caution p{margin:5px 0}
 .photo-coverage-caution summary{font-weight:700;cursor:pointer;color:#5c4c23}
 .photo-coverage-caution ul{padding-left:19px;margin-bottom:5px}
+
+/* Field ID's native species dialog uses its own CSS; make the shared
+   on-demand iNaturalist carousel genuinely sideways-scrollable here. */
+#fieldDetail .inat-explore{margin:14px 0 18px;min-width:0;max-width:100%}
+#fieldDetail .inat-launch,
+#fieldDetail .inat-controls .button{border:1px solid #8dac96;background:#e8f1e8;color:var(--deep);border-radius:10px;padding:10px 15px;font-weight:750;text-align:center}
+#fieldDetail .inat-launch:hover,
+#fieldDetail .inat-controls .button:hover{background:#d9e8d8}
+#fieldDetail .inat-inline-intro .stepbar{font-size:.73rem;font-weight:780;letter-spacing:.06em;text-transform:uppercase;color:#4e7356}
+#fieldDetail .inat-inline-intro .intro{color:#56695b;font-size:.86rem;margin:6px 0 12px}
+#fieldDetail .inat-inline-intro h2{font-size:1.4rem}
+#fieldDetail .inat-explore .loading,
+#fieldDetail .inat-explore .info{padding:12px;background:#eef3eb;border-radius:9px;font-size:.89rem}
+#fieldDetail .inat-strip{display:flex;overflow-x:auto;gap:12px;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain;padding:3px 0 15px}
+#fieldDetail .inat-tile{flex:0 0 235px;width:235px;max-width:75vw;min-width:0;scroll-snap-align:start;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:white}
+#fieldDetail .inat-tile>a{display:block}
+#fieldDetail .inat-tile img{height:188px;width:100%;object-fit:contain;background:#e7eee4;display:block}
+#fieldDetail .inat-tile .tilebody{padding:10px;line-height:1.4;overflow-wrap:anywhere}
+#fieldDetail .inat-tile .tilebody small{display:block;color:#516557;margin:4px 0}
+#fieldDetail .inat-tile .tilebody .role{font-size:.82rem;font-weight:760;margin-bottom:7px}
+#fieldDetail .inat-controls{gap:9px}
+#fieldDetail .inat-controls .mini,
+#fieldDetail [data-inat-drawer]>.mini{font-size:.81rem;color:var(--muted)}
+#fieldDetail .inat-strip:focus-visible{outline:3px solid #aa7927;outline-offset:3px}
+@media(max-width:650px){
+ #fieldDetail .inat-tile{flex-basis:210px;width:210px}
+ #fieldDetail .inat-tile img{height:170px}
+ #fieldDetail .inat-controls .button{padding:10px}
+}
