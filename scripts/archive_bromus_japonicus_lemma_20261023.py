@@ -32,15 +32,18 @@ try:
  img.verify()
  img=Image.open(io.BytesIO(raw)).convert("RGB")
  assert img.width>=900 and img.height>=900,img.size
- if not any(x.get("source_page")==source for x in d["images"]):
+ if not out.exists():
   out.parent.mkdir(exist_ok=True,parents=True)
   img.save(out,"JPEG",quality=88,optimize=True)  # no source EXIF/GPS
-  d["images"].append({"file":"images/"+out.name,"role":"Exact-species source-labelled mature lemmas with membranous margin and awn; source-photo anatomical placement provisional","creator":"Stefan.lefnaer","license":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/","source_page":source,"photo_status":"PROVISIONAL — USER PHOTO REVIEW PENDING; no new anatomy arrows","public_reuse":"CC BY-SA 4.0 attribution, source and modified-JPEG indication required","modifications":"Converted to RGB and re-encoded with metadata/EXIF removed"})
+  existing=next((x for x in d["images"] if x.get("source_page")==source),None)
+  new_record={"file":"images/"+out.name,"role":"Exact-species source-labelled mature lemmas with membranous margin and awn; source-photo anatomical placement provisional","creator":"Stefan.lefnaer","license":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/","source_page":source,"photo_status":"PROVISIONAL — USER PHOTO REVIEW PENDING; no new anatomy arrows","public_reuse":"CC BY-SA 4.0 attribution, source and modified-JPEG indication required","modifications":"Converted to RGB and re-encoded with metadata/EXIF removed"}
+  if existing is not None: existing.update(new_record)
+  else: d["images"].append(new_record)
   d["learner_visual_status"]["image_count"]=len(d["images"])
   d["curation_status"]["photo_metadata_count"]=len(d["images"])
   species_path.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
   report.update(status="ARCHIVED",local_file=str(out),sha256=hashlib.sha256(out.read_bytes()).hexdigest(),size=out.stat().st_size,license=license)
- else:report["status"]="ALREADY_PRESENT"
+ else:report["status"]="ALREADY_ARCHIVED"
 except Exception as exc:report["error"]=str(exc)
 dest=pathlib.Path("reports/bromus-japonicus-lemma-20261023.json")
 dest.parent.mkdir(parents=True,exist_ok=True)
