@@ -142,6 +142,30 @@ def permitted_harms_spco(item: dict, noncommercial: bool) -> bool:
             return True
     return False
 
+
+# Bob Harms Selected Central Texas Monocots: only these 9 SCSC original
+# photographs are permitted under exact copyrighted scientific/educational
+# use WITH creator credit. Not CC / generic redistribution permission.
+HARMS_SCSC_IMAGE_IDS = frozenset({"SCSC-a","SCSC-a1","SCSC-i","SCSC-J","SCSC-J1","SCSC-s","SCSC-9","SCSC-C","SCSC-L"})
+
+def permitted_harms_little_bluestem(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial:
+        return False
+    if item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Schizachyrium scoparium":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+id+".html"
+               and item.get("source_image") == HARMS_BASE+"images/"+id+".jpg"
+               for id in HARMS_SCSC_IMAGE_IDS)
+
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -170,7 +194,7 @@ def photo_rights(record, noncommercial=False):
     is_owner = creator in OWNER_NAMES and bool(source) and bool(photo_id)
     if is_owner:  # Separately recorded site-specific owner authorization, not a Creative Commons license.
         return None
-    if permitted_harms_wintergrass(record, noncommercial) or permitted_harms_phalaris(record, noncommercial) or permitted_harms_spva(record, noncommercial) or permitted_harms_papu(record, noncommercial) or permitted_harms_spcl(record, noncommercial) or permitted_harms_spco(record, noncommercial):
+    if permitted_harms_wintergrass(record, noncommercial) or permitted_harms_phalaris(record, noncommercial) or permitted_harms_spva(record, noncommercial) or permitted_harms_little_bluestem(record, noncommercial) or permitted_harms_papu(record, noncommercial) or permitted_harms_spcl(record, noncommercial) or permitted_harms_spco(record, noncommercial):
         return None  # Explicit photographed author educational-use permission, still copyrighted.
     # The publisher inserts this marker only for explicitly enumerated frames.
     # Validate it again here, including creator, video source and record ID.
