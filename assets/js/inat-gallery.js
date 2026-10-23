@@ -131,13 +131,10 @@
     return result;
   }
   function header(name) {
-    return '<section class="lessonpart inat-explore" id="inatExplore" data-inat-species="'+escapeHTML(name)+'">'+
-      '<div class="stepbar">Explore more examples</div>'+
-      '<h2>iNaturalist observation photos</h2>'+
-      '<p class="intro">See additional community photographs of <i>' + escapeHTML(name) +
-      '</i>. Research Grade observations are prioritized from Hays County, nearby Central Texas, then Texas. '+
-      'These are independent observation IDs, not separately checked diagnostic lessons.</p>'+
-      '<button class="button secondary inat-launch" type="button" data-inat-open aria-expanded="false" aria-controls="inatPhotoDrawer">Explore iNaturalist Photos ↓</button>'+
+    // This section is rendered at the existing button position, immediately
+    // below the species overview. The drawer expands right under that button.
+    return '<section class="inat-photo-jump inat-explore" id="inatExplore" data-inat-species="'+escapeHTML(name)+'">'+
+      '<button class="button secondary inat-launch" type="button" data-inat-open aria-expanded="false" aria-controls="inatPhotoDrawer">Explore iNaturalist photos ↓</button>'+
       '<div id="inatPhotoDrawer" data-inat-drawer hidden></div>'+
       '</section>';
   }
@@ -160,13 +157,18 @@
       'CC BY-NC and CC BY-NC-SA images are displayed only under this site’s noncommercial educational use.</p>';
   }
   function body(record) {
-    if (record.loading) return '<div class="loading" role="status">Searching individually licensed iNaturalist photos…</div>';
-    if (record.error) return '<p class="info" role="status">' + escapeHTML(record.error) + '</p>';
+    const intro='<div class="inat-inline-intro"><div class="stepbar">Community photo examples</div>'+
+      '<h2>iNaturalist observation photos</h2>'+
+      '<p class="intro">Browse additional community photographs of <i>'+escapeHTML(record.name)+'</i>. '+
+      'Research Grade observations are prioritized from Hays County, nearby Central Texas, then Texas. '+
+      'These are independently identified observations, not individually verified diagnostic lessons.</p></div>';
+    if (record.loading) return intro+'<div class="loading" role="status">Searching individually licensed iNaturalist photos…</div>';
+    if (record.error) return intro+'<p class="info" role="status">'+escapeHTML(record.error)+'</p>';
     if (!record.photos || !record.photos.length) {
-      return '<p class="info">No suitably licensed, matching Research Grade photos were found for this species in the searched Texas areas. ' +
-      'The existing canonical photo lesson remains available above.</p>';
+      return intro+'<p class="info">No suitably licensed, matching Research Grade photos were found for this species in the searched Texas areas. '+
+        'The existing canonical photo lesson remains available below.</p>';
     }
-    return cards(record.photos);
+    return intro+cards(record.photos);
   }
   function sectionForClick(btn) {
     return btn.closest('[data-inat-species]');
@@ -202,14 +204,9 @@
     }
   }
   document.addEventListener('click', function(event) {
-    const button = event.target.closest('[data-inat-jump], [data-inat-open], [data-inat-scroll]');
+    const button = event.target.closest('[data-inat-open], [data-inat-scroll]');
     if (!button) return;
-    if (button.hasAttribute('data-inat-jump')) {
-      const section = document.getElementById('inatExplore');
-      const target = section && section.querySelector('[data-inat-open]');
-      if (target && target.getAttribute('aria-expanded') !== 'true') toggle(target);
-      if (section) section.scrollIntoView({behavior:'smooth', block:'start'});
-    } else if (button.hasAttribute('data-inat-open')) {
+    if (button.hasAttribute('data-inat-open')) {
       toggle(button);
     } else {
       const strip = document.getElementById('inatPhotoStrip');
