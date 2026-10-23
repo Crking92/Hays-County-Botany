@@ -173,6 +173,30 @@ def permitted_harms_spco(item: dict, noncommercial: bool) -> bool:
             return True
     return False
 
+
+# Bob Harms Selected Central Texas Monocots: only these 9 SCSC original
+# photographs are permitted under exact copyrighted scientific/educational
+# use WITH creator credit. Not CC / generic redistribution permission.
+HARMS_SCSC_IMAGE_IDS = frozenset({"SCSC-a","SCSC-a1","SCSC-i","SCSC-J","SCSC-J1","SCSC-s","SCSC-9","SCSC-C","SCSC-L"})
+
+def permitted_harms_little_bluestem(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial:
+        return False
+    if item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Schizachyrium scoparium":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+id+".html"
+               and item.get("source_image") == HARMS_BASE+"images/"+id+".jpg"
+               for id in HARMS_SCSC_IMAGE_IDS)
+
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -205,7 +229,7 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
-    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial) or permitted_harms_spco(item, noncommercial):
+    if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_little_bluestem(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial) or permitted_harms_spco(item, noncommercial):
         return True, "Bob Harms original: source-specific credited scientific/educational permission; NOT CC"
     if person in OWNER and photo_id:
         # Public display on this learner was expressly granted by the owner,
