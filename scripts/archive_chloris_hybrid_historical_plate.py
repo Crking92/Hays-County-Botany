@@ -5,7 +5,8 @@ from PIL import Image
 base=pathlib.Path("content/taxa/Poaceae/Chloris/chloris-x-subdolichostachya")
 path=base/"species.json";doc=json.loads(path.read_text());assert doc["id"]=="chloris-x-subdolichostachya"
 title="File:Manual of the grasses of the United States (Page 529) BHL42021168.jpg"
-outcome={"archive":"Chloris hybrid manual plate","added":False,"holds":[]}
+outcome={"archive":"Chloris hybrid manual plate","added":False,"holds":[],"attempt":"retried with explicit job log marker"}
+print("START Chloris figure 768 source validation",flush=True)
 def fetch(url):
  for attempt in range(4):
   try:
