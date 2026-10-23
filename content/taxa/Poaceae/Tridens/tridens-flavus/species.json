@@ -86,7 +86,7 @@
     },
     {
       "file": "images/gbif-manual-5938077663-d036cbb75.jpg",
-      "role": "Additional distinct image candidate; target structures not yet visually verified",
+      "role": "Verified physically archived pale mature, widely branched purpletop panicle with exposed lower branch portions; gross architecture only, not microscopic lemma or glume anatomy",
       "requested_diagnostic_view": "Purple open panicle spikelets and mature lemma, compare compact Tridens",
       "creator": "Sam Kieschnick",
       "license": "CC BY",
@@ -123,7 +123,7 @@
         704
       ],
       "archive_sha256": "25152e1ee15acc77bce1394790d5d36fc5471ad80940621f0de2c92d3f298d5d",
-      "photo_review": "Original 668×704 JPEG observed at Commons source. Reviewer identified intact multiple florets and separated botanical pieces; isolated individual lemma/glume labels NOT independently checked against a specimen. PROVISIONAL — USER PHOTO REVIEW PENDING.",
+      "photo_review": "Original 668×704 JPEG observed at Commons source. Reviewer identified intact multiple florets and separated botanical pieces; isolated individual lemma/glume labels NOT independently checked against a specimen. PROVISIONAL — USER PHOTO REVIEW PENDING. Rechecked 2026-10-23: archived JPEG decodes as actual unscaled multiflowered spikelet at right and two separated structures at left/center; exact glume/lemma IDs still unverified. Wikimedia Commons independently confirms Matt Lavin CC BY-SA 2.0 (Flickr license review 2010-11-04).",
       "image_status": "PHYSICALLY_ARCHIVED_REAL_EXACT_SPECIES_SOURCE_DETERMINATION_PROVISIONAL",
       "modifications": "Original CC BY-SA 2.0 source resized zero pixels (668x704); clean RGB JPEG metadata/GPS removed, no crop. Arrows are browser overlays, original attribution preserved."
     }
@@ -135,7 +135,7 @@
     "filled_at": "2026-10-06",
     "note": "Two preexisting licensed JPGs actually viewed and anatomy-conservative arrows added; species science and noncertified county claims unchanged."
   },
-  "photo_note": "2026-10-21 finished field teaching pass: two original licensed photos visually inspected for panicle and spikelet silhouettes, 4 gross-structure arrows verified per species; source IDs provisional. Need actual glume/lemma/ligule macro before claiming anatomically finished. Original image attributions/licensing unchanged.",
+  "photo_note": "2026-10-21 finished field teaching pass: two original licensed photos visually inspected for panicle and spikelet silhouettes, 4 gross-structure arrows verified per species; source IDs provisional. Need actual glume/lemma/ligule macro before claiming anatomically finished. Original image attributions/licensing unchanged.\n2026-10-23 diagnostic photo integrity audit: all three existing JPEGs fetched and visually inspected from canonical main. Mason Brock open purple panicle 246544 bytes (blob af7f91eb910e56dc682f73274f2bfadfc230ae6d); Sam Kieschnick pale mature panicle 350344 bytes (blob f30c1cac9c305efa2f7af6441e0c9c71a90bc185); Matt Lavin actual unscaled multiflowered spikelet 44276 bytes (blob 08f0dde2d82cb10c80f3b560b57cedfd78b01754). Matt source CC BY-SA 2.0 independently reconfirmed at Wikimedia Commons. Corrected stale photo-needs entries that had incorrectly marked physically present reproductive macro and pale panicle unverified/missing. No new photos or arrows, no exact lemma/glume/ligule inference; user review, local specimen and millimeter calibration remain pending.",
   "comparisons": {
     "confused_with": [
       "Tridens albescens",
@@ -165,22 +165,31 @@
   },
   "diagnostic_image_needs": [
     {
-      "role": "Habit / open panicle",
+      "role": "Open panicle with purple/reddish mature spikelets (gross structure)",
       "file": "images/tridens-flavus-provisional-face.jpg",
-      "status": "FILE_PRESENT_VISUAL_ANATOMY_UNVERIFIED"
+      "status": "PHYSICAL_JPEG_PRESENT_PIXEL_VERIFIED_2026-10-23; source identification remains provisional"
     },
     {
-      "role": "Collar and ~0.5 mm hairy ligule macro",
-      "status": "NEEDS_DIAGNOSTIC_PHOTO"
-    },
-    {
-      "role": "Multi-flowered spikelet with scale",
-      "status": "NEEDS_DIAGNOSTIC_PHOTO"
-    },
-    {
-      "role": "Open purple panicle branchlets",
+      "role": "Pale mature open panicle and bare lower branch portions (gross structure)",
       "file": "images/gbif-manual-5938077663-d036cbb75.jpg",
-      "status": "SOURCE_REQUESTED_ROLE_ONLY; PIXELS_NOT_VERIFIED"
+      "status": "PHYSICAL_JPEG_PRESENT_PIXEL_VERIFIED_2026-10-23; no microscopic spikelet identification"
+    },
+    {
+      "role": "Unscaled multiflowered spikelet with separated structures",
+      "file": "images/matt-lavin-4120267818-purpletop-real-spikelet-cc-by-sa-2.jpg",
+      "status": "PHYSICAL_JPEG_PRESENT_PIXEL_VERIFIED_2026-10-23; SOURCE_LICENSE_CC_BY_SA_2_0_RECONFIRMED; not a calibrated glume/lemma/vein proof"
+    },
+    {
+      "role": "Attached mature spikelet and glumes/lemma nerves with actual 1-mm scale",
+      "status": "NEEDS_PUBLIC_PHOTO; source-labelled unscaled macro cannot substitute for measurements"
+    },
+    {
+      "role": "True collar/0.2–0.5 mm hairy ligule and sheath on same plant with scale",
+      "status": "NEEDS_PUBLIC_PHOTO; no available photograph resolves this organ"
+    },
+    {
+      "role": "Rooted perennial tuft connected to same culm/panicle",
+      "status": "NEEDS_PUBLIC_PHOTO; existing panicle-only images do not prove rooted habit"
     }
   ],
   "field_id_finalization": {
