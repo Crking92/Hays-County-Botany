@@ -1,0 +1,33 @@
+name: Archive Florida paspalum photo candidates
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_paspalum_floridanum_photos.py
+      - .github/workflows/archive-paspalum-floridanum-photos.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-paspalum-floridanum
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/archive_paspalum_floridanum_photos.py
+      - name: Commit eligible sanitized photos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Paspalum/paspalum-floridanum/
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive verified Florida paspalum species photographs"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
