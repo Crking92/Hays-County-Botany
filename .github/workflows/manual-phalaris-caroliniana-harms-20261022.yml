@@ -1,0 +1,81 @@
+name: Archive five original Carolina canarygrass photos to GitHub
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-phalaris-caroliniana-harms-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-one-time-phalaris-caroliniana-harms-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout canonical main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install JPEG integrity tooling
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh live main and syntax check
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_phalaris_caroliniana_harms_20261022.py
+      - name: Verify and archive five exact original Bob Harms images
+        run: python scripts/archive_phalaris_caroliniana_harms_20261022.py
+      - name: Validate real image bytes, proper copyright credits and protected species concept
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          b=Path("content/taxa/Poaceae/Phalaris")
+          s=json.loads((b/"phalaris-caroliniana/species.json").read_text())
+          g=json.loads((b/"genus.json").read_text())
+          r=json.loads(Path("reports/phalaris-caroliniana-harms-five-real-photos-20261022.json").read_text())
+          assert r["result"]=="FIVE_HARMS_CAROLINA_CANARYGRASS_JPEGS_ARCHIVED"
+          assert len(r["files"])==5 and s["id"]=="phalaris-caroliniana"
+          assert s["curation_status"]["photo_files_present"]==6 and len(s["images"])==6
+          assert len(s["visual_comparison"]["items"])==8 and len(g["visual_comparison"]["items"])==8
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          assert sum(len(p.get("markers",[])) for p in s["visual_comparison"]["items"])==7
+          for f in r["files"]:
+              p=Path(f["path"])
+              assert p.is_file() and p.stat().st_size>7000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==f["archived_sha256"]
+              with Image.open(p) as img:
+                  assert img.format=="JPEG" and not img.getexif().get(34853)
+                  img.verify()
+              rec=next(x for x in s["images"] if x["file"]=="images/"+p.name)
+              assert rec["creator"]=="Bob Harms"
+              assert rec["license"]=="© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
+              assert rec["source_taxon_name"]=="Phalaris caroliniana"
+              assert rec["site_specific_public_permission"]=="BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
+              assert any(v["image_url"]==str(p) and v["source_page"]==f["source_page"] for v in s["visual_comparison"]["items"])
+          print("PASS: five original Bob Harms real files, hashes, GPS removed, individual author rights, 8-panel lessons, no invented microscopic arrows")
+          PY
+      - name: Commit only canonical Phalaris files and release marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Phalaris/phalaris-caroliniana/
+          git add content/taxa/Poaceae/Phalaris/genus.json
+          git add reports/phalaris-caroliniana-harms-five-real-photos-20261022.json
+          git add workflow/field-id-publication/2026-10-22-phalaris-caroliniana-five-physical-photos.json
+          if git diff --cached --quiet; then echo 'No-op: five originals already archived'; exit 0; fi
+          git commit -m 'Archive five true Carolina canarygrass Bob Harms originals with credited educational-only permission [skip ci]'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
