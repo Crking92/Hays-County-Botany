@@ -57,7 +57,8 @@
     "photo_metadata_count": 3,
     "photo_files_present": 3,
     "manual_crew_visual_field_pass": "2026-10-20",
-    "visual_readiness": "FIELD_READY_PHOTO_GAPS — architecture visible; need measured spikelet and collar macro"
+    "visual_readiness": "FIELD_READY_PHOTO_GAPS — architecture visible; need measured spikelet and collar macro",
+    "diagnostic_photo_audit_20261023": "3 existing JPEGs decoded, source licenses reconfirmed, 1 mispointed basal arrow corrected and 1 visible leaf blade arrow added; no new media or fine anatomical claims"
   },
   "images": [
     {
@@ -67,7 +68,14 @@
       "license": "Public Domain",
       "source_page": "https://commons.wikimedia.org/wiki/File:Eragrostis_spectabilis.jpg",
       "study_use": "yes",
-      "public_reuse": "yes"
+      "public_reuse": "yes",
+      "photo_audit_20261023": {
+        "archive_blob_sha": "f186b584e20a157c0bfc5346241b47091ae247f0",
+        "decoded_jpeg_bytes": 356360,
+        "verified_visible_organs": "dry mature clump and diffuse panicle branches",
+        "source_identification": "PROVISIONAL — USER PHOTO REVIEW PENDING",
+        "verification": "Existing archived bytes decoded and pixels visually inspected; no newly installed image, no calibrated spikelet or true ligule proof."
+      }
     },
     {
       "file": "images/02-open-panicle.jpg",
@@ -76,7 +84,15 @@
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Eragrostis_spectabilis_kz1.jpg",
       "study_use": "yes",
-      "public_reuse": "yes"
+      "public_reuse": "yes",
+      "photo_audit_20261023": {
+        "archive_blob_sha": "e08ff742e4320b834e72020d400d86fd448b6ce8",
+        "decoded_jpeg_bytes": 368413,
+        "verified_visible_organs": "intermingled dry flowering heads; no reliable organ-level arrows",
+        "source_identification": "PROVISIONAL — USER PHOTO REVIEW PENDING",
+        "verification": "Existing archived bytes decoded and pixels visually inspected; no newly installed image, no calibrated spikelet or true ligule proof."
+      },
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
     },
     {
       "file": "images/03-flowering-stems.jpg",
@@ -85,7 +101,15 @@
       "license": "CC BY-SA 4.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Eragrostis_spectabilis_7zz.jpg",
       "study_use": "yes",
-      "public_reuse": "yes"
+      "public_reuse": "yes",
+      "photo_audit_20261023": {
+        "archive_blob_sha": "1f2e72638e443049c56bb20a443c78e88db93f0e",
+        "decoded_jpeg_bytes": 477284,
+        "verified_visible_organs": "green leaf blades, partly obscured basal crown, fine panicle branches",
+        "source_identification": "PROVISIONAL — USER PHOTO REVIEW PENDING",
+        "verification": "Existing archived bytes decoded and pixels visually inspected; no newly installed image, no calibrated spikelet or true ligule proof."
+      },
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
     }
   ],
   "learner_visual_status": {
@@ -95,7 +119,7 @@
     "filled_at": "2026-10-05",
     "note": "Three vetted exact-species images staged for physical installation; final physical-file verification follows the curation run. Scientific PASS unchanged."
   },
-  "photo_note": "Photo fast-fill 017 physicalizes the three previously vetted exact-species image selections for the learner. Scientific taxonomy/range/morphology fields are unchanged.",
+  "photo_note": "Photo fast-fill 017 physicalizes the three previously vetted exact-species image selections for the learner. Scientific taxonomy/range/morphology fields are unchanged.\n2026-10-23: Diagnostic-photo integrity review verified three existing archived JPEGs and image-level Commons rights. Corrected a basal tuft arrow that had pointed too high into the leaf canopy; added a distinct green leaf blade arrow. Existing second image is crowded dry-stand context, not reliable individual-organ proof; no duplicate or weak photo added to teaching panels. Missing true ligule, measured mature spikelet/glumes/lemmas, same-specimen roots-to-panicle series remain NEEDS_PUBLIC_PHOTO / annotation_pending. No new JPEGs, taxonomy, range or genus changes.",
   "comparisons": {
     "confused_with": [
       "Eragrostis secundiflora",
@@ -134,12 +158,12 @@
         "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-spectabilis/images/03-flowering-stems.jpg",
         "image_fit": "contain",
         "image_role": "Sparse flexible panicle branches on a green leafy tuft",
-        "caption": "The photograph shows multiple thin branching flowering stems emerging from a leafy plant; it does not show calibrated flowers or purple pigmentation.",
+        "caption": "This verified local JPEG shows the fine, open flowering branches above green leaves and a basal leafy crown. Arrows point to visible coarse structures only; the roots, true ligule and measured spikelets are not resolved.",
         "why_it_matters": "The broad, transparent inflorescence is the first distance cue.",
         "creator": "David J. Stang",
         "license": "CC BY-SA 4.0",
         "source_page": "https://commons.wikimedia.org/wiki/File:Eragrostis_spectabilis_7zz.jpg",
-        "photo_status": "EXISTING CANONICAL LOCAL IMAGE. Pixel contents inspected 2026-10-20. Source-level taxon identification not independently re-vouchered. Browser arrows only to clearly visible structures; no microscopic characters inferred.",
+        "photo_status": "Existing physically archived exact-source photograph: Git blob 1f2e72638e443049c56bb20a443c78e88db93f0e, 477284 decoded JPEG bytes; pixels visually checked 2026-10-23. Source Commons image by David J. Stang, CC BY-SA 4.0 verified at source page. Browser arrows identify visible panicle branches, leaf blade and partly obscured basal leafy crown, not a measured ligule or species-level microscopic anatomy. Original source identification remains provisional.",
         "markers": [
           {
             "label": "Spreading panicle branches",
@@ -149,11 +173,18 @@
             "target_y": 28
           },
           {
-            "label": "Basal leafy tuft",
+            "label": "Basal leafy crown (roots not shown)",
             "label_x": 8,
             "label_y": 79,
-            "target_x": 51,
-            "target_y": 75
+            "target_x": 53,
+            "target_y": 87
+          },
+          {
+            "label": "Green leaf blade (not ligule)",
+            "label_x": 75,
+            "label_y": 64,
+            "target_x": 61,
+            "target_y": 66
           }
         ]
       },
@@ -202,7 +233,7 @@
         ]
       }
     ],
-    "overlay_note": "No new image binaries added. Photos retain their individual creator and original licensing metadata from canonical images. CC BY-SA images carry ShareAlike obligations, and archival shorthand licenses need photo-level verification before release. Look-alike images are distinctly labeled. Fine microscopic characters not photographed are left pending.",
+    "overlay_note": "No new image binaries added. Photos retain their individual creator and original licensing metadata from canonical images. CC BY-SA images carry ShareAlike obligations, and archival shorthand licenses need photo-level verification before release. Look-alike images are distinctly labeled. Fine microscopic characters not photographed are left pending. 2026-10-23: one gross-structure basal arrow repositioned after re-inspection; one leaf-blade arrow added on existing David Stang photo; 3 existing JPEGs decoded and source-level rights verified. Microscopic labels remain pending.",
     "study_only_intro": "Botanical supporting sources are separate from photo redistribution permissions.",
     "study_only_photo_links": [
       {
