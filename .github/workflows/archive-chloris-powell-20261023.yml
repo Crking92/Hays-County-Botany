@@ -1,0 +1,33 @@
+name: Archive CC-BY Chloris Powell photo
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/archive-chloris-powell-20261023.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: chloris-powell-photo
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Verify iNaturalist photo license then archive
+        run: python scripts/archive_chloris_powell_ccby_20261023.py
+      - name: Commit image or documented hold
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Chloris/chloris-andropogonoides/ reports/chloris-powell-ccby-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record verified Chloris CC BY image import outcome"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
