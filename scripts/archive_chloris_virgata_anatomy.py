@@ -2,7 +2,7 @@
 """Archive two existing Chloris virgata Commons teaching panels only after Commons image-level rights checks."""
 import io, json, pathlib, re, urllib.parse, urllib.request, hashlib, html
 from PIL import Image
-p=pathlib.Path("content/taxa/Poaceae/Chloris virgata/chloris-virgata/species.json")
+p=pathlib.Path("content/taxa/Poaceae/Chloris/chloris-virgata/species.json")
 s=json.loads(p.read_text()); outcomes=[]
 for item in s["visual_comparison"]["items"]:
     url=item.get("image_url","")
