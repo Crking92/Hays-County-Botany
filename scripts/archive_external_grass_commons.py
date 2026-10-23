@@ -61,7 +61,7 @@ def main():
    metadata=info.get("extmetadata",{})
    license=metadata.get("LicenseShortName",{}).get("value","")
    norm=normalize(license)
-   if norm not in VALID:raise ValueError("Unapproved license: "+license)
+   if norm not in {normalize(v) for v in VALID}:raise ValueError("Unapproved license: "+license)
    declared=normalize(source.get("license",""))
    # An original license mismatch requires manual review; Commons can have more than one alias.
    if declared and declared not in norm and norm not in declared:
