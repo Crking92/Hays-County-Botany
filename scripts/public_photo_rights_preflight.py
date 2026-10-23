@@ -184,7 +184,27 @@ def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
                for photo_id in HARMS_ALLOWED_IDS)
 
 
+# Five Bob Harms original Andropogon gerardii images, NOT all DigFlora.
+# Selected Monocots credited scientific/educational publication only.
+HARMS_ANGE_IDS = frozenset({"ANGE-i", "ANGE-j1", "ANGE-L", "ANGE-9", "ANGE-d"})
+
+def permitted_harms_big_bluestem(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE or item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Andropogon gerardii":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+pid+".html"
+               and item.get("source_image") == HARMS_BASE+"images/"+pid+".jpg"
+               for pid in HARMS_ANGE_IDS)
+
 def photo_rights(record, noncommercial=False):
+    if permitted_harms_big_bluestem(record, noncommercial):
+        return None
+
     creator = clean(record.get("creator") or record.get("photographer"))
     lic = clean(record.get("license"))
     source = record.get("source_page") or record.get("photo_source_url") or record.get("source_url")
