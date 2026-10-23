@@ -22,13 +22,13 @@ RIGHTS="https://idtools.org/fnwd/index.cfm?pageID=1328"
 AUTHOR="Julia L. Scher, USDA APHIS ITP (default credit for FNWD photographs without named alternate author)"
 LICENSE="Public Domain (U.S. federal government work)"
 PHOTOS=[
-  ("02","Urochloa_texana_02_fl.jpg",(330,330),"usda-urochloa-texana-ventral-dorsal-spikelets.jpg",
+  ("02","Urochloa_texana_02_fl.jpg",(322,332),"usda-urochloa-texana-ventral-dorsal-spikelets.jpg",
    "6 · TRUE SPIKELETS: ventral lower glume vs dorsal upper glume, 1 mm scale",
    "An ORIGINAL USDA image of two real Urochloa TEXANA spikelets, ventral face on LEFT with lower glume and lower sterile lemma, dorsal face on RIGHT with upper glume; actual millimeter ticks shown at far left. Do not confuse the second half-visible bract with a whole second floret. No Hays County collection provenance claimed.",
    "Two faces of SAME SPECIES provide crucial glume arrangement absent from unscaled head photos. Use 1-mm ticks to study approximate size; detailed lower-glume vein counts still require a higher-res separate original.",
    [{"label":"Ventral side: lower glume","label_x":1,"label_y":9,"target_x":32,"target_y":51},
     {"label":"Dorsal side: upper glume","label_x":66,"label_y":9,"target_x":74,"target_y":49}]),
-  ("01","Urochloa_texana_01_fl.jpg",(500,330),"usda-urochloa-texana-fertile-florets-caryopses.jpg",
+  ("01","Urochloa_texana_01_fl.jpg",(500,302),"usda-urochloa-texana-fertile-florets-caryopses.jpg",
    "7 · ACTUAL FLORETS and CARYOPSES — A/B florets, C/D grains, mm ruler",
    "USDA original Urochloa TEXANA A/B true mature florets dorsal and ventral side; C/D detached caryopses ventral and dorsal. A correctly oriented real millimeter scale runs beneath these units. The reddish/hardened floret is not a second species; pale grain C/D is the caryopsis after removing its envelopes. There is no demonstrated true leaf ligule in this image.",
    "Separates hard fertile lemma/palea from caryopsis and outer glumes. Do NOT teach that the two grains are multiple florets in the same intact spikelet.",
@@ -53,7 +53,7 @@ def retrieve(session,url,expected):
                 raise ValueError("Source URL not real expected JPEG bytes")
             with Image.open(io.BytesIO(raw)) as im:
                 im.load()
-                if im.format!="JPEG" or abs(im.size[0]-expected[0])>24 or abs(im.size[1]-expected[1])>24:
+                if im.format!="JPEG" or im.size!=expected:
                     raise ValueError("Unexpected source named specimen dimensions: "+str(im.size))
                 source_dims=list(im.size)
                 converted=ImageOps.exif_transpose(im).convert("RGB")
