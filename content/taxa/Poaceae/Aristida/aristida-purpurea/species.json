@@ -111,7 +111,8 @@
       "license": "CC BY-SA 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_(3742173733).jpg",
       "study_use": "yes",
-      "public_reuse": "yes"
+      "public_reuse": "yes",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"
     },
     {
       "file": "images/02-mature-florets-awns.jpg",
@@ -120,7 +121,8 @@
       "license": "CC BY-SA 2.0",
       "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_(3877125836).jpg",
       "study_use": "yes",
-      "public_reuse": "yes"
+      "public_reuse": "yes",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/"
     },
     {
       "file": "images/03-three-awn-close.jpg",
@@ -129,7 +131,8 @@
       "license": "CC BY-SA 3.0 / GFDL",
       "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_close.jpg",
       "study_use": "yes",
-      "public_reuse": "yes"
+      "public_reuse": "yes",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
     }
   ],
   "learner_visual_status": {
@@ -161,7 +164,66 @@
     "additional_sources": [
       "https://www.pnwherbaria.org/florapnw/treatmentpdfs/Aristida_FloraPNW_Revised.pdf",
       "https://www.schweich.com/imagehtml/TAS011400Oview.html"
-    ]
+    ],
+    "physical_photo_audit_20261023": {
+      "status": "THREE_EXISTING_BYTES_VERIFIED_NO_NEW_JPEG",
+      "images": [
+        {
+          "file": "images/01-habit.jpg",
+          "blob_sha": "e3d03efbdf9ffbdbe2055af4506c5eba09a2d010",
+          "verified_bytes": 380600,
+          "creator": "Matt Lavin",
+          "license": "CC BY-SA 2.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_(3742173733).jpg",
+          "visible": "bunch habit and basal fine leaves; age of crown, true ligule and roots not resolved"
+        },
+        {
+          "file": "images/02-mature-florets-awns.jpg",
+          "blob_sha": "77830542bd7aa7e53a57e563c1c7707f958eccf3",
+          "verified_bytes": 157214,
+          "creator": "Matt Lavin",
+          "license": "CC BY-SA 2.0",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_(3877125836).jpg",
+          "visible": "radiating awns and an awn fork above a fingertip; fingertip is not millimeter scale"
+        },
+        {
+          "file": "images/03-three-awn-close.jpg",
+          "blob_sha": "d14f311e0fd2d2eef0d0bea8d634aaa5bc9c5d68",
+          "verified_bytes": 112547,
+          "creator": "Stan Shebs",
+          "license": "CC BY-SA 3.0 (chosen from author's multiple licenses)",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_close.jpg",
+          "visible": "reddish mature floral parts and awns; glume and lemma identity not resolved"
+        }
+      ],
+      "rights": "Original JPEGs unchanged; first two Matt Lavin photos CC BY-SA 2.0, third Stan Shebs selected CC BY-SA 3.0 dual-licensed source. Keep creator, license URL, source URL and overlay change notice; attribution and ShareAlike remain applicable.",
+      "last_mile_photo_holds": [
+        {
+          "organ": "Same ripe spikelet lower+upper glumes with lower vein count",
+          "scale": "physical 1-mm bar, 10–20× backlight",
+          "status": "NEEDS_PUBLIC_PHOTO"
+        },
+        {
+          "organ": "True leaf blade–sheath collar and ligule",
+          "scale": "1-mm bar, front and side, hairs separately identifiable",
+          "status": "NEEDS_PUBLIC_PHOTO"
+        },
+        {
+          "organ": "Rooted Texas perennial crown with attached flowering culm",
+          "scale": "whole rooted plant plus linked flowering stem",
+          "status": "NEEDS_PUBLIC_PHOTO"
+        },
+        {
+          "organ": "Same-scale Aristida oligantha glumes and crown",
+          "scale": "matched 1-mm dissected spikelet + rooted habit",
+          "status": "NEEDS_PUBLIC_PHOTO"
+        }
+      ],
+      "rights_hold": "Minnesota Wildflowers offers valuable exact-taxon glume and collar photos but image-specific public reuse permission not established; DO NOT rehost or use as public teaching panels without permission.",
+      "no_new_photo_files": true,
+      "new_arrow_coordinates_visually_checked": true,
+      "annotation_pending": "True glume veins, lower/upper glume labels, ligule hairs, and complete three-awn attachment to one lemma remain unannotated pending measured close-up."
+    }
   },
   "visual_comparison": {
     "title": "Purple threeawn — actual awns plus oldfield look-alike",
@@ -174,7 +236,7 @@
         "image_url": "content/taxa/Poaceae/Aristida/aristida-purpurea/images/02-mature-florets-awns.jpg",
         "image_fit": "contain",
         "image_role": "Matt Lavin multiple awned florets at fingertip scale, without matched dissected glumes",
-        "caption": "Purple threeawn source photographed in Idaho. Awns and floret cluster visible, but the lower-glume ratio and veins cannot be distinguished.",
+        "caption": "Purple threeawn source photographed in Idaho. A long spreading awn and a visible awn branching junction are arrowed on the actual fingertip-held florets. The exact three-awn attachment to one lemma, lower/upper glume ratio and veins are NOT resolved or measured by this image.",
         "why_it_matters": "Three awns identify the genus, not purple versus oldfield species.",
         "creator": "Matt Lavin",
         "license": "CC BY-SA 2.0",
@@ -187,9 +249,16 @@
             "label_y": 17,
             "target_x": 82,
             "target_y": 52
+          },
+          {
+            "label": "Visible awn fork",
+            "label_x": 9,
+            "label_y": 64,
+            "target_x": 54,
+            "target_y": 73
           }
         ],
-        "photo_status": "Existing 960×1280 canonical JPEG retrieved and visually inspected 2026-10-22; Git blob 77830542bd7aa7e53a57e563c1c7707f958eccf3; source image Matt Lavin, CC BY-SA 2.0 confirmed on Wikimedia Commons; existing single awn arrow targets a visible awn only; no measured glumes or veins."
+        "photo_status": "2026-10-23 GitHub JPEG re-rendered and visually inspected at 960×1280. Blob 77830542bd7aa7e53a57e563c1c7707f958eccf3; 157214 actual bytes. Existing spreading-awn arrow retained; new gross awn-fork arrow points to visible junction at 54%/73%, NOT to a measured glume or a claimed fully resolved lemma tip. Matt Lavin CC BY-SA 2.0 verified on source Commons page; no JPEG modification; annotation overlay only."
       },
       {
         "label": "Oldfield threeawn — long awns on an open panicle",
@@ -258,7 +327,7 @@
       0
     ],
     "steps": [
-      "One long AWN is arrowed on a licensed actual purple-threeawn spikelet; find three awn branches emerging from a SINGLE lemma in a separate inspected specimen.",
+      "Two visually checked arrows identify one spreading awn and the visible awn-fork junction on a source-identified purple-threeawn photograph. The three-awn genus character still requires confirming three branches attached to ONE lemma on a separate inspected mature spikelet.",
       "Photograph rooted PERENNIAL tuft with many fine inrolled BASAL leaves; don't infer perennial crown from one isolated flowering stem.",
       "Dissect ONE ripe spikelet on a millimeter ruler, preserving both glumes; lower usually about HALF upper in Kew broad description.",
       "Backlight LOWER glume to confirm ONE main vein; compare oldfield's 3–7 and larger near-equal glumes.",
