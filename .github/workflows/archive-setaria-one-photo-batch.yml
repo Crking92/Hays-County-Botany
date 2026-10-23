@@ -1,0 +1,33 @@
+name: Archive sparse Setaria photo galleries
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_setaria_one_photo_batch.py
+      - .github/workflows/archive-setaria-one-photo-batch.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-setaria-one-photo-batch
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/archive_setaria_one_photo_batch.py
+      - name: Commit eligible JPEGs and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Setaria/setaria-reverchonii/ content/taxa/Poaceae/Setaria/setaria-scheelei/ reports/setaria-one-photo-batch-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive licensed Setaria species photographs and rights report"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
