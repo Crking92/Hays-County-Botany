@@ -367,7 +367,7 @@ def build(root: Path, noncommercial: bool) -> dict:
     # The Learner no longer has a Photo Lab nav item. The unchanged Field ID
     # and Quiz interfaces do. Remove that private-review link from all three
     # public pages, and never add the Photo Lab route to the public snapshot.
-    for name in ("index.html", "field-id.html", "field-id-classic.html", "quiz.html"):
+    for name in ("index.html", "field-id.html", "field-id-classic.html", "quiz.html", "quiz-classic.html"):
         page = site / name
         if not page.is_file():
             raise RuntimeError(f"Required public section missing from staged site: {name}")
@@ -546,11 +546,13 @@ def build(root: Path, noncommercial: bool) -> dict:
         # Bust offline cache when layout/code changes even if plant counts do not.
         import hashlib
         digest = hashlib.sha256()
-        for page_name in ("index.html", "field-id.html", "field-id-classic.html", "quiz.html"):
+        for page_name in ("index.html", "field-id.html", "field-id-classic.html", "quiz.html", "quiz-classic.html"):
             digest.update((site / page_name).read_bytes())
         digest.update((site / "assets" / "js" / "app.js").read_bytes())
         digest.update((site / "assets" / "js" / "field-id-tiles.js").read_bytes())
         digest.update((site / "assets" / "css" / "field-id-tiles.css").read_bytes())
+        digest.update((site / "assets" / "js" / "quiz-tiles.js").read_bytes())
+        digest.update((site / "assets" / "css" / "quiz-tiles.css").read_bytes())
         state = (str(tally["approved_photos"]) + "-" +
                  str(tally["species_checked"]) + "-" +
                  digest.hexdigest()[:12])
