@@ -1,0 +1,120 @@
+{
+  "batch_id": "grass-elymus-canadensis-virginicus-hybrid-rank-2026-10-23-0728-001",
+  "lane": "taxonomy-name-fast-pass",
+  "reviewed_at": "2026-10-23",
+  "scope": "Existing canonical Poaceae only; POWO/WCVP accepted names, author, rank, historical synonym-to-species boundaries, named interspecific hybrid. Evidence only; no learner/media/genus/range/Pages changes.",
+  "claim_path": "workflow/taxonomy-claims/grass-elymus-canadensis-virginicus-hybrid-rank-2026-10-23-0728-001.json",
+  "taxa": [
+    {
+      "source_name": "Elymus canadensis",
+      "canonical_path": "content/taxa/Poaceae/Elymus/elymus-canadensis/species.json",
+      "canonical_sha_at_review": "8b4c30f9274e53ba825c44808cfe4c27b2af2970",
+      "accepted_name": "Elymus canadensis L.",
+      "family": "Poaceae",
+      "genus": "Elymus",
+      "rank": "species",
+      "powo_status": "accepted",
+      "scientific_decision": "PASS_ACCEPTED_NAME_WITH_HISTORICAL_RANK_AND_HYBRID_BOUNDARY_CAUTION",
+      "selected_homotypic_synonyms": [
+        "Clinelymus canadensis (L.) Nevski",
+        "Hordeum canadense (L.) Asch. & Graebn.",
+        "Roegneria canadensis (L.) Hyl.",
+        "Terrellia canadensis (L.) Lunell"
+      ],
+      "selected_heterotypic_synonyms": [
+        "Elymus brachystachys Scribn. & C.R.Ball",
+        "Elymus canadensis var. villosus Bates (1914)"
+      ],
+      "historical_infraspecific_names_assigned_elsewhere": [
+        {
+          "name": "Elymus canadensis var. glabriflorus Vasey ex L.H.Dewey",
+          "accepted": "Elymus virginicus L.",
+          "relationship": "heterotypic synonym under E. virginicus"
+        },
+        {
+          "name": "Elymus canadensis var. intermedius Vasey ex A.Gray",
+          "accepted": "Elymus virginicus L.",
+          "relationship": "heterotypic synonym under E. virginicus"
+        },
+        {
+          "name": "Elymus canadensis var. riparius (Wiegand) B.Boivin",
+          "accepted": "Elymus riparius Wiegand",
+          "relationship": "homotypic synonym under E. riparius"
+        },
+        {
+          "name": "Elymus canadensis var. wiegandii (Fernald) Bowden",
+          "accepted": "Elymus wiegandii Fernald",
+          "relationship": "homotypic synonym under E. wiegandii"
+        },
+        {
+          "name": "Elymus canadensis var. villosus (Muhl. ex Willd.) Shinners",
+          "accepted": "Elymus villosus Muhl. ex Willd.",
+          "relationship": "homotypic synonym under E. villosus; illegitimate later homonym, not the earlier Bates var. villosus"
+        }
+      ],
+      "key_conflict": "Two different Elymus canadensis var. villosus names with different authors map to different accepted species: Bates (1914) is listed under E. canadensis; (Muhl. ex Willd.) Shinners (1954), an illegitimate later homonym, is listed under E. villosus. Never collapse unqualified var. villosus records. Other historical E. canadensis varieties can map to E. virginicus, E. riparius, or E. wiegandii.",
+      "hybrid_review": "POWO/WCVP accepts Elymus × maltei Bowden (1964) as E. canadensis × E. virginicus. This is a separate named hybrid concept, not a synonym of either parent. No specimen or photograph has been independently established as this hybrid.",
+      "identity_hold": "HOLD_SPECIMEN_PHOTO_IDENTITY_AND_HYBRID_INTERMEDIATE: existing species-level learner image IDs and documented intermediate-hybrid caution remain provisional. Taxonomy alone does not confirm photographed structures or hybrid ancestry.",
+      "action": "Keep existing E. canadensis species concept and authorship; evidence-only author/rank-qualified historical name mapping, no new hybrid card or source-photo re-identification.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/400194-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90367-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90363-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90322-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90385-2",
+        "https://powo.science.kew.org/taxon/288381-2"
+      ]
+    },
+    {
+      "source_name": "Elymus virginicus",
+      "canonical_path": "content/taxa/Poaceae/Elymus/elymus-virginicus/species.json",
+      "canonical_sha_at_review": "5b0d2f4fad28e630da110ab21e448fd35a893550",
+      "accepted_name": "Elymus virginicus L.",
+      "family": "Poaceae",
+      "genus": "Elymus",
+      "rank": "species",
+      "powo_status": "accepted",
+      "scientific_decision": "PASS_ACCEPTED_NAME_WITH_CROSS_SPECIES_VARIETY_AND_HYBRID_CAUTION",
+      "selected_homotypic_synonyms": [
+        "Hordeum virginicum (L.) Schenck",
+        "Leptothrix virginica (L.) Dumort.",
+        "Terrellia virginica (L.) Lunell"
+      ],
+      "selected_heterotypic_synonyms": [
+        "Elymus canadensis var. glabriflorus Vasey ex L.H.Dewey",
+        "Elymus canadensis var. intermedius Vasey ex A.Gray",
+        "Elymus glabriflorus (Vasey ex L.H.Dewey) Scribn. & C.R.Ball",
+        "Elymus striatus Willd."
+      ],
+      "key_conflict": "Historical E. canadensis var. glabriflorus and var. intermedius map to E. virginicus under POWO/WCVP, not to the modern E. canadensis concept; preserve original author, rank and source specimen concept. E. glabriflorus was accepted in some alternative regional treatments but is synonymized to E. virginicus in POWO/FNA.",
+      "hybrid_review": "Elymus × maltei Bowden is an accepted named hybrid with E. canadensis × E. virginicus parentage; no existing intermediate photograph should be auto-reassigned to hybrid or either parent.",
+      "identity_hold": "HOLD_SPECIMEN_PHOTO_IDENTITY_AND_HYBRID_INTERMEDIATE: preserve provisional photo IDs, glume-based field cautions and all prior scientific PASS/FAIL/HOLD/UNRESOLVED states.",
+      "action": "Keep E. virginicus canonical name and authorship; evidence-only historic rank-qualified mapping, no species card change.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90367-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:90247-2",
+        "https://powo.science.kew.org/taxon/288381-2"
+      ]
+    }
+  ],
+  "hybrid_concept": {
+    "accepted_name": "Elymus × maltei Bowden",
+    "status": "accepted hybrid under POWO/WCVP",
+    "formula": "Elymus canadensis × Elymus virginicus",
+    "first_publication": "Bowden, Canadian Journal of Botany 42: 575 (1964)",
+    "homotypic_synonym": "× Terrelymus maltei (Bowden) B.R.Baum",
+    "action": "Document as a separate hybrid name concept; no learner admission or hybrid specimen identification",
+    "source": "https://powo.science.kew.org/taxon/288381-2"
+  },
+  "primary_and_secondary_authorities": [
+    "Flora of North America Editorial Committee (2007). Flora of North America North of Mexico, volume 24: 1–908 (taxonomic backbone authority cited by POWO).",
+    "Bowden, W.M. (1964). Cytotaxonomy of the species and interspecies hybrids of the genus Elymus in Canada and neighbouring areas. Canadian Journal of Botany 42: 547–601. DOI:10.1139/b64-056.",
+    "Saha et al. (2009). Genetic Variation within and among Wildrye (Elymus canadensis and E. virginicus) Populations from the Southern Great Plains. Crop Science. DOI:10.2135/cropsci2008.04.0239."
+  ],
+  "cross_species_concept_guard": "Rank and full authorship matter: E. canadensis var. villosus Bates (1914) belongs under E. canadensis; E. canadensis var. villosus (Muhl. ex Willd.) Shinners (1954, illegitimate later homonym) belongs under E. villosus. E. canadensis var. glabriflorus and var. intermedius belong under E. virginicus; var. riparius under E. riparius; var. wiegandii under E. wiegandii. E. × maltei is a distinct accepted hybrid. No unqualified name merge.",
+  "preserve_scientific_states": "Preserve all existing PASS/FAIL/HOLD/UNRESOLVED, especially species-photo identity and hybrid intermediate uncertainty. No independent specimen or photograph identity determination.",
+  "native_range_audit": "DEFERRED",
+  "canonical_files_modified": false,
+  "photo_or_range_changed": false,
+  "installation_or_genus_lessons_changed": false
+}
