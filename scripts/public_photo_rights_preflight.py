@@ -120,6 +120,28 @@ def permitted_harms_spcl(item: dict, noncommercial: bool) -> bool:
                and item.get("source_image") == HARMS_BASE + "images/" + pid + ".jpg"
                for pid in SPCL_IDS)
 
+# Source- and variety-specific scientific/educational credit exception for these
+# original Bob Harms composite-dropseed photographs. Copyrighted, NOT CC.
+SPCO_IDS = frozenset(["SPCOD3-b","SPCOD3-i","SPCOD3-J0","SPCOD3-J1","SPCOD3-v","SPCOM-b","SPCOM-j1","SPCOM-8"])
+SPCO_LICENSE = "© Bob Harms — scientific/educational use with credit only (NOT Creative Commons)"
+
+def permitted_harms_spco(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != SPCO_LICENSE or item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Sporobolus compositus":
+        return False
+    for pid in SPCO_IDS:
+        variety = "Sporobolus compositus var. drummondii" if pid.startswith("SPCOD3-") else "Sporobolus compositus var. macer"
+        if (item.get("source_page") == HARMS_BASE + "pages/" + pid + ".html"
+            and item.get("source_image") == HARMS_BASE + "images/" + pid + ".jpg"
+            and item.get("source_taxon") == variety):
+            return True
+    return False
+
 def permitted_harms_wintergrass(item: dict, noncommercial: bool) -> bool:
     if not noncommercial:
         return False
@@ -148,7 +170,7 @@ def photo_rights(record, noncommercial=False):
     is_owner = creator in OWNER_NAMES and bool(source) and bool(photo_id)
     if is_owner:  # Separately recorded site-specific owner authorization, not a Creative Commons license.
         return None
-    if permitted_harms_wintergrass(record, noncommercial) or permitted_harms_phalaris(record, noncommercial) or permitted_harms_spva(record, noncommercial) or permitted_harms_papu(record, noncommercial) or permitted_harms_spcl(record, noncommercial):
+    if permitted_harms_wintergrass(record, noncommercial) or permitted_harms_phalaris(record, noncommercial) or permitted_harms_spva(record, noncommercial) or permitted_harms_papu(record, noncommercial) or permitted_harms_spcl(record, noncommercial) or permitted_harms_spco(record, noncommercial):
         return None  # Explicit photographed author educational-use permission, still copyrighted.
     # The publisher inserts this marker only for explicitly enumerated frames.
     # Validate it again here, including creator, video source and record ID.
