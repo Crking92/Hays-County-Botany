@@ -1,0 +1,34 @@
+name: Archive Chloris andropogonoides CC BY photograph
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_chloris_andropogonoides_ccby.py
+      - .github/workflows/archive-chloris-andropogonoides.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-chloris-andropogonoides
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Archive exact-taxon photo to canonical folder
+        run: python scripts/archive_chloris_andropogonoides_ccby.py
+      - name: Commit permanent JPEG and species metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Chloris/chloris-andropogonoides/
+          if ! git diff --staged --quiet; then
+            git commit -m "Archive Cleveland Powell CC BY slimspike windmillgrass photograph"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
