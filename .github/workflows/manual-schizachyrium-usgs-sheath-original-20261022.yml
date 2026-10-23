@@ -1,0 +1,77 @@
+name: Archive actual USGS little-bluestem sheath photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-schizachyrium-usgs-sheath-original-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-schizachyrium-usgs-sheath-physical-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh canonical data and compile source verifier
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_schizachyrium_usgs_real_sheath_20261022.py
+      - name: Download and archive authentic USGS real little bluestem leaf photo
+        run: python scripts/archive_schizachyrium_usgs_real_sheath_20261022.py
+      - name: Assert verified photo bytes license source and all botanical science locks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import json,hashlib
+          d=Path('content/taxa/Poaceae/Schizachyrium')
+          s=json.loads((d/'schizachyrium-scoparium/species.json').read_text())
+          g=json.loads((d/'genus.json').read_text())
+          r=json.loads(Path('reports/schizachyrium-usgs-original-sheath-physical-20261022.json').read_text())
+          assert r['result']=='USGS_LITTLE_BLUESTEM_SHEATH_TRUE_JPEG_LOCAL'
+          p=Path(r['path'])
+          assert p.exists() and p.stat().st_size>10000
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==r['archive_sha256']
+          with Image.open(p) as im:
+              assert im.format=='JPEG' and not im.getexif().get(34853)
+              im.verify()
+          assert s['curation_status']['photo_files_present']==15
+          assert len(s['images'])==15 and len(s['visual_comparison']['items'])==16 and len(g['visual_comparison']['items'])==15
+          assert s['field_id_finish_pass']['stage'].startswith('FIELD_READY_PHOTO_GAPS')
+          meta=[m for m in s['images'] if m['file']=='images/'+p.name]
+          assert len(meta)==1
+          assert meta[0]['creator']=='Larry Allain / U.S. Geological Survey'
+          assert meta[0]['license']=='Public domain — USGS employee federal plant photograph'
+          assert meta[0]['source_page']=='https://warcapps.usgs.gov/PlantID/Species/Details/2568'
+          assert sum(x['image_url']==str(p) for x in s['visual_comparison']['items'])==1
+          assert sum(x['image_url']==str(p) for x in g['visual_comparison']['items'])==1
+          print('PASS true original USGS image localized and verified; not a measured free ligule')
+          PY
+      - name: Commit only canonical USGS actual photo and ledger
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Schizachyrium/schizachyrium-scoparium/
+          git add content/taxa/Poaceae/Schizachyrium/genus.json
+          git add reports/schizachyrium-usgs-original-sheath-physical-20261022.json
+          git add workflow/field-id-publication/2026-10-22-little-bluestem-usgs-sheath-physical.json
+          if git diff --cached --quiet;then echo 'No-op already physically stored';exit 0;fi
+          git commit -m 'Archive genuine USGS Larry Allain little bluestem sheath JPEG with correct source/license [skip ci]'
+          for try in 1 2 3;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 5
+          done
+          exit 1
