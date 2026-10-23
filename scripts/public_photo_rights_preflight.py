@@ -290,7 +290,27 @@ def permitted_harms_limnodea(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
                for ident in HARMS_LIAR_IDS)
 
+# Exactly four explicitly credited Bob Harms Selected Monocots originals
+# of *other subspecies* D. panicea subsp. brachiata; NEVER count as
+# subsp. mucronata photographed voucher.
+HARMS_LEPAB_IDS = frozenset({"LEPAB-I","LEPAB-J","LEPAB-J1","LEPAB-L"})
+def permitted_harms_dinebra_brachiata_comparison(record, noncommercial=False):
+    return (
+        bool(noncommercial)
+        and record.get("creator") == "Bob Harms"
+        and record.get("license") == HARMS_EXACT_LICENSE
+        and record.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and record.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and record.get("source_taxon_name") == "Dinebra panicea subsp. brachiata"
+        and record.get("taxon_comparison_only") is True
+        and any(record.get("source_page") == HARMS_BASE+"pages/"+id+".html"
+                and record.get("source_image") == HARMS_BASE+"images/"+id+".jpg"
+                for id in HARMS_LEPAB_IDS)
+    )
+
 def photo_rights(record, noncommercial=False):
+    if permitted_harms_dinebra_brachiata_comparison(record, noncommercial):
+        return None
     if permitted_harms_limnodea(record, noncommercial):
         return None
     if permitted_harms_disakisperma(record, noncommercial):
