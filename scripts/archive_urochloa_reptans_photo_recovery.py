@@ -13,9 +13,11 @@ def fetch(url):
 def query(params):
  return json.loads(fetch("https://commons.wikimedia.org/w/api.php?"+urllib.parse.urlencode(params)))
 category="Category:Urochloa reptans"
-report={"category":category,"added":[],"held":[]}
+report={"category":category,"added":[],"held":[],"policy":"Only exact species and public-reusable photographs, exclude herbarium sheets"}
 try:
+ print("Beginning Urochloa reptans source rights review",flush=True)
  members=query({"action":"query","list":"categorymembers","cmtitle":category,"cmtype":"file","cmlimit":50,"format":"json"})["query"]["categorymembers"]
+ print("Exact taxon files found:",len(members),flush=True)
  for item in members:
   if len(report["added"])>=2:break
   title=item["title"]
