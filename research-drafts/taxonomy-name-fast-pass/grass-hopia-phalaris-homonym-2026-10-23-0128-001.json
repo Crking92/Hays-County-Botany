@@ -1,0 +1,138 @@
+{
+  "batch_id": "grass-hopia-phalaris-homonym-2026-10-23-0128-001",
+  "lane": "taxonomy-name-fast-pass",
+  "reviewed_at": "2026-10-23",
+  "scope": "Poaceae installed learner; nomenclature, synonyms, authorship and homonym/concept boundaries only",
+  "claim_path": "workflow/taxonomy-claims/grass-hopia-phalaris-homonym-2026-10-23-0128-001.json",
+  "taxa": [
+    {
+      "source_name": "Hopia obtusa",
+      "canonical_path": "content/taxa/Poaceae/Hopia/hopia-obtusa/species.json",
+      "canonical_sha_at_review": "262b7fdfca0407efc1c08a8694ffaf5aef7aae4d",
+      "accepted_name": "Hopia obtusa (Kunth) Zuloaga & Morrone",
+      "family": "Poaceae",
+      "genus": "Hopia",
+      "rank": "species",
+      "powo_status": "accepted",
+      "scientific_decision": "ACCEPTED_WITH_HISTORICAL_GENUS_AND_HOMONYM_CAUTION",
+      "accepted_publication": "Taxon 56(1):151 (2007); basionym Panicum obtusum Kunth (1816)",
+      "synonyms": [
+        {
+          "name": "Panicum obtusum Kunth",
+          "relation": "homotypic; basionym"
+        },
+        {
+          "name": "Brachiaria obtusa (Kunth) Nash",
+          "relation": "homotypic"
+        },
+        {
+          "name": "Oplismenus obtusus (Kunth) Smyth",
+          "relation": "homotypic"
+        },
+        {
+          "name": "Panicum culicinum F.Muell.",
+          "relation": "heterotypic"
+        },
+        {
+          "name": "Panicum polygonoides Müll.Hal.",
+          "relation": "heterotypic; illegitimate later homonym"
+        },
+        {
+          "name": "Panicum repente Buckley",
+          "relation": "heterotypic"
+        }
+      ],
+      "name_boundary": "The current canonical name is accepted; its authority field is empty, so propose authorship (Kunth) Zuloaga & Morrone for a separate authorized species metadata update. Preserve historical Panicum obtusum as alias. Do not resolve authorless Panicum polygonoides without checking the exact author because POWO marks Müll.Hal. as an illegitimate later homonym.",
+      "duplicate_guardrail": "One existing Hopia obtusa card; no new card for Panicum obtusum, Brachiaria obtusa or Oplismenus obtusus.",
+      "specimen_identity": "NOT_VERIFIED_BY_TAXONOMY; retain provisional photographic identity and all existing science holds.",
+      "action": "Record accepted authorship and six synonyms in taxonomy evidence only; do not modify canonical card.",
+      "sources": [
+        {
+          "authority": "Kew POWO/WCVP 2026 accepted species and six synonyms",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77077132-1"
+        },
+        {
+          "authority": "IPNI original combination publication metadata",
+          "url": "https://www.ipni.org/n/urn:lsid:ipni.org:names:77077132-1"
+        },
+        {
+          "authority": "Zuloaga, Giussani & Morrone 2007, Hopia, a new monotypic genus segregated from Panicum, Taxon 56:145-156",
+          "url": "https://www.researchgate.net/publication/287775278_Hopia_a_new_monotypic_genus_segregated_from_Panicum_Poaceae"
+        }
+      ]
+    },
+    {
+      "source_name": "Phalaris caroliniana",
+      "canonical_path": "content/taxa/Poaceae/Phalaris/phalaris-caroliniana/species.json",
+      "canonical_sha_at_review": "26655b6fdbce280f2a6c09640817a8d6394e0c01",
+      "accepted_name": "Phalaris caroliniana Walter",
+      "family": "Poaceae",
+      "genus": "Phalaris",
+      "rank": "species",
+      "powo_status": "accepted",
+      "scientific_decision": "ACCEPTED_WITH_HOMONYM_AND_INFRASPECIFIC_BOUNDARY_CAUTION",
+      "accepted_publication": "Fl. Carol.:74 (1788)",
+      "synonyms": [
+        {
+          "name": "Phalaris americana Elliott",
+          "relation": "heterotypic"
+        },
+        {
+          "name": "Phalaris angusta Schltdl.",
+          "relation": "heterotypic; illegitimate later homonym, NOT Phalaris angusta Nees ex Trin."
+        },
+        {
+          "name": "Phalaris intermedia Bosc ex Poir.",
+          "relation": "heterotypic"
+        },
+        {
+          "name": "Phalaris intermedia var. angustata Beal",
+          "relation": "heterotypic; maps to P. caroliniana, NOT P. intermedia var. angusta"
+        },
+        {
+          "name": "Phalaris intermedia var. microstachya (DC.) Vasey",
+          "relation": "heterotypic"
+        },
+        {
+          "name": "Phalaris macrostachya D.Dietr.",
+          "relation": "heterotypic; orthographic variant"
+        },
+        {
+          "name": "Phalaris microstachya DC.",
+          "relation": "heterotypic"
+        },
+        {
+          "name": "Phalaris occidentalis Nutt.",
+          "relation": "heterotypic"
+        },
+        {
+          "name": "Phalaris trivialis Trin.",
+          "relation": "heterotypic"
+        }
+      ],
+      "name_boundary": "Phalaris angusta Nees ex Trin. (1827) is a distinct accepted species, while the later illegitimate homonym Phalaris angusta Schltdl. (1851) is synonymized under P. caroliniana. Likewise P. intermedia var. angusta (Nees ex Trin.) Chapm. maps to accepted P. angusta, but P. intermedia var. angustata Beal maps to P. caroliniana. Do not auto-map authorless 'Phalaris angusta', or conflate angusta with angustata.",
+      "duplicate_guardrail": "Only existing P. caroliniana card was in installed Phalaris folder at review; do not create synonym cards or assume P. angusta installed.",
+      "specimen_identity": "NOT_VERIFIED_BY_TAXONOMY; photo source ID and diagnostic floret count remain independent matters.",
+      "action": "Record authorship Walter and nine POWO synonyms with strict author/rank distinction; evidence only, no canonical edits.",
+      "sources": [
+        {
+          "authority": "Kew POWO/WCVP 2026 Phalaris caroliniana accepted name and nine synonyms",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:415591-1"
+        },
+        {
+          "authority": "Kew POWO/WCVP 2026 Phalaris angusta Nees ex Trin., separately accepted",
+          "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:311946-2"
+        },
+        {
+          "authority": "Kew POWO/WCVP 2026 Phalaris intermedia var. angusta",
+          "url": "https://powo.science.kew.org/taxon/192263-2"
+        }
+      ]
+    }
+  ],
+  "preserve_scientific_states": "All existing PASS/FAIL/HOLD/UNRESOLVED unchanged; historical records with incomplete authorship/rank remain unresolved.",
+  "native_range_audit": "DEFERRED",
+  "canonical_files_modified": false,
+  "photo_or_range_changed": false,
+  "installation_or_genus_lessons_changed": false
+}
