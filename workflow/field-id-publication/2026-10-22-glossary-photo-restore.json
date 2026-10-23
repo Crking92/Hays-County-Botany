@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "public_learner_glossary_visual_restoration",
+  "title": "Restore existing glossary diagnostic photo thumbnails and images",
+  "user_request": "Where are my photos for my glossary?",
+  "root_cause": "Initial glossary UI implemented only text definitions despite data/learning-layer.json storing a real_photo reference for all 147 term records.",
+  "merged_pull_request": 36,
+  "merge_sha": "6edf99b4fe9e526d8a733ff71c186616bdb6adc8",
+  "features": [
+    "Illustrated thumbnails on glossary index cards",
+    "Full photo/diagram in each term definition popup",
+    "Existing focus notes, credits, source links",
+    "Optional draft anatomy pointers clearly requiring verification",
+    "On-demand Commons license checks for unknown source metadata",
+    "Safe fallback source links instead of unlicensed images",
+    "Preserve existing term data and licensed species photos"
+  ],
+  "tests": {
+    "terms": 147,
+    "known_licensed_commons_thumbnails": 115,
+    "local_or_canonical_image_refs": 5,
+    "metadata_check_needed": 27,
+    "js_syntax": "PASS",
+    "commons_known_licensing": "PASS",
+    "commons_api_mock": "CC BY-SA allowed / All Rights Reserved rejected"
+  },
+  "caveats": "External Wikimedia images load in the viewer; not all image binaries are stored in the repository. Draft arrow positions are not marked final or verified. GFDL or unknown reuse restricted to source links unless a compatible approved license is verified.",
+  "publication": "Use existing rights-filtered noncommercial GitHub Pages release, photo quality and permission checks. No canonical species, photo, Field ID, Quiz, or automation mutation."
+}
