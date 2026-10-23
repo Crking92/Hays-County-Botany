@@ -1,0 +1,37 @@
+name: Archive Commons grass images batch 002
+on:
+  workflow_run:
+    workflows:
+      - Archive Commons grass images batch 001
+    types: [completed]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-external-grass-commons
+  cancel-in-progress: false
+jobs:
+  archive:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Archive next eligible Commons image records
+        run: python scripts/archive_external_grass_commons.py --start 0 --limit 10
+      - name: Commit local image archives and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae reports/grass-external-wikimedia-batch-000.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive verified external Commons grass images batch 002"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
