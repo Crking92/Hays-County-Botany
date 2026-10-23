@@ -308,7 +308,29 @@ def permitted_harms_dinebra_brachiata_comparison(record, noncommercial=False):
                 for id in HARMS_LEPAB_IDS)
     )
 
+# Five original source-authenticated Bob Harms Elymus virginicus frames,
+# Selected Central Texas Monocots. Copyrighted, NOT Creative Commons;
+# educational/scientific site publication only with original author credit.
+HARMS_ELVI3_IDS = frozenset({"ELVI3-b","ELVI3-b1","ELVI3-I","ELVI3-i1","ELVI3-J2"})
+
+def permitted_harms_elymus_virginicus(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Elymus virginicus":
+        return False
+    return any(item.get("source_page") == HARMS_BASE+"pages/"+ident+".html" and
+               item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
+               for ident in HARMS_ELVI3_IDS)
+
 def photo_rights(record, noncommercial=False):
+    if permitted_harms_elymus_virginicus(record, noncommercial):
+        return None
     if permitted_harms_dinebra_brachiata_comparison(record, noncommercial):
         return None
     if permitted_harms_limnodea(record, noncommercial):
