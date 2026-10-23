@@ -441,6 +441,9 @@ def build(root: Path, noncommercial: bool) -> dict:
             "scientific_name": sp.get("scientific_name") or "",
             "common_name": sp.get("common_name") or "",
             "thumbnail": thumb,
+            "thumbnail_creator": (first or {}).get("creator") or "",
+            "thumbnail_license": (first or {}).get("license") or "",
+            "thumbnail_source": (first or {}).get("source_page") or "",
             "photo_count": len(filtered),
             "cue": str(sp.get("look_here_first") or "").strip()[:190],
         })
