@@ -34,10 +34,11 @@ function show(key,from){
  overlay.querySelector('#termDialogContents').innerHTML=
   '<div class="stepbar">Botanical glossary</div><h2 id="termDialogTitle">'+esc(v.term)+'</h2>'+
   (v.pronunciation?'<p class="term-say">Say it: '+esc(v.pronunciation)+'</p>':'')+
-  '<p class="term-plain">'+esc(v.plain)+'</p>'+detail('where','Where to look')+
+  '<p class="term-plain">'+esc(v.plain)+'</p>'+ (window.HaysGlossaryMedia?window.HaysGlossaryMedia.photoMarkup(key,v,true):'')+detail('where','Where to look')+
   detail('why','Why it matters for identification')+detail('formal','Botanical definition')+
   (Array.isArray(v.aliases)&&v.aliases.length?'<p class="term-aliases"><b>Also called:</b> '+v.aliases.map(esc).join(', ')+'</p>':'')+
   '<button class="button secondary" type="button" data-glossary-close>Back to lesson</button>';
+ if(window.HaysGlossaryMedia)window.HaysGlossaryMedia.hydrate(overlay);
  overlay.hidden=false;document.body.classList.add('term-dialog-open');
  overlay.querySelector('button').focus();
 }
@@ -51,6 +52,7 @@ function page(){
  const sorted=[...terms].sort((a,b)=>a[1].term.localeCompare(b[1].term));
  const cards=sorted.map(([key,v])=>
   '<button type="button" class="glossary-card" data-glossary-term="'+esc(key)+'" data-glossary-search="'+esc(norm([v.term,...(v.aliases||[]),v.plain].join(' ')))+'">'+
+  (window.HaysGlossaryMedia?window.HaysGlossaryMedia.photoMarkup(key,v,false):'')+
   '<strong>'+esc(v.term)+'</strong><span>'+esc(v.plain)+'</span></button>').join('');
  return '<div class="crumb"><button data-view="home">Learner home</button> › Glossary</div>'+
   '<section class="hero"><div class="kicker">Learn the language of plants</div><h1>Botanical glossary.</h1>'+
@@ -118,7 +120,7 @@ document.addEventListener('keydown',event=>{
  if(!popup||popup.hidden)return;
  if(event.key==='Escape'){event.preventDefault();close();return;}
  if(event.key==='Tab'){
-  const buttons=popup.querySelectorAll('button');if(!buttons.length)return;
+  const buttons=popup.querySelectorAll('button,a[href]');if(!buttons.length)return;
   const first=buttons[0],last=buttons[buttons.length-1];
   if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
   else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
