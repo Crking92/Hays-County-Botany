@@ -2,6 +2,8 @@ const CACHE_NAME = "hays-botany-v48";
 const CORE = [
   "./",
   "./index.html",
+  "./assets/js/learner-glossary.js",
+  "./assets/css/learner-glossary.css",
   "./field-id.html",
   "./quiz.html",
   "./manifest.webmanifest",
