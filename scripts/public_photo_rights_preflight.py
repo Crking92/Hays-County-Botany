@@ -270,9 +270,9 @@ def permitted_harms_disakisperma(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
                for ident in HARMS_LEDU_IDS)
 
-def photo_rights(
+def photo_rights(record, noncommercial=False):
     if permitted_harms_disakisperma(record, noncommercial):
-        return Nonerecord, noncommercial=False):
+        return None
     if permitted_harms_eriochloa_sericea(record, noncommercial):
         return None
     if permitted_harms_hopia(record, noncommercial):
