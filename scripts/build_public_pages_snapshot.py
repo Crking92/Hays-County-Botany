@@ -270,6 +270,21 @@ def permitted_harms_hopia(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
                for ident in HARMS_HOPIA_IDS)
 
+# Exact documented Bob Harms Selected Monocots Eriochloa sericea spikelet
+# image ERSE5-9 ONLY; author licenses credited science/education, NOT CC.
+# No blanket rights to his other collections, commercial use or generic taxa.
+def permitted_harms_eriochloa_sericea(item: dict, noncommercial: bool) -> bool:
+    return (
+        bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Eriochloa sericea"
+        and item.get("source_page") == HARMS_BASE+"pages/ERSE5-9.html"
+        and item.get("source_image") == HARMS_BASE+"images/ERSE5-9.jpg"
+    )
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -284,6 +299,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
+    if permitted_harms_eriochloa_sericea(item, noncommercial):
+        return True, "Bob Harms ERSE5-9 exact E. sericea Selected Monocots spikelet original, educational with credit, NOT CC"
     if permitted_harms_kr_spikelets(item, noncommercial):
         return True, "Bob Harms Selected Monocots exact KR spikelets original, scientific/educational with credit, NOT CC"
     if permitted_harms_big_bluestem(item, noncommercial):
