@@ -1,0 +1,36 @@
+name: Archive Digitaria cognata CC0 photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_digitaria_cognata_cc0.py
+      - .github/workflows/archive-digitaria-cognata-cc0.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-digitaria-cognata
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Archive exact source media
+        run: python scripts/archive_digitaria_cognata_cc0.py
+      - name: Commit sanitized JPEGs and species gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Digitaria/digitaria-cognata/
+          if ! git diff --staged --quiet; then
+            git commit -m "Archive two licensed fall witchgrass JPEGs into public species gallery"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
