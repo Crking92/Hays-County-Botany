@@ -1,0 +1,75 @@
+name: Archive two real original Virginia wildrye glume macros
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-elymus-virginicus-two-lavin-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-elymus-virginicus-2-source-glume-20261023
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate source code and install original image validators
+        run: |
+          python -m pip install 'Pillow>=10,<12' 'requests>=2.31,<3'
+          python -m py_compile scripts/archive_elymus_virginicus_two_lavin_glumes_20261023.py
+      - name: Archive true source-authenticated Matt Lavin CC BY-SA original glume photos
+        run: python scripts/archive_elymus_virginicus_two_lavin_glumes_20261023.py
+      - name: Validate JPEG originals source permissions and canonical panel inclusion
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,'scripts')
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          s=json.loads(Path('content/taxa/Poaceae/Elymus/elymus-virginicus/species.json').read_text())
+          g=json.loads(Path('content/taxa/Poaceae/Elymus/genus.json').read_text())
+          r=json.loads(Path('reports/elymus-virginicus-two-commons-source-diagnostic-jpegs-20261023.json').read_text())
+          assert s['scientific_name']=='Elymus virginicus'
+          assert r['new_physically_archived_images']==2 and len(r['photos'])==2
+          assert len(s['images'])==4 and s['curation_status']['photo_files_present']==4
+          assert len(s['visual_comparison']['items'])==6 and len(g['visual_comparison']['items'])==15
+          assert 'FIELD_READY_PHOTO_GAPS' in s['field_id_finish_pass']['stage']
+          for p in r['photos']:
+              target=Path(p['file'])
+              assert target.is_file() and target.stat().st_size>20000
+              assert hashlib.sha256(target.read_bytes()).hexdigest()==p['local_sha256']
+              with Image.open(target) as im:
+                  assert im.format=='JPEG' and im.mode=='RGB' and im.size==tuple(p['dims']) and not im.getexif().get(34853)
+                  im.verify()
+              q=next(im for im in s['images'] if im.get('file')=='images/'+target.name)
+              assert q['source_taxon_name']=='Elymus virginicus' and q['license']=='CC BY-SA 2.0'
+              assert rights(q,True)[0] and photo_rights(q,True) is None
+              assert len([v for v in s['visual_comparison']['items'] if v.get('image_url')==str(target)])==1
+          print('PASS 2 original source JPEG hashes, CC BY-SA legal conditions and two genus/species panels',flush=True)
+          PY
+      - name: Commit only physically verified new photo files and existing canonical improvements
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Elymus/elymus-virginicus/ content/taxa/Poaceae/Elymus/genus.json
+          git add reports/elymus-virginicus-two-commons-source-diagnostic-jpegs-20261023.json
+          git add workflow/field-id-publication/2026-10-23-elymus-virginicus-two-glume-macros.json
+          if git diff --cached --quiet; then echo 'Already done'; exit 0; fi
+          git commit -m 'Archive two true original CC BY-SA Virginia wildrye glume macro photos [skip ci]'
+          for i in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
