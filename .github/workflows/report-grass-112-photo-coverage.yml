@@ -1,0 +1,31 @@
+name: Report grass 112 photo coverage for crew
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/report_grass_112_photo_coverage.py
+      - .github/workflows/report-grass-112-photo-coverage.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/report_grass_112_photo_coverage.py
+      - name: Commit species photo and work-allocation inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/grass-112-photo-coverage-work-allocation.json reports/grass-112-photo-coverage-work-allocation.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish 112 grass gallery photo coverage and diagnostic gaps"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
