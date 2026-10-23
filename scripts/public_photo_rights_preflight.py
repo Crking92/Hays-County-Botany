@@ -236,7 +236,23 @@ def permitted_harms_hopia(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
                for ident in HARMS_HOPIA_IDS)
 
+# Only the originally identified Selected Monocots ERSE5-9 cupgrass
+# macro, author-released for credited scientific/educational use (NOT CC).
+def permitted_harms_eriochloa_sericea(record, noncommercial=False):
+    return (
+        bool(noncommercial)
+        and record.get("creator") == "Bob Harms"
+        and record.get("license") == HARMS_EXACT_LICENSE
+        and record.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and record.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and record.get("source_taxon_name") == "Eriochloa sericea"
+        and record.get("source_page") == HARMS_BASE+"pages/ERSE5-9.html"
+        and record.get("source_image") == HARMS_BASE+"images/ERSE5-9.jpg"
+    )
+
 def photo_rights(record, noncommercial=False):
+    if permitted_harms_eriochloa_sericea(record, noncommercial):
+        return None
     if permitted_harms_hopia(record, noncommercial):
         return None
     if permitted_harms_kr_spikelets(record, noncommercial):
