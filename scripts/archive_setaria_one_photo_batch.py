@@ -22,6 +22,7 @@ for slug in taxa:
   cat=api({"action":"query","list":"categorymembers","cmtitle":category,"cmtype":"file","cmlimit":50,"format":"json"})
   titles=[x["title"] for x in cat.get("query",{}).get("categorymembers",[])]
   assert titles,"No exact taxon image files in Commons category"
+  print("CANDIDATES",slug,len(titles),flush=True)
   for title in titles:
    if len(added)>=2:break
    try:
