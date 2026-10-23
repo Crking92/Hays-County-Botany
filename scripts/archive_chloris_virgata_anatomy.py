@@ -36,7 +36,7 @@ for item in s["visual_comparison"]["items"]:
         item["photo_status"]="LOCALLY ARCHIVED — PROVISIONAL USER PHOTO REVIEW PENDING; visible gross structure arrows only"
         item["archive_creator_from_commons"]=artist
         item["archive_license_verified"]=md["LicenseShortName"]["value"]
-        s["images"].append({"file":"images/"+dest.name,"role":item.get("image_role",""),"creator":item.get("creator") or artist,"license":item["license"],"license_url":item.get("license_url"),"source_page":source,"archived_original_url":url,"source_creator_metadata":artist,"photo_status":"LOCALLY ARCHIVED; provisional ID/anatomy"})
+        s["images"].append({"file":"images/"+dest.name,"role":item.get("image_role",""),"creator":item.get("creator") or artist,"license":item.get("license") or md["LicenseShortName"]["value"],"license_url":item.get("license_url"),"source_page":source,"archived_original_url":url,"source_creator_metadata":artist,"photo_status":"LOCALLY ARCHIVED; provisional ID/anatomy"})
         outcomes.append({"source":source,"archive":str(dest),"status":"archived"})
     except Exception as e:outcomes.append({"source":source,"status":"held","reason":str(e)})
 if any(o["status"]=="archived" for o in outcomes):
