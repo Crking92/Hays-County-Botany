@@ -234,6 +234,21 @@ def permitted_harms_big_bluestem(item: dict, noncommercial: bool) -> bool:
                and item.get("source_image") == HARMS_BASE+"images/"+pid+".jpg"
                for pid in HARMS_ANGE_IDS)
 
+# Exact one KR bluestem source photo from Bob Harms' Selected Monocots, not DigFlora.
+# The Selected Monocots author permits scientific/educational use with credit.
+# Do not grant the separate DigFlora BOISS-LX-21Jul-A.JPG this permission.
+def permitted_harms_kr_spikelets(item: dict, noncommercial: bool) -> bool:
+    return (
+        bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Bothriochloa ischaemum var. songarica"
+        and item.get("source_page") == HARMS_BASE+"pages/BOISS-9.html"
+        and item.get("source_image") == HARMS_BASE+"images/BOISS-9.jpg"
+    )
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -248,6 +263,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
+    if permitted_harms_kr_spikelets(item, noncommercial):
+        return True, "Bob Harms Selected Monocots exact KR spikelets original, scientific/educational with credit, NOT CC"
     if permitted_harms_big_bluestem(item, noncommercial):
         return True, "Bob Harms exact Andropogon gerardii Selected Monocots photo, educational with credit, NOT CC"
     if permitted_harms_wintergrass(item, noncommercial) or permitted_harms_phalaris(item, noncommercial) or permitted_harms_spva(item, noncommercial) or permitted_harms_little_bluestem(item, noncommercial) or permitted_harms_papu(item, noncommercial) or permitted_harms_spcl(item, noncommercial) or permitted_harms_spco(item, noncommercial):
