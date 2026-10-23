@@ -1,0 +1,77 @@
+name: Archive real Texas signalgrass panicle CC BY4 to GitHub
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-urochloa-texana-panicle-physical-20261022.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-urochloa-texana-panicle-physical-20261022
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout canonical latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source JPEG tools
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12' 'requests>=2.31,<3'
+      - name: Refresh freshest main before validation
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_urochloa_texana_panicle_20261022.py
+      - name: Archive actual source JPEG or stop with no changes on rate limit
+        run: python scripts/archive_urochloa_texana_panicle_20261022.py
+      - name: Validate physical image bytes source SHA rights and source-specific anatomy
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Poaceae/Urochloa")
+          s=json.loads((base/"urochloa-texana/species.json").read_text())
+          g=json.loads((base/"genus.json").read_text())
+          r=json.loads(Path("reports/urochloa-texana-panicle-physical-20261022.json").read_text())
+          assert r["result"]=="ONE_REAL_CC_BY4_UROCHLOA_TEXANA_PANICLE_ARCHIVED"
+          p=Path(r["file"])
+          assert p.is_file() and p.stat().st_size>10000
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==r["archived_sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and not im.getexif().get(34853)
+              im.verify()
+          assert s["curation_status"]["photo_files_present"]==2
+          assert len(s["images"])==2 and len(s["visual_comparison"]["items"])==5 and len(g["visual_comparison"]["items"])==5
+          rec=next(x for x in s["images"] if x["file"]=="images/"+p.name)
+          assert rec["creator"]=="Sam Kieschnick" and rec["license"]=="CC BY 4.0"
+          assert rec["source_page"]=="https://commons.wikimedia.org/wiki/File:Urochloa_texana_Panicle.jpg"
+          assert any(x["image_url"]==str(p) for x in s["visual_comparison"]["items"])
+          assert "FIELD_READY_PHOTO_GAPS" in s["field_id_finish_pass"]["stage"]
+          assert g["project_scope"]["species_count"]==3
+          print("PASS actual CC BY4 JPEG hash verified, photo + nine-step science key, no fabricated micro arrows")
+          PY
+      - name: Commit only physical photo and authorized card/credits and release marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Urochloa/urochloa-texana/
+          git add content/taxa/Poaceae/Urochloa/genus.json
+          git add reports/urochloa-texana-panicle-physical-20261022.json
+          git add workflow/field-id-publication/2026-10-22-urochloa-texana-panicle-physical.json
+          if git diff --cached --quiet; then echo 'No-op; existing matching archive'; exit 0; fi
+          git commit -m 'Archive source-verified CC BY4 Texas signalgrass spikelet panicle [skip ci]'
+          for try in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
