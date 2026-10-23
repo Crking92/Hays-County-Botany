@@ -37,8 +37,9 @@ def jpeg(session,url):
                 raise RuntimeError("Not an expected original JPEG")
             with Image.open(io.BytesIO(raw)) as im:
                 im.load()
-                if im.format!="JPEG" or min(im.size)<180 or max(im.size)>8500:
-                    raise RuntimeError("Unexpected original dimensions/format")
+                if im.format!="JPEG" or min(im.size)<75 or max(im.size)>8500 or im.size[0]*im.size[1]<15000:
+                    raise RuntimeError("Unusable source JPEG format/dimensions: "+str(im.size))
+                print("SOURCE PIXELS",url,im.size,flush=True)
                 dimensions=list(im.size)
                 clean=ImageOps.exif_transpose(im).convert("RGB")
             clean.thumbnail((2400,2400),Image.Resampling.LANCZOS)
