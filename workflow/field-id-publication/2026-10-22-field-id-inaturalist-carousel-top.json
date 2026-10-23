@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "date": "2026-10-22",
+  "type": "field_id_inat_position_public_release",
+  "title": "Field ID on-demand iNaturalist side scroller below species name",
+  "request": "Put the inaturalist side scroller towards the top please.",
+  "merged_pull_request": 40,
+  "merge_commit": "da7646e47f99936af85addc15e38dbe80ee1deb7",
+  "changed": [
+    "field-id.html",
+    "assets/js/field-id-tiles.js",
+    "assets/css/field-id-tiles.css"
+  ],
+  "features": [
+    "Expand iNaturalist photo gallery near top of each Field ID modal, below plant name",
+    "Carousel slides horizontally with swipe, previous/next controls",
+    "Same licensed observation photo filters and creator attribution as Learner",
+    "On-demand loading, no scroll jump, gallery collapse/reopen cached",
+    "Original canonical diagnostic photos and field ID notes appear directly after optional gallery"
+  ],
+  "tests": [
+    "JS syntax",
+    "Gallery placement before local photo strip and checklist",
+    "Research Grade species and photo rights filtering",
+    "Exclude CC BY-ND and mismatched species",
+    "Author and license present",
+    "Open and close with caching"
+  ],
+  "protected": [
+    "Field ID family/genus/species tile structure",
+    "Learner",
+    "Advanced Field ID",
+    "Quiz",
+    "Botanical taxonomy and photo records",
+    "Rights-filtered publication pipeline",
+    "Scheduled automations"
+  ]
+}
