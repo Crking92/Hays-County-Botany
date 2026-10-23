@@ -72,3 +72,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .loading-dialog{padding:40px}
 .no-image{padding:15px;background:#e9f0e5;border-radius:9px}
 @media(max-width:650px){.site-top-inner{padding:9px 12px;flex-wrap:wrap;justify-content:center}.brand{font-size:.98rem}.site-nav a{padding:8px 10px;font-size:.85rem}#fieldApp{padding:16px 12px 70px}.field-intro{padding:24px 21px}.field-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.tile-image{height:125px}.tile-body{padding:11px}.tile-body strong{font-size:.93rem}.tile-cue{font-size:.78rem}.rank-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}.rank-tab{padding:10px 4px}.browse-tools{padding:15px}.dialog-inner{padding:19px 16px}.detail-photo{width:215px;flex-basis:215px}.detail-photo img{height:175px}}
+
+/* Field ID glossary links reuse the photo-rich Learner vocabulary. */
+.glossary-hint{margin:13px 0 6px;color:#42684e;font-size:.86rem;background:#eaf1e6;padding:9px 13px;border-radius:10px}
+.site-nav a[href*="view=glossary"]{font-weight:780}
+.dialog-foot .open-learner{display:inline-block}
+#fieldDetail .glossary-term-link{display:inline;font-weight:710;vertical-align:baseline;line-height:inherit}
+#fieldDetail .term-dialog-backdrop{position:fixed;inset:0;z-index:5000}
+#fieldDetail .term-dialog{max-height:85dvh}
+@media(max-width:650px){.dialog-foot{justify-content:flex-start}.dialog-foot a{font-size:.8rem}.site-nav{justify-content:center}}

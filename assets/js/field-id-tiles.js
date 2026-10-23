@@ -162,15 +162,17 @@ function renderDetail(sp,entry){
  '<p class="detail-latin"><i>'+esc(sp.scientific_name||entry.scientific_name)+'</i></p></div>'+
  '<button class="close" type="button" data-close aria-label="Close field card">×</button></div>'+
  photosFor(sp,entry.path)+
- '<div class="detail-section"><h3>Look here first</h3><p>'+esc(sp.look_here_first||entry.cue||'Start with mature leaves and any reproductive structures.')+'</p></div>'+
- '<div class="detail-section"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>'+
- '<details class="detail-expand"><summary>Look-alikes and cautions</summary>'+
+ '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+ 
+ '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+esc(sp.look_here_first||entry.cue||'Start with mature leaves and any reproductive structures.')+'</p></div>'+
+ '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>'+
+ '<details class="detail-expand lessonpart"><summary>Look-alikes and cautions</summary>'+
  (lookalikes(sp)||'<p>No verified comparison text has been entered yet.</p>')+'</details>'+
- '<details class="detail-expand"><summary>More botanical details</summary>'+
+ '<details class="detail-expand lessonpart"><summary>More botanical details</summary>'+
  (fullMorph(sp)||'<p>Additional morphological notes have not been added yet.</p>')+'</details>'+
  '<div class="dialog-foot"><button type="button" class="close-secondary" data-close>Back to tiles</button>'+
- '<a href="./index.html" class="open-learner">Browse full Learner ↗</a></div></div>';
+ '<a href="./index.html?view=glossary" class="open-learner">Illustrated glossary ↗</a><a href="./index.html" class="open-learner">Full Learner ↗</a></div></div>';
  dialog.showModal();
+ if(window.HaysGlossary)window.HaysGlossary.enhance(dialog);
  dialog.querySelector('[data-close]').focus();
 }
 async function openSpecies(id,trigger){
@@ -206,8 +208,20 @@ document.addEventListener('click',event=>{
 });
 dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
 dialog.addEventListener('close',()=>{state.selected=null;});
+async function loadFieldGlossary(){
+ if(!window.HaysGlossary)return;
+ try{
+  const r=await fetch('./data/learning-layer.json',{cache:'no-store'});
+  if(!r.ok)throw Error('Glossary data unavailable');
+  const j=await r.json();
+  if(j&&j.terms)window.HaysGlossary.setTerms(j.terms);
+  else window.HaysGlossary.setError('No botanical definitions found');
+ }catch(e){window.HaysGlossary.setError('Glossary unavailable: '+e.message);}
+ if(dialog.open&&window.HaysGlossary)window.HaysGlossary.enhance(dialog);
+}
 async function init(){
  render();
+ loadFieldGlossary();
  try{
   let json;
   try{
