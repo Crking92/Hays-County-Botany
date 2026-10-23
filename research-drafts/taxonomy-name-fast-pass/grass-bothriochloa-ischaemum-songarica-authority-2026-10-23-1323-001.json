@@ -1,0 +1,130 @@
+{
+  "batch_id": "grass-bothriochloa-ischaemum-songarica-authority-2026-10-23-1323-001",
+  "date_checked": "2026-10-23",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Bothriochloa",
+  "canonical_taxon_id": "bothriochloa-ischaemum",
+  "canonical_species_path": "content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum/species.json",
+  "canonical_species_blob_sha_read_only": "559b19bd297c96d7fc8d07165c2296e2c2ca70f6",
+  "source_pool_spelling": "Bothriochloa ischaemum (L.) Keng; local Texas sources often label King Ranch bluestem as B. ischaemum var. songarica",
+  "decisions": [
+    {
+      "source_name": "Bothriochloa ischaemum (L.) Keng",
+      "accepted_name": "Bothriochloa ischaemum (L.) Keng",
+      "rank": "species",
+      "name_status": "ACCEPTED",
+      "scientific_decision": "PASS_ACCEPTED_NAME",
+      "action": "Retain existing canonical species and author; no new species or renamed card",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1191417-2"
+    },
+    {
+      "source_name": "Andropogon ischaemum L.",
+      "accepted_name": "Bothriochloa ischaemum (L.) Keng",
+      "rank": "species (historic genus)",
+      "name_status": "HOMOTYPIC_SYNONYM",
+      "scientific_decision": "PASS_SYNONYM",
+      "action": "Search alias only, never separate learner card",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1191417-2"
+    },
+    {
+      "source_name": "Dichanthium ischaemum (L.) Roberty",
+      "accepted_name": "Bothriochloa ischaemum (L.) Keng",
+      "rank": "species (historic genus)",
+      "name_status": "HOMOTYPIC_SYNONYM",
+      "scientific_decision": "PASS_SYNONYM",
+      "action": "Search alias only, never separate learner card",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1191417-2"
+    },
+    {
+      "source_name": "Andropogon ischaemum var. songaricus Rupr. ex Fisch. & C.A.Mey.",
+      "accepted_name": "Bothriochloa ischaemum (L.) Keng",
+      "rank": "variety to species",
+      "name_status": "HETEROTYPIC_SYNONYM_UNDER_POWO",
+      "scientific_decision": "PASS_POWO_SYNONYM_WITH_RANK_CAUTION",
+      "action": "Preserve original source spelling and rank as alias; do not treat as separate POWO accepted species",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1191417-2"
+    },
+    {
+      "source_name": "Bothriochloa ischaemum var. songarica (Rupr. ex Fisch. & C.A.Mey.) Celarier & J.R.Harlan",
+      "accepted_name": "Bothriochloa ischaemum (L.) Keng",
+      "rank": "variety to species under POWO/WCVP",
+      "name_status": "SYNONYM_UNDER_POWO_BUT_ACCEPTED_VARIETY_UNDER_ITIS",
+      "scientific_decision": "PASS_POWO_MAPPING_WITH_AUTHORITY_RANK_CONFLICT",
+      "action": "Keep existing species-level canonical concept. Retain local var. songarica labels as historical/source-specific concept; do not globally declare the variety accepted or assign photographs to a formal variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1107772-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=526948",
+        "https://doi.org/10.1111/j.1095-8339.1958.tb00037.x"
+      ]
+    },
+    {
+      "source_name": "Bothriochloa ischaemum f. songarica (Rupr. ex Fisch. & C.A.Mey.) Kitag.",
+      "accepted_name": "Bothriochloa ischaemum (L.) Keng",
+      "rank": "form to species",
+      "name_status": "SYNONYM_UNDER_POWO",
+      "scientific_decision": "PASS_SYNONYM",
+      "action": "Search alias only; preserve original form rank and author",
+      "source": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:881573-1"
+    },
+    {
+      "source_name": "Bothriochloa intermedia (R.Br.) A.Camus",
+      "accepted_name": "Bothriochloa bladhii (Retz.) S.T.Blake",
+      "rank": "species; separate historical source concept",
+      "name_status": "SYNONYM_OF_DISTINCT_ACCEPTED_SPECIES_UNDER_POWO",
+      "scientific_decision": "PASS_CROSS_SPECIES_BOUNDARY",
+      "action": "Do not alias historical B. intermedia observations into B. ischaemum. Historical intermedia x ischaemum hybridization literature does not establish hybrid status of a specific Texas KR plant.",
+      "source": "https://powo.science.kew.org/taxon/392701-1"
+    }
+  ],
+  "authority_conflict": {
+    "status": "UNRESOLVED_RANK_TREATMENT_BETWEEN_AUTHORITIES",
+    "POWO_WCVP": "var. songarica is a synonym of accepted species B. ischaemum",
+    "ITIS": "var. songarica is separately listed as accepted variety (TSN 526948)",
+    "primary_paper": "Celarier & Harlan 1958 described two morphologically and cytologically differentiated types of B. ischaemum",
+    "project_rule": "Use POWO/WCVP species-level canonical name; preserve rank-specific labels and source concept without elevating taxonomic rank or changing cards."
+  },
+  "hybrid_boundary": {
+    "status": "HOLD_SPECIMEN_LEVEL_HYBRID_IDENTITY",
+    "published_primary_evidence": "Harlan 1963 documents natural introgression between B. ischaemum and historic B. intermedia in northern West Pakistan; 1966 work documents hybrid derivatives in the complex.",
+    "historic_intermedia_current_POWO_name": "Bothriochloa bladhii (Retz.) S.T.Blake",
+    "interpretation": "Complex-level historical hybridization is real; not proof that King Ranch accession or any current learner photo is a named hybrid or has particular parentage.",
+    "sources": [
+      "https://doi.org/10.1086/336209",
+      "https://bsapubs.onlinelibrary.wiley.com/doi/abs/10.1002/j.1537-2197.1966.tb07302.x",
+      "https://powo.science.kew.org/taxon/392701-1"
+    ]
+  },
+  "morphological_source_conflict_read_only": {
+    "status": "UNRESOLVED_FOR_VARIETY_IDENTIFICATION",
+    "sources_disagree": "Texas A&M King Ranch account says var. songarica nodes hairless; UT Austin Hays morphology and Celarier-Harlan-derived Tropical Forages descriptions report a short-hairy nodal ring.",
+    "action": "Do not use glabrous vs pubescent node alone as a formal variety assignment or rewrite identification lessons in taxonomy lane.",
+    "sources": [
+      "https://rangeplants.tamu.edu/plant/king-ranch-bluestem/",
+      "https://www.biosci.utexas.edu/prc/DigFlora/KR/BOISS-morph.html",
+      "https://tropicalforages.info/text/entities/bothriochloa_ischaemum.htm"
+    ]
+  },
+  "scientific_guardrails": {
+    "accepted_name": "PASS",
+    "POWO_synonym_relationships": "PASS",
+    "rank_authority_conflict": "UNRESOLVED (POWO versus ITIS treatment documented)",
+    "individual_photo_or_voucher_identity": "HOLD; no independent specimen-level confirmation",
+    "individual_hybrid_parentage": "HOLD; no automatic hybrid label",
+    "original_scientific_PASS_FAIL_HOLD_UNRESOLVED": "UNCHANGED",
+    "native_range_audit": "DEFERRED; original nonnative FAIL and metrics exclusion unchanged",
+    "canonical_species_modified": false,
+    "other_workers_files_modified": false
+  },
+  "canonical_changes": [],
+  "handoff": "Existing species card is correctly named B. ischaemum. Retain var. songarica as source-specific searchable label, not separate accepted POWO taxon. Do not turn literature on introgression into an ID of an individual plant.",
+  "references": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1191417-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1107772-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:881573-1",
+    "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=526948",
+    "https://powo.science.kew.org/taxon/392701-1",
+    "https://doi.org/10.1111/j.1095-8339.1958.tb00037.x",
+    "https://doi.org/10.1086/336209"
+  ]
+}
