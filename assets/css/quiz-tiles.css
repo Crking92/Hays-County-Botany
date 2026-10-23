@@ -1,0 +1,75 @@
+/* Quick Quiz visual system: matches Learner and photo-tile Field ID. */
+#quizApp{max-width:1140px;min-height:60vh;margin:0 auto;padding:26px 20px 70px}
+.quiz-hero{background:var(--deep);color:#fff;border-radius:19px;padding:35px 32px;margin:0 0 22px}
+.quiz-hero h1{font:750 clamp(2.1rem,4vw,3.1rem)/1.12 Georgia,serif;margin:8px 0 12px}
+.quiz-hero p:last-child{max-width:680px;color:#e3eee3;font-size:1.05rem;margin:0}
+.quiz-mode-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px;margin-bottom:20px}
+.quiz-mode-tile{display:flex;gap:18px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;color:var(--text);box-shadow:0 4px 14px rgba(20,49,27,.05);transition:border-color .13s,transform .13s,box-shadow .13s}
+.quiz-mode-tile:hover:not(:disabled){border-color:#6e9d73;transform:translateY(-2px);box-shadow:0 8px 23px rgba(20,49,27,.13)}
+.quiz-mode-tile:disabled{opacity:.56;cursor:not-allowed}
+.quiz-mode-icon{width:61px;height:61px;display:grid;place-items:center;background:#e7efe2;border-radius:15px;flex:0 0 61px;font-size:2rem;color:#416c4b}
+.quiz-mode-caption,.quiz-kicker{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;font-weight:800;color:#53745c}
+.quiz-mode-tile h2{font:740 1.58rem/1.15 Georgia,serif;color:var(--deep);margin:8px 0}
+.quiz-mode-tile p{margin:0 0 18px;font-size:.94rem;color:var(--muted)}
+.quiz-mode-action{display:inline-block;color:#225e39;font-weight:800}
+.quiz-stats{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+.quiz-stats span{background:#e9f1e7;border-radius:10px;padding:9px 12px;color:var(--deep);font-size:.87rem}
+.quiz-stats b{font-size:1.07rem}
+.quiz-load-note{color:#795822;font-size:.9rem}
+.quiz-footer{text-align:center;border-top:1px solid var(--line);margin:31px 0;padding-top:23px;color:var(--muted);font-size:.9rem}
+.quiz-back{display:flex;justify-content:space-between;align-items:center;gap:9px;margin-bottom:10px;color:var(--muted);font-size:.87rem}
+.quiz-link{border:0;background:none;padding:7px 0;color:#276443;font-weight:740}
+.quiz-panel{background:#fff;border:1px solid var(--line);border-radius:17px;padding:25px 27px;margin-top:16px}
+.quiz-panel .quiz-kicker{margin-bottom:7px}
+.quiz-question{font:730 clamp(1.5rem,3vw,2.05rem)/1.25 Georgia,serif;color:var(--deep);margin:0 0 20px}
+.quiz-photo-stage{display:flex;align-items:center;justify-content:center;min-height:280px;max-height:440px;background:#e9efe8;border-radius:13px;overflow:hidden}
+.quiz-photo-stage img{display:block;width:100%;height:auto;max-height:440px;object-fit:contain}
+.quiz-photo-attribution{display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:space-between;color:var(--muted);font-size:.8rem;margin:8px 3px 20px}
+.quiz-photo-attribution a{font-size:.79rem}
+.quiz-term-prompt{background:#e9efe6;border-left:4px solid #719776;padding:22px 25px;border-radius:0 12px 12px 0;margin:10px 0 24px;font:570 1.2rem/1.5 Georgia,serif;color:#244931}
+.quiz-choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin:16px 0}
+.quiz-choice{display:flex;align-items:center;gap:12px;text-align:left;border:1px solid #acbeaf;border-radius:12px;background:#fcfefb;padding:15px;color:var(--text);min-height:67px;overflow-wrap:anywhere;transition:background .12s,border-color .12s}
+.quiz-choice:hover:not(:disabled){background:#eaf4e5;border-color:#497854}
+.quiz-choice:disabled{cursor:default}
+.quiz-choice-index{width:27px;height:27px;flex:0 0 27px;border-radius:8px;background:#e3ebe1;display:grid;place-items:center;color:#426447;font-weight:850;font-size:.84rem}
+.quiz-choice-name{flex:1;font-weight:720}
+.quiz-choice.is-correct{border:2px solid #478654;background:#e0f1de}
+.quiz-choice.is-wrong{border:2px solid #bd8c5b;background:#fff1e4}
+.quiz-choice.is-dimmed{opacity:.6}
+.quiz-feedback{border:1px solid #abc8a8;background:#f3f9ef;border-radius:13px;padding:18px 20px;margin:18px 0}
+.quiz-feedback-top{font-size:.96rem}
+.quiz-reveal-facts{margin:11px 0 0}
+.quiz-reveal-facts h3{font:730 1.65rem/1.2 Georgia,serif;color:var(--deep);margin:7px 0}
+.quiz-reveal-facts p{margin:8px 0}
+.quiz-reveal-facts .eyebrow{color:#4f7b57}
+.quiz-cue{background:#fff;border-radius:9px;padding:12px}
+.quiz-reveal-facts>a{display:inline-block;margin-top:11px;font-size:.92rem;font-weight:730}
+.quiz-actions{display:flex;gap:11px;justify-content:flex-end;margin:18px 0 0;align-items:center}
+.quiz-button,.quiz-outline{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;border:1px solid var(--deep);padding:12px 21px;font-weight:770;min-height:46px}
+.quiz-button{background:var(--deep);color:#fff}
+.quiz-button:hover{background:#29553d}
+.quiz-outline{background:#fff;color:var(--deep)}
+.quiz-outline:hover{background:#eef3ec}
+.quiz-hint{color:var(--muted);font-size:.87rem;margin:12px 0 0}
+.quiz-family-select{display:flex;justify-content:flex-start;gap:10px;align-items:center;flex-wrap:wrap;padding:12px 15px;background:#fff;border:1px solid var(--line);border-radius:12px}
+.quiz-family-select label{color:var(--deep);font-size:.91rem;font-weight:750}
+.quiz-family-select select{flex:1;max-width:370px;min-width:170px;border:1px solid #8ca590;border-radius:9px;padding:10px 12px;background:#fff;color:var(--text)}
+.quiz-reveal-facts .glossary-media{max-width:600px;margin:14px 0}
+.quiz-reveal-facts .glossary-photo-pointer-layer{display:none}
+.quiz-reveal-facts .glossary-media-detail .glossary-photo-stage{max-height:340px}
+.quiz-reveal-facts .glossary-media-img{max-height:340px;object-fit:contain}
+@media(max-width:650px){
+ #quizApp{padding:16px 12px 70px}
+ .quiz-hero{padding:25px 21px}
+ .quiz-hero p:last-child{font-size:.96rem}
+ .quiz-mode-grid,.quiz-choice-grid{grid-template-columns:1fr}
+ .quiz-mode-tile{padding:17px;gap:14px}
+ .quiz-mode-icon{flex-basis:48px;width:48px;height:48px;font-size:1.6rem}
+ .quiz-panel{padding:19px 15px}
+ .quiz-photo-stage{min-height:200px;max-height:340px}
+ .quiz-photo-stage img{max-height:340px}
+ .quiz-choice{min-height:58px}
+ .quiz-photo-attribution{justify-content:flex-start}
+ .quiz-actions{justify-content:stretch}
+ .quiz-actions>*{flex:1}
+}
