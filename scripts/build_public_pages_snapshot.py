@@ -325,6 +325,24 @@ def permitted_harms_limnodea(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+ident+".jpg"
                for ident in HARMS_LIAR_IDS)
 
+# Exact Selected Monocots Leptochloa panicea ssp. brachiata (= Dinebra
+# panicea subsp. brachiata), OTHER subspecies, never treated as mucronata.
+# Copyright Bob Harms, reuse permitted for credited science/education ONLY.
+HARMS_LEPAB_IDS = frozenset({"LEPAB-I","LEPAB-J","LEPAB-J1","LEPAB-L"})
+def permitted_harms_dinebra_brachiata_comparison(item: dict, noncommercial: bool) -> bool:
+    return (
+        bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("source_taxon_name") == "Dinebra panicea subsp. brachiata"
+        and item.get("taxon_comparison_only") is True
+        and any(item.get("source_page") == HARMS_BASE+"pages/"+id+".html"
+                and item.get("source_image") == HARMS_BASE+"images/"+id+".jpg"
+                for id in HARMS_LEPAB_IDS)
+    )
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -339,6 +357,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
+    if permitted_harms_dinebra_brachiata_comparison(item, noncommercial):
+        return True, "Bob Harms other subspecies brachiata source comparison, exact Selected Monocots educational credit only, NOT CC"
     if permitted_harms_eriochloa_sericea(item, noncommercial):
         return True, "Bob Harms ERSE5-9 exact E. sericea Selected Monocots spikelet original, educational with credit, NOT CC"
     if permitted_harms_kr_spikelets(item, noncommercial):
