@@ -225,6 +225,17 @@ function confirmation(sp){
    (items.length===1?'<p>'+esc(items[0])+'</p>':listHTML(items))+'</div>':'';
  }).filter(Boolean).join('');
 }
+function visualCoverage(sp){
+ const visual=sp.learner_visual_status||{},curation=sp.curation_status||{},fin=sp.field_id_finish_pass||{};
+ const flag=[visual.status,curation.visual_finish,fin.status,fin.stage].filter(x=>typeof x==='string').join(' ');
+ const gaps=textItems(fin.true_photo_gaps,5);
+ const incomplete=/PHOTO.GAPS|PENDING|PROVISIONAL|IN_PROGRESS|HOLD|UNFINISHED/i.test(flag);
+ if(!incomplete&&!gaps.length)return '';
+ return '<div class="photo-coverage-caution"><b>Photo lesson still being improved</b>'+
+  '<p>Use several matching structures before confirming an identification. Existing photographs may not show every required diagnostic feature.</p>'+
+  (gaps.length?'<details><summary>Photographs still needed</summary>'+listHTML(gaps)+'</details>':'')+
+  '</div>';
+}
 function photosFor(sp,path){
  const list=Array.isArray(sp.images)?sp.images.slice(0,36):[];
  const parent=path.slice(0,path.lastIndexOf('/')+1);
@@ -250,6 +261,7 @@ function renderDetail(sp,entry){
  '<p class="photo-count">Publicly eligible photographs: '+(Array.isArray(sp.images)?sp.images.length:0)+
  (Array.isArray(sp.images)&&sp.images.length>36?' (first 36 displayed here; see full Learner for the remainder)':'')+'</p>'+
  photosFor(sp,entry.path)+
+ visualCoverage(sp)+
  '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+ 
  '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+esc(sp.look_here_first||entry.cue||'Start with mature leaves and any reproductive structures.')+'</p></div>'+
  '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>'+
