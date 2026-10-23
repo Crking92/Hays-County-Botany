@@ -1,0 +1,32 @@
+name: Screen red lovegrass Commons images
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/screen_eragrostis_secundiflora_commons_20261023.py
+      - .github/workflows/screen-eragrostis-secundiflora-commons.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: screen-eragrostis-secundiflora-commons
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/screen_eragrostis_secundiflora_commons_20261023.py
+      - name: Save candidate inventory (no image publication)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/eragrostis-secundiflora-commons-file-screen-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Commons red lovegrass photo candidate rights inventory"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
