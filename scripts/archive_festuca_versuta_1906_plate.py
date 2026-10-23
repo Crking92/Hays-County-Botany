@@ -4,6 +4,8 @@ import io,json,pathlib,time,urllib.request,urllib.error,urllib.parse
 from PIL import Image
 base=pathlib.Path("content/taxa/Poaceae/Festuca/festuca-versuta");p=base/"species.json";d=json.loads(p.read_text());assert d["id"]=="festuca-versuta"
 title="File:Contributions from the U.S. National Herbarium (1906) (20660168056).jpg"
+# Source book labels this plate Festuca johnsoni, NOT Festuca versuta.
+raise SystemExit("REJECTED: scanned plate XII explicitly depicts Festuca johnsoni; do not archive under Festuca versuta")
 def get(url):
  for i in range(4):
   try:
