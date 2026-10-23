@@ -201,7 +201,23 @@ def permitted_harms_big_bluestem(item, noncommercial=False):
                and item.get("source_image") == HARMS_BASE+"images/"+pid+".jpg"
                for pid in HARMS_ANGE_IDS)
 
+# Bob Harms Selected Monocots BOISS-9 only; copyrighted author-licensed for
+# credited science/education, NOT a grant for any separate DigFlora ligule.
+def permitted_harms_kr_spikelets(record, noncommercial=False):
+    return (
+        bool(noncommercial)
+        and record.get("creator") == "Bob Harms"
+        and record.get("license") == HARMS_EXACT_LICENSE
+        and record.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and record.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and record.get("source_taxon_name") == "Bothriochloa ischaemum var. songarica"
+        and record.get("source_page") == HARMS_BASE+"pages/BOISS-9.html"
+        and record.get("source_image") == HARMS_BASE+"images/BOISS-9.jpg"
+    )
+
 def photo_rights(record, noncommercial=False):
+    if permitted_harms_kr_spikelets(record, noncommercial):
+        return None
     if permitted_harms_big_bluestem(record, noncommercial):
         return None
 
