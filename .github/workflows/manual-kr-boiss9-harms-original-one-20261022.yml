@@ -1,0 +1,84 @@
+name: Install one licensed Central Texas KR spikelet diagnostic photo
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/manual-kr-boiss9-harms-original-one-20261022.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: kr-boiss9-one-credited-educational-photo-20261022
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install JPG and HTTP verification dependencies
+        run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh source and precompile one photo script
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_kr_bob_harms_selected_monocots_spikelet_20261022.py
+      - name: Archive exact one source-identified North Hays KR original
+        run: python scripts/archive_kr_bob_harms_selected_monocots_spikelet_20261022.py
+      - name: Check original photo bytes, exact public rights and scientific holds
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights,permitted_harms_kr_spikelets
+          from public_photo_rights_preflight import photo_rights
+          root=Path("content/taxa/Poaceae/Bothriochloa")
+          s=json.loads((root/"bothriochloa-ischaemum/species.json").read_text())
+          g=json.loads((root/"genus.json").read_text())
+          rep=json.loads(Path("reports/kr-bob-harms-selected-monocots-boiss9-one-photo-20261022.json").read_text())
+          assert rep["status"]=="REAL_HAYS_KR_ONE_EDUCATIONAL_REUSABLE_SPIKELET_ORIGINAL_ARCHIVED"
+          assert rep["new_reusable_photo_count"]==1 and rep["new_gross_arrows"]==2
+          assert s["curation_status"]["photo_files_present"]==8
+          assert len(s["visual_comparison"]["items"])==19
+          assert len(g["visual_comparison"]["items"])==14
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          assert "true ligule" in s["field_id_finish_pass"]["stage"]
+          p=Path(rep["photo"])
+          assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==rep["sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and im.width>=650 and im.height>=320
+              assert not im.getexif().get(34853)
+              im.verify()
+          src=next(x for x in s["images"] if x.get("source_page")=="https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/pages/BOISS-9.html")
+          assert permitted_harms_kr_spikelets(src,True)
+          assert rights(src,True)[0] and photo_rights(src,True) is None
+          assert not permitted_harms_kr_spikelets({"source_page":"https://w3.biosci.utexas.edu/prc/DigFlora/KR/BOISS-morph.html"},True)
+          panels=[x for x in s["visual_comparison"]["items"] if x["image_url"]==str(p)]
+          assert len(panels)==1 and len(panels[0]["markers"])==2
+          assert panels[0]["creator"]=="Bob Harms" and "NOT a ligule" in panels[0]["caption"]
+          assert not any(y.get("source_page","").find("DigFlora/KR/BOISS")>=0 for y in s["images"])
+          print("PASS one original Harms KR spikelet photo, source-specific permission, arrows; DigFlora ligule still unlicensed",flush=True)
+          PY
+      - name: Commit only exact original and source-citation updates
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum/
+          git add content/taxa/Poaceae/Bothriochloa/genus.json
+          git add reports/kr-bob-harms-selected-monocots-boiss9-one-photo-20261022.json
+          git add workflow/field-id-publication/2026-10-22-kr-one-harms-licensed-spikelet-photo.json
+          if git diff --cached --quiet; then echo "ALREADY_INSTALLED_NOOP"; exit 0; fi
+          git commit -m 'Install Bob Harms real North Hays KR awned spikelet reference [skip ci]'
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
