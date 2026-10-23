@@ -1,7 +1,7 @@
 /* Hays Botany compact Field ID. All facts/photos come from filtered public plant records. */
 (function(){
 'use strict';
-const state={records:[],rank:'families',family:'',genus:'',query:'',limit:60,selected:null,cache:new Map(),loading:true};
+const state={records:[],rank:'families',family:'',genus:'',query:'',limit:60,selected:null,cache:new Map(),groupCache:new Map(),loading:true};
 const root=document.getElementById('fieldApp');
 const dialog=document.getElementById('fieldDetail');
 const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -22,6 +22,41 @@ const photo=(item,kind)=>{
   '<div class="tile-image no-photo" aria-hidden="true"><span>✳</span></div>';
 };
 const sorted=(a,b)=>a.localeCompare(b);
+const textItems=(v,max=12)=>Array.isArray(v)?v.filter(x=>typeof x==='string').slice(0,max):
+ typeof v==='string'?[v]:[];
+function listHTML(items){
+ return items.length?'<ul>'+items.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>':'';
+}
+function groupCue(record,rank){
+ const d=rank==='families'?record.family_diagnostics||{}:record.recognition||{};
+ const main=rank==='families'?(d.where_to_look_first||d.field_tip||record.look_here_first):
+  (record.look_here_first||d.where_to_look_first||d.look_here_first);
+ const priority=rank==='genera'?textItems(d.priority,3):[];
+ if(!main&&!priority.length)return '';
+ return '<div class="group-tip lessonpart"><strong>Look here first · '+(rank==='families'?'Family':'Genus')+'</strong>'+
+  (main?'<p>'+esc(main)+'</p>':'')+listHTML(priority)+'</div>';
+}
+async function loadGroupCue(){
+ const rank=state.family&&!state.genus?'families':state.genus?'genera':null;
+ if(!rank)return;
+ const path=rank==='families'?'content/taxa/'+state.family+'/family.json':
+  'content/taxa/'+state.family+'/'+state.genus+'/genus.json';
+ const el=document.getElementById('fieldGroupClue');
+ if(!el)return;
+ try{
+  let data=state.groupCache.get(path);
+  if(!data){
+   const r=await fetch(safePath(path),{cache:'no-store'});
+   if(!r.ok)return;
+   data=await r.json();state.groupCache.set(path,data);
+  }
+  const target=document.getElementById('fieldGroupClue');
+  if(!target||target.dataset.source!==path)return;
+  target.innerHTML=groupCue(data,rank);
+  if(window.HaysGlossary)window.HaysGlossary.enhance(target);
+ }catch(err){console.info('Group field hint unavailable',path);}
+}
+
 function groups(rank){
  const lookup=new Map();
  for(const p of state.records){
@@ -84,6 +119,7 @@ function render(){
  const cards=results.slice(0,state.limit).map(tile).join('');
  root.innerHTML='<div class="field-intro"><p class="eyebrow">Quick field reference</p><h1>'+esc(title)+'</h1>'+
  '<p>'+esc(summary)+'</p></div>'+crumbs+
+ (state.family?'<div id="fieldGroupClue" data-source="'+esc(state.genus?'content/taxa/'+state.family+'/'+state.genus+'/genus.json':'content/taxa/'+state.family+'/family.json')+'"></div>':'')+
  '<section class="browse-tools"><div class="rank-tabs" role="group" aria-label="Browse by family, genus or species">'+tabs+'</div>'+
  '<label for="fieldSearch">Search the plant library</label>'+
  '<input id="fieldSearch" type="search" placeholder="Search common names, botanical names, or families…" value="'+esc(state.query)+'" autocomplete="off">'+
@@ -114,7 +150,7 @@ function renderResultsOnly(){
 }
 function change(rank,family,genus){
  state.rank=rank;state.family=family||'';state.genus=genus||'';state.query='';state.limit=60;
- render();document.getElementById('fieldApp').scrollIntoView({block:'start',behavior:'auto'});
+ render();loadGroupCue();document.getElementById('fieldApp').scrollIntoView({block:'start',behavior:'auto'});
 }
 function firstText(value,max){
  return String(value||'').replace(/\s+/g,' ').slice(0,max);
