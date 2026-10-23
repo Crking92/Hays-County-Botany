@@ -5,7 +5,7 @@ from PIL import Image, ImageOps
 root=pathlib.Path("content/taxa/Poaceae/Chloris/chloris-andropogonoides")
 card=root/"species.json"; report=pathlib.Path("reports/chloris-inat-open-search-20261023.json")
 d=json.loads(card.read_text()); assert d["id"]=="chloris-andropogonoides"
-out={"added":[],"holds":[],"scanned":0,"strategy":"iNat observations API; taxon 160518; individual photo CC-BY/CC-BY-SA/CC0 rights"}
+out={"added":[],"holds":[],"scanned":0,"strategy":"iNat exact-species additional open-license views; maximum four new JPEGs; anatomical content must still be manually verified"}
 def fetch(url):
  req=urllib.request.Request(url,headers={"User-Agent":"Hays-County-Botany/1.0 (attributed open photo research)","Accept":"application/json,image/*"})
  with urllib.request.urlopen(req,timeout=40) as r:
@@ -13,8 +13,8 @@ def fetch(url):
  if len(b)>16000000:raise ValueError("Oversized response")
  return b
 try:
- for page in range(1,5):
-  if out["added"]: break
+ for page in range(1,7):
+  if len(out["added"])>=4: break
   query=urllib.parse.urlencode({"taxon_id":160518,"quality_grade":"research","photos":"true","per_page":40,"page":page,"order_by":"observed_on","order":"desc"})
   rows=json.loads(fetch("https://api.inaturalist.org/v1/observations?"+query))["results"]
   for ob in rows:
@@ -47,7 +47,7 @@ try:
      out["added"].append({"file":str(dest),"observation":ob["id"],"photo":image_id,"license":code})
      break
     except Exception as e:out["holds"].append({"photo":image_id,"reason":str(e)[:180]})
-   if out["added"]:break
+   if len(out["added"])>=4:break
  if out["added"]:
   d.setdefault("curation_status",{})["photo_files_present"]=len(d["images"])
   d["curation_status"]["photo_metadata_count"]=len(d["images"])
