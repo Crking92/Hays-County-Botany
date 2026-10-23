@@ -1,0 +1,80 @@
+name: Archive seven exact goosegrass Central Texas anatomy originals
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/manual-eleusine-indica-seven-harms-20261023.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-eleusine-seven-harms-exact-originals-20261023
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact source image tools and syntax check both public rights filters
+        run: |
+          python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+          python -m py_compile scripts/archive_eleusine_goosegrass_seven_harms_20261023.py scripts/build_public_pages_snapshot.py scripts/public_photo_rights_preflight.py
+      - name: Retrieve 7 real author-determined goosegrass original JPEGs and write canonical panels
+        run: python scripts/archive_eleusine_goosegrass_seven_harms_20261023.py
+      - name: Verify real JPEG bytes, exact individual license, species and unchanged study-only hold
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,'scripts')
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          s=json.loads(Path('content/taxa/Poaceae/Eleusine/eleusine-indica/species.json').read_text())
+          g=json.loads(Path('content/taxa/Poaceae/Eleusine/genus.json').read_text())
+          r=json.loads(Path('reports/eleusine-indica-seven-harms-originals-20261023.json').read_text())
+          assert r['new_originals']==7 and len(r['images'])==7
+          assert s['id']=='eleusine-indica' and s['curation_status']['photo_files_present']==8
+          assert len(s['images'])==8 and len(s['visual_comparison']['items'])==14
+          assert len(g['visual_comparison']['items'])==14
+          assert 'FIELD_READY_PHOTO_GAPS' in s['field_id_finish_pass']['stage']
+          assert s['images'][0]['license']=='CC BY-NC-SA'
+          assert s['public_photo_audit'] is not None
+          assert s['curation_status']['taxonomy_reviewed']==False
+          for rec in r['images']:
+              f=Path(rec['local_file'])
+              assert f.is_file() and f.stat().st_size>4300
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==rec['sha256']
+              with Image.open(f) as im:
+                  assert im.format=='JPEG' and im.mode=='RGB' and not im.getexif().get(34853)
+                  assert list(im.size)==rec['dimensions']
+                  im.verify()
+              info=next(p for p in s['images'] if p.get('file')=='images/'+f.name)
+              assert info['source_taxon_name']=='Eleusine indica' and info['creator']=='Bob Harms'
+              assert rights(info,True)[0],(f,rights(info,True))
+              assert photo_rights(info,True) is None,(f,photo_rights(info,True))
+              assert len([p for p in s['visual_comparison']['items'] if p.get('image_url')==str(f)])==1
+          print('PASS 7 actual author-sourced Eleusine JPEGs, both strict rights filters and unchanged legacy NC-SA rights hold')
+          PY
+      - name: Commit verified actual photo bytes plus canonical species/genus evidence and photo report
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Eleusine/eleusine-indica/ content/taxa/Poaceae/Eleusine/genus.json
+          git add reports/eleusine-indica-seven-harms-originals-20261023.json
+          git add workflow/field-id-publication/2026-10-23-eleusine-indica-seven-true-harms-anatomy.json
+          if git diff --cached --quiet; then echo 'No repeated archive'; exit 0; fi
+          git commit -m 'Archive seven real original credited Central Texas goosegrass anatomical photos [skip ci]'
+          for i in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
