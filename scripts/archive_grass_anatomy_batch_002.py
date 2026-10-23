@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 """Install licensed exact-taxon photo candidates, fail closed, track individual failures."""
-import io,json,pathlib,urllib.request,urllib.parse,re,hashlib
+import io,json,pathlib,urllib.request,urllib.error,urllib.parse,re,hashlib,time
 from PIL import Image
 items=[{"genus":"Digitaria","id":"digitaria-ciliaris","name":"Digitaria ciliaris - Flickr - osahiro nishihata.jpg","creator":"Osahiro Nishihata","license":"CC0","role":"Emerging inflorescence close view; confirm anatomical detail from actual pixels"},{"genus":"Digitaria","id":"digitaria-ciliaris","name":"Starr 090121-1186 Digitaria ciliaris.jpg","creator":"Forest & Kim Starr","license":"CC BY 3.0","role":"Multiple inflorescences and specimen-scale flowering architecture"},{"genus":"Bromus","id":"bromus-pubescens","name":"Bromus pubescens - Copenhagen Botanical Garden - DSC07693.JPG","creator":"Daderot","license":"CC0","role":"Additional botanical garden flowering plant reference; lemma hairs remain unverified"}]
+def fetch_with_retry(request, timeout):
+ for attempt in range(5):
+  try:
+   with urllib.request.urlopen(request,timeout=timeout) as response: return response.read()
+  except urllib.error.HTTPError as err:
+   if err.code not in (429,500,502,503,504) or attempt==4: raise
+   pause=25*(attempt+1)
+   print("Rate limit",err.code,"waiting",pause,flush=True)
+   time.sleep(pause)
 failed=[]
 for item in items:
  try:
@@ -17,7 +26,7 @@ for item in items:
     recorded=info.get("extmetadata",{}).get("LicenseShortName",{}).get("value","").upper().replace("-","").replace(" ","")
     expected=item["license"].upper().replace("-","").replace(" ","")
     assert expected in recorded or (expected=="CC0" and "CC0" in recorded),(item["name"],recorded)
-    with urllib.request.urlopen(urllib.request.Request(info["url"],headers={"User-Agent":"Hays-County-Botany/1.0"}),timeout=60) as f: raw=f.read()
+    raw=fetch_with_retry(urllib.request.Request(info["url"],headers={"User-Agent":"Hays-County-Botany/1.0"}),60)
     assert 12000<len(raw)<18000000
     image=Image.open(io.BytesIO(raw));image.verify()
     image=Image.open(io.BytesIO(raw)).convert("RGB")
