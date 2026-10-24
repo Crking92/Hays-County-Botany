@@ -1,0 +1,49 @@
+name: Lane 5 Kleberg diagnostic macrophotographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_kleberg_diagnostic_macros.py
+      - .github/workflows/archive-lane5-kleberg-macros.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-kleberg-macro
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image-processing dependency
+        run: python -m pip install Pillow
+      - name: Verify and archive actual Kleberg diagnostic anatomy
+        run: python scripts/archive_lane5_kleberg_diagnostic_macros.py
+      - name: Commit image bytes and updated species gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Dichanthium/dichanthium-annulatum/ reports/lane5-kleberg-real-diagnostic-macros-20261024.json
+          if git diff --cached --quiet; then
+            echo "No new diagnostic media or metadata changes"
+            exit 0
+          fi
+          git commit -m "Archive actual Kleberg dissected florets, paired spikelets and hairy stem node"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "Kleberg anatomical archive committed"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Concurrent writes prevented safe push; nothing force-written" >&2
+          exit 1
