@@ -1,0 +1,254 @@
+{
+  "id": "grass-tridens-three-accepted-2026-10-24-1424-001",
+  "run_date_local": "2026-10-24",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Only existing canonical Poaceae name, rank, authored synonym, concept, and hybrid holds. No canonical card enrichment, media, lessons, installation, county-native audit, Pages, or schedules.",
+  "status": "VERIFIED_THREE_TRIDENS_ACCEPTED_WITH_CHAPMANII_BOUNDARY_AND_POWO_GENUS_INDEX_DISCREPANCY",
+  "claim_id": "grass-tridens-three-accepted-2026-10-24-1424-001",
+  "canonical_species": [
+    {
+      "taxon_id": "tridens-albescens",
+      "path": "content/taxa/Poaceae/Tridens/tridens-albescens/species.json",
+      "sha_at_review": "fbcb5684ba905e34b2ff95a0612a84754c89aa4f",
+      "existing_name": "Tridens albescens",
+      "verified_authority": "(Vasey) Wooton & Standl.",
+      "no_canonical_edit": true
+    },
+    {
+      "taxon_id": "tridens-flavus",
+      "path": "content/taxa/Poaceae/Tridens/tridens-flavus/species.json",
+      "sha_at_review": "7476707f58694d8b57ea8056ba1a2407fb522de5",
+      "existing_name": "Tridens flavus",
+      "verified_authority": "(L.) Hitchc.",
+      "no_canonical_edit": true
+    },
+    {
+      "taxon_id": "tridens-texanus",
+      "path": "content/taxa/Poaceae/Tridens/tridens-texanus/species.json",
+      "sha_at_review": "43481edb7ef525a1796b9828419360cd4f316e08",
+      "existing_name": "Tridens texanus",
+      "verified_authority": "(S.Watson) Nash",
+      "no_canonical_edit": true
+    }
+  ],
+  "related_accepted_taxa_not_installed_by_this_run": [
+    "Tridens chapmanii (Small) Chase",
+    "Tridens × oklahomensis (Feath.) Feath."
+  ],
+  "scientific_decisions": [
+    {
+      "code": "TRI-01",
+      "status": "PASS",
+      "source_name": "Tridens albescens (Vasey) Wooton & Standl.",
+      "accepted_target": "Tridens albescens (Vasey) Wooton & Standl.",
+      "reason": "POWO/WCVP accepts this as a Poaceae species, not a variety of T. flavus; canonical name and authorship match.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257751-2"
+      ]
+    },
+    {
+      "code": "TRI-02",
+      "status": "PASS",
+      "source_name": "Tridens flavus (L.) Hitchc.",
+      "accepted_target": "Tridens flavus (L.) Hitchc.",
+      "reason": "POWO/WCVP accepts purpletop as a distinct Poaceae species; canonical name and authorship match.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2"
+      ]
+    },
+    {
+      "code": "TRI-03",
+      "status": "PASS",
+      "source_name": "Tridens texanus (S.Watson) Nash",
+      "accepted_target": "Tridens texanus (S.Watson) Nash",
+      "reason": "The individual POWO species record explicitly accepts Texas tridens at species rank; WFO corroborates. Do not infer rejection from omission in POWO genus list.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257787-2",
+        "https://worldfloraonline.org/taxon/wfo-0000904485"
+      ]
+    },
+    {
+      "code": "TRI-04",
+      "status": "PASS",
+      "source_name": "Triodia albescens Vasey",
+      "accepted_target": "Tridens albescens (Vasey) Wooton & Standl.",
+      "reason": "Homotypic basionym listed by POWO; preserve as historical alias only.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257751-2"
+      ]
+    },
+    {
+      "code": "TRI-05",
+      "status": "PASS",
+      "source_name": "Rhombolytrum albescens (Vasey) Nash",
+      "accepted_target": "Tridens albescens (Vasey) Wooton & Standl.",
+      "reason": "Homotypic combination under white tridens, not separate accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257751-2"
+      ]
+    },
+    {
+      "code": "TRI-06",
+      "status": "PASS",
+      "source_name": "Poa flava L.",
+      "accepted_target": "Tridens flavus (L.) Hitchc.",
+      "reason": "Homotypic basionym of purpletop in POWO; author is required for exact mapping.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2"
+      ]
+    },
+    {
+      "code": "TRI-07",
+      "status": "PASS",
+      "source_name": "Triodia texana S.Watson",
+      "accepted_target": "Tridens texanus (S.Watson) Nash",
+      "reason": "Homotypic basionym of Texas tridens, published 1883; no second card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257787-2"
+      ]
+    },
+    {
+      "code": "TRI-08",
+      "status": "PASS",
+      "source_name": "Sieglingia texana (S.Watson) Kuntze",
+      "accepted_target": "Tridens texanus (S.Watson) Nash",
+      "reason": "Homotypic synonym of Texas tridens.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257787-2"
+      ]
+    },
+    {
+      "code": "TRI-09",
+      "status": "PASS",
+      "source_name": "Tridens chapmanii (Small) Chase",
+      "accepted_target": "Tridens chapmanii (Small) Chase",
+      "reason": "POWO accepts Chapman’s tridens separately from T. flavus; historical purpletop variety concepts must not be blindly merged.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257761-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2"
+      ]
+    },
+    {
+      "code": "TRI-10",
+      "status": "PASS",
+      "source_name": "Tridens flavus var. chapmanii (Small) Shinners",
+      "accepted_target": "Tridens chapmanii (Small) Chase",
+      "reason": "POWO lists this historical variety as homotypic synonym of accepted T. chapmanii, not T. flavus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257761-2"
+      ]
+    },
+    {
+      "code": "TRI-11",
+      "status": "PASS",
+      "source_name": "Tridens × oklahomensis (Feath.) Feath.",
+      "accepted_target": "Tridens × oklahomensis (Feath.) Feath.",
+      "reason": "POWO accepts a distinct named hybrid with formula T. flavus × T. strictus; this does not assign hybrid origin to any learner photograph.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257779-2"
+      ]
+    },
+    {
+      "code": "TRI-12",
+      "status": "PASS",
+      "source_name": "Three existing canonical Tridens learner species",
+      "accepted_target": "THREE DISTINCT ACCEPTED SPECIES",
+      "reason": "Direct POWO records accept T. albescens, T. flavus, and T. texanus separately; keep existing canonical concepts, no renames or duplicate installs.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257751-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257787-2"
+      ]
+    },
+    {
+      "code": "TRI-13",
+      "status": "FAIL",
+      "source_name": "Proposed blanket synonymization of Tridens flavus var. chapmanii into Tridens flavus",
+      "accepted_target": "REJECT UNSAFE HISTORICAL VARIETY MERGE",
+      "reason": "The cited variety maps to separately accepted T. chapmanii in POWO. FAIL applies to proposed merge only, not the existing accepted purpletop species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257761-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.135028/Tridens_flavus"
+      ]
+    },
+    {
+      "code": "TRI-14",
+      "status": "HOLD",
+      "source_name": "Identity of individual photographs assigned to the three Tridens cards",
+      "accepted_target": "SPECIMEN_ID_UNVERIFIED",
+      "reason": "Taxon-name acceptance and historical synonym mappings do not authenticate any particular photographed plant. Preserve all provisional specimen/photo identity holds; no media edits.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257751-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257787-2"
+      ]
+    },
+    {
+      "code": "TRI-15",
+      "status": "HOLD",
+      "source_name": "Hybrid ancestry of any individual photographed Tridens specimen",
+      "accepted_target": "HYBRID_PARENTAGE_UNVERIFIED",
+      "reason": "Accepted T. × oklahomensis formula does not prove a learner specimen is that hybrid; preserve existing hybrid/science holds and do not invent parents.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257779-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2"
+      ]
+    },
+    {
+      "code": "TRI-16",
+      "status": "UNRESOLVED",
+      "source_name": "POWO Tridens genus accepted-species listing versus accepted T. texanus species page",
+      "accepted_target": "BACKBONE_AGGREGATE_LIST_INCONSISTENCY",
+      "reason": "The POWO genus page says 13 accepted species and omits T. texanus while its direct species page explicitly marks it accepted; WFO also accepts T. texanus. Treat as source-index discrepancy, not evidence for renaming or rejection. Needs Kew backbone reconciliation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325434-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257787-2",
+        "https://worldfloraonline.org/taxon/wfo-0000904485"
+      ]
+    },
+    {
+      "code": "TRI-17",
+      "status": "UNRESOLVED",
+      "source_name": "Historical purpletop varieties or unidentified Tridens records without voucher",
+      "accepted_target": "HISTORICAL_SPECIMEN_CONCEPT_UNRESOLVED",
+      "reason": "Older use of T. flavus var. chapmanii and unauthenticated Tridens records requires specimen/concept checking before attaching to any installed card; name mapping alone cannot resolve source-observation identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257761-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.135028/Tridens_flavus"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 12,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "sources_checked_on": "2026-10-24",
+  "sources_primary": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257751-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257768-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257787-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257761-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:257779-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325434-2",
+    "https://worldfloraonline.org/taxon/wfo-0000904485"
+  ],
+  "limitations": [
+    "WCVP/POWO direct species pages were inspected; Kew genus aggregate list omits T. texanus despite accepting it on its species page. No backend database record or Kew staff confirmation was obtained.",
+    "Individual learner photos, vouchers and hybrid ancestry were not independently authenticated; specimen-level holds remain.",
+    "Flora of North America volume 25 and primary grass treatments are cited as accepted-name supporting authorities by POWO; full original taxonomic treatments were not reexamined here.",
+    "No county nativity audit was undertaken."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_or_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
