@@ -23,6 +23,11 @@ jobs:
           git add reports/lane3-leersia-anatomy-20261023.json content/taxa/Poaceae/Leersia/leersia-oryzoides/
           if ! git diff --cached --quiet; then
             git commit -m "Lane 3 archive rice cutgrass licensed anatomy or source holds"
-            git pull --rebase origin main
-            git push origin HEAD:main
+            pushed=0
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = "1"
           fi
