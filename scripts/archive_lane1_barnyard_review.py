@@ -21,6 +21,11 @@ APPROVED = {
         "match": "spikelet_annotated_(7120556227).jpg",
         "label": "CC BY 2.0 source-labelled spikelet anatomy",
     },
+    "File:Echinochloa crusgalli spikelets mature (6974477176).jpg": {
+        "filename": "harry-rose-barnyardgrass-mature-spikelets-cc-by2.jpg",
+        "match": "spikelets_mature_(6974477176).jpg",
+        "label": "CC BY 2.0 pair of ripe spikelets; no scale",
+    },
 }
 if TITLE not in APPROVED:
     raise SystemExit("Not an expressly approved barnyardgrass file")
@@ -68,7 +73,15 @@ for attempt in range(5):
     doc=json.loads(base64.b64decode(current["content"]))
     matching=[p for p in doc.get("visual_comparison",{}).get("items",[])
               if info["match"] in urllib.parse.unquote(p.get("image_url",""))]
-    if len(matching)!=1:raise SystemExit("Gallery remote panel absent/ambiguous; stop, do not guess")
+    if len(matching)!=1:
+        # A clean replay is normal on workflow re-runs. Never overwrite or double-add.
+        local=[p for p in doc.get("visual_comparison",{}).get("items",[])
+               if p.get("image_url","")==imagepath]
+        in_sources=any(x.get("file","")=="images/"+info["filename"] for x in doc.get("images",[]))
+        if len(matching)==0 and len(local)==1 and in_sources:
+            print("ALREADY_ARCHIVED_AND_LINKED",imagepath)
+            break
+        raise SystemExit("Gallery remote panel absent/ambiguous; stop, do not guess")
     panel=matching[0]
     panel["image_url"]=imagepath
     panel["photo_status"]=str(panel.get("photo_status",""))+" | Sanitized CC BY 2.0 JPEG physically archived; source-provided organ labels still provisional."
