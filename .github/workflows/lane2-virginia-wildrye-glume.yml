@@ -1,0 +1,33 @@
+name: Lane 2 archive Virginia wildrye glume anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_archive_virginia_wildrye_glume.py
+      - .github/workflows/lane2-virginia-wildrye-glume.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-virginia-glume
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_archive_virginia_wildrye_glume.py
+      - name: Save physical media and gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Elymus/elymus-virginicus/ reports/lane2-virginia-wildrye-glume-photo-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive CC BY-SA Virginia wildrye curved glume close-up"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
