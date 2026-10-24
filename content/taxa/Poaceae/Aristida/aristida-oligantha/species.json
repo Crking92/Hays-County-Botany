@@ -415,10 +415,10 @@
       {
         "label": "Purple threeawn — long radiating awns above a fingertip",
         "scientific_name": "Aristida purpurea",
-        "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Aristida_purpurea_%283877125836%29.jpg/500px-Aristida_purpurea_%283877125836%29.jpg",
+        "image_url": "content/taxa/Poaceae/Aristida/aristida-purpurea/images/02-mature-florets-awns.jpg",
         "image_fit": "contain",
         "image_role": "Matt Lavin multiple awned florets at fingertip scale, without matched dissected glumes",
-        "caption": "Purple threeawn source photographed in Idaho. Awns and floret cluster visible, but the lower-glume ratio and veins cannot be distinguished.",
+        "caption": "DIFFERENT SPECIES: Purple threeawn by Matt Lavin, using the existing locally archived source photograph. Visible spreading awns do not prove its perennial roots or one-veined lower glume; compare actual paired glumes and rooted crown with oldfield threeawn.",
         "why_it_matters": "Three awns identify the genus, not purple versus oldfield species.",
         "creator": "Matt Lavin",
         "license": "CC BY-SA 2.0",
@@ -433,7 +433,7 @@
             "target_y": 52
           }
         ],
-        "photo_status": "500×667 source visually inspected 2026-10-21; coarse visible-awn arrow only"
+        "photo_status": "Other-species comparison: local archived JPEG in Aristida purpurea canonical folder; CC BY-SA 2.0 retained. Gross awn arrow only."
       }
     ],
     "overlay_note": "Coarse arrows only: no original photo resolves exact glume length or backlit venation. CC0 source from Minnesota, CC BY-SA 2.0 source from Idaho; neither is a Hays specimen. USGS Louisiana Aristida oligantha_0001.JPG linked as provisional PD reference, photographer individual not asserted, two arrows to actually visible gross awn architecture. No claim that one awn target proves exact attached lemma. No physical image bytes yet. Existing local CC0 stems/awns added as two zero-arrow panels; existing USGS source image is EXTERNAL because one-time downloader timed out in CI. Physical library was inspected for identity/source/organ roles but NOT newly micro-measured."
@@ -441,17 +441,27 @@
   "field_photo_quickcheck": {
     "heading": "Oldfield threeawn — follow the actual awn, then MEASURE",
     "featured_photo_indices": [
-      0
+      0,
+      1,
+      3,
+      4,
+      5
     ],
     "steps": [
-      "Look at a single spikelet-bearing branch: long spreading bristles are awns; isolate one THREE-AWNED fertile lemma.",
-      "Check rooted plant: oldfield is annual with wiry freely branching stems, not a persistent mature tuft.",
-      "Gently expose BOTH intact glumes on one ripe spikelet: they should be nearly equal and often ~18–25 mm each excluding their own tiny awns.",
-      "Backlight the lower glume to count roughly 3–7 veins; no current arrow photograph shows this.",
-      "If the base is missing or glumes damaged, leave Aristida sp. rather than declaring oldfield."
+      "START with the locally stored field and awn photographs, especially the long thin awns against an open panicle. Three spreading awns suggest Aristida, not oligantha by themselves.",
+      "CHECK ROOTED ANNUAL BASE: oldfield threeawn branches freely from basal and upper nodes. A loose shoot or an overview without the base cannot demonstrate annual duration.",
+      "ON A MATURE ATTACHED SPIKELET isolate BOTH long glumes with 1-mm ruler; Kew gives lower 18–25 mm and approximately equal to upper glume, though treatment variation must be retained.",
+      "BACKLIGHT the LOWER glume and count its 3–7 longitudinal nerves. Compare A. purpurea's usually 1-veined shorter lower glume, and retain a variety-aware key.",
+      "OPEN the true blade–sheath COLLAR under 20× to photograph the short hair-fringe ligule (~0.5 mm). Do not arrow a stem joint or sheath as a ligule.",
+      "FOLLOW one fertile lemma through to its THREE separate awn limbs, then inspect mature callus and lemma with mm scale; visible distant awns or botanical illustration cannot prove a measured lemma.",
+      "COMPARE the LOCAL ARCHIVED purple-threeawn photo in the look-alike panel with oldfield's opened branch architecture; the site comparison is now locally hosted and independently labeled OTHER SPECIES."
     ],
     "field_rule": "Three awns alone = genus. Species requires matched lower/upper glume ratio, lower vein count and rooted-life-cycle evidence.",
-    "warning": "True lower-glume venation and mm-ruler measurements remain a photo gap."
+    "warning": "5 actually photographed local exact-species JPEGs plus 1 public-domain drawing; only photographed anatomical structures count as evidence. USGS flowering awn panel remains externally linked, its server previously timed out. New gallery relink reuses the established locally stored different-species purple-threeawn image; no new oldfield macro or speculative arrow. True glume nerves, precise mm ratio, collar and perennial/annual base are still not documented in a single verified specimen.",
+    "evidence_sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325343-2/general-information",
+      "https://rangeplants.tamu.edu/plant/oldfield-threeawn/"
+    ]
   },
   "photo_targets_crew": [
     "Rooted native-range oldfield plant with entire airy panicle and upper/basal stem",
@@ -532,6 +542,23 @@
       "classification": "FIELD_READY_PHOTO_GAPS — authentic long awns visible; ligule, measured 3-awn insertion, glumes and lemma not demonstrated",
       "next": "Source-vouched 10–20× single floret displaying lemma tip with three awns plus 1mm scale; true collar and ligule",
       "site_qa": "Not verified"
+    },
+    "lane2_photo_finish_20261023": {
+      "stage": "FIELD_READY_PHOTO_GAPS",
+      "local_records": 6,
+      "actual_local_photo_JPEGs": 5,
+      "botanical_illustrations": 1,
+      "other_species_purple_threeawn_comparison": "RELINKED_TO_LOCAL_CC_BY_SA_JPEG",
+      "new_media": 0,
+      "anatomical_arrows_added": 0,
+      "still_external": "USGS oldfield threeawn source photo timed out in previous CI attempt",
+      "critical_holds": [
+        "Backlit lower 3–7-veined glume and paired glumes at 1 mm scale",
+        "Opened true ~0.5-mm hair ligule at collar",
+        "Rooted annual base with matching full flowering culm",
+        "Attached three-awns-from-one-lemma and callus at 10–20x"
+      ],
+      "pages": "NOT_VERIFIED"
     }
   }
 }
