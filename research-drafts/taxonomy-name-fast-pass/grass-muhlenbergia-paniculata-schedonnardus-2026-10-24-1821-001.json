@@ -1,0 +1,185 @@
+{
+  "batch_id": "grass-muhlenbergia-paniculata-schedonnardus-2026-10-24-1821-001",
+  "project": "Crking92/Hays-County-Botany",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "date": "2026-10-24",
+  "authority_backbone": "Kew POWO/WCVP 2026",
+  "scope": "Existing installed Poaceae accepted names, synonyms, ranks and identity holds only; no species-card modifications",
+  "canonical_targets": [
+    {
+      "id": "muhlenbergia-paniculata",
+      "path": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-paniculata/species.json",
+      "pre_review_blob_sha": "af51e141774aea6bb1bbdb76ad7e39ee0e4c1f08",
+      "accepted_name": "Muhlenbergia paniculata (Nutt.) P.M.Peterson",
+      "family": "Poaceae",
+      "rank": "species",
+      "canonical_name_change": false
+    }
+  ],
+  "manifest_blob_sha_checked": "36c95f3d83ada2e01331b9f32ae69cb8b09c44d9",
+  "manifest_exact_accepted_concept_matches": 1,
+  "claim_path": "workflow/taxonomy-claims/grass-muhlenbergia-paniculata-schedonnardus-2026-10-24-1821-001.json",
+  "decisions": [
+    {
+      "code": "MUP-01",
+      "status": "PASS",
+      "source_name": "Muhlenbergia paniculata (Nutt.) P.M.Peterson",
+      "accepted_target": "Muhlenbergia paniculata (Nutt.) P.M.Peterson",
+      "reason": "POWO/WCVP accepts this species in Poaceae; Peterson's 2010 combination is based on Lepturus paniculatus Nutt. Preserve the existing canonical species concept; do not install another card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://doi.org/10.3732/ajb.0900359"
+      ]
+    },
+    {
+      "code": "MUP-02",
+      "status": "PASS",
+      "source_name": "Lepturus paniculatus Nutt. (1818)",
+      "accepted_target": "Muhlenbergia paniculata",
+      "reason": "Basionym and homotypic synonym. Original epithet and Nuttall authorship verified against Peterson et al. 2010 and POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://doi.org/10.3732/ajb.0900359"
+      ]
+    },
+    {
+      "code": "MUP-03",
+      "status": "PASS",
+      "source_name": "Rottboellia paniculata (Nutt.) Spreng. (1824)",
+      "accepted_target": "Muhlenbergia paniculata",
+      "reason": "Homotypic synonym of the same Nuttall type; no separate accepted species card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1"
+      ]
+    },
+    {
+      "code": "MUP-04",
+      "status": "PASS",
+      "source_name": "Schedonnardus paniculatus (Nutt.) Trel. (1888 publ. 1891)",
+      "accepted_target": "Muhlenbergia paniculata",
+      "reason": "Homotypic synonym under current POWO/WCVP. Historically accepted as Schedonnardus in Flora of North America 2003 and other floras; not a separate canonical species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77246321-1",
+        "https://doi.org/10.3732/ajb.0900359"
+      ]
+    },
+    {
+      "code": "MUP-05",
+      "status": "PASS",
+      "source_name": "Spirochloe paniculata (Nutt.) Lunell (1915)",
+      "accepted_target": "Muhlenbergia paniculata",
+      "reason": "Homotypic synonym per POWO; author and genus transfer must be retained in historical crosswalk.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242865-2"
+      ]
+    },
+    {
+      "code": "MUP-06",
+      "status": "PASS",
+      "source_name": "Schedonnardus texanus Steud. (1854)",
+      "accepted_target": "Muhlenbergia paniculata",
+      "reason": "Heterotypic synonym per POWO, not a separate accepted Schedonnardus species in the current backbone. Its different type must not be silently treated as the Nuttall basionym.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:420745-1"
+      ]
+    },
+    {
+      "code": "MUP-07",
+      "status": "PASS",
+      "source_name": "Peterson, Romaschenko & Johnson (2010) Muhlenbergiinae circumscription",
+      "accepted_target": "Muhlenbergia paniculata",
+      "reason": "Primary molecular phylogeny and formal new combination support including Schedonnardus within a monophyletic, expanded Muhlenbergia; accepted rank is species, not a hybrid or infraspecific taxon.",
+      "sources": [
+        "https://doi.org/10.3732/ajb.0900359",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1"
+      ]
+    },
+    {
+      "code": "MUP-08",
+      "status": "FAIL",
+      "source_name": "Proposed independent accepted learner card for Schedonnardus paniculatus",
+      "accepted_target": "REJECT_DUPLICATE_ACCEPTED_CONCEPT",
+      "reason": "Current POWO maps this exact homotypic combination to Muhlenbergia paniculata, which is already canonical in data/manifest.json. Do not install or reclassify it as a second accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77246321-1",
+        "https://doi.org/10.3732/ajb.0900359"
+      ]
+    },
+    {
+      "code": "MUP-09",
+      "status": "HOLD",
+      "source_name": "Existing Matt Lavin source-labelled Schedonnardus paniculatus gallery photographs",
+      "accepted_target": "SOURCE_SPECIMEN_ID_UNVERIFIED",
+      "reason": "Correct synonymy establishes name equivalence but not species authentication of an individual photographed plant; existing gallery remains provisional pending voucher/anatomical review by the photo lane. No media or arrow edits.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://doi.org/10.3732/ajb.0900359"
+      ]
+    },
+    {
+      "code": "MUP-10",
+      "status": "HOLD",
+      "source_name": "Hybrid ancestry of photographed Muhlenbergia paniculata specimens",
+      "accepted_target": "NO_HYBRID_PARENTAGE_ASSIGNED",
+      "reason": "Neither the current accepted species treatment nor the reviewed source photographs establish a named hybrid for this card; preserve any individual-specimen uncertainty and do not infer parentage from the transfer from Schedonnardus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://doi.org/10.3732/ajb.0900359"
+      ]
+    },
+    {
+      "code": "MUP-11",
+      "status": "UNRESOLVED",
+      "source_name": "Historical records under accepted genus Schedonnardus in older authorities",
+      "accepted_target": "HISTORICAL_SOURCE_CONCEPT_REVIEW_REQUIRED",
+      "reason": "Flora of North America (2003) and other older sources treated Schedonnardus as a separate genus; current POWO follows Peterson et al. (2010). The current accepted mapping is PASS, but unvouchered historical identifications under the old genus are not independently verified.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77246321-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://doi.org/10.3732/ajb.0900359"
+      ]
+    },
+    {
+      "code": "MUP-12",
+      "status": "UNRESOLVED",
+      "source_name": "Authorless or incomplete historical Schedonnardus texanus specimen labels",
+      "accepted_target": "SPECIMEN_AND_AUTHORSHIP_REVIEW_REQUIRED",
+      "reason": "The published Steudel name maps to Muhlenbergia paniculata in POWO, but incomplete source labels or misapplied determinations cannot be validated without a voucher, original determination and date; no blanket specimen reassignment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:420745-1"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 7,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "sources_checked_on": "2026-10-24",
+  "sources_primary": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77107594-1",
+    "https://doi.org/10.3732/ajb.0900359",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77246321-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:420745-1"
+  ],
+  "limitations": [
+    "No photographic specimen-level identity or hybrid ancestry established by nomenclatural synonymy.",
+    "Alternative historical Schedonnardus genus usage is recorded, not promoted as a second accepted species.",
+    "No county nativity audit, media, learner card, lessons, installation, Pages or unrelated taxa changes."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_or_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
