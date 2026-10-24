@@ -11,13 +11,19 @@
     "visual_reviewed": false,
     "photo_source_checked": true,
     "photo_metadata_count": 3,
-    "photo_files_present": 1,
+    "photo_files_present": 3,
     "manual_grass_batch_20261021": "2026-10-21",
     "visual_finish": "FIELD_READY_PHOTO_GAPS",
     "manual_urochloa_crew_update_20261021": "FIELD_READY_PHOTO_GAPS",
     "genus_photo_panels": 5,
     "existing_photo_metadata_preserved": true,
-    "new_locally_archived_jpegs": 0
+    "new_locally_archived_jpegs": 0,
+    "lane1_review_20261023": {
+      "local_jpegs_verified": 3,
+      "new_jpegs": 0,
+      "new_arrows": 0,
+      "site_deployment_unverified": true
+    }
   },
   "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it. 2026-10-21 reviewed original local pixels, added annotated gross field structures and comparisons. Photo shows only slender radiating flowering branches and small spikelets in a grass-rich background; does NOT show the creeping stem base or any glume. Mature lemma/glume + ligule details remain unverified.",
   "taxonomy_source": "https://powo.science.kew.org/results?q=Urochloa%20reptans",
@@ -366,10 +372,13 @@
   "field_photo_quickcheck": {
     "heading": "Urochloa reptans: first photo then mature-spikelet confirmation",
     "featured_photo_indices": [
-      0
+      0,
+      1,
+      2
     ],
     "steps": [
       "FIRST PHOTO: count the radiating flowering racemes; observe tiny attached spikelets but do not claim individual glumes are visibly resolved.",
+      "Use the next two source-labelled, locally archived Commons photographs for alternate U. reptans views before comparing U. fusca and U. texana. Do not infer a visible true ligule, lower glume or rooting node in either photo until the pixels are examined.",
       "COLLECT a ripe unit and MEASURE 1.5–2.2 mm spikelets with an actual 1-mm ruler; their PAIRED arrangement on a three-angled rachis may require close view.",
       "Under 10–20× look for lower glume a small clasping, often truncate 1/8–1/4-length bract; a thumb-sized plant picture cannot show this.",
       "Trace a living stem horizontally until a true basal NODE and roots emerge; root position has not been photographed in the stored image.",
@@ -383,5 +392,36 @@
     "Ripe paired 1.5–2.2 mm spikelets beside ruler with ciliate stalks visible",
     "Lateral view of a tiny lower glume versus whole spikelet (10–20×)",
     "True collar/ligule (fringe of hairs), leaf sheath, and panicle branch-axis cross section"
-  ]
+  ],
+  "last_mile_diagnostic_photo_hold_20261023": {
+    "required": [
+      {
+        "organ": "Rooted creeping or decumbent culm node",
+        "view": "intact horizontal stem connected to foliage and adventitious roots",
+        "scale": "centimeter ruler",
+        "reason": "separates genuinely creeping habit from a leaning seedhead"
+      },
+      {
+        "organ": "True collar and ligule",
+        "view": "open blade/sheath junction from same taxon-verified living plant",
+        "scale": "1-mm ruler under 10–20x",
+        "reason": "vegetative comparison with Digitaria requires genuine collar anatomy"
+      },
+      {
+        "organ": "Mature spikelet on rachis",
+        "view": "side-on attached units showing paired arrangement and angled branch axis",
+        "scale": "1-mm ruler",
+        "reason": "gross radiating branches do not diagnose tiny spikelets"
+      },
+      {
+        "organ": "Lower glume, upper glume and fertile lemma",
+        "view": "dissect one ripe spikelet, separate and label parts only after photo inspection",
+        "scale": "1-mm ruler",
+        "reason": "lower glume proportion and lemma characteristics remain unphotographed"
+      }
+    ],
+    "status": "FIELD_READY_PHOTO_GAPS",
+    "new_images": 0,
+    "new_arrows": 0
+  }
 }
