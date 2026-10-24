@@ -86,7 +86,7 @@
   "photo_note": "Diagnostic photo roles are verified in the deep-review draft; exact reusable selections remain a later visual-polish task. Manual library-first complementary photo selection installed; independent diagnostic ID review pending. 2026-10-22 original source-labelled broad-feature photographs visually inspected. Field-ready photo lesson covers actual visible sheaths/panicles + 2 other-species comparisons; missing anatomical macros preserved.",
   "images": [
     {
-      "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eragrostis%20trichodes%200776.jpg",
+      "file": "images/usda-txpmc-sand-lovegrass-habit.jpg",
       "role": "Whole plant / sand lovegrass habit",
       "creator": "TXPMC / U.S. Department of Agriculture",
       "license": "Public Domain (U.S. federal work)",
@@ -94,7 +94,10 @@
       "original_source_page": "http://plant-materials.nrcs.usda.gov/txpmc/photo.html",
       "source_type": "USDA-NRCS Texas Plant Materials Center via Wikimedia Commons",
       "study_use": "yes",
-      "public_reuse": "yes"
+      "public_reuse": "yes",
+      "original_remote_file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eragrostis%20trichodes%200776.jpg",
+      "photo_status": "LOCAL archived USDA-NRCS source picture; habitat/whole grass not true ligule microscopy",
+      "modifications": "Metadata stripped / RGB JPEG re-encode"
     },
     {
       "file": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eragrostis%20trichodes%20-%20Botanischer%20Garten%2C%20Dresden%2C%20Germany%20-%20DSC08739.JPG",
@@ -207,6 +210,18 @@
         "NEEDS_SITE_QA"
       ],
       "evidence": "https://w3.biosci.utexas.edu/prc/K12/pages/Eragrostis%20trichodes.html"
+    },
+    "lane2_photo_finish_20261023": {
+      "stage": "FIELD_READY_PHOTO_GAPS",
+      "new_public_domain_USDA_local_photo": 1,
+      "actual_anatomical_macro_added": 0,
+      "no_new_arrows": true,
+      "critical_gaps": [
+        "Short 0.4-mm true hair-fringe ligule vs 4-5-mm long oral/collar hairs",
+        "True lower panicle branch axil 10-20x",
+        "Detached mature flattened spikelet/glume/lemma photographed with 1-mm ruler"
+      ],
+      "pages": "NOT_VERIFIED"
     }
   },
   "field_photo_quickcheck": {
@@ -219,10 +234,11 @@
     ],
     "featured_photo_indices": [
       0,
-      1
+      1,
+      2
     ],
     "field_rule": "Use size/architecture to find the candidate; do not finalize without collar anatomy and mature spikelets.",
-    "warning": "Thin branch and small spikelet alone also occur in plains lovegrass. Species assignment in these photos follows documented observations; not an independent voucher.",
+    "warning": "The original three photographed species images now include the USDA-NRCS Texas Plant Materials Center public-domain overview (if archive succeeded) and two field views. Public-domain broad habit is not evidence for true 0.4-mm ligule fringe or lower glume. Need 10-20× collar and spikelet dissection with physical ruler.",
     "evidence_sources": [
       "https://rangeplants.tamu.edu/plant/sand-lovegrass/"
     ]
@@ -273,7 +289,7 @@
       {
         "label": "3 — USDA whole-plant reference",
         "scientific_name": "Eragrostis trichodes",
-        "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eragrostis%20trichodes%200776.jpg",
+        "image_url": "content/taxa/Poaceae/Eragrostis/eragrostis-trichodes/images/usda-txpmc-sand-lovegrass-habit.jpg",
         "image_fit": "contain",
         "image_role": "Whole plant / sand lovegrass habit",
         "caption": "Published exact-species USDA reference photograph; retain as whole-plant context, not a close demonstration of diagnostic collar hairs.",
@@ -281,7 +297,7 @@
         "creator": "TXPMC / U.S. Department of Agriculture",
         "license": "Public Domain (U.S. federal work)",
         "source_page": "https://commons.wikimedia.org/wiki/File:Eragrostis_trichodes_0776.jpg",
-        "photo_status": "EXISTING_CANONICAL_PUBLIC_DOMAIN_EXTERNAL; not pixel inspected in this manual pass"
+        "photo_status": "LOCAL archived source image; no unverified anatomy arrows"
       },
       {
         "label": "DIFFERENT SPECIES · Eragrostis hirsuta visual comparison",
