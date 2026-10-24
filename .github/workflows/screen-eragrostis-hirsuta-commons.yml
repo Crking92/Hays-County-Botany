@@ -1,0 +1,29 @@
+name: Screen bigtop lovegrass Commons photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/screen_eragrostis_hirsuta_commons_20261023.py
+      - .github/workflows/screen-eragrostis-hirsuta-commons.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  inventory:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/screen_eragrostis_hirsuta_commons_20261023.py
+      - name: Preserve rights inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/eragrostis-hirsuta-commons-candidates-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record licensed candidate bigtop lovegrass source images"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
