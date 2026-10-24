@@ -66,7 +66,7 @@
     "user_approved": true,
     "comparison_retained": true,
     "last_reviewed": "2026-10-02",
-    "photo_metadata_count": 2,
+    "photo_metadata_count": 4,
     "photo_files_present": 4,
     "gbif_manual_photo_enrichment": "2026-10-15",
     "manual_panicum_card_completion_20261022": "FIELD_READY_PHOTO_GAPS",
@@ -85,7 +85,13 @@
       "deployment_verified": false
     },
     "lane1_coloratum_variant_photo_gap_20261024": "CC_BY_2_EXACT_VARIETY_ANNOTATION_PROVISIONAL",
-    "photos_not_local_vouchers": true
+    "photos_not_local_vouchers": true,
+    "lane1_var_makarikariense_arrows_20261024": {
+      "one_source_pixel_reviewed_hair_fringe_arrow": true,
+      "actual_membrane_tip_unverified": true,
+      "local_Hays_variety_not_certified": true,
+      "mobile_qa_pending": true
+    }
   },
   "photo_note": "Two installed source-labelled field-habit photos; neither resolves the collar, ligule or measured mature spikelet. Keep until stronger diagnostic gallery coverage replaces or supplements it. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling. 2026-10-22: existing photo sources organized into species/other-species visual panels; exact source/creator/licenses, science and county flags unchanged. Fine anatomical macro gaps recorded.",
   "images": [
@@ -224,7 +230,7 @@
         "image_url": "content/taxa/Poaceae/Panicum/panicum-coloratum/images/harry-rose-coloratum-var-makarikariense-ligule-cc-by2.jpg",
         "image_fit": "contain",
         "image_role": "Actual Harry Rose source-labelled P. coloratum var. makarikariense opened leaf-sheath junction; pale hairy rim visibly photographed. Variety-specific Australian reference, not a Texas voucher or measured true ligule.",
-        "caption": "Look across the opened leaf–sheath junction: a fine fringe of hairs is visible along the upper rim. The photographer calls this a ligule photograph, but there is NO ruler and the exact membrane length cannot be measured. This is var. makarikariense photographed in Australia; do not assume its fine collar traits certify a Texas plant of unspecified variety.",
+        "caption": "Look across the opened leaf–sheath junction: a fine fringe of hairs is visible along the upper rim. The photographer calls this a ligule photograph, but there is NO ruler and the exact membrane length cannot be measured. This is var. makarikariense photographed in Australia; do not assume its fine collar traits certify a Texas plant of unspecified variety. The pale fine hairs above the green opened sheath are genuine visible targets; the tiny membrane edge and ligule length are NOT resolved.",
         "why_it_matters": "First genuinely close collar-area reference for the existing kleingrass card; compare a local specimen's actual blade–sheath junction with a millimeter ruler before making a species determination.",
         "creator": "Harry Rose / Macleay Grass Man",
         "license": "CC BY 2.0",
@@ -233,8 +239,16 @@
         "source_original": "https://www.flickr.com/photos/macleaygrassman/27177517440/",
         "source_taxon": "Panicum coloratum var. makarikariense",
         "modification_note": "Resized and converted source Commons image to JPEG, EXIF/GPS stripped; no anatomy altered. CC BY 2.0 credit retained. Original Commons image previously had a CropTool modification.",
-        "markers": [],
-        "photo_status": "Physically archived canonical JPEG verified 2026-10-24; source identified as Australian var. makarikariense, fine ligule length not measured and no arrows placed."
+        "markers": [
+          {
+            "label": "Fine ligule fringe hairs",
+            "label_x": 7,
+            "label_y": 11,
+            "target_x": 52,
+            "target_y": 27
+          }
+        ],
+        "photo_status": "Physically archived canonical JPEG verified 2026-10-24; source identified as Australian var. makarikariense, fine ligule length not measured and no arrows placed. | One gross hair-fringe arrow inspected on exact Commons source image; mobile overlay review pending."
       },
       {
         "label": "PROVISIONAL · Kleingrass variety — attached purple spikelets (external photo)",
