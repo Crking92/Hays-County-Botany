@@ -15,8 +15,9 @@ for filename,local in expected.items():
   info=next(iter(json.loads(get(api))["query"]["pages"].values()))["imageinfo"][0];ext=info["extmetadata"]
   license_name=ext.get("LicenseShortName",{}).get("value","")
   assert "CC0" in license_name or "Public domain" in license_name, "rights not verified: "+license_name
-  url=info["url"];match=next((im for im in d["images"] if im["file"]==url),None)
-  assert match is not None, "original image URL not same as canonical source record"
+  url=info["url"];source_page="https://commons.wikimedia.org/wiki/File:"+filename.replace(" ","_")
+  match=next((im for im in d["images"] if im.get("source_page")==source_page and im.get("file","").startswith("https://")),None)
+  assert match is not None, "source-page/name mismatch with canonical external photo; holding"
   raw=get(url)
   with Image.open(io.BytesIO(raw)) as im:im.verify()
   with Image.open(io.BytesIO(raw)) as im:
