@@ -1,0 +1,40 @@
+name: Lane 1 switchgrass labelled dissection archive retry
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-switchgrass-dissected-plate-retry.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-switchgrass-wide-plate-retry
+  cancel-in-progress: false
+jobs:
+  archive-labelled-spikelet-plate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo prerequisites
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Import original author-labelled plate as readable scaled JPEG
+        run: |
+          python scripts/commons_photo_review_import.py \
+            --file-title 'File:Panicum virgatum sl53.jpg' \
+            --taxon 'Panicum virgatum' --output review_photo --max-edge 7000
+      - name: Preserve credit and physically archive approved CC BY-SA 4.0 plate
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TITLE: 'File:Panicum virgatum sl53.jpg'
+        run: python scripts/archive_lane1_switchgrass_review.py
+      - name: Keep source evidence record
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lane1-switchgrass-wide-dissection-evidence
+          path: review_photo/evidence.json
+          if-no-files-found: ignore
+          retention-days: 30
