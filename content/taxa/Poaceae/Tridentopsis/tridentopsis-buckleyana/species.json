@@ -97,8 +97,9 @@
       ],
       "study_use": "Yes; rights-specific conditions on original image",
       "public_reuse": "Respect photo license; CC BY-NC images are noncommercial only",
-      "photo_review": "Source-reported taxon and image license verified; morphological identification and teaching view need independent visual review",
-      "modifications": "Resized JPEG and EXIF removed"
+      "photo_review": "PRIVATE-STUDY ONLY CC BY-NC: keep archived provenance; exclude image from unrestricted public gallery until separate publication permission is established.",
+      "modifications": "Resized JPEG and EXIF removed",
+      "public_site_hold": true
     },
     {
       "file": "images/buckley-tridens-inat-102622491-cc-by-original.jpg",
@@ -270,10 +271,10 @@
     }
   ],
   "learner_visual_status": {
-    "status": "field_ready_photo_gaps",
+    "status": "FIELD_READY_PHOTO_GAPS",
     "mode": "learner_fast_fill",
-    "image_count": 1,
-    "note": "Manual photo-led field lesson built from existing actual JPGs. Both species and source native status provisional; decisive mature dissections and close-ups pending.",
+    "image_count": 8,
+    "note": "Eight local JPEGs: seven CC BY 4.0 original-source photographs and one legacy CC BY-NC study-only file. Eleven teaching panels include one noncommercial restricted original. Do not certify public distribution until that panel is screened. Open panicle, attached/loose spikelets and stem junction documented; calibrated ligule and lemma dissection missing.",
     "missing_diagnostic_views": [
       "Confirm diagnostic vegetative and reproductive characters"
     ]
@@ -400,7 +401,8 @@
             "target_y": 35
           }
         ],
-        "photo_status": "Actual GitHub JPG pixels personally visually checked 2026-10-21. Only plainly visible gross-structure arrows. Creator/license unmodified. Exact source determination is not an independent voucher review."
+        "photo_status": "RESTRICTED_CC_BY_NC_STUDY_ONLY__EXCLUDE_FROM_UNRESTRICTED_PUBLIC_GALLERY",
+        "public_site_hold": true
       },
       {
         "label": "OPEN BRANCHING PANICLE against a hand",
@@ -711,5 +713,26 @@
     "https://intermountainbiota.org/portal/taxa/index.php?clid=3029&taxauthid=1&tid=3251",
     "https://research.fs.usda.gov/feis/species-reviews/trimut",
     "https://www.govinfo.gov/content/pkg/GOVPUB-I29-PURL-gpo136141/pdf/GOVPUB-I29-PURL-gpo136141.pdf"
-  ]
+  ],
+  "lane3_photo_finish_20261023": {
+    "local_photos": 8,
+    "open_license_local": 7,
+    "noncommercial_held": 1,
+    "teaching_panels": 11,
+    "source_image_roles": [
+      "Broad open panicle against hand scale",
+      "Photographed attached multifloret spikelets",
+      "Detached dry spikelet",
+      "Leaf-sheath junction but not calibrated free ligule",
+      "Wild Texas tufted habit"
+    ],
+    "true_missing": [
+      "Measured ligule free membrane from attached leaf sheath",
+      "Three mature scale-matched spikelets showing 3–5 actual fertile florets and both glumes",
+      "Dorsal three-veined lemma with actual lower-nerve hairs visibly resolved",
+      "Same-stage same-scale comparison to contracted Tridentopsis mutica"
+    ],
+    "publication_gate": "The first teaching panel references a CC BY-NC image; exclude or replace that panel for unrestricted public use. Other seven full-resolution JPEGs have CC BY licenses. Do not label all eight unrestricted.",
+    "status": "FIELD_READY_PHOTO_GAPS"
+  }
 }
