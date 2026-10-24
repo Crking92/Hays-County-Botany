@@ -6,9 +6,10 @@ on:
       - 'workflow/photo-review-candidates/chloris-virgata-20261023.json'
       - 'workflow/photo-review-candidates/echinochloa-crus-galli-lane1-20261023.json'
       - 'scripts/commons_photo_review_import.py'
+      - 'scripts/archive_lane1_barnyard_review.py'
       - '.github/workflows/grass-commons-photo-review.yml'
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: manual-grass-photo-review
   cancel-in-progress: false
@@ -44,6 +45,12 @@ jobs:
           TITLE: ${{ matrix.title }}
           TAXON: ${{ matrix.taxon }}
         run: python scripts/commons_photo_review_import.py --file-title "$TITLE" --taxon "$TAXON" --output review_photo
+      - name: Archive and relink approved barnyardgrass anatomy only
+        if: startsWith(matrix.slug, 'barnyard-')
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TITLE: ${{ matrix.title }}
+        run: python scripts/archive_lane1_barnyard_review.py
       - uses: actions/upload-artifact@v4
         if: success()
         with:
