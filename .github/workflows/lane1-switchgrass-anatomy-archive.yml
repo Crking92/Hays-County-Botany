@@ -1,0 +1,58 @@
+name: Lane 1 switchgrass anatomy photo archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-switchgrass-anatomy-archive.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-switchgrass-commons-archive
+  cancel-in-progress: false
+jobs:
+  archive-author-verified-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - title: 'File:Panicum virgatum sl25.jpg'
+            slug: 'rhizome'
+            max_edge: 2400
+          - title: 'File:Panicum virgatum sl33.jpg'
+            slug: 'panicle'
+            max_edge: 2400
+          - title: 'File:Panicum virgatum sl53.jpg'
+            slug: 'labelled-glume-lemma-palea'
+            max_edge: 10000
+          - title: 'File:Panicum virgatum sl55.jpg'
+            slug: 'fertile-floret'
+            max_edge: 2400
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo dependencies
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Obtain exact author-labelled Commons source and sanitize
+        env:
+          TITLE: ${{ matrix.title }}
+          MAX_EDGE: ${{ matrix.max_edge }}
+        run: |
+          python scripts/commons_photo_review_import.py --file-title "$TITLE" \
+            --taxon 'Panicum virgatum' --output review_photo --max-edge "$MAX_EDGE"
+      - name: Archive exact image and relink matching existing gallery
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TITLE: ${{ matrix.title }}
+        run: python scripts/archive_lane1_switchgrass_review.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lane1-switchgrass-${{ matrix.slug }}-evidence
+          path: review_photo/evidence.json
+          if-no-files-found: ignore
+          retention-days: 30
