@@ -332,6 +332,23 @@
         "NEEDS_SITE_QA"
       ],
       "public_ready": "Retain current field-ready/photo-gaps status until public-rights, species identity, measured reproductive photographs and arrow pixel QA are verified."
+    },
+    "lane2_photo_finish_20261023": {
+      "stage": "FIELD_READY_PHOTO_GAPS",
+      "canonical_image_records": 4,
+      "local_exact_species_JPEGs": 4,
+      "public_exact_species_visual_panels": 3,
+      "comparison_panels_other_species": 2,
+      "existing_gross_anatomy_arrows": 7,
+      "new_JPEGs": 0,
+      "license_hold": "Calvin King owner photo currently marked private-use only; leave off public lesson until permission metadata explicitly updated; Joey photos retain CC BY-NC terms under existing noncommercial site policy",
+      "critical_photo_holds": [
+        "same specimen opened basal collar showing fringe ligule and surrounding hairs with mm ruler",
+        "dissected mature spikelet at 10–20×: expose two smooth glumes versus three-nerved hairy lemma",
+        "lemma tip showing shallow notch and single short awn with mm scale",
+        "folded blade, white thickened margin and keel macro"
+      ],
+      "pages_deployment": "NOT VERIFIED"
     }
   },
   "field_id_sources": [
@@ -340,5 +357,30 @@
     "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:95653-2/general-information",
     "https://yavapaiplants.extension.arizona.edu/erioneuron-pilosum",
     "https://floraneomexicana.org/wp-content/uploads/2021/07/fnm-iii-part-1-2020.pdf"
-  ]
+  ],
+  "field_photo_quickcheck": {
+    "version": 1,
+    "heading": "Hairy tridens — woolly head above the leaf tuft, then inspect one floret",
+    "featured_photo_indices": [
+      3,
+      2,
+      1
+    ],
+    "steps": [
+      "START at the three already archived Joey Santore views: follow the short basal folded leaf tuft to distinct mostly bare flowering culms, each ending in a tight pale woolly head; the overall structure, not woolliness alone, is the first clue.",
+      "ZOOM into existing Joey photo 202577165 to recognize overlapping spikelets and projecting hairs. Existing arrows correctly label visible silky fringes only, NOT particular glumes, lemmas or measured hairs.",
+      "COMPARE one mature spikelet at a millimeter scale. The local Williamson County treatment describes mostly 6–11 mm spikelets bearing 4–12 fertile florets, while broader GrassBase describes 10–16 mm and 7–18 florets. Different samples/ranges are not proof of a wrong identification.",
+      "DISSECT two relatively smooth persistent one-veined glumes and a three-veined, conspicuously pilose fertile lemma. Verify that the lemma tip has one short awn and a notch not more than about 0.5 mm deep; compare the deeper notch in E. avenaceum.",
+      "OPEN a basal leaf collar at 20×: distinguish the very short ~0.35 mm HAIR-FRINGE LIGULE from collar hairs that may exceed 1 mm; photograph attachment points and 1-mm scale.",
+      "COMPARE the different-species panels: Munroa pulchella holds its woolly structures low among pointed leaves, and Tridens texanus has a loose branched flowering head, unlike the elevated compact Erioneuron cluster.",
+      "HOLD anatomical completion until an authenticated same-plant series shows the folded white-edged leaf, ligule, dissected glumes and hairy lemma plus notch/one short awn with scale."
+    ],
+    "field_rule": "Compact white/purplish woolly heads on slender largely bare flowering culms ABOVE a low tuft of folded white-edged leaves; verify smooth short glumes versus a THREE-NERVED hairy one-awned lemma.",
+    "warning": "Four original image records remain unchanged: three physically hosted Joey source views retain CC BY-NC 4.0 and one user-owned Calvin King image retains its private-use restriction. The user-owned photo has NOT been promoted to the public panel. 3 exact species panels + 2 explicitly different-species comparison panels; no newly sourced anatomy JPEG, no fabricated arrow. Report local-versus-broad measurements without collapsing biological variation into one asserted photo measurement.",
+    "evidence_sources": [
+      "https://w3.biosci.utexas.edu/prc/K12/pdf/Erioneuron%20pilosum%20pilosum",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:95653-2/general-information",
+      "https://rangeplants.tamu.edu/plant/hairy-tridens/"
+    ]
+  }
 }
