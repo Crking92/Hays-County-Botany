@@ -1,0 +1,33 @@
+name: Lane 2 archive knotroot bristlegrass anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_archive_setaria_parviflora.py
+      - .github/workflows/lane2-archive-setaria-parviflora.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-setaria-parviflora
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_archive_setaria_parviflora.py
+      - name: Commit physical archive and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Setaria/setaria-parviflora/ reports/lane2-setaria-parviflora-anatomy-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive knotroot bristlegrass root and reproductive anatomy"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
