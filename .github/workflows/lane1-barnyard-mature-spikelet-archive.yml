@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - '.github/workflows/lane1-barnyard-mature-spikelet-archive.yml'
+      - 'scripts/commons_photo_review_import.py'
+      - 'scripts/archive_lane1_barnyard_review.py'
 permissions:
   contents: write
 concurrency:
