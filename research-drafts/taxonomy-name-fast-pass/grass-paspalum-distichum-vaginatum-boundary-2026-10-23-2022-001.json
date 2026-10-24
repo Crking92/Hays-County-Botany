@@ -1,0 +1,163 @@
+{
+  "batch_id": "grass-paspalum-distichum-vaginatum-boundary-2026-10-23-2022-001",
+  "date_checked": "2026-10-23",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Paspalum",
+  "canonical_taxon_ids": [
+    "paspalum-distichum"
+  ],
+  "canonical_species_paths_read_only": {
+    "paspalum-distichum": "content/taxa/Poaceae/Paspalum/paspalum-distichum/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "paspalum-distichum": "4279a40c63fd83f0fc63fdb64cf96e5c6c5a1f5a"
+  },
+  "claim_id": "grass-paspalum-distichum-vaginatum-boundary-2026-10-23-2022-001",
+  "claim_path": "workflow/taxonomy-claims/grass-paspalum-distichum-vaginatum-boundary-2026-10-23-2022-001.json",
+  "primary_decision": "PASS_ACCEPTED_PASPALUM_DISTICHUM_WITH_CROSS_SPECIES_INFRASPECIFIC_SYNONYM_BOUNDARY_AND_UNRESOLVED_HISTORICAL_CONCEPT",
+  "decisions": [
+    {
+      "source_name": "Paspalum distichum L.",
+      "accepted_name": "Paspalum distichum L.",
+      "rank": "species",
+      "name_status": "ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_ACCEPTED_NAME_AND_AUTHOR",
+      "action": "Retain existing learner species Paspalum distichum at species rank; 1759 Linnaean name. No rename or new card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/184275-2"
+      ]
+    },
+    {
+      "source_name": "Digitaria disticha (L.) Fiori & Paol.; Milium distichum (L.) Muhl.",
+      "accepted_name": "Paspalum distichum L.",
+      "rank": "historical species combinations",
+      "name_status": "HOMOTYPIC_SYNONYMS_POWO_WCVP",
+      "scientific_decision": "PASS_HOMOTYPIC_SYNONYMS",
+      "action": "These same-type combinations map to existing knotgrass concept; retain as historical aliases only.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/184275-2"
+      ]
+    },
+    {
+      "source_name": "Digitaria paspalodes Michx.; Paspalum paspalodes (Michx.) Scribn.; Anastrophus paspalodes (Michx.) Nash",
+      "accepted_name": "Paspalum distichum L.",
+      "rank": "historical species names",
+      "name_status": "HETEROTYPIC_SYNONYMS_POWO_WCVP",
+      "scientific_decision": "PASS_HETEROTYPIC_SYNONYMS",
+      "action": "POWO places these names under P. distichum; do not create separate cards from them.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/184275-2",
+        "https://powo.science.kew.org/taxon/184537-2",
+        "https://powo.science.kew.org/taxon/12464-2"
+      ]
+    },
+    {
+      "source_name": "Paspalum distichum subsp. paspalodes (Michx.) Thell.; P. distichum var. paspalodes (Michx.) Thell.",
+      "accepted_name": "Paspalum distichum L.",
+      "rank": "historical subspecies and variety",
+      "name_status": "INFRASPECIFIC_SYNONYMS_POWO_WCVP",
+      "scientific_decision": "PASS_HISTORICAL_RANK_MAPPING",
+      "action": "Both historical ranks synonymized into species P. distichum under POWO; do not infer subspecies from photos.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77259079-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184279-2"
+      ]
+    },
+    {
+      "source_name": "Paspalum vaginatum Sw.",
+      "accepted_name": "Paspalum vaginatum Sw.",
+      "rank": "species",
+      "name_status": "SEPARATELY_ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_DISTINCT_ACCEPTED_SPECIES_BOUNDARY",
+      "action": "POWO treats P. vaginatum as independently accepted; do NOT collapse seashore paspalum into P. distichum or treat it as a simple synonym under current POWO. No uninstalled card is created.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/184742-2",
+        "https://powo.science.kew.org/taxon/184275-2"
+      ]
+    },
+    {
+      "source_name": "Paspalum distichum subsp. vaginatum (Sw.) P.Fourn.; P. distichum var. vaginatum (Sw.) Griseb.; P. distichum var. littorale (R.Br.) F.M.Bailey; P. distichum var. anpinense Hayata",
+      "accepted_name": "Paspalum vaginatum Sw.",
+      "rank": "historical subspecies/varieties",
+      "name_status": "CROSS_SPECIES_INFRASPECIFIC_SYNONYMS_POWO_WCVP",
+      "scientific_decision": "PASS_CROSS_SPECIES_RANK_BOUNDARY",
+      "action": "Despite distichum epithet in old combinations, POWO maps these to separately accepted P. vaginatum, not the learner knotgrass species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/184742-2",
+        "https://powo.science.kew.org/taxon/1190869-2",
+        "https://powo.science.kew.org/taxon/140328-3",
+        "https://powo.science.kew.org/taxon/77286656-1"
+      ]
+    },
+    {
+      "source_name": "Paspalum vaginatum var. pubescens Döll",
+      "accepted_name": "Paspalum distichum L.",
+      "rank": "historical variety",
+      "name_status": "REVERSE_CROSS_SPECIES_SYNONYM_POWO_WCVP",
+      "scientific_decision": "PASS_REVERSE_RANK_MAPPING",
+      "action": "Historical P. vaginatum var. pubescens is assigned by POWO to P. distichum. Exact author/rank must be retained to avoid misleading epithet-based mapping.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/184746-2",
+        "https://powo.science.kew.org/taxon/184275-2"
+      ]
+    },
+    {
+      "source_name": "USFS FEIS 1992 Paspalum distichum broad concept including P. vaginatum",
+      "accepted_name": "Paspalum distichum L. and Paspalum vaginatum Sw. (separate POWO accepted species)",
+      "rank": "historical species circumscription",
+      "name_status": "AUTHORITY_CONCEPT_CONFLICT",
+      "scientific_decision": "UNRESOLVED_HISTORICAL_BROAD_VS_CURRENT_SPLIT",
+      "action": "USFS 1992 explicitly lumps P. vaginatum into knotgrass for its ecological account; this differs from current POWO species split. Do not use broad FEIS synonym list to overwrite current taxon mapping or claim all cited historical observations are P. distichum sensu stricto.",
+      "sources": [
+        "https://research.fs.usda.gov/feis/species-reviews/pasdis",
+        "https://powo.science.kew.org/taxon/184275-2",
+        "https://powo.science.kew.org/taxon/184742-2"
+      ]
+    },
+    {
+      "source_name": "Paspalum distichum learner specimen, photos and purported hybrids",
+      "accepted_name": "Paspalum distichum L.",
+      "rank": "individual identification",
+      "name_status": "NOT_VERIFIED_TAXONOMY_ONLY",
+      "scientific_decision": "HOLD_PHOTO_SPECIMEN_AND_HYBRID_ID",
+      "action": "Accepted names and historic aliases do not validate any learner photo, mature spikelet measurement, or individual hybrid. Retain existing visual, identity, hybrid and range statuses; no reidentification, photo sourcing or county audit.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/184275-2",
+        "https://powo.science.kew.org/taxon/184742-2",
+        "https://research.fs.usda.gov/feis/species-reviews/pasdis"
+      ]
+    }
+  ],
+  "conflict_and_hold_summary": {
+    "accepted_name": "PASS",
+    "paspalum_vaginatum": "PASS separate accepted species under POWO/WCVP",
+    "historical_feis_lumping": "UNRESOLVED authority concept conflict; do not merge",
+    "photographic_identity": "HOLD preserved",
+    "individual_hybrid": "HOLD / no parentage determined",
+    "county_nativity": "DEFERRED / not assessed"
+  },
+  "references": [
+    {
+      "authority": "POWO/WCVP 2026 Paspalum distichum",
+      "url": "https://powo.science.kew.org/taxon/184275-2",
+      "accessed": "2026-10-23"
+    },
+    {
+      "authority": "POWO/WCVP 2026 Paspalum vaginatum",
+      "url": "https://powo.science.kew.org/taxon/184742-2",
+      "accessed": "2026-10-23"
+    },
+    {
+      "authority": "USDA Forest Service FEIS Snyder 1992",
+      "url": "https://research.fs.usda.gov/feis/species-reviews/pasdis",
+      "accessed": "2026-10-23"
+    }
+  ],
+  "handoff": "No canonical rename, photo ID assignment or installation. Maintain POWO split in future historical-record reconciliation; specimen ID held.",
+  "canonical_species_modified": false,
+  "photo_sourcing_or_installation": false,
+  "genus_family_lessons_modified": false,
+  "county_native_audit_performed": false,
+  "pages_changed": false
+}
