@@ -81,9 +81,20 @@ for attempt in range(6):
  if len(already)>1 or len(gal)>1 or bool(already)!=bool(gal):
   raise SystemExit("Partial/duplicate candidate detected; preserve for manual review")
  photos.append(metadata)
- # Put anatomy before look-alikes; preserve all preexisting panels and markers.
- insert=next((i for i,x in enumerate(items) if x.get("scientific_name")!="Panicum coloratum" and "Panicum hallii" in x.get("scientific_name","")),len(items))
- items.insert(insert,panel)
+ # Existing external ligule panel was published by another chat; preserve it and relink
+ # rather than adding a duplicate tile. A distinct spikelets1 image stays distinct from spikelets2.
+ remote_same=[x for x in items if organ=="LIGULE REGION" and "Panicum_coloratum_var_makarikariense_ligule2_NWP" in x.get("image_url","")]
+ if len(remote_same)>1:raise SystemExit("Duplicate external ligule panels; need human review")
+ if len(remote_same)==1:
+  existing_panel=remote_same[0]
+  existing_panel["image_url"]=path
+  existing_panel["label"]=existing_panel.get("label","Kleingrass ligule").replace("(external photo)","(archived CC BY 2.0)")
+  existing_panel["photo_status"]=str(existing_panel.get("photo_status",""))+" | Actual source image archived locally with original attribution; variety ID is provisional"
+  existing_panel["source_page"]=source
+ else:
+  # Put anatomy before look-alikes; preserve all preexisting panels and markers.
+  insert=next((i for i,x in enumerate(items) if "Panicum hallii" in x.get("scientific_name","")),len(items))
+  items.insert(insert,panel)
  d.setdefault("curation_status",{})["photo_files_present"]=sum(str(x.get("file","")).startswith("images/") for x in photos)
  d["curation_status"]["lane1_coloratum_variant_photo_gap_20261024"]="CC_BY_2_EXACT_VARIETY_ANNOTATION_PROVISIONAL"
  d["curation_status"]["photos_not_local_vouchers"]=True
