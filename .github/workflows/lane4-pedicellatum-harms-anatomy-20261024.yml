@@ -1,0 +1,37 @@
+name: Lane 4 second pass - pedicellatum Bob Harms anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_dichanthelium_pedicellatum_harms_20261024.py
+      - .github/workflows/lane4-pedicellatum-harms-anatomy-20261024.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-pedicellatum-harms-20261024
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Download only photo rights-verified exact-source images
+        run: python scripts/lane4_dichanthelium_pedicellatum_harms_20261024.py
+      - name: Commit photo files, canonical gallery, and auditable outcome
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Dichanthelium/dichanthelium-pedicellatum/ reports/lane4-dichanthelium-pedicellatum-harms-anatomy-20261024.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 4 second pass archive Bob Harms pedicellatum reproductive and collar photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
