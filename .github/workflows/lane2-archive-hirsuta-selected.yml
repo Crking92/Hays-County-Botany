@@ -1,0 +1,33 @@
+name: Lane 2 archive bigtop lovegrass selected anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_archive_hirsuta_selected.py
+      - .github/workflows/lane2-archive-hirsuta-selected.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-hirsuta-selected
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_archive_hirsuta_selected.py
+      - name: Save exact-species JPEGs and gallery
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-hirsuta/ reports/lane2-eragrostis-hirsuta-selected-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 install three bigtop anatomical photographs"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
