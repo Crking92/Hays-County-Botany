@@ -8,7 +8,7 @@
   ],
   "lane": "grass-taxonomy-verification",
   "owner": "Grass Taxonomy Verification hourly worker",
-  "status": "active",
+  "status": "released",
   "claimed_at": "2026-10-24T14:24:07-05:00",
   "expires_at": "2026-10-24T16:24:07-05:00",
   "intended_evidence_path": "research-drafts/taxonomy-name-fast-pass/grass-tridens-three-accepted-2026-10-24-1424-001.json",
@@ -27,5 +27,15 @@
     }
   ],
   "release_when": "Verified evidence commit and independent readback, or two-hour lease expiration",
-  "notes": "Taxonomy-only Tridens accepted species and synonym/variety boundary. Preserve specimen and hybrid holds; no species card, media, genus lesson, county audit, Pages, or schedule changes."
+  "notes": "Taxonomy-only Tridens accepted species and synonym/variety boundary. Preserve specimen and hybrid holds; no species card, media, genus lesson, county audit, Pages, or schedule changes.",
+  "released_at": "2026-10-24T14:24:07-05:00",
+  "release_reason": "Verified taxonomy evidence commit 2388e0994b31d359371e006b4fb021669405d131 and independent JSON readback of 17 decisions; all three canonical species SHAs unchanged.",
+  "verified_evidence_commit_sha": "2388e0994b31d359371e006b4fb021669405d131",
+  "verified_evidence_blob_sha": "9269d259e48df407f9742b4ed7509bf6abf80d14",
+  "decision_counts": {
+    "PASS": 12,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  }
 }
