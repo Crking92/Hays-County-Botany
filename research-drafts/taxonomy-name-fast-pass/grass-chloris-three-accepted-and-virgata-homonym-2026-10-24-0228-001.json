@@ -1,0 +1,203 @@
+{
+  "batch_id": "grass-chloris-three-accepted-and-virgata-homonym-2026-10-24-0228-001",
+  "date_checked": "2026-10-24",
+  "checked_local_time": "2026-10-24T02:28:22-05:00",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Chloris",
+  "canonical_taxon_ids": [
+    "chloris-andropogonoides",
+    "chloris-cucullata",
+    "chloris-virgata"
+  ],
+  "canonical_species_paths_read_only": {
+    "chloris-andropogonoides": "content/taxa/Poaceae/Chloris/chloris-andropogonoides/species.json",
+    "chloris-cucullata": "content/taxa/Poaceae/Chloris/chloris-cucullata/species.json",
+    "chloris-virgata": "content/taxa/Poaceae/Chloris/chloris-virgata/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "chloris-andropogonoides": "4faff773e07dfa90ef6e1f0796b8ae979041e627",
+    "chloris-cucullata": "99150d78c8b52b4bdc12a2e2a140bc4252a3b9c0",
+    "chloris-virgata": "122aac1b1bc544eb03e6c0c516569449ece61704"
+  },
+  "claim_id": "grass-chloris-three-accepted-and-virgata-homonym-2026-10-24-0228-001",
+  "claim_path": "workflow/taxonomy-claims/grass-chloris-three-accepted-and-virgata-homonym-2026-10-24-0228-001.json",
+  "primary_decision": "PASS_THREE_ACCEPTED_CHLORIS_SPECIES_WITH_AUTHOR_SENSITIVE_VIRGATA_HOMONYM_CROSS_SPECIES_VARIETY_BOUNDARY_AND_SPECIMEN_ID_HOLDS",
+  "decisions": [
+    {
+      "source_name": "Chloris andropogonoides E.Fourn.",
+      "accepted_name": "Chloris andropogonoides E.Fourn.",
+      "rank": "accepted species",
+      "scientific_decision": "PASS_ACCEPTED_SPECIES_AUTHORSHIP",
+      "action": "POWO/WCVP and ITIS independently accept the species. Existing learner species name correct; no rename or duplicate card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395792-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41559"
+      ]
+    },
+    {
+      "source_name": "Chloris tenuispica Nash",
+      "accepted_name": "Chloris andropogonoides E.Fourn.",
+      "rank": "heterotypic synonym",
+      "scientific_decision": "PASS_HETEROTYPIC_SYNONYM",
+      "action": "POWO lists the 1898 name as the single heterotypic synonym; ITIS agrees. Preserve as alias, not a separate accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395792-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41559"
+      ]
+    },
+    {
+      "source_name": "Chloris cucullata Bisch.",
+      "accepted_name": "Chloris cucullata Bisch.",
+      "rank": "accepted species",
+      "scientific_decision": "PASS_ACCEPTED_SPECIES_AUTHORSHIP",
+      "action": "POWO/WCVP and ITIS accept at species rank, 1853 original publication. Existing learner name and author correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395849-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41563"
+      ]
+    },
+    {
+      "source_name": "Chloris cucullata Bisch. synonym list",
+      "accepted_name": "Chloris cucullata Bisch.",
+      "rank": "name coverage",
+      "scientific_decision": "PASS_NO_SYNONYMS_LISTED_IN_CHECKED_POWO_ITIS",
+      "action": "The checked POWO taxon page has no Synonyms section and ITIS reports none; this is an observation of these current sources, not a universal assertion that historical names cannot exist.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395849-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41563"
+      ]
+    },
+    {
+      "source_name": "Chloris virgata Sw.",
+      "accepted_name": "Chloris virgata Sw.",
+      "rank": "accepted species",
+      "scientific_decision": "PASS_ACCEPTED_SPECIES_AUTHORSHIP",
+      "action": "POWO/WCVP accepts Swartz 1797 name at species rank; ITIS agrees. Keep author Sw. when interpreting historical records.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396063-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41558"
+      ]
+    },
+    {
+      "source_name": "Rabdochloa virgata (Sw.) P.Beauv.",
+      "accepted_name": "Chloris virgata Sw.",
+      "rank": "homotypic synonym; genus not validly published",
+      "scientific_decision": "PASS_HOMOTYPIC_ALIAS_WITH_NOMENCLATURAL_QUALIFIER",
+      "action": "POWO maps to C. virgata Sw. and explicitly notes that the genus was not validly published; ITIS also maps this combination.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:419222-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396063-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41558"
+      ]
+    },
+    {
+      "source_name": "Chloris multiradiata Hochst.",
+      "accepted_name": "Chloris virgata Sw.",
+      "rank": "heterotypic synonym",
+      "scientific_decision": "PASS_HETEROTYPIC_ALIAS",
+      "action": "POWO and ITIS place this historical name under C. virgata Sw.; not a new learner species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396063-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41558"
+      ]
+    },
+    {
+      "source_name": "Chloris virgata var. elegans (Kunth) Stapf",
+      "accepted_name": "Chloris virgata Sw.",
+      "rank": "historical variety, heterotypic synonym in POWO",
+      "scientific_decision": "PASS_HISTORICAL_VARIETY_ALIAS",
+      "action": "POWO lists this variety as synonym of C. virgata Sw.; do not create an accepted variety card from this historical rank alone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396063-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41558"
+      ]
+    },
+    {
+      "source_name": "Chloris virgata P.Durand (1808)",
+      "accepted_name": "Chloris radiata (L.) Sw.",
+      "rank": "illegitimate later homonym, NOT C. virgata Sw.",
+      "scientific_decision": "PASS_AUTHOR_SENSITIVE_HOMONYM_CROSS_SPECIES",
+      "action": "POWO expressly marks P.Durand 1808 as nom. illeg. homonym. post. and synonym of C. radiata. Never route authorless historical C. virgata records automatically to feather fingergrass.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396062-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1095725-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396063-1"
+      ]
+    },
+    {
+      "source_name": "Chloris radiata (L.) Sw.",
+      "accepted_name": "Chloris radiata (L.) Sw.",
+      "rank": "separately accepted contextual species",
+      "scientific_decision": "PASS_SEPARATE_ACCEPTED_SPECIES_BOUNDARY",
+      "action": "POWO accepts C. radiata separately; it is the mapping for the P.Durand later homonym, not a synonym of accepted C. virgata Sw. No installation or county audit.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1095725-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396062-1"
+      ]
+    },
+    {
+      "source_name": "Chloris virgata var. breviseta (Benth.) Peter [POWO formatting]",
+      "accepted_name": "Chloris pilosa Schumach.",
+      "rank": "historical variety; cross-species synonym",
+      "scientific_decision": "PASS_CROSS_SPECIES_HISTORICAL_VARIETY_BOUNDARY",
+      "action": "POWO places the historical variety under separately accepted C. pilosa, and ITIS agrees on accepted species. Historical virgata epithet alone does not establish C. virgata Sw. identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395979-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=782794",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396063-1"
+      ]
+    },
+    {
+      "source_name": "Chloris virgata var. breviseta author citation",
+      "accepted_name": "Chloris pilosa Schumach.",
+      "rank": "historical author citation discrepancy",
+      "scientific_decision": "UNRESOLVED_AUTHOR_CITATION_POWO_VS_ITIS",
+      "action": "POWO prints (Benth.) Peter; ITIS prints (Benth.) Pilger ex Peter. Mapping to C. pilosa is supported, but exact authorship should be checked against the original combination before normalizing source labels.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395979-1",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=782794"
+      ]
+    },
+    {
+      "source_name": "Individual source-labelled photographs of three installed Chloris species",
+      "accepted_name": null,
+      "rank": "specimen-level botanical identity",
+      "scientific_decision": "HOLD_INDEPENDENT_PHOTO_SPECIMEN_IDENTIFICATION",
+      "action": "Accepted-name and synonym verification cannot confirm species-level identity of source-labelled photos. Preserve existing anatomical photo gaps, image source labels, scientific holds, and canonical cards.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395792-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395849-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396063-1"
+      ]
+    },
+    {
+      "source_name": "Potential Chloris hybrid identity or ancestry of learner photographs",
+      "accepted_name": null,
+      "rank": "individual hybrid determination",
+      "scientific_decision": "HOLD_NO_INDIVIDUAL_HYBRID_CONFIRMATION",
+      "action": "No hybrid ancestry inferred for any individual photograph. Previously reviewed named C. × subdolichostachya remains separately documented and outside this batch; do not reopen or alter its claim or card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30010712-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395849-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395792-1"
+      ]
+    }
+  ],
+  "scientific_safeguards": {
+    "canonical_species_modified": false,
+    "photos_or_lessons_changed": false,
+    "new_species_installed": false,
+    "county_nativity_changed": false,
+    "pages_changed": false,
+    "scientific_hold_overridden": false,
+    "hybrid_parentage_inferred": false
+  },
+  "source_notes": {
+    "POWO_WCVP": "2026-10-24 POWO accepted species and synonym pages checked. No county or range inference drawn.",
+    "ITIS": "2026-10-24 ITIS current reports checked; some underlying taxonomic data sources are older and exact authorship discrepancies retained.",
+    "cross_species_boundary": "The name Chloris virgata is author-sensitive: Sw. (1797) accepted species; P.Durand (1808) later homonym mapped to separately accepted C. radiata. Historical var. breviseta mapped to C. pilosa.",
+    "hold_boundary": "Scientific taxon acceptance is not proof of an individual photo's botanical identity or hybrid parentage."
+  },
+  "status": "taxonomy_evidence_only_committed_if_readback_verified"
+}
