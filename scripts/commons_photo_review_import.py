@@ -10,8 +10,10 @@ parser.add_argument("--file-title",required=True,help="Exact Wikimedia Commons F
 parser.add_argument("--taxon",required=True,help="Canonical scientific name for proposed match")
 parser.add_argument("--output",default="review_photo")
 parser.add_argument("--max-edge",type=int,default=2400,help="Longest output dimension; higher for labeled wide anatomy plates")
+parser.add_argument("--source-thumbnail-width",type=int,default=0,help="Ask Commons to generate a width-limited thumbnail before downloading exceptionally wide plates")
 a=parser.parse_args()
 if not 800<=a.max_edge<=12000:raise SystemExit("Invalid max edge")
+if a.source_thumbnail_width and not 1600<=a.source_thumbnail_width<=10000:raise SystemExit("Invalid Wikimedia thumb width")
 assert a.file_title.startswith("File:"), "Use an exact Commons File: title"
 assert re.fullmatch(r"[A-Za-z× .'-]{4,120}",a.taxon), "Unexpected taxon syntax"
 api="https://commons.wikimedia.org/w/api.php"
@@ -30,7 +32,9 @@ def fetch_with_limited_retry(url, *, params=None, timeout=45):
         if retry_after.isdigit():pause=min(15,max(pause,int(retry_after)))
         time.sleep(pause)
     raise RuntimeError("Unreachable")
-r=fetch_with_limited_retry(api,params={"action":"query","format":"json","prop":"imageinfo","titles":a.file_title,"iiprop":"url|extmetadata|size"},timeout=45)
+query={"action":"query","format":"json","prop":"imageinfo","titles":a.file_title,"iiprop":"url|extmetadata|size"}
+if a.source_thumbnail_width:query["iiurlwidth"]=a.source_thumbnail_width
+r=fetch_with_limited_retry(api,params=query,timeout=45)
 pages=list(r.json()["query"]["pages"].values())
 if len(pages)!=1 or "imageinfo" not in pages[0]:raise SystemExit("Commons file missing")
 info=pages[0]["imageinfo"][0]
@@ -47,7 +51,8 @@ if not approved_license:
 # Respect only unmodified attribution/share-alike licensing types; no NC/ND variants.
 if re.search(r"\b(?:NC|ND)\b",normalized_license,re.I):
     raise SystemExit("Restricted NC/ND licensing is excluded from public-site photo importer")
-url=info["url"]
+url=info.get("thumburl") if a.source_thumbnail_width else info["url"]
+if not url:raise SystemExit("Requested Commons thumbnail was not generated")
 if urllib.parse.urlparse(url).hostname not in ("upload.wikimedia.org","commons.wikimedia.org"):
     raise SystemExit("Unexpected download host")
 image=fetch_with_limited_retry(url,timeout=120)
@@ -63,6 +68,6 @@ buf=io.BytesIO()
 source.save(buf,"JPEG",quality=87,optimize=True)
 data=buf.getvalue()
 (out/"candidate.jpg").write_bytes(data)
-record={"taxon_proposed":a.taxon,"commons_file":a.file_title,"commons_page":pages[0].get("title"),"original_url":url,"creator_unverified_html":clean("Artist"),"attribution_unverified_html":clean("Attribution"),"license_short":license_short,"license_url":license_url,"copyright_unverified_html":clean("Credit"),"image_sha256":hashlib.sha256(data).hexdigest(),"image_dimensions":list(source.size),"gps_exif_removed":True,"manual_taxonomic_and_rights_review_required":True,"public_site_published":False,"original_license_modification_note":"Resized and converted to JPEG; EXIF removed"}
+record={"taxon_proposed":a.taxon,"commons_file":a.file_title,"commons_page":pages[0].get("title"),"original_url":info["url"],"actual_download_url":url,"download_width_requested":a.source_thumbnail_width,"creator_unverified_html":clean("Artist"),"attribution_unverified_html":clean("Attribution"),"license_short":license_short,"license_url":license_url,"copyright_unverified_html":clean("Credit"),"image_sha256":hashlib.sha256(data).hexdigest(),"image_dimensions":list(source.size),"gps_exif_removed":True,"manual_taxonomic_and_rights_review_required":True,"public_site_published":False,"original_license_modification_note":"Resized and converted to JPEG; EXIF removed"}
 (out/"evidence.json").write_text(json.dumps(record,indent=2)+"\n")
 print(json.dumps({"sha256":record["image_sha256"],"size":record["image_dimensions"],"review_only":True}))
