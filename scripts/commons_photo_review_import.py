@@ -36,8 +36,15 @@ meta=info.get("extmetadata",{})
 clean=lambda key: re.sub("<[^>]+>"," ",meta.get(key,{}).get("value","")).strip()
 license_short=clean("LicenseShortName")
 license_url=clean("LicenseUrl")
-if not (re.search(r"\bCC0\b|\bCC BY\b|Public domain",license_short,re.I) or "creativecommons.org/licenses/by/" in license_url or "creativecommons.org/publicdomain/" in license_url):
-    raise SystemExit("License not recognized as project-approved; no download")
+# A prefix search for "CC BY" accidentally accepts CC BY-NC / CC BY-ND.
+# Fail closed: Commons short name must be an exact public-site-approved license.
+normalized_license=re.sub(r"\\s+"," ",license_short).strip()
+approved_license=bool(re.fullmatch(r"(?:CC0(?: 1\\.0)?|CC BY(?:-SA)? [1-9][0-9]*(?:\\.[0-9]+)?|Public domain)",normalized_license,re.I))
+if not approved_license:
+    raise SystemExit(f"License not project-approved: {normalized_license}; no download")
+# Respect only unmodified attribution/share-alike licensing types; no NC/ND variants.
+if re.search(r"\\b(?:NC|ND)\\b",normalized_license,re.I):
+    raise SystemExit("Restricted NC/ND licensing is excluded from public-site photo importer")
 url=info["url"]
 if urllib.parse.urlparse(url).hostname not in ("upload.wikimedia.org","commons.wikimedia.org"):
     raise SystemExit("Unexpected download host")
