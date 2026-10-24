@@ -4,7 +4,7 @@ New photos remain provisional until actual structural pixels are manually checke
 """
 import json,pathlib,urllib.parse,urllib.request,urllib.error,time,io
 from PIL import Image
-p=pathlib.Path("content/taxa/Poaceae/Digitaria/dichanthelium-oligosanthes/species.json")
+p=pathlib.Path("content/taxa/Poaceae/Dichanthelium/dichanthelium-oligosanthes/species.json")
 d=json.loads(p.read_text());assert d["id"]=="dichanthelium-oligosanthes"
 report={"added":[],"held":[],"scope":"Dichanthelium oligosanthes CC BY/CC BY-SA/CC0 additional photo candidates; no unsupported anatomical arrows"}
 def get(url):
@@ -15,15 +15,15 @@ def get(url):
    if exc.code not in (429,500,502,503,504) or i==2:raise
    time.sleep(15*(i+1))
 try:
- results=json.loads(get("https://api.inaturalist.org/v1/taxa/autocomplete?q=Digitaria%20ciliaris"))["results"]
- matching=[z for z in results if z.get("name","").lower()=="digitaria ciliaris" and z.get("rank")=="species"]
+ results=json.loads(get("https://api.inaturalist.org/v1/taxa/autocomplete?q=Dichanthelium%20oligosanthes"))["results"]
+ matching=[z for z in results if z.get("name","").lower()=="dichanthelium oligosanthes" and z.get("rank")=="species"]
  assert matching,"Exact accepted taxon unavailable"
  tid=matching[0]["id"]
  query=urllib.parse.urlencode({"taxon_id":tid,"quality_grade":"research","photos":"true","photo_license":"cc0,cc-by,cc-by-sa","per_page":80,"order_by":"votes"})
  observations=json.loads(get("https://api.inaturalist.org/v1/observations?"+query))["results"]
  for obs in observations:
   if len(report["added"])>=3:break
-  if obs.get("taxon",{}).get("id")!=tid:continue
+  if obs.get("taxon",{}).get("id")!=tid or obs.get("taxon",{}).get("name","").lower()!="dichanthelium oligosanthes":continue
   for photo in obs.get("photos",[]):
    if len(report["added"])>=3:break
    license=photo.get("license_code","").lower()
