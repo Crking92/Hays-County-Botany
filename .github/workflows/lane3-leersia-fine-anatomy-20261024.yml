@@ -1,0 +1,39 @@
+name: Lane 3 rice cutgrass node sheath and opened spikelet
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane3-leersia-fine-anatomy-20261024.yml
+      - scripts/lane3_leersia_scabrid_node_20261024.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-leersia-anatomy-20261024
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane3_leersia_scabrid_node_20261024.py
+      - name: Persist verified photos and evidence, retry concurrent GitHub pushes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-leersia-fine-anatomy-20261024.json content/taxa/Poaceae/Leersia/leersia-oryzoides/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 3 store CC licensed rice cutgrass fine details or source holds"
+            pushed=0
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = "1"
+          fi
