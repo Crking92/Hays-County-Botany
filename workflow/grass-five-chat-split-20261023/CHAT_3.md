@@ -4,7 +4,7 @@ Source snapshot: `reports/grass-112-photo-coverage-work-allocation.json` (2026-1
 
 ## Required working method
 - Work ONLY on the assigned IDs in this file. Do not claim or edit another chat's species. Existing five automation workflows may also be editing the repository; refresh SHA immediately before each write, preserve all fields, rebase and retry conflicts safely.
-- Begin with P0/P1 anatomical shortages, then P2, then P3; within these choose highest-confidence licensed images first. Reserve `muhlenbergia-piniflora` until LAST. Preserve scientific holds for `anatherum-tenuispatheum`, `chloris-x-subdolichostachya`, `muhlenbergia-x-involuta`, and `sorghastrum-elliottii`.
+- Begin with P0/P1 anatomical shortages, then P2, then P3; within these choose highest-confidence licensed images first. Reserve `muhlenbergia-dubia` until LAST. The initial assignment erroneously called this `muhlenbergia-piniflora`; never create an invalid piniflora species card. Preserve scientific holds for `anatherum-tenuispatheum`, `chloris-x-subdolichostachya`, `muhlenbergia-x-involuta`, and `sorghastrum-elliottii`.
 - Find **real distinguishable species-specific photographs**, not just descriptions, drawings, or another distant whole-plant image: rooted habit, panicle/racemes, true inner collar/ligule, single mature spikelet, real glumes/lemmas/awns/hairs and scale, nearby look-alike.
 - Publish only CC0, CC BY, CC BY-SA, public-domain, or independently authorized public-reuse photos, with proper credit and license terms; do not treat CC BY-NC as automatically public-site safe. Source and taxonomic determination must be verified. Never silently reuse a photo of another taxon as exact species anatomy.
 - Physically archive photo bytes under that species' `images/` directory, stripping EXIF/GPS; update **actual** `visual_comparison.items` to local paths. If binary GitHub upload isn't supported, use a small guarded GitHub Action to validate rights, download, commit and relink, then independently verify files and gallery.
@@ -37,7 +37,10 @@ Source snapshot: `reports/grass-112-photo-coverage-work-allocation.json` (2026-1
 | P3 | `leersia-oryzoides` | 11 |
 | P3 | `muhlenbergia-reverchonii` | 6 |
 | P3 | `tridentopsis-buckleyana` | 8 |
-| P0 | `muhlenbergia-piniflora` | 0 |
+| P0 | `muhlenbergia-dubia` | 0 |
 
 ## Assigned genera
 Anatherum, Cynodon, Eriochloa, Festuca, Leersia, Muhlenbergia, Phragmites, Tridens, Tridentopsis, Tripsacum
+
+## Lane 3 update — 2026-10-24
+All 22 assigned canonical taxa have received a review or photo/diagnostic update; **this does not mean 22 scientifically or photographically finished cards**. The erroneous last-item taxon is corrected to accepted `muhlenbergia-dubia` and its measured crew lesson is committed. Rice cutgrass (`leersia-oryzoides`) gained two local CC BY-SA 4.0 anatomy reference JPEGs (ligule and lemma/palea); its additional opened-spikelet reference remains external after HTTP 429. Texas tridens (`tridens-texanus`) gained one CC0 mature spikelet JPEG; its ligule photograph remains too small for calibrated anatomy, and additional source was rate limited. Keep `FIELD_READY_PHOTO_GAPS` on each species until diagnostic ligules and florets are genuinely measurable and photo rights / public Pages are checked.
