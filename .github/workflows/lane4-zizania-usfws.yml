@@ -1,0 +1,36 @@
+name: Lane 4 archive public-domain Texas wild-rice photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_archive_zizania_usfws.py
+      - .github/workflows/lane4-zizania-usfws.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-zizania-texana
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane4_archive_zizania_usfws.py
+      - name: Commit verified JPEGs and gallery report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Zizania/zizania-texana reports/lane4-zizania-texana-usfws-photo-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 4 archive public-domain USFWS Texas wild-rice photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
