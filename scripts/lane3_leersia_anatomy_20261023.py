@@ -31,8 +31,8 @@ for n in (23,30,31):
 if report["added"]:
  d["curation_status"]["photo_files_present"]=sum(x.get("file","").startswith("images/") for x in d["images"])
  d["curation_status"]["photo_metadata_count"]=len(d["images"])
- d["learner_visual_status"]["status"]="FIELD_READY_PHOTO_GAPS"
- d["learner_visual_status"]["image_count"]=len(d["images"])
+ d.setdefault("learner_visual_status",{})["status"]="FIELD_READY_PHOTO_GAPS"
+ d.setdefault("learner_visual_status",{})["image_count"]=len(d["images"])
  path.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n")
 pathlib.Path("reports/lane3-leersia-anatomy-20261023.json").write_text(json.dumps(report,indent=2)+"\n")
 print(json.dumps(report))
