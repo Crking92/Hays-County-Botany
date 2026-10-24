@@ -4,7 +4,14 @@ import json,pathlib,urllib.parse,urllib.request,urllib.error,time,io,hashlib
 from PIL import Image
 p=pathlib.Path("content/taxa/Poaceae/Dichanthelium/dichanthelium-lindheimeri/species.json")
 card=json.loads(p.read_text());assert card["id"]=="dichanthelium-lindheimeri"
-report={"added":[],"held":[],"scope":"EXACT accepted taxon D. lindheimeri; no anatomy claims or arrows"}
+report={"added":[],"held":[],"removed_misattributed_files":[],"scope":"STRICT D. lindheimeri taxon source; no anatomy claims or arrows"}
+# Clean photos accidentally downloaded by an older script whose API query was D. pedicellatum.
+for mistaken_id in ("632023937","632024018"):
+ mistaken_file=p.parent/"images"/("inat-cc-"+mistaken_id+".jpg")
+ if mistaken_file.exists():
+  mistaken_file.unlink()
+  report["removed_misattributed_files"].append(str(mistaken_file))
+
 def get(u):
  for n in range(3):
   try:
@@ -13,15 +20,15 @@ def get(u):
    if e.code not in (429,500,502,503,504) or n==2:raise
    time.sleep(12*(n+1))
 try:
- taxa=json.loads(get("https://api.inaturalist.org/v1/taxa/autocomplete?q=Dichanthelium%20pedicellatum"))["results"]
- matching=[x for x in taxa if x.get("name","").lower()=="dichanthelium pedicellatum" and x.get("rank")=="species"]
+ taxa=json.loads(get("https://api.inaturalist.org/v1/taxa/autocomplete?q=Dichanthelium%20lindheimeri"))["results"]
+ matching=[x for x in taxa if x.get("name","").lower()=="dichanthelium lindheimeri" and x.get("rank")=="species"]
  assert matching,"Exact scientific taxon unavailable"
  tid=matching[0]["id"]
  query=urllib.parse.urlencode({"taxon_id":tid,"quality_grade":"research","photos":"true","photo_license":"cc0,cc-by,cc-by-sa","per_page":100,"order":"desc","order_by":"votes"})
  obs=json.loads(get("https://api.inaturalist.org/v1/observations?"+query))["results"]
  for row in obs:
   if len(report["added"])>=2:break
-  if row.get("taxon",{}).get("id")!=tid:continue
+  if row.get("taxon",{}).get("id")!=tid or row.get("taxon",{}).get("name","").lower()!="dichanthelium lindheimeri":continue
   for item in row.get("photos",[]):
    if len(report["added"])>=2:break
    lic=item.get("license_code","").lower()
