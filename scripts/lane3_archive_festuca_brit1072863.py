@@ -20,6 +20,8 @@ try:
  candidates+=re.findall(r'<meta[^>]+content=["\\\']([^"\\\']+)["\\\'][^>]+(?:property|name)=["\\\'](?:og:image|twitter:image)',page,re.I)
  candidates=[html.unescape(u).replace("&amp;","&") for u in candidates]
  if not candidates:raise ValueError("No stable image URL in original specimen-page metadata")
+ # Try high-resolution variants of the same Google-hosted image before the small preview.
+ candidates=[variant for base in candidates for variant in ([base+"=w1800",base+"=s1800",base+"=w1400",base] if "googleusercontent.com/" in base else [base])]
  for url in candidates:
   if not url.startswith("https://"):continue
   try:
