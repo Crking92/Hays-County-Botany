@@ -7,24 +7,29 @@ base=pathlib.Path("content/taxa/Poaceae/Elymus/elymus-canadensis")
 path=base/"species.json"
 source="https://commons.wikimedia.org/wiki/File:Elymus_canadensis_(3738626381).jpg"
 original="https://upload.wikimedia.org/wikipedia/commons/c/c8/Elymus_canadensis_%283738626381%29.jpg"
+mirrors=["https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Elymus_canadensis_%283738626381%29.jpg/960px-Elymus_canadensis_%283738626381%29.jpg","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Elymus_canadensis_%283738626381%29.jpg/960px-Elymus_canadensis_%283738626381%29.jpg","https://commons.wikimedia.org/wiki/Special:Redirect/file/Elymus%20canadensis%20(3738626381).jpg?width=960"]
 dest=base/"images/matt-lavin-canada-rachis-narrow-glumes-3738626381.jpg"
 report={"source":source,"license":"CC BY-SA 2.0","creator":"Matt Lavin","status":"HOLD"}
 try:
     raw=None
-    for attempt in range(5):
-        try:
-            req=urllib.request.Request(original,headers={"User-Agent":"HaysCountyBotanyVisualLearner/1.1 (publicly credited botany media reuse)","Accept":"image/jpeg"})
-            with urllib.request.urlopen(req,timeout=85) as f:
-                raw=f.read()
-            break
-        except urllib.error.HTTPError as e:
-            if e.code not in (429,502,503,504) or attempt==4:
-                raise
-            time.sleep([2,5,11,20,30][attempt])
-    assert raw is not None and 20000 < len(raw) < 10000000
+    source_selected=None
+    for candidate in [original]+mirrors:
+        for attempt in range(3):
+            try:
+                req=urllib.request.Request(candidate,headers={"User-Agent":"HaysCountyBotanyVisualLearner/1.1 (publicly credited botany media reuse)","Accept":"image/jpeg"})
+                with urllib.request.urlopen(req,timeout=80) as f:raw=f.read()
+                source_selected=candidate
+                break
+            except urllib.error.HTTPError as e:
+                if e.code not in (429,502,503,504) or attempt==2: break
+                time.sleep([2,8,18][attempt])
+            except Exception: break
+        if raw is not None:break
+    assert raw is not None, "ALL_COMMONS_ORIGINAL_AND_THUMBNAIL_PATHS_RATE_LIMITED_OR_UNAVAILABLE"
+    assert 20000 < len(raw) < 10000000
     check=Image.open(io.BytesIO(raw));check.verify()
     im=Image.open(io.BytesIO(raw)).convert("RGB")
-    assert im.size==(1704,2272),f"unanticipated dimensions: {im.size}"
+    assert im.size in ((1704,2272),(960,1280)),f"unanticipated dimensions: {im.size}"
     dest.parent.mkdir(parents=True,exist_ok=True)
     im.save(dest,format="JPEG",quality=93,optimize=True)
     j=json.loads(path.read_text())
@@ -38,7 +43,7 @@ try:
             "license_url":"https://creativecommons.org/licenses/by-sa/2.0/",
             "source_page":source,
             "original_source":"https://www.flickr.com/photos/plant_diversity/3738626381",
-            "photo_taxon":"Photographer-named Elymus canadensis",
+            "photo_taxon":"Photographer-named Elymus canadensis; Commons depicts metadata may be inconsistent (Elymus wiegandii), species-level microdiagnosis provisional",
             "source_locality":"Bozeman, Montana; not Hays County",
             "public_reuse":"YES: CC BY-SA 2.0 with creator/source/license credit and ShareAlike notices",
             "modifications":"Original RGB JPEG re-encoded without EXIF/GPS; original pixels not cropped",
@@ -83,7 +88,7 @@ try:
        "critical_remaining":["Matched vouchered Canada/Virginia mature rachis nodes with mm ruler", "Opened true ligule margin and auricles, scale", "Same rooted Hays-area mature plant source and live Pages/mobile QA"]
     }
     path.write_text(json.dumps(j,indent=2,ensure_ascii=False)+"\n")
-    report.update(status="ARCHIVED",path=str(dest),dimensions=list(im.size),
+    report.update(status="ARCHIVED",path=str(dest),download_url=source_selected,dimensions=list(im.size),
                   source_sha256=hashlib.sha256(raw).hexdigest(),
                   installed_sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),
                   gallery_panel_added=True)
