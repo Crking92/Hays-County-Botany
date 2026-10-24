@@ -1,0 +1,40 @@
+name: Lane 1 barnyardgrass collar photo archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-barnyard-collar-archive.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-barnyard-collar-archive
+  cancel-in-progress: false
+jobs:
+  archive-collar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo dependencies
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Download verified CC BY 2.0 absence-of-ligule source
+        run: |
+          python scripts/commons_photo_review_import.py \
+            --file-title "File:Echinochloa crusgalli ligule1 (7120566875).jpg" \
+            --taxon "Echinochloa crus-galli" --output review_photo
+      - name: Sanitize, archive actual JPEG and relink existing gallery panel
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TITLE: "File:Echinochloa crusgalli ligule1 (7120566875).jpg"
+        run: python scripts/archive_lane1_barnyard_review.py
+      - name: Save archival evidence for inspection
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lane1-barnyard-collar-source-evidence
+          path: review_photo/
+          if-no-files-found: ignore
+          retention-days: 30
