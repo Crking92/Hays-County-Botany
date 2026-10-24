@@ -1,0 +1,40 @@
+name: Lane 1 barnyardgrass ripe spikelet archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-barnyard-mature-spikelet-archive.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-barnyard-mature-spikelet-archive
+  cancel-in-progress: false
+jobs:
+  archive-mature-spikelets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo dependencies
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Download reviewed CC BY 2.0 mature spikelets
+        run: |
+          python scripts/commons_photo_review_import.py \
+            --file-title "File:Echinochloa crusgalli spikelets mature (6974477176).jpg" \
+            --taxon "Echinochloa crus-galli" --output review_photo
+      - name: Guarded JPEG commit and gallery relink
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TITLE: "File:Echinochloa crusgalli spikelets mature (6974477176).jpg"
+        run: python scripts/archive_lane1_barnyard_review.py
+      - name: Save original evidence JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lane1-barnyard-mature-spikelet-source-evidence
+          path: review_photo/
+          if-no-files-found: ignore
+          retention-days: 30
