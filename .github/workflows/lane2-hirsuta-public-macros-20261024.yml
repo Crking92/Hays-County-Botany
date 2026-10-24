@@ -1,0 +1,33 @@
+name: Lane 2 install public bigtop lovegrass anatomy closeups
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_install_hirsuta_public_macros_20261024.py
+      - .github/workflows/lane2-hirsuta-public-macros-20261024.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-hirsuta-macros-public
+  cancel-in-progress: false
+jobs:
+  archive-and-wire-gallery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_install_hirsuta_public_macros_20261024.py
+      - name: Commit actual photo bytes and website gallery JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-hirsuta/ reports/lane2-eragrostis-hirsuta-public-macros-20261024.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Install public CC BY-SA bigtop spikelet macro photographs and gallery"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
