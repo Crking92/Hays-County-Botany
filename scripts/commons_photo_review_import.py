@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Download one Wikimedia Commons File: image into a review artifact; never publish directly."""
-import argparse, io, json, pathlib, re, hashlib, urllib.parse
+import argparse, io, json, pathlib, re, hashlib, urllib.parse, time
 import requests
 from PIL import Image, ImageOps
 from xml.etree import ElementTree as ET
@@ -14,8 +14,21 @@ assert a.file_title.startswith("File:"), "Use an exact Commons File: title"
 assert re.fullmatch(r"[A-Za-z× .'-]{4,120}",a.taxon), "Unexpected taxon syntax"
 api="https://commons.wikimedia.org/w/api.php"
 headers={"User-Agent":"HaysCountyBotanyPhotoReview/1.0 (manual educational photo rights audit)"}
-r=requests.get(api,params={"action":"query","format":"json","prop":"imageinfo","titles":a.file_title,"iiprop":"url|extmetadata|size"},headers=headers,timeout=45)
-r.raise_for_status()
+def fetch_with_limited_retry(url, *, params=None, timeout=45):
+    """Retry at most twice on temporary upstream throttling; fail closed on rights or other HTTP errors."""
+    for attempt in range(3):
+        response=requests.get(url,params=params,headers=headers,timeout=timeout)
+        if response.status_code not in (429,500,502,503,504):
+            response.raise_for_status()
+            return response
+        if attempt==2:
+            response.raise_for_status()
+        pause=min(12, 2**attempt*3)
+        retry_after=response.headers.get("Retry-After","")
+        if retry_after.isdigit():pause=min(15,max(pause,int(retry_after)))
+        time.sleep(pause)
+    raise RuntimeError("Unreachable")
+r=fetch_with_limited_retry(api,params={"action":"query","format":"json","prop":"imageinfo","titles":a.file_title,"iiprop":"url|extmetadata|size"},timeout=45)
 pages=list(r.json()["query"]["pages"].values())
 if len(pages)!=1 or "imageinfo" not in pages[0]:raise SystemExit("Commons file missing")
 info=pages[0]["imageinfo"][0]
@@ -28,8 +41,7 @@ if not (re.search(r"\bCC0\b|\bCC BY\b|Public domain",license_short,re.I) or "cre
 url=info["url"]
 if urllib.parse.urlparse(url).hostname not in ("upload.wikimedia.org","commons.wikimedia.org"):
     raise SystemExit("Unexpected download host")
-image=requests.get(url,headers=headers,timeout=120)
-image.raise_for_status()
+image=fetch_with_limited_retry(url,timeout=120)
 if len(image.content)>35000000:raise SystemExit("File too large")
 source=Image.open(io.BytesIO(image.content))
 source.verify()
