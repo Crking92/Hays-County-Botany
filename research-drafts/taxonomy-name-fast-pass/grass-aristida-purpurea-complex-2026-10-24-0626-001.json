@@ -1,0 +1,254 @@
+{
+  "id": "grass-aristida-purpurea-complex-2026-10-24-0626-001",
+  "run_date_local": "2026-10-24",
+  "lane": "grass-taxonomy-verification",
+  "scope": "taxonomy-only Poaceae existing canonical learner",
+  "status": "VERIFIED_ACCEPTED_ARISTIDA_SPECIES_WITH_CROSS_SPECIES_HISTORICAL_VARIETY_BOUNDARIES_AND_SPECIMEN_ID_HOLDS",
+  "canonical_species": [
+    {
+      "taxon_id": "aristida-purpurea",
+      "path": "content/taxa/Poaceae/Aristida/aristida-purpurea/species.json",
+      "sha_at_review": "04371589490fd3f933068e8e17714cc73fee6873",
+      "existing_name": "Aristida purpurea",
+      "no_canonical_edit": true
+    },
+    {
+      "taxon_id": "aristida-oligantha",
+      "path": "content/taxa/Poaceae/Aristida/aristida-oligantha/species.json",
+      "sha_at_review": "485fe640e72f3769fefc313d7a932a446a52794a",
+      "existing_name": "Aristida oligantha",
+      "no_canonical_edit": true
+    }
+  ],
+  "scientific_decisions": [
+    {
+      "code": "ARIS-01",
+      "status": "PASS",
+      "source_name": "Aristida purpurea Nutt.",
+      "accepted_target": "Aristida purpurea Nutt.",
+      "reason": "POWO/WCVP accepts species rank in Poaceae; original publication Transactions of the American Philosophical Society n.s. 5:145 (1835). Existing canonical species name/author correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2"
+      ]
+    },
+    {
+      "code": "ARIS-02",
+      "status": "PASS",
+      "source_name": "Aristida oligantha Michx.",
+      "accepted_target": "Aristida oligantha Michx.",
+      "reason": "POWO/WCVP accepts separate species; original publication Flora Boreali-Americana 1:41 (1803). Preserve separate learner species, not a synonym of A. purpurea.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325343-2"
+      ]
+    },
+    {
+      "code": "ARIS-03",
+      "status": "PASS",
+      "source_name": "Aristida longiseta Steud.",
+      "accepted_target": "Aristida longiseta Steud.",
+      "reason": "POWO/WCVP accepts a distinct species (1854), NOT a variety within currently accepted A. purpurea in this backbone. The existing A. purpurea card's broad var. longiseta morphological warning needs taxon-concept caution, not an automatic rewrite.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:19242-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2"
+      ]
+    },
+    {
+      "code": "ARIS-04",
+      "status": "PASS",
+      "source_name": "Aristida purpurea var. longiseta (Steud.) Vasey",
+      "accepted_target": "Aristida longiseta Steud.",
+      "reason": "POWO lists the historical variety as a HOMOTYPIC synonym of separately accepted A. longiseta; 1878 published 1879 combination. Do not automatically treat variety-labelled historical records as verified A. purpurea s.s.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:19242-2"
+      ]
+    },
+    {
+      "code": "ARIS-05",
+      "status": "PASS",
+      "source_name": "Aristida purpurea var. robusta (Merr.) A.H.Holmgren & N.H.Holmgren",
+      "accepted_target": "Aristida longiseta Steud.",
+      "reason": "POWO lists this as a HETEROTYPIC synonym of A. longiseta, not under A. purpurea.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:19242-2"
+      ]
+    },
+    {
+      "code": "ARIS-06",
+      "status": "PASS",
+      "source_name": "Aristida fendleriana Steud.",
+      "accepted_target": "Aristida fendleriana Steud.",
+      "reason": "POWO/WCVP accepts a distinct species, published 1854. Some historical purple-threeawn varieties refer to this separate accepted concept.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/19192-2"
+      ]
+    },
+    {
+      "code": "ARIS-07",
+      "status": "PASS",
+      "source_name": "Aristida purpurea var. fendleriana (Steud.) Vasey",
+      "accepted_target": "Aristida fendleriana Steud.",
+      "reason": "POWO lists this historical variety as a HOMOTYPIC synonym of separately accepted A. fendleriana.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/19192-2"
+      ]
+    },
+    {
+      "code": "ARIS-08",
+      "status": "PASS",
+      "source_name": "Aristida glauca (Nees) Walp.",
+      "accepted_target": "Aristida glauca (Nees) Walp.",
+      "reason": "POWO/WCVP accepts distinct species rank; do not assume historical A. purpurea var. nealleyi belongs to modern A. purpurea.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1"
+      ]
+    },
+    {
+      "code": "ARIS-09",
+      "status": "PASS",
+      "source_name": "Aristida purpurea var. nealleyi (Vasey) Allred",
+      "accepted_target": "Aristida glauca (Nees) Walp.",
+      "reason": "POWO lists this historical variety as a HETEROTYPIC synonym of accepted A. glauca, in conflict with broader historical purple-threeawn treatments.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur"
+      ]
+    },
+    {
+      "code": "ARIS-10",
+      "status": "PASS",
+      "source_name": "Aristida wrightii Nash",
+      "accepted_target": "Aristida wrightii Nash",
+      "reason": "POWO accepted-Aristida genus checklist includes A. wrightii as a separately accepted species; exact infraspecific historical mapping should not be inferred from genus list alone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327933-2"
+      ]
+    },
+    {
+      "code": "ARIS-11",
+      "status": "UNRESOLVED",
+      "source_name": "Aristida purpurea var. wrightii (Nash) Allred",
+      "accepted_target": null,
+      "reason": "ITIS accepts this at variety rank and lists A. wrightii Nash as a synonym; POWO genus checklist separately accepts A. wrightii. Direct POWO synonym record for the exact variety was not independently inspected; preserve authority disagreement and original labels.",
+      "sources": [
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185317",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327933-2"
+      ]
+    },
+    {
+      "code": "ARIS-12",
+      "status": "UNRESOLVED",
+      "source_name": "Aristida purpurea var. parishii (A.S.Hitchc.) Allred",
+      "accepted_target": null,
+      "reason": "ITIS accepts this variety and lists A. parishii as a synonym; no independently verified direct POWO accepted-target record for this combination in this run. Do not assign an unsupported POWO mapping.",
+      "sources": [
+        "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185316",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur"
+      ]
+    },
+    {
+      "code": "ARIS-13",
+      "status": "PASS",
+      "source_name": "Aristida purpurea var. hookeri Trin. & Rupr.",
+      "accepted_target": "Aristida purpurea Nutt.",
+      "reason": "POWO lists this exact historical variety as a heterotypic synonym of accepted A. purpurea; contrasts with var. longiseta/fendleriana/nealleyi cross-species mappings.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2"
+      ]
+    },
+    {
+      "code": "ARIS-14",
+      "status": "PASS",
+      "source_name": "Aristida oligantha var. nervata Beal",
+      "accepted_target": "Aristida oligantha Michx.",
+      "reason": "POWO lists as heterotypic synonym of accepted A. oligantha; not a separate accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325343-2"
+      ]
+    },
+    {
+      "code": "ARIS-15",
+      "status": "HOLD",
+      "source_name": "individual Aristida purpurea learner photographs and measurements",
+      "accepted_target": null,
+      "reason": "Existing learner has source-labelled images but lacks measured same-spikelet glumes/venation and specimen-level proof excluding separately accepted A. longiseta, A. fendleriana and A. glauca. Do not reidentify photos from color or unscaled awn views.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:19242-2",
+        "https://powo.science.kew.org/taxon/19192-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1"
+      ]
+    },
+    {
+      "code": "ARIS-16",
+      "status": "HOLD",
+      "source_name": "individual Aristida hybrid identity or ancestry",
+      "accepted_target": null,
+      "reason": "No individual hybrid voucher or genetic/parentage evidence was examined. Preserve any identity/hybrid holds; no new hybrid formula or taxon proposed.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325343-2"
+      ]
+    },
+    {
+      "code": "ARIS-17",
+      "status": "FAIL",
+      "source_name": "assertion that all five historical purple-threeawn varieties are accepted under A. purpurea by POWO",
+      "accepted_target": "multiple separately accepted Aristida species",
+      "reason": "Rejected as a POWO/WCVP assertion: var. longiseta maps to A. longiseta, var. fendleriana to A. fendleriana, and var. nealleyi to A. glauca. Older USDA/ITIS varieties are authority-specific alternative concepts, not false names.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:19242-2",
+        "https://powo.science.kew.org/taxon/19192-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1",
+        "https://research.fs.usda.gov/feis/species-reviews/aripur"
+      ]
+    },
+    {
+      "code": "ARIS-18",
+      "status": "UNRESOLVED",
+      "source_name": "undifferentiated historical purple-threeawn specimen concepts",
+      "accepted_target": null,
+      "reason": "US Forest Service 1997 five-variety A. purpurea treatment differs from POWO's narrower accepted species boundaries. Without original specimen determination, do not retrospectively allocate older observations to narrow accepted species or relabel images.",
+      "sources": [
+        "https://research.fs.usda.gov/feis/species-reviews/aripur",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:19242-2",
+        "https://powo.science.kew.org/taxon/19192-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1"
+      ]
+    }
+  ],
+  "counts": {
+    "scientific_decisions": 18,
+    "PASS": 12,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 3
+  },
+  "backbone": {
+    "authority": "POWO/WCVP 2026",
+    "checked_date": "2026-10-24",
+    "sources": [
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327975-2",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325343-2",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:19242-2",
+      "https://powo.science.kew.org/taxon/19192-2",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77176932-1",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:327933-2"
+    ],
+    "alternative_authorities": [
+      "https://research.fs.usda.gov/feis/species-reviews/aripur",
+      "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185317",
+      "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185316",
+      "https://rangeplants.tamu.edu/plant/purple-threeawn/"
+    ]
+  },
+  "handoff": {
+    "accepted_species_names_unchanged": true,
+    "canonical_species_modified": false,
+    "photos_or_lessons_modified": false,
+    "county_nativity_audit": false,
+    "hybrid_inference": false,
+    "photo_identity_hold": true,
+    "manual_followup": "Keep canonical A. purpurea and A. oligantha species names. When the taxonomy/ID lane next reviews source-labelled A. purpurea images or longiseta examples, compare voucher-level material against the separate POWO accepted A. longiseta, A. fendleriana and A. glauca concepts. Do not merge or reidentify photographs without diagnostic evidence; preserve authority-specific older variety names and source labels."
+  }
+}
