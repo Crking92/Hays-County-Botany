@@ -1,0 +1,239 @@
+{
+  "batch_id": "grass-festuca-octoflora-versuta-2026-10-24-1720-001",
+  "project": "Crking92/Hays-County-Botany",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "date": "2026-10-24",
+  "authority_backbone": "Kew POWO / WCVP 2026",
+  "scope": "Existing installed Poaceae only; nomenclature, synonym rank and identity-hold evidence; no species-card modifications",
+  "canonical_targets": [
+    {
+      "id": "festuca-octoflora",
+      "path": "content/taxa/Poaceae/Festuca/festuca-octoflora/species.json",
+      "pre_review_blob_sha": "ed8d03a526ea0d5bf13f03e43b17eabbfab8f30e",
+      "accepted_name": "Festuca octoflora Walter",
+      "family": "Poaceae",
+      "genus": "Festuca",
+      "rank": "species",
+      "canonical_name_change": false
+    },
+    {
+      "id": "festuca-versuta",
+      "path": "content/taxa/Poaceae/Festuca/festuca-versuta/species.json",
+      "pre_review_blob_sha": "782d9f638b118d471f23cc463da94565b294ef87",
+      "accepted_name": "Festuca versuta Beal",
+      "family": "Poaceae",
+      "genus": "Festuca",
+      "rank": "species",
+      "canonical_name_change": false
+    }
+  ],
+  "claim_path": "workflow/taxonomy-claims/grass-festuca-octoflora-versuta-2026-10-24-1720-001.json",
+  "previous_expired_claim": "workflow/taxonomy-claims/grass-festuca-octoflora-versuta-2026-10-22-2322-001.json",
+  "previous_claim_note": "Previous claim expired 2026-10-23 01:22 CDT; its intended evidence file is absent on main. This is a new independent source review, not resubmission of any known safety-denied payload.",
+  "decisions": [
+    {
+      "code": "FES-01",
+      "status": "PASS",
+      "source_name": "Festuca octoflora Walter",
+      "accepted_target": "Festuca octoflora Walter",
+      "reason": "POWO/WCVP accepts this species in Festuca; first published Flora Caroliniana 81 (1788). Preserve canonical learner name and species rank.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1"
+      ]
+    },
+    {
+      "code": "FES-02",
+      "status": "PASS",
+      "source_name": "Festuca versuta Beal",
+      "accepted_target": "Festuca versuta Beal",
+      "reason": "POWO/WCVP accepts this separate perennial species; first published Grasses of North America 2:589 (1896). Preserve its distinct learner card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2",
+        "https://www.worldfloraonline.org/taxon/wfo-0000872526"
+      ]
+    },
+    {
+      "code": "FES-03",
+      "status": "PASS",
+      "source_name": "Vulpia octoflora (Walter) Rydb.",
+      "accepted_target": "Festuca octoflora Walter",
+      "reason": "POWO lists this genus-transfer name as a homotypic synonym; do not install a second species card when historical sources use Vulpia.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1"
+      ]
+    },
+    {
+      "code": "FES-04",
+      "status": "PASS",
+      "source_name": "Gnomonia octoflora (Walter) Lunell",
+      "accepted_target": "Festuca octoflora Walter",
+      "reason": "POWO lists this combination as a homotypic synonym of Festuca octoflora.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1"
+      ]
+    },
+    {
+      "code": "FES-05",
+      "status": "PASS",
+      "source_name": "Vulpia octoflora var. glauca (Nutt.) Fernald",
+      "accepted_target": "Festuca octoflora Walter",
+      "reason": "POWO places this historical variety under the accepted species; its old rank remains important to specimen interpretation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1",
+        "https://powo.science.kew.org/taxon/267601-2"
+      ]
+    },
+    {
+      "code": "FES-06",
+      "status": "PASS",
+      "source_name": "Vulpia octoflora var. hirtella (Piper) Henrard",
+      "accepted_target": "Festuca octoflora Walter",
+      "reason": "POWO treats the variety as synonym of species-rank Festuca octoflora; do not assume every historical variety-level voucher is reidentified.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:267603-2"
+      ]
+    },
+    {
+      "code": "FES-07",
+      "status": "PASS",
+      "source_name": "Vulpia octoflora var. tenella (Willd.) Fernald",
+      "accepted_target": "Festuca octoflora Walter",
+      "reason": "POWO treats this infraspecific name as a synonym of accepted Festuca octoflora; alternate floras retained the variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:267604-2"
+      ]
+    },
+    {
+      "code": "FES-08",
+      "status": "PASS",
+      "source_name": "Festuca johnsonii (Vasey) Piper",
+      "accepted_target": "Festuca versuta Beal",
+      "reason": "POWO records this as a heterotypic synonym, not a separately accepted species in the current backbone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2",
+        "https://www.worldfloraonline.org/taxon/wfo-0000872526"
+      ]
+    },
+    {
+      "code": "FES-09",
+      "status": "PASS",
+      "source_name": "Festuca nutans var. johnsonii Vasey",
+      "accepted_target": "Festuca versuta Beal",
+      "reason": "POWO records the 1894 variety as heterotypic synonym of Festuca versuta; do not conflate variety rank with modern accepted species identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2"
+      ]
+    },
+    {
+      "code": "FES-10",
+      "status": "PASS",
+      "source_name": "Festuca obtusa subsp. versuta (Beal) St.-Yves",
+      "accepted_target": "Festuca versuta Beal",
+      "reason": "POWO records this as a homotypic synonym, preserving the Beal type and species-rank accepted destination.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2"
+      ]
+    },
+    {
+      "code": "FES-11",
+      "status": "PASS",
+      "source_name": "Festuca texana Vasey (1886)",
+      "accepted_target": "Festuca versuta Beal",
+      "reason": "POWO explicitly labels this name an illegitimate later homonym and a heterotypic synonym of Festuca versuta; the author is essential.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403631-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2"
+      ]
+    },
+    {
+      "code": "FES-12",
+      "status": "FAIL",
+      "source_name": "Proposed accepted-name assignment: Festuca texana Vasey",
+      "accepted_target": "REJECT_INVALID_ACCEPTED_NAME",
+      "reason": "The 1886 Vasey name is an illegitimate later homonym, not the accepted name for the learner. FAIL applies to the unsafe accepted-name proposal, not to the plant identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403631-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2"
+      ]
+    },
+    {
+      "code": "FES-13",
+      "status": "HOLD",
+      "source_name": "Existing Festuca versuta learner photograph and historical plate",
+      "accepted_target": "PHOTO_SPECIMEN_ID_UNVERIFIED",
+      "reason": "The current canonical card documents loose fragments and a historical botanical plate, not an independently vouchered complete living specimen. Taxonomic synonymy cannot authenticate its exact image or justify overriding a previous misidentified-plate exclusion.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2",
+        "https://www.worldfloraonline.org/taxon/wfo-0000872526"
+      ]
+    },
+    {
+      "code": "FES-14",
+      "status": "HOLD",
+      "source_name": "Existing Festuca octoflora learner photographs, including possible historical variety forms",
+      "accepted_target": "PHOTO_VARIETY_ID_UNVERIFIED",
+      "reason": "Accepted species mapping does not certify the source image as any particular historical variety or verify its visible characters; retain existing provisional photo-science flags.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.152879/Vulpia_octoflora"
+      ]
+    },
+    {
+      "code": "FES-15",
+      "status": "UNRESOLVED",
+      "source_name": "Historical Vulpia octoflora varieties glauca, hirtella and tenella",
+      "accepted_target": "ALTERNATIVE_INFRASPECIFIC_CONCEPT",
+      "reason": "POWO synonymizes varieties under Festuca octoflora, whereas Flora of North America / regional floras recognize infraspecific concepts and note overlap in characters; a source voucher cannot be assigned a precise variety without morphological evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:267604-2",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.152879/Vulpia_octoflora"
+      ]
+    },
+    {
+      "code": "FES-16",
+      "status": "UNRESOLVED",
+      "source_name": "Authorless historical record 'Festuca texana'",
+      "accepted_target": "AUTHOR_AND_TYPE_REQUIRED",
+      "reason": "POWO documents Festuca texana Vasey as illegitimate later homonym under F. versuta, but an authorless historical label is not sufficient to select a nomenclatural concept. Do not auto-map ambiguous records.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403631-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 11,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "sources_checked_on": "2026-10-24",
+  "sources_primary": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403190-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:297796-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:403631-1",
+    "https://www.worldfloraonline.org/taxon/wfo-0000872526",
+    "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.152879/Vulpia_octoflora",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:267604-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:267603-2"
+  ],
+  "limitations": [
+    "POWO/WCVP accepted-name mappings do not verify the learner's photographed specimens.",
+    "Alternative Vulpia infraspecific treatments are documented but no individual source-voucher variety identity is asserted.",
+    "The earlier homonym that invalidates Festuca texana Vasey was not independently protologue-checked; no identity was assigned to authorless labels.",
+    "No evidence here justifies a hybrid designation or parentage for either canonical species.",
+    "No county nativity audit, media, learner card, lesson, installation, or website changes."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_or_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
