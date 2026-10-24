@@ -1,0 +1,36 @@
+name: Lane 4 archive Digitaria ciliaris CC photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_archive_digitaria_ciliaris_cc.py
+      - .github/workflows/lane4-digitaria-ciliaris-cc.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-digitaria-ciliaris
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane4_archive_digitaria_ciliaris_cc.py
+      - name: Commit validated JPEGs and species galleries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Digitaria/digitaria-ciliaris/ reports/lane4-digitaria-ciliaris-cc-photo-attempt.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 4 archive open-license Digitaria ciliaris photographs"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
