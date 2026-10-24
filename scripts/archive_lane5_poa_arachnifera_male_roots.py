@@ -40,11 +40,11 @@ for code in ["POAR-M","POAR-M1","POAR-M2","POAR-M3","POAR-MS","POAR-SM","POAR-R"
  candidate=base+"pages/"+code+".html"
  try:
   raw=get(candidate).decode("utf-8","replace")
-  txt=re.sub(r"\\s+"," ",re.sub(r"<[^>]+>"," ",raw)).strip()
+  txt=re.sub(r"\s+"," ",re.sub(r"<[^>]+>"," ",raw)).strip()
   if "Poa arachnifera" not in txt:continue
-  is_male=bool(re.search(r"\\b(staminate|male)\\b",txt,re.I))
-  is_female=bool(re.search(r"\\b(pistillate|female)\\b",txt,re.I))
-  is_rhizome=bool(re.search(r"\\b(rhizome|rhizomatous)\\b",txt,re.I))
+  is_male=bool(re.search(r"\b(staminate|male)\b",txt,re.I))
+  is_female=bool(re.search(r"\b(pistillate|female)\b",txt,re.I))
+  is_rhizome=bool(re.search(r"\b(rhizome|rhizomatous)\b",txt,re.I))
   report["possible_sources"].append({"code":code,"url":candidate,"text":txt[:600],"male":is_male,"female":is_female,"rhizome":is_rhizome})
   if is_male and not is_female:
    try:save_image(code,"Original author's STAMINATE/male Poa arachnifera flowering specimen; exact anther and sex anatomy not independently dissected",candidate,"AUTHOR-LABELLED MALE (staminate) Texas bluegrass specimen: compare with female cobwebby florets. Sex is sourced from the photographed specimen page, not inferred from head smoothness.","TEXAS BLUEGRASS — authenticated staminate MALE flower reference")
@@ -56,6 +56,12 @@ for code in ["POAR-M","POAR-M1","POAR-M2","POAR-M3","POAR-MS","POAR-SM","POAR-R"
   if exc.code not in (403,404):report["held"].append({"code":code,"reason":str(exc)[:150]})
  except Exception as exc:report["held"].append({"code":code,"reason":str(exc)[:150]})
 if report["new_images"]:
+ # Avoid duplicate gallery references when replacing the already documented remote F4 panel.
+ seen=set();unique=[]
+ for panel in S["visual_comparison"]["items"]:
+  k=(panel.get("scientific_name"),panel.get("image_url"))
+  if k not in seen:unique.append(panel);seen.add(k)
+ S["visual_comparison"]["items"]=unique
  S["field_id_finish_pass"]["lane5_second_pass_20261024"]={"status":"FIELD_READY_PHOTO_GAPS","report":"reports/lane5-poa-arachnifera-male-root-search-20261024.json","new_media":report["new_images"],"remaining":"Independently photographed male stamen and female carpel closeups (unless original male found); visibly connected real rhizome; exact site photo arrow audit."}
  P.write_text(json.dumps(S,ensure_ascii=False,indent=2)+"\n")
 pathlib.Path("reports/lane5-poa-arachnifera-male-root-search-20261024.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n")
