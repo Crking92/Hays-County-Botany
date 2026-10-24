@@ -1,0 +1,189 @@
+{
+  "batch_id": "grass-paspalum-dilatatum-urvillei-rank-2026-10-23-2128-001",
+  "date_checked": "2026-10-23",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Paspalum",
+  "canonical_taxon_ids": [
+    "paspalum-dilatatum",
+    "paspalum-urvillei"
+  ],
+  "canonical_species_paths_read_only": {
+    "paspalum-dilatatum": "content/taxa/Poaceae/Paspalum/paspalum-dilatatum/species.json",
+    "paspalum-urvillei": "content/taxa/Poaceae/Paspalum/paspalum-urvillei/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "paspalum-dilatatum": "0845ff6bd73f8727d80cdbf13169a2c185d410c8",
+    "paspalum-urvillei": "f4c81394b2a5949091cdc8d397a90e2b19697877"
+  },
+  "claim_id": "grass-paspalum-dilatatum-urvillei-rank-2026-10-23-2128-001",
+  "claim_path": "workflow/taxonomy-claims/grass-paspalum-dilatatum-urvillei-rank-2026-10-23-2128-001.json",
+  "primary_decision": "PASS_BOTH_ACCEPTED_PASPALUM_SPECIES_WITH_2022_DILATATA_VARIETY_AND_CROSS_SPECIES_SYNONYM_BOUNDARIES_AND_SPECIMEN_ID_HOLD",
+  "decisions": [
+    {
+      "source_name": "Paspalum dilatatum Poir.",
+      "accepted_name": "Paspalum dilatatum Poir.",
+      "rank": "species",
+      "name_status": "ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_ACCEPTED_NAME_AUTHOR",
+      "action": "Keep the installed Dallisgrass species name and its 1804 Poiret authorship; no canonical rename.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414070-1"
+      ]
+    },
+    {
+      "source_name": "Paspalum urvillei Steud.",
+      "accepted_name": "Paspalum urvillei Steud.",
+      "rank": "species",
+      "name_status": "SEPARATELY_ACCEPTED_POWO_WCVP",
+      "scientific_decision": "PASS_SEPARATE_ACCEPTED_SPECIES",
+      "action": "Keep installed Vaseygrass separately accepted (1853 Steudel); never collapse into Dallisgrass based on old varieties or similar photos.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414828-1"
+      ]
+    },
+    {
+      "source_name": "Paspalum dilatatum var. dilatatum; P. dilatatum var. chiru Millot ex P.R.Speranza & G.H.Rua; P. dilatatum var. uruguaianense I.L.Barreto ex Valls & G.H.Rua",
+      "accepted_name": "Paspalum dilatatum Poir. (three accepted varieties)",
+      "rank": "variety",
+      "name_status": "THREE_ACCEPTED_INFRASPECIFICS_POWO_WCVP",
+      "scientific_decision": "PASS_ACCEPTED_VARIETIES",
+      "action": "WCVP recognizes exactly three varieties. chiru and uruguaianense were formally published in 2022; preserve species-rank learner, do not assign a variety to Texas photographs without specimens.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414070-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77301564-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77301567-1",
+        "https://doi.org/10.1600/036364422X16442668423437"
+      ]
+    },
+    {
+      "source_name": "Digitaria dilatata (Poir.) Coste; Paspalum moluccanum Huber",
+      "accepted_name": "Paspalum dilatatum Poir.",
+      "rank": "historical species names",
+      "name_status": "HOMOTYPIC_SYNONYMS_POWO_WCVP",
+      "scientific_decision": "PASS_HOMOTYPIC_ALIASES",
+      "action": "These names are same-type synonyms of accepted Dallisgrass; P. moluccanum is illegitimate superfluous. Do not create duplicate cards.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414070-1"
+      ]
+    },
+    {
+      "source_name": "Paspalum dilatatum var. decumbens Vasey; P. dilatatum var. sacchariferum Arechav.",
+      "accepted_name": "Paspalum dilatatum var. dilatatum",
+      "rank": "historical varieties",
+      "name_status": "INFRASPECIFIC_SYNONYMS_POWO_WCVP",
+      "scientific_decision": "PASS_HISTORICAL_VARIETY_MAPPING",
+      "action": "These historical Dallisgrass varieties resolve to accepted var. dilatatum, not separate accepted varieties.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:3322245-4"
+      ]
+    },
+    {
+      "source_name": "Paspalum dilatatum var. parviflorum Döll",
+      "accepted_name": "Paspalum urvillei Steud.",
+      "rank": "historical variety",
+      "name_status": "CROSS_SPECIES_SYNONYM_POWO_WCVP",
+      "scientific_decision": "PASS_CROSS_SPECIES_BOUNDARY",
+      "action": "Despite dilatatum in the original combination, this 1877 name is a heterotypic synonym of separately accepted Vaseygrass; do not attach to Dallisgrass records by epithet alone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414828-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184267-2"
+      ]
+    },
+    {
+      "source_name": "Paspalum dilatatum subsp. flavescens Roseng., B.R.Arrill. & Izag.",
+      "accepted_name": "Paspalum flavescens (Roseng., B.R.Arrill. & Izag.) P.R.Speranza & G.H.Rua",
+      "rank": "historical subspecies -> accepted species",
+      "name_status": "HOMOTYPIC_CROSS_RANK_SYNONYM_POWO_WCVP",
+      "scientific_decision": "PASS_2022_SPECIES_RANK_BOUNDARY",
+      "action": "The 2022 Dilatata-group revision elevated this historical subspecies to a separate accepted species. Do not merge old flavescens specimens into P. dilatatum sensu stricto without concept review; no new learner installation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77301569-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184266-2",
+        "https://doi.org/10.1600/036364422X16442668423437"
+      ]
+    },
+    {
+      "source_name": "Paspalum dilatatum var. pauciciliatum Parodi",
+      "accepted_name": "Paspalum pauciciliatum (Parodi) Herter",
+      "rank": "historical variety -> accepted species",
+      "name_status": "HOMOTYPIC_CROSS_RANK_SYNONYM_POWO_WCVP",
+      "scientific_decision": "PASS_SEPARATE_SPECIES_BOUNDARY",
+      "action": "The old variety maps to separately accepted P. pauciciliatum, not any of the three currently accepted P. dilatatum varieties.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184539-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184268-2"
+      ]
+    },
+    {
+      "source_name": "Paspalum ovatum Nees ex Trin.; Paspalum ovatum var. parviflorum Nees",
+      "accepted_name": "Paspalum dilatatum var. dilatatum (species name); Paspalum urvillei Steud. (var. parviflorum)",
+      "rank": "author- and rank-sensitive historical names",
+      "name_status": "DIFFERENT_ACCEPTED_DESTINATIONS_POWO_WCVP",
+      "scientific_decision": "PASS_AUTHOR_RANK_BOUNDARY",
+      "action": "P. ovatum is an illegitimate superfluous synonym of Dallisgrass var. dilatatum; P. ovatum var. parviflorum is instead synonymized with Vaseygrass. Preserve full author/rank on legacy records.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414497-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:184521-2"
+      ]
+    },
+    {
+      "source_name": "Rosso et al. 2022 New Entities of Paspalum and a Synopsis of the Dilatata Group",
+      "accepted_name": "Paspalum dilatatum Poir. and separate Dilatata-group species",
+      "rank": "2022 primary taxonomic revision",
+      "name_status": "PUBLISHED_POLYPLOID_COMPLEX_REVISION",
+      "scientific_decision": "PASS_PRIMARY_REVISION_CONCEPT_WITH_SPECIMEN_CAUTION",
+      "action": "Primary systematic revision recognizes eight species and three P. dilatatum varieties in the complex, including distinct P. plurinerve, P. vacarianum, P. flavescens and P. torrense; supports name/rank boundaries but does not genotype any Texas specimen or prove individual hybrid ancestry.",
+      "sources": [
+        "https://doi.org/10.1600/036364422X16442668423437",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77301573-1"
+      ]
+    },
+    {
+      "source_name": "Paspalum dilatatum / Paspalum urvillei learner photographs, variety/cytotype and hybrid claims",
+      "accepted_name": "No specimen-level determination",
+      "rank": "individual identification",
+      "name_status": "NOT_VERIFIED_BY_NOMENCLATURE",
+      "scientific_decision": "HOLD_PHOTO_SPECIMEN_VARIETY_CYTOTYPE_HYBRID_ID",
+      "action": "Preserve existing species-card identity, image, and any hybrid/cytotype/variety holds. Nomenclatural PASS is not proof of an image's species or of a plant's ploidy/hybrid lineage; no photo reassignment or field-ID edit. Historical records labelled P. dilatatum sensu lato may require specimen-level reassessment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414070-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414828-1",
+        "https://doi.org/10.1600/036364422X16442668423437"
+      ]
+    }
+  ],
+  "conflict_and_hold_summary": {
+    "accepted_names": "PASS both species accepted, no rename",
+    "accepted_varieties": "PASS three P. dilatatum varieties, not assigned to Texas photos",
+    "historical_synonym_destinations": "PASS author/rank-sensitive cross-species mappings",
+    "historical_broad_concept_specimens": "UNRESOLVED specimen-level assignment without vouchers",
+    "individual_photo_identity": "HOLD preserved",
+    "variety_cytotype_hybrid_identity": "HOLD / not determined",
+    "county_nativity": "DEFERRED / not assessed"
+  },
+  "references": [
+    {
+      "authority": "POWO/WCVP 2026 Paspalum dilatatum",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414070-1",
+      "accessed": "2026-10-23"
+    },
+    {
+      "authority": "POWO/WCVP 2026 Paspalum urvillei",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:414828-1",
+      "accessed": "2026-10-23"
+    },
+    {
+      "authority": "Rosso V.C., Valls J.F.M., Quarin C.L., Speranza P.R., Rua G.H. 2022, Systematic Botany 47(1):125–139",
+      "url": "https://doi.org/10.1600/036364422X16442668423437",
+      "accessed": "2026-10-23",
+      "note": "Primary revision abstract and nomenclature cross-checked with POWO; full publisher article not directly accessible"
+    }
+  ],
+  "handoff": "Preserve existing canonical cards and identities. Historic dilatatum-variety names may belong to separately accepted Paspalum taxa; check author and rank before alias reconciliation. No new cards, photographs, genus lessons or native-range decisions.",
+  "canonical_species_modified": false,
+  "photo_sourcing_or_installation": false,
+  "genus_family_lessons_modified": false,
+  "county_native_audit_performed": false,
+  "pages_changed": false
+}
