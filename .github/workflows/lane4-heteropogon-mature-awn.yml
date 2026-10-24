@@ -1,0 +1,36 @@
+name: Lane 4 archive tanglehead mature awns
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_heteropogon_mature_awn_archive.py
+      - .github/workflows/lane4-heteropogon-mature-awn.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-heteropogon-contortus
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane4_heteropogon_mature_awn_archive.py
+      - name: Commit archive and report if valid
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Heteropogon/heteropogon-contortus/ reports/lane4-heteropogon-mature-awn-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive tanglehead mature twisted-awns photo and relink panel"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
