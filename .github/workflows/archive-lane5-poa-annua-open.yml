@@ -31,6 +31,18 @@ jobs:
           git add content/taxa/Poaceae/Poa/poa-annua/ reports/lane5-poa-annua-open-20261023.json
           if ! git diff --cached --quiet; then
             git commit -m "Archive Poa annua actual leaf tip and ligule photos"
-            git pull --rebase origin main
-            git push origin HEAD:main
+            # Reconcile concurrent authorized species updates instead of losing this archive.
+            # Failed rebases stop without force-pushing or overwriting newer work.
+            for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                echo "Archived safely on retry attempt $attempt"
+                exit 0
+              fi
+              echo "Concurrent main update after rebase; retrying $attempt"
+              sleep 2
+            done
+            echo "Concurrent main updates prevented safe publication" >&2
+            exit 1
           fi
