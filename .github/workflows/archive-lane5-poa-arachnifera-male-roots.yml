@@ -1,0 +1,37 @@
+name: Lane 5 Texas bluegrass diagnostic gap pass
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_poa_arachnifera_male_roots.py
+      - .github/workflows/archive-lane5-poa-arachnifera-male-roots.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-poa-arachnifera-male-roots
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Inspect author-labelled male/rhizome images and archive rights-cleared originals
+        run: python scripts/archive_lane5_poa_arachnifera_male_roots.py
+      - name: Save archive and specimen evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Poa/poa-arachnifera/ reports/lane5-poa-arachnifera-male-root-search-20261024.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 5: archive Texas bluegrass documented anatomy and source holds"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
