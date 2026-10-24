@@ -1,0 +1,35 @@
+name: Lane 1 sandbur USDA real reproductive anatomy archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-sandbur-usda-anatomy.yml'
+      - 'scripts/archive_lane1_sandbur_usda_anatomy.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-sandbur-usda-organ-plates
+  cancel-in-progress: false
+jobs:
+  archive-documented-usda-plates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        include:
+          - photo: cupule
+          - photo: sterile-lemma
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo dependencies
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Download and source-verify federal public-domain labelled anatomy
+        env:
+          PHOTO_SLUG: ${{ matrix.photo }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_sandbur_usda_anatomy.py
