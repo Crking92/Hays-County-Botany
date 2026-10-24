@@ -1,0 +1,218 @@
+{
+  "id": "grass-zizania-zizaniopsis-name-boundary-2026-10-24-1225-001",
+  "run_date_local": "2026-10-24",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Existing canonical Poaceae only: accepted names, synonyms, genus/rank boundaries and specimen/hybrid holds; no species/media/lesson/install/county/Pages/schedule edits.",
+  "status": "VERIFIED_ACCEPTED_TWO_DISTINCT_WILD_RICE_GENERA_WITH_HISTORIC_ZIZANIA_MILIACEA_BASIONYM_AND_SOURCE_HOLDS",
+  "claim_id": "grass-zizania-zizaniopsis-name-boundary-2026-10-24-1225-001",
+  "canonical_species": [
+    {
+      "taxon_id": "zizania-texana",
+      "path": "content/taxa/Poaceae/Zizania/zizania-texana/species.json",
+      "sha_at_review": "a3263ebea5a0383fc770e4159039b5353544e145",
+      "existing_name": "Zizania texana",
+      "verified_authority": "Hitchc.",
+      "no_canonical_edit": true
+    },
+    {
+      "taxon_id": "zizaniopsis-miliacea",
+      "path": "content/taxa/Poaceae/Zizaniopsis/zizaniopsis-miliacea/species.json",
+      "sha_at_review": "b0ee6a24c7654ae592c6a0fa5e36a24f466a7115",
+      "existing_name": "Zizaniopsis miliacea",
+      "verified_authority": "(Michx.) Döll & Asch.",
+      "no_canonical_edit": true
+    }
+  ],
+  "related_accepted_species_not_installed_by_this_run": [
+    "Zizania aquatica L.",
+    "Zizania palustris L."
+  ],
+  "scientific_decisions": [
+    {
+      "code": "ZIZ-01",
+      "status": "PASS",
+      "source_name": "Zizania texana Hitchc.",
+      "accepted_target": "Zizania texana Hitchc.",
+      "reason": "POWO/WCVP accepts at species rank; published in J. Wash. Acad. Sci. 23:454 (1933). The existing canonical name is correct; no species-level rename.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/271183-2",
+        "https://field.biodiversitylibrary.org/part/162342"
+      ]
+    },
+    {
+      "code": "ZIZ-02",
+      "status": "PASS",
+      "source_name": "Zizaniopsis miliacea (Michx.) Döll & Asch.",
+      "accepted_target": "Zizaniopsis miliacea (Michx.) Döll & Asch.",
+      "reason": "POWO/WCVP and WFO accept at species rank; combination published in Flora Brasiliensis 2(2):13 (1871). Existing canonical genus and epithet correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1030293-2",
+        "https://worldfloraonline.org/taxon/wfo-0000908030"
+      ]
+    },
+    {
+      "code": "ZIZ-03",
+      "status": "PASS",
+      "source_name": "Zizania miliacea Michx. (1803)",
+      "accepted_target": "Zizaniopsis miliacea (Michx.) Döll & Asch.",
+      "reason": "POWO identifies the 1803 Zizania name as the homotypic basionym of giant cutgrass. Retain as alias only, not an additional Zizania species card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325386-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1030293-2"
+      ]
+    },
+    {
+      "code": "ZIZ-04",
+      "status": "PASS",
+      "source_name": "Zizania L. versus Zizaniopsis Döll & Asch.",
+      "accepted_target": "TWO DISTINCT ACCEPTED GENERA",
+      "reason": "POWO separately accepts both genera; historic Zizania miliacea is a transferred basionym, not evidence that Zizania texana and Zizaniopsis miliacea are the same species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30001114-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325385-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1030293-2"
+      ]
+    },
+    {
+      "code": "ZIZ-05",
+      "status": "PASS",
+      "source_name": "Zizania aquatica L. (1753)",
+      "accepted_target": "Zizania aquatica L.",
+      "reason": "POWO/WCVP accepts as separate species from Z. texana; do not treat shared wild-rice common name as synonym or photo identification.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271175-2",
+        "https://powo.science.kew.org/taxon/271183-2",
+        "https://digitalcommons.usf.edu/kip_articles/3690/"
+      ]
+    },
+    {
+      "code": "ZIZ-06",
+      "status": "PASS",
+      "source_name": "Zizania palustris L. (1771)",
+      "accepted_target": "Zizania palustris L.",
+      "reason": "POWO/WCVP accepts as separate species from Z. texana and Z. aquatica; supported by comparative taxonomic work and later phylogeography.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2",
+        "https://powo.science.kew.org/taxon/271183-2",
+        "https://digitalcommons.usf.edu/kip_articles/3690/",
+        "https://repository.si.edu/items/a3482df2-2d38-4f87-93cb-525eeb95258a"
+      ]
+    },
+    {
+      "code": "ZIZ-07",
+      "status": "PASS",
+      "source_name": "Zizania aquatica var. angustifolia Hitchc.",
+      "accepted_target": "Zizania palustris L.",
+      "reason": "POWO lists historical variety as heterotypic synonym of Z. palustris, NOT Z. texana. Preserve rank and author when mapping old Zizania records.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2"
+      ]
+    },
+    {
+      "code": "ZIZ-08",
+      "status": "PASS",
+      "source_name": "Zizania texana versus Z. aquatica and Z. palustris species concepts",
+      "accepted_target": "Zizania texana Hitchc. — DISTINCT ACCEPTED SPECIES",
+      "reason": "Terrell, Emery & Beaty (1978) report morphological distinctions retained in cultivation; Terrell et al. (1997) provide dedicated North American Zizania taxonomy. Molecular phylogeography sampled Z. texana separately. This is species-boundary support, not independent ID of current gallery photographs.",
+      "sources": [
+        "https://digitalcommons.usf.edu/kip_articles/3690/",
+        "https://field.biodiversitylibrary.org/part/162342",
+        "https://repository.si.edu/items/a3482df2-2d38-4f87-93cb-525eeb95258a",
+        "https://powo.science.kew.org/taxon/271183-2"
+      ]
+    },
+    {
+      "code": "ZIZ-09",
+      "status": "FAIL",
+      "source_name": "Proposed blanket merge of historical Zizania miliacea into Zizania texana or Zizania aquatica",
+      "accepted_target": "REJECT FALSE SYNONYM MERGE",
+      "reason": "The full authored historical name Zizania miliacea Michx. belongs to Zizaniopsis miliacea, while Zizania texana and Z. aquatica remain separate accepted species. FAIL applies only to unsafe proposed merge, not to any accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325386-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1030293-2",
+        "https://powo.science.kew.org/taxon/271183-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271175-2"
+      ]
+    },
+    {
+      "code": "ZIZ-10",
+      "status": "HOLD",
+      "source_name": "Individual source-labelled photographs and observations of Zizania texana and Zizaniopsis miliacea",
+      "accepted_target": "SPECIMEN_ID_UNVERIFIED",
+      "reason": "Taxonomic name acceptance does not authenticate any individual source photo. Zizania texana card still lacks decisive female-awn/ligule macro; Zizaniopsis card has unresolved panicle sex-position description conflicts. Preserve provisional photo identity and any existing visual/science holds; leave to authorized specimen-ID lane.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/271183-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1030293-2",
+        "https://digitalcommons.usf.edu/kip_articles/3690/"
+      ]
+    },
+    {
+      "code": "ZIZ-11",
+      "status": "HOLD",
+      "source_name": "Individual hybrid parentage or hybrid identification for learner observations",
+      "accepted_target": "HYBRID_ID_UNVERIFIED",
+      "reason": "Neither accepted names nor comparative phylogeographic/genetic studies establish that a particular learner specimen is a hybrid. Do not infer interspecific parentage, change hybrid flags or remove holds.",
+      "sources": [
+        "https://repository.si.edu/items/a3482df2-2d38-4f87-93cb-525eeb95258a",
+        "https://digitalcommons.usf.edu/kip_articles/1989/"
+      ]
+    },
+    {
+      "code": "ZIZ-12",
+      "status": "UNRESOLVED",
+      "source_name": "Kew Zizania texana overview 'perennial' versus embedded GrassBase morphology 'annual'",
+      "accepted_target": "SOURCE_DESCRIPTION_CONFLICT_NOT_NAME_CHANGE",
+      "reason": "The same POWO site says perennial in its accepted-taxon overview but 'Annual' in the embedded GrassBase morphology paragraph; 1978 cultivation work and 2017 population-genetics study describe an aquatic perennial. Preserve provenance and existing canonical biology; this is an unresolved source-data inconsistency, not an unresolved accepted scientific name or evidence for renaming.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/271183-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2/general-information",
+        "https://digitalcommons.usf.edu/kip_articles/3690/",
+        "https://digitalcommons.usf.edu/kip_articles/1989/"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 8,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "source_audit": {
+    "authority": "POWO/WCVP current taxonomic records, checked 2026-10-24",
+    "independent_name_check": "World Flora Online 2026, Zizaniopsis miliacea",
+    "primary_taxonomic_sources": [
+      "Terrell, E.E., Emery, W.H.P. & Beaty, H.E. (1978), Observations on Zizania texana, Bull. Torrey Bot. Club 105:50–57 (abstract consulted)",
+      "Terrell, E.E., Peterson, P.M., Reveal, J.L. & Duvall, M.R. (1997), Taxonomy of North American species of Zizania, SIDA 17:533–549 (bibliographic record consulted)",
+      "Xu et al. (2015), Comparative phylogeography of Zizania, American Journal of Botany 102:239–247 (abstract consulted)",
+      "Wilson et al. (2017), Genetic diversity assessment of in situ and ex situ Texas wild rice, Aquatic Botany 136:212–219 (abstract consulted)"
+    ],
+    "limits": "Original full text of 1997 revision and complete 1978/2017 papers not independently inspected; do not claim individual specimen or hybrid confirmation. No county nativity certification performed."
+  },
+  "holds_preserved": [
+    "Zizania texana source-photo identity remains provisional; protected plants must not be handled to resolve morphology.",
+    "Zizaniopsis miliacea reproductive sex-position source conflict and individual-photo ID remain for authorized morphology/visual workers.",
+    "No hybrid identity or parentage verified for either taxon.",
+    "GrassBase 'annual' conflict is recorded without changing established perennial species concept."
+  ],
+  "safeguards": [
+    "No cross-genus synonym collapse or duplicate card installation.",
+    "No individual photograph relabeling.",
+    "No alteration to scientific PASS/FAIL/HOLD/UNRESOLVED or county-range records.",
+    "No canonical species, media, genus/family lessons, public Pages or automation modifications."
+  ],
+  "source_urls": [
+    "https://powo.science.kew.org/taxon/271183-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2/general-information",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1030293-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325386-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30001114-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:325385-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271175-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2",
+    "https://digitalcommons.usf.edu/kip_articles/3690/",
+    "https://field.biodiversitylibrary.org/part/162342",
+    "https://repository.si.edu/items/a3482df2-2d38-4f87-93cb-525eeb95258a",
+    "https://digitalcommons.usf.edu/kip_articles/1989/",
+    "https://worldfloraonline.org/taxon/wfo-0000908030"
+  ]
+}
