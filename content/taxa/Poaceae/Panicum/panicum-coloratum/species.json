@@ -67,7 +67,7 @@
     "comparison_retained": true,
     "last_reviewed": "2026-10-02",
     "photo_metadata_count": 2,
-    "photo_files_present": 2,
+    "photo_files_present": 3,
     "gbif_manual_photo_enrichment": "2026-10-15",
     "manual_panicum_card_completion_20261022": "FIELD_READY_PHOTO_GAPS",
     "lane1_20261023": {
@@ -83,7 +83,9 @@
       ],
       "status": "FIELD_READY_PHOTO_GAPS",
       "deployment_verified": false
-    }
+    },
+    "lane1_coloratum_variant_photo_gap_20261024": "CC_BY_2_EXACT_VARIETY_ANNOTATION_PROVISIONAL",
+    "photos_not_local_vouchers": true
   },
   "photo_note": "Two installed source-labelled field-habit photos; neither resolves the collar, ligule or measured mature spikelet. Keep until stronger diagnostic gallery coverage replaces or supplements it. Manual diagnostic-photo enrichment candidate installed from individually licensed source; verify anatomy against target before labeling. 2026-10-22: existing photo sources organized into species/other-species visual panels; exact source/creator/licenses, science and county flags unchanged. Fine anatomical macro gaps recorded.",
   "images": [
@@ -118,6 +120,20 @@
       "study_use": "follow individual license conditions; noncommercial only for CC BY-NC",
       "public_reuse": "Respect recorded photo-specific license",
       "modifications": "Resized JPEG and EXIF removed"
+    },
+    {
+      "file": "images/harry-rose-coloratum-var-makarikariense-collar-cc-by2.jpg",
+      "role": "VARIETY-SPECIFIC COLLAR REGION — Visible blade–sheath junction of source-identified Australian var. makarikariense; true ligule edge must be independently verified.",
+      "source_taxon_name": "Panicum coloratum var. makarikariense",
+      "source_determination": "From original photographer; independent local determination NOT made",
+      "source_locality": "Australia — NOT a Central Texas voucher",
+      "creator": "Harry Rose / Macleay Grass Man",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Panicum%20coloratum%20var%20makarikariense%20collar1%20NWP%20-%20Flickr%20-%20Macleay%20Grass%20Man.jpg",
+      "public_reuse": "CC BY 2.0 with credit, source and adaptation note",
+      "modifications": "Source JPEG resized, converted to RGB and GPS/EXIF removed; photographic content retained",
+      "photo_review": "Source-labelled morphology only; no microscopic structure pixel-certified and no arrows added."
     }
   ],
   "learner_visual_status": {
@@ -223,6 +239,21 @@
         "modification_note": "Commons source was cropped with CropTool in 2019; this learner uses the Commons 960-pixel thumbnail unchanged. No local derivative or arrow overlay added.",
         "markers": [],
         "photo_status": "EXTERNAL PROVISIONAL — USER PHOTO REVIEW PENDING. Browser preview visually inspected; source/creator/CC BY 2.0 checked. Download to canonical GitHub images/ failed, so NO JPEG bytes archived or SHA-256 verified; annotation_pending; no unverified arrow coordinates. Exact infraspecific determination is source-labelled, not independently vouchered."
+      },
+      {
+        "label": "REFERENCE var. makarikariense — COLLAR REGION (NOT Hays voucher)",
+        "scientific_name": "Panicum coloratum var. makarikariense",
+        "image_url": "content/taxa/Poaceae/Panicum/panicum-coloratum/images/harry-rose-coloratum-var-makarikariense-collar-cc-by2.jpg",
+        "image_fit": "contain",
+        "creator": "Harry Rose / Macleay Grass Man",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Panicum%20coloratum%20var%20makarikariense%20collar1%20NWP%20-%20Flickr%20-%20Macleay%20Grass%20Man.jpg",
+        "image_role": "VARIETY-SPECIFIC COLLAR REGION — Visible blade–sheath junction of source-identified Australian var. makarikariense; true ligule edge must be independently verified.",
+        "caption": "Visible blade–sheath junction of source-identified Australian var. makarikariense; true ligule edge must be independently verified. Credited photograph of the Australian variety; do not apply subtle characters to unidentified Texas specimens without confirming variety.",
+        "why_it_matters": "Adds true anatomical reference for a missing kleingrass feature, avoiding another non-diagnostic distant grass clump.",
+        "markers": [],
+        "photo_status": "Source CC BY 2.0 JPEG locally archived; PHOTO_GAPS remain for confirmed local plants and microscope measurements."
       },
       {
         "label": "3 · LOOK-ALIKE — Panicum hallii (NOT Panicum coloratum)",
