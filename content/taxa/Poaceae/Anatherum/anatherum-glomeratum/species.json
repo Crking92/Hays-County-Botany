@@ -185,11 +185,11 @@
     }
   ],
   "learner_visual_status": {
-    "status": "field_ready_photo_gaps",
+    "status": "FIELD_READY_PHOTO_GAPS",
     "mode": "learner_fast_fill",
     "image_count": 5,
     "filled_at": "2026-10-05",
-    "note": "One physically stored source-labelled A. glomeratum herbarium JPEG remains. Three historical Hawaiian photos are preserved as excluded audit records to avoid taxon-concept mismatch on public species gallery."
+    "note": "Five locally archived source-attributed images including public-domain Dry Frio River (Uvalde) clump/flower/fruit views and USGS flowering clusters; six teaching panels including a comparison-only historical var. pumilus image that belongs to A. tenuispatheum, NOT glomeratum. Ligule and sessile/pedicelled spikelet pair macros at millimeter scale missing."
   },
   "field_id_finish_pass": {
     "stage": "FIELD_READY_PHOTO_GAPS",
@@ -559,14 +559,14 @@
         "label": "HISTORICAL var. pumilus — Kew places this name under A. tenuispatheum",
         "scientific_name": "Anatherum tenuispatheum",
         "image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Starr-150330-0402-Andropogon%20glomeratus%20var%20pumilus-habit-Parade%20Field%20Sand%20Island-Midway%20Atoll%20%2840428508425%29.jpg",
-        "image_role": "Different accepted taxon name under 2026 POWO: Andropogon glomeratus var. pumilus is a synonym of Anatherum tenuispatheum; original photo identified from Midway Atoll; taxon identity not independently vouchered.",
-        "caption": "This exact Hawaiian image was formerly displayed as bushy bluestem (A. glomeratum), but the source explicitly calls it Andropogon glomeratus var. pumilus. POWO 2026 assigns that name to A. tenuispatheum. It must NOT be shown as verified ordinary A. glomeratum from Hays County. Image remains historical comparison-only until photo source and plant determination are independently checked.",
+        "image_role": "LOOK-ALIKE / TAXONOMIC SPLIT ONLY: this is A. tenuispatheum historical var. pumilus, never a photograph of A. glomeratum",
+        "caption": "This historical var. pumilus photograph belongs to the separately accepted Anatherum tenuispatheum, NOT bushy bluestem (A. glomeratum). Included solely to teach the naming trap; never count as an A. glomeratum species image.",
         "why_it_matters": "Avoids training crews on the wrong accepted taxon from older synonym-based photographs.",
         "creator": "Forest & Kim Starr",
         "license": "CC BY 3.0 US",
         "license_url": "https://creativecommons.org/licenses/by/3.0/us/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Starr-150330-0402-Andropogon_glomeratus_var_pumilus-habit-Parade_Field_Sand_Island-Midway_Atoll_(40428508425).jpg",
-        "photo_status": "Historic source category under var. pumilus, synonym explicitly mapped by Kew to A. tenuispatheum; provenance Midway Hawaii, not Hays; comparison only. No structural arrows; no inference of species-confirmed original pixels."
+        "photo_status": "COMPARISON_ONLY_NOT_EXACT_SPECIES"
       }
     ],
     "overlay_note": "2026-10-22: Kew-verified split of A. glomeratum from synonym A. glomeratus var. pumilus (A. tenuispatheum). Original photo records and credits preserved but corrected display label/role. Zero new arrows; exact source pixels not available for microscopic verification. Three site-author public domain Dry Frio Uvalde 2012 photographs added with SIX arrows to obvious gross organs (basal clump, stems, spread flowering units, silky fruiting structure). No precise paired spikelet, lemma, ligule or spathe insertion-point annotations."
@@ -630,5 +630,24 @@
       "correct_name_reference": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1",
       "review_status": "QUARANTINED_FROM_WRONG_TAXON; original media not reassigned to another species gallery"
     }
-  ]
+  ],
+  "lane3_photo_evidence_reconciliation_20261023": {
+    "status": "FIVE_REAL_SPECIES_PHOTOS_PRESERVED_DIAGNOSTIC_MICRO_HOLD",
+    "local_species_images": 5,
+    "teaching_panels": 6,
+    "verified_roles": [
+      "Dry Frio River Uvalde source-identified entire clump and flowering culms",
+      "USGS source-identified dense flowering cluster",
+      "Uvalde expanded flowering branches and mature silky dispersal structures"
+    ],
+    "important_taxon_split": "Andropogon glomeratus var. pumilus references belong to Anatherum tenuispatheum, not A. glomeratum; any retained visual panel must be explicitly designated as a NON-species comparison.",
+    "remaining_photo_targets": [
+      "Source-vouchered upper sheath with both margins and TRUE ligule beside a 1-mm scale",
+      "Attached paired short racemes with spathe, pedicels and mm ruler",
+      "Single mature sessile fertile spikelet with reduced pedicelled companion in situ at 10–20x",
+      "Matched broomsedge closeup from independently determined specimen"
+    ],
+    "photo_arrow_rule": "Retain gross-structure arrows on existing source-confirmed photos. Do not infer sessile versus pedicellate structures from silky bulk photo.",
+    "range_rule": "Preserve county-native evidence and existing provenance, no new county certification."
+  }
 }
