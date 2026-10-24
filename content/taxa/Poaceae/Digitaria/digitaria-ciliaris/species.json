@@ -11,16 +11,17 @@
     "visual_reviewed": false,
     "photo_source_checked": true,
     "photo_metadata_count": 5,
-    "photo_files_present": 3,
+    "photo_files_present": 5,
     "manual_digitaria_field_20261020": "2026-10-20",
     "visual_finish": "FIELD_READY_PHOTO_GAPS",
     "manual_digitaria_photo_comparison_20261021": true,
     "original_photo_file_count": 1,
-    "verified_visible_arrows": 8,
+    "verified_visible_arrows": 14,
     "extra_external_photo_panels": 2,
-    "original_rights_and_native_fields_untouched": true
+    "original_rights_and_native_fields_untouched": true,
+    "manual_digitaria_archived_macro_pixel_20261024": true
   },
-  "photo_note": "Original physically present source JPEG inspected and retained with individual creator/license. 2 supplementary Commons images added as credited external photo panels. Annotation arrows target only actual visible structures; no true collar, root nodes, hairy axils or measured microlemma claims.",
+  "photo_note": "Original physically present source JPEG inspected and retained with individual creator/license. 2 supplementary Commons images added as credited external photo panels. Annotation arrows target only actual visible structures; no true collar, root nodes, hairy axils or measured microlemma claims. On 2026-10-24 both already archived CC BY iNaturalist macro JPEGs (423560727 and 423563754) were inspected at actual pixel level, promoted to annotated gallery panels (3 visible-only arrows apiece); all five own-species photo JPEGs confirmed present in GitHub. These photographs do not prove the hidden upper glume or true ligule.",
   "taxonomy_source": "https://powo.science.kew.org/results?q=Digitaria%20ciliaris",
   "images": [
     {
@@ -52,22 +53,22 @@
     },
     {
       "file": "images/inat-cc-423560727.jpg",
-      "role": "Additional species-specific southern crabgrass photograph — diagnostic anatomy to be determined by subsequent pixel inspection",
+      "role": "Pixel-inspected detached spikelet beside ruled scale divisions: outline and exterior venation visible, precise glume/lemma identity unresolved",
       "creator": "(c) Thomas Gyselinck, some rights reserved (CC BY)",
       "license": "CC-BY",
       "source_page": "https://www.inaturalist.org/photos/423560727",
       "source_observation": "https://www.inaturalist.org/observations/237936871",
-      "photo_status": "PROVISIONAL — image pixels and identification pending manual review; no claimed ligule, lemma or glume macro",
+      "photo_status": "LOCAL CC BY IMAGE VERIFIED PIXELS 2026-10-24; broad arrows added to live photo gallery; microscale units and glume-versus-lemma unresolved",
       "public_reuse": "Source photo's image-level CC license with attribution"
     },
     {
       "file": "images/inat-cc-423563754.jpg",
-      "role": "Additional species-specific southern crabgrass photograph — diagnostic anatomy to be determined by subsequent pixel inspection",
+      "role": "Pixel-inspected flowering-branch macro: attached one-sided overlapping spikelets and narrow rachis visible; no exposed dissected glumes",
       "creator": "(c) Thomas Gyselinck, some rights reserved (CC BY)",
       "license": "CC-BY",
       "source_page": "https://www.inaturalist.org/photos/423563754",
       "source_observation": "https://www.inaturalist.org/observations/237936871",
-      "photo_status": "PROVISIONAL — image pixels and identification pending manual review; no claimed ligule, lemma or glume macro",
+      "photo_status": "LOCAL CC BY IMAGE VERIFIED PIXELS 2026-10-24; broad arrows added to live photo gallery; ligule and detached glume not pictured",
       "public_reuse": "Source photo's image-level CC license with attribution"
     }
   ],
@@ -128,7 +129,7 @@
     ]
   },
   "photo_strategy": {
-    "remaining_need": "NEEDS_DIAGNOSTIC_PHOTO: magnified sterile lemma veins, paired spikelets and ligule; existing photo not anatomy-verified. annotation_pending.",
+    "remaining_need": "LOCAL_MACROS_ARCHIVED_AND_ARROWED: five physically stored Digitaria ciliaris photos, including a detached spikelet beside a scale and an attached spikelet raceme; core unresolved anatomy is an orientation-confirmed visible upper glume (versus D. sanguinalis), mature dissected sterile lemma lateral veins and real sheath/blade ligule with scale, plus rooted node.",
     "reference": "https://nyflora.org/the-nonnative-crab-grasses-digitaria-of-new-york/"
   },
   "field_id_finish_pass": {
@@ -143,7 +144,7 @@
       "True D. sanguinalis vs D. ciliaris comparative sterile lower-lemma vein prickles and hair pattern with vouchered ripe specimen"
     ],
     "taxonomy_or_range_guardrail": "POWO treats D. ciliaris as primarily native to the Old World; do not present as a restoration-native grass. County-native status fields are untouched pending normal project range workflow.",
-    "existing_photo_pixels": "Original stored real JPEG inspected 2026-10-21; visible-only arrows added. Supplementary Commons CC/CC0 photos manually inspected and linked with source attribution; NOT stored as new image files.",
+    "existing_photo_pixels": "Original stored real JPEG inspected 2026-10-21; visible-only arrows added. Supplementary Commons CC/CC0 photos manually inspected and linked with source attribution; NOT stored as new image files. Two additional physically archived CC BY photos inspected 2026-10-24, with visible-only rachis/spikelet arrows. Still no clean hidden-side glume or true ligule.",
     "scientific_status_preserved": true,
     "original_science_range_unchanged": true,
     "verified_gross_structure_arrows": 8,
@@ -178,6 +179,31 @@
       "photo_roles": "Emerging panicle close-up and flowering architecture; not true collar/ligule or measured floret",
       "next": "Source-vouchered 1-mm collar, spikelet pubescence and mature glume/lemma with measured scale",
       "site_display": "Requires live verification"
+    },
+    "lane4_pixel_review_20261024": {
+      "status": "FIELD_READY_PHOTO_GAPS",
+      "verified_local_species_jpegs": 5,
+      "verified_species_gallery_panels": 5,
+      "visually_inspected_file_paths": [
+        "images/inat-cc-423560727.jpg",
+        "images/inat-cc-423563754.jpg"
+      ],
+      "new_visible_only_arrows": 6,
+      "verified_existing_gross_arrows": 8,
+      "resolved_photo_roles": [
+        "individual detached intact spikelet shown beside uncalibrated scale divisions",
+        "one-sided rachis showing multiple attached pointed spikelets"
+      ],
+      "not_resolved": [
+        "upper glume exposed on hidden side and length as percentage of whole spikelet",
+        "separated lower glume, upper glume, sterile lower lemma and fertile upper lemma",
+        "true membranous ligule at inner leaf collar",
+        "whole plant with same-plant rooted lower node",
+        "live GitHub Pages rendering"
+      ],
+      "note": "Do not count photographed exterior striations as a dissected sterile lemma or mistake spikelet/rachis hairs for awns. Published source image CC BY attribution preserved.",
+      "field_comparison_source": "https://www.inaturalist.org/posts/110925-separating-digitaria-sanguinalis-and-digitaria-ciliaris",
+      "science_source": "https://w3.biosci.utexas.edu/prc/K12/pages/Digitaria%20ciliaris%20ciliaris.html"
     }
   },
   "field_id_references": [
@@ -193,7 +219,7 @@
   ],
   "visual_comparison": {
     "title": "Digitaria ciliaris — visible field ID with real photo comparisons",
-    "subtitle": "Three source-labelled photos for this taxon followed by three from the installed look-alike. Bristly-lemma and hairy-axil diagnoses require proper magnification.",
+    "subtitle": "Five physically archived, species-specific southern crabgrass photos (including two newly inspected anatomy macros), followed by three installed look-alike comparisons. Visible arrows are gross structures; upper-glume dissection and ligule still required.",
     "memory_rule": "CILIARIS = FINGERLIKE ONE-SIDED RACEMES AND CROWDED SPIKELETS. COGNATA = AIRY BRANCHES AND DISTANT TERMINAL SPIKELETS.",
     "items": [
       {
@@ -302,6 +328,78 @@
         "archived_original_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Starr_090121-1186_Digitaria_ciliaris.jpg/960px-Starr_090121-1186_Digitaria_ciliaris.jpg"
       },
       {
+        "label": "Southern crabgrass — isolated spikelet with adjacent scale",
+        "scientific_name": "Digitaria ciliaris",
+        "image_url": "content/taxa/Poaceae/Digitaria/digitaria-ciliaris/images/inat-cc-423560727.jpg",
+        "image_fit": "contain",
+        "image_role": "ACTUAL archived CC BY exact-source macrophotograph: single detached spikelet, obvious longitudinal outer-surface veins, nearby scale; glume and sterile-lemma faces NOT definitively separated",
+        "caption": "Thomas Gyselinck's isolated photographed spikelet is placed beside ruled divisions. The narrow green body, pointed tip, longitudinal outer veins and darker basal end are directly visible. Do not equate the photographed outer surface with a dissected sterile lower lemma, label a specific glume, or infer exact length until the original scale calibration and organ orientation are confirmed.",
+        "creator": "(c) Thomas Gyselinck, some rights reserved (CC BY)",
+        "license": "CC-BY",
+        "source_page": "https://www.inaturalist.org/photos/423560727",
+        "markers": [
+          {
+            "label": "Isolated entire spikelet",
+            "label_x": 73,
+            "label_y": 23,
+            "target_x": 59,
+            "target_y": 50
+          },
+          {
+            "label": "Longitudinal outer veins",
+            "label_x": 71,
+            "label_y": 67,
+            "target_x": 60,
+            "target_y": 56
+          },
+          {
+            "label": "Adjacent scale marks",
+            "label_x": 4,
+            "label_y": 16,
+            "target_x": 12,
+            "target_y": 32
+          }
+        ],
+        "photo_status": "Actual locally archived JPEG visually examined 2026-10-24; arrows show visible spikelet outline, veins and adjacent divisions only. Exact glume/lemma anatomy, scale units and identification source not independently re-vouchered.",
+        "why_it_matters": "Teaching close-up of a genuine individual spikelet; this gets the crew closer to species-level diagnosis while showing why the hidden upper glume needs its own face-on photograph."
+      },
+      {
+        "label": "Southern crabgrass — attached spikelets on one-sided branch",
+        "scientific_name": "Digitaria ciliaris",
+        "image_url": "content/taxa/Poaceae/Digitaria/digitaria-ciliaris/images/inat-cc-423563754.jpg",
+        "image_fit": "contain",
+        "image_role": "ACTUAL archived CC BY species-specific macro of real flowering branch and multiple attached flattened spikelets; unequal paired pedicel lengths and hidden glumes NOT resolved",
+        "caption": "Photograph visibly shows several elongated, sharply pointed spikelets crowded along a narrow reddish-green rachis, with parallel veins on exposed surfaces. This is the flowering branch/spikelet attachment view missing from the original close-up; it does not independently show isolated upper glumes, ligule or measured lateral nerve ornamentation.",
+        "creator": "(c) Thomas Gyselinck, some rights reserved (CC BY)",
+        "license": "CC-BY",
+        "source_page": "https://www.inaturalist.org/photos/423563754",
+        "markers": [
+          {
+            "label": "Flattened flowering rachis",
+            "label_x": 8,
+            "label_y": 80,
+            "target_x": 46,
+            "target_y": 58
+          },
+          {
+            "label": "Attached pointed spikelet",
+            "label_x": 73,
+            "label_y": 11,
+            "target_x": 78,
+            "target_y": 14
+          },
+          {
+            "label": "Crowded spikelets",
+            "label_x": 78,
+            "label_y": 75,
+            "target_x": 52,
+            "target_y": 64
+          }
+        ],
+        "photo_status": "Actual locally archived JPEG visually examined 2026-10-24; arrows restricted to visible rachis and whole spikelets. No invented paired-stalk length, hidden glume or micromorphology arrow.",
+        "why_it_matters": "Teach the crew where spikelets attach along the one-sided crabgrass raceme before making the higher-magnification glume/lemma check needed against D. sanguinalis."
+      },
+      {
         "label": "Fall witchgrass — airy panicle with widely spaced oval spikelets",
         "scientific_name": "Digitaria cognata",
         "image_url": "content/taxa/Poaceae/Digitaria/digitaria-cognata/images/inat-740510331.jpg",
@@ -403,32 +501,6 @@
         ],
         "photo_status": "Real-photo pixels visually reviewed on 2026-10-21; targets only visible structures. Source identification and geography unverified for Hays. Original CC requirements preserved.",
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
-      },
-      {
-        "label": "Southern crabgrass — additional source-labelled photograph (review pending)",
-        "scientific_name": "Digitaria ciliaris",
-        "image_url": "content/taxa/Poaceae/Digitaria/digitaria-ciliaris/images/inat-cc-423560727.jpg",
-        "image_fit": "contain",
-        "image_role": "Real exact-source-labelled photograph, anatomical features not yet evaluated",
-        "caption": "Open-license iNaturalist research-grade observation. Inspect actual pixels before designating habit, collar or reproductive structures as proven.",
-        "creator": "(c) Thomas Gyselinck, some rights reserved (CC BY)",
-        "license": "CC-BY",
-        "source_page": "https://www.inaturalist.org/photos/423560727",
-        "markers": [],
-        "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING"
-      },
-      {
-        "label": "Southern crabgrass — additional source-labelled photograph (review pending)",
-        "scientific_name": "Digitaria ciliaris",
-        "image_url": "content/taxa/Poaceae/Digitaria/digitaria-ciliaris/images/inat-cc-423563754.jpg",
-        "image_fit": "contain",
-        "image_role": "Real exact-source-labelled photograph, anatomical features not yet evaluated",
-        "caption": "Open-license iNaturalist research-grade observation. Inspect actual pixels before designating habit, collar or reproductive structures as proven.",
-        "creator": "(c) Thomas Gyselinck, some rights reserved (CC BY)",
-        "license": "CC-BY",
-        "source_page": "https://www.inaturalist.org/photos/423563754",
-        "markers": [],
-        "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING"
       }
     ],
     "overlay_note": "Six individually credited real source photos: 2 existing project JPGs and 4 Commons linked images, including CC0 and CC BY. All arrow tips target visible gross features only. County nativity flags and source determinations unchanged. Full-rooted and microscopic keys still missing."
