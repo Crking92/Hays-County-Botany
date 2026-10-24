@@ -1,0 +1,29 @@
+name: Lane 3 Texas tridens diagnostic photo archive
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane3-tridens-texanus-cc0-20261023.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane3_archive_tridens_texanus_cc0_20261023.py
+      - name: Commit actual locally archived image evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-tridens-texanus-cc0-20261023.json content/taxa/Poaceae/Tridens/tridens-texanus/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 3 archive licensed Texas tridens anatomy views or source holds"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
