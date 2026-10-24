@@ -1,0 +1,33 @@
+name: Lane 2 archive purple threeawn mature fruit
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane2_aristida_purpurea_curtis_clark.py
+      - .github/workflows/lane2-archive-aristida-purpurea-fruits.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-aristida-purpurea-fruit
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install pillow
+      - run: python scripts/archive_lane2_aristida_purpurea_curtis_clark.py
+      - name: Commit only completed archive and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Aristida/aristida-purpurea/ reports/lane2-aristida-purpurea-curtis-clark-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive licensed purple threeawn mature fruit photograph"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
