@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - 'workflow/photo-review-candidates/chloris-virgata-20261023.json'
+      - 'workflow/photo-review-candidates/echinochloa-crus-galli-lane1-20261023.json'
       - 'scripts/commons_photo_review_import.py'
       - '.github/workflows/grass-commons-photo-review.yml'
 permissions:
@@ -25,6 +26,12 @@ jobs:
           - title: 'File:Chloris virgata spikelets young (6774152342).jpg'
             taxon: 'Chloris virgata'
             slug: 'young-spikelets'
+          - title: 'File:Echinochloa crusgalli ligule1 (7120566875).jpg'
+            taxon: 'Echinochloa crus-galli'
+            slug: 'barnyard-ligule-absent'
+          - title: 'File:Echinochloa crusgalli spikelet annotated (7120556227).jpg'
+            taxon: 'Echinochloa crus-galli'
+            slug: 'barnyard-spikelet-labelled'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
