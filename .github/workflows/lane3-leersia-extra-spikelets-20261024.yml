@@ -1,0 +1,38 @@
+name: Lane 3 photo verified rice cutgrass spikelets
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane3-leersia-extra-spikelets-20261024.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-leersia-exact-spikelets-20261024
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane3_leersia_exact_spikelets_20261024.py
+      - name: Commit imported authenticated closeup files with rebase retry
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-leersia-spikelet-extra-20261024.json content/taxa/Poaceae/Leersia/leersia-oryzoides/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 3 rice cutgrass licensed spikelet detail and audited photo gaps"
+            pushed=0
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = "1"
+          fi
