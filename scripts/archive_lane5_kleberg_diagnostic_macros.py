@@ -3,7 +3,7 @@
 Only pixel-checked and photographer-labelled anatomy receives arrows.
 Append-only image records, preserve all existing source/annotation data.
 """
-import io, json, hashlib, html, pathlib, re, urllib.parse, urllib.request
+import io, json, hashlib, html, pathlib, re, urllib.parse, urllib.request, urllib.error, time
 from PIL import Image
 
 ROOT = pathlib.Path("content/taxa/Poaceae/Dichanthium/dichanthium-annulatum")
@@ -50,8 +50,14 @@ specs = [
 ]
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent":"HaysCountyBotany/1.0 public licensed botanical educational media"})
-    with urllib.request.urlopen(req, timeout=50) as res:
-        return res.read()
+    for attempt in range(6):
+        try:
+            with urllib.request.urlopen(req, timeout=50) as res:
+                return res.read()
+        except urllib.error.HTTPError as exc:
+            if exc.code not in (429,503) or attempt==5:
+                raise
+            time.sleep(min(35, 4 * (2 ** attempt)))
 for spec in specs:
     source = "https://commons.wikimedia.org/wiki/File:" + spec["name"].replace(" ", "_")
     url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
@@ -59,6 +65,12 @@ for spec in specs:
         "titles":"File:"+spec["name"],"format":"json"
     })
     try:
+        dest = ROOT / "images" / spec["file"]
+        previous_panel = next((x for x in gallery if x.get("source_page")==source and x.get("image_url")==str(dest)),None)
+        previous_media = next((x for x in s["images"] if x.get("file")=="images/"+spec["file"]),None)
+        if dest.exists() and previous_panel and previous_media:
+            results.append({"source":source,"status":"previously_archived","file":str(dest),"pixels":previous_media.get("original_dimensions",[]),"license":"CCBY20"})
+            continue
         data = json.loads(get(url))
         info = next(iter(data["query"]["pages"].values()))["imageinfo"][0]
         meta = info["extmetadata"]
@@ -120,8 +132,8 @@ summary["crew_teaching_summary"]=(
 summary["lane5_anatomy_followup_20261024"] = {
     "status":"FIELD_READY_PHOTO_GAPS","source_license":"Harry Rose Wikimedia Commons CC BY 2.0",
     "archives":results,
-    "new_actual_diagnostic_source_photos":len([r for r in results if r["status"]=="archived" and ("fertile1" in r["source"] or "pair4" in r["source"])]),
-    "new_pixel_checked_anatomy_arrows":len([z for z in results if z["status"]=="archived" and "fertile1" in z["source"]])*3 + len([z for z in results if z["status"]=="archived" and "pair4" in z["source"]])*3,
+    "new_actual_diagnostic_source_photos":len([r for r in results if r["status"] in ("archived","previously_archived") and ("fertile1" in r["source"] or "pair4" in r["source"])]),
+    "new_pixel_checked_anatomy_arrows":len([z for z in results if z["status"] in ("archived","previously_archived") and "fertile1" in z["source"]])*3 + len([z for z in results if z["status"] in ("archived","previously_archived") and "pair4" in z["source"]])*3,
     "critical_remaining":["Hays Texas verified same-plant node and root/stolon base", "Attached sessile+pedicelled pair under a real 1-mm ruler",
                           "Definitive actual ligule edge under scale","Arrow alignment QA on deployed mobile site"],
     "regional_caution":"FNA Texas/US plants have glabrous or short pubescent nodes; do not universalize Australian bearded-node photograph.",
