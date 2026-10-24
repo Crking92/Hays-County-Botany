@@ -170,14 +170,29 @@
         "scientific_name": "Chloris andropogonoides",
         "image_url": "content/taxa/Poaceae/Chloris/chloris-andropogonoides/images/inat-open-493616853.jpg",
         "image_fit": "contain",
-        "image_role": "Source-identified species field reference; individual anatomical features not yet reviewed",
-        "caption": "A locally archived CC-BY photograph of a research-grade source-identified plant. Compare gross inflorescence form, but do not assume the ligule, glumes, fertile lemma, sterile lemma or awn insertion can be diagnosed from this view.",
-        "why_it_matters": "Additional real plant reference for comparing variation in the species; not independently verified diagnostic anatomy.",
+        "image_role": "Pixel-reviewed gross flowering-head anatomy: central hub and long radiating racemes (not individual floret parts)",
+        "caption": "The photographed slender racemes radiate from one clearly visible hub over a hand. Two overlay arrows identify the actual hub and one raceme. This image does not resolve a ligule, individual glumes, sterile/fertile lemmas, or awn insertion.",
+        "why_it_matters": "Learn where the flowering branches join before comparing branch tiers and mature spikelets with other Chloris species; hub silhouette alone cannot confirm species.",
         "creator": "(c) Cleveland Powell, some rights reserved (CC BY)",
         "license": "CC-BY",
         "source_page": "https://www.inaturalist.org/photos/493616853",
-        "photo_status": "OPEN_LICENSE_LOCAL_IMAGE; ANATOMICAL_PIXEL_REVIEW_PENDING",
-        "markers": []
+        "photo_status": "ARCHIVED_OPEN_LICENSE; GROSS_ORGANS_PIXEL_VERIFIED_2026-10-23; EXACT_SPECIES_SOURCE_ID_PROVISIONAL; MICRO_ANATOMY_PENDING; INDIVIDUAL_LICENSE_VERSION_NOT_RECONFIRMED",
+        "markers": [
+          {
+            "label": "Central raceme hub",
+            "label_x": 69,
+            "label_y": 17,
+            "target_x": 55,
+            "target_y": 45
+          },
+          {
+            "label": "Slender radiating raceme",
+            "label_x": 5,
+            "label_y": 14,
+            "target_x": 29,
+            "target_y": 31
+          }
+        ]
       },
       {
         "label": "Open-license field photograph 2",
@@ -198,14 +213,29 @@
         "scientific_name": "Chloris andropogonoides",
         "image_url": "content/taxa/Poaceae/Chloris/chloris-andropogonoides/images/inat-open-348830562.jpg",
         "image_fit": "contain",
-        "image_role": "Source-identified species field reference; individual anatomical features not yet reviewed",
-        "caption": "A locally archived CC-BY photograph of a research-grade source-identified plant. Compare gross inflorescence form, but do not assume the ligule, glumes, fertile lemma, sterile lemma or awn insertion can be diagnosed from this view.",
-        "why_it_matters": "Additional real plant reference for comparing variation in the species; not independently verified diagnostic anatomy.",
+        "image_role": "Pixel-reviewed dry flowering-head anatomy: hub and attached spikelet-bearing raceme (not isolated spikelets)",
+        "caption": "Dry pale racemes converge at the visible hub over the fingers. The upper-right ray bears many narrow pointed flowering units, but the photo lacks a millimeter ruler and does not resolve the glumes or fertile/sterile lemmas. Two arrows identify only the visible hub and a spikelet-bearing raceme.",
+        "why_it_matters": "Compare the dry mature-looking head with the green head while recognizing that apparent awns and florets still require measured dissection for reliable species separation.",
         "creator": "(c) Cleveland Powell, some rights reserved (CC BY)",
         "license": "CC-BY",
         "source_page": "https://www.inaturalist.org/photos/348830562",
-        "photo_status": "OPEN_LICENSE_LOCAL_IMAGE; ANATOMICAL_PIXEL_REVIEW_PENDING",
-        "markers": []
+        "photo_status": "ARCHIVED_OPEN_LICENSE; GROSS_ORGANS_PIXEL_VERIFIED_2026-10-23; EXACT_SPECIES_SOURCE_ID_PROVISIONAL; MICRO_ANATOMY_PENDING; INDIVIDUAL_LICENSE_VERSION_NOT_RECONFIRMED",
+        "markers": [
+          {
+            "label": "Raceme junction",
+            "label_x": 4,
+            "label_y": 36,
+            "target_x": 30,
+            "target_y": 52
+          },
+          {
+            "label": "Spikelet-bearing raceme",
+            "label_x": 55,
+            "label_y": 8,
+            "target_x": 72,
+            "target_y": 29
+          }
+        ]
       },
       {
         "label": "Open-license field photograph 4",
@@ -390,7 +420,52 @@
     ],
     "annotation_rule": "Do not label microscopic features until visible at sufficient image resolution; no unverified new arrows.",
     "deployment_rule": "Local GitHub image files do not prove they were published on Pages; separately test image URLs.",
-    "teaching_panel_count": 7
+    "teaching_panel_count": 7,
+    "gross_structure_pixel_audit": {
+      "review_date": "2026-10-23",
+      "scope": "Only already archived images; no new JPEGs, rights upgrades or scientific status changes",
+      "reviewed": [
+        {
+          "file": "images/inat-open-493616853.jpg",
+          "git_blob_sha": "1a19ef7624e1fbd26cabb2884632e7c7964f68cd",
+          "bytes": 63080,
+          "pixels": "768x1024",
+          "jpeg_soi_eoi": true,
+          "app1_exif_segment_detected": false,
+          "source_photo": "https://www.inaturalist.org/photos/493616853",
+          "creator": "Cleveland Powell (recorded in existing source metadata)",
+          "recorded_license": "CC BY; version not independently reconfirmed",
+          "verified_visible": [
+            "raceme hub",
+            "long slender radiating raceme"
+          ],
+          "markers_added": 2
+        },
+        {
+          "file": "images/inat-open-348830562.jpg",
+          "git_blob_sha": "7ff0ea25afced4d459faee7017f26ab7bb1e64de",
+          "bytes": 160988,
+          "pixels": "771x1024",
+          "jpeg_soi_eoi": true,
+          "app1_exif_segment_detected": false,
+          "source_photo": "https://www.inaturalist.org/photos/348830562",
+          "creator": "Cleveland Powell (recorded in existing source metadata)",
+          "recorded_license": "CC BY; version not independently reconfirmed",
+          "verified_visible": [
+            "dry raceme junction",
+            "attached spikelet-bearing raceme"
+          ],
+          "markers_added": 2
+        }
+      ],
+      "holds": [
+        "Original iNaturalist photo pages inaccessible during independent license-version check; original CC BY attribution and historical metadata retained, no license version inferred.",
+        "Source-observation species ID remains provisional without voucher and measured floret anatomy.",
+        "True ligule/collar with 1mm scale; same-voucher mature spikelet glumes and fertile/sterile lemmas and awn origins at 10–20x; complete rooted flowering culm; matched Chloris look-alikes still NEEDS_PUBLIC_PHOTO.",
+        "Other archived field photographs retain annotation_pending until individual pixel review; no new arrows on them."
+      ],
+      "review_status": "PARTIAL_GROSS_ANATOMY_VERIFIED__MICRO_ANATOMY_PENDING__FIELD_READY_PHOTO_GAPS"
+    }
   },
   "field_id_measured_key_20261023": {
     "source": "https://abm.ojs.inecol.mx/index.php/abm/article/download/1091/1273?inline=1",
