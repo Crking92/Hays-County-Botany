@@ -232,6 +232,47 @@
       "new_real_photos_archived": 0,
       "new_arrows": 0,
       "reason": "Current field shot mixed with other vegetation and historical plate is an illustration; no pixels support measured ligule or mature spikelet arrows."
+    },
+    "diagnostic_photo_fastfill_20261024": {
+      "status": "FIELD_READY_PHOTO_GAPS",
+      "source_photos_reused": 2,
+      "new_jpeg_files": 0,
+      "new_gross_visible_arrows": 4,
+      "new_fine_anatomy_arrows": 0,
+      "verified_archived_photos": [
+        {
+          "file": "images/inat-cc-632023937.jpg",
+          "bytes": 189889,
+          "width": 768,
+          "height": 1024,
+          "git_blob_sha": "dd00e010462dcd811cb06a8a906945ee89b5690c",
+          "creator": "Cody Stricker",
+          "recorded_license": "CC BY (version unconfirmed)",
+          "source_page": "https://www.inaturalist.org/photos/632023937",
+          "jpeg_signatures": "pass",
+          "app1_exif_segment": false
+        },
+        {
+          "file": "images/inat-cc-632024018.jpg",
+          "bytes": 256318,
+          "width": 768,
+          "height": 1024,
+          "git_blob_sha": "03914325e1537db910a524d86426719ce8bebbca",
+          "creator": "Cody Stricker",
+          "recorded_license": "CC BY (version unconfirmed)",
+          "source_page": "https://www.inaturalist.org/photos/632024018",
+          "jpeg_signatures": "pass",
+          "app1_exif_segment": false
+        }
+      ],
+      "remaining_gaps": [
+        "NEEDS_PUBLIC_PHOTO: vouchered local same-plant flowering panicle plus spring rosette and crown; current images show a cut flowering portion and a separate rooted cluster, not same-plant linkage.",
+        "NEEDS_PUBLIC_PHOTO: true blade-sheath ligule and basal blade margin photographed at 10–20× with 1-mm ruler.",
+        "NEEDS_PUBLIC_PHOTO: three mature spikelets measured beside 1-mm ruler, glumes/lemmas dissected to verify species-level characters.",
+        "annotation_pending: glume veins, lemma surface, exact spikelet size, ligule hairs and rootstock/rhizome.",
+        "NEEDS_SITE_QA: verify arrow overlay placement on published mobile learner and independently reconfirm both iNaturalist photo license versions."
+      ],
+      "evidence_scope": "Both original physically archived JPEGs inspected; arrows only on visible gross organs. No species taxon/range/status or license modification; no new photo bytes."
     }
   },
   "field_id_references": [
@@ -404,8 +445,23 @@
         "creator": "(c) Cody Stricker, some rights reserved (CC BY)",
         "license": "CC-BY",
         "source_page": "https://www.inaturalist.org/photos/632023937",
-        "markers": [],
-        "photo_status": "ARCHIVED JPEG PIXELS VISUALLY INSPECTED 2026-10-24; provisional source taxon ID; CC BY recorded but original photo-page license version could not be independently reconfirmed; anatomy arrows annotation_pending.",
+        "markers": [
+          {
+            "label": "Visible green oval spikelet",
+            "label_x": 6,
+            "label_y": 15,
+            "target_x": 46,
+            "target_y": 40
+          },
+          {
+            "label": "Fine attached flowering axis",
+            "label_x": 72,
+            "label_y": 76,
+            "target_x": 44,
+            "target_y": 61
+          }
+        ],
+        "photo_status": "ARCHIVED JPEG 189,889 bytes, 768×1024; Git blob dd00e010462dcd811cb06a8a906945ee89b5690c. 2026-10-24 byte-decoded, JPEG signatures/size checked, no APP1 segment, actual pixels inspected. Two gross visible arrows verified (green spikelet and attached flowering axis). No measured glume, lemma, true ligule or species-level independent voucher proof. Existing Cody Stricker CC BY attribution/source preserved; exact license version not independently reconfirmed.",
         "why_it_matters": "A real same-species reproductive close-up replaces the historical drawing as the first reproductive teaching view, while keeping the old drawing clearly labeled as a historical concept reference.",
         "archive_verified_bytes": 189889,
         "archive_git_blob_sha": "dd00e010462dcd811cb06a8a906945ee89b5690c"
@@ -420,8 +476,23 @@
         "creator": "(c) Cody Stricker, some rights reserved (CC BY)",
         "license": "CC-BY",
         "source_page": "https://www.inaturalist.org/photos/632024018",
-        "markers": [],
-        "photo_status": "ARCHIVED JPEG PIXELS VISUALLY INSPECTED 2026-10-24; provisional source taxon ID; CC BY recorded but original photo-page license version could not be independently reconfirmed; anatomy arrows annotation_pending.",
+        "markers": [
+          {
+            "label": "Exposed fine roots",
+            "label_x": 5,
+            "label_y": 87,
+            "target_x": 34,
+            "target_y": 85
+          },
+          {
+            "label": "Dry basal leaf sheaths",
+            "label_x": 71,
+            "label_y": 55,
+            "target_x": 49,
+            "target_y": 65
+          }
+        ],
+        "photo_status": "ARCHIVED JPEG 256,318 bytes, 768×1024; Git blob 03914325e1537db910a524d86426719ce8bebbca. 2026-10-24 byte-decoded, JPEG signatures/size checked, no APP1 segment, actual pixels inspected. Two gross visible arrows verified (exposed fine roots and dry basal leaf sheaths); roots do not prove rhizome, seasonal rosette, or local voucher. Existing Cody Stricker CC BY attribution/source preserved; exact license version not independently reconfirmed.",
         "why_it_matters": "Supplies a genuinely different rooted-base and vegetative view instead of another distant grass stand; use with the attached spikelet photo to plan a same-voucher measured follow-up.",
         "archive_verified_bytes": 256318,
         "archive_git_blob_sha": "03914325e1537db910a524d86426719ce8bebbca"
