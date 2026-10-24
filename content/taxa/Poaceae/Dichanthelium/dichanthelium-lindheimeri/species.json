@@ -10,7 +10,7 @@
     "taxonomy_reviewed": false,
     "visual_reviewed": false,
     "photo_source_checked": true,
-    "photo_metadata_count": 4,
+    "photo_metadata_count": 2,
     "photo_files_present": 4,
     "manual_dichanthelium_field_guide_20261020": "2026-10-20",
     "visual_finish": "FIELD_GUIDE_ADDED__PHOTO_GAPS__NOT_FINAL_ID",
@@ -76,32 +76,12 @@
       "license": "Public domain",
       "source_page": "https://commons.wikimedia.org/wiki/File%3ADichanthelium_acuminatum_var_lindheimeri_%28as_Panicum_lindheimeri%29_HC-1950.png",
       "photo_status": "REFERENCE ILLUSTRATION — taxonomic concept pending verification"
-    },
-    {
-      "file": "images/inat-cc-632023937.jpg",
-      "role": "Additional independently source-labelled D. lindheimeri field photograph; anatomy not yet pixel-certified",
-      "creator": "(c) Cody Stricker, some rights reserved (CC BY)",
-      "license": "CC-BY",
-      "source_page": "https://www.inaturalist.org/photos/632023937",
-      "source_observation": "https://www.inaturalist.org/observations/346700987",
-      "photo_status": "PROVISIONAL — user review pending; no collar or spikelet measurements inferred",
-      "public_reuse": "Image-level iNaturalist CC license; photographer attribution required"
-    },
-    {
-      "file": "images/inat-cc-632024018.jpg",
-      "role": "Additional independently source-labelled D. lindheimeri field photograph; anatomy not yet pixel-certified",
-      "creator": "(c) Cody Stricker, some rights reserved (CC BY)",
-      "license": "CC-BY",
-      "source_page": "https://www.inaturalist.org/photos/632024018",
-      "source_observation": "https://www.inaturalist.org/observations/346700987",
-      "photo_status": "PROVISIONAL — user review pending; no collar or spikelet measurements inferred",
-      "public_reuse": "Image-level iNaturalist CC license; photographer attribution required"
     }
   ],
   "learner_visual_status": {
     "status": "field_ready_photo_gaps",
     "mode": "learner_fast_fill",
-    "image_count": 4,
+    "image_count": 2,
     "filled_at": "2026-10-19",
     "note": "Manual photo-led card enrichment with one pixel-reviewed exact-source original image, 4-taxon genus comparison, diagnostic photo checklist. Unshown anatomy and nativity hold preserved."
   },
@@ -273,6 +253,25 @@
         "NEEDS_SITE_QA: verify arrow overlay placement on published mobile learner and independently reconfirm both iNaturalist photo license versions."
       ],
       "evidence_scope": "Both original physically archived JPEGs inspected; arrows only on visible gross organs. No species taxon/range/status or license modification; no new photo bytes."
+    },
+    "lane4_secondpass_taxon_correction_20261024": {
+      "status": "FIELD_READY_PHOTO_GAPS",
+      "error": "An inherited photo-import script queried Dichanthelium pedicellatum while storing photos as D. lindheimeri.",
+      "removed_misattributed_photos": [
+        "632023937",
+        "632024018"
+      ],
+      "correct_source_species": "Dichanthelium pedicellatum (source query and observation taxon)",
+      "photo_image_rights": "Photographs were CC BY but species assignment wrong; invalid for this gallery",
+      "independently_verified_lindheimeri_macro_count": 0,
+      "removed_arrows": 0,
+      "scientific_county_status_untouched": true,
+      "needs": [
+        "Exact-species D. lindheimeri research-grade and source-verified public image",
+        "1-mm scaled true hair-fringe ligule at inner blade/sheath junction",
+        "1.3–1.6-mm mature spikelet with glumes/lemma and ruler"
+      ],
+      "site_qa": "pending"
     }
   },
   "field_id_references": [
@@ -434,68 +433,6 @@
           }
         ],
         "photo_status": "ACTUAL existing site JPG pixels personally inspected in GitHub 2026-10-21; visible-only gross annotations. Original determination source-labelled, not local voucher. No new JPG or modified author/license."
-      },
-      {
-        "label": "Lindheimer's panicgrass — attached open panicle and oval spikelets (provisional)",
-        "scientific_name": "Dichanthelium lindheimeri",
-        "image_url": "content/taxa/Poaceae/Dichanthelium/dichanthelium-lindheimeri/images/inat-cc-632023937.jpg",
-        "image_fit": "contain",
-        "image_role": "Actual attached narrow open panicle with multiple green oval spikelets beside a pointed leaf blade; photographed against fingers, not a calibrated scale",
-        "caption": "Cody Stricker's original species-labelled photograph visibly shows individual oval green spikelets spaced along fine panicle branches and a narrow leaf blade. Fingers are NOT a millimeter ruler; glume veins, spikelet dimensions and the true ligule cannot be certified from these pixels. Source identification remains provisional pending a specimen/diagnostic key.",
-        "creator": "(c) Cody Stricker, some rights reserved (CC BY)",
-        "license": "CC-BY",
-        "source_page": "https://www.inaturalist.org/photos/632023937",
-        "markers": [
-          {
-            "label": "Visible green oval spikelet",
-            "label_x": 6,
-            "label_y": 15,
-            "target_x": 46,
-            "target_y": 40
-          },
-          {
-            "label": "Fine attached flowering axis",
-            "label_x": 72,
-            "label_y": 76,
-            "target_x": 44,
-            "target_y": 61
-          }
-        ],
-        "photo_status": "ARCHIVED JPEG 189,889 bytes, 768×1024; Git blob dd00e010462dcd811cb06a8a906945ee89b5690c. 2026-10-24 byte-decoded, JPEG signatures/size checked, no APP1 segment, actual pixels inspected. Two gross visible arrows verified (green spikelet and attached flowering axis). No measured glume, lemma, true ligule or species-level independent voucher proof. Existing Cody Stricker CC BY attribution/source preserved; exact license version not independently reconfirmed.",
-        "why_it_matters": "A real same-species reproductive close-up replaces the historical drawing as the first reproductive teaching view, while keeping the old drawing clearly labeled as a historical concept reference.",
-        "archive_verified_bytes": 189889,
-        "archive_git_blob_sha": "dd00e010462dcd811cb06a8a906945ee89b5690c"
-      },
-      {
-        "label": "Lindheimer's panicgrass — rooted leafy cluster and basal shoots (provisional)",
-        "scientific_name": "Dichanthelium lindheimeri",
-        "image_url": "content/taxa/Poaceae/Dichanthelium/dichanthelium-lindheimeri/images/inat-cc-632024018.jpg",
-        "image_fit": "contain",
-        "image_role": "Actual hand-held rooted grass cluster showing roots, narrow green leaf blades, dry basal sheaths and multiple leafy shoots; no complete attached flowering culm or ruler",
-        "caption": "Cody Stricker's original species-labelled photo visibly shows roots and several green leafy shoots among dry basal sheaths. The roots are not a proven rhizome, the image does not establish an isolated whole flowering plant, and the ligule, seasonal rosette, leaf hairs and crown characters cannot be measured here.",
-        "creator": "(c) Cody Stricker, some rights reserved (CC BY)",
-        "license": "CC-BY",
-        "source_page": "https://www.inaturalist.org/photos/632024018",
-        "markers": [
-          {
-            "label": "Exposed fine roots",
-            "label_x": 5,
-            "label_y": 87,
-            "target_x": 34,
-            "target_y": 85
-          },
-          {
-            "label": "Dry basal leaf sheaths",
-            "label_x": 71,
-            "label_y": 55,
-            "target_x": 49,
-            "target_y": 65
-          }
-        ],
-        "photo_status": "ARCHIVED JPEG 256,318 bytes, 768×1024; Git blob 03914325e1537db910a524d86426719ce8bebbca. 2026-10-24 byte-decoded, JPEG signatures/size checked, no APP1 segment, actual pixels inspected. Two gross visible arrows verified (exposed fine roots and dry basal leaf sheaths); roots do not prove rhizome, seasonal rosette, or local voucher. Existing Cody Stricker CC BY attribution/source preserved; exact license version not independently reconfirmed.",
-        "why_it_matters": "Supplies a genuinely different rooted-base and vegetative view instead of another distant grass stand; use with the attached spikelet photo to plan a same-voucher measured follow-up.",
-        "archive_verified_bytes": 256318,
-        "archive_git_blob_sha": "03914325e1537db910a524d86426719ce8bebbca"
       }
     ],
     "overlay_note": "Original species/photo identities are source-determined provisional, especially mixed-vegetation Lindheimer photo. Four physical original JPGs reused with creators/individual licenses including BY-NC/SA. A true ligule, blade base and glume-macro still needed; no new media bytes."
