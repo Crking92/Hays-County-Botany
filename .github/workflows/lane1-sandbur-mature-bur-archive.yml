@@ -1,0 +1,51 @@
+name: Lane 1 coastal sandbur real mature bur archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-sandbur-mature-bur-archive.yml'
+      - 'scripts/archive_lane1_sandbur_macro.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-sandbur-mature-commons
+  cancel-in-progress: false
+jobs:
+  archive-mature-bur-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      max-parallel: 1
+      fail-fast: false
+      matrix:
+        include:
+          - title: 'File:Cenchrus spinifex burr2 (6923261230).jpg'
+            slug: 'mature-side'
+          - title: 'File:Cenchrus spinifex burrs.jpg'
+            slug: 'mature-close'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image dependencies
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Acquire source-identified CC BY 2.0 mature bur photograph
+        env:
+          TITLE: ${{ matrix.title }}
+        run: |
+          python scripts/commons_photo_review_import.py --file-title "$TITLE" \
+            --taxon 'Cenchrus spinifex' --output review_photo --max-edge 2400
+      - name: Store vetted JPEG and link actual gallery image
+        env:
+          TITLE: ${{ matrix.title }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_sandbur_macro.py
+      - name: Preserve source rights and SHA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lane1-sandbur-${{ matrix.slug }}-rights-evidence
+          path: review_photo/evidence.json
+          if-no-files-found: ignore
+          retention-days: 30
