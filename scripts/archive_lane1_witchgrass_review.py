@@ -31,8 +31,10 @@ if evidence["taxon_proposed"]!="Panicum capillare" or evidence["commons_file"]!=
  raise SystemExit("Unexpected taxon/Commons exact image identity")
 if evidence["license_short"].strip().lower()!=config["license"].lower():
  raise SystemExit("The image's current source license no longer matches approved rights")
-if evidence.get("license_url","").rstrip("/").lower()!=config["license_url"].lower():
- raise SystemExit("Current Commons URL does not match approved rights")
+lic=urllib.parse.urlparse(evidence.get("license_url","").lower().rstrip("/"))
+expected=urllib.parse.urlparse(config["license_url"])
+if lic.scheme not in ("http","https") or lic.hostname!="creativecommons.org" or lic.path.rstrip("/")!=expected.path.rstrip("/") or lic.query or lic.fragment:
+ raise SystemExit("Commons exact version/license URL does not match approved rights")
 if not evidence.get("gps_exif_removed") or not data.startswith(bytes.fromhex("ffd8")):
  raise SystemExit("Source has not been sanitized to valid JPEG")
 if len(data)>15_000_000 or hashlib.sha256(data).hexdigest()!=evidence["image_sha256"]:
