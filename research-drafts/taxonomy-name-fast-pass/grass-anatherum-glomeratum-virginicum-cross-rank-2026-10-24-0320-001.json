@@ -1,0 +1,209 @@
+{
+  "id": "grass-anatherum-glomeratum-virginicum-cross-rank-2026-10-24-0320-001",
+  "run_date_local": "2026-10-24",
+  "lane": "grass-taxonomy-verification",
+  "scope": "taxonomy-only Poaceae existing canonical learner",
+  "status": "VERIFIED_NAME_MAPPING_WITH_SPECIMEN_ID_HOLDS",
+  "canonical_species": [
+    {
+      "taxon_id": "anatherum-glomeratum",
+      "path": "content/taxa/Poaceae/Anatherum/anatherum-glomeratum/species.json",
+      "sha_at_review": "aa73fe16840f452ba0717372d88ad6836bf1220c"
+    },
+    {
+      "taxon_id": "anatherum-virginicum",
+      "path": "content/taxa/Poaceae/Anatherum/anatherum-virginicum/species.json",
+      "sha_at_review": "0b1470871f904c8778c49dc691088c3446687e50"
+    }
+  ],
+  "related_accepted_boundary": {
+    "taxon_id": "anatherum-tenuispatheum",
+    "path": "content/taxa/Poaceae/Anatherum/anatherum-tenuispatheum/species.json",
+    "sha_at_review": "3d4d01c65b6f28294b7cec911421b0b96ce09338",
+    "existing_legacy_taxonomy_claim": "workflow/taxonomy-claims/grass-anatherum-tenuispatheum-boundary-2026-10-22-1124-001.json",
+    "note": "Expired active legacy claim observed; left untouched, no overwrite or fresh claim for A. tenuispatheum."
+  },
+  "scientific_decisions": [
+    {
+      "code": "ANAT-01",
+      "status": "PASS",
+      "source_name": "Anatherum glomeratum (Walter) Voronts. & E.A.Kellogg",
+      "accepted_target": "Anatherum glomeratum (Walter) Voronts. & E.A.Kellogg",
+      "reason": "POWO/WCVP accepted Poaceae species; 2023 combination under reinstated Anatherum; species rank, distinct from A. virginicum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1",
+        "https://doi.org/10.1080/14772000.2023.2274386"
+      ]
+    },
+    {
+      "code": "ANAT-02",
+      "status": "PASS",
+      "source_name": "Anatherum virginicum (L.) Spreng.",
+      "accepted_target": "Anatherum virginicum (L.) Spreng.",
+      "reason": "POWO/WCVP accepted Poaceae species; combination published 1815; separate from A. glomeratum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/30016735-2"
+      ]
+    },
+    {
+      "code": "ANAT-03",
+      "status": "PASS",
+      "source_name": "Cinna glomerata Walter",
+      "accepted_target": "Anatherum glomeratum (Walter) Voronts. & E.A.Kellogg",
+      "reason": "POWO homotypic basionym of bushy bluestem (Walter 1788).",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1"
+      ]
+    },
+    {
+      "code": "ANAT-04",
+      "status": "PASS",
+      "source_name": "Andropogon glomeratus (Walter) Britton, Sterns & Poggenb.",
+      "accepted_target": "Anatherum glomeratum (Walter) Voronts. & E.A.Kellogg",
+      "reason": "POWO homotypic synonym, older familiar genus; does not imply all historical infraspecific Andropogon glomeratus names map here.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1"
+      ]
+    },
+    {
+      "code": "ANAT-05",
+      "status": "PASS",
+      "source_name": "Andropogon virginicus L.",
+      "accepted_target": "Anatherum virginicum (L.) Spreng.",
+      "reason": "POWO homotypic synonym; preserve historical alias without duplicate card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/30016735-2"
+      ]
+    },
+    {
+      "code": "ANAT-06",
+      "status": "PASS",
+      "source_name": "Anatherum virginicum subvar. glomeratus (Walter) Roberty",
+      "accepted_target": "Anatherum glomeratum (Walter) Voronts. & E.A.Kellogg",
+      "reason": "POWO places this historical subvariety under A. glomeratum, NOT under accepted A. virginicum despite its name.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1"
+      ]
+    },
+    {
+      "code": "ANAT-07",
+      "status": "PASS",
+      "source_name": "Andropogon virginicus var. abbreviatus (Hack.) Fernald & Griscom",
+      "accepted_target": "Anatherum glomeratum (Walter) Voronts. & E.A.Kellogg",
+      "reason": "POWO heterotypic synonym of A. glomeratum; cross-species historical variety boundary.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1"
+      ]
+    },
+    {
+      "code": "ANAT-08",
+      "status": "PASS",
+      "source_name": "Andropogon virginicus var. corymbosus (Hack.) Fernald & Griscom",
+      "accepted_target": "Anatherum glomeratum (Walter) Voronts. & E.A.Kellogg",
+      "reason": "POWO heterotypic synonym of A. glomeratum; cross-species historical variety boundary.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1"
+      ]
+    },
+    {
+      "code": "ANAT-09",
+      "status": "PASS",
+      "source_name": "Andropogon glomeratus var. pumilus (Vasey) L.H.Dewey",
+      "accepted_target": "Anatherum tenuispatheum (Nash) Sorrie & Weakley",
+      "reason": "POWO heterotypic synonym of separately accepted A. tenuispatheum; not A. glomeratum; preexisting photo source hold preserved.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12855-2"
+      ]
+    },
+    {
+      "code": "ANAT-10",
+      "status": "PASS",
+      "source_name": "Anatherum virginicum subvar. tenuispatheum (Nash) Roberty",
+      "accepted_target": "Anatherum tenuispatheum (Nash) Sorrie & Weakley",
+      "reason": "POWO homotypic synonym of separately accepted A. tenuispatheum; not A. virginicum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1"
+      ]
+    },
+    {
+      "code": "ANAT-11",
+      "status": "PASS",
+      "source_name": "Andropogon virginicus var. tenuispatheus (Nash) Fernald & Griscom",
+      "accepted_target": "Anatherum tenuispatheum (Nash) Sorrie & Weakley",
+      "reason": "POWO homotypic synonym of separately accepted A. tenuispatheum; older variety not a synonym of A. virginicum sensu POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1"
+      ]
+    },
+    {
+      "code": "ANAT-12",
+      "status": "PASS",
+      "source_name": "Anatherum glomeratum / Anatherum virginicum / Anatherum tenuispatheum",
+      "accepted_target": "three separate accepted Poaceae species",
+      "reason": "Current POWO/WCVP treats all three as separately accepted at species rank; no collapse, synonym-only duplicate or installation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1",
+        "https://powo.science.kew.org/taxon/30016735-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1"
+      ]
+    },
+    {
+      "code": "ANAT-13",
+      "status": "UNRESOLVED",
+      "source_name": "historical Andropogon virginicus or Andropogon glomeratus record without rank, author, voucher or diagnosis",
+      "accepted_target": null,
+      "reason": "Older broad-concept or under-specified records cannot be reassigned at specimen level solely from epithet; review original source, rank, author and specimen before reconciliation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1",
+        "https://powo.science.kew.org/taxon/30016735-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1",
+        "https://doi.org/10.1080/14772000.2023.2274386"
+      ]
+    },
+    {
+      "code": "ANAT-14",
+      "status": "HOLD",
+      "source_name": "individual existing learner photographs and observations labelled under Andropogon/Anatherum names",
+      "accepted_target": null,
+      "reason": "Taxonomy name mapping does not verify individual plant identity, rank or hybrid ancestry; retain existing source/photo identity and hybrid HOLD/UNRESOLVED states; no images reidentified.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77339188-1",
+        "https://powo.science.kew.org/taxon/30016735-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1"
+      ]
+    }
+  ],
+  "counts": {
+    "scientific_decisions": 14,
+    "PASS": 12,
+    "HOLD": 1,
+    "UNRESOLVED": 1,
+    "FAIL": 0
+  },
+  "primary_authority": {
+    "title": "Reinstatement and expansion of the genus Anatherum (Andropogoneae, Panicoideae, Poaceae)",
+    "authors": "Vorontsova et al.",
+    "published": "2023-11-27",
+    "doi": "https://doi.org/10.1080/14772000.2023.2274386",
+    "limitation": "Generic realignment based on plastome phylogeny and morphology; authors explicitly did not revise species concepts or typify names. Not a specimen-ID determination."
+  },
+  "backbone": {
+    "authority": "POWO / WCVP 2026",
+    "checked_date": "2026-10-24",
+    "taxa": [
+      "https://powo.science.kew.org/taxon/77339188-1",
+      "https://powo.science.kew.org/taxon/30016735-2",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77347166-1"
+    ]
+  },
+  "handoff": {
+    "accepted_names_unchanged": true,
+    "canonical_species_modified": false,
+    "photo_or_anatomy_modified": false,
+    "range_or_county_audit": false,
+    "hybrid_inference": false,
+    "distinct_specimen_id_hold": true,
+    "manual_followup": "For an older under-specified Andropogon label, inspect full rank/author and voucher before taxon reassignment. Preserve separate A. tenuispatheum source-labelled var. pumilus exclusions."
+  }
+}
