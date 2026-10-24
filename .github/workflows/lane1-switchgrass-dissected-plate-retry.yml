@@ -24,7 +24,7 @@ jobs:
         run: |
           python scripts/commons_photo_review_import.py \
             --file-title 'File:Panicum virgatum sl53.jpg' \
-            --taxon 'Panicum virgatum' --output review_photo --max-edge 7000 --source-thumbnail-width 6500
+            --taxon 'Panicum virgatum' --output review_photo --max-edge 3840 --source-thumbnail-width 3840
       - name: Preserve credit and physically archive approved CC BY-SA 4.0 plate
         env:
           GITHUB_TOKEN: ${{ github.token }}
