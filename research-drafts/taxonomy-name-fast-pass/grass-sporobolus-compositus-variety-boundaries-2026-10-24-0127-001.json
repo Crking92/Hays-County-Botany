@@ -1,0 +1,179 @@
+{
+  "batch_id": "grass-sporobolus-compositus-variety-boundaries-2026-10-24-0127-001",
+  "date_checked": "2026-10-24",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Sporobolus",
+  "canonical_taxon_ids": [
+    "sporobolus-compositus",
+    "sporobolus-clandestinus"
+  ],
+  "canonical_species_paths_read_only": {
+    "sporobolus-compositus": "content/taxa/Poaceae/Sporobolus/sporobolus-compositus/species.json",
+    "sporobolus-clandestinus": "content/taxa/Poaceae/Sporobolus/sporobolus-clandestinus/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "sporobolus-compositus": "cb708564f4eb784ed4b1e384fa862315eae40e03",
+    "sporobolus-clandestinus": "fee61b195f2136060ff33029bdbe504a69785873"
+  },
+  "claim_id": "grass-sporobolus-compositus-variety-boundaries-2026-10-24-0127-001",
+  "claim_path": "workflow/taxonomy-claims/grass-sporobolus-compositus-variety-boundaries-2026-10-24-0127-001.json",
+  "primary_decision": "PASS_ACCEPTED_SPOROBOLUS_COMPOSITUS_AND_SEPARATE_CLANDESTINUS_WITH_UNRESOLVED_VARIETY_AUTHORITY_RANKS_AND_SPECIMEN_ID_HOLDS",
+  "decisions": [
+    {
+      "source_name": "Sporobolus compositus (Poir.) Merr.",
+      "accepted_name": "Sporobolus compositus (Poir.) Merr.",
+      "rank": "species",
+      "scientific_decision": "PASS_ACCEPTED_SPECIES_AND_AUTHORSHIP",
+      "action": "POWO/WCVP accepts the species at species rank; existing canonical name is correct, no new card or rename.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=507182"
+      ]
+    },
+    {
+      "source_name": "Agrostis composita Poir.",
+      "accepted_name": "Sporobolus compositus (Poir.) Merr.",
+      "rank": "basionym; homotypic synonym",
+      "scientific_decision": "PASS_HOMOTYPIC_BASIONYM",
+      "action": "Original 1810 combination, preserve as search alias not an additional learner taxon.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2"
+      ]
+    },
+    {
+      "source_name": "Vilfa composita (Poir.) P.Beauv.",
+      "accepted_name": "Sporobolus compositus (Poir.) Merr.",
+      "rank": "homotypic synonym",
+      "scientific_decision": "PASS_HOMOTYPIC_ALIAS",
+      "action": "Historical generic combination of the same nomenclatural type.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus asper (P.Beauv.) Kunth",
+      "accepted_name": "Sporobolus compositus (Poir.) Merr.",
+      "rank": "heterotypic synonym under current POWO",
+      "scientific_decision": "PASS_HISTORICAL_ALIAS_WITH_ALTERNATIVE_AUTHORITY",
+      "action": "POWO synonymizes S. asper with S. compositus; 2006 World Grass Species treatment cited S. asper as an alternative. Retain historic source concept rather than auto-certifying specimens.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=507182",
+        "https://research.fs.usda.gov/feis/species-reviews/spocom"
+      ]
+    },
+    {
+      "source_name": "Sporobolus compositus var. drummondii (Trin.) Kartesz & Gandhi",
+      "accepted_name": "Sporobolus compositus (Poir.) Merr. under POWO; variety accepted in ITIS/NatureServe",
+      "rank": "historical/alternative accepted variety",
+      "scientific_decision": "UNRESOLVED_AUTHORITY_RANK_CONFLICT",
+      "action": "POWO lists var. drummondii as heterotypic synonym of species; ITIS and NatureServe accept it at variety rank. Preserve Bob Harms photographer's source-variety label without treating it as POWO-accepted variety or claiming voucher confirmation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531125",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.146173/Sporobolus_compositus",
+        "https://research.fs.usda.gov/feis/species-reviews/spocom"
+      ]
+    },
+    {
+      "source_name": "Sporobolus drummondii (Trin.) Vasey and Sporobolus attenuatus Nash",
+      "accepted_name": "Sporobolus compositus (Poir.) Merr. under POWO; var. drummondii under ITIS",
+      "rank": "historical synonyms",
+      "scientific_decision": "PASS_SOURCE_DEPENDENT_SYNONYM_MAPPING",
+      "action": "POWO lists both under S. compositus; ITIS maps them to S. compositus var. drummondii. No separate species cards; retain rank provenance.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531125"
+      ]
+    },
+    {
+      "source_name": "Sporobolus compositus var. macer (Trin.) Kartesz & Gandhi",
+      "accepted_name": "UNRESOLVED at POWO in this review; ITIS accepts this variety under S. compositus",
+      "rank": "variety accepted in ITIS/NatureServe; POWO species page does not enumerate macer",
+      "scientific_decision": "UNRESOLVED_POWO_INFRASPECIFIC_OMISSION",
+      "action": "ITIS, NatureServe and USFS recognize var. macer; POWO S. compositus synonym list reviewed today does not list macer, so no unsupported assertion about POWO synonymy or acceptance. Keep existing source-variety attribution; do not infer variety from rhizome image for other specimens.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.146173/Sporobolus_compositus",
+        "https://research.fs.usda.gov/feis/species-reviews/spocom"
+      ]
+    },
+    {
+      "source_name": "Sporobolus macer (Trin.) Hitchc. and Sporobolus asper var. macer (Trin.) Shinners",
+      "accepted_name": "Sporobolus compositus var. macer (Trin.) Kartesz & Gandhi according to ITIS",
+      "rank": "species/variety historical synonyms under ITIS",
+      "scientific_decision": "PASS_ITIS_SYNONYMS_WITH_POWO_MAPPING_UNRESOLVED",
+      "action": "ITIS maps both historical names to var. macer; POWO name-level mapping not independently resolved here. Preserve source attribution and unresolved global treatment.",
+      "sources": [
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=521921"
+      ]
+    },
+    {
+      "source_name": "Sporobolus clandestinus (Biehler) Hitchc.",
+      "accepted_name": "Sporobolus clandestinus (Biehler) Hitchc.",
+      "rank": "separately accepted species",
+      "scientific_decision": "PASS_SEPARATE_ACCEPTED_SPECIES",
+      "action": "POWO/WCVP separately accepts rough dropseed; do not collapse its existing learner card into S. compositus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242956-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus compositus var. clandestinus (Biehler) Wipff & S.D.Jones",
+      "accepted_name": "Sporobolus clandestinus (Biehler) Hitchc.",
+      "rank": "homotypic synonym of separately accepted species",
+      "scientific_decision": "PASS_CROSS_SPECIES_VARIETY_BOUNDARY",
+      "action": "Historical compositus variety is mapped by POWO to S. clandestinus, not S. compositus. Avoid misrouting old records by epithet alone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242956-2"
+      ]
+    },
+    {
+      "source_name": "Source-labelled var. drummondii and var. macer photographs and other learner images",
+      "accepted_name": null,
+      "rank": "individual specimen/photo identification",
+      "scientific_decision": "HOLD_INDEPENDENT_SPECIMEN_AND_VARIETY_ID",
+      "action": "Taxonomy names do not verify individual photographed plants or source-variety determinations. Existing photo records remain unchanged; no image, morphology, lesson, or arrow edit.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531125",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.146173/Sporobolus_compositus",
+        "https://newfs-society.s3.amazonaws.com/documents/sporoboluscompositus.pdf"
+      ]
+    },
+    {
+      "source_name": "Hybrid origin or hybrid parentage of S. compositus complex",
+      "accepted_name": null,
+      "rank": "individual hybrid identity",
+      "scientific_decision": "HOLD_NO_HYBRID_ID_ESTABLISHED",
+      "action": "No hybrid parentage or hybrid identity inferred from accepted names, morphology, or photos. Existing holds preserved.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242956-2"
+      ]
+    }
+  ],
+  "scientific_safeguards": {
+    "canonical_species_modified": false,
+    "photo_or_specimen_identity_hold_overridden": false,
+    "county_nativity_changed": false,
+    "new_species_installed": false,
+    "photographs_or_lessons_changed": false,
+    "public_pages_changed": false,
+    "hybrid_parentage_inferred": false
+  },
+  "source_notes": {
+    "POWO_WCVP": "2026-10-24 live POWO accepted-name/synonym checks. Species page lists 23 synonyms including var. drummondii, but no macer in that displayed list; omission is not proof of rejection.",
+    "ITIS": "ITIS species and varieties records checked 2026-10-24; older underlying taxonomy source dates are displayed and may differ from Kew current circumscription.",
+    "NatureServe": "NatureServe current species taxonomic comments explicitly recognize three varieties and separate S. clandestinus.",
+    "USFS": "USFS Fire Effects Information System recognizes three varieties; secondary synthesis of published taxonomy.",
+    "historical_primary": "Engstrom 2004 New England Plant Conservation Plan cites Riggins 1977 taxonomic treatment; Riggins original monograph not directly inspected, so do not claim primary monograph independently verified.",
+    "hold_boundary": "Photographer-identified variety labels are provenance, not independently confirmed vouchers or proof of accepted rank in POWO."
+  },
+  "status": "taxonomy_evidence_only_committed_if_readback_verified"
+}
