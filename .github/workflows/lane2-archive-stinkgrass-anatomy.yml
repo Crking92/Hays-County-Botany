@@ -1,0 +1,33 @@
+name: Lane 2 archive stinkgrass anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_archive_stinkgrass_anatomy.py
+      - .github/workflows/lane2-archive-stinkgrass-anatomy.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-stinkgrass-anatomy
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_archive_stinkgrass_anatomy.py
+      - name: Persist archive and evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-cilianensis/ reports/lane2-stinkgrass-anatomy-archive-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive authenticated stinkgrass anatomy images"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
