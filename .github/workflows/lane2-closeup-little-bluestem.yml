@@ -1,0 +1,33 @@
+name: Lane 2 close-detail little bluestem
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_closeup_little_bluestem.py
+      - .github/workflows/lane2-closeup-little-bluestem.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-closeup-scsc
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_closeup_little_bluestem.py
+      - name: Commit physical closeup and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Schizachyrium/schizachyrium-scoparium/ reports/lane2-closeup-little-bluestem-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive credited little bluestem spikelet pair macro"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
