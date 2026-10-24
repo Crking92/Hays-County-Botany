@@ -1,0 +1,33 @@
+name: Lane 2 archive wintergrass USDA fruit
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_archive_wintergrass_fruit.py
+      - .github/workflows/lane2-archive-wintergrass-fruit.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-wintergrass-fruit
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_archive_wintergrass_fruit.py
+      - name: Commit image and metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Nassella/nassella-leucotricha/ reports/lane2-nassella-leucotricha-usda-20261023.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive public-domain Texas wintergrass mature fruit"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
