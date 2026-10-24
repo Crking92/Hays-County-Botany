@@ -1,0 +1,154 @@
+{
+  "batch_id": "grass-muhlenbergia-x-involuta-hybrid-identity-2026-10-23-2223-001",
+  "date_checked": "2026-10-23",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Muhlenbergia",
+  "canonical_taxon_ids": [
+    "muhlenbergia-x-involuta",
+    "muhlenbergia-lindheimeri",
+    "muhlenbergia-reverchonii"
+  ],
+  "canonical_species_paths_read_only": {
+    "muhlenbergia-x-involuta": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-x-involuta/species.json",
+    "muhlenbergia-lindheimeri": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-lindheimeri/species.json",
+    "muhlenbergia-reverchonii": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "muhlenbergia-x-involuta": "9ede19a59c3b0658e32cad046e27d52f69cb2997",
+    "muhlenbergia-lindheimeri": "c8a5257e45e81239723dc5a6ad0f81ffbc58d3f8",
+    "muhlenbergia-reverchonii": "358412e0cd4feae5192bb61ea9d0ac2eeddcd733"
+  },
+  "claim_id": "grass-muhlenbergia-x-involuta-2026-10-23-2223-001",
+  "claim_path": "workflow/taxonomy-claims/grass-muhlenbergia-x-involuta-2026-10-23-2223-001.json",
+  "primary_decision": "PASS_ACCEPTED_NAMED_HYBRID_WITH_SPECIMEN_LEVEL_ID_HOLD",
+  "decisions": [
+    {
+      "source_name": "Muhlenbergia × involuta Swallen",
+      "accepted_name": "Muhlenbergia × involuta Swallen",
+      "rank": "named interspecific hybrid (nothospecies)",
+      "scientific_decision": "PASS_ACCEPTED_NAMED_HYBRID",
+      "action": "Retain installed named-hybrid learner entry, × marker and Swallen authorship; no species renaming or ordinary-species promotion.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://www.ipni.org/n/164804-2"
+      ]
+    },
+    {
+      "source_name": "Muhlenbergia involuta Swallen (IPNI display without multiplication sign)",
+      "accepted_name": "Muhlenbergia × involuta Swallen",
+      "rank": "hybrid indicator versus name spelling",
+      "scientific_decision": "PASS_NOMENCLATURAL_CITATION_AND_HYBRID_INDICATOR",
+      "action": "IPNI records the name as Muhlenbergia involuta Swallen, Amer. J. Bot. 19:436 fig.2 (1932); POWO marks the accepted taxon × involuta. Do not create a second learner taxon based only on omission of ×.",
+      "sources": [
+        "https://www.ipni.org/n/164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "source_name": "Muhlenbergia lindheimeri Hitchc.",
+      "accepted_name": "Muhlenbergia lindheimeri Hitchc.",
+      "rank": "parent species",
+      "scientific_decision": "PASS_SEPARATE_ACCEPTED_PARENT_SPECIES",
+      "action": "Keep Lindheimer's muhly as an independently accepted species, not a synonym of the hybrid.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "source_name": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "accepted_name": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "rank": "parent species",
+      "scientific_decision": "PASS_SEPARATE_ACCEPTED_PARENT_SPECIES",
+      "action": "Keep seep muhly as an independently accepted species, not a synonym of the hybrid.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "source_name": "Epicampes gracilis Trin.",
+      "accepted_name": "Muhlenbergia lindheimeri Hitchc.",
+      "rank": "historical heterotypic synonym",
+      "scientific_decision": "PASS_PARENT_SYNONYM_BOUNDARY",
+      "action": "Under POWO this historical name maps to Lindheimer's muhly, NOT to Muhlenbergia × involuta.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2"
+      ]
+    },
+    {
+      "source_name": "Podosemum reverchonii (Vasey & Scribn.) Bush",
+      "accepted_name": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "rank": "historical homotypic synonym",
+      "scientific_decision": "PASS_PARENT_SYNONYM_BOUNDARY",
+      "action": "Under POWO this historical name maps to seep muhly, NOT to Muhlenbergia × involuta.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "source_name": "Muhlenbergia lindheimeri × Muhlenbergia reverchonii",
+      "accepted_name": "Muhlenbergia × involuta Swallen",
+      "rank": "hybrid parentage formula",
+      "scientific_decision": "PASS_TAXON_CONCEPT_PARENTAGE",
+      "action": "Record the POWO/WCVP accepted parental formula as a taxon-level statement, not evidence of parentage for an unvouchered learner image or new field specimen.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "source_name": "Existing public learner hybrid photographs and historical plate",
+      "accepted_name": "Muhlenbergia × involuta Swallen",
+      "rank": "individual image/specimen identity",
+      "scientific_decision": "HOLD_INDEPENDENT_SPECIMEN_LEVEL_HYBRID_ID",
+      "action": "Retain existing provisional photo/voucher identity hold. Source-labelled UT Austin Bob Harms reference photos and historical illustration do not independently demonstrate that a particular observed clump has both named parents; no photographic reidentification or rights decision in this lane.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/Muhlenbergia-text.html"
+      ]
+    },
+    {
+      "source_name": "Unnamed intermediate Muhlenbergia plant in Central Texas",
+      "accepted_name": null,
+      "rank": "individual hybrid determination",
+      "scientific_decision": "HOLD_NO_SPECIMEN_OR_GENETIC_CONFIRMATION",
+      "action": "Do not assign × involuta solely from intermediate habit, co-occurrence, or photo captions. Retain parent/hybrid ambiguity pending a tied voucher with comparative reproductive morphology and, where needed, expert/genetic confirmation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2/general-information"
+      ]
+    },
+    {
+      "source_name": "Synonyms specifically of Muhlenbergia × involuta",
+      "accepted_name": "Muhlenbergia × involuta Swallen",
+      "rank": "synonym inventory",
+      "scientific_decision": "UNRESOLVED_NO_ADDITIONAL_HYBRID_SYNONYM_CONFIRMED",
+      "action": "The inspected POWO hybrid entry does not display an additional synonym list; do not infer that either parent's synonyms are synonyms of the hybrid or invent a historical alias.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    }
+  ],
+  "source_notes": {
+    "POWO_WCVP": "2026-10-23 live taxon pages checked for accepted hybrid and two separately accepted parents",
+    "IPNI": "IPNI nomenclatural citation checked for original Swallen 1932 publication; protologue text not independently examined",
+    "primary_treatments": "POWO cites Flora of North America (2003) and GrassBase as acceptance/treatment authorities; their primary taxonomic arguments were not independently reaudited here"
+  },
+  "scientific_safeguards": {
+    "canonical_species_modified": false,
+    "existing_photo_or_hybrid_identity_hold_overridden": false,
+    "existing_county_nativity_changed": false,
+    "new_species_installed": false,
+    "photographs_or_lessons_changed": false,
+    "public_pages_changed": false
+  },
+  "remaining_holds": [
+    "Voucher/specimen-level hybrid identity of individual living or photographed plants",
+    "Independent evidence connecting individual photo subjects to a verified hybrid specimen",
+    "No unverified synonym transfer from either parent to the named hybrid"
+  ],
+  "review_note": "Taxon-level hybrid name and parent formula are verified; this is not a field-specimen authentication or a new photo, range, or diagnostic lesson audit."
+}
