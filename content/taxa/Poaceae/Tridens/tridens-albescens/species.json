@@ -234,14 +234,14 @@
             "label": "Whitish contracted head",
             "label_x": 4,
             "label_y": 12,
-            "target_x": 25,
+            "target_x": 37,
             "target_y": 27
           },
           {
             "label": "Crowded individual spikelets",
             "label_x": 70,
             "label_y": 41,
-            "target_x": 25,
+            "target_x": 44,
             "target_y": 52
           }
         ],
@@ -366,7 +366,42 @@
         "photo_status": "Actual stored pixels inspected 2026-10-21. Source scientific-name determination retained as provisional. No anatomical arrow outside resolvable image detail or new local image bytes."
       }
     ],
-    "overlay_note": "Six physically installed taxon-labelled source photographs (two each), credited separately. Arrows are restricted to gross structures truly visible. Provisional names and exact photo license data preserved; anatomical proof awaits real close-ups."
+    "overlay_note": "Six physically installed taxon-labelled source photographs (two each), credited separately. Arrows are restricted to gross structures truly visible. Provisional names and exact photo license data preserved; anatomical proof awaits real close-ups.",
+    "arrow_pixel_audit_20261024": {
+      "scope": "Existing archived white-tridens images only; original JPEGs, rights, taxon and scientific status unchanged.",
+      "finding": "The two existing arrows on the pale mature-head photo were pointing left of the actual flowering axis; targets moved to visually confirmed dry flowering-head pixels. These are gross structural pointers, not glume/lemma/ligule determinations.",
+      "inspected_photos": [
+        {
+          "file": "images/inat-first-750110678.jpg",
+          "git_blob_sha": "9747ee31c84bef3a9e72d0abf0cbd88c0e016e91",
+          "sha256": "41661deb416c4697a7dc114e6fbec5c8ec5ac120e89bfc07b0eec3e87db07007",
+          "verified_bytes": 145565,
+          "creator": "Sam Kieschnick",
+          "source_page": "https://www.inaturalist.org/photos/750110678",
+          "recorded_license": "CC BY 4.0",
+          "change": "No arrow edits; visually reviewed existing flowering head."
+        },
+        {
+          "file": "images/gbif-manual-5938401722-785f81232.jpg",
+          "git_blob_sha": "762203ede45c8e0b8f7811880fcb7085af821099",
+          "sha256": "75e9437f2e9035e7b948530b7095ecc56cf15e3b0be8ad82f68cb6d81dfadbab",
+          "verified_bytes": 184120,
+          "creator": "sonoresmore",
+          "source_page": "https://www.gbif.org/occurrence/5938401722",
+          "recorded_license": "CC0 1.0",
+          "change": "Repositioned 2 arrow targets to pale flowering head; no JPEG changes."
+        }
+      ],
+      "byte_check": "Both original repository JPEGs decoded for visual inspection, had valid SOI/EOI signatures and no APP1 detected in header scan; SHA-256 calculated from retrieved image bytes.",
+      "rights_check": "Existing source/creator/license/version retained; original GBIF and iNaturalist pages were inaccessible for independent fresh license recheck, so no new rights were inferred.",
+      "remaining": [
+        "NEEDS_PUBLIC_PHOTO: rooted Hays specimen and mature full panicle with ruler",
+        "NEEDS_PUBLIC_PHOTO: true blade/sheath ligule and collar with 0.1–1 mm scale",
+        "NEEDS_PUBLIC_PHOTO: mature spikelet, both glumes and detached lemma with 1-mm scale and 10–20× view",
+        "annotation_pending: microscopic glume, lemma nerve and ligule targets",
+        "Public Pages arrow-overlay alignment not verified"
+      ]
+    }
   },
   "field_photo_quickcheck": {
     "heading": "Tridens albescens — first recognize the head, then verify spikelet parts",
