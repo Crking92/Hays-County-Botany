@@ -9,7 +9,9 @@ parser=argparse.ArgumentParser()
 parser.add_argument("--file-title",required=True,help="Exact Wikimedia Commons File: title")
 parser.add_argument("--taxon",required=True,help="Canonical scientific name for proposed match")
 parser.add_argument("--output",default="review_photo")
+parser.add_argument("--max-edge",type=int,default=2400,help="Longest output dimension; higher for labeled wide anatomy plates")
 a=parser.parse_args()
+if not 800<=a.max_edge<=12000:raise SystemExit("Invalid max edge")
 assert a.file_title.startswith("File:"), "Use an exact Commons File: title"
 assert re.fullmatch(r"[A-Za-z× .'-]{4,120}",a.taxon), "Unexpected taxon syntax"
 api="https://commons.wikimedia.org/w/api.php"
@@ -54,7 +56,7 @@ source=Image.open(io.BytesIO(image.content))
 source.verify()
 source=Image.open(io.BytesIO(image.content))
 source=ImageOps.exif_transpose(source).convert("RGB")
-source.thumbnail((2400,2400))
+source.thumbnail((a.max_edge,a.max_edge))
 out=pathlib.Path(a.output)
 out.mkdir(parents=True,exist_ok=True)
 buf=io.BytesIO()
