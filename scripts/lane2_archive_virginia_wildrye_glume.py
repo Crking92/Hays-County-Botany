@@ -24,7 +24,7 @@ try:
   if item.get("source_page")==source and item["scientific_name"]=="Elymus virginicus":
    item["image_url"]=str(dest)
    item["photo_status"]="ACTUAL ORIGINAL-SOURCE JPEG ARCHIVED LOCALLY with CC BY-SA 2.0; previously inspected two gross glume markers preserved. Species and county-level voucher/proof pending."
- j["curation"]["photo_metadata_count"]=len(j["images"]);j["curation"]["photo_files_present"]=sum(v["file"].startswith("images/") for v in j["images"])
+ j["curation_status"]["photo_metadata_count"]=len(j["images"]);j["curation_status"]["photo_files_present"]=sum(v["file"].startswith("images/") for v in j["images"])
  j["field_photo_quickcheck"]["featured_photo_indices"]=list(dict.fromkeys(j["field_photo_quickcheck"]["featured_photo_indices"]+[len(j["images"])-1]))
  path.write_text(json.dumps(j,indent=2,ensure_ascii=False)+"\n")
  out.update(status="ARCHIVED",path=str(dest),sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),dimensions=list(im.size))
