@@ -22,7 +22,15 @@ def get(url):
    if ex.code not in (429,500,502,503) or attempt==4:raise
    time.sleep(2**attempt+2)
 def jpg(src,dest):
- data=get(src)
+ try:
+  data=get(src)
+ except urllib.error.HTTPError as exc:
+  if exc.code in (429,503) and ("6774086110" in src or "Chloris_virgata_florets" in src):
+   # Same Harry Rose image linked as original Flickr source by Commons;
+   # preserves photographer and Commons-verified CC BY 2.0 rights.
+   data=get("https://live.staticflickr.com/7188/6774086110_322984fc6d_o.jpg")
+  else:
+   raise
  check=Image.open(io.BytesIO(data));check.verify()
  im=Image.open(io.BytesIO(data)).convert("RGB")
  if min(im.size)<340:raise ValueError("Insufficient diagnostic image size: "+str(im.size))
@@ -112,6 +120,12 @@ for spec in specs:
    filename=spec["source"].rsplit("/",1)[-1]
    if filename not in page:raise ValueError("Source name not documented on Jim Conrad's original species page")
   dest=ROOT/"images"/spec["file"]
+  # Do not re-download or alter already archived approved assets.
+  present=next((x for x in S["images"] if x.get("file")=="images/"+spec["file"]),None)
+  pictured=next((x for x in S["visual_comparison"]["items"] if x.get("image_url")==str(dest)),None)
+  if dest.exists() and present and pictured:
+   out.append({"name":spec["file"],"status":"previously_archived","pixels":present.get("image_dimensions"),"license":spec["license"],"new_arrows":len(spec["markers"])})
+   continue
   size,sha=jpg(spec["source"],dest)
   rel="images/"+spec["file"]
   if not any(x.get("file")==rel for x in S["images"]):
