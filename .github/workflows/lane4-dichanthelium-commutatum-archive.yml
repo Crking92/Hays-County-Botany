@@ -1,0 +1,36 @@
+name: Lane 4 variable panicgrass verified collar photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_archive_commutatum_collars.py
+      - .github/workflows/lane4-dichanthelium-commutatum-archive.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-dichanthelium-commutatum-photos
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane4_archive_commutatum_collars.py
+      - name: Commit real licensed JPEGs and cards when verified
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Dichanthelium/dichanthelium-commutatum reports/lane4-commutatum-collar-archive.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 4 archive credited variable panicgrass leaf junction anatomy"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
