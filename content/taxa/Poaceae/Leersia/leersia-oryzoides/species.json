@@ -934,5 +934,125 @@
     "source_review_report": "reports/lane3-leersia-leafmargin-source-audit-20261024.json",
     "hold": "No licensed blade-margin photograph found among 24 checked Stefan Commons files. Go Botany blade-margin reference cannot be mirrored under the site's Terms of Use without image-rights permission.",
     "status": "PHOTO_GAP_NOT_CLEARED"
+  },
+  "field_id_short_tiles": [
+    {
+      "heading": "01 · WET-BANK GROWTH",
+      "short": "Rhizomatous perennial with rough leaves and an open panicle",
+      "details": "Trace a living culm to its base in a wet bank or shallow-water stand. Creeping rhizomes and sometimes rooted decumbent stems support rice cutgrass, but the existing habitat photos do not establish a connected Hays County rhizome.",
+      "photo_panel_indices": [
+        0,
+        1
+      ],
+      "glossary": [
+        "rhizome",
+        "culm",
+        "panicle"
+      ],
+      "status": "ACTUAL SOURCE-LABELED HABIT — ROOTED TEXAS PLANT MISSING"
+    },
+    {
+      "heading": "02 · SHARP LEAF EDGE",
+      "short": "Look for backward-pointing microscopic blade-margin teeth — never feel with bare fingers",
+      "details": "At 10–20× inspect a mature blade edge with a 1-mm scale for retrorse spinules. Panel 4 shows recurved barbs on the SHEATH, not proof of blade-margin teeth. The source audit found no cleared reusable true blade-margin macro.",
+      "photo_panel_indices": [
+        4
+      ],
+      "glossary": [
+        "blade",
+        "sheath",
+        "scabrous",
+        "retrorse"
+      ],
+      "status": "NEEDS_PUBLIC_PHOTO — TRUE BLADE MARGIN"
+    },
+    {
+      "heading": "03 · LOWEST PANICLE NODE",
+      "short": "Count branches sharing the lowest flowering-head node",
+      "details": "Rice cutgrass often has two or more primary branches at a lowest panicle node; white cutgrass often has one. Photograph the actual common attachment, not crossing branches. Panel 1 shows overall branching but does not prove the count.",
+      "photo_panel_indices": [
+        1
+      ],
+      "glossary": [
+        "panicle",
+        "rachis",
+        "node"
+      ],
+      "status": "NEEDS_PUBLIC_PHOTO — SHARED BASAL BRANCH ORIGIN"
+    },
+    {
+      "heading": "04 · TRUE LIGULE",
+      "short": "Find a short membranous edge at the blade–sheath junction",
+      "details": "Published treatments describe a roughly 0.5–1.5 mm true membranous ligule (some report 0.5–1 mm). Panel 5 shows the actual source-labeled collar, but lacks a millimeter scale; the hairy STEM NODE in panel 3 is not the ligule.",
+      "photo_panel_indices": [
+        5,
+        3
+      ],
+      "glossary": [
+        "ligule",
+        "collar",
+        "sheath",
+        "node"
+      ],
+      "status": "SOURCE-LABELED COLLAR — MEASUREMENT MISSING"
+    },
+    {
+      "heading": "05 · ONE-FLOWERED RICE SPIKELET",
+      "short": "Measure a flattened 4.2–6.5 mm spikelet; conspicuous basal glumes and long awns absent",
+      "details": "Use a mature intact one-flowered spikelet and a 1-mm rule. The lemma and palea enclose the floret; the glumes are reduced or absent, so do NOT draw glume arrows to invented structures. Source-labeled panels 7–8 show lemma/palea and an opened floret, not calibrated lemma lengths or glume-insertion proof.",
+      "photo_panel_indices": [
+        7,
+        8,
+        10
+      ],
+      "glossary": [
+        "spikelet",
+        "glume",
+        "lemma",
+        "palea",
+        "awn"
+      ],
+      "status": "SOURCE-LABELED ANATOMY — CALIBRATED SPIKELET STILL NEEDED"
+    },
+    {
+      "heading": "06 · RULE OUT WHITE CUTGRASS",
+      "short": "Combine lowest-branch count, spikelet size and leaf-edge anatomy",
+      "details": "Leersia virginica often has one lowest primary panicle branch and smaller approximately 2.2–4 mm spikelets; overlap and obscured attachments mean no single clue confirms either species. L. lenticularis has broader lentil-like spikelets. Keep protected Texas wild-rice and other wetland grasses undisturbed.",
+      "photo_panel_indices": [
+        1,
+        2
+      ],
+      "glossary": [
+        "spikelet",
+        "panicle",
+        "look-alike"
+      ],
+      "status": "TEXT COMPARISON — MATCHED VERIFIED MACROS MISSING"
+    }
+  ],
+  "grass_species_finalization_20261025": {
+    "status": "FIELD_READY_PHOTO_GAPS",
+    "handoff": [
+      "NEEDS_PUBLIC_PHOTO",
+      "NEEDS_SITE_QA"
+    ],
+    "NEEDS_PUBLIC_PHOTO": [
+      "Public-rights-cleared 10–20× BLADE-MARGIN retrorse teeth with 1-mm ruler; do not substitute sheath barbs or Go Botany rights-uncleared imagery.",
+      "One connected Hays-area rooted rhizome/culm/panicle specimen, lowest panicle branch attachments resolved with scale.",
+      "Calibrated 4.2–6.5 mm mature spikelet with flattened profile, true reduced/absent glume base and separated lemma/palea; no fabricated glume arrows.",
+      "True membranous ligule at attached collar with 1-mm ruler; matched Leersia virginica spikelet and lowest panicle node photos."
+    ],
+    "NEEDS_SITE_QA": [
+      "Check every existing image's actual public license, source, credit and physical archive state; keep Joey study-only frame excluded unless exact permitted exception independently applies.",
+      "Verify old visible-only arrows against real pixels; do not place blade-margin, glume or basal-branch arrows without visible proof.",
+      "Check public species page rendering, provisional labels, image attribution and mobile layout; no Pages changes in this run."
+    ],
+    "public_ready_criteria": "Remain FIELD_READY_PHOTO_GAPS until same-taxon calibrated diagnostic anatomy, independent public rights, pixel-accurate annotations and live site QA are verified; do not mark FINISHED based on image count.",
+    "evidence": [
+      "https://www.eeob.iastate.edu/research/IowaGrasses/speciespages/LeersOryzo/LeersOryzo.html",
+      "https://openherbarium.org/portal/taxa/index.php?clid=26&taxauthid=1&tid=239563",
+      "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1109632-2/general-information"
+    ],
+    "changes": "Six concise existing-card field-ID tiles; no photo, license, taxonomy, range, arrow, genus or website edits."
   }
 }
