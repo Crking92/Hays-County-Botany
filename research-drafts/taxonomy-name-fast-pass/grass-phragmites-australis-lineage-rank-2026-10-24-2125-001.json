@@ -1,0 +1,268 @@
+{
+  "batch_id": "grass-phragmites-australis-lineage-rank-2026-10-24-2125-001",
+  "project": "Crking92/Hays-County-Botany",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "date": "2026-10-24",
+  "authority_backbone": "POWO/WCVP (Kew 2026), Saltonstall et al. (2004), Saltonstall (2002), subsequent primary lineage research",
+  "scope": "Existing canonical Poaceae Phragmites australis accepted species, four accepted subspecies, historical synonym ranks and specimen/hybrid identity holds only",
+  "canonical_targets": [
+    {
+      "id": "phragmites-australis",
+      "path": "content/taxa/Poaceae/Phragmites/phragmites-australis/species.json",
+      "pre_review_blob_sha": "45994d21aca5e2643a24acca11426896698dd614",
+      "accepted_name": "Phragmites australis (Cav.) Trin. ex Steud.",
+      "rank": "species",
+      "canonical_name_change": false
+    }
+  ],
+  "claim_path": "workflow/taxonomy-claims/grass-phragmites-australis-lineage-rank-2026-10-24-2125-001.json",
+  "decisions": [
+    {
+      "code": "PA-01",
+      "status": "PASS",
+      "source_name": "Phragmites australis (Cav.) Trin. ex Steud.",
+      "accepted_target": "Phragmites australis (Cav.) Trin. ex Steud.",
+      "reason": "Accepted species in Poaceae; existing species-level learner name is correct but omits authorship.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30337627-2"
+      ]
+    },
+    {
+      "code": "PA-02",
+      "status": "PASS",
+      "source_name": "Arundo australis Cav.",
+      "accepted_target": "Phragmites australis (Cav.) Trin. ex Steud.",
+      "reason": "POWO homotypic basionym of the accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30337627-2"
+      ]
+    },
+    {
+      "code": "PA-03",
+      "status": "PASS",
+      "source_name": "Four accepted Phragmites australis subspecies",
+      "accepted_target": "subsp. americanus; subsp. australis; subsp. berlandieri; subsp. isiacus",
+      "reason": "POWO/WCVP lists four accepted infraspecific taxa. Species-level records must not be assumed to represent a particular subspecies.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30337627-2",
+        "https://powo.science.kew.org/taxon/60437627-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172833-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77190076-1"
+      ]
+    },
+    {
+      "code": "PA-04",
+      "status": "PASS",
+      "source_name": "Phragmites australis subsp. americanus Saltonst., P.M.Peterson & Soreng",
+      "accepted_target": "same accepted subspecies",
+      "reason": "POWO accepts North American subspecies at subspecies rank; original description supported by morphological and genetic data.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/60437627-2",
+        "https://repository.si.edu/bitstream/handle/10088/3352/Final_Saltonstall-etal_Phragmites_683-692.pdf"
+      ]
+    },
+    {
+      "code": "PA-05",
+      "status": "PASS",
+      "source_name": "Phragmites americanus (Saltonst., P.M.Peterson & Soreng) A.Haines",
+      "accepted_target": "Phragmites australis subsp. americanus",
+      "reason": "POWO lists the 2010 species-rank combination as a homotypic synonym, not a separate accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/60437627-2"
+      ]
+    },
+    {
+      "code": "PA-06",
+      "status": "PASS",
+      "source_name": "Phragmites australis var. americanus (Saltonst., P.M.Peterson & Soreng) Tiehm",
+      "accepted_target": "Phragmites australis subsp. americanus",
+      "reason": "POWO lists 2023 variety-rank combination as homotypic synonym of accepted subspecies.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/60437627-2"
+      ]
+    },
+    {
+      "code": "PA-07",
+      "status": "PASS",
+      "source_name": "Phragmites australis subsp. australis",
+      "accepted_target": "same accepted subspecies",
+      "reason": "POWO accepts autonym at subspecies rank; introduced Eurasian lineage is documented in North America, but species-level ID alone does not prove lineage.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172833-1",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC122384/"
+      ]
+    },
+    {
+      "code": "PA-08",
+      "status": "PASS",
+      "source_name": "Phragmites communis Trin.",
+      "accepted_target": "Phragmites australis subsp. australis",
+      "reason": "POWO treats historical species name as synonym of autonym subspecies; do not treat it as proof of any modern photo's lineage.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172833-1",
+        "https://powo.science.kew.org/taxon/415919-1"
+      ]
+    },
+    {
+      "code": "PA-09",
+      "status": "PASS",
+      "source_name": "Phragmites australis subsp. berlandieri (E.Fourn.) Saltonst. & Hauber",
+      "accepted_target": "same accepted subspecies",
+      "reason": "POWO accepts Gulf Coast subspecies; its taxonomic rank is established separately from debates about origin in North America.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1",
+        "https://bsapubs.onlinelibrary.wiley.com/doi/abs/10.1002/aps3.11512"
+      ]
+    },
+    {
+      "code": "PA-10",
+      "status": "PASS",
+      "source_name": "Phragmites berlandieri E.Fourn.",
+      "accepted_target": "Phragmites australis subsp. berlandieri",
+      "reason": "POWO lists species-rank historical name as homotypic synonym of accepted subspecies.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1"
+      ]
+    },
+    {
+      "code": "PA-11",
+      "status": "PASS",
+      "source_name": "Phragmites australis var. berlandieri (E.Fourn.) C.F.Reed",
+      "accepted_target": "Phragmites australis subsp. berlandieri",
+      "reason": "POWO lists historical variety as homotypic synonym, not separate accepted variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1"
+      ]
+    },
+    {
+      "code": "PA-12",
+      "status": "PASS",
+      "source_name": "Phragmites australis subsp. isiacus (Arcang.) J.H.Xue, Chepinoga & K.P.Ma",
+      "accepted_target": "same accepted subspecies",
+      "reason": "POWO accepts 2024 combination at subspecies rank; no North American specimen identity implied.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77190076-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30337627-2"
+      ]
+    },
+    {
+      "code": "PA-13",
+      "status": "PASS",
+      "source_name": "Phragmites australis subsp. altissimus (Benth.) Clayton",
+      "accepted_target": "Phragmites australis subsp. isiacus",
+      "reason": "POWO treats this historical subspecies as synonym of accepted subsp. isiacus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77260121-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77190076-1"
+      ]
+    },
+    {
+      "code": "PA-14",
+      "status": "FAIL",
+      "source_name": "Proposed blanket classification of every Phragmites australis as introduced/invasive or native",
+      "accepted_target": "REJECT_UNIFORM_LINEAGE_ASSIGNMENT",
+      "reason": "Species includes native North American, introduced Eurasian and Gulf Coast lineages; a species-level label cannot establish specimen lineage.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/60437627-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172833-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1",
+        "https://repository.si.edu/bitstream/handle/10088/3352/Final_Saltonstall-etal_Phragmites_683-692.pdf",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC122384/"
+      ]
+    },
+    {
+      "code": "PA-15",
+      "status": "FAIL",
+      "source_name": "Proposed separate accepted species card Phragmites americanus under POWO/WCVP",
+      "accepted_target": "REJECT_DUPLICATE_ACCEPTED_SPECIES",
+      "reason": "POWO treats P. americanus as synonym of P. australis subsp. americanus. Do not install or duplicate a separately accepted species concept.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/60437627-2"
+      ]
+    },
+    {
+      "code": "PA-16",
+      "status": "HOLD",
+      "source_name": "Four existing Phragmites australis learner photographs and source-labelled Phragmites americanus comparison",
+      "accepted_target": "SPECIMEN_SUBSPECIES_ID_UNVERIFIED",
+      "reason": "Photographic source names and gross features do not establish individual subspecies, local origin, or genotype. Preserve existing provisional lineage cautions.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/60437627-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172833-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1",
+        "https://repository.si.edu/bitstream/handle/10088/3352/Final_Saltonstall-etal_Phragmites_683-692.pdf"
+      ]
+    },
+    {
+      "code": "PA-17",
+      "status": "HOLD",
+      "source_name": "Potential inter-lineage hybrid ancestry of individual Phragmites vouchers/photos",
+      "accepted_target": "HYBRID_PARENTAGE_UNVERIFIED",
+      "reason": "Literature discusses hybridization and complex Gulf Coast genetic histories, but no learner specimen has parentage established by molecular evidence.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3444738/",
+        "https://bsapubs.onlinelibrary.wiley.com/doi/abs/10.1002/aps3.11512"
+      ]
+    },
+    {
+      "code": "PA-18",
+      "status": "UNRESOLVED",
+      "source_name": "North American origin/cryptogenic status of P. australis subsp. berlandieri",
+      "accepted_target": "ORIGIN_CONCEPT_CONFLICT_NO_COUNTY_DECISION",
+      "reason": "POWO distribution treats Gulf Coast subspecies as native to Texas; primary North American literature describes uncertain or cryptogenic origin and complex hybrid ancestry. Taxonomy acceptance is PASS, local origin inference unresolved; no county nativity audit.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1",
+        "https://bsapubs.onlinelibrary.wiley.com/doi/abs/10.1002/aps3.11512",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3444738/"
+      ]
+    },
+    {
+      "code": "PA-19",
+      "status": "UNRESOLVED",
+      "source_name": "Historical records identified only as Phragmites australis / Phragmites communis without voucher lineage data",
+      "accepted_target": "SUBSPECIES_ASSIGNMENT_UNRESOLVED",
+      "reason": "Historical species-level names or synonym mappings cannot retrospectively establish native/introduced/Gulf Coast subspecies of a particular specimen.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30337627-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172833-1",
+        "https://powo.science.kew.org/taxon/60437627-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1",
+        "https://repository.si.edu/bitstream/handle/10088/3352/Final_Saltonstall-etal_Phragmites_683-692.pdf"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 13,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "sources_checked_on": "2026-10-24",
+  "sources_primary": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30337627-2",
+    "https://powo.science.kew.org/taxon/60437627-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172833-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77093164-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77190076-1",
+    "https://repository.si.edu/bitstream/handle/10088/3352/Final_Saltonstall-etal_Phragmites_683-692.pdf",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC122384/",
+    "https://bsapubs.onlinelibrary.wiley.com/doi/abs/10.1002/aps3.11512",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC3444738/"
+  ],
+  "limitations": [
+    "The species-level canonical card cannot identify native vs introduced vs Gulf Coast lineage of any photograph.",
+    "POWO lists Gulf Coast berlandieri native in Texas, while some North American primary research calls its origin cryptogenic; do not convert to county nativity determination.",
+    "POWO currently recognizes four subspecies globally; no new infraspecific card installation authorized.",
+    "No photos, species cards, genus/family lessons, native county data, Pages or automation settings changed."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_or_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
