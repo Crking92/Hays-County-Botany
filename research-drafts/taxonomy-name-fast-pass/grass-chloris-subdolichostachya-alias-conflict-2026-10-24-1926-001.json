@@ -1,0 +1,186 @@
+{
+  "batch_id": "grass-chloris-subdolichostachya-alias-conflict-2026-10-24-1926-001",
+  "project": "Crking92/Hays-County-Botany",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "date": "2026-10-24",
+  "authority_backbone": "Kew POWO/WCVP 2026; EPPO explicitly divergent",
+  "scope": "Existing canonical Poaceae hybrid accepted name, parent formula, four heterotypic synonyms and cross-backbone conflict only",
+  "canonical_targets": [
+    {
+      "id": "chloris-x-subdolichostachya",
+      "path": "content/taxa/Poaceae/Chloris/chloris-x-subdolichostachya/species.json",
+      "pre_review_blob_sha": "cd2272d373d06b330cb910ba3e11a634ac2f4a01",
+      "accepted_name": "Chloris × subdolichostachya Müll.Hal.",
+      "rank": "named hybrid taxon",
+      "canonical_name_change": false
+    }
+  ],
+  "manifest_blob_sha_checked": "36c95f3d83ada2e01331b9f32ae69cb8b09c44d9",
+  "manifest_distinct_entries": [
+    "chloris-cucullata",
+    "chloris-verticillata",
+    "chloris-x-subdolichostachya"
+  ],
+  "claim_path": "workflow/taxonomy-claims/grass-chloris-subdolichostachya-alias-conflict-2026-10-24-1926-001.json",
+  "decisions": [
+    {
+      "code": "CSS-01",
+      "status": "PASS",
+      "source_name": "Chloris × subdolichostachya Müll.Hal.",
+      "accepted_target": "Chloris × subdolichostachya Müll.Hal.",
+      "reason": "POWO/WCVP accepts a named interspecific hybrid published in Bot. Zeitung (Berlin) 19:341 (1861). Retain one canonical hybrid entry, not an ordinary nonhybrid species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1"
+      ]
+    },
+    {
+      "code": "CSS-02",
+      "status": "PASS",
+      "source_name": "Chloris cucullata Bisch.",
+      "accepted_target": "Accepted parental species, not synonym",
+      "reason": "POWO accepts C. cucullata as distinct and gives the hybrid formula C. cucullata × C. verticillata. The parent has its own canonical learner card; no merge.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30010712-2"
+      ]
+    },
+    {
+      "code": "CSS-03",
+      "status": "PASS",
+      "source_name": "Chloris verticillata Nutt.",
+      "accepted_target": "Accepted parental species, not synonym",
+      "reason": "POWO accepts C. verticillata separately and identifies it as the second parent. Do not conflate the species itself with its historical varieties now synonymized under the hybrid.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30010712-2"
+      ]
+    },
+    {
+      "code": "CSS-04",
+      "status": "PASS",
+      "source_name": "Chloris × brevispica Nash (1898)",
+      "accepted_target": "Chloris × subdolichostachya",
+      "reason": "POWO/WCVP lists this as a heterotypic synonym, not a separately accepted species or hybrid card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:56873-2"
+      ]
+    },
+    {
+      "code": "CSS-05",
+      "status": "PASS",
+      "source_name": "Chloris × latisquamea Nash (1898)",
+      "accepted_target": "Chloris × subdolichostachya (POWO/WCVP backbone)",
+      "reason": "POWO/WCVP treats this as a heterotypic synonym; EPPO currently prefers C. latisquamea, so preserve the authority conflict separately and do not claim universal consensus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:56904-2",
+        "https://gd.eppo.int/taxon/CHRLS"
+      ]
+    },
+    {
+      "code": "CSS-06",
+      "status": "PASS",
+      "source_name": "Chloris verticillata var. aristulata Torr. & A.Gray (1857)",
+      "accepted_target": "Chloris × subdolichostachya (POWO/WCVP backbone)",
+      "reason": "POWO/WCVP lists the historical variety as a heterotypic synonym of the hybrid, not of modern accepted C. verticillata; rank and authorship must be retained in source crosswalk.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:56931-2"
+      ]
+    },
+    {
+      "code": "CSS-07",
+      "status": "PASS",
+      "source_name": "Chloris verticillata var. intermedia Vasey (1894)",
+      "accepted_target": "Chloris × subdolichostachya (POWO/WCVP backbone)",
+      "reason": "POWO/WCVP lists the historical variety as a heterotypic synonym of the hybrid. Historical specimen identity still needs individual review.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77270060-1"
+      ]
+    },
+    {
+      "code": "CSS-08",
+      "status": "PASS",
+      "source_name": "Welder Germplasm shortspike windmillgrass release",
+      "accepted_target": "Documented natural Chloris cucullata × C. verticillata hybrid concept",
+      "reason": "USDA NRCS primary release confirms naturally occurring seed-producing hybrid, parent formula, and accession 9085260 / PI 645601. This is evidence for a real hybrid taxon, not verification of the learner's specific photographed individual.",
+      "sources": [
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf"
+      ]
+    },
+    {
+      "code": "CSS-09",
+      "status": "FAIL",
+      "source_name": "Proposed separate accepted learner for Chloris latisquamea or Chloris brevispica under POWO backbone",
+      "accepted_target": "REJECT_DUPLICATE_CONCEPT",
+      "reason": "Both are POWO heterotypic synonyms of already installed C. × subdolichostachya; the EPPO preference is a backbone conflict to retain, not permission to install a duplicate. FAIL applies to proposed duplicate mapping only.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://gd.eppo.int/taxon/CHRLS"
+      ]
+    },
+    {
+      "code": "CSS-10",
+      "status": "HOLD",
+      "source_name": "Existing source-labelled iNaturalist Chloris × subdolichostachya photo",
+      "accepted_target": "INDIVIDUAL_HYBRID_SPECIMEN_ID_UNVERIFIED",
+      "reason": "POWO accepted formula and USDA authenticated release do not establish the parentage of the installed photo; keep source determination provisional until same-plant reproductive anatomy and/or specimen determination supports it.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf"
+      ]
+    },
+    {
+      "code": "CSS-11",
+      "status": "HOLD",
+      "source_name": "Historical specimens identified as C. verticillata var. aristulata / var. intermedia",
+      "accepted_target": "HISTORICAL_VOUCHER_ID_REVIEW_REQUIRED",
+      "reason": "Backbone synonymy does not authenticate a particular herbarium specimen or photographed individual; do not retroactively relabel historical vouchers solely from synonymy.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1"
+      ]
+    },
+    {
+      "code": "CSS-12",
+      "status": "UNRESOLVED",
+      "source_name": "EPPO preferred Chloris latisquamea Nash versus POWO accepted Chloris × subdolichostachya Müll.Hal.",
+      "accepted_target": "AUTHORITY_CONFLICT_RETAIN_POWO_CANONICAL_PENDING_CONCEPT_REVIEW",
+      "reason": "EPPO (code CHRLS) prefers C. latisquamea and lists C. × subdolichostachya as another name, whereas POWO/WCVP accepts the hybrid under the older C. × subdolichostachya and synonymizes C. × latisquamea. This is a live source-backbone disagreement, not evidence that the learner needs renaming or duplicate installation.",
+      "sources": [
+        "https://gd.eppo.int/taxon/CHRLS",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:56904-2"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 8,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "sources_checked_on": "2026-10-24",
+  "sources_primary": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:56904-2",
+    "https://gd.eppo.int/taxon/CHRLS",
+    "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf"
+  ],
+  "limitations": [
+    "POWO and EPPO use different preferred names; maintain explicit UNRESOLVED authority flag, no silent rename.",
+    "Historical synonym mapping is not specimen authentication.",
+    "No photo or hybrid specimen-level identification made.",
+    "No county nativity, photos, lessons, species-card enrichment, installation, Pages, or unrelated taxa changed."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_or_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
