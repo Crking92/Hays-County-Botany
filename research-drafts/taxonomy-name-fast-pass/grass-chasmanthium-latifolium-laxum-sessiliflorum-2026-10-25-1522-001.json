@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-chasmanthium-latifolium-laxum-sessiliflorum-2026-10-25-1522-001",
+  "lane": "grass-taxonomy-verification",
+  "reviewed_at": "2026-10-25T20:23:23.527Z",
+  "source_access_date": "2026-10-25",
+  "source_backbone": "Kew POWO/WCVP 2026, IPNI, Flora of Florida (2026) taxonomic key",
+  "family": "Poaceae",
+  "taxa": [
+    "Chasmanthium latifolium (Michx.) H.O.Yates"
+  ],
+  "canonical_target": {
+    "path": "content/taxa/Poaceae/Chasmanthium/chasmanthium-latifolium/species.json",
+    "sha_at_review": "59b1562b40b7a984215315324529da5de1cdb78c",
+    "modified": false
+  },
+  "claim_path": "workflow/taxonomy-claims/grass-chasmanthium-latifolium-laxum-sessiliflorum-2026-10-25-1522-001.json",
+  "source_pool_spelling": "Chasmanthium latifolium",
+  "accepted_name": "Chasmanthium latifolium (Michx.) H.O.Yates",
+  "genus": "Chasmanthium",
+  "rank": "species",
+  "synonyms_under_accepted_species": [
+    "Uniola latifolia Michx. (homotypic)"
+  ],
+  "related_accepted_species": [
+    "Chasmanthium laxum (L.) H.O.Yates",
+    "Chasmanthium sessiliflorum (Poir.) Yates"
+  ],
+  "synonym_and_rank_caution": "Historical C. laxum subsp. sessiliflorum and var. sessiliflorum are homotypic synonyms of accepted C. sessiliflorum, not evidence to merge that species with accepted C. laxum. Uniola genus alone cannot determine destination.",
+  "native_range_audit": "DEFERRED — NOT REVIEWED; no native/county fields changed",
+  "photo_and_specimen_identity": "HOLD — botanical name verification does not verify source photo or specimen determinations",
+  "hybrid_provenance": "HOLD — no individual hybrid parentage or cultivar identity established",
+  "install_decision": "Existing canonical C. latifolium only; no new installations or changes to sibling species",
+  "decision_counts": {
+    "PASS": 10,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Chasmanthium latifolium (Michx.) H.O.Yates",
+      "proposed_decision": "Retain accepted Poaceae species at species rank",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55649-2",
+        "https://www.ipni.org/n/55649-2"
+      ],
+      "detail": "Kew WCVP accepts this combination, published S.W. Naturalist 11:416 (1966); canonical species name already matches."
+    },
+    {
+      "status": "PASS",
+      "subject": "Uniola latifolia Michx.",
+      "proposed_decision": "Map homotypic basionym to Chasmanthium latifolium; retain as searchable alias, not a new card",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55649-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:259471-2",
+        "https://www.ipni.org/n/55649-2"
+      ],
+      "detail": "Published 1803; only POWO synonym directly under C. latifolium."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chasmanthium laxum (L.) H.O.Yates",
+      "proposed_decision": "Maintain separately accepted species; not a synonym of C. latifolium",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2",
+        "https://powo.science.kew.org/taxon/17728-1"
+      ],
+      "detail": "Accepted at species rank under POWO/WCVP; no installation implied."
+    },
+    {
+      "status": "PASS",
+      "subject": "Holcus laxus L.",
+      "proposed_decision": "Map homotypic basionym to C. laxum, not C. latifolium",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2"
+      ],
+      "detail": "POWO explicitly lists homotypic synonym."
+    },
+    {
+      "status": "PASS",
+      "subject": "Uniola laxa (L.) Britton, Sterns & Poggenb.",
+      "proposed_decision": "Map homotypic name to C. laxum",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2"
+      ],
+      "detail": "Historic Uniola combination is not inland sea oats."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chasmanthium sessiliflorum (Poir.) Yates",
+      "proposed_decision": "Maintain separately accepted species under POWO/WCVP",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2",
+        "https://powo.science.kew.org/taxon/17728-1"
+      ],
+      "detail": "POWO recognizes distinct species, published S.W. Naturalist 11:426 (1966)."
+    },
+    {
+      "status": "PASS",
+      "subject": "Uniola sessiliflora Poir.",
+      "proposed_decision": "Map homotypic basionym to C. sessiliflorum, not C. latifolium",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2"
+      ],
+      "detail": "Original species name published 1808."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chasmanthium laxum subsp. sessiliflorum (Poir.) L.G.Clark",
+      "proposed_decision": "Map historical subspecies-rank combination to accepted C. sessiliflorum species",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2"
+      ],
+      "detail": "POWO homotypic synonym; preserve original rank and author for historic observations."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chasmanthium laxum var. sessiliflorum (Poir.) Wipff & S.D.Jones",
+      "proposed_decision": "Map historical variety-rank combination to accepted C. sessiliflorum species",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2"
+      ],
+      "detail": "POWO homotypic synonym, published 1994, printed 1995."
+    },
+    {
+      "status": "PASS",
+      "subject": "Uniola longifolia Scribn.",
+      "proposed_decision": "Map heterotypic synonym to accepted C. sessiliflorum, not to C. latifolium",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2"
+      ],
+      "detail": "POWO records Uniola longifolia as heterotypic synonym of C. sessiliflorum."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically collapse C. sessiliflorum into C. laxum",
+      "proposed_decision": "Reject automatic species merger under current POWO/WCVP accepted backbone",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2"
+      ],
+      "detail": "Historic subspecies/variety combinations do not mean currently accepted species are synonymous."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically map all Uniola or Chasmanthium historical names to inland sea oats",
+      "proposed_decision": "Reject name-only genus matching and preserve species-specific synonym destinations",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55649-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2"
+      ],
+      "detail": "Uniola latifolia maps to latifolium, Uniola laxa to laxum, Uniola sessiliflora and U. longifolia to sessiliflorum."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Species determination of C. latifolium gallery photographs and C. laxum / C. sessiliflorum comparison images",
+      "proposed_decision": "Keep individual image and historical source-ID verification separate from accepted-name review",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55649-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2",
+        "https://github.com/Crking92/Hays-County-Botany/blob/main/content/taxa/Poaceae/Chasmanthium/chasmanthium-latifolium/species.json"
+      ],
+      "detail": "Existing comparison photo rank/identity caution retained; no photographs examined or relabeled in taxonomy-only run."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Unverified hybrid ancestry or cultivated-origin identity of individual Chasmanthium observations",
+      "proposed_decision": "Do not infer a hybrid from appearance, label, or general possibility without accession-specific evidence",
+      "sources": [
+        "https://powo.science.kew.org/taxon/17728-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55649-2"
+      ],
+      "detail": "No specimen-specific hybrid parentage or cultivar provenance established in this review; preserve any existing hold."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Historical C. laxum infraspecific circumscription versus accepted C. sessiliflorum species",
+      "proposed_decision": "Document competing historical rank treatments without collapsing accepted WCVP species boundaries",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2",
+        "https://www.floridamuseum.ufl.edu/wp-content/uploads/sites/67/2026/02/Flora-of-Florida-Franck-2026.pdf"
+      ],
+      "detail": "POWO synonymy preserves historical subsp./var. sessiliflorum under laxum; contemporary Kew and Flora of Florida 2026 recognize separate species."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Original 1803 Uniola latifolia page citation discrepancy",
+      "proposed_decision": "Retain the name mapping; defer bibliographic collation check against the original protologue",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55649-2",
+        "https://www.ipni.org/n/55649-2",
+        "https://www.ipni.org/n/259471-2"
+      ],
+      "detail": "POWO cites Flora Boreali-Americana 1:71, while IPNI primary display gives 1:70 and a duplicate alternative 1:71. No change to accepted name or basionym."
+    }
+  ],
+  "sources": [
+    {
+      "authority": "Kew POWO/WCVP Chasmanthium latifolium",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55649-2"
+    },
+    {
+      "authority": "Kew POWO/WCVP Chasmanthium laxum",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55650-2"
+    },
+    {
+      "authority": "Kew POWO/WCVP Chasmanthium sessiliflorum",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:55653-2"
+    },
+    {
+      "authority": "Kew genus accepted species",
+      "url": "https://powo.science.kew.org/taxon/17728-1"
+    },
+    {
+      "authority": "IPNI latifolium 1966 combination",
+      "url": "https://www.ipni.org/n/55649-2"
+    },
+    {
+      "authority": "IPNI Uniola latifolia basionym",
+      "url": "https://www.ipni.org/n/259471-2"
+    },
+    {
+      "authority": "Flora of Florida 2026 taxonomic key",
+      "url": "https://www.floridamuseum.ufl.edu/wp-content/uploads/sites/67/2026/02/Flora-of-Florida-Franck-2026.pdf"
+    }
+  ],
+  "scope_exclusions": [
+    "No canonical species changes",
+    "No media/photo sourcing or photo relabeling",
+    "No genus/family lessons",
+    "No installation",
+    "No county nativity audit",
+    "No Pages or workflow schedule changes"
+  ]
+}
