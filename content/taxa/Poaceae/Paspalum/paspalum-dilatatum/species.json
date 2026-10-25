@@ -10,8 +10,8 @@
     "visual_reviewed": false,
     "taxonomy_reviewed": false,
     "photo_source_checked": true,
-    "photo_metadata_count": 3,
-    "photo_files_present": 3,
+    "photo_metadata_count": 5,
+    "photo_files_present": 5,
     "manual_paspalum_visual_pass": "2026-10-20",
     "visual_finish": "FIELD_READY_PHOTO_GAPS — branches and collar shown, measured hairy spikelets missing",
     "manual_paspalum_photo_refine_20261021": "FIELD_READY_PHOTO_GAPS",
@@ -19,7 +19,8 @@
     "new_local_files": 0,
     "external_references_added": 0,
     "nativity_unchanged": true,
-    "manual_dallis_photo_pixel_qa_20261023": "3 physically archived images checked; 1 misplaced arrow corrected; 1 visible gross-structure arrow added; license version and true ligule still pending"
+    "manual_dallis_photo_pixel_qa_20261023": "3 physically archived images checked; 1 misplaced arrow corrected; 1 visible gross-structure arrow added; license version and true ligule still pending",
+    "photo_inventory_reconciliation_20261025": "Five distinct canonical images[] records match five existing GitHub images/ objects. The two newer Commons derivatives are already displayed as species comparison panels 5–6. Their GitHub object SHAs and API-reported sizes are recorded, but actual archived JPEG bytes, EXIF/GPS and arrow pixels could NOT be decoded in this run. No new JPEG or arrow was installed; no new microscopic structure was certified."
   },
   "photo_note": "2026-10-23 diagnostic photo QA: all three original Joey Santore JPEGs re-retrieved and rendered; flowering racemes, leaf blade/sheath junction, pale collar hairs and visibly rippled blade edge confirmed. Corrected a prior arrow that landed on green blade rather than the pale collar tuft and added one explicitly non-hair blade-edge arrow. The true membranous ligule, measured hairy 3–4 mm spikelets, complete rooted tuft and same-plant full raceme count remain NEEDS_PUBLIC_PHOTO/annotation_pending. Existing CC BY-NC creator/source and noncommercial restrictions preserved; original iNaturalist photo pages/license version were inaccessible for independent reconfirmation. No new media, taxonomy or range change.",
   "images": [
@@ -58,17 +59,52 @@
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_dilatatum_sl8.jpg",
       "photo_status": "PHYSICALLY ARCHIVED — PROVISIONAL USER PHOTO REVIEW PENDING, no new arrows",
-      "modifications": "Resized Commons derivative re-encoded without EXIF"
+      "modifications": "Resized Commons derivative re-encoded without EXIF",
+      "source_license_recheck_20261025": {
+        "exact_source_taxon": "Paspalum dilatatum",
+        "source_organ": "Stem, blade sheath and ligule according to photographer's original caption",
+        "creator": "Stefan.lefnaer",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_dilatatum_sl8.jpg",
+        "source_photo_date": "2019-10-12",
+        "source_locality": "Krk, Croatia (NOT a Hays County voucher)",
+        "license": "CC BY-SA 4.0 International",
+        "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "source_version": "Commons original uploaded 2020-03-03, 2712x2123; local archive is a resized derivative",
+        "archived_git_blob_sha": "055583e00368759098df5f375defeeb20f3b912e",
+        "archived_size_bytes_github_reported": 285063,
+        "archived_bytes_independently_decoded_this_run": false,
+        "exif_gps_inspected_this_run": false,
+        "annotation_pending": "True membranous ligule apex and length, collar hairs, exact arrow coordinates; inspect local JPEG pixels before annotating",
+        "rights": "Attribution, license link, resized-derivative change notice and ShareAlike conditions required; original JPEG and records unchanged."
+      }
     },
     {
       "file": "images/macleay-grass-man-dallisgrass-spikelets.jpg",
       "role": "Four rows of oval, long-haired spikelets on raceme — image measurements unverified",
-      "creator": "Macleay Grass Man",
+      "creator": "Harry Rose (Macleay Grass Man)",
       "license": "CC BY 2.0",
       "license_url": "https://creativecommons.org/licenses/by/2.0/",
       "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_dilatatum_spikelets6_(7371038292).jpg",
       "photo_status": "PHYSICALLY ARCHIVED — PROVISIONAL USER PHOTO REVIEW PENDING, no new arrows",
-      "modifications": "Resized Commons derivative re-encoded without EXIF"
+      "modifications": "Resized Commons derivative re-encoded without EXIF",
+      "source_license_recheck_20261025": {
+        "exact_source_taxon": "Paspalum dilatatum",
+        "source_organ": "Spikelets in four rows on a raceme; 2.8–4 mm oval fringed spikelets according to original photographer's caption, NOT measurements verified from local JPEG pixels",
+        "creator": "Harry Rose (Macleay Grass Man)",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_dilatatum_spikelets6_(7371038292).jpg",
+        "original_flickr_id": "7371038292",
+        "source_photo_date": "2012-06-14",
+        "source_locality": "South West Rocks, Australia (NOT a Hays County voucher)",
+        "license": "CC BY 2.0 Generic",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "source_version": "Commons file uploaded 2015-05-20; original 1500x1748; Flickr license reviewed 2015-05-20; local archive is a resized derivative",
+        "archived_git_blob_sha": "d0a020aa8b1e5e8b17fa5a0a8872f672c75991d9",
+        "archived_size_bytes_github_reported": 410671,
+        "archived_bytes_independently_decoded_this_run": false,
+        "exif_gps_inspected_this_run": false,
+        "annotation_pending": "Glume versus lemma outlines, precise marginal-hair origin, counted rows and any ruler-based spikelet length or arrow coordinates until local pixels are inspected",
+        "rights": "Attribution, license link and resized-derivative change notice required; original JPEG and records unchanged."
+      }
     }
   ],
   "learner_visual_status": {
@@ -218,13 +254,13 @@
         "image_url": "content/taxa/Poaceae/Paspalum/paspalum-dilatatum/images/stefan-lefnaer-dallisgrass-ligule.jpg",
         "image_fit": "contain",
         "image_role": "True blade sheath and membranous ligule reference — source-authenticated; anatomy arrow review pending",
-        "caption": "Actual exact-source species photo; inspect visible structure and scale before assigning glume, lemma, or ligule measurement arrows. Not a Hays County voucher.",
+        "caption": "Stefan.lefnaer's source-identified P. dilatatum blade/sheath and ligule photograph from Croatia, CC BY-SA 4.0. This JPEG is physically present in the species GitHub images/ folder; its pixels/EXIF and the true ligule apex have not been independently decoded this run. No anatomical arrow or millimeter ligule measurement is claimed. PROVISIONAL — USER PHOTO REVIEW PENDING.",
         "creator": "Stefan.lefnaer",
         "license": "CC BY-SA 4.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_dilatatum_sl8.jpg",
         "markers": [],
-        "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING"
+        "photo_status": "SOURCE RIGHTS RECHECKED; PHYSICAL GIT OBJECT CONFIRMED; BYTE/PIXEL/EXIF AND ARROW REVIEW PENDING"
       },
       {
         "label": "DALLISGRASS — HAIRY SPIKELETS PHOTO",
@@ -232,13 +268,13 @@
         "image_url": "content/taxa/Poaceae/Paspalum/paspalum-dilatatum/images/macleay-grass-man-dallisgrass-spikelets.jpg",
         "image_fit": "contain",
         "image_role": "Four rows of oval, long-haired spikelets on raceme — image measurements unverified",
-        "caption": "Actual exact-source species photo; inspect visible structure and scale before assigning glume, lemma, or ligule measurement arrows. Not a Hays County voucher.",
+        "caption": "Harry Rose's source-identified Australian P. dilatatum spikelet photograph, CC BY 2.0. The photographer describes oval fringed spikelets in four rows and 2.8–4 mm long; these are source-caption facts, NOT measurements or glume/lemma identifications verified from this archived JPEG. Local Git object exists; pixel/EXIF inspection and anatomy arrows remain pending. PROVISIONAL — USER PHOTO REVIEW PENDING.",
         "creator": "Macleay Grass Man",
         "license": "CC BY 2.0",
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Paspalum_dilatatum_spikelets6_(7371038292).jpg",
         "markers": [],
-        "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING"
+        "photo_status": "SOURCE RIGHTS RECHECKED; PHYSICAL GIT OBJECT CONFIRMED; BYTE/PIXEL/EXIF AND ARROW REVIEW PENDING"
       }
     ],
     "overlay_note": "No new or fabricated photos added. Source photographer and original per-photo CC terms retained, including BY-NC and BY-SA. Comparison photo is explicitly a DIFFERENT SPECIES. Arrows are screen-coordinate descriptions for visible gross structures only; website filtering, license version, mobile placement, and microscopic validation remain independent QA. 2026-10-21: Key refined against intact-head, ripened spikelet and collar distinctions; original panels/arrows retained. No new image; useful diagnostic photos still missing. No BONAP/native-status changes. 2026-10-23 photo lane: three original Joey JPEGs re-rendered, one misplaced collar arrow corrected to visible pale tuft, one visibly rippled blade edge labelled explicitly NOT hairs; photo source license version not independently reopened; no new image files or microscopic claim."
@@ -247,7 +283,7 @@
     "version": 1,
     "heading": "Paspalum: what to inspect",
     "steps": [
-      "Photograph entire panicle with all raceme attachment points on SAME culm; follow one raceme from its base. On 5 detached mature 3–4 mm spikelets record true silky marginal hairs and upper-glume outline. Leaf collar photo is a site-reference only.",
+      "Start with the original whole flowering-head photograph (panel 1), then inspect the two ALREADY ARCHIVED source-labelled anatomy photographs: blade/sheath ligule (panel 5) and hairy spikelets on a raceme (panel 6). These are public-gallery teaching references, not locally vouchered, independently byte-decoded or measured in this run; no new arrows on those two photos.",
       "First show the WHOLE head, then ONE one-sided raceme and attached spikelets. Never treat a photograph of one branch as total raceme count.",
       "Obtain a real intact mature spikelet and measure it with 1-mm reference; use margin hair pattern and glumes to separate close Paspalum taxa.",
       "Photograph blade/sheath joint and same-plant rootstock; knotgrass needs actually rooted horizontal stolons, not merely a low mat.",
@@ -256,7 +292,9 @@
     "field_rule": "Dallisgrass usually 3–7 racemes with larger silky-margined spikelets, while vaseygrass commonly 10–20 racemes and smaller roughly 2–3 mm spikelets; counts overlap. Florida paspalum generally has fewer long branches and broad large oval spikelets. Bahia grass generally has two terminal racemes and lacks the distinct long marginal silky fringe characteristic of dallisgrass.",
     "warning": "Gross photo structures are references, NOT expert confirmation. Even new licensed images are PROVISIONAL — USER PHOTO REVIEW PENDING and not proof of Hays County presence.",
     "featured_photo_indices": [
-      0
+      0,
+      4,
+      5
     ],
     "evidence_sources": [
       "https://keyserver.lucidcentral.org/weeds/data/03080008-0301-4c05-8c0e-0c0f040b0803/media/Html/paspalum_dilatatum.htm",
@@ -408,7 +446,7 @@
     ],
     "NEEDS_PUBLIC_PHOTO": [
       "Same-plant rooted perennial tuft, short rhizome/nodal roots and complete 3–7(–11) raceme flowering culm with centimeter ruler.",
-      "Opened INNER membranous ligule (Williamson County 2–5.5 mm) and separately visible collar hairs, 1-mm physical scale; panels 1–2 are external only.",
+      "Opened INNER membranous ligule (Williamson County 2–5.5 mm) and separately visible collar hairs, 1-mm physical scale; the existing source-labelled ligule JPEG is now physically archived as panel 5 but the true membrane apex, millimeter length, and local same-plant collar hairs remain unverified.",
       "Five mature paired 3–4 mm spikelets on intact raceme, side/face and 1-mm scale at 10–20×; measure upper glume and margin hairs.",
       "Exploded mature spikelet showing ABSENT lower glume, silky 5–7-veined upper glume, lower sterile lemma, hard awnless fertile lemma (~2.2 mm local), palea; physically calibrated.",
       "Matched locally determined P. dilatatum and P. urvillei heads and ripe spikelets at equal scale; panel 3 remains labeled a different species."
