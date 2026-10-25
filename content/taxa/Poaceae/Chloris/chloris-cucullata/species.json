@@ -137,7 +137,21 @@
         535
       ],
       "sha256": "9aa594c2857ee5ef37d3b34091deaa57f2e9e03201fd95620250aadaa71bdcbc",
-      "modifications": "JPEG RGB reencode; no added burned-in markings, EXIF/GPS removed"
+      "modifications": "JPEG RGB reencode; no added burned-in markings, EXIF/GPS removed",
+      "byte_review_20261025": {
+        "verified_from": "GitHub canonical blob (base64 binary read)",
+        "git_blob_sha": "0203573ec224c03d7561b0b2cc443ef0c5b7441b",
+        "decoded_bytes": 54196,
+        "dimensions": [
+          540,
+          535
+        ],
+        "jpeg_soi_eoi_pass": true,
+        "app1_exif_segments": 0,
+        "app13_segments": 0,
+        "source_rights_rechecked": "Jim Conrad explicit public-domain dedication at https://www.backyardnature.net/j/copyrite.htm; original exact-taxon images at https://www.backyardnature.net/n/h/windmill.htm",
+        "annotation_policy": "Existing gross-structure arrows preserved; no new microscopic arrows without a dissected measured specimen"
+      }
     },
     {
       "file": "images/jim-conrad-texas-hooded-one-sided-spikelets.jpg",
@@ -155,7 +169,21 @@
         476
       ],
       "sha256": "b8e7c369c44976f182cf8a0a0611096560345dcd522e47f0f5cfa861b74ad7ef",
-      "modifications": "JPEG RGB reencode; no added burned-in markings, EXIF/GPS removed"
+      "modifications": "JPEG RGB reencode; no added burned-in markings, EXIF/GPS removed",
+      "byte_review_20261025": {
+        "verified_from": "GitHub canonical blob (base64 binary read)",
+        "git_blob_sha": "7504615d72eb940263b4dc0c7da8b4cf747a3e81",
+        "decoded_bytes": 41144,
+        "dimensions": [
+          540,
+          476
+        ],
+        "jpeg_soi_eoi_pass": true,
+        "app1_exif_segments": 0,
+        "app13_segments": 0,
+        "source_rights_rechecked": "Jim Conrad explicit public-domain dedication at https://www.backyardnature.net/j/copyrite.htm; original exact-taxon images at https://www.backyardnature.net/n/h/windmill.htm",
+        "annotation_policy": "Existing gross-structure arrows preserved; no new microscopic arrows without a dissected measured specimen"
+      }
     },
     {
       "file": "images/jim-conrad-texas-hooded-dark-mature-grains.jpg",
@@ -173,7 +201,21 @@
         371
       ],
       "sha256": "8ca648325522bfa0f63a8846cd33c99965c92f95e07e48a50489effac188d985",
-      "modifications": "JPEG RGB reencode; no added burned-in markings, EXIF/GPS removed"
+      "modifications": "JPEG RGB reencode; no added burned-in markings, EXIF/GPS removed",
+      "byte_review_20261025": {
+        "verified_from": "GitHub canonical blob (base64 binary read)",
+        "git_blob_sha": "323944d2e53db3ab016b540677079e7dfd2ef89d",
+        "decoded_bytes": 35120,
+        "dimensions": [
+          540,
+          371
+        ],
+        "jpeg_soi_eoi_pass": true,
+        "app1_exif_segments": 0,
+        "app13_segments": 0,
+        "source_rights_rechecked": "Jim Conrad explicit public-domain dedication at https://www.backyardnature.net/j/copyrite.htm; original exact-taxon images at https://www.backyardnature.net/n/h/windmill.htm",
+        "annotation_policy": "Existing gross-structure arrows preserved; no new microscopic arrows without a dissected measured specimen"
+      }
     }
   ],
   "curation_status": {
@@ -182,8 +224,8 @@
     "taxonomy_identity_checked": true,
     "provisional": true,
     "photo_backfill_needed": true,
-    "photo_metadata_count": 3,
-    "photo_files_present": 3,
+    "photo_metadata_count": 6,
+    "photo_files_present": 6,
     "gbif_manual_photo_enrichment": "2026-10-15",
     "manual_chloris_field_pass": "2026-10-20",
     "visual_finish": "FIELD_READY_PHOTO_GAPS — branch crowding and dried one-sided units verified; hood macro missing",
@@ -194,6 +236,23 @@
       "new_verified_gross_scale_arrows": 2,
       "existing_gallery_photos_preserved": 3,
       "status": "FIELD_READY_PHOTO_GAPS"
+    },
+    "manual_diagnostic_photo_fastfill_20261025": {
+      "existing_archived_jpegs_independently_decoded": 3,
+      "existing_physical_jpegs_confirmed": 6,
+      "new_jpegs_installed": 0,
+      "new_arrows_added": 0,
+      "source_rights_rechecked": "Jim Conrad explicit public-domain photo dedication; 2013 exact-species Uvalde County source",
+      "featured_photo_indices": [
+        0,
+        4,
+        3,
+        5,
+        2,
+        1
+      ],
+      "stage": "FIELD_READY_PHOTO_GAPS",
+      "last_mile": "Measured opened sterile hood, true ligule, individually distinguishable glumes and fertile awn remain NEEDS_PUBLIC_PHOTO; no microscopic coordinates inferred"
     }
   },
   "learner_visual_status": {
@@ -208,17 +267,22 @@
     "version": 1,
     "heading": "How to identify Chloris cucullata in the field",
     "steps": [
-      "In the first real photo, follow the RIGHT-hand flowering head to its radiating one-sided racemes and junction. The dense LEFT plume arises from a different visible culm and is NOT verified as the same plant or a C. cucullata diagnostic.",
-      "The dried hand-held head photo shows individual one-sided branch spikelet rows more clearly. Mark only the actual photographed branch and spikelet rows.",
-      "THIRD — the physically archived USDA ARS source-labelled 'seeds' photograph actually shows detached seed-bearing units with enclosing pale structures, fine pointed projections and a printed 2-mm scale. Two overlays identify a whole unit and the scale bar; the image does NOT isolate the inflated upper sterile lemma or prove glume/lemma identities. Do not call these all bare caryopses.",
-      "For the hooded species ID, isolate one spikelet under 10–20× and measure the swollen rounded sterile lemma and its short awn. Neither current head photograph resolves the hood."
+      "FIRST — follow only the RIGHT-hand flowering head in the Fonseca image to its actual radiating racemes. The dense LEFT plume is a separate culm and cannot prove hooded windmillgrass.",
+      "SECOND — inspect Jim Conrad's actual northern Uvalde County mature head: short one-sided spikelet rows join at the visible raceme hub. This establishes the branch arrangement, not the microscopic sterile hood.",
+      "THIRD — enlarge Conrad's two-spikelet Texas macro to see real translucent marginal hairs and intact overlapping scales. No glume or upper sterile lemma has been individually dissected or measured in this photograph.",
+      "FOURTH — compare Conrad's ripe head showing dark exposed grains with the earlier intact head. The visible dark grains are mature fruit; do not mistake the pale pointed bracts for a separately proven sterile hood.",
+      "FIFTH — use the archived USDA ARS detached-unit image and its actual 2-mm printed scale to appreciate reproductive size. Individual glume, lemma and awn origins remain unresolved in these source-labelled units.",
+      "LAST — check the existing dried raceme photograph, then confirm the species only with a vouchered 10–20× mature spikelet: isolate the rounded upper sterile lemma hood (about 1–1.5 mm), both glumes and the short fertile awn. Photograph the true 0.7–1 mm inner collar ligule with a millimeter ruler; keep C. verticillata and hybrid candidates provisional until measured."
     ],
     "field_rule": "Hooded windmillgrass generally has crowded shorter racemes (~2–5 cm) and a conspicuous rounded sterile hood with short awns. Tumble windmillgrass typically has longer (~5–15 cm) racemes in separated tiers and longer awns. Feather fingergrass commonly has a feathery terminal fan with long apical fertile-lemma hairs. The hybrid may be intermediate.",
     "warning": "A single source-labelled photograph shows two visibly separate flowering culms: do not treat the left dense plume as verified hooded windmillgrass or as proof of its crowded short racemes. Do not determine species or hybrid identity from a windmill silhouette alone; dissect the mature upper sterile lemma with a 1-mm scale.",
     "featured_photo_indices": [
       0,
-      1,
-      2
+      4,
+      3,
+      5,
+      2,
+      1
     ],
     "evidence_sources": [
       "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:395849-1/general-information"
