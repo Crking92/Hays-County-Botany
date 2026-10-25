@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-zizania-texana-species-boundaries-2026-10-25-1227-001",
+  "lane": "grass-taxonomy-verification",
+  "reviewed_at": "2026-10-25T17:27:13Z",
+  "source_access_date": "2026-10-25",
+  "source_backbone": "Kew POWO/WCVP 2026",
+  "family": "Poaceae",
+  "taxa": [
+    "Zizania texana Hitchc."
+  ],
+  "canonical_target": {
+    "path": "content/taxa/Poaceae/Zizania/zizania-texana/species.json",
+    "sha_at_review": "9cdfcd8722125e978bb94d0dd2233137122268a2",
+    "modified": false
+  },
+  "claim_path": "workflow/taxonomy-claims/grass-zizania-texana-species-boundaries-2026-10-25-1227-001.json",
+  "source_pool_spelling": "Zizania texana",
+  "accepted_name": "Zizania texana Hitchc.",
+  "genus": "Zizania",
+  "rank": "species",
+  "synonyms_verified_under_Z_texana": 0,
+  "synonym_caution": "The current POWO Z. texana taxon page displays no synonym list; do not infer that no historic names have ever been published. Separately verify any future proposed synonym.",
+  "native_range_audit": "DEFERRED — NOT REVIEWED",
+  "photo_and_specimen_identity": "HOLD — accepted taxon name does not certify individual learner images",
+  "hybrid_provenance": "HOLD — no individual hybrid or introgression status established",
+  "install_decision": "Existing accepted learner species; do not create duplicate Zizania cards or collapse accepted species",
+  "decision_counts": {
+    "PASS": 10,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Zizania texana Hitchc.",
+      "proposed_decision": "ACCEPTED species in genus Zizania, family Poaceae; retain existing learner binomial",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2",
+        "https://www.fws.gov/rivers/rivers/species/texas-wild-rice-zizania-texana"
+      ],
+      "detail": "POWO/WCVP accepts the species; FWS independently uses this exact binomial."
+    },
+    {
+      "status": "PASS",
+      "subject": "Zizania texana authorship and protologue",
+      "proposed_decision": "Use Hitchc.; originally published J. Wash. Acad. Sci. 23:454 (1933)",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2"
+      ],
+      "detail": "Do not append authorship of other Zizania species or assign infraspecific rank."
+    },
+    {
+      "status": "PASS",
+      "subject": "Zizania species concept under WCVP",
+      "proposed_decision": "Four separately accepted species: Z. texana, Z. palustris, Z. aquatica, Z. latifolia",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30001114-2"
+      ],
+      "detail": "The four accepted species are not aliases for a single wild-rice card."
+    },
+    {
+      "status": "PASS",
+      "subject": "Zizania palustris L.",
+      "proposed_decision": "ACCEPTED species, separate from Z. texana",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2"
+      ],
+      "detail": "Its phylogenetic proximity to Z. texana does not by itself make it a synonym."
+    },
+    {
+      "status": "PASS",
+      "subject": "Zizania aquatica L.",
+      "proposed_decision": "ACCEPTED species, separate from Z. texana",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271175-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2"
+      ],
+      "detail": "Common name wild rice alone does not establish species identity."
+    },
+    {
+      "status": "PASS",
+      "subject": "Zizania aquatica var. angustifolia Hitchc.",
+      "proposed_decision": "SYNONYM_TO_ACCEPTED: Zizania palustris L., NOT Z. texana",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2"
+      ],
+      "detail": "POWO also maps Z. aquatica subsp. angustifolia (Hitchc.) Tzvelev to Z. palustris."
+    },
+    {
+      "status": "PASS",
+      "subject": "Zizania aquatica var. interior Fassett",
+      "proposed_decision": "ACCEPTED infraspecific under Z. aquatica, not an infraspecific of Z. texana",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271175-2"
+      ],
+      "detail": "Preserve full species and rank in historic wild-rice names."
+    },
+    {
+      "status": "PASS",
+      "subject": "Texas wild-rice life history",
+      "proposed_decision": "Perennial aquatic grass is supported by POWO taxon summary, USFWS and 2017 genetics study",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2",
+        "https://www.fws.gov/rivers/rivers/species/texas-wild-rice-zizania-texana",
+        "https://digitalcommons.usf.edu/kip_articles/1989/"
+      ],
+      "detail": "A conflicting GrassBase text fragment is separately recorded as a metadata inconsistency; do not replace verified perennial with annual."
+    },
+    {
+      "status": "PASS",
+      "subject": "Z. texana morphological species comparison",
+      "proposed_decision": "Published cultivation-based comparisons reported stable differences from Z. aquatica and Z. palustris",
+      "sources": [
+        "https://digitalcommons.usf.edu/kip_articles/3690/"
+      ],
+      "detail": "1978 peer-reviewed abstract supports maintaining a separate operational species concept; does not authenticate any current photo."
+    },
+    {
+      "status": "PASS",
+      "subject": "Molecular relationship of Z. texana and Z. palustris",
+      "proposed_decision": "Close relationship supported, not synonymy or individual hybrid status",
+      "sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/19944174/",
+        "https://pubmed.ncbi.nlm.nih.gov/25667077/"
+      ],
+      "detail": "2010 organellar/nuclear study and 2015 population data support close phylogenetic affinity while both studies retain four named species."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatic Z. texana -> Z. palustris mapping",
+      "proposed_decision": "REJECT proposed species collapse or relabeling of individual Texas wild-rice records",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2",
+        "https://pubmed.ncbi.nlm.nih.gov/25667077/"
+      ],
+      "detail": "2015 STRUCTURE overlap at sampled markers is not a nomenclatural act and does not override the accepted POWO/WCVP treatment."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatic Z. texana -> Z. aquatica mapping",
+      "proposed_decision": "REJECT broad wild-rice synonymization based on common name, aquatic habit or historical varieties",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271175-2",
+        "https://digitalcommons.usf.edu/kip_articles/3690/"
+      ],
+      "detail": "Separate accepted species and published morphological differences; historic Z. aquatica infraspecifics must be resolved by their own full names."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Existing Z. texana learner images and source observations",
+      "proposed_decision": "Preserve source-labelled identification; no new specimen-level certainty without voucher or reliable source determination",
+      "sources": [
+        "https://github.com/Crking92/Hays-County-Botany/blob/main/content/taxa/Poaceae/Zizania/zizania-texana/species.json",
+        "https://www.fws.gov/rivers/rivers/species/texas-wild-rice-zizania-texana"
+      ],
+      "detail": "Taxonomy of accepted species does not independently verify the eight source-labelled photos; do not alter photos, labels, or gallery."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Hybrid, introgression or clone ancestry of individual Z. texana plants",
+      "proposed_decision": "No individual hybrid/genotype assignment without specimen-specific evidence",
+      "sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/19944174/",
+        "https://pubmed.ncbi.nlm.nih.gov/25667077/",
+        "https://github.com/Crking92/Hays-County-Botany/blob/main/content/taxa/Poaceae/Zizania/zizania-texana/species.json"
+      ],
+      "detail": "2010 low-frequency introgression signal concerns Z. palustris into Z. aquatica, not proof of hybrid origin for a Texas wild-rice learner photograph."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "GrassBase annual versus POWO/FWS perennial life-history metadata",
+      "proposed_decision": "Flag inconsistent source text for specialist source correction; use perennial for accepted species pending reconciliation",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2/general-information",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2",
+        "https://www.fws.gov/rivers/rivers/species/texas-wild-rice-zizania-texana"
+      ],
+      "detail": "POWO taxon summary says perennial but its embedded GrassBase description begins 'Annual'; source-level discrepancy not a taxonomic reclassification."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "2015 Z. texana versus Z. palustris microsatellite cluster overlap",
+      "proposed_decision": "Document unresolved resolution at sampled molecular markers; keep accepted species separate",
+      "sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/25667077/",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2"
+      ],
+      "detail": "2015 STRUCTURE K=3 did not resolve Z. texana as a distinct cluster from Z. palustris. This is a phylogenetic limitation, not grounds to erase accepted names."
+    }
+  ],
+  "sources": [
+    {
+      "authority": "Kew POWO/WCVP 2026 Zizania texana",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2"
+    },
+    {
+      "authority": "Kew POWO/WCVP 2026 Zizania genus",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30001114-2"
+    },
+    {
+      "authority": "Kew POWO/WCVP 2026 Zizania palustris",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:304686-2"
+    },
+    {
+      "authority": "Kew POWO/WCVP 2026 Zizania aquatica",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271175-2"
+    },
+    {
+      "authority": "USFWS species account",
+      "url": "https://www.fws.gov/rivers/rivers/species/texas-wild-rice-zizania-texana"
+    },
+    {
+      "authority": "Terrell, Emery & Beaty (1978), Bulletin of the Torrey Botanical Club 105:50–57",
+      "url": "https://digitalcommons.usf.edu/kip_articles/3690/"
+    },
+    {
+      "authority": "Xu et al. (2010), Molecular Phylogenetics and Evolution",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19944174/"
+    },
+    {
+      "authority": "Comparative phylogeography of Zizania (2015), American Journal of Botany",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/25667077/"
+    },
+    {
+      "authority": "GrassBase description reproduced by POWO (conflicting life-history phrase)",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:271183-2/general-information"
+    }
+  ],
+  "scope_exclusions": [
+    "No canonical species modification",
+    "No photo sourcing or photo identity assertions",
+    "No genus/family lessons",
+    "No installation",
+    "No county nativity audit",
+    "No Pages changes"
+  ]
+}
