@@ -1,0 +1,177 @@
+{
+  "id": "grass-hordeum-pusillum-flexuosum-intercedens-2026-10-25-0521-001",
+  "run_date_local": "2026-10-25",
+  "run_time_local": "05:21 America/Chicago",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Taxonomy-only review of existing canonical Poaceae and related historical accepted-name concepts; no card/photo/lesson/installation/county/Pages writes",
+  "status": "ACCEPTED_HORDEUM_PUSILLUM_WITH_CROSS_SPECIES_HISTORICAL_VARIETY_AND_INTERCEDENS_CONCEPT_HOLD",
+  "canonical_species": [
+    {
+      "taxon_id": "hordeum-pusillum",
+      "path": "content/taxa/Poaceae/Hordeum/hordeum-pusillum/species.json",
+      "sha_at_review": "9611690c198203992dbb3a9b1739672aece5e7f4",
+      "source_pool_name": "Hordeum pusillum",
+      "existing_name": "Hordeum pusillum",
+      "accepted_name_with_author": "Hordeum pusillum Nutt.",
+      "accepted_rank": "species",
+      "family": "Poaceae",
+      "genus": "Hordeum",
+      "taxonomy_reviewed_flag_at_review": false,
+      "no_canonical_edit": true
+    }
+  ],
+  "backbone": "POWO/WCVP checked 2026-10-25; Flora of North America (2007) cited in POWO; Native Plant Trust regional key for identity caution",
+  "scientific_decisions": [
+    {
+      "code": "HOR-01",
+      "status": "PASS",
+      "source_name": "Hordeum pusillum Nutt.",
+      "accepted_target": "Hordeum pusillum Nutt.",
+      "reason": "POWO/WCVP accepts this name at species rank in Hordeum, Poaceae; existing canonical binomial is correct. Nutt. is the verified author.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2"
+      ]
+    },
+    {
+      "code": "HOR-02",
+      "status": "PASS",
+      "source_name": "Critesion pusillum (Nutt.) Á.Löve",
+      "accepted_target": "Hordeum pusillum Nutt.",
+      "reason": "Homotypic combination; retain as searchable historical alias, not a separately accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2"
+      ]
+    },
+    {
+      "code": "HOR-03",
+      "status": "PASS",
+      "source_name": "Hordeum pusillum var. typicum Hauman",
+      "accepted_target": "Hordeum pusillum Nutt.",
+      "reason": "POWO associates the name with H. pusillum but explicitly marks it 'not validly publ.' Do not treat this invalidly published varietal label as an accepted rank or a valid independent taxon.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:419487-4"
+      ]
+    },
+    {
+      "code": "HOR-04",
+      "status": "PASS",
+      "source_name": "Hordeum pusillum var. pubens Hitchc.",
+      "accepted_target": "Hordeum pusillum Nutt.",
+      "reason": "POWO lists this as a heterotypic synonym; no separate accepted variety in the current backbone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123937-2"
+      ]
+    },
+    {
+      "code": "HOR-05",
+      "status": "PASS",
+      "source_name": "Hordeum riehlii Steud.",
+      "accepted_target": "Hordeum pusillum Nutt.",
+      "reason": "POWO lists this as a heterotypic synonym; original voucher determination remains a separate question.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:405341-1"
+      ]
+    },
+    {
+      "code": "HOR-06",
+      "status": "PASS",
+      "source_name": "Hordeum pusillum var. flexuosum (Nees ex Steud.) Covas",
+      "accepted_target": "Hordeum flexuosum Nees ex Steud.",
+      "reason": "Despite the parent binomial pusillum, POWO maps this historical variety to the separately accepted species H. flexuosum. Do not route this variety into the H. pusillum learner.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123935-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:278255-2"
+      ]
+    },
+    {
+      "code": "HOR-07",
+      "status": "PASS",
+      "source_name": "Hordeum flexuosum Nees ex Steud.",
+      "accepted_target": "Hordeum flexuosum Nees ex Steud.",
+      "reason": "POWO/WCVP accepts H. flexuosum at species rank; not an accepted subspecies or variety of H. pusillum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:278255-2"
+      ]
+    },
+    {
+      "code": "HOR-08",
+      "status": "PASS",
+      "source_name": "Hordeum intercedens Nevski",
+      "accepted_target": "Hordeum intercedens Nevski",
+      "reason": "POWO/WCVP accepts a distinct species, following Flora of North America (2007); historical authorities sometimes subsumed it in H. pusillum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:405261-1"
+      ]
+    },
+    {
+      "code": "HOR-09",
+      "status": "FAIL",
+      "source_name": "Automatic alias of H. pusillum var. flexuosum to canonical H. pusillum",
+      "accepted_target": "REJECTED — route to H. flexuosum concept",
+      "reason": "The historical varietal epithet and original parent binomial do not override the current accepted species destination.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123935-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:278255-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2"
+      ]
+    },
+    {
+      "code": "HOR-10",
+      "status": "FAIL",
+      "source_name": "Automatic collapse of H. intercedens into H. pusillum for learner or source records",
+      "accepted_target": "REJECTED under current POWO/WCVP backbone",
+      "reason": "H. intercedens is separately accepted; the alternative older treatment must not be applied as an automatic merge.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:405261-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2"
+      ]
+    },
+    {
+      "code": "HOR-11",
+      "status": "HOLD",
+      "source_name": "Identity of individual learner photos and historical vouchers labelled 'little barley' or Hordeum sp.",
+      "accepted_target": "Individual specimen identity NOT independently verified",
+      "reason": "Name acceptance and synonyms do not authenticate source photographs or incomplete herbarium labels. Preserve existing source/photo-ID flags, and do not infer hybrid ancestry.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:405261-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:278255-2",
+        "https://gobotany.nativeplanttrust.org/species/hordeum/pusillum/"
+      ]
+    },
+    {
+      "code": "HOR-12",
+      "status": "UNRESOLVED",
+      "source_name": "Historical H. intercedens / H. pusillum concept boundary in older checklists",
+      "accepted_target": "POWO 2026: two accepted species; older cited authorities sometimes H. pusillum sensu lato",
+      "reason": "POWO records that Clayton et al. (2006) and Chang et al. (2014) cited H. intercedens as H. pusillum; individual older determinations require original treatment and voucher review. Accepted project backbone remains unambiguous.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:405261-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 8,
+    "FAIL": 2,
+    "HOLD": 1,
+    "UNRESOLVED": 1
+  },
+  "total_decisions": 12,
+  "duplicate_handling": "Preserve Critesion pusillum, var. pubens and H. riehlii as synonyms to the existing species concept. Route var. flexuosum to distinct H. flexuosum; do not collapse H. intercedens into H. pusillum.",
+  "holds_preserved": true,
+  "hybrid_parentage_not_inferred": true,
+  "native_range_audit": "DEFERRED — no county/native-status work",
+  "no_species_card_edits": true,
+  "follow_up": "Maintain H. pusillum accepted name. Preserve specimen/photo identity holds; check source vouchers before reassigning historical flexuosum or intercedens records. Do not install separate cards or alter photo records in taxonomy lane.",
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123933-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:278255-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:405261-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:123935-2",
+    "https://gobotany.nativeplanttrust.org/species/hordeum/pusillum/"
+  ]
+}
