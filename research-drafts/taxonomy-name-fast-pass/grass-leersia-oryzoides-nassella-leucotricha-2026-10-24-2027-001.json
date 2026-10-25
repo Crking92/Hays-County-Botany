@@ -1,0 +1,237 @@
+{
+  "batch_id": "grass-leersia-oryzoides-nassella-leucotricha-2026-10-24-2027-001",
+  "project": "Crking92/Hays-County-Botany",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "date": "2026-10-24",
+  "authority_backbone": "POWO/WCVP (Kew 2026); EPPO for Leersia cross-check; primary Texas wintergrass research",
+  "scope": "Existing canonical Poaceae: Leersia oryzoides and Nassella leucotricha, historical synonym/rank boundaries, specimen and hybrid identity holds only",
+  "canonical_targets": [
+    {
+      "id": "leersia-oryzoides",
+      "path": "content/taxa/Poaceae/Leersia/leersia-oryzoides/species.json",
+      "pre_review_blob_sha": "6c7ed63f9ced3c224de695e7c0b1a2690e351f6e",
+      "accepted_name": "Leersia oryzoides (L.) Sw.",
+      "rank": "species",
+      "canonical_name_change": false
+    },
+    {
+      "id": "nassella-leucotricha",
+      "path": "content/taxa/Poaceae/Nassella/nassella-leucotricha/species.json",
+      "pre_review_blob_sha": "c8e6a7d617d2601973a351c8d8c4da2022c07b99",
+      "accepted_name": "Nassella leucotricha (Trin. & Rupr.) R.W.Pohl",
+      "rank": "species",
+      "canonical_name_change": false,
+      "documentation_handoff": "Canonical authority field blank; accepted full authorship verified; species-card worker may reconcile with fresh SHA separately."
+    }
+  ],
+  "manifest_blob_sha_checked": "36c95f3d83ada2e01331b9f32ae69cb8b09c44d9",
+  "claim_path": "workflow/taxonomy-claims/grass-leersia-oryzoides-nassella-leucotricha-2026-10-24-2027-001.json",
+  "decisions": [
+    {
+      "code": "LO-01",
+      "status": "PASS",
+      "source_name": "Leersia oryzoides (L.) Sw.",
+      "accepted_target": "Leersia oryzoides (L.) Sw.",
+      "reason": "POWO/WCVP accepts species at species rank in Poaceae; existing canonical spelling and authorship are correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2"
+      ]
+    },
+    {
+      "code": "LO-02",
+      "status": "PASS",
+      "source_name": "Phalaris oryzoides L. (1753)",
+      "accepted_target": "Leersia oryzoides (L.) Sw.",
+      "reason": "Original basionym is homotypic synonym; do not install an independent Phalaris card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2"
+      ]
+    },
+    {
+      "code": "LO-03",
+      "status": "PASS",
+      "source_name": "Homalocenchrus oryzoides (L.) Mieg ex Pollich",
+      "accepted_target": "Leersia oryzoides (L.) Sw.",
+      "reason": "Historical genus combination is a homotypic synonym under POWO/WCVP.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2"
+      ]
+    },
+    {
+      "code": "LO-04",
+      "status": "PASS",
+      "source_name": "Oryza clandestina (Weber) A.Braun ex Asch.",
+      "accepted_target": "Leersia oryzoides (L.) Sw.",
+      "reason": "POWO lists this as a heterotypic synonym; historical name crosswalk does not authenticate any individual voucher.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2"
+      ]
+    },
+    {
+      "code": "LO-05",
+      "status": "PASS",
+      "source_name": "Leersia oryzoides f. clandestina (Weber) Eames",
+      "accepted_target": "Leersia oryzoides (L.) Sw.",
+      "reason": "Form-rank name treated as heterotypic synonym, not a separate accepted form for automatic installation.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2"
+      ]
+    },
+    {
+      "code": "LO-06",
+      "status": "PASS",
+      "source_name": "Leersia oryzoides var. inclusa (Wiesb. ex Baen.) Rouy",
+      "accepted_target": "Leersia oryzoides (L.) Sw.",
+      "reason": "Historical variety is a synonym of accepted rice cutgrass, with rank and author retained for provenance.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2"
+      ]
+    },
+    {
+      "code": "LO-07",
+      "status": "PASS",
+      "source_name": "Leersia sayanuka Ohwi",
+      "accepted_target": "Leersia sayanuka Ohwi (distinct accepted species)",
+      "reason": "POWO accepts this separately; EPPO independently prefers L. sayanuka for historical var. japonica.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:406983-1",
+        "https://gd.eppo.int/taxon/LERSA"
+      ]
+    },
+    {
+      "code": "LO-08",
+      "status": "PASS",
+      "source_name": "Leersia virginica Willd.",
+      "accepted_target": "Leersia virginica Willd. (distinct accepted species)",
+      "reason": "POWO accepts white cutgrass separately from L. oryzoides; no merging of their vouchers or photographs.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316778-2",
+        "https://powo.science.kew.org/taxon/1109632-2"
+      ]
+    },
+    {
+      "code": "NL-01",
+      "status": "PASS",
+      "source_name": "Nassella leucotricha (Trin. & Rupr.) R.W.Pohl",
+      "accepted_target": "Nassella leucotricha (Trin. & Rupr.) R.W.Pohl",
+      "reason": "POWO accepts species in Nassella, Poaceae; Pohl combination published Taxon 39:610 (1990). Canonical scientific_name is correct, but authority field is currently blank: documentation-only handoff to card owner.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:948400-1",
+        "https://doi.org/10.1002/csc2.21146"
+      ]
+    },
+    {
+      "code": "NL-02",
+      "status": "PASS",
+      "source_name": "Stipa leucotricha Trin. & Rupr.",
+      "accepted_target": "Nassella leucotricha (Trin. & Rupr.) R.W.Pohl",
+      "reason": "POWO lists Stipa leucotricha as homotypic basionym, not a separately accepted current species under the project backbone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:948400-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:326320-2"
+      ]
+    },
+    {
+      "code": "NL-03",
+      "status": "PASS",
+      "source_name": "Stipa ciliata Scheele",
+      "accepted_target": "Nassella leucotricha (Trin. & Rupr.) R.W.Pohl",
+      "reason": "POWO lists this as heterotypic synonym. The existing canonical synonyms array correctly retains the historical name.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:948400-1"
+      ]
+    },
+    {
+      "code": "LO-09",
+      "status": "FAIL",
+      "source_name": "Proposed mapping of Leersia oryzoides var. japonica Hack. and subsp. japonica to modern L. oryzoides",
+      "accepted_target": "REJECT_CROSS_SPECIES_MERGE; target Leersia sayanuka Ohwi",
+      "reason": "Both historical infraspecific names belong to accepted L. sayanuka, not accepted L. oryzoides under POWO. FAIL applies to proposed mapping, not to either species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422116-4",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:954148-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:406983-1",
+        "https://gd.eppo.int/taxon/LERSA"
+      ]
+    },
+    {
+      "code": "LO-10",
+      "status": "FAIL",
+      "source_name": "Proposed mapping of Leersia oryzoides var. virginica (Willd.) Poir. to modern L. oryzoides",
+      "accepted_target": "REJECT_CROSS_SPECIES_MERGE; target Leersia virginica Willd.",
+      "reason": "Despite parent binomial in historical name, POWO assigns variety to separately accepted white cutgrass.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1078151-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316778-2"
+      ]
+    },
+    {
+      "code": "LO-11",
+      "status": "HOLD",
+      "source_name": "Individual source-labelled Leersia oryzoides photographs/vouchers",
+      "accepted_target": "SPECIMEN_ID_REQUIRES_SAME_PLANT_DIAGNOSTICS",
+      "reason": "Accepted name does not authenticate each existing gallery specimen. Preserve current local-voucher and L. virginica separation cautions, without editing images or labels.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316778-2"
+      ]
+    },
+    {
+      "code": "NL-04",
+      "status": "HOLD",
+      "source_name": "Individual photographs and historic Stipa ciliata determinations",
+      "accepted_target": "SPECIMEN_ID_UNVERIFIED; NO_HYBRID_ANCESTRY_INFERRED",
+      "reason": "Taxonomic synonymy does not prove specimen-level identity or hybrid parentage. Preserve existing photo review status and do not silently upgrade evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:948400-1",
+        "https://warcapps.usgs.gov/PlantID/Species/Details/383"
+      ]
+    },
+    {
+      "code": "LO-12",
+      "status": "UNRESOLVED",
+      "source_name": "Historical Leersia oryzoides variety records lacking complete epithet/author or voucher",
+      "accepted_target": "INCOMPLETE_HISTORICAL_RECORD_CANNOT_ASSIGN_SPECIES",
+      "reason": "Some historical infraspecific names map to modern L. oryzoides, others to L. sayanuka or L. virginica. Incomplete labels require original rank/author and specimen evidence before mapping.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1109632-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:406983-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316778-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:422116-4",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1078151-2"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 11,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "sources_checked_on": "2026-10-24",
+  "sources_primary": [
+    "https://powo.science.kew.org/taxon/1109632-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:406983-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316778-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:948400-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:326320-2",
+    "https://gd.eppo.int/taxon/LERSA",
+    "https://doi.org/10.1002/csc2.21146",
+    "https://w3.biosci.utexas.edu/prc/HaysFlora/pages/NALE3.html"
+  ],
+  "limitations": [
+    "POWO synonymy does not establish individual photo/voucher identification or hybrid ancestry.",
+    "The var. japonica and var. virginica historical names belong to different accepted species; do not merge by parent binomial.",
+    "Nassella canonical authority field is blank; no species-card edit authorized in taxonomy lane.",
+    "No county nativity, species-card enrichment, photos, genus/family lessons, installation, Pages or automation settings changed."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_or_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
