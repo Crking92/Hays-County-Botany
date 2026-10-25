@@ -18,7 +18,7 @@ for page in range(1,4):
     photos.append(photo)
     if row.get("license_code") in ("cc0","cc-by","cc-by-sa"):
      report["eligible"].append({"observation":ob["id"],"taxon":165548,"photo":photo})
-   report["records"].append({"id":ob.get("id"),"grade":ob.get("quality_grade"),"taxon":ob["taxon"].get("name"),"observer":ob.get("user",{}).get("login"),"observation_notes":ob.get("description","")[:400],"photo_count":len(photos),"photos":photos[:16],"url":"https://www.inaturalist.org/observations/"+str(ob["id"])})
+   report["records"].append({"id":ob.get("id"),"grade":ob.get("quality_grade"),"taxon":ob["taxon"].get("name"),"observer":(ob.get("user") or {}).get("login"),"observation_notes":(ob.get("description") or "")[:400],"photo_count":len(photos),"photos":photos[:16],"url":"https://www.inaturalist.org/observations/"+str(ob["id"])})
   if len(records)<100:break
   time.sleep(1)
  except Exception as e:report["errors"].append(str(e)[:250]);break
