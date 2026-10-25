@@ -1,0 +1,38 @@
+name: Lane 3 archive genuine pine muhly ligule and spikelet photo candidates
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane3-pine-muhly-anatomy-archive-20261025.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-pine-muhly-photos-20261025
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane3_pine_muhly_archive_anatomy_20261025.py
+      - name: Preserve files and retry safe concurrent GitHub pushes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-pine-muhly-anatomy-archive-20261025.json content/taxa/Poaceae/Muhlenbergia/muhlenbergia-dubia/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 3 physically archive reviewed licensed pine muhly collar and reproductive photos"
+            pushed=0
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = "1"
+          fi
