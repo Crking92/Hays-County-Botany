@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-bouteloua-trifida-chondrosum-burkii-2026-10-25-1723-001",
+  "lane": "grass-taxonomy-verification",
+  "reviewed_at": "2026-10-25T22:26:42.564Z",
+  "source_access_date": "2026-10-25",
+  "source_backbone": "Kew POWO/WCVP 2026, IPNI, ITIS, Shaw & Wipff 2018, Wipff 2021",
+  "family": "Poaceae",
+  "taxa": [
+    "Bouteloua trifida Thurb. ex S.Watson"
+  ],
+  "canonical_target": {
+    "path": "content/taxa/Poaceae/Bouteloua/bouteloua-trifida/species.json",
+    "sha_at_review": "d9ab7b53e8a99b03050b980caf1a5e4b20149218",
+    "modified": false
+  },
+  "claim_path": "workflow/taxonomy-claims/grass-bouteloua-trifida-chondrosum-burkii-2026-10-25-1723-001.json",
+  "source_pool_spelling": "Bouteloua trifida",
+  "accepted_name": "Bouteloua trifida Thurb. ex S.Watson",
+  "genus": "Bouteloua",
+  "rank": "species",
+  "synonyms_under_accepted_species": [
+    "Chondrosum trifidum (Thurb. ex S.Watson) Clayton (homotypic)",
+    "Bouteloua burkii Scribn. ex S.Watson",
+    "Bouteloua trifida var. burkii (Scribn. ex S.Watson) Vasey [POWO citation; competing historical authorship]",
+    "Bouteloua trinii (E.Fourn.) Griffiths",
+    "Chondrosum polystachyum E.Fourn. (pro syn.)",
+    "Chondrosum trifidum var. burkii (Scribn. ex S.Watson) R.B.Shaw & Wipff",
+    "Chondrosum trinii E.Fourn.",
+    "Chondrosum virletii E.Fourn."
+  ],
+  "synonym_and_rank_caution": "Chondrosum trifidum is an alternative homotypic genus combination, not a separate accepted species under POWO. The burkii rank and original variety authorship are source-dependent; preserve original source labels. Do not convert photos to variety-level voucher identifications.",
+  "native_range_audit": "DEFERRED — NOT REVIEWED; no native/county fields changed",
+  "photo_and_specimen_identity": "HOLD — individual specimen and photo IDs not independently established by taxonomic nomenclature",
+  "hybrid_provenance": "HOLD — no specimen-level ancestry established",
+  "install_decision": "Existing canonical B. trifida only; no species installation or canonical edits",
+  "decision_counts": {
+    "PASS": 10,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Bouteloua trifida Thurb. ex S.Watson",
+      "proposed_decision": "Retain accepted Poaceae species in Bouteloua; canonical authorship matches",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.ipni.org/n/35652-2"
+      ],
+      "detail": "POWO/WCVP accepts B. trifida; IPNI gives Proc. Amer. Acad. Arts 18:177 (1883)."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chondrosum trifidum (Thurb. ex S.Watson) Clayton",
+      "proposed_decision": "Record as homotypic combination, not a distinct species",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.ipni.org/n/35652-2"
+      ],
+      "detail": "POWO lists Chondrosum trifidum as the homotypic synonym; Clayton's combination published 1982."
+    },
+    {
+      "status": "PASS",
+      "subject": "Bouteloua burkii Scribn. ex S.Watson",
+      "proposed_decision": "Map as heterotypic synonym of B. trifida, retain historical source label",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41508",
+        "https://doi.org/10.17348/jbrit.v12.i1.908"
+      ],
+      "detail": "Published 1883 and treated under accepted B. trifida; 2018 protologue-based combination cites this as basionym for Chondrosum var. burkii."
+    },
+    {
+      "status": "PASS",
+      "subject": "Bouteloua trifida var. burkii (Scribn. ex S.Watson) Vasey",
+      "proposed_decision": "Under POWO, synonym of species-level B. trifida, not an accepted additional learner variety",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41508"
+      ],
+      "detail": "POWO lists var. burkii as heterotypic synonym; exact older authorship/publication has separate UNRESOLVED note."
+    },
+    {
+      "status": "PASS",
+      "subject": "Bouteloua trinii (E.Fourn.) Griffiths",
+      "proposed_decision": "Map heterotypic historical combination to B. trifida",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2"
+      ],
+      "detail": "POWO/WCVP synonym list places B. trinii under accepted B. trifida."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chondrosum polystachyum E.Fourn.",
+      "proposed_decision": "Preserve as historical pro-synonym reference mapped to B. trifida concept",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2"
+      ],
+      "detail": "POWO lists under B. trifida and marks pro syn.; do not claim separately validly published species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chondrosum trifidum var. burkii (Scribn. ex S.Watson) R.B.Shaw & Wipff",
+      "proposed_decision": "Preserve 2018 published combination as synonym under POWO",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://doi.org/10.17348/jbrit.v12.i1.908"
+      ],
+      "detail": "The 2018 publication proposes variety under an alternative generic treatment; Kew currently places it under accepted B. trifida."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chondrosum trinii E.Fourn.",
+      "proposed_decision": "Map heterotypic historical synonym to B. trifida",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41508"
+      ],
+      "detail": "Recognized in POWO and ITIS synonym lists under B. trifida."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chondrosum virletii E.Fourn.",
+      "proposed_decision": "Map heterotypic historical synonym to B. trifida",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41508"
+      ],
+      "detail": "Listed by POWO and ITIS under the same accepted species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Bouteloua trifida protologue and type",
+      "proposed_decision": "Preserve full accepted author and source type metadata; no name correction needed",
+      "sources": [
+        "https://www.ipni.org/n/35652-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2"
+      ],
+      "detail": "IPNI lists E. Palmer 1355, Coahuila, as type collection and 1883 original publication; no type material examined in this run."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Separate species cards for Chondrosum trifidum, Bouteloua burkii or var. burkii",
+      "proposed_decision": "Reject automatic duplicate learner species/variety installation",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://doi.org/10.17348/jbrit.v12.i1.908"
+      ],
+      "detail": "These historical names map to one currently accepted B. trifida species concept in POWO."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatic replacement of Bouteloua trifida by Chondrosum trifidum",
+      "proposed_decision": "Reject canonical rename based solely on a competing generic classification",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.phytoneuron.net/wp-content/uploads/2021/10/53PhytoN-ChondrosumCathestecum.pdf"
+      ],
+      "detail": "Current backbone accepts Bouteloua; an alternative Chondrosum circumscription does not justify changing existing canonical identity."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Photographic and individual specimen identity",
+      "proposed_decision": "Retain specimen/photo identification hold; name verification cannot validate a pictured specimen",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.ipni.org/n/35652-2"
+      ],
+      "detail": "Canonical images include source-labelled and provisional observations; no individual specimen, type, or microscopic characters authenticated in this taxonomy-only run."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Hybrid or introgression provenance",
+      "proposed_decision": "Do not assert or negate hybrid ancestry for any photographed or historic specimen without individual evidence",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2"
+      ],
+      "detail": "No taxon-specific hybrid ancestry evidence established in this name audit; existing scientific holds preserved."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Bouteloua sensu lato versus Chondrosum generic concept",
+      "proposed_decision": "Document competing generic circumscriptions without silently overwriting POWO backbone",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.phytoneuron.net/wp-content/uploads/2021/10/53PhytoN-ChondrosumCathestecum.pdf",
+        "https://doi.org/10.17348/jbrit.v12.i1.908"
+      ],
+      "detail": "POWO accepts Bouteloua trifida but cites older Chondrosum alternative; Wipff 2021 advocates narrower Bouteloua and Chondrosum separation."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Bouteloua trifida var. burkii early authorship and protologue details",
+      "proposed_decision": "Require original 1894 and 1912 publications/IPNI reconciliation before choosing one definitive variety citation",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41508",
+        "https://doi.org/10.17348/jbrit.v12.i1.908"
+      ],
+      "detail": "POWO prints (Scribn. ex S.Watson) Vasey in 1912; ITIS and Shaw & Wipff 2018 cite Vasey ex L.H.Dewey and an 1894 treatment. Species-level synonym mapping remains stable."
+    }
+  ],
+  "source_urls": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:35652-2",
+    "https://www.ipni.org/n/35652-2",
+    "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41508",
+    "https://doi.org/10.17348/jbrit.v12.i1.908",
+    "https://www.phytoneuron.net/wp-content/uploads/2021/10/53PhytoN-ChondrosumCathestecum.pdf"
+  ],
+  "notes": "Research-only evidence. Preserve existing species, image rights, range and all other workers' files."
+}
