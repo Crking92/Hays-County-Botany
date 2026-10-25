@@ -75,7 +75,10 @@ for spec in PHOTO_SPECS:
  source="https://commons.wikimedia.org/wiki/File:"+name.replace(" ","_")
  target=ROOT/"images"/spec["slug"]
  try:
-  params=urllib.parse.urlencode({"action":"query","prop":"imageinfo","iiprop":"url|extmetadata","iiurlwidth":"1800","titles":"File:"+name,"format":"json"})
+  if target.exists() and any(z.get("file")=="images/"+spec["slug"] for z in S["images"]) and any(z.get("image_url")==str(target) for z in S["visual_comparison"]["items"]):
+   results.append({"name":name,"status":"previously_archived","file":str(target),"creator":spec["author"],"license":"CC BY-SA 4.0" if spec["lic"]=="CCBYSA40" else "CC BY-SA 2.0","new_arrows":len(spec["markers"])})
+   continue
+  params=urllib.parse.urlencode({"action":"query","prop":"imageinfo|categories","iiprop":"url|extmetadata","cllimit":"max","iiurlwidth":"1800","titles":"File:"+name,"format":"json"})
   page=next(iter(json.loads(get("https://commons.wikimedia.org/w/api.php?"+params))["query"]["pages"].values()))
   info=page["imageinfo"][0]
   meta=info["extmetadata"]
@@ -84,8 +87,9 @@ for spec in PHOTO_SPECS:
   desc=html.unescape(re.sub(r"<[^>]+>"," ",meta.get("ImageDescription",{}).get("value",""))).strip()
   if lic!=spec["lic"] or spec["author"].casefold() not in artist.casefold():
    raise ValueError("Image-level license/artist mismatch "+lic+" "+artist)
-  if "verticillata" not in desc.casefold():
-   raise ValueError("Original species text absent from exact source metadata")
+  category_titles=[cat.get("title","") for cat in page.get("categories",[])]
+  if "verticillata" not in desc.casefold() and "Category:Chloris verticillata" not in category_titles:
+   raise ValueError("Exact species unconfirmed in original file description and Commons category")
   raw=get(info.get("thumburl") or info["url"])
   image=Image.open(io.BytesIO(raw));image.verify()
   image=Image.open(io.BytesIO(raw)).convert("RGB")
