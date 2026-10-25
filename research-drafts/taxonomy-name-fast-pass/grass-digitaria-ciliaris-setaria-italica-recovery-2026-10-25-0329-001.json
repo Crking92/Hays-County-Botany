@@ -1,0 +1,286 @@
+{
+  "id": "grass-digitaria-ciliaris-setaria-italica-recovery-2026-10-25-0329-001",
+  "run_date_local": "2026-10-25",
+  "run_time_local": "03:29 America/Chicago",
+  "lane": "grass-taxonomy-verification",
+  "scope": "taxonomy-only; existing canonical Poaceae; no species-card/photo/lesson/installation/range/Pages/schedule writes",
+  "status": "VERIFIED_ACCEPTED_NAMES_WITH_CROSS_RANK_ALIASES_AND_IDENTITY_HOLDS",
+  "prior_expired_claim": "workflow/taxonomy-claims/grass-digitaria-ciliaris-setaria-italica-2026-10-22-1429-001.json",
+  "prior_target_evidence_missing_at_review": true,
+  "canonical_species": [
+    {
+      "taxon_id": "digitaria-ciliaris",
+      "path": "content/taxa/Poaceae/Digitaria/digitaria-ciliaris/species.json",
+      "sha_at_review": "71f0582366d2311de08e219f9f5371dcd6943299",
+      "existing_name": "Digitaria ciliaris",
+      "no_canonical_edit": true
+    },
+    {
+      "taxon_id": "setaria-italica",
+      "path": "content/taxa/Poaceae/Setaria/setaria-italica/species.json",
+      "sha_at_review": "3ac48fbc102aa027cc88d8fe25079e0316864dd5",
+      "existing_name": "Setaria italica",
+      "no_canonical_edit": true
+    }
+  ],
+  "related_noncanonical_accepted_species": [
+    "Digitaria sanguinalis (L.) Scop.",
+    "Setaria viridis (L.) P.Beauv."
+  ],
+  "backbone": "POWO/WCVP, checked 2026-10-25; corroboration from USDA/USACE, Flora of North America specialist interpretation reported by New York Flora Association, New York Botanical Garden, USDA NRCS and Native Plant Trust",
+  "scientific_decisions": [
+    {
+      "code": "DIG-01",
+      "status": "PASS",
+      "source_name": "Digitaria ciliaris (Retz.) Koeler",
+      "accepted_target": "Digitaria ciliaris (Retz.) Koeler",
+      "reason": "POWO/WCVP accepts this species in Poaceae; current canonical binomial is correct, author (Retz.) Koeler. No canonical edit.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2",
+        "https://nwpl.sec.usace.army.mil/plant/DICI/"
+      ]
+    },
+    {
+      "code": "DIG-02",
+      "status": "PASS",
+      "source_name": "Digitaria sanguinalis (L.) Scop.",
+      "accepted_target": "Digitaria sanguinalis (L.) Scop.",
+      "reason": "POWO/WCVP independently accepts the closely similar species. Historical infraspecific combinations must not be treated as proof that the modern accepted species are synonyms.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/399115-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2"
+      ]
+    },
+    {
+      "code": "DIG-03",
+      "status": "PASS",
+      "source_name": "Panicum ciliare Retz.",
+      "accepted_target": "Digitaria ciliaris (Retz.) Koeler",
+      "reason": "Basionym and homotypic synonym of D. ciliaris, not D. sanguinalis.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2"
+      ]
+    },
+    {
+      "code": "DIG-04",
+      "status": "PASS",
+      "source_name": "Digitaria sanguinalis var. ciliaris (Retz.) Parl.",
+      "accepted_target": "Digitaria ciliaris (Retz.) Koeler",
+      "reason": "Homotypic historical variety under sanguinalis maps to accepted D. ciliaris despite the containing binomial.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77273108-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2"
+      ]
+    },
+    {
+      "code": "DIG-05",
+      "status": "PASS",
+      "source_name": "Digitaria sanguinalis subsp. ciliaris (Retz.) Parl.",
+      "accepted_target": "Digitaria ciliaris (Retz.) Koeler",
+      "reason": "Historical subspecies maps to accepted D. ciliaris under POWO; no separate subspecies card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2"
+      ]
+    },
+    {
+      "code": "DIG-06",
+      "status": "PASS",
+      "source_name": "Digitaria adscendens (Kunth) Henrard",
+      "accepted_target": "Digitaria ciliaris (Retz.) Koeler",
+      "reason": "Heterotypic synonym under POWO, consistent with USDA USACE synonym treatment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2",
+        "https://nwpl.sec.usace.army.mil/plant/DICI/"
+      ]
+    },
+    {
+      "code": "DIG-07",
+      "status": "PASS",
+      "source_name": "Digitaria ciliaris var. chrysoblephara (Fig. & De Not.) R.R.Stewart",
+      "accepted_target": "Digitaria ciliaris (Retz.) Koeler",
+      "reason": "POWO currently synonymizes this historical variety under the species; this is an accepted-name mapping only, not specimen-level adjudication of glassy-hair forms.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/881916-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2",
+        "https://nyflora.org/the-nonnative-crab-grasses-digitaria-of-new-york/"
+      ]
+    },
+    {
+      "code": "DIG-08",
+      "status": "PASS",
+      "source_name": "Digitaria ciliaris f. intercedens Beck",
+      "accepted_target": "Digitaria sanguinalis (L.) Scop.",
+      "reason": "Cross-species naming trap: POWO lists the historical form under accepted D. sanguinalis, despite the D. ciliaris parent binomial.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/399115-1"
+      ]
+    },
+    {
+      "code": "DIG-09",
+      "status": "FAIL",
+      "source_name": "Proposed synonymize all Digitaria ciliaris as Digitaria sanguinalis",
+      "accepted_target": "REJECTED",
+      "reason": "Both species are independently accepted under POWO and specialist treatments; merging the two would lose real taxonomic boundaries.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2",
+        "https://powo.science.kew.org/taxon/399115-1",
+        "https://sweetgum.nybg.org/science/projects/saba/monograph-details/?irn=3994"
+      ]
+    },
+    {
+      "code": "DIG-10",
+      "status": "HOLD",
+      "source_name": "Existing southern crabgrass image/specimen identification",
+      "accepted_target": "Digitaria ciliaris (Retz.) Koeler — photo identity unverified",
+      "reason": "Close D. sanguinalis requires inspection of first/sterile lemma lateral-vein scabridity and upper-leaf hairs; canonical species name does not independently validate source-photo identification.",
+      "sources": [
+        "https://nyflora.org/the-nonnative-crab-grasses-digitaria-of-new-york/",
+        "https://sweetgum.nybg.org/science/projects/saba/monograph-details/?irn=3994"
+      ]
+    },
+    {
+      "code": "DIG-11",
+      "status": "UNRESOLVED",
+      "source_name": "Historical chrysoblephara/glassy-hair specimens",
+      "accepted_target": "No automatic variety or bicornis assignment",
+      "reason": "Wipff/Flora of North America and other specialist interpretations differ on taxonomic recognition and possible placement of yellow glassy-hair plants. POWO synonym mapping does not resolve individual historic specimens.",
+      "sources": [
+        "https://nyflora.org/the-nonnative-crab-grasses-digitaria-of-new-york/",
+        "https://powo.science.kew.org/taxon/881916-1"
+      ]
+    },
+    {
+      "code": "SET-01",
+      "status": "PASS",
+      "source_name": "Setaria italica (L.) P.Beauv.",
+      "accepted_target": "Setaria italica (L.) P.Beauv.",
+      "reason": "POWO/WCVP accepts foxtail millet at species rank; current canonical binomial is correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2",
+        "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_seit.pdf"
+      ]
+    },
+    {
+      "code": "SET-02",
+      "status": "PASS",
+      "source_name": "Setaria viridis (L.) P.Beauv.",
+      "accepted_target": "Setaria viridis (L.) P.Beauv.",
+      "reason": "POWO/WCVP accepts green foxtail separately, although older authors treated it at infraspecific rank under S. italica.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/1171009-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2",
+        "https://gobotany.nativeplanttrust.org/species/setaria/viridis/"
+      ]
+    },
+    {
+      "code": "SET-03",
+      "status": "PASS",
+      "source_name": "Panicum italicum L.",
+      "accepted_target": "Setaria italica (L.) P.Beauv.",
+      "reason": "Linnaean basionym/homotypic synonym of foxtail millet.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2",
+        "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_seit.pdf"
+      ]
+    },
+    {
+      "code": "SET-04",
+      "status": "PASS",
+      "source_name": "Setaria viridis subsp. italica (L.) Briq.",
+      "accepted_target": "Setaria italica (L.) P.Beauv.",
+      "reason": "Historical combination under viridis maps to accepted S. italica, not S. viridis.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77260622-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2"
+      ]
+    },
+    {
+      "code": "SET-05",
+      "status": "PASS",
+      "source_name": "Setaria italica subsp. viridis (L.) Thell.",
+      "accepted_target": "Setaria viridis (L.) P.Beauv.",
+      "reason": "Reverse historical combination under italica maps to separately accepted S. viridis; historical parent binomial alone cannot dictate accepted identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/235223-2",
+        "https://powo.science.kew.org/taxon/1171009-2"
+      ]
+    },
+    {
+      "code": "SET-06",
+      "status": "PASS",
+      "source_name": "Chaetochloa italica (L.) Scribn.",
+      "accepted_target": "Setaria italica (L.) P.Beauv.",
+      "reason": "Homotypic historical genus combination of foxtail millet.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2",
+        "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_seit.pdf"
+      ]
+    },
+    {
+      "code": "SET-07",
+      "status": "FAIL",
+      "source_name": "Proposed automatic merge of Setaria viridis into Setaria italica",
+      "accepted_target": "REJECTED",
+      "reason": "The crop and wild relative are separate accepted species under POWO; reciprocal infraspecific synonyms do not authorize a duplicate/merged learner concept.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2",
+        "https://powo.science.kew.org/taxon/1171009-2",
+        "https://gobotany.nativeplanttrust.org/species/Setaria/italica/"
+      ]
+    },
+    {
+      "code": "SET-08",
+      "status": "HOLD",
+      "source_name": "Source photo and cultivar/hybrid identity of individual Setaria italica specimens",
+      "accepted_target": "Species-level photographic identity and hybrid/cultivar provenance unverified",
+      "reason": "Cultivation, escape, wild-relative resemblance, or a bristly head alone cannot prove a source specimen is a cultivar, introgressant, or hybrid. Do not infer parentage or reassign any image.",
+      "sources": [
+        "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_seit.pdf",
+        "https://gobotany.nativeplanttrust.org/species/Setaria/italica/",
+        "https://gobotany.nativeplanttrust.org/species/setaria/viridis/"
+      ]
+    },
+    {
+      "code": "SET-09",
+      "status": "UNRESOLVED",
+      "source_name": "Incomplete historical 'foxtail millet' labels and crop–wild intermediate material",
+      "accepted_target": "Requires source voucher/diagnostic reproductive evidence",
+      "reason": "For ambiguous specimens, inspect mature fertile lemma surface, disarticulation position and caryopsis rather than inferring S. italica versus S. viridis from vernacular labels or size alone.",
+      "sources": [
+        "https://gobotany.nativeplanttrust.org/species/Setaria/italica/",
+        "https://gobotany.nativeplanttrust.org/species/setaria/viridis/",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2",
+        "https://powo.science.kew.org/taxon/1171009-2"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 14,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "total_decisions": 20,
+  "holds_preserved": true,
+  "hybrid_parentage_not_inferred": true,
+  "nativity_audit": "DEFERRED — not performed",
+  "no_species_card_edits": true,
+  "follow_up": "Maintain specimen/photo identity holds; source-labelled historical names require author/rank-aware mapping. Do not create duplicate accepted concepts or install related species without separate approval.",
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1038558-2",
+    "https://powo.science.kew.org/taxon/399115-1",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1207294-2",
+    "https://powo.science.kew.org/taxon/1171009-2",
+    "https://powo.science.kew.org/taxon/881916-1",
+    "https://powo.science.kew.org/taxon/77273108-1",
+    "https://powo.science.kew.org/taxon/399115-1",
+    "https://powo.science.kew.org/taxon/77260622-1",
+    "https://powo.science.kew.org/taxon/235223-2",
+    "https://nyflora.org/the-nonnative-crab-grasses-digitaria-of-new-york/",
+    "https://sweetgum.nybg.org/science/projects/saba/monograph-details/?irn=3994",
+    "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_seit.pdf",
+    "https://gobotany.nativeplanttrust.org/species/Setaria/italica/",
+    "https://gobotany.nativeplanttrust.org/species/setaria/viridis/",
+    "https://nwpl.sec.usace.army.mil/plant/DICI/"
+  ]
+}
