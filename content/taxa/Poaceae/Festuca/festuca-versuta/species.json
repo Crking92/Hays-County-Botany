@@ -28,7 +28,7 @@
       "collar_ligule_macro": 0
     }
   },
-  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it. 2026-10-21: photograph visually inspected; ONLY loose seedlike/bractlike materials are visible on palm. One gross annotation is honest; taxon confirmation and complete field-ID-photo are seriously lacking. Field comparison added with 1 visible-structure arrows; no unverified macro features claimed. 2026-10-23: verified physical GitHub blob 06ac5836 for historical 1906 plate, fixed visual_comparison panel to use locally archived JPEG rather than remote Commons thumbnail. This does not complete genuine living-plant photo gap.",
+  "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it. 2026-10-21: photograph visually inspected; ONLY loose seedlike/bractlike materials are visible on palm. One gross annotation is honest; taxon confirmation and complete field-ID-photo are seriously lacking. Field comparison added with 1 visible-structure arrows; no unverified macro features claimed. 2026-10-23: verified physical GitHub blob 06ac5836 for historical 1906 plate, fixed visual_comparison panel to use locally archived JPEG rather than remote Commons thumbnail. This does not complete genuine living-plant photo gap.\n2026-10-24: BRIT1072863 existing archived CC BY 4.0 herbarium photograph physically byte-verified (493243 bytes; 1417×2000; Git blob 609068a460cf47d687756dbe1883c46885431d43; no APP1/APP13). Reordered 3 teaching panels to lead with real specimen and added 2 visually checked arrows to preserved root bundle and branched flowering panicle. Not a new image, not a live Texas field photograph, no measured glume/lemma/ligule; FIELD_READY_PHOTO_GAPS retained.",
   "taxonomy_source": "https://powo.science.kew.org/results?q=Festuca%20versuta",
   "images": [
     {
@@ -59,7 +59,24 @@
       "source_catalog": "BRIT1072863",
       "photo_status": "SPECIMEN_ARCHIVED_ANATOMY_HOLD",
       "sha256": "374046b47e7cf4028a4466179cac3ed5a9810dc4c74813b6a5ced149b1b315e9",
-      "modifications": "resized with EXIF removed"
+      "modifications": "resized with EXIF removed",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "photo_audit_20261024": {
+        "archive_blob_sha": "609068a460cf47d687756dbe1883c46885431d43",
+        "decoded_jpeg_bytes": 493243,
+        "dimensions_px": [
+          1417,
+          2000
+        ],
+        "jpeg_signature": "FF D8 FF ... FF D9, passed",
+        "app1_exif_segments": 0,
+        "app13_segments": 0,
+        "source_catalog": "BRIT1072863",
+        "source_rights": "BRIT Collections CC BY 4.0; original Google Arts & Culture catalog page verified 2026-10-24",
+        "visible_organs": "Preserved fibrous root bundle, dry basal culms and leaf blades, arching branched mature panicles; not a living rooted plant, ligule, measured spikelet, or dissected glume/lemma",
+        "specimen_provenance": "Historical sheet marked Knox County, Tennessee; original label Festuca nutans and later handwritten Festuca versuta determination. Catalog identifies F. versuta; no new independent taxonomic determination.",
+        "modifications": "Existing EXIF-stripped resized archived JPEG unchanged; two new separate browser arrow overlays; no image-pixel modification."
+      }
     }
   ],
   "learner_visual_status": {
@@ -109,9 +126,39 @@
   },
   "visual_comparison": {
     "title": "TEXAS FESCUE — historical plant and spikelet plate, not a loose fragment ID",
-    "subtitle": "2 teaching panels: historical PUBLIC DOMAIN US National Herbarium drawing under the old F. johnsoni / johnsonii name, plus original archive of loose dry fragments. Historic plate is an illustration, NOT a species-verified Texas field photo. Need live plant and true glume closeup.",
+    "subtitle": "3 existing archived source images: first a real CC BY 4.0 BRIT historical herbarium specimen with verified roots and panicles, then a 1906 botanical illustration and a source-identified loose-fragment photograph. Still missing live Texas habit and measured diagnostic organs.",
     "memory_rule": "ANNUAL tiny upright awned SIXWEEKS vs PERENNIAL Texas fescue. Rooted crown + intact mature panicle mandatory.",
     "items": [
+      {
+        "label": "1 · BRIT1072863 — real preserved specimen: roots and branching panicles",
+        "scientific_name": "Festuca versuta",
+        "image_url": "content/taxa/Poaceae/Festuca/festuca-versuta/images/brit1072863-herbarium-ccby4.jpg",
+        "image_fit": "contain",
+        "image_role": "Existing physically archived exact-catalogue herbarium photograph (BRIT1072863), showing dried root bundle, narrow leaves, and branched drooping flowering panicles. Not a live Texas field photograph.",
+        "caption": "BRIT's archived historical sheet, catalogued as Festuca versuta, visibly preserves a tangled fibrous root bundle, narrow dry leaves, and several arching branched panicles. Two arrows show the photographed root bundle and a flowering branch; neither is a measured ligule or dissected spikelet. The original Tennessee sheet bears an older Festuca nutans label and a later F. versuta annotation. Source identification is retained, not independently re-determined.",
+        "creator": "BRIT Collections",
+        "license": "CC BY 4.0",
+        "source_page": "https://artsandculture.google.com/asset/festuca-versuta-common-name-texas-fescue-specimen-unspecified/5AEb1fxhx838ig?hl=en",
+        "markers": [
+          {
+            "label": "Fibrous root bundle (preserved)",
+            "label_x": 4,
+            "label_y": 54,
+            "target_x": 42,
+            "target_y": 49
+          },
+          {
+            "label": "Branched drooping panicle",
+            "label_x": 69,
+            "label_y": 8,
+            "target_x": 77,
+            "target_y": 25
+          }
+        ],
+        "why_it_matters": "This is the first existing species-gallery photograph that actually connects a preserved grass base with whole branching panicles. It improves structural recognition beyond loose fragments or a historic drawing, but it does not replace a living Texas specimen or 10–20× anatomy.",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "photo_status": "EXISTING PHYSICAL JPEG byte-verified and pixels inspected 2026-10-24: 493243 bytes, 1417×2000, blob 609068a460cf47d687756dbe1883c46885431d43, JPEG valid, no APP1/APP13. CC BY 4.0 at source. Two new browser arrows point only to visible preserved root bundle and drooping branched panicle. No living habit, measured ligule, glume or lemma proof; NEEDS_PUBLIC_PHOTO and annotation_pending remain."
+      },
       {
         "label": "TEXAS FESCUE — HISTORIC 1906 Festuca johnsoni anatomical plate",
         "scientific_name": "Festuca versuta",
@@ -172,21 +219,9 @@
           }
         ],
         "photo_status": "Original in-repo photo and rights preserved. Gross visible structural arrows only; no pixel verification of ligules, microscopic lemma details or roots; original source determination not independently specimen-confirmed."
-      },
-      {
-        "label": "BRIT1072863 — Texas fescue voucher sheet",
-        "scientific_name": "Festuca versuta",
-        "image_url": "content/taxa/Poaceae/Festuca/festuca-versuta/images/brit1072863-herbarium-ccby4.jpg",
-        "image_fit": "contain",
-        "image_role": "Exact-species institutional herbarium voucher; not field-life photograph",
-        "caption": "Catalogued Festuca versuta sheet from BRIT Collections. Inspect original scale for mature flowering features. Individual glume and ligule anatomy not verified.",
-        "creator": "BRIT Collections",
-        "license": "CC BY 4.0",
-        "source_page": "https://artsandculture.google.com/asset/festuca-versuta-common-name-texas-fescue-specimen-unspecified/5AEb1fxhx838ig?hl=en",
-        "markers": []
       }
     ],
-    "overlay_note": "No new image bytes, no altered license metadata, no asserted pixel-anatomy where inaccessible. Each image retains source author/license/page."
+    "overlay_note": "No new image bytes, no altered license metadata, no asserted pixel-anatomy where inaccessible. Each image retains source author/license/page. 2026-10-24: BRIT1072863 physical JPEG decoded (493243 bytes, 1417×2000, no EXIF/IPTC APP1/APP13), CC BY 4.0 independently checked at institutional source, two browser arrows on real root bundle and branched panicle. Image order prioritizes actual specimen over illustration. Not a living Texas photo; 10–20× ligule/glumes/lemmas remain annotation_pending."
   },
   "field_id_finish_pass": {
     "stage": "FIELD_READY_PHOTO_GAPS",
