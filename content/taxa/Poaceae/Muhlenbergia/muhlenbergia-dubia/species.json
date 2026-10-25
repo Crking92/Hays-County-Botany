@@ -37,8 +37,8 @@
     "last_reviewed": "2026-10-03",
     "visual_reviewed": false,
     "photo_source_checked": false,
-    "photo_files_present": 5,
-    "photo_metadata_count": 5
+    "photo_files_present": 6,
+    "photo_metadata_count": 6
   },
   "taxonomy_correction_20261023": {
     "status": "VERIFIED_CORRECTION_AWAITING_ATOMIC_MANIFEST_MIGRATION",
@@ -133,6 +133,27 @@
       "taxonomic_caution": "Reported source taxon, needs-ID; visually similar Muhlenbergia rigens and other muhly species must be independently considered before definitive teaching label.",
       "public_reuse": "CC BY source photo; credit creator/photo link. JPEG re-encoded without EXIF. Public website can publish under proper attribution.",
       "photo_review": "Actual original enlarged pixels and separate independent photo contact-sheet inspected; coarse visible role reviewed, submillimeter dissections not proven."
+    },
+    {
+      "file": "images/smithsonian-us3771355-vouchered-cc0.jpg",
+      "role": "Certified museum herbarium specimen reference with collection accession US 3771355. Pressed flowering material and herbarium label; individual ligule/glume/lemma pixel identities NOT inspected.",
+      "creator": "Smithsonian NMNH herbarium; specimen image by Ingrid P. Lin",
+      "license": "CC0 1.0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_page": "https://www.gbif.org/occurrence/4418651350",
+      "specimen_institution": "National Museum of Natural History, US National Herbarium (US)",
+      "specimen_catalog": "US 3771355",
+      "original_source_photo_url": "https://collections.nmnh.si.edu/media/?i=17195176&h=2000",
+      "source_taxon_name": "Muhlenbergia dubia E.Fourn.",
+      "verified_source_basis": "PRESERVED_SPECIMEN",
+      "archive_sha256": "8614d111182d4f14b7a233af72105365d45bdffd86acd6379eb714b277b9e985",
+      "original_dimensions": [
+        1503,
+        2000
+      ],
+      "license_verification": "GBIF record and attached specimen-media license both CC0",
+      "public_reuse": "CC0 1.0, public website cleared; credit Smithsonian and Ingrid P. Lin retained",
+      "photo_review": "A registered source-determined dried specimen. Does not certify the independent identity of earlier needs-ID iNaturalist photos or a measured ligule."
     }
   ],
   "source_label_correction": {
@@ -142,8 +163,8 @@
   },
   "learner_visual_status": {
     "status": "FIELD_READY_PHOTO_GAPS",
-    "image_count": 5,
-    "note": "Now 2 prior habit photographs plus up to 3 archived CC BY anatomical candidates: exposed attached collar, enlarged mature reproductive units and a whole flowering tip. Source iNat taxon is needs-ID and 1-mm scale/glume/lemma dissections remain missing."
+    "image_count": 6,
+    "note": "Six physically stored publicly licensed photographs: two prior habit images, three source-reported Needs-ID close-ups, one independent CC0 Smithsonian herbarium voucher US 3771355. Vouchered specimen is a comparator, not proof of earlier source IDs, nor a measured membrane/glume/lemma."
   },
   "photo_candidates": [
     {
@@ -232,6 +253,20 @@
         "license": "CC BY",
         "source_page": "https://www.inaturalist.org/photos/665790824",
         "photo_status": "LOCAL_JPEG_VERIFIED__SOURCE_TAXON_NEEDS_ID__METRIC_MACRO_UNVERIFIED",
+        "markers": []
+      },
+      {
+        "label": "SPECIMEN CHECK — Smithsonian US 3771355 pine muhly voucher",
+        "scientific_name": "Muhlenbergia dubia",
+        "image_url": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-dubia/images/smithsonian-us3771355-vouchered-cc0.jpg",
+        "image_fit": "contain",
+        "image_role": "Institutionally catalogued source-labelled PRESERVED SPECIMEN; no microscopic dissection claimed",
+        "caption": "Smithsonian US National Herbarium voucher US 3771355. Image Ingrid P. Lin, CC0. Cross-check the pressed habit and inflorescence; not a measured ligule or separated glumes/lemma. Does NOT authenticate unrelated provisional iNaturalist photos.",
+        "why_it_matters": "Provides independent museum-vouchered reference for the species when field close-up photographs have unresolved Needs-ID determinations.",
+        "creator": "Smithsonian NMNH / Ingrid P. Lin",
+        "license": "CC0 1.0",
+        "source_page": "https://www.gbif.org/occurrence/4418651350",
+        "photo_status": "CC0_ARCHIVED_INSTITUTIONAL_VOUCHER__ANATOMY_PIXEL_REVIEW_HOLD",
         "markers": []
       }
     ],
@@ -392,5 +427,15 @@
       "Original source observations listed needs-ID, do not mark taxon expert-certified or native-to-Hays from these"
     ],
     "public_page_status": "Not verified"
+  },
+  "lane3_voucher_anchor_20261025": {
+    "catalog": "US 3771355",
+    "gbif_key": 4418651350,
+    "license": "CC0 1.0",
+    "status": "PUBLIC_VOUCHER_REFERENCE_ONLY__NOT_MICRO_COMPLETE",
+    "source_photo_rights": "Smithsonian specimen and media license CC0",
+    "source_identification_hold": "Registered source taxon M. dubia; earlier three close-up field photos remain iNaturalist Needs ID.",
+    "photo_anatomy_hold": "True scale measured attached ligule, separate glumes/lemma and deergrass matched comparison still require expert-verified microscopic photographs.",
+    "native_county_hold": "Do not infer Hays County native occurrence from Mexico or outside-Hays voucher."
   }
 }
