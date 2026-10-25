@@ -1,0 +1,217 @@
+{
+  "batch_id": "grass-munroa-pulchella-dasyochloa-genus-conflict-2026-10-24-2227-001",
+  "project": "Crking92/Hays-County-Botany",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "date": "2026-10-24",
+  "authority_backbone": "POWO/WCVP 2026; Amarilla et al. 2013; Peterson et al. 2016",
+  "scope": "Existing canonical Poaceae Munroa pulchella accepted species, historical synonyms, genus circumscription conflict and specimen/hybrid holds only",
+  "canonical_targets": [
+    {
+      "id": "munroa-pulchella",
+      "path": "content/taxa/Poaceae/Munroa/munroa-pulchella/species.json",
+      "pre_review_blob_sha": "476c5e21520de9b0c0dd63482cca1af164998775",
+      "accepted_name": "Munroa pulchella (Kunth) Amarilla",
+      "rank": "species",
+      "canonical_name_change": false
+    }
+  ],
+  "claim_path": "workflow/taxonomy-claims/grass-munroa-pulchella-dasyochloa-genus-conflict-2026-10-24-2227-001.json",
+  "decisions": [
+    {
+      "code": "MP-01",
+      "status": "PASS",
+      "source_name": "Munroa pulchella (Kunth) Amarilla",
+      "accepted_target": "Munroa pulchella (Kunth) Amarilla",
+      "reason": "POWO/WCVP accepts the existing learner name at species rank in Poaceae; 2013 combination in Darwiniana. No canonical rename.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1",
+        "https://doi.org/10.14522/darwiniana.2013.12.502"
+      ]
+    },
+    {
+      "code": "MP-02",
+      "status": "PASS",
+      "source_name": "Triodia pulchella Kunth",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic basionym of the accepted species; 1816 name.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-03",
+      "status": "PASS",
+      "source_name": "Dasyochloa pulchella (Kunth) Willd. ex Rydb.",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic synonym under POWO, but primary molecular treatment retained Dasyochloa as a distinct genus. Record alternative genus concept without duplicate learner.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1",
+        "https://doi.org/10.12705/656.4"
+      ]
+    },
+    {
+      "code": "MP-04",
+      "status": "PASS",
+      "source_name": "Erioneuron pulchellum (Kunth) Tateoka",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic synonym under current POWO; old determination labels do not independently prove individual voucher identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-05",
+      "status": "PASS",
+      "source_name": "Koeleria pulchella (Kunth) Spreng.",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic historical combination under POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-06",
+      "status": "PASS",
+      "source_name": "Sieglingia pulchella (Kunth) Kuntze",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic historical combination under POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-07",
+      "status": "PASS",
+      "source_name": "Tricuspis pulchella (Kunth) Torr.",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic historical combination under POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-08",
+      "status": "PASS",
+      "source_name": "Tridens pulchellus (Kunth) Hitchc.",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic historical combination under POWO; not accepted Tridens flavus group.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-09",
+      "status": "PASS",
+      "source_name": "Uralepis pulchella (Kunth) Kunth",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Homotypic historical combination under POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-10",
+      "status": "PASS",
+      "source_name": "Trichodiclida prolifera Cerv.",
+      "accepted_target": "Munroa pulchella",
+      "reason": "Heterotypic synonym under POWO; nomenclatural mapping alone does not validate every historical specimen determination.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-11",
+      "status": "FAIL",
+      "source_name": "Proposal to create second accepted Dasyochloa pulchella species card",
+      "accepted_target": "REJECT_DUPLICATE_UNDER_POWO_BACKBONE",
+      "reason": "POWO treats Dasyochloa pulchella as homotypic synonym of existing Munroa pulchella. Primary genus debate does not authorize duplicate concept.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1",
+        "https://doi.org/10.14522/darwiniana.2013.12.502",
+        "https://doi.org/10.12705/656.4"
+      ]
+    },
+    {
+      "code": "MP-12",
+      "status": "FAIL",
+      "source_name": "Proposal to accept Sieglingia pulchella var. parviflora Beal as valid separate infraspecific taxon",
+      "accepted_target": "REJECT_INVALID_VARIETY_NAME",
+      "reason": "POWO lists this historical name as not validly published, within the homotypic synonym list; do not infer accepted variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-13",
+      "status": "HOLD",
+      "source_name": "Individual Munroa/Dasyochloa/Erioneuron source photographs and vouchers",
+      "accepted_target": "SPECIMEN_ID_UNVERIFIED",
+      "reason": "Accepted synonym mapping is not independent confirmation of individual source-determined photographs; preserve current source-level and photo verification holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1"
+      ]
+    },
+    {
+      "code": "MP-14",
+      "status": "HOLD",
+      "source_name": "Hybrid ancestry of any individual Munroa pulchella learner specimen",
+      "accepted_target": "HYBRID_PARENTAGE_UNVERIFIED",
+      "reason": "No specimen-specific hybrid parentage or genetic test established in reviewed sources; do not infer hybrid status.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1",
+        "https://doi.org/10.12705/656.4"
+      ]
+    },
+    {
+      "code": "MP-15",
+      "status": "UNRESOLVED",
+      "source_name": "Genus boundary Dasyochloa versus Munroa in competing primary studies",
+      "accepted_target": "ALTERNATIVE_GENUS_CIRCUMSCRIPTION",
+      "reason": "Amarilla et al. (2013) morphological phylogeny supports inclusion in Munroa; Peterson et al. (2016) molecular phylogeny supports retaining Dasyochloa as separate sister genus. POWO currently chooses Munroa; do not misrepresent debate as resolved by a single primary study.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1",
+        "https://doi.org/10.14522/darwiniana.2013.12.502",
+        "https://doi.org/10.12705/656.4"
+      ]
+    },
+    {
+      "code": "MP-16",
+      "status": "UNRESOLVED",
+      "source_name": "Historical specimens labeled only fluffgrass, Erioneuron, Dasyochloa or abbreviated pulchella without adequate voucher context",
+      "accepted_target": "HISTORICAL_SOURCE_DETERMINATION_UNRESOLVED",
+      "reason": "Nomenclatural synonymy cannot confirm a particular specimen or ambiguous shorthand label. Require complete author/source and voucher for reassignment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1",
+        "https://doi.org/10.12705/656.4"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 10,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "sources_checked_on": "2026-10-24",
+  "sources_primary": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77139483-1",
+    "https://doi.org/10.14522/darwiniana.2013.12.502",
+    "https://doi.org/10.12705/656.4",
+    "https://www.phytoneuron.net/wp-content/uploads/2022/04/29PhytoN-Tridentopsiselongata.pdf"
+  ],
+  "limitations": [
+    "POWO/WCVP currently accepts Munroa, while a 2016 primary molecular phylogeny preferred separate Dasyochloa; preserve the alternative treatment without changing the canonical name.",
+    "No individual photograph or voucher independently reidentified; source determinations remain provisional.",
+    "No hybrid ancestry established; no new hybrid or species installation.",
+    "No county nativity audit, species card enrichment, photos, genus/family lessons, Pages or schedules changed."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_or_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
