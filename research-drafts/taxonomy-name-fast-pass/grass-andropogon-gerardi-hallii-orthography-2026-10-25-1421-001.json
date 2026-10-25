@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-andropogon-gerardi-hallii-orthography-2026-10-25-1421-001",
+  "lane": "grass-taxonomy-verification",
+  "reviewed_at": "2026-10-25T19:22:41.853Z",
+  "source_access_date": "2026-10-25",
+  "source_backbone": "Kew POWO/WCVP 2026; IPNI; primary cytogenetic review and USFS FEIS historical taxonomic synthesis",
+  "family": "Poaceae",
+  "taxa": [
+    "Andropogon gerardi Vitman"
+  ],
+  "canonical_target": {
+    "path": "content/taxa/Poaceae/Andropogon/andropogon-gerardi/species.json",
+    "sha_at_review": "156653078874ea0ca763e7ad370a987c7bd74669",
+    "modified": false
+  },
+  "claim_path": "workflow/taxonomy-claims/grass-andropogon-gerardi-hallii-orthography-2026-10-25-1421-001.json",
+  "source_pool_spelling": "Andropogon gerardi",
+  "accepted_name": "Andropogon gerardi Vitman",
+  "genus": "Andropogon",
+  "rank": "species",
+  "historical_spelling_alias": "Andropogon gerardii (widely used spelling; IPNI explicitly retains original gerardi)",
+  "synonym_and_rank_caution": "POWO species-level page lists 2 homotypic synonyms; accepted var. gerardi separately lists 14 heterotypic synonyms. Cross-species mappings to A. hallii must not be lost.",
+  "accepted_infraspecifics": [
+    "Andropogon gerardi var. gerardi",
+    "Andropogon gerardi var. hondurensis R.W.Pohl"
+  ],
+  "related_accepted_species": "Andropogon hallii Hack. (distinct POWO accepted species; no learner installation implied)",
+  "native_range_audit": "DEFERRED — NOT REVIEWED; existing canonical native claims unchanged",
+  "photo_and_specimen_identity": "HOLD — accepted name does not verify any individual image/specimen",
+  "hybrid_provenance": "HOLD — no individual plant hybrid or introgression determination",
+  "install_decision": "Existing canonical big bluestem only; no installation or duplicate synonym/variety species card",
+  "decision_counts": {
+    "PASS": 13,
+    "FAIL": 3,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Andropogon gerardi Vitman",
+      "proposed_decision": "Retain accepted Poaceae species and existing canonical binomial/authority",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2",
+        "https://www.ipni.org/n/30435428-2"
+      ],
+      "detail": "Original publication Summa Pl. 6:16 (1792); POWO/WCVP accepted."
+    },
+    {
+      "status": "PASS",
+      "subject": "gerardi versus gerardii orthography",
+      "proposed_decision": "Retain gerardi as original accepted epithet; preserve gerardii as searchable spelling, not a separately accepted taxon",
+      "sources": [
+        "https://www.ipni.org/n/30435428-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+      ],
+      "detail": "IPNI explicitly explains why original gerardi is retained instead of correction to gerardii; US references often use gerardii."
+    },
+    {
+      "status": "PASS",
+      "subject": "Anatherum gerardi (Vitman) D.L.Fu",
+      "proposed_decision": "Record 2024 homotypic genus combination as synonym of A. gerardi",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77359035-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+      ],
+      "detail": "Newly published genus combination is not the POWO accepted name."
+    },
+    {
+      "status": "PASS",
+      "subject": "Sorghum provinciale Kuntze",
+      "proposed_decision": "Record homotypic synonym, illegitimate superfluous name, not separate species",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+      ],
+      "detail": "POWO marks nom. illeg. superfl."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon gerardi var. gerardi",
+      "proposed_decision": "Recognize accepted autonym variety under A. gerardi",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77170062-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+      ],
+      "detail": "Do not treat rank as a second species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon gerardi var. hondurensis R.W.Pohl",
+      "proposed_decision": "Recognize separately accepted infraspecific variety, not synonym of var. gerardi",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:306809-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+      ],
+      "detail": "POWO accepted variety; originally published 1992."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon furcatus Muhl. ex Willd.",
+      "proposed_decision": "Map heterotypic historical name to A. gerardi var. gerardi under POWO",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77170062-1"
+      ],
+      "detail": "POWO lists this name among 14 synonyms of the accepted autonym variety."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon chrysocomus Nash",
+      "proposed_decision": "Map historical heterotypic name to A. gerardi var. gerardi under POWO",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77170062-1"
+      ],
+      "detail": "Historical source determination requires independent specimen verification."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon hallii Hack.",
+      "proposed_decision": "Maintain as distinct accepted Poaceae species under POWO/WCVP",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+      ],
+      "detail": "Do not silently collapse sand bluestem into big bluestem."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon gerardi subsp. hallii (Hack.) Wipff",
+      "proposed_decision": "Map homotypic historical subspecies combination to separately accepted A. hallii",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:994582-1"
+      ],
+      "detail": "Historical infraspecific parent binomial does not determine accepted species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon gerardi var. paucipilus (Nash) Fernald",
+      "proposed_decision": "Map heterotypic historical variety to A. hallii, not A. gerardi",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12842-2"
+      ],
+      "detail": "Important cross-species historical rank mapping."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon gerardi var. incanescens (Hack.) B.Boivin",
+      "proposed_decision": "Map heterotypic historical variety to A. hallii",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2"
+      ],
+      "detail": "POWO includes it in A. hallii synonymy."
+    },
+    {
+      "status": "PASS",
+      "subject": "Andropogon hallii var. grandiflorus Scribn.",
+      "proposed_decision": "Map historical variety to A. gerardi var. gerardi, despite hallii parent binomial",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12869-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77170062-1"
+      ],
+      "detail": "Reverse-direction cross-species mapping: never infer accepted identity from historical first two words."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically merge A. hallii into A. gerardi",
+      "proposed_decision": "Reject merger under project's current POWO/WCVP backbone",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2",
+        "https://research.fs.usda.gov/feis/species-reviews/andhal"
+      ],
+      "detail": "Alternative historical circumscription and hybridization are documented, but both species currently accepted."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically map all A. gerardi historical varieties/subspecies to A. gerardi",
+      "proposed_decision": "Reject; hallii, paucipilus, incanescens resolve to A. hallii",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:994582-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12842-2"
+      ],
+      "detail": "Preserve original author and rank for each historical determination."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically rename canonical big bluestem to Anatherum gerardi or Andropogon gerardii",
+      "proposed_decision": "Reject changing accepted name on publication or popularity alone",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77359035-1",
+        "https://www.ipni.org/n/30435428-2"
+      ],
+      "detail": "Anatherum is homotypic but unaccepted; gerardii is widespread alternative spelling, not Kew's accepted orthography."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Identification of individual big bluestem gallery photographs and historical specimens",
+      "proposed_decision": "No new specimen ID conclusions from nomenclatural verification",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2",
+        "https://github.com/Crking92/Hays-County-Botany/blob/main/content/taxa/Poaceae/Andropogon/andropogon-gerardi/species.json"
+      ],
+      "detail": "Photo/source observation must be checked independently where diagnostic identity is uncertain."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Hybrid ancestry, introgression or cultivar identity of individual A. gerardi / A. hallii specimens",
+      "proposed_decision": "Preserve hybrid/identity holds; do not infer ancestry from published hybrid zones",
+      "sources": [
+        "https://doi.org/10.1155/2012/632547",
+        "https://research.fs.usda.gov/feis/species-reviews/andhal"
+      ],
+      "detail": "Interfertility and natural hybrid zones do not establish ancestry for an untested individual."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Historical A. hallii versus A. gerardi species/subspecies circumscriptions",
+      "proposed_decision": "Preserve competing treatments and hybrid-zone evidence; POWO accepted species boundary controls current name mapping",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2",
+        "https://research.fs.usda.gov/feis/species-reviews/andhal",
+        "https://doi.org/10.1155/2012/632547"
+      ],
+      "detail": "Historical taxonomies lumped the two at infraspecific rank; molecular/cytogenetic and ecological literature discusses hybrid swarms. No individual determination settled."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "2024 Anatherum gerardi genus circumscription versus POWO accepted Andropogon",
+      "proposed_decision": "Record alternative published combination without changing backbone",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77359035-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+      ],
+      "detail": "A published new combination does not by itself resolve competing genus circumscriptions; no separate phylogenetic adjudication in this run."
+    }
+  ],
+  "sources": [
+    {
+      "authority": "Kew POWO/WCVP A. gerardi",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30435428-2"
+    },
+    {
+      "authority": "IPNI original orthography and Vitman 1792",
+      "url": "https://www.ipni.org/n/30435428-2"
+    },
+    {
+      "authority": "Kew accepted var. gerardi",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77170062-1"
+    },
+    {
+      "authority": "Kew accepted var. hondurensis",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:306809-2"
+    },
+    {
+      "authority": "Kew A. hallii and synonymy",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12866-2"
+    },
+    {
+      "authority": "Kew A. gerardi subsp. hallii",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:994582-1"
+    },
+    {
+      "authority": "Kew A. gerardi var. paucipilus",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12842-2"
+    },
+    {
+      "authority": "Kew A. hallii var. grandiflorus",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:12869-2"
+    },
+    {
+      "authority": "Kew Anatherum gerardi 2024 combination",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77359035-1"
+    },
+    {
+      "authority": "USDA Forest Service FEIS sand bluestem 1988",
+      "url": "https://research.fs.usda.gov/feis/species-reviews/andhal"
+    },
+    {
+      "authority": "Nagahama & Norrmann 2012 cytogenetic review",
+      "url": "https://doi.org/10.1155/2012/632547"
+    }
+  ],
+  "scope_exclusions": [
+    "No canonical species modification",
+    "No photographs or specimen relabelling",
+    "No genus/family lessons",
+    "No installation",
+    "No county nativity audit",
+    "No Pages changes"
+  ]
+}
