@@ -1,0 +1,33 @@
+name: Lane 2 archive website-safe red lovegrass macro photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_install_red_lovegrass_public_anatomy_20261025.py
+      - .github/workflows/lane2-red-lovegrass-public-macros-20261025.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-public-red-lovegrass-macros
+  cancel-in-progress: false
+jobs:
+  archive-and-link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - run: python scripts/lane2_install_red_lovegrass_public_anatomy_20261025.py
+      - name: Commit rights cleared photograph bytes and gallery metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-secundiflora/ reports/lane2-red-lovegrass-public-closer-macros-20261025.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Install CC0 and CC BY-SA 4.0 red lovegrass anatomy photographs in public learner"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
