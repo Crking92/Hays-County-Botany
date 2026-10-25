@@ -1,0 +1,250 @@
+{
+  "batch_id": "grass-sporobolus-vaginiflorus-neglectus-ozarkanus-2026-10-25-0125-001",
+  "date_checked": "2026-10-25",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Sporobolus",
+  "canonical_taxon_ids": [
+    "sporobolus-vaginiflorus"
+  ],
+  "comparison_only_taxa": [
+    "Sporobolus neglectus Nash",
+    "Sporobolus ozarkanus Fernald"
+  ],
+  "canonical_species_paths_read_only": {
+    "sporobolus-vaginiflorus": "content/taxa/Poaceae/Sporobolus/sporobolus-vaginiflorus/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "sporobolus-vaginiflorus": "d0e944e43d08eed9ea9c47f9ed411bbabc603ffa"
+  },
+  "claim_id": "grass-sporobolus-vaginiflorus-neglectus-ozarkanus-2026-10-25-0125-001",
+  "claim_path": "workflow/taxonomy-claims/grass-sporobolus-vaginiflorus-neglectus-ozarkanus-2026-10-25-0125-001.json",
+  "primary_decision": "PASS_ACCEPTED_VAGINIFLORUS_SEPARATE_NEGLECTUS_AND_POWO_OZARKANUS_MAPPING_WITH_HISTORICAL_CONCEPT_AND_SPECIMEN_HOLDS",
+  "decision_counts": {
+    "PASS": 11,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 3
+  },
+  "decisions": [
+    {
+      "source_name": "Sporobolus vaginiflorus (Torr. ex A.Gray) Alph.Wood",
+      "accepted_name": "Sporobolus vaginiflorus (Torr. ex A.Gray) Alph.Wood",
+      "rank": "accepted species",
+      "scientific_decision": "PASS_ACCEPTED_SPECIES_AUTHORSHIP",
+      "action": "Existing canonical species name and rank agree with 2026 POWO/WCVP; no rename.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2"
+      ]
+    },
+    {
+      "source_name": "Vilfa vaginiflora Torr. ex A.Gray",
+      "accepted_name": "Sporobolus vaginiflorus (Torr. ex A.Gray) Alph.Wood",
+      "rank": "homotypic basionym",
+      "scientific_decision": "PASS_HOMOTYPIC_BASIONYM",
+      "action": "Preserve historical combination as alias, not a separate accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2"
+      ]
+    },
+    {
+      "source_name": "Agrostis vaginiflora (Torr. ex A.Gray) Torr. ex A.Gray",
+      "accepted_name": "Sporobolus vaginiflorus (Torr. ex A.Gray) Alph.Wood",
+      "rank": "homotypic synonym",
+      "scientific_decision": "PASS_HOMOTYPIC_SYNONYM",
+      "action": "POWO lists this combination under the same accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus vaginiflorus var. inaequalis Fernald",
+      "accepted_name": "Sporobolus vaginiflorus (Torr. ex A.Gray) Alph.Wood",
+      "rank": "heterotypic synonym",
+      "scientific_decision": "PASS_HETEROTYPIC_SYNONYM",
+      "action": "POWO lists this historical variety as a synonym of the accepted species; do not infer individual historical specimen ID.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus vaginiflorus var. minor Chapm.",
+      "accepted_name": "Sporobolus vaginiflorus (Torr. ex A.Gray) Alph.Wood",
+      "rank": "heterotypic synonym",
+      "scientific_decision": "PASS_HETEROTYPIC_VARIETY_SYNONYM",
+      "action": "POWO lists historical var. minor under accepted S. vaginiflorus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus minor Vasey",
+      "accepted_name": "Sporobolus vaginiflorus (Torr. ex A.Gray) Alph.Wood",
+      "rank": "illegitimate later homonym; heterotypic synonym",
+      "scientific_decision": "PASS_ILLEGITIMATE_NAME_MAPPING",
+      "action": "POWO lists as nom. illeg. homonym. post.; never use as accepted species name.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus neglectus Nash",
+      "accepted_name": "Sporobolus neglectus Nash",
+      "rank": "separately accepted species",
+      "scientific_decision": "PASS_SEPARATE_SPECIES",
+      "action": "POWO/WCVP accepts S. neglectus separately from existing canonical S. vaginiflorus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus vaginiflorus var. neglectus (Nash) Scribn.",
+      "accepted_name": "Sporobolus neglectus Nash",
+      "rank": "homotypic synonym",
+      "scientific_decision": "PASS_CROSS_SPECIES_VARIETY_MAPPING",
+      "action": "Historical variety under S. vaginiflorus belongs to separate accepted S. neglectus under POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus ozarkanus Fernald",
+      "accepted_name": "Sporobolus neglectus Nash",
+      "rank": "heterotypic synonym",
+      "scientific_decision": "PASS_OZARKANUS_MAPPING_POWO",
+      "action": "POWO lists S. ozarkanus as heterotypic synonym of S. neglectus; primary/other regional flora concepts differ.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2",
+        "https://w3.biosci.utexas.edu/prc/SPORO/FNA_key.html"
+      ]
+    },
+    {
+      "source_name": "Sporobolus vaginiflorus var. ozarkanus (Fernald) Shinners",
+      "accepted_name": "Sporobolus neglectus Nash",
+      "rank": "heterotypic synonym under POWO",
+      "scientific_decision": "PASS_CROSS_SPECIES_OZARKANUS_MAPPING_POWO",
+      "action": "Despite its parent binomial, POWO maps this variety to S. neglectus, not S. vaginiflorus; retain alternate flora concepts as source provenance.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243056-2",
+        "https://w3.biosci.utexas.edu/prc/SPORO/FNA_key.html"
+      ]
+    },
+    {
+      "source_name": "Sporobolus neglectus var. ozarkanus (Fernald) Steyerm. & C.L.Kucera",
+      "accepted_name": "Sporobolus neglectus Nash",
+      "rank": "heterotypic synonym",
+      "scientific_decision": "PASS_OZARKANUS_VARIETY_MAPPING_POWO",
+      "action": "POWO lists this historical variety under S. neglectus.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2"
+      ]
+    },
+    {
+      "source_name": "Automatically collapsing S. neglectus into S. vaginiflorus",
+      "accepted_name": "Sporobolus neglectus Nash",
+      "rank": "species-boundary rule",
+      "scientific_decision": "FAIL_INVALID_SPECIES_COLLAPSE",
+      "action": "Reject automated merge: separate accepted species and distinct diagnostic spikelet/lemma traits.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2",
+        "https://gobotany.nativeplanttrust.org/dkey/sporobolus/",
+        "https://www.eeob.iastate.edu/research/IowaGrasses/speciespages/SporoVagin/SporoVagin.html",
+        "https://www.eeob.iastate.edu/research/IowaGrasses/speciespages/SporoNegle/SporoNegle.html"
+      ]
+    },
+    {
+      "source_name": "Automatically routing S. vaginiflorus var. ozarkanus into accepted S. vaginiflorus without concept review",
+      "accepted_name": "Sporobolus neglectus Nash under POWO",
+      "rank": "cross-species historical rank",
+      "scientific_decision": "FAIL_UNQUALIFIED_OZARKANUS_ALIAS",
+      "action": "Reject default alias-to-parent mapping under POWO. Preserve historical source labels and alternative regional treatment; no relabelled photos.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243056-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2",
+        "https://w3.biosci.utexas.edu/prc/SPORO/FNA_key.html",
+        "https://w3.biosci.utexas.edu/prc/SPORO/SPORO-spklt-comp.html"
+      ]
+    },
+    {
+      "source_name": "Existing learner S. vaginiflorus photographs and source-variety determinations",
+      "accepted_name": null,
+      "rank": "individual specimen/photo identity",
+      "scientific_decision": "HOLD_INDIVIDUAL_SPECIMEN_ID",
+      "action": "Existing gallery is not independently voucher-confirmed to exclude S. neglectus or historical ozarkanus concept; do not relabel, mark 100%, or alter photos. Microscopic lemma features and genuine matched material remain a hold.",
+      "sources": [
+        "https://w3.biosci.utexas.edu/prc/SPORO/SPORO-spklt-comp.html",
+        "https://w3.biosci.utexas.edu/prc/SPORO/Cscope-lemma.html",
+        "https://gobotany.nativeplanttrust.org/dkey/sporobolus/"
+      ]
+    },
+    {
+      "source_name": "Hybrid ancestry of individual S. vaginiflorus / S. neglectus specimens",
+      "accepted_name": null,
+      "rank": "individual hybrid identity",
+      "scientific_decision": "HOLD_HYBRID_ANCESTRY_NOT_ESTABLISHED",
+      "action": "No documented parentage for any learner specimen. Do not infer hybrids or create hybrid concepts.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:30120612-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2"
+      ]
+    },
+    {
+      "source_name": "S. ozarkanus and S. vaginiflorus var. ozarkanus under regional flora concepts",
+      "accepted_name": "Sporobolus neglectus Nash under POWO; competing FNA/Missouri source concepts retained",
+      "rank": "conflicting historical species/variety circumscription",
+      "scientific_decision": "UNRESOLVED_FLORA_CONCEPT_CONFLICT",
+      "action": "Harms documents regional treatments that distinguish ozarkanus from neglectus and/or place it as a variety under vaginiflorus; POWO synonymizes under neglectus. Historical vouchers require specimen-by-specimen determination; do not erase source concepts.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243056-2",
+        "https://w3.biosci.utexas.edu/prc/SPORO/FNA_key.html",
+        "https://w3.biosci.utexas.edu/prc/SPORO/SPORO-spklt-comp.html"
+      ]
+    },
+    {
+      "source_name": "Life-history label for S. neglectus",
+      "accepted_name": "Sporobolus neglectus Nash",
+      "rank": "annual versus perennial description",
+      "scientific_decision": "UNRESOLVED_AUTHORITY_LIFE_HISTORY_CONFLICT",
+      "action": "POWO/GrassBase describes perennial; FNA key reproduced by Harms, Iowa State grass treatment and EPPO morphological section describe annual. EPPO page also contradicts itself in its ecology section. This descriptive conflict is not a name-status conflict and must not be silently normalized.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243013-2",
+        "https://w3.biosci.utexas.edu/prc/SPORO/FNA_key.html",
+        "https://www.eeob.iastate.edu/research/IowaGrasses/speciespages/SporoNegle/SporoNegle.html",
+        "https://www.eppo.int/ACTIVITIES/plant_quarantine/alert_list_plants/sporobolus_neglectus"
+      ]
+    },
+    {
+      "source_name": "Historical S. vaginiflorus / neglectus Texas herbarium determinations",
+      "accepted_name": null,
+      "rank": "individual voucher identity",
+      "scientific_decision": "UNRESOLVED_HISTORICAL_VOUCHER_IDENTIFICATIONS",
+      "action": "Harms reports several TEX/LL specimens labelled neglectus from Travis County that he considered vaginiflorus; not a blanket authority to relabel any learner photograph. Independent voucher confirmation required.",
+      "sources": [
+        "https://w3.biosci.utexas.edu/prc/SPORO/SPORO-spklt-comp.html",
+        "https://w3.biosci.utexas.edu/prc/SPORO/FNA_key.html"
+      ]
+    }
+  ],
+  "scientific_safeguards": {
+    "canonical_species_modified": false,
+    "photo_or_specimen_identity_hold_overridden": false,
+    "county_nativity_changed": false,
+    "new_species_installed": false,
+    "photographs_or_lessons_changed": false,
+    "public_pages_changed": false,
+    "hybrid_parentage_inferred": false
+  },
+  "source_notes": {
+    "POWO_WCVP": "Live POWO/WCVP 2026-10-25 accepted name and synonym checks; accepted S. vaginiflorus and separate S. neglectus. Historical ozarkanus mapped to neglectus in POWO.",
+    "FNA": "Flora of North America (2003) key and treatment discussed/quoted by Bob Harms; original FNA publication not directly inspected in this run.",
+    "primary_local": "Bob Harms (UT Plant Resources Center), first-hand 2001-2002 and 2014 TEX/LL specimen review, reports source-label disagreement and morphological evidence. His alternative ozarkanus concept is not silently equated to POWO synonym.",
+    "academic": "Iowa State University grass treatments support distinct spikelet sizes, lemma pubescence and annual descriptions; used for authority-conflict documentation only.",
+    "eppo": "EPPO page morphological sections label both annual, but its Biology and Ecology section labels both perennial; contradiction recorded, not resolved.",
+    "hold_boundary": "Taxonomic synonymy is not a voucher or photograph identification. No unverified alias to a different canonical card; no change to public learner or science holds."
+  },
+  "status": "taxonomy_evidence_only_pending_independent_readback"
+}
