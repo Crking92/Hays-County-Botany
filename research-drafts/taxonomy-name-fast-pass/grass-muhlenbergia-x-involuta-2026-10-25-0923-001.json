@@ -1,0 +1,205 @@
+{
+  "id": "grass-muhlenbergia-x-involuta-2026-10-25-0923-001",
+  "run_date_local": "2026-10-25",
+  "run_time_local": "09:23 America/Chicago",
+  "lane": "grass-taxonomy-verification",
+  "scope": "Existing canonical Poaceae accepted hybrid name, synonym/rank boundaries, identity and parentage holds only; no county nativity audit, cards, photos, genus or Pages edits.",
+  "status": "MUHLENBERGIA_X_INVOLUTA_ACCEPTED_NAMED_HYBRID_PARENTS_SEPARATE_SPECIMEN_AND_TYPE_HOLDS",
+  "claim_path": "workflow/taxonomy-claims/grass-muhlenbergia-x-involuta-2026-10-25-0923-001.json",
+  "canonical_species": [
+    {
+      "taxon_id": "muhlenbergia-x-involuta",
+      "path": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-x-involuta/species.json",
+      "sha_at_review": "9ede19a59c3b0658e32cad046e27d52f69cb2997",
+      "existing_name": "Muhlenbergia ×involuta",
+      "accepted_name_with_author": "Muhlenbergia × involuta Swallen",
+      "accepted_rank": "named hybrid at species level (nothospecies)",
+      "family": "Poaceae",
+      "genus": "Muhlenbergia",
+      "no_canonical_edit": true
+    },
+    {
+      "taxon_id": "muhlenbergia-lindheimeri",
+      "path": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-lindheimeri/species.json",
+      "sha_at_review": "c8a5257e45e81239723dc5a6ad0f81ffbc58d3f8",
+      "accepted_name_with_author": "Muhlenbergia lindheimeri Hitchc.",
+      "no_canonical_edit": true
+    },
+    {
+      "taxon_id": "muhlenbergia-reverchonii",
+      "path": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii/species.json",
+      "sha_at_review": "358412e0cd4feae5192bb61ea9d0ac2eeddcd733",
+      "accepted_name_with_author": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "no_canonical_edit": true
+    }
+  ],
+  "backbone": "POWO/WCVP 2026 accessed 2026-10-25, corroborated by ITIS taxon nomenclature and Smithsonian specimen label; primary 1932 protologue/type not independently examined.",
+  "scientific_decisions": [
+    {
+      "code": "MUI-01",
+      "status": "PASS",
+      "source_name": "Muhlenbergia × involuta Swallen",
+      "accepted_target": "Muhlenbergia × involuta Swallen",
+      "reason": "POWO/WCVP explicitly accepts this named hybrid within Poaceae; retain the multiplication sign and nothospecies concept.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "code": "MUI-02",
+      "status": "PASS",
+      "source_name": "Muhlenbergia involuta Swallen, published 1932",
+      "accepted_target": "Muhlenbergia × involuta Swallen",
+      "reason": "Original name publication cited as American Journal of Botany 19:436 (1932); Swallen authorship verified. ITIS records historical pro sp. treatment; modern Kew hybrid interpretation governs.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41920"
+      ]
+    },
+    {
+      "code": "MUI-03",
+      "status": "PASS",
+      "source_name": "Muhlenbergia lindheimeri × Muhlenbergia reverchonii",
+      "accepted_target": "Muhlenbergia × involuta Swallen",
+      "reason": "POWO explicitly assigns this parent formula to the accepted named hybrid; this is taxon-level circumscription, not genetic evidence for each pictured plant.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MUI-04",
+      "status": "PASS",
+      "source_name": "Muhlenbergia lindheimeri Hitchc.",
+      "accepted_target": "Muhlenbergia lindheimeri Hitchc.",
+      "reason": "Accepted parent species distinct from M. ×involuta; parent authority Hitchc. and species rank retained.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "code": "MUI-05",
+      "status": "PASS",
+      "source_name": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "accepted_target": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "reason": "Accepted parent species distinct from M. ×involuta; parent authority Vasey & Scribn. and species rank retained.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "code": "MUI-06",
+      "status": "PASS",
+      "source_name": "Epicampes gracilis Trin.",
+      "accepted_target": "Muhlenbergia lindheimeri Hitchc.",
+      "reason": "POWO places this historical heterotypic synonym under the accepted parent M. lindheimeri, NOT under M. ×involuta.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2"
+      ]
+    },
+    {
+      "code": "MUI-07",
+      "status": "PASS",
+      "source_name": "Podosemum reverchonii (Vasey & Scribn.) Bush",
+      "accepted_target": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "reason": "POWO places this homotypic combination under the accepted parent M. reverchonii, NOT under M. ×involuta.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MUI-08",
+      "status": "PASS",
+      "source_name": "Muhlenbergia x involuta / Muhlenbergia involuta Swallen",
+      "accepted_target": "Muhlenbergia × involuta Swallen",
+      "reason": "ASCII x and historical unmarked name in ITIS/collections refer to the same named taxon in this context; do not create duplicate accepted learner entries. Preserve original source spelling verbatim.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41920",
+        "https://collections.si.edu/search/results.htm?fq=tax_family%3A%22Poaceae%22&q=%22280%22"
+      ]
+    },
+    {
+      "code": "MUI-09",
+      "status": "FAIL",
+      "source_name": "Automatically merge Muhlenbergia × involuta into M. lindheimeri",
+      "accepted_target": "Muhlenbergia lindheimeri Hitchc.",
+      "reason": "Reject merger: POWO accepts the hybrid and both parent species separately.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MUI-10",
+      "status": "FAIL",
+      "source_name": "Automatically merge Muhlenbergia × involuta into M. reverchonii",
+      "accepted_target": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "reason": "Reject merger: hybrid formula and accepted parent do not establish synonymy or duplicate identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MUI-11",
+      "status": "HOLD",
+      "source_name": "Existing canonical learner source-labelled photographs and historical comparison plate",
+      "accepted_target": "Muhlenbergia × involuta Swallen",
+      "reason": "Institutional or source-level labels and comparison images are not voucher-verified determinations of the individual plants in the learner. Preserve provisional hybrid identity and any existing visual/photo holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://collections.si.edu/search/results.htm?fq=tax_family%3A%22Poaceae%22&q=%22280%22"
+      ]
+    },
+    {
+      "code": "MUI-12",
+      "status": "HOLD",
+      "source_name": "Individual plant hybrid ancestry and source accession",
+      "accepted_target": "Muhlenbergia lindheimeri × Muhlenbergia reverchonii",
+      "reason": "Accepted hybrid formula does not prove parentage of any particular observed plant. Keep voucher, specimen identity, and genetic-parentage holds until directly corroborated.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41920"
+      ]
+    },
+    {
+      "code": "MUI-13",
+      "status": "UNRESOLVED",
+      "source_name": "Original 1932 type/protologue and later hybrid reinterpretation",
+      "accepted_target": "Muhlenbergia × involuta Swallen",
+      "reason": "POWO supplies original publication citation and modern accepted hybrid concept; original type material/protologue not independently examined in this run. Do not claim type-level resolution or reinterpret specimen labels beyond their evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41920"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 8,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 1,
+    "total": 13
+  },
+  "critical_guardrails": [
+    "Accepted named hybrid remains separate from both accepted parents.",
+    "Do not treat parent historical synonyms as hybrid synonyms.",
+    "Source-labelled living photos and historical plate do not prove individual hybrid ancestry.",
+    "No taxon, photo, range, genus, publication or hybrid hold changed."
+  ],
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2",
+    "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41920",
+    "https://collections.si.edu/search/results.htm?fq=tax_family%3A%22Poaceae%22&q=%22280%22"
+  ],
+  "canonical_edit": false,
+  "public_site_changed": false
+}
