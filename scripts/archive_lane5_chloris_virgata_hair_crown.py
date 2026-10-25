@@ -89,7 +89,7 @@ meta=info.get("extmetadata",{})
 lic=re.sub(r"[^A-Z0-9]","",meta.get("LicenseShortName",{}).get("value","").upper())
 artist=html.unescape(re.sub(r"<[^>]*>"," ",meta.get("Artist",{}).get("value",""))).strip()
 description=html.unescape(re.sub(r"<[^>]*>"," ",meta.get("ImageDescription",{}).get("value",""))).strip()
-if lic!="CCBY20" or "Harry Rose" not in artist or "Chloris virgata" not in description:
+if lic!="CCBY20" or "Harry Rose" not in artist or not re.search(r"two\s+long-awned\s+florets",description,re.I) or not re.search(r"lower\s+lemma",description,re.I):
  raise RuntimeError("Commons fertile floret source/rights mismatch "+lic+" / "+artist+" / "+description[:160])
 specs.append({
  "source":info["url"],"source_page":COMMONS,
