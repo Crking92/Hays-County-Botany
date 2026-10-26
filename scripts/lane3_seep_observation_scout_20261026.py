@@ -9,8 +9,8 @@ def req(url):
     with urllib.request.urlopen(urllib.request.Request(url,headers=HEAD),timeout=22) as r:return r.read(3000000)
 def main():
     obs=[];errors=[]
-    for p in (1,2,3):
-        q=urllib.parse.urlencode({"taxon_id":165570,"quality_grade":"research","photos":"true","per_page":100,"page":p,"order_by":"observed_on","order":"desc"})
+    for p in (1,2,3,4,5):
+        q=urllib.parse.urlencode({"taxon_id":165570,"quality_grade":"research","photos":"true","per_page":25,"page":p,"order_by":"observed_on","order":"desc"})
         try:obs+=json.loads(req("https://api.inaturalist.org/v1/observations?"+q))["results"]
         except Exception as e:errors.append(str(e))
     candidates=[]
