@@ -29,9 +29,26 @@
       "new_biological_anatomy_images": 0,
       "status": "FIELD_READY_PHOTO_GAPS",
       "reason": "Public-rights exclusion and first-panel cleanup, NOT anatomical photo completion"
+    },
+    "lane2_scheelei_nc_license_reconciliation_20261026": {
+      "stage": "FIELD_READY_PHOTO_GAPS",
+      "source_checked": true,
+      "archived_same_species_jpegs": 3,
+      "same_species_gallery_panels": 3,
+      "lookalike_panels": 3,
+      "restored_panels": 1,
+      "original_arrows_preserved": 3,
+      "new_photo_bytes": 0,
+      "new_anatomy_claims": 0,
+      "still_missing": [
+        "attached rooted/rhizomatous plant",
+        "true inner ligule with mm scale",
+        "bristle-spikelet attachment with mm scale"
+      ],
+      "site_deployment": "Unverified until controlled rights-filtered Pages publication succeeds"
     }
   },
-  "photo_note": "2026-10-21: original physical JPEG inspected; visible structures annotated without manufacturing bristle attachment. Other three original-photo comparisons credited. One photo per taxon is a field cue, not diagnostic closeout. 2026-10-23: independently fetched GitHub blob SHAs for all three listed species JPEG paths (original iNaturalist and two Commons); corrected stale photo_files_present from 1 to 3. GitHub blob existence only; image pixels, actual diagnostic role, public Pages rendering and source specimen identity NOT newly certified. Do not mark macro complete from file count. 2026-10-23: added 2 existing in-repo CC licensed same-species images to visual_comparison teaching gallery with provisional labels, authors and Commons credits; no unverified pixel arrows; Pages deployment not confirmed.\n2026-10-26 Lane 2: scientific reconciliation only. Texas regional flora documents shallow rhizomes and a short ciliate membranous ligule, while FNA/Kew describes hairy fringe; same-species University course node photograph discovered but NOT copied for unverified rights. No new images or arrows installed, original credited media preserved.",
+  "photo_note": "2026-10-21: original physical JPEG inspected; visible structures annotated without manufacturing bristle attachment. Other three original-photo comparisons credited. One photo per taxon is a field cue, not diagnostic closeout. 2026-10-23: independently fetched GitHub blob SHAs for all three listed species JPEG paths (original iNaturalist and two Commons); corrected stale photo_files_present from 1 to 3. GitHub blob existence only; image pixels, actual diagnostic role, public Pages rendering and source specimen identity NOT newly certified. Do not mark macro complete from file count. 2026-10-23: added 2 existing in-repo CC licensed same-species images to visual_comparison teaching gallery with provisional labels, authors and Commons credits; no unverified pixel arrows; Pages deployment not confirmed.\n2026-10-26 Lane 2: scientific reconciliation only. Texas regional flora documents shallow rhizomes and a short ciliate membranous ligule, while FNA/Kew describes hairy fringe; same-species University course node photograph discovered but NOT copied for unverified rights. No new images or arrows installed, original credited media preserved.\n2026-10-26: restored already archived Kyla Miller CC BY-NC photo to the ordinary noncommercial educational teaching gallery after live exact-photo license recheck; original three verified gross markers, original license metadata and historic rights hold retained; no new photo or fine anatomy inferred.",
   "taxonomy_source": "https://powo.science.kew.org/results?q=Setaria%20scheelei",
   "images": [
     {
@@ -41,8 +58,12 @@
       "license": "CC BY-NC",
       "source_page": "https://www.inaturalist.org/photos/237392332",
       "study_use": "Noncommercial botanical education",
-      "public_reuse": "private_study_only",
-      "publication_hold": "User public-site rule excludes CC BY-NC despite noncommercial Pages mode. Keep original JPEG in source repository for record continuity, but never ship to public learner until independent explicit permission."
+      "public_reuse": "yes — conditional on noncommercial public educational website and CC BY-NC compliance",
+      "publication_hold": null,
+      "historical_public_reuse": "private_study_only",
+      "historical_publication_hold": "User public-site rule excludes CC BY-NC despite noncommercial Pages mode. Keep original JPEG in source repository for record continuity, but never ship to public learner until independent explicit permission.",
+      "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "public_site_note": "CC BY-NC original license, not a public domain or commercial-use image; retain creator/source and recheck if website monetizes"
     },
     {
       "file": "images/commons-f0f1c812bc84.jpg",
@@ -221,7 +242,7 @@
   ],
   "visual_comparison": {
     "title": "Setaria scheelei — four foxtails, one photographed comparison",
-    "subtitle": "Two physically archived, CC0/CC BY original Setaria scheelei photographs first, followed by three credited look-alike photo lessons. The former CC BY-NC source and its arrows remain fully documented in rights_held_comparison_items, not in the website gallery. Fine-scale bristle insertion, true ligule and dissected lemma are still absent.",
+    "subtitle": "Three locally archived exact-species photographs, including Kyla Miller's individually verified CC BY-NC original with its three gross-form arrows, conditionally reusable only on this stand-alone noncommercial educational website; plus three distinct-species look-alikes. Inner ligule, connected rhizomes and measured bristle-spikelet junction still missing.",
     "memory_rule": "MILLET=ANNUAL HEAVY HEAD (usually 1–3 bristles); PARVIFLORA=KNOTTY RHIZOME + MANY (4–12); REVERCHONII=INTERRUPTED SPARSE (2–8 mm where bristled); SCHEELEI=LONG SINGLE (10–35 mm).",
     "items": [
       {
@@ -278,6 +299,59 @@
           "photo_role_verified": "Whole plant with tapered heads, broad leaf blades and clustered basal culms",
           "modifications": "None to JPEG; separate overlay arrows",
           "rights_notes": "CC0 source record retained; no NC or SA restrictions recorded; original source-page live license recheck still pending"
+        }
+      },
+      {
+        "label": "Southwestern bristlegrass — long projecting bristles",
+        "scientific_name": "Setaria scheelei",
+        "image_url": "content/taxa/Poaceae/Setaria/setaria-scheelei/images/inat-237392332.jpg",
+        "image_fit": "contain",
+        "image_role": "Existing exact-source flowering photograph: conspicuous long bristles and spikelet-bearing axis visible",
+        "caption": "Kyla Miller's source photo clearly shows a long tapered green flowering axis, many ovoid pale spikelets and conspicuously long, outward-pointing bristles. The photo does not itself prove each bristle belongs to just one spikelet or provide a measurement ruler.",
+        "why_it_matters": "SOUTHWESTERN / SCHEELE'S BRISTLEGRASS (perennial): a tall, commonly broad-leaved and hairy grass with a long, tapered, rather open bottlebrush-like head. Usually 1 (sometimes 2–3) LONG separate projecting bristles per spikelet, typically 10–35 mm in FNA/Kew. Unlike Reverchon's shorter sparse bristles, these long bristles are actually obvious in the saved flowering photograph. Edwards Plateau shady limestone canyon habitat is supportive, not conclusive.",
+        "creator": "(c) Kyla Miller, some rights reserved (CC BY-NC)",
+        "license": "CC BY-NC",
+        "source_page": "https://www.inaturalist.org/photos/237392332",
+        "markers": [
+          {
+            "label": "Long projecting bristles",
+            "label_x": 4,
+            "label_y": 16,
+            "target_x": 35,
+            "target_y": 42
+          },
+          {
+            "label": "Ovoid spikelet cluster",
+            "label_x": 71,
+            "label_y": 27,
+            "target_x": 52,
+            "target_y": 40
+          },
+          {
+            "label": "Tapered head tip",
+            "label_x": 69,
+            "label_y": 5,
+            "target_x": 51,
+            "target_y": 10
+          }
+        ],
+        "photo_status": "Source labelled and locally archived real JPEG visually inspected 2026-10-21. Targets show only gross structures actually visible. Source identity provisional; bristle counts, microscopy and local nativity NOT independently proven. Original individually cc-by-nc photo license live-rechecked before restoration; intact source JPEG and original three validated gross arrows preserved. NOT a true ligule/root/attached bristle measurement.",
+        "historic_public_site_hold": "CC BY-NC source cannot be included under project policy (public pages permit CC0, CC BY, CC BY-SA, public domain, or separate authorization only). Saved source, local archival record and three validated gross-feature arrows are retained here.",
+        "public_reuse": "yes — conditional CC BY-NC use on genuinely noncommercial educational Pages only",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "rights_review": {
+          "date_utc": "2026-10-26T22:45:08.109231+00:00",
+          "photo_id": 237392332,
+          "verified_observation_id": 138856189,
+          "license": "CC BY-NC 4.0",
+          "limitation": "Use only on confirmed noncommercial standalone educational website; maintain visible license link and photographer credit",
+          "site_policy": "workflow/PUBLIC_PHOTO_REUSE_POLICY_20261019.md (October 20 update)",
+          "no_derivatives": false,
+          "physical_jpeg_sha256": "e7569127295b1442f5f89555da58103e3e670a652334ff4bc1d58a2fbabc87dd",
+          "physical_jpeg_dimensions": [
+            768,
+            1024
+          ]
         }
       },
       {
@@ -404,45 +478,7 @@
       }
     ],
     "overlay_note": "All four source-labelled photo JPEGs are already physically present. Each retains original author/rights. Parviflora pink floral protrusion is NOT annotated as a bristle. Taxa remain provisional until measured, attached bristles and roots verified.",
-    "rights_held_comparison_items": [
-      {
-        "label": "Southwestern bristlegrass — long projecting bristles",
-        "scientific_name": "Setaria scheelei",
-        "image_url": "content/taxa/Poaceae/Setaria/setaria-scheelei/images/inat-237392332.jpg",
-        "image_fit": "contain",
-        "image_role": "Existing exact-source flowering photograph: conspicuous long bristles and spikelet-bearing axis visible",
-        "caption": "Kyla Miller's source photo clearly shows a long tapered green flowering axis, many ovoid pale spikelets and conspicuously long, outward-pointing bristles. The photo does not itself prove each bristle belongs to just one spikelet or provide a measurement ruler.",
-        "why_it_matters": "SOUTHWESTERN / SCHEELE'S BRISTLEGRASS (perennial): a tall, commonly broad-leaved and hairy grass with a long, tapered, rather open bottlebrush-like head. Usually 1 (sometimes 2–3) LONG separate projecting bristles per spikelet, typically 10–35 mm in FNA/Kew. Unlike Reverchon's shorter sparse bristles, these long bristles are actually obvious in the saved flowering photograph. Edwards Plateau shady limestone canyon habitat is supportive, not conclusive.",
-        "creator": "(c) Kyla Miller, some rights reserved (CC BY-NC)",
-        "license": "CC BY-NC",
-        "source_page": "https://www.inaturalist.org/photos/237392332",
-        "markers": [
-          {
-            "label": "Long projecting bristles",
-            "label_x": 4,
-            "label_y": 16,
-            "target_x": 35,
-            "target_y": 42
-          },
-          {
-            "label": "Ovoid spikelet cluster",
-            "label_x": 71,
-            "label_y": 27,
-            "target_x": 52,
-            "target_y": 40
-          },
-          {
-            "label": "Tapered head tip",
-            "label_x": 69,
-            "label_y": 5,
-            "target_x": 51,
-            "target_y": 10
-          }
-        ],
-        "photo_status": "Source labelled and locally archived real JPEG visually inspected 2026-10-21. Targets show only gross structures actually visible. Source identity provisional; bristle counts, microscopy and local nativity NOT independently proven.",
-        "public_site_hold": "CC BY-NC source cannot be included under project policy (public pages permit CC0, CC BY, CC BY-SA, public domain, or separate authorization only). Saved source, local archival record and three validated gross-feature arrows are retained here."
-      }
-    ]
+    "rights_held_comparison_items": []
   },
   "field_photo_quickcheck": {
     "heading": "Setaria — the bristle count is on a real spikelet",
