@@ -1,0 +1,36 @@
+name: Lane 2 archive Jim Conrad Dry Frio Scheele bristlegrass anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_install_scheelei_jim_conrad_dryfrio_20261026.py
+      - .github/workflows/lane2-scheelei-jim-conrad-public-domain-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-scheelei-dryfrio-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Verify exact Jim Conrad public-domain original images and archive Uvalde field evidence
+        run: python scripts/lane2_install_scheelei_jim_conrad_dryfrio_20261026.py
+      - name: Commit verified two photo bytes, original attribution and existing-card additions
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Setaria/setaria-scheelei/ reports/lane2-scheelei-jim-conrad-dryfrio-public-domain-photos-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive Jim Conrad public-domain Dry Frio Scheele field habit and bristle photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
