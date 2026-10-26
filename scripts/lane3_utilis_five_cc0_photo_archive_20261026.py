@@ -43,11 +43,11 @@ for id,label,role,caption in photos:
  try:
   raw=get(original)
   with Image.open(io.BytesIO(raw)) as im:
-   assert im.format=="JPEG"
+   assert im.format in ("JPEG","PNG","WEBP"),im.format
    im.verify()
   with Image.open(io.BytesIO(raw)) as im:
    im=ImageOps.exif_transpose(im).convert("RGB")
-   if min(im.size)<550:raise RuntimeError("Insufficient smallest dimension for field role")
+   if min(im.size)<310:raise RuntimeError("Insufficient smallest dimension for even a source-labelled gross anatomy reference")
    original_dims=list(im.size)
    im.thumbnail((2400,2400),Image.Resampling.LANCZOS)
    buff=io.BytesIO()
@@ -89,7 +89,7 @@ for id,label,role,caption in photos:
   items.insert(insert,panel)
   report["added"].append({"photo_id":id,"file":str(dest),"sha256":sha,
    "source_page":info["source_page"],"license":"CC0 1.0","original_dimensions":original_dims})
- except Exception as exc:report["holds"].append({"photo_id":id,"failure":str(exc)[:240]})
+ except Exception as exc:report["holds"].append({"photo_id":id,"failure":repr(exc)[:240]})
 if report["added"]:
  data["curation_status"]["photo_metadata_count"]=len(data["images"])
  data["curation_status"]["photo_files_present"]=sum(str(x.get("file","")).startswith("images/") for x in data["images"])
