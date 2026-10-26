@@ -1,0 +1,41 @@
+name: Current grass photo-readiness census
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/report_grass_readiness_20261025.py
+      - .github/workflows/report-grass-readiness-20261025.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: grass-current-readiness-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Count actual canonical photo and gallery readiness
+        run: python scripts/report_grass_readiness_20261025.py
+      - name: Save only read-only audit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/grass-current-photo-readiness-20261025.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Publish updated 112-grass photo-readiness census"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo "Concurrent branch update prevented census commit" >&2
+          exit 1
