@@ -1,0 +1,60 @@
+name: Lane 2 purple lovegrass reusable image pixel scouting
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-spectabilis-source-scout-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original-pixels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install pillow
+      - name: Preview trusted CC-BY-SA and PD Wikimedia source alternatives with known source identity
+        run: |
+          python - <<'PY'
+          import base64,io,json,urllib.parse,time
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageDraw,ImageOps
+          names=[
+          "Eragrostis spectabilis 2zz.jpg",
+          "Eragrostis spectabilis 3zz.jpg",
+          "Eragrostis spectabilis 4zz.jpg",
+          "Eragrostis spectabilis 6zz.jpg",
+          "Eragrostis spectabilis - Botanischer Garten der Universität Würzburg.JPG",
+          "Purple love grass, MD, PG County 2013-08-20-17.02.10 ZS PMax (9615071149).jpg"]
+          sheet=Image.new("RGB",(1200,900),"white")
+          draw=ImageDraw.Draw(sheet)
+          for i,n in enumerate(names):
+            try:
+              api="https://commons.wikimedia.org/w/api.php?action=query&titles="+urllib.parse.quote("File:"+n)+"&prop=imageinfo&iiprop=url%7Cextmetadata&iiurlwidth=700&format=json"
+              with urlopen(Request(api,headers={"User-Agent":"HaysBotanyVisualLearner/1.0 (photo source inspection)"}),timeout=35) as u:
+                obj=json.load(u)
+              page=list(obj["query"]["pages"].values())[0]
+              info=page.get("imageinfo",[{}])[0]
+              source=info.get("thumburl") or info.get("url")
+              if not source: raise RuntimeError("No source file "+n)
+              with urlopen(Request(source,headers={"User-Agent":"HaysBotanyVisualLearner/1.0 (photo source inspection)"}),timeout=35) as u:
+                b=u.read(6_000_000)
+              with Image.open(io.BytesIO(b)) as f:
+                im=ImageOps.exif_transpose(f).convert("RGB")
+              im.thumbnail((590,425))
+              x=(i%2)*600;y=(i//2)*300
+              if im.height>260:im.thumbnail((590,255))
+              sheet.paste(im,(x+(600-im.width)//2,y+15+(270-im.height)//2))
+              draw.text((x+10,y+282),n[:65],fill="black")
+              info_meta=info.get("extmetadata",{})
+              print("CANDIDATE",i,json.dumps({"file":n,"source":source,"pixel_dims":im.size,"bytes":len(b),"license":info_meta.get("LicenseShortName",{}).get("value"),"artist":info_meta.get("Artist",{}).get("value","")[:170]},ensure_ascii=False))
+            except Exception as e: print("ERROR",i,n,str(e)[:300])
+          o=io.BytesIO();sheet.save(o,format="JPEG",quality=78,optimize=True)
+          b64=base64.b64encode(o.getvalue()).decode("ascii")
+          for idx,j in enumerate(range(0,len(b64),3000)):print(f"SHEETPART_{idx}="+b64[j:j+3000])
+          print("PREVIEW_BYTE_LENGTH",len(o.getvalue()))
+          PY
