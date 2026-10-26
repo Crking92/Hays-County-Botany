@@ -102,6 +102,46 @@ for id, sha_prefix, role, scale in [
                        "license":"CC BY-SA 4.0","creator":"Stefan.lefnaer",
                        "reason":type(e).__name__+": "+str(e)[:350]})
 
+
+# Burke Herbarium voucher-backed introduced-lineage collar image.
+# Photo record specifically names P. australis ssp. australis, David Giblin,
+# WTU voucher, and *individual* CC-BY-Attribution unrestricted reuse.
+# The institution does not state the exact BY version, so NEVER invent one.
+# Save JPEG archive only; human pixel review before gallery placement/arrows.
+burke_id="wtu130050"
+burke_page="https://www.burkeherbarium.org/imagecollection/photo.php?Photo=wtu130050&SourcePage=taxon&Taxon=Phragmites+australis"
+burke_img="https://www.burkeherbarium.org/imagecollection/wtu130000/md/wtu130050.jpg"
+burke_file="lineage-introduced-burke-david-giblin-collar-wtu130050.jpg"
+try:
+ raw_page=fetch(burke_page).decode("utf-8","replace")
+ plain=html.unescape(re.sub(r"<[^>]+>"," ",raw_page))
+ plain=" ".join(plain.split()).lower()
+ for phrase in ["wtu130050","phragmites australis ssp. australis","david giblin",
+                "usage restrictions: cc-by-attribution","voucher specimen"]:
+  if phrase not in plain:raise ValueError("Burke source page did not verify "+phrase)
+ md={"source_page":burke_page,"image_url":burke_img,"creator":"David Giblin",
+     "source_taxon":"Phragmites australis subsp. australis (Burke Herbarium current and original identifications)",
+     "source_location":"Grant County, Washington, 2024-05-01",
+     "source_role":"ACTUAL leaf collar/blade–sheath region on introduced subspecies with source-linked WTU voucher; photo remains morphology illustration not genotype",
+     "source_voucher":"David Giblin, WTU Herbarium (image wtu130050)",
+     "source_id_method":"Burke current/original ssp. australis determinations with specimen voucher, not independent DNA proof",
+     "license":"CC BY (version not specified by Burke source)",
+     "license_url":"https://creativecommons.org/licenses/",
+     "public_reuse":"Individual Burke page: CC-BY-Attribution; free to use, distribute, remix, tweak and build upon even commercially provided David Giblin is credited. Specific CC license version UNSPECIFIED, do not invent.",
+     "site_rule":"Photographer credit, source page and any modification must accompany reproduced image; no Texas locality or molecular genotype claim."}
+ if (ROOT/burke_file).exists():
+  with Image.open(ROOT/burke_file) as chk:chk.verify()
+  results.append(dict(md,archive=str(ROOT/burke_file),
+     archive_sha256=hashlib.sha256((ROOT/burke_file).read_bytes()).hexdigest(),
+     archive_bytes=(ROOT/burke_file).stat().st_size,status="ALREADY_ARCHIVED_CANDIDATE",
+     anatomical_pixel_review="PENDING",lineage_certification="VOUCHER-ASSOCIATED, NOT DNA-VERIFIED"))
+ else:
+  results.append(save_image(fetch(burke_img),burke_file,md))
+except Exception as e:
+ results.append({"status":"HELD","source_page":burke_page,
+                 "target":str(ROOT/burke_file),"creator":"David Giblin",
+                 "source_id":"WTU wtu130050", "reason":type(e).__name__+": "+str(e)[:350]})
+
 # Exact source-labelled introduced lineage: taxon and photographer on Commons description
 title="File:European Reed (Phragmites australis australis) - Oakville, Ontario 2017-05-12.jpg"
 page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title[5:].replace(" ","_"))
