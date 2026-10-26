@@ -38,8 +38,8 @@
     "user_approved": true,
     "last_reviewed": "2026-10-14",
     "review_basis": "Existing Master Plant Pool scientific review; exact accepted-name verification repeated 2026-10-14",
-    "photo_metadata_count": 4,
-    "photo_files_present": 4,
+    "photo_metadata_count": 5,
+    "photo_files_present": 5,
     "gbif_manual_photo_enrichment": "2026-10-15",
     "manual_arundo_reed_20261021": "FIELD_READY_PHOTO_GAPS",
     "physical_images_unchanged": 4,
@@ -102,6 +102,24 @@
       "archived_original_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Arundo_donax_flowerhead1_%286804293804%29_%282%29.jpg/500px-Arundo_donax_flowerhead1_%286804293804%29_%282%29.jpg",
       "source_creator_metadata": "Harry Rose from South West Rocks, Australia",
       "photo_status": "LOCALLY ARCHIVED; provisional ID/anatomy"
+    },
+    {
+      "file": "images/harry-rose-spikelets-6804285202.jpg",
+      "role": "Actual photographed Arundo donax spikelet cluster with purplish pointed glumes and floret tips; microscopic lemma versus rachilla hair origin NOT resolved.",
+      "creator": "Harry Rose (Macleay Grass Man)",
+      "license": "CC BY 2.0",
+      "license_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Arundo_donax_spikelets1_(6804285202)_(2).jpg",
+      "source_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arundo_donax_spikelets1_(6804285202)_(2).jpg",
+      "source_taxon": "Arundo donax",
+      "image_dimensions": [
+        1416,
+        1888
+      ],
+      "archived_sha256": "576fd286cd43e9ae8675d4e279c749e22f04f7baefb843a3cef33d9ef79d56a2",
+      "modifications": "JPEG re-encoded and EXIF/GPS stripped; no arrows or crop",
+      "photo_status": "LOCALLY ARCHIVED — PROVISIONAL USER PHOTO REVIEW PENDING; annotation_pending",
+      "verification_report": "reports/arundo-commons-photo-archive-20261023.json"
     }
   ],
   "diagnostic_photo_plan": [
@@ -143,9 +161,9 @@
   "learner_visual_status": {
     "status": "field_ready_photo_gaps",
     "mode": "lane5_four_role_photo_finish",
-    "image_count": 4,
+    "image_count": 5,
     "filled_at": "2026-10-14",
-    "note": "2026-10-26: ALL FOUR locally archived original JPEGs individually reopened and inspected (stand x2, true source-identified collar, complete actual panicle). Added external CC BY-SA 4.0 JMK source photo of real heavy underground segmented Arundo rhizome at panel 2; no local photo bytes newly archived. Five gross arrows retained. Need same-plant connected Texas crown/head, fully calibrated collar and photographed rachilla-vs-lemma hair origins. Pages deployment not checked."
+    "note": "2026-10-26: ALL FOUR locally archived original JPEGs individually reopened and inspected (stand x2, true source-identified collar, complete actual panicle). Added external CC BY-SA 4.0 JMK source photo of real heavy underground segmented Arundo rhizome at panel 2; no local photo bytes newly archived. Five gross arrows retained. Need same-plant connected Texas crown/head, fully calibrated collar and photographed rachilla-vs-lemma hair origins. Pages deployment not checked. Added verified physically archived Harry Rose Arundo spikelet macro, 1416×1888, CC BY 2.0, no microscopic hair-origin arrow."
   },
   "photo_note": "Four existing licensed image records are physically archived; this is not a one-photo card. Two Harry Rose macro photographs cover the collar/ligule and complete panicle. Critical missing evidence: measured rhizome/cane nodes, mature spikelet dissection with rachilla versus lemma hair placement, and same-scale Phragmites comparison. Do not mark 100% without pixel/byte validation.",
   "field_id_lesson": {
@@ -199,7 +217,7 @@
   },
   "visual_comparison": {
     "title": "GIANT REED — collar and panicle versus common reed",
-    "subtitle": "Giant reed field recognition with separate clearly labeled COMMON REED (*Phragmites australis*) comparison panels, sourced from its own archived learner photographs. Species provenance retained; additional Arundo spikelet anatomy still needs verified public archive.",
+    "subtitle": "Five locally archived exact-Arundo photographs (including spikelet close-up), one external JMK Arundo rhizome, and two clearly labelled Phragmites comparison photographs physically stored on the Phragmites learner. No microscopic hair-origin arrows.",
     "memory_rule": "ARUNDO: broad clasping cane leaves + upright panicle; RACHILLA HAIRLESS, HAIRY LEMMA BASE. PHRAGMITES: long RACHILLA hairs. BOTH may have fringed ligules; lineage ID is separate.",
     "items": [
       {
@@ -326,6 +344,21 @@
         "archive_license_verified": "CC BY 2.0"
       },
       {
+        "label": "GIANT REED — true photographed Arundo spikelets (hair-origin macro still needed)",
+        "scientific_name": "Arundo donax",
+        "image_url": "content/taxa/Poaceae/Arundo/arundo-donax/images/harry-rose-spikelets-6804285202.jpg",
+        "image_fit": "contain",
+        "image_role": "Exact-source Arundo spikelet cluster with pointed purplish glumes; the image does NOT resolve the hair attachment on the rachilla versus lemma.",
+        "caption": "Source-identified giant-reed spikelets photographed by Harry Rose in Australia. Use this to recognize the narrow purplish spikelets and pointed tips, then compare the separately labelled Phragmites australis macro. Do not infer microscopic hair origins or a millimeter scale from this photo.",
+        "why_it_matters": "Provides a real close-up of Arundo reproductive structures, not a borrowed Phragmites image.",
+        "creator": "Harry Rose (Macleay Grass Man)",
+        "license": "CC BY 2.0",
+        "license_url": "https://creativecommons.org/licenses/by/2.0/",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Arundo_donax_spikelets1_(6804285202)_(2).jpg",
+        "photo_status": "LOCALLY ARCHIVED — PROVISIONAL USER PHOTO REVIEW PENDING; annotation_pending",
+        "markers": []
+      },
+      {
         "label": "COMPARE ONLY — Phragmites australis: hairy ligule and collar",
         "scientific_name": "Phragmites australis",
         "image_url": "content/taxa/Poaceae/Phragmites/phragmites-australis/images/harry-rose-ligule-8253945012.jpg",
@@ -356,7 +389,7 @@
         "markers": []
       }
     ],
-    "overlay_note": "2026-10-21: Commons photographic sources and licenses independently checked; 960×720 Arundo ligule and 500×667 full panicle preview inspected. Five gross-feature arrows correspond to actual visible locations; no microscope-only structures annotated. Both new photos external and labelled provisional user review. Local JPEGs and all original licenses preserved.\n2026-10-26 Lane 5 readback: all FOUR same-species JPEGs in images/ were reopened and visually reviewed; images[] and all original licenses preserved. New panel 2 adds JMK's real photographed Arundo rhizome (EXTERNAL Commons CC BY-SA 4.0 only, no local copy). New panel order: 0 Maui stand, 1 roadside cane stand, 2 exterior rhizome, 3 real Harry Rose inner-collar macro, 4 full attached panicle. 5 gross arrows preserved on original collar/head panels; no new arrows. Website rendering and rhizome hotlink availability NOT verified."
+    "overlay_note": "2026-10-21: Commons photographic sources and licenses independently checked; 960×720 Arundo ligule and 500×667 full panicle preview inspected. Five gross-feature arrows correspond to actual visible locations; no microscope-only structures annotated. Both new photos external and labelled provisional user review. Local JPEGs and all original licenses preserved.\n2026-10-26 Lane 5 readback: all FOUR same-species JPEGs in images/ were reopened and visually reviewed; images[] and all original licenses preserved. New panel 2 adds JMK's real photographed Arundo rhizome (EXTERNAL Commons CC BY-SA 4.0 only, no local copy). New panel order: 0 Maui stand, 1 roadside cane stand, 2 exterior rhizome, 3 real Harry Rose inner-collar macro, 4 full attached panicle. 5 gross arrows preserved on original collar/head panels; no new arrows. Website rendering and rhizome hotlink availability NOT verified.\n2026-10-26: Arundo spikelet original bytes retrieved and rights-checked on GitHub runner, clean 1416×1888 JPEG archived; SHA256 576fd286cd43e9ae8675d4e279c749e22f04f7baefb843a3cef33d9ef79d56a2. Source Harry Rose CC BY 2.0. This macro does not establish fine rachilla-versus-lemma hair origin, annotation_pending. Phragmites images are comparison-only."
   },
   "field_id_finish_pass": {
     "stage": "FIELD_READY_PHOTO_GAPS",
