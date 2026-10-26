@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-eragrostis-intermedia-lugens-crossrank-2026-10-26-0425-001",
+  "lane": "grass-taxonomy-verification",
+  "reviewed_at": "2026-10-26T09:25:30Z",
+  "source_access_date": "2026-10-26",
+  "family": "Poaceae",
+  "taxa": [
+    "Eragrostis intermedia Hitchc.",
+    "Eragrostis lugens Nees"
+  ],
+  "canonical_targets": [
+    {
+      "path": "content/taxa/Poaceae/Eragrostis/eragrostis-intermedia/species.json",
+      "sha_at_review": "33a0d53b045ffe199bc0613647a58be8f127687a",
+      "modified": false
+    },
+    {
+      "path": "content/taxa/Poaceae/Eragrostis/eragrostis-lugens/species.json",
+      "sha_at_review": "d4584544d1dd2b09c8b19faf9d2c10a00ad63f54",
+      "modified": false
+    }
+  ],
+  "claim_path": "workflow/taxonomy-claims/grass-eragrostis-intermedia-lugens-crossrank-2026-10-26-0425-001.json",
+  "claim_sha_at_prewrite": "c61c0b23eedfcb753c7613258a285f98a883aba5",
+  "source_backbone": "Kew POWO/WCVP 2026; Flora of North America / World Flora Online, US Forest Service FEIS, 2017 Lee County Texas voucher flora",
+  "accepted_names": [
+    "Eragrostis intermedia Hitchc.",
+    "Eragrostis lugens Nees"
+  ],
+  "related_accepted_species": [
+    "Eragrostis polytricha Nees",
+    "Eragrostis capillaris (L.) Nees"
+  ],
+  "name_concept_summary": "POWO/WCVP independently accepts E. intermedia and E. lugens. Historical E. lugens var. major maps to E. intermedia, E. lugens var. villosa maps to E. polytricha, and invalid E. lugens Rupr. maps to E. capillaris. Authorship and rank prevent mistaken duplicate cards or specimen relabeling.",
+  "native_range_audit": "DEFERRED — NOT REVIEWED; original county nativity/range decisions untouched",
+  "specimen_identity": "HOLD — no individual photograph or voucher independently identified",
+  "hybrid_provenance": "HOLD — no specimen-level hybrid ancestry inferred",
+  "install_decision": "Retain existing canonical species; synonym mapping is research-only; no installations or card, image, lesson, county, Pages, or schedule changes",
+  "decision_counts": {
+    "PASS": 17,
+    "FAIL": 3,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Eragrostis intermedia Hitchc. (1933)",
+      "proposed_decision": "Retain accepted Poaceae species; canonical authority Hitchc. correct",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+        "https://research.fs.usda.gov/feis/species-reviews/eraint"
+      ],
+      "detail": "No taxonomic rename or new card."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens Nees (1829)",
+      "proposed_decision": "Retain separately accepted Poaceae species; canonical authority Nees correct",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Do not collapse with E. intermedia."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis intermedia var. appressa Withersp. (1977 publ. 1978)",
+      "proposed_decision": "Map historical heterotypic variety to E. intermedia Hitchc.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2"
+      ],
+      "detail": "Not an accepted separate variety under current POWO."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens var. major Vasey (1894)",
+      "proposed_decision": "Map historical heterotypic variety to E. intermedia Hitchc., NOT E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+        "https://www.npsot.org/posts/native-plant/eragrostis-intermedia/"
+      ],
+      "detail": "Cross-species rank trap. Retain original historical combination as an alias with full rank and author."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis pilosa var. lugens (Nees) Griseb. (1879)",
+      "proposed_decision": "Map homotypic synonym to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Author and parenthetical basionym authority are diagnostic."
+    },
+    {
+      "status": "PASS",
+      "subject": "Poa lugens (Nees) Kunth (1833)",
+      "proposed_decision": "Map homotypic synonym to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Historical genus combination."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis flaccida Lindm. (1900)",
+      "proposed_decision": "Map heterotypic synonym to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Accepted destination follows current POWO/WCVP."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens var. flaccida (Lindm.) Hack. (1911)",
+      "proposed_decision": "Map historical variety to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Do not treat as an accepted infraspecific taxon."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens subsp. flaccida (Lindm.) Hack. (1911)",
+      "proposed_decision": "Map historical subspecies to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Rank-specific name retained as synonym evidence."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens var. glabrata Döll (1878)",
+      "proposed_decision": "Map historical variety to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Current heterotypic synonym."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens var. glabrescens Döll (1878)",
+      "proposed_decision": "Map historical variety to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Do not conflate spelling with var. glabrata; distinct historical names."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens f. pallida Hack. (1911)",
+      "proposed_decision": "Map historical form to E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Form rank is not separately accepted."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis pilosa var. lugens Kuntze (1898)",
+      "proposed_decision": "Record as illegitimate later homonym, synonym of E. lugens Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Not the same author-qualified name as Griseb.'s 1879 homotypic variety."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens var. villosa Döll (1878)",
+      "proposed_decision": "Map historical variety to separately accepted E. polytricha Nees",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93138-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:322576-2"
+      ],
+      "detail": "Critical cross-species boundary: not a synonym of E. lugens under current POWO."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis lugens Rupr. (1842), not validly published",
+      "proposed_decision": "Record under E. capillaris (L.) Nees as an invalidly published historical name",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77241109-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400918-1"
+      ],
+      "detail": "Not equivalent to accepted E. lugens Nees (1829); authorship is essential."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis polytricha Nees (1829)",
+      "proposed_decision": "Preserve separately accepted species identity, no automatic merge with E. lugens",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:322576-2",
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Modern accepted destination of var. villosa."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis capillaris (L.) Nees (1829)",
+      "proposed_decision": "Preserve separately accepted species identity, no automatic merge with E. lugens",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400918-1",
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Modern accepted destination of invalidly published E. lugens Rupr."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Bulk-map all E. lugens infraspecific combinations to E. lugens Nees",
+      "proposed_decision": "Reject automatic parent-binomial mapping; var. major belongs to E. intermedia, var. villosa to E. polytricha",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:322576-2",
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "Inspect rank, author and accepted-name destination per record."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Treat Eragrostis lugens Nees and E. lugens Rupr. as one authorless name",
+      "proposed_decision": "Reject author-insensitive name merge",
+      "sources": [
+        "https://powo.science.kew.org/taxon/93132-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77241109-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400918-1"
+      ],
+      "detail": "Rupr. 1842 not validly published and currently placed under E. capillaris."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Merge E. intermedia, E. lugens, E. polytricha and E. capillaris as one learner species",
+      "proposed_decision": "Reject duplicate-concept collapse; all four are separately accepted species",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+        "https://powo.science.kew.org/taxon/93132-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:322576-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400918-1"
+      ],
+      "detail": "Synonyms under one historical parent binomial do not make modern accepted taxa synonymous."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Existing E. intermedia and E. lugens photo/specimen determinations",
+      "proposed_decision": "Preserve specimen-level identity uncertainty; no photos relabelled",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+        "https://powo.science.kew.org/taxon/93132-2",
+        "https://doi.org/10.25224/1097-993X-20.1.60"
+      ],
+      "detail": "Published Lee County flora describes E. lugens within a taxonomically difficult group; name review cannot authenticate images or vouchers."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Individual hybrid, introgressed or cultivated ancestry",
+      "proposed_decision": "Do not infer hybrid parentage or provenance from nomenclature or field photographs",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+        "https://powo.science.kew.org/taxon/93132-2"
+      ],
+      "detail": "No plant-level hybrid evidence examined; no named-hybrid assertion made."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Historical labels 'Eragrostis lugens' without author/rank/voucher",
+      "proposed_decision": "Keep source record unresolved until full historical combination and specimen context are recovered",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93115-2",
+        "https://powo.science.kew.org/taxon/93132-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77241109-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93138-2"
+      ],
+      "detail": "Authorless label can hide E. lugens Nees, invalid Rupr. usage or cross-species historical varieties."
+    }
+  ],
+  "safety": {
+    "claim_checked": true,
+    "claim_created_and_readback_verified": true,
+    "no_live_legacy_conflict_found": true,
+    "existing_taxonomy_evidence_checked": true,
+    "no_canonical_write": true,
+    "no_photo_or_pages_write": true
+  }
+}
