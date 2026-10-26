@@ -1,0 +1,63 @@
+name: Lane 3 Seep Muhly Exact Source Pixel Review
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/lane3-seep-pixel-review-20261026.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-seep-pixel-review
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'Pillow>=10,<12'
+      - name: Fetch exact independently licensed species photograph originals
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/lane3_seep_targeted_collar_base_review_20261026.py
+      - name: Validate no inappropriate photo promotion or missing source rights
+        run: |
+          python - <<'PY'
+          import json,hashlib,pathlib
+          from PIL import Image
+          d=pathlib.Path('reports/lane3-seep-source-pixel-review-20261026')
+          j=json.loads((d/'report.json').read_text())
+          valid=[x for x in j['results'] if x['status']=='REVIEW_SOURCE_BYTES_AVAILABLE_NOT_DIAGNOSTICALLY_PASSED']
+          assert len(valid)>=1
+          for x in valid:
+              assert x['license'] in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}
+              assert x['attribution'] and x['photo_page'] and x['published'] is False
+              p=pathlib.Path(x['file'])
+              assert p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()==x['sha256']
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and min(im.size)>=500
+                  assert not im.getexif().get(34853)
+                  im.verify()
+          assert j['status']=='PENDING_PIXEL_REVIEW_NOT_FIELD_READY_COMPLETION'
+          print('PASS original-pixel staged, explicitly not published; no canonical gallery touched')
+          PY
+      - name: Archive only licensed research originals to report for inspection
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-seep-source-pixel-review-20261026/
+          git diff --cached --quiet && exit 0
+          git commit -m "Lane 3 archive four rights-rechecked seep muhly full-size anatomy review photographs"
+          for i in 1 2 3 4 5 6 7; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
