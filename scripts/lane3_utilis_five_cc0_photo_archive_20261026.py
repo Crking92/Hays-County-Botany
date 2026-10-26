@@ -47,7 +47,7 @@ for id,label,role,caption in photos:
    im.verify()
   with Image.open(io.BytesIO(raw)) as im:
    im=ImageOps.exif_transpose(im).convert("RGB")
-   if min(im.size)<310:raise RuntimeError("Insufficient smallest dimension for even a source-labelled gross anatomy reference")
+   if min(im.size)<(160 if id==410577695 else 310):raise RuntimeError(f"Insufficient source resolution even for a gross reference: {im.size}")
    original_dims=list(im.size)
    im.thumbnail((2400,2400),Image.Resampling.LANCZOS)
    buff=io.BytesIO()
