@@ -1,0 +1,64 @@
+name: Lane 3 archive CC BY-SA sixweeks fescue living habit photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-sixweeks-matt-lavin-source-archive-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-sixweeks-lavin-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Refresh latest sixweeks fescue canonical card
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Download, verify image provenance and remove EXIF/GPS
+        run: python scripts/lane3_archive_sixweeks_matt_lavin_20261026.py
+      - name: QA local original and public license preserved
+        run: |
+          python - <<'PY'
+          import json,hashlib,pathlib
+          from PIL import Image
+          d=json.loads(pathlib.Path('content/taxa/Poaceae/Festuca/festuca-octoflora/species.json').read_text())
+          a=json.loads(pathlib.Path('reports/lane3-sixweeks-matt-lavin-archive-20261026.json').read_text())
+          assert a['status']=='LOCALLY_ARCHIVED_MATT_LAVIN_CC_BY_SA_2'
+          assert len(d['images'])==8 and len(d['visual_comparison']['items'])==10
+          assert len([x for x in d['visual_comparison']['items'] if x.get('creator')=='Bob Harms'])==2
+          assert d['images'][0]['license']=='CC BY-NC'
+          p=pathlib.Path(a['new_image_file'])
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==a['archived_sha256']
+          with Image.open(p) as im:
+            assert im.format=='JPEG' and not im.getexif().get(34853)
+            im.verify()
+          matching=[x for x in d['visual_comparison']['items'] if x.get('image_url')==str(p)]
+          assert len(matching)==1 and matching[0]['creator']=='Matt Lavin'
+          assert matching[0]['license']=='CC BY-SA 2.0'
+          assert d['curation_status']['visual_finish']=='FIELD_READY_PHOTO_GAPS'
+          print('PASS actual archived license, photographer, old-source panel migration, no loss of credited Bob Harms images')
+          PY
+      - name: Commit one-species photo and source rights evidence
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-sixweeks-matt-lavin-archive-20261026.json content/taxa/Poaceae/Festuca/festuca-octoflora/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 physically archive credited CC BY-SA sixweeks living habit Commons photograph"
+          for n in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
