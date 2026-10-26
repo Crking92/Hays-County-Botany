@@ -1,0 +1,34 @@
+name: Archive licensed IRIIS rice cutgrass diagnostic photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_leersia_iriis_20261026.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: archive-leersia-iriis-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/archive_leersia_iriis_20261026.py
+      - name: Commit only permitted canonical species images and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Leersia/leersia-oryzoides/ reports/leersia-iriis-photo-archive-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive permitted IRIIS rice cutgrass rhizome and caryopsis images"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
