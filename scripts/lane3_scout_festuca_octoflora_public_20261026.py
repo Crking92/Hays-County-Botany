@@ -21,9 +21,9 @@ def api(url):
     return json.loads(get(url))
 def maybe_records():
     taxon=api("https://api.inaturalist.org/v1/taxa/autocomplete?"+urllib.parse.urlencode({"q":"Vulpia octoflora","per_page":20}))
-    taxa=[x for x in taxon.get("results",[]) if x.get("name")=="Vulpia octoflora" and x.get("rank")=="species"]
+    taxa=[x for x in taxon.get("results",[]) if x.get("name")=="Festuca octoflora" and x.get("rank")=="species"]
     if len(taxa)!=1:raise ValueError("Exact species taxon not uniquely resolved: "+str([(x.get("id"),x.get("name")) for x in taxon.get("results",[])][:10]))
-    tid=taxa[0]["id"]; report["inat_taxon_id"]=tid
+    tid=taxa[0]["id"]; report["inat_taxon_id"]=tid; report["canonical_name"]="Festuca octoflora"; report["source_query_synonym"]="Vulpia octoflora"
     allobs=[]
     for page in [1,2]:
         q=urllib.parse.urlencode({"taxon_id":tid,"quality_grade":"research","photos":"true","per_page":100,"page":page,"order":"desc","order_by":"observed_on"})
@@ -34,7 +34,7 @@ def maybe_records():
     report["observations_sampled"]=len(allobs)
     candidates=[]
     for ob in allobs:
-        if ob.get("taxon",{}).get("name")!="Vulpia octoflora":continue
+        if ob.get("taxon",{}).get("name")!="Festuca octoflora":continue
         for photo in ob.get("photos",[])[:6]:
             lic=(photo.get("license_code") or "").lower().strip()
             if lic not in ("cc0","cc-by"):continue
