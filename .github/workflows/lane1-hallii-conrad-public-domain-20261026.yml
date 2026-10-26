@@ -1,0 +1,26 @@
+name: Lane 1 Hall panicgrass public-domain ligule archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-hallii-conrad-public-domain-20261026.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-hallii-conrad-original-photos
+  cancel-in-progress: false
+jobs:
+  archive-real-hairy-ligule-and-clumps:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo prerequisites
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Check original owner public-domain declaration and archive exact Uvalde JPEGs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_panicum_hallii_conrad_20261026.py
