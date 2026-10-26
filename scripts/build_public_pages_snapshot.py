@@ -420,7 +420,36 @@ def permitted_tom_chester_erioneuron(item: dict, noncommercial: bool) -> bool:
     name = item.get("file")
     return name in TOM_CHESTER_FILES and item.get("source_page") == TOM_CHESTER_BASE + TOM_CHESTER_FILES[name]
 
+
+# Source-specific educational reuse ONLY: John Kava's exact Yavapai
+# curlymesquite hairy-node photo. This is NOT a Creative Commons license,
+# and NOT a general release for unrelated University of Arizona photographs.
+KAVA_SOURCE_PAGE = "https://yavapaiplants.extension.arizona.edu/hilaria-belangeri"
+KAVA_PERMISSION_PAGE = "https://yavapaiplants.extension.arizona.edu/about-website"
+KAVA_PERMISSION_ID = "YAVAPAI_JOHN_KAVA_HIBE_NODE_EDUCATIONAL_20261026"
+KAVA_LICENSE = "© John Kava — educational-use permission with credit (NOT Creative Commons)"
+KAVA_REL = "images/john-kava-curlymesquite-hairy-node-educational.jpg"
+KAVA_FULL = "content/taxa/Poaceae/Hilaria/hilaria-belangeri/" + KAVA_REL
+
+def permitted_kava_curly_node(item: dict, noncommercial: bool) -> bool:
+    image = item.get("file") or item.get("image_url")
+    return (
+        noncommercial
+        and item.get("creator") == "John Kava"
+        and item.get("license") == KAVA_LICENSE
+        and item.get("site_specific_public_permission") == KAVA_PERMISSION_ID
+        and item.get("source_page") == KAVA_SOURCE_PAGE
+        and item.get("source_permission_page") == KAVA_PERMISSION_PAGE
+        and item.get("license_url") == KAVA_PERMISSION_PAGE
+        and item.get("source_taxon_name") == "Hilaria belangeri"
+        and item.get("source_photo_id") == "Hilaria_belangeri_FNodewithtuft_20"
+        and image in {KAVA_REL, KAVA_FULL}
+    )
+
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
+    if permitted_kava_curly_node(item, noncommercial):
+        return True, "Exact John Kava Yavapai educational-use permission with credit; NOT CC"
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
     license_text = str(item.get("license") or "").strip().lower()
