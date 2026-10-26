@@ -211,9 +211,9 @@
   "learner_visual_status": {
     "status": "field_ready_photo_gaps",
     "mode": "photo_led_4_target_3_lookalikes_3_external_commons",
-    "image_count": 1,
+    "image_count": 11,
     "filled_at": "2026-10-16",
-    "note": "One existing source-licensed actual goosegrass JPEG with 2 original gross arrows; 3 credible CC BY 2.0 EXTERNAL true goosegrass part images (whole plant, ligule, already source-annotated spikelet), plus 3 physically stored other-grass comparisons. No new local photo binaries; the source original CC BY-NC-SA photo public-photo hold remains unchanged."
+    "note": "2026-10-26 reconciled physical media: eleven species JPEGs archived (seven Bob Harms copyright-retained educational-use originals, three Harry Rose CC BY 2.0, one individual CC BY-NC-SA conditional). Fourteen comparison panels include three other-species photos. Previously recorded one-photo/external-only counts were outdated. Actual panel indices in all six crew lessons corrected. True 1-mm ligule and a close-up living white crown remain missing. Bob Harms local-copy rights scope requires review; deployment unverified."
   },
   "morphology_keys": {
     "life_cycle": "Warm-season annual grass; fibrous-rooted tuft, not a creeping perennial rhizome/stolon network.",
@@ -399,12 +399,12 @@
     }
   ],
   "public_photo_audit": {
-    "status": "NEEDS_PUBLIC_PHOTO",
+    "status": "RIGHTS_SCOPE_RECHECK_AND_CALIBRATED_PHOTO_GAPS",
     "reviewed_at": "2026-10-20",
     "existing_image_count": 1,
     "existing_image_rights": "Historical iNaturalist photo 90693788 is recorded as CC BY-NC-SA. This does NOT establish eligibility for the actual public website; confirm noncommercial applicability or obtain explicit separate permission. Original image metadata retained unchanged.",
     "visual_status": "UNVERIFIED_IMAGE_ANATOMY",
-    "notes": "Text-only diagnostic improvement; existing image not certified to show the crown, ligule or spikelet details. Do not publish a finalized public-gallery designation or draw arrows until photo-specific review and public rights clearance."
+    "notes": "2026-10-26: Three Harry Rose photos physically verified locally and individual CC BY 2.0 sources confirmed. Original one CC BY-NC-SA photo retains actual noncommercial-use conditional review (exact individual source not independently accessible). Seven Bob Harms photos remain archived with source credits, but earlier selected-monocots permission memo individually reviewed only four different external-use photos, not copied/altered Eleusine files. Retain originals pending scoped public-rights check; do not falsely relicense or automatically delete."
   },
   "visual_comparison": {
     "title": "Goosegrass — crown, collar, spikelet, then four look-alike checks",
@@ -441,12 +441,12 @@
         ]
       },
       {
-        "label": "2 · SAME SPECIES — entire goosegrass plant and rosette",
+        "label": "Actual flowering tuft in habitat — roots not exposed",
         "scientific_name": "Eleusine indica",
         "image_url": "content/taxa/Poaceae/Eleusine/eleusine-indica/images/commons-goosegrass-8937a6e4ead8.jpg",
         "image_fit": "contain",
-        "image_role": "Separately licensed genuine goosegrass whole-plant/habit image from Wikimedia Commons; EXTERNAL photo reference, not a local file",
-        "caption": "Harry Rose's real Eleusine indica plant1 shows an entire tufted weed plant. Begin the search for the flattened, often white/silvery central tiller bases at the soil. It is a whole-plant reference, not certified close-up proof that its particular center shows the ligule or that every shoot's nodes are visible.",
+        "image_role": "Locally archived source-identified Harry Rose CC BY 2.0 Eleusine indica photograph; not external-only. Detailed micro anatomy must still be verified.",
+        "caption": "Source-authenticated goosegrass clump with multiple attached flowering heads in the field. Central pale root crown and fibrous roots are HIDDEN: this is flowering growth habit, not a rooted-base closeup.",
         "why_it_matters": "The crew should start below the flowerhead, where goosegrass differs from many other finger-seedhead turf weeds.",
         "creator": "Harry Rose",
         "license": "CC BY 2.0",
@@ -457,18 +457,33 @@
         "original_external_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eleusine_indica_plant1_(7120802953).jpg?width=960"
       },
       {
-        "label": "3 · SAME SPECIES — true membranous goosegrass ligule",
+        "label": "Actual blade–sheath collar — short membrane area and longer side hairs",
         "scientific_name": "Eleusine indica",
         "image_url": "content/taxa/Poaceae/Eleusine/eleusine-indica/images/commons-goosegrass-1032fdbf120c.jpg",
         "image_fit": "contain",
-        "image_role": "Separately licensed external botanically labelled true Eleusine leaf collar/ligule diagnostic photograph; not a local image",
-        "caption": "Harry Rose's ligule2 photograph is specifically captioned as a 0.5–1 mm short membranous ligule with a rim of short hairs, often with longer side hairs. Teach the MEMBRANE at the blade/sheath junction, not the detached collar hairs. Compare bermudagrass's hair-fringe ligule. Source photo shows a collar part, not the original archived head.",
+        "image_role": "Locally archived source-identified Harry Rose CC BY 2.0 Eleusine indica photograph; not external-only. Detailed micro anatomy must still be verified.",
+        "caption": "Harry Rose's source-identified true collar photo shows a pale inner blade–sheath joining zone and much longer side hairs. The inner short membranous ligule itself is not fully resolved against a physical millimeter scale. Do not label long lateral hairs as a hair-only ligule.",
         "why_it_matters": "The tiny membranous/notched ligule and folded emerging blades settle many nonflowering goosegrass-versus-Bermuda questions.",
         "creator": "Harry Rose",
         "license": "CC BY 2.0",
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Eleusine_indica_ligule2_(7120807323).jpg",
-        "markers": [],
+        "markers": [
+          {
+            "label": "Blade–sheath junction",
+            "label_x": 5,
+            "label_y": 25,
+            "target_x": 51,
+            "target_y": 51
+          },
+          {
+            "label": "Separate long collar-side hairs",
+            "label_x": 69,
+            "label_y": 14,
+            "target_x": 61,
+            "target_y": 44
+          }
+        ],
         "photo_status": "Licensed Commons photograph physically archived; existing panel arrows retained where present. Fine anatomical membrane/glume arrows withheld pending native-pixel QA.",
         "original_external_image_url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Eleusine_indica_ligule2_(7120807323).jpg?width=960"
       },
@@ -477,8 +492,8 @@
         "scientific_name": "Eleusine indica",
         "image_url": "content/taxa/Poaceae/Eleusine/eleusine-indica/images/commons-goosegrass-b7cdd9a027b6.jpg",
         "image_fit": "contain",
-        "image_role": "Already ANNOTATED source-authored CC BY 2.0 individual spikelet macro of Eleusine indica, reuse source annotations as supplied, no locally created derivative.",
-        "caption": "Harry Rose's pre-annotated spikelet image (a crop derived from his source) explicitly names glumes, lemmas and paleas. Look for a strongly flattened roughly 3–5 mm spikelet containing MULTIPLE florets, not the one-flowered bermudagrass spikelet. Read the photo's pre-existing labels; we added no arrow positions for microscopic anatomy.",
+        "image_role": "Locally archived source-identified Harry Rose CC BY 2.0 Eleusine indica photograph; not external-only. Detailed micro anatomy must still be verified.",
+        "caption": "Original photographer's pre-annotated actual multi-flowered spikelet: glumes, two lemmas and paleas named in source pixels. No ruler; species-level exact organ dimensions not verified. This photo already EXISTS in the species' local images folder.",
         "why_it_matters": "This fills the old anatomical teaching gap: the crew can learn the rank of WHOLE RACEME → WHOLE SPIKELET → FLORETS with a real, already labelled source photograph.",
         "creator": "Harry Rose (source image; cropped source annotation as published on Commons)",
         "license": "CC BY 2.0",
@@ -826,8 +841,9 @@
       "short": "LOOK HERE FIRST: pale compressed tiller bases radiating from one tough fibrous-rooted center",
       "details": "Goosegrass is a warm-season annual, often flattened against compacted soil. New blades are folded in the bud; spreading tillers are not perennial stolons rooting repeatedly at nodes. Archived Bob Harms whole-plant panel 2 (image index 1) shows a rooted source specimen, but not a Hays-vouchered same-plant sequence. Compare Cynodon before removing a native look-alike.",
       "photo_panel_indices": [
+        10,
         1,
-        8
+        12
       ],
       "glossary": [
         "annual",
@@ -836,15 +852,15 @@
         "vernation",
         "stolon"
       ],
-      "status": "ACTUAL HABIT PHOTO — LOCAL MATCHED CROWN/FOLDED BUD PENDING"
+      "status": "DRIED ROOTED WHOLE PLANT AND IN-SITU HABIT PHOTO; PALE LIVING CROWN MACRO STILL NEEDED"
     },
     {
       "heading": "02 · SHORT NOTCHED MEMBRANOUS LIGULE",
       "short": "Open the blade–sheath junction: ~0.3–1 mm short membrane, sometimes ciliate or split",
       "details": "Flora of New Zealand gives ligule ~0.3–1 mm, truncate and ciliate; other treatments extend to ~1.5 mm. Goosegrass does NOT have only a hair-fringe ligule like bermudagrass. Archived source collar views at image indices 7 and 9 show the region but not an independently calibrated free membrane edge. Auricles absent. Do not arrow nearby sheath hairs as the ligule.",
       "photo_panel_indices": [
-        7,
-        9
+        2,
+        4
       ],
       "glossary": [
         "ligule",
@@ -853,17 +869,16 @@
         "ciliate",
         "auricle"
       ],
-      "status": "NEEDS_PUBLIC_PHOTO — MEASURED FREE MEMBRANE WITH 1-MM SCALE"
+      "status": "TRUE COLLAR PHOTO PLUS TWO GROSS ARROWS; MEMBRANE EDGE NOT CALIBRATED"
     },
     {
       "heading": "03 · TWO ZIPPER ROWS ON FLAT FINGERS",
       "short": "Several stiff digitate or subdigitate branches carry two neat ranks of tightly appressed spikelets",
       "details": "Usually 2–8 radiating flowering branches (sometimes more), often one set below the terminal cluster. Each flat axis holds closely packed, awnless spikelets in two ranks. Actual source image indices 2–5 show flowering heads and attached spikelets. A radial head alone is shared with Digitaria, Cynodon and Chloris; inspect one spikelet.",
       "photo_panel_indices": [
-        2,
-        3,
-        4,
-        5
+        9,
+        8,
+        0
       ],
       "glossary": [
         "digitate",
@@ -871,15 +886,16 @@
         "raceme",
         "spikelet"
       ],
-      "status": "FIELD PHOTO EVIDENCE — ATTACHED REPRODUCTIVE MACRO STILL NEEDED"
+      "status": "COMPLETE ATTACHED FLOWERING HEAD AND ZIPPER ROWS PHOTOGRAPHED"
     },
     {
       "heading": "04 · MULTIFLORED 4–7 MM SPIKELET",
       "short": "One flattened spikelet contains about 3–9 florets, not just one or two",
       "details": "Flora of New Zealand describes ~4.5–6 mm spikelets, 3–6 florets; broader descriptions ~4–7.8 mm and 3–9 fertile florets. A spikelet is NOT the whole fingerlike branch. Existing source-labelled anatomy images 6 and 10 teach attached scales, but need same-specimen calibrated dissection before declaring each tiny organ verified.",
       "photo_panel_indices": [
-        6,
-        10
+        3,
+        5,
+        6
       ],
       "glossary": [
         "spikelet",
@@ -887,15 +903,15 @@
         "lemma",
         "palea"
       ],
-      "status": "NEEDS_PUBLIC_PHOTO — OPEN RIPE SPIKELET, 1-MM BAR"
+      "status": "REAL SOURCE-ANNOTATED GLUMES/LEMMAS VISIBLE; 1-MM VOUCHER DISSECTION MISSING"
     },
     {
       "heading": "05 · TWO SHORT GLUMES, AWNLESS LEMMAS",
       "short": "Lower glume ~1.5–2.5 mm; upper ~2–4.5 mm; fertile lemmas ~2.5–5 mm (NZ flora)",
       "details": "New Zealand flora gives a 1-veined lower glume, (3–)5-veined upper glume and usually 3-veined, keeled lemma; regional descriptions give narrower lemma ranges (~2.1–3.6 mm). Glumes are shorter than the full many-flowered spikelet. True long glume or lemma awns are absent (0 mm). Measure exposed mature parts separately; don't confuse pointed lemma tips with awns.",
       "photo_panel_indices": [
-        6,
-        10
+        3,
+        5
       ],
       "glossary": [
         "glume",
@@ -904,17 +920,17 @@
         "keel",
         "awn"
       ],
-      "status": "NEEDS_PUBLIC_PHOTO — SEPARATE CALIBRATED GLUMES/LEMMAS"
+      "status": "REAL SOURCE-ANNOTATED GLUMES/LEMMAS VISIBLE; LENGTHS NOT PHOTO-MEASURED"
     },
     {
       "heading": "06 · CHECK CRABGRASS, BERMUDA AND CHLORIS",
       "short": "Count florets, inspect the ligule and follow runners before deciding from a fingerhead",
       "details": "Southern crabgrass (Digitaria ciliaris) has smaller paired two-floret spikelets on finer racemes. Bermudagrass (Cynodon dactylon) is a perennial with rooting stolons/rhizomes and a hair-fringe ligule. Feather fingergrass (Chloris virgata) has conspicuously awned, feathery spikelets. Goosegrass has a flattened pale annual crown, short membrane ligule and AWNLESS many-flowered spikelets. Check same-plant structures before a management decision.",
       "photo_panel_indices": [
-        1,
-        3,
-        6,
-        9
+        11,
+        12,
+        13,
+        2
       ],
       "glossary": [
         "look-alike",
