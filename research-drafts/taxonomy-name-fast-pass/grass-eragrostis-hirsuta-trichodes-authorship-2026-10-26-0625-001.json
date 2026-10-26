@@ -1,0 +1,273 @@
+{
+  "batch_id": "grass-eragrostis-hirsuta-trichodes-authorship-2026-10-26-0625-001",
+  "date_checked": "2026-10-26",
+  "checked_at_local": "2026-10-26T06:25:18-05:00",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Eragrostis",
+  "canonical_taxon_ids": [
+    "eragrostis-hirsuta",
+    "eragrostis-trichodes"
+  ],
+  "canonical_species_paths_read_only": {
+    "eragrostis-hirsuta": "content/taxa/Poaceae/Eragrostis/eragrostis-hirsuta/species.json",
+    "eragrostis-trichodes": "content/taxa/Poaceae/Eragrostis/eragrostis-trichodes/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "eragrostis-hirsuta": "b16f9b68884ec57f18714d8278d1181e77ebed5d",
+    "eragrostis-trichodes": "46ba0167f74507730cf48bec39e40549f608edc9"
+  },
+  "claim_id": "grass-eragrostis-hirsuta-trichodes-authorship-2026-10-26-0625-001",
+  "claim_path": "workflow/taxonomy-claims/grass-eragrostis-hirsuta-trichodes-authorship-2026-10-26-0625-001.json",
+  "claim_blob_sha_before_evidence": "31bb2dca1b82421c900301f15c2d58b568ceaece",
+  "backbone": "POWO / World Checklist of Vascular Plants 2026",
+  "secondary_authority": "IPNI 2026 for Eragrostis tenuis A.Gray publication; Flora of North America 2003 as cited by POWO",
+  "primary_decision": "PASS_TWO_DISTINCT_ACCEPTED_ERAGROSTIS_SPECIES_WITH_HISTORICAL_HIRSUTA_SPECTABILIS_AND_TENUIS_HOMONYM_GUARDS",
+  "accepted_taxa": {
+    "eragrostis-hirsuta": "Eragrostis hirsuta (Michx.) Nees",
+    "eragrostis-trichodes": "Eragrostis trichodes (Nutt.) Alph.Wood"
+  },
+  "native_range_audit": "DEFERRED — county nativity and metrics untouched",
+  "specimen_identity": "HOLD — no individual source-photo or voucher certification",
+  "hybrid_provenance": "HOLD — no unsupported hybrid or cultivated ancestry assignment",
+  "install_decision": "No species installation or alias injection; taxonomy evidence only",
+  "decision_counts": {
+    "PASS": 15,
+    "FAIL": 3,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Eragrostis hirsuta (Michx.) Nees (1829)",
+      "rank": "accepted species",
+      "proposed_decision": "Retain as an accepted Poaceae species with authorship (Michx.) Nees; canonical learner is correctly named.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2"
+      ],
+      "detail": "Separate species from E. trichodes and E. spectabilis; no canonical edit."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis trichodes (Nutt.) Alph.Wood (1861)",
+      "rank": "accepted species",
+      "proposed_decision": "Retain as an accepted Poaceae species with authorship (Nutt.) Alph.Wood; canonical learner is correctly named.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "Not a synonym of E. hirsuta; no canonical edit."
+    },
+    {
+      "status": "PASS",
+      "subject": "Poa hirsuta Michx. (1803)",
+      "rank": "basionym / homotypic synonym",
+      "proposed_decision": "Record as homotypic basionym of Eragrostis hirsuta (Michx.) Nees.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2"
+      ],
+      "detail": "Authorship is critical because other historical Poa hirsuta combinations can point elsewhere."
+    },
+    {
+      "status": "PASS",
+      "subject": "Poa trichodes Nutt. (1835)",
+      "rank": "basionym / homotypic synonym",
+      "proposed_decision": "Record as homotypic basionym of Eragrostis trichodes (Nutt.) Alph.Wood.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "Do not create Poa learner duplicate."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis hirsuta var. laevivaginata Fernald (1939)",
+      "rank": "variety / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. hirsuta under current POWO/WCVP.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2"
+      ],
+      "detail": "Not a currently accepted separate variety."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis sporoboloides J.G.Sm. & Bush (1895)",
+      "rank": "species / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. hirsuta.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2"
+      ],
+      "detail": "No additional learner card."
+    },
+    {
+      "status": "PASS",
+      "subject": "Poa simplex Walter (1788)",
+      "rank": "species / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. hirsuta.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2"
+      ],
+      "detail": "Original Poa name is not an accepted independent species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis capillacea Jedwabn. (1924)",
+      "rank": "species / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. trichodes.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "Do not confuse with independently accepted E. capillaris."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis grandiflora J.G.Sm. & Bush (1895)",
+      "rank": "species / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. trichodes.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "Retain author-qualified synonym."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis pilifera Scheele (1849)",
+      "rank": "species / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. trichodes.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "Do not create a separate pilifera species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis tenuis A.Gray (1890)",
+      "rank": "species / illegitimate later homonym",
+      "proposed_decision": "Record as illegitimate later homonym and heterotypic synonym of E. trichodes; do not use as accepted name.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1",
+        "https://www.ipni.org/n/77240444-1"
+      ],
+      "detail": "Nomenclatural illegitimacy is distinct from invalid publication."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis tenuis var. texensis Vasey (1890)",
+      "rank": "variety / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. trichodes.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1",
+        "https://powo.science.kew.org/taxon/93227-2"
+      ],
+      "detail": "Rank and author must be retained."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis trichodes var. pilifera (Scheele) Fernald (1938)",
+      "rank": "variety / heterotypic synonym",
+      "proposed_decision": "Record as heterotypic synonym of E. trichodes, not a currently accepted variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1",
+        "https://powo.science.kew.org/taxon/93233-2"
+      ],
+      "detail": "No separate variety card."
+    },
+    {
+      "status": "PASS",
+      "subject": "Poa hirsuta var. spectabilis (Pursh) Torr. (1823)",
+      "rank": "variety / homotypic synonym of E. spectabilis",
+      "proposed_decision": "Resolve to accepted Eragrostis spectabilis (Pursh) Steud., not to E. hirsuta.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:204276-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1137778-2"
+      ],
+      "detail": "Historical parent name Poa hirsuta does not determine the current accepted species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Eragrostis spectabilis (Pursh) Steud. (1840)",
+      "rank": "accepted species",
+      "proposed_decision": "Preserve as a third distinct accepted Eragrostis species for historical Poa hirsuta var. spectabilis mapping.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1137778-2"
+      ],
+      "detail": "Already treated in a separate prior taxonomy evidence batch; no new card or edits."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Collapse Eragrostis hirsuta and E. trichodes because both are open-panicle perennial lovegrasses",
+      "rank": "invalid bulk synonymization",
+      "proposed_decision": "Reject: POWO/WCVP accepts both separately; similar habit cannot substitute for taxon identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "No merge, reassignment of photos, or canonical rename."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically map Poa hirsuta var. spectabilis to Eragrostis hirsuta",
+      "rank": "invalid parent-binomial inference",
+      "proposed_decision": "Reject: its accepted destination is E. spectabilis.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:204276-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1137778-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2"
+      ],
+      "detail": "Preserve original variety rank, epithet, authorship and type linkage."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Treat Eragrostis tenuis A.Gray as a valid accepted name or an authorless universal alias",
+      "rank": "invalid authorless mapping",
+      "proposed_decision": "Reject: A.Gray's 1890 name is an illegitimate later homonym mapped to E. trichodes; ambiguous authorless labels cannot be resolved automatically.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1",
+        "https://www.ipni.org/n/77240444-1"
+      ],
+      "detail": "Preserve exact authorship and nomenclatural status."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Existing Eragrostis hirsuta and E. trichodes individual photographs/vouchers",
+      "rank": "specimen / photo identity",
+      "proposed_decision": "Do not certify individual specimens or move photographs between cards from taxonomy names alone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "Sheath/collar hair distribution and reproductive structures require image or voucher-level validation by the responsible worker."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Individual hybrid, introgression, or cultivated provenance for E. hirsuta and E. trichodes",
+      "rank": "hybrid/provenance",
+      "proposed_decision": "Do not assign hybrid parentage or cultivar pedigree without individual supporting voucher, genetic, or provenance evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1"
+      ],
+      "detail": "This review establishes no named hybrid determination for the project specimens."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Historical Poa hirsuta, Eragrostis tenuis, or pilifera labels missing author/rank/voucher",
+      "rank": "authorless historical record",
+      "proposed_decision": "Leave unassigned until full historical combination, authorship and specimen context are available.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:93109-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:401659-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:204276-2",
+        "https://www.ipni.org/n/77240444-1"
+      ],
+      "detail": "Shared epithets or parent binomials alone are insufficient for a confident modern destination."
+    }
+  ],
+  "safety": {
+    "claim_checked": true,
+    "claim_created_and_readback_verified": true,
+    "canonical_shas_refreshed": true,
+    "no_canonical_write": true,
+    "no_photo_or_pages_write": true,
+    "existing_hirsuta_trichodes_specific_batch_not_found": true
+  }
+}
