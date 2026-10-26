@@ -70,6 +70,38 @@ except Exception as e:
                  "license":"CC BY-SA 2.0","creator":"Matt Lavin",
                  "reason":type(e).__name__+": "+str(e)[:350]})
 
+
+# Species-level European-source sheath/collar diagnostic photographs.
+# Individually checked original Wikimedia file pages and CC BY-SA 4.0.
+# These are NOT authenticated as a particular Eurasian HAPLOTYPE and may NOT
+# stand in for a Texas introduced-lineage diagnosis. Keep panels separate.
+for id, sha_prefix, role, scale in [
+ ("sl12","b/b3","Three-angle real basal leaf-sheath and hairy ligule-junction area, 10-mm original photographic scale bar","10 mm"),
+ ("sl9","d/d7","Front view of blade–sheath opening and margins; original 5-mm scale bar","5 mm"),
+]:
+ original=f"https://upload.wikimedia.org/wikipedia/commons/{sha_prefix}/Phragmites_australis_{id}.jpg"
+ name=f"species-europe-stefan-lefnaer-{id}.jpg"
+ source=f"https://commons.wikimedia.org/wiki/File:Phragmites_australis_{id}.jpg"
+ md={"source_page":source,"image_url":original,"creator":"Stefan.lefnaer",
+     "source_taxon":"Phragmites australis (species level, photographer identified; no subspecies, lineage or genotype claimed)",
+     "source_location":"Marchfeldkanal, Vienna, Austria, 19 August 2021",
+     "source_role":role,"original_photographic_scale":scale,
+     "license":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/",
+     "site_rule":"Europe-source anatomical training only; no proof of Texas introduced Eurasian haplotype or subspecies",
+     "source_taxon_identification":"Phragmites australis sensu Fischer et al 2008"}
+ dest=ROOT/name
+ try:
+  if dest.exists():
+   with Image.open(dest) as check:check.verify()
+   results.append(dict(md,status="ALREADY_ARCHIVED_CANDIDATE",archive=str(dest),
+                      archive_sha256=hashlib.sha256(dest.read_bytes()).hexdigest(),
+                      archive_bytes=dest.stat().st_size,anatomical_pixel_review="PENDING",
+                      lineage_certification="SPECIES LEVEL ONLY"))
+  else:results.append(save_image(fetch(original),name,md))
+ except Exception as e:results.append({"status":"HELD","source_page":source,"target":str(dest),
+                       "license":"CC BY-SA 4.0","creator":"Stefan.lefnaer",
+                       "reason":type(e).__name__+": "+str(e)[:350]})
+
 # Exact source-labelled introduced lineage: taxon and photographer on Commons description
 title="File:European Reed (Phragmites australis australis) - Oakville, Ontario 2017-05-12.jpg"
 page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title[5:].replace(" ","_"))
