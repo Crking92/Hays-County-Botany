@@ -3,7 +3,7 @@
 Confirm the owner's express PD policy and original species article.
 Do not infer roots or label individual glumes; reconcile species.json SHA.
 """
-import base64,hashlib,io,json,os,pathlib,time,urllib.parse
+import base64,hashlib,io,json,os,pathlib,time,urllib.parse,re,html
 import requests
 from PIL import Image,ImageOps
 REPO=os.environ["GITHUB_REPOSITORY"]; TOKEN=os.environ["GITHUB_TOKEN"]
@@ -21,8 +21,11 @@ SOURCES=[
 s=requests.Session()
 s.headers.update({"User-Agent":"HaysCountyBotany-OriginalRightsCheckedPhotoImporter/1.0"})
 rights=s.get(RIGHTS,timeout=40);rights.raise_for_status()
-if "i, jim conrad, hereby place into the public domain all images produced by myself" not in rights.text.lower():
- raise SystemExit("Source owner public-domain promise missing")
+# Copyright statement contains HTML markup/newlines: normalize visible text.
+rights_visible=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",rights.text)).lower().split())
+if not all(fragment in rights_visible for fragment in
+           ("jim conrad","public domain","all images produced by myself")):
+ raise SystemExit("Source owner explicit public-domain declaration missing")
 pg=s.get(PAGE,timeout=40);pg.raise_for_status()
 t=pg.text.lower()
 if "jim conrad" not in t or "panicum hallii" not in t or "white fringe of hairs is the ligule" not in t:
