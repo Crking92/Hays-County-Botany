@@ -40,10 +40,10 @@ jobs:
                   return id,None
           for species in spp:
               rows=[]
-              for page in range(1,4):
+              for page in range(1,12):
                   u='https://api.inaturalist.org/v1/observations?'+urllib.parse.urlencode({
                       'taxon_name':species,'quality_grade':'research','photos':'true',
-                      'per_page':100,'page':page,'order':'desc','order_by':'created_at'})
+                      'per_page':20,'page':page,'order':'desc','order_by':'created_at'})
                   try:
                       obj=json.loads(get(u,2000000))
                   except Exception as e:
@@ -59,7 +59,7 @@ jobs:
                             'source_species':o.get('taxon',{}).get('name')})
                       if len(rows)>=90:break
                   if len(rows)>=90:break
-                  if page*100>=obj.get('total_results',0):break
+                  if page*20>=obj.get('total_results',0):break
               rows=rows[:90]
               print('SPECIES',species,'CANDIDATES',len(rows))
               with concurrent.futures.ThreadPoolExecutor(max_workers=9) as pool:
