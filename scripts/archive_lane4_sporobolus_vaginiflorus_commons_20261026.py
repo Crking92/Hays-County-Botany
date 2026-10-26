@@ -77,8 +77,8 @@ def source_info(n):
     artist = meta.get("Artist",{}).get("value","")
     assert license in ("CCBY-SA4.0","CCBYSA4.0"), (n,license)
     assert "Stefan.lefnaer".lower() in artist.lower(), (n,artist[:200])
-    assert info.get("mime")=="image/jpeg" or info["url"].lower().endswith(".jpg")
-    assert int(info.get("width",0)) >= 1000 and int(info.get("height",0)) >= 1200
+    assert info.get("mime")=="image/jpeg" or ".jpg" in info["url"].lower(), (n, "not jpeg", info.get("mime"), info.get("url"))
+    assert int(info.get("width",0)) >= 1000 and int(info.get("height",0)) >= 1200, (n, "dimensions", info.get("width"),info.get("height"))
     return title,info
 
 def sanitize_and_store(raw,dest):
@@ -144,7 +144,7 @@ def main():
             newest.append({"number":n,"file":relative,"sha256":archive_sha,"dimensions":list(dims),"source_sha1":info.get("sha1")})
             print("INSTALLED",n,relative,archive_sha,dims)
         except Exception as exc:
-            print("HELD",n,str(exc))
+            print("HELD",n,repr(exc),flush=True)
     if accepted==0:
         raise RuntimeError("No independently licensed media were physically installed; leave card untouched")
     local_records=[x for x in d["images"] if str(x.get("file","")).startswith("images/")]
