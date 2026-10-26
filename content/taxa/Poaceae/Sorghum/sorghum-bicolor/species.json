@@ -230,7 +230,7 @@
         "photo_status": "Original photo pixels previously reviewed in project record; no source-specific arrow to an unmeasured membrane. Existing physically archived exact taxon photograph; no new overlay arrows. Existing source photo pixels, attribution, license and modification record retained."
       }
     ],
-    "overlay_note": "Only first photo is S. bicolor. Photos 2–3 are Sorghum halepense (Johnsongrass) and illustrate the comparison, not the actual crop sorghum root or ligule.",
+    "overlay_note": "Panels 1–3 are exact-source S. bicolor: Matt Lavin whole shoots, Rasbak ligule, and Rasbak flowering close-up. Panels 4–5 depict DIFFERENT SPECIES S. halepense (Johnsongrass) rhizome and collar for comparison only. Exact crop anatomy remains unmeasured; no new arrow claims.",
     "instance_id": "sorghum-bicolor-field-20261022"
   },
   "field_id_finish_pass": {
@@ -308,5 +308,124 @@
     ],
     "field_rule": "Whole panicle + real collar + attached sessile/pedicelled units + verified basal growth; never declare S. bicolor versus S. halepense on seedhead silhouette alone.",
     "warning": "All 3 exact-species images are physically archived. Rasbak anatomy photos were missing from visual_comparison and are now linked; no microscopic structures calibrated and no new arrows fabricated."
+  },
+  "field_id_short_tiles": [
+    {
+      "heading": "01 · LOOK HERE FIRST",
+      "short": "Robust annual Sorghum; verify the actual base and paired spikelets",
+      "details": "Crop sorghum and escaped shattercane have broad leaves and terminal panicles varying from tightly packed grain heads to open branched heads. Trace the rooted annual crown, then inspect a branchlet for a larger sessile fertile spikelet beside a stalked companion. White midrib, grain color and head compactness are NOT species-proof.",
+      "photo_panel_indices": [
+        0
+      ],
+      "glossary": [
+        "panicle",
+        "culm",
+        "spikelet"
+      ],
+      "status": "FIELD-READY GROSS CUE; CONNECTED BASE NEEDED"
+    },
+    {
+      "heading": "02 · CHECK THE ROOTS",
+      "short": "Typically no long scaly rhizomes; Johnsongrass has them",
+      "details": "Flora of North America describes S. bicolor as annual or short-lived perennial, generally without rhizomes, with culms 50–500+ cm. In established S. halepense colonies, look for persistent jointed creeping underground rhizomes. The existing rhizome comparison panel depicts OTHER SPECIES Johnsongrass, not S. bicolor. Do not infer absence of rhizomes from a cut stem.",
+      "photo_panel_indices": [
+        3
+      ],
+      "glossary": [
+        "rhizome",
+        "crown",
+        "node"
+      ],
+      "status": "NEEDS_PUBLIC_PHOTO — CONNECTED S. BICOLOR ROOTED CROWN"
+    },
+    {
+      "heading": "03 · OPEN THE TRUE COLLAR",
+      "short": "Membranous ligule about 1–4 mm; no auricles",
+      "details": "At the inner blade–sheath junction find the actual membranous ligule, approximately 1–4 mm in published FNA treatment, and check for absent auricles. The Rasbak S. bicolor collar photograph is archived as panel 2, but it is not millimeter-calibrated; do not arrow an unverified membrane edge or substitute the S. halepense comparison collar.",
+      "photo_panel_indices": [
+        1,
+        4
+      ],
+      "glossary": [
+        "ligule",
+        "collar",
+        "auricle",
+        "sheath"
+      ],
+      "status": "NEEDS_PUBLIC_PHOTO — 1-MM-SCALED MEMBRANE"
+    },
+    {
+      "heading": "04 · EXAMINE A PAIRED SPIKELET UNIT",
+      "short": "Sessile fertile spikelet 3–9 mm; pedicelled partner 3–6 mm",
+      "details": "Published FNA ranges: compound panicle 5–60 cm, branchlet with 2–7 sessile/pedicelled pairs; fertile sessile spikelet ~3–9 mm, pedicelled often staminate or sterile ~3–6 mm on a 1–2.6 mm stalk. Photograph a connected mature pair at 10–20× with a 1-mm ruler. Panel 3 shows actual S. bicolor flowers but does not independently establish all attachment points.",
+      "photo_panel_indices": [
+        2
+      ],
+      "glossary": [
+        "sessile spikelet",
+        "pedicel",
+        "rachis",
+        "floret"
+      ],
+      "status": "NEEDS_PUBLIC_PHOTO — ATTACHED MEASURED PAIR"
+    },
+    {
+      "heading": "05 · DISSECT GLUMES AND LEMMA",
+      "short": "Two enclosing glumes; upper fertile lemma may be awnless or bear a 5–30 mm awn",
+      "details": "On one mature sessile spikelet separate the two enclosing glumes from the lower sterile lemma and the thin upper fertile lemma. Published USDA/FNA treatments describe the upper lemma as roughly 1–5 mm, varying from awnless to one bent/twisted awn about 5–30 mm. An awn arises from the lemma, NOT a glume. Awn presence and glume hairiness vary among cultivated and feral forms; the current gallery has no scale-verified dissection.",
+      "photo_panel_indices": [
+        2
+      ],
+      "glossary": [
+        "glume",
+        "lemma",
+        "awn",
+        "palea"
+      ],
+      "status": "NEEDS_PUBLIC_PHOTO — DISSECTED GLUMES/LEMMAS"
+    },
+    {
+      "heading": "06 · RULE OUT JOHNSONGRASS AND SHATTERCANE",
+      "short": "Rhizomatous perennial versus nonrhizomatous crop/feral annual; grain shattering varies",
+      "details": "Johnsongrass (S. halepense) forms persistent perennial patches from scaly rhizomes. Feral shattercane belongs to the S. bicolor complex and may shed mature grains readily; cultivated grain sorghum often retains them. Neither purple color, pale leaf stripe, loose head nor shattering alone reliably separates all forms. Compare the actual crown and mature paired spikelets before a species-level determination.",
+      "photo_panel_indices": [
+        0,
+        3,
+        4
+      ],
+      "glossary": [
+        "rhizome",
+        "shattering",
+        "spikelet"
+      ],
+      "status": "FIELD-READY COMPARISON; SAME-SCALE PHOTO GAPS"
+    }
+  ],
+  "grass_species_finalization_20261025": {
+    "stage": "FIELD_READY_PHOTO_GAPS",
+    "tile_count": 6,
+    "photo_records_preserved": 3,
+    "new_photos": 0,
+    "new_arrows": 0,
+    "correction": "Corrected stale visual_comparison overlay note that misidentified the already archived Rasbak S. bicolor collar and flower panels as Johnsongrass.",
+    "needs_public_photo": [
+      "NEEDS_PUBLIC_PHOTO — source-vouchered rooted S. bicolor annual/short-lived crown showing lack of creeping scaly rhizomes and full flowering plant, cm scale.",
+      "NEEDS_PUBLIC_PHOTO — actual opened S. bicolor 1–4 mm membranous ligule at inner collar, 1-mm scale; do not use S. halepense comparison photo as proof.",
+      "NEEDS_PUBLIC_PHOTO — 10–20× attached mature 3–9 mm sessile fertile spikelet plus 3–6 mm pedicelled companion with pedicel and rachis individually resolvable.",
+      "NEEDS_PUBLIC_PHOTO — dissected two glumes, sterile lower lemma, upper fertile lemma and any 5–30 mm lemma awn; verify attachment and mm scale.",
+      "NEEDS_PUBLIC_PHOTO — matched crop sorghum, shattercane mature grain shattering, and actual S. halepense scaly rhizomes with per-photo public-use rights."
+    ],
+    "needs_site_qa": [
+      "NEEDS_SITE_QA — confirm 3 physically archived S. bicolor images and 2 separate S. halepense comparison panels render and remain correctly labelled.",
+      "NEEDS_SITE_QA — retain Matt Lavin CC BY-SA 2.0 and Rasbak CC BY-SA 3.0 attribution/ShareAlike, check no invented structural arrow endpoints.",
+      "NEEDS_SITE_QA — verify six tiles and corrected gallery overlay note render on mobile and that FIELD_READY_PHOTO_GAPS remains visible."
+    ],
+    "public_ready_criteria": "Keep FIELD_READY_PHOTO_GAPS until actual crop rooted base, measured true ligule, mature paired spikelets and glume/lemma dissection are verified from licensed photos with anatomically sound arrows and site QA. No county/native-range change.",
+    "sources": [
+      "https://vplants.org/portal/taxa/index.php?clid=111570&taxauthid=1&taxon=3208",
+      "https://gobotany.nativeplanttrust.org/species/sorghum/bicolor/",
+      "https://idtools.org/id/weed-tool/key/GrapeGrassKey/Media/Html/fact_sheets/Sor-bic.html",
+      "https://cals.cornell.edu/weed-science/weed-profiles/shattercane"
+    ]
   }
 }
