@@ -1,0 +1,50 @@
+name: Lane 3 screen exact aparejograss licensed photo IDs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-utilis-open-photo-scout-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-utilis-open-photo-scout-20261026
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - run: python scripts/lane3_utilis_inat_photo_license_scout_20261026.py
+      - name: Validate JSON candidate inventory
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open("reports/lane3-utilis-inat-open-license-scout-20261026.json"))
+          assert x["taxon"]=="Muhlenbergia utilis" and len(x["sources"])==x["source_count"]
+          assert all(v["taxon"]=="Muhlenbergia utilis" and v["license_code"].startswith("cc") for v in x["sources"])
+          print("Exact licensed observation candidate count:",x["source_count"])
+          PY
+      - name: Commit source rights inventory only
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-utilis-inat-open-license-scout-20261026.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 audit exact-source aparejograss licensable photo IDs"
+          for i in 1 2 3 4 5; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
