@@ -36,7 +36,7 @@ try:
         content_type = response.headers.get("Content-Type", "")
         blob = response.read(12_000_001)
     assert len(blob) < 12_000_000 and len(blob) > 12000, "Invalid download size"
-    assert blob.startswith(b"\\xff\\xd8"), "Not JPEG bytes"
+    assert blob.startswith(bytes.fromhex("ffd8")), "Not JPEG bytes"
     assert "image" in content_type.lower() or "octet-stream" in content_type.lower(), "Unexpected Content-Type: " + content_type
     with Image.open(io.BytesIO(blob)) as im:
         im.verify()
@@ -48,7 +48,7 @@ try:
         out = io.BytesIO()
         im.save(out, format="JPEG", quality=91, optimize=True)
         jpg = out.getvalue()
-    assert jpg.startswith(b"\\xff\\xd8") and jpg.endswith(b"\\xff\\xd9"), "JPEG byte integrity failure"
+    assert jpg.startswith(bytes.fromhex("ffd8")) and jpg.endswith(bytes.fromhex("ffd9")), "JPEG byte integrity failure"
     with Image.open(io.BytesIO(jpg)) as check:
         check.verify()
     newhash = hashlib.sha256(jpg).hexdigest()
@@ -107,7 +107,7 @@ try:
     }
     DEST.parent.mkdir(parents=True, exist_ok=True)
     DEST.write_bytes(jpg)
-    CARD.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\\n")
+    CARD.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\n")
     report.update(status="ARCHIVED", new_images=1, archive_file=str(DEST),
                   sha256=newhash, bytes=len(jpg), dimensions=list(im.size),
                   source_dimensions=original_size, verified_jpeg=True,
@@ -117,5 +117,5 @@ except Exception as exc:
                              "verified_bytes": False, "new_arrows": 0,
                              "NEEDS_PUBLIC_PHOTO": "Calibrated actual blade-margin retrorse teeth remain absent"})
 REPORT.parent.mkdir(parents=True, exist_ok=True)
-REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\\n")
+REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
 print(json.dumps(report, ensure_ascii=False))
