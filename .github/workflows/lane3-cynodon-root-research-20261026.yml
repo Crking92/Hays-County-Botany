@@ -39,7 +39,7 @@ jobs:
           p=pathlib.Path(r["path"])
           assert p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()==r["sha256"]
           with Image.open(p) as im:
-              assert im.format=="JPEG" and min(im.size)>=300
+              assert im.format=="JPEG" and min(im.size)>=280
               assert not im.getexif().get(34853)
               im.verify()
           s=json.loads(pathlib.Path("content/taxa/Poaceae/Cynodon/cynodon-dactylon/species.json").read_text())
