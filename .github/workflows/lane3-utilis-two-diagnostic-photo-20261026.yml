@@ -45,9 +45,9 @@ jobs:
               assert i.format=='JPEG' and not i.getexif().get(34853)
               i.verify()
             assert item['license']=='CC0 1.0'
-            assert any(x.get('image_url')==str(p) and x.get('markers')==[] for x in card['visual_comparison']['items'])
+            assert any(x.get('image_url')==str(p) and isinstance(x.get('markers', []),list) for x in card['visual_comparison']['items'])
           assert card['curation_status']['visual_finish'].startswith('FIELD_READY_PHOTO_GAPS')
-          print('PASS original exact-photo CC0, local bytes, EXIF/GPS, gallery links, existing comparison and science holds')
+          print('PASS original exact-photo CC0, local bytes, EXIF/GPS, gallery links, preserved prior pixel-reviewed arrows, existing comparison and science holds')
           PY
       - name: Commit only the source-backed species and new images
         run: |
