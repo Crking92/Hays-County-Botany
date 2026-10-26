@@ -1,0 +1,46 @@
+name: Lane 3 exact-image CC BY-NC metadata verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-verify-nc-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-nc-source-20261026
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - name: Check 4 exact photo licenses at original iNaturalist and GBIF APIs
+        run: python scripts/lane3_verify_priority_nc_photos_20261026.py
+      - name: Read back findings without clearing any source holds
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('reports/lane3-priority-nc-photo-license-confirm-20261026.json').read_text())
+          assert len(r['results'])==4
+          assert all(x['photo_id']>0 and x['source_photo_page'] for x in r['results'])
+          print('PHOTOS REVIEWED',4,'LIVE VERIFIED',r['verified_live'],'HELD',r['live_unresolved'])
+          PY
+      - name: Commit audit findings only, preserving all canonical source records
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-priority-nc-photo-license-confirm-20261026.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 verify four priority CC BY-NC source photo records and retain holds"
+          for attempt in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
