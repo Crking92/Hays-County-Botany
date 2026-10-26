@@ -1,0 +1,67 @@
+name: Lane 3 archive slim tridens rooted habit and leaf base images
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-tridentopsis-mutica-base-public-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-muticabasefour-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Refresh source prior to one-species change
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Archive exact photo-ID CC BY originals, no false microscopic arrows
+        run: python scripts/lane3_install_tridentopsis_mutica_base_20261026.py
+      - name: Verify source hashes, images, attribution, NC preservation and gallery
+        run: |
+          python - <<'PY'
+          import json,hashlib,pathlib
+          from PIL import Image
+          root=pathlib.Path('content/taxa/Poaceae/Tridentopsis/tridentopsis-mutica/species.json')
+          d=json.loads(root.read_text())
+          a=json.loads(pathlib.Path('reports/lane3-tridentopsis-mutica-base-install-20261026.json').read_text())
+          assert a['result']=='FOUR_REAL_CC_BY_MUTICA_BASE_PHOTOS_INSTALLED'
+          assert d['id']=='tridentopsis-mutica'
+          assert len(a['photos'])==4 and len(d['images'])==7 and len(d['visual_comparison']['items'])==9
+          assert sum(x['license']=='CC BY-NC 4.0' and x['creator']=='Joey Santore' for x in d['images'])==2
+          assert all(x['scientific_name']=='Tridentopsis buckleyana' for x in d['visual_comparison']['items'][-2:])
+          assert d['curation_status']['provisional'] is True
+          for x in a['photos']:
+            p=pathlib.Path(x['file'])
+            assert p.is_file() and p.stat().st_size>30000
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==x['sha256']
+            with Image.open(p) as im:
+              assert im.format=='JPEG' and not im.getexif().get(34853)
+              im.verify()
+            assert any(v.get('image_url')==str(p) and v.get('markers')==[] and v.get('license')=='CC BY' for v in d['visual_comparison']['items'])
+          print('PASS 4 source-backed CC BY JPEGs, 2 Joey NC preserved, correct taxon and comparison galleries, no uninspected arrows')
+          PY
+      - name: Commit meaningful new binary/photo gallery on latest main
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-tridentopsis-mutica-base-install-20261026.json content/taxa/Poaceae/Tridentopsis/tridentopsis-mutica/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 archive four slim tridens rooted-habit and lower-sheath source originals"
+          pushed=0
+          for n in 1 2 3 4 5 6 7 8; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then pushed=1; break; fi
+            sleep 4
+          done
+          test "$pushed" = 1
