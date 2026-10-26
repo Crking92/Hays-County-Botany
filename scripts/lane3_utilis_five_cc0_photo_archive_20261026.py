@@ -21,12 +21,12 @@ photos=[
 cc0="https://creativecommons.org/publicdomain/zero/1.0/"
 data=json.loads(card.read_text(encoding="utf8"))
 assert data["id"]=="muhlenbergia-utilis" and data["scientific_name"]=="Muhlenbergia utilis"
-report={"status":"HOLD","taxon":"Muhlenbergia utilis","added":[],"holds":[],"preexisting_images":len(data["images"]),"preexisting_gallery_panels":len(data["visual_comparison"]["items"])}
+report={"status":"HOLD","taxon":"Muhlenbergia utilis","added":[],"existing":[],"holds":[],"preexisting_images":len(data["images"]),"preexisting_gallery_panels":len(data["visual_comparison"]["items"])}
 def get(url):
  req=urllib.request.Request(url,headers={"User-Agent":"HaysCountyBotanyCC0EducationalPhotoArchive/1.0 (github.com/Crking92/Hays-County-Botany)","Accept":"image/jpeg,image/*"})
  with urllib.request.urlopen(req,timeout=35) as h:
   raw=h.read(16000001)
- assert 30000<len(raw)<=16000000
+ assert 6000<len(raw)<=16000000,(url,len(raw))
  return raw
 for id,label,role,caption in photos:
  assert id in byid
@@ -36,7 +36,7 @@ for id,label,role,caption in photos:
  dest=root/rel
  if any(x.get("file")==rel for x in data["images"]):
   if not dest.exists():raise RuntimeError("Canonical photo has missing bytes: "+rel)
-  report["holds"].append({"photo_id":id,"status":"ALREADY_ARCHIVED; preserved"})
+  report["existing"].append({"photo_id":id,"status":"ALREADY_ARCHIVED; preserved"})
   continue
  if dest.exists():raise RuntimeError("Orphan file exists without canonical metadata: "+rel)
  original=info["photo_url"].replace("/square.","/original.")
@@ -95,13 +95,14 @@ if report["added"]:
  data["curation_status"]["photo_files_present"]=sum(str(x.get("file","")).startswith("images/") for x in data["images"])
  data["learner_visual_status"]["image_count"]=len(data["images"])
  data["visual_comparison"]["title"]="Aparejograss — riparian creeping patch, fine leaves, possible collar, narrow flowering head"
- data["visual_comparison"]["subtitle"]="Five new source-confirmed CC0 Central Texas field photos added to original three archived pictures. Full anatomy review pending: actual rhizomes, a free measured 0.2–0.8 mm ligule, and independently dissected spikelets not proven."
- data["visual_comparison"]["overlay_note"]="Lane 3 2026-10-26: five exact-source iNaturalist CC0 originals physically archived with separate field roles; all existing older panels and annotated lookalike kept. No new arrows yet; no tiny membranous ligule, rooted crown, or underground scaly rhizome named as observed without full JPEG inspection."
- data["field_id_finish_pass"]["stage"]="FIELD_READY_PHOTO_GAPS — 5 new locally licensed original photos including a narrow flowering head and close sheath/junction candidate; true belowground scaly rhizome, measured inner ligule and same rooted shoot proof NOT CLOSED"
+ data["visual_comparison"]["subtitle"]="Five source-confirmed CC0 Central Texas field photos now in species gallery together with original three archived pictures. Exact underground scaly rhizomes, a 0.2–0.8 mm free ligule at scale and dissected spikelets not yet proved."
+ data["visual_comparison"]["overlay_note"]="Lane 3 2026-10-26: exact-source iNaturalist CC0 originals archived with distinct field roles; old panels and lookalike kept. Gross anatomy arrows remain pending full-JPEG pixel inspection; no claimed measured membranous ligule, rooted crown, or underground scaly rhizome."
+ data["field_id_finish_pass"]["stage"]="FIELD_READY_PHOTO_GAPS — 5 source-licensed exact-name local field photos now supplement original 3, including attached narrow flowering head and pale sheath/junction candidate; true scaly rhizome, calibrated inner ligule and attached rooted crown still NOT CLOSED"
  data["field_id_finish_pass"]["lane3_five_cc0_field_photos_20261026"]={
   "photo_ids":[id for id,_,_,_ in photos],
   "source_rights":"all individual CC0 at iNaturalist exact observation photo records",
-  "new_local_photos":len(report["added"]),
+  "new_local_photos_since_oct26_baseline":sum(1 for id,_,_,_ in photos if any(im.get("photo_source_id")==id for im in data["images"])),
+  "newly_archived_in_this_run":len(report["added"]),
   "uncleared_roles":["actually excavated scaly rhizome with nodes and attached shoots","free measured membranous true ligule at 0.2–0.8 mm","fully attached same-root complete plant with flowering head"],
   "morphology_authority":"2023 Central America Muhlenbergia taxonomic revision and Kew GrassBase; ranges are literature traits, not measurements made on these photographs"
  }
@@ -111,5 +112,6 @@ if report["added"]:
 else:report["status"]="NO_NEW_IMAGES_WRITTEN"
 report["current_photo_count"]=len(data["images"])
 report["current_gallery_panels"]=len(data["visual_comparison"]["items"])
+report["five_photo_ids_present"]=[id for id,_,_,_ in photos if any(im.get("photo_source_id")==id for im in data["images"])]
 pathlib.Path("reports/lane3-utilis-five-cc0-archive-20261026.json").write_text(json.dumps(report,indent=2,ensure_ascii=False)+"\n")
 print(json.dumps(report,indent=2))
