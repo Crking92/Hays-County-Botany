@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Archive two exact-taxon IRIIS photos with explicit noncommercial educational reuse.
+"""Archive individually verified exact-taxon IRIIS photos with explicit noncommercial educational reuse.
 
 IRIIS source terms require images used *unchanged*, with creator, organisation,
 source and access date. No cropping, EXIF removal, resized derivative, arrows,
@@ -35,6 +35,14 @@ ITEMS = [
         "role": "Exact-taxon mature rice cutgrass CARYOPSIS with source-printed 1-mm scale; NOT a glumeless spikelet, lemma or palea dissection.",
         "caption": "Mature rice cutgrass grains (caryopses), with original 1-mm scale. Photograph by Vincent Coulombe, IRIIS phytoprotection/MAPAQ. These are grains, NOT intact spikelets; the glume/lemma/palea measurement gap remains.",
         "diagnostic_roles": ["mature grain", "1-mm source scale", "fruit anatomy"],
+    },
+    {
+        "node": "27288", "file": "images/romain-neron-iriis-flattened-spikelet-4375.jpg",
+        "url": "https://www.iriisphytoprotection.qc.ca/sites/default/files/2023-05/Testing1_4375.jpg",
+        "creator": "Romain Néron",
+        "role": "Exact-taxon detached flattened rice cutgrass spikelet with visibly bristly keel; no ruler and no dissection of the glumeless base.",
+        "caption": "Single flattened rice cutgrass spikelet against a dark background, photographed by Romain Néron for IRIIS phytoprotection/MAPAQ. Original caption: Épillet aplati. Hair-fringed edges are visible; this image does NOT establish 4–6.5 mm length or independently reveal absent glumes.",
+        "diagnostic_roles": ["isolated flattened mature spikelet", "bristly keel context", "single-floret reproductive silhouette"],
     },
 ]
 d = json.loads(CARD.read_text())
@@ -114,11 +122,11 @@ for item in ITEMS:
             "source_access_date": "2026-10-26",
         }
         panel = {
-            "label": ("Rooted base, rhizomes and roots" if item["node"] == "27296" else "Mature caryopses — original 1-mm scale") + " — PROVISIONAL",
+            "label": {"27296": "Rooted base, rhizomes and roots", "27301": "Mature caryopses — original 1-mm scale", "27288": "Isolated flattened spikelet — bristly keel"}[item["node"]] + " — PROVISIONAL",
             "scientific_name": "Leersia oryzoides",
             "image_url": str(ROOT / rel), "image_fit": "contain",
             "image_role": item["role"], "caption": item["caption"],
-            "why_it_matters": ("Shows underground stems versus fibrous roots; local traced specimen still needed." if item["node"] == "27296" else "Adds measured grain context; does not substitute for measured spikelet anatomy."),
+            "why_it_matters": {"27296": "Shows underground stems versus fibrous roots; local traced specimen still needed.", "27301": "Adds measured grain context; does not substitute for measured spikelet anatomy.", "27288": "Shows the flattened, hair-fringed spikelet profile; the glumeless base and exact length remain unverified."}[item["node"]],
             "creator": source_credit, "license": photo["license"], "license_url": RIGHTS,
             "source_page": source_page, "markers": [],
             "photo_status": "PUBLIC_EDUCATIONAL_NONCOMMERCIAL_UNMODIFIED; annotation_pending",
@@ -143,7 +151,7 @@ if report["installed"]:
     d["learner_visual_status"]["status"] = "FIELD_READY_PHOTO_GAPS"
     d["curation_status"]["iriis_anatomy_20261026"] = {
         "status": "CONDITIONAL_UNMODIFIED_SOURCE_IMAGES_ARCHIVED; annotation_pending",
-        "files": [x["file"] for x in report["installed"]],
+        "files": list(dict.fromkeys(d["curation_status"].get("iriis_anatomy_20261026", {}).get("files", []) + [x["file"] for x in report["installed"]])),
         "reuse": TERMS,
         "NEEDS_PUBLIC_PHOTO": [
             "10–20x blade-MARGIN retrorse teeth with 1-mm ruler, not sheath prickles",
