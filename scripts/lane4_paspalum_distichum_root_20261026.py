@@ -26,13 +26,40 @@ if any(x.get("file")==fname for x in j["images"]):
 else:
     try:
         if out.exists():raise ValueError("Unexpected existing photo path; no overwrite")
-        req=urllib.request.Request(original, headers={"User-Agent":"HaysCountyBotanyVisualLearner/1.0 (credited science education image archive)"})
-        with urllib.request.urlopen(req,timeout=50) as resp:
-            payload=resp.read(6_000_001)
-        if not(50_000<len(payload)<6_000_000):raise ValueError("Original bytes length outside trusted bounds")
-        with Image.open(io.BytesIO(payload)) as verify: verify.verify()
-        original_image=ImageOps.exif_transpose(Image.open(io.BytesIO(payload))).convert("RGB")
-        if original_image.size!=(2592,1944):raise ValueError("Source image dimensions differ from verified original Commons file; hold")
+        # Some Wikimedia download hosts rate-limit GitHub Actions (HTTP 429).
+        # Try only derivatives of the SAME individually verified Commons file,
+        # not new images or unverified proxy aggregators.
+        import time
+        variants=[
+          (original,(2592,1944),"Commons archived original"),
+          ("https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Paspalum_distichum_rhizomes1_%288251311954%29.jpg/1280px-Paspalum_distichum_rhizomes1_%288251311954%29.jpg",(1280,960),"Commons 1280px derivative"),
+          ("https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Paspalum_distichum_rhizomes1_%288251311954%29.jpg/960px-Paspalum_distichum_rhizomes1_%288251311954%29.jpg",(960,720),"Commons 960px derivative")
+        ]
+        payload=None
+        last_errors=[]
+        for url,expected_dims,variant_name in variants:
+            for attempt in range(2):
+                try:
+                    req=urllib.request.Request(url,headers={
+                      "User-Agent":"Mozilla/5.0 (compatible; HaysCountyBotanyEducational/1.0; photograph license audit)",
+                      "Accept":"image/jpeg,image/*;q=0.8"
+                    })
+                    with urllib.request.urlopen(req,timeout=25) as response:
+                       data=response.read(6_000_001)
+                    if not(40_000<len(data)<6_000_000):raise ValueError("Source bytes outside size limit")
+                    with Image.open(io.BytesIO(data)) as verify: verify.verify()
+                    im=ImageOps.exif_transpose(Image.open(io.BytesIO(data))).convert("RGB")
+                    if im.size!=expected_dims:raise ValueError("Unexpected dimensions: "+str(im.size))
+                    payload=data
+                    original_image=im
+                    original= url
+                    source_variant=variant_name
+                    break
+                except Exception as e:
+                    last_errors.append(variant_name+" "+str(e))
+                    if attempt==0:time.sleep(6)
+            if payload is not None:break
+        if payload is None:raise RuntimeError("All same-file Wikimedia source variants unavailable; " + "; ".join(last_errors)[-650:])
         source_sha256=hashlib.sha256(payload).hexdigest()
         out.parent.mkdir(parents=True,exist_ok=True)
         original_image.save(out,format="JPEG",quality=91,optimize=True)
@@ -46,6 +73,8 @@ else:
           "source_page":source,
           "original_source":"https://www.flickr.com/photos/73840284@N04/8251311954",
           "source_original_sha256":source_sha256,
+          "archived_source_variant":source_variant,
+          "exact_download_url":original,
           "archived_sha256":dest_sha256,
           "modifications":"Re-encoded RGB JPEG (91% quality) with EXIF/GPS removed; image-only arrows are separate site overlays",
           "public_reuse":"Individual exact image CC BY 2.0 FlickrReviewR confirmed; author/source/license and re-encoding notice mandatory",
@@ -83,6 +112,7 @@ else:
           "new_gallery_panels":1,
           "new_actual_pixel_arrows":3,
           "verified_role":"rhizome/base with visible roots descending from two nodal regions and emerging shoot",
+          "download_variant":source_variant,
           "still_missing":["same identified live plant's aboveground soil-surface stolon with roots touching/entering moist soil, centimeter scale","same plant's terminal attached 2-raceme flowering head","mature upper glume + sterile and fertile lemma separately photographed to mm scale","true short membranous ligule free edge under 1-mm bar","matched Paspalum notatum rooting habit and spikelet panel","live GitHub Pages card mobile QA"],
           "source_rights":"Individual Harry Rose CC BY 2.0 verified at Commons FlickrReviewR; NOT CC0 or anonymous stock",
           "image_provenance_note":"Australian voucher-labelled taxon; not proof of Hays County provenance nor county-native status",
@@ -91,7 +121,7 @@ else:
         j["visual_comparison"]["subtitle"]="Five real locally archived Paspalum distichum photographs: rhizome/root masses, flowering V, actual membranous collar, spikelet-bearing rachis and wet-ground habit, plus separate Paspalum setaceum comparison. Same-plant rooted surface stolon, mature spikelet dissection and Pages QA remain unconfirmed."
         j["photo_note"]+=" 2026-10-26: archived a new CC BY 2.0 Harry Rose actual rhizome with nodal fibrous roots, EXIF-free JPEG and 3 visible-only root/base arrows. Distinguish photographed underground rhizome from still-missing aboveground rooted stolon attached to flowering culm."
         p.write_text(json.dumps(j,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-        report["added"].append({"file":str(out),"source_original_sha256":source_sha256,"archive_sha256":dest_sha256,"dims":list(original_image.size),"arrows":3,"source_rights":source})
+        report["added"].append({"file":str(out),"source_original_sha256":source_sha256,"archive_sha256":dest_sha256,"source_variant":source_variant,"dims":list(original_image.size),"arrows":3,"source_rights":source})
         report["photo_status"]="archived and linked, pending actual Pages deployment"
     except Exception as error:
         if out.exists() and not any(x.get("file")==fname for x in j["images"]):
