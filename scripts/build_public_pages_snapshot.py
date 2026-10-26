@@ -393,6 +393,33 @@ def permitted_harms_eleusine_indica(item, noncommercial=False):
                item.get("source_image") == HARMS_BASE+"images/"+pid+".jpg"
                for pid in HARMS_ELIN3_IDS)
 
+# Exact Tom Chester South Kaibab Trail Erioneuron originals.
+# Author explicitly permits credited reproduction of his page. This is NOT CC.
+# These exact filenames and original linked URLs are the only exception.
+TOM_CHESTER_PAGE = "https://tchester.org/gc/plants/species/erioneuron_pilosum.html"
+TOM_CHESTER_BASE = "https://tchester.org/gc/plants/species/pix/erioneuron_pilosum/"
+TOM_CHESTER_PERMISSION = "TOM_CHESTER_PAGE_CREDITED_REPRODUCTION_20261026"
+TOM_CHESTER_LICENSE = "Author's explicit source-page credited-reproduction permission (not CC)"
+TOM_CHESTER_FILES = {
+    "images/tom-chester-hairy-tridens-in-situ-heads-and-crown.jpg": "erioneuron_pilosum_5_crop_35.jpg",
+    "images/tom-chester-hairy-tridens-narrow-white-edged-basal-leaves.jpg": "erioneuron_pilosum_4_crop_50.jpg",
+    "images/tom-chester-hairy-tridens-woolly-spikelet-head-close.jpg": "erioneuron_pilosum_3_crop_2.jpg",
+}
+
+def permitted_tom_chester_erioneuron(item: dict, noncommercial: bool) -> bool:
+    if not noncommercial:
+        return False
+    if item.get("creator") != "Tom Chester" or item.get("license") != TOM_CHESTER_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != TOM_CHESTER_PERMISSION:
+        return False
+    if item.get("source_taxon_name") != "Erioneuron pilosum":
+        return False
+    if item.get("license_url") != TOM_CHESTER_PAGE or item.get("source_permission_page") != TOM_CHESTER_PAGE:
+        return False
+    name = item.get("file")
+    return name in TOM_CHESTER_FILES and item.get("source_page") == TOM_CHESTER_BASE + TOM_CHESTER_FILES[name]
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     """An eligible *photograph*, not just an observation or search result."""
     creator = str(item.get("creator") or item.get("photographer") or "").strip()
@@ -407,6 +434,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
     )
     if not source:
         return False, "missing verified individual photo source"
+    if permitted_tom_chester_erioneuron(item, noncommercial):
+        return True, "Exact Tom Chester hairy tridens credited-reproduction page permission; NOT CC"
     if permitted_harms_dinebra_brachiata_comparison(item, noncommercial):
         return True, "Bob Harms other subspecies brachiata source comparison, exact Selected Monocots educational credit only, NOT CC"
     if permitted_harms_eriochloa_sericea(item, noncommercial):
