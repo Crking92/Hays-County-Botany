@@ -1,0 +1,48 @@
+name: One-shot Phragmites spikelet photo rights/bytes retry (2026-10-26)
+on:
+  push:
+    branches: [main]
+    paths:
+      - workflow/phragmites-photo-review/20261026-sl23-request.json
+
+permissions:
+  contents: write
+
+concurrency:
+  group: phragmites-one-shot-photo-20261026
+  cancel-in-progress: false
+
+jobs:
+  rights-gated-photo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install image verifier
+        run: python -m pip install "Pillow>=10,<12"
+      - name: Single lawful source request; never workaround provider rate limit
+        run: python scripts/archive_phragmites_sl23_once_20261026.py
+      - name: Commit verified public image or explicit acquisition hold
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/phragmites-sl23-reproductive-photo-retry-20261026.json
+          git add content/taxa/Poaceae/Phragmites/phragmites-australis/species.json
+          if test -f content/taxa/Poaceae/Phragmites/phragmites-australis/images/species-europe-stefan-lefnaer-sl23-spikelet.jpg; then
+            git add content/taxa/Poaceae/Phragmites/phragmites-australis/images/species-europe-stefan-lefnaer-sl23-spikelet.jpg
+          fi
+          if git diff --cached --quiet; then
+            echo "No change; prior installation or hold retained"
+            exit 0
+          fi
+          git commit -m "Record Phragmites sl23 source verification and archive if permitted"
+          git pull --rebase origin main
+          git push origin HEAD:main
