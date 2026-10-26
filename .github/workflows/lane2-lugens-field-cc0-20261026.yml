@@ -1,0 +1,36 @@
+name: Lane 2 archive CC0 mourning lovegrass actual field-growth pair
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_install_lugens_field_cc0_20261026.py
+      - .github/workflows/lane2-lugens-field-cc0-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-lugens-field-cc0-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - name: Recheck photo-level CC0 licenses and archive actual in-ground photo pair
+        run: python scripts/lane2_install_lugens_field_cc0_20261026.py
+      - name: Commit verified JPEG bytes, captions and candid ID hold
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-lugens/ reports/lane2-lugens-field-in-situ-cc0-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive two CC0 mourning lovegrass in-ground field views with ID caveat"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
