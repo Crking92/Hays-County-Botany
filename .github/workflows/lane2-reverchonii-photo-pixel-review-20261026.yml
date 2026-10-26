@@ -1,0 +1,42 @@
+name: Lane 2 Reverchon source JPEG inspection
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-reverchonii-photo-pixel-review-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  originals:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - name: Inspect archived original JPEG bytes and print read-only previews
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64, hashlib, io
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          root=Path('content/taxa/Poaceae/Setaria/setaria-reverchonii/images')
+          names=['inat-286180500.jpg','commons-7f11c328fb10.jpg','commons-d45564aecca8.jpg']
+          for i,name in enumerate(names):
+              raw=(root/name).read_bytes()
+              with Image.open(io.BytesIO(raw)) as opened:
+                  im=ImageOps.exif_transpose(opened).convert('RGB')
+                  dims=im.size
+                  has_exif=bool(opened.getexif())
+                  scaled=im.copy()
+                  scaled.thumbnail((1050,1000))
+                  buf=io.BytesIO()
+                  scaled.save(buf,format='WEBP',quality=78,method=4)
+              value=base64.b64encode(buf.getvalue()).decode('ascii')
+              print(f'REV_PIXEL_METADATA_{i}: file={name}, dimensions={dims}, bytes={len(raw)}, sha256={hashlib.sha256(raw).hexdigest()}, embedded_EXIF={has_exif}, preview_bytes={len(buf.getvalue())}')
+              for part,off in enumerate(range(0,len(value),3000)):
+                  print(f'REV_PIXEL_{i}_PART_{part}='+value[off:off+3000])
+          PY
