@@ -1,0 +1,41 @@
+name: Lane 1 Kleingrass CC BY basal photo archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-kleingrass-base4-20261026.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-kleingrass-base4-single
+  cancel-in-progress: false
+jobs:
+  archive-author-identified-plant-base:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image dependencies
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Verify exact Commons page rights and strip EXIF GPS
+        env:
+          TITLE: 'File:Panicum coloratum var makarikariense plant base4 NWP - Flickr - Macleay Grass Man.jpg'
+        run: |
+          python scripts/commons_photo_review_import.py --file-title "$TITLE" \
+            --taxon 'Panicum coloratum' --output review_photo --max-edge 2600
+      - name: Archive exact source JPEG and add labelled Australian variety gallery panel
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          TITLE: 'File:Panicum coloratum var makarikariense plant base4 NWP - Flickr - Macleay Grass Man.jpg'
+        run: python scripts/archive_lane1_kleingrass_anatomy.py
+      - name: Save source license dimensions checksum evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lane1-kleingrass-base4-commons-evidence
+          path: review_photo/evidence.json
+          if-no-files-found: ignore
+          retention-days: 30
