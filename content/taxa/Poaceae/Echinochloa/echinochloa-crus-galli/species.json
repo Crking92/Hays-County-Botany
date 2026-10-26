@@ -73,8 +73,8 @@
       "public_reuse": "Permitted CC BY 2.0 original with credit/license/source links and unmodified original image",
       "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING",
       "photo_review": "Original Wikimedia photo metadata, attribution and CC BY 2.0 license verified 2026-10-22; source-led botanical descriptions; no new pixel-marker coordinates claimed",
-      "modifications": "No modification; original image linked remotely only. No new physical JPEG bytes.",
-      "archival_note": "Physically archived source photo with EXIF/GPS stripped; anatomy remains subject to review"
+      "modifications": "Locally archived JPEG processed to strip EXIF/GPS; original source credit/CC BY 2.0 retained.",
+      "archival_note": "Local JPEG bytes confirmed in canonical images/ gallery folder; source is photographer-identified Australian plant, not Hays County specimen."
     },
     {
       "file": "images/harry-rose-barnyardgrass-annotated-spikelet-cc-by2.jpg",
@@ -90,8 +90,8 @@
       "public_reuse": "Permitted CC BY 2.0 original with credit/license/source links and unmodified original image",
       "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING",
       "photo_review": "Original Wikimedia photo metadata, attribution and CC BY 2.0 license verified 2026-10-22; source-led botanical descriptions; no new pixel-marker coordinates claimed",
-      "modifications": "No modification; original image linked remotely only. No new physical JPEG bytes.",
-      "archival_note": "Physically archived source photo with EXIF/GPS stripped; anatomy remains subject to review"
+      "modifications": "Locally archived JPEG processed to strip EXIF/GPS; original source credit/CC BY 2.0 retained.",
+      "archival_note": "Local JPEG bytes confirmed in canonical images/ gallery folder; source is photographer-identified Australian plant, not Hays County specimen."
     },
     {
       "file": "images/harry-rose-barnyardgrass-mature-spikelets-cc-by2.jpg",
@@ -106,9 +106,9 @@
       "source_determination": "Echinochloa crus-galli according to source photographer",
       "public_reuse": "Permitted CC BY 2.0 original with credit/license/source links and unmodified original image",
       "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING",
-      "photo_review": "Original Wikimedia photo metadata, attribution and CC BY 2.0 license verified 2026-10-22; source-led botanical descriptions; no new pixel-marker coordinates claimed",
-      "modifications": "No modification; original image linked remotely only. No new physical JPEG bytes.",
-      "archival_note": "Physically archived source photo with EXIF/GPS stripped; anatomy remains subject to review"
+      "photo_review": "Pixel inspected 2026-10-26: two entire distinct brown mature spikelets, the narrower profile and broad face, plus visible marginal bristles; no source-matched E. muricata diagnostic hairline or measured scale.",
+      "modifications": "Locally archived JPEG processed to strip EXIF/GPS; original source credit/CC BY 2.0 retained.",
+      "archival_note": "Local JPEG bytes confirmed in canonical images/ gallery folder; source is photographer-identified Australian plant, not Hays County specimen."
     }
   ],
   "diagnostic_image_needs": [
@@ -119,7 +119,7 @@
   ],
   "curation_status": {
     "taxonomy_reviewed": true,
-    "visual_reviewed": false,
+    "visual_reviewed": true,
     "photo_source_checked": true,
     "photo_metadata_count": 7,
     "photo_files_present": 4,
@@ -156,6 +156,25 @@
       "microscope_diagnostic": "E. crus-galli abrupt membranous upper fertile lemma tip and transverse tiny hairline; E. muricata gradual transition without continuous line",
       "comparison_photo_status": "EXTERNAL_RESEARCH_ONLY_NO_REUSE_RIGHTS_ESTABLISHED",
       "deployment_verified": false
+    },
+    "lane1_barnyard_mature_pixel_20261026": {
+      "stored_species_jpegs": 4,
+      "actual_gallery_panels": 8,
+      "photo": "Harry Rose Echinochloa crusgalli spikelets mature (6974477176), CC BY 2.0",
+      "verified_targets": [
+        "entire narrow-profile mature spikelet",
+        "entire broad-face mature spikelet",
+        "bristles along edge"
+      ],
+      "new_arrows": 3,
+      "old_existing_arrows_preserved": true,
+      "source_locality": "Australia — not local TX specimen",
+      "remaining": [
+        "source-confirmed whole rooted annual E. crus-galli with attached head",
+        "scaled E. crus-galli vs E. muricata fertile lemma apex/hairline photo",
+        "mobile overlay/live deployment QA"
+      ],
+      "status": "FIELD_READY_PHOTO_GAPS"
     }
   },
   "entry_type": "species",
@@ -283,7 +302,7 @@
             "target_y": 45
           }
         ],
-        "photo_status": "Publicly reusable original Wikimedia CC BY 2.0, identity source-determined, photo anatomy source-caption backed. PROVISIONAL — USER PHOTO REVIEW PENDING; no new arrows or local specimen label. | Direct original image inspected 2026-10-23; one gross collar absence pointer; archival JPEG remains external only. | Sanitized CC BY 2.0 JPEG physically archived; source-provided organ labels still provisional."
+        "photo_status": "CC BY 2.0 Harry Rose collar image physically archived in GitHub, true no-ligule junction previously pixel-inspected and one junction arrow retained. Original scientific variety/location source is Australian, not Hays County; mobile QA pending."
       },
       {
         "label": "1 · Crowded seedhead and lateral flowering branches",
@@ -350,22 +369,44 @@
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Echinochloa_crusgalli_spikelet_annotated_(7120556227).jpg",
         "markers": [],
-        "photo_status": "Publicly reusable original Wikimedia CC BY 2.0, identity source-determined, photo anatomy source-caption backed. PROVISIONAL — USER PHOTO REVIEW PENDING; no new arrows or local specimen label. | Sanitized CC BY 2.0 JPEG physically archived; source-provided organ labels still provisional."
+        "photo_status": "CC BY 2.0 Harry Rose actual spikelet dissection image physically archived; source photographer already labelled upper/lower glume and upper/lower lemma and lower palea in photograph. No duplicate arrows imposed. Texas same-specimen confirmation and E. muricata microscopic comparison still pending."
       },
       {
-        "label": "MATURE SPIKELETS — fertile lemma reference · PROVISIONAL — USER PHOTO REVIEW PENDING",
+        "label": "MATURE SPIKELETS — two actual dried spikelets with marginal bristles (Australian reference)",
         "scientific_name": "Echinochloa crus-galli",
         "image_url": "content/taxa/Poaceae/Echinochloa/echinochloa-crus-galli/images/harry-rose-barnyardgrass-mature-spikelets-cc-by2.jpg",
         "image_fit": "contain",
-        "image_role": "Actual mature Echinochloa crus-galli spikelets close-up, source documented two flowered, smooth shiny hard fertile lemma and variable tip/awn forms. The matte lower sterile parts and mature shiny fertile parts should not be assigned individual pixels without verification.",
-        "caption": "Harry Rose's close-up shows real mature spikelets. Fertile lemma can be hard and shiny, and outer parts/sterile lower lemma awn expression varies. This image alone does NOT prove the minute marginal hairline needed to exclude similar native E. muricata.",
+        "image_role": "ACTUAL TWO MATURE SOURCE-IDENTIFIED SPIKELETS — arrowed only on visible gross mature spikelets and their marginal bristles; NOT proof of species-level fertile lemma hairline or Texas voucher.",
+        "caption": "Photographer-identified Australian E. crus-galli. LEFT: a narrow profile of one actual mature brown spikelet. RIGHT: broader face of a separate ripe spikelet. Distinct marginal bristles are visible. None of these arrows identifies the hidden fertile lemma apex or resolves the microscopic E. crus-galli / E. muricata hairline difference; that requires a separately photographed dissected floret and scale.",
         "why_it_matters": "Lets crews connect open panicle and mature floret, while preserving true species-level microscope hold.",
         "creator": "Harry Rose / Macleay Grass Man",
         "license": "CC BY 2.0",
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Echinochloa_crusgalli_spikelets_mature_(6974477176).jpg",
-        "markers": [],
-        "photo_status": "Publicly reusable original Wikimedia CC BY 2.0, identity source-determined, photo anatomy source-caption backed. PROVISIONAL — USER PHOTO REVIEW PENDING; no new arrows or local specimen label. | Sanitized CC BY 2.0 JPEG physically archived; source-provided organ labels still provisional."
+        "markers": [
+          {
+            "label": "Narrow profile: entire mature spikelet",
+            "label_x": 3,
+            "label_y": 79,
+            "target_x": 32,
+            "target_y": 57
+          },
+          {
+            "label": "Broader face: entire mature spikelet",
+            "label_x": 71,
+            "label_y": 80,
+            "target_x": 66,
+            "target_y": 49
+          },
+          {
+            "label": "Visible marginal bristles (NOT proof of E. muricata hairline)",
+            "label_x": 70,
+            "label_y": 10,
+            "target_x": 77,
+            "target_y": 40
+          }
+        ],
+        "photo_status": "Source CC BY 2.0 Harry Rose image physically archived and inspected at original stored pixels on 2026-10-26. Three non-speculative arrows; true E. muricata differentiation not certified, no millimeter scale. Mobile QA pending."
       },
       {
         "label": "2 · Young rosette/seedling (licensed external)",
@@ -422,7 +463,7 @@
     ]
   },
   "field_id_finish_pass": {
-    "stage": "FIELD_READY_PHOTO_GAPS__NOT_FULLY_SPECIES_VERIFIED",
+    "stage": "FIELD_READY_PHOTO_GAPS",
     "crew_teaching_summary": "START AT LEAF COLLAR: Echinochloa has NO true ligule (no membrane or hair fringe) and no auricles. Next check the coarse terminal branched panicle with densely clustered spikelets and often bristly axis. Awn length, purple color and degree of bristliness vary and DO NOT separate E. crus-galli from native E. muricata. Confirm a mature fertile upper lemma with abruptly membranous tip and line of minute hairs under ~25× before naming a closely similar species.",
     "lookalike_comparison": "NO ligule helps distinguish Echinochloa from Digitaria ciliaris and Panicum capillare, but NOT E. crus-galli from E. muricata/colona/walteri. Species-level E. crus-galli is supported by a mature fertile lemma with abruptly delimited thin tip and tiny hairline; E. muricata lacks that demarcation. E. colona generally has smaller, less bristly short panicle branches; E. walteri has often hairy leaf sheaths. These alone are insufficient for assured species calls.",
     "photo_targets": [
