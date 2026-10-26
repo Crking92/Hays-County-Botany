@@ -1,0 +1,68 @@
+name: Lane 3 install exact-species licensed Texas fescue photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-festuca-four-public-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-festuca-four-public-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Refresh latest source, preserve conflicting edits
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Archive exact-source research-grade CC BY photographs and build real visual gallery
+        run: python scripts/lane3_install_festuca_versuta_four_20261026.py
+      - name: Confirm all real image bytes and exact local gallery links
+        run: |
+          python - <<'PY'
+          import json,hashlib,pathlib
+          from PIL import Image
+          r=json.loads(pathlib.Path('reports/lane3-festuca-versuta-four-gallery-20261026.json').read_text())
+          d=json.loads(pathlib.Path('content/taxa/Poaceae/Festuca/festuca-versuta/species.json').read_text())
+          assert r['result']=='FOUR_ORIGINAL_CC_BY_JPEGS_INSTALLED' and len(r['installed'])==4
+          assert len(d['images'])==7 and len(d['visual_comparison']['items'])==7
+          assert d['id']=='festuca-versuta'
+          assert d['curation_status']['visual_finish'].startswith('FIELD_READY_PHOTO_GAPS')
+          assert d['images'][0]['license']=='CC BY-NC'
+          for x in r['installed']:
+            file=pathlib.Path(x['file'])
+            assert file.exists() and file.stat().st_size>30000
+            assert hashlib.sha256(file.read_bytes()).hexdigest()==x['sha256']
+            with Image.open(file) as im:
+              assert im.format=='JPEG' and not im.getexif().get(34853)
+              im.verify()
+            assert any(p.get('image_url')==x['file'] and p.get('markers')==[] for p in d['visual_comparison']['items'])
+          print("PASS source-original SHA, exact taxon license, four JPEG bytes, provenance, zero unjustified arrows, preserved county/science and prior NC rights")
+          PY
+      - name: Commit only Festuca species and source evidence with guarded push retry
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-festuca-versuta-four-gallery-20261026.json content/taxa/Poaceae/Festuca/festuca-versuta/
+          if git diff --cached --quiet; then echo "Already complete"; exit 0; fi
+          git commit -m "Lane 3 archive four licensed Texas fescue whole-plant and anatomy originals"
+          pushed=0
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then pushed=1; break; fi
+            sleep 3
+          done
+          test "$pushed" = "1"
