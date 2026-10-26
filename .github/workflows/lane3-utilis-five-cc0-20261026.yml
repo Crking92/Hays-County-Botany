@@ -1,0 +1,66 @@
+name: Lane 3 archive five CC0 Texas aparejograss diagnostic photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-utilis-five-cc0-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-utilis-five-cc0-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "Pillow>=10,<12"
+      - run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - run: python scripts/lane3_utilis_five_cc0_photo_archive_20261026.py
+      - name: Verify exact physical files and source CC0 metadata
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib
+          from PIL import Image
+          r=json.loads(pathlib.Path("reports/lane3-utilis-five-cc0-archive-20261026.json").read_text())
+          assert r["status"]=="ARCHIVED_SOURCE_CONFIRMED_NEEDS_PIXEL_ARROWS" and len(r["added"]) >= 3,r["holds"]
+          p=pathlib.Path("content/taxa/Poaceae/Muhlenbergia/muhlenbergia-utilis/species.json")
+          d=json.loads(p.read_text())
+          assert d["id"]=="muhlenbergia-utilis"
+          assert len(d["images"])==r["current_photo_count"]
+          for a in r["added"]:
+              f=pathlib.Path(a["file"])
+              assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==a["sha256"]
+              with Image.open(f) as im:
+                  assert im.format=="JPEG" and not im.getexif().get(34853)
+                  im.verify()
+              v=next(x for x in d["images"] if x["file"]=="images/"+f.name)
+              assert v["license"]=="CC0 1.0" and v["photo_source_id"]==a["photo_id"]
+              panels=[x for x in d["visual_comparison"]["items"] if x["image_url"]==str(f)]
+              assert len(panels)==1 and panels[0]["markers"]==[]
+          assert d["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
+          print("Verified",len(r["added"]),"new exact-source CC0 archived photo bytes and distinct gallery panels")
+          PY
+      - name: Commit source photo and first gallery proof
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-utilis-five-cc0-archive-20261026.json content/taxa/Poaceae/Muhlenbergia/muhlenbergia-utilis/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 archive five source-licensed CC0 Texas aparejograss diagnostic photos"
+          for i in 1 2 3 4 5 6 7; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
