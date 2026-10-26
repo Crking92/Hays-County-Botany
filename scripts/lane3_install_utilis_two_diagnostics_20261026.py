@@ -66,7 +66,7 @@ if set(("410577695","410577679")).issubset(existing_by_id):
   "species":"Muhlenbergia utilis","preexisting_concurrent_install_reconciled":True,
   "files":files,"new_image_files":0,"total_species_files":8,"gallery_panels":8,
   "new_arrow_count":0,"existing_arrow_count":sum(x["existing_pixel_reviewed_arrows"] for x in files),
-  "remaining_photo_gaps":["Exposed connected underground rhizome/actual roots and shoots","Calibrated free inner membranous ligule"]},indent=2)+"\\n")
+  "remaining_photo_gaps":["Exposed connected underground rhizome/actual roots and shoots","Calibrated free inner membranous ligule"]},indent=2)+"\n")
  print(json.dumps({"result":"ALREADY_ARCHIVED_AND_VERIFIED_NO_DUPLICATES","ids":[410577695,410577679],"local_count":8}))
  raise SystemExit(0)
 assert len(d["images"])==6 and len(d["visual_comparison"]["items"])==6
