@@ -8,6 +8,10 @@ from PIL import Image, ImageOps
 ROOT=pathlib.Path("content/taxa/Poaceae/Phragmites/phragmites-australis/images")
 REPORT=pathlib.Path("reports/phragmites-three-lineage-photo-acquisition-20261026.json")
 ROOT.mkdir(parents=True,exist_ok=True);REPORT.parent.mkdir(parents=True,exist_ok=True)
+try:
+ previous_audit=json.loads(REPORT.read_text()) if REPORT.exists() else {"results":[]}
+except Exception:
+ previous_audit={"results":[]}
 results=[]
 USER_AGENT="HaysCountyBotanyVisualLearner/1.0 (credited noncommercial grass identification; github.com/Crking92/Hays-County-Botany)"
 def fetch(url):
@@ -116,6 +120,18 @@ for num in ["20915185149","21075794926"]:
     "site_rule":"photographer describes native americanus in text; DO NOT infer introduced Eurasian based on misleading filename; no genotype confirmation"}))
  except Exception as e: results.append({"status":"HELD","source_page":page,"target":str(ROOT/f"lineage-native-matt-lavin-{num}.jpg"),
                                    "reason":type(e).__name__+": "+str(e)[:350]})
+# Preserve earlier good image-level rights evidence even if Wikimedia or iNaturalist
+# temporarily returns HTTP 429/5xx on later visits. Never treat a retry failure
+# as revocation of an already SHA-verified licensed and attributed local file.
+for previous in previous_audit.get("results",[]):
+ path=previous.get("archive")
+ digest=previous.get("archive_sha256")
+ if not path or not digest or not previous.get("license"):continue
+ f=pathlib.Path(path)
+ if not f.exists() or hashlib.sha256(f.read_bytes()).hexdigest()!=digest:continue
+ if any(x.get("archive")==path and x.get("archive_sha256")==digest for x in results):continue
+ results.append(dict(previous,status="PREVIOUSLY_ARCHIVED_SOURCE_AND_SHA_VERIFIED",
+                     note="Earlier image source/creator/license evidence preserved; archive SHA reverified after later source retry failure"))
 REPORT.write_text(json.dumps({"scope":"photo bytes only, NO subspecies identification from photo without additional evidence",
                               "results":results},ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({"results":results},ensure_ascii=False))
