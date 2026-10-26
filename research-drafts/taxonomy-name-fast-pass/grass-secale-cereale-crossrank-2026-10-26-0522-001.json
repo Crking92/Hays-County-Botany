@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-secale-cereale-crossrank-2026-10-26-0522-001",
+  "lane": "grass-taxonomy-verification",
+  "reviewed_at": "2026-10-26T10:22:15Z",
+  "source_access_date": "2026-10-26",
+  "family": "Poaceae",
+  "taxa": [
+    "Secale cereale L."
+  ],
+  "canonical_targets": [
+    {
+      "path": "content/taxa/Poaceae/Secale/secale-cereale/species.json",
+      "sha_at_review": "fc1a4c8b77f78ec6a2b91c7db005442eb3e858f2",
+      "modified": false
+    }
+  ],
+  "claim_path": "workflow/taxonomy-claims/grass-secale-cereale-crossrank-2026-10-26-0522-001.json",
+  "claim_sha_at_prewrite": "b6a4ea07d6b6aadff0655382b1102b616326e29b",
+  "source_backbone": "Kew POWO/WCVP 2026; historical basionyms and ranks verified against the listed POWO name records",
+  "accepted_names": [
+    "Secale cereale L.",
+    "Secale segetale (Zhuk.) Roshev.",
+    "Secale vavilovii Grossh."
+  ],
+  "related_accepted_hybrid": "× Triticosecale rimpaui (M.Graebn.) Wittm. ex A.W.Hill",
+  "name_concept_summary": "Rye is an accepted species, but historical S. cereale subsp. segetale, dighoricum and afghanicum map to accepted S. segetale; subsp./var. vavilovii map to accepted S. vavilovii. Named wheat × rye hybrid × Triticosecale rimpaui is separate. No specimens or photos reidentified.",
+  "native_range_audit": "DEFERRED — NOT REVIEWED; county nativity untouched",
+  "specimen_identity": "HOLD — individual photo/voucher identity not independently verified",
+  "hybrid_provenance": "HOLD — named artificial hybrid formula does not establish an individual specimen's pedigree",
+  "install_decision": "Retain installed rye card unchanged; no new cards or alias injection; taxonomy evidence only",
+  "decision_counts": {
+    "PASS": 16,
+    "FAIL": 3,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Secale cereale L. (1753)",
+      "proposed_decision": "Retain accepted species and Linnaean authorship; no canonical rename.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1"
+      ],
+      "detail": "POWO/WCVP 2026 accepts rye; the installed species card omits the authority but taxonomy-only worker does not edit it."
+    },
+    {
+      "status": "PASS",
+      "subject": "Triticum cereale (L.) Salisb. (1796)",
+      "proposed_decision": "Record homotypic historical combination under Secale cereale L.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1"
+      ],
+      "detail": "Do not create Triticum learner duplicate."
+    },
+    {
+      "status": "PASS",
+      "subject": "Triticum secale Link (1833)",
+      "proposed_decision": "Record illegitimate superfluous historical name under Secale cereale L.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1"
+      ],
+      "detail": "Not a separately accepted wheat or rye species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale var. vulgare Ser. (1841)",
+      "proposed_decision": "Record as not validly published; not an accepted variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1"
+      ],
+      "detail": "Retain nomenclatural status."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale var. hybernum Aiton (1789)",
+      "proposed_decision": "Map historical variety to accepted Secale cereale L.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77291823-1"
+      ],
+      "detail": "No separately accepted subspecies inferred."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale subsp. ancestrale Zhuk. (1928)",
+      "proposed_decision": "Map historical subspecies to Secale cereale L.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1"
+      ],
+      "detail": "POWO lists this under the accepted species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale var. ancestrale (Zhuk.) Kit Tan (1985)",
+      "proposed_decision": "Map historical variety to Secale cereale L.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:924539-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1"
+      ],
+      "detail": "Distinct from segetale and vavilovii mappings."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale segetale (Zhuk.) Roshev. (1945)",
+      "proposed_decision": "Preserve as a separately accepted species, not a rye subspecies.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1"
+      ],
+      "detail": "No installation or new learner card."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale subsp. segetale Zhuk. (1928)",
+      "proposed_decision": "Map historical subspecies to accepted Secale segetale.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77083560-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1"
+      ],
+      "detail": "Cross-species accepted destination."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale subsp. dighoricum Vavilov (1940)",
+      "proposed_decision": "Map historical subspecies to accepted Secale segetale.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:441746-4",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1"
+      ],
+      "detail": "Cross-species accepted destination."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale subsp. afghanicum (Vavilov) K.Hammer (1987)",
+      "proposed_decision": "Map historical subspecies to accepted Secale segetale.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:954105-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1"
+      ],
+      "detail": "Do not treat as rye."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale vavilovii Grossh. (1924)",
+      "proposed_decision": "Preserve as separately accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/421197-1"
+      ],
+      "detail": "Not an accepted subspecies of S. cereale."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale subsp. vavilovii (Grossh.) Kobyl. (1975)",
+      "proposed_decision": "Map historical subspecies to accepted Secale vavilovii.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/77260246-1",
+        "https://powo.science.kew.org/taxon/421197-1"
+      ],
+      "detail": "Cross-species accepted destination."
+    },
+    {
+      "status": "PASS",
+      "subject": "Secale cereale var. vavilovii (Grossh.) Mayss. (1925)",
+      "proposed_decision": "Map historical variety to accepted Secale vavilovii.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:441758-4",
+        "https://powo.science.kew.org/taxon/421197-1"
+      ],
+      "detail": "Cross-species accepted destination."
+    },
+    {
+      "status": "PASS",
+      "subject": "× Triticosecale rimpaui (M.Graebn.) Wittm. ex A.W.Hill (1933)",
+      "proposed_decision": "Record separately accepted artificial hybrid, formula Secale cereale × Triticum aestivum subsp. aestivum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77134201-1"
+      ],
+      "detail": "Taxonomy-only parentage; not proof for any individual photo."
+    },
+    {
+      "status": "PASS",
+      "subject": "× Triticale rimpaui (M.Graebn.) Lindschau & E.Oehler (1935)",
+      "proposed_decision": "Map historical homotypic name to × Triticosecale rimpaui.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77134201-1"
+      ],
+      "detail": "Do not create a rye species alias from the hybrid."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Bulk-map all historical Secale cereale subspecies to Secale cereale",
+      "proposed_decision": "Reject; segetale, dighoricum, afghanicum and vavilovii combinations map to distinct accepted Secale species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1",
+        "https://powo.science.kew.org/taxon/421197-1"
+      ],
+      "detail": "Preserve original rank and authorship."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Collapse Secale cereale, Secale segetale and Secale vavilovii into one learner species",
+      "proposed_decision": "Reject; three separately accepted species under POWO/WCVP.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1",
+        "https://powo.science.kew.org/taxon/421197-1"
+      ],
+      "detail": "No new card and no changes to existing canonical."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Treat × Triticosecale rimpaui as ordinary rye or infer it from a rye field photograph",
+      "proposed_decision": "Reject; named intergeneric artificial hybrid requires parentage evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77134201-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1"
+      ],
+      "detail": "No hybrid identification based on shared cereal appearance."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Existing Secale cereale photographs and specimen-level identifications",
+      "proposed_decision": "Preserve source-label identity only; no voucher-level rye/wild-rye/hybrid reassignment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1",
+        "https://powo.science.kew.org/taxon/421197-1"
+      ],
+      "detail": "Taxonomy-only check cannot authenticate individual photographed plants."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Individual cultivar, wild ancestry or wheat × rye hybrid provenance",
+      "proposed_decision": "Do not assign specific parentage or cultivated pedigree without accession, voucher or genetic evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77134201-1"
+      ],
+      "detail": "Accepted named hybrid formula does not validate a field specimen."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Historical Secale cereale infraspecific records lacking author/rank/voucher",
+      "proposed_decision": "Leave unresolved pending exact original combination and specimen context.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421164-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:421190-1",
+        "https://powo.science.kew.org/taxon/421197-1"
+      ],
+      "detail": "Shared historical parent binomial alone cannot establish accepted species destination."
+    }
+  ],
+  "safety": {
+    "claim_checked": true,
+    "claim_created_and_readback_verified": true,
+    "canonical_sha_refreshed": true,
+    "no_canonical_write": true,
+    "no_photo_or_pages_write": true,
+    "prior_secale_taxonomy_commit_not_found": true
+  }
+}
