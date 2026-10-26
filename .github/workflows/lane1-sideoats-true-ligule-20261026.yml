@@ -24,7 +24,7 @@ jobs:
         run: |
           python scripts/commons_photo_review_import.py \
             --file-title 'File:Bouteloua curtipendula (3796749425).jpg' \
-            --taxon 'Bouteloua curtipendula' --output review_photo --max-edge 2400
+            --taxon 'Bouteloua curtipendula' --output review_photo --max-edge 1600 --source-thumbnail-width 1600
       - name: Archive one permitted JPEG and add true sideoats ligule gallery panel
         env:
           GITHUB_TOKEN: ${{ github.token }}
