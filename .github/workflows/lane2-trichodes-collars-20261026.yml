@@ -1,0 +1,34 @@
+name: Lane 2 archive sand lovegrass real sheaths and blade-base photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_trichodes_collar_sheath_20261026.py
+      - .github/workflows/lane2-trichodes-collars-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-trichodes-collar-sheath
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - run: python scripts/lane2_trichodes_collar_sheath_20261026.py
+      - name: Commit only exact species JPEGs, verified rights and honest anatomy photos
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-trichodes/ reports/lane2-trichodes-sheath-outer-collar-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 install sand lovegrass photographed sheath and blade bases with four grounded arrows"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
