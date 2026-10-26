@@ -1,0 +1,71 @@
+name: Lane 3 Buckley Tridentopsis Basal and Collar Photo Finish
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-buckley-basal-collar-install-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-buckley-basal-collar-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Refresh and install four reviewed originals, no anatomy inflation
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/lane3_buckley_basal_collar_install_20261026.py
+      - name: Check JPEGs, source rights and true photo indices
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          from PIL import Image
+          b=pathlib.Path('content/taxa/Poaceae/Tridentopsis/tridentopsis-buckleyana')
+          s=json.loads((b/'species.json').read_text())
+          r=json.loads(pathlib.Path('reports/lane3-buckley-basal-collar-install-20261026.json').read_text())
+          assert s['id']=='tridentopsis-buckleyana'
+          assert r['status']=='FOUR_SOURCE_JPEGS_INSTALLED_6_GROSS_ARROWS_WITH_ANATOMY_HOLDS'
+          assert len(s['images'])==12 and len(s['visual_comparison']['items'])==15
+          assert len(r['photo_ids'])==4 and r['new_arrows']==6
+          assert [x['scientific_name'] for x in s['visual_comparison']['items'][12:]]==['Tridentopsis mutica']*3
+          for pid in r['photo_ids']:
+              arr=[x for x in s['visual_comparison']['items'] if x.get('source_photo_id')==pid]
+              assert len(arr)==1 and arr[0]['license']=='CC BY-NC'
+              assert arr[0]['creator'] and arr[0]['source_page'].endswith('/'+str(pid))
+              file=pathlib.Path(arr[0]['image_url'])
+              assert file.is_file() and len(arr[0]['markers'])>=1
+              src=next(x for x in s['images'] if x.get('source_photo_id')==pid)
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==src['sha256']
+              with Image.open(file) as im:
+                  assert im.format=='JPEG' and min(im.size)>=1000 and not im.getexif().get(34853)
+                  im.verify()
+              assert all('measured' not in m['label'].lower() or 'not' in m['label'].lower() for m in arr[0]['markers'])
+          assert s['learner_visual_status']['status']=='FIELD_READY_PHOTO_GAPS'
+          print('PASS: 4 exact-source NC-licensed visible anatomy panels, 6 honest arrow targets, 3 different species lookalikes, measured ligule/root hold')
+          PY
+      - name: Commit one species with safeguards
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Tridentopsis/tridentopsis-buckleyana/ reports/lane3-buckley-basal-collar-install-20261026.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Lane 3 archive four licensed Buckley tridens basal collar photos and verified arrows"
+          for i in 1 2 3 4 5 6 7; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
