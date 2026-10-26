@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Lane 4: conservative iNaturalist CC photo harvest for Dichanthelium lindheimeri."""
+"""Lane 4: strict exact-taxon CC BY field photos for Dichanthelium lindheimeri; avoid prior pedicellatum imports."""
 import json,pathlib,urllib.parse,urllib.request,urllib.error,time,io,hashlib
 from PIL import Image
 p=pathlib.Path("content/taxa/Poaceae/Dichanthelium/dichanthelium-lindheimeri/species.json")
 card=json.loads(p.read_text());assert card["id"]=="dichanthelium-lindheimeri"
-report={"added":[],"held":[],"removed_misattributed_files":[],"scope":"STRICT D. lindheimeri taxon source; no anatomy claims or arrows"}
+report={"added":[],"held":[],"removed_misattributed_files":[],"scope":"STRICT D. lindheimeri exact observation taxon and individual CC BY image license; no unreviewed diagnostic arrows"}
 # Clean photos accidentally downloaded by an older script whose API query was D. pedicellatum.
 for mistaken_id in ("632023937","632024018"):
  mistaken_file=p.parent/"images"/("inat-cc-"+mistaken_id+".jpg")
@@ -24,15 +24,18 @@ try:
  matching=[x for x in taxa if x.get("name","").lower()=="dichanthelium lindheimeri" and x.get("rank")=="species"]
  assert matching,"Exact scientific taxon unavailable"
  tid=matching[0]["id"]
- query=urllib.parse.urlencode({"taxon_id":tid,"quality_grade":"research","photos":"true","photo_license":"cc0,cc-by,cc-by-sa","per_page":100,"order":"desc","order_by":"votes"})
- obs=json.loads(get("https://api.inaturalist.org/v1/observations?"+query))["results"]
+ print("EXACT D LIN TAXON",tid, flush=True)
+ query=urllib.parse.urlencode({"taxon_id":tid,"quality_grade":"research","photos":"true","photo_license":"cc-by","per_page":100,"order":"desc","order_by":"votes"})
+ resp=json.loads(get("https://api.inaturalist.org/v1/observations?"+query))
+ obs=resp["results"]
+ print("OBSERVATIONS",len(obs),"TOTAL",resp.get("total_results"),flush=True)
  for row in obs:
   if len(report["added"])>=2:break
   if row.get("taxon",{}).get("id")!=tid or row.get("taxon",{}).get("name","").lower()!="dichanthelium lindheimeri":continue
   for item in row.get("photos",[]):
    if len(report["added"])>=2:break
    lic=item.get("license_code","").lower()
-   if lic not in ("cc0","cc-by","cc-by-sa"):continue
+   if lic!="cc-by":continue
    orig=item.get("url","").replace("/square.","/large.")
    if not orig.startswith("https://"):continue
    pid=item.get("id");page="https://www.inaturalist.org/photos/"+str(pid)
@@ -40,7 +43,7 @@ try:
    try:
     data=get(orig);assert 10000<len(data)<14000000
     im=Image.open(io.BytesIO(data));im.verify();im=Image.open(io.BytesIO(data)).convert("RGB")
-    assert min(im.size)>=600
+    assert min(im.size)>=500
     name="inat-cc-"+str(pid)+".jpg";out=p.parent/"images"/name;out.parent.mkdir(exist_ok=True,parents=True)
     im.save(out,"JPEG",quality=90,optimize=True)
     creator=item.get("attribution") or row.get("user",{}).get("login")
@@ -49,11 +52,11 @@ try:
     card.setdefault("visual_comparison",{}).setdefault("items",[]).append({"label":"Additional D. lindheimeri field photograph — provisional","scientific_name":"Dichanthelium lindheimeri","image_url":str(out).replace("\\","/"),"image_fit":"contain","image_role":"Species-specific source-labelled reference; photograph's actual organ-level diagnostic content requires review","caption":"Research-grade observation source, open photo license. Compare to original species photo. Do not infer the tiny ligule, size of spikelet or identification solely from an unscaled view.","creator":creator,"license":lic.upper(),"source_page":page,"markers":[],"photo_status":"PROVISIONAL — USER PHOTO REVIEW PENDING"})
     report["added"].append({"file":str(out),"source":page,"license":lic})
    except Exception as e:report["held"].append({"photo":page,"reason":str(e)})
-except Exception as e:report["held"].append({"search":"Dichanthelium lindheimeri","reason":str(e)})
+except Exception as e:report["held"].append({"search":"Dichanthelium lindheimeri","reason":repr(e)})
 if report["added"]:
  card.setdefault("learner_visual_status",{})["image_count"]=len(card["images"])
  card.setdefault("curation_status",{})["photo_metadata_count"]=len(card["images"])
  p.write_text(json.dumps(card,indent=2,ensure_ascii=False)+"\n")
 r=pathlib.Path("reports/lane4-dichanthelium-lindheimeri-cc-photo-attempt.json")
 r.parent.mkdir(exist_ok=True);r.write_text(json.dumps(report,indent=2)+"\n")
-print(json.dumps(report))
+print(json.dumps(report),flush=True)
