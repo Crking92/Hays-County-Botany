@@ -14,12 +14,12 @@ by_id={int(p["photo_id"]):p for p in manifest["sources"]}
 assert all(n in by_id and by_id[n]["license_code"]=="cc0" and by_id[n]["taxon"]=="Muhlenbergia utilis" for n in ids)
 root=pathlib.Path("reports")
 report={"taxon":"Muhlenbergia utilis","status":"PREVIEW_ONLY_NOT_INSTALLED","image_rights":"Each exact iNat source has photo-specific CC0 code per live source scout","review_photo_ids":ids,"downloaded":[],"holds":[],"source_scout":"reports/lane3-utilis-inat-open-license-scout-20261026.json"}
-w,h=508,430
+w,h=340,310
 cols=4;rows=math.ceil(len(ids)/cols)
 sheet=Image.new("RGB",(cols*w,rows*h),(247,247,247))
 draw=ImageDraw.Draw(sheet)
 try:
- font=ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",16)
+ font=ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",11)
 except:font=ImageFont.load_default()
 def fetch(url):
  req=urllib.request.Request(url,headers={"User-Agent":"HaysCountyBotanyPublicPhotoReview/1.0 (github.com/Crking92/Hays-County-Botany)","Accept":"image/jpeg,image/*"})
@@ -52,7 +52,7 @@ for k,id in enumerate(ids):
   report["holds"].append({"photo_id":id,"error":str(exc)[:190]})
 out=root/"lane3-utilis-cc0-contact-sheet-20261026.jpg"
 buf=io.BytesIO()
-sheet.save(buf,"JPEG",quality=86,optimize=True)
+sheet.save(buf,"JPEG",quality=72,optimize=True)
 out.write_bytes(buf.getvalue())
 report["contact_sheet"]=str(out)
 report["sheet_sha256"]=hashlib.sha256(buf.getvalue()).hexdigest()
