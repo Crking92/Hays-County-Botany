@@ -1,0 +1,65 @@
+name: Lane 2 high resolution lovegrass collar pixel proof
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-lovegrass-collar-highres-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  crop-preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install Pillow
+      - name: Inspect selected individually licensed original same-species photo pixels, without altering GitHub galleries
+        run: |
+          python - <<'PY'
+          import json,base64,io
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 individually CC licensed source inspection'}
+          # (photo_id, expected observation ID, species) exact selected source-image records.
+          chosen=[
+           (711218981,388336600,'Eragrostis spectabilis'),
+           (717156394,391390507,'Eragrostis spectabilis'),
+           (669535838,366663715,'Eragrostis spectabilis'),
+           (709995881,387714567,'Eragrostis spectabilis'),
+           (480904209,267593301,'Eragrostis trichodes'),
+           (480904239,267593301,'Eragrostis trichodes'),
+           (433708968,243164389,'Eragrostis trichodes'),
+           (433708997,243164389,'Eragrostis trichodes')
+          ]
+          cache={}
+          canv=Image.new('RGB',(1800,4*660),'white')
+          draw=ImageDraw.Draw(canv)
+          for i,(id,obs_id,name) in enumerate(chosen):
+            try:
+              if obs_id not in cache:
+                with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{obs_id}',headers=UA),timeout=35) as p:cache[obs_id]=json.load(p)['results'][0]
+              obs=cache[obs_id]
+              assert obs['quality_grade']=='research' and obs['taxon']['name']==name
+              photo=next(p for p in obs['photos'] if p['id']==id)
+              assert photo['license_code'] in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'},(id,photo['license_code'])
+              # Original source image rights metadata checked before requesting direct iNaturalist open-data bytes.
+              url=f'https://inaturalist-open-data.s3.amazonaws.com/photos/{id}/original.jpg'
+              with urlopen(Request(url,headers=UA),timeout=35) as p:raw=p.read(11_000_001)
+              assert len(raw)<11_000_001
+              with Image.open(io.BytesIO(raw)) as o:
+                im=ImageOps.exif_transpose(o).convert('RGB')
+                dims=im.size
+              im.thumbnail((880,625))
+              x=(i%2)*900;y=(i//2)*660
+              canv.paste(im,(x+(900-im.width)//2,y+(625-im.height)//2))
+              draw.text((x+14,y+630),f'{name} photo {id} ({photo["license_code"]})',fill='black')
+              print('SOURCE_VERIFIED',json.dumps({'photo':id,'observation':obs_id,'species':name,'license':photo['license_code'],'author':photo['attribution'],'dims':dims,'source_url':'https://www.inaturalist.org/photos/'+str(id)},ensure_ascii=False))
+            except Exception as e: print('SOURCE_HOLD',id,str(e)[:280])
+          b=io.BytesIO()
+          canv.save(b,'JPEG',quality=78,optimize=True)
+          t=base64.b64encode(b.getvalue()).decode('ascii')
+          for k,i in enumerate(range(0,len(t),3000)):
+            print('PROOFPART_'+str(k)+'='+t[i:i+3000])
+          print('PROOF_TOTAL',len(b.getvalue()))
+          PY
