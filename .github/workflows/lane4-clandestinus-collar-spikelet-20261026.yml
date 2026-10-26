@@ -1,0 +1,39 @@
+name: Lane 4 publish licensed rough dropseed collar and spikelet macros
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_clandestinus_collar_spikelet_20261026.py
+      - .github/workflows/lane4-clandestinus-collar-spikelet-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-clandestinus-macro
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - run: python scripts/lane4_clandestinus_collar_spikelet_20261026.py
+      - name: Commit real source photos without overwriting concurrent edits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5 6; do
+            git add content/taxa/Poaceae/Sporobolus/sporobolus-clandestinus/ reports/lane4-clandestinus-macro-20261026.json
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Lane 4 archive CC0 rough dropseed collar hair and detached unit macros"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt*2))
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/lane4_clandestinus_collar_spikelet_20261026.py
+          done
+          exit 1
