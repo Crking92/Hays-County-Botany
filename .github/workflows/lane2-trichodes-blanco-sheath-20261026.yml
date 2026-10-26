@@ -1,0 +1,35 @@
+name: Lane 2 archive nearby Blanco sand lovegrass external sheath photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_trichodes_blanco_sheath_20261026.py
+      - .github/workflows/lane2-trichodes-blanco-sheath-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-trichodes-blanco-sheath-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Verify individual photo CC BY and archive exact local botanical blade-sheath source
+        run: python scripts/lane2_trichodes_blanco_sheath_20261026.py
+      - name: Commit actual JPEG and external V-junction annotated card
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-trichodes/ reports/lane2-trichodes-blanco-sheath-photo-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive Blanco County sand lovegrass external blade sheath with proper ligule hold"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
