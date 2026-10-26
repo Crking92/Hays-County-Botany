@@ -100,7 +100,8 @@
       "source_photos_reused": 2,
       "panels_added": 2,
       "status": "FIELD_READY_PHOTO_GAPS"
-    }
+    },
+    "diagnostic_photo_audit_20261025": "Existing Stan Shebs 112547-byte JPEG visually verified, 2 gross-structure arrows, featured photo order expanded; no new photo files, no glume/ligule proof, Curtis Clark JPEG verification pending."
   },
   "photo_note": "Photo fast-fill 017 physicalizes the three previously vetted exact-species image selections for the learner. Scientific taxonomy/range/morphology fields are unchanged.",
   "images": [
@@ -321,13 +322,28 @@
         "image_url": "content/taxa/Poaceae/Aristida/aristida-purpurea/images/03-three-awn-close.jpg",
         "image_fit": "contain",
         "image_role": "Look closer · reddish-purple narrow flowering structures and threadlike awns; not a calibrated glume comparison",
-        "caption": "Original source-labelled photograph shows reddish-purple narrow mature flowering parts and hairlike awns; it does not isolate or calibrate the true lower/upper glume ratio, and purple color is not species-diagnostic.",
+        "caption": "Stan Shebs's source-identified Nevada photograph shows reddish narrow flowering units and long threadlike awns. Two conservative overlay arrows mark only visible broad reproductive structures; they do not identify a glume, lemma, precise awn origin or measured spikelet. Purple color alone does not distinguish this species.",
         "why_it_matters": "A second existing physical old threeawn view without requiring a redundant external photograph.",
         "creator": "Stan Shebs",
         "license": "CC BY-SA 3.0 / GFDL",
         "source_page": "https://commons.wikimedia.org/wiki/File:Aristida_purpurea_close.jpg",
-        "markers": [],
-        "photo_status": "ALREADY physically archived exact-taxon/source-labelled, image file metadata and attribution retained in species images[]. Only broad description of existing intake role; no newly placed anatomical arrows, species determination provisional at microscopic level."
+        "markers": [
+          {
+            "label": "Reddish narrow flowering unit (not dissected)",
+            "label_x": 2,
+            "label_y": 48,
+            "target_x": 29,
+            "target_y": 42
+          },
+          {
+            "label": "Threadlike awns (not individually measured)",
+            "label_x": 66,
+            "label_y": 8,
+            "target_x": 44,
+            "target_y": 16
+          }
+        ],
+        "photo_status": "2026-10-25: existing archived JPEG independently decoded (112547 bytes, 900×1235, Git blob d14f311e0fd2d2eef0d0bea8d634aaa5bc9c5d68), JPEG SOI/EOI passed, APP1/EXIF 0, APP13 0; actual pixels visually inspected. Commons exact-source photo: Stan Shebs, May 2005, Las Vegas Nevada, CC BY-SA 3.0 Unported (also GFDL/CC BY-SA 2.5 alternative). Two new browser-overlay gross-structure arrows; original JPEG unchanged; credit, source and ShareAlike/adaptation notice preserved. No Texas voucher or individual glume/lemma proof."
       },
       {
         "label": "PURPLE THREEAWN — fruits and spreading awns (Curtis Clark)",
@@ -351,17 +367,19 @@
     "heading": "Purple threeawn — start at basal crown then lower glume",
     "featured_photo_indices": [
       0,
-      3
+      1,
+      2
     ],
     "steps": [
       "Two visually checked arrows identify one spreading awn and the visible awn-fork junction on a source-identified purple-threeawn photograph. The three-awn genus character still requires confirming three branches attached to ONE lemma on a separate inspected mature spikelet.",
+      "Compare Stan Shebs's verified reddish close-up: arrows show a narrow reproductive unit and threadlike awns, not the precise three-awn origin, lower/upper glumes, or measurable anatomy. Color alone is not a species ID.",
       "Photograph rooted PERENNIAL tuft with many fine inrolled BASAL leaves; don't infer perennial crown from one isolated flowering stem.",
       "Dissect ONE ripe spikelet on a millimeter ruler, preserving both glumes; lower usually about HALF upper in Kew broad description.",
       "Backlight LOWER glume to confirm ONE main vein; compare oldfield's 3–7 and larger near-equal glumes.",
       "At a true LEAF COLLAR look for conspicuous long hairs in local purple threeawn, but do not use that alone to confirm species."
     ],
     "field_rule": "Use lower/upper glume RATIO, lower vein count, and rooted perennial crown; do not identify by purplish fall awns alone.",
-    "warning": "Variety-aware key: Kew glume dimensions are typical, not fixed. Var. longiseta upper glumes 14–25 mm overlap absolute oldfield sizes; compare LOWER/UPPER ratio and lower glume veins with rooted crown. Need true matched local macro."
+    "warning": "Variety-aware key: Kew glume dimensions are typical, not fixed. Var. longiseta upper glumes 14–25 mm overlap absolute oldfield sizes; compare LOWER/UPPER ratio and lower glume veins with rooted crown. Need true matched local macro. 2026-10-25: a previously archived Stan Shebs 900×1235 CC BY-SA 3.0 reproductive close-up was byte/pixel verified and added to featured photos with two conservative broad-structure arrows; the separate Curtis Clark JPEG could not be decoded through the repository read and remains annotation_pending."
   },
   "photo_targets_crew": [
     "Verified rooted Hays-area perennial basal bunch and attached complete flowering head",
