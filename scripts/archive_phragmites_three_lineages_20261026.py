@@ -181,6 +181,37 @@ for num in ["20915185149","21075794926"]:
     "site_rule":"photographer describes native americanus in text; DO NOT infer introduced Eurasian based on misleading filename; no genotype confirmation"}))
  except Exception as e: results.append({"status":"HELD","source_page":page,"target":str(ROOT/f"lineage-native-matt-lavin-{num}.jpg"),
                                    "reason":type(e).__name__+": "+str(e)[:350]})
+# Diagnostic reproductive macro discovery — harvest individual caption/rights metadata,
+# not whole plant duplicates. These are source species-only, never proof of a Texas lineage.
+reproductive_nums=["13","14","15","16","17","18","19","20","21","22","23"]
+reproductive_page="https://commons.wikimedia.org/wiki/Category:Phragmites_australis_(flowers)"
+try:
+ titles="|".join(f"File:Phragmites australis sl{n}.jpg" for n in reproductive_nums)
+ api="https://commons.wikimedia.org/w/api.php?"+urllib.parse.urlencode(
+ {"action":"query","prop":"imageinfo","iiprop":"url|extmetadata|size","titles":titles,"format":"json"})
+ pages=json.loads(fetch(api))["query"]["pages"].values()
+ rows=[]
+ for pg in pages:
+  if "imageinfo" not in pg:continue
+  info=pg["imageinfo"][0];md=info.get("extmetadata",{})
+  desc=html.unescape(re.sub(r"<[^>]+>"," ",md.get("ImageDescription",{}).get("value",""))).strip()
+  lic=md.get("LicenseShortName",{}).get("value","")
+  creator=html.unescape(re.sub(r"<[^>]+>","",md.get("Artist",{}).get("value",""))).strip()
+  title=pg.get("title","")
+  organ=any(term in desc.lower() for term in ("spikelet","spikelets","glume","lemma","floret","ährchen","hüllspelze","deckspelze","blütchen","blüten"))
+  valid=(creator=="Stefan.lefnaer" and lic=="CC BY-SA 4.0" and "Phragmites" in desc)
+  rows.append({"title":title,"creator":creator,"license":lic,"source_description":desc[:800],
+    "organ_word_present":organ,"individual_rights_verified":valid,
+    "source_dimensions":[info.get("width"),info.get("height")],
+    "file_size":info.get("size"),"source_url":info.get("url"),
+    "page":"https://commons.wikimedia.org/wiki/"+urllib.parse.quote(title.replace(" ","_"))})
+ results.append({"status":"SOURCE_REPRODUCTIVE_METADATA_AUDIT_ONLY",
+    "category":reproductive_page,"rows":rows,
+    "note":"An anatomy word in caption does not prove usable glume or rachilla pixels. No image is installed by this metadata scan. Download only after shortlisting source-licensed, exact-organ candidates."})
+except Exception as e:
+ results.append({"status":"SOURCE_REPRODUCTIVE_METADATA_AUDIT_HELD",
+                 "category":reproductive_page,"reason":type(e).__name__+": "+str(e)[:350]})
+
 # Preserve earlier good image-level rights evidence even if Wikimedia or iNaturalist
 # temporarily returns HTTP 429/5xx on later visits. Never treat a retry failure
 # as revocation of an already SHA-verified licensed and attributed local file.
