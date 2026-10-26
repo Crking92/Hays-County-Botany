@@ -17,10 +17,11 @@
     "visual_finish": "FIELD_READY_PHOTO_GAPS",
     "manual_phragmites_lineage_20261021": "FIELD_READY_PHOTO_GAPS",
     "genus_photo_panels": 10,
-    "visible_gross_structure_arrows": 9,
+    "visible_gross_structure_arrows": 16,
     "new_locally_archived_JPGs": 4,
     "native_range_untouched": true,
-    "original_image_license_untouched": true
+    "original_image_license_untouched": true,
+    "manual_phragmites_photo_arrows_20261026": "7 new visibly verified gross-structure arrows; existing 9 preserved; annotated reproductive micro labels preserved"
   },
   "photo_note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it.",
   "identification_caution": "Phragmites australis species-level name covers native and introduced lineages; do not label this specific photo or all Phragmites as invasive or native without provenance/genotype assessment.",
@@ -111,7 +112,7 @@
     "mode": "manual_photo_led_finalization",
     "image_count": 8,
     "filled_at": "2026-10-18",
-    "note": "Existing original JPG retained; added 3 real separately licensed external seasonal/lineage-reference panels. Native Hays lineage evidence, measured macro characters and gene confirmation remain missing."
+    "note": "2026-10-26: eight original separately credited species/reed-comparison images physically archived, ten teaching panels, sixteen gross-structure arrows (7 added by pixel inspection today), several original Harry Rose reproductive images already have printed organ labels. Rhizome now visibly teaches stem versus true roots. Still FIELD_READY_PHOTO_GAPS for matched rachilla hair-origin close-ups, lineage-resolved Texas specimen and Pages/mobile QA. Species-level identification is NOT lineage certification."
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -226,15 +227,37 @@
         "scientific_name": "Phragmites australis",
         "image_url": "content/taxa/Poaceae/Phragmites/phragmites-australis/images/harry-rose-ligule-8253945012.jpg",
         "image_fit": "contain",
-        "image_role": "Existing physically archived exact-taxon anatomical image from Commons; source photos alone cannot establish native versus introduced subspecies/lineage.",
-        "caption": "A real source-labelled anatomical photograph of common reed. Inspect the indicated structure, but do not use this photograph as evidence of the North American native or introduced genetic lineage.",
+        "image_role": "Verified genuine Phragmites blade–sheath junction: whitish fringed ligule, green blade, sheath. Harry Rose photograph cropped on Commons; no measured Texas lineage evidence.",
+        "caption": "Harry Rose's real blade–sheath junction of Phragmites australis: green blade extends right, pale ridged sheath extends downward, and a conspicuous whitish hair-fringed ligule is exposed between them. The source describes a short membranous rim with ~1-mm hairs and surrounding hairs to ~10 mm. Arrow targets were visually checked against the actual archived 847×1205 JPEG. This is species-level anatomy, NOT a native/introduced/Gulf Coast lineage determination.",
         "why_it_matters": "Adds locally hosted reproductive and collar anatomy to the species lesson instead of relying only on distant habitat images.",
         "creator": "Harry Rose (Macleay Grass Man)",
         "license": "CC BY 2.0",
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Phragmites_australis_ligule1_(8253945012).jpg",
-        "markers": [],
-        "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING; physical GitHub JPEG present, individual arrow target QA pending."
+        "markers": [
+          {
+            "label": "White ciliate ligule fringe",
+            "label_x": 6,
+            "label_y": 23,
+            "target_x": 46,
+            "target_y": 43
+          },
+          {
+            "label": "Leaf blade",
+            "label_x": 73,
+            "label_y": 25,
+            "target_x": 81,
+            "target_y": 52
+          },
+          {
+            "label": "Leaf sheath below collar",
+            "label_x": 66,
+            "label_y": 91,
+            "target_x": 40,
+            "target_y": 78
+          }
+        ],
+        "photo_status": "PIXEL-CHECKED 2026-10-26 — 3 original visible-organ arrows added; source CC BY 2.0, original JPEG unchanged. PROVISIONAL USER REVIEW."
       },
       {
         "label": "LOCALLY ARCHIVED — photographed and annotated reed spikelet",
@@ -242,14 +265,14 @@
         "image_url": "content/taxa/Poaceae/Phragmites/phragmites-australis/images/harry-rose-spikelet-6966477736.jpg",
         "image_fit": "contain",
         "image_role": "Existing physically archived exact-taxon anatomical image from Commons; source photos alone cannot establish native versus introduced subspecies/lineage.",
-        "caption": "A real source-labelled anatomical photograph of common reed. Inspect the indicated structure, but do not use this photograph as evidence of the North American native or introduced genetic lineage.",
+        "caption": "Real Phragmites australis opened spikelet already annotated by photographer Harry Rose: lower/upper glumes, multiple florets, long pointed lemmas, paleas, anthers and stigmas are indicated directly on the pixels. Retain those original labels; no second set of arrows is needed. This cannot establish whether a Texas population is native or introduced.",
         "why_it_matters": "Adds locally hosted reproductive and collar anatomy to the species lesson instead of relying only on distant habitat images.",
         "creator": "Harry Rose (Macleay Grass Man)",
         "license": "CC BY 2.0",
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Phragmites_australis_spikelet1_annotated_(6966477736).jpg",
         "markers": [],
-        "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING; physical GitHub JPEG present, individual arrow target QA pending."
+        "photo_status": "PIXEL-INSPECTED 2026-10-26 — Harry Rose's existing embedded glume, lemma, palea, anther and stigma annotations retained; zero redundant browser overlays. Fine rachilla-hair attachment remains unproven by this image."
       },
       {
         "label": "Native American reed — reddish exposed stem and loose sheath",
@@ -361,7 +384,7 @@
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File%3APhragmites_australis_floret1_annotated_%287112553425%29.jpg",
         "markers": [],
-        "photo_status": "ARCHIVED; ANATOMICAL OVERLAY QA PENDING"
+        "photo_status": "PIXEL-INSPECTED 2026-10-26 — embedded original labels match visible floret organs: lemma, palea, ovary, feathery stigma, filaments and anthers. No redundant browser arrows; original taxon preserved."
       },
       {
         "label": "Annotated common reed spikelet, second view — Harry Rose",
@@ -376,22 +399,51 @@
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File%3APhragmites_australis_spikelet2_annotated_%286966469564%29.jpg",
         "markers": [],
-        "photo_status": "ARCHIVED; ANATOMICAL OVERLAY QA PENDING"
+        "photo_status": "PIXEL-INSPECTED 2026-10-26 — source labels lower glume, upper glume, lemma, palea, anthers, stigmas and visible silky hairs. Hair strands are real but exact anatomical point of attachment is not independently resolved: microscopic rachilla-hair-origin arrow held."
       },
       {
         "label": "Excavated horizontal rhizome — common reed",
         "scientific_name": "Phragmites australis",
         "image_url": "content/taxa/Poaceae/Phragmites/phragmites-australis/images/kenraiz-rhizome-kz.jpg",
         "image_fit": "contain",
-        "image_role": "Physically archived source-identified rhizome; not a connected crown or lineage proof",
-        "caption": "Photograph of a detached Phragmites australis rhizome from Poland. A rhizome is an underground stem, not an ordinary root. Look for its elongated stem-like axis; this photo does not document a connected root crown or prove a North American lineage.",
+        "image_role": "Exact-source 1588×929 rhizome photo pixel reviewed: real node, slender roots, horizontal stem internodes, green shoot. Not Texas; lineage unresolved.",
+        "caption": "Kenraiz's photographed Phragmites australis rhizome from Poland: the horizontal creeping underground STEM has clear nodes, thin true roots, branches, and a connected green shoot. Do not describe the whole structure as a root or use this European specimen as proof of native or introduced ancestry in Texas.",
         "why_it_matters": "Recognize the creeping underground stem responsible for clonal spread; inspect nodes and buds in the field rather than mistaking the structure for a root.",
         "creator": "Kenraiz",
         "license": "CC BY-SA 4.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File%3APhragmites_australis_rhizome_kz.jpg",
-        "markers": [],
-        "photo_status": "ARCHIVED; precise node and bud arrows await pixel QA"
+        "markers": [
+          {
+            "label": "Rhizome node and branching point",
+            "label_x": 4,
+            "label_y": 48,
+            "target_x": 26,
+            "target_y": 75
+          },
+          {
+            "label": "Fine roots emerging at node",
+            "label_x": 5,
+            "label_y": 94,
+            "target_x": 25,
+            "target_y": 84
+          },
+          {
+            "label": "Horizontal rhizome (underground stem)",
+            "label_x": 50,
+            "label_y": 91,
+            "target_x": 49,
+            "target_y": 74
+          },
+          {
+            "label": "Green shoot emerging above rhizome",
+            "label_x": 72,
+            "label_y": 23,
+            "target_x": 85,
+            "target_y": 54
+          }
+        ],
+        "photo_status": "PIXEL-CHECKED 2026-10-26 — 4 field-ready gross-structure arrows on real rhizome / node / roots / shoot; CC BY-SA 4.0; photo unchanged. PROVISIONAL USER REVIEW."
       },
       {
         "label": "Excavated rhizomes after tarp removal — common reed",
@@ -406,22 +458,22 @@
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File%3APhragmites_australis_SCA-00129.jpg",
         "markers": [],
-        "photo_status": "ARCHIVED; precise node and bud arrows await pixel QA"
+        "photo_status": "ARCHIVED — visual pixel read unavailable in this manual pass; no unverified node/bud arrows. Provisional user review retained."
       }
     ],
-    "overlay_note": "Rhizome photos added with source credits, without unverified node/bud arrows. Exact native-versus-introduced lineage remains unconfirmed."
+    "overlay_note": "2026-10-26 direct GitHub JPEG pixel inspection: 3 verified broad anatomy arrows added to Harry Rose's true Phragmites ligule panel; 4 to Kenraiz's rhizome showing a real node, roots, horizontal stem and green shoot. Photographer-annotated spikelet and floret panels deliberately retain their native printed labels rather than doubling them. Other original 9 arrows preserved; no unverified rachilla-hair-origin or rhizome bud overlays. Attribution/ShareAlike and native-versus-introduced lineage holds preserved."
   },
   "field_id_finish_pass": {
     "stage": "FIELD_READY_PHOTO_GAPS",
     "crew_summary": "COMMON REED (Phragmites): a tall rhizomatous wetland GRASS with jointed stems, long blades, and enormous silky branched plumes. But DO NOT equate species name with invasive: North American native subsp. americanus, Eurasian introduced lineage (often subsp. australis), and Gulf Coast subsp. berlandieri/cryptogenic lineage all occur in the broader Texas region. Inspect real SHEATH, STEM, LIGULE and ripe GLUMES before assigning lineage; Texas state-level native presence does not prove Hays County occurrence.",
-    "photo_pixel_review": "Existing physically stored public-domain common-reed plume image verified. Additional three externally linked Commons photos visually reviewed for native Michigan stem/winter habit and actual Austrian collar hairs. Species/lineage sources credited, not independently voucher-verified.",
-    "visible_structure_arrows": 9,
+    "photo_pixel_review": "2026-10-26 direct JPEG pixel inspection: physically archived Harry Rose ligule, spikelet, floret, second spikelet and Kenraiz rhizome. Correct true blade–sheath ligule, source annotated glumes/lemmas/paleas/sexual organs, rhizome branches and roots; no proof of microscopic hair attachment or regional lineage. R.A. Nonenmacher rhizome archived but byte review not available in this pass.",
+    "visible_structure_arrows": 16,
     "critical_photo_targets": [
       "Whole reed colony, flowering panicle and wetland habitat with scale; compare stand structure but do not decide native from density",
       "SAME LIVE culm near mid-stem: shiny or ridged exposed internode with node, aging leaf sheath wrapped or gaping, and true collar",
       "5–10 intact ligules measured next to 1-mm rule under 10–20×; photo identifies actual blade/sheath junction and hair fringe",
       "Five ripe matched lower and upper glumes detached with accurate 1-mm ruler; annotate each glume separately",
-      "Silky spikelet/rachilla hairs, fertile lemma and flowering head macros; compare Arundo donax and Zizaniopsis miliacea",
+      "Silky spikelet hairs and photographer-labelled glumes are photographed. LAST MILE: true close-up explicitly showing attachment to rachilla internodes, compared against Arundo lemma/callus hairs; leave anatomy arrow pending until visible.",
       "Document locality and collect voucher or DNA/haplotype evidence for disputed Gulf / native / Eurasian lineages BEFORE treatment"
     ],
     "original_nativeness_taxonomy_unchanged": true,
@@ -515,23 +567,39 @@
     "featured_photo_indices": [
       0,
       1,
-      2
+      2,
+      7,
+      6,
+      8,
+      9,
+      3
     ],
     "steps": [
       "FIRST identify species, NOT lineage: tall wetland reed, jointed culms, broad leaves and branched silky flowering plume. Photo #1 teaches species habit only.",
-      "OPEN existing Harry Rose collar/ligule photograph (#2); locate its hair-fringed blade/sheath junction. This source is not Hays-vouchered or lineage confirmed. On a Texas specimen photograph 5–10 fresh actual ligules with 1-mm ruler; do not infer lineage from this photo.",
-      "OPEN existing Harry Rose annotated spikelet (#3) to learn where glumes, florets and rachilla occur. It cannot authenticate a native or exotic lineage; collect ripe intact same-culm spikelets and photograph separated upper/lower glumes at 1-mm scale.",
+      "OPEN the existing Harry Rose collar/ligule panel (#2). Three new arrows point to the real whitish ciliate ligule fringe, leaf blade and sheath, verified from archived 847×1205 pixels. This is a location/shape lesson only; a Texas plant's native versus introduced lineage requires independently measured multiple live ligules.",
+      "OPEN Harry Rose's original annotated spikelet (#3) and second annotated spikelet/floret panels to learn lower/upper glumes, successive florets, lemmas, paleas, stigmas and anthers. The original photographer labels are readable: no redundant overlay. Silky hairs are visible but specific attachment to rachilla internodes is an outstanding decisive-pixel check.",
+      "LOOK AT THE REAL RHIZOME — newly arrowed Kenraiz photograph teaches a horizontal underground STEM, branching node, true fine roots and an emerging shoot. This Poland-source photo shows plant form only, never Texas nativity or introduced lineage.",
       "CHECK multiple aged culms after midsummer: is each older leaf sheath naturally falling free or still firmly wrapped? Exposed internodes glossy reddish and smooth versus dull/ridged can SUPPORT a lineage hypothesis, but seasonal aging complicates comparison.",
       "For typical non-Gulf populations, published ligule ranges trend native americanus ~1.0–1.7 mm versus introduced Eurasian ~0.4–0.9 mm; glumes also differ statistically and ranges overlap. Photograph and measure replicated parts, not one leaf.",
       "TEXAS WARNING: Gulf Coast lineage (often called berlandieri) may resemble introduced Eurasian reed. A short ligule, persistent sheath or large monoculture does NOT resolve this third lineage; regional morphological keys may be unreliable.",
       "For any proposed removal or planting, keep 'Phragmites australis — LINEAGE UNRESOLVED' until a specialist confirms several independent traits and, when needed, voucher/DNA haplotype. Never apply invasive management from silhouette or one photo."
     ],
     "field_rule": "Species ID first; lineage requires multiple independent characters. In Texas explicitly account for Gulf Coast lineage, whose morphology can overlap Eurasian introduced forms. Unresolved = no native/exotic decision.",
-    "warning": "The three existing physically listed images illustrate whole reed, source-named ligule, and spikelet anatomy, NOT confirmed Texan lineage. No new lineage-specific macro or genetic evidence archived. Photo count and visible arrows are unchanged.",
+    "warning": "2026-10-26 manual photo closeout: direct archive pixel inspection, +3 true ligule/leaf arrows and +4 genuine rhizome/node/root/shoot arrows. Original nine arrows retained; annotated reproductive images have their own verified visible photographer labels. No Phragmites lineage assignment, no recent Texas genetically documented specimen, no claimed microscopic rachilla hair-origin arrow. Live Pages deployment/mobile arrow alignment not independently verified.",
     "evidence_sources": [
       "https://www.nrcs.usda.gov/plantmaterials/idpmctn11494.pdf",
       "https://nas.er.usgs.gov/queries/champlain/Profile.aspx?Potential=N&Species_ID=2937&Type=0",
       "https://maisrc.umn.edu/phragmites-id-report"
+    ],
+    "featured_panel_indices": [
+      0,
+      1,
+      2,
+      7,
+      6,
+      8,
+      9,
+      3
     ]
   },
   "what_to_photograph_for_confirmation": [
@@ -668,5 +736,58 @@
       "https://repository.si.edu/bitstream/handle/10088/3352/Final_Saltonstall-etal_Phragmites_683-692.pdf"
     ],
     "notes": "Concise crew tiles only; original Phragmites subspecies/lineage scientific holds and source rights unchanged. No new photographs, arrows, taxonomic or native-status edits."
+  },
+  "phragmites_photo_finishing_20261026": {
+    "stage": "FIELD_READY_PHOTO_GAPS",
+    "new_arrows": 7,
+    "preserved_arrows": 9,
+    "total_arrows": 16,
+    "verified_pixel_files": [
+      {
+        "file": "images/harry-rose-ligule-8253945012.jpg",
+        "github_blob_sha": "a32e7ee3a8a31e50f38b3e7e5da547975e371257",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Phragmites_australis_ligule1_(8253945012).jpg",
+        "creator": "Harry Rose",
+        "license": "CC BY 2.0",
+        "organ": "ciliate ligule fringe/leaf blade/sheath",
+        "markers_added": 3
+      },
+      {
+        "file": "images/kenraiz-rhizome-kz.jpg",
+        "github_blob_sha": "cf7bd5a8b7a3219b94d3fefe678f78f1ad00cc5e",
+        "source_page": "https://commons.wikimedia.org/wiki/File:Phragmites_australis_rhizome_kz.jpg",
+        "creator": "Kenraiz",
+        "license": "CC BY-SA 4.0",
+        "organ": "rhizome/node/roots/green shoot",
+        "markers_added": 4
+      },
+      {
+        "file": "images/harry-rose-spikelet-6966477736.jpg",
+        "github_blob_sha": "4a3cbbbea09b606a1cb694a32540bef41b07b1b8",
+        "organ": "source-annotated glumes/lemmas/paleas/anthers/stigmas",
+        "markers_added": 0
+      },
+      {
+        "file": "images/harry-rose-floret1-annotated-7112553425.jpg",
+        "github_blob_sha": "361c46c0eefbadf61a382d65df1766b60194705f",
+        "organ": "source-annotated lemma/palea/ovary/stigma/anthers",
+        "markers_added": 0
+      },
+      {
+        "file": "images/harry-rose-spikelet2-annotated-6966469564.jpg",
+        "github_blob_sha": "c5b29555e848c9de58bc5897407162c04bd7097d",
+        "organ": "source-annotated glumes and visible silky hairs",
+        "markers_added": 0
+      }
+    ],
+    "holds": [
+      "True hair insertion site on actual Phragmites spikelet rachilla internode remains unresolved by visually checked photos",
+      "Native/introduced/Gulf Coast lineage in Texas cannot be assigned to uncatalogued population by these specimens",
+      "Nonenmacher rhizome unreviewed for arrows due returned bytes not available in this pass",
+      "Public Pages deployment and marker alignment need manual check"
+    ],
+    "taxonomy_unchanged": true,
+    "photos_installed": 0,
+    "comparison_species_unchanged": true
   }
 }
