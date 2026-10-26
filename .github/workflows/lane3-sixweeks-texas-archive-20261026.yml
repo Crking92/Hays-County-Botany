@@ -1,0 +1,68 @@
+name: Lane 3 archive two Texas sixweeks field ID photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-sixweeks-texas-archive-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-sixweeks-texas-archive-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main, fetch-depth: 0}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Read current canonical taxon and never overwrite live competing changes
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - name: Verify exact current photo-level licenses and archive only two new Texas originals
+        run: python scripts/lane3_archive_sixweeks_texas_20261026.py
+      - name: Validate actual local JPEGs, page links, source rights and scientific holds
+        run: |
+          python - <<'PY'
+          import pathlib,json,hashlib
+          from PIL import Image
+          a=json.loads(pathlib.Path('reports/lane3-sixweeks-texas-photo-install-20261026.json').read_text())
+          d=json.loads(pathlib.Path('content/taxa/Poaceae/Festuca/festuca-octoflora/species.json').read_text())
+          assert a['result']=='TWO_EXACT_TEXAS_CC_BY_SOURCE_JPEGS_ARCHIVED' and len(a['images'])==2
+          assert d['scientific_name']=='Festuca octoflora'
+          assert len(d['images'])==10 and len(d['visual_comparison']['items'])==14
+          assert any(i.get('license')=='CC BY-NC' for i in d['images'])
+          assert any(i.get('license')=='CC BY-SA 2.0' for i in d['images'])
+          assert sum(x.get('creator')=='Bob Harms' and x.get('image_url','').startswith('https:') for x in d['visual_comparison']['items'])==2
+          assert sum(x.get('scientific_name')=='Festuca versuta' for x in d['visual_comparison']['items'])==2
+          assert d['curation_status']['visual_finish'].startswith('FIELD_READY_PHOTO_GAPS')
+          for p in a['images']:
+            path=pathlib.Path(p['local_file'])
+            assert path.is_file() and path.stat().st_size>30000
+            assert hashlib.sha256(path.read_bytes()).hexdigest()==p['archived_sha256']
+            with Image.open(path) as im:
+              assert im.format=='JPEG' and not im.getexif().get(34853)
+              im.verify()
+            assert any(x.get('image_url')==str(path) and x.get('markers')==[] and x.get('creator')==p['creator'] for x in d['visual_comparison']['items'])
+          print('PASS two photo-specific CC BY Texas originals and sources, 2 cross-species comparisons, all older licenses and copyright-held Harms references preserved; no false anatomical arrows')
+          PY
+      - name: Commit only meaningful verified sixweeks photo improvement
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-sixweeks-texas-photo-install-20261026.json content/taxa/Poaceae/Festuca/festuca-octoflora/
+          if git diff --cached --quiet; then echo 'No new files'; exit 0; fi
+          git commit -m "Lane 3 archive two licensed Texas sixweeks photos and compare Texas fescue"
+          ok=0
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then ok=1; break; fi
+            sleep 3
+          done
+          test "$ok" = "1"
