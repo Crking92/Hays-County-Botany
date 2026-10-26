@@ -34,7 +34,7 @@ jobs:
           import pathlib,json,hashlib
           from PIL import Image
           r=json.loads(pathlib.Path("reports/lane3-utilis-five-cc0-archive-20261026.json").read_text())
-          assert r["status"]=="ARCHIVED_SOURCE_CONFIRMED_NEEDS_PIXEL_ARROWS" and len(r["added"]) >= 3,r["holds"]
+          assert r["status"]=="ARCHIVED_SOURCE_CONFIRMED_NEEDS_PIXEL_ARROWS" and len(r["added"]) >= 1 and len(r["five_photo_ids_present"])==5,r["holds"]
           p=pathlib.Path("content/taxa/Poaceae/Muhlenbergia/muhlenbergia-utilis/species.json")
           d=json.loads(p.read_text())
           assert d["id"]=="muhlenbergia-utilis"
