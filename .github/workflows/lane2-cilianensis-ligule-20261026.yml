@@ -1,0 +1,36 @@
+name: Lane 2 install true stinkgrass ligule and sheath macros
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_cilianensis_true_ligule_20261026.py
+      - .github/workflows/lane2-cilianensis-ligule-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-cilianensis-ligule-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install Pillow
+      - name: Verify individually licensed Commons anatomy and archive exact species JPEGs
+        run: python scripts/lane2_cilianensis_true_ligule_20261026.py
+      - name: Commit guarded photograph archives and canonical anatomy gallery
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-cilianensis/ reports/lane2-cilianensis-scaled-ligule-sheath-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive true stinkgrass ligule 3mm macro and sheath junction 10mm source plates"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
