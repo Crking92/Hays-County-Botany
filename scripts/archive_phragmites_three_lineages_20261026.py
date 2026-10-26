@@ -23,7 +23,13 @@ def save_image(raw,name,metadata):
   clean.thumbnail((1600,1600))
   b=io.BytesIO();clean.save(b,format="JPEG",quality=89,optimize=True)
   outfile=ROOT/name
-  if outfile.exists():raise FileExistsError("already archived; preserve existing")
+  if outfile.exists():
+   with Image.open(outfile) as existing: existing.verify()
+   return dict(metadata,archive=str(outfile),archive_sha256=hashlib.sha256(outfile.read_bytes()).hexdigest(),
+             source_dimensions=dims,archived_dimensions=list(clean.size),archive_bytes=outfile.stat().st_size,
+             modifications="existing archived JPEG retained without overwrite; original EXIF/GPS had been stripped",
+             status="ALREADY_ARCHIVED_CANDIDATE",
+             anatomical_pixel_review="PREVIOUS_PASS",lineage_certification="SOURCE-IDENTIFIED ONLY; NOT GENETICALLY VERIFIED")
   outfile.write_bytes(b.getvalue())
  with Image.open(outfile) as check:check.verify()
  return dict(metadata,archive=str(outfile),archive_sha256=hashlib.sha256(outfile.read_bytes()).hexdigest(),
@@ -83,6 +89,33 @@ for obsid in [120001790, 67027636, 47408883]:
  except Exception as e:
   results.append({"status":"HELD","observation_id":obsid,"source_page":"https://www.inaturalist.org/observations/"+str(obsid),
                   "reason":type(e).__name__+": "+str(e)[:350]})
+
+# Native-lineage organ candidates: the Commons filenames say "australis australis"
+# but photographer Matt Lavin's own description explicitly identifies native
+# "subspecies americanus" and describes naturally shed old sheaths. NEVER
+# trust the misleading file basename to assign these to introduced Eurasian.
+for num in ["20915185149","21075794926"]:
+ title=f"File:Phragmites australis australis ({num}).jpg"
+ page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title[5:].replace(" ","_"))
+ try:
+  api="https://commons.wikimedia.org/w/api.php?"+urllib.parse.urlencode(
+   {"action":"query","prop":"imageinfo","iiprop":"url|extmetadata","titles":title,"format":"json"})
+  info=next(iter(json.loads(fetch(api))["query"]["pages"].values()))["imageinfo"][0]
+  md=info["extmetadata"];artist=html.unescape(re.sub(r"<[^>]+>","",md["Artist"]["value"])).strip()
+  lic=md["LicenseShortName"]["value"];desc=html.unescape(re.sub(r"<[^>]+>"," ",md.get("ImageDescription",{}).get("value",""))).lower()
+  if "Matt Lavin" not in artist or re.sub(r"[^a-z0-9]","",lic.lower())!="ccbysa20":
+   raise ValueError("creator or individual license does not match Matt Lavin / CC BY-SA 2.0")
+  if "native subspecies americanus" not in desc:
+   raise ValueError("exact author description did not identify native americanus: "+desc[:180])
+  results.append(save_image(fetch(info["url"]),f"lineage-native-matt-lavin-{num}.jpg",
+   {"source_page":page,"image_url":info["url"],"creator":"Matt Lavin",
+    "source_taxon":"Phragmites australis subsp. americanus per PHOTO DESCRIPTION, despite misnamed Commons filename",
+    "source_location":"Benson County, North Dakota, USA",
+    "source_role":"candidate native exposed culm / old sheath shedding; organ visibility and species identity require visual review",
+    "license":"CC BY-SA 2.0","license_url":"https://creativecommons.org/licenses/by-sa/2.0/",
+    "site_rule":"photographer describes native americanus in text; DO NOT infer introduced Eurasian based on misleading filename; no genotype confirmation"}))
+ except Exception as e: results.append({"status":"HELD","source_page":page,"target":str(ROOT/f"lineage-native-matt-lavin-{num}.jpg"),
+                                   "reason":type(e).__name__+": "+str(e)[:350]})
 REPORT.write_text(json.dumps({"scope":"photo bytes only, NO subspecies identification from photo without additional evidence",
                               "results":results},ensure_ascii=False,indent=2)+"\n")
 print(json.dumps({"results":results},ensure_ascii=False))
