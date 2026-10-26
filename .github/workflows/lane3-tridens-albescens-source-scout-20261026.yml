@@ -3,12 +3,12 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/lane3-festuca-source-photo-scout-20261026.yml'
+      - '.github/workflows/lane3-tridens-albescens-source-scout-20261026.yml'
   workflow_dispatch:
 permissions:
   contents: write
 concurrency:
-  group: lane3-festuca-source-photo-scout
+  group: lane3-tridens-albescens-source-scout
   cancel-in-progress: false
 jobs:
   scout:
@@ -36,7 +36,7 @@ jobs:
           print("PASS canonical species unmodified, source holds preserved")
           PY
       - name: Independently source-screen exact-species photo rights and contact sheet
-        run: python scripts/lane3_scout_festuca_versuta_public_20261026.py
+        run: python scripts/lane3_scout_tridens_albescens_public_20261026.py
       - name: Commit research evidence only; never install unreviewed photos
         run: |
           set -euo pipefail
