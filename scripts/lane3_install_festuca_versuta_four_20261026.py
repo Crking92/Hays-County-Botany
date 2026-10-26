@@ -67,8 +67,8 @@ for pid,oid,creator,role,label,caption in SELECTED:
     sha=hashlib.sha256(blob).hexdigest()
     newimages.append({
       "file":rel,"role":role,"creator":creator,"attribution":photo.get("attribution"),
-      "license":"CC BY","license_code":"cc-by",
-      "license_url":"https://creativecommons.org/licenses/by/4.0/",
+      "license":"CC BY","license_code":"cc-by", "license_version_note":"Current exact iNaturalist photo license code cc-by verified; specific version not separately certified",
+      "license_url":"https://creativecommons.org/licenses/by/",
       "source_page":"https://www.inaturalist.org/photos/"+str(pid),
       "observation_source":"https://www.inaturalist.org/observations/"+str(oid),
       "source_photo_id":pid,"source_observation_id":oid,
@@ -85,7 +85,7 @@ for pid,oid,creator,role,label,caption in SELECTED:
       "label":label,"scientific_name":"Festuca versuta",
       "image_url":str(BASE/rel),"image_fit":"contain","image_role":role,
       "caption":caption,"why_it_matters":"True source-identified species photograph strengthens the living crown/flowering/spikelet field lesson without inventing a ligule or glume identity.",
-      "creator":creator,"license":"CC BY","license_url":"https://creativecommons.org/licenses/by/4.0/",
+      "creator":creator,"license":"CC BY","license_url":"https://creativecommons.org/licenses/by/",
       "source_page":"https://www.inaturalist.org/photos/"+str(pid),
       "observation_source":"https://www.inaturalist.org/observations/"+str(oid),
       "photo_status":"Exact source CC BY photograph; no hair/ligule/vein or species voucher independently measured; visible-gross-feature arrows not yet reviewed",
