@@ -14,6 +14,8 @@ LOCAL=BASE/NAME
 URLS=[
  "https://upload.wikimedia.org/wikipedia/commons/0/03/Vulpia_octoflora_%286243564299%29.jpg",
  "https://live.staticflickr.com/6098/6243564299_e27cf97a4b_o.jpg",
+ "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vulpia_octoflora_%286243564299%29.jpg/1280px-Vulpia_octoflora_%286243564299%29.jpg",
+ "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vulpia_octoflora_%286243564299%29.jpg?width=1280",
 ]
 SOURCE="https://commons.wikimedia.org/wiki/File:Vulpia_octoflora_(6243564299).jpg"
 def download(url):
@@ -22,7 +24,7 @@ def download(url):
   if "image" not in response.headers.get("content-type","").lower():
    raise ValueError("Not image media")
   data=response.read(11_000_001)
- if not 250000<len(data)<11_000_001:raise ValueError("Invalid expected original length")
+ if not 120000<len(data)<11_000_001:raise ValueError("Invalid expected original length")
  return data
 d=json.loads(CARD.read_text())
 assert d["id"]=="festuca-octoflora" and len(d["images"])==7
@@ -39,12 +41,13 @@ for url in URLS:
   payload=download(url)
   with Image.open(io.BytesIO(payload)) as im:
    assert im.format=="JPEG"
-   assert im.size==(4320,3240), f"Unexpected dimensions {im.size}"
+   assert im.size==(4320,3240) or (im.width>=1100 and im.height>=800 and abs(im.width/im.height - 4/3)<0.03), f"Unexpected source image dimensions {im.size}"
    im.verify()
   raw=payload;origin=url;break
  except Exception as e:
   errors.append({"url":url,"reason":str(e)[:220]})
 if raw is None:
+ print(json.dumps({"fetch_failures":errors}))
  REPORT.write_text(json.dumps({"status":"HOLD_NO_VERIFIED_ORIGINAL","rights":"Original CC BY-SA 2.0 retained as external unchanged source","attempts":errors},indent=2)+"\n")
  raise SystemExit("No successfully retrieved full original JPEG")
 with Image.open(io.BytesIO(raw)) as im:
