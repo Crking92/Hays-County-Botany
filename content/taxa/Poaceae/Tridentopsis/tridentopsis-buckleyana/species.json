@@ -76,7 +76,8 @@
       "status": "FIELD_READY_PHOTO_GAPS",
       "original_pixel_broad_arrows": 11
     },
-    "lane3_buckley_full_basal_20261026": "In-situ tuft photographed, full original SHA checked; one new truthful ground-level tuft arrow, no exposed root/ligule claimed. Eight local archived source photos + 11 existing gallery panels, all prior creator/license/lookalike/arrow contributions retained."
+    "lane3_buckley_full_basal_20261026": "In-situ tuft photographed, full original SHA checked; one new truthful ground-level tuft arrow, no exposed root/ligule claimed. Eight local archived source photos + 11 existing gallery panels, all prior creator/license/lookalike/arrow contributions retained.",
+    "lane3_legacy_nc_hold_reconciled_20261026": "Former private-study-only/public_site_hold flag for one exact jamiemandell photo resolved after LIVE GBIF photo-level CC BY-NC 4.0 rights verification and current site noncommercial educational policy. Photo retained, credits and science/source holds unchanged; re-review if monetized."
   },
   "images": [
     {
@@ -97,10 +98,22 @@
         1350
       ],
       "study_use": "Yes; rights-specific conditions on original image",
-      "public_reuse": "Respect photo license; CC BY-NC images are noncommercial only",
-      "photo_review": "PRIVATE-STUDY ONLY CC BY-NC: keep archived provenance; exclude image from unrestricted public gallery until separate publication permission is established.",
+      "public_reuse": "CONDITIONAL PUBLIC NONCOMMERCIAL YES (CC BY-NC 4.0, jamiemandell credit, original source, modification note), not commercial or unrestricted reuse.",
+      "photo_review": "Original individual GBIF media license CC BY-NC 4.0 and author jamiemandell independently reverified 2026-10-26 against live GBIF occurrence #4891719982, iNaturalist photo ID 380287142. Approved ONLY for genuinely noncommercial credited site; source taxon provisional, gross-panicle arrows only. Keep all taxonomy/science identification caveats.",
       "modifications": "Resized JPEG and EXIF removed",
-      "public_site_hold": true
+      "public_site_hold": false,
+      "original_photographic_licensing_review_20261026": {
+        "status": "LIVE_GBIF_MEDIA_CC_BY_NC_4_0_CONFIRMED",
+        "occurrence_id": 4891719982,
+        "source_photo_id": 380287142,
+        "original_taxon_determination": "Tridens buckleyanus, accepted Tridentopsis buckleyana",
+        "original_attribution": "jamiemandell",
+        "license_url": "http://creativecommons.org/licenses/by-nc/4.0/",
+        "permission": "Conditional for current NONCOMMERCIAL public educational site only; preserve source and photo changes; independently recheck if project monetized",
+        "review_source": "https://api.gbif.org/v1/occurrence/4891719982",
+        "readback_audit": "reports/lane3-priority-nc-photo-license-confirm-20261026.json",
+        "taxon_and_macroscopic_holds": "Source taxon determined, original photograph cannot alone certify floret/lemma hair keys; independent voucher still a separate botanical hold."
+      }
     },
     {
       "file": "images/buckley-tridens-inat-102622491-cc-by-original.jpg",
@@ -420,7 +433,7 @@
         "why_it_matters": "Teaches visible panicle branch spacing and overlapping spikelets; not proof of 10–20× lemma anatomy or measured floret counts.",
         "creator": "jamiemandell",
         "license": "CC BY-NC",
-        "license_url": "http://creativecommons.org/licenses/by-nc/4.0/",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
         "source_page": "https://www.gbif.org/occurrence/4891719982",
         "markers": [
           {
@@ -445,8 +458,8 @@
             "target_y": 35
           }
         ],
-        "photo_status": "RESTRICTED_CC_BY_NC_STUDY_ONLY__EXCLUDE_FROM_UNRESTRICTED_PUBLIC_GALLERY",
-        "public_site_hold": true
+        "photo_status": "Source-specific GBIF media photograph ID 380287142 independently CC BY-NC 4.0 author-credit verified 2026-10-26. Conditionally eligible in genuinely noncommercial public Visual Learner with jamiemandell, source, version and alteration notice; broad panicle labels only. Species determination remains provisional, no measured lemma hairs.",
+        "public_site_hold": false
       },
       {
         "label": "OPEN BRANCHING PANICLE against a hand",
