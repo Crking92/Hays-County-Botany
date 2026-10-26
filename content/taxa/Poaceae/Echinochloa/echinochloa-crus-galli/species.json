@@ -112,7 +112,7 @@
     },
     {
       "file": "images/harry-rose-barnyardgrass-plant14-cc-by2.jpg",
-      "role": "Photographer-identified Echinochloa crus-galli whole plant view. Growth-base and roots NOT yet pixel certified.",
+      "role": "Source-identified entire lifted annual barnyardgrass tuft: multiple leafy stems, attached branched heads, basal soil/root clump partly obscured; not a clean root-system photograph.",
       "creator": "Harry Rose / Macleay Grass Man",
       "license": "CC BY 2.0",
       "license_url": "https://creativecommons.org/licenses/by/2.0/",
@@ -122,7 +122,7 @@
       "source_determination": "Author-identified Echinochloa crus-galli; local verification pending",
       "modifications": "Wikimedia source resized to JPEG; EXIF/GPS stripped; visible content unchanged",
       "public_reuse": "Yes — CC BY 2.0 with creator/source/license/adaptation attribution",
-      "photo_review": "Physical image saved with independently verified source license; growth structures and precise arrows pending pixel inspection"
+      "photo_review": "Verified sanitized stored JPEG pixels 2026-10-26: attachment of several branched flowering heads to a multi-culm tuft and dark adhering basal soil/root mass; whole fibrous roots NOT visible; Australian source, no Texas determination."
     }
   ],
   "diagnostic_image_needs": [
@@ -190,7 +190,28 @@
       ],
       "status": "FIELD_READY_PHOTO_GAPS"
     },
-    "lane1_barnyard_habit_import_20261026": "CC_BY_2_PHYSICAL_ARCHIVE_PIXEL_REVIEW_PENDING"
+    "lane1_barnyard_habit_import_20261026": "ARCHIVED_AND_PIXEL_REVIEWED_PARTIAL_ROOT_SYSTEM",
+    "lane1_barnyard_plant14_pixel_20261026": {
+      "physical_jpeg": "images/harry-rose-barnyardgrass-plant14-cc-by2.jpg",
+      "creator": "Harry Rose",
+      "license": "CC BY 2.0",
+      "source": "Wikimedia Commons / Flickr Macleay Grass Man",
+      "locally_verified_photo_files": 5,
+      "gallery_photo_panels": 9,
+      "arrows_added": 3,
+      "targets_verified": [
+        "visible attached branched flowering head",
+        "multiple leafy stems converging at base",
+        "lifted basal clump with adhering roots/soil"
+      ],
+      "photo_gap_still_open": [
+        "entire cleaned fibrous root system with ruler",
+        "same Texas specimen base and full head",
+        "scaled E. crus-galli versus E. muricata true upper fertile lemma apex and hairline",
+        "mobile annotation/render QA"
+      ],
+      "status": "FIELD_READY_PHOTO_GAPS"
+    }
   },
   "entry_type": "species",
   "learner_visual_status": {
@@ -297,19 +318,41 @@
         "markers": []
       },
       {
-        "label": "WHOLE-PLANT GROWTH — Australian barnyardgrass (root detail pending inspection)",
+        "label": "WHOLE LIFTED ANNUAL TUFT — actual basal culms and attached flowering heads",
         "scientific_name": "Echinochloa crus-galli",
         "image_url": "content/taxa/Poaceae/Echinochloa/echinochloa-crus-galli/images/harry-rose-barnyardgrass-plant14-cc-by2.jpg",
         "image_fit": "contain",
-        "image_role": "Exact-source-author plant habit photograph; roots or root crown not assumed present.",
-        "caption": "An additional source-identified real barnyardgrass plant view. Do not infer a rooted basal crown from a habit photograph until the actual image is inspected.",
-        "why_it_matters": "Adds an actual species habit lesson beyond separated seedheads and microscopic photographs.",
+        "image_role": "PIXEL-VERIFIED WHOLE PLANT — several grass culms and leaves converge into a lifted basal tuft with some adhering root/soil mass; at least one branched flowering head is attached. Root tips and entire complete excavated root system NOT visible.",
+        "caption": "Harry Rose's actual lifted Echinochloa crus-galli tuft from New South Wales. See how the erect culms and leaves converge to one grassy basal bunch, with an adhering dark root/soil clump at the lower edge. Multiple branched heads remain attached to the same tuft. This does NOT expose the complete fibrous root system, and is NOT a local Texas voucher.",
+        "why_it_matters": "A practical habit bridge between the crew's field silhouette, real compact annual base, and the separate collar/ligule and mature spikelet microscope views. It also rules out interpreting an isolated flowering stem as the whole plant.",
         "creator": "Harry Rose / Macleay Grass Man",
         "license": "CC BY 2.0",
         "license_url": "https://creativecommons.org/licenses/by/2.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Echinochloa_crusgalli_plant14_HR_-_Flickr_-_Macleay_Grass_Man.jpg",
-        "markers": [],
-        "photo_status": "Physically archived CC BY 2.0 JPEG; pixel and mobile QA pending. Australia, not a local Texas voucher."
+        "markers": [
+          {
+            "label": "Attached flowering branch (raceme)",
+            "label_x": 68,
+            "label_y": 11,
+            "target_x": 77,
+            "target_y": 24
+          },
+          {
+            "label": "Many leafy culms converge at base",
+            "label_x": 59,
+            "label_y": 73,
+            "target_x": 51,
+            "target_y": 87
+          },
+          {
+            "label": "Lifted basal clump (soil/roots partly obscured)",
+            "label_x": 71,
+            "label_y": 92,
+            "target_x": 52,
+            "target_y": 95
+          }
+        ],
+        "photo_status": "Physical GitHub source JPEG (CC BY 2.0), full-resolution pixels inspected 2026-10-26; three arrows placed only on connected visible flowering head, basal tillers and adhering dark soil/root base. Entire separated fibrous root system and local Texas determination still PHOTO_GAPS; mobile overlay QA pending."
       },
       {
         "label": "TRUE COLLAR — no ligule present · PROVISIONAL — USER PHOTO REVIEW PENDING",
