@@ -29,7 +29,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add content/taxa/Poaceae/Phragmites/phragmites-australis/images/lineage-* reports/phragmites-three-lineage-photo-acquisition-20261026.json
+          git add content/taxa/Poaceae/Phragmites/phragmites-australis/images/lineage-* content/taxa/Poaceae/Phragmites/phragmites-australis/images/species-europe-* reports/phragmites-three-lineage-photo-acquisition-20261026.json
           if ! git diff --cached --quiet; then
             git commit -m "Archive verified Phragmites lineage photo candidates; hold public use for visual review"
             git pull --rebase origin main
