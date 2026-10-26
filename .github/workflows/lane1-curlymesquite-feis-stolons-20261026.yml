@@ -1,0 +1,26 @@
+name: Lane 1 Curlymesquite attributed CC BY stolons archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-curlymesquite-feis-stolons-20261026.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-curlymesquite-stolon-evidence
+  cancel-in-progress: false
+jobs:
+  source-verify-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo libraries
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Confirm USDA Forest Service attribution and permitted CC BY 4.0 photograph
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_hilaria_belangeri_feis_stolons_20261026.py
