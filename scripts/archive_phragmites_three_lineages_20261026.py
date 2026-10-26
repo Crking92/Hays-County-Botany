@@ -212,6 +212,64 @@ except Exception as e:
  results.append({"status":"SOURCE_REPRODUCTIVE_METADATA_AUDIT_HELD",
                  "category":reproductive_page,"reason":type(e).__name__+": "+str(e)[:350]})
 
+
+# Add high-resolution ONE-SPECIES educational spikelet/glume/lemma plate only
+# after prior audit confirms individual photographer/license/organ description.
+# Metadata may be from previous guarded run; SHA/audit traces retained.
+plate_title="File:Phragmites australis sl23.jpg"
+plate_dest=ROOT/"species-europe-stefan-lefnaer-sl23-spikelet.jpg"
+try:
+ rows=[q for a in previous_audit.get("results",[])
+       if a.get("status")=="SOURCE_REPRODUCTIVE_METADATA_AUDIT_ONLY"
+       for q in a.get("rows",[]) if q.get("title")==plate_title]
+ if not rows:raise ValueError("individual sl23 Commons metadata audit missing")
+ q=rows[-1]
+ if not (q.get("individual_rights_verified") and q.get("creator")=="Stefan.lefnaer"
+         and q.get("license")=="CC BY-SA 4.0"
+         and all(x in q.get("source_description","") for x in ("Spikelet","Glu = Gluma","Lem = Lemma"))):
+  raise ValueError("source-level glume+lemma image identification or CC BY-SA 4.0 not verified")
+ source_url=q["source_url"]
+ if not source_url.startswith("https://upload.wikimedia.org/"):
+  raise ValueError("unapproved source host")
+ if plate_dest.exists():
+  with Image.open(plate_dest) as im:im.verify()
+  arch=plate_dest.read_bytes()
+  results.append({"status":"ALREADY_ARCHIVED_CANDIDATE","archive":str(plate_dest),
+    "archive_sha256":hashlib.sha256(arch).hexdigest(),
+    "archive_bytes":len(arch),"creator":"Stefan.lefnaer","license":"CC BY-SA 4.0",
+    "source_page":q["page"],"source_role":"Source photographer labels glume and lemma on true Phragmites spikelet; not subspecies-specific."})
+ else:
+  raw=fetch(source_url)
+  if not (50000<len(raw)<20000000):raise ValueError("source bytes unreasonable")
+  with Image.open(io.BytesIO(raw)) as img:img.verify()
+  with Image.open(io.BytesIO(raw)) as img:
+   if img.format not in ("JPEG","PNG") or img.width<8000 or img.height<2000:
+    raise ValueError("not 9160x2424 labelled spikelet original")
+   original_dims=img.size
+   im=ImageOps.exif_transpose(img).convert("RGB")
+   im.thumbnail((6500,2500))
+   output_dims=im.size
+   b=io.BytesIO()
+   im.save(b,"JPEG",quality=92,optimize=True,exif=b"")
+   archived_bytes=b.getvalue()
+   if len(archived_bytes)>9000000:raise ValueError("oversized archive")
+  plate_dest.write_bytes(archived_bytes)
+  with Image.open(plate_dest) as chk:chk.verify()
+  results.append({"status":"ARCHIVED_CANDIDATE_NOT_ON_PUBLIC_SPECIES_GALLERY",
+   "archive":str(plate_dest),"source_page":q["page"],"original_file_title":plate_title,
+   "original_image_url":source_url,"creator":"Stefan.lefnaer","license":"CC BY-SA 4.0",
+   "license_url":"https://creativecommons.org/licenses/by-sa/4.0/",
+   "source_taxon":"Phragmites australis (species only, Austrian specimen)",
+   "source_role":"High-res actual photographed opened spikelet labelled Glu=glume and Lem=lemma, reproductive organ teaching only",
+   "original_dimensions":original_dims,"archive_dimensions":output_dims,
+   "archive_bytes":len(archived_bytes),"archive_sha256":hashlib.sha256(archived_bytes).hexdigest(),
+   "modifications":"Original JPG resized and re-encoded to optimized high-res JPG, EXIF/GPS stripped; no arrows",
+   "lineage_caution":"No native, introduced or Gulf Coast lineage assignment. Source field determination is species only.",
+   "anatomical_pixel_review":"PENDING"})
+except Exception as e:
+ results.append({"status":"HELD","target":str(plate_dest),"source_page":"https://commons.wikimedia.org/wiki/File:Phragmites_australis_sl23.jpg",
+                 "reason":type(e).__name__+": "+str(e)[:350]})
+
 # Preserve earlier good image-level rights evidence even if Wikimedia or iNaturalist
 # temporarily returns HTTP 429/5xx on later visits. Never treat a retry failure
 # as revocation of an already SHA-verified licensed and attributed local file.
