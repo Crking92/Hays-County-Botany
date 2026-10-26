@@ -1,0 +1,39 @@
+name: Lane 1 barnyardgrass whole-plant CC BY photo archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-barnyard-whole-plant-20261026.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-barnyard-wholeplant-harry-rose
+  cancel-in-progress: false
+jobs:
+  archive-actual-barnyardgrass-plant:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo prerequisites
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Verify exact Wikimedia Commons source license and strip metadata
+        run: |
+          python scripts/commons_photo_review_import.py \
+            --file-title 'File:Echinochloa crusgalli plant14 HR - Flickr - Macleay Grass Man.jpg' \
+            --taxon 'Echinochloa crus-galli' --output review_photo --max-edge 2600 --source-thumbnail-width 2600
+      - name: Archive the photo and add gallery panel without speculative arrows
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_barnyard_habit_20261026.py
+      - name: Store independent source/rights/sha256 evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lane1-barnyard-plant14-harry-rose-cc-by2
+          path: review_photo/evidence.json
+          if-no-files-found: ignore
+          retention-days: 30
