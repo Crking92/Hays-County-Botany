@@ -1,0 +1,26 @@
+name: Lane 1 Munroa Texas herbarium CC0 archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-munroa-texas-voucher-cc0-20261026.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-munroa-voucher-na0068870-archive
+  cancel-in-progress: false
+jobs:
+  verify-and-archive-usda-voucher:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original JPEG verifier
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Verify exact USDA specimen and CC0 record then archive GPS-free photo
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_munroa_texas_voucher_20261026.py
