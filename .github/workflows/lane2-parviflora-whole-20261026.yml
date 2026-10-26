@@ -1,0 +1,35 @@
+name: Lane 2 archive live Setaria parviflora attached whole head
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_archive_setaria_parviflora_whole_20261026.py
+      - .github/workflows/lane2-parviflora-whole-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-parviflora-whole-20261026
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - run: python scripts/lane2_archive_setaria_parviflora_whole_20261026.py
+      - name: Commit licensed JPEG, actual gallery panel and three gross arrows
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Setaria/setaria-parviflora/ reports/lane2-setaria-parviflora-attached-whole-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive knotroot bristlegrass intact flowering bunch JPEG"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
