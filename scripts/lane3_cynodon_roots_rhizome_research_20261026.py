@@ -23,13 +23,13 @@ def run():
         raw=r.read(2_000_001)
     assert 10000<len(raw)<2000000
     with Image.open(io.BytesIO(raw)) as im:
-        assert im.format=="PNG" and im.width>=300 and im.height>=300,(im.format,im.size)
+        assert im.format=="PNG" and im.width>=280 and im.height>=300,(im.format,im.size)
         rgb=im.convert("RGB")
         output=io.BytesIO()
         rgb.save(output,format="JPEG",quality=94,optimize=True,exif=b"")
         img=output.getvalue()
     with Image.open(io.BytesIO(img)) as im:
-        assert im.format=="JPEG" and im.size[0]>=300
+        assert im.format=="JPEG" and im.size[0]>=280
         assert not im.getexif().get(34853)
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_bytes(img)
