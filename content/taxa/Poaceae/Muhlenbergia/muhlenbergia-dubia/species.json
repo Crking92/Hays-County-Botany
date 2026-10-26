@@ -37,8 +37,8 @@
     "last_reviewed": "2026-10-03",
     "visual_reviewed": false,
     "photo_source_checked": false,
-    "photo_files_present": 6,
-    "photo_metadata_count": 6
+    "photo_files_present": 7,
+    "photo_metadata_count": 7
   },
   "taxonomy_correction_20261023": {
     "status": "VERIFIED_CORRECTION_AWAITING_ATOMIC_MANIFEST_MIGRATION",
@@ -154,6 +154,29 @@
       "license_verification": "GBIF record and attached specimen-media license both CC0",
       "public_reuse": "CC0 1.0, public website cleared; credit Smithsonian and Ingrid P. Lin retained",
       "photo_review": "A registered source-determined dried specimen. Does not certify the independent identity of earlier needs-ID iNaturalist photos or a measured ligule."
+    },
+    {
+      "file": "images/ccby-wendy-mccrady-237946166-narrow-leaf.jpg",
+      "role": "True source-labelled narrow green grass BLADE held between fingers. Shows fine blade and visible longitudinal veins, but true free inner ligule NOT depicted/verified.",
+      "creator": "Wendy McCrady",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_page": "https://www.inaturalist.org/photos/237946166",
+      "source_observation": "https://www.inaturalist.org/observations/139156693",
+      "source_photo_id": 237946166,
+      "source_taxon_name": "Muhlenbergia dubia",
+      "source_research_grade_on_import": true,
+      "original_media_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/237946166/original.jpg",
+      "original_sha256": "9777d46114319729ab8189eca0a5157682216874a51da5534519fba2f5db54cd",
+      "archive_sha256": "c8b7f93d86f0cb337d75af8b054538463d0e9acd62ef1a426774659bc4941a35",
+      "source_dimensions": [
+        1640,
+        2000
+      ],
+      "photo_status": "ORIGINAL_SOURCE_RGB_ARCHIVED__TRUE_BLADE_RECOGNITION_ONLY__LIGULE_AND_CROSS_SECTION_UNVERIFIED",
+      "public_reuse": "CC BY original source photo. Photographer/URL and resize/EXIF-strip modification acknowledged.",
+      "modifications": "Reencoded JPEG, resized if needed, EXIF/GPS stripped.",
+      "photo_review": "Research-grade source identification checked against iNat API for exact observation and photo; blade orientation/fine texture source-image pre-screened. No measured ligule or certified blade cross-section."
     }
   ],
   "source_label_correction": {
@@ -163,8 +186,8 @@
   },
   "learner_visual_status": {
     "status": "FIELD_READY_PHOTO_GAPS",
-    "image_count": 6,
-    "note": "Six physically stored publicly licensed photographs: two prior habit images, three source-reported Needs-ID close-ups, one independent CC0 Smithsonian herbarium voucher US 3771355. Vouchered specimen is a comparator, not proof of earlier source IDs, nor a measured membrane/glume/lemma."
+    "image_count": 7,
+    "note": "Seven locally stored publicly reusable photos: includes a separately research-grade, source-labelled pine muhly blade view, provisional iNat leaf collar/reproductive photos and certified Smithsonian voucher. Exact calibrated free ligule and floret dissection still missing."
   },
   "photo_candidates": [
     {
@@ -283,6 +306,20 @@
         "license": "CC0 1.0",
         "source_page": "https://www.gbif.org/occurrence/4418651350",
         "photo_status": "CC0_ARCHIVED_INSTITUTIONAL_VOUCHER__ANATOMY_PIXEL_REVIEW_HOLD",
+        "markers": []
+      },
+      {
+        "label": "PINE MUHLY — fine real leaf blade held between fingers",
+        "scientific_name": "Muhlenbergia dubia",
+        "image_url": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-dubia/images/ccby-wendy-mccrady-237946166-narrow-leaf.jpg",
+        "image_fit": "contain",
+        "image_role": "Source-reported research-grade thin leaf blade view; NOT a free ligule, rolled-leaf cross-section or dissected spikelet.",
+        "caption": "Wendy McCrady, CC BY 4.0, iNaturalist Research Grade observation 139156693. A useful source-photo blade-scale comparison. No inner membrane, mature glumes or lemma length demonstrated.",
+        "why_it_matters": "Separates the blade recognition lesson from the uncertain leaf-collar candidate and makes the photo limitations explicit.",
+        "creator": "Wendy McCrady",
+        "license": "CC BY 4.0",
+        "source_page": "https://www.inaturalist.org/photos/237946166",
+        "photo_status": "ORIGINAL_CC_BY_RESEARCH_GRADE_LEAF_ONLY__NO_MICRO_ANATOMY_ARROW",
         "markers": []
       }
     ],
@@ -469,5 +506,18 @@
     ],
     "site_check": "Public build not reverified after this edit.",
     "remaining": "True 1-mm calibrated ligule and one vouchered, dissected mature spikelet remain missing."
+  },
+  "lane3_leaf_detail_20261025": {
+    "source_photo": 237946166,
+    "source_observation": 139156693,
+    "source_grade": "research",
+    "license": "CC BY 4.0",
+    "status": "LEAF_BLADE_REFERENCE_ONLY",
+    "holds": [
+      "No photograph measures 4–10 mm free membranous ligule",
+      "No photograph separates the two 2–3 mm glumes from fertile lemma under a metric scale",
+      "True inrolled blade cross section not independently resolved"
+    ],
+    "arrows": 0
   }
 }
