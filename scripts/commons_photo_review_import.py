@@ -53,9 +53,16 @@ if re.search(r"\b(?:NC|ND)\b",normalized_license,re.I):
     raise SystemExit("Restricted NC/ND licensing is excluded from public-site photo importer")
 url=info.get("thumburl") if a.source_thumbnail_width else info["url"]
 if not url:raise SystemExit("Requested Commons thumbnail was not generated")
-if urllib.parse.urlparse(url).hostname not in ("upload.wikimedia.org","commons.wikimedia.org"):
+# Commons serves resized originals from its dedicated Wikimedia CDN.
+# Restrict both the requested and final redirect host to exact Wikimedia hosts.
+allowed_commons_hosts={"upload.wikimedia.org","commons.wikimedia.org","thumb.wikimedia.org"}
+requested=urllib.parse.urlparse(url)
+if requested.scheme!="https" or requested.hostname not in allowed_commons_hosts:
     raise SystemExit("Unexpected download host")
 image=fetch_with_limited_retry(url,timeout=120)
+received=urllib.parse.urlparse(image.url)
+if received.scheme!="https" or received.hostname not in allowed_commons_hosts:
+    raise SystemExit("Commons image redirected outside permitted Wikimedia hosts")
 if len(image.content)>35000000:raise SystemExit("File too large")
 source=Image.open(io.BytesIO(image.content))
 source.verify()
