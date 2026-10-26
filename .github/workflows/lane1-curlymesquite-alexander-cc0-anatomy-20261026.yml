@@ -1,0 +1,27 @@
+name: Lane 1 Curlymesquite Patrick Alexander CC0 mature head and clusters
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-curlymesquite-alexander-cc0-anatomy-20261026.yml'
+      - 'scripts/archive_lane1_curlymesquite_alexander_cc0_anatomy_20261026.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-curlymesquite-two-source-cc0-macros
+  cancel-in-progress: false
+jobs:
+  archive-mature-head-and-spikelet-groups:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image and original source validators
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Source-check both individual CC0 photos, sanitize metadata, install distinct panel lessons
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_curlymesquite_alexander_cc0_anatomy_20261026.py
