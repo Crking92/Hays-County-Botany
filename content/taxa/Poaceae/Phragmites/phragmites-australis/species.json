@@ -840,7 +840,8 @@
     "https://pmc.ncbi.nlm.nih.gov/articles/PMC10083467/",
     "https://commons.wikimedia.org/wiki/File:Phragmites_americanus_iN-24224288.jpg",
     "https://commons.wikimedia.org/wiki/File:Phragmites_americanus_iN-11747103.jpg",
-    "https://commons.wikimedia.org/wiki/File:Phragmites_australis_sl11.jpg"
+    "https://commons.wikimedia.org/wiki/File:Phragmites_australis_sl11.jpg",
+    "https://www.minnesotawildflowers.info/grass-sedge-rush/european-common-reed"
   ],
   "field_photo_quickcheck": {
     "heading": "THREE WAY TEXAS PHRAGMITES KEY: confirm species → three lineages → old sheath → stem → ligule → glumes → management decision",
@@ -1382,5 +1383,82 @@
       "Southern USA berlandieri genetically verified specimen with reuse rights still absent",
       "Final public Pages/mobile check pending"
     ]
+  },
+  "three_lineage_glume_finish_queue_20261026": {
+    "status": "REPRODUCTIVE_PHOTO_SOURCE_FOUND_NOT_ARCHIVED; HTTP_429_SOURCE_RATE_LIMIT",
+    "reference_photo": {
+      "source_page": "https://commons.wikimedia.org/wiki/File:Phragmites_australis_sl23.jpg",
+      "creator": "Stefan.lefnaer",
+      "license": "CC BY-SA 4.0",
+      "individual_license_verified": true,
+      "source_taxon": "Phragmites australis; Vienna specimen, subspecies not determined",
+      "organ": "Actual photographed spikelet with photographer's Glu=Gluma and Lem=Lemma labels",
+      "source_image_dimensions": [
+        9160,
+        2424
+      ],
+      "archive_destination": "content/taxa/Poaceae/Phragmites/phragmites-australis/images/species-europe-stefan-lefnaer-sl23-spikelet.jpg",
+      "archive_status": "NOT_INSTALLED",
+      "image_bytes_verified": false,
+      "source_error": "HTTP 429 Too many requests (f061ab2); do not claim archived or retry around provider rate limit",
+      "future_action": "Once source is ordinarily available, download authorized exact image, verify bytes and anatomy, preserve legible labels and CC BY-SA attribution, physically archive, add to gallery with no unsupportable lineage/hair arrows."
+    },
+    "comparative_glume_reference": {
+      "page": "https://www.minnesotawildflowers.info/grass-sedge-rush/european-common-reed",
+      "picture_context": "Side-by-side photos of introduced Eurasian and native American lower and upper glumes with 1-mm reference",
+      "reuse_license": "UNCONFIRMED; LINK FOR RESEARCH ONLY — NEVER COPY JPEG TO GITHUB WITHOUT EXPRESS RIGHTS",
+      "relevant_characters": [
+        "native and introduced lower glume length distributions overlap",
+        "native and introduced upper glume length distributions overlap",
+        "Gulf Coast berlandieri not diagnosed from this northern two-way image"
+      ]
+    },
+    "next_three_photo_lanes": [
+      {
+        "lane": "introduced subsp. australis organ set",
+        "priority": 1,
+        "needs": [
+          "source/voucher-linked old sheath persistence photo",
+          "dull/ridged exposed mature stem and true collar/ligule",
+          "ripe separated lower and upper glumes"
+        ],
+        "existing": "Ontario source-labeled whole stand only; Austrian species-level collar photos cannot certify introduced lineage",
+        "status": "NEEDS_PUBLIC_PHOTO_LINEAGE_VERIFIED"
+      },
+      {
+        "lane": "native subsp. americanus reproductive set",
+        "priority": 2,
+        "needs": [
+          "confidently source-labeled mature spikelet with both glumes at a readable scale",
+          "paired true ligule from same specimen"
+        ],
+        "existing": "North Dakota author-labeled reddish stems; Michigan source-labeled native reference; genotypes not verified",
+        "status": "NEEDS_PUBLIC_PHOTO_LINEAGE_VERIFIED"
+      },
+      {
+        "lane": "Gulf Coast subsp. berlandieri",
+        "priority": 3,
+        "needs": [
+          "vouchered/genotype-supported true sheath/stem macro from Gulf Coast or Texas",
+          "true ligule and mature glumes with source determination"
+        ],
+        "existing": "Florida research-grade iNaturalist photo (individual CC BY-NC 4.0), not molecularly verified",
+        "status": "SCIENTIFIC_HOLD_LINEAGE_PROVENANCE"
+      },
+      {
+        "lane": "final website/arrow closeout",
+        "priority": 4,
+        "needs": [
+          "physically archive approved diagnostic JPEGs without overclaiming",
+          "verify any new arrow against real pixels",
+          "public Pages noncommercial license and mobile alignment review"
+        ],
+        "existing": "14 archived species-level/lineage-reference JPEGs, 18 panels, 18 existing arrows",
+        "status": "READY_WHEN_PHOTOS_PASS_QA"
+      }
+    ],
+    "closeout_estimate": "3–5 focused manual passes for credible crew-level three-way teaching with explicit uncertainty; full lineage-certified Texas specimen coverage cannot be guaranteed without vouchers/genetics",
+    "preservation": "No taxonomy, nativity, family/genus lessons, automations, Pages, or existing photo/arrow change in this evidence-only update",
+    "audit_report": "reports/phragmites-three-lineage-photo-acquisition-20261026.json"
   }
 }
