@@ -63,13 +63,13 @@ old = get(IMAGE_PATH)
 if old:
     # Identical length alone is not an image identity guarantee: compare SHA-1 git blob,
     # which is calculated over 'blob LENGTH\0' and exact bytes.
-    blob_sha1 = hashlib.sha1(("blob " + str(len(candidate)) + "\\0").encode() + candidate).hexdigest()
+    blob_sha1 = hashlib.sha1(("blob " + str(len(candidate))).encode() + bytes([0]) + candidate).hexdigest()
     if old.get("sha") != blob_sha1:
         raise SystemExit("Another image occupies archival filename; preserve it")
 else:
     if not put(IMAGE_PATH, candidate, None, "Lane 1: archive CC BY 2.0 Harry Rose barnyardgrass plant view"):
         old = get(IMAGE_PATH)
-        blob_sha1 = hashlib.sha1(("blob " + str(len(candidate)) + "\\0").encode() + candidate).hexdigest()
+        blob_sha1 = hashlib.sha1(("blob " + str(len(candidate))).encode() + bytes([0]) + candidate).hexdigest()
         if not old or old.get("sha") != blob_sha1:
             raise SystemExit("Concurrent photo changed; stop")
 for attempt in range(6):
