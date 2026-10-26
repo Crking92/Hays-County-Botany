@@ -152,6 +152,38 @@
       ],
       "publication": "Canonical species JSON only; no website/Pages or schedule changes",
       "rights": "Stefan.lefnaer, CC BY-SA 4.0 per photo; existing JPEG bytes unchanged; separate browser overlay arrows; original attribution/source/SA terms preserved"
+    },
+    "grass_diagnostic_photo_fast_fill_20261026_1803": {
+      "status": "FIELD_READY_PHOTO_GAPS",
+      "existing_archived_photographs_pixel_inspected": 2,
+      "image_bytes_verified": {
+        "usgs_leaf_collar": 38908,
+        "stefan_panicle": 257277
+      },
+      "usgs_sha256_verified": "ef01ba5e1d09ee368cc6f86ba28c0fdb09d8275fedcdd4e834a6d262592b6298",
+      "source_rights": "Larry Allain/USGS Plants of Louisiana public domain; Stefan.lefnaer CC BY-SA 4.0, credit/source/license/SA and resize notice retained",
+      "new_photo_files": 0,
+      "new_browser_arrows": 5,
+      "anatomy_verified": [
+        "actual leaf blade edge but NOT retrorse direction",
+        "hairy stem node",
+        "blade–sheath junction but NOT measured ligule",
+        "central panicle axis",
+        "lateral branch bearing rice-like spikelets"
+      ],
+      "annotation_pending": [
+        "10–20× true BLADE-margin retrorse teeth with 1-mm ruler",
+        "lowest panicle branching node with independently countable 2+ co-originating primary branches",
+        "calibrated true membranous ligule",
+        "dissected glumeless spikelet base with measured lemma/palea"
+      ],
+      "NEEDS_PUBLIC_PHOTO": [
+        "exact-taxon 1-mm calibrated blade-margin micro",
+        "locally verified rooted flowering culm with same-plant panicle",
+        "calibrated glumeless base/lemma/palea dissection",
+        "matched Leersia virginica lower panicle node and spikelet"
+      ],
+      "publication": "Species JSON only; no website/Pages or schedules changed; no live deployment claimed."
     }
   },
   "images": [
@@ -708,15 +740,30 @@
         "image_url": "content/taxa/Poaceae/Leersia/leersia-oryzoides/images/stefan-lefnaer-sl20-cc-by-sa4.jpg",
         "image_fit": "contain",
         "image_role": "Real photographed airy inflorescence with several spreading fine branches; lower branch number should be judged only if a shared attachment is clearly visible.",
-        "caption": "Open terminal flowering panicle, with fine diverging branches and green rice-like spikelets. Count true lowest-node attachments only when one main axis is traced.",
+        "caption": "Real open rice cutgrass panicle: two arrows identify the central axis and a visibly spikelet-bearing lateral branch. These gross features are verified on the archived photograph, but the precise number of branches sharing the LOWEST node is not established. Do not teach an unverified 2+ basal count from this view.",
         "why_it_matters": "Teach the panicle's whole architecture before individual spikelet morphology.",
         "creator": "Stefan.lefnaer",
         "license": "CC BY-SA 4.0",
         "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Leersia_oryzoides_sl20.jpg",
-        "markers": [],
-        "photo_status": "LOCAL_CC_BY_SA_4__ANATOMY_SCALE_REVIEW_PENDING",
-        "annotation_pending": "No branch-count or precise node arrows until full-resolution pixel review"
+        "markers": [
+          {
+            "label": "Central panicle axis",
+            "label_x": 5,
+            "label_y": 26,
+            "target_x": 49,
+            "target_y": 38
+          },
+          {
+            "label": "Spikelets on a lateral branch",
+            "label_x": 71,
+            "label_y": 18,
+            "target_x": 65,
+            "target_y": 32
+          }
+        ],
+        "photo_status": "ARCHIVED_EXACT_TAXON_CC_BY_SA_4; original JPEG visually inspected 2026-10-26; two gross panicle overlay arrows; PROVISIONAL — USER PHOTO REVIEW PENDING; lowest-node branch count annotation_pending",
+        "annotation_pending": "Lowest panicle node: independently verify 2+ primary branches arise from one visible attachment with a scaled same-axis photograph."
       },
       {
         "label": "1 · TRUE rice-like spikelets — close view across fingers",
@@ -973,14 +1020,37 @@
         "image_url": "content/taxa/Poaceae/Leersia/leersia-oryzoides/images/larry-allain-usgs-0937-collar-leaf.jpg",
         "image_fit": "contain",
         "image_role": "Exact-source leaf-blade edge, collar and stem node context. Not a calibrated microscopic retrorse-teeth proof.",
-        "caption": "Rice cutgrass leaf blade beside the sheath/collar and a hairy stem node. Inspect the blade edge for roughness, but this image cannot prove backward-pointing teeth, measured ligule length, or same-plant underground rhizomes.",
+        "caption": "Real USGS rice cutgrass photograph: the rightward blade's actual lower edge, a hairy stem node on the left, and the blade–sheath junction are each visible and now arrowed. The tiny margin projections are NOT direction-proven or measured, and the true membranous ligule is NOT separately resolved here. A 10–20× blade-margin macro with a 1-mm scale remains necessary.",
         "why_it_matters": "Shows the actual blade attached near the collar, helping locate the cutting margin. A separate 10–20× macro with a 1-mm ruler is still needed to verify backward-pointing teeth.",
         "creator": "Larry Allain, U.S. Geological Survey",
         "license": "Public Domain (USGS Plants of Louisiana)",
         "license_url": "https://warcapps.usgs.gov/PlantID/Home/About",
         "source_page": "https://warcapps.usgs.gov/PlantID/Species/Details/1138",
-        "markers": [],
-        "photo_status": "PUBLIC_DOMAIN_LOCAL_ARCHIVE; annotation_pending"
+        "markers": [
+          {
+            "label": "Actual leaf-blade edge (tooth direction unverified)",
+            "label_x": 58,
+            "label_y": 8,
+            "target_x": 84,
+            "target_y": 43
+          },
+          {
+            "label": "Hairy stem node",
+            "label_x": 3,
+            "label_y": 80,
+            "target_x": 17,
+            "target_y": 61
+          },
+          {
+            "label": "Blade–sheath junction (ligule not resolved)",
+            "label_x": 53,
+            "label_y": 73,
+            "target_x": 49,
+            "target_y": 51
+          }
+        ],
+        "photo_status": "PUBLIC_DOMAIN_LOCAL_ARCHIVE; three browser-overlay arrows visually verified 2026-10-26; PROVISIONAL — USER PHOTO REVIEW PENDING; blade-tooth direction and true ligule annotation_pending",
+        "annotation_pending": "Leaf BLADE-margin retrorse tooth direction and measurement with 1-mm ruler; true ligule length; do not label the photographed node hairs as ligule."
       },
       {
         "label": "Rooted base, rhizomes and roots — PROVISIONAL",
