@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/lane3-utilis-cc0-sheet-20261026.yml'
+      - 'scripts/lane3_utilis_cc0_contact_sheet_20261026.py'
   workflow_dispatch:
 permissions:
   contents: write
@@ -37,7 +38,7 @@ jobs:
           p=pathlib.Path(r["contact_sheet"])
           assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r["sheet_sha256"]
           with Image.open(p) as im:
-              assert im.format=="JPEG" and im.width==2032
+              assert im.format=="JPEG" and im.width==1360
               im.verify()
           assert all(x["license"]=="CC0" and "inaturalist.org/photos/" in x["photo_page"] for x in r["downloaded"])
           print("PASS source-specific CC0 contact sheet: ",r["downloaded_count"])
