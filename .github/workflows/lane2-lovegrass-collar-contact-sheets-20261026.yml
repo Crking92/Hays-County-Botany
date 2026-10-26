@@ -1,0 +1,85 @@
+name: Lane 2 source-certified lovegrass collar macro photo scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-lovegrass-collar-contact-sheets-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  licensed-photo-scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Obtain exact species photo-level license metadata and render review-only contact sheets
+        run: |
+          python - <<'PY'
+          import base64, io, json, concurrent.futures, math, re, urllib.parse
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageDraw,ImageOps
+          UA={'User-Agent':'Hays-County-Botany-Learner/1.0 (public-photo-license and field-ID audit)'}
+          spp=['Eragrostis spectabilis','Eragrostis trichodes','Eragrostis lugens']
+          GOOD={'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}
+          def get(url,maxlen=1500000):
+              with urlopen(Request(url,headers=UA),timeout=28) as f:
+                  return f.read(maxlen)
+          def thumb(a):
+              id,url=a[0],a[1]
+              try:
+                  data=get(url,500000)
+                  with Image.open(io.BytesIO(data)) as im:
+                      q=ImageOps.exif_transpose(im).convert('RGB')
+                  q.thumbnail((236,160))
+                  return id,q
+              except Exception as e:
+                  return id,None
+          for species in spp:
+              rows=[]
+              for page in range(1,4):
+                  u='https://api.inaturalist.org/v1/observations?'+urllib.parse.urlencode({
+                      'taxon_name':species,'quality_grade':'research','photos':'true',
+                      'per_page':100,'page':page,'order':'desc','order_by':'created_at'})
+                  try:
+                      obj=json.loads(get(u,2000000))
+                  except Exception as e:
+                      print('APIERROR',species,str(e)[:190]);break
+                  for o in obj.get('results',[]):
+                      if o.get('taxon',{}).get('name')!=species:continue
+                      for p in o.get('photos',[])[:8]:
+                          if p.get('license_code') not in GOOD:continue
+                          ident=p.get('id')
+                          url=p.get('url','').replace('/square.','/medium.').replace('/thumbnail.','/medium.')
+                          rows.append({'id':ident,'url':url,'license':p.get('license_code'),'attr':p.get('attribution'),
+                            'obs':o.get('id'),'grade':o.get('quality_grade'),'place':o.get('place_guess'),
+                            'source_species':o.get('taxon',{}).get('name')})
+                      if len(rows)>=90:break
+                  if len(rows)>=90:break
+                  if page*100>=obj.get('total_results',0):break
+              rows=rows[:90]
+              print('SPECIES',species,'CANDIDATES',len(rows))
+              with concurrent.futures.ThreadPoolExecutor(max_workers=9) as pool:
+                  pics=dict(pool.map(thumb,[(r['id'],r['url']) for r in rows]))
+              for block in range(math.ceil(len(rows)/45)):
+                  subset=rows[block*45:(block+1)*45]
+                  canvas=Image.new('RGB',(1500,1080),'white');d=ImageDraw.Draw(canvas)
+                  for i,v in enumerate(subset):
+                      im=pics.get(v['id'])
+                      x=i%6*250; y=i//6*135
+                      if im is not None:
+                          im.thumbnail((245,105))
+                          canvas.paste(im,(x+(250-im.width)//2,y+(107-im.height)//2))
+                      d.text((x+5,y+108),str(v['id'])+' '+v['license'],fill='black')
+                  buff=io.BytesIO();canvas.save(buff,format='JPEG',quality=72,optimize=True)
+                  value=base64.b64encode(buff.getvalue()).decode('ascii')
+                  tag=species.split()[-1].upper()+'_'+str(block)
+                  print('CONTACT_SHEET',tag,'bytes',len(buff.getvalue()),'rows',len(subset))
+                  for part,off in enumerate(range(0,len(value),4000)):
+                      print('SHEET_'+tag+'_PART_'+str(part)+'='+value[off:off+4000])
+              for v in rows:
+                  print('LICENSED_PHOTO',species,json.dumps(v,ensure_ascii=False))
+          PY
