@@ -1,0 +1,39 @@
+name: Lane 1 sideoats CC BY-SA true hairy ligule archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-sideoats-true-ligule-20261026.yml'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-sideoats-true-ligule-20261026
+  cancel-in-progress: false
+jobs:
+  archive-source-verified-collar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image prerequisites
+        run: python -m pip install --disable-pip-version-check pillow requests
+      - name: Confirm Wikimedia Commons file license and sanitize source photograph
+        run: |
+          python scripts/commons_photo_review_import.py \
+            --file-title 'File:Bouteloua curtipendula (3796749425).jpg' \
+            --taxon 'Bouteloua curtipendula' --output review_photo --max-edge 2400
+      - name: Archive one permitted JPEG and add true sideoats ligule gallery panel
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_sideoats_true_ligule_20261026.py
+      - name: Retain exact source license and checksum
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lane1-sideoats-true-ligule-source-evidence
+          path: review_photo/evidence.json
+          if-no-files-found: ignore
+          retention-days: 30
