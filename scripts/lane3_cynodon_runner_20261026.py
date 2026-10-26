@@ -11,10 +11,10 @@ CANDIDATES=[
  {
  "title":"File:Cynodon dactylon stem (6920283073).jpg",
  "page":"https://commons.wikimedia.org/wiki/File:Cynodon_dactylon_stem_(6920283073).jpg",
- "url":"https://upload.wikimedia.org/wikipedia/commons/c/c7/Cynodon_dactylon_stem_%286920283073%29.jpg",
+ "url":"https://live.staticflickr.com/7054/6920283073_0ddb971e0b_o.jpg",
  "local":"images/harry-rose-cynodon-stolon-6920283073-ccby2.jpg",
  "creator":"Harry Rose / Macleay Grass Man","license":"CC BY 2.0","license_url":CC_BY,
- "source_collection":"Independently CC BY 2.0 Flickr photograph mirrored to Commons, NOT Bob Harms' separate Selected Monocots or Plant Resources Center collections",
+ "source_collection":"Flickr original by Harry Rose, individually confirmed CC BY 2.0 through Wikimedia Commons FlickreviewR; NOT Bob Harms Selected Monocots or UT specimens",
  "label":"RUNNER ANATOMY — photographed horizontal stem and leaf-bearing nodes",
  "role":"Detached elongated aboveground stem with repeated clear leaf-bearing nodes; roots and rhizomes NOT photographed",
  "caption":"Harry Rose photographed one continuous horizontally oriented Cynodon stem with many separate blade-bearing nodes against black. This teaches the jointed leaf arrangement of a runner. It is NOT a photograph of roots emerging at a node, nor an exposed underground rhizome.",
