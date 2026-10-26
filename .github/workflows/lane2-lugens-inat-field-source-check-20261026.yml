@@ -1,0 +1,33 @@
+name: Lane 2 iNaturalist field photo license verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-lugens-inat-field-source-check-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  photo-level-license:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect public iNaturalist API photo metadata without archiving
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from urllib.request import urlopen, Request
+          IDs=['154012199','154012166']
+          for pid in IDs:
+            for base in [f'https://api.inaturalist.org/v1/photos/{pid}',f'https://www.inaturalist.org/photos/{pid}.json']:
+              try:
+                with urlopen(Request(base,headers={'User-Agent':'Hays Botany public educational noncommercial photo rights verification'}),timeout=25) as f:
+                  data=json.load(f)
+                if 'results' in data and data['results']: data=data['results'][0]
+                if isinstance(data,dict):
+                  data={k:v for k,v in data.items() if k in {'id','attribution','license_code','native_photo_id','url','original_url','photo_url','observation_id','observations','user','taxon','site_id','created_at'}}
+                print('PHOTO_CHECK',pid,base,json.dumps(data,ensure_ascii=False)[:3000])
+                break
+              except Exception as e: print('SOURCE_ERROR',pid,base,str(e)[:250])
+          PY
