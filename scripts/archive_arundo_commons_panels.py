@@ -124,3 +124,13 @@ if not any(x.get("source_page")==source or x.get("file")=="images/"+target_name 
     report.write_text(json.dumps({"results":outcomes},indent=2)+"\n")
 else:
     print("Arundo spikelet already installed; no duplicate archive.")
+
+# Two-phase safe publication: preserve concurrent Arundo species edits during image-only archive.
+# A second worker edited the canonical species file during the previous archive run.
+# Keep only the verified JPEG and audit report in this commit; the species gallery
+# must be merged separately with a freshly fetched SHA after image readback.
+if any(o.get("status")=="archived" and o.get("archive","").endswith(target_name) for o in outcomes):
+    import subprocess
+    original_species=subprocess.check_output(["git","show","HEAD:"+str(p)])
+    p.write_bytes(original_species)
+    print("PHOTO ARCHIVED IN WORKSPACE; canonical species metadata deferred to fresh-SHA follow-up")
