@@ -4,7 +4,7 @@ import io,json,pathlib,urllib.request,urllib.error,urllib.parse,time
 from PIL import Image
 base=pathlib.Path("content/taxa/Poaceae/Phragmites/phragmites-australis")
 p=base/"species.json";d=json.loads(p.read_text());assert d["id"]=="phragmites-australis"
-items=[("Phragmites australis ligule1 (8253945012).jpg","Photographed hair-fringed ligule and collar region","harry-rose-ligule-8253945012.jpg"),("Phragmites australis spikelet1 annotated (6966477736).jpg","Annotated reproductive spikelet and flower structures","harry-rose-spikelet-6966477736.jpg"),("Phragmites australis floret1 annotated (7112553425).jpg","Annotated individual floret; anatomical labels require separate pixel review","harry-rose-floret1-annotated-7112553425.jpg"),("Phragmites australis spikelet2 annotated (6966469564).jpg","Second annotated spikelet for glume and floret comparison; anatomical labels require separate pixel review","harry-rose-spikelet2-annotated-6966469564.jpg")]
+items=[("Phragmites australis ligule1 (8253945012).jpg","Photographed hair-fringed ligule and collar region","harry-rose-ligule-8253945012.jpg"),("Phragmites australis spikelet1 annotated (6966477736).jpg","Annotated reproductive spikelet and flower structures","harry-rose-spikelet-6966477736.jpg"),("Phragmites australis floret1 annotated (7112553425).jpg","Annotated individual floret; anatomical labels require separate pixel review","harry-rose-floret1-annotated-7112553425.jpg"),("Phragmites australis spikelet2 annotated (6966469564).jpg","Second annotated spikelet for glume and floret comparison; anatomical labels require separate pixel review","harry-rose-spikelet2-annotated-6966469564.jpg"),("Phragmites australis rhizome kz.jpg","Excavated horizontal rhizome, Poland; anatomy only, lineage undetermined","kenraiz-rhizome-kz.jpg"),("Phragmites australis SCA-00129.jpg","Excavated rhizomes on tarp; no connected rooted crown or lineage determination","nonenmacher-rhizomes-sca-00129.jpg")]
 holds=[]
 def get(url):
  for i in range(5):
@@ -19,12 +19,12 @@ for filename,role,local in items:
   api="https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=url%7Cextmetadata&format=json&titles="+urllib.parse.quote(title)
   info=next(iter(json.loads(get(api))["query"]["pages"].values()))["imageinfo"][0]
   lic=info["extmetadata"]["LicenseShortName"]["value"].upper().replace("-","").replace(" ","")
-  assert lic=="CCBY2.0",(filename,lic)
+  assert lic in ("CCBY2.0","CCBYSA4.0"),(filename,lic)
   raw=get(info["url"]);assert 12000<len(raw)<15000000
   im=Image.open(io.BytesIO(raw));im.verify();im=Image.open(io.BytesIO(raw)).convert("RGB");assert min(im.size)>600
   dst=base/"images"/local;dst.parent.mkdir(parents=True,exist_ok=True);im.save(dst,"JPEG",quality=91,optimize=True)
   source="https://commons.wikimedia.org/wiki/"+urllib.parse.quote(title.replace(" ","_"))
-  entry={"file":"images/"+local,"role":role,"creator":"Harry Rose (Macleay Grass Man)","license":"CC BY 2.0","source_page":source,"public_reuse":"Attribution required; retain source's existing annotations","photo_status":"SOURCE-IDENTIFIED STRUCTURE; arrow review pending","lineage_caution":"No subspecies, native/introduced lineage, or genotype established by this photograph"}
+  entry={"file":"images/"+local,"role":role,"creator":("Kenraiz" if "rhizome kz" in filename else "R.A.Nonenmacher" if "SCA-00129" in filename else "Harry Rose (Macleay Grass Man)"),"license":("CC BY-SA 4.0" if "rhizome kz" in filename or "SCA-00129" in filename else "CC BY 2.0"),"source_page":source,"public_reuse":"Attribution required; retain source's existing annotations","photo_status":"SOURCE-IDENTIFIED STRUCTURE; arrow review pending","lineage_caution":"No subspecies, native/introduced lineage, or genotype established by this photograph"}
   if not any(x.get("file")==entry["file"] or x.get("source_page")==source for x in d["images"]):d["images"].append(entry)
   print("ARCHIVED",filename)
  except Exception as e:holds.append({"file":filename,"reason":str(e)});print("HELD",filename,e)
