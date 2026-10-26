@@ -1,0 +1,39 @@
+name: Lane 2 source-confirmed mourning lovegrass field image contact sheet
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-lugens-field-contact-sheet-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contact:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install Pillow
+      - name: Print small CC-licensed photo preview contact sheet for human pixel screening
+        run: |
+          python - <<'PY'
+          import io,base64,json
+          from urllib.request import urlopen,Request
+          from PIL import Image,ImageDraw,ImageFont
+          ids=[348620038,348620041,348620044,348620045,348620047,348620049,348620051,348620055,348620057,348620060,348620064,348620066,154012199,154012166,778381]
+          sheet=Image.new('RGB',(1600,1200),'white'); draw=ImageDraw.Draw(sheet)
+          for i,id in enumerate(ids):
+            try:
+              url=f'https://inaturalist-open-data.s3.amazonaws.com/photos/{id}/medium.jpg'
+              with urlopen(Request(url,headers={'User-Agent':'Hays Botany licensed photo preview, no publication'}),timeout=25) as z: raw=z.read()
+              im=Image.open(io.BytesIO(raw)).convert('RGB')
+              im.thumbnail((392,275))
+              x=i%4*400;y=i//4*300
+              sheet.paste(im,(x+(400-im.width)//2,y+15+(275-im.height)//2))
+              draw.text((x+9,y+278),f'{id} '+('Research Grade' if i<12 else 'Needs ID'),fill='black')
+              print('PHOTO',id,'original_dims',Image.open(io.BytesIO(raw)).size,'bytes',len(raw))
+            except Exception as e: print('FAILED_PHOTO',id,str(e))
+          o=io.BytesIO();sheet.save(o,format='JPEG',quality=76,optimize=True)
+          z=base64.b64encode(o.getvalue()).decode('ascii')
+          for idx,j in enumerate(range(0,len(z),3000)):print(f'SHEETPART_{idx}='+z[j:j+3000])
+          print('CONTACT_PARTS',idx+1,'bytes',len(o.getvalue()))
+          PY
