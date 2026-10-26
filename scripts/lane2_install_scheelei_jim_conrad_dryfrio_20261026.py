@@ -53,7 +53,10 @@ def fetch(url):
 def verify_rights():
     rights=fetch(RIGHTS_PAGE).decode("utf-8",errors="replace").lower()
     page=fetch(SOURCE_PAGE).decode("utf-8",errors="replace").lower()
-    found={"public domain": "public domain" in rights, "jim conrad": "jim conrad" in rights, "all images produced by myself": "all images produced by myself" in rights}
+    # HTML line wraps and inline <strong> formatting break an otherwise exact visible sentence.
+    import re, html
+    rights_visible = re.sub(r"\\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", rights))).strip()
+    found={"public domain": "public domain" in rights_visible, "jim conrad": "jim conrad" in rights_visible, "all images produced by myself": "all images produced by myself" in rights_visible}
     print("RIGHTS_PAGE_CHECK", json.dumps(found), "chars", len(rights), "snippet", repr(rights[:1000]))
     if not all(found.values()):
         raise RuntimeError("Rights evidence not found; stop without downloading images")
