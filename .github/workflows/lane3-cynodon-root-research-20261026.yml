@@ -1,0 +1,62 @@
+name: Lane 3 Cynodon research root-rhizome source archive
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-cynodon-root-research-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-cynodon-root-research
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'Pillow>=10,<12'
+      - name: Refresh and retrieve author-licensed CC BY 4.0 scientific figure
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/lane3_cynodon_roots_rhizome_research_20261026.py
+      - name: Validate source report and JPEG
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          from PIL import Image
+          r=json.loads(pathlib.Path("reports/lane3-cynodon-research-root-rhizome-20261026.json").read_text())
+          assert r["status"].startswith("SUPPORTING_ROOT_RHIZOME_FIGURE_ARCHIVED")
+          assert r["license"]=="CC BY 4.0"
+          p=pathlib.Path(r["path"])
+          assert p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()==r["sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and min(im.size)>=300
+              assert not im.getexif().get(34853)
+              im.verify()
+          s=json.loads(pathlib.Path("content/taxa/Poaceae/Cynodon/cynodon-dactylon/species.json").read_text())
+          a=[x for x in s["visual_comparison"]["items"] if x["image_url"]==str(p)]
+          assert len(a)==1 and a[0]["markers"]==[] and a[0]["license"]=="CC BY 4.0"
+          assert "field_ready_photo_gaps" in s["learner_visual_status"]["status"]
+          print("PASS: root/rhizome research support, non-completion correctly preserved")
+          PY
+      - name: Commit verified figure without bypassing publication gate
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Cynodon/cynodon-dactylon/ reports/lane3-cynodon-research-root-rhizome-20261026.json
+          git commit -m "Lane 3 archive CC BY 4.0 Cynodon real root and rhizome scientific reference"
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
