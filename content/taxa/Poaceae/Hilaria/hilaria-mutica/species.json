@@ -394,18 +394,33 @@
         "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING; original taxon attribution/rights retained; no new anatomical arrows."
       },
       {
-        "label": "ARCHIVED TOBOSA — additional source-labelled field photograph 3",
+        "label": "TOBOSA · Actual pale tight flowering head and grouped units (source photographed)",
         "scientific_name": "Hilaria mutica",
         "image_url": "content/taxa/Poaceae/Hilaria/hilaria-mutica/images/public-review006-9c0c937b06fa7c.jpg",
         "image_fit": "contain",
-        "image_role": "Physically archived licensed tobosa photo; visual organ identification and detail arrows pending.",
-        "caption": "Another real source-labelled tobosa grass photograph. Compare growth form and flowering habit with curlymesquite only where the photographed structures are actually visible. Do not infer the ligule or individual floret arrangement without verified close-up.",
-        "why_it_matters": "Shows additional species variation from photos already stored in the project without adding duplicate or remote images.",
+        "image_role": "High-resolution source-labelled photo of an ACTUAL attached tobosa spikelike flowering head, close enough to point to gross white spikelet GROUPS but not to count an individual triad's separate staminate and fertile components.",
+        "caption": "Clifton Ladd's original photo shows a pale, upright compact TOBOSA flowering head. Multiple outward-projecting, paperlike flowering groups are plainly visible along its axis. At this angle the separate members of each three-spikelet group cannot be counted reliably; no glume, sterile spikelet or individual lemma should be labeled from this photo. The true ligule and underground rhizome are not pictured.",
+        "why_it_matters": "Compare real pale clustered units in a tight upright head against the shorter curlymesquite look-alike; a head alone is not conclusive without growth base.",
         "creator": "Clifton Ladd, C.W.B.",
         "license": "CC BY",
         "source_page": "https://www.gbif.org/occurrence/5909034107",
-        "markers": [],
-        "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING; original taxon attribution/rights retained; no new anatomical arrows."
+        "markers": [
+          {
+            "label": "Compact attached flowering spike",
+            "label_x": 67,
+            "label_y": 16,
+            "target_x": 32,
+            "target_y": 43
+          },
+          {
+            "label": "Pale projecting spikelet groups (individual triad unresolved)",
+            "label_x": 57,
+            "label_y": 70,
+            "target_x": 33,
+            "target_y": 55
+          }
+        ],
+        "photo_status": "2026-10-26 archived Clifton Ladd CC BY source image inspected as original JPEG pixels; two GROSS arrow targets, no individual spikelet count claims. Source taxon determination and recorded license preserved, exact CC BY version not independently reverified; live site overlay QA PENDING."
       },
       {
         "label": "ARCHIVED TOBOSA — additional source-labelled field photograph 4",
@@ -489,8 +504,10 @@
     "heading": "Tobosa versus curlymesquite — underground scaly rootstock",
     "featured_photo_indices": [
       1,
+      5,
+      0,
       2,
-      3
+      7
     ],
     "steps": [
       "Use taller leaf and culm habit as the first cue, not proof; short grazed tobosa overlaps curlymesquite.",
@@ -498,11 +515,11 @@
       "No photographed underground rootstock in current gallery. Do not label leaf sheaths or aboveground stiff stems as a rhizome.",
       "Curlymesquite does spread by aboveground runners; validate on an intact plant and site, not one seedhead.",
       "For comparison, inspect the final panel showing DIFFERENT SPECIES Hilaria belangeri. Photograph tobosa and curlymesquite at similar scale; grass height or short heads alone cannot certify them.",
-      "Existing close photo shows condensed grouped units; counting central and lateral spikelets needs a true higher-resolution dissected photo.",
+      "Clifton Ladd's newly annotated close view of the actual mature attached spike is panel 6: pale projecting spikelet GROUPS are photographed, but the separate three members cannot be reliably counted. Do not invent glume/floret arrows.",
       "Regional floras may use Pleuraphis, but it is the same tobosa concept in this learner. Never duplicate canonical cards."
     ],
     "field_rule": "Stiff tall grass + buried scaly rhizomes and no stolons + terminal triad head favors tobosa.",
-    "warning": "Seven source-associated photos stored; no present image shows actually attached subterranean scaly rhizomes or exact triad member count. ID source provisionally determined, field-photo owner review pending.",
+    "warning": "Seven archived Tobosa photos and a separate curlymesquite look-alike reviewed 2026-10-26; no photo actually reveals an attached underground scaly rhizome or true inner ligule. Gross flowering head arrows only; no individual triad member assignment, no 100% completion or live-site QA claim.",
     "owner_mobile_review": "PENDING"
   },
   "diagnostic_photo_targets": [
@@ -648,5 +665,28 @@
     ],
     "public_ready_criteria": "Retain FIELD_READY_PHOTO_GAPS until same-voucher scaly underground rhizome, measured true ligule, sex-confirmed mature three-spikelet fascicle and central/lateral bract anatomy are visibly verified, with per-image rights and public-site QA.",
     "preservation": "Original taxonomy and range decisions, seven image records, rights, historical arrows and photo/science holds preserved. Pleuraphis synonym not duplicated."
+  },
+  "lane1_tobosa_four_role_photo_audit_20261026": {
+    "status": "FIELD_READY_PHOTO_GAPS",
+    "rightsaudit": "Reviewed rights check report and current noncommercial site policy. Existing NC Fernando Quiroz iNaturalist photo is retained conditionally with original license/creator/source, not automatically deleted; remote image-specific NC verification still needed for unconditional publication QA. Other six existing physical source-labelled CC BY JPGs remain credited, versions should be verified before 100%-rights signoff.",
+    "evidence": "Seven physically archived same-species JPEGs each inspected for photographed base/head/habit; no exact underground rhizome demonstrated. Existing Hilaria belangeri comparison panel is OTHER SPECIES.",
+    "roles": {
+      "whole_habit": "PASS FIELD REFERENCE: source-identified coarse aboveground tuft/clump in habitat, individual root-to-flower connection not measured",
+      "actual_base": "HOLD — true underground scaly rhizome not exposed in ANY existing JPG; at-surface dry stems are not a rhizome",
+      "true_ligule": "HOLD — actual blade-sheath junction and roughly 1 mm tattered membrane not photographed at usable scale",
+      "entire_flowering_head": "PASS REFERENCE — compact attached upright pale head shown and two broad visible structure arrows added to best close photo; individual groups of three still unverified",
+      "lookalike": "PASS BASIC — distinct Hilaria belangeri panel correctly identified; actual rhizome versus stolon pair needed for definitive crew decision"
+    },
+    "photo_acquisition_protocol": [
+      "On a taxonomically checked tobosa in the field, photograph a full tuft/stand with clear complete flowering head, then tag the SAME flowering culm.",
+      "Carefully expose 5–10 cm of soil at a healthy edge without severing the crown; photograph true scaly UNDERGROUND rhizome, connected living culm/tillers and fine roots side by side with 1-cm ruler; restore soil afterward.",
+      "Open the tagged culm blade–sheath junction to show the actual thin lacerate/serrate membranous ligule with 1-mm rule and bright side light. Collar sheath hairs alone are not membrane proof.",
+      "Photograph a full tight spike with 5-mm bar and one intact three-member spikelet group sideways; label individual spikelets only where separable, with source voucher."
+    ],
+    "new_photos": 0,
+    "arrows_added": 2,
+    "site_deployment": "NOT VERIFIED",
+    "mobile_overlay_qa": "PENDING",
+    "public_ready_100": false
   }
 }
