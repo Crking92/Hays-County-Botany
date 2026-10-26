@@ -1,0 +1,24 @@
+name: Lane 2 shortlist independently confirmed Eragrostis lugens field photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-lugens-inat-researchgrade-scout-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python - <<'PY'
+          from urllib.request import Request,urlopen
+          import json
+          u='https://api.inaturalist.org/v1/observations?taxon_id=162397&per_page=200'
+          with urlopen(Request(u,headers={'User-Agent':'Hays Botany citizen-science public license audit'}),timeout=30) as h: j=json.load(h)
+          for o in j['results']:
+            photos=[{'id':p.get('id'),'license':p.get('license_code'),'url':p.get('url')} for p in o.get('photos',[])]
+            print('OBS',json.dumps({'id':o.get('id'),'grade':o.get('quality_grade'),'observed_on':o.get('observed_on'),'place':o.get('place_guess'),'taxon':o.get('taxon',{}).get('name'),'observer':o.get('user',{}).get('login'),'photos':photos[:12]},ensure_ascii=False))
+          PY
