@@ -41,6 +41,35 @@ def save_image(raw,name,metadata):
              modifications="resized/re-encoded JPEG, original EXIF/GPS stripped; no arrows",
              status="ARCHIVED_CANDIDATE_NOT_ON_PUBLIC_SPECIES_GALLERY",
              anatomical_pixel_review="PENDING",lineage_certification="SOURCE-IDENTIFIED ONLY; NOT GENETICALLY VERIFIED")
+
+# Manually photo-reviewed native exposed internode from exact original Commons JPG.
+# Source description identifies americanus despite contradictory Commons basename.
+# License individually checked on file page: Matt Lavin CC BY-SA 2.0.
+# No new classification of Texas reed, no anatomy arrows.
+native_original="https://upload.wikimedia.org/wikipedia/commons/4/43/Phragmites_australis_australis_%2821075794926%29.jpg"
+native_page="https://commons.wikimedia.org/wiki/File:Phragmites_australis_australis_(21075794926).jpg"
+native_dest=ROOT/"lineage-native-matt-lavin-red-stem-21075794926.jpg"
+native_md={"source_page":native_page,"image_url":native_original,"creator":"Matt Lavin",
+ "source_taxon":"Phragmites australis subsp. americanus — author-description; Commons basename incorrectly says australis australis",
+ "source_location":"Benson County, North Dakota, USA",
+ "source_role":"native reed RED EXPOSED MID-STEM INTERNODE with old sheath detached around node; direct visual check before gallery",
+ "license":"CC BY-SA 2.0","license_url":"https://creativecommons.org/licenses/by-sa/2.0/",
+ "site_rule":"correct source-description vs file-name taxon conflict must be displayed; no genotype, no Texas",
+ "original_source_description":"This native subspecies americanus (American common reed) is distinguished in part by its reddish stems that are exposed during late summer/fall as blades/sheaths disarticulate."}
+try:
+ if native_dest.exists():
+  with Image.open(native_dest) as im: im.verify()
+  results.append(dict(native_md,status="ALREADY_ARCHIVED_CANDIDATE",
+     archive=str(native_dest),archive_sha256=hashlib.sha256(native_dest.read_bytes()).hexdigest(),
+     archive_bytes=native_dest.stat().st_size,anatomical_pixel_review="PENDING",
+     lineage_certification="AUTHOR-DESCRIBED ONLY, NOT GENETICALLY VERIFIED"))
+ else:
+  results.append(save_image(fetch(native_original), native_dest.name,native_md))
+except Exception as e:
+ results.append({"status":"HELD","source_page":native_page,"target":str(native_dest),
+                 "license":"CC BY-SA 2.0","creator":"Matt Lavin",
+                 "reason":type(e).__name__+": "+str(e)[:350]})
+
 # Exact source-labelled introduced lineage: taxon and photographer on Commons description
 title="File:European Reed (Phragmites australis australis) - Oakville, Ontario 2017-05-12.jpg"
 page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title[5:].replace(" ","_"))
