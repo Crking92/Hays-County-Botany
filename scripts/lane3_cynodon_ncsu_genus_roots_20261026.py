@@ -77,7 +77,7 @@ try:
     "status":"OTHER-TAXON GROWTH-STRUCTURE REFERENCE ONLY, NOT A FOUR-ROLE SPECIES FINISH",
     "true_exact_species_gaps":["Species-authenticated rooted stolon node with 1-mm scale","Actual exposed subterranean rhizome with intact bud, scale leaf, and attached plant"] }
  card.write_text(json.dumps(d,ensure_ascii=False,indent=2)+"\n")
- result.update(status="ARCHIVED_GENUS_REFERENCE_NOT_EXACT_SPECIES",added=[{"local_file":str(dest),"sha256":sha,"dimensions":dims,"creator":"Scott Zona","license":"CC BY-NC 2.0"}],"card_image_records":len(d["images"]),"gallery_panels":len(d["visual_comparison"]["items"]))
+ result.update({"status":"ARCHIVED_GENUS_REFERENCE_NOT_EXACT_SPECIES","added":[{"local_file":str(dest),"sha256":sha,"dimensions":dims,"creator":"Scott Zona","license":"CC BY-NC 2.0"}],"card_image_records":len(d["images"]),"gallery_panels":len(d["visual_comparison"]["items"])})
 except Exception as e:result["holds"].append(str(e)[:300])
 report.write_text(json.dumps(result,indent=2,ensure_ascii=False)+"\n")
 print(json.dumps(result,indent=2))
