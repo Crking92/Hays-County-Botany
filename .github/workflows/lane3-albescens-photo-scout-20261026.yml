@@ -1,0 +1,58 @@
+name: Lane 3 screen licensed white tridens grass photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-albescens-photo-scout-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-albescens-photo-scout-20261026
+  cancel-in-progress: false
+jobs:
+  search:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "Pillow>=10,<12"
+      - run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - run: python scripts/lane3_albescens_open_photo_contact_20261026.py
+      - name: Verify legal photo metadata and audit contact
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          from PIL import Image
+          x=json.loads(pathlib.Path("reports/lane3-albescens-open-license-contact-20261026.json").read_text())
+          assert x["taxon"]=="Tridens albescens"
+          assert x["total_source_images"]>=1
+          assert all(v["license_code"] in ("cc0","cc-by","cc-by-sa") for v in x["sources"])
+          img=pathlib.Path(x["contact_sheet"])
+          assert img.is_file() and hashlib.sha256(img.read_bytes()).hexdigest()==x["contact_sha256"]
+          with Image.open(img) as im:
+             assert im.format=="JPEG" and im.size==(1260,1392)
+             im.verify()
+          print("Source verified candidate count",x["total_source_images"],"reviewable",x["preview_count"])
+          PY
+      - name: Commit source audit only — do not add gallery thumbnails automatically
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-albescens-open-license-contact-20261026.json reports/lane3-albescens-open-license-contact-20261026.jpg
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 collect licensed exact white tridens photo shortlist for pixel review"
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
