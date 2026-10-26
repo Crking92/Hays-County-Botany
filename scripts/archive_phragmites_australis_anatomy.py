@@ -4,7 +4,7 @@ import io,json,pathlib,urllib.request,urllib.error,urllib.parse,time
 from PIL import Image
 base=pathlib.Path("content/taxa/Poaceae/Phragmites/phragmites-australis")
 p=base/"species.json";d=json.loads(p.read_text());assert d["id"]=="phragmites-australis"
-items=[("Phragmites australis ligule1 (8253945012).jpg","Photographed hair-fringed ligule and collar region","harry-rose-ligule-8253945012.jpg"),("Phragmites australis spikelet1 annotated (6966477736).jpg","Annotated reproductive spikelet and flower structures","harry-rose-spikelet-6966477736.jpg")]
+items=[("Phragmites australis ligule1 (8253945012).jpg","Photographed hair-fringed ligule and collar region","harry-rose-ligule-8253945012.jpg"),("Phragmites australis spikelet1 annotated (6966477736).jpg","Annotated reproductive spikelet and flower structures","harry-rose-spikelet-6966477736.jpg"),("Phragmites australis floret1 annotated (7112553425).jpg","Annotated individual floret; anatomical labels require separate pixel review","harry-rose-floret1-annotated-7112553425.jpg"),("Phragmites australis spikelet2 annotated (6966469564).jpg","Second annotated spikelet for glume and floret comparison; anatomical labels require separate pixel review","harry-rose-spikelet2-annotated-6966469564.jpg")]
 holds=[]
 def get(url):
  for i in range(5):
