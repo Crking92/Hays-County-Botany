@@ -1,0 +1,215 @@
+{
+  "batch_id": "grass-muhlenbergia-lindheimeri-reverchonii-parent-boundaries-2026-10-26-1122-001",
+  "date_checked": "2026-10-26",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Muhlenbergia",
+  "canonical_taxon_ids": [
+    "muhlenbergia-lindheimeri",
+    "muhlenbergia-reverchonii"
+  ],
+  "canonical_species_paths_read_only": {
+    "muhlenbergia-lindheimeri": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-lindheimeri/species.json",
+    "muhlenbergia-reverchonii": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "muhlenbergia-lindheimeri": "c8a5257e45e81239723dc5a6ad0f81ffbc58d3f8",
+    "muhlenbergia-reverchonii": "7e1b1f5b1fa3a62545d1925415ad3ac7db8b50da"
+  },
+  "claim_id": "grass-muhlenbergia-lindheimeri-reverchonii-parent-boundaries-2026-10-26-1122-001",
+  "claim_path": "workflow/taxonomy-claims/grass-muhlenbergia-lindheimeri-reverchonii-parent-boundaries-2026-10-26-1122-001.json",
+  "primary_decision": "PASS_BOTH_ACCEPTED_PARENTS_WITH_DISTINCT_SYNONYMS_AND_HYBRID_HOLDS",
+  "decisions": [
+    {
+      "code": "MULR-01",
+      "status": "PASS",
+      "source_name": "Muhlenbergia lindheimeri Hitchc.",
+      "accepted_target": "Muhlenbergia lindheimeri Hitchc.",
+      "reason": "Accepted Poaceae species in POWO/WCVP, J. Wash. Acad. Sci. 24:291 (1934); existing canonical authority correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://www.ipni.org/n/164816-2"
+      ]
+    },
+    {
+      "code": "MULR-02",
+      "status": "PASS",
+      "source_name": "Epicampes gracilis Trin. (1841)",
+      "accepted_target": "Muhlenbergia lindheimeri Hitchc.",
+      "reason": "POWO lists a HETEROTYPIC synonym; retain full original genus and authorship as searchable historical alias, not a separate accepted learner taxon.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400719-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2"
+      ]
+    },
+    {
+      "code": "MULR-03",
+      "status": "PASS",
+      "source_name": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "accepted_target": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "reason": "Accepted Poaceae species in POWO/WCVP; Contr. U.S. Natl. Herb. 3(1):66 (25 Feb 1892 per IPNI). Existing canonical authority correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2",
+        "https://www.ipni.org/n/164871-2"
+      ]
+    },
+    {
+      "code": "MULR-04",
+      "status": "PASS",
+      "source_name": "Podosemum reverchonii (Vasey & Scribn.) Bush (1921)",
+      "accepted_target": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "reason": "POWO lists this as HOMOTYPIC combination based on same type; retain historical cross-genus alias without creating another accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:204656-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2",
+        "https://www.ipni.org/n/164871-2"
+      ]
+    },
+    {
+      "code": "MULR-05",
+      "status": "PASS",
+      "source_name": "Muhlenbergia × involuta Swallen",
+      "accepted_target": "Muhlenbergia × involuta Swallen",
+      "reason": "POWO accepts a distinct named natural hybrid with formula M. lindheimeri × M. reverchonii. Preserve BOTH parent species as separate accepted taxa; hybrid evidence already exists in separate prior audit.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MULR-06",
+      "status": "PASS",
+      "source_name": "IPNI duplicate citations for Muhlenbergia lindheimeri Hitchc.",
+      "accepted_target": "Muhlenbergia lindheimeri Hitchc.",
+      "reason": "IPNI 164816-2 and 409064-1 are linked as the same 1934 publication citation, not two taxon concepts. Canonical POWO identifier is 164816-2.",
+      "sources": [
+        "https://www.ipni.org/n/164816-2",
+        "https://www.ipni.org/n/409064-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2"
+      ]
+    },
+    {
+      "code": "MULR-07",
+      "status": "PASS",
+      "source_name": "IPNI duplicate citations for Muhlenbergia reverchonii",
+      "accepted_target": "Muhlenbergia reverchonii Vasey & Scribn.",
+      "reason": "IPNI 164871-2 lists the 409132-1 'Vasey & Scribn. ex Vasey' rendering as SAME CITATION. Retain author-qualified alternate source string; POWO accepted citation remains Vasey & Scribn.",
+      "sources": [
+        "https://www.ipni.org/n/164871-2",
+        "https://www.ipni.org/n/409132-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MULR-08",
+      "status": "FAIL",
+      "source_name": "Automatic synonymizing Epicampes gracilis with Muhlenbergia gracilis",
+      "accepted_target": "REJECT EPITHET-ONLY MERGE",
+      "reason": "The synonym Epicampes gracilis Trin. maps to M. lindheimeri, while M. gracilis (Kunth) Kunth maps to accepted M. quadridentata; 'gracilis' alone is insufficient to determine identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400719-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77243750-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:409123-1"
+      ]
+    },
+    {
+      "code": "MULR-09",
+      "status": "FAIL",
+      "source_name": "Podosemum reverchonii as a separately accepted species",
+      "accepted_target": "REJECT DUPLICATE CARD",
+      "reason": "The 1921 combination is a homotypic synonym of existing M. reverchonii; a separate canonical species would duplicate the accepted concept.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:204656-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MULR-10",
+      "status": "FAIL",
+      "source_name": "Reassigning either parent species record to M. × involuta from intermediate habit",
+      "accepted_target": "REJECT AUTOMATIC HYBRID CONVERSION",
+      "reason": "Accepted hybrid formula does not synonymize either parent or identify a specimen. Existing species and hybrid canonical records must stay separate.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2"
+      ]
+    },
+    {
+      "code": "MULR-11",
+      "status": "HOLD",
+      "source_name": "Existing parent-species gallery specimens and observations",
+      "accepted_target": "INDIVIDUAL SPECIMEN ID NOT CERTIFIED",
+      "reason": "Name-only review did not examine individual vouchers or source photograph pixels. Do not elevate labels to confirmed IDs or remove existing scientific holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "code": "MULR-12",
+      "status": "HOLD",
+      "source_name": "Unverified individual hybrid/introgressed/cultivated ancestry",
+      "accepted_target": "NO INDIVIDUAL ANCESTRY ASSIGNMENT",
+      "reason": "POWO accepted named-hybrid parentage is taxon-level. It does not demonstrate parentage, genetic ancestry or provenance of any particular photographed plant.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2"
+      ]
+    },
+    {
+      "code": "MULR-13",
+      "status": "UNRESOLVED",
+      "source_name": "Unqualified historic 'gracilis' or 'reverchonii' record without genus/author/voucher",
+      "accepted_target": "AUTHOR-QUALIFIED CONCEPT REVIEW REQUIRED",
+      "reason": "Multiple author-qualified historical names and duplicate IPNI citation strings exist. Do not normalize an authorless or voucherless historical record to a species or hybrid without its original combination and supporting context.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400719-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77243750-1",
+        "https://www.ipni.org/n/164871-2",
+        "https://www.ipni.org/n/409132-1"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 7,
+    "FAIL": 3,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "sources": {
+    "lind": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164816-2",
+    "rever": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164871-2",
+    "epi": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:400719-1",
+    "podo": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:204656-2",
+    "hybrid": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164804-2",
+    "muhgrac": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77243750-1",
+    "quadr": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:409123-1",
+    "ipnil": "https://www.ipni.org/n/164816-2",
+    "ipnil2": "https://www.ipni.org/n/409064-1",
+    "ipnir": "https://www.ipni.org/n/164871-2",
+    "ipnir2": "https://www.ipni.org/n/409132-1"
+  },
+  "reference_authorities": [
+    "POWO/WCVP 2026 Kew accepted taxon and synonym pages",
+    "IPNI publication and duplicate citation records",
+    "Flora of North America 2003 as cited in POWO"
+  ],
+  "prior_hybrid_evidence_read_only": "research-drafts/taxonomy-name-fast-pass/grass-muhlenbergia-x-involuta-2026-10-25-0923-001.json",
+  "native_range_audit": "DEFERRED — not performed",
+  "coordination": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_family_lessons_modified": false,
+    "installation_performed": false,
+    "county_nativity_audited": false,
+    "pages_changed": false,
+    "other_worker_files_modified": false
+  },
+  "next_scientific_steps": [
+    "When encountering ambiguous authorless historic labels, verify original genus, authorship, rank and voucher before alias mapping.",
+    "Keep individual parent and hybrid specimen identity/ancestry holds until direct evidence is available.",
+    "Do not reopen previously verified M. × involuta name-level hybrid evidence without new conflicting primary authority."
+  ]
+}
