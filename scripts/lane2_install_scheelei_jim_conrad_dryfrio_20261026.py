@@ -53,7 +53,10 @@ def fetch(url):
 def verify_rights():
     rights=fetch(RIGHTS_PAGE).decode("utf-8",errors="replace").lower()
     page=fetch(SOURCE_PAGE).decode("utf-8",errors="replace").lower()
-    assert "public domain" in rights and "jim conrad" in rights and "all images produced by myself" in rights
+    found={"public domain": "public domain" in rights, "jim conrad": "jim conrad" in rights, "all images produced by myself": "all images produced by myself" in rights}
+    print("RIGHTS_PAGE_CHECK", json.dumps(found), "chars", len(rights), "snippet", repr(rights[:1000]))
+    if not all(found.values()):
+        raise RuntimeError("Rights evidence not found; stop without downloading images")
     assert "jim conrad" in page and "setaria scheelei" in page and "uvalde" in page
     assert "130908st.jpg" in page and "130908su.jpg" in page
     # Fail rather than infer rights for a specifically credited alternate photographer
