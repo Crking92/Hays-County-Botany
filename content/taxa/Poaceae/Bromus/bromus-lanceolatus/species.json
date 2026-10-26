@@ -85,11 +85,11 @@
     }
   ],
   "learner_visual_status": {
-    "status": "provisional_learner_ready",
-    "mode": "learner_fast_fill",
+    "status": "field_ready_photo_gaps",
+    "mode": "lane5_source_audit_and_corrected_comparisons",
     "image_count": 2,
     "filled_at": "2026-10-19",
-    "note": "Temporary one-photo learner coverage. Keep until stronger diagnostic gallery coverage replaces or supplements it."
+    "note": "Two original archived B. lanceolatus JPEGs remain: real green panicle and dry spikelet macro; genuine rooted Texas herbarium specimen located under synonym B. macrostachys (TEX-LL accession 00314236), but public image copyright/rights not established. No new JPEGs or markers. Actual inner ligule, root-crown photo rights, glume veins and connected Hays voucher remain missing. Corrected all six crew tile comparison indices; Pages not verified."
   },
   "morphology_keys": {
     "best_field_traits": [
@@ -191,7 +191,7 @@
   },
   "visual_comparison": {
     "title": "Lanceolate brome — four installed bromes vs rescuegrass",
-    "subtitle": "The first image is the existing source-labelled annotated photograph. Then compare the other installed bromes, Japanese's photographed lemma detail and TWO licensed RESCUEGRASS views as comparison-only. All new rightsholder credits attached.",
+    "subtitle": "Two physically archived true lanceolate-brome photographs: green flowering panicle (Dave Richardson, CC BY recorded) and dry mature spikelets (Yves Bas, CC BY 4.0). Six OTHER Bromus panels include a duplicated Japanese-brome photo in panels 1 and 2. Current photos do not prove rooted crown, inner ligule or detached backlit glumes.",
     "memory_rule": "JAPANESE: annual, flexuous awned head, higher glume veins. TEXAS: annual, lower ONE & upper THREE glume veins. LANCEOLATE: giant many-flowered spikelets. WOODLAND: perennial + hairy lemmas. RESCUE: broad flat short/no-awn units (comparison only).",
     "items": [
       {
@@ -499,13 +499,38 @@
     "heading": "Lanceolate brome — first see the real spikelet, then measure",
     "featured_photo_indices": [
       0,
-      7
+      1
     ],
     "photo_feature_correction_20261026": {
       "reason": "The prior featured index 1 displayed Bromus japonicus, a comparison species, as the second lead image. Index 7 is the existing physically archived exact-species Bromus lanceolatus dry spikelet photograph by Yves Bas.",
-      "target_species_photo_indices": [0, 7],
-      "source_image_files": ["images/inat-283645783.jpg", "images/yves-bas-bromus-lanceolatus-dry.jpg"],
-      "local_jpeg_byte_checks": [{"index": 0, "bytes": 385103, "dimensions_px": [768, 1024], "git_blob_sha": "c873d05652423d2ab0cf2c306a1d1ec96f1262fd"}, {"index": 7, "bytes": 606226, "dimensions_px": [1536, 1691], "git_blob_sha": "a87d992c1371710ea1a4a89d460bbd0b77d7037b"}],
+      "target_species_photo_indices": [
+        0,
+        7
+      ],
+      "source_image_files": [
+        "images/inat-283645783.jpg",
+        "images/yves-bas-bromus-lanceolatus-dry.jpg"
+      ],
+      "local_jpeg_byte_checks": [
+        {
+          "index": 0,
+          "bytes": 385103,
+          "dimensions_px": [
+            768,
+            1024
+          ],
+          "git_blob_sha": "c873d05652423d2ab0cf2c306a1d1ec96f1262fd"
+        },
+        {
+          "index": 7,
+          "bytes": 606226,
+          "dimensions_px": [
+            1536,
+            1691
+          ],
+          "git_blob_sha": "a87d992c1371710ea1a4a89d460bbd0b77d7037b"
+        }
+      ],
       "technical_verification": "Both archived JPEGs checked for SOI/EOI, dimensions, and no APP1 or APP13 segments; this does not independently re-voucher species identity or prove source-byte equality.",
       "rights": "Yves Bas CC BY 4.0 reconfirmed from individual Wikimedia Commons record on 2026-10-26; Dave Richardson CC BY retained as previously recorded, version/source licensing not independently refreshed.",
       "new_photo_bytes": 0,
@@ -514,22 +539,29 @@
       "publication": "Not verified; no website or Pages changes"
     },
     "steps": [
-      "START with the annotated ORIGINAL real photo. Follow a FLOWERING PANICLE branch to one MULTI-FLOWERED SPIKELET; each overlapping scale is a distinct lemma/floret, not one giant grain.",
-      "COLLECT a ripe intact spikelet with a 1-mm ruler. Identify two outer GLUMES, then the inner LEMMAS and any AWNS; count florets.",
-      "MEASURE the extra LONG many-flowered lanceolate spikelet (~25–50 mm) and count often 8–20 florets.",
-      "ON A VOUCHERED SPECIMEN, examine the lower 3–5-veined and upper usually 5–9-veined glumes under backlight with 1-mm scale. Kew GrassBase and FNA vary in upper-glume vein-count descriptions, so log observed counts rather than teaching one number as universal.",
-      "OPEN a mature lemma under 10–20× to see the bifid/toothed tip and the awn arising below it; compare actual visible hairiness with the lower leaf sheath. Awns may diverge or twist when mature, but this is not by itself species-proof.",
-      "AT THE BLADE/SHEATH COLLAR photograph the entire 1–2 mm ligule face-on and the hairy lower sheath in two separate frames. Do not mistake sheath pubescence for hairs on the ligule itself.",
-      "COMPARE all four installed Bromus photographs together. The broad-flat short-awn RESCUEGRASS is an external comparison ONLY.",
-      "If the mature two-glume/lemma structures are obscured or the source could be a scarce native brome, keep ID as Bromus sp. rather than assigning invasive management by silhouette."
+      "1 · GREEN TARGET: gallery 0, actual Dave Richardson panicle with green dense many-flowered spikelets; roots hidden.",
+      "2 · DRY TARGET: gallery 7, actual Yves Bas overlapping mature bracts, fine out-curving awns, bract-edge hairs; original source CC BY 4.0.",
+      "3 · ROOTED TEXAS VOUCHER: accession TEX-LL 00314236 under synonym Bromus macrostachys (collected Washington County in 1980) documents roots + flowering stems, but scan rights UNCONFIRMED: research citation ONLY, not a copied public photo.",
+      "4 · INNER COLLAR: lift true blade edge to show 1–2-mm membranous ligule and adjacent lower sheath hairs separately; no existing exact-species photo proves it.",
+      "5 · OPEN MATURE SPIKELET: expose two outer glumes, backlight their actual veins, include physical mm rule. FNA lower 3–5/upper 5–7; Kew gives lower 3/upper 7–9.",
+      "6 · LEMMA + AWN: detach fertile lemma and show two apical teeth and separate subapical awn insertion, do not assume the dense spikelet photo demonstrates exact boundaries.",
+      "7 · NATIVE COMPARISON: gallery panel 3 = B. texensis, 4 = B. pubescens; 1/2 both duplicate Japanese brome photo, 5/6 are rescuegrass.",
+      "8 · RELEASE ONLY after license, rooted plant, inner collar, measured glumes, independent source ID and live mobile annotation QA."
     ],
     "field_rule": "For native versus introduced Bromus, the important structures are glume VEINS, actual lemma dimensions and awns, and an annual or perennial rooted crown—not the word 'brome' or a pretty nodding head.",
-    "warning": "The archived source image arrows identify gross visible structures only. Close glume venation/lemma hairs and exact mm ruler photos are still missing. Do not treat source IDs as independently confirmed local voucher. Featured gallery references verified against existing species image array on 2026-10-23; this adjustment does not certify unreviewed anatomy or add images. Scientific caution: FNA reports upper glumes 5–7-veined whereas Kew GrassBase describes 7–9-veined; mature specimen vein counts remain a photo hold. Wikimedia's only useful labeled close-up (Yves Bas) is already in the gallery, so no duplicate images were added. Two existing exact-species archived JPEGs were byte-decoded and inspected 2026-10-25 (no EXIF APP1/APP13); one new arrow targets only visible bract-edge hairs on Yves Bas's CC BY 4.0 photo. The iNaturalist Dave Richardson photo's recorded CC BY license was preserved but not independently reconfirmed.",
+    "warning": "2026-10-26 actual two JPEG pixel check retained all 20 original arrows and original image licenses; no new binary/media added. Rights for Texas TEX-LL herbarium image 00314236 not cleared, excluded from visual_comparison. Dave Richardson original CC BY license version not independently refreshed; Yves Bas CC BY 4.0 reconfirmed at Commons. Gallery 1/2 duplicate other-species Japanese photo; corrected crew indices. Live deployment UNVERIFIED.",
     "evidence_sources": [
       "https://openherbarium.org/portal/taxa/index.php?clid=0&taxauthid=1&tid=236952",
       "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:393818-1/general-information",
       "https://commons.wikimedia.org/wiki/File:Bromus_lanceolatus_dry.jpg"
-    ]
+    ],
+    "featured_panel_indices": [
+      0,
+      7,
+      3,
+      4
+    ],
+    "featured_index_note": "featured_photo_indices reference images[] containing TWO same-species media records (0 green, 1 dry). featured_panel_indices reference the 8-entry visual_comparison gallery (target 0/7, native Texas comparison 3, woodland 4)."
   },
   "what_to_photograph_for_confirmation": [
     "Whole rooted native-range flowering plant to document annual versus perennial duration and habitat.",
@@ -544,7 +576,7 @@
     {
       "heading": "01 · LOOK HERE FIRST — LONG LANCE-SHAPED SPIKELETS",
       "short": "Introduced annual; mature spikelets often 25–50 mm long with about 8–20 fertile florets.",
-      "details": "Follow a real panicle branch to one narrow, tapering, many-flowered spikelet and count florets within that ONE spikelet. Measure the body without awns. The Dave Richardson target photograph and Yves Bas dried target specimen show crowded units, but neither independently supplies a millimeter scale or a rooted local voucher. An open or drooping head alone is not diagnostic.",
+      "details": "Follow the actual Dave Richardson green panicle (panel 0) from its short branches into densely crowded lance-shaped, multi-flowered spikelets. Then examine Yves Bas's dried spikelets (panel 7) with fine outcurving awns and bract edge hairs. Both are true source-identified species photos, but neither shows the real rooted crown, exact millimeter scale, or individual glume venation. FNA gives spikelets about 20–50 mm with 7–20 florets; count and measure on a source-authenticated mature specimen.",
       "photo_panel_indices": [
         0,
         7
@@ -555,12 +587,12 @@
         "floret",
         "awn"
       ],
-      "status": "REAL TARGET PHOTOS — NEEDS_PUBLIC_PHOTO RULERED ATTACHED SPIKELETS"
+      "status": "TWO REAL SPECIES PHOTOS: GREEN PANICLE + DRY SPIKELETS; NO ROOTED WHOLE PLANT"
     },
     {
       "heading": "02 · ANNUAL ROOTS, SHEATH AND TRUE LIGULE",
       "short": "Verify an annual fibrous-rooted plant and the approximately 1–2 mm true membranous ligule.",
-      "details": "On the SAME flowering plant show the rooted crown, basal and lower leaf sheaths, then fold back the blade to expose the inner ligule face-on. Keep lower-sheath hairs separate from the membrane itself. The existing dried reproductive photograph cannot prove life duration, collar hairs or the true ligule. Published ligule length is a source character, not a photo measurement.",
+      "details": "FNA reports an annual with soft white hairs often on the leaf sheaths and a 1–2-mm obtuse or erose true ligule. GrassBase describes an eciliate membrane, so verify the actual free edge rather than assuming its fringe. No installed target photo shows roots, lower sheath hairs, or the inside blade/sheath junction. A Texas specimen under synonym Bromus macrostachys (TEX-LL 00314236, Cliff Morden 21, 27 April 1980, Washington County) DOES picture dried fibrous roots and flowering stems, but scan reuse rights have not been confirmed: it is a RESEARCH-ONLY lead, not a public gallery photo. Obtain licensed same-plant rooted base, flowering axis and true 1-mm-scaled ligule.",
       "photo_panel_indices": [
         0,
         7
@@ -571,28 +603,31 @@
         "collar",
         "sheath"
       ],
-      "status": "PUBLISHED VEGETATIVE KEY — NEEDS_PUBLIC_PHOTO CONNECTED CROWN AND COLLAR"
+      "status": "ROOTED TEXAS HERBARIUM SPECIMEN FOUND — PHOTO RIGHTS UNCLEARED; TRUE LIGULE STILL MISSING"
     },
     {
       "heading": "03 · BACKLIGHT THE TWO GLUMES",
       "short": "Lower glume commonly 3–5-veined; upper reported about 5–9-veined across treatments.",
-      "details": "Detach an intact ripe spikelet and identify the TWO outer glumes before counting veins under backlight at 10–20×. FNA and Kew descriptions differ on upper-glume counts (FNA 5–7; Kew 7–9), so record observed venation rather than asserting one universal number. Current species photos do not resolve glume boundaries or vein counts.",
+      "details": "On ONE ripe target spikelet, separate both basal GLUMES and count their longitudinal veins by backlighting against a 1-mm ruler. FNA gives lower 3–5 and upper 5–7; Kew GrassBase generally gives lower 3 and upper 7–9. Those are published ranges, not measurements visible in panels 0 and 7. For the native comparison, panel 3 is B. texensis, often 1-veined lower/3-veined upper; never mistake its photo for a laceolate brome organ.",
       "photo_panel_indices": [
-        7
+        0,
+        7,
+        3
       ],
       "glossary": [
         "glume",
         "vein",
         "spikelet"
       ],
-      "status": "SOURCE RANGES DISAGREE — NEEDS_PUBLIC_PHOTO BACKLIT GLUMES WITH 1-MM BAR"
+      "status": "TWO MEASURED BACKLIT GLUMES REQUIRED — TREATMENT VEIN RANGES DIFFER"
     },
     {
       "heading": "04 · LEMMA BODY, TWO TIP TEETH AND AWN",
       "short": "Fertile lemma often 12–18 mm; awn approximately 6–12 mm, arising below the tip.",
-      "details": "Under 10–20× isolate a mature fertile lemma and record its body length, not including the awn. Inspect the short two-toothed or bifid apex and the subapical awn origin. The Yves Bas source photo shows real overlapping dried bracts and edge hairs, but it does NOT establish which photographed bract is a dissected lemma or measure the awn; no microscopic arrow is justified.",
+      "details": "Yves Bas's dry macro (panel 7) shows true species-labelled overlapping pointed bracts, twisted/slender awns and fine edge hairs, not an independently detached lemma. FNA describes fertile lemmas about 11–20 mm and awns mostly 6–12 mm, sometimes longer. Confirm the two short tip teeth and SUBAPICAL awn insertion on a separated floret with physical 1-mm scale. Do not arrow a crowded awn tip as a precisely assigned lemma origin without a visible continuous connection.",
       "photo_panel_indices": [
-        7
+        7,
+        0
       ],
       "glossary": [
         "lemma",
@@ -604,16 +639,17 @@
     },
     {
       "heading": "05 · CENTRAL TEXAS LOOK-ALIKES — NATIVE FIRST",
-      "short": "Do not confuse native Texas brome with introduced lanceolate or Japanese brome.",
-      "details": "Panel 4 shows native Texas brome, with typically 1-veined lower and 3-veined upper glumes; compare against this species' more strongly veined glumes on an actual mature specimen. Japanese brome (panels 2–3) can also be awned and drooping; its spikelet lengths overlap. Rescuegrass (panels 6–7) is an OTHER-SPECIES comparison with broad flattened, often short-awned spikelets. Check annual roots, floret count and glume venation before making an invasive-management decision.",
+      "short": "Native Texas brome = panel 3; Japanese brome duplicate = panels 1 and 2",
+      "details": "TARGET panels 0/7 are B. lanceolatus. Panel 3 is NATIVE B. texensis, not panel 4. Panel 1 and panel 2 both point to the SAME Matt Lavin Japanese-brome JPEG, so they do not supply two independent comparison images. Panel 4 is native perennial hairy woodland brome B. pubescens; panels 5/6 are introduced broad-spikeleted rescuegrass B. catharticus. FNA lanceolate brome panicle branches are usually relatively rigid and shorter than the often 20–50-mm spikelets, as opposed to Japanese brome's often more flexuous panicle; appearances overlap, so confirm glumes and lemma before removal.",
       "photo_panel_indices": [
         0,
+        7,
+        3,
         1,
         2,
-        3,
+        4,
         5,
-        6,
-        7
+        6
       ],
       "glossary": [
         "glume",
@@ -621,21 +657,20 @@
         "spikelet",
         "awn"
       ],
-      "status": "OTHER-SPECIES PANELS LABELED — IDENTIFICATION NEEDS DISSECTION"
+      "status": "SIX OTHER-SPECIES PANELS LABELED ACCURATELY; NO MEASURED PAIRED TEXAS VOUCHER"
     },
     {
       "heading": "06 · PUBLIC-READY GATE — TWO LANE HANDOFFS",
-      "short": "FIELD_READY_PHOTO_GAPS; two archived target JPEG records and six comparison panels, not a finished anatomical proof.",
-      "details": "NEEDS_PUBLIC_PHOTO (Grass Photo-Finish): one source-authenticated rooted Texas flowering plant; full panicle with centimeter scale; three mature attached 25–50 mm spikelets with florets counted and a 1-mm bar; lower/upper glumes isolated and backlit for vein counts; detached 12–18 mm lemma with tip/awn insertion; true inner 1–2 mm ligule with lower-sheath hairs separately shown. NEEDS_SITE_QA (Public Learner Readiness): confirm both target JPEG bytes and Dave Richardson CC BY / Yves Bas CC BY 4.0 credits, the six OTHER-species panel labels and their individual rights, existing gross arrows on actual pixels, all six tile layouts, and public mobile display. Do not mark FINISHED or claim a deployment.",
+      "short": "FIELD_READY_PHOTO_GAPS — crown, ligule and glumes remain",
+      "details": "NEEDS_PUBLIC_PHOTO: real source-vouchered live annual rooted crown with attached flowering stem; hair distribution on lower sheaths; true membranous inner ligule 1–2 mm beside ruler; whole measured flowering head; two separated backlit glumes showing vein counts; mature isolated lemma and awn insertion, compared with B. texensis. NEEDS_SITE_QA: original two archived rights records, all 20 gross arrows, duplicate Japanese comparison, mobile view and Pages build. Texas root-bearing herbarium voucher 00314236 is a rights-uncleared research lead ONLY. No new JPEGs or arrows this pass.",
       "photo_panel_indices": [
         0,
-        1,
-        2,
+        7,
         3,
+        1,
         4,
         5,
-        6,
-        7
+        6
       ],
       "glossary": [
         "ligule",
@@ -664,5 +699,39 @@
     "existing_comparison_panels_preserved": 8,
     "new_photo_bytes": 0,
     "new_arrows": 0
+  },
+  "lane5_lanceolatus_photo_finish_20261026": {
+    "status": "FIELD_READY_PHOTO_GAPS",
+    "archived_exact_species_jpegs": 2,
+    "gallery_panels": 8,
+    "exact_species_panel_indices": [
+      0,
+      7
+    ],
+    "other_species_panels": 6,
+    "original_arrows_preserved": 20,
+    "new_photos": 0,
+    "new_arrows": 0,
+    "copyright": "Yves Bas Commons CC BY 4.0 verified; Dave Richardson CC BY carried forward pending image-license version refresh; unrelated photos preserved; Texas herbarium image rights unresolved.",
+    "texas_root_research_only": {
+      "accession": "TEX-LL 00314236",
+      "on_sheet_name": "Bromus macrostachys Desf. (synonym of Bromus lanceolatus)",
+      "collector": "Cliff Morden 21",
+      "date": "1980-04-27",
+      "locality": "Washington County, Texas, roadside south of Gay Hill on Highway 390",
+      "taxon_page": "https://swbiodiversity.org/seinet/taxa/?tid=75216",
+      "scan": "https://was.tacc.utexas.edu/fileget?coll=TEX-LL&filename=sp62959344157679310896.att.jpg&scale=1000&type=T",
+      "visible": "Dried actual root crown plus flowering stems",
+      "public_media_rights": "NOT VERIFIED: link for research, do not copy or hotlink image on the public gallery."
+    },
+    "needs": [
+      "Source-matched permitted live root crown with whole panicle",
+      "True inner membranous ligule 1-mm scale",
+      "Real 1-mm isolated backlit lower/upper glume veins",
+      "Detached fertile lemma with tip teeth and awn insertion",
+      "Matched native B. texensis reproductive voucher",
+      "Live Pages/browser panel and arrow QA"
+    ],
+    "site_deployment": "NOT VERIFIED"
   }
 }
