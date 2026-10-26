@@ -1,0 +1,61 @@
+name: Lane 3 Buckley Tridentopsis Verified Photo Contact Scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-buckley-anatomy-scout-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-buckley-contact-scout
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Screen photo-level licensed original iNaturalist source records
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/lane3_buckley_anatomy_scout_20261026.py
+      - name: Validate metadata and the EXIF-free contact artifact
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          from PIL import Image
+          p=pathlib.Path('reports/lane3-buckley-anatomy-scout-20261026')
+          j=json.loads((p/'report.json').read_text())
+          assert j['species']=='Tridentopsis buckleyana' and j['source_taxon_id']==169947
+          assert j['status']=='PHOTO_LEVEL_LICENSE_CONTACT_SHEET_REVIEW_NOT_INSTALLATION'
+          assert j['contact_sheet_photos']>0 and not j['canonical_gallery_changed']
+          assert all(x['photo_license'] in ('cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa') for x in j['licensed_photos'])
+          a=p/'contact.jpg'
+          assert hashlib.sha256(a.read_bytes()).hexdigest()==j['contact_sha256']
+          with Image.open(a) as im:
+            assert im.format=='JPEG' and im.width>=1300 and not im.getexif().get(34853)
+            im.verify()
+          print('PASS: exact-source, individually licensed research contact only; no field role falsely completed')
+          PY
+      - name: Preserve research contact with no canonical species changes
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-buckley-anatomy-scout-20261026/
+          git diff --cached --quiet && exit 0
+          git commit -m "Lane 3 archive rights-screened Buckley tridentopsis anatomy photo contact"
+          for i in 1 2 3 4 5 6 7; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
