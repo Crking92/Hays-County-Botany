@@ -1,0 +1,64 @@
+name: Lane 2 inspect real lovegrass collar candidate pixels
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-lovegrass-collar-macro-inspect-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-originals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Exact-photo license and large-pixel collar inspection only, no source changes
+        run: |
+          python - <<'PY'
+          import base64,io,json
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageDraw,ImageOps
+          selected={
+            'spectabilis':[(410304840,754582040),(410304840,754582053),(408475222,750867000),(403335335,740532672)],
+            'trichodes':[(406096399,746040999),(405543379,744919173),(326335412,591010827),(308867293,557286898)],
+            'lugens':[(134813393,229855477),(134813393,229855521),(134813393,229855542)]
+          }
+          h={'User-Agent':'Hays-Botany-Learner/1.0 (photo identification and license review)'}
+          def read(u,n=9000000):
+              with urlopen(Request(u,headers=h),timeout=35) as r:
+                  z=r.read(n+1)
+                  if len(z)>n:raise RuntimeError('too large')
+                  return z
+          for sp,photos in selected.items():
+              sheet=Image.new('RGB',(1600,1500),'white');pen=ImageDraw.Draw(sheet)
+              for i,(oid,pid) in enumerate(photos):
+                  raw=json.loads(read(f'https://api.inaturalist.org/v1/observations/{oid}',1500000))['results'][0]
+                  p=next(q for q in raw['photos'] if q['id']==pid)
+                  code=p.get('license_code')
+                  assert code in ['cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa']
+                  assert raw['quality_grade']=='research'
+                  assert raw['taxon']['name']=='Eragrostis '+sp
+                  url=p['url'].replace('/square.','/large.').replace('/medium.','/large.')
+                  try:
+                      source=read(url,9000000)
+                  except Exception:
+                      url=p['url'].replace('/square.','/medium.').replace('/large.','/medium.')
+                      source=read(url,9000000)
+                  with Image.open(io.BytesIO(source)) as pic:
+                      im=ImageOps.exif_transpose(pic).convert('RGB')
+                      original_size=im.size
+                  im.thumbnail((790,690))
+                  x=(i%2)*800;y=(i//2)*750
+                  sheet.paste(im,(x+(800-im.width)//2,y+(700-im.height)//2))
+                  pen.text((x+7,y+705),str(pid)+' / '+code+' / '+str(original_size),fill='black')
+                  print('PHOTO_META',sp,json.dumps({'id':pid,'url':url,'license':code,'attribution':p.get('attribution'),'obs':oid,'original_size':original_size,'preview_size':im.size}))
+              bio=io.BytesIO();sheet.save(bio,format='JPEG',quality=80,optimize=True)
+              val=base64.b64encode(bio.getvalue()).decode('ascii')
+              print('SHEET_META',sp,len(bio.getvalue()),len(val))
+              for idx,off in enumerate(range(0,len(val),4000)):
+                  print('SHEET_'+sp.upper()+'_PART_'+str(idx)+'='+val[off:off+4000])
+          PY
