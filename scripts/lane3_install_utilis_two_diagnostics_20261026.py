@@ -33,6 +33,42 @@ proof=json.loads(EVID.read_text(encoding="utf-8"))
 assert d["id"]=="muhlenbergia-utilis" and d["scientific_name"]=="Muhlenbergia utilis"
 assert proof["taxon"]=="Muhlenbergia utilis" and proof["source_quality"]=="research"
 assert proof["observation_id"]==231187884 and not proof["errors"]
+# Concurrent-friendly idempotency: another Lane 3 job may already have archived
+# these exact two photo IDs. Verify the existing objects and preserve their
+# correct pixel-reviewed arrows, photo rights, science holds, and captions.
+existing_by_id={str(x.get("photo_source_id")):x for x in d["images"] if x.get("photo_source_id")}
+if set(("410577695","410577679")).issubset(existing_by_id):
+ files=[]
+ for pid in (410577695,410577679):
+  x=existing_by_id[str(pid)]
+  evidence=next(z for z in proof["candidates"] if z["photo_id"]==pid)
+  assert x["license"]=="CC0 1.0"
+  assert x["original_sha256"]==evidence["sha256_original"]
+  assert x["source_page"]==evidence["source_photo_page"]
+  actual=BASE/x["file"]
+  assert actual.is_file()
+  digest=hashlib.sha256(actual.read_bytes()).hexdigest()
+  assert digest==x["archive_sha256"],f"Unexpected concurrent archive mutation: {pid}"
+  with Image.open(actual) as im:
+   assert im.format=="JPEG" and not im.getexif().get(34853)
+   im.verify()
+  matching=[p for p in d["visual_comparison"]["items"] if p.get("image_url")==str(actual)]
+  assert len(matching)==1 and matching[0]["scientific_name"]=="Muhlenbergia utilis"
+  assert matching[0]["license"]=="CC0 1.0"
+  for marker in matching[0].get("markers",[]):
+   assert all(isinstance(marker.get(k), (int,float)) and 0<=marker[k]<=100 for k in ("target_x","target_y","label_x","label_y"))
+  files.append({"id":pid,"saved_sha256":digest,"source_sha256":evidence["sha256_original"],"path":str(actual),
+   "license":"CC0 1.0","source_page":evidence["source_photo_page"],
+   "existing_pixel_reviewed_arrows":len(matching[0].get("markers",[]))})
+ assert len(d["images"])==8 and len(d["visual_comparison"]["items"])==8
+ assert d["visual_comparison"]["items"][-1]["scientific_name"]=="Muhlenbergia schreberi"
+ REPORT.write_text(json.dumps({"status":"PHYSICALLY_ARCHIVED_TWO_CC0_DIAGNOSTIC_IMAGES",
+  "species":"Muhlenbergia utilis","preexisting_concurrent_install_reconciled":True,
+  "files":files,"new_image_files":0,"total_species_files":8,"gallery_panels":8,
+  "new_arrow_count":0,"existing_arrow_count":sum(x["existing_pixel_reviewed_arrows"] for x in files),
+  "remaining_photo_gaps":["Exposed connected underground rhizome/actual roots and shoots","Calibrated free inner membranous ligule"]},indent=2)+"\\n")
+ print(json.dumps({"result":"ALREADY_ARCHIVED_AND_VERIFIED_NO_DUPLICATES","ids":[410577695,410577679],"local_count":8}))
+ raise SystemExit(0)
 assert len(d["images"])==6 and len(d["visual_comparison"]["items"])==6
 base_holds={k:json.dumps(d.get(k),sort_keys=True) for k in ("county_occurrences_target_zone","target_zone_count","native_target_zone_calculated","project_inclusion","morphology_keys")}
 new_images=[]
