@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Guarded import of three exact CC BY 2.0 P. coloratum var. makarikariense anatomy photographs.
+"""Guarded import of exact CC BY 2.0 P. coloratum var. makarikariense anatomy photographs.
 They are variety-labelled Australian sources, NOT Texas vouchers. Preserve all current card work.
 """
 import base64,hashlib,json,os,pathlib,time,urllib.parse
@@ -10,7 +10,8 @@ species=base+"species.json"
 approved={
  "File:Panicum coloratum var makarikariense collar1 NWP - Flickr - Macleay Grass Man.jpg":("harry-rose-coloratum-var-makarikariense-collar-cc-by2.jpg","COLLAR REGION","Visible blade–sheath junction of source-identified Australian var. makarikariense; true ligule edge must be independently verified."),
  "File:Panicum coloratum var makarikariense ligule2 NWP - Flickr - Macleay Grass Man.jpg":("harry-rose-coloratum-var-makarikariense-ligule-cc-by2.jpg","LIGULE REGION","Author-titled real ligule macro of var. makarikariense; do not claim a measured membrane without scale/pixel verification."),
- "File:Panicum coloratum var makarikariense spikelets1 NWP - Flickr - Macleay Grass Man.jpg":("harry-rose-coloratum-var-makarikariense-spikelets-cc-by2.jpg","SPIKELETS","Author-identified actual mature flowering units; var. makarikariense and Australian locality, not locally vouchered.")
+ "File:Panicum coloratum var makarikariense spikelets1 NWP - Flickr - Macleay Grass Man.jpg":("harry-rose-coloratum-var-makarikariense-spikelets-cc-by2.jpg","SPIKELETS","Author-identified actual mature flowering units; var. makarikariense and Australian locality, not locally vouchered."),
+ "File:Panicum coloratum var makarikariense plant base4 NWP - Flickr - Macleay Grass Man.jpg":("harry-rose-coloratum-var-makarikariense-plant-base4-cc-by2.jpg","PLANT BASE REFERENCE","Photographer-labelled basal shoot region of Australian var. makarikariense; evaluate actual cataphylls and root/rhizome details in pixels before claiming a closed anatomical role.")
 }
 if title not in approved:raise SystemExit("Title not explicitly approved")
 filename,organ,meaning=approved[title]
