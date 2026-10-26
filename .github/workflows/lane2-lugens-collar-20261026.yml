@@ -1,0 +1,34 @@
+name: Lane 2 mourning lovegrass real blade sheath connection photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_lugens_real_collar_candidate_20261026.py
+      - .github/workflows/lane2-lugens-collar-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-lugens-collar-20261026
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - run: python scripts/lane2_lugens_real_collar_candidate_20261026.py
+      - name: Commit licensed photo, source-grounded arrows, and explicit unresolved ligule
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-lugens/ reports/lane2-lugens-blade-sheath-bend-20261026.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 add mourning lovegrass blade sheath candidate with two honest arrows"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
