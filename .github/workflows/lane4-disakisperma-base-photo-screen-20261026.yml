@@ -27,11 +27,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for attempt in 1 2 3; do
+          for attempt in 1 2 3 4 5 6 7 8; do
             git add workflow/photo-reviews/lane4-disakisperma-basal-20261026/
             if git diff --cached --quiet; then exit 0; fi
             git commit -m "Lane 4 stage licensed green sprangletop candidate basal/ligule photos"
             if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
             git fetch origin main
             git reset --hard origin/main
             python scripts/lane4_disakisperma_basal_photo_screen_20261026.py
