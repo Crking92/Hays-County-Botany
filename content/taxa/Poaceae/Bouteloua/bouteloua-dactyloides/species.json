@@ -215,7 +215,7 @@
         "image_url": "content/taxa/Poaceae/Bouteloua/bouteloua-dactyloides/images/jim-conrad-uvalde-male-whole-grass.jpg",
         "image_fit": "contain",
         "image_role": "Verified author-identified Uvalde County plant in hand: very low grassy clump with small two-branched male flowering head raised on thin culm; no visible stolon node.",
-        "caption": "The complete small plant rests on a hand while an upright narrow stem carries pale comb-like flowering branches. These are the pollen-producing staminate heads described by the photographer; the photo does NOT show a true rooting stolon or a female bur.",
+        "caption": "Jim Conrad's Uvalde-area specimen lies on a palm: living green basal leaves and a single flowering culm carry a tiny MALE head. Two arrows identify only what the source pixels resolve. A dark soil crumb at the base is NOT proof of a rooted stolon node, and there is no female bur in this photograph.",
         "why_it_matters": "Real near-Hays regional scale and typical male form on a whole flowering plant; important counterpoint to raised blue-grama eyebrow-like heads.",
         "creator": "Jim Conrad",
         "license": "Public domain — author's own original photograph",
@@ -224,8 +224,23 @@
         "source_image": "https://www.backyardnature.net/n/14/140601bv.jpg",
         "source_locality": "Dry Frio River, Uvalde County, Texas",
         "source_date": "2014-06-01",
-        "photo_status": "PHYSICALLY ARCHIVED Jim Conrad author-public-domain source Uvalde male grass photograph. Actual original and archived SHA256 recorded, EXIF/GPS cleaned; annotations only to visible organs. No female structures or actual rooted stolon node alleged.",
-        "markers": []
+        "photo_status": "2026-10-26 real author-labelled Uvalde County Bouteloua dactyloides JPG pixel-reviewed: low basal shoots and one raised MALE flowering head labelled; soil hides true roots and stolon nodes. Public domain creator record and link preserved; mobile overlay QA pending.",
+        "markers": [
+          {
+            "label": "Actual low leafy basal shoots (not a stolon)",
+            "label_x": 43,
+            "label_y": 91,
+            "target_x": 19,
+            "target_y": 75
+          },
+          {
+            "label": "Raised male flowering head",
+            "label_x": 57,
+            "label_y": 10,
+            "target_x": 92,
+            "target_y": 10
+          }
+        ]
       },
       {
         "label": "MALE BUFFALOGRASS — two raised comb-like flowering branches",
@@ -305,7 +320,7 @@
         "image_url": "content/taxa/Poaceae/Bouteloua/bouteloua-dactyloides/images/jim-conrad-uvalde-hairy-ligule.jpg",
         "image_fit": "contain",
         "image_role": "Close photo of a genuine grass collar showing a short central ligule fringe and longer hairs rising near the blade/sheath margins. No millimeter ruler or exact hair counts.",
-        "caption": "The blade emerges at a distinct sheath mouth with fine hairs projecting from the top. This photograph is sufficient to teach WHERE to look for the hairy ridge, not to measure ligule length or imply that collar hairs alone prove buffalograss.",
+        "caption": "The true ligule is a SHORT fringe of hairs at the blade–sheath junction (left/central top of opened sheath). Separate longer individual hairs arise beside it on the margins. Jim Conrad's Uvalde photograph resolves hairs but no ruler or exact hair length; no membranous ligule arrow should be invented.",
         "why_it_matters": "Fills a missing leaf-structure PHOTO ROLE while maintaining that ligule detail is supporting, not a stand-alone species diagnosis.",
         "creator": "Jim Conrad",
         "license": "Public domain — author's own original photograph",
@@ -314,14 +329,21 @@
         "source_image": "https://www.backyardnature.net/n/14/140601bx.jpg",
         "source_locality": "Dry Frio River, Uvalde County, Texas",
         "source_date": "2014-06-01",
-        "photo_status": "PHYSICALLY ARCHIVED Jim Conrad author-public-domain source Uvalde male grass photograph. Actual original and archived SHA256 recorded, EXIF/GPS cleaned; annotations only to visible organs. No female structures or actual rooted stolon node alleged.",
+        "photo_status": "Original source image pixel-reviewed 2026-10-26. One existing ligule pointer corrected onto short ridge; one new gross arrow marks longer side hairs. Real collar photographed; 0.5-mm scale unavailable and independent voucher not documented. Mobile QA pending.",
         "markers": [
           {
-            "label": "Hair fringe at collar",
-            "label_x": 1,
-            "label_y": 12,
-            "target_x": 55,
-            "target_y": 27
+            "label": "Short ligule hair fringe at sheath mouth",
+            "label_x": 4,
+            "label_y": 9,
+            "target_x": 49,
+            "target_y": 40
+          },
+          {
+            "label": "Longer side hairs (not the ligule itself)",
+            "label_x": 60,
+            "label_y": 5,
+            "target_x": 69,
+            "target_y": 29
           }
         ]
       },
@@ -428,5 +450,36 @@
     "arrow_integrity": "Points to visible organ only, not inferred micro anatomy; original image unmodified",
     "native_range_status_unchanged": true,
     "public_release": "Canonical saved file only; GitHub Pages deployment separately checked."
+  },
+  "lane1_crew_four_role_review_20261026": {
+    "status": "FIELD_READY_PHOTO_GAPS",
+    "rights_review": {
+      "basis": "reports/grass-publication-rights-check-20261026.json and Oct 20 noncommercial policy",
+      "native_grass_rights": "Preserved six canonical archived photos and exact existing credits/licenses; no new restricted copies.",
+      "nc_blue_grama_lookalike": "Joey Santore photo 429247732 keeps CC BY-NC 4.0 label. Photographer's public iNaturalist profile permits credited noncommercial educational use; image-level photo/metadata verification not repeated through unreachable iNat photo endpoint; retain conditionally, no commercial relicensing.",
+      "external_female_sex_triptych": "CC BY-SA 4.0 remote Commons research triptych: left healthy female, middle fungus-infected altered male, right healthy male; no local physical file claimed.",
+      "discovered_licensed_but_not_archived": "NC State Plant Toolbox explicitly credits Matt Lavin CC BY-SA 2.0 exact stoloniferous habit and low female burs on https://plants.ces.ncsu.edu/plants/bouteloua-dactyloides/ but served protected/expired S3 download URLs; do not count as archived or visible photo roles."
+    },
+    "roles": {
+      "whole_plant": "PASS male specimen only — Uvalde whole little male plant in hand, true low basal leaves and upright flowering culm",
+      "rooted_base": "MISSING actual visible stolon node with connected rooted shoots; mat alone does not prove nodes",
+      "true_collar_ligule": "PASS teaching region — actual short hair-fringe ligule and longer marginal hairs on source-labelled Texas specimen, no scale or independent voucher",
+      "entire_attached_head": "PASS male flowering combs (one upright male head with 2 racemes); no same-local female bur",
+      "lookalikes": "PASS partial blue grama headed comparison; curlymesquite/stolon close comparison remains absent"
+    },
+    "arrows": {
+      "new": 3,
+      "corrected": 1,
+      "original_valid_male_anthers_left_intact": true
+    },
+    "remaining": [
+      "Verified rooted surface stolon with nodes and roots under each emerging tiller",
+      "A natural healthy attached female bur in foliage beside millimeter bar, not fungus-infected research middle image",
+      "same local plant sequence with exact diagnosis",
+      "rights-filtered live Pages SHA, mobile and all arrow positions checked"
+    ],
+    "stored_image_files": 6,
+    "gallery_panels": 7,
+    "finished": false
   }
 }
