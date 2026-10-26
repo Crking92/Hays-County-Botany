@@ -1,0 +1,40 @@
+name: Lane 4 Poverty dropseed connected root/crown diagnostic photo search
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_sporobolus-vaginiflorus_basal_photo_screen_20261026.py
+      - .github/workflows/lane4-sporobolus-vaginiflorus-base-photo-screen-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-sporobolus-vaginiflorus-base-photo-screen
+  cancel-in-progress: false
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Individually verify source licenses and collect exact-species candidate JPEGs
+        run: python scripts/lane4_sporobolus-vaginiflorus_basal_photo_screen_20261026.py
+      - name: Commit review-only photos safely
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4 5 6 7 8; do
+            git add workflow/photo-reviews/lane4-sporobolus-vaginiflorus-basal-20261026/
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Lane 4 stage licensed Poverty dropseed candidate basal/ligule photos"
+            if git push origin HEAD:main; then exit 0; fi
+            sleep $((attempt * 3))
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/lane4_sporobolus-vaginiflorus_basal_photo_screen_20261026.py
+          done
+          exit 1
