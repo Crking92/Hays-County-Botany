@@ -1,0 +1,76 @@
+name: Lane 2 research-grade lovegrass collar image scouting
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-lovegrass-macro-research-scout-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install Pillow
+      - name: Assemble nonpublishing contact sheets of verified observation-level live anatomical candidates
+        run: |
+          python - <<'PY'
+          import json,io,base64
+          from urllib.request import Request,urlopen
+          from urllib.parse import urlencode
+          from PIL import Image,ImageOps,ImageDraw
+          HEADERS={'User-Agent':'HaysBotanyVisualLearner/1.0 (individual photo license scouting; no publication)'}
+          LICENSES={'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}
+          queries=[('spectabilis',{'taxon_name':'Eragrostis spectabilis'}),('trichodes',{'taxon_id':'122571'}),('lugens',{'taxon_id':'162397'})]
+          for species,params in queries:
+            obs=[]
+            for page in [1,2]:
+              q=dict(params,per_page=200,page=page,quality_grade='research',photos='true',order_by='observed_on',order='desc')
+              try:
+                u='https://api.inaturalist.org/v1/observations?'+urlencode(q)
+                with urlopen(Request(u,headers=HEADERS),timeout=40) as h: v=json.load(h)
+                obs.extend(v.get('results',[]))
+                if len(obs)>=v.get('total_results',0):break
+              except Exception as e:print('QUERY_ERROR',species,str(e)[:140]);break
+            ranked=sorted((o for o in obs if o.get('taxon',{}).get('name')=='Eragrostis '+species),
+                          key=lambda o:(sum(p.get('license_code') in LICENSES for p in o.get('photos',[])), bool(o.get('place_guess') and ('Texas' in o.get('place_guess')))),reverse=True)
+            picked=[]; seen=set()
+            for o in ranked:
+              lic=[p for p in o.get('photos',[]) if p.get('license_code') in LICENSES]
+              if not lic:continue
+              for p in lic[:5]:
+                if p['id'] in seen:continue
+                seen.add(p['id'])
+                picked.append((o,p))
+              if len(picked)>=50:break
+            picked=picked[:48]
+            sheet=Image.new('RGB',(1440,((len(picked)+5)//6)*205),'white')
+            dr=ImageDraw.Draw(sheet)
+            print('OBS_SUMMARY',species,'research_grade_observations',len(ranked),'selected_photo_count',len(picked))
+            for i,(o,p) in enumerate(picked):
+              photo_id=p['id']
+              imgurl=p.get('url') or ''
+              if not imgurl:continue
+              # The API URL is unchanged; switch image size by replacing only a controlled canonical iNat size suffix.
+              url=imgurl.replace('/square.','/medium.').replace('/thumb.','/medium.').replace('/small.','/medium.')
+              try:
+                with urlopen(Request(url,headers=HEADERS),timeout=25) as h: raw=h.read(900_000)
+                with Image.open(io.BytesIO(raw)) as im:
+                  im=ImageOps.exif_transpose(im).convert('RGB')
+                im.thumbnail((230,170))
+                x=(i%6)*240;y=(i//6)*205
+                sheet.paste(im,(x+(240-im.width)//2,y+(170-im.height)//2))
+                dr.text((x+6,y+174),f'{photo_id} {p.get("license_code")}',fill='black')
+                dr.text((x+6,y+188),f'obs {o["id"]}',fill='black')
+                print('CANDIDATE',species,json.dumps({'photo_id':photo_id,'lic':p.get('license_code'),'photographer':p.get('attribution'),'obsid':o['id'],'place':o.get('place_guess'),'observed_on':o.get('observed_on'),'original_source':'https://www.inaturalist.org/photos/'+str(photo_id)},ensure_ascii=False)[:750])
+              except Exception as e:print('PHOTO_ERROR',species,photo_id,str(e)[:130])
+            b=io.BytesIO();sheet.save(b,format='JPEG',quality=71,optimize=True)
+            t=base64.b64encode(b.getvalue()).decode('ascii')
+            for i,k in enumerate(range(0,len(t),3000)):print(f'CONTACT_{species}_{i}='+t[k:k+3000])
+            print('SHEET_END',species,'bytes',len(b.getvalue()))
+          PY
