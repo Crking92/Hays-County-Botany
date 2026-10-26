@@ -25,6 +25,13 @@ report = {"taxon": "Leersia oryzoides", "source_page": SOURCE_PAGE,
           "creator": "Larry Allain, U.S. Geological Survey",
           "license": "Public domain (USGS Plants of Louisiana About page)",
           "status": "HOLD", "new_images": 0, "new_arrows": 0, "holds": []}
+# Idempotence guard: a later run must never turn a successful archive into a hold.
+if DEST.exists():
+    existing = json.loads(CARD.read_text())
+    if any(x.get("file") == REL and x.get("source_page") == SOURCE_PAGE for x in existing.get("images", [])):
+        print(json.dumps({"taxon": "Leersia oryzoides", "status": "ALREADY_ARCHIVED",
+                          "new_images": 0, "new_arrows": 0, "file": str(DEST)}))
+        raise SystemExit(0)
 try:
     d = json.loads(CARD.read_text())
     assert d["id"] == "leersia-oryzoides"
