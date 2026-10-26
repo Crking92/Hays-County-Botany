@@ -1,0 +1,261 @@
+{
+  "batch_id": "grass-dichanthelium-lindheimeri-commutatum-crossrank-2026-10-26-1222-001",
+  "date_checked": "2026-10-26",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Dichanthelium",
+  "canonical_taxon_ids": [
+    "dichanthelium-lindheimeri",
+    "dichanthelium-commutatum"
+  ],
+  "canonical_species_paths_read_only": {
+    "dichanthelium-lindheimeri": "content/taxa/Poaceae/Dichanthelium/dichanthelium-lindheimeri/species.json",
+    "dichanthelium-commutatum": "content/taxa/Poaceae/Dichanthelium/dichanthelium-commutatum/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "dichanthelium-lindheimeri": "d2b3b02e913bc924d11d97c53788ce0fca1b6146",
+    "dichanthelium-commutatum": "fedec778b2ffe9c5755bf3fcd3ab70bfa38a96de"
+  },
+  "claim_id": "grass-dichanthelium-lindheimeri-commutatum-crossrank-2026-10-26-1222-001",
+  "claim_path": "workflow/taxonomy-claims/grass-dichanthelium-lindheimeri-commutatum-crossrank-2026-10-26-1222-001.json",
+  "primary_decision": "PASS_BOTH_ACCEPTED_WITH_CROSSRANK_HISTORICAL_SPLITS_AND_INDIVIDUAL_HOLDS",
+  "decisions": [
+    {
+      "code": "DLC-01",
+      "status": "PASS",
+      "source_name": "Dichanthelium lindheimeri (Nash) Gould",
+      "accepted_target": "Dichanthelium lindheimeri (Nash) Gould",
+      "reason": "Kew/WCVP accepts species rank; combination published Brittonia 26:60 (1974). Keep distinct from D. acuminatum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://www.phytoneuron.net/2015Phytoneuron/50PhytoN-Dichantheliumlanuginosa.pdf"
+      ]
+    },
+    {
+      "code": "DLC-02",
+      "status": "PASS",
+      "source_name": "Panicum lindheimeri Nash (1897)",
+      "accepted_target": "Dichanthelium lindheimeri (Nash) Gould",
+      "reason": "Homotypic basionym; source name retained as historical alias, not separate accepted learner species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2"
+      ]
+    },
+    {
+      "code": "DLC-03",
+      "status": "PASS",
+      "source_name": "Dichanthelium acuminatum subsp. lindheimeri (Nash) Freckmann & Lelong (2002)",
+      "accepted_target": "Dichanthelium lindheimeri (Nash) Gould",
+      "reason": "Homotypic synonym of accepted D. lindheimeri, not currently accepted subspecies.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1042271-2"
+      ]
+    },
+    {
+      "code": "DLC-04",
+      "status": "PASS",
+      "source_name": "Dichanthelium acuminatum var. lindheimeri (Nash) Gould & C.A.Clark (1979)",
+      "accepted_target": "Dichanthelium lindheimeri (Nash) Gould",
+      "reason": "Homotypic synonym; preserve varietal rank in historical source label.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79332-2"
+      ]
+    },
+    {
+      "code": "DLC-05",
+      "status": "PASS",
+      "source_name": "Panicum acuminatum var. lindheimeri (Nash) Beetle (1981)",
+      "accepted_target": "Dichanthelium lindheimeri (Nash) Gould",
+      "reason": "Homotypic synonym under POWO/WCVP.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181472-2"
+      ]
+    },
+    {
+      "code": "DLC-06",
+      "status": "PASS",
+      "source_name": "Panicum lanuginosum var. lindheimeri (Nash) Fernald (1934)",
+      "accepted_target": "Dichanthelium lindheimeri (Nash) Gould",
+      "reason": "Homotypic synonym; historical Lanuginosa complex placement does not erase current accepted species boundary.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182065-2"
+      ]
+    },
+    {
+      "code": "DLC-07",
+      "status": "FAIL",
+      "source_name": "Panicum lindheimeri var. typicum Fernald as validly published accepted variety",
+      "accepted_target": "REJECT VALIDLY PUBLISHED VARIETY",
+      "reason": "POWO records this 1921/published-1922 name as not validly published; it is listed as a historical synonym, not accepted infraspecific taxon.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182110-2"
+      ]
+    },
+    {
+      "code": "DLC-08",
+      "status": "FAIL",
+      "source_name": "Panicum lindheimeri subvar. meridionale (Ashe) Farw. mapped to D. lindheimeri",
+      "accepted_target": "Dichanthelium meridionale (Ashe) Freckmann",
+      "reason": "Cross-rank epithet-only mapping is wrong; Kew resolves the 1928 subvariety to separately accepted D. meridionale.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:287919-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79376-2"
+      ]
+    },
+    {
+      "code": "DLC-09",
+      "status": "PASS",
+      "source_name": "Dichanthelium commutatum (Schult.) Gould",
+      "accepted_target": "Dichanthelium commutatum (Schult.) Gould",
+      "reason": "POWO/WCVP accepts species rank; published Brittonia 26:59 (1974). Separate from D. lindheimeri and segregates of the commutatum complex.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79348-2",
+        "https://www.ipni.org/n/79348-2"
+      ]
+    },
+    {
+      "code": "DLC-10",
+      "status": "PASS",
+      "source_name": "Panicum commutatum Schult. (1824)",
+      "accepted_target": "Dichanthelium commutatum (Schult.) Gould",
+      "reason": "Homotypic basionym of the accepted combination.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79348-2",
+        "https://www.ipni.org/n/79348-2"
+      ]
+    },
+    {
+      "code": "DLC-11",
+      "status": "PASS",
+      "source_name": "Panicum polyneuron Steud. (1854)",
+      "accepted_target": "Dichanthelium commutatum (Schult.) Gould",
+      "reason": "Homotypic synonym recorded as illegitimate superfluous name; preserve nomenclatural status.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79348-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1057044-2"
+      ]
+    },
+    {
+      "code": "DLC-12",
+      "status": "FAIL",
+      "source_name": "Dichanthelium commutatum subsp. ashei (T.G.Pearson ex Ashe) Freckmann & Lelong as D. commutatum",
+      "accepted_target": "Dichanthelium ashei (T.G.Pearson ex Ashe) Mohlenbr.",
+      "reason": "POWO accepts D. ashei separately; this 2002 subspecies is its synonym, not a synonym of D. commutatum sensu stricto.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77151655-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1141373-2"
+      ]
+    },
+    {
+      "code": "DLC-13",
+      "status": "FAIL",
+      "source_name": "Dichanthelium commutatum subsp. equilaterale (Scribn.) Freckmann & Lelong as D. commutatum",
+      "accepted_target": "Dichanthelium equilaterale",
+      "reason": "POWO resolves the 2002 subspecies to D. equilaterale, not D. commutatum sensu stricto.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1095105-2"
+      ]
+    },
+    {
+      "code": "DLC-14",
+      "status": "FAIL",
+      "source_name": "Panicum commutatum var. consanguineum (Kunth) Beal as D. commutatum",
+      "accepted_target": "Dichanthelium consanguineum (Kunth) Gould & C.A.Clark",
+      "reason": "Historical variety maps to distinct accepted D. consanguineum.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181697-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79349-2"
+      ]
+    },
+    {
+      "code": "DLC-15",
+      "status": "FAIL",
+      "source_name": "Automatic collapsing of all D. acuminatum-lindheimeri complex labels to D. acuminatum",
+      "accepted_target": "REJECT BLANKET MERGE",
+      "reason": "Modern POWO accepts D. lindheimeri at species rank. Thomas 2015 revision emphasizes narrow morphology-based species concepts in sect. Lanuginosa.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://www.phytoneuron.net/2015Phytoneuron/50PhytoN-Dichantheliumlanuginosa.pdf"
+      ]
+    },
+    {
+      "code": "DLC-16",
+      "status": "HOLD",
+      "source_name": "Individual installed D. lindheimeri / D. commutatum photographs, vouchers, and observations",
+      "accepted_target": "SPECIMEN ID NOT CERTIFIED",
+      "reason": "Name-only accepted-taxon review does not prove exact identity of any existing gallery photograph or field observation; no pixels or specimens inspected.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79348-2",
+        "https://www.phytoneuron.net/2015Phytoneuron/50PhytoN-Dichantheliumlanuginosa.pdf"
+      ]
+    },
+    {
+      "code": "DLC-17",
+      "status": "HOLD",
+      "source_name": "Unverified hybrid, introgressed, cultivated or mixed-concept provenance",
+      "accepted_target": "NO ANCESTRY ASSIGNMENT",
+      "reason": "No direct specimen-level genetic or provenance evidence evaluated; preserve any preexisting hybrid and concept holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79348-2"
+      ]
+    },
+    {
+      "code": "DLC-18",
+      "status": "UNRESOLVED",
+      "source_name": "Authorless/rankless historic Panicum lindheimeri / Panicum commutatum complex record",
+      "accepted_target": "REQUIRES ORIGINAL COMBINATION, RANK, AUTHOR, VOUCHER",
+      "reason": "Older name usages can include infraspecific taxa now assigned to distinct accepted species; do not infer taxon from epithet-only historic label.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79348-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:287919-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77151655-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1095105-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181697-2"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 9,
+    "FAIL": 6,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "sources": {
+    "kewL": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79371-2",
+    "kewC": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:79348-2",
+    "ipniC": "https://www.ipni.org/n/79348-2",
+    "thomas": "https://www.phytoneuron.net/2015Phytoneuron/50PhytoN-Dichantheliumlanuginosa.pdf",
+    "merid": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:287919-2",
+    "ashei": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77151655-1",
+    "equil": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1095105-2",
+    "consang": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181697-2"
+  },
+  "reference_authorities": [
+    "POWO/WCVP 2026 current accepted name/synonym pages",
+    "IPNI original publication authorship for D. commutatum",
+    "Thomas (2015) Revision of Dichanthelium sect. Lanuginosa (Poaceae), Phytoneuron 2015-50"
+  ],
+  "native_range_audit": "DEFERRED — not performed",
+  "coordination": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_family_lessons_modified": false,
+    "installation_performed": false,
+    "county_nativity_audited": false,
+    "pages_changed": false,
+    "other_worker_files_modified": false
+  },
+  "next_scientific_steps": [
+    "Preserve exact author/rank on legacy Panicum and Dichanthelium labels; no epithet-only automatic mapping.",
+    "Do not infer specimen or hybrid identity from name-level synonymy.",
+    "No new learner taxa or media authorized by this name audit."
+  ]
+}
