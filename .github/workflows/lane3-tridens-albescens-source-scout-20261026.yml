@@ -1,0 +1,57 @@
+name: Lane 3 Tridens albescens rights-cleared photo candidate review
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-festuca-source-photo-scout-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-festuca-source-photo-scout
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Refresh current source and protect canonical Tridens
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python - <<'PY'
+          import json,pathlib
+          root=pathlib.Path("content/taxa/Poaceae/Tridens/tridens-albescens/species.json")
+          d=json.loads(root.read_text())
+          assert d["id"]=="tridens-albescens"
+          assert len(d["images"])>=2
+          print("PASS canonical species unmodified, source holds preserved")
+          PY
+      - name: Independently source-screen exact-species photo rights and contact sheet
+        run: python scripts/lane3_scout_festuca_versuta_public_20261026.py
+      - name: Commit research evidence only; never install unreviewed photos
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-tridens-albescens-photo-scout-20261026.json
+          if test -f reports/lane3-tridens-albescens-photo-scout-20261026.jpg; then
+            git add -f reports/lane3-tridens-albescens-photo-scout-20261026.jpg
+          fi
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 record exact species photo rights candidates for human diagnostic review"
+          pushed=0
+          for attempt in 1 2 3 4 5 6; do
+            git pull --rebase origin main
+            if git push origin HEAD:main; then pushed=1; break; fi
+            sleep 4
+          done
+          test "$pushed" = "1"
