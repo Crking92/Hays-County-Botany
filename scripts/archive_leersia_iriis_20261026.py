@@ -81,7 +81,7 @@ for item in ITEMS:
             raise ValueError("Image bytes outside permitted size")
         if "image" not in ct.lower() and "octet-stream" not in ct.lower():
             raise ValueError("Non-image Content-Type: " + ct)
-        if not (original[:2] == b"\\xff\\xd8" and original[-2:] == b"\\xff\\xd9"):
+        if not (original[:2] == bytes([255, 216]) and original[-2:] == bytes([255, 217])):
             raise ValueError("Not complete JPEG bytes")
         with Image.open(io.BytesIO(original)) as im:
             im.verify()
@@ -89,7 +89,7 @@ for item in ITEMS:
             dimensions = list(im.size)
             if min(dimensions) < 480:
                 raise ValueError("Image too small for diagnostic photo")
-            if im.getexif() or b"Exif\\x00\\x00" in original or b"http://ns.adobe.com/xap/1.0/" in original:
+            if im.getexif() or bytes([69, 120, 105, 102, 0, 0]) in original or b"http://ns.adobe.com/xap/1.0/" in original:
                 raise ValueError("Original contains EXIF/XMP; cannot strip or publish unchanged under source terms")
         digest = hashlib.sha256(original).hexdigest()
         if any(x.get("sha256") == digest for x in d["images"]):
@@ -153,7 +153,7 @@ if report["installed"]:
         ],
         "annotation_pending": ["precise retrorse blade-margin tooth positions", "lowest panicle branch attachments", "glumeless base/lemma/palea metric arrows"],
     }
-    CARD.write_text(json.dumps(d, ensure_ascii=False, indent=2) + "\\n")
+    CARD.write_text(json.dumps(d, ensure_ascii=False, indent=2) + chr(10))
 REPORT.parent.mkdir(parents=True, exist_ok=True)
-REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\\n")
+REPORT.write_text(json.dumps(report, ensure_ascii=False, indent=2) + chr(10))
 print(json.dumps(report, ensure_ascii=False))
