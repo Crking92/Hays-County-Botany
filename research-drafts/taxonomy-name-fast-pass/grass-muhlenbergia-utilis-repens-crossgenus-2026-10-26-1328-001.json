@@ -1,0 +1,205 @@
+{
+  "batch_id": "grass-muhlenbergia-utilis-repens-crossgenus-2026-10-26-1328-001",
+  "date_checked": "2026-10-26",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Muhlenbergia",
+  "canonical_taxon_ids": [
+    "muhlenbergia-utilis"
+  ],
+  "canonical_species_paths_read_only": {
+    "muhlenbergia-utilis": "content/taxa/Poaceae/Muhlenbergia/muhlenbergia-utilis/species.json"
+  },
+  "canonical_species_blob_shas_read_only": {
+    "muhlenbergia-utilis": "f6b511055f4720976e5cc83695cbf1d3a61791e3"
+  },
+  "manifest_blob_sha_at_selection": "36c95f3d83ada2e01331b9f32ae69cb8b09c44d9",
+  "claim_id": "grass-muhlenbergia-utilis-repens-crossgenus-2026-10-26-1328-001",
+  "claim_path": "workflow/taxonomy-claims/grass-muhlenbergia-utilis-repens-crossgenus-2026-10-26-1328-001.json",
+  "primary_decision": "PASS_MUHLENBERGIA_UTILIS_SEPARATE_FROM_REPENS_WITH_FOUR_POWO_SYNONYMS_AND_UNRESOLVED_SACATILLA_AUTHORSHIP",
+  "decisions": [
+    {
+      "source_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "accepted species",
+      "scientific_decision": "PASS_ACCEPTED_NAME_AUTHORSHIP_AND_RANK",
+      "action": "POWO/WCVP accepts the existing canonical name; Hitchcock published combination in 1933. No species rename or new card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://www.edwardsaquifer.org/wp-content/uploads/2019/02/1933_Hitchcock_NewGrasses.pdf",
+        "https://doi.org/10.3897/phytokeys.230.103882"
+      ]
+    },
+    {
+      "source_name": "Vilfa utilis Torr.",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "homotypic basionym (1857)",
+      "scientific_decision": "PASS_HOMOTYPIC_BASIONYM",
+      "action": "Retain the 1857 basionym as a searchable historical alias, not a second learner taxon.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:265447-2",
+        "https://doi.org/10.3897/phytokeys.230.103882"
+      ]
+    },
+    {
+      "source_name": "Sporobolus utilis (Torr.) Scribn.",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "homotypic synonym (1899)",
+      "scientific_decision": "PASS_CROSSGENUS_HOMOTYPIC_ALIAS",
+      "action": "Map historic Sporobolus combination to the existing Muhlenbergia species, preserving original authorship.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:423000-1"
+      ]
+    },
+    {
+      "source_name": "Vilfa sacatilla E.Fourn.",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "heterotypic synonym (1886)",
+      "scientific_decision": "PASS_HETEROTYPIC_SYNONYM",
+      "action": "Historical Vilfa name resolves to M. utilis in POWO; not an accepted extra species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:307078-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus sacatilla E.Fourn.",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "heterotypic synonym listed pro syn (1886)",
+      "scientific_decision": "PASS_SYNONYM_WITH_PRO_SYN_CAUTION",
+      "action": "POWO lists this name pro syn; record source spelling without treating it as a separately validly published accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243033-2"
+      ]
+    },
+    {
+      "source_name": "Muhlenbergia repens (J.Presl) Hitchc.",
+      "accepted_name": "Muhlenbergia repens (J.Presl) Hitchc.",
+      "rank": "separately accepted species",
+      "scientific_decision": "PASS_REPENS_SEPARATE_ACCEPTED_SPECIES",
+      "action": "Kew accepts M. repens independently; Hitchcock's 1933 protologue explicitly says M. utilis had formerly been treated as its synonym but was distinguished as a more delicate species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/164870-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://www.edwardsaquifer.org/wp-content/uploads/2019/02/1933_Hitchcock_NewGrasses.pdf"
+      ]
+    },
+    {
+      "source_name": "Muehlenbergia utilis (Torr.) Hitchc.",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "ITIS alternate orthographic spelling",
+      "scientific_decision": "PASS_ITIS_SPELLING_ALIAS_ONLY",
+      "action": "ITIS lists this variant as a synonym; do not create a second genus or species. POWO's displayed four-synonym set does not enumerate this spelling.",
+      "sources": [
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41892",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2"
+      ]
+    },
+    {
+      "source_name": "Historical Muhlenbergia utilis treated as Muhlenbergia repens",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "historical concept conflation",
+      "scientific_decision": "FAIL_AUTOMATIC_REPENS_MERGE",
+      "action": "Reject automatic merger: both are accepted species today, despite older synonym treatment. Voucher evidence required for historical determinations.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://powo.science.kew.org/taxon/164870-2",
+        "https://www.edwardsaquifer.org/wp-content/uploads/2019/02/1933_Hitchcock_NewGrasses.pdf",
+        "https://doi.org/10.3897/phytokeys.230.103882"
+      ]
+    },
+    {
+      "source_name": "Vilfa utilis / Sporobolus utilis / Vilfa sacatilla / Sporobolus sacatilla",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "historical synonym group",
+      "scientific_decision": "FAIL_DUPLICATE_LEARNER_TAXA",
+      "action": "Reject new species cards for four POWO-listed synonyms; retain original name strings and source provenance.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2"
+      ]
+    },
+    {
+      "source_name": "Sporobolus sacatilla E.Fourn. pro syn",
+      "accepted_name": "Muhlenbergia utilis (Torr.) Hitchc.",
+      "rank": "pro synonymo name",
+      "scientific_decision": "FAIL_ACCEPTED_SPECIES_OR_VALID_PUBLICATION_INFERENCE",
+      "action": "Do not infer accepted species rank or valid publication from a pro syn listing; original 1886 nomenclatural details were not independently resolved here.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243033-2"
+      ]
+    },
+    {
+      "source_name": "Individual Muhlenbergia utilis gallery photographs or vouchers",
+      "accepted_name": null,
+      "rank": "individual specimen identity",
+      "scientific_decision": "HOLD_SPECIMEN_AND_PHOTO_ID_NOT_CERTIFIED",
+      "action": "Taxonomy name audit does not authenticate photographed plants, measured rhizomes, or individual herbarium vouchers; preserve all existing visual ID holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://doi.org/10.3897/phytokeys.230.103882"
+      ]
+    },
+    {
+      "source_name": "Individual hybrid, introgression, or cultivated ancestry of Muhlenbergia utilis",
+      "accepted_name": null,
+      "rank": "individual hybrid/provenance status",
+      "scientific_decision": "HOLD_HYBRID_ORIGIN_NOT_ESTABLISHED",
+      "action": "No named hybrid parentage or individual hybrid origin is established by these sources; do not infer ancestry or override scientific holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://doi.org/10.3897/phytokeys.230.103882"
+      ]
+    },
+    {
+      "source_name": "Sporobolus sacatilla E.Fourn. versus Griseb. ex E.Fourn.",
+      "accepted_name": null,
+      "rank": "historical author citation",
+      "scientific_decision": "UNRESOLVED_SOURCE_AUTHORSHIP_VARIANCE",
+      "action": "POWO uses E.Fourn. and marks pro syn; ITIS uses Griseb. ex E.Fourn. The 1886 original publication was not directly checked, so retain source-qualified spellings and do not assert which author form is correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:243033-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41892"
+      ]
+    },
+    {
+      "source_name": "Unvouchered historical records assigned to M. repens or M. utilis",
+      "accepted_name": null,
+      "rank": "historical taxon concept",
+      "scientific_decision": "UNRESOLVED_HISTORICAL_SPECIMEN_CONCEPT",
+      "action": "Historical records without original voucher, date, author-qualified taxon treatment or reproductive anatomy cannot be reassigned from one accepted species to the other by names alone.",
+      "sources": [
+        "https://www.edwardsaquifer.org/wp-content/uploads/2019/02/1933_Hitchcock_NewGrasses.pdf",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:164921-2",
+        "https://powo.science.kew.org/taxon/164870-2",
+        "https://doi.org/10.3897/phytokeys.230.103882"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 7,
+    "FAIL": 3,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "scientific_safeguards": {
+    "canonical_species_modified": false,
+    "photo_or_specimen_identity_hold_overridden": false,
+    "hybrid_origin_inferred": false,
+    "county_nativity_changed": false,
+    "new_species_installed": false,
+    "photographs_or_lessons_changed": false,
+    "public_pages_changed": false
+  },
+  "source_notes": {
+    "POWO_WCVP": "2026-10-26 accepted M. utilis (Torr.) Hitchc. 1933, four listed synonyms, separately accepted M. repens; no infraspecific rank created.",
+    "ITIS": "ITIS TSN 41892 recognizes M. utilis, records Muehlenbergia spelling and Sporobolus sacatilla with expanded historical author. Divergent authorship retained UNRESOLVED.",
+    "original_1933": "Hitchcock, Grasses from Texas, Journal of the Washington Academy of Sciences 23:453 (15 Oct 1933), explicitly states M. utilis had been referred to M. repens as synonym but differs.",
+    "primary_2023": "Peterson, Herrera Arrieta, Lobo Cabezas & Romaschenko (2023), PhytoKeys 230:1-106 DOI 10.3897/phytokeys.230.103882; treatment includes M. utilis and its Vilfa/Sporobolus type combinations.",
+    "historical_protologue_limit": "Original Fournier 1886 page not independently examined; retain authorship UNRESOLVED rather than invent a correction."
+  },
+  "native_range_audit": "DEFERRED",
+  "status": "taxonomy_evidence_only_committed_if_readback_verified"
+}
