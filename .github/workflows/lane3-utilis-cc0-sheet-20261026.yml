@@ -1,0 +1,57 @@
+name: Lane 3 screen 24 exact CC0 aparejograss photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane3-utilis-cc0-sheet-20261026.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-utilis-cc0-sheet-20261026
+  cancel-in-progress: false
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install "Pillow>=10,<12"
+      - run: |
+          git fetch origin main
+          git checkout -B main origin/main
+      - run: python scripts/lane3_utilis_cc0_contact_sheet_20261026.py
+      - name: Validate exact source and new preview bytes
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          from PIL import Image
+          r=json.loads(pathlib.Path("reports/lane3-utilis-cc0-contact-sheet-20261026.json").read_text())
+          assert r["downloaded_count"] >= 6,r["holds"]
+          p=pathlib.Path(r["contact_sheet"])
+          assert p.is_file() and hashlib.sha256(p.read_bytes()).hexdigest()==r["sheet_sha256"]
+          with Image.open(p) as im:
+              assert im.format=="JPEG" and im.width==2032
+              im.verify()
+          assert all(x["license"]=="CC0" and "inaturalist.org/photos/" in x["photo_page"] for x in r["downloaded"])
+          print("PASS source-specific CC0 contact sheet: ",r["downloaded_count"])
+          PY
+      - name: Commit only CC0 photo selection contact sheet and research report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane3-utilis-cc0-contact-sheet-20261026.jpg reports/lane3-utilis-cc0-contact-sheet-20261026.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 3 publish rights-verified CC0 aparejograss diagnostic contact sheet for review"
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
