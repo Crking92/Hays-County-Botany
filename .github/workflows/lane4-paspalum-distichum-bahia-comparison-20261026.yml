@@ -1,0 +1,44 @@
+name: Lane 4 publish true bahiagrass lookalike for knotgrass
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_paspalum_distichum_bahia_comparison_20261026.py
+      - .github/workflows/lane4-paspalum-distichum-bahia-comparison-20261026.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-paspalum-distichum-bahia-compare
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Refresh main
+        run: |
+          git fetch origin main
+          git reset --hard origin/main
+      - run: python scripts/lane4_paspalum_distichum_bahia_comparison_20261026.py
+      - name: Commit source-labelled comparison with conflict-safe refresh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for attempt in 1 2 3 4; do
+            git add content/taxa/Poaceae/Paspalum/paspalum-distichum/ reports/lane4-distichum-bahia-lookalike-20261026.json
+            if git diff --cached --quiet; then exit 0; fi
+            git commit -m "Lane 4 add real CC BY bahiagrass V-head comparison to knotgrass"
+            if git push origin HEAD:main; then exit 0; fi
+            git fetch origin main
+            git reset --hard origin/main
+            python scripts/lane4_paspalum_distichum_bahia_comparison_20261026.py
+          done
+          exit 1
