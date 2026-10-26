@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-setaria-reverchonii-infraspecific-boundaries-2026-10-26-0021-001",
+  "lane": "grass-taxonomy-verification",
+  "reviewed_at": "2026-10-26T05:23:42.842Z",
+  "source_access_date": "2026-10-26",
+  "source_backbone": "Royal Botanic Gardens Kew POWO/WCVP (2026); Fox & Hatch 1999 Sida 18:1037–1047; Flora of North Central Texas (Diggs et al.); Flora of North America; Delfini et al. 2023 Plants 12:749",
+  "family": "Poaceae",
+  "taxa": [
+    "Setaria reverchonii (Vasey) Pilg."
+  ],
+  "canonical_target": {
+    "path": "content/taxa/Poaceae/Setaria/setaria-reverchonii/species.json",
+    "sha_at_review": "6cfe6f3e8a223768b0a6181efcc58922b7fadfff",
+    "modified": false
+  },
+  "claim_path": "workflow/taxonomy-claims/grass-setaria-reverchonii-infraspecific-boundaries-2026-10-26-0021-001.json",
+  "claim_sha_at_prewrite": "b68f80b63b6481474cda2267004c80551feab91c",
+  "accepted_name": "Setaria reverchonii (Vasey) Pilg.",
+  "rank": "species",
+  "source_pool_spelling": "Setaria reverchonii",
+  "accepted_infraspecifics": [
+    "Setaria reverchonii subsp. reverchonii",
+    "Setaria reverchonii subsp. firmula (Hitchc. & Chase) W.E.Fox",
+    "Setaria reverchonii subsp. ramiseta (Scribn.) W.E.Fox"
+  ],
+  "prior_taxonomy_evidence": {
+    "path": "research-drafts/taxonomy-name-fast-pass/grass-setaria-parviflora-reverchonii-scheelei-2026-10-22-0529-001.json",
+    "sha": "1fb4c290ec25fc5214e4e8776201547e54631b77",
+    "scope": "Earlier accepted-species/three-subspecies summary; this record verifies historical rank, basionyms and conflicting treatments in detail."
+  },
+  "native_range_audit": "DEFERRED — NOT REVIEWED; all county and native metrics untouched",
+  "photo_and_specimen_identity": "HOLD — subspecies and individual voucher identity not independently certified",
+  "hybrid_provenance": "HOLD — no specimen-specific ancestry established",
+  "install_decision": "Retain one canonical Setaria reverchonii species card; no subspecies cards or historical genus duplicate installations from taxonomy-only findings.",
+  "decision_counts": {
+    "PASS": 12,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decisions": [
+    {
+      "status": "PASS",
+      "subject": "Setaria reverchonii (Vasey) Pilg.",
+      "proposed_decision": "Retain accepted species in Poaceae, Setaria, rank species, authorship (Vasey) Pilg.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2"
+      ],
+      "detail": "POWO/WCVP accepts the 1940 combination; current installed species-level name is correct."
+    },
+    {
+      "status": "PASS",
+      "subject": "Panicum reverchonii Vasey",
+      "proposed_decision": "Map as homotypic basionym to accepted Setaria reverchonii; preserve searchable historical spelling",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182418-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2"
+      ],
+      "detail": "Original publication 1889; not a separate learner species."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chaetochloa reverchonii (Vasey) Smyth",
+      "proposed_decision": "Map as homotypic synonym of Setaria reverchonii",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2"
+      ],
+      "detail": "POWO lists the 1913 combination."
+    },
+    {
+      "status": "PASS",
+      "subject": "Setaria reverchonii subsp. reverchonii",
+      "proposed_decision": "Recognize accepted autonym at subspecies rank; no automatic assignment of any existing photo",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77172844-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2"
+      ],
+      "detail": "One of three accepted infraspecific taxa in POWO/WCVP."
+    },
+    {
+      "status": "PASS",
+      "subject": "Setaria reverchonii subsp. firmula (Hitchc. & Chase) W.E.Fox",
+      "proposed_decision": "Recognize accepted subspecies (Fox & Hatch 1999); not accepted independent species under POWO",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1182985-2",
+        "https://jira.eurekamag.com/research/011/053/011053008.php"
+      ],
+      "detail": "Published Sida 18:1041 (1999)."
+    },
+    {
+      "status": "PASS",
+      "subject": "Panicum firmulum Hitchc. & Chase",
+      "proposed_decision": "Map to S. reverchonii subsp. firmula as homotypic synonym",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1182985-2"
+      ],
+      "detail": "Basionym from 1910, not synonym of subspecies reverchonii by default."
+    },
+    {
+      "status": "PASS",
+      "subject": "Setaria firmula (Hitchc. & Chase) Pilg.",
+      "proposed_decision": "Map to S. reverchonii subsp. firmula, not a fourth accepted Setaria species",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1182985-2"
+      ],
+      "detail": "1940 combination, homotypic synonym."
+    },
+    {
+      "status": "PASS",
+      "subject": "Setaria reverchonii subsp. ramiseta (Scribn.) W.E.Fox",
+      "proposed_decision": "Recognize accepted subspecies (Fox & Hatch 1999), distinct from subsp. firmula and autonym",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2",
+        "https://jira.eurekamag.com/research/011/053/011053008.php"
+      ],
+      "detail": "POWO/WCVP accepts subspecies rank."
+    },
+    {
+      "status": "PASS",
+      "subject": "Panicum ramisetum Scribn.",
+      "proposed_decision": "Map as homotypic basionym to S. reverchonii subsp. ramiseta",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2"
+      ],
+      "detail": "Published 1900."
+    },
+    {
+      "status": "PASS",
+      "subject": "Setaria ramiseta (Scribn.) Pilg.",
+      "proposed_decision": "Map to accepted S. reverchonii subsp. ramiseta under POWO; preserve historical species-rank label",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2",
+        "https://fwbg.org/wp-content/uploads/2025/04/FNCT_1077-1352-Acor-Zanni.pdf"
+      ],
+      "detail": "1940 combination; Texas flora sometimes uses this species-rank concept."
+    },
+    {
+      "status": "PASS",
+      "subject": "Chaetochloa ramiseta (Scribn.) Smyth",
+      "proposed_decision": "Map as homotypic synonym of S. reverchonii subsp. ramiseta",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2"
+      ],
+      "detail": "1913 combination."
+    },
+    {
+      "status": "PASS",
+      "subject": "Panicum subspicatum Vasey (1889)",
+      "proposed_decision": "Recognize illegitimate later homonym as heterotypic synonym of S. reverchonii subsp. ramiseta, not accepted Panicum species",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2"
+      ],
+      "detail": "POWO marks nom. illeg. homonym. post.; do not confuse with any earlier homonym."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically create separate canonical species cards for Setaria firmula and Setaria ramiseta",
+      "proposed_decision": "Reject duplicate installations: both are POWO accepted subspecies of existing S. reverchonii",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1182985-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2"
+      ],
+      "detail": "Historical species rank does not equal current accepted rank."
+    },
+    {
+      "status": "FAIL",
+      "subject": "Automatically label source photographs as subsp. firmula, ramiseta, or reverchonii based on species-level determination",
+      "proposed_decision": "Reject unsupported subspecies inference; keep original species label and HOLD",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2",
+        "https://biorepo.neonscience.org/portal/taxa/index.php?clid=8663&taxauthid=1&tid=20004",
+        "https://jira.eurekamag.com/research/011/053/011053008.php"
+      ],
+      "detail": "Species-level photo or locality is insufficient to identify subspecies; no specimen-level determination completed."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Infraspecific identity of existing Setaria reverchonii learner images and specimens",
+      "proposed_decision": "Preserve subspecies ID HOLD pending same-specimen voucher and diagnostic character evidence",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1182985-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2",
+        "https://jira.eurekamag.com/research/011/053/011053008.php"
+      ],
+      "detail": "The current card is source-labelled and has no confirmed infraspecific voucher; do not reassign any photograph."
+    },
+    {
+      "status": "HOLD",
+      "subject": "Hybrid or introgression ancestry of individual Setaria reverchonii specimens",
+      "proposed_decision": "Do not infer hybrid ancestry from historical ranks, taxonomic literature, or species-level photographs",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2",
+        "https://www.mdpi.com/2223-7747/12/4/749"
+      ],
+      "detail": "No verified named hybrid or specimen-specific ancestry is established by this review."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Texas flora species-level Setaria ramiseta versus POWO/WCVP subspecies rank",
+      "proposed_decision": "Document competing taxonomic treatments; use POWO subspecies backbone, preserve alternate species-rank name for source lookup",
+      "sources": [
+        "https://fwbg.org/wp-content/uploads/2025/04/FNCT_1077-1352-Acor-Zanni.pdf",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2",
+        "https://jira.eurekamag.com/research/011/053/011053008.php"
+      ],
+      "detail": "Flora of North Central Texas discusses S. ramiseta as distinct from S. reverchonii; POWO/WCVP accepts it under S. reverchonii."
+    },
+    {
+      "status": "UNRESOLVED",
+      "subject": "Alternative Paspalidium generic placements for reverchonii, firmula and ramiseta",
+      "proposed_decision": "Preserve 2006 alternative genus treatments as taxon-concept caution; do not replace current accepted Setaria backbone",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:235260-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1182985-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1197703-2",
+        "https://www.mdpi.com/2223-7747/12/4/749"
+      ],
+      "detail": "POWO notes alternative 2006 World Grass Species Synonymy cited Paspalidium reverchonii, firmulum, ramisetum. Current POWO names remain Setaria; exact alternative combinations are not installed."
+    }
+  ],
+  "safety": {
+    "claim_checked": true,
+    "claim_created_and_readback_verified": true,
+    "legacy_claims_checked": true,
+    "no_active_same_taxonomy_target_found": true,
+    "canonical_sha_refetched": true,
+    "no_canonical_write": true,
+    "no_photo_or_pages_write": true
+  }
+}
