@@ -1,0 +1,43 @@
+name: Gulf Phragmites collar search batch 2 — one time
+on:
+  push:
+    branches: [main]
+    paths:
+      - "workflow/phragmites-photo-review/20261026-gulf-batch2-request.json"
+permissions:
+  contents: write
+concurrency:
+  group: phragmites-gulf-photo-batch2-20261026
+  cancel-in-progress: false
+jobs:
+  scout-individual-photographs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install image validation
+        run: python -m pip install "Pillow>=10,<12"
+      - name: Download only reusable, currently source-identified individual photos
+        run: python scripts/scout_phragmites_gulf_photos_batch2_20261026.py
+      - name: Commit candidate images for anatomical screening, NOT learner publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/phragmites-gulf-photo-scout-batch2-20261026.json
+          if test -d reports/phragmites-gulf-photo-scout-batch2-20261026; then
+            git add reports/phragmites-gulf-photo-scout-batch2-20261026
+          fi
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "Archive rights-checked Gulf Phragmites batch 2 photos for ligule screening"
+          git pull --rebase origin main
+          git push origin HEAD:main
