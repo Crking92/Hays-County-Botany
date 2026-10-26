@@ -134,3 +134,64 @@ if any(o.get("status")=="archived" and o.get("archive","").endswith(target_name)
     original_species=subprocess.check_output(["git","show","HEAD:"+str(p)])
     p.write_bytes(original_species)
     print("PHOTO ARCHIVED IN WORKSPACE; canonical species metadata deferred to fresh-SHA follow-up")
+
+
+# ARCHIVE_VERIFIED_MDPI_ARUNDO_FIGURES_20261026
+# The user's Figure 2 upload was independently identified against:
+# Ngernsaengsaruay et al. (2023), Plants 12(9):1850, DOI 10.3390/plants12091850.
+# Figures 2 (Paweena Wessapak) and 5 (Chatchai Ngernsaengsaruay/
+# Pichet Chanton) are original article illustrations/photos under CC BY 4.0.
+# The article figure is NOT a Phragmites image. Only run image download under
+# the original article's CC BY attribution and with verified pixels.
+# Archive image bytes only; merge canonical species.json in a fresh-SHA pass
+# to avoid overwriting parallel human/lane edits.
+for fig, artist, purpose in [
+    ("g002", "Paweena Wessapak", "scientific reproductive-anatomy plate: panicle, spikelet, paired glumes, hairy lemma and palea"),
+    ("g005", "Chatchai Ngernsaengsaruay (panels A-C); Pichet Chanton (panels D-E)",
+     "photographic inflorescence, spikelet and separated glumes and florets"),
+]:
+    outfile=p.parent/"images"/("research-arundo-2023-"+fig+".jpg")
+    if outfile.exists():
+        outcomes.append({"status":"already_archived","archive":str(outfile)})
+        continue
+    candidates=[
+        f"https://www.mdpi.com/plants/plants-12-01850/article_deploy/html/images/plants-12-01850-{fig}.png",
+        f"https://mdpi-res.com/plants/plants-12-01850/article_deploy/html/images/plants-12-01850-{fig}.png",
+        f"https://www.mdpi.com/plants/plants-12-01850/article_deploy/html/images/plants-12-01850-{fig}.jpg",
+        f"https://europepmc.org/articles/PMC10181382/bin/plants-12-01850-{fig}.jpg",
+    ]
+    errors=[]
+    for media_url in candidates:
+        try:
+            req=urllib.request.Request(media_url,headers={"User-Agent":"HaysCountyBotany/1.0 (source-attributed educational botanical figure archiving)"})
+            with urllib.request.urlopen(req,timeout=22) as response:
+                raw=response.read(20_000_001)
+            if not (10_000 < len(raw) < 20_000_000):
+                raise ValueError("unexpected size")
+            with Image.open(io.BytesIO(raw)) as image_check:
+                image_check.verify()
+            with Image.open(io.BytesIO(raw)) as image_in:
+                if min(image_in.size)<400 or image_in.width*image_in.height>30_000_000:
+                    raise ValueError("figure too small/large")
+                image_rgb=image_in.convert("RGB")
+                dims=image_rgb.size
+            outfile.parent.mkdir(parents=True,exist_ok=True)
+            image_rgb.save(outfile,"JPEG",quality=91,optimize=True,exif=b"")
+            with Image.open(outfile) as archived_check: archived_check.verify()
+            outcomes.append({
+                "status":"archived", "archive":str(outfile),"source":media_url,
+                "article":"https://doi.org/10.3390/plants12091850",
+                "original_figure":fig,"artist":artist,"role":purpose,
+                "license":"CC BY 4.0", "license_url":"https://creativecommons.org/licenses/by/4.0/",
+                "modifications":"PNG/JPEG re-encoded as RGB JPEG, metadata removed; no arrows",
+                "dimensions":dims,"sha256":hashlib.sha256(outfile.read_bytes()).hexdigest(),
+                "human_review":"PROVISIONAL, crop/pixel-level arrow review pending"
+            })
+            break
+        except Exception as e:
+            errors.append(type(e).__name__+": "+str(e)[:180])
+    else:
+        outcomes.append({"status":"held","figure":fig,"target":str(outfile),
+                         "attempts":errors,"license":"CC BY 4.0", "bytes_verified":False})
+# Preserve original report path consumed by the existing guarded workflow.
+report.write_text(json.dumps({"results":outcomes},ensure_ascii=False,indent=2)+"\n")
