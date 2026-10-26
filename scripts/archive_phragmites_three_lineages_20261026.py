@@ -1,0 +1,88 @@
+#!/usr/bin/env python3
+"""Photo-first, rights-gated Phragmites three-lineage review.
+Archive candidates only; DO NOT change canonical species JSON until pixel QA.
+"""
+import io, json, pathlib, urllib.parse, urllib.request, re, html, hashlib, time
+from PIL import Image, ImageOps
+
+ROOT=pathlib.Path("content/taxa/Poaceae/Phragmites/phragmites-australis/images")
+REPORT=pathlib.Path("reports/phragmites-three-lineage-photo-acquisition-20261026.json")
+ROOT.mkdir(parents=True,exist_ok=True);REPORT.parent.mkdir(parents=True,exist_ok=True)
+results=[]
+USER_AGENT="HaysCountyBotanyVisualLearner/1.0 (credited noncommercial grass identification; github.com/Crking92/Hays-County-Botany)"
+def fetch(url):
+ req=urllib.request.Request(url,headers={"User-Agent":USER_AGENT,"Accept":"application/json" if "/v1/" in url or "api.php" in url else "image/*"})
+ with urllib.request.urlopen(req,timeout=40) as f:return f.read(25_000_001)
+def save_image(raw,name,metadata):
+ if not (12000<len(raw)<25_000_000):raise ValueError("unexpected image size")
+ with Image.open(io.BytesIO(raw)) as im:im.verify()
+ with Image.open(io.BytesIO(raw)) as im:
+  if im.format not in ("JPEG","PNG") or min(im.size)<450:raise ValueError("not usable diagnostic photograph")
+  clean=ImageOps.exif_transpose(im).convert("RGB")
+  dims=clean.size
+  clean.thumbnail((1600,1600))
+  b=io.BytesIO();clean.save(b,format="JPEG",quality=89,optimize=True)
+  outfile=ROOT/name
+  if outfile.exists():raise FileExistsError("already archived; preserve existing")
+  outfile.write_bytes(b.getvalue())
+ with Image.open(outfile) as check:check.verify()
+ return dict(metadata,archive=str(outfile),archive_sha256=hashlib.sha256(outfile.read_bytes()).hexdigest(),
+             source_dimensions=dims,archived_dimensions=list(clean.size),archive_bytes=outfile.stat().st_size,
+             modifications="resized/re-encoded JPEG, original EXIF/GPS stripped; no arrows",
+             status="ARCHIVED_CANDIDATE_NOT_ON_PUBLIC_SPECIES_GALLERY",
+             anatomical_pixel_review="PENDING",lineage_certification="SOURCE-IDENTIFIED ONLY; NOT GENETICALLY VERIFIED")
+# Exact source-labelled introduced lineage: taxon and photographer on Commons description
+title="File:European Reed (Phragmites australis australis) - Oakville, Ontario 2017-05-12.jpg"
+page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title[5:].replace(" ","_"))
+try:
+ api="https://commons.wikimedia.org/w/api.php?"+urllib.parse.urlencode({"action":"query","prop":"imageinfo","iiprop":"url|extmetadata","titles":title,"format":"json"})
+ data=json.loads(fetch(api))
+ info=next(iter(data["query"]["pages"].values()))["imageinfo"][0]
+ ext=info["extmetadata"];license=ext["LicenseShortName"]["value"]
+ artist=html.unescape(re.sub(r"<[^>]+>","",ext["Artist"]["value"])).strip()
+ if "Hodnett" not in artist or re.sub(r"[^a-z0-9]","",license.lower())!="ccbysa40":
+  raise ValueError("source artist/license verification mismatch: "+repr((artist,license)))
+ results.append(save_image(fetch(info["url"]),"lineage-introduced-ontario-ryan-hodnett.jpg",
+  {"source_page":page,"image_url":info["url"],"creator":"Ryan Hodnett","source_taxon":"Phragmites australis subsp. australis",
+   "source_location":"Oakville, Ontario, Canada","source_role":"introduced Eurasian lineage source-labelled stand; no DNA determination",
+   "license":"CC BY-SA 4.0","license_url":"https://creativecommons.org/licenses/by-sa/4.0/",
+   "site_rule":"attribution+ShareAlike, alteration noted; not an authenticated Texas population"}))
+except Exception as e:results.append({"status":"HELD","source_page":page,"target":str(ROOT/"lineage-introduced-ontario-ryan-hodnett.jpg"),
+                                 "reason":type(e).__name__+": "+str(e)[:350]})
+# Gulf candidates are iNaturalist observations source-identified to berlandieri.
+# Single-user determinations are only provisional and NEVER lineage-certified.
+for obsid in [120001790, 67027636, 47408883]:
+ try:
+  js=json.loads(fetch("https://api.inaturalist.org/v1/observations/"+str(obsid)))
+  obs=js["results"][0]
+  taxa=obs.get("taxon") or {}
+  name=taxa.get("name","")
+  if not ("Phragmites" in name and "berlandieri" in name):raise ValueError("observation currently not identified to berlandieri: "+name)
+  quality=obs.get("quality_grade","")
+  photos=obs.get("photos") or []
+  # Prefer BY/SA/CC0, allow verified NC only for owner's noncommercial educational site.
+  permitted=("cc0","cc-by","cc-by-sa","cc-by-nc","cc-by-nc-sa")
+  choices=[p for p in photos if p.get("license_code") in permitted and p.get("url")]
+  if not choices:raise ValueError("no image-level CC photo on this observation")
+  choices.sort(key=lambda p:permitted.index(p["license_code"]))
+  ph=choices[0];code=ph["license_code"]
+  url=ph["url"].replace("/square.", "/large.").replace("/thumb.","/large.").replace("/small.","/large.").replace("/medium.","/large.")
+  if not url.startswith("https://") or "inaturalist" not in urllib.parse.urlparse(url).netloc:
+   raise ValueError("unsupported image host")
+  credit=ph.get("attribution") or obs.get("user",{}).get("name") or obs.get("user",{}).get("login")
+  if not credit:raise ValueError("missing photo creator/attribution")
+  fname=f"lineage-gulf-inat-{obsid}-{ph['id']}.jpg"
+  results.append(save_image(fetch(url),fname,{"source_page":"https://www.inaturalist.org/observations/"+str(obsid),
+    "individual_photo_page":"https://www.inaturalist.org/photos/"+str(ph["id"]),"image_url":url,
+    "creator":credit,"source_taxon":name,"source_role":"GULF COAST BERLANDIERI PROVISIONAL SOURCE-IDENTIFIED REFERENCE ONLY",
+    "quality_grade":quality,"observation_id":obsid,"photo_id":ph["id"],
+    "license":code,"license_url":"https://creativecommons.org/licenses/"+code.replace("cc-","")+"/4.0/",
+    "site_rule":"noncommercial site only if NC; no genetics/lineage/haplotype inferred from iNaturalist ID",
+    "observation_date":obs.get("observed_on"),"place_guess":obs.get("place_guess")}))
+  break
+ except Exception as e:
+  results.append({"status":"HELD","observation_id":obsid,"source_page":"https://www.inaturalist.org/observations/"+str(obsid),
+                  "reason":type(e).__name__+": "+str(e)[:350]})
+REPORT.write_text(json.dumps({"scope":"photo bytes only, NO subspecies identification from photo without additional evidence",
+                              "results":results},ensure_ascii=False,indent=2)+"\n")
+print(json.dumps({"results":results},ensure_ascii=False))
