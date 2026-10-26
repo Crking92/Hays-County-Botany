@@ -1,0 +1,70 @@
+name: Lane 3 Seep Muhly Basal and Outer Sheath Photo Finish
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/lane3-seep-basal-sheath-install-20261026.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-seep-basal-sheath-install
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install 'Pillow>=10,<12'
+      - name: Install inspected source-licensed basal and outer-sheath images only
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/lane3_seep_basalsheath_publish_20261026.py
+      - name: Verify exact JPEGs, metadata, photo positions and anatomy holds
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          from PIL import Image
+          root=pathlib.Path("content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii")
+          s=json.loads((root/"species.json").read_text())
+          r=json.loads(pathlib.Path("reports/lane3-seep-basal-sheath-install-20261026.json").read_text())
+          assert s["id"]=="muhlenbergia-reverchonii"
+          assert r["status"]=="TWO_WILD_BASAL_AND_SHEATH_IMAGES_INSTALLED_NO_MICRO_ROLE_CLOSED"
+          assert len(s["images"])==8 and len(s["visual_comparison"]["items"])==12
+          assert r["new_arrows"]==4 and len(r["photo_ids"])==2
+          for id in r["photo_ids"]:
+              ps=[x for x in s["visual_comparison"]["items"] if x.get("source_photo_id")==id]
+              assert len(ps)==1 and ps[0]["license"]=="CC BY-NC"
+              assert len(ps[0]["markers"])==2
+              assert ps[0]["source_page"].endswith("/"+str(id))
+              f=pathlib.Path(ps[0]["image_url"]);assert f.is_file()
+              with Image.open(f) as im:
+                  assert im.format=="JPEG" and min(im.size)>=700
+                  assert not im.getexif().get(34853)
+                  im.verify()
+              assert any(x.get("source_photo_id")==id for x in s["images"])
+          assert s["learner_visual_status"]["status"]=="field_ready_photo_gaps"
+          assert "NOT" in s["visual_comparison"]["items"][3]["label"]
+          assert [x["scientific_name"] for x in s["visual_comparison"]["items"][9:11]]==["Muhlenbergia lindheimeri"]*2
+          print("PASS: two photo-level licensed exact-source JPEGs, 4 broad pixel-reviewed arrows, no invented roots or ligule")
+          PY
+      - name: Commit archived JPEGs and updated canonical gallery
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Muhlenbergia/muhlenbergia-reverchonii/ reports/lane3-seep-basal-sheath-install-20261026.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Lane 3 publish two exact-source seep muhly basal sheath photos and four reviewed arrows"
+          for i in 1 2 3 4 5 6 7; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
