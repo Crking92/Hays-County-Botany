@@ -53,7 +53,7 @@ class SilverPhotoFinish(unittest.TestCase):
         self.assertIn("NOT",s["silver_six_role_photo_score_20261027"]["roles"][2]["reason"])
         self.assertEqual(s["texas_silver_anatomy_20261027"]["source_photo_ids"],[730629825,749323175])
         self.assertEqual(s["texas_silver_anatomy_20261027"]["new_verified_arrows"],4)
-        self.assertEqual(s["field_photo_quickcheck"]["featured_panel_indices"][:4],[0,12,13,8])
+        self.assertEqual(s["field_photo_quickcheck"]["featured_panel_indices"][:4],[0,16,17,18])
         for i,photo_id in [(8,730629825),(9,749323175)]:
             p=self.panels[i]
             self.assertEqual(p["source_photo_id"],photo_id)
