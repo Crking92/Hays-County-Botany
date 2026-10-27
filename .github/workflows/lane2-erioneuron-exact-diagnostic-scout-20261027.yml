@@ -1,0 +1,57 @@
+name: Lane 2 Erioneuron pilosum actual collar crown lemma photo scout
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-erioneuron-exact-diagnostic-scout-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Read-only exact species licensed Texas closeup screen no publication
+        run: |
+          python - <<'PY'
+          import io,json,base64,math,concurrent.futures
+          from urllib.request import Request,urlopen
+          from urllib.parse import urlencode
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 exact Erioneuron photo level noncommercial licensed research'}
+          def get(url,limit=6000000):
+           with urlopen(Request(url,headers=UA),timeout=40) as h:return h.read(limit)
+          cand=[]
+          for page in range(1,6):
+           q={'taxon_name':'Erioneuron pilosum','quality_grade':'research','place_id':18,'photos':'true','per_page':25,'page':page,'order_by':'created_at','order':'desc'}
+           d=json.loads(get('https://api.inaturalist.org/v1/observations?'+urlencode(q)))
+           print('QUERY',page,d.get('total_results'),len(d['results']))
+           for o in d['results']:
+            if o.get('taxon',{}).get('name')!='Erioneuron pilosum':continue
+            for p in (o.get('photos') or [])[:6]:
+             if p.get('license_code') in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}:cand.append((o,p))
+           if page*25>=d.get('total_results',0):break
+          cand=cand[:50]
+          def thumb(op):
+           p=op[1];u=p['url'].replace('/square.','/medium.').replace('/thumb.','/medium.')
+           try:
+            with Image.open(io.BytesIO(get(u,800000))) as im:z=ImageOps.exif_transpose(im).convert('RGB')
+            z.thumbnail((220,184));return z
+           except Exception as e:print('BAD',p['id'],str(e)[:70]);return None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:imgs=list(pool.map(thumb,cand))
+          for block in range(math.ceil(len(cand)/25)):
+           sheet=Image.new('RGB',(1250,1180),'white');d=ImageDraw.Draw(sheet)
+           for k,(o,p) in enumerate(cand[block*25:(block+1)*25]):
+            n=block*25+k;x=k%5*250;y=k//5*236;im=imgs[n]
+            if im is not None:sheet.paste(im,(x+(250-im.width)//2,y+5))
+            d.text((x+4,y+197),f'#{n} photo {p["id"]}',fill='black')
+            d.text((x+4,y+217),f'obs {o["id"]} {p["license_code"]}',fill='black')
+            print('CANDIDATE',json.dumps({'n':n,'photo':p['id'],'obs':o['id'],'license':p['license_code'],'credit':p.get('attribution'),'place':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(p['id'])},ensure_ascii=False))
+           out=io.BytesIO();sheet.save(out,'JPEG',quality=77,optimize=True);s=base64.b64encode(out.getvalue()).decode()
+           for j,idx in enumerate(range(0,len(s),3500)):print(f'ERIO_CONTACT_{block}_{j}='+s[idx:idx+3500])
+           print('CONTACT_END',block,len(out.getvalue()))
+          print('TOTAL_LICENSED',len(cand))
+          PY
