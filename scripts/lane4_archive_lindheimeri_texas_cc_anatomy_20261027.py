@@ -20,10 +20,6 @@ IDS=[
 (272829064,157692952,"texas-leaf-sheath-blade","Live leaf-sheath/blade junction showing stem joint and green blades in source-confirmed grass"),
 (272799764,157708086,"texas-dry-sheath-node","Macro of a sheath and adjacent stem joint with brown surface tissues, source species; no disconnected roots"),
 (272800423,157708086,"texas-other-side-collar","Photographed leaf base, outside collar and sheath; inner 1–5 mm hair fringe not verified from this angle"),
-(130720062,79792669,"louisiana-mm-measured-spikelet","Source-labelled actual multiple spikelets with a physical millimeter graduation; count/maturity to be independently reviewed"),
-(130720103,79792669,"louisiana-true-collar-region","Actual blade/sheath/collar junction with a finger for positional context; hairs or free ligule unresolved until pixel audit"),
-(130720136,79792669,"louisiana-leaf-sheath-inner","Possible inside leaf sheath/ligule region photographed beside fingers; scale and true ligule identity unproven"),
-(419645324,235923561,"wisconsin-spikelet-sheath-awnless","Actual close leaf base with visible hairs and flowering remnants; source photographed in Wisconsin, not local Texas")
 ]
 def get(url,limit=14_000_000):
  err=None
@@ -113,7 +109,7 @@ def main():
   card["learner_visual_status"]["image_count"]=len(card["images"])
   card["field_id_finish_pass"]["lane4_lindheimeri_texas_macro_sources_20261027"]={
    "photo_additions":len(installed),"new_arrows":0,"score_changes":0,
-   "source_scope":"Texas George Bush Park/Houston research-grade observations 157692952 and 157708086 plus same-taxon Louisiana and Wisconsin research-grade photos",
+   "source_scope":"Texas George Bush Park/Houston research-grade observations 157692952 and 157708086 only Texas research-grade observations; non-research Louisiana/Wisconsin candidates explicitly excluded",
    "rights":"Per-photo CC BY verified exact iNaturalist original; attribution preserved; photo license version not presumed.",
    "remaining":"Actual inside collar hair-fringe proof, calibrated individual spikelet/glumes, exposed same-plant rooted crown, exact comparison",
    "status":"Actual source media archived; role scoring and arrow placement require independent pixel inspection."}
