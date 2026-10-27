@@ -134,7 +134,7 @@ def main():
         card["curation_status"]["photo_files_present"]=len(card["images"])
     card.setdefault("learner_visual_status",{})["image_count"]=len(card["images"])
     card.setdefault("field_id_finish_pass",{})["goldman_diagnostic_20261027"]={
-      "installed_photo_count":len(added),"new_markers":sum(len(row[6]) for row in ITEMS if ("goldman-paspalum"+row[0].lower()+"-" in " ".join(z["file"] for z in added))),
+      "installed_photo_count":len(added),"new_markers":sum(len(row[5]) for row in ITEMS if ("goldman-paspalum"+row[0].lower()+"-" in " ".join(z["file"] for z in added))),
       "photo_sources":[x["source"] for x in added],
       "quality_rule":"Ligule true brown rim visible but not 1mm measured; paired oval spikelets visible but no detached glume/lemma separate; no real rooted rhizome.",
       "licensing":"Photographer Douglas Goldman individual Wikimedia Commons CC BY-SA 4.0 with source links; EXIF stripped",
