@@ -1,0 +1,37 @@
+name: Lane4 Vaseygrass real sheath and whole plant photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_archive_vaseygrass_sheaths_20261027.py
+      - .github/workflows/lane4-urvillei-leaf-sheath-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-vaseygrass-sheaths-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Source-photo attribution and CC rights guarded JPEG archiving
+        run: python scripts/lane4_archive_vaseygrass_sheaths_20261027.py
+      - name: Publish only verified local photo files and matching gallery metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Paspalum/paspalum-urvillei/
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive Harry Rose Vaseygrass sheath habit photographs with their CC source rights"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
