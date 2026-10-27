@@ -20,18 +20,18 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 13,
-  "confirmed_at_or_above_70": 11,
+  "audited_to_date": 14,
+  "confirmed_at_or_above_70": 12,
   "targeted_pass_covered": 20,
   "remaining_targeted_passes": 3,
-  "progress_disclaimer": "Lane4 13/23 now formally scored and 11/23 at >=75%. Sorghastrum elliottii source research-grade photography now provisional 3.5/6=58% (9 physically archived exact source photos including 7 newly individually CC BY or CC0 original JPEGs, 10 gallery panels with two other-species S nutans comparisons, and 13 new gross accurate arrows). One atypically broad panicle source quarantined from main lesson. Species-voucher and Hays County distribution protected HOLD remains; no actual roots and fully measured true free ligule. Other lanes not touched; public Pages release not confirmed.",
+  "progress_disclaimer": "Lane4 14/23 species now formally six-role photo scored and 12/23 independently reached >=75%. Digitaria cognata first formal photo score 5/6=83%, 11 real source-labelled species original CC BY/CC0 JPEGs hosted GitHub incl 4 newly archived source-licensed CC BY images, 12 teaching gallery panels (9 own-species +3 distinct Digitaria ciliaris comparisons), 4 new arrows on actual gross collar/sheath structural pixels. TRUE inner erose 0.5mm ligule, calibrated glume/lemma dissection and swollen hairy panicle branch-axil not pictured. Exact Texas county nativity not asserted. New public Pages/mobile QA pending.",
   "photo_physical_progress_today": {
-    "new_local_originals": 62,
-    "new_gross_arrows": 84,
+    "new_local_originals": 66,
+    "new_gross_arrows": 88,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
     "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 11,
-    "newly_pixel_inspected_archived_exact_photos": 48,
+    "newly_pixel_inspected_archived_exact_photos": 52,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
     ]
@@ -229,11 +229,40 @@
     {
       "id": "digitaria-cognata",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "at_80_90",
       "previous_targeted_pass": true,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        1,
+        1,
+        0.5,
+        1,
+        0.5,
+        1
+      ],
+      "pct": 83,
+      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy.",
+      "total": 5,
+      "previous_total": null,
+      "previous_pct": null,
+      "score_scope": "First formal six-role photo role audit for this species on 2026-10-27, not an earlier score increase measured before today.",
+      "new_species_photos": 4,
+      "new_anatomic_gross_arrows": 4,
+      "own_species_physically_archived": 11,
+      "gallery_panels": 12,
+      "different_species_comparison_panels": 3,
+      "photo_rights": "Individual research-grade source photos 746801460, 746801441, 745183717, 659273697 all source-verified CC BY with photographer credit. Exact CC license version not asserted; EXIF/GPS stripped and actual original saved pixels inspected.",
+      "exact_roles": "Whole 1: genuine same-source rooted full plant with flowering culms; roots 1: actually connected fibrous roots at crown; collar 0.5: two REAL photographed source blade/sheath attachments with pale sheath lip, not confirmed inside true 0.5mm erose ligule; attached panicle 1; reproductive 0.5: genuine terminal oval spikelet gross morphology, no calibrated microdissection; lookalike 1: real clearly labelled D. ciliaris finger-like racemes vs widely isolated airy D. cognata spikelets.",
+      "weak_photos_held_in_archive": [
+        746801441,
+        659273697
+      ],
+      "selected_new_photo_ids": [
+        746801460,
+        745183717
+      ],
+      "next_photo": "TRUE internal 0.5-mm erose membranous ligule under 1-mm bar; separately identified upper/lower glumes/sterile lemma/fertile lemma at physical ruler scale; radiating hairs at swollen panicle axil. Hays County BONAP county native remains unverified.",
+      "latest_card_commit": "5a88806fb91990cd2184362a6fbcd9d31dbc31c4",
+      "site_qa": "Source and canonical photo card readback done; new site deployment and mobile arrow overlay QA not yet proven"
     },
     {
       "id": "polypogon-monspeliensis",
