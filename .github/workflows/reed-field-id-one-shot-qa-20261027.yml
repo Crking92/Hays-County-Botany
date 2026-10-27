@@ -29,7 +29,10 @@ jobs:
           commands=[
             ["python","-m","unittest","discover","-s","tests","-p","test_reed_beginner_learner.py","-v"],
             ["node","--check","assets/js/app.js"],
-            ["node","--check","assets/js/field-id-tiles.js"]
+            ["node","--check","assets/js/field-id-tiles.js"],
+            ["node","--check","assets/js/quiz-tiles.js"],
+            ["node","--check","assets/js/reed-quiz.js"],
+            ["node","tests/test_reed_quiz.cjs"]
           ]
           checks=[]
           for command in commands:
