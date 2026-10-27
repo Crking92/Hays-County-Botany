@@ -1,0 +1,49 @@
+name: Lane4 Lindheimer exact-species Texas true anatomy licensed archive
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_archive_lindheimeri_texas_cc_anatomy_20261027.py
+      - .github/workflows/lane4-lindheimeri-texas-cc-anatomy-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-lindheimeri-exact-species-texas-licensed-anatomy-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            scripts/lane4_archive_lindheimeri_texas_cc_anatomy_20261027.py
+            content/taxa/Poaceae/Dichanthelium/dichanthelium-lindheimeri
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - name: Check research-grade taxon, individual photo CC rights, and source pixels
+        run: python scripts/lane4_archive_lindheimeri_texas_cc_anatomy_20261027.py
+      - name: Commit physically preserved source photos and conditional gallery links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --sparse content/taxa/Poaceae/Dichanthelium/dichanthelium-lindheimeri/ reports/lane4-lindheimeri-research-grade-cc-anatomy-archive-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane4 archive verified CC BY Texas Lindheimer true diagnostic photo originals"
+            pushed=0
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                exit 1
+              fi
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = 1
+          fi
