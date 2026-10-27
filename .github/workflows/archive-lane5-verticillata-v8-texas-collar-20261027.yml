@@ -1,0 +1,47 @@
+name: Lane 5 archive real tumble windmillgrass V8 and Texas leaf junction photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_verticillata_goldman_v8_texas_collar_20261027.py
+      - .github/workflows/archive-lane5-verticillata-v8-texas-collar-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-verticillata-v8-texas-collar-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            reports
+            content/taxa/Poaceae/Chloris/chloris-verticillata
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check Pillow
+        run: python -m pip install Pillow
+      - name: Individually verify Commons species license and Texas observation photo rights; archive true JPEGs
+        run: python scripts/archive_lane5_verticillata_goldman_v8_texas_collar_20261027.py
+      - name: Save actual license-checked photo bytes and teaching panels safely
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Chloris/chloris-verticillata/ reports/lane5-chloris-verticillata-two-real-20261027.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive two open-licensed tumble windmillgrass spikelet and Texas sheath photos"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
