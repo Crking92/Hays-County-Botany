@@ -37,6 +37,26 @@ HARMS_SITE_PERMISSION = "BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
 HARMS_EXACT_LICENSE = "© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
 
 
+# Narrow, source-verified Lindheimer muhly photos from Bob Harms' own
+# Selected Central Texas Monocots, NOT the separate UT herbarium collection.
+HARMS_MULI_IDS = frozenset({"MULI-L", "MULI-9", "MULI-J4", "MULI-J5"})
+
+def permitted_harms_lindheimeri(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Muhlenbergia lindheimeri":
+        return False
+    return any(item.get("source_page") == HARMS_BASE + "pages/" + ident + ".html"
+               and item.get("source_image") == HARMS_BASE + "images/" + ident + ".jpg"
+               for ident in HARMS_MULI_IDS)
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -452,6 +472,8 @@ def photo_rights(record, noncommercial=False):
         return None  # Exact photograph, educational site only, with original photographer credit.
     if permitted_tom_chester_erioneuron(record, noncommercial):
         return None  # Exact source-credited reproduction, not Creative Commons.
+    if permitted_harms_lindheimeri(record, noncommercial):
+        return None  # Exact selected educational use; retains Bob Harms copyright.
     if permitted_harms_eleusine_indica(record, noncommercial):
         return None
     if permitted_harms_elymus_canadensis(record, noncommercial):
