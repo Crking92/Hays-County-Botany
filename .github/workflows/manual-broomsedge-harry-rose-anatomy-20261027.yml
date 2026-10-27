@@ -1,0 +1,87 @@
+name: Archive genuine broomsedge CC BY paired spikelet and spathe anatomy
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-broomsedge-harry-rose-anatomy-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-anatherum-virginicum-new-real-reproductive-jpgs
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image verification dependencies
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Archive actual CC BY anatomy photos after repository refresh
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_anatherum_virginicum_harry_rose_macros_20261027.py
+          python scripts/archive_anatherum_virginicum_harry_rose_macros_20261027.py
+      - name: Check actual photos, SHA hashes, attribution and accepted scientific name
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          rp=Path('reports/lane3-broomsedge-harry-rose-spikelet-photos-20261027.json')
+          if not rp.exists():
+              print('No verifiably archived new photos; no success or publication claim')
+              raise SystemExit(0)
+          r=json.loads(rp.read_text())
+          assert r['result']=='BROOMSEDGE_REAL_SPIKELET_PHOTOS_PHYSICALLY_ARCHIVED'
+          assert 1<=r['added']<=2
+          sp=json.loads(Path('content/taxa/Poaceae/Anatherum/anatherum-virginicum/species.json').read_text())
+          gen=json.loads(Path('content/taxa/Poaceae/Anatherum/genus.json').read_text())
+          assert sp['id']=='anatherum-virginicum' and gen['name']=='Anatherum'
+          for rec in r['records']:
+              p=Path(rec['file'])
+              assert p.is_file() and p.stat().st_size>20000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==rec['sha256']
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and not im.getexif().get(34853)
+                  im.verify()
+              matches=[x for x in sp['images'] if x.get('source_photo_id')==rec['id']]
+              assert len(matches)==1 and matches[0]['file']=='images/'+p.name
+              assert matches[0]['license']=='CC BY 2.0' and matches[0]['creator']=='Harry Rose'
+              assert matches[0]['source_taxon_name']=='Andropogon virginicus'
+              assert matches[0]['accepted_taxon_name']=='Anatherum virginicum'
+              for group in (sp,gen):
+                  panels=[x for x in group['visual_comparison']['items'] if x.get('source_photo_id')==rec['id']]
+                  assert len(panels)==1 and panels[0]['image_url']==str(p)
+                  assert panels[0]['markers']==[]
+          print('PASS: physical JPEG pixels, source hash, no GPS, CC BY, canonical species+genus panels')
+          PY
+      - name: Publish verified binary photos and canonical gallery changes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Anatherum/anatherum-virginicum/
+          git add content/taxa/Poaceae/Anatherum/genus.json
+          if test -f reports/lane3-broomsedge-harry-rose-spikelet-photos-20261027.json; then
+            git add reports/lane3-broomsedge-harry-rose-spikelet-photos-20261027.json
+            git add workflow/field-id-publication/2026-10-27-broomsedge-harry-rose-real-anatomy.json
+          fi
+          if test -f reports/lane3-broomsedge-harry-rose-source-holds-20261027.json; then
+            git add reports/lane3-broomsedge-harry-rose-source-holds-20261027.json
+          fi
+          if git diff --cached --quiet; then echo 'NO_CHANGES'; exit 0; fi
+          git commit -m 'Physically archive real Harry Rose broomsedge paired spikelets and spathe macro, CC BY'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
