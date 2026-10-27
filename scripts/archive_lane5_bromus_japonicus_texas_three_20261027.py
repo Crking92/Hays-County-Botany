@@ -110,7 +110,7 @@ if R["added"]:
  with LEDGER.open(newline="") as f:rd=csv.DictReader(f);cols=rd.fieldnames;rows=list(rd)
  for r in R["added"]:
   im=next(x for x in d["images"] if x["file"]==r["path"].split("content/taxa/Poaceae/Bromus/bromus-japonicus/")[1])
-  fname=Path(r["path"]).name
+  fname=pathlib.Path(r["path"]).name
   if any(x.get("file_name")==fname for x in rows):continue
   row=dict.fromkeys(cols,"")
   for k,v in {"file_name":fname,"role":im["role"],"creator":im["creator"],"license":"CC BY",
