@@ -1,0 +1,59 @@
+name: Lane 2 screen USGS public domain giant cutgrass floral diagnostic photos
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-cutgrass-usgs-diagnostic-photo-scout-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Inspect federal original Zizaniopsis photos and source filenames, no publishing
+        run: |
+          python - <<'PY'
+          import re,io,base64,json,urllib.parse,concurrent.futures,math
+          from urllib.request import urlopen,Request
+          from PIL import Image,ImageDraw,ImageOps
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 USGS federal photo inspection'}
+          url='https://warcapps.usgs.gov/PlantID/Species/Details/2489'
+          with urlopen(Request(url,headers=UA),timeout=60) as r:html=r.read(1500000).decode('utf-8','replace')
+          print('HTML_LENGTH',len(html),'snippet',repr(html[:400]))
+          links=re.findall(r'(?:src|href)=["\']([^"\']+)["\']',html,re.I)
+          for v in links:
+           if 'Zizaniopsis' in v or 'GivenFile' in v:print('IMAGE_ASSET_LINK',v)
+          names=list(dict.fromkeys(re.findall(r'Zizaniopsis[^\s\&\?\\"<>]+?\.JPG',html,re.I)))
+          print('NAMES',len(names),json.dumps(names))
+          if not names:
+           names=['Zizaniopsis miliaceae_0262.JPG']
+          def get(name):
+           params=urllib.parse.urlencode({'file':name,'id':2489,'size':'w'})
+           u='https://warcapps.usgs.gov/PlantID/Image/GivenFile?'+params
+           try:
+            with urlopen(Request(u,headers=UA),timeout=55) as r:raw=r.read(4000001)
+            if len(raw)>4000000:raise ValueError('oversize')
+            with Image.open(io.BytesIO(raw)) as image:
+             img=ImageOps.exif_transpose(image).convert('RGB')
+             size=img.size
+            img.thumbnail((400,420))
+            return name,u,img,size,None
+           except Exception as e:return name,u,None,None,str(e)
+          with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:items=list(pool.map(get,names[:22]))
+          for i,rec in enumerate(items):
+           print('PHOTO',json.dumps({'i':i,'filename':rec[0],'source':rec[1],'original_size':rec[3],'error':rec[4]}))
+          for block in range(math.ceil(len(items)/9)):
+           canvas=Image.new('RGB',(3*440,3*500),'white');d=ImageDraw.Draw(canvas)
+           for index,rec in enumerate(items[block*9:(block+1)*9]):
+            name,u,im,size,err=rec;x=(index%3)*440;y=(index//3)*500
+            if im is not None:canvas.paste(im,(x+(440-im.width)//2,y+5))
+            d.text((x+8,y+434),str(block*9+index)+': '+name[:58],fill='black')
+            d.text((x+8,y+453),str(size or err)[:55],fill='black')
+           buf=io.BytesIO();canvas.save(buf,'JPEG',quality=78,optimize=True);v=base64.b64encode(buf.getvalue()).decode()
+           for i,j in enumerate(range(0,len(v),3500)):print('ZIZ_USGS_'+str(block)+'_'+str(i)+'='+v[j:j+3500])
+           print('SHEET_END',block,len(buf.getvalue()))
+          PY
