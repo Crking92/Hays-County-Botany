@@ -101,13 +101,22 @@ def put(path,blob,sha,message):
     if q.status_code in (409,422):return False
     q.raise_for_status();return True
 for x in SOURCES:
-    prior=get(x["path"])
-    if not prior:
-        if not put(x["path"],x["raw"],None,"Lane 1 permanently archive "+x["id"]+" witchgrass CC anatomical reference"):
-            prior=get(x["path"])
-            if not prior or prior.get("size")!=len(x["raw"]):raise SystemExit("Concurrent image conflict "+x["id"])
-    elif prior.get("size")!=len(x["raw"]):
-        raise SystemExit("Existing same-name photo differs; stop to preserve existing files")
+    for write_attempt in range(7):
+        prior=get(x["path"])
+        if prior:
+            if prior.get("size") != len(x["raw"]):
+                raise SystemExit("Existing same-name photo differs; stop to preserve existing files")
+            print("PHOTO_ALREADY_ARCHIVED",x["id"])
+            break
+        if put(x["path"],x["raw"],None,"Lane 1 permanently archive "+x["id"]+" witchgrass CC anatomical reference"):
+            print("PHOTO_ARCHIVED",x["id"])
+            break
+        # Other lanes/automations commit to main during this run. GitHub's
+        # contents API can reject a perfectly valid photo upload when the
+        # branch changes. Never force or overwrite; refetch/retry safely.
+        time.sleep(1+write_attempt)
+    else:
+        raise SystemExit("Concurrent image path conflict after seven safe retries "+x["id"])
 def photo(x):
     return {
       "file":"images/"+x["filename"],"role":x["role"],
