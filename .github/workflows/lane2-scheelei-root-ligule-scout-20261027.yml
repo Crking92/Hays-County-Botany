@@ -1,0 +1,59 @@
+name: Lane 2 Scheele bristlegrass oldest Texas observations true ligule and root scout
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-scheelei-root-ligule-scout-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Source-specific original licensed images for actual inner collar or rooted base, read only
+        run: |
+          python - <<'PY'
+          import json,io,base64,concurrent.futures,math
+          from urllib.request import Request,urlopen
+          from urllib.parse import urlencode
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 (species-specific photo-level license research)'}
+          def get(u,limit=6000000):
+           with urlopen(Request(u,headers=UA),timeout=45) as f:return f.read(limit)
+          picks=[]
+          for page in range(1,6):
+           q={'taxon_name':'Setaria scheelei','photos':'true','quality_grade':'research','place_id':18,'per_page':25,'page':page,'order_by':'observed_on','order':'asc'}
+           d=json.loads(get('https://api.inaturalist.org/v1/observations?'+urlencode(q)))
+           print('PAGE',page,'total',d.get('total_results'),'fetched',len(d['results']))
+           for o in d['results']:
+            if o.get('taxon',{}).get('name')!='Setaria scheelei':continue
+            for p in (o.get('photos') or [])[:6]:
+             if p.get('license_code') in ('cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'):picks.append((o,p))
+           if page*25>=d.get('total_results',0):break
+          picks=picks[:75]
+          def thumb(op):
+           p=op[1];u=p['url'].replace('/square.','/medium.').replace('/thumb.','/medium.')
+           try:
+            raw=get(u,900000)
+            with Image.open(io.BytesIO(raw)) as f:v=ImageOps.exif_transpose(f).convert('RGB')
+            v.thumbnail((220,175));return v
+           except Exception as e:print('THUMB_FAILURE',p['id'],str(e)[:100]);return None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:ims=list(pool.map(thumb,picks))
+          for block in range(math.ceil(len(picks)/25)):
+           out=Image.new('RGB',(1250,1150),'white');draw=ImageDraw.Draw(out)
+           for i,(o,p) in enumerate(picks[block*25:(block+1)*25]):
+            n=block*25+i;x=i%5*250;y=i//5*230;im=ims[n]
+            if im is not None:out.paste(im,(x+(250-im.width)//2,y+4))
+            draw.text((x+4,y+190),f'{n} photo {p["id"]}',fill='black')
+            draw.text((x+4,y+210),f'obs{o["id"]} {p["license_code"]}',fill='black')
+            print('SCOUT',json.dumps({'n':n,'photo':p['id'],'obs':o['id'],'license':p['license_code'],'creator':p.get('attribution'),'location':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(p['id'])},ensure_ascii=False))
+           b=io.BytesIO();out.save(b,'JPEG',quality=72,optimize=True);val=base64.b64encode(b.getvalue()).decode('ascii')
+           print('SHEET_START',block,len(b.getvalue()))
+           for part,off in enumerate(range(0,len(val),4000)):print(f'SCHEELE_SCAN_{block}_{part}='+val[off:off+4000])
+           print('SHEET_END',block)
+          print('TOTAL_VALID_PHOTOS',len(picks))
+          PY
