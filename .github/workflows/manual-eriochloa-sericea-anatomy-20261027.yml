@@ -1,0 +1,86 @@
+name: Archive actual Texas cupgrass attached florets, anthers and sheath hairs
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-eriochloa-sericea-anatomy-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-lane3-eriochloa-sericea-harms-anatomy-20261027
+  cancel-in-progress: false
+jobs:
+  archive-source-verified-photo-pixels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decode and HTTP dependencies
+        run: python -m pip install --disable-pip-version-check "Pillow>=10,<12" "requests>=2.31,<3"
+      - name: Refresh main and install only exact Bob Harms photos
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_eriochloa_sericea_three_harms_20261027.py
+          python scripts/archive_eriochloa_sericea_three_harms_20261027.py
+      - name: Verify JPEG bytes and both species and genus teaching galleries
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          report=Path('reports/lane3-eriochloa-sericea-harms-attached-photos-20261027.json')
+          if not report.exists():
+              print('NO VERIFIED NEW PHOTO FILES, no rights or success claim')
+              raise SystemExit(0)
+          r=json.loads(report.read_text())
+          assert r['result']=='ERIOCHLOA_SERICEA_REAL_SOURCE_ANATOMY_JPEGS_ARCHIVED'
+          assert 1<=r['number']<=3
+          sp=json.loads(Path('content/taxa/Poaceae/Eriochloa/eriochloa-sericea/species.json').read_text())
+          gen=json.loads(Path('content/taxa/Poaceae/Eriochloa/genus.json').read_text())
+          assert sp['id']=='eriochloa-sericea' and gen['name']=='Eriochloa'
+          for rec in r['records']:
+              file=Path(rec['local'])
+              assert file.is_file() and file.stat().st_size>3000
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==rec['archived_sha256']
+              with Image.open(file) as img:
+                  assert img.format=='JPEG' and not img.getexif().get(34853)
+                  img.verify()
+              img_records=[i for i in sp['images'] if i.get('source_photo_id')==rec['id']]
+              assert len(img_records)==1 and img_records[0]['source_taxon_name']=='Eriochloa sericea'
+              assert img_records[0]['site_specific_public_permission']=='BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022'
+              assert img_records[0]['license'].endswith('(NOT Creative Commons)')
+              for doc in (sp,gen):
+                  panels=[x for x in doc['visual_comparison']['items'] if x.get('source_photo_id')==rec['id']]
+                  assert len(panels)==1 and panels[0]['image_url']==str(file)
+                  assert panels[0]['creator']=='Bob Harms' and panels[0]['markers']==[]
+          print('PASS actual photographic original bytes, SHA-256, proper credited permission, no GPS, no false ligule arrows')
+          PY
+      - name: Commit exact source images and publication request only after verification
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Eriochloa/eriochloa-sericea/
+          git add content/taxa/Poaceae/Eriochloa/genus.json
+          if test -f reports/lane3-eriochloa-sericea-harms-attached-photos-20261027.json; then
+            git add reports/lane3-eriochloa-sericea-harms-attached-photos-20261027.json
+            git add workflow/field-id-publication/2026-10-27-eriochloa-sericea-harms-anatomy.json
+          fi
+          if test -f reports/lane3-eriochloa-sericea-harms-source-hold-20261027.json; then
+            git add reports/lane3-eriochloa-sericea-harms-source-hold-20261027.json
+          fi
+          if git diff --cached --quiet; then echo NO_CHANGES; exit 0; fi
+          git commit -m 'Archive real Texas cupgrass attached spikelets, anthers and sheath-hair photos'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
