@@ -1,0 +1,27 @@
+name: Lane 1 Tobosa aboveground CC0 flowering group anatomy
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-tobosa-detached-flowering-cc0-20261027.yml'
+      - 'scripts/archive_lane1_tobosa_detached_flowering_cc0_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-tobosa-cc0-mature-clusters
+  cancel-in-progress: false
+jobs:
+  verify-original-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image prerequisites
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Archive verified Patrick Alexander Tobosa reproductive structure (not ligule)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/archive_lane1_tobosa_detached_flowering_cc0_20261027.py
