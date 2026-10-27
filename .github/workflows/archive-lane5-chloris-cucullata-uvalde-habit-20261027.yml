@@ -1,0 +1,42 @@
+name: Lane 5 archive public-domain Uvalde hooded windmillgrass field habit
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_chloris_cucullata_uvalde_habit_20261027.py
+      - .github/workflows/archive-lane5-chloris-cucullata-uvalde-habit-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-chloris-cucullata-uvalde-habit
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Verify Jim Conrad source and public-domain release, install source photograph
+        run: python scripts/archive_lane5_chloris_cucullata_uvalde_habit_20261027.py
+      - name: Save rights report and physical local JPEG with guarded retries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Chloris/chloris-cucullata/ reports/lane5-chloris-cucullata-uvalde-live-field-local-20261027.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive Jim Conrad public-domain Uvalde hooded windmillgrass live habit JPEG"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo "Guarded commit failed due to concurrent writes; no force push" >&2
+          exit 1
