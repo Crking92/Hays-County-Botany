@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
     paths:
-      - scripts/lane4_scout_floridanum_cc_field_photos_20261027.py
+      - scripts/lane4_scout_floridanum_cc_anatomy_20261027.py
       - .github/workflows/lane4-floridanum-cc-photo-scout-20261027.yml
   workflow_dispatch:
 permissions:
@@ -22,7 +22,7 @@ jobs:
         with: {python-version: '3.11'}
       - run: python -m pip install --disable-pip-version-check pillow
       - name: Stage licensed research-grade exact-species photo candidates without publishing
-        run: python scripts/lane4_scout_floridanum_cc_field_photos_20261027.py
+        run: python scripts/lane4_scout_floridanum_cc_anatomy_20261027.py
       - name: Commit photo candidates and per-image rights inventory
         run: |
           git config user.name "github-actions[bot]"
