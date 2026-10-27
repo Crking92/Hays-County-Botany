@@ -1,0 +1,30 @@
+name: Lane 2 archive source-identified Sorghum bicolor paired spikelet macro
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-sorghum-paired-spikelet-real-20261027.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-sorghum-macro-real-20261027
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/lane2_sorghum_true_spikelet_pairs_20261027.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Archive validated actual paired spikelet macro and recalculate six photo roles
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/lane2_sorghum_true_spikelet_pairs_20261027.py
