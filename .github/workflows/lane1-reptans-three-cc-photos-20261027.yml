@@ -1,0 +1,40 @@
+name: Lane 1 archive three real Urochloa reptans anatomy photos
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-reptans-three-cc-photos-20261027.yml'
+      - 'scripts/lane1_reptans_3_individual_cc_by_nc_photos_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-reptans-three-observation-photos-20261027
+  cancel-in-progress: false
+jobs:
+  archive-verified-anatomy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install anatomy photo verifiers
+        run: python -m pip install --disable-pip-version-check requests beautifulsoup4 pillow
+      - name: Fetch script from private repository with Actions token (avoids large repository checkout)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import os,requests,base64
+          path="scripts/lane1_reptans_3_individual_cc_by_nc_photos_20261027.py"
+          url="https://api.github.com/repos/"+os.environ["GITHUB_REPOSITORY"]+"/contents/"+path
+          response=requests.get(url,headers={"Authorization":"Bearer "+os.environ["GITHUB_TOKEN"],"Accept":"application/vnd.github+json"},timeout=45)
+          response.raise_for_status()
+          info=response.json()
+          code=base64.b64decode(info["content"])
+          open("/tmp/lane1_reptans_photo_install.py","wb").write(code)
+          PY
+      - name: Confirm seven image-level licenses and install only three pixel-reviewed original photos with GPS removed
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python /tmp/lane1_reptans_photo_install.py
