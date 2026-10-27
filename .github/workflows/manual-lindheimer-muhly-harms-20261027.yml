@@ -1,0 +1,84 @@
+name: Archive exact Lindheimer muhly ligule and spikelet photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-lindheimer-muhly-harms-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-lindheimer-muhly-harms-archive
+  cancel-in-progress: false
+jobs:
+  archive-lindheimer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image verification dependencies
+        run: python -m pip install --disable-pip-version-check 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Refresh canonical current head before photo write
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_muhlenbergia_lindheimeri_harms_20261027.py
+      - name: Fetch only exact originals and archive them if ligule and mature-spikelet photos both decode
+        run: python scripts/archive_muhlenbergia_lindheimeri_harms_20261027.py
+      - name: Check image integrity, rights/source exact IDs and canonical photo gallery
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          rpath=Path('reports/muhlenbergia-lindheimeri-harms-four-photos-20261027.json')
+          if not rpath.exists():
+              print('Already archived; nothing to validate')
+              raise SystemExit(0)
+          report=json.loads(rpath.read_text())
+          assert report['status']=='REAL_EXACT_SPECIES_JPEG_ARCHIVE_SUCCESS'
+          assert report['archived_added']>=2
+          s=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/muhlenbergia-lindheimeri/species.json').read_text())
+          g=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/genus.json').read_text())
+          assert s['curation_status']['visual_finish']=='FIELD_READY_PHOTO_GAPS'
+          assert {'MULI-L','MULI-9'}.issubset({x.get('source_photo_id') for x in s['images']})
+          for entry in report['records']:
+              p=Path('content/taxa/Poaceae/Muhlenbergia/muhlenbergia-lindheimeri')/entry['file']
+              assert p.is_file() and p.stat().st_size>3000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==entry['archived_sha256']
+              with Image.open(p) as img:
+                  assert img.format=='JPEG' and not img.getexif().get(34853)
+                  img.verify()
+              pid=entry['source_photo_id']
+              def check(items):
+                  return any(x.get('source_photo_id')==pid and
+                             x.get('creator')=='Bob Harms' and
+                             x.get('license_url')=='https://w3.biosci.utexas.edu/prc/Monocots/' and
+                             x.get('source_image','').endswith('/'+pid+'.jpg') and
+                             x.get('markers',[])==[] for x in items)
+              assert check(s['visual_comparison']['items'])
+              assert check(g['visual_comparison']['items'])
+          print('PASS: exact original non-GPS real photo bytes, source/credit/rights/gallery preserved')
+          PY
+      - name: Commit exact decoded JPGs and related species / genus gallery and publish marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Muhlenbergia/muhlenbergia-lindheimeri/
+          git add content/taxa/Poaceae/Muhlenbergia/genus.json
+          git add reports/muhlenbergia-lindheimeri-harms-four-photos-20261027.json
+          git add workflow/field-id-publication/2026-10-27-muhlenbergia-lindheimeri-harms-anatomy.json
+          if git diff --cached --quiet; then echo 'NO_CHANGES'; exit 0; fi
+          git commit -m 'Archive real Bob Harms Lindheimer muhly ligule and spikelet photos with exact educational credit [skip ci]'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
