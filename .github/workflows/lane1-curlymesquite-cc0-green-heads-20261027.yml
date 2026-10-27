@@ -1,0 +1,43 @@
+name: Lane1 real curlymesquite unshattered green flowering heads CC0
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane1_archive_curlymesquite_green_unshattered_heads_20261027.py
+      - .github/workflows/lane1-curlymesquite-cc0-green-heads-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane1-curlymesquite-green-cc0-heads
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/lane1_archive_curlymesquite_green_unshattered_heads_20261027.py
+            content/taxa/Poaceae/Hilaria/hilaria-belangeri/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Install verified original CC0 Hilaria belangeri unshattered flowering heads
+        run: python scripts/lane1_archive_curlymesquite_green_unshattered_heads_20261027.py
+      - name: Publish exact original and well-identified gross structures
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Hilaria/hilaria-belangeri/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 1: archive CC0 curlymesquite three green attached heads"
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then exit 0; fi
+              sleep 3
+            done
+            exit 1
+          fi
