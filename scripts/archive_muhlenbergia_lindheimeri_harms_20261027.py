@@ -22,6 +22,7 @@ DIR=ROOT/"content/taxa/Poaceae/Muhlenbergia"
 SPEC=DIR/"muhlenbergia-lindheimeri/species.json"
 GEN=DIR/"genus.json"
 REPORT=ROOT/"reports/muhlenbergia-lindheimeri-harms-four-photos-20261027.json"
+HOLD=ROOT/"reports/muhlenbergia-lindheimeri-source-hold-20261027.json"
 RELEASE=ROOT/"workflow/field-id-publication/2026-10-27-muhlenbergia-lindheimeri-harms-anatomy.json"
 
 PHOTOS=[
@@ -100,9 +101,19 @@ def main():
         print("SOURCE VERIFIED",pid,downloaded["dims"],downloaded["sha"])
     good=oldids | {a[0] for a in incoming}
     if not {"MULI-L","MULI-9"}.issubset(good):
-        raise RuntimeError("Fail closed: true ligule reference and spikelet dissection BOTH required. "+repr(blockers))
+        write_json(HOLD,{"checked_utc":datetime.now(timezone.utc).isoformat(),
+           "result":"SOURCE_DOWNLOAD_HOLD_NO_CANONICAL_PHOTO_CHANGES",
+           "species":"Muhlenbergia lindheimeri",
+           "required_exact_source_ids":["MULI-L","MULI-9"],
+           "successfully_downloaded_source_ids":[a[0] for a in incoming],
+           "individual_failures":blockers,
+           "note":"Temporary verified source JPEGs were NOT staged in species. No image counts or labels changed.",
+           "source_pages":[BASE+"pages/"+sid+".html" for sid,*_ in PHOTOS]})
+        print("SOURCE_HOLD",repr(blockers),flush=True)
+        return
     if not incoming:
-        raise RuntimeError("No new photos acquired; no report or release marker")
+        print("NO_NEW_PHOTOS; already archived exact ids",flush=True)
+        return
     records=[]
     for pid,title,role,caption,filename,dl in incoming:
         target=SPEC.parent/"images"/filename
