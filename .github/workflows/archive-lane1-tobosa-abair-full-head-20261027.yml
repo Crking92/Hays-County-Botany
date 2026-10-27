@@ -1,0 +1,39 @@
+name: Lane1 Tobosa entire real mature head CC BY 4
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane1_tobosa_abair_whole_head_20261027.py
+      - .github/workflows/archive-lane1-tobosa-abair-full-head-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane1-tobosa-abair-full-head
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/archive_lane1_tobosa_abair_whole_head_20261027.py
+            content/taxa/Poaceae/Hilaria/hilaria-mutica/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Validate exact species image original and record full flowering head
+        run: python scripts/archive_lane1_tobosa_abair_whole_head_20261027.py
+      - name: Publish real jpeg, sourced metadata and two cautious visual arrows
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Hilaria/hilaria-mutica/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 1: archive actual CC BY Tobosa entire mature open flowering head"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
