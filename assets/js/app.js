@@ -1835,7 +1835,7 @@ function speciesSourceOnlyMacroReferences(sp){
   if(!Array.isArray(sources)||!sources.length)return "";
   const safe=function(raw){
     const url=String(raw||"").trim();
-    return /^https:\/\/(?:w3\.biosci\.utexas\.edu|www\.biosci\.utexas\.edu|azinvasiveplants\.arizona\.edu|www\.missouriplants\.com)\//i.test(url)?url:"";
+    return /^https:\/\/(?:w3\.biosci\.utexas\.edu|www\.biosci\.utexas\.edu|azinvasiveplants\.arizona\.edu|www\.missouriplants\.com|inspection\.canada\.ca)\//i.test(url)?url:"";
   };
   const links=sources.slice(0,5).map(function(source){
     const photo=safe(source.direct_original);
