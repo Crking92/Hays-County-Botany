@@ -5,8 +5,8 @@
   "sampling_method": "Individually fetched all 22 current canonical species.json files; counted images[].file paths beginning images/, visual_comparison.items, and marker objects. These counts do NOT prove every referenced binary is present, properly licensed or diagnostic. Readback of the nine new photos and prior stale-count candidates performed separately.",
   "summary": {
     "assigned_species": 22,
-    "local_image_path_references": 188,
-    "species_teaching_panels": 221,
+    "local_image_path_references": 190,
+    "species_teaching_panels": 223,
     "annotation_marker_instances": 281
   },
   "important_note": "Numbers are inventory metrics; not 181 distinct verified diagnostic photos and not 255 independently verified anatomical arrows. Historical illustrations and uncertain taxon/comparison images remain counted as local media where card images reference them. Genus galleries may repeat some species images.",
@@ -26,8 +26,8 @@
     },
     {
       "species_id": "festuca-versuta",
-      "local_image_paths": 7,
-      "teaching_panels": 7,
+      "local_image_paths": 9,
+      "teaching_panels": 9,
       "annotation_markers": 13
     },
     {
@@ -284,28 +284,43 @@
     "six_role_audit_status": "Unchanged last verified 85/132, not recomputed from marker count."
   },
   "latest_lane3_real_photo_pass_20261027": {
-    "species": "anatherum-virginicum",
-    "archived_added": 2,
-    "source_photo_ids": [
-      "6966375226",
-      "7117321563"
+    "updated": [
+      "anatherum-virginicum",
+      "festuca-versuta"
     ],
-    "author": "Harry Rose",
-    "license": "CC BY 2.0",
-    "source_geography": "Australia, species introduced there, not Texas voucher",
-    "photo_content": [
-      "mature fertile and pedicellate paired spikelets/awn and hairs",
-      "attached raceme emerging from enclosing spathe"
-    ],
-    "photo_files_present": 6,
-    "teaching_panels": 6,
-    "rights": "Commercial-compatible CC BY 2.0 with author credit, species source as Andropogon virginicus",
-    "report": "reports/lane3-broomsedge-harry-rose-spikelet-photos-20261027.json",
+    "added_actual_photos": 4,
+    "broomsedge": {
+      "before": 4,
+      "after": 6,
+      "source": [
+        "6966375226",
+        "7117321563"
+      ],
+      "license": "Harry Rose, CC BY 2.0"
+    },
+    "texas_fescue": {
+      "before": 7,
+      "after": 9,
+      "source": [
+        "FEVE-L",
+        "FEVE-J"
+      ],
+      "license": "Bob Harms exact Selected Monocots original, educational use with credit, NOT CC"
+    },
+    "after": {
+      "local_media_references": 190,
+      "teaching_panels": 223,
+      "arrows": 281
+    },
     "still_missing": [
-      "true inner ligule visible with scale",
-      "connected Texas rooted specimen",
-      "mm-scaled glume lemma macro"
+      "Nimblewill visibly rooted connected stolon node",
+      "Texas cupgrass exposed actual ligule ring",
+      "Tumblegrass true inner ligule with scale",
+      "Anatherum tenuispatheum specimen-verified flowering macro",
+      "Broomsedge opened inner ligule",
+      "Texas fescue free ligule margin"
     ],
-    "pages_status": "not independently verified"
+    "project_pages": "Cannot independently confirm live GitHub Pages deployment",
+    "baseline_coverage": "Keep 85/132 role points 64.4%; requires independent photo-role audit"
   }
 }
