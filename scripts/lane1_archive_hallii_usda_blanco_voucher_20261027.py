@@ -44,7 +44,7 @@ for depth in range(5):
     frag=str(parent)
     print("LISTING HTML AT DEPTH",depth,frag[:1900],flush=True)
     parent=parent.parent if parent.parent else parent
-record_candidates=re.findall(r"(?:occid|occurrenceID|specimenID)\s*=\s*(\d+)",frag,re.I)
+record_candidates=re.findall(r"openIndPU\((\d+),0\)",str(focus.find_parent("tr")),re.I)
 if not record_candidates:
     record_candidates=re.findall(r"(?:individual/index\.php\?occid=|openIndv\(|openOccurrence\()\s*['\"]?(\d+)",str(page.decode("utf-8",errors="replace")),re.I)
 record_candidates=list(dict.fromkeys(record_candidates))
