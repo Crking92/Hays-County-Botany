@@ -1830,12 +1830,12 @@ function speciesBeginnerPhotoPath(sp){
    not licensed repository redistribution; link the original publication but
    NEVER insert those protected JPEGs as <img> or transfer arrow coordinates. */
 function speciesSourceOnlyMacroReferences(sp){
-  const record=sp&&sp.kr_final_anatomy_photo_review_20261027;
+  const record=sp&&(sp.kr_final_anatomy_photo_review_20261027||sp.silver_research_only_photos_20261027);
   const sources=record&&record.public_study_sources;
   if(!Array.isArray(sources)||!sources.length)return "";
   const safe=function(raw){
     const url=String(raw||"").trim();
-    return /^https:\/\/(?:w3\.biosci\.utexas\.edu|www\.biosci\.utexas\.edu|azinvasiveplants\.arizona\.edu)\//i.test(url)?url:"";
+    return /^https:\/\/(?:w3\.biosci\.utexas\.edu|www\.biosci\.utexas\.edu|azinvasiveplants\.arizona\.edu|www\.missouriplants\.com)\//i.test(url)?url:"";
   };
   const links=sources.slice(0,5).map(function(source){
     const photo=safe(source.direct_original);
@@ -1944,6 +1944,7 @@ function plantView(){
   out=out.slice(0,similarStart)+studyDrawer("3 · Check the look-alikes",similar.length?("Compare "+similar.length+" other plants before confirming your ID."):"No comparison plants curated yet; revisit after photo study.",out.slice(similarStart),"compare");
   if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=studyDrawer("Diagnostic photo comparisons","Use documented photo evidence to check distinguishing structures.",genusVisualComparison(sp),"photo");
   if(!state.quizMode && sp.kr_final_anatomy_photo_review_20261027) out+=studyDrawer("KR research photos — external source links","Study source-author photographs of the true ligule and raised hair bases without copying copyrighted JPEGs.",speciesSourceOnlyMacroReferences(sp),"photo");
+  if(!state.quizMode && sp.silver_research_only_photos_20261027) out+=studyDrawer("Silver bluestem — source-only ligule and node photos","Open the original Kansas anatomy photos for study; the copyrighted photographs are not rehosted and their Texas identity has not been independently verified.",speciesSourceOnlyMacroReferences(sp),"photo");
   if(!state.quizMode && sp.comparisons && Array.isArray(sp.comparisons.field_matrix) && sp.comparisons.field_matrix.length) out+=studyDrawer("Detailed species look-alike key",sp.family==="Poaceae"?"Compare attached racemes, leaf sheaths, collar hairs and mature spikelets to avoid false grass IDs.":"Compare the actual distinguishing structures and field checks, not just overall appearance.",speciesFieldMatrix(sp),"compare");
   if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Study the family & genus","Open full lessons for deeper structural evidence.",taxonomyLessonShortcuts(sp),"photo");
   const vocabStart=out.length;
