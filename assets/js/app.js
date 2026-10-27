@@ -1826,6 +1826,32 @@ function speciesBeginnerPhotoPath(sp){
     (lesson.safety_note?'<p class="diagnostic-overlay-note"><b>When to stop:</b> '+esc(lesson.safety_note)+'</p>':"")+
     '</section>';
 }
+/* Some highly diagnostic photographs are source-link ONLY. Their creators have
+   not licensed repository redistribution; link the original publication but
+   NEVER insert those protected JPEGs as <img> or transfer arrow coordinates. */
+function speciesSourceOnlyMacroReferences(sp){
+  const record=sp&&sp.kr_final_anatomy_photo_review_20261027;
+  const sources=record&&record.public_study_sources;
+  if(!Array.isArray(sources)||!sources.length)return "";
+  const safe=function(raw){
+    const url=String(raw||"").trim();
+    return /^https:\/\/(?:w3\.biosci\.utexas\.edu|www\.biosci\.utexas\.edu|azinvasiveplants\.arizona\.edu)\//i.test(url)?url:"";
+  };
+  const links=sources.slice(0,5).map(function(source){
+    const photo=safe(source.direct_original);
+    const page=safe(source.source_page);
+    if(!photo&&!page)return "";
+    let out='<article class="learning-card"><h3>'+esc(source.role||"Research anatomy")+'</h3>'+
+      '<p>'+esc(source.geography||"")+" · "+esc(source.photographer||"Original photographer")+'</p>'+
+      '<p class="diagnostic-overlay-note">External educational reference only. Source photo may be copyrighted; it is NOT stored in this learner.</p>';
+    if(photo)out+='<p><a href="'+esc(photo)+'" target="_blank" rel="noopener noreferrer">View the photographer’s original image</a></p>';
+    if(page)out+='<p><a href="'+esc(page)+'" target="_blank" rel="noopener noreferrer">Read the source anatomy page</a></p>';
+    return out+'</article>';
+  }).filter(Boolean);
+  return links.length?'<section class="section-block" aria-label="Source-only anatomical photographs">'+
+    '<p class="section-intro">These are real scientific photos worth studying. We cannot permanently rehost or annotate them without a specific permission grant; use the source links to learn the structures. Local Texas anatomy evidence is NOT the same as an approved website image license.</p>'+
+    '<div class="diagnostic-visual-grid">'+links.join("")+'</div></section>':"";
+}
 /* Species-specific, always-visible field decision guide: reuse exactly
    inspected photographic arrow evidence, not a generic unverified icon. */
 function fieldPhotoQuickcheck(sp){
@@ -1917,6 +1943,7 @@ function plantView(){
   out+='</div></section>';
   out=out.slice(0,similarStart)+studyDrawer("3 · Check the look-alikes",similar.length?("Compare "+similar.length+" other plants before confirming your ID."):"No comparison plants curated yet; revisit after photo study.",out.slice(similarStart),"compare");
   if(!state.quizMode && sp.visual_comparison && Array.isArray(sp.visual_comparison.items)) out+=studyDrawer("Diagnostic photo comparisons","Use documented photo evidence to check distinguishing structures.",genusVisualComparison(sp),"photo");
+  if(!state.quizMode && sp.kr_final_anatomy_photo_review_20261027) out+=studyDrawer("KR research photos — external source links","Study source-author photographs of the true ligule and raised hair bases without copying copyrighted JPEGs.",speciesSourceOnlyMacroReferences(sp),"photo");
   if(!state.quizMode && sp.comparisons && Array.isArray(sp.comparisons.field_matrix) && sp.comparisons.field_matrix.length) out+=studyDrawer("Detailed species look-alike key",sp.family==="Poaceae"?"Compare attached racemes, leaf sheaths, collar hairs and mature spikelets to avoid false grass IDs.":"Compare the actual distinguishing structures and field checks, not just overall appearance.",speciesFieldMatrix(sp),"compare");
   if(!state.quizMode || state.quizRevealed) out+=studyDrawer("Study the family & genus","Open full lessons for deeper structural evidence.",taxonomyLessonShortcuts(sp),"photo");
   const vocabStart=out.length;
