@@ -20,18 +20,18 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 12,
+  "audited_to_date": 13,
   "confirmed_at_or_above_70": 11,
   "targeted_pass_covered": 20,
   "remaining_targeted_passes": 3,
-  "progress_disclaimer": "Lane4: 11/23 species are six-role photographed >=75% among 12 formally audited. D. pedicellatum has 16 actual species source JPEGs incl 8 new physically archived exact CC BY Texas photos, plus 1 historical drawing; 17 selected gallery panels including 3 distinct other-taxon comparisons, 11 new exact-species visible arrows. Latest improvement: replaced low-value Lindheimer mixed field photo with authentic photographer 1-mm-spikelet CC BY anatomy, raising lookalike comparison from 0.5 to 1 and whole score from 4/6=67% to 4.5/6=75%. Distinct true inner ligule/corm/isolated glumes still partly missing, public Pages pending, historical illustration not counted.",
+  "progress_disclaimer": "Lane4 13/23 now formally scored and 11/23 at >=75%. Sorghastrum elliottii source research-grade photography now provisional 3.5/6=58% (9 physically archived exact source photos including 7 newly individually CC BY or CC0 original JPEGs, 10 gallery panels with two other-species S nutans comparisons, and 13 new gross accurate arrows). One atypically broad panicle source quarantined from main lesson. Species-voucher and Hays County distribution protected HOLD remains; no actual roots and fully measured true free ligule. Other lanes not touched; public Pages release not confirmed.",
   "photo_physical_progress_today": {
-    "new_local_originals": 55,
-    "new_gross_arrows": 71,
+    "new_local_originals": 62,
+    "new_gross_arrows": 84,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
     "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 11,
-    "newly_pixel_inspected_archived_exact_photos": 41,
+    "newly_pixel_inspected_archived_exact_photos": 48,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
     ]
@@ -171,11 +171,42 @@
     {
       "id": "sorghastrum-elliottii",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "below_70_PROVISIONAL_SOURCE_ID_HOLD",
       "previous_targeted_pass": false,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        0.5,
+        0,
+        0.5,
+        1,
+        1,
+        0.5
+      ],
+      "pct": 58,
+      "total": 3.5,
+      "previous_total": 2,
+      "previous_pct": 33,
+      "previous_total_scope": "Retrospective estimate for previous two source-labelled mostly awned head photos; not a former committed verified score.",
+      "new_species_photos": 7,
+      "new_arrows": 13,
+      "own_species_physically_archived": 9,
+      "gallery_panels": 10,
+      "comparison_panels_different_species": 2,
+      "high_value_sources": [
+        585848393,
+        585848432,
+        585848445,
+        745927492,
+        745927408,
+        582983609
+      ],
+      "source_review_hold_photo": 700397097,
+      "source_review_hold_reason": "Source research-grade species but comparatively broad open panicle appearance does not independently confirm same mature narrow arching concept or plant developmental phase; JPG preserved in source archive but excluded from regular anatomy gallery.",
+      "rights": "Individual research-grade source photos CC BY or CC0 verified, exact license with photo ID and author; one photo from Florida under special morphological hold. Preserve local source region to avoid false Hays count.",
+      "photo_value": "Real original metal mm ruler with multiple awns, separate mature-looking hairy spikelet with physical millimeter ruler, two real opened leaf/sheath lip photo views, outer collar and in-situ living sheath; no true measured free ligule/rootstock.",
+      "next_photo": "Authentically verified same-voucher S. elliottii whole rooted perennial (rhizome status) and actual free membrane ligule at mm scale, plus two-bent awn attachment. Do not use S. nutans photos as exact elliottii anatomy.",
+      "taxonomic_hold": "Source research-grade observation is not independent species voucher or Hays County range proof. Protected hold preserved per CHAT_4.md; score is PHOTO-ROLE ONLY, not native or species ID clearance.",
+      "latest_commit": "06aaf41d84e307b347793bc95746d13ea5c8a8dd",
+      "site_qa": "GitHub source and images verified, no public Pages deployment verified for this source-sample change."
     },
     {
       "id": "zizania-texana",
