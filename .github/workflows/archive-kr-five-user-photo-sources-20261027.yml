@@ -1,0 +1,82 @@
+name: Archive five user-provided KR anatomy photo sources
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/archive-kr-five-user-photo-sources-20261027.yml
+      - scripts/archive_kr_5_uploaded_source_equivalents_20261027.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: kr-bothriochloa-ischaemum-five-real-photos
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Check exact archive script and download licensed source originals
+        run: |
+          python -m py_compile scripts/archive_kr_5_uploaded_source_equivalents_20261027.py
+          python scripts/archive_kr_5_uploaded_source_equivalents_20261027.py
+      - name: Inspect source rights, photo bytes and metadata consistency
+        run: |
+          python - <<'PY'
+          import json,sys
+          from pathlib import Path
+          from PIL import Image
+          root=Path("content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum")
+          s=json.loads((root/"species.json").read_text(encoding="utf-8"))
+          r=json.loads(Path("reports/kr-five-user-photo-recovery-20261027.json").read_text(encoding="utf-8"))
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          assert r["installed_count"] >= 0
+          for v in r["items"]:
+              if v["result"]!="ARCHIVED_AND_LINKED":continue
+              local=Path(v["file"])
+              assert local.is_file()
+              with Image.open(local) as im:
+                  assert im.format=="JPEG" and not im.getexif()
+                  im.verify()
+              entry=next(x for x in s["images"] if x.get("file")==str(local.relative_to(root)))
+              panel=next(x for x in s["visual_comparison"]["items"] if x.get("image_url")==str(local))
+              for record in [entry,panel]:
+                  assert rights(record, True)[0],(v["id"],rights(record,True))
+                  assert photo_rights(record,True) is None,(v["id"],photo_rights(record,True))
+                  assert record.get("source_page") and record.get("creator")
+          assert len(s["images"]) >= 10 and len(s["visual_comparison"]["items"]) >= 24
+          assert s["field_id_finish_pass"]["stage"]=="FIELD_READY_PHOTO_GAPS"
+          print("Validated",r["installed_count"],"archived photographs and publication rights")
+          PY
+      - name: Commit only archived KR originals and synchronized galleries
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum/
+          git add reports/kr-five-user-photo-recovery-20261027.json
+          if test -f workflow/field-id-publication/2026-10-27-kr-five-user-photo-physical-archive.json; then
+            git add workflow/field-id-publication/2026-10-27-kr-five-user-photo-physical-archive.json
+          fi
+          if git diff --cached --quiet; then
+            echo "No local changes: already archived or documented hold"
+            exit 0
+          fi
+          git commit -m "Archive original source-licensed KR reproductive and rooted anatomy photos"
+          for retry in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
