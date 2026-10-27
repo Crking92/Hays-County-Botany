@@ -7,9 +7,9 @@ import hashlib, html, io, json, re, urllib.parse, urllib.request
 from pathlib import Path
 from PIL import Image, ImageOps, ImageDraw, ImageFont
 
-SOURCE_IDS=[106877308,111946695,103014382,102377603,67757920,38089670,107265890,67160886,68627403,115509266,109545065,104744683,99928560,108807670,101694942,107230673,98432887,112598841,69735786,70633705,85344487,110812573,98596657,64866965,143275719,118264030,118271276,141893075,134223691,115217077]
-DEST=Path("reports/phragmites-gulf-photo-scout-batch2-20261026")
-REPORT=Path("reports/phragmites-gulf-photo-scout-batch2-20261026.json")
+SOURCE_IDS=[106877308,111946695,103014382,102377603,67757920,38089670,107265890,67160886]
+DEST=Path("reports/phragmites-gulf-photo-scout-batch2-focused-20261026")
+REPORT=Path("reports/phragmites-gulf-photo-scout-batch2-focused-20261026.json")
 DEST.mkdir(parents=True,exist_ok=True)
 ALLOWED={"cc0","cc-by","cc-by-sa","cc-by-nc","cc-by-nc-sa"}
 USER_AGENT="HaysCountyBotanyVisualLearner/1.0 (noncommercial educational research; https://github.com/Crking92/Hays-County-Botany)"
@@ -60,7 +60,7 @@ for obs_id in SOURCE_IDS:
             if not creator:continue
             # Scope to existing obs photos, don't assume source identification is DNA proven
             readable.append((photo,lic,creator))
-        for ph,lic,creator in readable[:3]:
+        for ph,lic,creator in readable[:2]:
             photo_id=ph["id"]
             imgurl=ph["url"]
             for low in ("/square.","/thumb.","/small.","/medium."):
