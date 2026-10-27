@@ -53,8 +53,8 @@ def fetch_photo(session,pid):
                     raise ValueError("Not an actual appropriate JPEG")
                 with Image.open(io.BytesIO(raw)) as im:
                     im.load()
-                    if im.format!="JPEG" or min(im.size)<175 or max(im.size)>5000:
-                        raise ValueError("Unexpected source dimensions: "+repr(im.size))
+                    if im.format!="JPEG" or min(im.size)<140 or max(im.size)>5000:
+                        raise ValueError("Unexpected source dimensions (Bob Harms original may be a narrow 163px-wide ligule macro): "+repr(im.size))
                     dims=list(im.size)
                     clean=ImageOps.exif_transpose(im).convert("RGB")
                 out=io.BytesIO()
