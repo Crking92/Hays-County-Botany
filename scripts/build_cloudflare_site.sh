@@ -7,6 +7,9 @@ mkdir -p dist
 cp index.html dist/
 # Three public front doors share the same canonical plant-library assets.
 cp field-id.html field-id-classic.html quiz.html quiz-classic.html dist/
+# Public, source-credited photo booklet (no review-only media).
+cp reed-lookalikes-field-guide.html dist/
+test -s dist/reed-lookalikes-field-guide.html
 test -s dist/field-id.html && test -s dist/field-id-classic.html && test -s dist/quiz.html && test -s dist/quiz-classic.html
 # Publish only the current Photo Lab review; completed batches remain archived in GitHub.
 cp photo-review.html dist/
