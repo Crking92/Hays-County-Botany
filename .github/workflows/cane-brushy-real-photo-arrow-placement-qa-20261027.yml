@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           filter: blob:none
           sparse-checkout: |
             content/taxa/Poaceae/Bothriochloa/bothriochloa-barbinodis
