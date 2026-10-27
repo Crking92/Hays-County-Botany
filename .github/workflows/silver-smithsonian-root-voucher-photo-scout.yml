@@ -1,0 +1,68 @@
+name: Silver bluestem Smithsonian CC0 specimen root photo audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-smithsonian-root-voucher-photo-scout.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12' 'beautifulsoup4>=4.12,<5'
+      - name: Audit exact subsp torreyana Smithsonian public-domain specimen sheet images
+        run: |
+          python - <<'PY'
+          import requests,re,json,io,base64
+          from bs4 import BeautifulSoup
+          from PIL import Image,ImageDraw
+          s=requests.Session();s.headers["User-Agent"]="Hays Botany species-specific Smithsonian CC0 herbarium image research/1.0"
+          ids=["11173249","11173288","11173272"]
+          saved=[]
+          for sid in ids:
+            site="https://www.si.edu/object/bothriochloa-laguroides-subsp-torreyana-steud-allred-gould:nmnhbotany_"+sid
+            try:
+              r=s.get(site,timeout=25);r.raise_for_status();html=r.text
+              soup=BeautifulSoup(html,"html.parser")
+              urls=[x.get("href","") for x in soup.find_all("a",href=True)]
+              manifests=[u for u in urls if any(w in u for w in ("manifest","iiif"))]
+              raw=re.findall(r"https?[^\\\"'<> ]{8,180}",html)
+              assets=[u for u in raw if any(x in u.lower() for x in ("ids.si.edu","iiif.si.edu","collections.si.edu","jpg","jpeg","manifest"))]
+              print("SHEET_META",json.dumps({"id":sid,"status":r.status_code,"bytes":len(html),"page_title":soup.title.get_text(" ",strip=True) if soup.title else "","manifest_hrefs":manifests[:10],"other_media_refs":assets[:12],"img_srcs":[x.get("src") for x in soup.select("img")[:6]]},ensure_ascii=False))
+              for url in manifests:
+                if not url.startswith("http"):continue
+                try:
+                  mr=s.get(url,timeout=15);mr.raise_for_status()
+                  manifest=mr.json()
+                  print("MANIFEST",json.dumps({"id":sid,"url":url,"keys":list(manifest)[:12],"images":str(manifest.get("sequences",""))[:800]}))
+                except Exception as e:print("MANIFEST_ERROR",str(e)[:180])
+              for imgtag in soup.select("img"):
+                link=imgtag.get("src") or imgtag.get("data-src")
+                if link and any(x in link for x in ("ids.si.edu","iiif","cloudfront")):
+                  if link.startswith("//"):link="https:"+link
+                  if link.startswith("/"):link="https://www.si.edu"+link
+                  try:
+                    rr=s.get(link,timeout=15);rr.raise_for_status()
+                    with Image.open(io.BytesIO(rr.content)) as im: image=im.convert("RGB")
+                    if min(image.size)<350:continue
+                    image.thumbnail((500,600))
+                    saved.append((sid,image.copy(),link))
+                    break
+                  except Exception as e:print("IMG_FAILED",sid,link[:100],str(e)[:100])
+            except Exception as e:print("SHEET_ERROR",sid,str(e)[:300])
+          if saved:
+            w=570;h=690
+            canvas=Image.new("RGB",(w*len(saved),h),"white")
+            d=ImageDraw.Draw(canvas)
+            for i,(sid,im,url) in enumerate(saved):
+              canvas.paste(im,(i*w,0))
+              d.text((i*w+5,h-65),"SMITHSONIAN "+sid,fill="black")
+            bb=io.BytesIO();canvas.save(bb,"JPEG",quality=76)
+            print("SMITHSONIAN_SHEET_START")
+            print(base64.b64encode(bb.getvalue()).decode())
+            print("SMITHSONIAN_SHEET_END")
+          PY
