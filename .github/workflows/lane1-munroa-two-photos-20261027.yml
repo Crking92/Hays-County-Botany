@@ -1,0 +1,27 @@
+name: Lane 1 genuine Munroa fluffgrass two photo permanent Commons archive
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-munroa-two-photos-20261027.yml'
+      - 'scripts/lane1_munroa_pulchella_two_gallery_mirrors_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-munroa-two-photos-permanent-archive
+  cancel-in-progress: false
+jobs:
+  verify-and-archive-exact-photo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo tools
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Verify original authors and CC licenses, sanitize GPS, install original JPEGs in canonical fluffgrass gallery
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/lane1_munroa_pulchella_two_gallery_mirrors_20261027.py
