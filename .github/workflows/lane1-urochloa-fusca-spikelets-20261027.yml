@@ -1,0 +1,27 @@
+name: Lane 1 verified brownseed signalgrass iNat spikelet macro
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-urochloa-fusca-spikelets-20261027.yml'
+      - 'scripts/lane1_urochloa_fusca_4608162_macro_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-urochloa-fusca-attached-oval-spikelets
+  cancel-in-progress: false
+jobs:
+  verify-and-install-real-spikelet-photo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image and metadata tooling
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Source verify individual iNaturalist photograph taxon and license then archive original EXIF-free image
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/lane1_urochloa_fusca_4608162_macro_20261027.py
