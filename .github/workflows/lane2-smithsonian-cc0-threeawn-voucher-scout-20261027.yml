@@ -1,0 +1,32 @@
+name: Lane 2 verify Smithsonian CC0 actual Texas purple threeawn root voucher
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-smithsonian-cc0-threeawn-voucher-scout-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-source:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Screen Smithsonian source HTML for original open access image assets, without installing
+        run: |
+          python - <<'PY'
+          import json,re,urllib.request,urllib.error,html
+          records=[
+          ('Aristida purpurea, actual 1897 LLANO COUNTY herbarium voucher','https://www.si.edu/object/aristida-purpurea-nutt%3Anmnhbotany_15983765'),
+          ('Aristida purpurea 2023 New Mexico specimen','https://www.si.edu/object/aristida-purpurea-nutt%3Anmnhbotany_17165728'),
+          ('Aristida purpurea var purpurea 1937 specimen','https://www.si.edu/object/aristida-purpurea-nutt-var-purpurea%3Anmnhbotany_16068103')]
+          for name,url in records:
+           try:
+            req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 (compatible; HaysBotanyLearner/1.0)','Accept':'text/html'})
+            with urllib.request.urlopen(req,timeout=35) as r:
+             raw=r.read(1500000);code=r.status;final=r.url
+            page=html.unescape(raw.decode('utf-8','replace'))
+            patterns=[r'ark:/65665/m3[a-zA-Z0-9-]+',r'ids.si.edu/[^\s\"<>]+',r'https?://[^\s\"<>]*iiif[^\s\"<>]*',r'iiif[^\s\"<>]{0,250}']
+            found={p:list(dict.fromkeys(re.findall(p,page,flags=re.I)))[:15] for p in patterns}
+            print('SMITHSONIAN_RECORD',json.dumps({'title':name,'source':url,'http':code,'final':final,'length':len(page),'assets':found},ensure_ascii=False))
+           except Exception as e:print('SMITHSONIAN_SOURCE_FAILED',name,type(e).__name__,str(e)[:400])
+          PY
