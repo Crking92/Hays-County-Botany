@@ -1,0 +1,42 @@
+name: Lane 2 inspect overlooked giant cutgrass image roles
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-zizaniopsis-existing-images-photo-review-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  photo-inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Review real diagnostic photo pixels and source details, no publication
+        run: |
+          python - <<'PY'
+          from PIL import Image,ImageOps,ImageDraw
+          import os,glob,io,base64
+          folder='content/taxa/Poaceae/Zizaniopsis/zizaniopsis-miliacea/images'
+          names=sorted(glob.glob(folder+'/*.jpg'))
+          print('LOCAL_JPEG_FILES',len(names))
+          sheet=Image.new('RGB',(1500,1300),'white');draw=ImageDraw.Draw(sheet)
+          for i,path in enumerate(names):
+           with Image.open(path) as f:
+            print('JPEG',path, 'dimensions',f.size, 'format',f.format,'exif_entries',len(f.getexif()))
+            img=ImageOps.exif_transpose(f).convert('RGB')
+           img.thumbnail((480,510))
+           x=(i%3)*500;y=(i//3)*650
+           sheet.paste(img,(x+(500-img.width)//2,y+10))
+           draw.text((x+6,y+550),str(i)+' '+os.path.basename(path)[:60],fill='black')
+          out=io.BytesIO();sheet.save(out,'JPEG',quality=79,optimize=True)
+          s=base64.b64encode(out.getvalue()).decode()
+          print('REVIEW_BEGIN',len(out.getvalue()))
+          for i,p in enumerate(range(0,len(s),3500)):print('ZIZ_REVIEW_'+str(i)+'='+s[p:p+3500])
+          print('REVIEW_END')
+          PY
