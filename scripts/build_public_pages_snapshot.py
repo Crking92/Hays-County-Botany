@@ -151,6 +151,23 @@ def permitted_harms_purpletop_tridens(item, noncommercial=False):
                 for ident in HARMS_TRFL2_IDS))
 
 
+# Three photo-ID-restricted original Bob Harms Selected Central Texas Monocots
+# seep-muhly images. New 2026-10-27 credited scientific/educational reuse review,
+# source-specific and NOT Creative Commons or permission for other UT collections.
+HARMS_MURE2_IDS = frozenset({"MURE2-a", "MURE2-L", "MURE2-S"})
+
+def permitted_harms_seep_muhly(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator")=="Bob Harms"
+        and item.get("license")==HARMS_EXACT_LICENSE
+        and item.get("license_url")=="https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("site_specific_public_permission")==HARMS_SITE_PERMISSION
+        and item.get("source_taxon_name")=="Muhlenbergia reverchonii"
+        and any(item.get("source_page")==HARMS_BASE+"pages/"+ident+".html"
+                and item.get("source_image")==HARMS_BASE+"images/"+ident+".jpg"
+                for ident in HARMS_MURE2_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -609,6 +626,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Copyright Bob Harms exact selected Ozarkgrass originals educational-with-credit, NOT CC"
     if permitted_harms_tridentopsis_mutica(item, noncommercial):
         return True, "Bob Harms original Tridens muticus accepted as Tridentopsis mutica, educational with credit (NOT CC)"
+    if permitted_harms_seep_muhly(item, noncommercial):
+        return True, "Exact original Bob Harms M. reverchonii educational photo with credit, NOT CC"
     if permitted_harms_purpletop_tridens(item, noncommercial):
         return True, "Exact Bob Harms purpletop anatomy, credited educational display only; NOT CC"
     if permitted_harms_tridens_albescens(item, noncommercial):
