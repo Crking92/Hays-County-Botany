@@ -1,0 +1,47 @@
+name: Lane 2 hairy tridens four real source anatomy macro photographs
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-erioneuron-source-macro-confirm-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  original:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Source identity and license checks plus full original pixels
+        run: |
+          python - <<'PY'
+          import json,io,base64
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 licensed botany original pixel review'}
+          photos=[(705500020,385373339),(694991915,379913881),(698633127,381794795),(697483849,381203083)]
+          cache={}
+          sheet=Image.new('RGB',(1820,1840),'white');draw=ImageDraw.Draw(sheet)
+          for i,(pid,oid) in enumerate(photos):
+           if oid not in cache:
+            with urlopen(Request('https://api.inaturalist.org/v1/observations/'+str(oid),headers=UA),timeout=45) as h:cache[oid]=json.load(h)['results'][0]
+           o=cache[oid]
+           assert o['taxon']['name']=='Erioneuron pilosum' and o['quality_grade']=='research'
+           p=next(z for z in o['photos'] if z['id']==pid)
+           assert p.get('license_code') in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}
+           original=p['url'].replace('/square.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+           with urlopen(Request(original,headers=UA),timeout=45) as h:raw=h.read(10000001)
+           if len(raw)>10000000:raise RuntimeError('too large')
+           with Image.open(io.BytesIO(raw)) as z:
+            assert z.format in ('JPEG','PNG')
+            im=ImageOps.exif_transpose(z).convert('RGB');dims=im.size
+           im.thumbnail((855,810));x=i%2*910;y=i//2*920
+           sheet.paste(im,(x+(910-im.width)//2,y+5+(810-im.height)//2))
+           draw.text((x+12,y+845),f'Erioneuron photo {pid} obs {oid} {p["license_code"]}',fill='black')
+           print('SOURCE',json.dumps({'photo':pid,'obs':oid,'license':p['license_code'],'creator':p.get('attribution'),'size':dims,'place':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(pid)}))
+          out=io.BytesIO();sheet.save(out,'JPEG',quality=85,optimize=True);textval=base64.b64encode(out.getvalue()).decode()
+          for i,p in enumerate(range(0,len(textval),3500)):print('ERIO_HI_'+str(i)+'='+textval[p:p+3500])
+          print('SHEET_END',len(out.getvalue()))
+          PY
