@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-27",
+  "purpose": "Publish measured, non-destructive photo size reduction of Hays Botany public site",
+  "pilot_workflow_run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/40586407306",
+  "source_unchanged": true,
+  "site_bytes_before_pilot": 848455022,
+  "site_bytes_after_pilot": 806706775,
+  "site_bytes_additionally_saved": 41748247,
+  "original_site_production_pixel_settings": {
+    "min_photo_kb": 450,
+    "max_edge": 2400,
+    "quality": 80
+  },
+  "new_site_production_pixel_settings": {
+    "min_photo_kb": 280,
+    "max_edge": 2200,
+    "quality": 77
+  },
+  "quality_gate": "Automated original-vs-optimized pixel QA passed; mean error 1.66; max error 11.4, zero severe; 153 preexisting small resolution image warnings require future sourcing not inferred as new artifacts",
+  "rights_gate": "unchanged; all media still filtered by source-specific individual license and noncommercial public-site check",
+  "website_hard_stop": 850000000,
+  "scope": "website-only dist images; all original canonical photo records, exact species images, annotated arrow coords and licenses unchanged",
+  "note": "No external object-storage migration performed. Git repository size is not reduced by this release."
+}
