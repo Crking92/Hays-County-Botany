@@ -114,9 +114,17 @@ function galleryPhotoScore(img){
 }
 function galleryPhotoOrder(sp){
   const imgs=galleryImagesFor(sp), fallback=defaultPhotoIndex(sp);
-  return imgs.map(function(img,index){return {index,score:galleryPhotoScore(img)+(index===fallback?1:0)};})
-    .sort(function(a,b){return b.score-a.score || a.index-b.index;})
-    .map(function(x){return x.index;});
+  // For carefully curated beginner lessons, show a recognizable whole-plant
+  // photo FIRST. The diagnostic macros follow; canonical image indices stay put.
+  const firstFile=sp && sp.beginner_learning_path && sp.beginner_learning_path.hero_photo_file;
+  const hero=typeof firstFile==="string" ? imgs.findIndex(function(img){return img.file===firstFile;}) : -1;
+  return imgs.map(function(img,index){
+    return {index,score:galleryPhotoScore(img)+(index===fallback?1:0)};
+  }).sort(function(a,b){
+    if(hero>=0 && a.index===hero)return -1;
+    if(hero>=0 && b.index===hero)return 1;
+    return b.score-a.score || a.index-b.index;
+  }).map(function(x){return x.index;});
 }
 function firstImage(sp){ return imagesFor(sp)[defaultPhotoIndex(sp)] || null; }
 function thumb(sp,cls){
@@ -1775,6 +1783,41 @@ function taxonomyLessonShortcuts(sp){
     '<button class="taxonomy-lesson-jump" type="button" data-jump="parts">Explore 3 levels of plant-part photos ↓</button>'+
   '</section>';
 }
+/* Optional beginner route: preserve all specialist material below, but
+   teach 4 genuinely useful, rights-approved photographs before jargon.
+   Uses the SAME canonical panels and existing pixel-verified arrow overlays.
+   Never promotes a source-labelled lineage image to genetic certainty. */
+function speciesBeginnerPhotoPath(sp){
+  const lesson=sp&&sp.beginner_learning_path;
+  const panels=sp&&sp.visual_comparison&&sp.visual_comparison.items;
+  if(!lesson||!Array.isArray(lesson.steps)||!Array.isArray(panels))return "";
+  const items=lesson.steps.slice(0,5).map(function(step){
+    const i=Number(step.panel_index);
+    const source=Number.isInteger(i)&&i>=0&&i<panels.length?panels[i]:null;
+    if(!source||!source.image_url||!(/^(https?:\/\/|content\/)/i.test(source.image_url)))return null;
+    return Object.assign({},source,{
+      label:step.title||source.label,
+      caption:step.look_for||source.caption,
+      why_it_matters:step.why_it_matters||source.why_it_matters
+    });
+  }).filter(Boolean);
+  if(!items.length)return "";
+  const preview={
+    id:sp.id+"-starter",
+    visual_comparison:{
+      instance_id:sp.id+"-starter",
+      title:lesson.title||"Start with these photographs",
+      subtitle:lesson.intro||"Recognize the plant, then examine its leaf junction and flowers.",
+      items:items
+    }
+  };
+  return '<section class="beginner-reed-guide" aria-label="Beginner photo identification path">'+
+    '<div class="diagnostic-memory-rule"><span>FIRST TIME IDENTIFYING THIS PLANT?</span>'+
+    '<strong>'+esc(lesson.memory_rule||"Follow these photographs in order before opening advanced details.")+'</strong></div>'+
+    genusVisualComparison(preview)+
+    (lesson.safety_note?'<p class="diagnostic-overlay-note"><b>When to stop:</b> '+esc(lesson.safety_note)+'</p>':"")+
+    '</section>';
+}
 /* Species-specific, always-visible field decision guide: reuse exactly
    inspected photographic arrow evidence, not a generic unverified icon. */
 function fieldPhotoQuickcheck(sp){
@@ -1855,6 +1898,7 @@ function plantView(){
   out+='</div><div class="study-actions">'+(!state.quizMode || state.quizRevealed ? '<button class="primary-button" type="button" data-jump="parts">Next: inspect the plant parts ↓</button>' : '')+
     (similar.length?'<button class="secondary-button" type="button" data-jump="similar">Compare similar plants</button>':'')+
     (state.difficulty==="simple"?'<button class="secondary-button" type="button" data-set-difficulty="terms">Teach me the terms</button>':'')+'</div></div></section>';
+  if(!state.quizMode || state.quizRevealed) out+=speciesBeginnerPhotoPath(sp);
   if(!state.quizMode || state.quizRevealed) out+=fieldPhotoQuickcheck(sp);
   if(!state.quizMode || state.quizRevealed) out+=botanyPartExamples(sp,genusData);
   out+='<div class="study-drawer-grid">';
