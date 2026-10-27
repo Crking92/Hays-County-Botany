@@ -1,0 +1,50 @@
+name: Indiangrass Texas real rooted-crown and measured collar source photo scout
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/indiangrass-texas-photo-gaps-20261027.yml]
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Review exact species-level iNaturalist Texas source photographs, not publish
+        run: |
+          python - <<'PY'
+          import json,urllib.parse,urllib.request,time
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 noncommercial-individual-photo-source-audit'}
+          def get(url):
+            with urllib.request.urlopen(urllib.request.Request(url,headers=UA),timeout=50) as r:return json.load(r)
+          origin=get('https://api.inaturalist.org/v1/observations/313766834')['results'][0]
+          assert origin['taxon']['name']=='Sorghastrum nutans'
+          taxon=origin['taxon']['id']
+          print('INDIAN_TAXON_ID',taxon)
+          c={}
+          for page in (1,2,3):
+            params={'taxon_id':taxon,'place_id':18,'quality_grade':'research','photos':'true','per_page':200,
+              'page':page,'order':'desc','order_by':'observed_on'}
+            try:
+              d=get('https://api.inaturalist.org/v1/observations?'+urllib.parse.urlencode(params))
+              print('PAGE',page,'total',d.get('total_results'),'items',len(d.get('results',[])))
+              for o in d.get('results',[]):c[o['id']]=o
+            except Exception as e:print('SEARCH_HOLD',page,str(e)[:170])
+          usable={'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}
+          observations=[]
+          for o in c.values():
+            if o.get('taxon',{}).get('name')!='Sorghastrum nutans':continue
+            photos=[p for p in o.get('photos',[]) if p.get('license_code') in usable]
+            if len(photos)<2:continue
+            place=str(o.get('place_guess') or '')
+            near=any(s.lower() in place.lower() for s in ('Hays','Travis','Williamson','Comal','Blanco','New Braunfels','Kyle','Austin','San Marcos'))
+            photos_meta=[{'photo':p['id'],'license':p['license_code']} for p in photos[:10]]
+            observations.append({'obs':o['id'],'place':place,'date':o.get('observed_on'),'n':len(photos),
+              'near':near,'obs_total':len(o['photos']),'username':o.get('user',{}).get('login'),
+              'photos':photos_meta,'description':str(o.get('description') or '')[:150]})
+          observations.sort(key=lambda v:(v['near'],v['n']),reverse=True)
+          print('QUALIFIED_OBSERVATIONS',len(observations))
+          for o in observations[:48]:print('INDIAN_CANDIDATE',json.dumps(o,ensure_ascii=False))
+          PY
