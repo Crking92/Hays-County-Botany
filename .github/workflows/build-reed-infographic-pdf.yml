@@ -1,0 +1,86 @@
+name: Build and archive printable reed infographic PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/infographic-publication/*.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: printable-reed-infographic-pdf
+  cancel-in-progress: false
+
+jobs:
+  print-photo-infographic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PDF renderer
+        run: |
+          python -m pip install --quiet "weasyprint==68.0" "pypdf>=5,<7" "Pillow>=10,<13"
+      - name: Render 4 color photo-infographic sheets
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from weasyprint import HTML
+          from pypdf import PdfReader
+
+          html = Path("reed-lookalikes-infographic.html")
+          output = Path("reed-lookalikes-infographic-print.pdf")
+          assert html.is_file() and html.stat().st_size > 10000
+          HTML(filename=str(html), base_url=Path.cwd().as_uri()+"/").write_pdf(
+              target=str(output)
+          )
+          pdf = PdfReader(str(output))
+          print("PDF generated", output, output.stat().st_size, "bytes",len(pdf.pages),"pages")
+          assert len(pdf.pages) == 4, "Must be exactly four print pages"
+          for n, page in enumerate(pdf.pages, 1):
+              assert abs(float(page.mediabox.width)-792) < 2, (n,"landscape width",page.mediabox.width)
+              assert abs(float(page.mediabox.height)-612) < 2, (n,"landscape height",page.mediabox.height)
+              resources=page.get("/Resources")
+              xobjects=(resources or {}).get("/XObject") if resources is not None else None
+              assert xobjects, (n,"no embedded photo objects")
+              print("page",n,"has image objects:",len(xobjects))
+          print("ALL CHECKS PASSED")
+          PY
+      - name: Save printable PDF as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: reed-infographic-print-ready-pdf
+          path: reed-lookalikes-infographic-print.pdf
+          if-no-files-found: error
+      - name: Publish PDF in the repo for direct downloading
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reed-lookalikes-infographic-print.pdf
+          if git diff --cached --quiet; then
+            echo "PDF unchanged; no commit needed"
+            exit 0
+          fi
+          git commit -m "Publish 4-page printable reed photo infographic PDF"
+          # Busy grass-research repo: rebase and retry if main advances.
+          for pass in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              echo "PDF committed to main"
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "::warning::PDF artifact uploaded, but main advanced too quickly to commit."
+          exit 0
