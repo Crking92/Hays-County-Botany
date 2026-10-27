@@ -30,12 +30,12 @@ jobs:
               with urlopen(Request(url,headers=UA),timeout=35) as f:return f.read(max_bytes)
           known=json.loads(get('https://api.inaturalist.org/v1/observations/138856189')).get('results',[])
           out=[]
-          for page in [1,2,3]:
-              q={'taxon_name':'Setaria scheelei','quality_grade':'research','photos':'true','place_id':18,'per_page':100,'page':page,'order':'desc','order_by':'created_at'}
+          for page in [1,2,3,4]:
+              q={'taxon_name':'Setaria scheelei','quality_grade':'research','photos':'true','place_id':18,'per_page':30,'page':page,'order':'desc','order_by':'created_at'}
               obs=json.loads(get('https://api.inaturalist.org/v1/observations?'+urlencode(q),5_000_000))
               print('QUERY',page,'total',obs.get('total_results'),'fetched',len(obs.get('results',[])))
               out+=obs.get('results',[])
-              if page*100>=obs.get('total_results',0):break
+              if page*30>=obs.get('total_results',0):break
           allobs={o['id']:o for o in out}
           for o in known: allobs[o['id']]=o
           ranked=sorted(allobs.values(),key=lambda o:(o['id']!=138856189,-len(o.get('photos') or [])))
@@ -45,7 +45,7 @@ jobs:
               for p in o.get('photos',[]):
                   if p.get('license_code') not in GOOD:continue
                   photos.append((o,p))
-          photos=photos[:105]
+          photos=photos[:72]
           print('ELIGIBLE_STATS',json.dumps({'source_obs':len(allobs),'licensed_exact_photo_count':len(photos),'known_obs_photo_count':len(known[0]['photos']) if known else None}))
           def thumbnail(op):
               o,p=op
