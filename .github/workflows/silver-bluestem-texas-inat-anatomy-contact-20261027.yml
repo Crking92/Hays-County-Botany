@@ -22,7 +22,7 @@ jobs:
           api="https://api.inaturalist.org/v1/observations"
           sess=requests.Session()
           sess.headers["User-Agent"]="Hays Botanical Education TX Silver Photo Research/1.0"
-          opts={"taxon_id":75843,"place_id":18,"quality_grade":"research",
+          opts={"taxon_id":1452295,"place_id":18,"quality_grade":"research",
                 "photos":"true","per_page":100,"page":1,"order_by":"observed_on","order":"desc"}
           results=[]
           try:
