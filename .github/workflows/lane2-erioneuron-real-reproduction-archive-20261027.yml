@@ -1,0 +1,46 @@
+name: Lane 2 archive actual hairy tridens source photo green and woolly spikelets
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_erioneuron_real_fresh_woolly_spikelets_20261027.py
+      - .github/workflows/lane2-erioneuron-real-reproduction-archive-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-erioneuron-photo-archive-20261027
+  cancel-in-progress: false
+jobs:
+  source-license-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Verify exact source species and license, save two original EXIF-clean flowering macros
+        run: python scripts/lane2_erioneuron_real_fresh_woolly_spikelets_20261027.py
+      - name: Commit verified photo bytes and source-attributed gallery (retry concurrent main)
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Erioneuron/erioneuron-pilosum/ reports/lane2-erioneuron-actual-green-and-woolly-mature-spikelets-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive actual young and silvery hairy tridens reproductive closeup photos"
+            done_push=0
+            for attempt in $(seq 1 18); do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                echo "Hairy tridens original photos pushed attempt ${attempt}"
+                done_push=1
+                break
+              fi
+              echo "concurrent push moved main, retry ${attempt}"
+              sleep 3
+            done
+            if [ "${done_push}" != 1 ]; then exit 1; fi
+          fi
