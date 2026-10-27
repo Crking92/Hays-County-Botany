@@ -13,16 +13,17 @@
   "summary": {
     "assigned": 22,
     "canonical_species_card_inventories_read": 22,
-    "species_with_tangible_new_photo_progress": 6,
-    "species_with_provisional_six_role_scores": 6,
+    "species_with_tangible_new_photo_progress": 8,
+    "species_with_provisional_six_role_scores": 8,
     "species_past_70_percent_from_this_pass": 0,
-    "new_physical_images": 14,
+    "new_physical_images": 18,
     "new_arrow_targets": 5,
-    "old_external_panels_relinked_local": 4,
+    "old_external_panels_relinked_local": 6,
     "lane_six_role_aggregate_percent": null,
-    "lane_aggregate_reason": "16 other assigned Lane 1 species have not yet been individually six-role/photo-pixel scored; no honest lane aggregate percent.",
-    "total_new_gallery_panels": 10,
-    "species_at_70_to_85_percent_provisional": 0
+    "lane_aggregate_reason": "14 assigned species still lack individually role-verified pixel scoring, so do not invent a lane percentage.",
+    "total_new_gallery_panels": 14,
+    "species_at_70_to_85_percent_provisional": 0,
+    "total_new_other_species_comparison_panels": 1
   },
   "species": [
     {
@@ -83,9 +84,45 @@
     {
       "id": "urochloa-reptans",
       "inventory_read": true,
-      "six_role_score": null,
-      "status": "NEEDS_ROLE_BY_ROLE_PIXEL_AUDIT",
-      "scores_not_inferred_from_gallery_counts": true
+      "six_role_score": 3,
+      "role_order": [
+        "whole_plant_habit",
+        "actual_rooted_base_growth_mechanism",
+        "true_inner_collar_ligule_sheath",
+        "complete_attached_flowering",
+        "diagnostic_reproductive_closeup",
+        "verified_local_lookalike"
+      ],
+      "score_before": [
+        0.5,
+        0,
+        0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "score_after": [
+        0.5,
+        0,
+        0,
+        1,
+        1,
+        0.5
+      ],
+      "before_of_6": 2,
+      "after_of_6": 3,
+      "before_percent": 33,
+      "after_percent": 50,
+      "photo_complete_percent": 50,
+      "new_local_photos": 3,
+      "new_gallery_panels": 3,
+      "previous_external_panels_now_local": 2,
+      "extra_lookalike_panels": 1,
+      "arrows": 0,
+      "run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/40542441993",
+      "card_commit": "c5fc713eaeac1c39cdc1d50e1c0a23984f635578",
+      "notes": "Three selected out of seven original Francois Rousseu iNaturalist CC BY-NC 4.0 actual Urochloa reptans images (observation 107116761) installed: enlarged mature ovoid spikelets, attached single flowering raceme, and wider field flowering leaves/stems. Original observation taxon and each individual photo license verified from API and Rungrass; seven-photo visual contact sheet reviewed. No true inner ligule or rooted nodes, no glume dissection or mm ruler; photos from Reunion not Texas. All eleven new full gallery panels are physically locally hosted (six own, five clearly labelled other-species comparisons); one new Jim Conrad Texas U fusca reproductive comparison added and two prior external lookalike links safely relinked. Corrected tile photo index mappings.",
+      "score_confidence": "Provisional six-role visual/source assessment: true ligule/root unknown, final mobile arrows and deployed Pages separate release gates."
     },
     {
       "id": "bouteloua-gracilis",
@@ -339,9 +376,45 @@
     {
       "id": "bouteloua-hirsuta",
       "inventory_read": true,
-      "six_role_score": null,
-      "status": "NEEDS_ROLE_BY_ROLE_PIXEL_AUDIT",
-      "scores_not_inferred_from_gallery_counts": true
+      "six_role_score": 2.5,
+      "role_order": [
+        "whole_plant_habit",
+        "actual_rooted_base_growth_mechanism",
+        "true_inner_collar_ligule_sheath",
+        "complete_attached_flowering",
+        "diagnostic_reproductive_closeup",
+        "verified_local_lookalike"
+      ],
+      "score_before": [
+        0,
+        0,
+        0,
+        1,
+        0.5,
+        0.5
+      ],
+      "score_after": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        0.5
+      ],
+      "before_of_6": 2,
+      "after_of_6": 2.5,
+      "before_percent": 33,
+      "after_percent": 42,
+      "photo_complete_percent": 42,
+      "new_local_photos": 1,
+      "new_gallery_panels": 1,
+      "previous_external_panels_now_local": 0,
+      "extra_lookalike_panels": 0,
+      "arrows": 0,
+      "run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/40541632562",
+      "card_commit": "https://github.com/Crking92/Hays-County-Botany/actions/runs/40541632562",
+      "notes": "Distinct original 2019 Matt Lavin source Flickr 49158063571 for true Bouteloua hirsuta hairy second glumes and projecting naked terminal rachis, individual FlickreviewR-confirmed CC BY-SA 2.0. Original actual JPEG 893062 bytes physically archived; gallery credited and retained; no speculative gland arrow or ligule claim. Rooted whole-plant, true ligule, and matching native blue grama anatomy view remain priority.",
+      "score_confidence": "Provisional six-role visual/source assessment: true ligule/root unknown, final mobile arrows and deployed Pages separate release gates."
     },
     {
       "id": "bouteloua-trifida",
@@ -402,22 +475,38 @@
   "updated_utc": "2026-10-27",
   "latest_pass": {
     "species": [
-      "urochloa-fusca",
-      "secale-cereale"
+      "urochloa-reptans",
+      "bouteloua-hirsuta"
     ],
-    "new_real_local_photo_files": 5,
-    "new_gallery_panels": 5,
-    "new_arrows": 5,
-    "six_role_improvement_urochloa_fusca": "2/6 33% to 4/6 67%",
-    "six_role_improvement_secale_cereale": "2/6 33% to 3/6 50%",
-    "all_new_photos_archived": true,
-    "image_rights": "Jim Conrad explicit public domain on his own individually sourced 2014 Texas images; Stefan.lefnaer CC BY-SA 4.0 source individually checked",
-    "publication": "Canonical GitHub files and gallery readback verified; Pages live deploy with newest commits not yet confirmed",
-    "runs": [
-      "https://github.com/Crking92/Hays-County-Botany/actions/runs/40537817581",
-      "https://github.com/Crking92/Hays-County-Botany/actions/runs/40537728143"
+    "new_real_photo_files": 4,
+    "new_species_gallery_panels": 4,
+    "new_different_species_comparison_panels": 1,
+    "external_comparisons_relinked_local": 2,
+    "new_anatomy_arrows": 0,
+    "score_before_after": [
+      {
+        "id": "urochloa-reptans",
+        "before": 33,
+        "after": 50
+      },
+      {
+        "id": "bouteloua-hirsuta",
+        "before": 33,
+        "after": 42
+      }
     ],
-    "reproductive_macro_limit": "U. fusca attached ovoid spikelets are visible, but microscopic mature glume/lemma/palea dissection absent so reproductive closeup scored only 0.5"
+    "github_workflow_runs": [
+      "https://github.com/Crking92/Hays-County-Botany/actions/runs/40542441993",
+      "https://github.com/Crking92/Hays-County-Botany/actions/runs/40541632562"
+    ],
+    "release_gates": {
+      "individually_confirmed_rights": true,
+      "actual_binary_archive_in_species_folders": true,
+      "canonical_gallery_readback": true,
+      "final_mobile_arrow_review": false,
+      "latest_Pages_including_all_commits_not_yet_verified": true,
+      "NC_publishing": "Only on actual noncommercial site with creator attribution and original iNaturalist photo licenses"
+    }
   },
   "photo_candidates_blocked": [
     {
