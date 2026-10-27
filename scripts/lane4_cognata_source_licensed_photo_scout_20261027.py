@@ -24,7 +24,7 @@ def request(url,limit=8_000_000):
 def api(path,params):
  return json.loads(request("https://api.inaturalist.org/v1/"+path+"?"+urllib.parse.urlencode(params),6_000_000))
 taxa=api("taxa/autocomplete",{"q":"Digitaria cognata","per_page":20}).get("results",[])
-taxon=next((x for x in taxa if x.get("name","").lower()=="dichanthelium cognata" and x.get("rank")=="species"),None)
+taxon=next((x for x in taxa if x.get("name","").lower()=="digitaria cognata" and x.get("rank")=="species"),None)
 assert taxon, "iNat did not resolve exact accepted Digitaria cognata taxon"
 rawobs=[]
 for params in [
@@ -37,7 +37,7 @@ seenset=set();obs=[]
 for o in rawobs:
  if o.get("id") in seenset:continue
  seenset.add(o.get("id"))
- if o.get("taxon",{}).get("name","").lower()!="dichanthelium cognata":continue
+ if o.get("taxon",{}).get("name","").lower()!="digitaria cognata":continue
  obs.append(o)
 allowed={"cc0","cc-by","cc-by-sa"}
 photos=[]
