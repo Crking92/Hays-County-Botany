@@ -1,0 +1,54 @@
+name: Silver bluestem rooted specimen licensed original pixel review
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-herbarium-exposed-roots-actual-pixel-review.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Retrieve original voucher image and verify exact image-level reuse rights
+        run: |
+          python - <<'PY'
+          import requests,io,base64,json
+          from PIL import Image,ImageOps
+          s=requests.Session();s.headers["User-Agent"]="Hays conservation herbarium specimens educational photos 1.0"
+          keys=[3921136348,6158969001,2242356292,4976689107]
+          for key in keys:
+            try:
+              rr=s.get("https://api.gbif.org/v1/occurrence/"+str(key),timeout=25);rr.raise_for_status()
+              d=rr.json()
+              print("VOUCHER",json.dumps({"gbif":key,"basis":d.get("basisOfRecord"),"scientificName":d.get("scientificName"),"locality":d.get("locality"),"state":d.get("stateProvince"),"country":d.get("country"),"recordedBy":d.get("recordedBy"),"identifiedBy":d.get("identifiedBy"),"institutionCode":d.get("institutionCode"),"collectionCode":d.get("collectionCode"),"catalogNumber":d.get("catalogNumber"),"license":d.get("license"),"media":[{"id":x.get("identifier"),"license":x.get("license"),"creator":x.get("creator")} for x in d.get("media",[])][:2]}))
+              if d.get("basisOfRecord")!="PRESERVED_SPECIMEN" or "torreyana" not in d.get("scientificName","").lower():continue
+              if not d.get("media"):continue
+              origin=d["media"][0]["identifier"]
+              urls=[origin]
+              if origin.startswith("http://"):urls.insert(0,origin.replace("http://","https://"))
+              got=None
+              for u in urls:
+                try:
+                  r=s.get(u,timeout=27);r.raise_for_status()
+                  with Image.open(io.BytesIO(r.content)) as img:full=ImageOps.exif_transpose(img).convert("RGB")
+                  got=(u,full)
+                  break
+                except Exception as e:print("FETCH_ISSUE",key,str(e)[:120])
+              if not got:continue
+              u,im=got
+              print("PIXELS",json.dumps({"gbif":key,"shape":im.size,"loaded_url":u}))
+              thumb=im.copy();thumb.thumbnail((740,950))
+              rootcrop=im.crop((int(im.width*.13),int(im.height*.53),int(im.width*.87),int(im.height*.98)))
+              rootcrop.thumbnail((850,750))
+              for name,img in (("SHEET",thumb),("BASE",rootcrop)):
+                buf=io.BytesIO();img.save(buf,"JPEG",quality=79)
+                print(f"SPECIMEN_{name}_START::{key}")
+                print(base64.b64encode(buf.getvalue()).decode())
+                print(f"SPECIMEN_{name}_END::{key}")
+            except Exception as e:print("VOUCHER_ERROR",key,str(e)[:240])
+          PY
