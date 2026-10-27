@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-27",
+  "purpose": "Publish functional side-by-side Field ID reed look-alike selector and all 3 compact quiz modes including a complete 10-question Reed Field Challenge.",
+  "selected_species": [
+    "Arundo donax",
+    "Phragmites australis",
+    "Zizaniopsis miliacea"
+  ],
+  "field_id": {
+    "choices": "All three reeds can be selected in the reed cards; compare two actual rights-filtered photographed habits plus three grounded ID clues and safety note; clickable full Field ID; Phragmites also expands its native, Gulf Coast and introduced lineage cautions.",
+    "fixed": "Previously collapsed Arundo comparison had no options; compact picker added using real species in published index.",
+    "deep_link": "?species=... for full Field ID review from quiz",
+    "no_media_added": true
+  },
+  "quiz": {
+    "modes": [
+      "General source photo identification",
+      "Botanical glossary practice",
+      "Reed Look-Alikes: 10 sourced photo-and-anatomy questions"
+    ],
+    "score": "Ten questions then result score, retry and Field ID review",
+    "photo_credits": "Creator and individual license from existing species media, original source link after answering",
+    "safety": "Species-level Phragmites images do not prove introduced Texas lineage, and overlapping characters retain unresolved label."
+  },
+  "revisions": [
+    "assets/js/field-id-tiles.js",
+    "assets/css/field-id-tiles.css",
+    "field-id.html",
+    "assets/js/reed-quiz.js",
+    "assets/js/quiz-tiles.js",
+    "assets/css/quiz-tiles.css",
+    "quiz.html",
+    "sw.js",
+    "tests/test_reed_quiz.cjs",
+    ".github/workflows/publish-public-learner-github-pages.yml"
+  ],
+  "verification": "PASS: https://github.com/Crking92/Hays-County-Botany/actions/runs/40523899705 (3 Python tests, all 3 Javascript syntax checks including app.js and Field ID & Quiz, 10-source-question Node audit)",
+  "publication": "Existing GitHub Pages rights-filtered --noncommercial build, full photo QA and deployment must succeed before calling live.",
+  "extra_rights": "No SDSU restricted photographs and no unlicensed figures admitted. Existing source credit must remain.",
+  "instructions": "Only this marker triggers publication. No new recurring automations. Observe deployed run and report status."
+}
