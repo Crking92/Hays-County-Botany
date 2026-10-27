@@ -1,0 +1,51 @@
+name: Cane bluestem Brushy Creek original inner ligule and bearded node pixels
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/cane-bluestem-brushy-creek-micro-photo-review-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Inspect exact originals for missing true ligule or root and node pixels
+        run: |
+          python - <<'PY'
+          import io,base64,json,math,hashlib
+          from urllib.request import urlopen,Request
+          from PIL import Image,ImageOps,ImageDraw
+          id=196400646
+          with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{id}',headers={'User-Agent':'HaysBotanyLearner/1.0'}),timeout=30) as z:o=json.load(z)['results'][0]
+          assert o['id']==id and o['taxon']['name']=='Bothriochloa barbinodis' and o['quality_grade']=='research'
+          assert o['user']['login']=='arnanthescout'
+          photos=[345758958,345766367,345758976,345758982,345766483,345766534,345766570,345766775]
+          info=[]
+          for pid in photos:
+            p=next(x for x in o['photos'] if x['id']==pid)
+            assert p['license_code']=='cc-by-nc'
+            url=p['url'].replace('/square.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+            try:
+              with urlopen(Request(url,headers={'User-Agent':'HaysBotanyLearner/1.0'}),timeout=35) as z:raw=z.read(9000000)
+              with Image.open(io.BytesIO(raw)) as orig:im=ImageOps.exif_transpose(orig).convert('RGB')
+              dim=im.size;im.thumbnail((840,700))
+              info.append((pid,im,dim))
+              print('ORIGINAL',json.dumps({'pid':pid,'license':p['license_code'],'creator':p['attribution'],'size':dim,'sha256':hashlib.sha256(raw).hexdigest()}))
+            except Exception as e:print('SOURCE_HOLD',pid,str(e)[:120])
+          for page in range(math.ceil(len(info)/4)):
+            c=Image.new('RGB',(1840,1630),'white');draw=ImageDraw.Draw(c)
+            for i,(pid,im,dim) in enumerate(info[page*4:(page+1)*4]):
+              x=(i%2)*920;y=(i//2)*815
+              c.paste(im,(x+(920-im.width)//2,y+(735-im.height)//2))
+              draw.text((x+15,y+749),f'{pid}: {dim[0]}x{dim[1]} CC BY-NC',fill='black')
+            b=io.BytesIO();c.save(b,'JPEG',quality=79,optimize=True)
+            encoded=base64.b64encode(b.getvalue()).decode()
+            print('CANE_MICRO_BEGIN',page,len(b.getvalue()))
+            for n,pos in enumerate(range(0,len(encoded),3500)):print(f'CANE_MICRO_{page}_{n}='+encoded[pos:pos+3500])
+            print('CANE_MICRO_END',page)
+          PY
