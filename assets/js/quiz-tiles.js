@@ -2,7 +2,7 @@
 (function(){
 'use strict';
 const root=document.getElementById('quizApp');
-const state={mode:null,photos:[],terms:[],filter:'',current:null,answered:false,selected:'',correct:0,wrong:0,skipped:0,seen:{photo:new Set(),term:new Set(),reed:new Set()},reed:[],loadPhoto:false,loadTerms:false,loadReed:false,photoError:'',termError:'',reedError:''};
+const state={mode:null,photos:[],terms:[],filter:'',current:null,answered:false,selected:'',correct:0,wrong:0,skipped:0,seen:{photo:new Set(),term:new Set(),reed:new Set()},reed:[],loadPhoto:false,loadTerms:false,loadReed:false,reedDone:0,reedCorrect:0,photoError:'',termError:'',reedError:''};
 const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const name=v=>String(v.common_name||v.scientific_name||'').trim();
 const clean=v=>String(v||'').trim().toLowerCase();
@@ -83,6 +83,10 @@ function selected(choice){
  if(!choice){state.skipped++;}
  else if(choice===state.current.answer.id){state.correct++;}
  else state.wrong++;
+ if(state.current.mode==='reed'){
+  state.reedDone++;
+  if(choice&&choice===state.current.answer.id)state.reedCorrect++;
+ }
  render();
  const panel=root.querySelector('#quizFeedback');if(panel)panel.focus();
 }
@@ -139,6 +143,19 @@ function answerDetails(){
  return '<section id="quizFeedback" tabindex="-1" role="status" class="quiz-feedback"><div class="quiz-feedback-top">'+
  '<b>'+esc(msg)+'</b></div>'+details+'</section>';
 }
+function reedResults(){
+ const total=state.reed.length;
+ const ratio=total?Math.round((state.reedCorrect/total)*100):0;
+ return '<section class="quiz-panel quiz-results" aria-label="Reed challenge results">'+
+ '<p class="eyebrow">Reed field challenge · finished</p><h2>How did you do?</h2>'+
+ '<div class="quiz-results-score"><strong>'+state.reedCorrect+' / '+total+'</strong>'+
+ '<span>'+ratio+'% of reed questions correct</span></div>'+
+ '<p>Every missed question is a chance to review the actual leaf collar, spikelet, or lineage caution. Pictures alone do not genetically classify a Texas common-reed population.</p>'+
+ '<div class="quiz-results-actions"><button type="button" class="quiz-button" data-reed-restart>Try ten new rounds ↻</button>'+
+ '<a class="quiz-outline" href="./field-id.html?species=phragmites-australis">Review common reed Field ID ↗</a>'+
+ '<button type="button" class="quiz-outline" data-home>Choose another quiz</button></div>'+
+ '</section>';
+}
 function quizCard(){
  if(!state.current){
   return '<section class="quiz-panel"><h2>'+(
@@ -160,7 +177,9 @@ function quizCard(){
   '<h2 class="quiz-question" tabindex="-1">'+esc(prompt)+'</h2>'+content+choices()+
   (state.answered?answerDetails():'<p class="quiz-hint">Choose an answer, or reveal it to study the plant.</p>')+
   '<div class="quiz-actions">'+(state.answered?
-   '<button class="quiz-button" data-next>Next question →</button>':
+   (q.mode==='reed'&&state.reedDone>=state.reed.length?
+    '<button class="quiz-button" data-reed-results>See your results →</button>':
+    '<button class="quiz-button" data-next>Next question →</button>'):
    '<button class="quiz-outline" data-skip>Reveal answer</button>')+
   '</div></section></div>';
 }
@@ -197,12 +216,14 @@ function home(){
 }
 function render(){
  if(!root)return;
- root.innerHTML=state.mode?quizCard():home();
+ root.innerHTML=state.mode==='reed-results'?reedResults():state.mode?quizCard():home();
  if(window.HaysGlossaryMedia&&state.answered&&state.mode==='term')window.HaysGlossaryMedia.hydrate(root);
 }
 function setMode(mode){
  if(!['photo','term','reed'].includes(mode)||!modeReady(mode))return;
- state.mode=mode;state.filter='';nextQuestion();
+ state.mode=mode;state.filter='';
+ if(mode==='reed'){state.reedDone=0;state.reedCorrect=0;state.seen.reed.clear();}
+ nextQuestion();
 }
 root.addEventListener('click',e=>{
  const el=e.target.closest('button');if(!el)return;
@@ -210,6 +231,8 @@ root.addEventListener('click',e=>{
  if(el.dataset.mode){setMode(el.dataset.mode);return;}
  if(el.hasAttribute('data-answer')){selected(el.dataset.answer);return;}
  if(el.hasAttribute('data-skip')){selected('');return;}
+ if(el.hasAttribute('data-reed-results')){state.mode='reed-results';render();return;}
+ if(el.hasAttribute('data-reed-restart')){setMode('reed');return;}
  if(el.hasAttribute('data-next')){nextQuestion();}
 });
 root.addEventListener('change',e=>{
