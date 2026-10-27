@@ -1,0 +1,75 @@
+name: Lane 2 archive authentic USGS purple lovegrass flower macro
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-usgs-purple-lovegrass-macro-20261027.yml'
+      - 'scripts/lane2_install_spectabilis_usgs_flower_macro_20261027.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-usgs-purple-lovegrass-macro-20261027
+  cancel-in-progress: false
+jobs:
+  physically-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install JPEG parser
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Download original via source-specific rights gate; update only true learner photo evidence
+        run: python scripts/lane2_install_spectabilis_usgs_flower_macro_20261027.py
+      - name: Check exact species, actual JPEG bytes, hash, scale honesty and original public reuse
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          base=Path("content/taxa/Poaceae/Eragrostis/eragrostis-spectabilis")
+          card=json.loads((base/"species.json").read_text())
+          report=json.loads(Path("reports/lane2-spectabilis-usgs-flower-macro-20261027.json").read_text())
+          score=json.loads(Path("reports/lane2-six-role-photo-score-20261027.json").read_text())
+          photo=Path(report["new_photo_path"])
+          assert photo.exists() and photo.stat().st_size>20000
+          assert hashlib.sha256(photo.read_bytes()).hexdigest()==report["archive_sha256"]
+          with Image.open(photo) as im:
+              assert im.format=="JPEG" and min(im.size)>1500
+              assert not im.getexif().get(34853)
+              im.verify()
+          meta=next(x for x in card["images"] if x.get("file")=="images/"+photo.name)
+          assert meta["creator"]=="USGS Bee Inventory and Monitoring Lab"
+          assert "public domain" in meta["license"].lower()
+          assert "Eragrostis spectabilis"==meta["source_taxon_name"]
+          item=next(x for x in card["visual_comparison"]["items"] if x.get("image_url")==str(photo))
+          assert item["markers"]==[] and "USGS" in item["label"]
+          species=next(x for x in score["records"] if x["canonical_id"]=="eragrostis-spectabilis")
+          assert species["after_total"]==5 and species["after_percentage"]==83
+          assert species["roles"]["true_collar_ligule_sheath"]==0.5
+          print("PASS: source-license, true JPEG, caption, no fabricated fine anatomy, provisional 83%")
+          PY
+      - name: Publish canonical species photo, score and provenance report
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-spectabilis \
+            reports/lane2-six-role-photo-score-20261027.json \
+            reports/lane2-spectabilis-usgs-flower-macro-20261027.json \
+            workflow/field-id-publication/lane2-spectabilis-usgs-flower-macro-20261027.json
+          if git diff --cached --quiet; then
+            echo "Already installed"; exit 0
+          fi
+          git commit -m "Lane 2: archive original USGS public-domain E. spectabilis flower macro; 83% [skip ci]"
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
