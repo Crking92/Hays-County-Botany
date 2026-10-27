@@ -5,7 +5,7 @@ with honest provisional 2019 Yucatan taxon uncertainty.
 Not verified same-species anatomy: author himself describes the identification
 as tentative, so we must never use these as certified definitive U. fusca.
 """
-import io,json,hashlib,pathlib,time,urllib.request
+import io,json,hashlib,pathlib,time,urllib.request, re, html
 from PIL import Image
 BASE=pathlib.Path("content/taxa/Poaceae/Urochloa/urochloa-fusca")
 CARD=BASE/"species.json"
@@ -22,7 +22,9 @@ def get(url):
             if attempt==3: raise
             time.sleep(5*(attempt+1))
 def decoded(x):
-    return x.decode("utf-8",errors="replace")
+    raw=x.decode("utf-8",errors="replace")
+    without_tags=re.sub(r"<[^>]+>"," ",raw)
+    return " ".join(html.unescape(without_tags).split())
 page_text=decoded(get(PAGE))
 permission_text=decoded(get(PERM))
 assert "put into the PUBLIC DOMAIN all images produced by myself" in permission_text, "No verified photographer permission"
