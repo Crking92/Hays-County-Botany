@@ -28,6 +28,7 @@ jobs:
           from pathlib import Path
           commands=[
             ["python","-m","unittest","discover","-s","tests","-p","test_reed_beginner_learner.py","-v"],
+            ["python","-m","unittest","discover","-s","tests","-p","test_reed_final_closeout_20261027.py","-v"],
             ["node","--check","assets/js/app.js"],
             ["node","--check","assets/js/field-id-tiles.js"],
             ["node","--check","assets/js/quiz-tiles.js"],
