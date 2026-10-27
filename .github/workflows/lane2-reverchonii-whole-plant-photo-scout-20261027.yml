@@ -1,0 +1,67 @@
+name: Lane 2 Reverchon bristlegrass licensed whole growing plant photo scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-reverchonii-whole-plant-photo-scout-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  exact-photo-scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Screen photo-licensed actual Texas plants and release review contact sheet only
+        run: |
+          python - <<'PY'
+          import json,io,base64,concurrent.futures,math
+          from urllib.request import Request,urlopen
+          from urllib.parse import urlencode
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 botanical exact-photo review no publication'}
+          GOOD={'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}
+          def get(url,limit=4000000):
+              with urlopen(Request(url,headers=UA),timeout=40) as u:return u.read(limit)
+          obs=[]
+          for page in range(1,5):
+              url='https://api.inaturalist.org/v1/observations?'+urlencode({'taxon_name':'Setaria reverchonii','quality_grade':'research','place_id':18,'photos':'true','per_page':25,'page':page,'order_by':'created_at','order':'desc'})
+              data=json.loads(get(url))
+              obs+=data['results']
+              print('PAGE',page,len(data['results']),data.get('total_results'))
+              if page*25>=data.get('total_results',0):break
+          candidates=[]
+          for o in obs:
+              if o.get('taxon',{}).get('name')!='Setaria reverchonii':continue
+              for p in o.get('photos',[])[:5]:
+                  if p.get('license_code') not in GOOD:continue
+                  candidates.append((o,p))
+          candidates=candidates[:50]
+          def thumb(op):
+              p=op[1];u=p['url'].replace('/square.','/medium.').replace('/thumb.','/medium.')
+              try:
+                  raw=get(u,700000)
+                  with Image.open(io.BytesIO(raw)) as im: im=ImageOps.exif_transpose(im).convert('RGB')
+                  im.thumbnail((235,190));return im
+              except Exception as e:print('PHOTO_HOLD',p['id'],str(e)[:130]);return None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=7) as pool:ims=list(pool.map(thumb,candidates))
+          for block in range(math.ceil(len(candidates)/25)):
+              sheet=Image.new('RGB',(1250,5*240),'white');d=ImageDraw.Draw(sheet)
+              for i,(o,p) in enumerate(candidates[block*25:(block+1)*25]):
+                  im=ims[block*25+i];x=i%5*250;y=i//5*240
+                  if im is not None:sheet.paste(im,(x+(250-im.width)//2,y+5))
+                  d.text((x+5,y+198),f'#{block*25+i}: {p["id"]}',fill='black')
+                  d.text((x+5,y+217),f'{o["id"]} {p["license_code"]}',fill='black')
+                  print('PICK',json.dumps({'n':block*25+i,'photo_id':p['id'],'obs_id':o['id'],'credit':p.get('attribution'),'license':p.get('license_code'),'locality':o.get('place_guess'),'species':o['taxon']['name'],'source':'https://www.inaturalist.org/photos/'+str(p['id'])},ensure_ascii=False))
+              b=io.BytesIO();sheet.save(b,'JPEG',quality=75,optimize=True)
+              enc=base64.b64encode(b.getvalue()).decode('ascii')
+              print('SHEET_START',block,'bytes',len(b.getvalue()))
+              for k,j in enumerate(range(0,len(enc),3500)):print(f'SHEET_{block}_{k}='+enc[j:j+3500])
+              print('SHEET_DONE',block)
+          print('TOTAL_LICENSED_SCOUT_PHOTOS',len(candidates))
+          PY
