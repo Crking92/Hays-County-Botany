@@ -1,0 +1,94 @@
+name: Archive verified nimblewill real flowering and awned spikelet photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-nimblewill-reproductive-photos-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-lane3-nimblewill-two-anatomy-20261027
+  cancel-in-progress: false
+jobs:
+  archive-exact-source-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 24
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install authentic JPEG image verifiers
+        run: python -m pip install --disable-pip-version-check "requests>=2.31,<3" "Pillow>=10,<12"
+      - name: Sync and fetch only exact licensed original taxon JPEGs
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_nimblewill_two_reproductive_photos_20261027.py
+          python scripts/archive_nimblewill_two_reproductive_photos_20261027.py
+      - name: Audit physical JPEG integrity, provenance, species and genus teaching galleries
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          rp=Path('reports/lane3-nimblewill-two-real-reproductive-photos-20261027.json')
+          if not rp.exists():
+              print('NO NEW VERIFIED PHOTOS; source hold if any, no fictional archive')
+              raise SystemExit(0)
+          report=json.loads(rp.read_text())
+          assert report['result']=='NIMBLEWILL_REAL_REPRODUCTIVE_JPEGS_ARCHIVED'
+          assert 1<=report['source_count_added']<=2
+          s=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/muhlenbergia-schreberi/species.json').read_text())
+          g=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/genus.json').read_text())
+          assert s['id']=='muhlenbergia-schreberi' and g['name']=='Muhlenbergia'
+          assert s['learner_visual_status']['status']=='FIELD_READY_PHOTO_GAPS'
+          for r in report['photos']:
+              file=Path(r['local'])
+              assert file.is_file() and file.stat().st_size>3000
+              assert hashlib.sha256(file.read_bytes()).hexdigest()==r['archive_sha256']
+              with Image.open(file) as im:
+                  assert im.format=='JPEG' and not im.getexif().get(34853)
+                  im.verify()
+              pics=[p for p in s['images'] if str(p.get('source_photo_id'))==r['id']]
+              assert len(pics)==1 and pics[0]['file']=='images/'+file.name
+              assert pics[0]['creator']==r['creator'] and pics[0]['license']==r['license']
+              if r['id']=='MUSC-J':
+                  assert pics[0]['site_specific_public_permission']=='BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022'
+                  assert pics[0]['source_page'].endswith('/MUSC-J.html')
+                  assert pics[0]['license'].endswith('(NOT Creative Commons)')
+              else:
+                  assert r['id']=='92218276' and pics[0]['license']=='CC BY 4.0'
+                  assert pics[0]['source_page'].endswith('iNat-92218276.jpg')
+              for doc in (s,g):
+                  panels=[p for p in doc['visual_comparison']['items'] if str(p.get('source_photo_id'))==r['id']]
+                  assert len(panels)==1 and panels[0]['image_url']==str(file)
+                  assert panels[0]['scientific_name']=='Muhlenbergia schreberi'
+                  assert panels[0]['markers']==[]
+          print('PASS: genuine original photos, stable rights, no GPS, no invented anatomical arrows')
+          PY
+      - name: Commit actual source photos and conservative Pages release marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Muhlenbergia/muhlenbergia-schreberi/
+          git add content/taxa/Poaceae/Muhlenbergia/genus.json
+          if test -f reports/lane3-nimblewill-two-real-reproductive-photos-20261027.json; then
+            git add reports/lane3-nimblewill-two-real-reproductive-photos-20261027.json
+            git add workflow/field-id-publication/2026-10-27-nimblewill-two-real-reproductive-photos.json
+          fi
+          if test -f reports/lane3-nimblewill-source-photo-hold-20261027.json; then
+            git add reports/lane3-nimblewill-source-photo-hold-20261027.json
+          fi
+          if git diff --cached --quiet; then echo NO_CHANGES; exit 0; fi
+          git commit -m 'Archive actual nimblewill awned spikelet and Bob Harms attached flowering photographs'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
