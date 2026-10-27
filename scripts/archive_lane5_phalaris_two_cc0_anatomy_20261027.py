@@ -99,7 +99,7 @@ d["curation_status"]["visual_finish"]=(
 d["learner_visual_status"]["image_count"]=len(d["images"])
 d["learner_visual_status"]["status"]="field_ready_photo_gaps"
 d["learner_visual_status"]["note"]=(
- "8 archived same-species real photos and 8 same-species Learner panels, plus one explicitly DIFFERENT species P. minor comparison panel. Two newly archived Texas CC0 anatomical macro photographs are an external true culm node and exposed inner blade/sheath collar tissue. Do NOT treat partial pale tissue as a measured ligule free edge. Two reduced sterile lemmas and real exposed fibrous roots remain unphotographed. Pages live status not confirmed.")
+ "8 archived same-species real photos and 7 exact-species Learner panels, plus one explicitly DIFFERENT species P. minor comparison panel (8 panels total). Two newly archived Texas CC0 anatomical macro photographs are an external true culm node and exposed inner blade/sheath collar tissue. Do NOT treat partial pale tissue as a measured ligule free edge. Two reduced sterile lemmas and real exposed fibrous roots remain unphotographed. Pages live status not confirmed.")
 d["lane5_phalaris_two_cc0_anatomy_20261027"]={
  "status":"FIELD_READY_PHOTO_GAPS","two_new_exact_photos":done,
  "true_inner_ligule_status":"PARTIAL — tissue at junction photographed but free membrane fully spread and measured remains absent",
@@ -117,7 +117,7 @@ for x in done:
  row={k:"" for k in fields}
  for k,v in {"file_name":basename,"role":x["pixel_shown_role"],"creator":"iNaturalist photo contributor (recorded CC0)",
   "license":"CC0 1.0","source_page":x["source"],
-  "direct_url":next(p["file"] for p in review["items"] if p["photo_id"]==x["photo_id"]),
+  "direct_url":next(p["photo_direct"] for p in json.loads((R/"candidates.json").read_text())["photos"] if p["id"]==x["photo_id"]),
   "study_use":"Visually checked exact species field anatomy","public_reuse":"Open CC0, copy was EXIF stripped"}.items():
   if k in row:row[k]=v
  rows.append(row);existing.add(basename)
