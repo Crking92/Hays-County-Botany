@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-27",
+  "scope": "Arundo donax and Phragmites australis FIELD ID tab only; previous full Learner source edits included. Quiz untouched.",
+  "changed": [
+    "assets/js/field-id-tiles.js",
+    "assets/css/field-id-tiles.css",
+    "field-id.html",
+    "assets/js/app.js",
+    "content/taxa/Poaceae/Arundo/arundo-donax/species.json",
+    "content/taxa/Poaceae/Phragmites/phragmites-australis/species.json"
+  ],
+  "field_id": {
+    "interface": "Photo-first four-step licensed beginner guide above the five-step field checklist; direct other-reed comparison; full archived gallery and iNaturalist photographs collapsed by default; advanced material preserved",
+    "species": [
+      {
+        "id": "arundo-donax",
+        "photos": 7,
+        "panels": 10,
+        "arrows": 5
+      },
+      {
+        "id": "phragmites-australis",
+        "photos": 17,
+        "panels": 21,
+        "arrows": 23
+      }
+    ],
+    "image_provenance": "Existing saved photographs and source licensing only. Source image panels must match canonical image files; no arrows fabricated, transferred or recropped.",
+    "science_limits": "Phragmites species recognition not proof of introduced lineage; Gulf and americanus source associations provisional. Preserve photo gap flag and safety warning."
+  },
+  "build_quality": {
+    "proof": "reports/reed-field-id-validation-20261027.json",
+    "result": "PASSED — all three photo unit tests and both node syntax checks",
+    "prior_failure": "Resolved invalid regex literal in assets/js/field-id-tiles.js; exact canonical photo matching used instead",
+    "rights_policy": "Existing --noncommercial public Pages photo filtering. No user-uploaded restricted SDSU photographs admitted."
+  },
+  "quiz": "DO NOT EDIT; keep quiz current until separate user-approved final pass",
+  "expected": "Trigger the existing publish-public-learner-github-pages.yml. Publication is only confirmed if GitHub Actions build and deployment succeed."
+}
