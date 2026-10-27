@@ -183,6 +183,21 @@ def permitted_harms_eriochloa_additional(item, noncommercial=False):
                 for p in HARMS_ERSE5_ADDITIONAL_IDS))
 
 
+# Two Bob Harms exact-species Texas fescue originals from Selected Monocots.
+# Narrow copyrighted photo reuse: credited scientific/educational purposes ONLY, NOT CC.
+HARMS_FEVE_IDS = frozenset({"FEVE-L", "FEVE-J"})
+def permitted_harms_festuca_versuta(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Festuca versuta"
+        and any(item.get("source_page") == HARMS_BASE+"pages/"+sid+".html"
+                and item.get("source_image") == HARMS_BASE+"images/"+sid+".jpg"
+                for sid in HARMS_FEVE_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -636,6 +651,8 @@ def photo_rights(record, noncommercial=False):
         return None
     if permitted_harms_disakisperma(record, noncommercial):
         return None
+    if permitted_harms_festuca_versuta(record, noncommercial):
+        return None  # Source-identified FEVE-L/FEVE-J originals only, credited educational display.
     if permitted_harms_eriochloa_additional(record, noncommercial):
         return None  # Exact photographer/copyright/educational-use original, no CC claim.
     if permitted_harms_eriochloa_sericea(record, noncommercial):
