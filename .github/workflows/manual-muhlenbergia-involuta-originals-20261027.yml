@@ -1,0 +1,87 @@
+name: Archive genuine canyon muhly plant and anatomy photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-muhlenbergia-involuta-originals-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-muhlenbergia-involuta-real-photo-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 26
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install original JPEG verification tools
+        run: python -m pip install --disable-pip-version-check "Pillow>=10,<12" "requests>=2.31,<3"
+      - name: Refresh latest main and archive only verified copyrighted educational originals
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_muhlenbergia_involuta_harms_20261027.py
+          python scripts/archive_muhlenbergia_involuta_harms_20261027.py
+      - name: Validate source and accepted names, real JPEG bits and both galleries
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          path=Path('reports/muhlenbergia-involuta-harms-four-actual-photos-20261027.json')
+          if not path.exists():
+              print('NO_VERIFIED_PHOTOS; no claimed archive')
+              raise SystemExit(0)
+          r=json.loads(path.read_text())
+          assert r['result']=='MUHLENBERGIA_INVOLUTA_REAL_ORIGINAL_JPEGS_ARCHIVED'
+          assert 1<=r['added']<=4
+          sp=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/muhlenbergia-x-involuta/species.json').read_text())
+          gn=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/genus.json').read_text())
+          assert sp['id']=='muhlenbergia-x-involuta'
+          assert any('Hitchcock' in x.get('creator','') for x in sp['images'])
+          for photo in r['photos']:
+              f=Path(photo['file'])
+              assert f.is_file() and f.stat().st_size>3000
+              assert hashlib.sha256(f.read_bytes()).hexdigest()==photo['archived_sha256']
+              with Image.open(f) as im:
+                  assert im.format=='JPEG' and not im.getexif().get(34853)
+                  im.verify()
+              match=[x for x in sp['images'] if x.get('source_photo_id')==photo['id']]
+              assert len(match)==1 and match[0]['source_taxon_name']=='Muhlenbergia involuta'
+              assert match[0]['accepted_taxon_name']=='Muhlenbergia ×involuta'
+              assert match[0]['creator']=='Bob Harms' and match[0]['license'].endswith('(NOT Creative Commons)')
+              for doc in (sp,gn):
+                  items=[x for x in doc['visual_comparison']['items'] if x.get('source_photo_id')==photo['id']]
+                  assert len(items)==1 and items[0]['image_url']==str(f)
+                  assert items[0]['markers']==[]
+          print('PASS copyright, accepted synonym, individual source, SHA and physical files')
+          PY
+      - name: Commit verified source original photographs and public release marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Muhlenbergia/muhlenbergia-x-involuta/
+          git add content/taxa/Poaceae/Muhlenbergia/genus.json
+          if test -e reports/muhlenbergia-involuta-harms-four-actual-photos-20261027.json; then
+            git add reports/muhlenbergia-involuta-harms-four-actual-photos-20261027.json
+            git add workflow/field-id-publication/2026-10-27-muhlenbergia-involuta-actual-photo-archive.json
+          fi
+          if test -e reports/muhlenbergia-involuta-harms-source-hold-20261027.json; then
+            git add reports/muhlenbergia-involuta-harms-source-hold-20261027.json
+          fi
+          if git diff --cached --quiet; then echo NO_CHANGES; exit 0; fi
+          git commit -m 'Archive genuine Bob Harms canyon muhly habitat, panicle and collar photos'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
