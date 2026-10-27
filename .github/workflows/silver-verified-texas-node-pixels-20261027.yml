@@ -1,0 +1,41 @@
+name: Silver bluestem original Texas node photo visual verification
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-verified-texas-node-pixels-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  photo-review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Review real original node and source metadata
+        run: |
+          python - <<'PY'
+          import requests,io,json,base64
+          from PIL import Image,ImageOps
+          s=requests.Session();s.headers["User-Agent"]="Hays Botany educational original CC photography review/1.0"
+          choices={63926408:[102682516,102682495],168804436:[292596996,292594065]}
+          for oid,pids in choices.items():
+            o=s.get(f"https://api.inaturalist.org/v1/observations/{oid}",timeout=28)
+            o.raise_for_status();d=o.json()["results"][0]
+            print("TAXON",json.dumps({"obs":oid,"taxon":d["taxon"]["name"],"taxon_id":d["taxon"]["id"],"quality":d["quality_grade"],"place":d.get("place_guess"),"date":d.get("observed_on"),"desc":d.get("description")}))
+            for p in d["photos"]:
+              if p["id"] not in pids:continue
+              src=p["url"].replace("/square.","/large.").replace("/medium.","/large.")
+              r=s.get(src,timeout=25);r.raise_for_status()
+              with Image.open(io.BytesIO(r.content)) as im:
+                v=ImageOps.exif_transpose(im).convert("RGB")
+              original_size=v.size
+              v.thumbnail((1000,1250))
+              buff=io.BytesIO();v.save(buff,"JPEG",quality=77,optimize=True)
+              print("SOURCE",json.dumps({"obs":oid,"photo_id":p["id"],"license":p.get("license_code"),"credit":p.get("attribution"),"size":original_size,"url":src}))
+              print("SILVER_NODE_PIXEL_START::"+str(p["id"]))
+              print(base64.b64encode(buff.getvalue()).decode())
+              print("SILVER_NODE_PIXEL_END::"+str(p["id"]))
+          PY
