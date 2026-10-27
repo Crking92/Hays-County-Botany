@@ -1,0 +1,44 @@
+name: Lane1 Curlymesquite Bob Harms four real diagnostic anatomy photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane1_archive_curlymesquite_bob_harms_anatomy_20261027.py
+      - .github/workflows/lane1-curlymesquite-bob-harms-real-anatomy-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane1-hilaria-belangeri-bob-harms-true-micro
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/lane1_archive_curlymesquite_bob_harms_anatomy_20261027.py
+            content/taxa/Poaceae/Hilaria/hilaria-belangeri/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow beautifulsoup4
+      - name: Verify Bob Harms source permission and physically archive four exact species organs
+        run: python scripts/lane1_archive_curlymesquite_bob_harms_anatomy_20261027.py
+      - name: Commit real licensed scientific teaching photographs, metadata and arrows
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Hilaria/hilaria-belangeri/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 1: archive four real curlymesquite anatomy photos with Harms credit"
+            for attempt in 1 2 3 4 5 6 7 8; do
+              git pull --rebase origin main
+              if git push origin HEAD:main; then exit 0; fi
+              echo "Concurrent branch writer, retry $attempt"
+              sleep 3
+            done
+            exit 1
+          fi
