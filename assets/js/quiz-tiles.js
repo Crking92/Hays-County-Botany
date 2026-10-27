@@ -151,7 +151,7 @@ function reedResults(){
  '<div class="quiz-results-score"><strong>'+state.reedCorrect+' / '+total+'</strong>'+
  '<span>'+ratio+'% of reed questions correct</span></div>'+
  '<p>Every missed question is a chance to review the actual leaf collar, spikelet, or lineage caution. Pictures alone do not genetically classify a Texas common-reed population.</p>'+
- '<div class="quiz-results-actions"><button type="button" class="quiz-button" data-reed-restart>Try ten new rounds ↻</button>'+
+ '<div class="quiz-results-actions"><button type="button" class="quiz-button" data-reed-restart>Retry the ten questions ↻</button>'+
  '<a class="quiz-outline" href="./field-id.html?species=phragmites-australis">Review common reed Field ID ↗</a>'+
  '<button type="button" class="quiz-outline" data-home>Choose another quiz</button></div>'+
  '</section>';
