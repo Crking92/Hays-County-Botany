@@ -2,7 +2,7 @@
 (function(){
 'use strict';
 const root=document.getElementById('quizApp');
-const state={mode:null,photos:[],terms:[],filter:'',current:null,answered:false,selected:'',correct:0,wrong:0,skipped:0,seen:{photo:new Set(),term:new Set()},loadPhoto:false,loadTerms:false,photoError:'',termError:''};
+const state={mode:null,photos:[],terms:[],filter:'',current:null,answered:false,selected:'',correct:0,wrong:0,skipped:0,seen:{photo:new Set(),term:new Set(),reed:new Set()},reed:[],loadPhoto:false,loadTerms:false,loadReed:false,photoError:'',termError:'',reedError:''};
 const esc=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const name=v=>String(v.common_name||v.scientific_name||'').trim();
 const clean=v=>String(v||'').trim().toLowerCase();
@@ -14,6 +14,10 @@ function safePhotoPath(path){
  if(p.some(x=>!x||x==='.'||x==='..'))return '';
  return './'+p.map(encodeURIComponent).join('/');
 }
+function safeSpeciesPath(path){
+ if(typeof path!=='string'||!/^content\/taxa\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/[A-Za-z0-9_-]+\/species\.json$/.test(path))return '';
+ return './'+path.split('/').map(encodeURIComponent).join('/');
+}
 function photoLabel(entry){
  return [entry.thumbnail_creator,entry.thumbnail_license].map(v=>String(v||'').trim()).filter(Boolean).join(' · ');
 }
@@ -21,7 +25,7 @@ function photoSource(entry){
  const source=String(entry.thumbnail_source||'');
  return /^https:\/\//i.test(source)?'<a href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">Original photograph ↗</a>':'';
 }
-const modeReady=mode=>mode==='photo'?state.photos.length>=4:state.terms.length>=4;
+const modeReady=mode=>mode==='photo'?state.photos.length>=4:mode==='reed'?state.reed.length>=4:state.terms.length>=4;
 function photoPool(){
  let pool=state.photos.filter(p=>!state.filter||p.family===state.filter);
  return pool;
@@ -64,11 +68,11 @@ function termOptions(answer){
 function nextQuestion(){
  const mode=state.mode;
  if(!mode||!modeReady(mode)){state.current=null;state.answered=false;render();return;}
- const pool=mode==='photo'?photoPool():state.terms;
+ const pool=mode==='photo'?photoPool():mode==='reed'?state.reed:state.terms;
  if(!pool.length){state.current=null;state.answered=false;render();return;}
  const answer=pickUnseen(pool,mode);
  if(!answer){state.current=null;render();return;}
- state.current={mode,answer,choices:mode==='photo'?photoOptions(answer):termOptions(answer)};
+ state.current=mode==='reed'?{...answer,choices:shuffle(answer.choices)}:{mode,answer,choices:mode==='photo'?photoOptions(answer):termOptions(answer)};
  state.answered=false;state.selected='';render();
  const title=root.querySelector('.quiz-question');if(title)title.focus();
 }
@@ -105,10 +109,23 @@ function answerDetails(){
  const q=state.current,a=q.answer;
  let msg=!state.selected?'Answer shown for study.':state.selected===a.id?'You identified it correctly.':'Compare the correct answer with your selection.';
  let details='';
- if(q.mode==='photo'){
+ if(q.mode==='reed'){
+  const picked=q.choices.find(x=>x.id===state.selected);
+  details='<div class="quiz-reveal-facts"><p class="eyebrow">Why this answer fits</p>'+
+   '<h3>'+esc(a.label)+'</h3>'+
+   (picked?'<p class="quiz-explanation"><b>Your choice:</b> '+esc(picked.feedback)+'</p>':'')+
+   '<p>'+esc(q.explanation||'Compare several structures before confirming the plant.')+'</p>'+
+   (q.photo?.thumbnail_source?'<a href="'+esc(q.photo.thumbnail_source)+
+    '" target="_blank" rel="noopener noreferrer">Original photograph ↗</a>':'')+
+   '<p class="quiz-study-links"><a href="./field-id.html?species='+encodeURIComponent(q.study)+
+    '">Review this plant in Field ID ↗</a> · '+
+   '<a href="./index.html?species='+encodeURIComponent(q.study)+
+    '">Open the full Learner ↗</a></p></div>';
+ }else if(q.mode==='photo'){
   details='<div class="quiz-reveal-facts"><p class="eyebrow">Correct identification</p><h3>'+
    esc(a.common_name||a.scientific_name)+'</h3><p><i>'+esc(a.scientific_name)+'</i> · '+esc(a.family)+'</p>'+
    (a.cue?'<p class="quiz-cue"><b>Look here first:</b> '+esc(a.cue)+'</p>':'')+
+   '<a href="./field-id.html?species='+encodeURIComponent(a.id)+'">Open Field ID ↗</a> · '+
    '<a href="./index.html?species='+encodeURIComponent(a.id)+'">Study the full species lesson ↗</a></div>';
  }else{
   const t=a.source;
@@ -130,13 +147,13 @@ function quizCard(){
    '<button class="quiz-button" data-home>Choose a quiz</button></section>';
  }
  const q=state.current;
- const img=q.mode==='photo'?safePhotoPath(q.answer.thumbnail):'';
- const photo=img?'<div class="quiz-photo-stage"><img src="'+esc(img)+'" alt="Mystery plant photograph; identify the species" decoding="async" loading="eager"></div>'+
-  '<div class="quiz-photo-attribution">'+esc(photoLabel(q.answer))+' '+photoSource(q.answer)+'</div>':'';
- const prompt=q.mode==='photo'?'Which plant is pictured?':'Which botanical term matches this description?';
- const content=q.mode==='photo'?photo:'<blockquote class="quiz-term-prompt">'+esc(q.answer.source.plain)+'</blockquote>';
+ const img=q.mode==='photo'?safePhotoPath(q.answer.thumbnail):q.mode==='reed'?safePhotoPath(q.photo?.thumbnail):'';
+ const photo=img?'<div class="quiz-photo-stage"><img src="'+esc(img)+'" alt="Source-identified field photograph for this question" decoding="async" loading="eager"></div>'+
+  '<div class="quiz-photo-attribution">'+esc(photoLabel(q.mode==='reed'?q.photo:q.answer))+'</div>':'';
+ const prompt=q.mode==='photo'?'Which plant is pictured?':q.mode==='reed'?q.question:'Which botanical term matches this description?';
+ const content=(q.mode==='photo'||q.mode==='reed')?photo:'<blockquote class="quiz-term-prompt">'+esc(q.answer.source.plain)+'</blockquote>';
  return '<div class="quiz-practice">'+
-  '<div class="quiz-back"><button data-home class="quiz-link">← Choose practice</button><span>'+esc(q.mode==='photo'?'Photo identification':'Botanical terminology')+'</span></div>'+
+  '<div class="quiz-back"><button data-home class="quiz-link">← Choose practice</button><span>'+esc(q.mode==='photo'?'Photo identification':q.mode==='reed'?'Reed look-alikes':'Botanical terminology')+'</span></div>'+
   stats()+
   (q.mode==='photo'?familySelector():'')+
   '<section class="quiz-panel"><div class="quiz-kicker">Identify before revealing</div>'+
@@ -157,7 +174,7 @@ function familySelector(){
   esc(n)+' ('+counts.get(n)+')</option>').join('')+'</select></div>';
 }
 function home(){
- const havePhotos=modeReady('photo'),haveTerms=modeReady('term');
+ const havePhotos=modeReady('photo'),haveTerms=modeReady('term'),haveReeds=modeReady('reed');
  return '<section class="quiz-hero"><p class="eyebrow">Crew learning • practice mode</p><h1>Quiz yourself.</h1>'+
  '<p>Short, photo-led practice using the same botanical library as Field ID. Tap a tile to begin, then reveal an answer and move to the next plant.</p></section>'+
  '<div class="quiz-mode-grid">'+
@@ -169,8 +186,12 @@ function home(){
   '<div class="quiz-mode-icon" aria-hidden="true">≋</div><div><span class="quiz-mode-caption">Botanical language</span>'+
   '<h2>Learn the terms</h2><p>Practice plant structures and see the existing glossary photos after each answer.</p>'+
   '<span class="quiz-mode-action">'+(state.loadTerms?'Loading terms…':haveTerms?state.terms.length+' terms →':'Glossary unavailable')+'</span></div></button>'+
+ '<button type="button" class="quiz-mode-tile quiz-reed-mode" data-mode="reed"'+(!haveReeds?' disabled':'')+'>'+
+  '<div class="quiz-mode-icon" aria-hidden="true">〰</div><div><span class="quiz-mode-caption">Look-alike learning</span>'+
+  '<h2>Reed field challenge</h2><p>Compare giant reed, common reed and giant cutgrass through sourced photos and diagnostic structures. Learn why Phragmites lineage needs caution.</p>'+
+  '<span class="quiz-mode-action">'+(state.loadReed?'Loading reed lessons…':haveReeds?state.reed.length+' guided questions →':'Reed lesson unavailable')+'</span></div></button>'+
  '</div>'+stats()+
- ((state.photoError||state.termError)?'<p class="quiz-load-note" role="status">'+esc([state.photoError,state.termError].filter(Boolean).join(' · '))+'</p>':'')+
+ ((state.photoError||state.termError||state.reedError)?'<p class="quiz-load-note" role="status">'+esc([state.photoError,state.termError,state.reedError].filter(Boolean).join(' · '))+'</p>':'')+
  '<div class="quiz-footer">Prefer the original quiz workflow? <a href="./quiz-classic.html">Classic Quiz ↗</a>'+
  ' · <a href="./field-id.html">Field ID ↗</a></div>';
 }
@@ -180,7 +201,7 @@ function render(){
  if(window.HaysGlossaryMedia&&state.answered&&state.mode==='term')window.HaysGlossaryMedia.hydrate(root);
 }
 function setMode(mode){
- if(!['photo','term'].includes(mode)||!modeReady(mode))return;
+ if(!['photo','term','reed'].includes(mode)||!modeReady(mode))return;
  state.mode=mode;state.filter='';nextQuestion();
 }
 root.addEventListener('click',e=>{
@@ -195,7 +216,7 @@ root.addEventListener('change',e=>{
  if(e.target.id==='quizFamily'){state.filter=e.target.value;state.seen.photo.clear();nextQuestion();}
 });
 async function init(){
- state.loadPhoto=true;state.loadTerms=true;render();
+ state.loadPhoto=true;state.loadTerms=true;state.loadReed=true;render();
  const tasks=await Promise.allSettled([
   fetch('./data/field-id-index.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Photo index unavailable');return r.json();}),
   fetch('./data/learning-layer.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('Glossary unavailable');return r.json();})
@@ -215,7 +236,22 @@ async function init(){
     !clean(t.plain).includes(clean(t.term))
   ).map(([id,t])=>({id,label:t.term,source:t}));
  }else state.termError='Term practice needs the published glossary.';
- state.loadPhoto=false;state.loadTerms=false;render();
+ if(tasks[0].status==='fulfilled'&&Array.isArray(tasks[0].value.species)&&window.HaysReedQuiz){
+  const needed=window.HaysReedQuiz.requiredSpecies||[];
+  try{
+   const entries=needed.map(id=>tasks[0].value.species.find(p=>p.id===id));
+   if(entries.some(x=>!x||!safeSpeciesPath(x.path)))throw Error('Required reed species missing from published library');
+   const species=await Promise.all(entries.map(async x=>{
+     const r=await fetch(safeSpeciesPath(x.path),{cache:'no-store'});
+     if(!r.ok)throw Error('Reed source record unavailable');
+     return r.json();
+   }));
+   const lookup=Object.fromEntries(species.map(d=>[d.id,d]));
+   state.reed=window.HaysReedQuiz.build(lookup);
+   if(state.reed.length<4)throw Error('Insufficient credited reed photos in published site');
+  }catch(e){state.reed=[];state.reedError='Reed quiz photos unavailable in this release.';}
+ }else state.reedError='Reed quiz requires the current published Field ID library.';
+ state.loadPhoto=false;state.loadTerms=false;state.loadReed=false;render();
 }
 init();
 })();
