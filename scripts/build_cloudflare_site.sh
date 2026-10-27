@@ -9,6 +9,9 @@ cp index.html dist/
 cp field-id.html field-id-classic.html quiz.html quiz-classic.html dist/
 # Public, source-credited photo booklet (no review-only media).
 cp reed-lookalikes-field-guide.html dist/
+# Four-page photographic reed infographic, for mobile and standard landscape print.
+cp reed-lookalikes-infographic.html dist/
+if test -s reed-lookalikes-infographic-print.pdf; then cp reed-lookalikes-infographic-print.pdf dist/; fi
 test -s dist/reed-lookalikes-field-guide.html
 test -s dist/field-id.html && test -s dist/field-id-classic.html && test -s dist/quiz.html && test -s dist/quiz-classic.html
 # Publish only the current Photo Lab review; completed batches remain archived in GitHub.
