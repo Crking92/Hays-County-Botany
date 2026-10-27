@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-27",
+  "scope": "Three-reed ecology education across Hays Botany Learner, Field ID and Quiz. Not an audit of all ~1,200 unrelated species.",
+  "plant_species": [
+    "Phragmites australis",
+    "Arundo donax",
+    "Zizaniopsis miliacea"
+  ],
+  "verified_archived_media": {
+    "phragmites": 17,
+    "arundo": 7,
+    "zizaniopsis": 5,
+    "total": 29
+  },
+  "curated_comparison_panels": {
+    "phragmites": 21,
+    "arundo": 10,
+    "zizaniopsis": 3,
+    "total": 34
+  },
+  "saved_visible_structure_arrows": {
+    "phragmites": 23,
+    "arundo": 5,
+    "zizaniopsis": 6,
+    "total": 34
+  },
+  "media_notes": [
+    "All 29 physically archived source photographs decoded with Pillow in CI and had a declared creator, license and HTTPS source page; file counts and metadata matched.",
+    "Five archived Zizaniopsis files: only three dedicated comparison panels and six reviewed arrows. Two other photographs remain anatomy role review pending; source is Florida, not a Kyle or Hays County voucher.",
+    "Other study-only externally hosted panel references are not counted as physical archived images and their remote load/permissions are not independently guaranteed.",
+    "Four user-supplied R. Neil Reese/SDSU source photographs remain excluded from public GitHub Pages because express public display permission was not confirmed.",
+    "The uploaded AoB PLANTS Figure 5 with C. S. Hood photo credit is a science comparison reference; earlier acquisition attempted but failed, never counted as archived."
+  ],
+  "beginner_lesson": {
+    "learner": "Four actual owned/attributed specimen photo steps for Arundo and Phragmites, then anatomy and taxon-context details; unchanged 13 Phragmites identification lesson tiles and Arundo's six.",
+    "field_id": "Fix simple five-step crew guide priority; compare three reed-like plants with side-by-side credited habit, optional actual archived collar and flowering photos, and source-specific cautions.",
+    "glossary": "Term explanations retained. Basic labels use plain-English introductions, specialist morphology is expandable.",
+    "safety": "Phragmites species recognition does not infer native or Eurasian introduced lineage from a photo; remain unresolved where needed."
+  },
+  "advanced_lesson": {
+    "arundo": "Source-derived character descriptions for clasping blade-base shoulders, measured ligule, spikelet, paired glumes, hairy lemma versus largely non-silky rachilla; decisive same-specimen hair origin macro remains missing.",
+    "phragmites": "Native americanus, introduced Eurasian australis, and Gulf Coast berlandieri distinctions; peer-reviewed genetics-grouped mean ± SE/n for ligule and glumes shown with non-diagnostic overlap warning; Gulf true inner ligule and lineage-verified glumes not pictured.",
+    "zizaniopsis": "Sex-separated spikelets and long true membranous ligule are described via morphology literature, not claimed proven by current macro photos. Sex position conflict across source treatments preserved."
+  },
+  "quiz": {
+    "all_general_photo_and_botanical_term_modes_preserved": true,
+    "reed_challenge": "Ten source-linked photo/anatomy questions, 4 options each, credited, with feedback, links to source photo and exact Field ID, score and accurate replay label. This remains educational assessment, not expert certification.",
+    "audit": "tests/test_reed_quiz.cjs PASS, all 10 image paths/answer IDs/credits and 3 species required."
+  },
+  "code_quality": {
+    "receipt": "reports/reed-field-id-validation-20261027.json",
+    "qa_run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/40527102697",
+    "tests": "3 existing Python learner integrity, 4 new Python closeout integrity, 4 JS syntax checks and 10-question Node test ALL PASS",
+    "browser_limitation": "No live click-through/mobile visual confirmation was performed in this audit; latest GitHub Pages deployment can confirm build success but not subjective visual alignment on user device."
+  },
+  "remaining_photo_requirements": [
+    "Phragmites: voucher/genetically associated Gulf berlandieri opened true inner ligule with mm scale and genuine separate mature glumes; existing outer-sheath and whole panicle references DO NOT substitute",
+    "Arundo: paired same-specimen rachilla/lemma hair origin 10-20x with ruler; already has readable diagnostic collage and separated spikelets, but not decisive paired hair-origin macro",
+    "Zizaniopsis: opened long 6–20 mm ligule, leaf-margin serrations, and same-branch anther/stigma verified male/female spikelets with mm scale; don't infer sex from position alone",
+    "Independent live-mobile arrow-overlay check on all displayed starter photo panels remains a useful user field review."
+  ],
+  "decision": "FIELD_READY_PHOTO_GAPS retained for Phragmites/Arundo/Zizaniopsis. Strong crew field learner and defensible expert research caveats, but no justified all-photos-or-genetic-100% claim.",
+  "no_new_photos_installed_in_final_pass": true
+}
