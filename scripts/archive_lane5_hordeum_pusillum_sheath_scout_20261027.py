@@ -37,7 +37,7 @@ def imageinfo(name):
  return info
 d=json.loads(CARD.read_text());assert d["id"]=="hordeum-pusillum"
 panel=d["visual_comparison"]["items"][5]
-if panel.get("source_page")!=URL:raise ValueError("Exact gallery photo/source identity unexpected "+str(panel.get("source_page")))
+if urllib.parse.unquote(panel.get("source_page",""))!=urllib.parse.unquote(URL):raise ValueError("Exact gallery photo/source identity unexpected "+str(panel.get("source_page")))
 try:
  info=imageinfo(FILENAME)
  raw=get(info.get("thumburl") or info["url"])
