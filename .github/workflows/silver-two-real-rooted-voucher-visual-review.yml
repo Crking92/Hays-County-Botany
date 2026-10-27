@@ -1,0 +1,44 @@
+name: Silver bluestem two rooted herbarium vouchers visual review
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-two-real-rooted-voucher-visual-review.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Inspect taxon locality and real attached roots at higher resolution
+        run: |
+          python - <<'PY'
+          import requests,io,json,base64
+          from PIL import Image,ImageOps
+          s=requests.Session();s.headers["User-Agent"]="City of Kyle Botanical Learner native silver bluestem voucher inspection/1.0"
+          for key in [3921136348,2242382547,6158969001]:
+            try:
+              r=s.get(f"https://api.gbif.org/v1/occurrence/{key}",timeout=30);r.raise_for_status()
+              d=r.json()
+              summary={k:d.get(k) for k in ["key","scientificName","acceptedScientificName","taxonRank","country","stateProvince","county","locality","basisOfRecord","institutionCode","collectionCode","catalogNumber","license","rightsHolder","references","occurrenceID"]}
+              summary["media"]=[{f:m.get(f) for f in ["identifier","license","creator","rightsHolder","title"]} for m in d.get("media",[])[:4]]
+              print("VOUCHER_META",json.dumps(summary,ensure_ascii=False))
+              for m in d.get("media",[])[:1]:
+                url=m.get("identifier")
+                if not url:continue
+                res=s.get(url,timeout=30);res.raise_for_status()
+                if len(res.content)>25_000_000:raise RuntimeError("too big")
+                with Image.open(io.BytesIO(res.content)) as im:orig=ImageOps.exif_transpose(im).convert("RGB")
+                size=orig.size
+                orig.thumbnail((900,1300))
+                b=io.BytesIO();orig.save(b,"JPEG",quality=82,optimize=True)
+                print("VOUCHER_PIXELS",json.dumps({"key":key,"source":url,"dimensions":size,"data_bytes":len(res.content)}))
+                print("VOUCHER_ORIGINAL_START::"+str(key))
+                print(base64.b64encode(b.getvalue()).decode())
+                print("VOUCHER_ORIGINAL_END::"+str(key))
+            except Exception as e:print("VOUCHER_HOLD",key,str(e)[:340])
+          PY
