@@ -1,0 +1,54 @@
+name: Silver Milam original anatomy arrow placement screenshot QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-milam-arrow-target-visual-qa-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Render actual arrow target coordinates over source original pixels and print review sheet
+        run: |
+          python - <<'PY'
+          import json,io,base64
+          from pathlib import Path
+          from PIL import Image,ImageDraw,ImageOps
+          folder=Path('content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana')
+          card=json.loads((folder/'species.json').read_text())
+          targets=[648930178,648929751,648930211]
+          sheet=Image.new('RGB',(1740,1060),'white');draw=ImageDraw.Draw(sheet)
+          for i,pid in enumerate(targets):
+            panel=next(x for x in card['visual_comparison']['items'] if x.get('source_photo_id')==pid)
+            f=Path(panel['image_url'])
+            with Image.open(f) as original:
+              im=ImageOps.exif_transpose(original).convert('RGB')
+            im.thumbnail((560,940))
+            x=i*580+(580-im.width)//2;y=35+(940-im.height)//2
+            sheet.paste(im,(x,y))
+            for marker in panel['markers']:
+              px=x+im.width*marker['target_x']/100
+              py=y+im.height*marker['target_y']/100
+              qx=x+im.width*marker['label_x']/100
+              qy=y+im.height*marker['label_y']/100
+              draw.line((qx,qy,px,py),fill=(255,0,0),width=5)
+              draw.ellipse((px-10,py-10,px+10,py+10),outline=(255,0,0),width=5)
+              print('ARROW_TARGET',json.dumps({'pid':pid,'label':marker['label'],'target_x':marker['target_x'],'target_y':marker['target_y']}))
+            draw.text((i*580+10,990),f'{pid}  {im.width} x {im.height}',fill='black')
+          b=io.BytesIO();sheet.save(b,'JPEG',quality=87,optimize=True)
+          e=base64.b64encode(b.getvalue()).decode()
+          print('ARROW_SHEET_BEGIN',len(b.getvalue()))
+          for idx,k in enumerate(range(0,len(e),3500)):print(f'ARROW_SHEET_{idx}='+e[k:k+3500])
+          print('ARROW_SHEET_END')
+          PY
