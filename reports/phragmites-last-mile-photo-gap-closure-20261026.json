@@ -66,7 +66,7 @@
     "attempted_sources": 8,
     "max_photos_per_source": 2,
     "expected_result": "reports/phragmites-gulf-photo-scout-batch2-focused-20261026.json",
-    "check_as_of_this_pass": "NOT_PRESENT in default branch; no claims of successful photographs, failure, or workflow status"
+    "check_as_of_this_pass": "COMPLETED: 12 candidates rights/bytes recorded, 1 changed taxon held; no eligible inner ligule/glume, none promoted."
   },
   "previous_glume_download_retry": "reports/phragmites-sl23-reproductive-photo-retry-20261026.json absent in default branch; Stefan.lefnaer sl23 source identified and CC BY-SA 4.0 checked, bytes NOT verified as gallery installed",
   "closeout_passes": [
@@ -100,5 +100,77 @@
     "https://www.nrcs.usda.gov/plantmaterials/idpmctn11494.pdf",
     "https://maisrc.umn.edu/phragmites-id-report",
     "https://pmc.ncbi.nlm.nih.gov/articles/PMC3676263/"
-  ]
+  ],
+  "focused_batch2_photo_review": {
+    "completed": true,
+    "status": "12 PHOTOGRAPHS PHYSICALLY ARCHIVED FOR SOURCE REVIEW; ZERO QUALIFYING TRUE LIGULE OR SEPARATED MATURE GLUME MACROS",
+    "source_report": "reports/phragmites-gulf-photo-scout-batch2-focused-20261026.json",
+    "contact_sheet": "reports/phragmites-gulf-photo-scout-batch2-focused-20261026/contact-sheet.jpg",
+    "source_grade": "Current berlandieri community observations, image-level CC BY-NC 4.0, no genotype/voucher certificate",
+    "manually_inspected_contact_sheet": true,
+    "separately_inspected_photo_id": 171115878,
+    "accepted_for_canonical": 0,
+    "not_promoted": [
+      {
+        "photo_id": 179640863,
+        "reason": "Roadside wetland/stand with distant panicles"
+      },
+      {
+        "photo_id": 172321136,
+        "reason": "Unscaled dry flowering heads"
+      },
+      {
+        "photo_id": 172321620,
+        "reason": "Whole culms/flowering heads, no close ligule"
+      },
+      {
+        "photo_id": 171115765,
+        "reason": "Unscaled flowering culm in habitat"
+      },
+      {
+        "photo_id": 171115878,
+        "reason": "Actual hand-held broad leaf blade, NOT collar or membranous ligule"
+      },
+      {
+        "photo_id": 109558712,
+        "reason": "Panicles and mature leaves from a distance"
+      },
+      {
+        "photo_id": 109558738,
+        "reason": "Mature panicles, no spikelet dissection"
+      },
+      {
+        "photo_id": 60487385,
+        "reason": "Culms and flowers, no actual opened junction"
+      },
+      {
+        "photo_id": 180374158,
+        "reason": "Wetland habitat with stems and plumes"
+      },
+      {
+        "photo_id": 180374183,
+        "reason": "Dense vegetation/stand overview"
+      },
+      {
+        "photo_id": 108440414,
+        "reason": "Habitat flowering canes"
+      },
+      {
+        "photo_id": 108440459,
+        "reason": "Closer panicle, still no isolated calibrated glumes"
+      }
+    ],
+    "rejected_current_taxon": {
+      "observation_id": 111946695,
+      "now": "Phragmites australis species level",
+      "reason": "Do not imply berlandieri after current ID changed"
+    },
+    "source_license": "Photo-specific CC BY-NC 4.0; creator metadata preserved in scout, not copied into public site",
+    "recommendations": "Stop repetitive general iNaturalist stand searches until a source has clearly opened collar with ruler or dissected glumes. Next best action: obtain lineage-determined herbarium/morphology photographer image or field specimen photo under explicit public permission.",
+    "release_policy": "No photo gallery or arrow additions, no new Pages marker for source-only rejection report."
+  },
+  "remaining_pass_estimate_after_review": {
+    "field_ready": "3–4 focused passes, conditional on new genuine anatomy media and QA",
+    "full_lineage_certified": "Unbounded; may require original voucher/lineage molecular work, not more random web searching."
+  }
 }
