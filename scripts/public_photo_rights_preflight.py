@@ -451,6 +451,16 @@ def permitted_thayer_kr_anatomy(item: dict, noncommercial: bool) -> bool:
     # exact original source/permission pages, and the documented creator.
     photo_id = item.get("source_photo_id")
     image = item.get("image_url") or item.get("file")
+    original = THAYER_KR_IMAGES.get(photo_id)
+    archive_names = {
+        "Bothriochloa_ischaemum8": "kr-az-thayer-spikelet-pair-20261027.jpg",
+        "Bothriochloa_ischaemum9": "kr-az-thayer-root-crown-20261027.jpg",
+    }
+    local = "images/" + archive_names[photo_id] if photo_id in archive_names else ""
+    absolute = "content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum/" + local
+    permitted_asset = image == original or (
+        image in {local, absolute} and item.get("source_media_url") == original
+    )
     return (
         noncommercial
         and item.get("creator") == "Dave Thayer"
@@ -461,7 +471,7 @@ def permitted_thayer_kr_anatomy(item: dict, noncommercial: bool) -> bool:
         and item.get("license_url") == THAYER_KR_PERMISSION_PAGE
         and item.get("source_taxon_name") == "Bothriochloa ischaemum"
         and photo_id in THAYER_KR_IMAGES
-        and image == THAYER_KR_IMAGES.get(photo_id)
+        and permitted_asset
     )
 
 def photo_rights(record, noncommercial=False):
