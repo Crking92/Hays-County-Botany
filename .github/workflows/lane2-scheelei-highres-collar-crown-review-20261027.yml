@@ -1,0 +1,61 @@
+name: Lane 2 Scheele exact collar and rooted-crown original photo review
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-scheelei-highres-collar-crown-review-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Review full source pixels and exact CC photo metadata without publishing
+        run: |
+          python - <<'PY'
+          import json,io,base64
+          from urllib.request import urlopen,Request
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 photo level license original pixel assessment'}
+          selected=[(746135170,406143723),(728484469,397188831),(728484502,397188831),
+                    (709728332,387584292),(721225421,393478196),(748690401,407414809)]
+          verified=[]
+          cache={}
+          for photo_id,obs_id in selected:
+              if obs_id not in cache:
+                  with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{obs_id}',headers=UA),timeout=40) as u:
+                      cache[obs_id]=json.load(u)['results'][0]
+              o=cache[obs_id]
+              assert o['taxon']['name']=='Setaria scheelei' and o.get('quality_grade')=='research'
+              p=next(x for x in o['photos'] if x['id']==photo_id)
+              assert p.get('license_code') in ['cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa']
+              original=f'https://inaturalist-open-data.s3.amazonaws.com/photos/{photo_id}/original.jpg'
+              with urlopen(Request(original,headers=UA),timeout=45) as u:raw=u.read(10_000_001)
+              assert len(raw)<10_000_001
+              with Image.open(io.BytesIO(raw)) as x:
+                  im=ImageOps.exif_transpose(x).convert('RGB')
+                  dims=im.size
+              im.thumbnail((900,850))
+              verified.append((p,o,im,dims))
+              print('EXACT_PHOTO_ORIGINAL',json.dumps({'photo_id':photo_id,'obs_id':obs_id,'creator':p.get('attribution'),
+                'license':p['license_code'],'dimensions':dims,'bytes':len(raw),'species':o['taxon']['name'],
+                'source':'https://www.inaturalist.org/photos/'+str(photo_id)}))
+          for sheet_num in range(3):
+              canvas=Image.new('RGB',(1840,980),'white'); d=ImageDraw.Draw(canvas)
+              for k,(p,o,im,dims) in enumerate(verified[sheet_num*2:sheet_num*2+2]):
+                  x=k*920
+                  canvas.paste(im,(x+(920-im.width)//2,10+(850-im.height)//2))
+                  d.text((x+20,885),f'Photo {p["id"]} source obs {o["id"]}',fill='black')
+                  d.text((x+20,910),f'{p["license_code"]}  actual source {dims}',fill='black')
+              b=io.BytesIO();canvas.save(b,'JPEG',quality=84,optimize=True)
+              enc=base64.b64encode(b.getvalue()).decode('ascii')
+              print('HIRES_SHEET_BEGIN',sheet_num,'bytes',len(b.getvalue()))
+              for part,i in enumerate(range(0,len(enc),3500)):print(f'HIRES_SHEET_{sheet_num}_{part}='+enc[i:i+3500])
+              print('HIRES_SHEET_END',sheet_num)
+          PY
