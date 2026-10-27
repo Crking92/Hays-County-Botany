@@ -1,0 +1,42 @@
+name: Lane 5 inland sea oats licensed floret and caryopsis photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_chasmanthium_fruit_20261027.py
+      - .github/workflows/archive-lane5-chasmanthium-fruit-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-chasmanthium-fruit-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Verify license, archive real photos, and repair lesson gallery references
+        run: python scripts/archive_lane5_chasmanthium_fruit_20261027.py
+      - name: Commit image bytes and provenance only after successful rights screening
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Chasmanthium/chasmanthium-latifolium/ reports/lane5-chasmanthium-diagnostic-fruit-20261027.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive CC BY-SA inland sea oats fruit and floret anatomy photos"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo "Concurrent updates prevented safe publication; no force push" >&2
+          exit 1
