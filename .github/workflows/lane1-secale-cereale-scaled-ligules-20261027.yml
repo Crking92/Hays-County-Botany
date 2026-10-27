@@ -1,0 +1,27 @@
+name: Lane 1 true Secale cereale ligule 3mm and 10mm source photos
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-secale-cereale-scaled-ligules-20261027.yml'
+      - 'scripts/lane1_secale_cereale_true_scaled_ligules_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-rye-scaled-two-real-true-ligules
+  cancel-in-progress: false
+jobs:
+  verify-true-rye-ligule-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install requests and pillow
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: License and exact-species verify original 3mm and 10mm rye collar photos, then install EXIF-free originals
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/lane1_secale_cereale_true_scaled_ligules_20261027.py
