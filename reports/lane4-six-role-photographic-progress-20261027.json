@@ -20,22 +20,26 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 3,
-  "confirmed_at_or_above_70": 2,
-  "targeted_pass_covered": 13,
-  "remaining_targeted_passes": 10,
-  "progress_disclaimer": "3 of 23 species have independent photo-role audit and exact 0/.5/1 scores, and 2 of those 3 are >=70%. Other 20 UN-SCORED and some may already be strong. Current conversation has confirmed targeted passes for 13/23 including this Polypogon pass. These counts are not all-lane average photo completeness.",
+  "audited_to_date": 5,
+  "confirmed_at_or_above_70": 3,
+  "targeted_pass_covered": 15,
+  "remaining_targeted_passes": 8,
+  "progress_disclaimer": "5 of 23 received genuine 0/.5/1 photographic role scores; three are >=70%. Other 18 UNSCORED and not presumed below threshold. 15/23 have received a documented targeted pass in current Lane4 continuation; eight remain without such a pass. Pass-count vs threshold-count are different.",
   "photo_physical_progress_today": {
-    "new_local_originals": 3,
-    "new_gross_arrows": 3,
+    "new_local_originals": 6,
+    "new_gross_arrows": 9,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
-    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 2
+    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 2,
+    "newly_pixel_inspected_archived_exact_photos": 7,
+    "blocked_copyright_ligule_sources": [
+      "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
+    ]
   },
   "site_release_checks": {
     "individual_photo_rights": "review image level per species; CC BY-NC conditional noncommercial",
     "mobile_arrow_pixel_QA": "NOT VERIFIED",
-    "latest_Pages_site_with_today_changes": "NOT VERIFIED",
+    "latest_Pages_site_with_today_changes": "NOT VERIFIED; latest run checked in progress / older runs cancelled by new pushes",
     "BONAP_county_decisions": "unchanged"
   },
   "protected_holds": [
@@ -149,20 +153,50 @@
     {
       "id": "catapodium-rigidum",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "at_70_80",
       "previous_targeted_pass": false,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        1,
+        0,
+        1,
+        1,
+        1,
+        0.5
+      ],
+      "pct": 75,
+      "total": 4.5,
+      "previous_total": 3.5,
+      "previous_pct": 58,
+      "new_species_photos": 3,
+      "new_arrows": 2,
+      "new_evidence": "Stefan.lefnaer sl17 actual two-view connected panicle 20mm, sl26 5mm source-labelled actual 2 glumes 4 lemmas paleas, sl28 3mm glume-face plate; per-image CC BY-SA4",
+      "commit": "c0eafa623bc2bc994a5504d064e13eb0cb260e97",
+      "next_photo": "Real fibrous crown and 0.5–1.5 mm short pedicel/3-angled axis if accessible; move on because Pass A>=75%."
     },
     {
       "id": "dichanthelium-oligosanthes",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "below_70",
       "previous_targeted_pass": false,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        0.5,
+        0,
+        0,
+        1,
+        0.5,
+        0.5
+      ],
+      "pct": 42,
+      "total": 2.5,
+      "previous_total": 2.5,
+      "previous_pct": 42,
+      "new_species_photos": 0,
+      "new_arrows": 4,
+      "photo_bytes_existing": 5,
+      "historical_illustrations": 1,
+      "new_photo_source_scanned": "Nathan Aaron photo guide: 6 useful original photos, individual iNat API /v1/photos returned 404 for all; no license proof, excluded",
+      "commit": "3c51e13501713274779fd82c2172676458cac913",
+      "next_photo": "Real opened inside 1–3 mm hair fringe + measured 2.7–4.2 mm glumes/lemmas; true roots later."
     },
     {
       "id": "disakisperma-dubium",
