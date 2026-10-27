@@ -1,0 +1,73 @@
+name: Cane bluestem Texas original-photo node ligule scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/cane-bluestem-tx-node-ligule-photo-scout-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Find research-grade Texas cane bluestem photo series with exact photo rights
+        run: |
+          python - <<'PY'
+          import json,io,base64,math,urllib.parse
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysCountyBotany/1.0 field diagnostic photo audit'}
+          found={}
+          for mode in ('observed_on','created_at','votes'):
+            for page in (1,2):
+              args={'taxon_id':'75841','place_id':'18','quality_grade':'research','photos':'true',
+                    'per_page':'200','page':page,'order_by':mode,'order':'desc'}
+              try:
+                with urlopen(Request('https://api.inaturalist.org/v1/observations?'+urllib.parse.urlencode(args),headers=UA),timeout=40) as u:d=json.load(u)
+                print('PAGE',mode,page,'total',d.get('total_results'))
+                for obs in d.get('results',[]):
+                  if obs.get('taxon',{}).get('name')=='Bothriochloa barbinodis' and len(obs.get('photos',[]))>=3:
+                    found[obs['id']]=obs
+              except Exception as e:print('API_HOLD',mode,page,str(e)[:180])
+          ranked=sorted(found.values(),key=lambda o:(len(o.get('photos',[])),sum(p.get('license_code') in ('cc0','cc-by','cc-by-sa','cc-by-nc') for p in o.get('photos',[]))),reverse=True)
+          print('MULTIPHOTO_TOTAL',len(ranked))
+          for o in ranked[:28]:
+            pic=[{'id':p['id'],'license':p.get('license_code')} for p in o['photos']]
+            print('CANE_CANDIDATE',json.dumps({'obs':o['id'],'grade':o.get('quality_grade'),
+             'locality':o.get('place_guess'),'date':o.get('observed_on'),'author':o.get('user',{}).get('login'),
+             'photos':pic},ensure_ascii=False))
+          selected=[o for o in ranked if len(o.get('photos',[]))>=4 and
+                sum(p.get('license_code') in ('cc0','cc-by','cc-by-sa','cc-by-nc') for p in o['photos'])>=4][:5]
+          entries=[]
+          for o in selected:
+            for p in o['photos'][:7]:
+              pid=p['id'];license=p.get('license_code')
+              if license not in ('cc0','cc-by','cc-by-sa','cc-by-nc'):continue
+              url=p['url'].replace('/square.','/large.').replace('/medium.','/large.')
+              try:
+                with urlopen(Request(url,headers=UA),timeout=35) as u:raw=u.read(9500000)
+                with Image.open(io.BytesIO(raw)) as x:
+                  im=ImageOps.exif_transpose(x).convert('RGB');orig=im.size
+                im.thumbnail((500,475))
+                entries.append((o['id'],pid,license,im,orig,p.get('attribution')))
+                print('SOURCE_PHOTO',json.dumps({'obs':o['id'],'photo':pid,'license':license,'author':p.get('attribution'),
+                  'dimensions':orig,'source':'https://www.inaturalist.org/photos/'+str(pid)},ensure_ascii=False))
+              except Exception as e:print('SOURCE_HOLD',pid,str(e)[:120])
+          print('DOWNLOADS',len(entries))
+          for group in range(math.ceil(len(entries)/8)):
+            sheet=Image.new('RGB',(2100,1140),'white');draw=ImageDraw.Draw(sheet)
+            for i,(oid,pid,lic,im,orig,author) in enumerate(entries[group*8:(group+1)*8]):
+              cx=i%4;cy=i//4;x=cx*525;y=cy*570
+              sheet.paste(im,(x+(525-im.width)//2,y+(490-im.height)//2))
+              draw.text((x+8,y+501),f'{oid} / {pid} {lic}',fill='black')
+              draw.text((x+8,y+525),f'{orig[0]}x{orig[1]}',fill='black')
+            b=io.BytesIO();sheet.save(b,'JPEG',quality=73,optimize=True)
+            encoded=base64.b64encode(b.getvalue()).decode()
+            print('CANE_SHEET_BEGIN',group,len(b.getvalue()))
+            for k,pos in enumerate(range(0,len(encoded),3500)):print(f'CANE_SHEET_{group}_{k}='+encoded[pos:pos+3500])
+            print('CANE_SHEET_END',group)
+          PY
