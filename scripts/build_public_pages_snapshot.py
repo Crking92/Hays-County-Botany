@@ -118,6 +118,23 @@ def permitted_harms_tridens_albescens(item, noncommercial=False):
                 for sid in HARMS_TRAL_IDS))
 
 
+# Bob Harms' original Tridens muticus (= Tridentopsis mutica) Selected Central
+# Texas Monocots: copyright retained, science/education with exact credit, NOT CC.
+HARMS_TRMU_IDS = frozenset({"TRMU-j1","TRMU-9","TRMU-L"})
+
+def permitted_harms_tridentopsis_mutica(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator")=="Bob Harms"
+        and item.get("license")==HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission")==HARMS_SITE_PERMISSION
+        and item.get("license_url")=="https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name")=="Tridens muticus"
+        and item.get("accepted_taxon_name")=="Tridentopsis mutica"
+        and any(item.get("source_page")==HARMS_BASE+"pages/"+sid+".html"
+                and item.get("source_image")==HARMS_BASE+"images/"+sid+".jpg"
+                for sid in HARMS_TRMU_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -574,6 +591,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Bob Harms exact Leptochloa dubia / accepted Disakisperma dubium educational credited originals"
     if permitted_harms_limnodea(item, noncommercial):
         return True, "Copyright Bob Harms exact selected Ozarkgrass originals educational-with-credit, NOT CC"
+    if permitted_harms_tridentopsis_mutica(item, noncommercial):
+        return True, "Bob Harms original Tridens muticus accepted as Tridentopsis mutica, educational with credit (NOT CC)"
     if permitted_harms_tridens_albescens(item, noncommercial):
         return True, "Exact Harms white tridens photos for scientific/educational use with credit, NOT CC"
     if permitted_harms_aparejograss(item, noncommercial):
