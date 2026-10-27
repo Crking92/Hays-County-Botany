@@ -1,0 +1,45 @@
+name: Lane4 Lindheimer true photo licensed anatomy contact scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_lindheimeri_inat_public_diagnostic_photo_scout_20261027.py
+      - .github/workflows/lane4-lindheimeri-inat-public-anatomy-scout-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-lindheimeri-license-candidate-anatomy-scout
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            scripts/lane4_lindheimeri_inat_public_diagnostic_photo_scout_20261027.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - name: Verify research-grade exact taxon and individual CC photo license before contact previews
+        run: python scripts/lane4_lindheimeri_inat_public_diagnostic_photo_scout_20261027.py
+      - name: Save noncanonical attributions and compact source photo contact sheet only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --sparse reports/lane4-lindheimeri-licensed-source-photo-scout-20261027/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane4 discover source-licensed actual Lindheimer panicgrass anatomy photo candidates"
+            pushed=0
+            for attempt in 1 2 3 4 5 6; do
+              git fetch origin main
+              if ! git rebase origin/main; then git rebase --abort || true; exit 1; fi
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = 1
+          fi
