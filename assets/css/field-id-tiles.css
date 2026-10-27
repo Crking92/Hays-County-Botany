@@ -137,3 +137,44 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .detail-photo-overlay line{stroke:#f7e6a0;stroke-width:.8;stroke-linecap:round;filter:drop-shadow(0 1px 2px #173c2c)}
 .detail-arrow-label{position:absolute;transform:translateY(-50%);max-width:42%;padding:2px 4px;border-radius:4px;border:1px solid #e9dea7;background:rgba(15,48,30,.92);color:white;font-size:10px;font-weight:750;line-height:1.2;white-space:normal}
 .detail-photo figcaption .detail-arrow-count{color:#28563a;font-weight:700}
+
+
+/* Photo-first compact reed field cards. Full galleries and specialized
+   microscopic key stay available in collapsible sections. */
+.field-beginner-first{padding:14px 16px;border-left:4px solid #568b67;background:#ebf3eb;border-radius:0 12px 12px 0}
+.field-beginner-first h3{font-size:1.25rem;margin:0 0 7px}
+.field-reed-starter{margin:20px 0;padding:18px;border:1px solid #c6d8c7;border-radius:16px;background:#f2f6ef}
+.field-reed-starter>.eyebrow{color:#36734b}
+.field-reed-starter>h3{font:750 1.45rem/1.25 Georgia,serif;color:#173c2c;margin:4px 0 9px}
+.field-starter-intro{font-size:.96rem;line-height:1.6;margin:0 0 13px}
+.field-starter-memory{padding:11px 14px;border-radius:10px;background:white;border:1px solid #d6e5d7;margin:0 0 17px;line-height:1.5}
+.field-starter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.field-starter-card{min-width:0;border:1px solid #d1ded3;border-radius:12px;overflow:hidden;background:white}
+.field-starter-card figure{margin:0}
+.field-starter-card .detail-photo-image{width:100%;background:#e7eee8}
+.field-starter-card .detail-photo-image img{display:block;width:100%;height:auto;object-fit:contain}
+.field-starter-card figcaption{padding:7px 11px;font-size:.76rem;color:#506556;line-height:1.42}
+.field-starter-card figcaption small{display:block;overflow-wrap:anywhere}
+.field-starter-card .field-starter-copy{padding:8px 12px 15px}
+.field-starter-card h4{font-size:1.08rem;color:#1d4b35;line-height:1.28;margin:0 0 8px}
+.field-starter-card p{font-size:.9rem;line-height:1.55;margin:8px 0 0}
+.field-starter-card .field-starter-why{padding-top:10px;border-top:1px solid #e1e8e0;color:#435a49}
+.field-starter-safety{padding:13px 15px;margin:17px 0 0;background:#fff4d9;border-left:4px solid #bf9443;border-radius:0 10px 10px 0;line-height:1.56}
+.field-fast-check{padding:16px;border:1px solid #d5e2d2;border-radius:13px;background:white}
+.field-fast-check ol{padding-left:24px;margin:6px 0 0;line-height:1.55}
+.field-fast-check li{margin:8px 0}
+.field-reed-compare{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin:17px 0;padding:14px 16px;background:#e6f1e9;border:1px solid #cbdece;border-radius:12px}
+.field-reed-compare p{font-size:.87rem;max-width:450px;margin:5px 0 0}
+.field-reed-compare .open-learner{border:1px solid #88ab93;white-space:normal;text-align:center}
+.field-reed-gallery summary,.field-reed-explore summary{font-size:1rem}
+.field-reed-gallery .detail-gallery{padding-top:5px}
+.field-reed-gallery .detail-photo{flex-basis:225px;width:225px}
+@media(max-width:650px){
+ .field-reed-starter{padding:13px;margin:15px 0}
+ .field-starter-grid{grid-template-columns:1fr;gap:12px}
+ .field-starter-card h4{font-size:1rem}
+ .field-starter-card .detail-photo-image{max-height:none}
+ .field-starter-card .detail-arrow-label{font-size:9px;max-width:42%}
+ .field-reed-compare{align-items:stretch}
+ .field-reed-compare .open-learner{width:100%}
+}
