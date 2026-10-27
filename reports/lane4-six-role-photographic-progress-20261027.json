@@ -20,18 +20,18 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 11,
+  "audited_to_date": 12,
   "confirmed_at_or_above_70": 10,
   "targeted_pass_covered": 20,
   "remaining_targeted_passes": 3,
-  "progress_disclaimer": "Lane4 as of Oct 27: 10/23 >=75% among 11 formally six-role scored (unscored entries not assumed absent). D. lindheimeri original research grade Texas macro upgraded from provisional 2.5/6=42% to 4.5/6=75%, 12 real exact source photo originals + separate 1 historical drawing, 16 gallery panels including three other species comparison, 16 new accurate anatomy arrows. All archival photos photo-level rights verified; microscope true ligule fringe and mm-scaled intact spikelets real. Missing verified complete roots/caudex and separated actual mature glumes/lemmas. Pages/mobile render QA pending.",
+  "progress_disclaimer": "Lane4 currently 12/23 formally six-role photo scored, 10/23 verified >=75%. Pedicellate panicgrass D. pedicellatum now conservatively 4/6=67% after physically archiving 8 genuine CC BY research-grade Texas photos, 5 high-value additional panels and 11 real-organ arrows. One historic drawing not a species photograph, one true corm and inner short hair ligule not pictured; copyrighted Harms education source not relabelled Creative Commons. Site QA pending.",
   "photo_physical_progress_today": {
-    "new_local_originals": 47,
-    "new_gross_arrows": 60,
+    "new_local_originals": 55,
+    "new_gross_arrows": 71,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
     "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 11,
-    "newly_pixel_inspected_archived_exact_photos": 33,
+    "newly_pixel_inspected_archived_exact_photos": 41,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
     ]
@@ -93,11 +93,43 @@
     {
       "id": "dichanthelium-pedicellatum",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "below_70",
       "previous_targeted_pass": true,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        1,
+        0.5,
+        0.5,
+        1,
+        0.5,
+        0.5
+      ],
+      "pct": 67,
+      "total": 4,
+      "previous_total": 3.5,
+      "previous_pct": 58,
+      "initial_note": "Earlier score is retrospective provisional based on existing root and flowering photographic roles; formal scoring was pending. No prior 58% committed formal score.",
+      "new_species_photos": 8,
+      "new_arrows": 11,
+      "own_species_physically_archived": 16,
+      "historical_illustrations": 1,
+      "gallery_panels": 17,
+      "new_promoted_species_panels": 5,
+      "photo_gain": "New documented exact source research-grade Texas CC BY photos of living full field habit, exterior leaf sheath with individual long outside hairs, visible vein/ridge and marginal pubescence on true intact green spikelet; no verified true inner 0.25-0.5mm ligule or corm and no matching mm glume dissection.",
+      "rights": "New originals CC BY photo-level iNaturalist source verified, author and observation retained, EXIF/GPS stripped. Earlier 5 Bob Harms photos NOT Creative Commons, reuse author credited scientific educational only. Earlier Aidan CC BY-NC not counted public CC.",
+      "new_photo_ids": [
+        367178078,
+        269595287,
+        269595387,
+        272971502,
+        396643818,
+        636924738,
+        367177996,
+        272971387
+      ],
+      "quality_notes": "Three less-diagnostic sources retained as local binaries and attribution but removed from beginner gallery. Multiple taxa in full plant field shot can overlap; photo source research grade but no individual Hays voucher. Markers on visibly photographed organs only.",
+      "next_photo": "True opened INSIDE 0.25-0.5mm ciliate ligule with 1mm bar first, or physically exposed 5x3mm corm connecting shoots and roots, then isolated mature lower/upper glumes and lemma.",
+      "latest_commit": "6ef1e6ef13e8c4cd7213ae42bb48c2bdc88e3110",
+      "site_qa": "GitHub photo bytes and arrows readback pending; public release not yet verified"
     },
     {
       "id": "digitaria-ciliaris",
