@@ -56,6 +56,9 @@ jobs:
           python -m unittest discover -s tests -p 'test_reed_beginner_learner.py' -v
           node --check assets/js/app.js
           node --check assets/js/field-id-tiles.js
+          node --check assets/js/quiz-tiles.js
+          node --check assets/js/reed-quiz.js
+          node tests/test_reed_quiz.cjs
       - name: Build rights-filtered educational public learner
         run: python scripts/build_public_pages_snapshot.py --noncommercial
       - name: Optimize website-only JPEG copies
@@ -79,6 +82,7 @@ jobs:
           test -s dist/assets/js/field-id-tiles.js
           test -s dist/assets/css/field-id-tiles.css
           test -s dist/quiz.html
+          test -s dist/assets/js/reed-quiz.js
           test -s dist/data/learner-search-index.json
           test -s dist/data/field-id-index.json
           test ! -e dist/photo-review.html
