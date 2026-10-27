@@ -28,7 +28,7 @@ s=requests.Session()
 s.headers.update({"User-Agent":"HaysCountyBotany-ExactGrassLicensedImageMirror/1.0"})
 def getsource(x):
     title=f"Panicum capillare ({x['id']}).jpg"
-    page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title,safe="()")
+    page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title.replace(" ","_"),safe="()")
     q=s.get(page,timeout=45);q.raise_for_status()
     visible=" ".join(html.unescape(re.sub(r"<[^>]*>"," ",q.text)).lower().split())
     for word in ("panicum capillare",x["creator"].lower(),x["id"],x["lic"].split("creativecommons.org/",1)[-1].rstrip("/"),"flickreviewr"):
