@@ -154,6 +154,19 @@ def permitted_harms_muhly_hybrid(item, noncommercial=False):
                 for photo_id in HARMS_MUIN_IDS))
 
 
+# Exact Bob Harms Selected Monocots nimblewill close-up; source-specific
+# copyright-retained scientific/educational permission with Bob Harms credited.
+def permitted_harms_nimblewill_spikelets(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Muhlenbergia schreberi"
+        and item.get("source_page") == HARMS_BASE + "pages/MUSC-J.html"
+        and item.get("source_image") == HARMS_BASE + "images/MUSC-J.jpg")
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -581,6 +594,8 @@ def photo_rights(record, noncommercial=False):
         return None  # Exact source-credited reproduction, not Creative Commons.
     if permitted_harms_tridentopsis_mutica(record, noncommercial):
         return None  # Exact selected copyrighted educational original, original taxon synonym recorded.
+    if permitted_harms_nimblewill_spikelets(record, noncommercial):
+        return None  # Exact Bob Harms educational nimblewill photo with attribution, not CC.
     if permitted_harms_muhly_hybrid(record, noncommercial):
         return None  # Exact credited canyon muhly originals, retain author copyright and source taxon.
     if permitted_harms_seep_muhly(record, noncommercial):
