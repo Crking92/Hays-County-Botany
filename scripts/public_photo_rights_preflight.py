@@ -87,6 +87,23 @@ def permitted_harms_tridens_albescens(item, noncommercial=False):
                 for sid in HARMS_TRAL_IDS))
 
 
+# Bob Harms' original Tridens muticus (= Tridentopsis mutica) Selected Central
+# Texas Monocots: copyright retained, science/education with exact credit, NOT CC.
+HARMS_TRMU_IDS = frozenset({"TRMU-j1","TRMU-9","TRMU-L"})
+
+def permitted_harms_tridentopsis_mutica(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator")=="Bob Harms"
+        and item.get("license")==HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission")==HARMS_SITE_PERMISSION
+        and item.get("license_url")=="https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name")=="Tridens muticus"
+        and item.get("accepted_taxon_name")=="Tridentopsis mutica"
+        and any(item.get("source_page")==HARMS_BASE+"pages/"+sid+".html"
+                and item.get("source_image")==HARMS_BASE+"images/"+sid+".jpg"
+                for sid in HARMS_TRMU_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -512,6 +529,8 @@ def photo_rights(record, noncommercial=False):
         return None  # Exact photograph, educational site only, with original photographer credit.
     if permitted_tom_chester_erioneuron(record, noncommercial):
         return None  # Exact source-credited reproduction, not Creative Commons.
+    if permitted_harms_tridentopsis_mutica(record, noncommercial):
+        return None  # Exact selected copyrighted educational original, original taxon synonym recorded.
     if permitted_harms_tridens_albescens(record, noncommercial):
         return None  # Exact original credited Tridens albescens source, copyright retained.
     if permitted_harms_aparejograss(record, noncommercial):
