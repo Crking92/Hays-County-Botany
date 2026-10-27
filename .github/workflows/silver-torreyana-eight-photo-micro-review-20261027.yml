@@ -1,0 +1,61 @@
+name: Silver torreyana eight-photo micro anatomy rights and original pixels
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-torreyana-eight-photo-micro-review-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  original_pixels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Read exact original individual-photo rights and make two contact sheets, not a publication
+        run: |
+          python - <<'PY'
+          import json,io,base64,hashlib,math
+          from urllib.request import urlopen,Request
+          from PIL import Image,ImageDraw,ImageOps
+          UA={'User-Agent':'Hays-County-Botany-Field-Guide/1.0 (photo licensing exact source checks)'}
+          oid=193305150
+          with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{oid}',headers=UA),timeout=45) as u:
+            data=json.load(u)
+          assert data['total_results']==1 and data['results']
+          o=data['results'][0]
+          print('OBS_METADATA',json.dumps({k:o.get(k) for k in ['id','quality_grade','place_guess','description','observed_on']},ensure_ascii=False))
+          print('OBS_TAXON',json.dumps(o.get('taxon',{}).get('name')))
+          print('OBSERVER',o.get('user',{}).get('login'))
+          records=[]
+          for p in o.get('photos',[]):
+            pid=p['id']; license=p.get('license_code')
+            print('EXACT_PHOTO',json.dumps({'photo_id':pid,'license':license,'attribution':p.get('attribution'),
+                'source':'https://www.inaturalist.org/photos/'+str(pid),'original_url':p.get('url')},ensure_ascii=False))
+            url=p.get('url','').replace('/square.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+            try:
+              with urlopen(Request(url,headers=UA),timeout=42) as u:
+                blob=u.read(10_000_001)
+              assert len(blob)<10_000_001 and len(blob)>5000
+              with Image.open(io.BytesIO(blob)) as img:
+                im=ImageOps.exif_transpose(img).convert('RGB')
+                original_size=im.size
+              im.thumbnail((720,620))
+              records.append((pid,license,im,original_size))
+              print('PIXELS',json.dumps({'photo_id':pid,'dimensions':original_size,'bytes':len(blob),'sha256':hashlib.sha256(blob).hexdigest()}))
+            except Exception as e:
+              print('IMAGE_DOWNLOAD_HOLD',pid,str(e)[:300])
+          for page in range(math.ceil(len(records)/4)):
+            sheet=Image.new('RGB',(1560,1410),'white');d=ImageDraw.Draw(sheet)
+            for idx,(pid,lic,img,size) in enumerate(records[page*4:(page+1)*4]):
+              x=(idx%2)*780;y=(idx//2)*705
+              sheet.paste(img,(x+(780-img.width)//2,y+(640-img.height)//2))
+              d.text((x+10,y+645),f'ID {pid} LICENSE {lic} pixels {size[0]}x{size[1]}',fill='black')
+            buf=io.BytesIO();sheet.save(buf,'JPEG',quality=76,optimize=True)
+            b64=base64.b64encode(buf.getvalue()).decode()
+            print('SILVER_SHEET_BEGIN',page,'bytes',len(buf.getvalue()))
+            for n,i in enumerate(range(0,len(b64),3000)):print(f'SILVER_SHEET_{page}_{n}='+b64[i:i+3000])
+            print('SILVER_SHEET_END',page)
+          PY
