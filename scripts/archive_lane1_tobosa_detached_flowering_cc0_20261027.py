@@ -37,12 +37,32 @@ for term in ("pleuraphis mutica","patrick alexander","cc0 1.0 universal public d
         raise SystemExit("Original Wikimedia species, photo ID, author or CC0 license verification failed: "+term)
 if "Pleuraphis_mutica_-_Flickr_-_aspidoscelis.jpg" not in resp.text:
     raise SystemExit("Exact Commons file name not in photo source")
-resp=s.get(ORIGINAL,timeout=80,allow_redirects=True)
-resp.raise_for_status()
-u=urlparse(resp.url)
-if u.scheme!="https" or u.hostname!="upload.wikimedia.org":
-    raise SystemExit("Unexpected original photo redirect")
-raw=resp.content
+# Wikimedia CDN may rate-limit GitHub's shared runner IP (HTTP 429).
+# This file's Commons structured data identifies the photographer's exact
+# 49950304976 original at Flickr CDN; same image ID and source photographer.
+# Never fall back to a search thumbnail or a different taxon.
+FALLBACK="https://live.staticflickr.com/65535/49950304976_dcb6bb6cbd_o.jpg"
+raw=None
+used_original=None
+for url,host in ((ORIGINAL,"upload.wikimedia.org"),(FALLBACK,"live.staticflickr.com")):
+    try:
+        response=s.get(url,timeout=85,allow_redirects=True)
+        if response.status_code in (403,429,500,502,503,504):
+            print("SOURCE_CDN_NOT_AVAILABLE",host,response.status_code)
+            continue
+        response.raise_for_status()
+        u=urlparse(response.url)
+        if u.scheme!="https" or u.hostname!=host:
+            raise SystemExit("Unexpected original photo redirect host")
+        if not response.content.startswith(b"\\xff\\xd8".decode("unicode_escape").encode("latin1")):
+            raise SystemExit("Non-JPEG returned")
+        raw=response.content
+        used_original=url
+        break
+    except requests.RequestException as exc:
+        print("SOURCE_CDN_REQUEST_ERROR",host,str(exc)[:160])
+if raw is None:
+    raise SystemExit("Both confirmed original photo hosts unavailable; no image published")
 if not 50_000<len(raw)<8_000_000 or raw[:2]!=b"\xff\xd8":
     raise SystemExit("Missing or invalid original JPEG")
 image=Image.open(io.BytesIO(raw));image.verify()
@@ -85,7 +105,7 @@ record={
  "file":"images/"+NAME,
  "role":"Genuine species-source detached Hilaria mutica / Pleuraphis mutica mature papery flowering clusters showing radiating bracts and basal hair tufts; NOT ligule and NOT true individually dissected central-vs-lateral spikelets.",
  "creator":"Patrick Alexander",
- "license":"CC0 1.0","license_url":LICENSE,"source_page":PAGE,"source_original":ORIGINAL,
+ "license":"CC0 1.0","license_url":LICENSE,"source_page":PAGE,"source_original":used_original,
  "source_flickr_photo":SOURCE_FLICKR,
  "source_taxon_name":"Pleuraphis mutica","canonical_taxon":"Hilaria mutica",
  "source_locality":"Jornada Experimental Range, Doña Ana County, New Mexico, 2011 (not Hays County)",
