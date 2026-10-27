@@ -178,3 +178,32 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
  .field-reed-compare{align-items:stretch}
  .field-reed-compare .open-learner{width:100%}
 }
+
+
+/* Interactive source-grounded look-alike comparison; no species rows fabricated. */
+.field-compare-picker{margin:19px 0;padding:17px;background:#edf4ed;border:1px solid #c2d8c7;border-radius:14px}
+.field-compare-heading h3{font:730 1.3rem Georgia,serif;color:#204832;margin:0 0 7px}
+.field-compare-heading p{font-size:.91rem;margin:0 0 13px;color:#455d4a}
+.field-compare-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.field-compare-option{display:flex;flex-direction:column;text-align:left;gap:4px;border:1px solid #9bb9a2;background:#fff;color:#224633;border-radius:10px;padding:12px}
+.field-compare-option:hover,.field-compare-option[aria-pressed="true"]{border-color:#2a6845;background:#dcebdd}
+.field-compare-option strong{font-size:.94rem}
+.field-compare-option small{color:#536b59;font-size:.81rem}
+.field-compare-option span{font-size:.79rem;font-weight:720;color:#216744;margin-top:4px}
+.field-compare-result{margin-top:13px}
+.field-compare-empty{background:#fff;border-radius:9px;padding:12px;font-size:.9rem;margin:0}
+.field-compare-sides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.field-compare-side{min-width:0;border:1px solid #d3ded2;background:white;border-radius:11px;overflow:hidden;padding:12px}
+.field-compare-side h4{color:var(--deep);font:730 1.09rem Georgia,serif;margin:0 0 10px}
+.field-compare-side>img{display:block;object-fit:contain;width:100%;height:190px;background:#eef1e8;border-radius:8px}
+.field-compare-credit{font-size:.76rem;color:#5a6a5e;overflow-wrap:anywhere}
+.field-compare-side ul{padding-left:19px;font-size:.88rem;line-height:1.5}
+.field-compare-side li{margin:8px 0}
+.field-compare-caution{font-size:.84rem;background:#fff4de;padding:10px;border-radius:8px}
+.field-compare-open{display:inline-block;margin-top:10px;border:1px solid #89ae91}
+.field-compare-lineages{background:#fff;border-radius:10px;border:1px solid #d4dfd2;margin-top:14px;padding:12px}
+.field-compare-lineages summary{font-weight:740;color:#285439;cursor:pointer}
+.field-compare-lineages article{border-top:1px solid #dce5dd;padding:10px 0}
+.field-compare-lineages h4{margin:0 0 5px}
+.field-compare-lineages p{font-size:.86rem;margin:7px 0}
+@media(max-width:650px){.field-compare-picker{padding:13px}.field-compare-options,.field-compare-sides{grid-template-columns:1fr}.field-compare-side>img{height:210px}}
