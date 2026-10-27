@@ -21,17 +21,17 @@
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
   "audited_to_date": 10,
-  "confirmed_at_or_above_70": 8,
+  "confirmed_at_or_above_70": 9,
   "targeted_pass_covered": 20,
   "remaining_targeted_passes": 3,
-  "progress_disclaimer": "Lane4 now 8/23 at >=75% among 10 formally audited; 20/23 targeted. Paspalum setaceum 58%->75%, 9 physically archived species originals, 11 gallery panels, 9 new visible gross arrows, CC BY-SA original source and attributions. No rooted base or true calibrated dissection; Pages/mobile QA pending.",
+  "progress_disclaimer": "Lane4 9/23 now scored >=4.5/6. 10/23 formally photo scored; 20/23 targeted passes. Actual image upgrade: Digitaria ciliaris 42% -> 75%, 11 local exact-species archive JPEGs (one blown-out excluded from gallery), 14 gallery panels including four different-species comparison panels, 5 new arrows. License source verified, site QA pending. No Hays or BONAP nativity changes.",
   "photo_physical_progress_today": {
-    "new_local_originals": 32,
-    "new_gross_arrows": 32,
+    "new_local_originals": 35,
+    "new_gross_arrows": 37,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
-    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 10,
-    "newly_pixel_inspected_archived_exact_photos": 18,
+    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 11,
+    "newly_pixel_inspected_archived_exact_photos": 21,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
     ]
@@ -68,25 +68,37 @@
     {
       "id": "digitaria-ciliaris",
       "phase": "A",
-      "target_status": "below_70",
+      "target_status": "at_70_80",
       "role_scores": [
-        0,
-        0,
+        1,
+        0.5,
         0.5,
         1,
         0.5,
-        0.5
+        1
       ],
-      "total": 2.5,
-      "pct": 42,
-      "previous_total": 2,
-      "previous_pct": 33,
-      "new_species_photos": 3,
-      "new_arrows": 3,
+      "total": 4.5,
+      "pct": 75,
+      "previous_total": 2.5,
+      "previous_pct": 42,
+      "new_species_photos": 6,
+      "new_arrows": 8,
       "reviewed_pictures": 3,
       "source_observation_quality": "needs_id",
       "commit": "9861f22c618675977fa6ec291acbec75a476f4fe",
-      "next_photo": "actual inner membranous ligule with 1mm bar, authenticated D. ciliaris separated upper glume, close D. sanguinalis comparison"
+      "next_photo": "True INNER membranous frayed ligule with ruler. A photographed D. ciliaris labelled glume/sterile lemma dissection beside D. sanguinalis at matched scale; true node rooting photo last.",
+      "local_jpegs": 11,
+      "gallery_panels": 14,
+      "different_species_physical_comparison_panels": 4,
+      "quality_note": "3 exact-source licensed Starr originals physically installed. 090121-1188 blown out: archived but excluded from gallery. 090121-1189 genuinely shows connected roots and crown, but *which* prostrate node rooted unresolved (0.5 role). Live 140909-1746 shows creeping leafy aboveground growth (1 role). One real labelled D. sanguinalis glume/lemma 1-mm plate is DIFFERENT SPECIES, good comparison (1 role) not source for ciliaris organ microdetail. True inner membrane partial exterior only (0.5), true ciliaris separated glume macro partial (0.5).",
+      "source_files": [
+        "starr-090121-1188-excavated-base.jpg",
+        "starr-090121-1189-second-base-view.jpg",
+        "starr-140909-1746-live-habit-maui.jpg",
+        "comparison-only-digitaria-sanguinalis-spikelet-bracts-stefan.jpg"
+      ],
+      "latest_commit": "64f54bd8215f7e5c4b2161d0b3936a0db220dd6c",
+      "site_qa": "New pictures on GitHub, controlled Pages marker and mobile overlay QA pending"
     },
     {
       "id": "sorghastrum-elliottii",
