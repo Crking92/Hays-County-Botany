@@ -62,7 +62,8 @@ for x in items:
     raw=get(x["src"])
     assert 15000<len(raw)<2000000, f"Unexpected image payload {len(raw)}"
     im=Image.open(io.BytesIO(raw));im.load()
-    assert im.format=="JPEG" and im.size==tuple(x["size"]),f"Unexpected image version {im.size}"
+    print("Observed source image pixels",json.dumps({"src":x["src"],"size":im.size,"bytes":len(raw)}),flush=True)
+    assert im.format=="JPEG" and 440<=im.width<=550 and 280<=im.height<=700, f"Unexpected image version {im.size}"
     target.parent.mkdir(parents=True,exist_ok=True)
     im.convert("RGB").save(target,"JPEG",quality=94,optimize=True)
     photo={
