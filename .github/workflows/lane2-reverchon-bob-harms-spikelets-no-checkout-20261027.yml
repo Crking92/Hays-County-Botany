@@ -1,0 +1,166 @@
+name: Lane 2 real Reverchon spikelet and disarticulation author photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-reverchon-bob-harms-spikelets-no-checkout-20261027.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-reverchon-harms-real-macros-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install clean JPEG converter
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Verify photographer permission and atomically archive original image bytes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import base64,hashlib,io,json,os,time,traceback,urllib.error,urllib.request
+          from PIL import Image,ImageOps
+          REPO=os.environ["GITHUB_REPOSITORY"]; TOKEN=os.environ["GITHUB_TOKEN"]
+          API="https://api.github.com/repos/"+REPO
+          BASE="content/taxa/Poaceae/Setaria/setaria-reverchonii/"
+          CARD=BASE+"species.json"
+          SCORE="reports/lane2-six-role-photo-score-20261027.json"
+          REPORT="reports/lane2-reverchonii-harms-scaled-spikelets-20261027.json"
+          MARK="workflow/field-id-publication/lane2-reverchonii-harms-spikelets-20261027.json"
+          ORIGIN="https://w3.biosci.utexas.edu/prc/Monocots/"
+          PAGES=ORIGIN+"GrassHTML/data/pages/"
+          IMAGES=ORIGIN+"GrassHTML/data/images/"
+          SPECS=[
+          {"code":"j","file":"bob-harms-sere3-j-spikelets-with-mm-scale.jpg","label":"ACTUAL REPRODUCTIVE MACRO · scaled intact spikelets",
+           "role":"Multiple exact-species attached green spikelets beside original millimeter scale; some veins visible but not verified glume-number",
+           "caption":"Bob Harms' Central Texas Reverchon's bristlegrass photograph shows multiple genuine green/purple spikelets branching beside an original physical millimeter ruler. A bristle is a reduced inflorescence branch, not an awn. Do not infer glume vein counts or identify a tiny hairy ligule here.",
+           "markers":[{"label":"Visible attached green spikelets","label_x":8,"label_y":12,"target_x":36,"target_y":37},{"label":"Original millimeter scale","label_x":47,"label_y":83,"target_x":96,"target_y":61}]},
+          {"code":"d","file":"bob-harms-sere3-d-attached-disarticulation.jpg","label":"TRUE AXIS DETAIL · reproductive disarticulation",
+           "role":"Authentic flowering axis, several spaced purple mottled spikelets and separation points, with original millimeter reference",
+           "caption":"Actual photographed Reverchon's bristlegrass mature spikelets are separated along the thin branched rachis rather than packed into one continuous dense foxtail. Source image includes a ruler; the complete microscopic internal glume/lemma dissection is not pictured.",
+           "markers":[{"label":"Spaced true spikelets on lateral axis","label_x":50,"label_y":11,"target_x":82,"target_y":32}]}
+          ]
+          def gh(method,path,obj=None):
+              data=None if obj is None else json.dumps(obj,ensure_ascii=False).encode()
+              req=urllib.request.Request(API+path,data=data,method=method,headers={"Authorization":"Bearer "+TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","Content-Type":"application/json","User-Agent":"HaysCountyBotany-PhotoArchive"})
+              with urllib.request.urlopen(req,timeout=35) as r:return json.load(r)
+          def get(path):
+              x=gh("GET","/contents/"+path+"?ref=main")
+              return json.loads(base64.b64decode(x["content"]))
+          def load(url):
+              req=urllib.request.Request(url,headers={"User-Agent":"HaysCountyBotanyEducationalLearner/1.0"})
+              with urllib.request.urlopen(req,timeout=40) as response:return response.read(6_000_001)
+          def error_report(err):
+              try:
+                  p="reports/lane2-reverchonii-harms-installer-failure-20261027.json"
+                  b=json.dumps({"status":"BLOCKED_DO_NOT_CHANGE_SCORE","error":str(err),"trace":traceback.format_exc()[-3500:]},indent=2)+"\n"
+                  obj={"message":"Lane 2: report failed authentic Reverchon photo archive [skip ci]","content":base64.b64encode(b.encode()).decode()}
+                  try:obj["sha"]=gh("GET","/contents/"+p+"?ref=main")["sha"]
+                  except urllib.error.HTTPError as e:
+                      if e.code!=404:raise
+                  gh("PUT","/contents/"+p,obj)
+                  print("REPORT_WRITTEN",p)
+              except Exception as e:print("REPORT_WRITE_FAILED",repr(e))
+          def main():
+              # The exact source collection states that copyright remains Bob Harms and
+              # properly credited scientific and educational use is allowed. Not a CC license.
+              rights=load(ORIGIN).decode(errors="replace").lower()
+              assert "free for scientific and educational uses" in rights and "bob harms" in rights
+              installed=[]
+              for v in SPECS:
+                  page=PAGES+"SERE3-"+v["code"]+".html"
+                  html=load(page).decode(errors="replace").lower()
+                  assert "setaria reverchonii" in html and "bob harms" in html
+                  source=IMAGES+"SERE3-"+v["code"]+".jpg"
+                  raw=load(source)
+                  assert raw[:3]==b"\xff\xd8\xff" and len(raw)>25000
+                  with Image.open(io.BytesIO(raw)) as im:
+                      assert im.format=="JPEG"
+                      cleaned=ImageOps.exif_transpose(im).convert("RGB")
+                      w,h=cleaned.size
+                      assert w>=250 and h>=400,(source,w,h)
+                      buf=io.BytesIO();cleaned.save(buf,"JPEG",quality=95,optimize=True)
+                  data=buf.getvalue()
+                  blob=gh("POST","/git/blobs",{"content":base64.b64encode(data).decode(),"encoding":"base64"})["sha"]
+                  installed.append({**v,"page":page,"source":source,"source_sha":hashlib.sha256(raw).hexdigest(),"sha":hashlib.sha256(data).hexdigest(),"bytes":len(data),"width":w,"height":h,"blob":blob})
+              print("TWO_REAL_BOB_HARMS_PHOTOS",[(x["code"],x["width"],x["height"]) for x in installed])
+              for attempt in range(1,6):
+                  head=gh("GET","/git/ref/heads/main")["object"]["sha"]
+                  tree_base=gh("GET","/git/commits/"+head)["tree"]["sha"]
+                  c=get(CARD);score=get(SCORE)
+                  if all(any(z.get("file")=="images/"+i["file"] for z in c["images"]) for i in installed):
+                      print("ALREADY_INSTALLED_NO_REPEAT");return
+                  assert not any(any(z.get("file")=="images/"+i["file"] for z in c["images"]) for i in installed),"Partially installed, stop"
+                  assert c["scientific_name"]=="Setaria reverchonii"
+                  row=next(x for x in score["records"] if x["canonical_id"]=="setaria-reverchonii")
+                  assert row["after_total"]==4.5 and row["roles"]["reproductive_closeup"]==0.5
+                  gallery=c["visual_comparison"]["items"]
+                  insert=next((ix for ix,x in enumerate(gallery) if x.get("scientific_name") not in (None,"Setaria reverchonii") or "LOOK-ALIKE" in x.get("label","")),len(gallery))
+                  filetree=[]
+                  for x in installed:
+                      rel=BASE+"images/"+x["file"]
+                      metadata={
+                          "creator":"Bob Harms",
+                          "license":"© Bob Harms — credited scientific/educational use (not Creative Commons)",
+                          "license_url":ORIGIN,
+                          "source_page":x["page"],"source_image":x["source"],
+                          "source_taxon_name":"Setaria reverchonii",
+                          "site_specific_public_permission":"BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022",
+                          "public_reuse":"yes — original author allows properly credited scientific/educational use on nonprofit learner; not a blanket CC relicense",
+                          "image_sha256":x["sha"],"original_dimensions_px":[x["width"],x["height"]],
+                          "modifications":"Original RGB JPEG resaved without EXIF/GPS; separate on-screen annotations"
+                      }
+                      c["images"].append({"file":"images/"+x["file"],"role":x["role"],**metadata})
+                      gallery.insert(insert,{
+                          "label":x["label"],"scientific_name":"Setaria reverchonii","image_url":rel,"image_fit":"contain",
+                          "image_role":x["role"],"caption":x["caption"],"why_it_matters":"Actual anatomy with a real scale, not another generic seedhead.",
+                          "markers":x["markers"],
+                          "photo_status":"Exact author/original photograph; only visible gross spikelets and original scale annotated, no invented glume veins",
+                          **metadata})
+                      insert+=1
+                      filetree.append({"path":rel,"mode":"100644","type":"blob","sha":x["blob"]})
+                  c["curation_status"]["photo_files_present"]=len([x for x in c["images"] if str(x.get("file","")).startswith("images/")])
+                  c["curation_status"]["lane2_harms_reproductive_macros_20261027"]={
+                     "status":"FIELD_READY_PHOTO_GAPS","new_species_photos":2,"new_arrows":sum(len(i["markers"]) for i in installed),
+                     "total_local_photos":c["curation_status"]["photo_files_present"],"six_role_photo_score":"5/6 (83%) provisional",
+                     "still_missing":["connected excavated rhizomes","opened true ligule with calibrated hairs","isolated individual mature glumes/lemmas"],"Pages":"not verified"
+                  }
+                  c["photo_note"]=c.get("photo_note","")+"\n2026-10-27 Lane2: archived two actual Bob Harms Selected Monocots SERE3-j,d photos of scale-bearing true Setaria reverchonii spikelets and disarticulation; 3 gross-only arrows. Exact CC-style attribution not inferred; credited educational original permission. Root and inner ligule still missing."
+                  row["roles"]["reproductive_closeup"]=1
+                  row["after_total"]=5
+                  row["after_percentage"]=83
+                  row["change_percentage_points"]=83-row["before_percentage"]
+                  row["new_source_report"]=REPORT
+                  row["gaps_warning"]="Two original Bob Harms scale-bearing spikelet and axis photographs archived; fine glume veins, opened ligule and true excavated rhizomes not shown."
+                  score["summary"]["mean_after_percent"]=round(sum(x["after_total"] for x in score["records"])/len(score["records"])/6*100,1)
+                  dist={}
+                  for x in score["records"]:
+                      k=f'{x["after_total"]:.1f}/6';dist[k]=dist.get(k,0)+1
+                  score["summary"]["distribution"]=dist
+                  score["summary"]["latest_reverchon_harms_20261027"]={"new_photos":2,"new_arrows":3,"rights":"Bob Harms credited science/education, not CC","score":"5/6 (83%)","Pages":"unverified"}
+                  report={"species":"Setaria reverchonii","date":"2026-10-27","status":"FIELD_READY_PHOTO_GAPS","photo_details":[{k:v for k,v in x.items() if k!="blob"} for x in installed],"rights_homepage":ORIGIN,"license":"Bob Harms copyright, properly credited scientific/educational use","new_photos":2,"new_arrows":3,"before_total":4.5,"after_total":5,"after_percent":83,"local_photo_count":c["curation_status"]["photo_files_present"],"public_pages":"unverified"}
+                  mark={"type":"manual_field_id_publication","date":"2026-10-27","species":"Setaria reverchonii","source_report":REPORT,"title":"Original local Bob Harms measured spikelets","status":"FIELD_READY_PHOTO_GAPS","pages":"not yet verified"}
+                  for name,data in [(CARD,c),(SCORE,score),(REPORT,report),(MARK,mark)]:
+                      filetree.append({"path":name,"mode":"100644","type":"blob","content":json.dumps(data,ensure_ascii=False,indent=2)+"\n"})
+                  tree=gh("POST","/git/trees",{"base_tree":tree_base,"tree":filetree})["sha"]
+                  commit=gh("POST","/git/commits",{"message":"Lane 2: install two real scaled Reverchon bristlegrass spikelet photos, 3 arrows, 83% [skip ci]","tree":tree,"parents":[head]})["sha"]
+                  try:
+                      gh("PATCH","/git/refs/heads/main",{"sha":commit,"force":False})
+                      print("ARCHIVED_TO_MAIN",commit,score["summary"]["mean_after_percent"])
+                      return
+                  except urllib.error.HTTPError as e:
+                      print("REF_CONFLICT",attempt,e.code)
+                      if e.code not in (409,422) or attempt==5:raise
+                      time.sleep(3)
+          try:main()
+          except Exception as err:
+              print("ARCHIVE_FAILED",repr(err));error_report(err);raise
+          
+          PY
