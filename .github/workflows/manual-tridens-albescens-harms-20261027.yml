@@ -1,0 +1,82 @@
+name: Archive real white tridens spikelet photos by Bob Harms
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-tridens-albescens-harms-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-tridens-albescens-real-photo-20261027
+  cancel-in-progress: false
+jobs:
+  archive-white-tridens:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install JPEG verification requirements
+        run: python -m pip install --disable-pip-version-check "requests>=2.31,<3" "Pillow>=10,<12"
+      - name: Refresh main and archive only verified original-source photos
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_tridens_albescens_harms_20261027.py
+          python scripts/archive_tridens_albescens_harms_20261027.py
+      - name: Verify provenance and archived image pixels
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          rp=Path('reports/tridens-albescens-real-harms-three-20261027.json')
+          if not rp.exists():
+              print('NO_NEW_PHOTOS; no physical additions or release request')
+              raise SystemExit(0)
+          report=json.loads(rp.read_text())
+          assert report['result']=='LICENSED_REAL_SOURCE_PHOTOS_ARCHIVED'
+          assert 1<=len(report['records'])<=3
+          s=json.loads(Path('content/taxa/Poaceae/Tridens/tridens-albescens/species.json').read_text())
+          g=json.loads(Path('content/taxa/Poaceae/Tridens/genus.json').read_text())
+          assert s['id']=='tridens-albescens'
+          for r in report['records']:
+              p=Path(r['path'])
+              assert p.is_file() and p.stat().st_size>3000
+              assert hashlib.sha256(p.read_bytes()).hexdigest()==r['archived_sha256']
+              with Image.open(p) as i:
+                  assert i.format=='JPEG' and not i.getexif().get(34853)
+                  i.verify()
+              for doc in (s,g):
+                  match=[x for x in doc['visual_comparison']['items']
+                    if x.get('source_photo_id')==r['source_photo_id']]
+                  assert len(match)==1 and match[0]['image_url']==str(p)
+                  assert match[0]['creator']=='Bob Harms' and match[0]['markers']==[]
+              match=[x for x in s['images'] if x.get('source_photo_id')==r['source_photo_id']]
+              assert len(match)==1 and match[0]['license'].startswith('© Bob Harms')
+          print('PASS: real non-GPS Bob Harms TRAL2 photographed anatomy in canonical files')
+          PY
+      - name: Commit only verified white tridens photos and release request
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Tridens/tridens-albescens/
+          git add content/taxa/Poaceae/Tridens/genus.json
+          if test -e reports/tridens-albescens-real-harms-three-20261027.json; then
+            git add reports/tridens-albescens-real-harms-three-20261027.json
+            git add workflow/field-id-publication/2026-10-27-tridens-albescens-harms-real-anatomy.json
+          fi
+          if git diff --cached --quiet; then echo NO_CHANGES; exit 0; fi
+          git commit -m 'Archive exact credited Bob Harms white tridens photographed spikelets'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
