@@ -1,0 +1,63 @@
+name: Lane 3 Tumblegrass Full-Resolution Exact-Licensed Photo Review
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/lane3-tumblegrass-source-pixel-review-20261027.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-tumblegrass-pixel-original-review
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Retrieve and photo-license-verify individual research-grade originals
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/lane3_tumblegrass_fullpixel_candidates_20261027.py
+      - name: Check source and EXIF-scrubbed candidate image bytes
+        run: |
+          python - <<'PY'
+          import hashlib,json,pathlib
+          from PIL import Image
+          root=pathlib.Path('reports/lane3-tumblegrass-source-pixel-review-20261027')
+          a=json.loads((root/'report.json').read_text())
+          assert a['status']=='EXACT_SPECIES_ORIGINAL_PIXELS_STAGED_ONLY' and a['no_species_card_change']
+          assert a['downloaded']>=2
+          for r in a['results']:
+            if r['status']!='RIGHTS_VERIFIED_PHOTO_STAGED_NEEDS_ANATOMY_REVIEW':continue
+            assert r['license'] in ('cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa')
+            assert r['attribution'] and r['source'].endswith(str(r['id'])) and not r['published']
+            p=pathlib.Path(r['file'])
+            assert hashlib.sha256(p.read_bytes()).hexdigest()==r['sha256']
+            with Image.open(p) as im:
+              assert im.format=='JPEG' and min(im.size)>=400
+              assert not im.getexif().get(34853)
+              im.verify()
+          print('PASS: originals staged and independently licensed; no fabricated anatomical macros or card changes')
+          PY
+      - name: Commit research-only source photo pixels
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/lane3-tumblegrass-source-pixel-review-20261027/
+          git diff --cached --quiet && exit 0
+          git commit -m "Lane 3 archive source-licensed tumblegrass exact photo originals for anatomy review"
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
