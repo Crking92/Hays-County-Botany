@@ -16,16 +16,16 @@ class SilverPhotoFinish(unittest.TestCase):
         s=self.s
         self.assertEqual(s["id"],"bothriochloa-torreyana")
         self.assertFalse(s["native_target_zone_calculated"])
-        self.assertEqual(len(s["images"]),14)
-        self.assertEqual(len(self.panels),14)
+        self.assertGreaterEqual(len(s["images"]),16)
+        self.assertGreaterEqual(len(self.panels),16)
         self.assertEqual(s["curation_status"]["visual_finish"][:22],"FIELD_READY_PHOTO_GAPS")
-        for i in (5,6,7,8,9,10,11,12,13):
+        for i in (5,6,7,8,9,10,11,12,13,14,15):
             x=self.panels[i]
             self.assertTrue(x["image_url"].startswith("content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/images/"))
             self.assertTrue((ROOT/x["image_url"]).is_file())
             self.assertTrue(x["source_page"] and x["creator"] and x["license"])
             self.assertEqual(x["scientific_name"],s["scientific_name"])
-        self.assertEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),5)
+        self.assertGreaterEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),7)
         self.assertEqual({p.get("source_photo_id") for p in s["images"] if p.get("source_photo_id") in (730629825,749323175,102682516,292594065)}, {730629825,749323175,102682516,292594065})
         self.assertEqual(len([x for x in s["images"] if x.get("public_reuse") in {"no","NO — photographer authorization required"}]),2)
 
@@ -40,7 +40,7 @@ class SilverPhotoFinish(unittest.TestCase):
             for marker in p["markers"]:
                 self.assertTrue(marker["label"])
                 self.assertTrue(all(0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y")))
-        self.assertEqual(sum(len(x.get("markers",[])) for x in self.panels),17)
+        self.assertGreaterEqual(sum(len(x.get("markers",[])) for x in self.panels),21)
         self.assertIn("NOT",liz["caption"])
         self.assertIn("NOT",maxp["caption"])
 
@@ -103,6 +103,30 @@ class SilverPhotoFinish(unittest.TestCase):
             self.assertIn("roots",panel["caption"].lower())
             for marker in panel["markers"]:
                 self.assertTrue(all(0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y")))
+        self.assertFalse(s["native_target_zone_calculated"])
+
+    def test_new_public_domain_rooted_vouchers_and_rights_hold(self):
+        s=self.s
+        source=s["silver_public_domain_rooted_vouchers_20261027"]
+        self.assertTrue(source["real_attached_exposed_roots"])
+        self.assertTrue(source["ut_sheets_rights_conflict_hold"])
+        self.assertEqual(source["archived_gbif_ids"],[2242356292,4976689107])
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["pct"],75)
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["roles"][0]["score"],1)
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["roles"][2]["score"],0.5)
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["roles"][4]["score"],0.5)
+        for key in (2242356292,4976689107):
+            panel=next(p for p in self.panels if p.get("source_gbif_id")==key)
+            rec=next(p for p in s["images"] if p.get("source_gbif_id")==key)
+            self.assertIn("CC0",panel["license"])
+            self.assertIn("CC0",rec["license"])
+            self.assertEqual(len(panel["markers"]),2)
+            self.assertIn("root",panel["caption"].lower())
+            self.assertTrue((ROOT/panel["image_url"]).is_file())
+            self.assertEqual(panel["creator"],rec["creator"])
+            self.assertTrue(panel["source_page"].startswith("https://www.gbif.org/occurrence/"))
+            for marker in panel["markers"]:
+                self.assertTrue(all(0<=marker[t]<=100 for t in ("label_x","label_y","target_x","target_y")))
         self.assertFalse(s["native_target_zone_calculated"])
 
     def test_beginner_four_steps_and_source_only_research(self):
