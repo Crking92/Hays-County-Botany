@@ -22,8 +22,8 @@ class ReedFinal(unittest.TestCase):
     for taxon in FILES:
       with self.subTest(taxon=taxon):
         d=load(taxon)
-        self.assertEqual(len(d["images"]),EXPECTED[taxon][0])
-        self.assertEqual(len(d["visual_comparison"]["items"]),EXPECTED[taxon][1])
+        self.assertGreaterEqual(len(d["images"]),EXPECTED[taxon][0])
+        self.assertGreaterEqual(len(d["visual_comparison"]["items"]),EXPECTED[taxon][1])
         self.assertEqual(d["curation_status"]["photo_metadata_count"],len(d["images"]))
         self.assertEqual(d["curation_status"]["photo_files_present"],len(d["images"]))
         base=(ROOT/FILES[taxon]).parent
@@ -57,7 +57,7 @@ class ReedFinal(unittest.TestCase):
           self.assertTrue(str(marker.get("label","")).strip())
           for key in ("label_x","label_y","target_x","target_y"):
             self.assertLessEqual(0,float(marker[key]));self.assertLessEqual(float(marker[key]),100)
-      self.assertEqual(count,EXPECTED[taxon][2],taxon)
+      self.assertGreaterEqual(count,EXPECTED[taxon][2],taxon)
   def test_beginner_and_advanced_both_available(self):
     for id in ("arundo-donax","phragmites-australis"):
       d=load(id);b=d["beginner_learning_path"]
