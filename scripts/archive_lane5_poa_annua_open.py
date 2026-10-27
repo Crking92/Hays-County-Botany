@@ -106,7 +106,7 @@ if not any(im.get("source_page")==root_page or im.get("file")==root_rel for im i
    "status":"FIELD_READY_PHOTO_GAPS","root_source":root_page,
    "gallery_index":i,"new_arrows":2,"rooted_plant_not_floriferous":True,
    "missing":"Hays connected root-to-flowering whole voucher, measured separate mature glume/lemma/palea, bisexual floret and live Pages QA"}
-  p.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\\n")
+  p.write_text(json.dumps(s,ensure_ascii=False,indent=2)+"\n")
   results.append({"source":root_page,"file":str(root_image),"status":"archived","pixels":list(im.size),"sha256":hashlib.sha256(clean).hexdigest(),"gallery_index":i,"new_markers":2,"creator":"Sten Porse","license":"CC BY-SA 3.0"})
  except Exception as e:
   root_image.unlink(missing_ok=True)
@@ -135,5 +135,5 @@ with ledger.open("w",newline="") as fh:
 pathlib.Path("reports/lane5-poa-annua-open-20261023.json").write_text(json.dumps({
  "date":"2026-10-27","photo_results":results,"ledger_rows":len(rows),
  "status":"FIELD_READY_PHOTO_GAPS","remaining":"True flowering rooted voucher and calibrated floret dissection"
-},indent=2)+"\\n")
+},indent=2)+"\n")
 print(json.dumps({"root_and_source_ledger":results,"ledger_rows":len(rows)}))
