@@ -1,4 +1,4 @@
-const CACHE_NAME = "hays-botany-v48";
+const CACHE_NAME = "hays-botany-v49";
 const CORE = [
   "./",
   "./index.html",
@@ -13,6 +13,7 @@ const CORE = [
   "./quiz.html",
   "./quiz-classic.html",
   "./assets/js/quiz-tiles.js",
+  "./assets/js/reed-quiz.js",
   "./assets/css/quiz-tiles.css",
   "./manifest.webmanifest",
   "./assets/app-icon.svg",
