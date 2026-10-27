@@ -1,0 +1,28 @@
+name: Lane 2 archive real Texas hairy tridens exterior collar anatomy
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-erioneuron-true-external-collar-hairs-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-hairy-tridens-real-visible-collar-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/lane2_erioneuron_verified_outer_collar_20261027.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Archive photo-only genuine outer leaf sheath collar and source license
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/lane2_erioneuron_verified_outer_collar_20261027.py
