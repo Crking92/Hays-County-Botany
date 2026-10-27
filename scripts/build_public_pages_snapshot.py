@@ -68,6 +68,26 @@ HARMS_SITE_PERMISSION = "BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022"
 HARMS_EXACT_LICENSE = "© Bob Harms — scientific/educational use with attribution (NOT Creative Commons)"
 
 
+# Narrow, source-verified Lindheimer muhly photos from Bob Harms' own
+# Selected Central Texas Monocots, NOT the separate UT herbarium collection.
+HARMS_MULI_IDS = frozenset({"MULI-L", "MULI-9", "MULI-J4", "MULI-J5"})
+
+def permitted_harms_lindheimeri(item, noncommercial=False):
+    if not noncommercial or item.get("creator") != "Bob Harms":
+        return False
+    if item.get("license") != HARMS_EXACT_LICENSE:
+        return False
+    if item.get("site_specific_public_permission") != HARMS_SITE_PERMISSION:
+        return False
+    if item.get("license_url") != "https://w3.biosci.utexas.edu/prc/Monocots/":
+        return False
+    if item.get("source_taxon_name") != "Muhlenbergia lindheimeri":
+        return False
+    return any(item.get("source_page") == HARMS_BASE + "pages/" + ident + ".html"
+               and item.get("source_image") == HARMS_BASE + "images/" + ident + ".jpg"
+               for ident in HARMS_MULI_IDS)
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -514,6 +534,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Bob Harms exact Leptochloa dubia / accepted Disakisperma dubium educational credited originals"
     if permitted_harms_limnodea(item, noncommercial):
         return True, "Copyright Bob Harms exact selected Ozarkgrass originals educational-with-credit, NOT CC"
+    if permitted_harms_lindheimeri(item, noncommercial):
+        return True, "Bob Harms exact Lindheimer muhly original Selected Monocots anatomy; credited educational display, NOT CC"
     if permitted_harms_eleusine_indica(item, noncommercial):
         return True, "Bob Harms exact Eleusine indica original Selected Monocots educational permission with credit (NOT CC)"
     if permitted_harms_elymus_canadensis(item, noncommercial):
