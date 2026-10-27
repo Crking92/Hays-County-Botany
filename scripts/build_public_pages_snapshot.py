@@ -447,7 +447,42 @@ def permitted_kava_curly_node(item: dict, noncommercial: bool) -> bool:
     )
 
 
+
+# Dave Thayer explicitly grants unrestricted reuse of his own photographs on
+# https://www.azgrasses.org/ ; the two species-labelled images below are his
+# own documented site images. This is NOT a Creative Commons relicensing and
+# must never be extended to the site's few third-party credited images.
+THAYER_KR_PERMISSION = "DAVE_THAYER_AZGRASSES_OWN_PHOTOS_FREE_USE_20261027"
+THAYER_KR_LICENSE = "© Dave Thayer — own photographs free to use per site statement (NOT Creative Commons)"
+THAYER_KR_SOURCE = "https://www.azgrasses.org/pages-grasses/BB/Bothriochloa%20ischaemum.html"
+THAYER_KR_PERMISSION_PAGE = "https://www.azgrasses.org/"
+THAYER_KR_IMAGES = {
+    "Bothriochloa_ischaemum8": "https://www.azgrasses.org/images-grasses/B/Bothriochloa_ischaemum/Bothriochloa_ischaemum8.JPG",
+    "Bothriochloa_ischaemum9": "https://www.azgrasses.org/images-grasses/B/Bothriochloa_ischaemum/Bothriochloa_ischaemum9.JPG",
+}
+
+def permitted_thayer_kr_anatomy(item: dict, noncommercial: bool) -> bool:
+    # Constrain website exception to two authenticated photos, exact taxon,
+    # exact original source/permission pages, and the documented creator.
+    photo_id = item.get("source_photo_id")
+    image = item.get("image_url") or item.get("file")
+    return (
+        noncommercial
+        and item.get("creator") == "Dave Thayer"
+        and item.get("license") == THAYER_KR_LICENSE
+        and item.get("site_specific_public_permission") == THAYER_KR_PERMISSION
+        and item.get("source_page") == THAYER_KR_SOURCE
+        and item.get("source_permission_page") == THAYER_KR_PERMISSION_PAGE
+        and item.get("license_url") == THAYER_KR_PERMISSION_PAGE
+        and item.get("source_taxon_name") == "Bothriochloa ischaemum"
+        and photo_id in THAYER_KR_IMAGES
+        and image == THAYER_KR_IMAGES.get(photo_id)
+    )
+
 def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
+    if permitted_thayer_kr_anatomy(item, noncommercial):
+        return True, "Exact Dave Thayer AZ Grasses KR photos: author grants free use; NOT CC"
+
     if permitted_kava_curly_node(item, noncommercial):
         return True, "Exact John Kava Yavapai educational-use permission with credit; NOT CC"
     """An eligible *photograph*, not just an observation or search result."""
