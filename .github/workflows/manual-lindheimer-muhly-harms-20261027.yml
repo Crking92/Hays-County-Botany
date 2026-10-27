@@ -29,6 +29,7 @@ jobs:
           git fetch origin main
           git checkout -B main origin/main
           python -m py_compile scripts/archive_muhlenbergia_lindheimeri_harms_20261027.py
+      # Relaunch after correcting original-author photograph minimum width: MULI-L is ~163px across.
       - name: Fetch only exact originals and archive them if ligule and mature-spikelet photos both decode
         run: python scripts/archive_muhlenbergia_lindheimeri_harms_20261027.py
       - name: Check image integrity, rights/source exact IDs and canonical photo gallery
