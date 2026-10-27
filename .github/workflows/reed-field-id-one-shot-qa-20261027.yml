@@ -1,0 +1,60 @@
+name: One-shot reed Field ID learner diagnostics
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/field-id-qa/20261027-reed-request.json'
+permissions:
+  contents: write
+concurrency:
+  group: reed-field-id-qa-20261027
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run source checks and save exact results for review
+        run: |
+          python - <<'PY'
+          import subprocess,json
+          from pathlib import Path
+          commands=[
+            ["python","-m","unittest","discover","-s","tests","-p","test_reed_beginner_learner.py","-v"],
+            ["node","--check","assets/js/app.js"],
+            ["node","--check","assets/js/field-id-tiles.js"]
+          ]
+          checks=[]
+          for command in commands:
+            try:
+              res=subprocess.run(command,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,
+                 text=True,timeout=90)
+              checks.append({"command":" ".join(command),"exit_code":res.returncode,
+                 "output":res.stdout[-15000:]})
+            except Exception as e:
+              checks.append({"command":" ".join(command),"exit_code":999,"output":repr(e)})
+          out={"date":"2026-10-27","purpose":"Diagnose previous Pages validator failure and new Field ID changes; this diagnostic does not deploy or alter cards",
+               "checks":checks,"success":all(c["exit_code"]==0 for c in checks)}
+          dest=Path("reports/reed-field-id-validation-20261027.json")
+          dest.parent.mkdir(parents=True,exist_ok=True)
+          dest.write_text(json.dumps(out,indent=2)+"\n",encoding="utf-8")
+          print("checks complete: "+str([(x["command"],x["exit_code"]) for x in checks]))
+          PY
+      - name: Commit QA receipt without deploying
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/reed-field-id-validation-20261027.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record exact reed Field ID and prior Learner validation outcomes"
+          git pull --rebase origin main
+          git push origin HEAD:main
