@@ -1,0 +1,58 @@
+name: Lane 2 red lovegrass actual true collar and rooted field candidates
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-red-lovegrass-collar-rooted-field-scout-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Audit exact individual photo license and read-only Texas morphology contact sheets
+        run: |
+          python - <<'PY'
+          import json,io,base64,concurrent.futures,math
+          from urllib.request import Request,urlopen
+          from urllib.parse import urlencode
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 CC photo morphology review'}
+          def get(u,limit=4_000_000):
+           with urlopen(Request(u,headers=UA),timeout=42) as h:return h.read(limit)
+          candidates=[]
+          for page in range(1,5):
+           u='https://api.inaturalist.org/v1/observations?'+urlencode({'taxon_name':'Eragrostis secundiflora','quality_grade':'research','photos':'true','place_id':18,'per_page':25,'page':page,'order_by':'created_at','order':'desc'})
+           r=json.loads(get(u)); print('PAGE',page,r.get('total_results'),len(r['results']))
+           for o in r['results']:
+            if o.get('taxon',{}).get('name')!='Eragrostis secundiflora':continue
+            for p in (o.get('photos') or [])[:6]:
+             if p.get('license_code') in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}:candidates.append((o,p))
+           if page*25>=r.get('total_results',0):break
+          candidates=candidates[:50]
+          def thumb(pair):
+           p=pair[1]
+           url=p['url'].replace('/square.','/medium.').replace('/thumb.','/medium.')
+           try:
+            raw=get(url,900_000)
+            with Image.open(io.BytesIO(raw)) as im:z=ImageOps.exif_transpose(im).convert('RGB')
+            z.thumbnail((225,185));return z
+           except Exception as e:print('THUMB_FAIL',p.get('id'),str(e)[:80]);return None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as pool:ims=list(pool.map(thumb,candidates))
+          for block in range(math.ceil(len(candidates)/25)):
+           sheet=Image.new('RGB',(1250,1175),'white');d=ImageDraw.Draw(sheet)
+           for i,(o,p) in enumerate(candidates[block*25:(block+1)*25]):
+            num=block*25+i;x=i%5*250;y=i//5*235;img=ims[num]
+            if img is not None:sheet.paste(img,(x+(250-img.width)//2,y+5))
+            d.text((x+5,y+198),f'#{num} photo {p["id"]}',fill='black')
+            d.text((x+5,y+215),f'obs {o["id"]} {p["license_code"]}',fill='black')
+            print('CANDIDATE',json.dumps({'n':num,'photo':p['id'],'obs':o['id'],'taxon':o['taxon']['name'],'license':p['license_code'],'creator':p.get('attribution'),'locality':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(p['id'])},ensure_ascii=False))
+           b=io.BytesIO();sheet.save(b,'JPEG',quality=76,optimize=True);val=base64.b64encode(b.getvalue()).decode()
+           for k,j in enumerate(range(0,len(val),3500)):print('RED_SHEET_'+str(block)+'_'+str(k)+'='+val[j:j+3500])
+           print('RED_SHEET_END',block,len(b.getvalue()))
+          print('TOTAL',len(candidates))
+          PY
