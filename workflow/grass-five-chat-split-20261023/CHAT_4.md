@@ -2,6 +2,18 @@
 
 Source snapshot: `reports/grass-112-photo-coverage-work-allocation.json` (2026-10-23). Counts are a work allocation, **not** current completion proof. Other chats may have already improved images. This is an exclusive editorial assignment, not a lock.
 
+
+## 2026-10-27 SIX-ROLE PHOTO FINISH — CURRENT LANE 4 PRIORITY
+
+Current user priority supersedes older root-first language below without changing species assignments:
+- PASS A: bring EVERY assigned species to >= 4.5 / 6 (~75%) as fast as verified licensed photos permit, then target 5 / 6 (~83%), then 5.5 / 6 (~92%).
+- For each role score 0 missing, 0.5 visible but not independently sufficient, 1 confirmed by real correctly licensed exact-species pixels: (1) whole-plant growth habit, (2) actual connected rooted base and mechanism, (3) true inner collar/ligule/sheath, (4) complete attached flowering head, (5) actual diagnostic reproductive detail, (6) verified relevant native/exotic/local look-alike comparison.
+- PHOTO SEARCH ORDER: true opened INNER ligule/collar/sheath with scale > authentic spikelet/glumes/lemmas/awns and flower attachment > complete flowering whole plant > true rooted crown/nodes/rhizomes > close look-alike anatomical comparison. Root photography last if difficult; never call outside sheath hairs an inner ligule.
+- Search and LICENSE-CHECK separately for every exact photo, then inspect pixels, physically archive JPEG in GitHub with EXIF removed, add real gallery panel and arrows only to seen pixels. Existing credited conditional noncommercial CC BY-NC images remain subject to exact photo/site license review.
+- Verify actual GitHub commit, file bytes, gallery path and ideally live Pages/mobile arrows. Count actual PHOTOGRAPHIC role gain only; rewritten copy doesn't count. No new photos installed? Record blocker and move on.
+- A 70–80% species can exit Pass A without needing all rare microscopic/corm/root photos. Prioritize low-score, fast-available licensed structures across entire lane.
+- Current recorded per-species verified six-role results: `reports/lane4-six-role-photographic-progress-20261027.json`. Unscored species are NOT assumed complete or incomplete. Keep taxonomy/native BONAP decisions and all other lane assignments unchanged; scientific holds still apply.
+
 ## Required working method
 - Work ONLY on the assigned IDs in this file. Do not claim or edit another chat's species. Existing five automation workflows may also be editing the repository; refresh SHA immediately before each write, preserve all fields, rebase and retry conflicts safely.
 - Begin with P0/P1 anatomical shortages, then P2, then P3; within these choose highest-confidence licensed images first. Reserve `muhlenbergia-piniflora` until LAST. Preserve scientific holds for `anatherum-tenuispatheum`, `chloris-x-subdolichostachya`, `muhlenbergia-x-involuta`, and `sorghastrum-elliottii`.
