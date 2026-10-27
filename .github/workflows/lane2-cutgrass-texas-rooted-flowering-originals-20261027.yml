@@ -1,0 +1,47 @@
+name: Lane 2 giant cutgrass original Texas exposed crown and reproductive macro
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-cutgrass-texas-rooted-flowering-originals-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Verify exact original Texas root crown and inflorescence details
+        run: |
+          python - <<'PY'
+          import json,io,base64
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 exact licensed photo source review'}
+          P=[(717390360,391509059),(717390355,391509059),(691196512,377953271),(720648948,393181960)]
+          cache={}
+          out=Image.new('RGB',(1820,1840),'white');draw=ImageDraw.Draw(out)
+          for i,(pid,oid) in enumerate(P):
+           if oid not in cache:
+            with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{oid}',headers=UA),timeout=48) as h:cache[oid]=json.load(h)['results'][0]
+           o=cache[oid]
+           if o['taxon']['name']!='Zizaniopsis miliacea' or o['quality_grade']!='research':raise RuntimeError('Species mismatch')
+           p=next(v for v in o['photos'] if v['id']==pid)
+           if p['license_code'] not in {'cc-by-nc','cc-by-nc-sa','cc-by','cc-by-sa','cc0'}:raise RuntimeError('Rights missing')
+           src=p['url'].replace('/square.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+           with urlopen(Request(src,headers=UA),timeout=50) as h:raw=h.read(10000001)
+           if len(raw)>10000000:raise RuntimeError('Too large')
+           with Image.open(io.BytesIO(raw)) as im:
+            if im.format not in ('JPEG','PNG'):raise RuntimeError('Not supported')
+            z=ImageOps.exif_transpose(im).convert('RGB');dims=z.size
+           z.thumbnail((855,810));x=i%2*910;y=i//2*920
+           out.paste(z,(x+(910-z.width)//2,y+5+(810-z.height)//2))
+           draw.text((x+15,y+849),f'Zizaniopsis photo {pid} obs {oid} {p["license_code"]}',fill='black')
+           print('PHOTO_SOURCE',json.dumps({'photo':pid,'obs':oid,'license':p['license_code'],'author':p.get('attribution'),'dims':dims,'location':o.get('place_guess'),'photo_url':'https://www.inaturalist.org/photos/'+str(pid)}))
+          b=io.BytesIO();out.save(b,'JPEG',quality=85,optimize=True);v=base64.b64encode(b.getvalue()).decode()
+          for i,p in enumerate(range(0,len(v),3500)):print('ZIZ_ORIG_'+str(i)+'='+v[p:p+3500])
+          print('END_ORIG',len(b.getvalue()))
+          PY
