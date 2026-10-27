@@ -1,0 +1,59 @@
+name: Silver bluestem five Texas licensable anatomy-photo original contact sheets
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-torreyana-five-tx-anatomy-photo-contact-sheet-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Review confirmed Texas silver originals
+        run: |
+          python - <<'PY'
+          import json,io,base64,math
+          from urllib.request import urlopen,Request
+          from PIL import Image,ImageDraw,ImageOps
+          UA={'User-Agent':'Hays-County-Botany-Visual-Learner/1.0 original public photo audit'}
+          obs=[411083940,388507724,386200336,189359723,355847446]
+          items=[]
+          for oid in obs:
+            try:
+              with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{oid}',headers=UA),timeout=45) as u:r=json.load(u)['results'][0]
+              assert r.get('taxon',{}).get('id')==1452295 and r.get('quality_grade')=='research'
+              print('SOURCE_OBS',json.dumps({'obs':oid,'grade':r['quality_grade'],'place':r.get('place_guess'),'date':r.get('observed_on'),'taxon':r['taxon']['name'],'photos':len(r['photos'])}))
+              for p in r['photos']:
+                pid=p['id'];lic=p.get('license_code')
+                if lic not in ('cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'):
+                  print('RIGHTS_HOLD',pid,lic);continue
+                url=p['url'].replace('/square.','/large.').replace('/medium.','/large.')
+                try:
+                  with urlopen(Request(url,headers=UA),timeout=45) as u:b=u.read(10_000_001)
+                  assert 20000<len(b)<10_000_001
+                  with Image.open(io.BytesIO(b)) as original:
+                    img=ImageOps.exif_transpose(original).convert('RGB'); dim=img.size
+                  img.thumbnail((550,530))
+                  items.append((oid,pid,lic,img,dim,p.get('attribution')))
+                  print('SOURCE_IMAGE',json.dumps({'obs':oid,'photo':pid,'license':lic,'creator':p.get('attribution'),'source':'https://www.inaturalist.org/photos/'+str(pid),'dimensions':dim,'bytes':len(b)},ensure_ascii=False))
+                except Exception as e:print('PHOTO_HOLD',pid,str(e)[:150])
+            except Exception as e:print('OBS_HOLD',oid,str(e)[:200])
+          print('VALID_IMAGES',len(items))
+          for page in range(math.ceil(len(items)/8)):
+            sheet=Image.new('RGB',(2280,1250),'white');d=ImageDraw.Draw(sheet)
+            for ix,(oid,pid,lic,img,dim,creator) in enumerate(items[page*8:(page+1)*8]):
+              x=(ix%4)*570;y=(ix//4)*625
+              sheet.paste(img,(x+(570-img.width)//2,y+(560-img.height)//2))
+              d.text((x+10,y+570),f'{oid} / {pid} {lic}',fill='black')
+              d.text((x+10,y+590),f'{dim[0]}x{dim[1]}',fill='black')
+            bio=io.BytesIO();sheet.save(bio,'JPEG',quality=72,optimize=True)
+            b64=base64.b64encode(bio.getvalue()).decode()
+            print('SILVER_TXPAGE_BEGIN',page,'bytes',len(bio.getvalue()))
+            for n,idx in enumerate(range(0,len(b64),3500)):print(f'SILVER_TXPAGE_{page}_{n}='+b64[idx:idx+3500])
+            print('SILVER_TXPAGE_END',page)
+          PY
