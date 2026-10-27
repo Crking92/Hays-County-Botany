@@ -24,6 +24,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          python - <<'PY'
           import base64, hashlib, io, json, os, sys, time, traceback, urllib.error, urllib.request
           from pathlib import Path
           from PIL import Image, ImageOps
@@ -185,4 +186,4 @@ jobs:
               print("INSTALL_FAILED",repr(error))
               write_failure(error)
               raise
-          
+          PY
