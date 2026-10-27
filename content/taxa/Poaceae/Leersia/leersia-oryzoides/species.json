@@ -669,6 +669,35 @@
       },
       "repair_requirements": "Exact Wikimedia file by Matt Lavin verified CC BY-SA 2.0 and 2272x1704; 2026-10-17 GitHub Actions download received HTTP 429. Reinstall exact same file after source rate limit clears.",
       "display_policy": "Do not treat the missing file as installed; retain complete original source/provenance and re-add only after exact image, licensing and identity screening."
+    },
+    {
+      "status": "VERIFIED_LICENSED_LOOKALIKE_PHOTO_LEAD_NOT_ARCHIVED",
+      "checked_at": "2026-10-26",
+      "target_species": "Leersia oryzoides",
+      "comparison_taxon": "Leersia virginica",
+      "exact_photo_role": "Real L. virginica panicle with visible spaced primary lateral branches and green branch-tip spikelets; comparison to rice cutgrass low-node branching only, NOT a measured spikelet or calibrated low-node proof.",
+      "creator": "Doug Goldman (Douglas Goldman)",
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Leersia_virginica_iNat-54224930.jpg",
+      "original_photo_page": "https://www.inaturalist.org/photos/54224930",
+      "source_observation": "https://www.inaturalist.org/observations/34451897",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Leersia_virginica_iNat-54224930.jpg",
+      "source_reported_bytes": 834565,
+      "source_reported_dimensions": [
+        1371,
+        2048
+      ],
+      "source_bytes_verified": false,
+      "archive_image_sha256": null,
+      "source_license_evidence": "Commons individual file page: uploader-verified iNaturalist CC BY 4.0, creator Doug Goldman, original dated 2011-09-10; source image visibly reviewed, but original bytes were NOT downloaded or hashed in this run.",
+      "public_reuse_status": "IMAGE_LEVEL_CC_BY_4_LICENSE_CONFIRMED__PHYSICAL_ARCHIVE_AND_PIXEL_SCALE_REVIEW_PENDING",
+      "photo_installation": "NOT_COMMITTED_AS_IMAGE__NOT_IN_SPECIES_GALLERY",
+      "annotation_pending": [
+        "Do not place branch-node arrows without downloaded full-resolution pixel review",
+        "No millimeter scale; do not infer spikelet length or every low-node branch attachment"
+      ],
+      "next_step": "Archive GPS/EXIF-stripped licensed JPEG only through normal approved binary workflow with verified bytes, deduplicate against source library, preserve Doug Goldman/source/CC BY 4.0 and modification notice; then add matched L. virginica comparison panel to existing L. oryzoides card. No L. virginica canonical species installation."
     }
   ],
   "comparisons": {
@@ -679,12 +708,12 @@
       "Zizania texana",
       "Paspalum spp."
     ],
-    "key_distinctions": "Rice cutgrass L. oryzoides: notably retrorse-prickly/rough leaves and sheaths; mature spreading panicle usually 2+ branches at lowermost nodes (verify their COMMON point on rachis); oblong flat 1-flowered spikelets usually 4.2–6.5 × 1.3–1.7 mm and short membranous ligule 0.5–1 mm. White cutgrass L. virginica: usually smoother or less harshly rough sheaths, often a single panicle branch at a lowermost node, smaller more crowded/overlapping spikelets ~2.2–4 mm; count mature branching and measure spikelets rather than rely on roughness. L. lenticularis has wider, almost disk- or lens-shaped spikelets, not narrow 'rice grains'. Zizaniopsis and Zizania have different flowering structure; Texas wild-rice is a protected aquatic plant and must not be handled or uprooted for comparisons. Paspalum spikelets are generally arranged differently; inspect the actual glumes/lemmas, not just habitat.",
+    "key_distinctions": "Rice cutgrass L. oryzoides: notably retrorse-prickly/rough leaves and sheaths; mature spreading panicle usually 2+ branches at lowermost nodes (verify their COMMON point on rachis); oblong flat 1-flowered spikelets usually 4.2–6.5 × 1.3–1.7 mm and short membranous ligule 0.5–1 mm. White cutgrass L. virginica: usually smoother or less harshly rough sheaths, often a single panicle branch at a lowermost node, smaller spikelets ~2.2–4 mm that generally overlap little along the branchlets (in contrast to the more overlapping spikelets of L. oryzoides); count mature branching and measure spikelets rather than rely on roughness. L. lenticularis has wider, almost disk- or lens-shaped spikelets, not narrow 'rice grains'. Zizaniopsis and Zizania have different flowering structure; Texas wild-rice is a protected aquatic plant and must not be handled or uprooted for comparisons. Paspalum spikelets are generally arranged differently; inspect the actual glumes/lemmas, not just habitat.",
     "detailed_pairs": [
       {
         "taxon": "Leersia virginica",
         "common_name": "White cutgrass",
-        "field_split": "Usually more delicate with smoother or only moderately rough leaf sheaths. Flowering head generally has ONE branch at a low node rather than two or more; small spikelets (~2.4–4 mm) often crowded/overlapping more strongly; short closely overlapping rhizome scales. Mature paired-branch and spikelet counts are more reliable than wet habitat alone.",
+        "field_split": "Usually more delicate with smoother or only moderately rough leaf sheaths. Flowering head generally has ONE branch at a low node rather than two or more; small spikelets (~2.4–4 mm) usually barely overlapping on the branchlets; short closely overlapping rhizome scales. Mature paired-branch and spikelet counts are more reliable than wet habitat alone.",
         "photo_need": "Whole panicle lower branching node and single spikelet with mm reference; correct source-labelled specimen."
       },
       {
@@ -1291,7 +1320,7 @@
     {
       "label": "Kew Plants of the World Online: Leersia virginica",
       "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:316778-2/general-information",
-      "use": "Look-alike smaller 2.4–4 mm crowded spikelets; not counted as installed."
+      "use": "Look-alike L. virginica usually has smaller ~2.4–4 mm spikelets that barely overlap; compare a mature panicle and measure with a ruler. Reference only; no look-alike photo installed."
     },
     {
       "label": "Kew Plants of the World Online: Leersia lenticularis",
