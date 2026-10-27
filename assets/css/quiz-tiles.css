@@ -88,3 +88,13 @@
 .quiz-feedback .quiz-study-links{margin-top:12px}
 .quiz-photo-attribution{word-break:break-word;line-height:1.45}
 .quiz-photo-stage img{max-width:100%;object-fit:contain}
+
+
+.quiz-results{max-width:800px;margin:22px auto}
+.quiz-results h2{font:730 2rem Georgia,serif;color:var(--deep);margin:7px 0 14px}
+.quiz-results-score{display:flex;flex-wrap:wrap;align-items:center;gap:18px;background:#e5f0e3;border:1px solid #bfd7c1;border-radius:13px;padding:18px;margin:15px 0}
+.quiz-results-score strong{font:760 2.2rem Georgia,serif;color:var(--deep)}
+.quiz-results-score span{color:#42644e;font-weight:750}
+.quiz-results-actions{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+.quiz-results-actions .quiz-outline{text-decoration:none}
+@media(max-width:650px){.quiz-results-actions{flex-direction:column;align-items:stretch}.quiz-results-actions>*{width:100%;text-align:center}}
