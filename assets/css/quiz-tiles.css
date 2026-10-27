@@ -73,3 +73,18 @@
  .quiz-actions{justify-content:stretch}
  .quiz-actions>*{flex:1}
 }
+
+
+/* Compact photo-first quizzes now offer visual species ID, botanical terms,
+   and a guided giant reed/common reed/giant cutgrass look-alike challenge. */
+@media(min-width:900px){.quiz-mode-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:651px) and (max-width:899px){.quiz-mode-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quiz-reed-mode{grid-column:1/-1}}
+.quiz-reed-mode{border-color:#9dbca3;background:#f6faf4}
+.quiz-reed-mode .quiz-mode-icon{background:#d8e8d9}
+.quiz-reed-mode .quiz-mode-caption{color:#2b6845}
+.quiz-study-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;font-size:.88rem}
+.quiz-reveal-facts .quiz-study-links a{font-weight:730}
+.quiz-explanation{padding:12px 14px;background:#fff;border:1px solid #dfebd9;border-radius:9px}
+.quiz-feedback .quiz-study-links{margin-top:12px}
+.quiz-photo-attribution{word-break:break-word;line-height:1.45}
+.quiz-photo-stage img{max-width:100%;object-fit:contain}
