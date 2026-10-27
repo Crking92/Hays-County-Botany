@@ -33,6 +33,24 @@ class KRSourceOnlyMicroscopy(unittest.TestCase):
             self.assertFalse(any(x in p.get("file","") for x in forbidden),
                              "Rights-held DigFlora original must not enter physical archive")
 
+    def test_real_az_crown_and_paired_spikelet_arrows(self):
+        s=json.loads(SPECIES.read_text(encoding="utf-8"))
+        panels=s["visual_comparison"]["items"]
+        pair=next(p for p in panels if p.get("image_url","").endswith("kr-az-thayer-spikelet-pair-20261027.jpg"))
+        crown=next(p for p in panels if p.get("image_url","").endswith("kr-az-thayer-root-crown-20261027.jpg"))
+        self.assertEqual(len(pair["markers"]),2)
+        self.assertEqual(len(crown["markers"]),2)
+        for p in (pair,crown):
+            self.assertEqual(p["creator"],"Dave Thayer")
+            self.assertEqual(p["scientific_name"],"Bothriochloa ischaemum")
+            self.assertIn("NOT",p["caption"])
+            for a in p["markers"]:
+                self.assertTrue(all(0<=a[k]<=100 for k in
+                    ("label_x","label_y","target_x","target_y")))
+        indices=s["field_photo_quickcheck"]["featured_photo_indices"]
+        self.assertIn(panels.index(pair),indices)
+        self.assertIn(panels.index(crown),indices)
+
     def test_learner_links_originals_not_embedded_images(self):
         js=(ROOT/"assets/js/app.js").read_text(encoding="utf-8")
         self.assertIn("function speciesSourceOnlyMacroReferences(",js)
