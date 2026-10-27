@@ -137,6 +137,23 @@ def permitted_harms_seep_muhly(item, noncommercial=False):
                 for ident in HARMS_MURE2_IDS))
 
 
+# Exact-source Bob Harms Muhlenbergia involuta hybrid originals.
+# The author calls it M. involuta; current card tracks accepted M. ×involuta.
+# Copyright retained; ONLY credited scientific and educational use, NOT CC.
+HARMS_MUIN_IDS = frozenset({"MUIN-a", "MUIN-I", "MUIN-J", "MUIN-L"})
+def permitted_harms_muhly_hybrid(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Muhlenbergia involuta"
+        and item.get("accepted_taxon_name") == "Muhlenbergia ×involuta"
+        and any(item.get("source_page") == HARMS_BASE + "pages/" + photo_id + ".html"
+                and item.get("source_image") == HARMS_BASE + "images/" + photo_id + ".jpg"
+                for photo_id in HARMS_MUIN_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -564,6 +581,8 @@ def photo_rights(record, noncommercial=False):
         return None  # Exact source-credited reproduction, not Creative Commons.
     if permitted_harms_tridentopsis_mutica(record, noncommercial):
         return None  # Exact selected copyrighted educational original, original taxon synonym recorded.
+    if permitted_harms_muhly_hybrid(record, noncommercial):
+        return None  # Exact credited canyon muhly originals, retain author copyright and source taxon.
     if permitted_harms_seep_muhly(record, noncommercial):
         return None  # Exact MURE2 original copyright retained, educational attribution required.
     if permitted_harms_purpletop_tridens(record, noncommercial):
