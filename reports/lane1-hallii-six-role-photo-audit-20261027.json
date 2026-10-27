@@ -42,16 +42,18 @@
   "prior_conservative_role_score": 4,
   "prior_percent": 75,
   "photos_before": 8,
-  "photos_now": 9,
-  "teaching_panels_now": 10,
+  "photos_now": 11,
+  "teaching_panels_now": 12,
   "public_eligible_species_photos": 9,
-  "recorded_arrows_now": 10,
-  "new_real_arrow_markers": 0,
-  "new_jpeg_count": 1,
+  "recorded_arrows_now": 11,
+  "new_real_arrow_markers": 1,
+  "new_jpeg_count": 3,
   "confirmed_file_paths": [
     "content/taxa/Poaceae/Panicum/panicum-hallii/images/jim-conrad-hallii-uvalde-attached-ribbed-spikelets-pd.jpg",
     "content/taxa/Poaceae/Panicum/panicum-hallii/images/jim-conrad-hallii-uvalde-detached-mature-spikelets-hand-pd.jpg",
-    "content/taxa/Poaceae/Panicum/panicum-hallii/images/usda-ars-na0084210-blanco-county-hallii-rooted-pressed-voucher-cc0.jpg"
+    "content/taxa/Poaceae/Panicum/panicum-hallii/images/usda-ars-na0084210-blanco-county-hallii-rooted-pressed-voucher-cc0.jpg",
+    "content/taxa/Poaceae/Panicum/panicum-hallii/images/bob-harms-hallii-original-inner-ligule-sheath-scale-educational.jpg",
+    "content/taxa/Poaceae/Panicum/panicum-hallii/images/bob-harms-hallii-separated-mature-spikelet-elements-educational.jpg"
   ],
   "source_page": "https://www.backyardnature.net/n/h/panic-2.htm",
   "author": "Jim Conrad",
@@ -60,10 +62,10 @@
   "archive_commit": "54bc795c42935d959a446fd602915162fc3ced82",
   "success_run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/40563644766",
   "scope_limitations": [
-    "Pressed specimen has attached genuine fibrous roots; still need photos of fresh, intact rooted perennial crown actively connected with soil and shoots",
-    "No calibrated 1-mm ruler against mature spikelets and dissected glume/lemma attachments",
-    "No true same-scale localized P. hallii vs witchgrass Panicum capillare comparison",
-    "Verify mobile arrow overlay and live GitHub Pages release independently"
+    "Living root crown with roots attached in real soil still not photographed; pressed Blanco County voucher only partial root credit",
+    "Bob Harms separated reproductive parts lack an independent key on image assigning each individual glume, lemma, and palea (do not invent exact anatomical labels)",
+    "Same-scale real species confirmed comparison with Panicum capillare / P. coloratum still missing",
+    "Mobile/browser QA of arrows and GitHub Pages release separate"
   ],
   "site_status": "not independently verified deployed — GitHub repo readback and job success only",
   "science_note": "Role 0.5/1 for preserved root base; never misstate pressed voucher as living actively rooted field specimen. Reproductive role supported by distinct real macro, but does NOT equal a fully dissected glume/lemma image.",
@@ -96,5 +98,21 @@
     "commit": "07447b2f9840c4bb9af9b7484a58bfd3797ffdae",
     "arrows": "none placed without physical full-size annotation accuracy inspection"
   },
-  "updated": "2026-10-27"
+  "updated": "2026-10-27",
+  "bob_harms_anatomy_20261027": {
+    "source_homepage": "https://w3.biosci.utexas.edu/prc/Monocots/",
+    "source_index": "https://w3.biosci.utexas.edu/prc/Monocots/GrassHTML/data/Panicum-text.html",
+    "photo_files": [
+      "content/taxa/Poaceae/Panicum/panicum-hallii/images/bob-harms-hallii-original-inner-ligule-sheath-scale-educational.jpg",
+      "content/taxa/Poaceae/Panicum/panicum-hallii/images/bob-harms-hallii-separated-mature-spikelet-elements-educational.jpg"
+    ],
+    "rights": "Author Bob Harms explicit free SCIENTIFIC/EDUCATIONAL reuse with attribution, NOT public domain or CC; public educational teaching site only",
+    "photo_roles": [
+      "real measured-context true inner ligule/sheath",
+      "actually separated reproductive bract/fruiting structures (not keyed precise glume/lemma organ labels)"
+    ],
+    "commit": "453ee7bdad83b1c7955676397fe9281cc1649ae1",
+    "score_effect": "no change to six-role 5/6=83.33%, both roles already at 1.0, but raises anatomical photo teaching quality",
+    "pixel_check": "actual downloaded original dimensions 227x596 and 461x512; no fake particular glume or lemma arrows"
+  }
 }
