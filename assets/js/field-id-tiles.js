@@ -300,15 +300,102 @@ function fieldBeginnerPath(sp,path){
  (lesson.safety_note?'<p class="field-starter-safety"><b>Stop and check:</b> '+
  esc(lesson.safety_note)+'</p>':'')+'</section>';
 }
+/* Concrete look-alike choices, not an empty generic accordion.
+   All choices resolve to published species records; never create a synthetic taxon. */
+const reedChoices={
+ 'arundo-donax':['phragmites-australis','zizaniopsis-miliacea'],
+ 'phragmites-australis':['arundo-donax','zizaniopsis-miliacea'],
+ 'zizaniopsis-miliacea':['arundo-donax','phragmites-australis']
+};
+const reedComparisonCues={
+ 'arundo-donax':{
+  label:'Giant reed · Arundo donax',
+  clues:['Thick, jointed, cane-like stems with broad, wrapping leaf bases.',
+         'Large branching plume with multi-flowered spikelets.',
+         'Silky reproductive hairs associated mainly with the lemma/floret bases.'],
+  caution:'Do not decide from overall height or a fluffy plume alone; check leaf collar and spikelet details.'
+ },
+ 'phragmites-australis':{
+  label:'Common reed · Phragmites australis',
+  clues:['Tall wetland reed with a branching, often feathery flowering head.',
+         'Silky hairs along the spikelet axis between the florets (rachilla).',
+         'Native North American, Gulf Coast and introduced Eurasian lineages can look similar.'],
+  caution:'Species ID is not proof of an introduced lineage. Leave lineage unresolved when evidence is insufficient.'
+ },
+ 'zizaniopsis-miliacea':{
+  label:'Giant cutgrass · Zizaniopsis miliacea',
+  clues:['Coarse marsh grass with broad, finely saw-edged blades.',
+         'Typically a long, papery membranous ligule (about 6–20 mm).',
+         'Separate male and female one-flowered spikelets on branches of the flowering head.'],
+  caution:'Do not guess the sex of the spikelets from the silhouette alone; confirm anthers and stigmas.'
+ }
+};
 function fieldReedCompare(sp){
- const other=sp.id==='arundo-donax'?'phragmites-australis':
- sp.id==='phragmites-australis'?'arundo-donax':null;
- if(!other||!state.records.some(x=>x.id===other))return '';
- const title=other==='arundo-donax'?'giant reed':'common reed';
- return '<div class="field-reed-compare"><div><b>Could this be the other reed?</b>'+
- '<p>Compare leaf attachments and mature spikelets—not just the height or fluffy plume.</p>'+
- '</div><button type="button" class="open-learner" data-species="'+other+
- '">Open '+esc(title)+' field card →</button></div>';
+ const picks=reedChoices[sp.id];
+ if(!Array.isArray(picks))return '';
+ const available=picks.map(id=>state.records.find(r=>r.id===id)).filter(Boolean);
+ if(!available.length)return '';
+ const buttons=available.map(r=>
+  '<button type="button" class="field-compare-option" data-compare-species="'+esc(r.id)+
+  '" aria-controls="fieldReedComparisonResult" aria-pressed="false">'+
+  '<strong>'+esc(r.common_name||r.scientific_name)+'</strong><small><i>'+esc(r.scientific_name)+'</i></small>'+
+  '<span>Compare photos and clues →</span></button>').join('');
+ const lineage=sp.id==='phragmites-australis'&&Array.isArray(sp.comparisons?.lineage_matrix)?
+  '<details class="field-compare-lineages"><summary>Compare the three Phragmites lineages (advanced)</summary>'+
+  '<p>These overlap. A field photograph by itself cannot establish a Texas reed as invasive.</p>'+
+  sp.comparisons.lineage_matrix.slice(0,3).map(x=>
+   '<article><h4>'+esc(x.lineage)+'</h4><p><b>Older sheaths:</b> '+esc(x.sheath)+
+   '</p><p><b>Stem:</b> '+esc(x.stem)+'</p><p><b>Limits:</b> '+esc(x.caution)+'</p></article>').join('')+
+  '</details>':'';
+ return '<section class="field-compare-picker" aria-label="Compare look-alike reeds">'+
+  '<div class="field-compare-heading"><h3>Compare look-alikes</h3>'+
+  '<p>Pick a plant to see it next to this one. Look at the leaf junction and flowering structures, not just the plume.</p></div>'+
+  '<div class="field-compare-options" role="group" aria-label="Which look-alike?">'+buttons+'</div>'+
+  '<div id="fieldReedComparisonResult" class="field-compare-result" aria-live="polite">'+
+  '<p class="field-compare-empty">Choose a look-alike above to see side-by-side photographs and distinguishing clues.</p></div>'+
+  lineage+'</section>';
+}
+async function compareReeds(otherId){
+ const currentId=state.selected;
+ const own=state.records.find(x=>x.id===currentId);
+ const other=state.records.find(x=>x.id===otherId);
+ if(!own||!other||!reedChoices[currentId]?.includes(otherId))return;
+ const target=dialog.querySelector('#fieldReedComparisonResult');
+ if(!target)return;
+ target.innerHTML='<p>Loading source-reviewed photos and field clues…</p>';
+ try{
+  const get=async entry=>{
+   let sp=state.cache.get(entry.id);
+   if(!sp){const r=await fetch(safePath(entry.path),{cache:'no-store'});if(!r.ok)throw Error('Plant record not available');
+    sp=await r.json();state.cache.set(entry.id,sp);}
+   return sp;
+  };
+  const pair=await Promise.all([get(own),get(other)]);
+  if(state.selected!==currentId||!dialog.open)return;
+  const photoCard=(sp,entry)=>{
+   const first=sp.beginner_learning_path?.hero_photo_file||sp.images?.[0]?.file;
+   const item=(sp.images||[]).find(x=>x.file===first);
+   const parent=entry.path.slice(0,entry.path.lastIndexOf('/')+1);
+   const image=item?safePath(parent+item.file):'';
+   const source=item&&/^https:\/\//.test(item.source_page||'')?
+     '<a href="'+esc(item.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':'';
+   const clues=reedComparisonCues[sp.id];
+   return '<article class="field-compare-side"><h4>'+esc(clues.label)+'</h4>'+
+    (image?'<img loading="lazy" src="'+esc(image)+'" alt="'+esc(clues.label)+' actual photographed growth form">':'')+
+    '<p class="field-compare-credit">'+esc(item?.creator||'')+' · '+esc(item?.license||'')+' '+source+'</p>'+
+    '<ul>'+clues.clues.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>'+
+    '<p class="field-compare-caution"><b>Be careful:</b> '+esc(clues.caution)+'</p></article>';
+  };
+  const updated=dialog.querySelector('#fieldReedComparisonResult');
+  if(!updated)return;
+  updated.innerHTML='<div class="field-compare-sides">'+photoCard(pair[0],own)+photoCard(pair[1],other)+'</div>'+
+  '<button type="button" class="open-learner field-compare-open" data-species="'+esc(otherId)+'">Open full '+
+   esc(other.common_name||other.scientific_name)+' Field ID →</button>';
+  dialog.querySelectorAll('[data-compare-species]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.compareSpecies===otherId)));
+ }catch(err){
+  const updated=dialog.querySelector('#fieldReedComparisonResult');
+  if(updated)updated.innerHTML='<p>Could not load that species. Try another comparison or open its field card.</p>';
+ }
 }
 function photosFor(sp,path){
  const list=Array.isArray(sp.images)?sp.images.slice(0,36):[];
@@ -414,6 +501,7 @@ document.addEventListener('click',event=>{
  if(target.hasAttribute('data-genus')){change('species',target.dataset.parentFamily,target.dataset.genus);return;}
  if(target.hasAttribute('data-root-browse')){change('families','','');return;}
  if(target.dataset.rank){change(target.dataset.rank,'','');return;}
+ if(target.dataset.compareSpecies){compareReeds(target.dataset.compareSpecies);return;}
  if(target.dataset.species){openSpecies(target.dataset.species,target);return;}
  if(target.hasAttribute('data-more')){state.limit+=60;renderResultsOnly();return;}
  if(target.hasAttribute('data-close')){dialog.close();return;}
