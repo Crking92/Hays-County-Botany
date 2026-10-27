@@ -1,0 +1,27 @@
+name: Lane 1 Urochloa fusca true ligule and flowers Jim Conrad PD
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-urochloa-fusca-jim-conrad-20261027.yml'
+      - 'scripts/lane1_urochloa_fusca_jim_conrad_public_domain_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-fusca-texas-public-domain-true-ligule
+  cancel-in-progress: false
+jobs:
+  source-verify-and-archive-real-texas-anatomy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install network and image prerequisites
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Confirm image-level ownership and public domain; archive ligule, attached spikelets, whole field flowering habit
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/lane1_urochloa_fusca_jim_conrad_public_domain_20261027.py
