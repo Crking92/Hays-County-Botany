@@ -1,0 +1,47 @@
+name: Lane 5 silver bluestem two Texas photos individual rights check
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/reconcile_lane5_silver_texas_photo_rights_20261027.py
+      - .github/workflows/reconcile-lane5-silver-texas-photo-rights-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-silver-texas-photo-rights-20261027
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            reports
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Check actual photo-level licenses and exact taxon, promote only publicly reusable originals
+        run: python scripts/reconcile_lane5_silver_texas_photo_rights_20261027.py
+      - name: Save rights evidence and optional verified Texas photos, safe rebase only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane5-silver-bluestem-texas-two-photo-rights-20261027.json content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Check source rights for existing Texas silver bluestem photos"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo "Concurrent main writes prevented safe commit" >&2
+          exit 1
