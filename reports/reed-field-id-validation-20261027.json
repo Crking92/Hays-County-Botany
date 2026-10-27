@@ -5,7 +5,12 @@
     {
       "command": "python -m unittest discover -s tests -p test_reed_beginner_learner.py -v",
       "exit_code": 0,
-      "output": "test_arundo_safety_and_counts (test_reed_beginner_learner.BeginnerReedLessonTests.test_arundo_safety_and_counts) ... ok\ntest_photo_first_lesson_integrity (test_reed_beginner_learner.BeginnerReedLessonTests.test_photo_first_lesson_integrity) ... ok\ntest_phragmites_safety_and_source_ids (test_reed_beginner_learner.BeginnerReedLessonTests.test_phragmites_safety_and_source_ids) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.004s\n\nOK\n"
+      "output": "test_arundo_safety_and_counts (test_reed_beginner_learner.BeginnerReedLessonTests.test_arundo_safety_and_counts) ... ok\ntest_photo_first_lesson_integrity (test_reed_beginner_learner.BeginnerReedLessonTests.test_photo_first_lesson_integrity) ... ok\ntest_phragmites_safety_and_source_ids (test_reed_beginner_learner.BeginnerReedLessonTests.test_phragmites_safety_and_source_ids) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.007s\n\nOK\n"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_reed_final_closeout_20261027.py -v",
+      "exit_code": 1,
+      "output": "test_reed_final_closeout_20261027 (unittest.loader._FailedTest.test_reed_final_closeout_20261027) ... ERROR\n\n======================================================================\nERROR: test_reed_final_closeout_20261027 (unittest.loader._FailedTest.test_reed_final_closeout_20261027)\n----------------------------------------------------------------------\nImportError: Failed to import test module: test_reed_final_closeout_20261027\nTraceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/unittest/loader.py\", line 419, in _find_test_path\n    module = self._get_module_from_name(name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/unittest/loader.py\", line 362, in _get_module_from_name\n    __import__(name)\n  File \"/home/runner/work/Hays-County-Botany/Hays-County-Botany/tests/test_reed_final_closeout_20261027.py\", line 10, in <module>\n    from PIL import Image\nModuleNotFoundError: No module named 'PIL'\n\n\n----------------------------------------------------------------------\nRan 1 test in 0.000s\n\nFAILED (errors=1)\n"
     },
     {
       "command": "node --check assets/js/app.js",
@@ -33,5 +38,5 @@
       "output": "PASS: 10 source-validated reed quiz questions, 3 look-alikes, 4 options each, licenses, real files, deep links.\n"
     }
   ],
-  "success": true
+  "success": false
 }
