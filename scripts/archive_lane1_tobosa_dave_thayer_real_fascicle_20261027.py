@@ -50,6 +50,7 @@ assert source_url.startswith("https://www.azgrasses.org/"), "Image from outside 
 src=fetch(source_url)
 assert 10000<len(src)<11000000, "Unexpected source size"
 im=Image.open(io.BytesIO(src)); im.load()
+print("FASCICLE SOURCE PIXELS",json.dumps({"source_url":source_url,"format":im.format,"size":im.size,"download_bytes":len(src)}),flush=True)
 assert im.format in ("JPEG","PNG","WEBP") and im.width>=300 and im.height>=250, "Image not large enough for teaching"
 original_size=[im.width,im.height]
 d=json.loads(CARD.read_text(encoding="utf-8"))
