@@ -20,6 +20,12 @@ jobs:
         with:
           ref: main
           fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-ischaemum
+            reports
+            workflow/field-id-publication
           persist-credentials: true
       - uses: actions/setup-python@v5
         with:
