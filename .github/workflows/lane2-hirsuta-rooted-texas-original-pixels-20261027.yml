@@ -30,7 +30,9 @@ jobs:
           for i,pid in enumerate(selected):
               p=next(x for x in o['photos'] if x['id']==pid)
               assert p['license_code']=='cc-by-nc' and 'TgarrisonPlateau' in p['attribution']
-              u=f'https://inaturalist-open-data.s3.amazonaws.com/photos/{pid}/original.jpg'
+              # Original photo media source may be CDN-hosted even when the open-data S3 mirror has no object.
+              u=p['url'].replace('/square.','/original.').replace('/thumb.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+              print('ORIGINAL_URL',pid,u)
               with urlopen(Request(u,headers=UA),timeout=45) as h:b=h.read(10000001)
               assert len(b)<10000001
               with Image.open(io.BytesIO(b)) as img:
