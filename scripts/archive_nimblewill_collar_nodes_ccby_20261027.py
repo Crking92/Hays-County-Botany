@@ -72,10 +72,16 @@ def main():
  if s.get("id")!="muhlenbergia-schreberi" or g.get("name")!="Muhlenbergia":raise ValueError("Canonical taxon changed")
  collected=[];holds=[]
  for item in ITEMS:
-  if any(str(x.get("source_photo_id"))==item["id"] for x in s["images"]):
-   print("Already physically referenced",item["id"]);continue
-  if any(x.get("source_page")==item["page"] for x in s["images"]):
-   raise ValueError("Already has source photo without exact identifier")
+  existing=[x for x in s["images"] if str(x.get("source_photo_id") or x.get("inaturalist_photo_id"))==item["id"]
+            or x.get("source_page")==item["page"]]
+  if existing:
+   if len(existing)!=1 or existing[0].get("creator")!="Emily Summerbell" or existing[0].get("license")!="CC BY 4.0":
+    raise ValueError("Duplicate source identity or rights conflict: "+item["id"])
+   existing_file=existing[0].get("file","")
+   if not existing_file.startswith("images/") or not (SP.parent/existing_file).is_file():
+    raise ValueError("Source record exists without verified physical JPEG: "+item["id"])
+   print("ALREADY_PHYSICALLY_ARCHIVED_SKIP_DUPLICATE",item["id"],existing_file,flush=True)
+   continue
   f=SP.parent/"images"/item["name"]
   if f.exists():raise ValueError("Filename unexpectedly already exists")
   r=get(item)
