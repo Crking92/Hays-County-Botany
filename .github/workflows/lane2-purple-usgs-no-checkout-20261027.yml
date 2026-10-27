@@ -1,0 +1,188 @@
+name: Lane 2 install original USGS purple lovegrass photo without huge checkout
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-purple-usgs-no-checkout-20261027.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-purple-usgs-archive-lightweight-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo EXIF/GPS scrubber
+        run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Fetch real original and publish source/score atomically with GitHub data API
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          import base64, hashlib, io, json, os, sys, time, traceback, urllib.error, urllib.request
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          
+          REPO=os.environ["GITHUB_REPOSITORY"]
+          TOKEN=os.environ["GITHUB_TOKEN"]
+          API="https://api.github.com/repos/"+REPO
+          CARD="content/taxa/Poaceae/Eragrostis/eragrostis-spectabilis/species.json"
+          SCORE="reports/lane2-six-role-photo-score-20261027.json"
+          REPORT="reports/lane2-spectabilis-usgs-flower-macro-20261027.json"
+          MARK="workflow/field-id-publication/lane2-spectabilis-usgs-flower-macro-20261027.json"
+          FN="usgs-biml-eragrostis-spectabilis-real-flower-macro-9615071149.jpg"
+          REL="content/taxa/Poaceae/Eragrostis/eragrostis-spectabilis/images/"+FN
+          PAGE="https://commons.wikimedia.org/wiki/File:Purple_love_grass,_MD,_PG_County_2013-08-20-17.02.10_ZS_PMax_(9615071149).jpg"
+          SOURCES=[
+          "https://upload.wikimedia.org/wikipedia/commons/1/13/Purple_love_grass%2C_MD%2C_PG_County_2013-08-20-17.02.10_ZS_PMax_%289615071149%29.jpg",
+          "https://live.staticflickr.com/5545/9615071149_011e85994b_o.jpg"
+          ]
+          
+          def gh(method,path,obj=None):
+              data=None if obj is None else json.dumps(obj,ensure_ascii=False).encode("utf-8")
+              req=urllib.request.Request(API+path,data=data,headers={"Authorization":"Bearer "+TOKEN,"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","User-Agent":"hays-botany-verified-photo-installer","Content-Type":"application/json"},method=method)
+              with urllib.request.urlopen(req,timeout=35) as response:return json.load(response)
+          
+          def contents(path):
+              j=gh("GET","/contents/"+path+"?ref=main")
+              return json.loads(base64.b64decode(j["content"]).decode("utf-8"))
+          
+          def download():
+              for url in SOURCES:
+                  try:
+                      r=urllib.request.Request(url,headers={"User-Agent":"HaysBotanyEducationalLearner/1.0 (OpenlyLicensed USGS source archiving)"})
+                      with urllib.request.urlopen(r,timeout=40) as f: raw=f.read(7_000_001)
+                      if len(raw)>7_000_000 or not raw.startswith(b"\xff\xd8\xff"):raise ValueError("Not source JPEG")
+                      with Image.open(io.BytesIO(raw)) as original:
+                          if original.format!="JPEG":raise ValueError("Not JPEG")
+                          img=ImageOps.exif_transpose(original).convert("RGB")
+                          w,h=img.size
+                          if (w,h)!=(2796,1944):raise ValueError("Not original photographed 2796x1944: "+str((w,h)))
+                          out=io.BytesIO()
+                          img.save(out,format="JPEG",quality=93,optimize=True,subsampling=0)
+                      print("SOURCE_PIXEL_VERIFIED",url,"pixels",w,h,"raw_bytes",len(raw))
+                      return url,raw,out.getvalue(),[w,h]
+                  except Exception as e:
+                      print("SOURCE_TRY_FAILED",url,type(e).__name__,str(e)[:220])
+              raise RuntimeError("Both exact-image original download routes failed")
+          
+          def write_failure(e):
+              try:
+                  text=traceback.format_exc()[-4000:]
+                  path="reports/lane2-spectabilis-api-installer-failure-20261027.json"
+                  data=json.dumps({"status":"BLOCKED_DO_NOT_RAISE_SCORE","date":"2026-10-27","error":str(e),"traceback":text},indent=2)+"\n"
+                  obj={"message":"Lane 2: persist precise USGS original photo installer error [skip ci]","content":base64.b64encode(data.encode()).decode()}
+                  try:obj["sha"]=gh("GET","/contents/"+path+"?ref=main")["sha"]
+                  except urllib.error.HTTPError as er:
+                      if er.code!=404:raise
+                  gh("PUT","/contents/"+path,obj)
+                  print("ERROR_REPORTED_IN_GITHUB",path)
+              except Exception as write_err:
+                  print("FAILED_TO_REPORT",repr(write_err))
+          
+          def main():
+              url,original,image,dimensions=download()
+              sha=hashlib.sha256(image).hexdigest()
+              blob=gh("POST","/git/blobs",{"content":base64.b64encode(image).decode(),"encoding":"base64"})["sha"]
+              print("BINARY_PHOTO_BLOB_CREATED",blob,"size",len(image))
+              for attempt in range(1,6):
+                  head=gh("GET","/git/ref/heads/main")["object"]["sha"]
+                  base_tree=gh("GET","/git/commits/"+head)["tree"]["sha"]
+                  c=contents(CARD)
+                  s=contents(SCORE)
+                  if any(x.get("file")=="images/"+FN for x in c["images"]):
+                      print("ALREADY_INSTALLED","photographic role not inflated twice")
+                      return
+                  row=next(x for x in s["records"] if x["canonical_id"]=="eragrostis-spectabilis")
+                  if row["roles"]["reproductive_closeup"]!=0.5 or row["after_total"]!=4.5:
+                      raise RuntimeError("Score baseline changed, manual reconciliation needed")
+                  rights={
+                    "creator":"USGS Bee Inventory and Monitoring Lab",
+                    "license":"United States public domain — USGS photograph (Commons also lists CC BY 2.0)",
+                    "license_url":PAGE,
+                    "source_page":PAGE,
+                    "source_image":url,
+                    "source_taxon_name":"Eragrostis spectabilis",
+                    "public_reuse":"yes, original USGS federal public-domain work; Commons photo-level alternate CC BY 2.0 retained",
+                    "modifications":"JPEG re-encoded RGB, EXIF/GPS stripped, no crop, two separate on-screen anatomical arrows",
+                    "image_sha256":sha,
+                    "source_dimensions_px":dimensions,
+                    "source_original_sha256":hashlib.sha256(original).hexdigest()
+                  }
+                  c["images"].append({"file":"images/"+FN,"role":"True reproductive flower macro, feathery stigmas and purple floral bracts; not a scale-measured glume/lemma dissection",**rights})
+                  item={
+                    "label":"TRUE REPRODUCTIVE MACRO · USGS purple lovegrass stigma",
+                    "scientific_name":"Eragrostis spectabilis",
+                    "image_url":REL,
+                    "image_fit":"contain",
+                    "image_role":"Focus-stacked actual floral anatomy beyond distant whole panicle",
+                    "caption":"USGS Bee Inventory and Monitoring Lab photographed a tiny purple lovegrass flower at 5× magnification. Feathery stigmas emerge from purple enclosing bracts. This does not demonstrate measured glumes, lemmas, an opened ligule, or a rhizome. Observe the reproductive closeup alongside the attached branching head photographs.",
+                    "why_it_matters":"Actual photographed feathery stigma and reproductive bracts, not another stand-scale view.",
+                    "markers":[
+                       {"label":"Feathery stigmas emerging from flower","label_x":6,"label_y":10,"target_x":35,"target_y":24},
+                       {"label":"Enclosing purple floral bracts (glume/lemma not assigned)","label_x":64,"label_y":83,"target_x":61,"target_y":47}
+                    ],
+                    "photo_status":"Original USGS flower photo; only clearly visible gross organs annotated, source metadata and source image verified",
+                    **rights
+                  }
+                  gallery=c["visual_comparison"]["items"]
+                  index=next((i for i,x in enumerate(gallery) if "LOOK-ALIKE" in x.get("label","")),len(gallery))
+                  gallery.insert(index,item)
+                  c["curation_status"]["photo_files_present"]=len([x for x in c["images"] if str(x.get("file","")).startswith("images/")])
+                  c["curation_status"]["lane2_usgs_real_flower_20261027"]={
+                     "status":"FIELD_READY_PHOTO_GAPS","new_archived_photos":1,"new_anatomical_arrows":2,
+                     "local_species_photos":c["curation_status"]["photo_files_present"],"after_roles":"5/6 (83%) provisional",
+                     "still_missing":["peeled inner 0.2–0.4mm ligule","exposed connected roots/rhizomes","calibrated glume/lemma dissection"],"public_Pages":"unverified"
+                  }
+                  c["photo_note"]=c.get("photo_note","")+"\n2026-10-27 Lane 2: true USGS PD flower macrophotograph physically archived, feathery stigmas/purple floral bracts annotated with two visible-organ arrows, no measured glume/lemma or root/ligule claims."
+                  row["roles"]["reproductive_closeup"]=1
+                  row["after_total"]=5
+                  row["after_percentage"]=83
+                  row["change_percentage_points"]=83-row["before_percentage"]
+                  row["new_source_report"]=REPORT
+                  row["gaps_warning"]="USGS real purple flower and stigma macro archived; true inner ligule, actual exposed roots and calibrated floret dissection remain gaps."
+                  s["summary"]["mean_after_percent"]=round(sum(x["after_total"] for x in s["records"])/len(s["records"])*100/6,1)
+                  d={}
+                  for x in s["records"]:
+                     k=f'{x["after_total"]:.1f}/6'
+                     d[k]=d.get(k,0)+1
+                  s["summary"]["distribution"]=d
+                  s["summary"]["latest_usgs_purple_20261027"]={"new_archived_jpegs":1,"new_visible_arrows":2,"license":"USGS PD, CC BY 2.0 alternate","photographic_score":"5/6 (83%)","Pages":"not confirmed"}
+                  rep={
+                      "species":"Eragrostis spectabilis","date":"2026-10-27","status":"FIELD_READY_PHOTO_GAPS",
+                      "source_page":PAGE,"source_image_url":url,"local_path":REL,"original_bytes":len(original),
+                      "archived_bytes":len(image),"original_dimensions_px":dimensions,"sha256":sha,
+                      "license":"USGS public domain; alternate CC BY 2.0","new_photos":1,"new_arrows":2,
+                      "before_photo_roles":4.5,"after_photo_roles":5,"after_percent":83,
+                      "photos_archived_total":c["curation_status"]["photo_files_present"],
+                      "known_gaps":["microscopic true ligule","connected rootstock","calibrated bract dissection"],
+                      "public_pages":"not yet verified"
+                  }
+                  mark={"type":"manual_field_id_publication","date":"2026-10-27","species":"Eragrostis spectabilis","title":"Actual USGS purple lovegrass flower macro, two anatomy arrows","source_report":REPORT,"status":"FIELD_READY_PHOTO_GAPS","public_pages":"release QA pending"}
+                  tree_entries=[{"path":REL,"mode":"100644","type":"blob","sha":blob}]
+                  for name,j in [(CARD,c),(SCORE,s),(REPORT,rep),(MARK,mark)]:
+                      tree_entries.append({"path":name,"mode":"100644","type":"blob","content":json.dumps(j,ensure_ascii=False,indent=2)+"\n"})
+                  tree=gh("POST","/git/trees",{"base_tree":base_tree,"tree":tree_entries})["sha"]
+                  commit=gh("POST","/git/commits",{"message":"Lane 2: archive real USGS purple lovegrass flower macro, 2 arrows, 83% [skip ci]","tree":tree,"parents":[head]})["sha"]
+                  try:
+                      gh("PATCH","/git/refs/heads/main",{"sha":commit,"force":False})
+                      print("SUCCESS_COMMITTED_MAIN",commit,"photo_sha256",sha,"score",83,"lane_average",s["summary"]["mean_after_percent"])
+                      return
+                  except urllib.error.HTTPError as er:
+                      print("MAIN_ADVANCED_RETRY",attempt,er.code)
+                      if attempt>=5 or er.code not in (409,422):raise
+                      time.sleep(3)
+              raise RuntimeError("Branch advance retries exhausted")
+          
+          try:
+              main()
+          except Exception as error:
+              print("INSTALL_FAILED",repr(error))
+              write_failure(error)
+              raise
+          
