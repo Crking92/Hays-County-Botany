@@ -31,7 +31,7 @@ def getsource(x):
     page="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title,safe="()")
     q=s.get(page,timeout=45);q.raise_for_status()
     visible=" ".join(html.unescape(re.sub(r"<[^>]*>"," ",q.text)).lower().split())
-    for word in ("panicum capillare",x["creator"].lower(),x["id"],x["lic"],"flickreviewr"):
+    for word in ("panicum capillare",x["creator"].lower(),x["id"],x["lic"].split("creativecommons.org/",1)[-1].rstrip("/"),"flickreviewr"):
         if word not in visible and word not in q.text.lower():
             raise SystemExit("Exact individual Commons CC source mismatch "+x["id"]+" "+word)
     if x["creator"]=="Harry Rose" and "cc-by-2.0" not in visible:
