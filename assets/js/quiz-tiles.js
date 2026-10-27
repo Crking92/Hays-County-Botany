@@ -125,8 +125,8 @@ function answerDetails(){
   details='<div class="quiz-reveal-facts"><p class="eyebrow">Correct identification</p><h3>'+
    esc(a.common_name||a.scientific_name)+'</h3><p><i>'+esc(a.scientific_name)+'</i> · '+esc(a.family)+'</p>'+
    (a.cue?'<p class="quiz-cue"><b>Look here first:</b> '+esc(a.cue)+'</p>':'')+
-   '<a href="./field-id.html?species='+encodeURIComponent(a.id)+'">Open Field ID ↗</a> · '+
-   '<a href="./index.html?species='+encodeURIComponent(a.id)+'">Study the full species lesson ↗</a></div>';
+   photoSource(a)+'<div class="quiz-study-links"><a href="./field-id.html?species='+encodeURIComponent(a.id)+'">Open Field ID ↗</a> · '+
+   '<a href="./index.html?species='+encodeURIComponent(a.id)+'">Study the full species lesson ↗</a></div></div>';
  }else{
   const t=a.source;
   details='<div class="quiz-reveal-facts"><p class="eyebrow">Botanical definition</p><h3>'+esc(t.term)+'</h3>'+
@@ -142,7 +142,7 @@ function answerDetails(){
 function quizCard(){
  if(!state.current){
   return '<section class="quiz-panel"><h2>'+(
-   state.mode==='photo'?'No photo questions available.':'No term questions available.')+
+   state.mode==='photo'?'No photo questions available.':state.mode==='reed'?'Reed comparison questions unavailable.':'No term questions available.')+
    '</h2><p>Choose a different family or return to the practice choices.</p>'+
    '<button class="quiz-button" data-home>Choose a quiz</button></section>';
  }
