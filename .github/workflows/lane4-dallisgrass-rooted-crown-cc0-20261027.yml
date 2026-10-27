@@ -1,0 +1,51 @@
+name: Lane4 Dallisgrass licensed rooted-crown photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_archive_dallisgrass_rooted_crown_20261027.py
+      - .github/workflows/lane4-dallisgrass-rooted-crown-cc0-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-dallisgrass-actual-root-photo-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - name: Verify individual Commons CC0, retrieve rooted crown, remove EXIF, update photo role
+        run: python scripts/lane4_archive_dallisgrass_rooted_crown_20261027.py
+      - name: Save exact source-verified binary photo and learner panel
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Paspalum/paspalum-dilatatum/ reports/lane4-six-role-photographic-progress-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Archive real CC0 Dallisgrass uprooted crown photo and improve six-role score to 75%"
+            pushed=0
+            for try in 1 2 3 4 5 6 7 8; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                echo "Another editor touched same files; abort instead of overwriting"
+                git rebase --abort || true
+                exit 1
+              fi
+              if git push origin HEAD:main; then
+                pushed=1
+                break
+              fi
+              echo "Safe retry after concurrent push $try"
+              sleep 3
+            done
+            test "$pushed" = 1
+          fi
