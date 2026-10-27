@@ -1,0 +1,52 @@
+name: Cane bluestem Brushy Creek anatomy arrow actual pixel QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/cane-brushy-real-photo-arrow-placement-qa-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          filter: blob:none
+          sparse-checkout: |
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-barbinodis
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Render arrow target dots on the real archived source pixels
+        run: |
+          python - <<'PY'
+          import io,json,base64,math
+          from pathlib import Path
+          from PIL import Image,ImageOps,ImageDraw
+          root=Path('content/taxa/Poaceae/Bothriochloa/bothriochloa-barbinodis')
+          d=json.loads((root/'species.json').read_text())
+          ids=[345758958,345766367,345758976,345758982,345758987]
+          for page in range(math.ceil(len(ids)/2)):
+            canvas=Image.new('RGB',(1840,1000),'white');draw=ImageDraw.Draw(canvas)
+            for i,pid in enumerate(ids[page*2:(page+1)*2]):
+              panel=next(p for p in d['visual_comparison']['items'] if p.get('source_photo_id')==pid)
+              with Image.open(Path(panel['image_url'])) as raw:
+                im=ImageOps.exif_transpose(raw).convert('RGB')
+              im.thumbnail((870,860))
+              left=i*920+(920-im.width)//2;top=20+(860-im.height)//2
+              canvas.paste(im,(left,top))
+              for marker in panel['markers']:
+                tx=left+im.width*marker['target_x']/100;ty=top+im.height*marker['target_y']/100
+                lx=left+im.width*marker['label_x']/100;ly=top+im.height*marker['label_y']/100
+                draw.line((lx,ly,tx,ty),fill=(255,0,0),width=4)
+                draw.ellipse((tx-12,ty-12,tx+12,ty+12),outline=(255,0,0),width=5)
+                print('TARGET',json.dumps({'pid':pid,**marker}))
+              draw.text((i*920+10,930),f'Original actual source {pid}',fill='black')
+            o=io.BytesIO();canvas.save(o,'JPEG',quality=85,optimize=True)
+            b64=base64.b64encode(o.getvalue()).decode()
+            print('CANE_ARROW_BEGIN',page,len(o.getvalue()))
+            for n,x in enumerate(range(0,len(b64),3500)):print(f'CANE_ARROW_{page}_{n}='+b64[x:x+3500])
+            print('CANE_ARROW_END',page)
+          PY
