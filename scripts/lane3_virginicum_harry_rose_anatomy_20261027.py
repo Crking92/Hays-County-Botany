@@ -30,11 +30,40 @@ SOURCES=[
             {"label":"Narrow central bract structure; not dissected","label_x":3,"label_y":16,"target_x":49,"target_y":40}])
 ]
 HEADERS={"User-Agent":"HaysCountyBotanyNoncommercialFieldLearner/1.0 (grass image archival; educational)","Accept":"image/jpeg,image/*"}
+def flickr_candidates(src):
+  """Discover CDN image only from an HTML page bound to the original verified Flickr ID."""
+  id=src["id"]
+  urls=[
+    "https://www.flickr.com/photos/macleaygrassman/"+id+"/",
+    "https://www.flickr.com/photos/73840284@N04/"+id+"/",
+  ]
+  images=[]
+  import re,html
+  for page in urls:
+    try:
+      request=urllib.request.Request(page,headers={**HEADERS,"Accept":"text/html"})
+      with urllib.request.urlopen(request,timeout=23) as r:
+        body=r.read(4_000_001).decode("utf-8","ignore")
+      if id not in body:continue
+      body=html.unescape(body).replace("\\/","/")
+      matches=re.findall(r"https?://(?:live\\.staticflickr\\.com|farm\\d+\\.staticflickr\\.com)/[^\"'<>\\s]+?\\.(?:jpg|jpeg)",body,re.I)
+      for match in matches:
+        if id in match and match not in images:
+          images.append(match)
+          # When actual Flickr CDN gives a large image path use that,
+          # do not mutate photo ID or mix sources.
+          if len(images)>=8:return images
+    except Exception as e:print("Flickr source resolver warning",id,type(e).__name__,str(e)[:80])
+  return images
+
 def fetch(src):
   tries=[
     src["raw"],
     "https://commons.wikimedia.org/wiki/Special:Redirect/file/"+urllib.parse.quote("Andropogon virginicus "+("flowerhead racemes" if src["id"]=="6802476704" else "seed1")+" ("+src["id"]+") (2).jpg").replace("%2F","/")
   ]
+  # Wikimedia occasionally throttles GitHub-hosted requests (HTTP 429).
+  # Preserve exact Commons source license while using original photographer Flickr media CDN.
+  tries = flickr_candidates(src) + tries + ["https://i0.wp.com/"+src["raw"].replace("https://","")]
   errors=[]
   for url in tries:
     for attempt in range(2):
