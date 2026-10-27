@@ -92,8 +92,8 @@ def main():
    held.append({"id":pid,"reason":str(e)[:350]})
    print("HELD",pid,str(e)[:250],flush=True)
  if installed:
-  d["curation"]["photo_metadata_count"]=len(d["images"])
-  d["curation"]["photo_files_present"]=len(d["images"])
+  d["curation_status"]["photo_metadata_count"]=len(d["images"])
+  d["curation_status"]["photo_files_present"]=len(d["images"])
   d["field_id_finish_pass"]["lane4_cognata_real_cc_collar_archive_20261027"]={
     "exact_source_photo_bytes_new":len(installed),"photo_pixels_organ_review_pending":True,
     "scientific_scope":"taxon research-grade exact species, no Hays County voucher native conclusion",
