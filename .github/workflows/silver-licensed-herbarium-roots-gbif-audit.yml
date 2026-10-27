@@ -40,7 +40,7 @@ jobs:
                     "media_creator":media.get("creator"),"references":item.get("references"),"media_url":url,"gbif_key":item.get("key")}
             except Exception as e:print("QUERY_ERROR",name,str(e)[:180])
           print("EXACT_TAXON_MEDIA",len(obs))
-          candidates=[x for x in obs.values() if x.get("media_license","").lower() in
+          candidates=[x for x in obs.values() if str(x.get("media_license") or "").lower() in
             ("http://creativecommons.org/publicdomain/zero/1.0/","https://creativecommons.org/publicdomain/zero/1.0/","cc0","http://creativecommons.org/licenses/by/4.0/","https://creativecommons.org/licenses/by/4.0/")]
           candidates+= [x for x in obs.values() if x not in candidates and ("creativecommons.org/publicdomain" in str(x.get("license")) or "creativecommons.org/licenses/by/" in str(x.get("license")))]
           uniq=[];seen=set()
