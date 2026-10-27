@@ -170,7 +170,7 @@ def intro():
     para("Start with a common grass at a trail edge or mowed bed. You do not need to know its name. Each stop moves closer, introduces a few terms, and asks you to point to the real structures.",42,689,526,11.1)
     rect(42,360,528,230,LIGHT)
     y=570
-    for n,a,b in [
+    for n,b in [
       ("1  LOOK","Stand 10-20 feet away. Describe shape and habitat."),
       ("2  FOLLOW","Choose one shoot and trace its leaves to the base."),
       ("3  OPEN","Bend one blade back to reveal the inside ligule."),
