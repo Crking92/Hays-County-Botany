@@ -1,0 +1,88 @@
+name: Silver bluestem CC0 genuine vouchered rooted crowns archive
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-real-vouchered-cc0-roots-archive.yml
+      - scripts/archive_silver_vouchered_real_roots_20261027.py
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency:
+  group: silver-verified-rooted-cc0-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+            reports
+            workflow/field-id-publication
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Archive exact CC0 preserved rooted specimen sources
+        run: |
+          python -m py_compile scripts/archive_silver_vouchered_real_roots_20261027.py
+          python scripts/archive_silver_vouchered_real_roots_20261027.py
+      - name: Source-specific public photo rights and pixel anatomy validation
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana")
+          s=json.loads((base/"species.json").read_text())
+          audit=json.loads(Path("reports/silver-real-vouchered-roots-20261027.json").read_text())
+          assert s["id"]=="bothriochloa-torreyana" and s["native_target_zone_calculated"] is False
+          for item in audit["specimens"]:
+            if item["result"]!="ARCHIVED":continue
+            f=Path(item["file"])
+            assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==item["sha256"]
+            with Image.open(f) as im:
+              assert im.format=="JPEG" and min(im.size)>1300 and not im.getexif()
+              im.verify()
+            photo=next(v for v in s["images"] if v.get("source_gbif_id")==item["gbif"])
+            panel=next(v for v in s["visual_comparison"]["items"] if v.get("source_gbif_id")==item["gbif"])
+            assert len(panel["markers"])==2
+            assert "CC0" in panel["license"] and "CC0" in photo["license"]
+            for p in (photo,panel):
+              assert rights(p,True)[0],(item["gbif"],rights(p,True))
+              assert photo_rights(p,True) is None,(item["gbif"],photo_rights(p,True))
+            for m in panel["markers"]:
+              assert all(0<=m[z]<=100 for z in ("label_x","label_y","target_x","target_y"))
+          if audit["installed_count"]:
+            assert s["silver_six_role_photo_score_20261027"]["pct"]==75
+            assert s["silver_six_role_photo_score_20261027"]["roles"][0]["score"]==1
+            assert s["curation_status"]["visual_finish"].startswith("FIELD_READY_PHOTO_GAPS")
+            assert s["silver_public_domain_rooted_vouchers_20261027"]["ut_sheets_rights_conflict_hold"]
+          print("PASS VERIFIED CC0 physical roots:",audit["installed_count"])
+          PY
+      - name: Git commit physical voucher photos and source audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/
+          git add reports/silver-real-vouchered-roots-20261027.json
+          if test -f workflow/field-id-publication/2026-10-27-silver-rooted-vouchers-public-photos.json; then
+            git add workflow/field-id-publication/2026-10-27-silver-rooted-vouchers-public-photos.json
+          fi
+          if git diff --cached --quiet; then echo "NO VERIFIED SOURCE FILES TO COMMIT"; exit 0; fi
+          git commit -m "Archive actual CC0 rooted silver bluestem voucher specimens"
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
