@@ -88,6 +88,19 @@ def permitted_harms_lindheimeri(item, noncommercial=False):
                for ident in HARMS_MULI_IDS)
 
 
+# Original Bob Harms appearjograss MUUT-L (Selected Central Texas Monocots only).
+# Credited scientific/educational use; NOT a Creative Commons grant.
+def permitted_harms_aparejograss(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator")=="Bob Harms"
+        and item.get("license")==HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission")==HARMS_SITE_PERMISSION
+        and item.get("license_url")=="https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name")=="Muhlenbergia utilis"
+        and item.get("source_page")==HARMS_BASE+"pages/MUUT-L.html"
+        and item.get("source_image")==HARMS_BASE+"images/MUUT-L.jpg")
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -544,6 +557,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Bob Harms exact Leptochloa dubia / accepted Disakisperma dubium educational credited originals"
     if permitted_harms_limnodea(item, noncommercial):
         return True, "Copyright Bob Harms exact selected Ozarkgrass originals educational-with-credit, NOT CC"
+    if permitted_harms_aparejograss(item, noncommercial):
+        return True, "Exact Bob Harms M. utilis leaf-sheath educational source credited, NOT CC"
     if permitted_harms_lindheimeri(item, noncommercial):
         return True, "Bob Harms exact Lindheimer muhly original Selected Monocots anatomy; credited educational display, NOT CC"
     if permitted_harms_eleusine_indica(item, noncommercial):
