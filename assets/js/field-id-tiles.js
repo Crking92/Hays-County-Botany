@@ -458,6 +458,7 @@ function renderDetail(sp,entry){
   '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+
   esc(sp.look_here_first||entry.cue||'Start with the whole plant.')+'</p></div>'+
   '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>')+
+ (!beginner?fieldReedCompare(sp):'')+
  '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+
  '<details class="detail-expand lessonpart"><summary>Look-alikes and cautions</summary>'+
  (lookalikes(sp)||'<p>No verified comparison text has been entered yet.</p>')+'</details>'+
@@ -542,6 +543,9 @@ async function init(){
   if(!Array.isArray(json.species))throw Error('Invalid plant index');
   state.records=json.species.filter(x=>x&&x.id&&x.path);
   state.loading=false;render();
+  // A verified quiz answer may deep-link back into its actual Field ID card.
+  const deepId=new URLSearchParams(window.location.search).get('species');
+  if(deepId&&state.records.some(r=>r.id===deepId))openSpecies(deepId);
  }catch(err){state.loading=false;root.innerHTML='<section class="error-tile"><h2>Plant library unavailable</h2><p>Could not load the published tiles. Check your connection and refresh.</p></section>';}
 }
 init();
