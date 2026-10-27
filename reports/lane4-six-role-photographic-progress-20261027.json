@@ -24,14 +24,14 @@
   "confirmed_at_or_above_70": 9,
   "targeted_pass_covered": 20,
   "remaining_targeted_passes": 3,
-  "progress_disclaimer": "Lane4 9/23 now scored >=4.5/6. 10/23 formally photo scored; 20/23 targeted passes. Actual image upgrade: Digitaria ciliaris 42% -> 75%, 11 local exact-species archive JPEGs (one blown-out excluded from gallery), 14 gallery panels including four different-species comparison panels, 5 new arrows. License source verified, site QA pending. No Hays or BONAP nativity changes.",
+  "progress_disclaimer": "Lane4: 9 of 10 formally scored reached 75%; other taxa unscored. D. oligosanthes grew 2.5/6 (42%) to 3.0/6 (50%) after three physically archived real Max Licher exact species CC BY-SA images and seven source-pixel arrows. Remaining anatomy roles still genuinely absent. Site QA pending.",
   "photo_physical_progress_today": {
-    "new_local_originals": 35,
-    "new_gross_arrows": 37,
+    "new_local_originals": 38,
+    "new_gross_arrows": 44,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
     "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 11,
-    "newly_pixel_inspected_archived_exact_photos": 21,
+    "newly_pixel_inspected_archived_exact_photos": 24,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
     ]
@@ -191,24 +191,34 @@
       "target_status": "below_70",
       "previous_targeted_pass": false,
       "role_scores": [
-        0.5,
+        1,
         0,
         0,
         1,
         0.5,
         0.5
       ],
-      "pct": 42,
-      "total": 2.5,
+      "pct": 50,
+      "total": 3,
       "previous_total": 2.5,
       "previous_pct": 42,
-      "new_species_photos": 0,
-      "new_arrows": 4,
-      "photo_bytes_existing": 5,
+      "new_species_photos": 3,
+      "new_arrows": 11,
+      "photo_bytes_existing": 8,
       "historical_illustrations": 1,
       "new_photo_source_scanned": "Nathan Aaron photo guide: 6 useful original photos, individual iNat API /v1/photos returned 404 for all; no license proof, excluded",
       "commit": "3c51e13501713274779fd82c2172676458cac913",
-      "next_photo": "Real opened inside 1–3 mm hair fringe + measured 2.7–4.2 mm glumes/lemmas; true roots later."
+      "next_photo": "ACTUAL inner hair-fringed ligule at mm scale or fully connected exposed true caudex and roots; if neither publicly reusable, move to next lane species instead of duplicate head photos.",
+      "gallery_panels": 12,
+      "new_live_habit_photo_role": "A real source-verified living plant/tuft from Max Licher Arizona Extension makes whole plant role from 0.5 to 1; root/caudex not exposed; inner ligule still absent; measured bracts unseparated.",
+      "source_verified": "Arizona Extension species-specific and photographer Max Licher with CC BY-SA but source page does not state version, so do not upgrade license version.",
+      "photo_sources": [
+        "https://yavapaiplants.extension.arizona.edu/sites/default/files/Grasses/Images/Dichanthelium_oligosanthe_1_ML.jpg",
+        "https://yavapaiplants.extension.arizona.edu/sites/default/files/Grasses/Images/Dichanthelium_oligosanthe_2_ML.jpg",
+        "https://yavapaiplants.extension.arizona.edu/sites/default/files/Grasses/Images/Dichanthelium_oligosanthe_0_ML.jpg"
+      ],
+      "latest_commit": "7e53359ebacbb5922b06ebbdd2d7f1a788b4e7b9",
+      "site_qa": "GitHub archive and pixel-arrow inspection verified; new public Pages deployment not yet confirmed."
     },
     {
       "id": "disakisperma-dubium",
