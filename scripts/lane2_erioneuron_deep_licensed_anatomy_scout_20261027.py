@@ -70,8 +70,6 @@ for slug,name in TARGETS:
         print("CONTACT_SHEET",slug,block,"bytes",len(b.getvalue()),"path",local)
         del canvas
     results[slug]=matching
-    print("CONTACT_SHEET",slug,"bytes",len(b.getvalue()),"path",local)
-    del canvas
 report="reports/lane2-open-license-photo-scout-20261027/source-records-erioneuron-deep.json"
 newfiles.append({"path":report,"mode":"100644","type":"blob","sha":blob(json.dumps({"purpose":"Photo candidates ONLY, no photo roles raised or archival card added","date":"2026-10-27","license_policy":"CC0/CC BY/CC BY-SA only; source photo-level metadata captured; thumbnails used for diagnostic visual review","candidates":results},ensure_ascii=False,indent=2)+"\n")})
 for attempt in range(7):
