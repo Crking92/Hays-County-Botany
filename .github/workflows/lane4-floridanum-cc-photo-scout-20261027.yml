@@ -1,0 +1,42 @@
+name: Lane4 licensed Florida paspalum photo candidate scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_scout_floridanum_cc_field_photos_20261027.py
+      - .github/workflows/lane4-floridanum-cc-photo-scout-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-floridanum-cc-photo-scout-20261027
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {ref: main}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check pillow
+      - name: Stage licensed research-grade exact-species photo candidates without publishing
+        run: python scripts/lane4_scout_floridanum_cc_field_photos_20261027.py
+      - name: Commit photo candidates and per-image rights inventory
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane4-floridanum-photo-candidates-20261027/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane4: stage licensed exact-taxon Florida paspalum photos for pixel review"
+            pushed=0
+            for try in 1 2 3 4 5 6 7 8; do
+              git fetch origin main
+              if ! git rebase origin/main; then git rebase --abort || true; exit 1; fi
+              if git push origin HEAD:main; then pushed=1; break; fi
+              echo "Another lane committed meanwhile; safe rebase retry $try"
+              sleep 3
+            done
+            test "$pushed" = 1
+          fi
