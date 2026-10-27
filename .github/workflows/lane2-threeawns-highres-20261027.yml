@@ -1,0 +1,54 @@
+name: Lane 2 original high-res purple oldfield threeawn anatomical review
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-threeawns-highres-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Exact source taxon rights and actual root sheath and mature awn pixels
+        run: |
+          python - <<'PY'
+          import json,io,base64,math
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 individual-license exact-botanical-photo pixel check'}
+          target=[
+          ('Aristida purpurea',750448550,408270054),('Aristida purpurea',749623255,407870376),
+          ('Aristida purpurea',751138349,408608998),('Aristida purpurea',754606055,410317237),
+          ('Aristida oligantha',753081739,409565487),('Aristida oligantha',751732084,408904031),
+          ('Aristida oligantha',747930916,407038483),('Aristida oligantha',741987236,404069899)]
+          cache={}
+          for block in range(math.ceil(len(target)/4)):
+           sheet=Image.new('RGB',(1820,1840),'white');d=ImageDraw.Draw(sheet)
+           for i,(species,pid,oid) in enumerate(target[block*4:(block+1)*4]):
+            if oid not in cache:
+             with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{oid}',headers=UA),timeout=45) as h:cache[oid]=json.load(h)['results'][0]
+            o=cache[oid]
+            if o.get('taxon',{}).get('name')!=species or o.get('quality_grade')!='research':raise RuntimeError('Species mismatch '+str(oid))
+            p=next(x for x in o['photos'] if x['id']==pid)
+            assert p['license_code'] in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}
+            original=p['url'].replace('/square.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+            with urlopen(Request(original,headers=UA),timeout=48) as h:raw=h.read(10000001)
+            if len(raw)>10000000:raise RuntimeError('Photo too large')
+            with Image.open(io.BytesIO(raw)) as img:
+             if img.format not in {'JPEG','PNG'}:raise RuntimeError('Not raster')
+             im=ImageOps.exif_transpose(img).convert('RGB');dim=list(im.size)
+            im.thumbnail((860,810))
+            x=(i%2)*910;y=(i//2)*920
+            sheet.paste(im,(x+(910-im.width)//2,y+10+(810-im.height)//2))
+            d.text((x+12,y+850),f'{species} photo {pid} obs {oid} {p["license_code"]}',fill='black')
+            print('SOURCE',json.dumps({'taxon':species,'photo':pid,'obs':oid,'license':p['license_code'],'creator':p.get('attribution'),'dimensions':dim,'place':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(pid)},ensure_ascii=False))
+           output=io.BytesIO();sheet.save(output,'JPEG',quality=83,optimize=True)
+           encoded=base64.b64encode(output.getvalue()).decode()
+           for i,x in enumerate(range(0,len(encoded),3500)):print(f'THREEAWN_HI_{block}_{i}='+encoded[x:x+3500])
+           print('SHEET_END',block,len(output.getvalue()))
+          PY
