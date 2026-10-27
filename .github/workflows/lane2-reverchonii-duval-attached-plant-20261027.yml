@@ -1,0 +1,36 @@
+name: Lane 2 archive Reverchon Duval County flowering tuft and reproductive close-up
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_reverchonii_duval_clifton_photo_install_20261027.py
+      - .github/workflows/lane2-reverchonii-duval-attached-plant-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-reverchonii-duval-20261027
+  cancel-in-progress: false
+jobs:
+  license-pixel-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Verify individual license and actual species, then archive two whole-growth and spikelet photos
+        run: python scripts/lane2_reverchonii_duval_clifton_photo_install_20261027.py
+      - name: Commit two photo bytes and actual field teaching gallery with original attribution
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Setaria/setaria-reverchonii/ reports/lane2-reverchonii-duval-whole-attached-head-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive Clifton Ladd Duval Reverchon tuft and matched spikelet photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
