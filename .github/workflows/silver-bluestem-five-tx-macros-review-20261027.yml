@@ -1,0 +1,48 @@
+name: Silver bluestem five licensed Texas macro originals review
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-bluestem-five-tx-macros-review-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Inspect verified observation-level identity and five exact individual licenses
+        run: |
+          python - <<'PY'
+          import requests,io,base64,json
+          from PIL import Image,ImageOps
+          sess=requests.Session()
+          sess.headers["User-Agent"]="Hays City native grass learner original anatomy review/1.0"
+          wanted={398297406:[730629825,730629821,730629829],
+                  407724136:[749323136,749323175]}
+          for obs_id,photo_ids in wanted.items():
+            url=f"https://api.inaturalist.org/v1/observations/{obs_id}"
+            res=sess.get(url,timeout=25);res.raise_for_status()
+            obs=res.json()["results"][0]
+            print("OBSERVATION",json.dumps({"id":obs["id"],"taxon":obs.get("taxon",{}).get("name"),"geo":obs.get("place_guess"),"quality":obs.get("quality_grade"),"date":obs.get("observed_on")}))
+            if obs.get("taxon",{}).get("id")!=1452295 or obs.get("quality_grade")!="research":continue
+            for p in obs.get("photos",[]):
+              if p["id"] not in photo_ids:continue
+              if p.get("license_code") not in ("cc-by","cc-by-nc","cc-by-sa","cc-by-nc-sa","cc0"):continue
+              src=p["url"].replace("/square.","/large.").replace("/medium.","/large.")
+              raw=sess.get(src,timeout=25);raw.raise_for_status()
+              with Image.open(io.BytesIO(raw.content)) as im:
+                view=ImageOps.exif_transpose(im).convert("RGB")
+                orig=view.size
+                view.thumbnail((1250,1200))
+              out=io.BytesIO();view.save(out,"JPEG",quality=78)
+              print("ORIGINAL_META",json.dumps({"observation":obs_id,"photo":p["id"],
+                "license":p["license_code"],"credit":p.get("attribution"),"orig_size":orig,
+                "source":src}))
+              print("LARGE_PHOTO_START::"+str(p["id"]))
+              print(base64.b64encode(out.getvalue()).decode())
+              print("LARGE_PHOTO_END::"+str(p["id"]))
+          PY
