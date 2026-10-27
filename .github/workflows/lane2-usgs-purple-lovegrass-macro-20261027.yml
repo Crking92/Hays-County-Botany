@@ -10,7 +10,7 @@ permissions:
   contents: write
 concurrency:
   group: lane2-usgs-purple-lovegrass-macro-20261027
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   physically-archive:
     runs-on: ubuntu-latest
@@ -19,7 +19,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: main
-          fetch-depth: 0
+          fetch-depth: 1
+          sparse-checkout: |
+            .github/workflows/lane2-usgs-purple-lovegrass-macro-20261027.yml
+            scripts/lane2_install_spectabilis_usgs_flower_macro_20261027.py
+            content/taxa/Poaceae/Eragrostis/eragrostis-spectabilis
+            reports/lane2-six-role-photo-score-20261027.json
+            workflow/field-id-publication
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
