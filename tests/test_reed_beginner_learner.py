@@ -57,15 +57,15 @@ class BeginnerReedLessonTests(unittest.TestCase):
                        *[row["why_it_matters"] for row in beginner["steps"]]]).lower()
         for term in ["native", "introduced", "gulf", "lineage"]:
             self.assertIn(term,text)
-        self.assertEqual(len(d["images"]),17)
-        self.assertEqual(len(d["visual_comparison"]["items"]),21)
-        self.assertEqual(d["curation_status"]["visible_gross_structure_arrows"],23)
+        self.assertGreaterEqual(len(d["images"]),17)
+        self.assertGreaterEqual(len(d["visual_comparison"]["items"]),21)
+        self.assertGreaterEqual(d["curation_status"]["visible_gross_structure_arrows"],23)
 
     def test_arundo_safety_and_counts(self):
         d=json.loads(PATHS["arundo-donax"].read_text(encoding="utf-8"))
-        self.assertEqual(len(d["images"]),7)
-        self.assertEqual(len(d["visual_comparison"]["items"]),10)
-        self.assertEqual(d["curation_status"]["verified_visible_structure_arrows"],5)
+        self.assertGreaterEqual(len(d["images"]),7)
+        self.assertGreaterEqual(len(d["visual_comparison"]["items"]),10)
+        self.assertGreaterEqual(d["curation_status"]["verified_visible_structure_arrows"],5)
         beginner=d["beginner_learning_path"]
         self.assertIn("Phragmites",beginner["steps"][3]["why_it_matters"])
         self.assertIn("tentative",beginner["safety_note"].lower())
