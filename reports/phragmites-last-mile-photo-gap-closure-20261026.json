@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-26",
+  "card": "content/taxa/Poaceae/Phragmites/phragmites-australis/species.json",
+  "status": "FIELD_READY_PHOTO_GAPS; public education substantive but not full lineage-certified anatomy",
+  "verified_repository_counts": {
+    "archived_images": 17,
+    "photo_panels": 21,
+    "visible_arrows": 23,
+    "field_id_lessons": 13
+  },
+  "original_source": "reports/phragmites-gulf-photo-scout-20261026.json",
+  "individually_licensed_gulf_images_reviewed": [
+    {
+      "photo_id": 30071156,
+      "obs_id": 19539301,
+      "role": "Distant shoreline Phragmites stand",
+      "decision": "DO_NOT_PROMOTE",
+      "reason": "No diagnostic attached sheath, inner ligule or glume visible"
+    },
+    {
+      "photo_id": 228158714,
+      "obs_id": 133905064,
+      "role": "Connected external leaf sheaths and culm",
+      "decision": "PUBLISHED_AS_SOURCE_ONLY_PANEL_19",
+      "reason": "Actual outer sheath junction visible, NO exposed inner membranous ligule; current community taxon only"
+    },
+    {
+      "photo_id": 164109218,
+      "obs_id": 98558182,
+      "role": "Dense standing reed habit",
+      "decision": "DO_NOT_PROMOTE",
+      "reason": "No new anatomical organ role"
+    },
+    {
+      "photo_id": 164109246,
+      "obs_id": 98558182,
+      "role": "Attached flowering panicle",
+      "decision": "PUBLISHED_AS_SOURCE_ONLY_PANEL_20",
+      "reason": "Panicle branching visible, NOT calibrated glumes"
+    },
+    {
+      "photo_id": 164109273,
+      "obs_id": 98558182,
+      "role": "Canes/leaves by water",
+      "decision": "DO_NOT_PROMOTE",
+      "reason": "No sufficiently resolved true inner ligule or reliable rooted/base anatomy; avoid over-interpretation"
+    },
+    {
+      "photo_id": 75191139,
+      "obs_id": 47408883,
+      "role": "Established standing Gulf population",
+      "decision": "PREVIOUSLY_INSTALLED_PANEL_13",
+      "reason": "Useful source-labelled Gulf habit, no isolated measurable ligules"
+    },
+    {
+      "photo_id": 75191088,
+      "obs_id": 47408883,
+      "role": "Gulf leafy shoot in stand",
+      "decision": "DO_NOT_PROMOTE",
+      "reason": "Another external sheath and leaf habit angle, but no opened ligule; existing Josh panel is more specific"
+    }
+  ],
+  "upcoming_bounded_scan": {
+    "request_sha": "8c48cc3ef23cb890ea4fc76b6fc8c178eb2d4537",
+    "script_sha": "b69f154a4bc663c247a0f97a0d24184f352377ce",
+    "attempted_sources": 8,
+    "max_photos_per_source": 2,
+    "expected_result": "reports/phragmites-gulf-photo-scout-batch2-focused-20261026.json",
+    "check_as_of_this_pass": "NOT_PRESENT in default branch; no claims of successful photographs, failure, or workflow status"
+  },
+  "previous_glume_download_retry": "reports/phragmites-sl23-reproductive-photo-retry-20261026.json absent in default branch; Stefan.lefnaer sl23 source identified and CC BY-SA 4.0 checked, bytes NOT verified as gallery installed",
+  "closeout_passes": [
+    {
+      "pass": 1,
+      "target": "Gulf true opened ligule",
+      "minimum_evidence": "Source-identified berlandieri same-stem opened internal membrane with 1-mm scale, real photo bytes, individual license. Source label is not genotype; if absent, retain scientific photo gap",
+      "existing": "Outer sheath source photo only"
+    },
+    {
+      "pass": 2,
+      "target": "Mature glume scale panels",
+      "minimum_evidence": "Lower and upper glumes differentiated from sterile basal lemma; clear 1-mm scale and taxon/source attribution; strictly do not infer haplotype from generic Phragmites anatomy",
+      "existing": "Species-level Harry Rose and European Stefan reproductive references; lineage-vouchered matched glumes missing"
+    },
+    {
+      "pass": 3,
+      "target": "Public photo rights and mobile arrow QA",
+      "minimum_evidence": "Source licenses/attribution and actual archived bytes checked; panel order and 23 arrow coordinates reviewed against deployed site",
+      "existing": "No independent current Pages build/phone overlay confirmation"
+    },
+    {
+      "pass": 4,
+      "target": "Only if a useful photo or visual defect requires followup",
+      "minimum_evidence": "Correct and redeploy a confirmed image/arrows or document unfillable specimen/genetics hold",
+      "existing": "Conditional, not guaranteed"
+    }
+  ],
+  "completeness_rule": "3–4 focused passes is realistic for responsible FIELD-READY educational closeout, not guaranteed 100% genotyped Gulf/native/introduced photographic comparability. No removal/invasive judgement from unlabeled photos.",
+  "sources": [
+    "https://www.nrcs.usda.gov/plantmaterials/idpmctn11494.pdf",
+    "https://maisrc.umn.edu/phragmites-id-report",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC3676263/"
+  ]
+}
