@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/archive_lane1_urochloa_fusca_jim_conrad_yucatan_20261027.py
+            content/taxa/Poaceae/Urochloa/urochloa-fusca/
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
