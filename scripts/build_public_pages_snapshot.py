@@ -214,6 +214,21 @@ def permitted_harms_eriochloa_additional(item, noncommercial=False):
                 for p in HARMS_ERSE5_ADDITIONAL_IDS))
 
 
+# Two Bob Harms exact-species Texas fescue originals from Selected Monocots.
+# Narrow copyrighted photo reuse: credited scientific/educational purposes ONLY, NOT CC.
+HARMS_FEVE_IDS = frozenset({"FEVE-L", "FEVE-J"})
+def permitted_harms_festuca_versuta(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Festuca versuta"
+        and any(item.get("source_page") == HARMS_BASE+"pages/"+sid+".html"
+                and item.get("source_image") == HARMS_BASE+"images/"+sid+".jpg"
+                for sid in HARMS_FEVE_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -658,6 +673,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Exact Tom Chester hairy tridens credited-reproduction page permission; NOT CC"
     if permitted_harms_dinebra_brachiata_comparison(item, noncommercial):
         return True, "Bob Harms other subspecies brachiata source comparison, exact Selected Monocots educational credit only, NOT CC"
+    if permitted_harms_festuca_versuta(item, noncommercial):
+        return True, "Exact Bob Harms Texas fescue collar and mature florets, educational-use with credit (NOT CC)"
     if permitted_harms_eriochloa_additional(item, noncommercial):
         return True, "Exact Bob Harms E. sericea attached florets/collar with scientific/educational credit only, NOT CC"
     if permitted_harms_eriochloa_sericea(item, noncommercial):
