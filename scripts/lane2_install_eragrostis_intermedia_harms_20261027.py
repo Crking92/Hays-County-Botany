@@ -7,6 +7,7 @@ from urllib.request import Request,urlopen
 from PIL import Image,ImageOps
 import io,json,hashlib
 
+# The photographed hairy collar counts ONLY as 0.5 until the 0.3–0.5 mm inner ligule fringe is individually resolved.
 ROOT=Path(__file__).resolve().parents[1]
 BASE=ROOT/"content/taxa/Poaceae/Eragrostis/eragrostis-intermedia"
 CARD=BASE/"species.json"
