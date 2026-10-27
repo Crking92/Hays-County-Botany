@@ -207,3 +207,22 @@ button:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{o
 .field-compare-lineages h4{margin:0 0 5px}
 .field-compare-lineages p{font-size:.86rem;margin:7px 0}
 @media(max-width:650px){.field-compare-picker{padding:13px}.field-compare-options,.field-compare-sides{grid-template-columns:1fr}.field-compare-side>img{height:210px}}
+
+
+/* Final reed pass: optional photos at the part level, specialist measurements
+   below simple identification without changing source-image rights. */
+.field-compare-detail{margin:13px 0;border:1px solid #cddfd0;border-radius:10px;padding:10px;background:#f6faf5}
+.field-compare-detail summary{cursor:pointer;font-weight:740;font-size:.9rem;color:#285640}
+.field-compare-detail-grid{display:grid;grid-template-columns:1fr;gap:10px;padding-top:11px}
+.field-compare-detail-photo{min-width:0;background:white;border:1px solid #e1e7df;border-radius:9px;overflow:hidden;margin:0}
+.field-compare-detail-photo img{display:block;width:100%;max-height:230px;object-fit:contain;background:#ebf0e8}
+.field-compare-detail-photo figcaption{padding:9px;display:flex;flex-direction:column;gap:5px;font-size:.83rem;line-height:1.45;overflow-wrap:anywhere}
+.field-compare-detail-photo figcaption span,.field-compare-detail-photo figcaption small{color:#536955}
+.field-expert-notes{margin:15px 0;background:#fafbf7;border:1px solid #c9d8c8;padding:14px;border-radius:12px}
+.field-expert-notes summary{font-weight:800;cursor:pointer;color:#214d37}
+.field-expert-notes>p,.field-expert-notes li{font-size:.9rem;line-height:1.65}
+.field-expert-table-wrap{overflow-x:auto;max-width:100%;margin:13px 0}
+.field-expert-notes table{width:100%;border-collapse:collapse;min-width:510px;font-size:.83rem}
+.field-expert-notes th,.field-expert-notes td{border:1px solid #cddacc;padding:10px;text-align:left}
+.field-expert-notes thead th{background:#e9f1e7;color:#254e35}
+.field-expert-notes tbody tr:nth-child(2n){background:#f2f6f0}
