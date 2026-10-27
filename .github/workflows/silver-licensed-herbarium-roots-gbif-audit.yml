@@ -1,0 +1,80 @@
+name: Silver bluestem exact-taxonomy licensed herbarium roots audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-licensed-herbarium-roots-gbif-audit.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Scout GBIF real specimen sheets under exact silver torreyana taxonomy
+        run: |
+          python - <<'PY'
+          import requests,io,json,base64
+          from PIL import Image,ImageOps,ImageDraw
+          s=requests.Session();s.headers["User-Agent"]="City of Kyle botany public herbarium photo research 1.0"
+          taxa=["Bothriochloa torreyana","Bothriochloa laguroides subsp. torreyana"]
+          obs={}
+          for name in taxa:
+            try:
+              resp=s.get("https://api.gbif.org/v1/occurrence/search",params={"scientificName":name,"mediaType":"StillImage","limit":200},timeout=30)
+              resp.raise_for_status();data=resp.json()
+              print("TAXON_REQUEST",json.dumps({"name":name,"total":data.get("count"),"returned":len(data.get("results",[]))}))
+              for item in data.get("results",[]):
+                taxon=(item.get("scientificName") or "").lower()
+                if ("torreyana" not in taxon):continue
+                for media in item.get("media",[]):
+                  if media.get("type") not in ("StillImage","Stillimage"):continue
+                  url=media.get("identifier")
+                  if not url or not url.startswith("http"):continue
+                  obs[url]={"name":item.get("scientificName"),"country":item.get("country"),"state":item.get("stateProvince"),
+                    "publisher":item.get("publishingOrgKey"),"institution":item.get("institutionCode"),
+                    "basis":item.get("basisOfRecord"),"license":item.get("license"),"media_license":media.get("license"),
+                    "media_creator":media.get("creator"),"references":item.get("references"),"media_url":url,"gbif_key":item.get("key")}
+            except Exception as e:print("QUERY_ERROR",name,str(e)[:180])
+          print("EXACT_TAXON_MEDIA",len(obs))
+          candidates=[x for x in obs.values() if x.get("media_license","").lower() in
+            ("http://creativecommons.org/publicdomain/zero/1.0/","https://creativecommons.org/publicdomain/zero/1.0/","cc0","http://creativecommons.org/licenses/by/4.0/","https://creativecommons.org/licenses/by/4.0/")]
+          candidates+= [x for x in obs.values() if x not in candidates and ("creativecommons.org/publicdomain" in str(x.get("license")) or "creativecommons.org/licenses/by/" in str(x.get("license")))]
+          uniq=[];seen=set()
+          for x in candidates:
+            if x["media_url"] not in seen:
+              uniq.append(x);seen.add(x["media_url"])
+          print("USABLE_RIGHTS_CANDIDATES",len(uniq))
+          thumbnails=[];meta=[]
+          for x in uniq[:30]:
+            link=x["media_url"]
+            try:
+              if any(domain in link for domain in ("eol.org",)):continue
+              response=s.get(link,timeout=14)
+              response.raise_for_status()
+              if len(response.content)>15_000_000:continue
+              with Image.open(io.BytesIO(response.content)) as p:im=ImageOps.exif_transpose(p).convert("RGB")
+              if min(im.size)<350:continue
+              im.thumbnail((220,280))
+              thumbnails.append(im.copy())
+              meta.append(x)
+            except Exception as e:print("DOWNLOAD_HOLD",link[:100],str(e)[:90])
+          print("MEDIA_META_START")
+          for i,v in enumerate(meta):print(json.dumps({"index":i,**v},ensure_ascii=False))
+          print("MEDIA_META_END")
+          if thumbnails:
+            cw,ch,cols=250,330,5
+            grid=Image.new("RGB",(cw*cols,ch*((len(thumbnails)+cols-1)//cols)),"white")
+            d=ImageDraw.Draw(grid)
+            for i,p in enumerate(thumbnails):
+              x=(i%cols)*cw;y=(i//cols)*ch
+              grid.paste(p,(x+(cw-p.width)//2,y))
+              d.text((x+5,y+287),f"{i} {meta[i]['institution']} {meta[i]['gbif_key']}",fill="black")
+            b=io.BytesIO();grid.save(b,"JPEG",quality=76)
+            print("GBIF_CONTACT_START")
+            print(base64.b64encode(b.getvalue()).decode())
+            print("GBIF_CONTACT_END")
+          PY
