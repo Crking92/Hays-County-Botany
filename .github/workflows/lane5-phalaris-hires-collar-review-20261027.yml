@@ -1,0 +1,60 @@
+name: Lane 5 Phalaris true collar high resolution source review
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/review_lane5_phalaris_collar_originals_20261027.py
+      - .github/workflows/lane5-phalaris-hires-collar-review-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-phalaris-hires-collar
+  cancel-in-progress: false
+jobs:
+  validate-photo-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install "Pillow>=10,<14"
+      - name: Verify source rights and download full anatomy photos
+        run: python scripts/review_lane5_phalaris_collar_originals_20261027.py
+      - name: Validate decoded images and report
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          b=Path("reports/lane5-phalaris-photo-scout-20261027")
+          r=json.loads((b/"detail-review-manifest.json").read_text())
+          assert len(r["items"])==6
+          for photo in r["items"]:
+              if photo["status"] != "REVIEW_ONLY_ARCHIVED": continue
+              assert photo["license"] in {"cc0","cc-by","cc-by-sa"}
+              with Image.open(photo["file"]) as im:
+                  im.verify()
+              with Image.open(photo["file"]) as im:
+                  assert not im.getexif()
+          print("Verified all permitted image bytes and credits")
+          PY
+      - name: Save review photos without changing public species lesson
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane5-phalaris-photo-scout-20261027/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Lane 5: archived licensed exact-species collar detail candidates for pixel review"
+          for n in 1 2 3 4 5 6 7 8 9 10; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
