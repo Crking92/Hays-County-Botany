@@ -48,6 +48,7 @@ const fieldUI=fs.readFileSync(path.join(root,'assets/js/field-id-tiles.js'),'utf
 const quizHtml=fs.readFileSync(path.join(root,'quiz.html'),'utf8');
 assert.ok(quizHtml.indexOf('reed-quiz.js')<quizHtml.indexOf('quiz-tiles.js'));
 assert.ok(quizUI.includes("mode==='reed'")&&quizUI.includes('HaysReedQuiz.build'));
+assert.ok(quizUI.includes("function reedResults()")&&quizUI.includes("data-reed-results"),'No completion screen');
 assert.ok(fieldUI.includes('data-compare-species')&&fieldUI.includes('compareReeds('));
 for(const species of ['arundo-donax','phragmites-australis','zizaniopsis-miliacea']){
  assert.ok(fieldUI.includes(species),'comparison option absent: '+species);
