@@ -1,0 +1,86 @@
+name: Archive exact Texas fescue collar and mature spikelet photographs
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-festuca-versuta-harms-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-festuca-versuta-harms-real-photo-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install original JPEG verification libraries
+        run: python -m pip install --disable-pip-version-check "requests>=2.31,<3" "Pillow>=10,<12"
+      - name: Fetch genuine Texas fescue photographic anatomy
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_festuca_versuta_harms_20261027.py
+          python scripts/archive_festuca_versuta_harms_20261027.py
+      - name: Verify exact JPEG bytes, source taxon, rights, and species/genus galleries
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          from PIL import Image
+          f=Path('reports/lane3-festuca-versuta-harms-collar-spikelets-20261027.json')
+          if not f.exists():
+              print('No genuine new photographs; no archive claim')
+              raise SystemExit(0)
+          report=json.loads(f.read_text())
+          assert report['result']=='VERIFIED_ACTUAL_FESTUCA_VERSUTA_ANATOMY_JPEGS_ARCHIVED'
+          assert 1<=report['photos_added']<=2
+          species=json.loads(Path('content/taxa/Poaceae/Festuca/festuca-versuta/species.json').read_text())
+          genus=json.loads(Path('content/taxa/Poaceae/Festuca/genus.json').read_text())
+          assert species['id']=='festuca-versuta' and genus['name']=='Festuca'
+          for photo in report['records']:
+              path=Path(photo['file'])
+              assert path.is_file() and path.stat().st_size>2500
+              assert hashlib.sha256(path.read_bytes()).hexdigest()==photo['sha256']
+              with Image.open(path) as img:
+                  assert img.format=='JPEG' and not img.getexif().get(34853)
+                  img.verify()
+              rec=[x for x in species['images'] if x.get('source_photo_id')==photo['id']]
+              assert len(rec)==1 and rec[0]['creator']=='Bob Harms'
+              assert rec[0]['license'].endswith('(NOT Creative Commons)')
+              assert rec[0]['site_specific_public_permission']=='BOB_HARMS_SELECTED_MONOCOTS_EDU_WITH_CREDIT_20261022'
+              for doc in (species,genus):
+                  pp=[x for x in doc['visual_comparison']['items'] if x.get('source_photo_id')==photo['id']]
+                  assert len(pp)==1 and pp[0]['image_url']==str(path)
+                  assert pp[0]['markers']==[]
+          print('PASS all actual source photo pixels and author/rights links; no unverified microanatomy arrows')
+          PY
+      - name: Commit only JPEG originals after verification
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Festuca/festuca-versuta/
+          git add content/taxa/Poaceae/Festuca/genus.json
+          if test -f reports/lane3-festuca-versuta-harms-collar-spikelets-20261027.json; then
+            git add reports/lane3-festuca-versuta-harms-collar-spikelets-20261027.json
+            git add workflow/field-id-publication/2026-10-27-festuca-versuta-real-collar-spikelets.json
+          fi
+          if test -f reports/lane3-festuca-versuta-harms-source-hold-20261027.json; then
+            git add reports/lane3-festuca-versuta-harms-source-hold-20261027.json
+          fi
+          if git diff --cached --quiet; then echo NO_CHANGES; exit 0; fi
+          git commit -m 'Archive exact Bob Harms Texas fescue collar and mature spikelet photos'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 5
+          done
+          exit 1
