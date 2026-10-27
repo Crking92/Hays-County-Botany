@@ -59,7 +59,7 @@ def main():
     dst=REPO/FILE;dst.parent.mkdir(parents=True,exist_ok=True)
     pic.save(dst,"JPEG",quality=91,optimize=True)
     saved=dst.read_bytes();check=Image.open(io.BytesIO(saved))
-    assert saved[:2]==b"\\xff\\xd8" and saved[-2:]==b"\\xff\\xd9"
+    assert saved[:2]==bytes.fromhex("ffd8") and saved[-2:]==bytes.fromhex("ffd9")
     assert check.size==pic.size and not check.getexif() and "exif" not in check.info
     sha=hashlib.sha256(saved).hexdigest()
     meta={"file":FILE,
