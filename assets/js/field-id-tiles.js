@@ -427,10 +427,26 @@ async function compareReeds(otherId){
    const source=item&&/^https:\/\//.test(item.source_page||'')?
      '<a href="'+esc(item.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':'';
    const clues=reedComparisonCues[sp.id];
+   const advancedIndices=sp.id==='arundo-donax'?[3,4,9]:
+      sp.id==='phragmites-australis'?[1,2,19]:
+      sp.id==='zizaniopsis-miliacea'?[2,0]:[];
+   const diagnostic=advancedIndices.map(i=>sp.visual_comparison?.items?.[i]).filter(p=>{
+     const m=(sp.images||[]).find(x=>parent+x.file===p?.image_url);
+     return p&&panelBelongsTo(sp,p)&&m&&m.creator&&m.license&&safePath(p.image_url);
+   }).map(p=>{
+     const m=sp.images.find(x=>parent+x.file===p.image_url);
+     const note=sp.id==='phragmites-australis'&&p.scientific_name.includes('berlandieri')?
+       'Florida community-identified reference; no genetic lineage proof.':p.image_role||p.label;
+     return '<figure class="field-compare-detail-photo"><img loading="lazy" src="'+esc(safePath(p.image_url))+
+       '" alt="'+esc(p.label)+'"><figcaption><b>'+esc(p.label)+'</b>'+
+       '<span>'+esc(note)+'</span><small>'+esc(m.creator)+' · '+esc(m.license)+'</small></figcaption></figure>';
+   }).join('');
    return '<article class="field-compare-side"><h4>'+esc(clues.label)+'</h4>'+
     (image?'<img loading="lazy" src="'+esc(image)+'" alt="'+esc(clues.label)+' actual photographed growth form">':'')+
     '<p class="field-compare-credit">'+esc(item?.creator||'')+' · '+esc(item?.license||'')+' '+source+'</p>'+
     '<ul>'+clues.clues.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>'+
+    (diagnostic?'<details class="field-compare-detail"><summary>Inspect leaf junction and reproductive views</summary>'+
+     '<div class="field-compare-detail-grid">'+diagnostic+'</div></details>':'')+
     '<p class="field-compare-caution"><b>Be careful:</b> '+esc(clues.caution)+'</p></article>';
   };
   const updated=dialog.querySelector('#fieldReedComparisonResult');
