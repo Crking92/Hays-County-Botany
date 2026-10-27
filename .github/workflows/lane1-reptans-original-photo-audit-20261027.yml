@@ -1,0 +1,20 @@
+name: Lane 1 audit original Urochloa reptans Rungrass CC photo sources
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-reptans-original-photo-audit-20261027.yml'
+      - 'scripts/lane1_probe_rungrass_reptans_sources_20261027.py'
+permissions:
+  contents: read
+jobs:
+  verify-original-photo-refs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests beautifulsoup4
+      - run: python scripts/lane1_probe_rungrass_reptans_sources_20261027.py
