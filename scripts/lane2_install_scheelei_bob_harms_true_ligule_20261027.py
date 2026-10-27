@@ -78,7 +78,7 @@ def main():
        "caption":"Bob Harms photographed three orientations of Scheele's bristlegrass blade-to-sheath junction: intact exterior on the left, partly opened at center, and peeled inner ciliate/hairy ligule at right. The vertical physical scale is in millimeters. Identify the short inner fringe, not the longer hairs on the outside of the sheath. This is not a root/rhizome or spikelet dissection.",
        "why_it_matters":"Closes the previously missing true INNER ligule photographic role; makes visible the actual anatomical distinction from outer sheath hairs. Do not infer underground growth from this picture.",
        "markers":[
-           {"label":"Inner ciliate ligule — opened sheath","label_x":5,"label_y":12,"target_x":77,"target_y":58},
+           {"label":"Inner ciliate ligule — opened sheath","label_x":5,"label_y":12,"target_x":79,"target_y":47},
            {"label":"Original millimeter scale","label_x":59,"label_y":87,"target_x":67,"target_y":47}
        ],
        "photo_status":"Original photographed exact species; botanical structure and scale visually inspected before annotation. Attribution and credited educational reuse verified at source collection homepage.",
