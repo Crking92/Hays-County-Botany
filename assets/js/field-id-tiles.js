@@ -244,6 +244,72 @@ function visualCoverage(sp){
   (gaps.length?'<details><summary>Photographs still needed</summary>'+listHTML(gaps)+'</details>':'')+
   '</div>';
 }
+/* Four source-credited teaching photos appear before the advanced gallery.
+   Canonical panel/image identifiers remain stable and no new arrows are guessed. */
+function panelBelongsTo(sp,panel){
+ const name=String(panel&&panel.scientific_name||'');
+ return name===sp.scientific_name || name.startsWith(sp.scientific_name+' subsp. ');
+}
+function savedStarterArrows(panel,id){
+ const markers=Array.isArray(panel.markers)?panel.markers.filter(m=>m&&
+  typeof m.label==='string'&&m.label.trim()&&
+  ['label_x','label_y','target_x','target_y'].every(k=>
+    Number.isFinite(Number(m[k]))&&Number(m[k])>=0&&Number(m[k])<=100)):[];
+ if(!markers.length)return '';
+ const markerId='fieldStarterArrow'+id.replace(/[^a-z0-9]/gi,'');
+ return '<div class="detail-photo-overlay" aria-label="Identification arrows">'+
+ '<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">'+
+ '<defs><marker id="'+markerId+'" markerWidth="3.4" markerHeight="3.4" refX="2.5" refY="1.7" orient="auto">'+
+ '<path d="M0 0 L3.4 1.7 L0 3.4 Z" fill="#f7e6a0"/></marker></defs>'+
+ markers.map(m=>'<line x1="'+Number(m.label_x)+'" y1="'+Number(m.label_y)+
+ '" x2="'+Number(m.target_x)+'" y2="'+Number(m.target_y)+
+ '" marker-end="url(#'+markerId+')"/>').join('')+'</svg>'+
+ markers.map(m=>'<span class="detail-arrow-label" style="left:'+Number(m.label_x)+
+ '%;top:'+Number(m.label_y)+'%">'+esc(m.label)+'</span>').join('')+'</div>';
+}
+function fieldBeginnerPath(sp,path){
+ const lesson=sp.beginner_learning_path;
+ const panels=sp.visual_comparison?.items;
+ if(!lesson||!Array.isArray(lesson.steps)||!Array.isArray(panels))return '';
+ const parent=path.slice(0,path.lastIndexOf('/')+1);
+ const cards=lesson.steps.slice(0,4).map((step,index)=>{
+  const p=panels[step.panel_index];
+  if(!p||!panelBelongsTo(sp,p)||!String(p.image_url||'').startsWith(parent))return '';
+  const media=(sp.images||[]).find(img=>parent+img.file===p.image_url);
+  if(!media||!media.creator||!media.license)return '';
+  const src=safePath(p.image_url);
+  if(!src)return '';
+  const source=/^https:\/\//.test(media.source_page||'')?
+   '<a href="'+esc(media.source_page)+'" target="_blank" rel="noopener noreferrer">Photo source ↗</a>':'';
+  return '<article class="field-starter-card"><figure><div class="detail-photo-image">'+
+   '<img src="'+esc(src)+'" loading="'+(index===0?'eager':'lazy')+'" alt="'+
+   esc(step.title+': '+step.look_for)+'">'+
+   savedStarterArrows(p,sp.id+index)+'</div><figcaption>'+
+   '<small>'+esc(media.creator)+' · '+esc(media.license)+'</small> '+source+
+   '</figcaption></figure><div class="field-starter-copy"><h4>'+esc(step.title)+'</h4>'+
+   '<p>'+esc(step.look_for)+'</p><p class="field-starter-why"><b>Why it matters:</b> '+
+   esc(step.why_it_matters)+'</p></div></article>';
+ }).filter(Boolean);
+ if(!cards.length)return '';
+ return '<section class="field-reed-starter" aria-label="Four step photo identification lesson">'+
+ '<p class="eyebrow">Beginner field ID · actual plant photographs</p>'+
+ '<h3>'+esc(lesson.title||'Start with these photos')+'</h3>'+
+ '<p class="field-starter-intro">'+esc(lesson.intro||'Follow each view in order.')+'</p>'+
+ '<p class="field-starter-memory"><b>Remember:</b> '+esc(lesson.memory_rule||'Compare several structures.')+'</p>'+
+ '<div class="field-starter-grid">'+cards.join('')+'</div>'+
+ (lesson.safety_note?'<p class="field-starter-safety"><b>Stop and check:</b> '+
+ esc(lesson.safety_note)+'</p>':'')+'</section>';
+}
+function fieldReedCompare(sp){
+ const other=sp.id==='arundo-donax'?'phragmites-australis':
+ sp.id==='phragmites-australis'?'arundo-donax':null;
+ if(!other||!state.records.some(x=>x.id===other))return '';
+ const title=other==='arundo-donax'?'giant reed':'common reed';
+ return '<div class="field-reed-compare"><div><b>Could this be the other reed?</b>'+
+ '<p>Compare leaf attachments and mature spikelets—not just the height or fluffy plume.</p>'+
+ '</div><button type="button" class="open-learner" data-species="'+other+
+ '">Open '+esc(title)+' field card →</button></div>';
+}
 function photosFor(sp,path){
  const list=Array.isArray(sp.images)?sp.images.slice(0,36):[];
  const parent=path.slice(0,path.lastIndexOf('/')+1);
@@ -254,7 +320,7 @@ function photosFor(sp,path){
   const photoPath=safePath(canonical);
   if(!photoPath)return '';
   // Match only this species' exact archived photo; never transfer arrows from look-alikes.
-  const panel=panels.find(p=>p&&p.scientific_name===sp.scientific_name&&
+  const panel=panels.find(p=>p&&panelBelongsTo(sp,p)&&
    typeof p.image_url==='string'&&p.image_url.replace(/^\\.\\//,'')===canonical);
   const valid=panel&&Array.isArray(panel.markers)?panel.markers.filter(m=>m&&
    typeof m.label==='string'&&m.label.trim()&&
@@ -274,21 +340,38 @@ function photosFor(sp,path){
   '<p class="no-image">No public-approved photo has been selected for this card yet.</p>';
 }
 function renderDetail(sp,entry){
+ const beginner=!!(sp.beginner_learning_path&&Array.isArray(sp.beginner_learning_path.steps));
+ const inat=window.HaysINatGallery?window.HaysINatGallery.section(sp):'';
+ const number=Array.isArray(sp.images)?sp.images.length:0;
+ const counter='<p class="photo-count">Publicly eligible photographs: '+number+
+ (number>36?' (first 36 shown below)':'')+'</p>';
+ const fullGallery=beginner?
+  '<details class="detail-expand field-reed-gallery"><summary>See all '+number+
+  ' archived photos and saved arrows</summary>'+counter+photosFor(sp,entry.path)+'</details>':
+  counter+photosFor(sp,entry.path);
+ const extended=beginner?
+  '<details class="detail-expand field-reed-explore"><summary>More iNaturalist observation photos</summary>'+
+  inat+'</details>':inat;
  dialog.innerHTML='<div class="dialog-inner">'+
  '<div class="detail-head"><div><p class="eyebrow">'+esc(sp.family||entry.family)+' / '+esc(sp.genus||entry.genus)+'</p>'+
  '<h2 id="fieldDetailTitle">'+esc(sp.common_name||entry.common_name||sp.scientific_name)+'</h2>'+
  '<p class="detail-latin"><i>'+esc(sp.scientific_name||entry.scientific_name)+'</i></p></div>'+
  '<button class="close" type="button" data-close aria-label="Close field card">×</button></div>'+
- // The same rights-filtered iNaturalist carousel used in the Learner opens
- // here, immediately below the plant name and before the saved diagnostics.
- (window.HaysINatGallery ? window.HaysINatGallery.section(sp) : '')+
- '<p class="photo-count">Publicly eligible photographs: '+(Array.isArray(sp.images)?sp.images.length:0)+
- (Array.isArray(sp.images)&&sp.images.length>36?' (first 36 displayed here; see full Learner for the remainder)':'')+'</p>'+
- photosFor(sp,entry.path)+
- visualCoverage(sp)+
- '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+ 
- '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+esc(sp.look_here_first||entry.cue||'Start with mature leaves and any reproductive structures.')+'</p></div>'+
- '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>'+
+ (beginner?
+  '<div class="detail-section field-beginner-first"><h3>First look</h3><p>'+
+    esc(sp.look_here_first||entry.cue||'Start with overall growth and flowers.')+'</p></div>'+
+  fieldBeginnerPath(sp,entry.path)+
+  '<div class="detail-section field-fast-check"><h3>Five checks before you identify it</h3>'+
+  '<ol>'+cueSteps(sp).slice(0,5).map(s=>'<li>'+esc(s)+'</li>').join('')+'</ol></div>'+
+  fieldReedCompare(sp)+fullGallery+extended+
+  '<details class="detail-expand"><summary>What evidence is still missing?</summary>'+
+  (visualCoverage(sp)||'<p>Check the scientific photo limitations in the full lesson.</p>')+
+  '</details>'
+  :extended+fullGallery+visualCoverage(sp)+
+  '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+
+  esc(sp.look_here_first||entry.cue||'Start with the whole plant.')+'</p></div>'+
+  '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>')+
+ '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+
  '<details class="detail-expand lessonpart"><summary>Look-alikes and cautions</summary>'+
  (lookalikes(sp)||'<p>No verified comparison text has been entered yet.</p>')+'</details>'+
  '<details class="detail-expand lessonpart"><summary>Confirmation, cautions and what to photograph</summary>'+
@@ -298,7 +381,8 @@ function renderDetail(sp,entry){
  '<div class="dialog-foot"><button type="button" class="close-secondary" data-close>Back to tiles</button>'+
  '<a href="./index.html?view=glossary" class="open-learner">Illustrated glossary ↗</a>'+
  '<a href="./index.html?species='+encodeURIComponent(entry.id)+'" class="open-learner">Full species lesson ↗</a></div></div>';
- dialog.showModal();
+ if(!dialog.open)dialog.showModal();
+ else dialog.scrollTop=0;
  if(window.HaysGlossary)window.HaysGlossary.enhance(dialog);
  dialog.querySelector('[data-close]').focus();
 }
@@ -308,7 +392,8 @@ async function openSpecies(id,trigger){
  state.selected=entry.id;
  dialog.innerHTML='<div class="loading-dialog"><button type="button" data-close aria-label="Close">×</button>'+
  '<p>Loading '+esc(memberName(entry))+' ID details…</p></div>';
- dialog.showModal();
+ if(!dialog.open)dialog.showModal();
+ else dialog.scrollTop=0;
  try{
   let payload=state.cache.get(id);
   if(!payload){
