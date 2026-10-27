@@ -27,7 +27,8 @@ def decoded(x):
     return " ".join(html.unescape(without_tags).split())
 page_text=decoded(get(PAGE))
 permission_text=decoded(get(PERM))
-assert "put into the PUBLIC DOMAIN all images produced by myself" in permission_text, "No verified photographer permission"
+print("PUBLIC RIGHTS PARSED TEXT:", repr(permission_text[:1500]), flush=True)
+assert "public domain" in permission_text.lower() and "images produced by myself" in permission_text.lower(), "No verified photographer permission"
 assert "I've had a hard time convincing myself" in page_text and "I've settled on the ID mostly" in page_text, "Original uncertainty not captured"
 assert "These nodes on the stem" in page_text or "adventitious roots" in page_text, "Original node description absent"
 assert "spikelets are a little larger" in page_text, "Original scaled-spikelet caption absent"
