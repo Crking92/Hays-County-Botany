@@ -1088,13 +1088,21 @@ function genusView(){
 /* Main swipe carousel uses the SAME vetted original-image marker coordinates
    as the species diagnostic lesson. Do not assign the markers to look-alike
    photos or guess at photo coordinate scaling. */
+/* A named Phragmites subspecies photo still belongs to its parent species'
+   learning guide, but cannot establish genetics for a field specimen.
+   Only match the precise taxon prefix; NEVER transfer Arundo look-alike arrows. */
+function matchesOwnSpeciesOrNamedSubspecies(sp,item){
+  const name=String(item&&item.scientific_name||"");
+  const species=scientificName(sp);
+  return name===species || name.startsWith(species+" subsp. ");
+}
 function galleryMarkersFor(sp,img){
   const panels=sp && sp.visual_comparison && sp.visual_comparison.items;
   if(!Array.isArray(panels)||!img)return [];
   const src=imagePath(sp,img);
   const source=String(img.source_page||"").trim();
   const candidates=panels.filter(function(p){
-    return p && p.scientific_name===scientificName(sp) &&
+    return p && matchesOwnSpeciesOrNamedSubspecies(sp,p) &&
       Array.isArray(p.markers) && p.markers.length;
   });
   const normalized=function(v){return String(v||"").split("?")[0].replace(/%2C/gi,",");};
@@ -1825,7 +1833,7 @@ function fieldPhotoQuickcheck(sp){
   const visual=sp&&sp.visual_comparison;
   if(!key || !visual || !Array.isArray(visual.items) || !Array.isArray(key.featured_photo_indices)) return "";
   const featured=key.featured_photo_indices.map(function(i){return visual.items[i];}).filter(function(item){
-    return item && item.scientific_name===scientificName(sp) && Array.isArray(item.markers) &&
+    return item && matchesOwnSpeciesOrNamedSubspecies(sp,item) && Array.isArray(item.markers) &&
       item.markers.length && item.image_url;
   });
   if(!featured.length)return "";
