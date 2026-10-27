@@ -56,11 +56,11 @@ jobs:
           assert "public domain" in meta["license"].lower()
           assert "Eragrostis spectabilis"==meta["source_taxon_name"]
           item=next(x for x in card["visual_comparison"]["items"] if x.get("image_url")==str(photo))
-          assert item["markers"]==[] and "USGS" in item["label"]
+          assert len(item["markers"])==2 and "USGS" in item["label"]
           species=next(x for x in score["records"] if x["canonical_id"]=="eragrostis-spectabilis")
           assert species["after_total"]==5 and species["after_percentage"]==83
           assert species["roles"]["true_collar_ligule_sheath"]==0.5
-          print("PASS: source-license, true JPEG, caption, no fabricated fine anatomy, provisional 83%")
+          print("PASS: source-license, true JPEG, caption, two photographed gross-structure arrows; no unsupported glume/lemma claims, provisional 83%")
           PY
       - name: Publish canonical species photo, score and provenance report
         run: |
