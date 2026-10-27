@@ -1,0 +1,28 @@
+name: Lane 2 hairy tridens historical Texas open-license anatomy search
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-hairy-tridens-older-exact-cc-photo-scout-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-hairy-tridens-older-cc-photos-20261027
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/lane2_erioneuron_deep_licensed_anatomy_scout_20261027.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Build source-licensed Texas hairy tridens true-collar/root candidate contact sheets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/lane2_erioneuron_deep_licensed_anatomy_scout_20261027.py
