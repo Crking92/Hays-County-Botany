@@ -1,0 +1,67 @@
+name: Lane 2 view 11 actual open-use Texas diagnostic candidate source pixels
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/lane2-review-eleven-original-cc-photo-pixels-20261027.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-eleven-original-photo-review-20261027
+  cancel-in-progress: false
+jobs:
+  pixels:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
+      - name: Fetch and inspect true original pixels without adding photos to public lessons
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python - <<'PY'
+          import base64,hashlib,io,json,os,urllib.request,urllib.error,time
+          from PIL import Image,ImageOps
+          ids=[591769863,591767775,98799473,98799495,98799515,668389136,668389183,668389248,729425916,729425948,729426314]
+          R=os.environ['GITHUB_REPOSITORY'];token=os.environ['GITHUB_TOKEN'];API='https://api.github.com/repos/'+R
+          UA={'User-Agent':'HaysBotany/1.0 (openly-licensed diagnostic photo pixel review)'}
+          def req(m,url,data=None,auth=False):
+           headers={**UA}
+           if auth:headers.update({'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','Content-Type':'application/json'})
+           body=None if data is None else json.dumps(data).encode()
+           with urllib.request.urlopen(urllib.request.Request(url,method=m,headers=headers,data=body),timeout=48) as r:return r.read(9000000)
+          def gh(m,path,obj=None):return json.loads(req(m,API+path,obj,True))
+          def b(data,binary=False):return gh('POST','/git/blobs',{'content':base64.b64encode(data).decode() if binary else data,'encoding':'base64' if binary else 'utf-8'})['sha']
+          files=[];rows=[]
+          for photo_id in ids:
+           try:
+            meta=json.loads(req('GET','https://api.inaturalist.org/v1/photos/'+str(photo_id)))['results'][0]
+            lc=meta.get('license_code')
+            if lc not in ('cc0','cc-by','cc-by-sa'):raise ValueError('Rights changed to '+str(lc))
+            url='https://inaturalist-open-data.s3.amazonaws.com/photos/'+str(photo_id)+'/original.jpg'
+            raw=req('GET',url)
+            with Image.open(io.BytesIO(raw)) as im:
+             if im.format!='JPEG':raise ValueError('not a source JPEG')
+             original_dim=list(im.size);pix=ImageOps.exif_transpose(im).convert('RGB');pix.thumbnail((1100,1100))
+             out=io.BytesIO();pix.save(out,format='JPEG',quality=89,optimize=True,subsampling=0)
+            jpeg=out.getvalue()
+            target='reports/lane2-open-license-photo-scout-20261027/inspection/photo-'+str(photo_id)+'.jpg'
+            files.append({'path':target,'mode':'100644','type':'blob','sha':b(jpeg,True)})
+            rows.append({'id':photo_id,'status':'preview-only-not-lesson','source':'https://www.inaturalist.org/photos/'+str(photo_id),'license':lc,'attribution':meta.get('attribution'),'original_dimensions':original_dim,'preview_dimensions':list(pix.size),'preview_path':target,'original_sha256':hashlib.sha256(raw).hexdigest(),'preview_sha256':hashlib.sha256(jpeg).hexdigest()})
+            print('REVIEW_PHOTO',photo_id,original_dim,lc,len(jpeg))
+           except Exception as e:
+            rows.append({'id':photo_id,'status':'blocked','error':str(e)[:300]})
+            print('PHOTO_BLOCKED',photo_id,type(e).__name__,str(e)[:200])
+          files.append({'path':'reports/lane2-open-license-photo-scout-20261027/inspection/rights-original-dimensions.json','mode':'100644','type':'blob','sha':b(json.dumps(rows,indent=2)+'\n')})
+          for attempt in range(7):
+           head=gh('GET','/git/ref/heads/main')['object']['sha'];root=gh('GET','/git/commits/'+head)['tree']['sha']
+           tree=gh('POST','/git/trees',{'base_tree':root,'tree':files})['sha'];commit=gh('POST','/git/commits',{'tree':tree,'parents':[head],'message':'Lane 2: inspect actual licensed anatomical source pixels without score inflation [skip ci]'})['sha']
+           try:gh('PATCH','/git/refs/heads/main',{'sha':commit,'force':False});print('REVIEW_COMMITTED',commit);break
+           except urllib.error.HTTPError as e:
+            if e.code!=422 or attempt==6:raise
+            time.sleep(2)
+          
+          PY
