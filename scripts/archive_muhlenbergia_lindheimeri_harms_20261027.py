@@ -137,8 +137,19 @@ def main():
             "markers":[],
             "photo_status":"Physical JPEG in GitHub, exact Bob Harms Selected Monocots copyrighted original; permission for this credited noncommercial educational learner, NOT CC; anatomical arrows intentionally not guessed."
         }
-        sp["visual_comparison"]["items"].append(panel)
-        gen["visual_comparison"]["items"].append(dict(panel))
+        # If a credited external source preview was already placed in the learner,
+        # replace that exact photo-ID panel with the LOCAL archived file, do not duplicate.
+        for collection in (sp["visual_comparison"]["items"], gen["visual_comparison"]["items"]):
+            found=[i for i,x in enumerate(collection) if x.get("source_photo_id")==pid]
+            if len(found)>1:
+                raise RuntimeError("Duplicate external photo panels; manual reconciliation required: "+pid)
+            if found:
+                old=collection[found[0]]
+                if old.get("source_page")!=source_page or old.get("creator")!="Bob Harms":
+                    raise RuntimeError("Changed external photo provenance: "+pid)
+                collection[found[0]]=dict(panel)
+            else:
+                collection.append(dict(panel))
         records.append({k:metadata[k] for k in ("file","source_photo_id","creator","license","source_page","source_image","original_sha256","archived_sha256","original_dimensions","archived_dimensions")})
     sp["curation_status"]["photo_files_present"]=sum(1 for x in sp["images"] if x.get("file","").startswith("images/") and (SPEC.parent/x["file"]).is_file())
     sp["curation_status"]["photo_metadata_count"]=len(sp["images"])
