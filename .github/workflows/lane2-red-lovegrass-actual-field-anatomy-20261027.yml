@@ -1,0 +1,35 @@
+name: Lane 2 archive red lovegrass actual growing bunch and exterior collar
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_red_lovegrass_plant_base_collar_20261027.py
+      - .github/workflows/lane2-red-lovegrass-actual-field-anatomy-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-red-lovegrass-whole-20261027
+  cancel-in-progress: false
+jobs:
+  photo-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Verify actual exact-species source, individual rights and original photo pixels; archive three photos
+        run: python scripts/lane2_red_lovegrass_plant_base_collar_20261027.py
+      - name: Commit verified only red lovegrass image bytes and gallery with visible-only arrows
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-secundiflora/ reports/lane2-red-lovegrass-real-whole-collar-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive red lovegrass Texas flowering bunch and actual sheath anatomy photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
