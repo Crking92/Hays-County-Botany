@@ -165,7 +165,12 @@ function firstText(value,max){
 }
 function cueSteps(sp){
  const mor=sp.morphology_keys||{},fin=sp.field_id_finish_pass||{},photo=sp.field_photo_quickcheck||{};
- for(const candidate of [mor.crew_20_second_sequence,fin.crew_field_sequence,photo.steps,mor.best_field_traits]){
+ // Curated beginner cards must show the actual five plain-English field steps.
+ // Specialist evidence remains in the expanded morphology and confirmation notes.
+ const preferred=sp.beginner_learning_path&&Array.isArray(photo.steps)?
+   [photo.steps,mor.crew_20_second_sequence,fin.crew_field_sequence,mor.best_field_traits]:
+   [mor.crew_20_second_sequence,fin.crew_field_sequence,photo.steps,mor.best_field_traits];
+ for(const candidate of preferred){
   const safe=Array.isArray(candidate)?candidate.map(v=>typeof v==='string'?v:v&&typeof v==='object'&&typeof v.text==='string'?v.text:v&&typeof v==='object'&&typeof v.cue==='string'?v.cue:null).filter(Boolean):[];
   if(safe.length)return safe;
  }
@@ -248,7 +253,9 @@ function visualCoverage(sp){
    Canonical panel/image identifiers remain stable and no new arrows are guessed. */
 function panelBelongsTo(sp,panel){
  const name=String(panel&&panel.scientific_name||'');
- return name===sp.scientific_name || name.startsWith(sp.scientific_name+' subsp. ');
+ return name===sp.scientific_name ||
+  name.startsWith(sp.scientific_name+' subsp. ') ||
+  name.startsWith(sp.scientific_name+' (');
 }
 function savedStarterArrows(panel,id){
  const markers=Array.isArray(panel.markers)?panel.markers.filter(m=>m&&
