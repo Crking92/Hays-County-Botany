@@ -21,3 +21,17 @@ Existing canonical grade: **4.5/6 = 75%**. No new score points earned in this pa
 
 ## Scope and publication rule
 No new archive, no new arrows, no public learner/photo-count change on this research pass. Keep 75% and FIELD_READY_PHOTO_GAPS until real diagnostic photographs are legally cleared, source-ID supported, and their visible anatomy is inspected. Do not silently treat CC BY-NC study photos as unrestricted public-use images. Do not mix up KR bluestem (*B. ischaemum*) with native silver.
+
+## 2026-10-27 — actual full-pixel review of all eight Arnan photographs
+
+- Verified in completed GitHub original-source contact-sheet run: https://github.com/Crking92/Hays-County-Botany/actions/runs/40564377227
+- Source record remains genus **Bothriochloa** (Needs ID), observer `arnanthescout`, Texas (county unconfirmed); the observer's journal calls the individual silver bluestem. All eight exact photographs checked via original-media URL: **CC BY-NC**, photographer **Arnan Pawawongsak**, original image dimensions **1536×2048**.
+- Source image 339559628 shows a leaf collar opening with visibly frayed whitish sheath material. **It does not show a clearly separable flat free ligule rim with a calibrated 1-mm scale**; do not award full ligule role.
+- Source image 339559629 shows a split longitudinal leaf sheath and collar detail; useful anatomy orientation but still no demonstrated calibrated free ligule measurement.
+- Source images 339559655 and 339559650 show genuine isolated magnified seedhead pieces, hairy rachis and awned spikelet bodies on blue backgrounds. **Connected sessile versus pedicelled assignment is not confidently resolved at species level and there is no actual millimeter ruler**; do not award the complete pair role.
+- The other IDs are 339559659 (field habit), 339559620 (head), 339559632 (leaf and stem) and 339559645 (spikelet-bearing head). Every photo in the sequence is real, but the observation is not independently confirmed *B. torreyana* and should remain a link-only/photo-review candidate for this species learner.
+- **Score remains 4.5/6 = 75%**, no new archived photos or speculative arrows from this observation, and the original CC BY-NC attribution must not be converted to unrestricted use.
+
+## Species-confirmed Texas multi-photo inventory
+
+Next source query is an independently species-level identified (iNaturalist research-grade) Texas set. Scout run: https://github.com/Crking92/Hays-County-Botany/actions/runs/40564558593 . It returned 3,280 Texas species-level observations, with 204 multi-photo observations sampled in six result pages. Not all 3,280 were photo-reviewed. Priority inspected next: Williamson County Andy Goerdel observation 388507724 (7 photos, CC BY-NC); McLennan County Linda Jo Conn observation 411083940 (8 photos, CC BY); Aledo observation 386200336 (6 photos, CC BY); New Braunfels observation 189359723 (5 photos, CC BY-NC); Milam County Linda Jo Conn observation 355847446 (6 photos, CC BY). Do not presume any contains organ-level mm scales until reviewing pixels.
