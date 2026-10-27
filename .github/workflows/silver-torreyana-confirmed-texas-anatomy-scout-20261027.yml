@@ -1,0 +1,43 @@
+name: Silver torreyana confirmed Texas multi-photo anatomy candidates
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-torreyana-confirmed-texas-anatomy-scout-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Find independent research-grade species-level candidate observations without archiving
+        run: |
+          python - <<'PY'
+          import json,urllib.parse
+          from urllib.request import urlopen,Request
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 licensed botany microphoto scout'}
+          allobs={}
+          for mode in ('observed_on','votes','created_at'):
+            for page in (1,2):
+              args={'taxon_id':'1452295','place_id':'18','quality_grade':'research','photos':'true',
+                    'per_page':'200','page':str(page),'order_by':mode,'order':'desc'}
+              url='https://api.inaturalist.org/v1/observations?'+urllib.parse.urlencode(args)
+              try:
+                with urlopen(Request(url,headers=UA),timeout=50) as f:response=json.load(f)
+              except Exception as e:
+                print('API_HOLD',mode,page,str(e));continue
+              print('PAGE',mode,page,'total',response.get('total_results'),'returned',len(response.get('results',[])))
+              for o in response.get('results',[]):
+                if o.get('taxon',{}).get('id')!=1452295:continue
+                n=len(o.get('photos',[]))
+                if n>=3:
+                  allobs[o['id']]=o
+          ranked=sorted(allobs.values(),key=lambda o:(len(o.get('photos',[])),sum(p.get('license_code') in ('cc-by','cc-by-sa','cc0') for p in o.get('photos',[]))),reverse=True)
+          print('MULTIPHOTO_TOTAL',len(ranked))
+          for o in ranked[:75]:
+            pic=[{'photo':p['id'],'license':p.get('license_code'),'attrib':p.get('attribution','')[:80]} for p in o['photos']]
+            print('TEXAS_TORREYANA',json.dumps({'obs':o['id'],'photo_count':len(pic),'date':o.get('observed_on'),'place':o.get('place_guess'),'grade':o.get('quality_grade'),'user':o.get('user',{}).get('login'),'description':str(o.get('description') or '')[:140],'photos':pic},ensure_ascii=False))
+          PY
