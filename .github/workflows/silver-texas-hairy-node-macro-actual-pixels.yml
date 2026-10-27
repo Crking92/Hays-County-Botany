@@ -1,0 +1,36 @@
+name: Silver bluestem true hairy culm node full-photo inspection
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-texas-hairy-node-macro-actual-pixels.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - run: |
+          python - <<'PY'
+          import requests,io,json,base64
+          from PIL import Image,ImageOps
+          s=requests.Session();s.headers["User-Agent"]="Hays Botany native grass educational photo source audit/1.0"
+          d=s.get("https://api.inaturalist.org/v1/observations/195684476",timeout=28).json()["results"][0]
+          print("PHOTO_CTX",json.dumps({"taxon":d["taxon"]["name"],"id":d["taxon"]["id"],"grade":d["quality_grade"],"place":d.get("place_guess"),"description":d.get("description"),"obs_date":d.get("observed_on")}))
+          for p in d["photos"]:
+            if p["id"] not in (344322601,344319130):continue
+            link=p["url"].replace("/square.","/large.").replace("/medium.","/large.")
+            r=s.get(link,timeout=25);r.raise_for_status()
+            with Image.open(io.BytesIO(r.content)) as im:
+              im=ImageOps.exif_transpose(im).convert("RGB");size=im.size
+              im.thumbnail((1000,1200))
+              buf=io.BytesIO();im.save(buf,"JPEG",quality=79)
+            print("PHOTO_INFO",json.dumps({"id":p["id"],"author":p.get("attribution"),"license":p.get("license_code"),"original":size,"url":link}))
+            print("SILVER_MACRO_START::"+str(p["id"]))
+            print(base64.b64encode(buf.getvalue()).decode())
+            print("SILVER_MACRO_END::"+str(p["id"]))
+          PY
