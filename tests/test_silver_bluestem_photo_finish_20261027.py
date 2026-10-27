@@ -132,10 +132,10 @@ class SilverPhotoFinish(unittest.TestCase):
     def test_beginner_four_steps_and_source_only_research(self):
         s=self.s
         beginner=s["beginner_learning_path"]
-        self.assertEqual(len(beginner["steps"]),4)
+        self.assertEqual(len(beginner["steps"]),5)
         self.assertTrue(beginner["safety_note"])
         self.assertTrue((CARD.parent/beginner["hero_photo_file"]).is_file())
-        self.assertEqual([step["panel_index"] for step in beginner["steps"]],[0,6,5,4])
+        self.assertEqual([step["panel_index"] for step in beginner["steps"]],[0,6,14,5,4])
         self.assertEqual(len(s["field_photo_quickcheck"]["steps"]),5)
         self.assertEqual(len(s["silver_research_only_photos_20261027"]["public_study_sources"]),3)
         protected=s["silver_research_only_photos_20261027"]["public_study_sources"]
