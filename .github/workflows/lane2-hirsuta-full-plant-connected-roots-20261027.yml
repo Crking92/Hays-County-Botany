@@ -1,0 +1,35 @@
+name: Lane 2 archive actual rooted flowering bigtop lovegrass and crown
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_hirsuta_anderson_connected_roots_20261027.py
+      - .github/workflows/lane2-hirsuta-full-plant-connected-roots-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-hirsuta-rooted-20261027
+  cancel-in-progress: false
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Exact species and original CC BY-NC license check; archive two reviewed JPEGs
+        run: python scripts/lane2_hirsuta_anderson_connected_roots_20261027.py
+      - name: Commit only new actual photos, source and gallery with verified arrows
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Eragrostis/eragrostis-hirsuta/ reports/lane2-eragrostis-hirsuta-anderson-flowering-roots-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive Anderson County bigtop lovegrass actual rooted flowering plant"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
