@@ -48,7 +48,7 @@ def main():
                     if not phid or phid in seen or lic not in LEGAL:continue
                     url=photo.get("url") or ""
                     if not url.startswith("https://") or ("inaturalist" not in url and "amazonaws.com" not in url):continue
-                    full=re.sub(r"/(square|small|medium|thumb|original)\\.", "/large.",url)
+                    full=re.sub(r"/(square|small|medium|thumb|original)\.", "/large.",url)
                     try:
                         raw=load(full)
                         im=Image.open(io.BytesIO(raw));im.verify()
