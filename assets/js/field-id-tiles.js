@@ -321,7 +321,7 @@ function photosFor(sp,path){
   if(!photoPath)return '';
   // Match only this species' exact archived photo; never transfer arrows from look-alikes.
   const panel=panels.find(p=>p&&panelBelongsTo(sp,p)&&
-   typeof p.image_url==='string'&&p.image_url.replace(/^\\.\\//,'')===canonical);
+   typeof p.image_url==='string'&&p.image_url===canonical);
   const valid=panel&&Array.isArray(panel.markers)?panel.markers.filter(m=>m&&
    typeof m.label==='string'&&m.label.trim()&&
    ['label_x','label_y','target_x','target_y'].every(k=>Number.isFinite(Number(m[k]))&&Number(m[k])>=0&&Number(m[k])<=100)):[];
