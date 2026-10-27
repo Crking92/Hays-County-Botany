@@ -25,7 +25,8 @@ class SilverPhotoFinish(unittest.TestCase):
             self.assertTrue((ROOT/x["image_url"]).is_file())
             self.assertTrue(x["source_page"] and x["creator"] and x["license"])
             self.assertEqual(x["scientific_name"],s["scientific_name"])
-        self.assertEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),5)
+        self.assertEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),3)
+        self.assertEqual({p.get("source_photo_id") for p in s["images"] if p.get("source_photo_id") in (730629825,749323175,102682516,292594065)}, {730629825,749323175,102682516,292594065})
         self.assertEqual(len([x for x in s["images"] if x.get("public_reuse") in {"no","NO — photographer authorization required"}]),2)
 
     def test_annotated_only_visible_macro_and_clump(self):
