@@ -5,9 +5,9 @@
   "sampling_method": "Individually fetched all 22 current canonical species.json files; counted images[].file paths beginning images/, visual_comparison.items, and marker objects. These counts do NOT prove every referenced binary is present, properly licensed or diagnostic. Readback of the nine new photos and prior stale-count candidates performed separately.",
   "summary": {
     "assigned_species": 22,
-    "local_image_path_references": 181,
-    "species_teaching_panels": 212,
-    "annotation_marker_instances": 255
+    "local_image_path_references": 186,
+    "species_teaching_panels": 219,
+    "annotation_marker_instances": 266
   },
   "important_note": "Numbers are inventory metrics; not 181 distinct verified diagnostic photos and not 255 independently verified anatomical arrows. Historical illustrations and uncertain taxon/comparison images remain counted as local media where card images reference them. Genus galleries may repeat some species images.",
   "six_role_photographic_coverage": {
@@ -15,7 +15,7 @@
     "total_points": 132,
     "last_verified_baseline_percent": 64.4,
     "currently_reaudited": false,
-    "statement": "Do not upgrade score just because images were added. Independently review true exposed ligule, rooted plant, reproductive macro and same-taxon ID roles for each of the 22."
+    "statement": "Keep last verified 85/132 (64.4%) baseline. Two improved species need strict reinspection under one shared six-role rubric; total images/panels are not completion points."
   },
   "species": [
     {
@@ -32,9 +32,9 @@
     },
     {
       "species_id": "muhlenbergia-schreberi",
-      "local_image_paths": 5,
-      "teaching_panels": 5,
-      "annotation_markers": 8
+      "local_image_paths": 7,
+      "teaching_panels": 9,
+      "annotation_markers": 13
     },
     {
       "species_id": "muhlenbergia-utilis",
@@ -68,9 +68,9 @@
     },
     {
       "species_id": "eriochloa-sericea",
-      "local_image_paths": 8,
-      "teaching_panels": 5,
-      "annotation_markers": 9
+      "local_image_paths": 11,
+      "teaching_panels": 8,
+      "annotation_markers": 15
     },
     {
       "species_id": "festuca-octoflora",
@@ -211,12 +211,16 @@
   ],
   "next_high_value_targets": [
     {
-      "species": "anatherum-virginicum",
-      "need": "True free ligule/hair-fringe source photo with web-reuse rights; root-to-mature-spathe plant. Do not import university copyright images without permission."
+      "species": "eriochloa-sericea",
+      "need": "Actual 10–20× INSIDE blade/sheath true ligule with short ciliate membranous base, photographed scale; true hairy pedicel plus cup still attached; rooted bunch."
     },
     {
       "species": "muhlenbergia-schreberi",
-      "need": "Root-producing surface stolon node + opened short membranous ligule and measured mature spikelet."
+      "need": "Real stolon node demonstrably rooting, exposed short ligule, oriented mature glume/lemma macro; don't import Penn State Figure 6 without license."
+    },
+    {
+      "species": "anatherum-virginicum",
+      "need": "True free ligule/hair-fringe source photo with web-reuse rights; root-to-mature-spathe plant. Do not import university copyright images without permission."
     },
     {
       "species": "tridens-texanus",
@@ -233,5 +237,35 @@
   ],
   "reserved_last": "muhlenbergia-dubia",
   "site_publication": "Rights-filtered Pages markers committed for newly archived photos. No live GitHub Pages deployment status independently verified; do not claim images public-live without a successful build/readback.",
-  "photo_rights": "CC0/CC BY/CC BY-SA and the specific noncommercial author-credited Bob Harms Selected Monocots permission, with exact original source metadata; no unlicensed university-image imports."
+  "photo_rights": "CC0/CC BY/CC BY-SA and the specific noncommercial author-credited Bob Harms Selected Monocots permission, with exact original source metadata; no unlicensed university-image imports.",
+  "previous_snapshot_20261027": {
+    "assigned_species": 22,
+    "local_image_path_references": 181,
+    "species_teaching_panels": 212,
+    "annotation_marker_instances": 255
+  },
+  "latest_lane3_activity": {
+    "species": "Muhlenbergia schreberi and Eriochloa sericea",
+    "new_real_photos_physically_verified": 5,
+    "new_nimblewill_photos": 2,
+    "new_texas_cupgrass_photos": 3,
+    "new_gross_photo_arrows": 10,
+    "new_distinct_lookalike_comparison_panels": 2,
+    "nimblewill_after": {
+      "photos": 7,
+      "panels": 9,
+      "markers": 13
+    },
+    "texas_cupgrass_after": {
+      "photos": 11,
+      "panels": 8,
+      "markers": 15
+    },
+    "source_photo_reports": [
+      "reports/lane3-nimblewill-two-real-reproductive-photos-20261027.json",
+      "reports/lane3-eriochloa-sericea-harms-attached-photos-20261027.json"
+    ],
+    "public_live": "Unverified - do not equate physical GitHub archive with live rights-filtered Pages success",
+    "scientific_holds": "Nimblewill rooted node + true exposed membranous ligule; Texas cupgrass true inner hair-fringe ligule + cup shown while attached."
+  }
 }
