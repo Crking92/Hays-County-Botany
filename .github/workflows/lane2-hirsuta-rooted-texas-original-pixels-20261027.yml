@@ -1,0 +1,47 @@
+name: Lane 2 bigtop lovegrass true connected rooted crown original pixel review
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-hirsuta-rooted-texas-original-pixels-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Review Anderson County actual in situ and held-up basal-root same specimen pixels
+        run: |
+          python - <<'PY'
+          import json,io,base64
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 original pixel photo license review'}
+          obs=241215433
+          with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{obs}',headers=UA),timeout=40) as r:o=json.load(r)['results'][0]
+          assert o['quality_grade']=='research' and o['taxon']['name']=='Eragrostis hirsuta'
+          selected=[429865923,429866012,429865942,429866020]
+          canvas=Image.new('RGB',(1800,1900),'white');draw=ImageDraw.Draw(canvas)
+          for i,pid in enumerate(selected):
+              p=next(x for x in o['photos'] if x['id']==pid)
+              assert p['license_code']=='cc-by-nc' and 'TgarrisonPlateau' in p['attribution']
+              u=f'https://inaturalist-open-data.s3.amazonaws.com/photos/{pid}/original.jpg'
+              with urlopen(Request(u,headers=UA),timeout=45) as h:b=h.read(10000001)
+              assert len(b)<10000001
+              with Image.open(io.BytesIO(b)) as img:
+                  im=ImageOps.exif_transpose(img).convert('RGB');dims=im.size
+              im.thumbnail((875,850))
+              x=i%2*900;y=i//2*950
+              canvas.paste(im,(x+(900-im.width)//2,y+10+(850-im.height)//2))
+              draw.text((x+20,y+870),f'photo {pid} CC BY-NC  research species confirmed',fill='black')
+              print('PHOTO_DETAIL',json.dumps({'photo':pid,'observation':obs,'dims':dims,'bytes':len(b),'credit':p['attribution'],'license':p['license_code'],'source':'https://www.inaturalist.org/photos/'+str(pid)}))
+          out=io.BytesIO();canvas.save(out,'JPEG',quality=83,optimize=True)
+          enc=base64.b64encode(out.getvalue()).decode('ascii')
+          for i,off in enumerate(range(0,len(enc),3500)):print('SOURCEPIX_'+str(i)+'='+enc[off:off+3500])
+          print('SOURCEPIX_DONE',len(out.getvalue()))
+          PY
