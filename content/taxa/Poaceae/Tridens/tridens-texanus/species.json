@@ -45,7 +45,7 @@
     "provisional": true,
     "last_reviewed": "2026-10-03",
     "photo_metadata_count": 5,
-    "photo_files_present": 3,
+    "photo_files_present": 5,
     "gbif_manual_photo_enrichment": "2026-10-15",
     "manual_tridens_three_20261021": "FIELD_READY_PHOTO_GAPS",
     "original_archived_real_photos": 2,
@@ -61,7 +61,8 @@
       "byte_verification": "external originals NOT downloaded; no checksum/EXIF verification",
       "photo_rights": "Gaiacoyote Commons CC0 1.0 per-image confirmed",
       "status": "FIELD_READY_PHOTO_GAPS"
-    }
+    },
+    "texas_tridens_exact_cc0_ligule_habitat_20261027": "2 photographer-licensed CC0 Texas tridens source photos now locally archived, including collar-region and habitat if both source IDs succeeded; true collar hair/lemma macro still provisional."
   },
   "images": [
     {
@@ -124,7 +125,7 @@
       "photo_status": "CC0 source-labelled local JPEG; submillimeter anatomy not certified"
     },
     {
-      "file": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Tridens_texanus_%284%29.jpg",
+      "file": "images/gaiacoyote-tridens-texanus-4-ligule-cc0.jpg",
       "role": "Photographer-labelled true ligule region with visible pale hair fringe at blade–sheath junction; not calibrated or measured.",
       "creator": "Gaiacoyote",
       "license": "CC0 1.0",
@@ -140,15 +141,25 @@
         488,
         360
       ],
-      "photo_review": "Original source and exact CC0 1.0 author/license confirmed on Wikimedia Commons; actual photograph visually inspected through web image viewer 2026-10-23. Original JPEG download attempts failed (network DNS / downloader failure), so original bytes, checksum, EXIF/GPS and source-versus-archive binary integrity NOT independently verified. PROVISIONAL — USER PHOTO REVIEW PENDING.",
-      "byte_verification": "NOT VERIFIED — external URL only; zero physical JPEG bytes installed",
-      "image_status": "EXTERNAL_LICENSED_REFERENCE_PROVISIONAL_USER_REVIEW",
+      "photo_review": "Photographer/source/CC0 individually verified. Original JPEG downloaded and physically saved. Actual hair-fringe legibility is provisionally visible; tiny free margin NOT calibrated.",
+      "byte_verification": "VERIFIED exact original Wikimedia JPEG and expected original pixel dimensions; SHA-256 recorded; metadata scrubbed",
+      "image_status": "PHYSICALLY_ARCHIVED_CC0_1_ORIGINAL_USER_REVIEW_FOR_MICRO_DETAIL",
       "public_reuse": "CC0 1.0 original-source dedication; retain creator/source credit",
-      "annotation_status": "annotation_pending — no new arrows or invented coordinates",
-      "modifications": "No pixel modifications; linked to original externally hosted file; no locally archived derivative"
+      "annotation_status": "annotation_pending; only gross actual organs, no invented fine ligule anchors",
+      "modifications": "RGB JPEG re-encode, original EXIF/GPS removed; no cropping, digital organ arrows or drawn labels.",
+      "original_sha256": "a693f4293e8e8136e66c0512e3eab515153a28eca65267681d7d0420e13ba7e2",
+      "archived_sha256": "9cc7ea036c1ffec52c0b38a4c003c3fba95f35d1282eb861e4084b9dfad280ed",
+      "original_image_dimensions": [
+        488,
+        360
+      ],
+      "archived_dimensions": [
+        488,
+        360
+      ]
     },
     {
-      "file": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Tridens_texanus_%285%29.jpg",
+      "file": "images/gaiacoyote-tridens-texanus-5-habitat-cc0.jpg",
       "role": "Source-labelled Texas tridens flowering habit in juniper-associated Uvalde County grassland; rooted crown and all flowering-culm connections not individually traceable.",
       "creator": "Gaiacoyote",
       "license": "CC0 1.0",
@@ -164,12 +175,22 @@
         350,
         635
       ],
-      "photo_review": "Original source and exact CC0 1.0 author/license confirmed on Wikimedia Commons; actual photograph visually inspected through web image viewer 2026-10-23. Original JPEG download attempts failed (network DNS / downloader failure), so original bytes, checksum, EXIF/GPS and source-versus-archive binary integrity NOT independently verified. PROVISIONAL — USER PHOTO REVIEW PENDING.",
-      "byte_verification": "NOT VERIFIED — external URL only; zero physical JPEG bytes installed",
-      "image_status": "EXTERNAL_LICENSED_REFERENCE_PROVISIONAL_USER_REVIEW",
+      "photo_review": "Photographer/source/CC0 individually verified. Original JPEG downloaded and physically saved. Actual hair-fringe legibility is provisionally visible; tiny free margin NOT calibrated.",
+      "byte_verification": "VERIFIED exact original Wikimedia JPEG and expected original pixel dimensions; SHA-256 recorded; metadata scrubbed",
+      "image_status": "PHYSICALLY_ARCHIVED_CC0_1_ORIGINAL_USER_REVIEW_FOR_MICRO_DETAIL",
       "public_reuse": "CC0 1.0 original-source dedication; retain creator/source credit",
-      "annotation_status": "annotation_pending — no new arrows or invented coordinates",
-      "modifications": "No pixel modifications; linked to original externally hosted file; no locally archived derivative"
+      "annotation_status": "annotation_pending; only gross actual organs, no invented fine ligule anchors",
+      "modifications": "RGB JPEG re-encode, original EXIF/GPS removed; no cropping, digital organ arrows or drawn labels.",
+      "original_sha256": "954503abdac4ddf36c697f1dfdb5d24e3a4b9b58fdb316944408da3fe851b6ee",
+      "archived_sha256": "bf31df48273480f8096d747277a45c4cd179a4ead4f3fd016bb069c40b1ead2d",
+      "original_image_dimensions": [
+        350,
+        635
+      ],
+      "archived_dimensions": [
+        350,
+        635
+      ]
     }
   ],
   "learner_visual_status": {
@@ -352,7 +373,7 @@
       {
         "label": "Texas tridens — hairy ligule region · PROVISIONAL",
         "scientific_name": "Tridens texanus",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Tridens_texanus_%284%29.jpg",
+        "image_url": "content/taxa/Poaceae/Tridens/tridens-texanus/images/gaiacoyote-tridens-texanus-4-ligule-cc0.jpg",
         "image_fit": "contain",
         "image_role": "Photographer-labelled true ligule region with visible pale hair fringe at blade–sheath junction; not calibrated or measured.",
         "caption": "Gaiacoyote labelled this dissecting-scope view as the ligule. A conspicuous pale hair fringe is visible at the green leaf–sheath opening. There is no millimeter bar: the true hair-ring length, individual attachments and any sheath hairs cannot be reliably measured here.",
@@ -361,13 +382,14 @@
         "license": "CC0 1.0",
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Tridens_texanus_(4).jpg",
-        "photo_status": "EXTERNAL ONLY — PROVISIONAL — USER PHOTO REVIEW PENDING; actual source image viewed, bytes NOT downloaded/verified; no microscopic arrows.",
-        "annotation_status": "annotation_pending"
+        "photo_status": "LOCAL exact source CC0 Gaiacoyote original with source/dimensions/SHA verified; no overlaid anatomy arrows; true hair attachments still unmeasured",
+        "annotation_status": "annotation_pending; hand-check actual free ligule fringe before marker",
+        "markers": []
       },
       {
         "label": "Texas tridens — flowering habit in Uvalde habitat · PROVISIONAL",
         "scientific_name": "Tridens texanus",
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Tridens_texanus_%285%29.jpg",
+        "image_url": "content/taxa/Poaceae/Tridens/tridens-texanus/images/gaiacoyote-tridens-texanus-5-habitat-cc0.jpg",
         "image_fit": "contain",
         "image_role": "Source-labelled Texas tridens flowering habit in juniper-associated Uvalde County grassland; rooted crown and all flowering-culm connections not individually traceable.",
         "caption": "A source-labelled plant in grassy juniper habitat of northern Uvalde County. Shows slender flowering culms and the plant's field setting, but dense surrounding vegetation obscures an independently verified rooted crown and full same-plant attachment.",
@@ -376,8 +398,9 @@
         "license": "CC0 1.0",
         "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
         "source_page": "https://commons.wikimedia.org/wiki/File:Tridens_texanus_(5).jpg",
-        "photo_status": "EXTERNAL ONLY — PROVISIONAL — USER PHOTO REVIEW PENDING; actual source image viewed, bytes NOT downloaded/verified; no microscopic arrows.",
-        "annotation_status": "annotation_pending"
+        "photo_status": "LOCAL exact source CC0 Gaiacoyote original with source/dimensions/SHA verified; no overlaid anatomy arrows; true hair attachments still unmeasured",
+        "annotation_status": "annotation_pending; hand-check actual free ligule fringe before marker",
+        "markers": []
       },
       {
         "label": "White tridens — green contracted spike",
