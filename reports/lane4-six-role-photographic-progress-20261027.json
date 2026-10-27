@@ -20,17 +20,17 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 8,
+  "audited_to_date": 9,
   "confirmed_at_or_above_70": 4,
-  "targeted_pass_covered": 18,
-  "remaining_targeted_passes": 5,
-  "progress_disclaimer": "18 of 23 Lane4 species have received targeted work in this continuation. Eight species have six-role actual-photo scoring, four are at/above 70%; 15 remain unscored. The five species without targeted passes are not equivalent to all under 70. New setaceum source photo is actual field habitat, not an exposed root or true ligule.",
+  "targeted_pass_covered": 19,
+  "remaining_targeted_passes": 4,
+  "progress_disclaimer": "19 of 23 Lane4 species have now received a targeted pass in this continuation. Nine have six-role individual image evidence scores; four score >=70%, five are below; other 14 remain unscored. P. pubiflorum 50% has five exact-taxon real JPEGs, plus comparisons to different species. A photo-license scout has been configured but does not itself count as installed photographic evidence.",
   "photo_physical_progress_today": {
     "new_local_originals": 16,
     "new_gross_arrows": 17,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
-    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 6,
+    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 8,
     "newly_pixel_inspected_archived_exact_photos": 7,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
@@ -286,11 +286,29 @@
     {
       "id": "paspalum-pubiflorum",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
-      "previous_targeted_pass": false,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "target_status": "below_70",
+      "previous_targeted_pass": true,
+      "role_scores": [
+        0,
+        0,
+        0.5,
+        1,
+        0.5,
+        1
+      ],
+      "total": 3,
+      "pct": 50,
+      "previous_pct": null,
+      "new_exact_species_photo_files": 0,
+      "own_species_jpegs": 5,
+      "gallery_panels": 8,
+      "new_existing_local_other_taxon_photographic_comparisons": 2,
+      "new_arrows": 0,
+      "lookalike_comparison": "Real native Paspalum floridanum flowering racemes, introduced P. dilatatum 5-mm hairy spikelet plate, and P. setaceum flowering photo; all are OTHER SPECIES, not morphological evidence from P. pubiflorum.",
+      "published_on_github_card_commit": "38579b687c9cca2f9b854ac2cd7fd44a4b5cfd94",
+      "next_photo": "Live whole flowering clump, actual opened and measured 1–3 mm inner ligule, detached mature spikelet showing upper glume pubescence/veins with 1-mm scale; connected rooting at nodes later.",
+      "scout": "Candidate photo-license workflow committed and awaits image-level results; photos NOT yet in public card and no role claim.",
+      "public_website_review": "NOT VERIFIED"
     },
     {
       "id": "paspalum-setaceum",
