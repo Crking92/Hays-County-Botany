@@ -1,0 +1,27 @@
+name: Lane 1 source verified blue grama hairy collar CC photo
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-blue-grama-collar-photo-20261027.yml'
+      - 'scripts/lane1_blue_grama_real_collar_cc_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-blue-grama-hairy-collar-verified-photo
+  cancel-in-progress: false
+jobs:
+  archive-source-verified-collar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install photo dependencies
+        run: python -m pip install --disable-pip-version-check requests pillow
+      - name: Verify exact photographed blue grama and original CC BY-SA, then archive scrubbed collar photo
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/lane1_blue_grama_real_collar_cc_20261027.py
