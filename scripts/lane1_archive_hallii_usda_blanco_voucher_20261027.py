@@ -57,10 +57,10 @@ for occid in record_candidates[:10]:
         record=get(url)
         txt=pure(record).lower()
         if ACC.lower() in txt and "panicum hallii" in txt:
+            license_in_html="creativecommons.org/publicdomain/zero/1.0" in record.decode("utf-8",errors="replace").lower()
+            print("EXACT_SPECIMEN_CC0_LICENSE_HREF",license_in_html,flush=True)
+            assert license_in_html, "Individual specimen page has no CC0 license href; do not archive"
             recurl=url
-            print("SPECIMEN_RIGHTS_CONTEXT",txt[max(txt.find("creative commons")-90,0):txt.find("creative commons")+400],flush=True)
-            print("SPECIMEN_CC0_CONTEXT",txt[max(txt.find("cc0")-100,0):txt.find("cc0")+180],flush=True)
-            assert "cc0" in txt or "creative commons zero" in txt, "Individual specimen page does not explicitly confirm CC0 reuse"
             break
     except Exception as e:
         print("CANDIDATE_REJECTED",url,str(e)[:250],flush=True)
