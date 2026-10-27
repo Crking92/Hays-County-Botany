@@ -1,0 +1,26 @@
+name: Lane 1 hairy grama real second glume macro
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/lane1-hairy-grama-glume-20261027.yml'
+      - 'scripts/lane1_hairy_grama_matt_lavin_macro_20261027.py'
+permissions:
+  contents: write
+concurrency:
+  group: lane1-hairy-grama-reproductive-macro
+  cancel-in-progress: false
+jobs:
+  archive-original-anatomy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests pillow
+      - name: Confirm photo-specific original rights and archive actual bract/hair anatomy without EXIF
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/lane1_hairy_grama_matt_lavin_macro_20261027.py
