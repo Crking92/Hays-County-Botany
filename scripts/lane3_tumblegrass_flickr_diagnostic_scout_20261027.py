@@ -72,6 +72,6 @@ def main():
          "per_photo_rights":"Each included page's HTML contains creator Matt Lavin, species Schedonnardus paniculatus, actual CC BY-SA 2.0 license URL",
          "publication":"NO gallery photo or six-role status changed; original full pixel review required."}
     (ROOT/"report.json").write_text(json.dumps(rep,indent=2,ensure_ascii=False)+"\n")
-    print("Licensed/photo evidence:",len(source),"candidates:",len(ids),"errors:",len(errors))
+    print("Licensed/photo evidence:",len(source),"candidates:",len(ids),"errors:",len(errors), "first_errors:",errors[:10])
     assert source,"No licensed pixels archived; safe stop, see printed errors"
 if __name__=="__main__":main()
