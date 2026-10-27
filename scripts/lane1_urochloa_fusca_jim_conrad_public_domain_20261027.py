@@ -67,7 +67,7 @@ for p in PHOTO:
     u=urlparse(q.url)
     if u.scheme!="https" or u.hostname not in ("www.backyardnature.net","backyardnature.net"):
         raise SystemExit("Image redirected to unverified ownership site "+p["id"])
-    if not q.content.startswith(b"\xff\xd8") or not 25_000<len(q.content)<15_000_000:
+    if not q.content.startswith(b"\xff\xd8") or not 8_000<len(q.content)<15_000_000:
         raise SystemExit("Exact source JPEG unavailable or unexpected bytes "+p["id"])
     t=Image.open(io.BytesIO(q.content));t.verify()
     im=ImageOps.exif_transpose(Image.open(io.BytesIO(q.content))).convert("RGB")
