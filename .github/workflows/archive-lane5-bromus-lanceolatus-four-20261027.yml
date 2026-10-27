@@ -1,0 +1,47 @@
+name: Lane 5 archive four actual Texas lanceolate brome anatomical photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_bromus_lanceolatus_texas_four_20261027.py
+      - .github/workflows/archive-lane5-bromus-lanceolatus-four-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-lanceolatus-texas-four-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            reports
+            content/taxa/Poaceae/Bromus/bromus-lanceolatus
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Validate exact photo license and species and download four real Texas photos
+        run: python scripts/archive_lane5_bromus_lanceolatus_texas_four_20261027.py
+      - name: Save JPEGs and gallery to GitHub without force push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Bromus/bromus-lanceolatus/ reports/lane5-bromus-lanceolatus-licensed-texas-four-20261027.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive four photo-licensed Texas lanceolate brome habitat and spikelet images"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo "Guarded update failed; no force push"
+          exit 1
