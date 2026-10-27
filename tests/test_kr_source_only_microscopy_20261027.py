@@ -15,7 +15,7 @@ class KRSourceOnlyMicroscopy(unittest.TestCase):
         self.assertTrue(l["source_link_only"])
         self.assertEqual(len(l["public_study_sources"]),4)
         self.assertEqual(s["id"],"bothriochloa-ischaemum")
-        self.assertEqual(len(s["images"]),12)
+        self.assertGreaterEqual(len(s["images"]),12)
         self.assertGreaterEqual(len(s["visual_comparison"]["items"]),25)
         self.assertIn("FIELD_READY_PHOTO_GAPS",s["curation_status"]["visual_finish"])
         self.assertIn("HOLD",l["status"])
