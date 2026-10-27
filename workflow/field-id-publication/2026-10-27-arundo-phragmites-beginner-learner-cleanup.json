@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-27",
+  "purpose": "Publish field-friendly, newcomer-readable photo-first learner lessons for Arundo donax and Phragmites australis with real licensed photos, existing anatomical arrows and science limits.",
+  "species": [
+    {
+      "id": "arundo-donax",
+      "archived_images": 7,
+      "teaching_panels": 10,
+      "existing_arrows": 5,
+      "beginner_steps": 4,
+      "quickcheck_steps": 5,
+      "hero_image": "images/01-reed-stand-habit.jpg",
+      "priorities": "recognize whole stand, broad clasping leaf collar, flowering plume, research photographed glumes/florets. Reproductive hair attachment remains unconfirmed microscopically."
+    },
+    {
+      "id": "phragmites-australis",
+      "archived_images": 17,
+      "teaching_panels": 21,
+      "existing_arrows": 23,
+      "beginner_steps": 4,
+      "quickcheck_steps": 5,
+      "priorities": "whole reed, true collar, multi-flowered silky rachilla, source-only Gulf example and explicit three-lineage no-removal gate. Gulf true ligule and genotyped mature glumes still missing."
+    }
+  ],
+  "changes": [
+    "Shorter first clue plus beginner-first species traits",
+    "Four actual photo examples immediately below hero, preserving original photographer source license and photo-specific arrow labels",
+    "Whole-plant hero photograph first in carousel, with all canonical photo indices unchanged",
+    "Arundo quickcheck now uses existing correctly anchored collar and flowering arrows",
+    "Phragmites subspecies-labelled photo arrows can display without transferring Arundo/other species annotations",
+    "Quick check reduced to five easy steps; former technical instructions retained in species data",
+    "Rights and taxon source details unchanged; no restricted SDSU images added"
+  ],
+  "regression": "tests/test_reed_beginner_learner.py + node --check assets/js/app.js + node --check assets/js/field-id-tiles.js",
+  "updated_files": [
+    "assets/js/app.js",
+    "content/taxa/Poaceae/Arundo/arundo-donax/species.json",
+    "content/taxa/Poaceae/Phragmites/phragmites-australis/species.json",
+    "tests/test_reed_beginner_learner.py",
+    ".github/workflows/publish-public-learner-github-pages.yml"
+  ],
+  "scientific_status": "FIELD_READY_PHOTO_GAPS preserved for both; no lineage assignment based solely on photographs",
+  "photo_images_added_this_pass": 0,
+  "photo_markers_added_this_pass": 0,
+  "source_media_held": "SDSU Neil Reese user-uploaded originals excluded from public page; unarchived AoB CC BY figure not falsely listed as installed.",
+  "deployment": "Existing rights-filtered noncommercial GitHub Pages publication, with quality and photo rights QA. Must verify actual completed run to claim live."
+}
