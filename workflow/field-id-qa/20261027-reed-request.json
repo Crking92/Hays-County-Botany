@@ -10,5 +10,15 @@
   "test": "tests/test_reed_beginner_learner.py",
   "retry": 1,
   "reason": "Node parser identified malformed image-path regex in existing Field ID JS; fixed in dbe9fb0c83bc06c00d9bb89ecddb8ba7c3ea8ed5. Rerun 3 checks.",
-  "check": "syntax_and_beginner_photos"
+  "check": "syntax_and_beginner_photos",
+  "revision": "Field ID selectable side-by-side look-alikes plus third quiz mode: validate all 10 question sources, licenses and UI syntax",
+  "checks": [
+    "python -m unittest discover -s tests -p test_reed_beginner_learner.py -v",
+    "node --check assets/js/app.js",
+    "node --check assets/js/field-id-tiles.js",
+    "node --check assets/js/quiz-tiles.js",
+    "node --check assets/js/reed-quiz.js",
+    "node tests/test_reed_quiz.cjs"
+  ],
+  "quiz_checks_added_20261027": true
 }
