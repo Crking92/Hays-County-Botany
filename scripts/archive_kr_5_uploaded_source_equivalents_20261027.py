@@ -131,7 +131,7 @@ def main():
             if not existing:
                 gallery.append(make_record(x,source,full,sha,size))
             photo_path=REL+"/images/"+x["file"]
-            matched=[p for p in panels if p.get("source_page")==source["source_page"] and p.get("scientific_name")=="Bothriochloa ischaemum"]
+            matched=[p for p in panels if p.get("scientific_name")=="Bothriochloa ischaemum" and (p.get("source_photo_id")==x["photo_id"] if "photo_id" in x else p.get("source_page")==source["source_page"])]
             if x["id"]=="sl3" and not matched:
                 panel={"label":"TRUE ATTACHED AWNED SPIKELETS — 5mm scale, Austrian species example",
                     "scientific_name":"Bothriochloa ischaemum","image_url":photo_path,
