@@ -1,0 +1,75 @@
+name: Archive genuine Muhlenbergia utilis blade sheath photo
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/manual-muhlenbergia-utilis-sheath-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: hays-aparejograss-real-photo
+  cancel-in-progress: false
+jobs:
+  archive-real-muut-l:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install source JPEG tools
+        run: python -m pip install "requests>=2.31,<3" "Pillow>=10,<12"
+      - name: Archive only exact original JPEG after canonical refresh
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python -m py_compile scripts/archive_muhlenbergia_utilis_sheath_20261027.py
+          python scripts/archive_muhlenbergia_utilis_sheath_20261027.py
+      - name: Verify archived bytes, source license, actual gallery and no GPS
+        run: |
+          python - <<'PY'
+          import json,hashlib
+          from pathlib import Path
+          from PIL import Image
+          rp=Path('reports/muhlenbergia-utilis-bob-harms-muut-l-20261027.json')
+          if not rp.exists():
+              print('No new archive; exact source image may already be present')
+              raise SystemExit(0)
+          r=json.loads(rp.read_text())
+          assert r['result']=='EXACT_ORIGINAL_JPEG_ARCHIVED'
+          path=Path(r['path'])
+          assert path.is_file() and path.stat().st_size>3000
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==r['archive_sha256']
+          with Image.open(path) as im:
+              assert im.format=='JPEG' and not im.getexif().get(34853)
+              im.verify()
+          sp=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/muhlenbergia-utilis/species.json').read_text())
+          gp=json.loads(Path('content/taxa/Poaceae/Muhlenbergia/genus.json').read_text())
+          assert sp['id']=='muhlenbergia-utilis'
+          assert any(x.get('source_photo_id')=='MUUT-L' and x['license'].startswith('© Bob Harms') for x in sp['images'])
+          for obj in (sp,gp):
+              p=[x for x in obj['visual_comparison']['items'] if x.get('source_photo_id')=='MUUT-L']
+              assert len(p)==1 and p[0]['image_url']==str(path) and p[0]['markers']==[]
+          print('PASS: real MUUT-L JPEG archived, EXIF/GPS removed, both galleries match source')
+          PY
+      - name: Commit real source JPEG and rights-filtered site release request
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Muhlenbergia/muhlenbergia-utilis/
+          git add content/taxa/Poaceae/Muhlenbergia/genus.json
+          git add reports/muhlenbergia-utilis-bob-harms-muut-l-20261027.json
+          git add workflow/field-id-publication/2026-10-27-muhlenbergia-utilis-sheath-physical.json
+          if git diff --cached --quiet; then echo "NO_CHANGES"; exit 0; fi
+          git commit -m 'Archive real credited Bob Harms aparejograss sheath anatomy photograph [skip ci]'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
