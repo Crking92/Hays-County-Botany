@@ -68,7 +68,7 @@ jobs:
         run: |
           mkdir -p page-quality-audit
           python scripts/optimize_public_photo_copies.py --root dist \
-            --threshold-kb 650 --max-edge 2600 --quality 83 \
+            --threshold-kb 450 --max-edge 2400 --quality 80 \
             --report page-quality-audit/size-report.json
       - name: Check anatomical image pixel quality
         run: |
