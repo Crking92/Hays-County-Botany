@@ -137,12 +137,12 @@ class SilverPhotoFinish(unittest.TestCase):
         self.assertTrue((CARD.parent/beginner["hero_photo_file"]).is_file())
         self.assertEqual([step["panel_index"] for step in beginner["steps"]],[0,6,14,5,4])
         self.assertEqual(len(s["field_photo_quickcheck"]["steps"]),5)
-        self.assertEqual(len(s["silver_research_only_photos_20261027"]["public_study_sources"]),3)
+        self.assertEqual(len(s["silver_research_only_photos_20261027"]["public_study_sources"]),4)
         protected=s["silver_research_only_photos_20261027"]["public_study_sources"]
         for rec in protected:
-            self.assertIn("©",rec["copyright"])
+            self.assertTrue("©" in rec["copyright"] or "Crown copyright" in rec["copyright"])
             self.assertIn("Link",rec["release"])
-            self.assertTrue(rec["direct_original"].startswith("https://www.missouriplants.com/images/"))
+            self.assertTrue(rec["direct_original"].startswith(("https://www.missouriplants.com/images/","https://inspection.canada.ca/")))
             for p in self.panels:
                 self.assertNotEqual(p.get("image_url"),rec["direct_original"])
             for im in s["images"]:
@@ -150,6 +150,7 @@ class SilverPhotoFinish(unittest.TestCase):
         js=(ROOT/"assets/js/app.js").read_text(encoding="utf-8")
         self.assertIn("sp.silver_research_only_photos_20261027",js)
         self.assertIn("www\\.missouriplants\\.com",js)
+        self.assertIn("inspection\\.canada\\.ca",js)
         self.assertIn('studyDrawer("Silver bluestem — source-only ligule and node photos"',js)
 
 if __name__=="__main__":
