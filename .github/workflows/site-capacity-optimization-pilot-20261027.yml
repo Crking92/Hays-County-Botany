@@ -1,0 +1,131 @@
+name: Website capacity pilot — no publication or source image changes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/site-capacity-optimization-pilot-20261027.yml
+  workflow_dispatch:
+
+permissions: {contents: read}
+
+jobs:
+  size-and-image-quality-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install image inspection dependency
+        run: python -m pip install 'Pillow>=10,<12'
+      - name: Build exactly the same rights-filtered noncommercial site, but DO NOT PUBLISH
+        run: python scripts/build_public_pages_snapshot.py --noncommercial
+      - name: Current production website-only optimization baseline
+        run: |
+          mkdir -p capacity-audit
+          python scripts/optimize_public_photo_copies.py --root dist \
+            --threshold-kb 450 --max-edge 2400 --quality 80 \
+            --report capacity-audit/current-optimizer.json
+      - name: Stage separate stronger image optimization — never alter source or production settings
+        run: |
+          python - <<'PY'
+          from shutil import copytree
+          copytree('dist','capacity-pilot/dist')
+          PY
+          python scripts/optimize_public_photo_copies.py --root capacity-pilot/dist \
+            --threshold-kb 280 --max-edge 2200 --quality 77 \
+            --report capacity-audit/pilot-optimizer.json
+      - name: Report family sizes, exactly duplicated pixels and safe pilot savings
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from collections import defaultdict
+          from hashlib import sha256
+          import json,collections
+          root=Path('dist');pilot=Path('capacity-pilot/dist')
+          paths=[f for f in root.rglob('*') if f.is_file()]
+          family=collections.defaultdict(lambda:{'bytes':0,'files':0})
+          file_sha=collections.defaultdict(list); sizes={}
+          for f in paths:
+            rel=f.relative_to(root)
+            size=f.stat().st_size
+            sizes[str(rel)]=size
+            if len(rel.parts)>3 and rel.parts[0]=='content' and rel.parts[1]=='taxa':
+              group=rel.parts[2]
+            elif rel.parts[0]=='assets':
+              group='ASSETS'
+            elif rel.parts[0]=='content':
+              group='CONTENT_NON_TAXA'
+            else:
+              group='OTHER'
+            family[group]['files']+=1
+            family[group]['bytes']+=size
+            if f.suffix.lower() in {'.jpg','.jpeg','.png','.webp'}:
+              # SHA duplicates represent identical image bytes, not proof source roles can be merged.
+              file_sha[sha256(f.read_bytes()).hexdigest()].append(str(rel))
+          duplicates=[]
+          for digest,locations in file_sha.items():
+            if len(locations)>1:
+              duplicates.append({'sha256':digest,'count':len(locations),
+                'byte_identical_duplicate_bytes':sizes[locations[0]]*(len(locations)-1),
+                'paths':locations[:20]})
+          duplicates.sort(key=lambda d:d['byte_identical_duplicate_bytes'],reverse=True)
+          baseline=sum(sizes.values())
+          pilot_bytes=sum(f.stat().st_size for f in pilot.rglob('*') if f.is_file())
+          extra=baseline-pilot_bytes
+          report={
+            'scope':'WEBSITE-ONLY DRY RUN; NO ORIGINAL IMAGE MODIFICATIONS OR PAGES DEPLOYMENT',
+            'repo_commit': 'workflow checkout main',
+            'baseline_site_bytes':baseline,
+            'pilot_site_bytes':pilot_bytes,
+            'site_bytes_saved_additionally':extra,
+            'site_percent_saved_additionally':round(100*extra/baseline,2),
+            'below_850MB_safety_cutoff_pilot':pilot_bytes<850_000_000,
+            'remaining_until_850MB_safety_cutoff_pilot':850_000_000-pilot_bytes,
+            'remaining_until_1GB_Pages_ceiling_pilot':1_000_000_000-pilot_bytes,
+            'family_bytes_ranked':sorted([{'family':k,**v} for k,v in family.items()],
+              key=lambda item:item['bytes'],reverse=True),
+            'exact_byte_duplicate_photos_groups':len(duplicates),
+            'exact_byte_duplicate_photo_bytes_potential':sum(x['byte_identical_duplicate_bytes'] for x in duplicates),
+            'top_duplicate_groups':duplicates[:24],
+            'top_original_published_files':sorted(
+              [{'path':p,'bytes':size} for p,size in sizes.items()],key=lambda x:x['bytes'],reverse=True)[:25],
+            'no_lfs_or_origin_rewrites':True
+          }
+          Path('capacity-audit/capacity-report.json').write_text(json.dumps(report,indent=2)+'\n')
+          print('CAPACITY_REPORT',json.dumps({k:v for k,v in report.items() if k not in ('family_bytes_ranked','top_duplicate_groups','top_original_published_files')}))
+          print('FAMILY_TOP10',json.dumps(report['family_bytes_ranked'][:10]))
+          print('LARGEST_FILE_TOP10',json.dumps(report['top_original_published_files'][:10]))
+          print('DUPLICATE_TOP10',json.dumps(duplicates[:10]))
+          PY
+      - name: Pixel comparison audit against the canonical originals — pilot only
+        run: |
+          python scripts/audit_public_photo_quality.py --source . --site capacity-pilot/dist \
+            --out capacity-audit/pixel-quality --max-preview 12
+      - name: Confirm NO modifications to GitHub source files
+        run: |
+          git diff --exit-code -- content data assets scripts
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          a=json.loads(Path('capacity-audit/pilot-optimizer.json').read_text())
+          q=json.loads(Path('capacity-audit/pixel-quality/quality-report.json').read_text())
+          assert a['originals_changed'] is False
+          assert not q['hard_errors'],q['hard_errors'][:5]
+          print('PILOT_NONDESTRUCTIVE_SOURCE_PRESERVED')
+          print('QUALITY_PIXEL_WARNINGS',len(q['warnings']))
+          print('QUALITY_PIXEL_MEAN_ERROR',q['mean_pixel_error_of_changed_photos'])
+          PY
+      - name: Retain small reports and limited botanical original-versus-optimized crops only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-capacity-nonpublishing-pilot
+          path: capacity-audit/
+          retention-days: 14
+          if-no-files-found: warn
