@@ -1,0 +1,45 @@
+name: Lane4 Elliott slender indiangrass source CC diagnostic photo scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_elliottii_inat_public_photo_scout_20261027.py
+      - .github/workflows/lane4-elliottii-cc-photo-source-scout-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-sorghastrum-elliottii-photo-scout
+  cancel-in-progress: false
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            scripts/lane4_elliottii_inat_public_photo_scout_20261027.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - name: Research individual CC0 or CC BY source photos and exact-species grade without changing holds
+        run: python scripts/lane4_elliottii_inat_public_photo_scout_20261027.py
+      - name: Commit source-only contact sheet, not learner images or IDs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --sparse reports/lane4-elliottii-licensed-source-photo-scout-20261027/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane4 CC-licensed exact slender indiangrass photo candidate survey"
+            pushed=0
+            for attempt in 1 2 3 4 5 6; do
+              git fetch origin main
+              if ! git rebase origin/main; then git rebase --abort || true; exit 1; fi
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = 1
+          fi
