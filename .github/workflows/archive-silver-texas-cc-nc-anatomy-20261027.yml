@@ -1,0 +1,89 @@
+name: Silver bluestem archive two true Texas anatomy photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/archive-silver-texas-cc-nc-anatomy-20261027.yml
+      - scripts/archive_silver_texas_anatomy_20261027.py
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency:
+  group: silver-torreyana-texas-anatomy-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+            reports
+            workflow/field-id-publication
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Download two real verified taxon photo IDs with original CC rights
+        run: |
+          python -m py_compile scripts/archive_silver_texas_anatomy_20261027.py
+          python scripts/archive_silver_texas_anatomy_20261027.py
+      - name: Verify image bytes, real anatomy arrows and both rights validators
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana")
+          d=json.loads((base/"species.json").read_text())
+          audit=json.loads(Path("reports/silver-torreyana-texas-anatomy-macros-20261027.json").read_text())
+          assert d["id"]=="bothriochloa-torreyana" and d["native_target_zone_calculated"] is False
+          for entry in audit["items"]:
+            if entry["status"]!="PHYSICAL_ARCHIVE_VERIFIED":continue
+            photo=Path(entry["file"])
+            assert photo.is_file()
+            assert hashlib.sha256(photo.read_bytes()).hexdigest()==entry["SHA256"]
+            with Image.open(photo) as im:
+              assert im.format=="JPEG" and im.size[0]>=768 and im.size[1]>=768
+              assert not im.getexif()
+              im.verify()
+            im_record=next(x for x in d["images"] if x.get("source_photo_id")==entry["id"])
+            panel=next(x for x in d["visual_comparison"]["items"] if x.get("source_photo_id")==entry["id"])
+            assert len(panel["markers"])==2
+            for marker in panel["markers"]:
+              assert all(0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+            for r in [im_record,panel]:
+              assert "CC BY-NC" in r["license"]
+              assert rights(r,True)[0],(entry["id"],rights(r,True))
+              assert photo_rights(r,True) is None,(entry["id"],photo_rights(r,True))
+              assert r["creator"] and "/photos/" in r["source_page"]
+          assert len(d["images"])>=8
+          assert d["curation_status"]["visual_finish"].startswith("FIELD_READY_PHOTO_GAPS")
+          assert d["silver_six_role_photo_score_20261027"]["total"] in (3,3.5)
+          assert d["silver_six_role_photo_score_20261027"]["roles"][2]["score"]<=0.5
+          print("RIGHTS AND PIXEL ANATOMY QA PASS")
+          PY
+      - name: Commit only source verified photo binaries, metadata and public gallery
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/
+          git add reports/silver-torreyana-texas-anatomy-macros-20261027.json
+          if test -f workflow/field-id-publication/2026-10-27-silver-two-texas-anatomy-macros.json; then
+            git add workflow/field-id-publication/2026-10-27-silver-two-texas-anatomy-macros.json
+          fi
+          if git diff --cached --quiet; then echo NO_CHANGES_OR_ALL_HELD; exit 0; fi
+          git commit -m 'Archive two source-verified licensed Texas silver bluestem anatomy macros'
+          for i in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
