@@ -1,0 +1,46 @@
+name: Lane 2 wild oat actual mature field plant and true collar source review
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-avena-fatua-whole-collar-original-pixels-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  pixel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Verify four distinct mature wild oat photos and anatomy pixels
+        run: |
+          python - <<'PY'
+          import json,base64,io
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 exact species/license original pixel review'}
+          selected=[(675080156,369569943),(670312346,367069469),(704995125,385100626),(696036226,380454563)]
+          cache={}
+          out=Image.new('RGB',(1820,1840),'white');d=ImageDraw.Draw(out)
+          for i,(pid,oid) in enumerate(selected):
+           if oid not in cache:
+            with urlopen(Request('https://api.inaturalist.org/v1/observations/'+str(oid),headers=UA),timeout=45) as h:cache[oid]=json.load(h)['results'][0]
+           obs=cache[oid]
+           assert obs['taxon']['name']=='Avena fatua' and obs['quality_grade']=='research'
+           p=next(x for x in obs['photos'] if x['id']==pid)
+           assert p['license_code']=='cc-by-nc'
+           orig=p['url'].replace('/square.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+           with urlopen(Request(orig,headers=UA),timeout=45) as h:raw=h.read(10000001)
+           if len(raw)>10000000:raise RuntimeError('Oversized JPEG')
+           with Image.open(io.BytesIO(raw)) as im:
+            z=ImageOps.exif_transpose(im).convert('RGB');dim=z.size
+           z.thumbnail((885,835));x=(i%2)*910;y=(i//2)*920
+           out.paste(z,(x+(910-z.width)//2,y+5+(835-z.height)//2))
+           d.text((x+15,y+855),'photo='+str(pid)+' origin '+str(oid),fill='black')
+           print('PHOTO',json.dumps({'id':pid,'obs':oid,'taxon':obs['taxon']['name'],'dims':dim,'license':p['license_code'],'creator':p.get('attribution'),'location':obs.get('place_guess'),'original':orig}))
+          b=io.BytesIO();out.save(b,'JPEG',quality=83,optimize=True);v=base64.b64encode(b.getvalue()).decode()
+          for i,p in enumerate(range(0,len(v),3500)):print('AVENA_PIXEL_'+str(i)+'='+v[p:p+3500])
+          print('PHOTO_PIXEL_END',len(b.getvalue()))
+          PY
