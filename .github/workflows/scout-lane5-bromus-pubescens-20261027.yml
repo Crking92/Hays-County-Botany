@@ -1,0 +1,45 @@
+name: Lane 5 woodland brome real roots ligule spikelet photo scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/scout_lane5_bromus_pubescens_photo_20261027.py
+      - .github/workflows/scout-lane5-bromus-pubescens-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-woodland-brome-scout-20261027
+  cancel-in-progress: true
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            reports
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Source-check iNaturalist individual rights then generate exact species contact sheet
+        run: python scripts/scout_lane5_bromus_pubescens_photo_20261027.py
+      - name: Save research candidate report, not unchecked image binaries
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane5-bromus-pubescens-open-anatomy-scout-20261027.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Record licensed woodland brome anatomy photo candidates"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
