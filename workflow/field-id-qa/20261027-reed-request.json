@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-27",
+  "run_once": true,
+  "purpose": "Diagnose existing learner release validation and new reed Field ID syntax, do not modify quiz or site media",
+  "expected_report": "reports/reed-field-id-validation-20261027.json",
+  "code": [
+    "assets/js/app.js",
+    "assets/js/field-id-tiles.js"
+  ],
+  "test": "tests/test_reed_beginner_learner.py"
+}
