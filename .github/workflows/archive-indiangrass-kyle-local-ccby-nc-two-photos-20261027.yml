@@ -1,0 +1,83 @@
+name: Archive 2 verified local Kyle Indian grass growing bunch and pale collar original photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/archive-indiangrass-kyle-local-ccby-nc-two-photos-20261027.yml
+      - scripts/archive_indiangrass_kyle_real_local_20261027.py
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency:
+  group: indian-grass-kyle-archived-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans
+            reports
+            workflow/field-id-publication
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Exact original research-grade taxon and CC BY-NC photograph archive
+        run: |
+          python -m py_compile scripts/archive_indiangrass_kyle_real_local_20261027.py
+          python scripts/archive_indiangrass_kyle_real_local_20261027.py
+      - name: Verify two exact binaries, credit, source photo license, and cautious arrows
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          sys.path.insert(0,'scripts')
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          card=Path('content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans/species.json')
+          data=json.loads(card.read_text())
+          report=json.loads(Path('reports/indiangrass-kyle-real-local-photographs-20261027.json').read_text())
+          assert report['score_before']==report['score_after']==3
+          assert len(report['photo_results'])==2
+          assert len(data['visual_comparison']['items'])==10
+          for x in report['photo_results']:
+            assert x['status']=='ARCHIVED'
+            f=Path(x['file']);assert f.is_file()
+            assert hashlib.sha256(f.read_bytes()).hexdigest()==x['sha256']
+            with Image.open(f) as img:
+              assert img.format=='JPEG' and min(img.size)>=750 and not img.getexif()
+              img.verify()
+            rec=next(a for a in data['images'] if a.get('source_photo_id')==x['photo'])
+            panel=next(a for a in data['visual_comparison']['items'] if a.get('source_photo_id')==x['photo'])
+            assert rec['creator']=='John Davis' and panel['creator']=='John Davis'
+            assert rec['license'].startswith('CC BY-NC') and not panel.get('markers')
+            for obj in (rec,panel):
+              assert rights(obj,True)[0],(x['photo'],rights(obj,True))
+              assert photo_rights(obj,True) is None,(x['photo'],photo_rights(obj,True))
+          assert data['indiangrass_six_role_photo_score_20261027']['total']==3
+          assert data['indiangrass_kyle_actual_local_photos_20261027']['roots_shown'] is False
+          assert data['indiangrass_kyle_actual_local_photos_20261027']['free_ligule_calibrated'] is False
+          print('INDIAN GRASS EXACT PHOTO RIGHTS, PIXELS, LOCALITY AND CLAIMS PASS')
+          PY
+      - name: Commit only two source-verified photo JPEGs, species metadata and release marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans
+          git add reports/indiangrass-kyle-real-local-photographs-20261027.json
+          git add workflow/field-id-publication/2026-10-27-indiangrass-kyle-real-two-photos.json
+          if git diff --cached --quiet;then echo NO_CHANGES;exit 0;fi
+          git commit -m 'Archive two exact Hays Kyle licensed indiangrass bunch and collar photographs'
+          for i in 1 2 3 4 5 6;do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 4
+          done
+          exit 1
