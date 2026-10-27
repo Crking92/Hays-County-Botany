@@ -1,0 +1,88 @@
+name: Silver bluestem physical archive two actual TX culm nodes
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/archive-silver-two-true-texas-culm-nodes-20261027.yml
+      - scripts/archive_silver_texas_two_culm_nodes_20261027.py
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency:
+  group: silver-torreyana-true-texas-node-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+            reports
+            workflow/field-id-publication
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Archive exact original Texas silver true culm-node photos
+        run: |
+          python -m py_compile scripts/archive_silver_texas_two_culm_nodes_20261027.py
+          python scripts/archive_silver_texas_two_culm_nodes_20261027.py
+      - name: Validate physical JPEG, individual original license and visible target arrows
+        run: |
+          python - <<'PY'
+          import json,sys,hashlib
+          from PIL import Image
+          from pathlib import Path
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          base=Path("content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana")
+          d=json.loads((base/"species.json").read_text())
+          r=json.loads(Path("reports/silver-bluestem-two-real-texas-culm-nodes-20261027.json").read_text())
+          assert d["id"]=="bothriochloa-torreyana" and d["native_target_zone_calculated"] is False
+          for item in r["source_photos"]:
+            if item["status"]!="ARCHIVED":continue
+            photo=Path(item["file"])
+            assert photo.is_file() and hashlib.sha256(photo.read_bytes()).hexdigest()==item["sha256"]
+            with Image.open(photo) as im:
+              assert im.format=="JPEG" and min(im.size)>=768 and not im.getexif()
+              im.verify()
+            file_rec=next(x for x in d["images"] if x.get("source_photo_id")==item["id"])
+            panel=next(x for x in d["visual_comparison"]["items"] if x.get("source_photo_id")==item["id"])
+            assert len(panel["markers"])==1
+            for mark in panel["markers"]:
+              assert mark["label"] and all(0<=mark[k]<=100 for k in ("label_x","label_y","target_x","target_y"))
+            for record in (file_rec,panel):
+              assert "CC BY" in record["license"]
+              assert rights(record,True)[0],(item["id"],rights(record,True))
+              assert photo_rights(record,True) is None,(item["id"],photo_rights(record,True))
+          if r["installed_count"]==2:
+            assert d["silver_six_role_photo_score_20261027"]["total"]==4
+            assert d["silver_six_role_photo_score_20261027"]["pct"]==66.7
+            assert d["silver_six_role_photo_score_20261027"]["roles"][3]["score"]==0.5
+          assert d["curation_status"]["visual_finish"].startswith("FIELD_READY_PHOTO_GAPS")
+          print("PASS:",r["installed_count"],"real photo node originals and site-specific rights")
+          PY
+      - name: Commit only source photos and synchronized silver species card
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/
+          git add reports/silver-bluestem-two-real-texas-culm-nodes-20261027.json
+          if test -f workflow/field-id-publication/2026-10-27-silver-two-licensed-true-nodes.json; then
+            git add workflow/field-id-publication/2026-10-27-silver-two-licensed-true-nodes.json
+          fi
+          if git diff --cached --quiet; then echo NO_NEW_VALIDATED_FILES; exit 0; fi
+          git commit -m 'Archive real CC-licensed Texas silver bluestem culm node photos'
+          for attempt in 1 2 3 4; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
