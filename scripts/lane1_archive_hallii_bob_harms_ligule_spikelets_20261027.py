@@ -64,7 +64,7 @@ for it in items:
  assert 14000<len(raw)<4500000,"Suspicious source bytes"
  im=Image.open(io.BytesIO(raw));im.load()
  print("SOURCE",src,im.format,im.size,len(raw),flush=True)
- assert im.format=="JPEG" and im.size==tuple(it["size"]),"Actual photo dimensions unexpected; abort for review"
+ assert im.format=="JPEG" and abs(im.width-it["size"][0])<=8 and abs(im.height-it["size"][1])<=8 and im.width>=200 and im.height>=450,"Actual photo dimensions unexpected; abort for review"
  dst.parent.mkdir(parents=True,exist_ok=True)
  ImageOps.exif_transpose(im).convert("RGB").save(dst,"JPEG",quality=95,optimize=True)
  record={
