@@ -1,0 +1,51 @@
+name: Lane4 archive real southern crabgrass rooted base and licensed lookalike
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_archive_ciliaris_starr_habit_base_20261027.py
+      - .github/workflows/lane4-ciliaris-starr-base-habit-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-ciliaris-licensed-rooted-base-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            scripts/lane4_archive_ciliaris_starr_habit_base_20261027.py
+            content/taxa/Poaceae/Digitaria/digitaria-ciliaris
+            reports/lane4-ciliaris-commons-source-pass-20261027.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - name: Verify original photo-level rights, taxon, image integrity and remove all EXIF
+        run: python scripts/lane4_archive_ciliaris_starr_habit_base_20261027.py
+      - name: Save source-cleared JPEGs and exact per-image rights without inventing anatomical credit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --sparse content/taxa/Poaceae/Digitaria/digitaria-ciliaris/ reports/lane4-ciliaris-commons-source-pass-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 4 archive licensed Digitaria ciliaris base/habit and labelled different-species comparison"
+            pushed=0
+            for try in 1 2 3 4 5 6 7 8; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                echo "Concurrent change in same species; refused unsafe overwrite"
+                exit 1
+              fi
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = 1
+          fi
