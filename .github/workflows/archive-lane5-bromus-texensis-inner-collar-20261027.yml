@@ -1,0 +1,46 @@
+name: Lane 5 Texas brome true inner collar and New Braunfels field photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_bromus_texensis_inner_collar_20261027.py
+      - .github/workflows/archive-lane5-bromus-texensis-inner-collar-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-bromus-texensis-new-braunfels-collar
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            reports
+            content/taxa/Poaceae/Bromus/bromus-texensis
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Check Eric Knight exact-species photo-specific CC BY and archive inner collar series
+        run: python scripts/archive_lane5_bromus_texensis_inner_collar_20261027.py
+      - name: Save real photographic bytes to site without overwriting concurrent lane changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Bromus/bromus-texensis/ reports/lane5-bromus-texensis-new-braunfels-three-20261027.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Archive Texas brome true collar membrane, side junction and rooted-in-soil habit photos"
+          for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || exit 1
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
