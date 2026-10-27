@@ -35,13 +35,18 @@ jobs:
            with urllib.request.urlopen(urllib.request.Request(url,method=m,headers=headers,data=body),timeout=48) as r:return r.read(9000000)
           def gh(m,path,obj=None):return json.loads(req(m,API+path,obj,True))
           def b(data,binary=False):return gh('POST','/git/blobs',{'content':base64.b64encode(data).decode() if binary else data,'encoding':'base64' if binary else 'utf-8'})['sha']
-          files=[];rows=[]
+          pairs={591769863:326716416,591767775:326716416,98799473:61724015,98799495:61724015,98799515:61724015,668389136:366060374,668389183:366060374,668389248:366060374,729425916:397679971,729425948:397679971,729426314:397679971}
+          files=[];rows=[];cache={}
           for photo_id in ids:
            try:
-            meta=json.loads(req('GET','https://api.inaturalist.org/v1/photos/'+str(photo_id)))['results'][0]
+            obs_id=pairs[photo_id]
+            if obs_id not in cache:
+             cache[obs_id]=json.loads(req('GET','https://api.inaturalist.org/v1/observations/'+str(obs_id)))['results'][0]
+            ob=cache[obs_id]
+            meta=next(p for p in ob.get('photos',[]) if p.get('id')==photo_id)
             lc=meta.get('license_code')
-            if lc not in ('cc0','cc-by','cc-by-sa'):raise ValueError('Rights changed to '+str(lc))
-            url='https://inaturalist-open-data.s3.amazonaws.com/photos/'+str(photo_id)+'/original.jpg'
+            if ob.get('quality_grade')!='research' or lc not in ('cc0','cc-by','cc-by-sa'):raise ValueError('Species quality or rights changed: '+str(lc))
+            url=meta['url'].replace('/square.','/original.').replace('/thumb.','/original.').replace('/medium.','/original.')
             raw=req('GET',url)
             with Image.open(io.BytesIO(raw)) as im:
              if im.format!='JPEG':raise ValueError('not a source JPEG')
