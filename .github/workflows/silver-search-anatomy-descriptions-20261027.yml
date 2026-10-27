@@ -1,0 +1,82 @@
+name: Silver bluestem targeted ligule node anatomy discovery
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-search-anatomy-descriptions-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Check research-grade Texas exact species observations with anatomy search words
+        run: |
+          python - <<'PY'
+          import requests,json,io,base64,re
+          from PIL import Image,ImageOps,ImageDraw
+          S=requests.Session()
+          S.headers["User-Agent"]="Hays Botany educational grasses licensed microphotography discovery / 1.0"
+          pool={}
+          phrases=["ligule","collar","node","sheath","root","spikelet"]
+          allowed={"cc0","cc-by","cc-by-sa","cc-by-nc","cc-by-nc-sa"}
+          for q in phrases:
+            try:
+              r=S.get("https://api.inaturalist.org/v1/observations",params={
+                "taxon_id":1452295,"place_id":18,"q":q,"quality_grade":"research",
+                "photos":"true","per_page":100,"page":1},timeout=22)
+              r.raise_for_status()
+              d=r.json()
+              print("TERM",q,"TOTAL",d.get("total_results",0))
+              for obs in d.get("results",[]):
+                licensed=[p for p in obs.get("photos",[]) if p.get("license_code") in allowed]
+                if not licensed:continue
+                pool[obs["id"]]=(obs,licensed)
+            except Exception as e:print("SEARCH_FAILED",q,str(e)[:90])
+          print("UNIQUE_MATCHES",len(pool))
+          ranked=[]
+          for obs,photos in pool.values():
+            n=len(photos)
+            t=((obs.get("description") or "")+" "+(obs.get("species_guess") or "")).lower()
+            priority=sum(20 if word in t else 0 for word in ["ligule","collar","sheath","node","roots","spikelet","reproductive"])
+            ranked.append((priority+2*min(n,8),obs,photos))
+          ranked.sort(key=lambda z:z[0],reverse=True)
+          tiles=[]
+          metadata=[]
+          for score,obs,photos in ranked[:12]:
+            for p in photos[:4]:
+              try:
+                url=p["url"].replace("/square.","/medium.").replace("/small.","/medium.")
+                rr=S.get(url,timeout=12);rr.raise_for_status()
+                with Image.open(io.BytesIO(rr.content)) as im:
+                  pic=ImageOps.exif_transpose(im).convert("RGB")
+                pic.thumbnail((255,215))
+                tiles.append((pic.copy(),obs,p))
+                metadata.append({"obs":obs["id"],"photo":p["id"],"license":p.get("license_code"),
+                  "creator":p.get("attribution"),"date":obs.get("observed_on"),
+                  "place":obs.get("place_guess"),"desc":(obs.get("description") or "")[:220],
+                  "source":"https://www.inaturalist.org/photos/"+str(p["id"])})
+              except Exception as e:print("HOLD",p["id"],str(e)[:80])
+              if len(tiles)>=42:break
+            if len(tiles)>=42:break
+          print("SELECTED_METADATA_START")
+          for v in metadata:print(json.dumps(v,ensure_ascii=False))
+          print("SELECTED_METADATA_END")
+          if tiles:
+            cols=6;cw=275;ch=270
+            canvas=Image.new("RGB",(cols*cw,((len(tiles)+cols-1)//cols)*ch),"white")
+            draw=ImageDraw.Draw(canvas)
+            for i,(pic,obs,p) in enumerate(tiles):
+              x=(i%cols)*cw;y=(i//cols)*ch
+              canvas.paste(pic,(x+(cw-pic.width)//2,y))
+              draw.text((x+3,y+219),f"{i}  obs {obs['id']}",fill="black")
+              draw.text((x+3,y+237),f"p {p['id']} {p.get('license_code')}",fill="black")
+            b=io.BytesIO();canvas.save(b,"JPEG",quality=71,optimize=True)
+            print("TARGET_CONTACT_START")
+            print(base64.b64encode(b.getvalue()).decode())
+            print("TARGET_CONTACT_END")
+          PY
