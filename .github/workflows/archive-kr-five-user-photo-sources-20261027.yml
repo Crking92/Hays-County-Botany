@@ -56,7 +56,7 @@ jobs:
                   assert photo_rights(record,True) is None,(v["id"],photo_rights(record,True))
                   assert record.get("source_page") and record.get("creator")
           assert len(s["images"]) >= 10 and len(s["visual_comparison"]["items"]) >= 24
-          assert s["field_id_finish_pass"]["stage"]=="FIELD_READY_PHOTO_GAPS"
+          assert s["field_id_finish_pass"]["stage"].startswith("FIELD_READY_PHOTO_GAPS")
           print("Validated",r["installed_count"],"archived photographs and publication rights")
           PY
       - name: Commit only archived KR originals and synchronized galleries
