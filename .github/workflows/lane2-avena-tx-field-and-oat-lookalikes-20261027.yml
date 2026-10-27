@@ -1,0 +1,35 @@
+name: Lane 2 archive wild oat live Texas plants and licensed Avena look-alikes
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane2_avena_fatua_field_and_oat_comparison_20261027.py
+      - .github/workflows/lane2-avena-tx-field-and-oat-lookalikes-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane2-avena-field-20261027
+  cancel-in-progress: false
+jobs:
+  verify-and-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install Pillow
+      - name: Verify exact source photo licenses and archive two wild oats and two look-alike photographs
+        run: python scripts/lane2_avena_fatua_field_and_oat_comparison_20261027.py
+      - name: Commit only verified photo bytes and photographed-role species gallery
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Avena/avena-fatua/ reports/lane2-avena-fatua-field-and-oat-lookalikes-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 2 archive wild oat Texas field habit and slender/cultivated oat lookalikes"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
