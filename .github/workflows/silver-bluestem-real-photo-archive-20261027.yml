@@ -1,0 +1,89 @@
+name: Silver bluestem verified anatomical photo archive
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-bluestem-real-photo-archive-20261027.yml
+      - scripts/archive_silver_bluestem_photo_sources_20261027.py
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: silver-bluestem-real-photo-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+            reports
+            workflow/field-id-publication
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Download exact reusable sources and generate source audit
+        run: |
+          python -m py_compile scripts/archive_silver_bluestem_photo_sources_20261027.py
+          python scripts/archive_silver_bluestem_photo_sources_20261027.py
+      - name: Confirm real JPEGs, unchanged legacy holds, source and rights
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,hashlib,sys
+          from pathlib import Path
+          from PIL import Image
+          root=Path("content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana")
+          d=json.loads((root/"species.json").read_text())
+          r=json.loads(Path("reports/silver-bluestem-real-photo-install-20261027.json").read_text())
+          sys.path.insert(0,"scripts")
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          assert d["id"]=="bothriochloa-torreyana"
+          assert len(d["images"])>=5 and len(d["visual_comparison"]["items"])>=5
+          assert d["native_target_zone_calculated"] is False
+          assert sum(1 for x in d["images"] if x.get("public_reuse") in {"no","NO — photographer authorization required"}) >= 2
+          for x in r["items"]:
+            if x["status"]!="ARCHIVED":continue
+            f=Path(x["path"])
+            assert f.is_file()
+            assert hashlib.sha256(f.read_bytes()).hexdigest()==x["sha256"]
+            with Image.open(f) as im:
+              assert im.format=="JPEG" and im.width>=240 and im.height>=240
+              assert not im.getexif()
+              im.verify()
+            entry=next(p for p in d["images"] if p["file"]=="images/"+f.name)
+            panel=next(p for p in d["visual_comparison"]["items"] if p["image_url"]==str(f))
+            for p in (entry,panel):
+              assert rights(p,True)[0],(f,rights(p,True))
+              assert photo_rights(p,True) is None,(f,photo_rights(p,True))
+              assert p["source_page"] and p["creator"] and p["license"]
+            assert panel["markers"]==[]
+          print("PASS actual archive count:",r["installed_count"])
+          PY
+      - name: Commit actual licensed files and reproducible audit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/
+          git add reports/silver-bluestem-real-photo-install-20261027.json
+          if test -f workflow/field-id-publication/2026-10-27-silver-bluestem-real-photo-source-install.json; then
+            git add workflow/field-id-publication/2026-10-27-silver-bluestem-real-photo-source-install.json
+          fi
+          if git diff --cached --quiet; then echo NOTHING_INSTALLED_NOOP; exit 0; fi
+          git commit -m "Archive source-licensed silver bluestem anatomy and habitat originals"
+          for attempt in 1 2 3; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 4
+          done
+          exit 1
