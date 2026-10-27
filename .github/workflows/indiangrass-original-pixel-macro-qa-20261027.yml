@@ -24,16 +24,31 @@ jobs:
           python - <<'PY'
           import io,base64,json
           from pathlib import Path
-          from PIL import Image,ImageOps
+          from PIL import Image,ImageOps,ImageDraw
           base=Path('content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans/images')
           files=['matt-lavin-cc-by-sa-2-ligule-sheath.jpg','matt-lavin-cc-by-sa-2-fertile-spikelet-pedicels.jpg']
+          sp=json.loads((base.parent/'species.json').read_text())
+          panels=[sp['visual_comparison']['items'][1],sp['visual_comparison']['items'][4]]
+          assert len(panels[0]['markers'])==len(panels[1]['markers'])==3
+          assert sp['indiangrass_six_role_photo_score_20261027']['total']==3
           for k,name in enumerate(files):
             with Image.open(base/name) as img:
               im=ImageOps.exif_transpose(img).convert('RGB');orig=im.size
             print('INDIAN_IMAGE',json.dumps({'file':name,'width':orig[0],'height':orig[1]}))
             im.thumbnail((1150,1000))
             board=Image.new('RGB',(1260,1120),'white')
-            board.paste(im,((1260-im.width)//2,30+(1060-im.height)//2))
+            origin=((1260-im.width)//2,30+(1060-im.height)//2)
+            board.paste(im,origin)
+            draw=ImageDraw.Draw(board)
+            for mark in panels[k]['markers']:
+              assert all(0<=mark[t]<=100 for t in ('target_x','target_y','label_x','label_y'))
+              tx=origin[0]+im.width*mark['target_x']/100
+              ty=origin[1]+im.height*mark['target_y']/100
+              lx=origin[0]+im.width*mark['label_x']/100
+              ly=origin[1]+im.height*mark['label_y']/100
+              draw.line((lx,ly,tx,ty),fill=(255,30,0),width=4)
+              draw.ellipse((tx-10,ty-10,tx+10,ty+10),outline=(255,30,0),width=5)
+              print('INDIAN_MARK',json.dumps({'photo':name,'label':mark['label'],'target':[mark['target_x'],mark['target_y']]}))
             buf=io.BytesIO();board.save(buf,'JPEG',quality=89,optimize=True)
             b64=base64.b64encode(buf.getvalue()).decode()
             print('INDIAN_SHEET_BEGIN',k,'bytes',len(buf.getvalue()))
