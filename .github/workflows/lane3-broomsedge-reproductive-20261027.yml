@@ -1,0 +1,65 @@
+name: Lane 3 Real Broomsedge Spathe and Propagule Photos
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/lane3-broomsedge-reproductive-20261027.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane3-broomsedge-reproductive-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Source-download and archive only licensed broomsedge diagnostic originals
+        run: |
+          git fetch origin main
+          git checkout -B main origin/main
+          python scripts/lane3_virginicum_harry_rose_anatomy_20261027.py
+      - name: Audit photograph bytes, owner, licensing and precise markers
+        run: |
+          python - <<'PY'
+          import json,pathlib,hashlib
+          from PIL import Image
+          r=json.loads(pathlib.Path('reports/lane3-broomsedge-harry-rose-photos-20261027.json').read_text())
+          assert r['species']=='Anatherum virginicum' and r['installed']
+          s=json.loads(pathlib.Path('content/taxa/Poaceae/Anatherum/anatherum-virginicum/species.json').read_text())
+          assert s['id']=='anatherum-virginicum'
+          for entry in r['installed']:
+              p=pathlib.Path(entry['file'])
+              assert p.exists() and hashlib.sha256(p.read_bytes()).hexdigest()==entry['sha256']
+              with Image.open(p) as im:
+                  assert im.format=='JPEG' and min(im.size)>=900 and not im.getexif().get(34853)
+                  im.verify()
+              gallery=[a for a in s['visual_comparison']['items'] if a['image_url']==str(p)]
+              assert len(gallery)==1 and gallery[0]['license']=='CC BY 2.0'
+              assert gallery[0]['creator']=='Harry Rose' and gallery[0]['source_page'].startswith('https://commons.wikimedia.org/wiki/File:')
+              assert len(gallery[0]['markers'])==entry['arrows']
+              assert all(0<=m[k]<=100 for m in gallery[0]['markers'] for k in ['target_x','target_y','label_x','label_y'])
+          assert r['additional_arrows'] == sum(i['arrows'] for i in r['installed'])
+          print('PASS — real source-licensed image bytes and gallery; unproven micromorphology remains missing')
+          PY
+      - name: Commit photos and card without other lane edits
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Anatherum/anatherum-virginicum/ reports/lane3-broomsedge-harry-rose-photos-20261027.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Lane 3 add real licensed broomsedge spathe and hairy dispersal photos with verified arrows"
+          for attempt in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main; then exit 0; fi
+            sleep 3
+          done
+          exit 1
