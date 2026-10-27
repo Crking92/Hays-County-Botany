@@ -1,0 +1,34 @@
+name: Lane1 licensed Urochloa cf fusca measured spikelets and root initials
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane1_urochloa_fusca_jim_conrad_yucatan_20261027.py
+      - .github/workflows/archive-lane1-urochloa-fusca-yucatan-tentative-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane1-urochloa-fusca-yucatan-actual-photos
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Verify photographer's explicit public-domain permission and author ID uncertainty
+        run: python scripts/archive_lane1_urochloa_fusca_jim_conrad_yucatan_20261027.py
+      - name: Commit originals and carefully identified teaching panel metadata
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Urochloa/urochloa-fusca/
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane 1: archive actual mm spikelets and root initials with ID caveat"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
