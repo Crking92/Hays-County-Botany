@@ -13,14 +13,15 @@
   "summary": {
     "assigned": 22,
     "canonical_species_card_inventories_read": 22,
-    "species_with_tangible_new_photo_progress": 2,
-    "species_with_provisional_six_role_scores": 2,
+    "species_with_tangible_new_photo_progress": 4,
+    "species_with_provisional_six_role_scores": 4,
     "species_past_70_percent_from_this_pass": 0,
-    "new_physical_images": 4,
+    "new_physical_images": 9,
     "new_arrow_targets": 0,
-    "old_external_panels_relinked_local": 2,
+    "old_external_panels_relinked_local": 4,
     "lane_six_role_aggregate_percent": null,
-    "lane_aggregate_reason": "Not computed because 20 species need individual six-role photographic verification; do not fabricate completion percentages."
+    "lane_aggregate_reason": "18 other Lane 1 species still need individually verified anatomical roles before a truthful lane percentage can be calculated.",
+    "total_new_gallery_panels": 5
   },
   "species": [
     {
@@ -41,8 +42,41 @@
       "id": "munroa-pulchella",
       "inventory_read": true,
       "six_role_score": null,
-      "status": "NEEDS_ROLE_BY_ROLE_PIXEL_AUDIT",
-      "scores_not_inferred_from_gallery_counts": true
+      "role_order": [
+        "whole_plant_habit",
+        "actual_rooted_base_growth_mechanism",
+        "true_inner_collar_ligule_sheath",
+        "complete_attached_flowering",
+        "diagnostic_reproductive_closeup",
+        "verified_local_lookalike"
+      ],
+      "score_before": [
+        1,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "score_after": [
+        1,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "before_of_6": 3,
+      "after_of_6": 3,
+      "before_percent": 50,
+      "after_percent": 50,
+      "new_local_photos": 2,
+      "new_gallery_panels": 0,
+      "previous_external_panels_now_local": 2,
+      "arrows": 0,
+      "commit": "d704ef00374a5f2bf62f31b1dab2b2327aeaca3e",
+      "notes": "Two EXISTING same-species external gallery image URLs converted into physically archived GPS-free true photos with verified CC BY 4.0 Alex Abair and CC BY-SA 2.0 Jim Morefield. Two existing gross arrows retained. No new morphological role proven by replacing remote links; ligule/true floral spikelet gaps persist.",
+      "score_confidence": "Provisional six-role photographic assessment; no fine ligule or isolated spikelet falsely claimed. Externally licensed photos now archived; mobile and public Pages QA separate."
     },
     {
       "id": "urochloa-reptans",
@@ -101,8 +135,41 @@
       "id": "bouteloua-rigidiseta",
       "inventory_read": true,
       "six_role_score": null,
-      "status": "NEEDS_ROLE_BY_ROLE_PIXEL_AUDIT",
-      "scores_not_inferred_from_gallery_counts": true
+      "role_order": [
+        "whole_plant_habit",
+        "actual_rooted_base_growth_mechanism",
+        "true_inner_collar_ligule_sheath",
+        "complete_attached_flowering",
+        "diagnostic_reproductive_closeup",
+        "verified_local_lookalike"
+      ],
+      "score_before": [
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "score_after": [
+        1,
+        0.5,
+        0,
+        1,
+        0.5,
+        0.5
+      ],
+      "before_of_6": 2.5,
+      "after_of_6": 3.5,
+      "before_percent": 42,
+      "after_percent": 58,
+      "new_local_photos": 3,
+      "new_gallery_panels": 3,
+      "previous_external_panels_now_local": 0,
+      "arrows": 0,
+      "commit": "4c0a15a4e1fe2a52d2fbf5883150c722c1e4c3f3",
+      "notes": "Three original official USGS images photographer-credited Larry Allain: two attached bristled fruiting branch macros and one var. rigidiseta habit view, all GPS-stripped and locally gallery-linked. Role estimate provisional: living-root connection, true collar/ligule, isolated glumes and matched comparisons not yet proven. Final rights-filtered site release not checked for new USGS images.",
+      "score_confidence": "Provisional six-role photographic assessment; no fine ligule or isolated spikelet falsely claimed. Externally licensed photos now archived; mobile and public Pages QA separate."
     },
     {
       "id": "panicum-capillare",
@@ -247,5 +314,33 @@
     "arrow_pixel_mapped": "no new arrows, none claimed",
     "mobile_gallery_qa": "pending",
     "live_Pages_sha_for_newest_photos": "not verified"
-  }
+  },
+  "updated_utc": "2026-10-27",
+  "latest_pass": {
+    "species": [
+      "bouteloua-rigidiseta",
+      "munroa-pulchella"
+    ],
+    "photos_archived": 5,
+    "new_gallery_panels": 3,
+    "existing_remote_panels_relinked_to_local": 2,
+    "arrows_added": 0,
+    "species_at_or_above_70_percent_by_provisional_score": 0,
+    "source_rights": "USGS official photographer-credited images subject to federal-work verification and final public preflight; Commons photo authors and CC versions individually checked",
+    "github_action_runs": [
+      "https://github.com/Crking92/Hays-County-Botany/actions/runs/40534187888",
+      "https://github.com/Crking92/Hays-County-Botany/actions/runs/40535270873"
+    ],
+    "publication": "Photo original bytes and card gallery refs verified. No post-commit Pages deployment verified."
+  },
+  "photo_candidates_blocked": [
+    {
+      "id": "urochloa-fusca",
+      "source": "https://www.inaturalist.org/photos/4608162",
+      "photo_role": "Ovoid spikelets attached to racemes at fingertip scale",
+      "blocker": "Neither individual iNaturalist photo metadata API endpoint verified the photo identity/license; script correctly exited without archiving. Photo could be used only after proof of that individual photo license and same taxon",
+      "action_run": "https://github.com/Crking92/Hays-County-Botany/actions/runs/40534670869",
+      "status": "NO_FILE_AND_NO_CARD_EDIT"
+    }
+  ]
 }
