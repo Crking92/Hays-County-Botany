@@ -31,6 +31,22 @@ jobs:
           git add content/taxa/Poaceae/Aristida/aristida-purpurea/ content/taxa/Poaceae/Aristida/aristida-oligantha/ reports/lane2-threeawns-matched-collar-mature-awns-20261027.json
           if ! git diff --cached --quiet; then
             git commit -m "Lane 2 archive two true TX threeawn outer collars, reproductive macros and oldfield live tuft"
-            git pull --rebase origin main
-            git push origin HEAD:main
+            # Five scheduled automations write to main concurrently; do not fail an otherwise
+            # validated and conflict-free archive on one non-fast-forward race.
+            done_push=0
+            for attempt in $(seq 1 16); do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                echo "Threeawn photos landed on main attempt ${attempt}"
+                done_push=1
+                break
+              fi
+              echo "Parallel lane updated main during push attempt ${attempt}; rebasing again"
+              sleep 3
+            done
+            if [ "${done_push}" != 1 ]; then
+              echo "No force push permitted; retaining original photo rights checks and failing closed"
+              exit 1
+            fi
           fi
