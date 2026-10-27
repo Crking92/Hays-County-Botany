@@ -20,18 +20,18 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 9,
-  "confirmed_at_or_above_70": 5,
-  "targeted_pass_covered": 19,
-  "remaining_targeted_passes": 4,
-  "progress_disclaimer": "Lane4 target passes 19/23, six-role scored 9/23, five at >=75%. P. pubiflorum moved from 50% to 75% after 5 real locally archived and pixel inspected license-cleared exact-species images. Verified field habit, head and reproductive close-up; rooted base and true free inner ligule remain missing. Other species not assumed complete.",
+  "audited_to_date": 10,
+  "confirmed_at_or_above_70": 6,
+  "targeted_pass_covered": 20,
+  "remaining_targeted_passes": 3,
+  "progress_disclaimer": "20/23 Lane4 taxa have targeted passes; 10 formal species photo scores; 6 of 10 scored >=75%. P. floridanum 58%->75% with five verified public-CC Texas source real photos. Site and mobile arrow QA pending.",
   "photo_physical_progress_today": {
-    "new_local_originals": 21,
-    "new_gross_arrows": 17,
+    "new_local_originals": 26,
+    "new_gross_arrows": 21,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
-    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 8,
-    "newly_pixel_inspected_archived_exact_photos": 12,
+    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 10,
+    "newly_pixel_inspected_archived_exact_photos": 17,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
     ]
@@ -277,11 +277,34 @@
     {
       "id": "paspalum-floridanum",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
-      "previous_targeted_pass": false,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "target_status": "at_70_80",
+      "previous_targeted_pass": true,
+      "role_scores": [
+        1,
+        0,
+        0.5,
+        1,
+        1,
+        1
+      ],
+      "pct": 75,
+      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy.",
+      "total": 4.5,
+      "previous_total": 3.5,
+      "previous_pct": 58,
+      "new_species_photos": 5,
+      "new_arrows": 4,
+      "local_jpegs": 8,
+      "gallery_panels": 13,
+      "next_photo": "Opened true inner ligule at mm scale, exposed scaly rhizome, isolated ripe lemma/glume",
+      "source_photo_ids": [
+        740664231,
+        714428603,
+        692526855,
+        692526879,
+        606306835
+      ],
+      "release": "GitHub audit only; Pages and mobile overlay QA pending."
     },
     {
       "id": "paspalum-pubiflorum",
