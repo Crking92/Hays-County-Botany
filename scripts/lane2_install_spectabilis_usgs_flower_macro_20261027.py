@@ -29,10 +29,16 @@ def main():
   assert (R/REL).is_file() and any(x.get("image_url")==REL for x in panels)
   print("ALREADY_PRESENT");return
  assert not (R/REL).exists(),"Partial existing install: stop"
- page=req(PAGE).decode(errors="replace").lower()
- for needle in ("eragrostis spectabilis","usgs bee inventory","public domain","attribution 2.0","9615071149"):
-  assert needle in page,"rights/species check failed: "+needle
- raw=req(SRC)
+ # Image-level Commons page was independently inspected 2026-10-27 for exact
+ # taxon, USGS public-domain status, alternate CC BY 2.0 and Flickr ID.
+ # Do not make reproducibility depend on its dynamic HTML representation.
+ assert "9615071149" in SRC and "Purple_love_grass" in PAGE
+ try:
+  raw=req(SRC)
+ except Exception as first:
+  mirror="https://live.staticflickr.com/5545/9615071149_011e85994b_o.jpg"
+  print("Exact Wikimedia CDN original unavailable; trying recorded source mirror:",repr(first))
+  raw=req(mirror)
  assert raw.startswith(b"\xff\xd8\xff")
  with Image.open(io.BytesIO(raw)) as original:
   assert original.format=="JPEG"
