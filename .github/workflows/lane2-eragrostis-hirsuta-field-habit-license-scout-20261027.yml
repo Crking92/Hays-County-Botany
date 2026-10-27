@@ -1,0 +1,59 @@
+name: Lane 2 bigtop lovegrass actual field habit photo scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-eragrostis-hirsuta-field-habit-license-scout-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Source licensed exact-species growing plant and true lower growth photos from Texas without publishing
+        run: |
+          python - <<'PY'
+          import json,base64,io,math,concurrent.futures
+          from urllib.parse import urlencode
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 species-level public photo scouting'}
+          def get(url,lim=3000000):
+              with urlopen(Request(url,headers=UA),timeout=35) as h:return h.read(lim)
+          candidates=[]
+          for page in range(1,5):
+              u='https://api.inaturalist.org/v1/observations?'+urlencode({'taxon_name':'Eragrostis hirsuta','quality_grade':'research','photos':'true','place_id':18,'per_page':25,'page':page,'order_by':'created_at','order':'desc'})
+              d=json.loads(get(u)); print('QUERY',page,d.get('total_results'),len(d['results']))
+              for o in d['results']:
+                  if o.get('taxon',{}).get('name')!='Eragrostis hirsuta':continue
+                  for p in o.get('photos',[])[:6]:
+                      if p.get('license_code') in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}:
+                          candidates.append((o,p))
+              if page*25>=d.get('total_results',0):break
+          candidates=candidates[:50]
+          def thumb(op):
+              url=op[1].get('url','').replace('/square.','/medium.').replace('/thumb.','/medium.')
+              try:
+                  b=get(url,600000)
+                  with Image.open(io.BytesIO(b)) as im:q=ImageOps.exif_transpose(im).convert('RGB')
+                  q.thumbnail((245,180));return q
+              except Exception:return None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:ims=list(ex.map(thumb,candidates))
+          for block in range(math.ceil(len(candidates)/25)):
+              im=Image.new('RGB',(5*260,5*220),'white');draw=ImageDraw.Draw(im)
+              for i,(o,p) in enumerate(candidates[block*25:(block+1)*25]):
+                  thumb=ims[block*25+i];x=i%5*260;y=i//5*220
+                  if thumb is not None:im.paste(thumb,(x+(260-thumb.width)//2,y+5))
+                  draw.text((x+5,y+189),f'#{block*25+i} photo {p["id"]}',fill='black')
+                  draw.text((x+5,y+205),f'obs{o["id"]} {p["license_code"]}',fill='black')
+                  print('CANDIDATE',json.dumps({'n':block*25+i,'id':p['id'],'obs':o['id'],'creator':p.get('attribution'),'license':p.get('license_code'),'locality':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(p['id'])},ensure_ascii=False))
+              b=io.BytesIO();im.save(b,'JPEG',quality=76,optimize=True);val=base64.b64encode(b.getvalue()).decode()
+              for k,off in enumerate(range(0,len(val),3500)):print('CONTACT_'+str(block)+'_'+str(k)+'='+val[off:off+3500])
+              print('CONTACT_END',block,len(b.getvalue()))
+          print('TOTAL',len(candidates))
+          PY
