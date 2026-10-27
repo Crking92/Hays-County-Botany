@@ -1,0 +1,87 @@
+name: Silver bluestem TX iNat anatomy photo-only discovery
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-bluestem-texas-inat-anatomy-contact-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  survey:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Survey real TX source-labelled observations and licensed images with honest ID notes
+        run: |
+          python - <<'PY'
+          import requests,io,base64,json,collections
+          from PIL import Image,ImageOps,ImageDraw
+          api="https://api.inaturalist.org/v1/observations"
+          sess=requests.Session()
+          sess.headers["User-Agent"]="Hays Botanical Education TX Silver Photo Research/1.0"
+          opts={"taxon_id":75843,"place_id":18,"quality_grade":"research",
+                "photos":"true","per_page":100,"page":1,"order_by":"observed_on","order":"desc"}
+          results=[]
+          try:
+            response=sess.get(api,params=opts,timeout=30)
+            print("API_STATUS",response.status_code,response.url)
+            response.raise_for_status()
+            result=response.json()
+            print("TX_OBSERVATIONS_AVAILABLE",result.get("total_results",0))
+            results=result.get("results",[])
+          except Exception as e:
+            print("API_ERROR",str(e))
+          records=[]
+          licenses={"cc0","cc-by","cc-by-sa","cc-by-nc","cc-by-nc-sa"}
+          for obs in results:
+            photo_list=[p for p in obs.get("photos",[]) if (p.get("license_code") or "").lower() in licenses]
+            if not photo_list:continue
+            text=(obs.get("description") or "")+" "+(obs.get("taxon",{}).get("name") or "")
+            score=(min(len(photo_list),7)*2)+(12 if any(s in text.lower() for s in ["ligule","node","collar","sheath","spikelet","pedicel","dissect","macro"]) else 0)
+            records.append((score,obs,photo_list))
+          records.sort(key=lambda x:x[0],reverse=True)
+          selections=[]
+          for score,obs,photos in records[:16]:
+            for p in photos[:5]:
+              selections.append((score,obs,p))
+          selections=selections[:35]
+          print("LICENSED_OBSERVATIONS",len(records),"SELECTED_PHOTOS",len(selections))
+          tiles=[]
+          for score,obs,p in selections:
+            url=(p.get("url") or "").replace("square.","medium.").replace("small.","medium.")
+            try:
+              r=sess.get(url,timeout=17);r.raise_for_status()
+              with Image.open(io.BytesIO(r.content)) as im:
+                pic=ImageOps.exif_transpose(im).convert("RGB")
+              pic.thumbnail((225,200))
+              tiles.append((pic.copy(),obs,p))
+            except Exception as e:print("PHOTO_HOLD",p.get("id"),str(e)[:100])
+          if not tiles:
+            print("NO_USABLE_TEXAS_PHOTOS");raise SystemExit(0)
+          W,H=250,265
+          cols=5;rows=(len(tiles)+cols-1)//cols
+          sheet=Image.new("RGB",(W*cols,H*rows),"white")
+          draw=ImageDraw.Draw(sheet)
+          for i,(pic,obs,p) in enumerate(tiles):
+            x=(i%cols)*W;y=(i//cols)*H
+            sheet.paste(pic,(x+(W-pic.width)//2,y+5))
+            draw.text((x+5,y+206),f"{i:02d} obs:{obs.get('id')} p:{p.get('id')}",fill="black")
+            draw.text((x+5,y+224),f"license:{p.get('license_code')}",fill="black")
+            draw.text((x+5,y+241),str(obs.get('taxon',{}).get("name",""))[:32],fill="black")
+          out=io.BytesIO();sheet.save(out,"JPEG",quality=74)
+          print("TX_CONTACT_SHEET_START")
+          print(base64.b64encode(out.getvalue()).decode())
+          print("TX_CONTACT_SHEET_END")
+          print("SELECTED_PHOTO_METADATA_START")
+          for i,(pic,obs,p) in enumerate(tiles):
+            print(json.dumps({"index":i,"observation":obs["id"],"photo_id":p.get("id"),
+                  "license":p.get("license_code"),"taxon":obs.get("taxon",{}).get("name"),
+                  "taxon_id":obs.get("taxon",{}).get("id"),"user":obs.get("user",{}).get("login"),
+                  "date":obs.get("observed_on"),"description":(obs.get("description") or "")[:200],
+                  "obs_url":"https://www.inaturalist.org/observations/"+str(obs["id"]),
+                  "photo_url":p.get("url")}))
+          print("SELECTED_PHOTO_METADATA_END")
+          PY
