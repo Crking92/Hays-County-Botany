@@ -1,0 +1,45 @@
+name: Lane 2 red lovegrass whole habit and real sheath original review
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/lane2-red-lovegrass-actual-original-photo-review-20261027.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: pip install Pillow
+      - name: Inspect full source Texas plant/collar pixels no publication
+        run: |
+          python - <<'PY'
+          import json,io,base64
+          from urllib.request import Request,urlopen
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 source-verified exact grass licensed pixels'}
+          selected=[(752261900,408961511),(752434624,409250703),(753369298,409704780)]
+          cache={}
+          canvas=Image.new('RGB',(1800,1800),'white');draw=ImageDraw.Draw(canvas)
+          for i,(pid,oid) in enumerate(selected):
+           if oid not in cache:
+            with urlopen(Request(f'https://api.inaturalist.org/v1/observations/{oid}',headers=UA),timeout=50) as h:cache[oid]=json.load(h)['results'][0]
+           o=cache[oid]
+           assert o.get('quality_grade')=='research' and o['taxon']['name']=='Eragrostis secundiflora'
+           p=next(x for x in o['photos'] if x['id']==pid)
+           assert p.get('license_code') in {'cc-by','cc-by-nc'}
+           url=p['url'].replace('/square.','/original.').replace('/medium.','/original.').replace('/large.','/original.')
+           with urlopen(Request(url,headers=UA),timeout=50) as h:raw=h.read(10000001)
+           assert len(raw)<10000001
+           with Image.open(io.BytesIO(raw)) as im:z=ImageOps.exif_transpose(im).convert('RGB');dims=z.size
+           z.thumbnail((860,800));x=(i%2)*900;y=(i//2)*900
+           canvas.paste(z,(x+(900-z.width)//2,y+10+(800-z.height)//2))
+           draw.text((x+15,y+837),f'photo {pid} {p.get("license_code")} source obs {oid}',fill='black')
+           print('REAL_SOURCE',json.dumps({'photo':pid,'obs':oid,'taxon':o['taxon']['name'],'size':dims,'credit':p.get('attribution'),'license':p['license_code'],'locality':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(pid)}))
+          buf=io.BytesIO();canvas.save(buf,'JPEG',quality=82,optimize=True);s=base64.b64encode(buf.getvalue()).decode()
+          for i,p in enumerate(range(0,len(s),3500)):print('REDORIG_'+str(i)+'='+s[p:p+3500])
+          print('END_ORIGINAL',len(buf.getvalue()))
+          PY
