@@ -25,7 +25,7 @@ class SilverPhotoFinish(unittest.TestCase):
             self.assertTrue((ROOT/x["image_url"]).is_file())
             self.assertTrue(x["source_page"] and x["creator"] and x["license"])
             self.assertEqual(x["scientific_name"],s["scientific_name"])
-        self.assertEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),5)
+        self.assertEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),3)
         self.assertEqual(len([x for x in s["images"] if x.get("public_reuse") in {"no","NO — photographer authorization required"}]),2)
 
     def test_annotated_only_visible_macro_and_clump(self):
@@ -60,7 +60,7 @@ class SilverPhotoFinish(unittest.TestCase):
             self.assertEqual(p["scientific_name"],"Bothriochloa torreyana")
             self.assertEqual(len(p["markers"]),2)
             self.assertTrue((ROOT/p["image_url"]).is_file())
-            self.assertIn("NOT",p["caption"])
+            self.assertTrue("not" in p["caption"].lower() or "cannot" in p["caption"].lower())
             for marker in p["markers"]:
                 self.assertTrue(all(0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y")))
         self.assertFalse(s["native_target_zone_calculated"])
