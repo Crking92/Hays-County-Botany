@@ -20,17 +20,17 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 5,
+  "audited_to_date": 6,
   "confirmed_at_or_above_70": 3,
-  "targeted_pass_covered": 15,
-  "remaining_targeted_passes": 8,
-  "progress_disclaimer": "5 of 23 received genuine 0/.5/1 photographic role scores; three are >=70%. Other 18 UNSCORED and not presumed below threshold. 15/23 have received a documented targeted pass in current Lane4 continuation; eight remain without such a pass. Pass-count vs threshold-count are different.",
+  "targeted_pass_covered": 16,
+  "remaining_targeted_passes": 7,
+  "progress_disclaimer": "6/23 have independently scored photo roles, 3 reach at least 4.5/6. Dallisgrass now 4/6 and next available exact whole-plant/complete-flower photo is highest leverage; no repeated description-only searching. Seven assigned species remain with no targeted first pass during this continuation. 17 others unscored—not presumed below threshold.",
   "photo_physical_progress_today": {
-    "new_local_originals": 6,
-    "new_gross_arrows": 9,
+    "new_local_originals": 9,
+    "new_gross_arrows": 13,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
-    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 2,
+    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 4,
     "newly_pixel_inspected_archived_exact_photos": 7,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
@@ -39,7 +39,7 @@
   "site_release_checks": {
     "individual_photo_rights": "review image level per species; CC BY-NC conditional noncommercial",
     "mobile_arrow_pixel_QA": "NOT VERIFIED",
-    "latest_Pages_site_with_today_changes": "NOT VERIFIED; latest run checked in progress / older runs cancelled by new pushes",
+    "latest_Pages_site_with_today_changes": "NOT VERIFIED",
     "BONAP_county_decisions": "unchanged"
   },
   "protected_holds": [
@@ -242,11 +242,28 @@
     {
       "id": "paspalum-dilatatum",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "below_70",
       "previous_targeted_pass": false,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        0.5,
+        0,
+        1,
+        0.5,
+        1,
+        1
+      ],
+      "pct": 67,
+      "total": 4,
+      "previous_total": 3,
+      "previous_pct": 50,
+      "new_species_photos": 3,
+      "new_arrows": 4,
+      "photo_role_notes": "True inner membrane original at 10mm, 3 new Stefan-lefnaer CC BY-SA4 images showing scale 5mm and hairy oval spikelets from 8 angles, reproductively useful but no separately demonstrated glume/lemma. Whole one plant and complete raceme still partial. Native P. floridanum and exotic P. urvillei locally archived comparison photos newly linked.",
+      "newly_added_locally_hosted_different_species_panels": 2,
+      "source_licenses": "Stefan CC BY-SA4 x3, original Harry Rose CC BY2, Joey CC BY-NC x3 unchanged conditional",
+      "commit": "b861c2ecee8b6418d5b52c71a32c7bba0f8b67ae",
+      "next_photo": "Same-individual complete tuft to attached flowering culm and all racemes, then botanist-labelled isolated glume/sterile/fertile lemma with mm bar. Roots later.",
+      "public_qa": "Not verified"
     },
     {
       "id": "paspalum-distichum",
