@@ -167,6 +167,22 @@ def permitted_harms_nimblewill_spikelets(item, noncommercial=False):
         and item.get("source_image") == HARMS_BASE + "images/MUSC-J.jpg")
 
 
+# Narrowly permit three additional verified original Bob Harms exact Eriochloa
+# sericea photos. Copyright retained; credited science/education only, NOT CC.
+HARMS_ERSE5_ADDITIONAL_IDS = frozenset({"ERSE5-j","ERSE5-J1","ERSE5-C"})
+
+def permitted_harms_eriochloa_additional(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Eriochloa sericea"
+        and any(item.get("source_page")==HARMS_BASE+"pages/"+p+".html"
+                and item.get("source_image")==HARMS_BASE+"images/"+p+".jpg"
+                for p in HARMS_ERSE5_ADDITIONAL_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -620,6 +636,8 @@ def photo_rights(record, noncommercial=False):
         return None
     if permitted_harms_disakisperma(record, noncommercial):
         return None
+    if permitted_harms_eriochloa_additional(record, noncommercial):
+        return None  # Exact photographer/copyright/educational-use original, no CC claim.
     if permitted_harms_eriochloa_sericea(record, noncommercial):
         return None
     if permitted_harms_hopia(record, noncommercial):
