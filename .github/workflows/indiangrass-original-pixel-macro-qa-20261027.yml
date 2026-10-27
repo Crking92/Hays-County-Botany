@@ -1,0 +1,43 @@
+name: Indiangrass real Matt Lavin ligule and pedicel photo pixel QA
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/indiangrass-original-pixel-macro-qa-20261027.yml]
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 11
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans
+          filter: blob:none
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Show original actual pixels for anatomical arrows
+        run: |
+          python - <<'PY'
+          import io,base64,json
+          from pathlib import Path
+          from PIL import Image,ImageOps
+          base=Path('content/taxa/Poaceae/Sorghastrum/sorghastrum-nutans/images')
+          files=['matt-lavin-cc-by-sa-2-ligule-sheath.jpg','matt-lavin-cc-by-sa-2-fertile-spikelet-pedicels.jpg']
+          for k,name in enumerate(files):
+            with Image.open(base/name) as img:
+              im=ImageOps.exif_transpose(img).convert('RGB');orig=im.size
+            print('INDIAN_IMAGE',json.dumps({'file':name,'width':orig[0],'height':orig[1]}))
+            im.thumbnail((1150,1000))
+            board=Image.new('RGB',(1260,1120),'white')
+            board.paste(im,((1260-im.width)//2,30+(1060-im.height)//2))
+            buf=io.BytesIO();board.save(buf,'JPEG',quality=89,optimize=True)
+            b64=base64.b64encode(buf.getvalue()).decode()
+            print('INDIAN_SHEET_BEGIN',k,'bytes',len(buf.getvalue()))
+            for n,idx in enumerate(range(0,len(b64),3500)):
+              print(f'INDIAN_SHEET_{k}_{n}='+b64[idx:idx+3500])
+            print('INDIAN_SHEET_END',k)
+          PY
