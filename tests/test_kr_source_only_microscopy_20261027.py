@@ -23,7 +23,7 @@ class KRSourceOnlyMicroscopy(unittest.TestCase):
         self.assertEqual(len(hays),3)
         for record in hays:
             self.assertTrue(record["direct_original"].startswith("https://w3.biosci.utexas.edu/prc/DigFlora/KR/"))
-            self.assertIn("permission",record["release"].lower())
+            self.assertIn("link",record["release"].lower())
         forbidden=("BOISS-LX-21Jul-A.JPG","BOISS-papbashairs.JPG","BOISS-2spksegs-23Jul-A.JPG")
         for p in s["visual_comparison"]["items"]:
             image=p.get("image_url","")
