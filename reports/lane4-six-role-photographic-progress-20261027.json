@@ -20,16 +20,17 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 2,
-  "confirmed_at_or_above_70": 1,
-  "targeted_pass_covered": 12,
-  "remaining_targeted_passes": 11,
-  "progress_disclaimer": "2 species scored by photographed pixel inspection in this 2026-10-27 six-role audit. Other 21 are UNSCORED; this does not mean they are under 70. Initial targeted passes count separate from photo completeness; 12 includes 10 earlier in current Lane 4 continuation and today's Digitaria/Heteropogon.",
+  "audited_to_date": 3,
+  "confirmed_at_or_above_70": 2,
+  "targeted_pass_covered": 13,
+  "remaining_targeted_passes": 10,
+  "progress_disclaimer": "3 of 23 species have independent photo-role audit and exact 0/.5/1 scores, and 2 of those 3 are >=70%. Other 20 UN-SCORED and some may already be strong. Current conversation has confirmed targeted passes for 13/23 including this Polypogon pass. These counts are not all-lane average photo completeness.",
   "photo_physical_progress_today": {
     "new_local_originals": 3,
     "new_gross_arrows": 3,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
-    "untested_unlicensed_sources_installed": 0
+    "untested_unlicensed_sources_installed": 0,
+    "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 2
   },
   "site_release_checks": {
     "individual_photo_rights": "review image level per species; CC BY-NC conditional noncommercial",
@@ -122,11 +123,28 @@
     {
       "id": "polypogon-monspeliensis",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "at_70_80",
       "previous_targeted_pass": false,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        1,
+        0,
+        1,
+        1,
+        0.5,
+        1
+      ],
+      "pct": 75,
+      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy.",
+      "total": 4.5,
+      "previous_total": 3.5,
+      "previous_pct": 58,
+      "new_species_photos": 0,
+      "new_arrows": 0,
+      "newly_added_licensed_existing_github_comparison_gallery_panels": 2,
+      "creator_license": "Stefan.lefnaer CC BY-SA 4.0 exact Setaria parviflora (whole head and 3mm bristle origin), previously archived canonically",
+      "commit": "d822d022ada630bba94d4240baa55947efd578e3",
+      "next_photo": "notched double glumes with glume awn origin vs tiny inner fertile lemma at 1mm scale; connected roots last",
+      "release_status": "public mobile website not verified"
     },
     {
       "id": "catapodium-rigidum",
