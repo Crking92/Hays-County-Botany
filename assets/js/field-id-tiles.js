@@ -337,6 +337,46 @@ const reedComparisonCues={
   caution:'Do not guess the sex of the spikelets from the silhouette alone; confirm anthers and stigmas.'
  }
 };
+
+/* Evidence-level technical appendix. Population-level statistics are not
+   single-plant identification thresholds; source papers remain linked. */
+function fieldAdvancedReedNotes(sp){
+ if(sp.id==='arundo-donax'){
+  const key=sp.field_id_finish_pass?.diagnostic_species_finalization_20261023?.measurable_field_key||{};
+  const rows=Object.entries(key).filter(([,v])=>typeof v==='string').map(([k,v])=>
+   '<div class="note-field"><b>'+esc(k.replace(/_/g,' '))+'</b><p>'+esc(v)+'</p></div>');
+  if(!rows.length)return '';
+  return '<details class="detail-expand field-expert-notes"><summary>Advanced Arundo anatomy: measurements, lemma hairs and rachilla</summary>'+
+    '<p>Use mature organs on the same documented plant, a ruler and a hand lens; ranges are published descriptions, not measured from these photos.</p>'+
+    rows.join('')+'</details>';
+ }
+ if(sp.id==='phragmites-australis'){
+  const original=sp.three_lineage_photo_lesson_20261026?.study_means_genetic_lineages_2004;
+  const measurements=original?.means_mm;
+  if(!measurements)return '';
+  const labels=[['americanus','Native americanus'],['introduced','Introduced Eurasian'],['gulf','Gulf Coast berlandieri']];
+  const measures=[['ligule','Ligule'],['lower_glume','Lower glume'],['upper_glume','Upper glume']];
+  const row=([id,label])=>'<tr><th>'+esc(label)+'</th>'+measures.map(([k])=>{
+    const v=measurements[k]?.[id];
+    return '<td>'+(v?esc(v.mean+' ± '+v.se+' (n='+v.n+')'):'Not reported')+'</td>';
+   }).join('')+'</tr>';
+  const src=String(original.public_pdf||'');
+  return '<details class="detail-expand field-expert-notes"><summary>Advanced lineage evidence: measured ligules and glumes</summary>'+
+   '<p><b>Genetically grouped published population means ± standard error, in millimeters.</b> These distributions overlap; this table is NOT a key for classifying a single Texas stand or deciding treatment.</p>'+
+   '<div class="field-expert-table-wrap"><table><thead><tr><th>Lineage</th>'+
+   measures.map(([,label])=>'<th>'+esc(label)+' (mm)</th>').join('')+'</tr></thead><tbody>'+
+   labels.map(row).join('')+'</tbody></table></div>'+
+   (src.startsWith('https://')?'<p><a href="'+esc(src)+'" target="_blank" rel="noopener noreferrer">Original genetically grouped measurements ↗</a></p>':'')+
+   '<p><b>Critical trap:</b> Do not measure the longer basal sterile-floret lemma as an upper glume. For Gulf coast and introduced reeds, consider older culm surface, age-matched sheath clasping, independent specimens and genetic testing when needed.</p></details>';
+ }
+ if(sp.id==='zizaniopsis-miliacea'){
+  const key=sp.field_id_finish_pass?.measured_reproductive_key_20261023;
+  const rows=Array.isArray(key?.measured_diagnostic_key)?key.measured_diagnostic_key:[];
+  return rows.length?'<details class="detail-expand field-expert-notes"><summary>Advanced cutgrass reproductive key and measurement limits</summary><ul>'+
+   rows.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul><p><b>Research hold:</b> true long ligule and anther/stigma-confirmed male/female spikelet photographs are still missing. Never infer their sex solely from panicle position.</p></details>':'';
+ }
+ return '';
+}
 function fieldReedCompare(sp){
  const picks=reedChoices[sp.id];
  if(!Array.isArray(picks))return '';
@@ -457,7 +497,7 @@ function renderDetail(sp,entry){
   fieldBeginnerPath(sp,entry.path)+
   '<div class="detail-section field-fast-check"><h3>Five checks before you identify it</h3>'+
   '<ol>'+cueSteps(sp).slice(0,5).map(s=>'<li>'+esc(s)+'</li>').join('')+'</ol></div>'+
-  fieldReedCompare(sp)+fullGallery+extended+
+  fieldReedCompare(sp)+fieldAdvancedReedNotes(sp)+fullGallery+extended+
   '<details class="detail-expand"><summary>What evidence is still missing?</summary>'+
   (visualCoverage(sp)||'<p>Check the scientific photo limitations in the full lesson.</p>')+
   '</details>'
@@ -465,7 +505,7 @@ function renderDetail(sp,entry){
   '<div class="detail-section lessonpart"><h3>Look here first</h3><p>'+
   esc(sp.look_here_first||entry.cue||'Start with the whole plant.')+'</p></div>'+
   '<div class="detail-section lessonpart"><h3>Field ID checklist</h3><ul>'+cues(sp)+'</ul></div>')+
- (!beginner?fieldReedCompare(sp):'')+
+ (!beginner?fieldReedCompare(sp)+fieldAdvancedReedNotes(sp):'')+
  '<p class="glossary-hint">Tap highlighted botanical terms for their meaning and anatomy photos.</p>'+
  '<details class="detail-expand lessonpart"><summary>Look-alikes and cautions</summary>'+
  (lookalikes(sp)||'<p>No verified comparison text has been entered yet.</p>')+'</details>'+
