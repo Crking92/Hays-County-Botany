@@ -1,0 +1,73 @@
+name: Silver bluestem specialist actual ligule and spikelet source review
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-microscopy-2023-specialist-source-scout.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Search source-original specialist ligule and spikelet photo sequences
+        run: |
+          python - <<'PY'
+          import requests,json,io,base64
+          from PIL import Image,ImageDraw,ImageOps
+          s=requests.Session()
+          s.headers.update({"User-Agent":"Hays Botany education native grasses diagnostic macro scout/1.0"})
+          searches=[
+            ("specialist-name",{"user_login":"arnanthescout","taxon_id":1452295,"per_page":100}),
+            ("specialist-genus",{"user_login":"arnanthescout","taxon_name":"Bothriochloa","d1":"2023-09-01","d2":"2024-01-15","per_page":100}),
+            ("specialist-2023",{"user_login":"arnanthescout","d1":"2023-11-01","d2":"2023-12-30","per_page":100})
+          ]
+          selected={}
+          for tag,params in searches:
+            try:
+              r=s.get("https://api.inaturalist.org/v1/observations",params=params,timeout=28);r.raise_for_status()
+              data=r.json()
+              print("QUERY",tag,"COUNT",data["total_results"])
+              for obs in data["results"]:
+                tx=obs.get("taxon",{}).get("name","").lower()
+                ctx=(obs.get("description","")+" "+obs.get("species_guess","")+" "+tx).lower()
+                if not any(x in ctx for x in ("bluestem","bothriochloa","beardgrass","ligule","spikelet","grass")):continue
+                selected[obs["id"]]=obs
+            except Exception as e:print("QUERY_ERROR",tag,str(e)[:300])
+          print("OBS_SELECTED",len(selected))
+          tiles=[];meta=[]
+          for obs in selected.values():
+            for p in obs.get("photos",[])[:12]:
+              if p.get("license_code") not in ("cc-by","cc-by-sa","cc-by-nc","cc-by-nc-sa","cc0"):continue
+              src=p.get("url","").replace("/square.","/medium.").replace("/small.","/medium.")
+              try:
+                r=s.get(src,timeout=15);r.raise_for_status()
+                with Image.open(io.BytesIO(r.content)) as im:
+                  pic=ImageOps.exif_transpose(im).convert("RGB")
+                pic.thumbnail((280,230))
+                meta.append({"index":len(tiles),"obs":obs["id"],"photo":p["id"],"license":p["license_code"],"taxon":obs.get("taxon",{}).get("name"),"description":(obs.get("description") or "")[:350],"date":obs.get("observed_on"),"creator":p.get("attribution")})
+                tiles.append(pic.copy())
+              except Exception as e:print("IMAGE_ERROR",p["id"],str(e)[:100])
+              if len(tiles)>=55:break
+            if len(tiles)>=55:break
+          print("SOURCE_META_BEGIN")
+          for x in meta:print(json.dumps(x,ensure_ascii=False))
+          print("SOURCE_META_END")
+          if tiles:
+            w,h,columns=300,290,5
+            canvas=Image.new("RGB",(w*columns,h*((len(tiles)+columns-1)//columns)),"white")
+            draw=ImageDraw.Draw(canvas)
+            for i,p in enumerate(tiles):
+              x=(i%columns)*w;y=(i//columns)*h
+              canvas.paste(p,(x+(w-p.width)//2,y))
+              draw.text((x+7,y+233),f"{i}  obs {meta[i]['obs']}",fill="black")
+              draw.text((x+7,y+253),f"photo {meta[i]['photo']}",fill="black")
+            b=io.BytesIO();canvas.save(b,"JPEG",quality=76,optimize=True)
+            print("SOURCE_CONTACT_START")
+            print(base64.b64encode(b.getvalue()).decode())
+            print("SOURCE_CONTACT_END")
+          PY
