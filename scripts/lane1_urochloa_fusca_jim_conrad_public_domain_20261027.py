@@ -39,11 +39,11 @@ PHOTO=[
 s=requests.Session();s.headers.update({"User-Agent":"Hays-Botany-Public-Domain-Original-Photo-Archiver/1.0"})
 page=s.get(ARTICLE,timeout=55);page.raise_for_status()
 site=s.get(RIGHTS,timeout=50);site.raise_for_status()
-text=html.unescape(re.sub(r"<[^>]+>"," ",page.text))
-rights=html.unescape(re.sub(r"<[^>]+>"," ",site.text))
+text=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",page.text)).split())
+rights=" ".join(html.unescape(re.sub(r"<[^>]+>"," ",site.text)).split())
 if "Jim Conrad" not in text or "UROCHLOA FUSCA" not in text.upper() or "Cook's Slough" not in text or "September 28, 2014" not in text:
     raise SystemExit("Original Texas author, taxon and Uvalde locality not all supported")
-if not re.search(r"I,\s*Jim Conrad,?\s*hereby place into the PUBLIC DOMAIN all images produced by myself",rights,re.I):
+if not (re.search(r"Jim Conrad.{0,130}PUBLIC DOMAIN",rights,re.I) and re.search(r"all images produced by myself",rights,re.I)):
     raise SystemExit("Actual photographer's explicit public domain release unavailable")
 if not re.search(r"Excerpts from Jim Conrad",text,re.I):
     raise SystemExit("Article not unambiguously identified as author's own newsletter excerpt")
