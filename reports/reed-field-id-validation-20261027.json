@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-27",
+  "purpose": "Diagnose previous Pages validator failure and new Field ID changes; this diagnostic does not deploy or alter cards",
+  "checks": [
+    {
+      "command": "python -m unittest discover -s tests -p test_reed_beginner_learner.py -v",
+      "exit_code": 0,
+      "output": "test_arundo_safety_and_counts (test_reed_beginner_learner.BeginnerReedLessonTests.test_arundo_safety_and_counts) ... ok\ntest_photo_first_lesson_integrity (test_reed_beginner_learner.BeginnerReedLessonTests.test_photo_first_lesson_integrity) ... ok\ntest_phragmites_safety_and_source_ids (test_reed_beginner_learner.BeginnerReedLessonTests.test_phragmites_safety_and_source_ids) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.003s\n\nOK\n"
+    },
+    {
+      "command": "node --check assets/js/app.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "node --check assets/js/field-id-tiles.js",
+      "exit_code": 1,
+      "output": "/home/runner/work/Hays-County-Botany/Hays-County-Botany/assets/js/field-id-tiles.js:324\n   typeof p.image_url==='string'&&p.image_url.replace(/^\\\\.\\\\//,'')===canonical);\n                                                               ^\n\nSyntaxError: Unexpected token ','\n    at wrapSafe (node:internal/modules/cjs/loader:1713:18)\n    at checkSyntax (node:internal/main/check_syntax:78:3)\n\nNode.js v22.23.3\n"
+    }
+  ],
+  "success": false
+}
