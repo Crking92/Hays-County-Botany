@@ -1,0 +1,45 @@
+name: Silver bluestem actual-pixel anatomy inspection
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/silver-bluestem-contact-sheet-inspect-20261027.yml
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          filter: blob:none
+          sparse-checkout: |
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m pip install 'Pillow>=10,<12'
+      - name: Emit small source-photo reviews of licensed installed originals (not restricted images)
+        shell: bash
+        run: |
+          python - <<'PY'
+          import io,base64
+          from PIL import Image,ImageOps
+          from pathlib import Path
+          base=Path("content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/images")
+          names=["liz-makings-arizona-silver-spikelet-20261027.jpg",
+                 "max-licher-arizona-silver-plant-20261027.jpg",
+                 "smallcurio-austin-silver-bluestem-2017.jpg",
+                 "commons-bothriochloa-torreyana-a6ad1cb3d8b8.jpg"]
+          for name in names:
+            with Image.open(base/name) as im:
+              orig=im.size
+              photo=ImageOps.exif_transpose(im).convert("RGB")
+              photo.thumbnail((720,600))
+              buf=io.BytesIO()
+              photo.save(buf,"JPEG",quality=82,optimize=True)
+            print(f"PHOTO_REVIEW_START::{name}::{orig[0]}x{orig[1]}")
+            print(base64.b64encode(buf.getvalue()).decode())
+            print("PHOTO_REVIEW_END::"+name)
+          PY
