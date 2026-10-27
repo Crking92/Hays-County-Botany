@@ -1,0 +1,33 @@
+name: Lane 4 oligosanthes expert photo license scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_oligosanthes_photo_license_scout_20261027.py
+      - .github/workflows/lane4-oligosanthes-licensing-scout-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-oligosanthes-photo-license-scout
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python scripts/lane4_oligosanthes_photo_license_scout_20261027.py
+      - name: Save license facts only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/lane4-oligosanthes-expert-photo-license-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record individual rights status of expert oligosanthes leaf and spikelet photos"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
