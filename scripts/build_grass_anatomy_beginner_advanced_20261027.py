@@ -189,7 +189,7 @@ def lesson_page(index,sec):
     rect(42,296,314,345,HexColor("#F7F9F6"))
     imprint(images[sec["asset"]],54,326,290,293)
     cap=sec.get("caption","")
-    para(cap,47,284,315,7.1,GREY,leading=10.1)
+    para(cap,47,313,315,7.1,GREY,leading=10.1)
     # Main right: vocabulary
     c.setFillColor(MOSS);c.setFont(BOLD,9.6);c.drawString(371,628,"WORDS TO LEARN")
     ty=611
