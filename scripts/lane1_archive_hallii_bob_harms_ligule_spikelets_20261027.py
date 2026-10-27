@@ -43,7 +43,7 @@ items=[
  },
  {
   "id":"PAHA-9","file":"bob-harms-hallii-separated-mature-spikelet-elements-educational.jpg",
-  "size":[462,480],
+  "size":[461,512],
   "purpose":"REAL multiple separated Panicum hallii spikelet-scale reproductive elements against dark background, source-labeled species and photographed beside original red-white scale marks. Clearly distinct folded papery bracts and hard smooth mature fruiting floret are shown; exact individual lower/upper glume and lemma label not proven from layout alone.",
   "label":"REAL SEPARATED REPRODUCTIVE ELEMENTS — Hall panicgrass original anatomy plate",
   "caption":"Bob Harms photographed true Panicum hallii reproductive structures physically separated from their flowering unit and arranged on a dark background next to an original scale. Notice the differing shapes: papery veined outer bracts and smaller hard smooth fertile components. Do not assign every structure a glume, lemma, or palea name from this unkeyed montage alone.",
