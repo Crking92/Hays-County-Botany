@@ -48,8 +48,8 @@ for spec in queries:
          "license":code,"site":"iNaturalist","place":region,
          "source_page":f"https://www.inaturalist.org/photos/{pid}",
          "observation_page":f"https://www.inaturalist.org/observations/{o.get('id')}",
-         "thumb":re.sub(r"/(?:square|small|medium|large)\\.", "/medium.",url),
-         "photo_direct":re.sub(r"/(?:square|small|medium|large)\\.","/original.",url),
+         "thumb":re.sub(r"/(?:square|small|medium|large)\.", "/medium.",url),
+         "photo_direct":re.sub(r"/(?:square|small|medium|large)\.","/original.",url),
          "research_grade_exact_taxon":True})
         counts["allowed"]+=1
         if len(entries)>=80:break
