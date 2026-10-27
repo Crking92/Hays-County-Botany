@@ -19,7 +19,18 @@
     "verified_visible_arrows": 31,
     "extra_external_photo_panels": 0,
     "original_rights_and_native_fields_untouched": true,
-    "manual_digitaria_archived_macro_pixel_20261024": true
+    "manual_digitaria_archived_macro_pixel_20261024": true,
+    "photo_archive_byte_audit_20261027": {
+      "verified_sha256_and_jpeg": 9,
+      "not_binary_retrievable_this_run": 2,
+      "unretrieved_files": [
+        "images/commons-77cde2e462d3.jpg",
+        "images/starr-140909-1746-live-habit-maui.jpg"
+      ],
+      "new_photos": 0,
+      "new_arrows": 0,
+      "note": "9 existing archive JPEGs independently decoded and SHA-256 checked against any previously recorded hashes; all 9 had valid JPEG boundaries and no APP1/APP13/GPS markers. Two existing GitHub blob paths returned empty base64 content from connector; blob SHAs exist, but do not claim binary integrity for those two. No live source-license or Pages recheck."
+    }
   },
   "photo_note": "Original physically present source JPEG inspected and retained with individual creator/license. Two supplementary Commons photographs are now physically archived in the existing species images/ directory and used in the gallery; older external-source notes below are historical. Annotation arrows target only actual visible structures; no true collar, root nodes, hairy axils or measured microlemma claims. On 2026-10-24 both already archived CC BY iNaturalist macro JPEGs (423560727 and 423563754) were inspected at actual pixel level, promoted to annotated gallery panels (3 visible-only arrows apiece); all five own-species photo JPEGs confirmed present in GitHub. These photographs do not prove the hidden upper glume or true ligule.\n2026-10-27: added 3 real source-verified CC BY Starr originals: 1188 overexposed and excluded from Learner, 1189 shows culm connected to roots, 140909 shows in-situ mat of leafy spreading stems. Also physically archived a clearly marked OTHER SPECIES D. sanguinalis original 1mm-scale spikelet dissection CC BY-SA. Five new accurate root/shoot gross arrows. New conservative photo completeness 4.5/6 (75%). True inner ligule and taxon-correct dissection remain unfilled.",
   "taxonomy_source": "https://powo.science.kew.org/results?q=Digitaria%20ciliaris",
@@ -53,7 +64,10 @@
       "license": "CC BY 3.0",
       "source_page": "https://commons.wikimedia.org/wiki/File%3AStarr_090121-1186_Digitaria_ciliaris.jpg",
       "public_reuse": "Exact image-level Commons license checked at ingestion",
-      "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING; no unverified anatomy arrows"
+      "photo_status": "PROVISIONAL — USER PHOTO REVIEW PENDING; no unverified anatomy arrows",
+      "archive_sha256": "0c343ac44c877a82b3aec5a4a2e0663562968205edc2d7b46d27eaa8d387aa1f",
+      "verified_local_jpeg_bytes": 550021,
+      "archive_byte_verification": "2026-10-27: Existing canonical GitHub JPEG fetched as base64 and decoded; SHA-256 computed from actual archived bytes, valid JPEG SOI/EOI, no APP1/APP13 or GPS markers found. This verifies archive bytes only, not a new source-license check, organ dissection, or additional arrows."
     },
     {
       "file": "images/inat-cc-423560727.jpg",
@@ -63,7 +77,10 @@
       "source_page": "https://www.inaturalist.org/photos/423560727",
       "source_observation": "https://www.inaturalist.org/observations/237936871",
       "photo_status": "LOCAL CC BY IMAGE VERIFIED PIXELS 2026-10-24; broad arrows added to live photo gallery; microscale units and glume-versus-lemma unresolved",
-      "public_reuse": "Source photo's image-level CC license with attribution"
+      "public_reuse": "Source photo's image-level CC license with attribution",
+      "archive_sha256": "4f7fdaeb3f8a1e332cedaee77caf603d302ad24db79c596d08ea59fd701cff69",
+      "verified_local_jpeg_bytes": 115745,
+      "archive_byte_verification": "2026-10-27: Existing canonical GitHub JPEG fetched as base64 and decoded; SHA-256 computed from actual archived bytes, valid JPEG SOI/EOI, no APP1/APP13 or GPS markers found. This verifies archive bytes only, not a new source-license check, organ dissection, or additional arrows."
     },
     {
       "file": "images/inat-cc-423563754.jpg",
@@ -73,7 +90,10 @@
       "source_page": "https://www.inaturalist.org/photos/423563754",
       "source_observation": "https://www.inaturalist.org/observations/237936871",
       "photo_status": "LOCAL CC BY IMAGE VERIFIED PIXELS 2026-10-24; broad arrows added to live photo gallery; ligule and detached glume not pictured",
-      "public_reuse": "Source photo's image-level CC license with attribution"
+      "public_reuse": "Source photo's image-level CC license with attribution",
+      "archive_sha256": "ed24ec90c72337745ce0171c5714996ab84def472fc25ce4a2cdd5232c72be5a",
+      "verified_local_jpeg_bytes": 169967,
+      "archive_byte_verification": "2026-10-27: Existing canonical GitHub JPEG fetched as base64 and decoded; SHA-256 computed from actual archived bytes, valid JPEG SOI/EOI, no APP1/APP13 or GPS markers found. This verifies archive bytes only, not a new source-license check, organ dissection, or additional arrows."
     },
     {
       "file": "images/inat-hrosenswdpi-469014500-ligule-region.jpg",
