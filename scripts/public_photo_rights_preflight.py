@@ -70,6 +70,23 @@ def permitted_harms_aparejograss(item, noncommercial=False):
         and item.get("source_image")==HARMS_BASE+"images/MUUT-L.jpg")
 
 
+# Three exact photographed Tridens albescens originals from Bob Harms'
+# Selected Central Texas Monocots, with retained copyright and credited
+# scientific/educational public learner permission (NOT CC).
+HARMS_TRAL_IDS = frozenset({"TRAL2-i1", "TRAL2-J", "TRAL2-9"})
+
+def permitted_harms_tridens_albescens(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator")=="Bob Harms"
+        and item.get("license")==HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission")==HARMS_SITE_PERMISSION
+        and item.get("license_url")=="https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name")=="Tridens albescens"
+        and any(item.get("source_page")==HARMS_BASE+"pages/"+sid+".html"
+                and item.get("source_image")==HARMS_BASE+"images/"+sid+".jpg"
+                for sid in HARMS_TRAL_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -495,6 +512,8 @@ def photo_rights(record, noncommercial=False):
         return None  # Exact photograph, educational site only, with original photographer credit.
     if permitted_tom_chester_erioneuron(record, noncommercial):
         return None  # Exact source-credited reproduction, not Creative Commons.
+    if permitted_harms_tridens_albescens(record, noncommercial):
+        return None  # Exact original credited Tridens albescens source, copyright retained.
     if permitted_harms_aparejograss(record, noncommercial):
         return None  # Exact Selected Monocots source, copyright retained.
     if permitted_harms_lindheimeri(record, noncommercial):
