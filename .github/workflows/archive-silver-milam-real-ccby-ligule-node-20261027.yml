@@ -1,0 +1,81 @@
+name: Archive verified Texas silver bluestem true node and opened collar photo originals
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/archive-silver-milam-real-ccby-ligule-node-20261027.yml
+      - scripts/archive_silver_milam_actual_ligule_culm_20261027.py
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency:
+  group: archive-silver-milam-field-anatomy-20261027
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout: |
+            scripts
+            content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+            reports
+            workflow/field-id-publication
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install 'requests>=2.31,<3' 'Pillow>=10,<12'
+      - name: Download three individually verified Linda Jo Conn Texas original images
+        run: |
+          python -m py_compile scripts/archive_silver_milam_actual_ligule_culm_20261027.py
+          python scripts/archive_silver_milam_actual_ligule_culm_20261027.py
+      - name: Validate exact rights, physical images and no premature 100 percent
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,hashlib,sys
+          from PIL import Image
+          sys.path.insert(0,'scripts')
+          from build_public_pages_snapshot import rights
+          from public_photo_rights_preflight import photo_rights
+          base=Path('content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana')
+          d=json.loads((base/'species.json').read_text())
+          rep=json.loads(Path('reports/silver-milam-original-anatomy-20261027.json').read_text())
+          assert rep['score_before']==rep['score_after']==4.5
+          assert d['silver_six_role_photo_score_20261027']['total']==4.5
+          assert len(rep['photos'])==3
+          assert all(e['status']=='ARCHIVED' for e in rep['photos'])
+          for item in rep['photos']:
+            f=Path(item['file'])
+            assert f.is_file() and hashlib.sha256(f.read_bytes()).hexdigest()==item['sha256']
+            with Image.open(f) as x:
+              assert x.format=='JPEG' and min(x.size)>=768 and not x.getexif()
+              x.verify()
+            rec=next(x for x in d['images'] if x.get('source_photo_id')==item['photo_id'])
+            panel=next(x for x in d['visual_comparison']['items'] if x.get('source_photo_id')==item['photo_id'])
+            assert 'Linda Jo Conn'==rec['creator'] and 'CC BY' in rec['license']
+            assert len(panel['markers'])==1
+            for obj in (rec,panel):
+              assert rights(obj,True)[0],(item['photo_id'],rights(obj,True))
+              assert photo_rights(obj,True) is None,(item['photo_id'],photo_rights(obj,True))
+          assert d['curation_status']['visual_finish'].startswith('FIELD_READY_PHOTO_GAPS')
+          print('PUBLIC PHOTO RIGHTS + ORGAN SCALE HONESTY + FILE INTEGRITY QA PASS')
+          PY
+      - name: Commit only verified originals, metadata and one publication marker
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana
+          git add reports/silver-milam-original-anatomy-20261027.json
+          git add workflow/field-id-publication/2026-10-27-silver-milam-anatomy-verified.json
+          if git diff --cached --quiet; then echo 'NO_NEW_CHANGES';exit 0;fi
+          git commit -m 'Publish actual CC BY Texas silver opened inner collar and culm node photographs'
+          for i in 1 2 3 4 5 6; do
+            if git pull --rebase origin main && git push origin HEAD:main;then exit 0;fi
+            sleep 4
+          done
+          exit 1
