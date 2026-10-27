@@ -32,8 +32,31 @@ jobs:
           python-version: '3.12'
       - name: Install JPEG parser
         run: python -m pip install --disable-pip-version-check 'Pillow>=10,<12'
-      - name: Download original via source-specific rights gate; update only true learner photo evidence
-        run: python scripts/lane2_install_spectabilis_usgs_flower_macro_20261027.py
+      - name: Download exact-source original and leave GitHub diagnostic if blocked
+        run: |
+          set +e
+          python scripts/lane2_install_spectabilis_usgs_flower_macro_20261027.py >/tmp/lane2-purple-usgs.log 2>&1
+          status=$?
+          cat /tmp/lane2-purple-usgs.log
+          if [ "$status" -ne 0 ]; then
+            python - <<'PY'
+          import json
+          from pathlib import Path
+          text=Path("/tmp/lane2-purple-usgs.log").read_text(errors="replace")[-5500:]
+          file=Path("reports/lane2-spectabilis-usgs-macro-installer-failure-20261027.json")
+          file.parent.mkdir(parents=True,exist_ok=True)
+          file.write_text(json.dumps({"state":"BLOCKED_INSTALL_DO_NOT_INCREASE_PHOTO_SCORE","date":"2026-10-27","source":"USGS flower macro Wikimedia Commons 9615071149","failure_detail":text},indent=2)+"\n")
+          PY
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add reports/lane2-spectabilis-usgs-macro-installer-failure-20261027.json
+            git commit -m "Lane 2: report exact USGS macro archival error without raising photo score [skip ci]"
+            for attempt in 1 2 3; do
+              if git pull --rebase origin main && git push origin HEAD:main; then break; fi
+              sleep 5
+            done
+            exit "$status"
+          fi
       - name: Check exact species, actual JPEG bytes, hash, scale honesty and original public reuse
         run: |
           python - <<'PY'
