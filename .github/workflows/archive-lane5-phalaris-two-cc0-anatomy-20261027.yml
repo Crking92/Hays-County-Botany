@@ -1,0 +1,69 @@
+name: Lane 5 Phalaris caroliniana two source-verified CC0 anatomy photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_phalaris_two_cc0_anatomy_20261027.py
+      - .github/workflows/archive-lane5-phalaris-two-cc0-anatomy-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-phalaris-caroliniana-canonical-photos
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 17
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install 'Pillow>=10,<14'
+      - name: Reverify per-photo CC0 and add real node/collar images
+        run: python scripts/archive_lane5_phalaris_two_cc0_anatomy_20261027.py
+      - name: Validate media, metadata, exact anatomy arrow ranges
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          p=Path("content/taxa/Poaceae/Phalaris/phalaris-caroliniana")
+          d=json.loads((p/"species.json").read_text())
+          assert len(d["images"])==8
+          assert len(d["visual_comparison"]["items"])==8
+          assert d["curation_status"]["photo_files_present"]==8
+          assert sum(1 for x in d["visual_comparison"]["items"] if x.get("scientific_name")=="Phalaris caroliniana")==7
+          report=json.loads(Path("reports/lane5-phalaris-two-actual-cc0-anatomy-20261027.json").read_text())
+          assert len(report["new"])==2
+          for photo in report["new"]:
+              assert photo["license"]=="CC0 1.0"
+              with Image.open(p/photo["stored"]) as im:
+                  im.verify()
+              with Image.open(p/photo["stored"]) as im:
+                  assert not im.getexif()
+              panel=d["visual_comparison"]["items"][photo["panel"]]
+              assert len(panel["markers"])==2
+              assert all(0<=m[k]<=100 for m in panel["markers"] for k in ("label_x","label_y","target_x","target_y"))
+          print("PASS: exact species photos, visible-only arrows, CC0, local bytes and JSON")
+          PY
+      - name: Commit safely retaining concurrent species changes
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add content/taxa/Poaceae/Phalaris/phalaris-caroliniana/
+          git add reports/lane5-phalaris-two-actual-cc0-anatomy-20261027.json
+          if git diff --cached --quiet; then echo "Already archived"; exit 0; fi
+          git commit -m 'Lane 5: archive and annotate two real CC0 Carolina canarygrass collar/node photos'
+          for n in 1 2 3 4 5 6 7 8 9 10; do
+            git fetch origin main
+            git rebase origin/main || { echo 'Concurrent edit conflict, not overwriting'; exit 1; }
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo 'Concurrent pushes prevented safe archive' >&2
+          exit 1
