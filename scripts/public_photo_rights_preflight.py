@@ -120,6 +120,23 @@ def permitted_harms_purpletop_tridens(item, noncommercial=False):
                 for ident in HARMS_TRFL2_IDS))
 
 
+# Three photo-ID-restricted original Bob Harms Selected Central Texas Monocots
+# seep-muhly images. New 2026-10-27 credited scientific/educational reuse review,
+# source-specific and NOT Creative Commons or permission for other UT collections.
+HARMS_MURE2_IDS = frozenset({"MURE2-a", "MURE2-L", "MURE2-S"})
+
+def permitted_harms_seep_muhly(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator")=="Bob Harms"
+        and item.get("license")==HARMS_EXACT_LICENSE
+        and item.get("license_url")=="https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("site_specific_public_permission")==HARMS_SITE_PERMISSION
+        and item.get("source_taxon_name")=="Muhlenbergia reverchonii"
+        and any(item.get("source_page")==HARMS_BASE+"pages/"+ident+".html"
+                and item.get("source_image")==HARMS_BASE+"images/"+ident+".jpg"
+                for ident in HARMS_MURE2_IDS))
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -547,6 +564,8 @@ def photo_rights(record, noncommercial=False):
         return None  # Exact source-credited reproduction, not Creative Commons.
     if permitted_harms_tridentopsis_mutica(record, noncommercial):
         return None  # Exact selected copyrighted educational original, original taxon synonym recorded.
+    if permitted_harms_seep_muhly(record, noncommercial):
+        return None  # Exact MURE2 original copyright retained, educational attribution required.
     if permitted_harms_purpletop_tridens(record, noncommercial):
         return None  # Exact photographer/source/site-specific educational use; not a CC grant.
     if permitted_harms_tridens_albescens(record, noncommercial):
