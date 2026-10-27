@@ -1,0 +1,64 @@
+name: Lane 2 wild oat actual whole-habit photo scout
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/lane2-avena-fatua-rooted-habit-photo-scout-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  photo-inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Review actual wild oat plant photos with individual licenses (no publishing)
+        run: |
+          python - <<'PY'
+          import json,io,base64,concurrent.futures,math
+          from urllib.request import Request,urlopen
+          from urllib.parse import urlencode
+          from PIL import Image,ImageOps,ImageDraw
+          UA={'User-Agent':'HaysBotanyVisualLearner/1.0 exact photo research noncommercial license review'}
+          def get(url,limit=3000000):
+           with urlopen(Request(url,headers=UA),timeout=36) as r:return r.read(limit)
+          photos=[]
+          for page in range(1,5):
+           q={'taxon_name':'Avena fatua','quality_grade':'research','photos':'true','place_id':18,'per_page':25,'page':page,'order_by':'created_at','order':'desc'}
+           d=json.loads(get('https://api.inaturalist.org/v1/observations?'+urlencode(q),4000000))
+           print('PAGE',page,'total',d.get('total_results'),'found',len(d.get('results',[])))
+           for o in d.get('results',[]):
+            if o.get('taxon',{}).get('name')!='Avena fatua':continue
+            for p in (o.get('photos') or [])[:6]:
+             if p.get('license_code') in {'cc0','cc-by','cc-by-sa','cc-by-nc','cc-by-nc-sa'}:photos.append((o,p))
+           if page*25>=d.get('total_results',0):break
+          photos=photos[:50]
+          def thumb(pair):
+           p=pair[1];url=p.get('url','').replace('/square.','/medium.').replace('/thumb.','/medium.')
+           try:
+            b=get(url,800000)
+            with Image.open(io.BytesIO(b)) as f:z=ImageOps.exif_transpose(f).convert('RGB')
+            z.thumbnail((225,185));return z
+           except Exception as e:print('THUMB_FAIL',p.get('id'),str(e)[:70]);return None
+          with concurrent.futures.ThreadPoolExecutor(max_workers=8) as e:thumbs=list(e.map(thumb,photos))
+          for block in range(math.ceil(len(photos)/25)):
+           canvas=Image.new('RGB',(1250,1175),'white');draw=ImageDraw.Draw(canvas)
+           for i,(o,p) in enumerate(photos[block*25:(block+1)*25]):
+            k=block*25+i;x=i%5*250;y=i//5*235
+            im=thumbs[k]
+            if im is not None:canvas.paste(im,(x+(250-im.width)//2,y+5))
+            draw.text((x+5,y+198),f'#{k} photo {p["id"]}',fill='black')
+            draw.text((x+5,y+215),f'obs {o["id"]} {p["license_code"]}',fill='black')
+            print('CANDIDATE',json.dumps({'i':k,'photo':p['id'],'obs':o['id'],'license':p['license_code'],'creator':p.get('attribution'),'location':o.get('place_guess'),'source':'https://www.inaturalist.org/photos/'+str(p['id'])},ensure_ascii=False))
+           b=io.BytesIO();canvas.save(b,'JPEG',quality=77,optimize=True)
+           textval=base64.b64encode(b.getvalue()).decode()
+           print('SHEET_BEGIN',block,len(b.getvalue()))
+           for j,p in enumerate(range(0,len(textval),3500)):print(f'AVENA_SHEET_{block}_{j}='+textval[p:p+3500])
+           print('SHEET_END',block)
+          print('TOTAL_LICENSED',len(photos))
+          PY
