@@ -16,16 +16,16 @@ class SilverPhotoFinish(unittest.TestCase):
         s=self.s
         self.assertEqual(s["id"],"bothriochloa-torreyana")
         self.assertFalse(s["native_target_zone_calculated"])
-        self.assertEqual(len(s["images"]),12)
-        self.assertEqual(len(self.panels),12)
+        self.assertEqual(len(s["images"]),14)
+        self.assertEqual(len(self.panels),14)
         self.assertEqual(s["curation_status"]["visual_finish"][:22],"FIELD_READY_PHOTO_GAPS")
-        for i in (5,6,7,8,9,10,11):
+        for i in (5,6,7,8,9,10,11,12,13):
             x=self.panels[i]
             self.assertTrue(x["image_url"].startswith("content/taxa/Poaceae/Bothriochloa/bothriochloa-torreyana/images/"))
             self.assertTrue((ROOT/x["image_url"]).is_file())
             self.assertTrue(x["source_page"] and x["creator"] and x["license"])
             self.assertEqual(x["scientific_name"],s["scientific_name"])
-        self.assertEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),3)
+        self.assertEqual(len([x for x in s["images"] if "20261027" in x["file"] or "smallcurio-austin" in x["file"]]),5)
         self.assertEqual({p.get("source_photo_id") for p in s["images"] if p.get("source_photo_id") in (730629825,749323175,102682516,292594065)}, {730629825,749323175,102682516,292594065})
         self.assertEqual(len([x for x in s["images"] if x.get("public_reuse") in {"no","NO — photographer authorization required"}]),2)
 
@@ -40,20 +40,20 @@ class SilverPhotoFinish(unittest.TestCase):
             for marker in p["markers"]:
                 self.assertTrue(marker["label"])
                 self.assertTrue(all(0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y")))
-        self.assertEqual(sum(len(x.get("markers",[])) for x in self.panels),13)
+        self.assertEqual(sum(len(x.get("markers",[])) for x in self.panels),17)
         self.assertIn("NOT",liz["caption"])
         self.assertIn("NOT",maxp["caption"])
 
 
     def test_new_Texas_anatomy_verified_but_unfinished(self):
         s=self.s
-        self.assertEqual(s["silver_six_role_photo_score_20261027"]["total"],4)
-        self.assertEqual(s["silver_six_role_photo_score_20261027"]["pct"],66.7)
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["total"],4.5)
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["pct"],75.0)
         self.assertEqual(s["silver_six_role_photo_score_20261027"]["roles"][2]["score"],0.5)
         self.assertIn("NOT",s["silver_six_role_photo_score_20261027"]["roles"][2]["reason"])
         self.assertEqual(s["texas_silver_anatomy_20261027"]["source_photo_ids"],[730629825,749323175])
         self.assertEqual(s["texas_silver_anatomy_20261027"]["new_verified_arrows"],4)
-        self.assertEqual(s["field_photo_quickcheck"]["featured_panel_indices"][:4],[0,8,10,11])
+        self.assertEqual(s["field_photo_quickcheck"]["featured_panel_indices"][:4],[0,12,13,8])
         for i,photo_id in [(8,730629825),(9,749323175)]:
             p=self.panels[i]
             self.assertEqual(p["source_photo_id"],photo_id)
@@ -81,6 +81,28 @@ class SilverPhotoFinish(unittest.TestCase):
             self.assertIn("no",p["caption"].lower())
             for mark in p["markers"]:
                 self.assertTrue(all(0<=mark[k]<=100 for k in ("label_x","label_y","target_x","target_y")))
+        self.assertFalse(s["native_target_zone_calculated"])
+
+    def test_source_vouchered_Texas_rooted_plant_and_75_percent(self):
+        s=self.s
+        root=s["silver_preserved_rooted_texas_vouchers_20261027"]
+        self.assertEqual(root["new_verified_herbarium_sheet_keys"],[3921136348,6158969001])
+        self.assertEqual(root["new_public_licensed_real_rooted_plant_photos"],2)
+        self.assertTrue(root["real_roots_visible"])
+        self.assertEqual(root["rhizome_presence_absence_from_sheet"],"NOT PROVEN")
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["roles"][0]["score"],1)
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["total"],4.5)
+        self.assertEqual(s["silver_six_role_photo_score_20261027"]["pct"],75)
+        for i,key in ((12,3921136348),(13,6158969001)):
+            panel=self.panels[i]
+            self.assertEqual(panel["source_page"],"https://www.gbif.org/occurrence/"+str(key))
+            self.assertEqual(panel["license"],"CC BY 4.0")
+            self.assertEqual(panel["creator"],"The University of Texas at Austin, TEX Herbarium")
+            self.assertTrue((ROOT/panel["image_url"]).is_file())
+            self.assertEqual(len(panel["markers"]),2)
+            self.assertIn("roots",panel["caption"].lower())
+            for marker in panel["markers"]:
+                self.assertTrue(all(0<=marker[k]<=100 for k in ("label_x","label_y","target_x","target_y")))
         self.assertFalse(s["native_target_zone_calculated"])
 
     def test_beginner_four_steps_and_source_only_research(self):
