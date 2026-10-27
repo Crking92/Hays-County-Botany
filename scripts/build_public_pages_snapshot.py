@@ -185,6 +185,19 @@ def permitted_harms_muhly_hybrid(item, noncommercial=False):
                 for photo_id in HARMS_MUIN_IDS))
 
 
+# Exact Bob Harms Selected Monocots nimblewill close-up; source-specific
+# copyright-retained scientific/educational permission with Bob Harms credited.
+def permitted_harms_nimblewill_spikelets(item, noncommercial=False):
+    return (bool(noncommercial)
+        and item.get("creator") == "Bob Harms"
+        and item.get("license") == HARMS_EXACT_LICENSE
+        and item.get("site_specific_public_permission") == HARMS_SITE_PERMISSION
+        and item.get("license_url") == "https://w3.biosci.utexas.edu/prc/Monocots/"
+        and item.get("source_taxon_name") == "Muhlenbergia schreberi"
+        and item.get("source_page") == HARMS_BASE + "pages/MUSC-J.html"
+        and item.get("source_image") == HARMS_BASE + "images/MUSC-J.jpg")
+
+
 # Independent site-specific, photo-by-photo Carolina canarygrass permission.
 # Bob Harms Selected Central Texas Monocots: scientific/educational WITH CREDIT.
 # No blanket waiver for any other copyrighted UT PRC images.
@@ -643,6 +656,8 @@ def rights(item: dict, noncommercial: bool) -> tuple[bool, str]:
         return True, "Copyright Bob Harms exact selected Ozarkgrass originals educational-with-credit, NOT CC"
     if permitted_harms_tridentopsis_mutica(item, noncommercial):
         return True, "Bob Harms original Tridens muticus accepted as Tridentopsis mutica, educational with credit (NOT CC)"
+    if permitted_harms_nimblewill_spikelets(item, noncommercial):
+        return True, "Exact Harms nimblewill spikelet photo, copyright retained, educational credit required"
     if permitted_harms_muhly_hybrid(item, noncommercial):
         return True, "Bob Harms real M. involuta Selected Monocots original, credit-required scientific/educational reuse; NOT CC"
     if permitted_harms_seep_muhly(item, noncommercial):
