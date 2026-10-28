@@ -1,0 +1,71 @@
+name: Lane 5 silky bluestem true ligule and five real anatomy photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane5_silky_bluestem_five_true_anatomy_20261027.py
+      - .github/workflows/lane5-silky-five-actual-anatomy-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-silky-five-microscopic-exact-photos
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<14'
+      - name: Verify Commons copyright and archive five real source-identified anatomy photos
+        run: python scripts/lane5_silky_bluestem_five_true_anatomy_20261027.py
+      - name: Validate source anatomy images, metadata, correct taxon and arrow targets
+        run: |
+          python - <<'PY'
+          import json,csv
+          from pathlib import Path
+          from PIL import Image
+          b=Path("content/taxa/Poaceae/Dichanthium/dichanthium-sericeum")
+          s=json.loads((b/"species.json").read_text())
+          r=json.loads(Path("reports/lane5-dichanthium-sericeum-five-real-anatomy-20261027.json").read_text())
+          assert len(s["images"])==10 and len(s["visual_comparison"]["items"])==10
+          assert len(r["new_photo_results"])==5 and r["new_arrows"]==10
+          assert sum(x["scientific_name"]=="Dichanthium sericeum" for x in s["visual_comparison"]["items"])==9
+          assert sum(x["scientific_name"]=="Dichanthium annulatum" for x in s["visual_comparison"]["items"])==1
+          with (b/"image-sources.csv").open(newline="") as f:
+              rows=list(csv.DictReader(f))
+          assert len(rows)>=8 and sum("harry-rose-dichanthium-sericeum" in x["file_name"] for x in rows)==5
+          for item in r["new_photo_results"]:
+              photo=b/item["file"]
+              with Image.open(photo) as img:
+                  img.verify()
+              with Image.open(photo) as img:
+                  assert not img.getexif()
+              assert item["license"]=="CC BY 2.0"
+              panel=s["visual_comparison"]["items"][item["panel_index"]]
+              assert panel["scientific_name"]=="Dichanthium sericeum"
+              assert all(0<=m[k]<=100 for m in panel["markers"] for k in ("target_x","target_y","label_x","label_y"))
+          print("PASS: five source-photo rights, species, arrow bounds, JPEG and ledger integrity")
+          PY
+      - name: Publish safe archive without rewriting concurrent botany
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Dichanthium/dichanthium-sericeum/
+          git add reports/lane5-dichanthium-sericeum-five-real-anatomy-20261027.json
+          if git diff --cached --quiet; then echo "Already updated"; exit 0; fi
+          git commit -m "Lane 5: five true licensed silky bluestem ligule and reproductive anatomy photos"
+          for trial in 1 2 3 4 5 6 7 8 9 10 11 12; do
+            git fetch origin main
+            git rebase origin/main || { echo "Species conflict; refuse overwriting newer source"; exit 1; }
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
