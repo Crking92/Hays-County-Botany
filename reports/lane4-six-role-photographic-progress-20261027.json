@@ -20,18 +20,18 @@
   ],
   "scoring_rules": "Physical original with source species and usable rights must show structure at enough resolution for role 1; partial visibility=0.5; absent/different taxon=0. Photos not descriptions. 75%=4.5/6; 70% target implies at least 4.5 given half-point increments.",
   "phase_priority": "Every assigned species >=70% before 80-85%, then 90%; aboveground TRUE inner ligule/collar > reproductive macros > whole flowering habit > root base > native/exotic lookalike. Never stall one species for rare photo.",
-  "audited_to_date": 14,
+  "audited_to_date": 15,
   "confirmed_at_or_above_70": 12,
-  "targeted_pass_covered": 20,
+  "targeted_pass_covered": 21,
   "remaining_targeted_passes": 3,
-  "progress_disclaimer": "Lane4 14/23 species now formally six-role photo scored and 12/23 independently reached >=75%. Digitaria cognata first formal photo score 5/6=83%, 11 real source-labelled species original CC BY/CC0 JPEGs hosted GitHub incl 4 newly archived source-licensed CC BY images, 12 teaching gallery panels (9 own-species +3 distinct Digitaria ciliaris comparisons), 4 new arrows on actual gross collar/sheath structural pixels. TRUE inner erose 0.5mm ligule, calibrated glume/lemma dissection and swollen hairy panicle branch-axil not pictured. Exact Texas county nativity not asserted. New public Pages/mobile QA pending.",
+  "progress_disclaimer": "Lane4 15/23 formally six-role photo scored, 12/23 with >=75%; Zizania texana new formal 3.5/6=58% protected-species provisional photo score. Three new exact original federal PD USFWS images physically archived and pixels inspected; real male anthers and a continuous attached axis showing upper ascending female-zone and lower spreading male-bearing branches. 9 new gross arrows, 13 owned species photos, 15 gallery panels with two distinct correctly identified other-species lookalikes. NO licensed image of true root crown or true measured inner 5–15 mm membranous ligule; DO NOT manipulate endangered plant for further photography. Pages QA pending.",
   "photo_physical_progress_today": {
-    "new_local_originals": 66,
-    "new_gross_arrows": 88,
+    "new_local_originals": 69,
+    "new_gross_arrows": 97,
     "relinked_to_preexisting_locally_stored_licensed_comparison_jpegs": 2,
     "untested_unlicensed_sources_installed": 0,
     "newly_added_gallery_lookalike_panels_from_existing_locally_archived_license_cleared_photos": 11,
-    "newly_pixel_inspected_archived_exact_photos": 52,
+    "newly_pixel_inspected_archived_exact_photos": 55,
     "blocked_copyright_ligule_sources": [
       "Expert iNaturalist guide Nathan Aaron six exact photo IDs: photo rights endpoint 404, reference only, no uploads."
     ]
@@ -211,11 +211,36 @@
     {
       "id": "zizania-texana",
       "phase": "A",
-      "target_status": "six_role_pixel_audit_pending",
+      "target_status": "below_75_CONSERVATION_RESTRICTED",
       "previous_targeted_pass": true,
-      "role_scores": null,
-      "pct": null,
-      "score_not_assigned_reason": "Needs role-specific actual archived original pixel check; prior card inventory alone cannot prove true inner ligule, roots or floret anatomy."
+      "role_scores": [
+        1,
+        0,
+        0,
+        1,
+        0.5,
+        1
+      ],
+      "pct": 58,
+      "total": 3.5,
+      "first_formal_audit": "2026-10-27, new actual USFWS pixels visually inspected; previous 10-photo inventory did not constitute scored roles.",
+      "new_species_photo_originals": 3,
+      "total_archived_species_photos": 13,
+      "gallery_panels": 15,
+      "lookalike_panels_other_species": 2,
+      "new_visible_gross_arrows": 9,
+      "total_visible_gross_arrows": 20,
+      "source_files": [
+        "usfws-hagerty-20561-official-river-study.jpg",
+        "usfws-hagerty-20576-reproductive-study.jpg",
+        "usfws-hagerty-20578-reproductive-study.jpg"
+      ],
+      "source_credit": "Ryan Hagerty / U.S. Fish and Wildlife Service US Federal official photographer, each Wikimedia Commons original image marked Public domain; exact originals and saved 1920x1280/1600x2400/1530x2400 JPEGs independently checked, EXIF/GPS stripped.",
+      "photo_gain": "Actual source official federal photograph 20578 shows one unbroken flower stem with upper ASCENDING female-zone narrow units and lower OUTWARD male-bearing panicle branches including dangling yellow anthers; additional 20576 male-anther macro; 20561 genuinely submerged streaming foliage and flowering culm. All annotated in actual pixels, no speculation of exact female lemma awn insertion.",
+      "scientific_cautions": "Protected Hays river endemic; no invasive/native changes; no sensitive stand coordinates; never instruct crew to handle/collect, extract roots, bend flowers. Missing actual rooted crown/stolon, true 5-15mm free internal membrane, detached female lemma terminal awn at physical mm scale. The photo roles measure teaching evidence and not conservation field survey clearance.",
+      "last_card_commit": "ef633f1a1ea20befbbcb5f50dac08655ee4f84bd",
+      "next_photo": "Only existing authorized ex-situ image of ligule or connected rooted crown, with individual redistributable rights and voucher/provenance, may fill further roles. Avoid wild plant manipulation and duplicate habitat panoramas.",
+      "website_status": "Photos/card verified in canonical GitHub; public Pages release marker and final mobile UI arrow QA still required."
     },
     {
       "id": "dichanthelium-commutatum",
