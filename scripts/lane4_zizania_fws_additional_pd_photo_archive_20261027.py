@@ -40,7 +40,7 @@ def main():
   path=ROOT/"images"/filename
   if any(i.get("file")=="images/"+filename for i in d["images"]):continue
   title="Zizania texana (Texas wild rice) FWS "+id+".jpg"
-  query=urllib.parse.urlencode({"action":"query","format":"json","prop":"imageinfo","iiprop":"url|extmetadata|size|sha1","iiurlwidth":1900,"titles":"File:"+title})
+  query=urllib.parse.urlencode({"action":"query","format":"json","prop":"imageinfo","iiprop":"url|extmetadata|size|sha1","iiurlwidth":1500,"titles":"File:"+title})
   source="https://commons.wikimedia.org/wiki/File:"+urllib.parse.quote(title.replace(" ","_"),safe="()-.")
   try:
    j=json.loads(grab("https://commons.wikimedia.org/w/api.php?"+query,4_000_000))
@@ -70,7 +70,7 @@ def main():
     "creator":"Ryan Hagerty / U.S. Fish and Wildlife Service","license":"Public domain — original U.S. federal government employee photograph",
     "source_page":source,"source_file_sha1":meta.get("sha1"),
     "source_taxon":"Zizania texana","source_locality":"San Marcos River conservation photo series (precise protected stand coordinate NOT recorded).",
-    "modifications":"Uncropped resized source JPEG to max 1900px, EXIF/GPS stripped. No synthesized anatomy, no in-pixel arrows.",
+    "modifications":"Uncropped resized source JPEG to max 1500px width, EXIF/GPS stripped. No synthesized anatomy, no in-pixel arrows.",
     "photo_status":"Original Commons file is exact species and USFWS author, individual original work explicitly PUBLIC DOMAIN; bytes verified. Human PHOTO PIXEL/REPRODUCTIVE SEX audit pending; do not imply authorized crew plant manipulation.",
     "public_reuse":"USFWS U.S.-government public-domain photo, source and credit documented, no collection activity encouraged.",
     "source_original_url":meta["url"],"archived_sha256":hashlib.sha256(binary).hexdigest(),
