@@ -60,8 +60,17 @@ PHOTOS=[
    "tiles":[4],"kind":"REAL_REPRODUCTIVE_DISSECTION_ORGAN_BOUNDARIES_UNRESOLVED"}
 ]
 def get(url):
-  req=urllib.request.Request(url,headers={"User-Agent":"HaysCountyBotanySilkyBluestemPhotos/1.0 (educational archive)"})
-  with urllib.request.urlopen(req,timeout=60) as reply:return reply.read()
+  import time, urllib.error
+  for attempt in range(5):
+    req=urllib.request.Request(url,headers={"User-Agent":"HaysCountyBotanySilkyBluestemPhotos/1.0 (educational archive)"})
+    try:
+      with urllib.request.urlopen(req,timeout=60) as reply:return reply.read()
+    except urllib.error.HTTPError as exc:
+      if exc.code not in (429,502,503) or attempt==4: raise
+      delay=8*(attempt+1)
+      print("Source server busy",exc.code,"retry attempt",attempt+1,"after",delay,"seconds",flush=True)
+      time.sleep(delay)
+  raise RuntimeError("Source image unavailable after bounded retries")
 def striphtml(raw):return html.unescape(re.sub("<[^>]+>","",raw))
 s=json.loads(CARD.read_text(encoding="utf-8"))
 assert s["id"]=="dichanthium-sericeum"
@@ -83,7 +92,12 @@ for spec in PHOTOS:
   # Some original descriptions discuss grass morphology rather than repeating taxon;
   # the exact source-file title and Commons species category supply source-level ID.
   assert "dichanthium sericeum" in spec["title"].lower()
-  raw=get(info.get("thumburl") or info["url"])
+  # Prefer original authorized Wikimedia source; thumbnail requests are often rate-limited.
+  try:
+    raw=get(info["url"])
+  except Exception:
+    if not info.get("thumburl"):raise
+    raw=get(info["thumburl"])
   with Image.open(io.BytesIO(raw)) as verify:verify.verify()
   with Image.open(io.BytesIO(raw)) as img:
     cleaned=ImageOps.exif_transpose(img).convert("RGB")
