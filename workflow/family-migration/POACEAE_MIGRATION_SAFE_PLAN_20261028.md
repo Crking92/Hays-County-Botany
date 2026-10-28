@@ -16,10 +16,10 @@ First target repository name: `Hays-Botany-Poaceae` (destination not created by 
 - Do not claim verified when an upload or website deployment remains pending.
 
 ## First pilot: Poaceae
-- Select source `content/taxa/Poaceae/**`, including *every* real file, raw photo (including unpublished restricted-source material), `species.json`, family/genus records and provenance. Preserve folder-relative path until new site links are audited.
+- Inventory source `content/taxa/Poaceae/**` completely, including published/restricted photo sources, species records and provenance. Copy every **publishable** byte into the future public family repo; keep all restricted/uncertain media in the unchanged original and separate full backup (or later private archive). Track every excluded file and reason; full source byte-check is for an archival copy only, not a rights-filtered public export.
 - Include required shared website code, glossary links, taxon indices, and build scripts by explicit dependency inventory, not wholesale blind copy.
-- Preserve all per-image creator/license/restriction fields and source links. Source image rights do NOT automatically authorize publishing on a new website. New site must run its own photo-rights preflight with site-specific grants reviewed.
-- Initial staging can be a content-only destination: do not switch public homepage or search until links, annotations and dependencies pass.
+- Preserve every carried-forward creator/license/restriction field and source link. Source rights do NOT automatically authorize public use on another website. New site must run rights preflight with site-specific grants reviewed; **never commit held/unlicensed photos into a future public repo, even temporarily, because deleting them later does not remove Git history**.
+- Initial staging can be a content-only public destination comprised solely of verified publicly reusable content: do not switch homepage or search until links, annotations, exclusion ledger and dependencies pass.
 - New repository must avoid importing original `.git` history, unrelated families, private review data, or unneeded artifacts. Build clean new history after verifying source snapshot and destination contents.
 - Keep an independent archive of all original sources including restricted photos and unpublished records rather than dropping held research.
 
@@ -35,5 +35,5 @@ First target repository name: `Hays-Botany-Poaceae` (destination not created by 
 9. Record final sign-off; only afterward consider removing *redundant current source* (not history rewriting), first with separate backup and explicit approval.
 
 ## Manual setup barrier
-The currently available connected GitHub actions can read/write to existing repositories but do not expose an operation to create a new repository. The owner must create blank `Crking92/Hays-Botany-Poaceae` from GitHub's New repository page (public if using Free Pages), without initializing README/license/gitignore, then authorize the connected GitHub app for the new repo if access is scoped. Never send a token/password in chat.
+The currently connected GitHub actions can read/write to existing repositories but cannot create a new repository. The owner must create blank `Crking92/Hays-Botany-Poaceae` using GitHub's New repository page, **PUBLIC only for a clean, rights-filtered destination** (never first copy copyright-held originals into its Git history). Leave README/license/gitignore unchecked, and authorize the connected GitHub app for the new repo if access is scoped. Never send a token/password in chat. The frozen original and independent ZIP remain the complete source archive while restricted evidence is separately retained.
 No upload/copy has been run yet. No original records have been deleted.
