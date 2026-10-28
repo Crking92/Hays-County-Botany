@@ -45,21 +45,21 @@ def main():
   try:
    j=json.loads(grab("https://commons.wikimedia.org/w/api.php?"+query,4_000_000))
    page=next(iter(j["query"]["pages"].values()))
-   assert page.get("title","").casefold()==("File:"+title).casefold(),page.get("title")
+   assert page.get("title","").casefold()==("File:"+title).casefold(),("Page title mismatch",page.get("title"),title)
    meta=page["imageinfo"][0];right=meta.get("extmetadata",{})
    license_label=right.get("LicenseShortName",{}).get("value","")
    artist=right.get("Artist",{}).get("value","")
    author_re=re.sub("<[^>]*>"," ",artist)
    assert ("publicdomain" in clean(license_label) or clean(license_label)=="pd"),("Individual license unsupported",license_label)
    assert "Hagerty" in author_re or "FWS" in author_re or "Hagerty" in str(right.get("Credit",{})),("Wrong original federal author",artist)
-   assert meta["width"]>=3000 and meta["height"]>=2400,"Small original file not expected"
+   assert meta["width"]>=3000 and meta["height"]>=2400,("Small original file not expected",meta["width"],meta["height"])
    url=meta.get("thumburl") or meta["url"]
    host=urllib.parse.urlparse(url).hostname
    assert host and (host=="upload.wikimedia.org" or host.endswith(".wikimedia.org"))
    raw=grab(url,12_000_000)
    im=Image.open(io.BytesIO(raw));im.verify()
    photo=ImageOps.exif_transpose(Image.open(io.BytesIO(raw))).convert("RGB")
-   assert min(photo.size)>=1000 and max(photo.size)<=2500
+   assert min(photo.size)>=1000 and max(photo.size)<=2500,("Thumbnail size unexpected",photo.size)
    path.parent.mkdir(exist_ok=True,parents=True)
    photo.save(path,"JPEG",quality=89,optimize=True)
    binary=path.read_bytes()
@@ -94,8 +94,8 @@ def main():
     "dimensions":list(photo.size),"bytes":len(binary)})
    print("ARCHIVED",id,photo.size,flush=True)
   except Exception as e:
-   held.append({"file":title,"reason":str(e)[:500]})
-   print("HELD",id,str(e)[:200],flush=True)
+   held.append({"file":title,"reason":repr(e)[:500]})
+   print("HELD",id,repr(e)[:250],flush=True)
  if new:
   d["curation_status"]["photo_metadata_count"]=len(d["images"])
   d["curation_status"]["photo_files_present"]=len(d["images"])
