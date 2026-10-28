@@ -1,0 +1,50 @@
+name: Lane4 Texas wild rice protected species official USFWS public domain original photo archive
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane4_zizania_fws_additional_pd_photo_archive_20261027.py
+      - .github/workflows/lane4-zizania-additional-fws-pd-source-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane4-zizania-texana-authoritative-fws-public-domain-image-archive
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          sparse-checkout: |
+            scripts/lane4_zizania_fws_additional_pd_photo_archive_20261027.py
+            content/taxa/Poaceae/Zizania/zizania-texana
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - run: python -m pip install --disable-pip-version-check Pillow
+      - name: Check federal USFWS per-file public-domain status and valid EXIF-free JPEG bytes
+        run: python scripts/lane4_zizania_fws_additional_pd_photo_archive_20261027.py
+      - name: Save documented genuine federal wildlife photography and source links
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --sparse content/taxa/Poaceae/Zizania/zizania-texana/ reports/lane4-zizania-extra-fws-public-domain-20261027.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Lane4 Texas wild-rice additional genuine USFWS public-domain photo source records"
+            pushed=0
+            for i in 1 2 3 4 5 6 7 8; do
+              git fetch origin main
+              if ! git rebase origin/main; then
+                git rebase --abort || true
+                echo "Concurrent protected species change held rather than overwritten."
+                exit 1
+              fi
+              if git push origin HEAD:main; then pushed=1; break; fi
+              sleep 3
+            done
+            test "$pushed" = 1
+          fi
