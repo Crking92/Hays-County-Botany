@@ -26,6 +26,13 @@
 - Windows review: download ZIP, extract, open `dist/RUN_ASTERACEAE_REVIEW.bat`; use local Python 3 server at `http://127.0.0.1:8767/?species=achillea-millefolium`. Opening `index.html` directly via `file://` is not supported because learner fetches JSON.
 - No Pages deployment occurred. Separate family URL is not yet a live public website; hub search still links to the original learner.
 
+## Separate public-test release candidate (prepared, not published)
+- Strict-CC build/test workflow: [Asteraceae manual Pages release workflow](https://github.com/Crking92/Hays-Botany-Asteraceae/blob/main/.github/workflows/asteraceae-manual-strict-cc-pages.yml), with `publish=false` by default. It cannot deploy on a normal push.
+- [Successful initial strict release gate](https://github.com/Crking92/Hays-Botany-Asteraceae/actions/runs/40724534011) produced 180 species with **88 images across 62 species** and **zero NC-only images**; creator, source, CC license and physical files were validated. [Download strict public candidate](https://github.com/Crking92/Hays-Botany-Asteraceae/actions/runs/40724534011/artifacts/12832745309).
+- GitHub Pages has **not** been enabled/deployed. Current new repo is private; actual Pages eligibility is dependent on GitHub plan. Do not make public or enable public publishing without a separate explicit owner approval and final raw-repository media history/source-rights assessment.
+- The full private review includes 180 photographs across 90 species, **92 NC-only** with attribution and noncommercial warnings.
+- A real `hub → family site → hub` public navigation check remains blocked until a real, verified Pages URL exists. No changes to live main hub URL routing.
+
 ## Remaining blockers before a real website migration
 1. User review of private test site’s appearance and gallery behavior; verify common and scientific name matches and links.
 2. Visually inspect existing/photo-added anatomy arrow coordinates on actual pixels and complete high-value missing diagnostics; do not count generic photo-gallery roles as anatomy-certification.
