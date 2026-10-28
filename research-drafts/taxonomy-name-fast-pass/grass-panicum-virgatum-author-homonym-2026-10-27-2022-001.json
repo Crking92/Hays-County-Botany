@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-panicum-virgatum-author-homonym-2026-10-27-2022-001",
+  "date_checked": "2026-10-27",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Panicum",
+  "source_pool_spelling": "Panicum virgatum",
+  "accepted_name": "Panicum virgatum L.",
+  "accepted_rank": "species",
+  "canonical_taxon_ids": [
+    "panicum-virgatum"
+  ],
+  "canonical_target_path": "content/taxa/Poaceae/Panicum/panicum-virgatum/species.json",
+  "canonical_blob_sha_read_only": "ba17b565c09cdda7cf9cd8cb2ad6d6d8480e47bc",
+  "claim_path": "workflow/taxonomy-claims/grass-panicum-virgatum-author-homonym-2026-10-27-2022-001.json",
+  "claim_blob_sha_verified": "738a5c52865b30abf6279671f82ac3f94663aae3",
+  "primary_decision": "PASS_ACCEPTED_PANICUM_VIRGATUM_WITH_AUTHOR_SENSITIVE_HOMONYM_AND_MACRANTHUM_SPECIES_BOUNDARY; PRESERVE_SPECIMEN_AND_HYBRID_HOLDS",
+  "decision_counts": {
+    "PASS": 8,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decisions": [
+    {
+      "source_name": "Panicum virgatum L.",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "species",
+      "scientific_decision": "PASS",
+      "action": "POWO/WCVP accepts this name and authorship; retain one canonical switchgrass species, no rename.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1"
+      ]
+    },
+    {
+      "source_name": "Panicum virgatum infraspecific ranks",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "species",
+      "scientific_decision": "PASS",
+      "action": "POWO lists no currently accepted varieties/subspecies for this species; old variety names must be evaluated as synonyms, not automatically separate installed cards.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1",
+        "https://research.fs.usda.gov/feis/species-reviews/panvir"
+      ]
+    },
+    {
+      "source_name": "Panicum virgatum var. cubense Griseb.",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "variety -> species",
+      "scientific_decision": "PASS",
+      "action": "Historical variety is a synonym under POWO; retain searchable authored alias, not an independently accepted variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182675-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1"
+      ]
+    },
+    {
+      "source_name": "Panicum virgatum var. spissum H.P.Linder",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "variety -> species",
+      "scientific_decision": "PASS",
+      "action": "Historical variety is a synonym under POWO; older USDA species review lists it as a variety under an earlier treatment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1",
+        "https://research.fs.usda.gov/feis/species-reviews/panvir"
+      ]
+    },
+    {
+      "source_name": "Panicum virgatum var. macranthum Vasey",
+      "accepted_name": "Panicum havardii Vasey",
+      "rank": "variety -> separate accepted species",
+      "scientific_decision": "PASS",
+      "action": "POWO places this historical switchgrass variety under accepted P. havardii, NOT under P. virgatum; do not merge historical voucher names automatically.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182679-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181958-2"
+      ]
+    },
+    {
+      "source_name": "Panicum havardii Vasey",
+      "accepted_name": "Panicum havardii Vasey",
+      "rank": "species",
+      "scientific_decision": "PASS",
+      "action": "POWO recognizes a separate accepted species; any future card decision belongs to installer/approved pipeline, not this taxonomy worker.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181958-2"
+      ]
+    },
+    {
+      "source_name": "Panicum coloratum Walter",
+      "accepted_name": "Panicum virgatum L.",
+      "rank": "illegitimate later homonym -> species",
+      "scientific_decision": "PASS",
+      "action": "POWO treats Walter's illegitimate later homonym as a synonym of switchgrass; authorship is essential.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77244574-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1"
+      ]
+    },
+    {
+      "source_name": "Panicum coloratum L.",
+      "accepted_name": "Panicum coloratum L.",
+      "rank": "species",
+      "scientific_decision": "PASS",
+      "action": "Linnaeus's earlier P. coloratum is separately accepted, not switchgrass; do not equate with Walter's homonym.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:410989-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77244574-1"
+      ]
+    },
+    {
+      "source_name": "Authorless 'Panicum coloratum' -> Panicum virgatum",
+      "accepted_name": "UNDETERMINED",
+      "rank": "unqualified historical name",
+      "scientific_decision": "FAIL",
+      "action": "Reject automatic alias of authorless coloratum to switchgrass because P. coloratum L. is a different accepted species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:410989-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77244574-1"
+      ]
+    },
+    {
+      "source_name": "Panicum virgatum var. macranthum -> Panicum virgatum",
+      "accepted_name": "Panicum havardii Vasey",
+      "rank": "incorrect historical mapping",
+      "scientific_decision": "FAIL",
+      "action": "Reject treating var. macranthum as an accepted or synonymic variety of P. virgatum sensu POWO; name maps to P. havardii.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182679-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181958-2"
+      ]
+    },
+    {
+      "source_name": "Unvouchered source specimen labelled 'Panicum virgatum var. macranthum'",
+      "accepted_name": "UNCONFIRMED specimen identity",
+      "rank": "specimen identification",
+      "scientific_decision": "HOLD",
+      "action": "Nomenclatural mapping does not establish the original specimen was correctly identified; require voucher/locality and independently verified diagnostic determination.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182679-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181958-2"
+      ]
+    },
+    {
+      "source_name": "Switchgrass photograph labelled upland/lowland ecotype, cultivar, or variety",
+      "accepted_name": "UNCONFIRMED individual photo identity",
+      "rank": "photograph identification",
+      "scientific_decision": "HOLD",
+      "action": "Morphology or uploader labels alone do not establish ploidy, ecotype, cultivar provenance, or precise historical variety identity.",
+      "sources": [
+        "https://pubmed.ncbi.nlm.nih.gov/21104398/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3377691/"
+      ]
+    },
+    {
+      "source_name": "Historical authorless Panicum coloratum record",
+      "accepted_name": "UNRESOLVED until author/protologue/voucher known",
+      "rank": "name application",
+      "scientific_decision": "UNRESOLVED",
+      "action": "Retain original source spelling; author-sensitive homonyms prevent deterministic mapping without primary record context.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77244574-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:410989-1"
+      ]
+    },
+    {
+      "source_name": "Hybrid ancestry of individual Panicum virgatum specimens",
+      "accepted_name": "UNRESOLVED without nuclear/genetic specimen evidence",
+      "rank": "hybrid/reticulation identity",
+      "scientific_decision": "UNRESOLVED",
+      "action": "Phylogenetic evidence for ancient allopolyploid origin and modern ploidy differences does not prove that any learner photograph or local specimen is a recent interspecific hybrid.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3377691/",
+        "https://pubmed.ncbi.nlm.nih.gov/21104398/"
+      ]
+    }
+  ],
+  "important_boundary": "P. virgatum var. macranthum Vasey maps to accepted P. havardii, while P. coloratum Walter (illegitimate later homonym) maps to P. virgatum and P. coloratum L. is a separately accepted species.",
+  "older_treatment_conflict": "US Forest Service 1993 species review enumerated var. cubense and var. spissum, but current POWO/WCVP places them in synonymy; do not create rank-based duplicate learners.",
+  "genetic_guardrail": "Upland/lowland ecotypes, cytotypes and genomic polyploid origin are not sufficient to authenticate individual hybrid ancestry, exact taxon of a photograph, or source voucher.",
+  "sources": {
+    "virgatum": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:413537-1",
+    "havardii": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:181958-2",
+    "macranthum": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182679-2",
+    "coloratum_walter": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:77244574-1",
+    "coloratum_l": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:410989-1",
+    "cubense": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182675-2",
+    "cubense_subsp": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:182674-2",
+    "itis": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=40913",
+    "usfs": "https://research.fs.usda.gov/feis/species-reviews/panvir",
+    "genomic": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3377691/",
+    "ecotypes": "https://pubmed.ncbi.nlm.nih.gov/21104398/"
+  },
+  "actions": {
+    "new_card_possible": false,
+    "alias_to_existing_concept": [
+      "Panicum virgatum var. cubense Griseb.",
+      "Panicum virgatum var. spissum H.P.Linder",
+      "Panicum coloratum Walter"
+    ],
+    "human_concept_review": [
+      "Panicum virgatum var. macranthum Vasey",
+      "authorless Panicum coloratum",
+      "unvouchered ecotype or hybrid identifications"
+    ],
+    "no_new_installation": true
+  },
+  "native_range_audit": "DEFERRED — no county/native-range changes",
+  "scientific_hold_policy": "Preserve existing PASS/FAIL/HOLD/UNRESOLVED; taxonomy does not verify individual photo/specimen identity.",
+  "files_modified_only": [
+    "research-drafts/taxonomy-name-fast-pass/grass-panicum-virgatum-author-homonym-2026-10-27-2022-001.json"
+  ],
+  "excluded_scope": [
+    "species.json",
+    "photos",
+    "genus/family lessons",
+    "installation",
+    "county nativity",
+    "Pages",
+    "other workers' files"
+  ]
+}
