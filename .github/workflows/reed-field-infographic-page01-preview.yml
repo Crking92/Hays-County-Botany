@@ -1,0 +1,62 @@
+name: Reed field infographic Page 01 review sample
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'workflow/field-guide-pages/*-page01.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: reed-infographic-p01-preview
+  cancel-in-progress: false
+jobs:
+  create-page-01:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install infographic designer and preview renderer
+        run: python -m pip install "reportlab>=4,<5" "pymupdf>=1.25,<2" "pillow>=10,<13"
+      - name: Generate page 01 from actually archived species photographs
+        run: python scripts/create_reed_field_infographic_page01.py
+      - name: Check output is one landscape page with six embedded photographs
+        run: |
+          python - <<'PY'
+          import fitz
+          p=fitz.open("reed-field-ID-page-01-review.pdf")
+          assert len(p)==1 and abs(p[0].rect.width-792)<1 and abs(p[0].rect.height-612)<1
+          assert len(p[0].get_images(full=True))>=6
+          from pathlib import Path
+          assert Path("reed-field-ID-page-01-review.png").stat().st_size>100000
+          print("SAMPLE PAGE 01 VERIFIED")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reed-page-01-visual-review
+          path: |
+            reed-field-ID-page-01-review.pdf
+            reed-field-ID-page-01-review.png
+          if-no-files-found: error
+      - name: Save PNG and PDF for user to visually approve
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reed-field-ID-page-01-review.pdf reed-field-ID-page-01-review.png
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Add first printable reed identification infographic sample"
+          for attempt in 1 2 3 4 5 6; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          echo "::warning::Preview is in workflow artifact, but main moved too quickly for a commit"
