@@ -1,0 +1,255 @@
+{
+  "schema": "grass-taxonomy-name-verification-v1",
+  "batch_id": "grass-bromus-pubescens-purgans-authorship-2026-10-28-0229-001",
+  "review_date": "2026-10-28",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "scope": "Existing canonical Poaceae Bromus pubescens only: 1807/1809 accepted-author priority and the rejected B. purgans L. versus misapplied B. purgans auct. non L. boundary; preserve rank-specific previous evidence and photo/hybrid holds.",
+  "claim_path": "workflow/taxonomy-claims/grass-bromus-pubescens-purgans-authorship-2026-10-28-0229-001.json",
+  "canonical_targets": [
+    {
+      "id": "bromus-pubescens",
+      "path": "content/taxa/Poaceae/Bromus/bromus-pubescens/species.json",
+      "pre_review_blob_sha": "ee2c558e072b659422d4706641421d53ebefcf67",
+      "accepted_name": "Bromus pubescens Spreng.",
+      "rank": "species",
+      "canonical_name_change": false
+    }
+  ],
+  "prior_evidence": {
+    "path": "research-drafts/taxonomy-name-fast-pass/grass-bromus-lanceolatus-texensis-pubescens-concept-2026-10-23-0621-001.json",
+    "blob_sha": "fdaae2c2fda299e1c6805adf3de850b33ea4abf5",
+    "note": "2026-10-23 three-species Bromus evidence already covers many historical purgans varieties; this record adds original Linnaean name versus misapplication and the 2009 accepted authorship correction."
+  },
+  "decisions": [
+    {
+      "code": "BP-01",
+      "status": "PASS",
+      "source_name": "Bromus pubescens Spreng.",
+      "accepted_target": "Bromus pubescens Spreng.",
+      "reason": "Accepted Poaceae species under POWO/WCVP; no canonical accepted-name change.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2"
+      ]
+    },
+    {
+      "code": "BP-02",
+      "status": "PASS",
+      "source_name": "Bromus pubescens Spreng. (1807)",
+      "accepted_target": "Bromus pubescens Spreng.",
+      "reason": "The 1807 Sprengel publication has priority over the 1809 Muhlenberg ex Willdenow attribution, as established by Veldkamp (2009) and adopted by POWO and USDA GRIN.",
+      "sources": [
+        "https://doi.org/10.3159/08-RA-069R.1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2",
+        "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=401070"
+      ]
+    },
+    {
+      "code": "BP-03",
+      "status": "PASS",
+      "source_name": "Bromus pubescens Muhl. ex Willd. (1809)",
+      "accepted_target": "Bromus pubescens Spreng.",
+      "reason": "Canadian governmental nomenclature explicitly labels the later 1809 attribution an illegitimate isonym; do not create a separate learner or use this as the current accepted author.",
+      "sources": [
+        "https://www.planthardiness.gc.ca/index.php?lang=en&m=8&s=b&speciesid=2703706&wbdisable=true",
+        "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=401070",
+        "https://doi.org/10.3159/08-RA-069R.1"
+      ]
+    },
+    {
+      "code": "BP-04",
+      "status": "PASS",
+      "source_name": "Bromopsis pubescens (Spreng.) Holub",
+      "accepted_target": "Bromus pubescens Spreng.",
+      "reason": "Homotypic generic-combination synonym, not a second accepted species in the POWO backbone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2"
+      ]
+    },
+    {
+      "code": "BP-05",
+      "status": "PASS",
+      "source_name": "Bromus laeviglumis (Scribn. ex Shear) Hitchc.",
+      "accepted_target": "Bromus pubescens Spreng.",
+      "reason": "Heterotypic synonym; rank- and author-sensitive alias.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2"
+      ]
+    },
+    {
+      "code": "BP-06",
+      "status": "PASS",
+      "source_name": "Bromus purgans L. (1753; nom. rej.)",
+      "accepted_target": "Bromus kalmii A.Gray",
+      "reason": "Kew places the original Linnaean rejected name under accepted B. kalmii, not B. pubescens.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/37142-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37071-2"
+      ]
+    },
+    {
+      "code": "BP-07",
+      "status": "PASS",
+      "source_name": "Bromus kalmii A.Gray",
+      "accepted_target": "Bromus kalmii A.Gray",
+      "reason": "Independently accepted species under POWO/WCVP; it is not an alias of the installed B. pubescens learner.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37071-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2"
+      ]
+    },
+    {
+      "code": "BP-08",
+      "status": "PASS",
+      "source_name": "Bromus purgans var. laeviglumis (Scribn. ex Shear) Swallen",
+      "accepted_target": "Bromus pubescens Spreng.",
+      "reason": "Rank-qualified heterotypic synonym of B. pubescens, already covered in the prior cross-rank evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2"
+      ]
+    },
+    {
+      "code": "BP-09",
+      "status": "PASS",
+      "source_name": "Bromus purgans var. texensis Shear",
+      "accepted_target": "Bromus texensis (Shear) Hitchc.",
+      "reason": "Historical variety maps to separately accepted B. texensis, as documented in the prior cross-rank evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37176-2"
+      ]
+    },
+    {
+      "code": "BP-10",
+      "status": "PASS",
+      "source_name": "Bromus purgans var. ciliatus (L.) Kuntze",
+      "accepted_target": "Bromus ciliatus L.",
+      "reason": "Historical variety maps to separately accepted B. ciliatus, not B. pubescens or B. kalmii.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37003-2"
+      ]
+    },
+    {
+      "code": "BP-11",
+      "status": "FAIL",
+      "source_name": "Proposal: map Bromus purgans L. directly to Bromus pubescens",
+      "accepted_target": "REJECT_WRONG_ACCEPTED_TARGET",
+      "reason": "This conflates the Linnaean rejected name (under B. kalmii) with later misapplied usages (auct. non L.) that sometimes referred to B. pubescens.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/37142-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37071-2",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.155696/Bromus_kalmii"
+      ]
+    },
+    {
+      "code": "BP-12",
+      "status": "FAIL",
+      "source_name": "Proposal: flatten all historical Bromus purgans ranks and forms into one learner",
+      "accepted_target": "REJECT_RANK_AND_AUTHOR_COLLAPSE",
+      "reason": "Varieties and forms under the historical purgans complex belong to distinct modern accepted species; author/rank and voucher context must be retained.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37176-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37003-2",
+        "https://powo.science.kew.org/taxon/37142-2"
+      ]
+    },
+    {
+      "code": "BP-13",
+      "status": "HOLD",
+      "source_name": "Unqualified historical Bromus purgans auct. non L. observations",
+      "accepted_target": "HOLD_IDENTITY",
+      "reason": "The misapplied phrase has referred to B. pubescens and B. latiglumis; without author/rank, specimen or original source concept, do not assign an individual record to one accepted species.",
+      "sources": [
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.155696/Bromus_kalmii",
+        "https://gobotany.nativeplanttrust.org/species/bromus/pubescens/"
+      ]
+    },
+    {
+      "code": "BP-14",
+      "status": "HOLD",
+      "source_name": "Installed Bromus pubescens source-labelled photographs and individual specimens",
+      "accepted_target": "HOLD_SPECIMEN_IDENTITY",
+      "reason": "Accepted nomenclature and synonymy do not establish individual photographic or specimen identity; retain prior diagnostic-anatomy/source-voucher holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2"
+      ]
+    },
+    {
+      "code": "BP-15",
+      "status": "HOLD",
+      "source_name": "Unverified Bromus pubescens hybrid ancestry",
+      "accepted_target": "HOLD_UNSUPPORTED_HYBRID",
+      "reason": "No primary evidence reviewed establishes a particular learner individual as a hybrid; do not infer ancestry from intermediate morphology.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2"
+      ]
+    },
+    {
+      "code": "BP-16",
+      "status": "UNRESOLVED",
+      "source_name": "Exact accession and herbarium particulars of Veldkamp's 2009 neotype",
+      "accepted_target": "UNRESOLVED_NEOTYPE_DETAIL",
+      "reason": "The 2009 primary paper abstract confirms neotypification but the full protologue/typification details were not directly inspected during this run; do not invent voucher number, locality or repository.",
+      "sources": [
+        "https://doi.org/10.3159/08-RA-069R.1"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 10,
+    "FAIL": 2,
+    "HOLD": 3,
+    "UNRESOLVED": 1
+  },
+  "sources_checked_on": "2026-10-28",
+  "sources_primary": [
+    {
+      "authority": "Veldkamp, J.F. 2009. The authorship of Bromus pubescens (Gramineae). Journal of the Torrey Botanical Society 136(1):137–138.",
+      "url": "https://doi.org/10.3159/08-RA-069R.1",
+      "access": "Published abstract verified; full article not inspected; neotype details remain UNRESOLVED."
+    },
+    {
+      "authority": "POWO/WCVP 2026",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37133-2",
+      "access": "Accepted name, authorship, synonymy"
+    },
+    {
+      "authority": "POWO/WCVP 2026",
+      "url": "https://powo.science.kew.org/taxon/37142-2",
+      "access": "B. purgans L. rejected name under B. kalmii"
+    },
+    {
+      "authority": "POWO/WCVP 2026",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:37071-2",
+      "access": "Distinct accepted B. kalmii"
+    },
+    {
+      "authority": "USDA ARS GRIN",
+      "url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=401070",
+      "access": "2009 nomenclature verification and accepted authorship"
+    },
+    {
+      "authority": "Natural Resources Canada",
+      "url": "https://www.planthardiness.gc.ca/index.php?lang=en&m=8&s=b&speciesid=2703706&wbdisable=true",
+      "access": "Later Muhl. ex Willd. attribution treated as illegitimate isonym"
+    },
+    {
+      "authority": "NatureServe",
+      "url": "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.155696/Bromus_kalmii",
+      "access": "Historical B. purgans misapplication across accepted species"
+    }
+  ],
+  "limitations": "No new specimen/photo identification, hybrid validation, or county-native determination; original 2009 paper full text not inspected. Do not treat historical B. purgans auct. non L. as a formal homotypic synonym or silently rewrite source labels.",
+  "preservation": {
+    "scientific_pass_fail_hold_unresolved": "All prior decisions unchanged; new evidence appended as separate narrow record",
+    "specimen_identity": "HOLD",
+    "unsupported_hybrid": "HOLD",
+    "historical_unqualified_names": "HOLD",
+    "neotype_details": "UNRESOLVED",
+    "county_nativity": "DEFERRED_UNCHANGED",
+    "canonical_species_file_modified": false,
+    "photo_sourcing": false,
+    "genus_family_lessons": false,
+    "installation": false,
+    "pages": false
+  }
+}
