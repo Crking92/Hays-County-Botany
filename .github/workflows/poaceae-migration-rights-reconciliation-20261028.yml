@@ -1,0 +1,55 @@
+name: Poaceae migration dry-run source and rights census
+on:
+  push:
+    branches: [migration-prep-20261028]
+    paths:
+      - '.github/workflows/poaceae-migration-rights-reconciliation-20261028.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: migration-prep-20261028
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.11'}
+      - name: Inspect snapshot source file identities and general photo rights
+        run: |
+          python scripts/audit_poaceae_migration_rights_20261028.py \
+            --root . \
+            --manifest workflow/family-migration/POACEAE_SNAPSHOT_FILES_20261028.json \
+            --report poaceae-migration-audit/rights-and-source-ledger.json
+      - name: Verify pinned baseline source images have not been modified on prep branch
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from hashlib import sha1
+          report=json.loads(Path('poaceae-migration-audit/rights-and-source-ledger.json').read_text())
+          rows=report['source_file_rows']
+          assert len(rows)==report['source_full_file_count']
+          changed=[];missing=[]
+          for item in rows:
+            p=Path(item['path'])
+            if not p.is_file():missing.append(item['path']);continue
+            data=p.read_bytes()
+            digest=sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+            if digest!=item['git_blob_sha'] or len(data)!=item['bytes']:
+              changed.append(item['path'])
+          assert not missing, 'Missing source files: '+str(missing[:8])
+          assert not changed, 'Changed snapshot files: '+str(changed[:8])
+          print('PINNED_SOURCE_BYTE_CHECK_PASSED',len(rows),report['source_full_bytes'])
+          print('NO_PUBLIC_REPO_CREATED_OR_MODIFIED')
+          PY
+      - name: Upload rights and file-migration ledger, no photos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: poaceae-source-and-rights-ledger-20261028
+          path: poaceae-migration-audit/
+          if-no-files-found: warn
+          retention-days: 14
