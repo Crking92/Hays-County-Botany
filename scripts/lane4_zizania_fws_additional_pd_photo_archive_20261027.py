@@ -59,6 +59,7 @@ def main():
    raw=grab(url,12_000_000)
    im=Image.open(io.BytesIO(raw));im.verify()
    photo=ImageOps.exif_transpose(Image.open(io.BytesIO(raw))).convert("RGB")
+   photo.thumbnail((1700,2400),Image.Resampling.LANCZOS)
    assert min(photo.size)>=1000 and max(photo.size)<=2500,("Thumbnail size unexpected",photo.size)
    path.parent.mkdir(exist_ok=True,parents=True)
    photo.save(path,"JPEG",quality=89,optimize=True)
@@ -70,7 +71,7 @@ def main():
     "creator":"Ryan Hagerty / U.S. Fish and Wildlife Service","license":"Public domain — original U.S. federal government employee photograph",
     "source_page":source,"source_file_sha1":meta.get("sha1"),
     "source_taxon":"Zizania texana","source_locality":"San Marcos River conservation photo series (precise protected stand coordinate NOT recorded).",
-    "modifications":"Uncropped resized source JPEG to max 1500px width, EXIF/GPS stripped. No synthesized anatomy, no in-pixel arrows.",
+    "modifications":"Uncropped resized source JPEG to max 1700×2400 pixels, EXIF/GPS stripped. No synthesized anatomy, no in-pixel arrows.",
     "photo_status":"Original Commons file is exact species and USFWS author, individual original work explicitly PUBLIC DOMAIN; bytes verified. Human PHOTO PIXEL/REPRODUCTIVE SEX audit pending; do not imply authorized crew plant manipulation.",
     "public_reuse":"USFWS U.S.-government public-domain photo, source and credit documented, no collection activity encouraged.",
     "source_original_url":meta["url"],"archived_sha256":hashlib.sha256(binary).hexdigest(),
