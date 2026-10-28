@@ -34,7 +34,7 @@ def crop_photo(img_path,box):
     a=ImageOps.exif_transpose(a).convert("RGB")
     x0,y0,x1,y1=box
     tw,th=x1-x0,y1-y0
-    thumbnail=ImageOps.fit(a,(tw,th),method=Image.Resampling.LANCZOS,centering=(.50,.50))
+    thumbnail=ImageOps.fit(a,(tw,th),method=Image.Resampling.LANCZOS,centering=(.50,.78))
     im.paste(thumbnail,(x0,y0))
     d.rounded_rectangle((x0-1,y0-1,x1+1,y1+1),radius=7,outline="#9FAE9C",width=2)
     return a.size
@@ -60,7 +60,7 @@ for n,entry in enumerate(DATA):
         # tight bunch rooted at shared crown
         for k in range(17):
             sx=404+random.uniform(-29,29)
-            ht=random.randint(116,236)
+            ht=random.randint(100,171)
             ex=sx+random.uniform(-145,145)
             d.polygon([(sx-5,sy-4),(sx+6,sy-5),(ex+2,sy-ht),(ex-4,sy-ht)],fill=random.choice(["#426D3C","#779951","#8EAD67"]))
         roots(407,sy+9,22,80,100)
@@ -75,7 +75,7 @@ for n,entry in enumerate(DATA):
         ystem=sy-8;line([(121,ystem),(765,ystem)],"#577D38",16)
         for x in [197,405,621]:
             d.ellipse((x-16,ystem-13,x+16,ystem+14),fill="#A9C47F",outline=GREEN,width=3)
-            stem(x,ystem-3,ystem-155-random.randint(0,27))
+            stem(x,ystem-3,ystem-124-random.randint(0,11))
             roots(x,ystem+16,13,68,50)
         rr((101,y+147,281,y+194),"#E0EADC",8);txt(117,y+156,"STOLON",22,DARK,True)
         arrow([(230,y+195),(296,ystem-2)],DARK,5)
@@ -92,8 +92,8 @@ for n,entry in enumerate(DATA):
         for x in [194,417,645]:
             d.ellipse((x-16,rh-18,x+16,rh+18),fill="#D4B789",outline="#806849",width=3)
             line([(x,rh),(x,soil_y-30)],GREEN,13)
-            stem(x,soil_y-30,soil_y-166-random.randint(0,15))
-            roots(x,rh+16,14,72,45)
+            stem(x,soil_y-30,soil_y-118-random.randint(0,10))
+            roots(x,rh+16,14,51,45)
         rr((100,y+152,305,y+204),"#E0EADC",8);txt(118,y+162,"RHIZOME",23,DARK,True)
         arrow([(258,y+204),(320,rh-10)],DARK,5)
         txt(541,y+357,"ROOTS",20,DARK,True);arrow([(583,y+352),(639,rh+55)],DARK,4)
