@@ -18,9 +18,9 @@ def arrow(points,color=DARK,width=6):
     a=math.atan2(y2-y1,x2-x1)
     p=16
     d.polygon([(x2,y2),(x2-p*math.cos(a-.5),y2-p*math.sin(a-.5)),(x2-p*math.cos(a+.5),y2-p*math.sin(a+.5))],fill=color)
-def stem(x,y,top):
+def stem(x,y,top,leaves=4):
     line([(x,y),(x,top)],DARK,7)
-    for k,(dx,ht) in enumerate([(-62,89),(66,115),(-44,141),(57,165)]):
+    for k,(dx,ht) in enumerate([(-44,55),(49,64),(-40,70),(51,79)][:leaves]):
         sy=y-24-k*21
         d.polygon([(x-4,sy+5),(x+dx*.52,sy-ht*.65),(x+dx,sy-ht),(x+dx*.50,sy-ht*.56),(x+4,sy+4)],fill=[GREEN,ALT,GRASS][k%3])
 def roots(x,y,num=16,h=80,spread=65):
@@ -92,7 +92,7 @@ for n,entry in enumerate(DATA):
         for x in [194,417,645]:
             d.ellipse((x-16,rh-18,x+16,rh+18),fill="#D4B789",outline="#806849",width=3)
             line([(x,rh),(x,soil_y-30)],GREEN,13)
-            stem(x,soil_y-30,soil_y-118-random.randint(0,10))
+            stem(x,soil_y-30,soil_y-118-random.randint(0,10),leaves=2)
             roots(x,rh+16,14,51,45)
         rr((100,y+152,305,y+204),"#E0EADC",8);txt(118,y+162,"RHIZOME",23,DARK,True)
         arrow([(258,y+204),(320,rh-10)],DARK,5)
