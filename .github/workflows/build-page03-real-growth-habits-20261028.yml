@@ -2,7 +2,9 @@ name: Build crew Page 3 real-photo growth habit comparison
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/build-page03-real-growth-habits-20261028.yml]
+    paths:
+      - '.github/workflows/build-page03-real-growth-habits-20261028.yml'
+      - 'scripts/build_page03_real_growth_habits_20261028.py'
   workflow_dispatch:
 permissions:
   contents: write
