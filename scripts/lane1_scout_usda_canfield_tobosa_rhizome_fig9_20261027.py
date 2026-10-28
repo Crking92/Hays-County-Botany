@@ -37,6 +37,9 @@ for i,page in enumerate(pdf):
  if re.search(r"(bisect|rhizomes|scaly.*stems)",t,re.I) and re.search(r"(tobosa|rhizome)",t,re.I):
   found.append({"index":i,"page_wh":[int(page.rect.width),int(page.rect.height)],"text":t[:2300]})
 print("MATCHED_PAGES",json.dumps(found,ensure_ascii=False),flush=True)
+if len(pdf)>29:
+ print("PAGE29_TEXT_BLOCK_BOUNDS",json.dumps([{"r":[round(v,1) for v in b[:4]],"txt":" ".join(b[4].split())[:300]} for b in pdf[29].get_text("blocks")],ensure_ascii=False),flush=True)
+ print("PAGE29_IMAGE_REGIONS",json.dumps([{"xref":it[0],"rects":[list(rect) for rect in pdf[29].get_image_rects(it[0])]} for it in pdf[29].get_images(full=True)][:20]),flush=True)
 if not found: 
  print("FIGURE_9_NOT_SEARCHABLE; scanned PDF needs manual page screenshot. No archive.",flush=True)
  raise SystemExit(0)
