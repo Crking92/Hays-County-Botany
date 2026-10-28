@@ -1,0 +1,184 @@
+{
+  "batch_id": "grass-phalaris-angustata-crossauthority-2026-10-28-0622-001",
+  "lane": "taxonomy-name-fast-pass",
+  "owner": "Grass Taxonomy Verification hourly worker",
+  "reviewed_at": "2026-10-28",
+  "scope": "Poaceae installed learner: Phalaris caroliniana and its conflicting infraspecific historical synonym mapping; taxonomy evidence only",
+  "claim_path": "workflow/taxonomy-claims/grass-phalaris-angustata-crossauthority-2026-10-28-0622-001.json",
+  "prior_evidence_path": "research-drafts/taxonomy-name-fast-pass/grass-hopia-phalaris-homonym-2026-10-23-0128-001.json",
+  "prior_evidence_sha": "78a61bb323fa9957c534971c8d4354fbe43e34a4",
+  "canonical_path": "content/taxa/Poaceae/Phalaris/phalaris-caroliniana/species.json",
+  "canonical_sha_at_review": "eb567b5d5c971b4d790e56ad7a75d74e76be176c",
+  "accepted_name": "Phalaris caroliniana Walter",
+  "family": "Poaceae",
+  "genus": "Phalaris",
+  "rank": "species",
+  "powo_status": "accepted",
+  "source_pool_spelling": "Phalaris caroliniana",
+  "duplicate_guardrail": "One installed Phalaris caroliniana card. Phalaris angusta Nees ex Trin. is a separately accepted species under POWO. Do not create duplicate cards for the historical names; preserve exact authorship and rank.",
+  "discovery": "Additional conflict not addressed in the October 23 evidence: Kew's var. angustata mapping differs from ITIS and two peer-reviewed taxonomic treatments; Kew's synonym-page citation contains an internally cautionary 'cited as Phalaris angusta' note.",
+  "decisions": [
+    {
+      "id": "PHAL-XA-01",
+      "scientific_status": "PASS",
+      "name": "Phalaris caroliniana Walter",
+      "finding": "Kew POWO/WCVP accepts this species in Poaceae, genus Phalaris, originally published in Fl. Carol.:74 (1788). Existing canonical learner accepted-name spelling is correct.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:415591-1"
+      ]
+    },
+    {
+      "id": "PHAL-XA-02",
+      "scientific_status": "PASS",
+      "name": "Phalaris angusta Nees ex Trin.",
+      "finding": "Kew POWO/WCVP accepts a separate species (1827), not an alias of Phalaris caroliniana. Its authorship and basionym concept are independently indexed by IPNI.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:311946-2",
+        "https://www.ipni.org/n/311946-2"
+      ]
+    },
+    {
+      "id": "PHAL-XA-03",
+      "scientific_status": "PASS",
+      "name": "Phalaris intermedia var. angusta (Nees ex Trin.) Chapm.",
+      "finding": "Kew maps this rank/name to accepted Phalaris angusta, a homotypic synonym; do not confuse the epithet angusta with Beal's angustata.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/192263-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:311946-2"
+      ]
+    },
+    {
+      "id": "PHAL-XA-04",
+      "scientific_status": "PASS",
+      "name": "Phalaris intermedia var. angustata Beal",
+      "finding": "Kew's current accepted-name mapping places Beal's 1896 variety under Phalaris caroliniana, not P. angusta. This is the current POWO-mapping fact, not a universal resolution of the conflicting treatments.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:312111-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:415591-1"
+      ]
+    },
+    {
+      "id": "PHAL-XA-05",
+      "scientific_status": "PASS",
+      "name": "Phalaris intermedia var. angustata Beal typification in Finot 2014",
+      "finding": "Finot (2014) places this name under Phalaris angusta and identifies a Pringle 15086 lectotype, MO-1837515, with F-210177 and PH-1087785 isolectotypes. These are published typification references, not independently examined specimen images.",
+      "sources": [
+        "https://www.scielo.cl/scielo.php?pid=S0717-66432014000200007&script=sci_arttext"
+      ]
+    },
+    {
+      "id": "PHAL-XA-06",
+      "scientific_status": "FAIL",
+      "name": "Authorless Phalaris angusta / conflated angusta and angustata",
+      "finding": "A single automatic accepted-name mapping for authorless 'Phalaris angusta' or a spelling-normalized merge of 'angusta' and 'angustata' would incorrectly combine different nomenclatural concepts; prohibit that automated rule.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:311946-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:415591-1",
+        "https://powo.science.kew.org/taxon/192263-2"
+      ]
+    },
+    {
+      "id": "PHAL-XA-07",
+      "scientific_status": "HOLD",
+      "name": "Historical Beal-variety vouchers",
+      "finding": "Do not reassign specimens originally labelled Phalaris intermedia var. angustata Beal to either modern species without verifying the historical specimen/type concept and source treatment.",
+      "sources": [
+        "https://www.scielo.cl/scielo.php?pid=S0717-66432014000200007&script=sci_arttext",
+        "https://flore.unifi.it/bitstream/2158/1039793/1/Austr.%20Syst.%20Bot.%202016.pdf",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:312111-2"
+      ]
+    },
+    {
+      "id": "PHAL-XA-08",
+      "scientific_status": "HOLD",
+      "name": "Existing Phalaris caroliniana photo or specimen identity",
+      "finding": "Accepted-name taxonomy cannot verify an individual photograph or collection; retain all pre-existing source-photo/specimen ID holds and avoid relabelling.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:415591-1",
+        "https://www.scielo.cl/scielo.php?pid=S0717-66432014000200007&script=sci_arttext"
+      ]
+    },
+    {
+      "id": "PHAL-XA-09",
+      "scientific_status": "UNRESOLVED",
+      "name": "Phalaris intermedia var. angustata Beal accepted-name conflict",
+      "finding": "Kew POWO/WCVP maps the name to P. caroliniana; ITIS TSN 41340 lists it under P. angusta; Finot 2014 and Voshell et al. 2016 place it under P. angusta. This is a real authority disagreement. Kew's synonym page also cites a World Grass Species authority as 'Phalaris angusta' while displaying P. caroliniana as accepted. Preserve both mappings with authority and date; no universal alias reassignment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:312111-2",
+        "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41340",
+        "https://www.scielo.cl/scielo.php?pid=S0717-66432014000200007&script=sci_arttext",
+        "https://flore.unifi.it/bitstream/2158/1039793/1/Austr.%20Syst.%20Bot.%202016.pdf"
+      ]
+    },
+    {
+      "id": "PHAL-XA-10",
+      "scientific_status": "UNRESOLVED",
+      "name": "Independent lectotype comparison",
+      "finding": "The published lectotype/isotype identifiers are available from Finot 2014, but actual type images and Beal's 1896 protologue were not independently examined in this run. No nomenclatural override or specimen-level decision is justified.",
+      "sources": [
+        "https://www.scielo.cl/scielo.php?pid=S0717-66432014000200007&script=sci_arttext",
+        "https://flore.unifi.it/bitstream/2158/1039793/1/Austr.%20Syst.%20Bot.%202016.pdf"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 5,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decision_total": 10,
+  "sources": [
+    {
+      "authority": "powo_caroliniana",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:415591-1",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "powo_angusta",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:311946-2",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "powo_angustata",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:312111-2",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "powo_var_angusta",
+      "url": "https://powo.science.kew.org/taxon/192263-2",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "itis_angusta",
+      "url": "https://itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=41340",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "itis_caroliniana",
+      "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?print_version=SCR&search_topic=TSN&search_value=41343&source=from_print",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "finot_2014",
+      "url": "https://www.scielo.cl/scielo.php?pid=S0717-66432014000200007&script=sci_arttext",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "voshell_2016",
+      "url": "https://flore.unifi.it/bitstream/2158/1039793/1/Austr.%20Syst.%20Bot.%202016.pdf",
+      "accessed": "2026-10-28"
+    },
+    {
+      "authority": "ipni_angusta",
+      "url": "https://www.ipni.org/n/311946-2",
+      "accessed": "2026-10-28"
+    }
+  ],
+  "recommendation": "Keep current Kew-accepted Phalaris caroliniana canonical identity unchanged. Preserve POWO synonym mapping as POWO-specific PASS; record cross-authority disagreement as UNRESOLVED. Require human type/protologue review before reassigning historical Beal-variety specimens. No installation, photos, lessons, native-range review or Pages changes.",
+  "scientific_states_preserved": true,
+  "native_range_audit": "DEFERRED",
+  "canonical_files_modified": false,
+  "photo_or_range_changed": false,
+  "installation_or_genus_lessons_changed": false
+}
