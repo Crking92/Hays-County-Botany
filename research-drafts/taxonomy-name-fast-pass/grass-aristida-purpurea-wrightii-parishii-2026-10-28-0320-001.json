@@ -1,0 +1,152 @@
+{
+  "batch_id": "grass-aristida-purpurea-wrightii-parishii-2026-10-28-0320-001",
+  "project": "Crking92/Hays-County-Botany",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "checked_on": "2026-10-28",
+  "scope": "Supplemental accepted-name, synonym and rank resolution for existing Poaceae Aristida purpurea learner; no specimen/photo certification",
+  "canonical_target": {
+    "id": "aristida-purpurea",
+    "path": "content/taxa/Poaceae/Aristida/aristida-purpurea/species.json",
+    "observed_blob_sha": "ce2278486d07f2d8d4c3dce9e9dfc5f4d9bd42e7",
+    "accepted_name": "Aristida purpurea Nutt.",
+    "canonical_change": false
+  },
+  "claim_path": "workflow/taxonomy-claims/grass-aristida-purpurea-wrightii-parishii-2026-10-28-0320-001.json",
+  "prior_evidence": {
+    "path": "research-drafts/taxonomy-name-fast-pass/grass-aristida-purpurea-complex-2026-10-24-0626-001.json",
+    "blob_sha": "2439223c65e9feb2e589c7fa07fc211cee3d3c9b",
+    "preserved": true,
+    "prior_uncertainties_addressed": [
+      "ARIS-11 direct POWO mapping of var. wrightii",
+      "ARIS-12 direct POWO mapping of var. parishii"
+    ]
+  },
+  "scientific_decisions": [
+    {
+      "code": "AWP-01",
+      "status": "PASS",
+      "source_name": "Aristida wrightii Nash",
+      "accepted_target": "Aristida wrightii Nash",
+      "reason": "POWO/WCVP accepts this as a separate species, published 1903, not a variety of modern narrow Aristida purpurea.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2"
+      ]
+    },
+    {
+      "code": "AWP-02",
+      "status": "PASS",
+      "source_name": "Aristida purpurea var. wrightii (Nash) Allred",
+      "accepted_target": "Aristida wrightii Nash",
+      "reason": "Direct POWO synonym page and accepted species page independently confirm the 1984 combination is a homotypic synonym of accepted A. wrightii. Resolves prior ARIS-11 accepted-target uncertainty under POWO, without changing older ITIS authority-specific acceptance.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/272633-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2"
+      ]
+    },
+    {
+      "code": "AWP-03",
+      "status": "PASS",
+      "source_name": "Aristida parishii Hitchc.",
+      "accepted_target": "Aristida wrightii Nash",
+      "reason": "Direct POWO accepted-species page places the 1912 A. parishii name as a heterotypic synonym of accepted A. wrightii.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2"
+      ]
+    },
+    {
+      "code": "AWP-04",
+      "status": "PASS",
+      "source_name": "Aristida purpurea var. parishii (Hitchc.) Allred",
+      "accepted_target": "Aristida wrightii Nash",
+      "reason": "Direct POWO accepted-species page explicitly lists the 1984 variety as heterotypic synonym of A. wrightii. Resolves prior ARIS-12 missing-direct-POWO-mapping question; ITIS still accepts the variety under its alternative broad treatment.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185316"
+      ]
+    },
+    {
+      "code": "AWP-05",
+      "status": "PASS",
+      "source_name": "Aristida wrightii var. parishii (Hitchc.) Gould",
+      "accepted_target": "Aristida wrightii Nash",
+      "reason": "Direct POWO accepted-species page explicitly lists the 1979 variety as a heterotypic synonym of A. wrightii, not a separate accepted variety under POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2"
+      ]
+    },
+    {
+      "code": "AWP-06",
+      "status": "FAIL",
+      "source_name": "Proposed automatic mapping of all historical Aristida purpurea var. wrightii/parishii labels into modern narrow Aristida purpurea",
+      "accepted_target": "REJECT_UNSUPPORTED_MERGE",
+      "reason": "Current POWO/WCVP places both historical varieties under separately accepted A. wrightii. This FAIL rejects a blanket accepted-name mapping, not the validity of the historical labels.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2",
+        "https://powo.science.kew.org/taxon/272633-2"
+      ]
+    },
+    {
+      "code": "AWP-07",
+      "status": "HOLD",
+      "source_name": "Individual learner photos, specimens, or field records identified under broad Aristida purpurea varieties",
+      "accepted_target": "SPECIMEN_ID_UNVERIFIED",
+      "reason": "Nomenclatural crosswalk cannot independently reidentify a photographed or vouchered individual; preserve existing photo and diagnostic concept holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2",
+        "https://powo.science.kew.org/taxon/272633-2"
+      ]
+    },
+    {
+      "code": "AWP-08",
+      "status": "HOLD",
+      "source_name": "Hybrid or introgression parentage of any Aristida purpurea/Aristida wrightii individual",
+      "accepted_target": "HYBRID_PARENTAGE_UNVERIFIED",
+      "reason": "No individual genetic or parentage evidence evaluated. No hybrid formula inferred.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2"
+      ]
+    },
+    {
+      "code": "AWP-09",
+      "status": "UNRESOLVED",
+      "source_name": "Broad Allred 1984 and ITIS variety-level treatment versus narrower POWO/WCVP accepted species",
+      "accepted_target": "AUTHORITY_SPECIFIC_CIRCUMSCRIPTION_CONFLICT",
+      "reason": "The direct POWO name mappings are now resolved, but the taxonomic circumscription disagreement remains; historical field records cannot be bulk reallocated across concepts.",
+      "sources": [
+        "https://doi.org/10.2307/2806599",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185316",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 5,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "authority": "POWO/WCVP 2026 with original Allred 1984 treatment and ITIS alternative rank",
+  "sources": [
+    "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:272641-2",
+    "https://powo.science.kew.org/taxon/272633-2",
+    "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=185316",
+    "https://doi.org/10.2307/2806599"
+  ],
+  "source_pool_name": "Aristida purpurea Nutt.",
+  "native_range_audit": "DEFERRED_UNCHANGED",
+  "limitations": [
+    "No claim that historical voucher specimens or learner photographs have been independently reidentified.",
+    "Older authority-specific broad variety treatments remain scientifically documented, not deleted.",
+    "No new learner species installed; any future separate Aristida wrightii installation is outside this taxonomy-only scope.",
+    "Existing scientific HOLD and UNRESOLVED conditions remain; only the precise direct-POWO-name-mapping uncertainty has new evidence."
+  ],
+  "write_policy": {
+    "canonical_species_modified": false,
+    "photos_modified": false,
+    "genus_family_modified": false,
+    "installation": false,
+    "pages": false,
+    "scientific_holds_overridden": false,
+    "automation_schedule_unchanged": true
+  }
+}
