@@ -1,0 +1,20 @@
+name: Audit draft family-to-repository routing (never migrate)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'planning/MULTI_REPO_FAMILY_ROUTING_DRAFT_20261028.json'
+      - 'scripts/audit_multi_repo_family_routing.py'
+      - '.github/workflows/audit-multi-repo-family-routing.yml'
+      - 'data/manifest.json'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - name: Detect duplicate species and unassigned families
+        run: python3 scripts/audit_multi_repo_family_routing.py
