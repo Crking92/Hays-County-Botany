@@ -1,0 +1,26 @@
+name: Lane1 visual QA public domain Tobosa fig9 photo crop
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/lane1_qa_tobosa_usda_fig9_preview_20261027.py
+      - .github/workflows/lane1-review-tobosa-1939-rhizome-pixels-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/lane1_qa_tobosa_usda_fig9_preview_20261027.py
+            content/taxa/Poaceae/Hilaria/hilaria-mutica/images/usda-canfield-1939-real-tobosa-bisected-rhizomes-figure9-public-domain.jpg
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install Pillow
+      - name: Show source-real historic photo preview only for full pixel-level review
+        run: python scripts/lane1_qa_tobosa_usda_fig9_preview_20261027.py
