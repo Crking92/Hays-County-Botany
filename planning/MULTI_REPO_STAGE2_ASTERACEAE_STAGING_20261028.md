@@ -21,6 +21,13 @@
 - [Successful scientific metadata staging workflow](https://github.com/Crking92/Hays-Botany-Asteraceae/actions/runs/40719637225).
 - [Asteraceae metadata staging branch](https://github.com/Crking92/Hays-Botany-Asteraceae/tree/staging/asteraceae-metadata).
 
+## Real-data learner preview validated
+- [Successful 180-species text-only preview Action](https://github.com/Crking92/Hays-Botany-Asteraceae/actions/runs/40720217766): desktop and mobile Chromium tests both **passed**.
+- [Download unpublished HTML/JS + screenshots](https://github.com/Crking92/Hays-Botany-Asteraceae/actions/runs/40720217766/artifacts/12829797459).
+- Generated preview consists of exactly 185 files: 180 slim botanical teaching records plus 5 site/shell/index files; **0 photographic files**.
+- Asteraceae name search, `?species=achillea-millefolium` deep-link, real LOOK HERE FIRST description, Learner/Field ID switching, and mobile no-horizontal-overflow were exercised successfully.
+- The preview is a **GitHub Actions artifact**, not a live GitHub Pages website. Publishing remains blocked on image provenance and visual-arrow checks.
+
 ## Next gates
 1. Review the Asteraceae real-data, zero-photo learner preview before treating it as the shared content rendering standard. Still no Pages deployment.
 2. Review photo rights and verify exact source for each candidate; privately archive only image bytes with documented permission, exact preserved authorship, source, license and alteration/SA conditions.
