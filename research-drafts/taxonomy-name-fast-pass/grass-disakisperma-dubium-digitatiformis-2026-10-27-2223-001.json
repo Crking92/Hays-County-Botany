@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "batch_id": "grass-disakisperma-dubium-digitatiformis-2026-10-27-2223-001",
+  "date_checked": "2026-10-27",
+  "lane": "grass-taxonomy-verification / taxonomy-only",
+  "family": "Poaceae",
+  "genus": "Disakisperma",
+  "source_pool_spelling": "Disakisperma dubium; historical Leptochloa dubia and Leptochloa digitatiformis",
+  "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+  "accepted_rank": "species",
+  "canonical_taxon_ids": [
+    "disakisperma-dubium"
+  ],
+  "canonical_target_path": "content/taxa/Poaceae/Disakisperma/disakisperma-dubium/species.json",
+  "canonical_blob_sha_read_only": "34b1acc165b0201c05598a83dd7199508e5ef436",
+  "claim_path": "workflow/taxonomy-claims/grass-disakisperma-dubium-digitatiformis-2026-10-27-2223-001.json",
+  "claim_blob_sha_verified": "14b8f3ca75c679f90cdff2a2e90d8cb741e4253a",
+  "primary_decision": "PASS_ACCEPTED_DISAKISPERMA_DUBIUM; UNRESOLVED_LEPTOCHLOA_DIGITATIFORMIS_MIXED_CONCEPT_AND_MISSING_TYPE; PRESERVE_ID_HOLDS",
+  "decision_counts": {
+    "PASS": 7,
+    "FAIL": 2,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "decisions": [
+    {
+      "source_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "rank": "species",
+      "scientific_decision": "PASS",
+      "action": "POWO/WCVP and the 2013 revision accept the existing canonical green sprangletop species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Chloris dubia Kunth",
+      "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "rank": "basionym -> species",
+      "scientific_decision": "PASS",
+      "action": "Map authored basionym to existing concept, not a second Chloris learner.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2"
+      ]
+    },
+    {
+      "source_name": "Leptochloa dubia (Kunth) Nees",
+      "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "rank": "homotypic synonym -> species",
+      "scientific_decision": "PASS",
+      "action": "Accepted synonymy maps source name; does not authenticate individual photographs.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Diplachne dubia (Kunth) Scribn.",
+      "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "rank": "homotypic synonym -> species",
+      "scientific_decision": "PASS",
+      "action": "Retain authored historical alias without duplicate card.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2"
+      ]
+    },
+    {
+      "source_name": "Disakisperma mexicanum Steud.",
+      "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "rank": "heterotypic synonym -> species",
+      "scientific_decision": "PASS",
+      "action": "Synonym of D. dubium and historical type name for genus Disakisperma.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Chloris submutica Kunth",
+      "accepted_name": "Chloris submutica Kunth",
+      "rank": "separate accepted species",
+      "scientific_decision": "PASS",
+      "action": "Separately accepted; Beetle-labelled L. digitatiformis specimens sometimes actually represented C. submutica. Do not collapse concepts.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396033-1",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Disakisperma dubium infraspecific names",
+      "accepted_name": "Disakisperma dubium (Kunth) P.M.Peterson & N.Snow",
+      "rank": "species",
+      "scientific_decision": "PASS",
+      "action": "2013 revision finds infraspecific recognition unwarranted; POWO treats historical ranks as synonyms.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Automatically mapping every Leptochloa digitatiformis Beetle specimen to D. dubium",
+      "accepted_name": "NOT JUSTIFIED",
+      "rank": "historical specimen identity",
+      "scientific_decision": "FAIL",
+      "action": "Reject blanket specimen reassignment: primary monograph documents mixed D. dubium and C. submutica application.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396033-1",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2"
+      ]
+    },
+    {
+      "source_name": "Treat Chloris submutica Kunth as synonym of Disakisperma dubium",
+      "accepted_name": "Chloris submutica Kunth",
+      "rank": "incorrect species collapse",
+      "scientific_decision": "FAIL",
+      "action": "Reject: POWO accepts C. submutica separately.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396033-1",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Individual specimen or photograph labelled Leptochloa digitatiformis",
+      "accepted_name": "UNCONFIRMED specimen identity",
+      "rank": "specimen/photo identity",
+      "scientific_decision": "HOLD",
+      "action": "Require original voucher and diagnostic review before species-level reidentification.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Individual photograph labelled Leptochloa dubia or Disakisperma dubium",
+      "accepted_name": "UNCONFIRMED independent specimen identity",
+      "rank": "specimen/photo identity",
+      "scientific_decision": "HOLD",
+      "action": "Nomenclatural synonymy alone does not verify each learner image or its voucher; preserve existing source holds.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Leptochloa digitatiformis Beetle: POWO/WFO versus Snow et al. 2013",
+      "accepted_name": "UNRESOLVED name application",
+      "rank": "heterotypic synonym / excluded name conflict",
+      "scientific_decision": "UNRESOLVED",
+      "action": "POWO/WFO list it under D. dubium; 2013 primary revision excludes it due mixed concept and unlocated holotype. Do not override either authority without type evidence.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+        "https://www.worldfloraonline.org/taxon/wfo-0001329273",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/"
+      ]
+    },
+    {
+      "source_name": "Unvouchered historical Leptochloa digitatiformis records",
+      "accepted_name": "UNRESOLVED source identity",
+      "rank": "historical concept application",
+      "scientific_decision": "UNRESOLVED",
+      "action": "Retain original spelling and source; do not infer D. dubium from an unexamined historical record.",
+      "sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2"
+      ]
+    }
+  ],
+  "important_boundary": "POWO/WFO list Leptochloa digitatiformis Beetle as a synonym of D. dubium, while Snow, Peterson & Romaschenko (2013) exclude the name because Beetle applied it to both D. dubium and separately accepted Chloris submutica; the type could not be located. No automatic reassignment of historical specimens.",
+  "older_treatment_conflict": "Snow (1997) synonymized L. digitatiformis; Snow et al. (2013) excluded it pending type study; current POWO retains the synonym. Preserve UNRESOLVED.",
+  "hybrid_guardrail": "No evidence supports hybrid identity for individual specimens; existing hybrid holds are not altered.",
+  "sources": {
+    "powo_accepted": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:60458636-2",
+    "primary_2013": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3817421/",
+    "chloris_submutica": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396033-1",
+    "wfo": "https://www.worldfloraonline.org/taxon/wfo-0001329273",
+    "primary_doi": "https://doi.org/10.3897/phytokeys.26.5649"
+  },
+  "actions": {
+    "new_card_possible": false,
+    "alias_to_existing_concept": [
+      "Chloris dubia Kunth",
+      "Leptochloa dubia (Kunth) Nees",
+      "Diplachne dubia (Kunth) Scribn.",
+      "Disakisperma mexicanum Steud."
+    ],
+    "human_concept_review": [
+      "Leptochloa digitatiformis Beetle name/type conflict",
+      "individual historical specimens labelled Leptochloa digitatiformis"
+    ],
+    "no_new_installation": true
+  },
+  "native_range_audit": "DEFERRED — no county/native-range audit or change",
+  "scientific_hold_policy": "Preserve PASS/FAIL/HOLD/UNRESOLVED and all specimen, identity and hybrid holds.",
+  "files_modified_only": [
+    "research-drafts/taxonomy-name-fast-pass/grass-disakisperma-dubium-digitatiformis-2026-10-27-2223-001.json"
+  ],
+  "excluded_scope": [
+    "species.json",
+    "photos",
+    "genus/family lessons",
+    "installation",
+    "county nativity",
+    "Pages",
+    "other workers' files"
+  ]
+}
