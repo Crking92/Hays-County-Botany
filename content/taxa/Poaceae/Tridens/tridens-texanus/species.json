@@ -115,14 +115,21 @@
         505
       ],
       "photo_review": "Original source and exact CC0 1.0 author/license confirmed on Wikimedia Commons; actual photograph visually inspected through web image viewer 2026-10-23. Original JPEG download attempts failed (network DNS / downloader failure), so original bytes, checksum, EXIF/GPS and source-versus-archive binary integrity NOT independently verified. PROVISIONAL — USER PHOTO REVIEW PENDING.",
-      "byte_verification": "NOT VERIFIED — external URL only; zero physical JPEG bytes installed",
-      "image_status": "EXTERNAL_LICENSED_REFERENCE_PROVISIONAL_USER_REVIEW",
+      "byte_verification": "LOCAL GITHUB BLOB CONFIRMED 2026-10-27 (21,344 bytes; blob 7903450f748591546ec635c7fe87e059228c6aec). Original source-to-archive byte equality, EXIF/GPS and archived SHA-256 NOT independently reverified this run; historical external-only state superseded.",
+      "image_status": "LOCALLY_ARCHIVED_CC0__STRUCTURE_ARROW_HOLD",
       "public_reuse": "CC0 1.0 original-source dedication; retain creator/source credit",
       "annotation_status": "annotation_pending — no new arrows or invented coordinates",
-      "modifications": "No pixel modifications; linked to original externally hosted file; no locally archived derivative",
+      "modifications": "Physical local JPEG now exists in canonical species images directory. Exact original-to-local transformations and EXIF/GPS sanitization not independently rechecked in this species-finalization run; retain original source metadata and historical archive-failure note.",
       "original_media_url": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Tridens_texanus_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "physical_archive_sha256": "d6d7ec111b3aea6dd5d901885806a7b6d9965534df1420b3af6785f70c14f1e5",
-      "photo_status": "CC0 source-labelled local JPEG; submillimeter anatomy not certified"
+      "photo_status": "CC0 source-labelled local JPEG; submillimeter anatomy not certified",
+      "archive_reconciliation_20261027": {
+        "state": "PHYSICAL_JPEG_PRESENT_ON_CANONICAL_MAIN",
+        "github_blob_sha": "7903450f748591546ec635c7fe87e059228c6aec",
+        "github_bytes": 21344,
+        "original_binary_equality": "NOT_REVERIFIED_THIS_RUN",
+        "pixel_anatomy": "UNSCALED; DO NOT ARROW INDIVIDUAL GLUMES, LEMMA HAIRS OR MUCRO"
+      }
     },
     {
       "file": "images/gaiacoyote-tridens-texanus-4-ligule-cc0.jpg",
@@ -198,9 +205,9 @@
     "mode": "learner_fast_fill",
     "image_count": 5,
     "filled_at": "2026-10-06",
-    "note": "Five species photo records; source-licensed reproductions being localized. Microscopic ligule dimensions, glume/lemma and nerve hairs not independently confirmed."
+    "note": "Five physically archived species JPEGs (including three source-labelled Gaiacoyote CC0 photographs); nine total teaching panels comprise five Texas tridens and four correctly labelled Tridens look-alike panels. Tiny ligule dimensions, lemma nerve hairs, glume measurements and Hays rooted voucher remain unverified."
   },
-  "photo_note": "2026-10-21 finished field teaching pass: two original licensed photos visually inspected for panicle and spikelet silhouettes, 4 gross-structure arrows verified per species; source IDs provisional. Need actual glume/lemma/ligule macro before claiming anatomically finished. Original image attributions/licensing unchanged.\n2026-10-23 diagnostic fast-fill: added three new Gaiacoyote CC0 1.0 exact-species Wikimedia Commons external references (multi-flowered spikelets, photographer-labelled hairy ligule region, flowering habitat). Source pages, creator, version and CC0 1.0 verified; actual visible pixels reviewed through web. Original downloads failed (network DNS and downloader), so NO physical JPEG installed, no byte checksum/EXIF verification, and NO new arrows. All three remain PROVISIONAL — USER PHOTO REVIEW PENDING, annotation_pending; existing two photo binaries and 4 gross-feature arrows untouched. Calibrated ligule, dissected glume/lemma nerves and local same-plant rooted specimen still NEEDS_PUBLIC_PHOTO.",
+  "photo_note": "2026-10-21 finished field teaching pass: two original licensed photos visually inspected for panicle and spikelet silhouettes, 4 gross-structure arrows verified per species; source IDs provisional. Need actual glume/lemma/ligule macro before claiming anatomically finished. Original image attributions/licensing unchanged.\n2026-10-23 diagnostic fast-fill: added three new Gaiacoyote CC0 1.0 exact-species Wikimedia Commons external references (multi-flowered spikelets, photographer-labelled hairy ligule region, flowering habitat). Source pages, creator, version and CC0 1.0 verified; actual visible pixels reviewed through web. Original downloads failed (network DNS and downloader), so NO physical JPEG installed, no byte checksum/EXIF verification, and NO new arrows. All three remain PROVISIONAL — USER PHOTO REVIEW PENDING, annotation_pending; existing two photo binaries and 4 gross-feature arrows untouched. Calibrated ligule, dissected glume/lemma nerves and local same-plant rooted specimen still NEEDS_PUBLIC_PHOTO.\n2026-10-27 species finalization reconciliation: all five listed Texas tridens JPEGs are now physically present on canonical GitHub, including three Gaiacoyote CC0 spikelet, ligule-region and Uvalde flowering-habitat photos. Earlier October 23 external-only failure was historical; local blob presence is confirmed, but original-to-local spikelet equality and EXIF were not independently rechecked in this pass. Five species panels plus four correctly labelled look-alikes, all 12 original gross arrows preserved. Calibrated glumes, lemma nerve hairs, mucro, true ligule length and connected rooted Hays specimen remain NEEDS_PUBLIC_PHOTO.",
   "comparisons": {
     "confused_with": [
       "Tridens albescens",
@@ -242,7 +249,7 @@
     ],
     "original_photo_pixel_inspected": true,
     "annotation_arrows": 4,
-    "photo_limit": "Two original physically archived Texas tridens photos (gross panicle architecture) plus three visually inspected, source/license-verified CC0 external provisional references for spikelets, ligule region and flowering habitat. No new JPEG bytes archived or verified, no calibrated glumes/lemma-nerve hairs/ligule dimensions, no Hays-rooted same-specimen series.",
+    "photo_limit": "Five physically archived Texas tridens species JPEGs are present in canonical GitHub: two older panicle/spikelet photos and three Gaiacoyote CC0 source-labelled spikelet, ligule-region and Uvalde habitat views. Local JPEG presence confirmed by directory readback, but the tiny ligule length, glume/lemma vein hairs, mucro and Hays rooted same-specimen proof remain uncertified. Original-source byte equivalence of the spikelet archive was not independently rechecked in this finalization pass.",
     "original_taxonomy_nativeness_unchanged": true,
     "reconciliation_20261022": {
       "status": "FIELD_READY_PHOTO_GAPS",
@@ -536,8 +543,8 @@
       "At 10–20× on a real ripe specimen, remove a spikelet and measure the paired outer GLUMES against a fertile LEMMA.",
       "Examine hairs on the 3 raised LEMMA NERVES; this is a principal separation, but no current photo proves it.",
       "Check 0.2–0.5 mm hairy ligule/collar and basal sheath on the SAME rooted plant; leave tentative Tridens sp. if reproductive anatomy absent.",
-      "New CC0 external photos: inspect the photographer-labelled spikelet and hairy ligule-region views, but these lack a millimeter ruler; no microscopic dimensions or individual lemma-nerve hairs are confirmed.",
-      "New CC0 external habit view shows a Uvalde grassland setting, not an independently traced same-plant root-to-panicle voucher."
+      "CC0 photos are now physically archived: photographer-labelled spikelet and hairy ligule-region views are visible in local gallery panels 2–3, but neither supplies a verified millimeter ruler or independently resolved individual lemma-nerve hairs.",
+      "The archived CC0 flowering-habitat photo (panel 4) shows a source-labelled northern Uvalde County plant, not an independently traced same-plant root-to-panicle voucher; keep the Hays county range hold."
     ],
     "field_rule": "Species-level Tridens confidence requires panicle architecture PLUS mature spikelet/glume/lemma anatomy; do not identify from pigmentation alone.",
     "warning": "Bare panicle branch bases are not unique to Texas tridens. Source-labelled photos do not establish unreviewed county nativity."
@@ -575,10 +582,11 @@
     {
       "heading": "01 · LOOK HERE FIRST",
       "short": "Short flexuous panicle; hanging spikelet groups",
-      "details": "Follow a living culm to its full, usually 8–15 cm, loose to moderately open panicle. Long bare proximal portions of fine arching branches lead to groups of spikelets. Existing panels 0–1 illustrate gross architecture; the bare branch section ALSO occurs in purpletop, so it is not decisive alone.",
+      "details": "Follow a living culm to its full, usually 8–15 cm, loose to moderately open panicle. Long bare proximal portions of fine arching branches lead to groups of spikelets. Existing panels 0–1 illustrate gross architecture; the bare branch section ALSO occurs in purpletop, so it is not decisive alone. Archived CC0 panel 4 now adds a genuine Uvalde County flowering-habitat view; the roots and flowering stems are not traceable as one plant.",
       "photo_panel_indices": [
         0,
-        1
+        1,
+        4
       ],
       "glossary": [
         "culm",
@@ -590,10 +598,9 @@
     {
       "heading": "02 · CHECK GROWTH AND COLLAR",
       "short": "Perennial tuft; ligule a very short hair ring",
-      "details": "Trace flowering stems to a perennial crown; older Texas descriptions give roughly 30–60 cm culms, often bent near base. Open the true inner blade/sheath junction: a very short ligule of hairs, separate from longer throat/collar hairs. Panel 3 is source-labelled as a collar view but has no calibrated ligule measurement; do not infer a precise mm cutoff.",
+      "details": "Trace flowering stems to a perennial crown; older Texas descriptions give roughly 30–60 cm culms, often bent near base. Open the true inner blade/sheath junction: a very short ligule of hairs, separate from longer throat/collar hairs. Panel 3 is source-labelled as a collar view but has no calibrated ligule measurement; do not infer a precise mm cutoff. Panel 3 is physically archived from Gaiacoyote's source-labelled original; a pale hair fringe is visible but its free margin and length are not calibrated. Panel 4 is habitat, NOT a collar macro.",
       "photo_panel_indices": [
-        3,
-        4
+        3
       ],
       "glossary": [
         "perennial",
@@ -601,12 +608,12 @@
         "collar",
         "sheath"
       ],
-      "status": "NEEDS_PUBLIC_PHOTO — ROOTED CROWN AND MEASURED COLLAR"
+      "status": "REAL ARCHIVED COLLAR-REGION PHOTO; MEASURED LIGULE AND ROOTED CROWN GAPS"
     },
     {
       "heading": "03 · COUNT ONE MATURE SPIKELET",
       "short": "About 6–11 mm; often 6–10 florets",
-      "details": "Historical Silveus Texas Grasses treatment gives mature spikelets about 6–11 mm with approximately 6–10 florets. Panel 2 is a source-labelled dissection view, but its scale and floret count are not independently certified here. Keep one entire spikelet attached to a 1-mm ruler before separating bracts.",
+      "details": "Historical Silveus Texas Grasses treatment gives mature spikelets about 6–11 mm with approximately 6–10 florets. Panel 2 is a source-labelled dissection view, but its scale and floret count are not independently certified here. Keep one entire spikelet attached to a 1-mm ruler before separating bracts. Panel 2 now exists as a physical GitHub JPEG, not merely a remote reference; the glumes and floret count still require calibrated pixel-level verification.",
       "photo_panel_indices": [
         2
       ],
@@ -615,7 +622,7 @@
         "floret",
         "rachilla"
       ],
-      "status": "PUBLISHED MEASUREMENT; CALIBRATED MACRO NEEDED"
+      "status": "LOCAL SOURCE-LABELLED SPIKELET PHOTO; CALIBRATED MACRO NEEDED"
     },
     {
       "heading": "04 · GLUMES ARE NOT LEMMAS",
@@ -654,7 +661,8 @@
         0,
         1,
         2,
-        3
+        3,
+        4
       ],
       "glossary": [
         "mucro",
@@ -676,16 +684,31 @@
     ],
     "source_caution": "Silveus measured glumes (~2–3 mm lower) versus ~4 mm lemma; separate field account reports glumes near lemma length. Published dimensions, not image-measured; preserve ratio disagreement.",
     "NEEDS_PUBLIC_PHOTO": [
-      "Voucher-confirmed Central Texas rooted perennial and connected full panicle with cm ruler; show flexuous branch origins and terminal spikelet clusters.",
-      "True inner blade/sheath hair-fringe ligule at 10–20× with 0.5–1 mm scale; distinguish sheath-edge hairs and collar hairs.",
-      "Attached ripe 6–11 mm multi-flowered spikelet with 1-mm scale, floret count and glumes visibly separated.",
+      "Five species photos now physically archived; panel 4 already shows a source-labelled Uvalde habitat plant, but still need a voucher-confirmed Central Texas rooted perennial connected to its full flexuous panicle and cm ruler.",
+      "Panel 3 already shows the real photographer-labelled hairy blade/sheath collar region; obtain a calibrated 10–20× true inner ligule with 0.5–1 mm ruler and distinction from longer collar/sheath hairs.",
+      "Panel 2 already shows locally archived source-labelled multi-flowered spikelets; still need an attached ripe 6–11 mm spikelet with 1-mm ruler, verified floret count and individually separated glumes.",
       "Two 1-veined glumes (~2–3 mm lower in Silveus) and one ~4-mm three-veined lemma in same-scale dissection, including lower nerve hairs, two teeth and minute midvein mucro.",
       "Matched Texas tridens versus purpletop and white tridens spikelets and branch junctions at comparable maturity."
     ],
     "NEEDS_SITE_QA": [
-      "Check physically stored original photographs and provisional external images separately; verify individual rights/credits, existing arrows and EXIF/GPS hygiene without assuming remote image is archived.",
-      "Verify six tiles and 0–8 panel indices in public learner, preserving comparison species labels; site deployment not checked."
+      "Verify five physically stored species JPEGs, nine teaching panels (0–8), six identification tiles, and all 12 existing gross markers; preserve comparison labels and do not claim public deployment.",
+      "Confirm Gaiacoyote CC0 original-source rights, individual credits and original-versus-local image integrity, especially spikelet panel 2 (GitHub blob present but source binary and EXIF/GPS not independently reverified in this run).",
+      "Review hair-fringe visibility in panel 3 and any future fine-organ arrows only against actual pixels; do not label unresolvable glume nerves, lemma hairs or mucro.",
+      "Confirm panels 5–6 white tridens and 7–8 purpletop are correctly labelled look-alikes; independently QA public learner on desktop/mobile and keep the original Hays native-range hold."
     ],
-    "public_ready_criteria": "Keep FIELD_READY_PHOTO_GAPS until local source identity, measured glume/lemma and collar evidence, lawful public media, accurate arrows and site QA are demonstrated; preserve existing Hays native-range hold."
+    "public_ready_criteria": "Keep FIELD_READY_PHOTO_GAPS until local source identity, measured glume/lemma and collar evidence, lawful public media, accurate arrows and site QA are demonstrated; preserve existing Hays native-range hold.",
+    "photo_inventory_reconciliation_20261027": {
+      "stage": "FIELD_READY_PHOTO_GAPS",
+      "physical_exact_species_jpegs": 5,
+      "species_panels": 5,
+      "other_species_comparison_panels": 4,
+      "total_gallery_panels": 9,
+      "existing_marker_count": 12,
+      "source_evidence": "GitHub species images directory readback 2026-10-27; Gaiacoyote CC0 collar/habitat images archived in photo-lane commit ee43e066748646f0f05fdd6cbac7615c172d0540; spikelet JPEG physically present.",
+      "look_here_first": "Short flexuous open panicle with hanging multi-flowered spikelets; compare purpletop, then measure true hairy ligule and mature two glumes/three-veined hairy lemma; bare branch bases alone are not diagnostic.",
+      "NEEDS_PUBLIC_PHOTO": "Same-voucher rooted Central Texas plant; calibrated true ligule; mature spikelet with measured glumes and three-veined lemma, basal nerve hairs, tiny mucro; matched purpletop comparison.",
+      "NEEDS_SITE_QA": "Audit five JPEGs, nine panels, 12 markers, CC0 credits and archive integrity; verify look-alike labels and mobile/desktop public display.",
+      "public_ready_criteria": "Retain FIELD_READY_PHOTO_GAPS until decisive scaled anatomy, lawful images, genuine arrows, and independent site QA are verified; preserve Hays range hold."
+    }
   }
 }
