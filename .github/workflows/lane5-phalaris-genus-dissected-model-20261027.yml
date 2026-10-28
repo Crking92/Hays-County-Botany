@@ -1,0 +1,69 @@
+name: Lane 5 Phalaris licensed genus anatomy reference with separate species identity
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/archive_lane5_phalaris_comparison_dissection_20261027.py
+      - .github/workflows/lane5-phalaris-genus-dissected-model-20261027.yml
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: lane5-phalaris-structure-photo-lesson
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'Pillow>=10,<14'
+      - name: Verify Commons source/photo license and archive model
+        run: python scripts/archive_lane5_phalaris_comparison_dissection_20261027.py
+      - name: Validate exact species exclusion, image labels and source rights
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+          b=Path("content/taxa/Poaceae/Phalaris")
+          s=json.loads((b/"phalaris-caroliniana/species.json").read_text())
+          g=json.loads((b/"genus.json").read_text())
+          r=json.loads(Path("reports/lane5-phalaris-genus-real-spikelet-20261027.json").read_text())
+          assert len(s["images"])==8, "Forbidden species-image inflation"
+          assert len(s["visual_comparison"]["items"])==9, "Expected 9 educational gallery panels"
+          assert sum(x.get("scientific_name")=="Phalaris caroliniana" for x in s["visual_comparison"]["items"])==7
+          assert sum(x.get("scientific_name")=="Phalaris arundinacea" for x in s["visual_comparison"]["items"])==1
+          assert sum(x.get("scientific_name")=="Phalaris minor" for x in s["visual_comparison"]["items"])==1
+          assert s["visual_comparison"]["items"][-1]["markers"]==[], "Existing labels must not be re-annotated"
+          assert g["visual_comparison"]["items"][-1]["scientific_name"]=="Phalaris arundinacea"
+          assert r["additional_species_photo_roles"]==0 and r["license"]=="CC BY-SA 4.0"
+          with Image.open(r["local_image"]) as im:
+              im.verify()
+          with Image.open(r["local_image"]) as im:
+              assert not im.getexif()
+          print("PASS: licensed real anatomy image and explicit different-taxon labels")
+          PY
+      - name: Commit open image and teaching links without forced overwrites
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/taxa/Poaceae/Phalaris/genus.json
+          git add content/taxa/Poaceae/Phalaris/phalaris-caroliniana/species.json
+          git add content/taxa/Poaceae/Phalaris/anatomy-reference-images/
+          git add reports/lane5-phalaris-genus-real-spikelet-20261027.json
+          if git diff --cached --quiet; then echo 'Already up to date'; exit 0; fi
+          git commit -m "Lane 5: add real 5mm Phalaris sterile-lemma model, other-species clearly labeled"
+          for trial in 1 2 3 4 5 6 7 8 9 10; do
+            git fetch origin main
+            git rebase origin/main || { echo "Refusing to overwrite conflicting botany content"; exit 1; }
+            if git push origin HEAD:main; then exit 0; fi
+            sleep 2
+          done
+          exit 1
