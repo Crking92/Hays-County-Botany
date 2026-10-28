@@ -150,4 +150,9 @@ assert abs(page.rect.width-W)<1 and abs(page.rect.height-H)<1
 assert len(page.get_images(full=True))>=6, len(page.get_images(full=True))
 pix=page.get_pixmap(matrix=fitz.Matrix(2.2,2.2),alpha=False)
 pix.save(str(PREVIEW))
-print("OK",OUTPUT,OUTPUT.stat().st_size,"bytes; preview",PREVIEW,PREVIEW.stat().st_size,"bytes; image-objects",len(page.get_images(full=True)))
+thumb=ROOT/"reed-field-ID-page-01-review-small.jpg"
+small=Image.open(PREVIEW).convert("RGB")
+small.thumbnail((1320,1020),Image.Resampling.LANCZOS)
+small.save(thumb,format="JPEG",quality=75,optimize=True)
+assert thumb.stat().st_size < 850000, thumb.stat().st_size
+print("OK",OUTPUT,OUTPUT.stat().st_size,"bytes; preview",PREVIEW,PREVIEW.stat().st_size,"bytes; thumbnail",thumb.stat().st_size,"bytes; image-objects",len(page.get_images(full=True)))
