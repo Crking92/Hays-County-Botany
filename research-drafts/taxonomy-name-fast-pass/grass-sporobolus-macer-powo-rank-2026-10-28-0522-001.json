@@ -1,0 +1,183 @@
+{
+  "schema": "grass-taxonomy-name-verification-v1",
+  "batch_id": "grass-sporobolus-macer-powo-rank-2026-10-28-0522-001",
+  "reviewed_at": "2026-10-28",
+  "lane": "taxonomy-name-fast-pass / Poaceae-only",
+  "scope": "Follow-up on 2026-10-24 unresolved Sporobolus compositus var. macer POWO rank; existing approved learner only",
+  "canonical_target": {
+    "id": "sporobolus-compositus",
+    "path": "content/taxa/Poaceae/Sporobolus/sporobolus-compositus/species.json",
+    "sha_checked": "65f9a56f5b48b25b1582bbc9f9b9719d80833912"
+  },
+  "manifest_sha_checked": "36c95f3d83ada2e01331b9f32ae69cb8b09c44d9",
+  "prior_evidence": {
+    "path": "research-drafts/taxonomy-name-fast-pass/grass-sporobolus-compositus-variety-boundaries-2026-10-24-0127-001.json",
+    "sha_checked": "e50d0981230ed5c50052f74851388e50b226737b",
+    "prior_decision": "UNRESOLVED_POWO_INFRASPECIFIC_OMISSION",
+    "resolution": "POWO mapping resolved as accepted S. macer at species rank; separate cross-authority circumscription and specimen ID remain UNRESOLVED/HOLD"
+  },
+  "claim_path": "workflow/taxonomy-claims/grass-sporobolus-macer-powo-rank-2026-10-28-0522-001.json",
+  "claim_sha_checked": "49c2252b12e2b14624cde25d22bf0073b4edd1f8",
+  "decisions": [
+    {
+      "code": "SMR-01",
+      "status": "PASS",
+      "topic": "accepted_species_powo",
+      "finding": "Direct POWO/WCVP accepted-species page independently confirms Sporobolus macer (Trin.) Hitchc. at species rank, published in American Journal of Botany 2:303 (1915). This resolves the prior review's POWO omission uncertainty; it is not simply an unlisted variety of S. compositus in Kew's current backbone.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2"
+      ]
+    },
+    {
+      "code": "SMR-02",
+      "status": "PASS",
+      "topic": "homotypic_synonym_powo",
+      "finding": "POWO explicitly maps Sporobolus compositus var. macer (Trin.) Kartesz & Gandhi to accepted S. macer as a homotypic synonym. The source label is valid historical rank provenance, not a POWO-accepted variety.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2"
+      ]
+    },
+    {
+      "code": "SMR-03",
+      "status": "PASS",
+      "topic": "additional_homotypic_names",
+      "finding": "POWO also lists Sporobolus asper var. macer (Trin.) Shinners and Vilfa macra Trin. as homotypic synonyms of S. macer. These names must map to the same nomenclatural type under POWO.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2"
+      ]
+    },
+    {
+      "code": "SMR-04",
+      "status": "PASS",
+      "topic": "distinct_accepted_species_boundary",
+      "finding": "POWO separately accepts S. compositus (Poir.) Merr. and S. macer (Trin.) Hitchc.; S. compositus's own 23-name synonym list does not include macer because POWO treats it as a separate accepted species. Existing S. compositus learner identity is not invalidated; the narrower POWO species boundary is relevant to source-variety-labelled media.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2"
+      ]
+    },
+    {
+      "code": "SMR-05",
+      "status": "PASS",
+      "topic": "alternative_authority_variety",
+      "finding": "ITIS accepts S. compositus var. macer and maps S. macer to that variety, whereas POWO accepts S. macer as a separate species. NatureServe and USFS use the broader three-variety S. compositus concept. Record the authority-dependent taxon concepts without silently equating their rank decisions.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.146173/Sporobolus_compositus",
+        "https://research.fs.usda.gov/feis/species-reviews/spocom"
+      ]
+    },
+    {
+      "code": "SMR-06",
+      "status": "PASS",
+      "topic": "drummondii_contrast",
+      "finding": "POWO lists S. compositus var. drummondii as a heterotypic synonym of accepted S. compositus, unlike var. macer, which is a homotypic synonym of separately accepted S. macer. Preserve this asymmetric cross-rank mapping; no blanket all-varieties merge.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2"
+      ]
+    },
+    {
+      "code": "SMR-07",
+      "status": "FAIL",
+      "topic": "automatic_cross_species_merger",
+      "finding": "Reject treating all historical S. compositus var. macer labels as verified S. compositus sensu stricto under POWO, or mapping S. macer to a synonym of S. compositus without noting the competing ITIS/NatureServe/USFS concept. FAIL describes the proposed automatic taxonomic routing, not the accuracy of an individual photograph.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126"
+      ]
+    },
+    {
+      "code": "SMR-08",
+      "status": "HOLD",
+      "topic": "individual_var_macer_photo_identity",
+      "finding": "The canonical composite-dropseed learner currently includes Bob Harms photographs source-labelled var. macer. Taxonomy alone does not independently verify the photographed individuals, their vouchers, or their identification as POWO S. macer. Preserve all original source names and existing specimen/photo HOLDs; no reassignment or photo editing in taxonomy lane.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126"
+      ]
+    },
+    {
+      "code": "SMR-09",
+      "status": "HOLD",
+      "topic": "hybrid_ancestry",
+      "finding": "Neither the accepted names nor the alternative infraspecific treatment establishes hybrid parentage for any individual S. compositus/S. macer plant. Preserve any hybrid/identity HOLD; do not infer parentage.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2"
+      ]
+    },
+    {
+      "code": "SMR-10",
+      "status": "UNRESOLVED",
+      "topic": "taxonomic_circumscription_authority_conflict",
+      "finding": "POWO/WCVP separates S. macer at species rank, while ITIS, NatureServe and USFS include var. macer within S. compositus. This is a documented alternative circumscription, not a resolved global consensus. Preserve UNRESOLVED for cross-authority treatment despite resolving what POWO itself says.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2",
+        "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126",
+        "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.146173/Sporobolus_compositus",
+        "https://research.fs.usda.gov/feis/species-reviews/spocom"
+      ]
+    },
+    {
+      "code": "SMR-11",
+      "status": "UNRESOLVED",
+      "topic": "unvouchered_historical_records",
+      "finding": "Historical source records labelled only 'S. compositus' or 'S. asper' without variety, voucher or diagnostic evidence cannot be retroactively assigned to S. macer or the narrow S. compositus concept. The POWO accepted-name result does not solve specimen-level concept boundaries.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+        "https://research.fs.usda.gov/feis/species-reviews/spocom"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 6,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 2
+  },
+  "scientific_holds_preserved": true,
+  "canonical_files_modified": false,
+  "county_nativity_audit": "DEFERRED",
+  "photo_sourcing": false,
+  "species_card_enrichment": false,
+  "genus_family_lessons": false,
+  "installation": false,
+  "pages": false,
+  "source_detail": [
+    {
+      "authority": "Kew POWO/WCVP 2026",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:1189762-2",
+      "verified": "2026-10-28",
+      "evidence": "Accepted Sporobolus macer species, original 1915 combination, three homotypic synonyms including compositus var. macer."
+    },
+    {
+      "authority": "Kew POWO/WCVP 2026",
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:242959-2",
+      "verified": "2026-10-28",
+      "evidence": "Separate accepted Sporobolus compositus and synonym treatment of drummondii."
+    },
+    {
+      "authority": "ITIS",
+      "url": "https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=531126",
+      "verified": "2026-10-28",
+      "evidence": "Alternative accepted variety Sporobolus compositus var. macer."
+    },
+    {
+      "authority": "NatureServe",
+      "url": "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.146173/Sporobolus_compositus",
+      "verified": "2026-10-28",
+      "evidence": "Three-variety broader concept of Sporobolus compositus."
+    },
+    {
+      "authority": "USFS FEIS",
+      "url": "https://research.fs.usda.gov/feis/species-reviews/spocom",
+      "verified": "2026-10-28",
+      "evidence": "Three-variety treatment; not a direct genetic/voucher verification."
+    }
+  ],
+  "coordination_note": "Narrow evidence-only record. No new learner card, no canonical edits, no photo or source attribution relabelling, no scientific HOLD bypass."
+}
