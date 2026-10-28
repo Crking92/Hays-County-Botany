@@ -1,0 +1,134 @@
+{
+  "schema": "grass-taxonomy-name-verification-v1",
+  "batch_id": "grass-chloris-welder-original-release-parentage-2026-10-28-0420-001",
+  "reviewed_at": "2026-10-28",
+  "lane": "taxonomy-name-fast-pass",
+  "scope": "Existing Poaceae learner only: primary USDA original release notice versus 2020 brochure and Kew hybrid parentage concepts",
+  "canonical_target": {
+    "id": "chloris-x-subdolichostachya",
+    "path": "content/taxa/Poaceae/Chloris/chloris-x-subdolichostachya/species.json",
+    "sha_checked": "d42fd8eac608e59bb9b02ec1c23f87a6b2b190c5"
+  },
+  "manifest_sha_checked": "36c95f3d83ada2e01331b9f32ae69cb8b09c44d9",
+  "claim_path": "workflow/taxonomy-claims/grass-chloris-welder-original-release-parentage-2026-10-28-0420-001.json",
+  "decisions": [
+    {
+      "code": "CWO-01",
+      "status": "PASS",
+      "topic": "accepted_name_rank",
+      "finding": "Kew POWO/WCVP accepts Chloris × subdolichostachya Müll.Hal. (1861) as a named hybrid, formula C. cucullata × C. verticillata. Retain the existing nothotaxon and the two distinct parental species.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1"
+      ]
+    },
+    {
+      "code": "CWO-02",
+      "status": "PASS",
+      "topic": "original_usda_notice_historical_concept",
+      "finding": "The original USDA-NRCS Welder Germplasm notice explicitly reports, citing Gould (1975), that plants assigned to shortspike windmillgrass may arise when C. cucullata hybridizes with either C. verticillata OR C. andropogonoides where ranges overlap. This is an original government release document recording a broader historical parentage concept, NOT direct genetic proof of either cross or of accession 9085260.",
+      "sources": [
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrn14581.pdf"
+      ]
+    },
+    {
+      "code": "CWO-03",
+      "status": "PASS",
+      "topic": "later_usda_brochure_narrower_formula",
+      "finding": "The USDA-NRCS brochure published September 2020 for the 2006 Welder Germplasm release describes the germplasm as C. cucullata × C. verticillata, accession 9085260 / PI 645601. The original notice and 2020 brochure are not identical in the breadth of parentage described.",
+      "sources": [
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf",
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrn14581.pdf"
+      ]
+    },
+    {
+      "code": "CWO-04",
+      "status": "PASS",
+      "topic": "synonym_and_backbone_boundary",
+      "finding": "POWO/WCVP retains C. × brevispica, C. × latisquamea, C. verticillata var. aristulata and C. verticillata var. intermedia as heterotypic synonyms of the accepted named hybrid. EPPO instead prefers C. latisquamea; record as authority disagreement, not an automatic second learner.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://gd.eppo.int/taxon/CHRLS"
+      ]
+    },
+    {
+      "code": "CWO-05",
+      "status": "FAIL",
+      "topic": "automatic_parent_or_alias_merge",
+      "finding": "Reject treating accepted C. andropogonoides as a synonym of the named hybrid, or assigning all historically broad shortspike windmillgrass records to the two-parent Kew concept without voucher/author context. FAIL applies to the proposed automatic mapping, not to any plant's identity.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrn14581.pdf"
+      ]
+    },
+    {
+      "code": "CWO-06",
+      "status": "HOLD",
+      "topic": "individual_hybrid_photo_identity",
+      "finding": "The learner's source-labelled iNaturalist candidate photograph remains unvouchered for a verified hybrid identity; historical parentage accounts, head silhouette and the Welder Germplasm release cannot authenticate that individual. Preserve existing photo/specimen HOLD.",
+      "sources": [
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrn14581.pdf"
+      ]
+    },
+    {
+      "code": "CWO-07",
+      "status": "HOLD",
+      "topic": "welder_accession_parentage_specificity",
+      "finding": "Neither the original notice nor the 2020 brochure establishes independently reviewed genotype-level parentage for the specific accession 9085260. Do not infer that the broad historical alternative parent formula was genetically tested or that it applies to this accession. This is an evidence-limit HOLD, not a claim that the accession is misidentified.",
+      "sources": [
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrn14581.pdf",
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf"
+      ]
+    },
+    {
+      "code": "CWO-08",
+      "status": "UNRESOLVED",
+      "topic": "historical_hybrid_complex_vs_current_nothotaxon",
+      "finding": "The broader Gould-attributed historical concept in the original USDA notice includes C. andropogonoides as an alternative parent, whereas POWO and the September 2020 brochure use the narrower C. cucullata × C. verticillata formula. Whether all historical vouchers fall within one circumscription cannot be resolved from these sources. Preserve the existing concept-conflict UNRESOLVED; do not rename, merge, or infer individual parentage.",
+      "sources": [
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrn14581.pdf",
+        "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+        "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf"
+      ]
+    }
+  ],
+  "decision_counts": {
+    "PASS": 4,
+    "FAIL": 1,
+    "HOLD": 2,
+    "UNRESOLVED": 1
+  },
+  "source_detail": [
+    {
+      "url": "https://www.nrcs.usda.gov/plantmaterials/stpmcrn14581.pdf",
+      "authority": "USDA NRCS original Notice of Release, 11-page scanned primary government record",
+      "evidence_location": "PDF page 1, description, and page 2 for reproductive morphology; notice cites Gould (1975) for alternative parental crosses",
+      "limitations": "Notice's own signature/publication date not independently verified; do not claim a direct genetic test or read Gould 1975 as a separate source."
+    },
+    {
+      "url": "https://www.nrcs.usda.gov/plantmaterials/stpmcrb13715.pdf",
+      "authority": "USDA NRCS September 2020 release brochure",
+      "evidence_location": "PDF page 1 formula and page 2 publication citation and accession",
+      "limitations": "Simplified formula for Welder Germplasm, not independent genotyping."
+    },
+    {
+      "url": "https://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:396032-1",
+      "authority": "Kew POWO/WCVP 2026",
+      "evidence_location": "accepted hybrid and synonyms"
+    },
+    {
+      "url": "https://gd.eppo.int/taxon/CHRLS",
+      "authority": "EPPO Global Database",
+      "evidence_location": "alternative preferred name Chloris latisquamea"
+    }
+  ],
+  "scientific_holds_preserved": true,
+  "canonical_files_modified": false,
+  "county_nativity_audit": "DEFERRED",
+  "photo_sourcing": false,
+  "species_card_enrichment": false,
+  "genus_family_lessons": false,
+  "installation": false,
+  "pages": false,
+  "coordination_note": "Independent primary-document verification adds direct USDA evidence for already-UNRESOLVED historical hybrid breadth. No taxonomic identity HOLD was lifted; no duplicate learner authorized."
+}
