@@ -1,3 +1,5 @@
+> **October 28 multi-repo coordination:** Original site and source remain canonical; new family repositories are staging. See [operating rules](workflow/MULTI_REPO_OPERATING_RULES_20261028.md) and [cross-chat handoffs](workflow/ACTIVE_CHAT_HANDOFFS_20261028.md). All 11 ChatGPT automations were paused at the Oct 28 audit. No website-routing, publication, visibility or source-ownership cutover has been approved.
+
 # Hays Botany ID
 
 Public working repository for a Central Texas **visual botany learner + curation system**.
