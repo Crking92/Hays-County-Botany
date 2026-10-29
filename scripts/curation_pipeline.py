@@ -469,6 +469,20 @@ def main() -> int:
     parser.add_argument("--apply", action="store_true", help="install validated batches")
     args = parser.parse_args()
 
+    # 2026-10-28 owner-approved family-only writing rule. This historical
+    # installer still targets the original public website's content/taxa and
+    # data/manifest, so applying here would overwrite the read-only fallback.
+    # Never silently install, download, archive, or rebuild its plant library.
+    if args.apply:
+        from resolve_new_plant_write import load_and_validate
+        load_and_validate()  # Fail closed if the active registry is absent.
+        raise SystemExit(
+            "ROUTING_BLOCKED: old curation_pipeline.py --apply cannot write "
+            "Hays-County-Botany. Route prepared reviewed species packages "
+            "with scripts/family_repo_installer.py to their assigned family "
+            "repository and active branch. Legacy batches remain untouched."
+        )
+
     INBOX.mkdir(parents=True, exist_ok=True)
     ARCHIVE.mkdir(parents=True, exist_ok=True)
     REPORTS.mkdir(parents=True, exist_ok=True)
