@@ -189,12 +189,39 @@ def main():
                     else:
                         writes.append((src, target))
                 index = wd / "data" / "collection-index.json"
-                if not index.exists():
-                    fail(repo + ": collection index missing; no silent manifest fallback")
                 if repo in destinations.setdefault("indexes", {}):
                     catalog = destinations["indexes"][repo][1]
                 else:
-                    catalog = json.loads(index.read_text(encoding="utf-8"))
+                    if not index.exists() and repo == "Hays-Botany-Poaceae":
+                        # Poaceae was transferred before grouped collections
+                        # standardized data/collection-index.json. Derive its
+                        # first local, NOT LIVE index from its actual cards.
+                        existing = []
+                        for oldcard in sorted((wd / "content" / "taxa" / "Poaceae").glob("*/*/species.json")):
+                            card_data = json.loads(oldcard.read_text(encoding="utf-8"))
+                            fam2, gen2, sid2 = oldcard.parts[-4:-1]
+                            if fam2 != "Poaceae" or any(card_data.get(k) != v for k, v in
+                                (("id", sid2), ("family", fam2), ("genus", gen2))):
+                                fail("Poaceae source card identity mismatch: " + str(oldcard))
+                            existing.append({
+                                "id": sid2,
+                                "scientific_name": card_data.get("scientific_name") or
+                                    " ".join(x for x in (gen2, card_data.get("species")) if x),
+                                "common_name": card_data.get("common_name", ""),
+                                "family": fam2, "genus": gen2,
+                                "path": "content/taxa/" + "/".join((fam2, gen2, sid2, "species.json")),
+                                "photo_publication_status": "PUBLIC_RIGHTS_NOT_ASSESSED_BY_INDEX"
+                            })
+                        catalog = {
+                            "schema_version": 1, "collection_id": "poaceae",
+                            "authority": "STAGING_ONLY",
+                            "entries": existing,
+                            "note": "Index for future family edits only; no photo clearance or Pages release",
+                        }
+                    elif index.exists():
+                        catalog = json.loads(index.read_text(encoding="utf-8"))
+                    else:
+                        fail(repo + ": collection index missing; refuse silent legacy manifest fallback")
                     destinations["indexes"][repo] = (index, catalog)
                 entries = catalog.get("entries")
                 if not isinstance(entries, list) or catalog.get("authority") != "STAGING_ONLY":
@@ -203,8 +230,6 @@ def main():
                     # Existing card update must be reviewed by an editor, not blindly replaced.
                     pass
                 else:
-                    if repo == "Hays-Botany-Poaceae":
-                        fail("Poaceae index format requires manual branch-specific update; no automatic append")
                     entries.append({
                         "id": sid, "scientific_name": sp.get("scientific_name") or
                         " ".join(x for x in (gen, sp.get("species")) if x),
@@ -238,6 +263,7 @@ def main():
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)
             for index, catalog in destinations.get("indexes", {}).values():
+                index.parent.mkdir(parents=True, exist_ok=True)
                 index.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             report["files_added"] = len(writes)
             report["note"] = "Changes are local and uncommitted; review and validate each family branch before manually committing."
