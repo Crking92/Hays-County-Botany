@@ -1,3 +1,5 @@
+> **OCTOBER 28, 2026 — MULTI-REPOSITORY OPERATING OVERRIDE:** Read [current operating rules](MULTI_REPO_OPERATING_RULES_20261028.md) and [cross-chat handoffs](ACTIVE_CHAT_HANDOFFS_20261028.md) before any staging, family transfer, public release, or overlapping species work. The original `Hays-County-Botany` remains the canonical scientific source and public fallback until a separately approved family cutover. **All 11 ChatGPT automations are currently paused** according to the Oct 28 audit. Older statements below saying five workers are active, `KEEP ENABLED`, or unchanged schedules describe historical intent and must NOT be used to resume them. Retain photo rights, safety gates, real verified arrows, scientific identity, rollback, and non-destructive GitHub coordination. No Pages activation, repo visibility change, production routing or new canonical ownership is authorized.
+
 # Hays Botany Work Coordination
 
 ## 2026-10-20 FAST MANUAL CARD-FINISHING ENTRYPOINT (latest focused scope)
