@@ -4,6 +4,10 @@ on:
     branches: [main]
     paths:
       - 'scripts/resolve_new_plant_write.py'
+      - 'scripts/family_repo_installer.py'
+      - 'scripts/import_taxa_zip.py'
+      - 'scripts/curation_pipeline.py'
+      - 'scripts/test_family_repo_installer.py'
       - 'workflow/ACTIVE_NEW_PLANT_WRITE_ROUTING_20261028.json'
       - '.github/workflows/validate-new-plant-write-routing.yml'
   workflow_dispatch:
@@ -20,7 +24,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pycache" python3 -m py_compile scripts/resolve_new_plant_write.py
+          PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pycache" python3 -m py_compile scripts/resolve_new_plant_write.py scripts/family_repo_installer.py scripts/import_taxa_zip.py scripts/curation_pipeline.py scripts/glass_root_inat_install_approved.py scripts/glass_root_inat_install_one_plant_001.py
+          PYTHONDONTWRITEBYTECODE=1 python3 scripts/test_family_repo_installer.py
           python3 scripts/resolve_new_plant_write.py --audit
           python3 scripts/resolve_new_plant_write.py Poaceae Schizachyrium schizachyrium-scoparium | grep -q 'Hays-Botany-Poaceae'
           python3 scripts/resolve_new_plant_write.py Fabaceae Senegalia senegalia-greggii | grep -q 'staging/fabaceae-metadata'
