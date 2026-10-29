@@ -1,0 +1,34 @@
+name: Validate assigned new-plant destinations (read only, NEVER deploy)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/resolve_new_plant_write.py'
+      - 'workflow/ACTIVE_NEW_PLANT_WRITE_ROUTING_20261028.json'
+      - '.github/workflows/validate-new-plant-write-routing.yml'
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify full 146-family route and original-site write freeze
+        shell: bash
+        run: |
+          set -euo pipefail
+          PYTHONPYCACHEPREFIX="$RUNNER_TEMP/pycache" python3 -m py_compile scripts/resolve_new_plant_write.py
+          python3 scripts/resolve_new_plant_write.py --audit
+          python3 scripts/resolve_new_plant_write.py Poaceae Schizachyrium schizachyrium-scoparium | grep -q 'Hays-Botany-Poaceae'
+          python3 scripts/resolve_new_plant_write.py Fabaceae Senegalia senegalia-greggii | grep -q 'staging/fabaceae-metadata'
+          python3 scripts/resolve_new_plant_write.py Asteraceae Achillea achillea-millefolium | grep -q 'staging/asteraceae-metadata'
+          python3 scripts/resolve_new_plant_write.py Lamiaceae Salvia salvia-coccinea | grep -q 'Hays-Botany-Lamiales'
+          python3 scripts/resolve_new_plant_write.py Euphorbiaceae Euphorbia euphorbia-marginata | grep -q 'Hays-Botany-Spurges-Mallows'
+          if python3 scripts/resolve_new_plant_write.py Imaginaryaceae > /dev/null 2>&1; then
+            echo 'ERROR: unknown family incorrectly fell back' >&2
+            exit 1
+          fi
+          echo 'PASS: new botanical edits are assigned to family repos; original hub has no default fallback'
