@@ -165,7 +165,7 @@ def main():
             fail("expected a valid ZIP or extracted directory")
         plan, lessons = gather(check_package_folder(root), reg)
         destinations = {}
-        if args.destination_root:
+        if args.apply:
             dr = args.destination_root.expanduser().resolve()
             if dr.name == SOURCE_REPO:
                 fail("the legacy original repository cannot be a destination root")
