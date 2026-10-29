@@ -4,7 +4,9 @@
 
 ## Multi-repo migration lanes
 
-**Migration-first rule:** preserve existing content before any new species/photo additions; check a particular family when the user resumes it. See [existing-asset transfer checkpoint](MIGRATION_FIRST_EXISTING_ASSETS_HANDOFF_20261028.md).\n\n**Refresh October 28 evening:** Later, hash-verified PRIVATE source-file migration results now supersede earlier photo-copy totals below. Source preservation is NOT equivalent to photo licensing, a deployable family learner, published GitHub Pages, or a canonical source handoff.
+**Migration-first rule:** preserve existing content before any new species/photo additions; check a particular family when the user resumes it. See [existing-asset transfer checkpoint](MIGRATION_FIRST_EXISTING_ASSETS_HANDOFF_20261028.md).
+
+**Refresh October 28 evening:** Later, hash-verified PRIVATE source-file migration results now supersede earlier photo-copy totals below. Source preservation is NOT equivalent to photo licensing, a deployable family learner, published GitHub Pages, or a canonical source handoff.
 
 | Lane | Latest documented condition | Next work / rule |
 | --- | --- | --- |
