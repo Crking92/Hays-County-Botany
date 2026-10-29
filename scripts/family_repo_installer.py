@@ -122,9 +122,25 @@ def gather(taxa: Path, registry: dict):
         branch = registry["repository_write_branches"][repo]
         files = [(p, p.relative_to(taxa)) for p in sorted(card.parent.iterdir()) if p.is_file()]
         planned.append((repo, branch, family, genus, sid, sp, files))
-    if not planned:
-        fail("no correctly nested species.json packages found")
-    return planned
+    lessons = []
+    lesson_paths = sorted(taxa.glob("*/family.json")) + sorted(taxa.glob("*/*/genus.json"))
+    for lesson in lesson_paths:
+        if lesson.is_symlink():
+            fail("symlink lesson: " + str(lesson))
+        parts = lesson.relative_to(taxa).parts
+        family = parts[0]
+        if family not in allowed_families:
+            fail("unknown lesson family " + family + "; NO legacy hub fallback")
+        if len(parts) == 3 and not GENUS.fullmatch(parts[1]):
+            fail("invalid lesson genus: " + str(lesson))
+        data = json.loads(lesson.read_text(encoding="utf-8-sig"))
+        if not isinstance(data, dict):
+            fail("lesson must be a JSON object: " + str(lesson))
+        repo = allowed_families[family]
+        lessons.append((repo, registry["repository_write_branches"][repo], lesson, lesson.relative_to(taxa)))
+    if not planned and not lessons:
+        fail("no correctly nested species cards or genus/family lesson files found")
+    return planned, lessons
 
 
 def main():
@@ -147,13 +163,16 @@ def main():
             root = package
         else:
             fail("expected a valid ZIP or extracted directory")
-        plan = gather(check_package_folder(root), reg)
+        plan, lessons = gather(check_package_folder(root), reg)
         destinations = {}
         if args.destination_root:
             dr = args.destination_root.expanduser().resolve()
             if dr.name == SOURCE_REPO:
                 fail("the legacy original repository cannot be a destination root")
-            for repo, branch, *_ in plan:
+            for repo, branch in (
+                [(item[0], item[1]) for item in plan] +
+                [(item[0], item[1]) for item in lessons]
+            ):
                 if repo not in destinations:
                     destinations[repo] = ensure_worktree(dr, repo, branch)
         # Complete preflight: refuse non-identical existing cards, including the
@@ -192,6 +211,14 @@ def main():
                     })
                     # Index writes are prepared separately after complete preflight.
                     destinations.setdefault("indexes", {})[repo] = (index, catalog)
+        if args.apply:
+            for repo, branch, source, rel in lessons:
+                target = destinations[repo] / "content" / "taxa" / rel
+                if target.exists():
+                    if target.read_bytes() != source.read_bytes():
+                        fail(f"{repo}: existing genus/family lesson differs; merge manually: {target}")
+                else:
+                    writes.append((source, target))
         report = {
             "mode": "APPLY" if args.apply else "PLAN_ONLY",
             "legacy_hub_botanical_writes": False,
@@ -199,6 +226,8 @@ def main():
             "photo_downloads": 0,
             "items": [{"id": sid, "family": fam, "repository": "Crking92/" + repo,
                        "branch": branch} for repo, branch, fam, gen, sid, *_ in plan],
+            "lessons": [{"file": str(rel), "repository": "Crking92/" + repo,
+                         "branch": branch} for repo, branch, _src, rel in lessons],
         }
         if args.apply:
             for source, target in writes:
