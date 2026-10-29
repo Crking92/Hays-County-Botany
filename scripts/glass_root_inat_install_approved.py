@@ -97,6 +97,17 @@ def make_csv(existing, records):
     return buff.getvalue()
 
 def main():
+    # Retired direct-to-original-hub photo installer. Photos now belong only
+    # in the approved destination family repo, under exact per-image rights.
+    # Block before any iNaturalist/network calls or source-file mutation.
+    from resolve_new_plant_write import load_and_validate
+    load_and_validate()
+    raise SystemExit(
+        "ROUTING_BLOCKED: legacy Glass Root photo installer targets the old "
+        "read-only learner. Route only manually reviewed images, with their "
+        "source/creator/license, into the active family repository branch. "
+        "No photos downloaded or imported."
+    )
     batch=json.loads(BATCH.read_text(encoding="utf-8"))
     manifest=json.loads((ROOT/"data/manifest.json").read_text(encoding="utf-8"))
     canonical={s["id"]:s["path"] for s in manifest["species"]}
