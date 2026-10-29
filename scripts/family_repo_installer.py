@@ -191,7 +191,11 @@ def main():
                 index = wd / "data" / "collection-index.json"
                 if not index.exists():
                     fail(repo + ": collection index missing; no silent manifest fallback")
-                catalog = json.loads(index.read_text(encoding="utf-8"))
+                if repo in destinations.setdefault("indexes", {}):
+                    catalog = destinations["indexes"][repo][1]
+                else:
+                    catalog = json.loads(index.read_text(encoding="utf-8"))
+                    destinations["indexes"][repo] = (index, catalog)
                 entries = catalog.get("entries")
                 if not isinstance(entries, list) or catalog.get("authority") != "STAGING_ONLY":
                     fail(repo + ": unexpected collection index authority/schema")
@@ -209,8 +213,8 @@ def main():
                         "path": f"content/taxa/{fam}/{gen}/{sid}/species.json",
                         "photo_publication_status": "PRIVATE_ONLY_HOLD"
                     })
-                    # Index writes are prepared separately after complete preflight.
-                    destinations.setdefault("indexes", {})[repo] = (index, catalog)
+                    # All rows for this repository share the same cached catalog;
+                    # multiple new species cannot replace one another's additions.
         if args.apply:
             for repo, branch, source, rel in lessons:
                 target = destinations[repo] / "content" / "taxa" / rel
