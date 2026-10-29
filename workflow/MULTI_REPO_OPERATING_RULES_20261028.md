@@ -2,7 +2,7 @@
 
 **Status: ACTIVE coordination instructions for staging and manual curation. NOT authorization to enable Pages, publish a family website, change the live hub, transfer canonical ownership, unpause automations, change repository visibility, or copy restricted photos.**
 
-This document supplements [PROJECT_RULES.md](../PROJECT_RULES.md), [workflow/COORDINATION.md](COORDINATION.md), [workflow/ACTIVE_CARD_MODE_20261020.md](ACTIVE_CARD_MODE_20261020.md), and the [photo reuse policy](PUBLIC_PHOTO_REUSE_POLICY_20261019.md). It overrides older *single-repository workflow assumptions* only where they conflict with the staged multi-repo layout; all scientific, rights, arrow, review and safety protections remain in force.
+**Current user priority — EXISTING ASSETS FIRST:** First preserve all original source/data/photo bytes, then defer additional photo harvesting, species expansion, anatomy polish and per-family publication QA until the user selects that family for renewed work. See [migration-first existing asset handoff](MIGRATION_FIRST_EXISTING_ASSETS_HANDOFF_20261028.md). Keep all photo-rights, private archival and one-writer protections; unknown-rights photos may be privately archived but MUST NOT be copied into a public repo without clearance.\n\nThis document supplements [PROJECT_RULES.md](../PROJECT_RULES.md), [workflow/COORDINATION.md](COORDINATION.md), [workflow/ACTIVE_CARD_MODE_20261020.md](ACTIVE_CARD_MODE_20261020.md), and the [photo reuse policy](PUBLIC_PHOTO_REUSE_POLICY_20261019.md). It overrides older *single-repository workflow assumptions* only where they conflict with the staged multi-repo layout; all scientific, rights, arrow, review and safety protections remain in force.
 
 ## Repository topology and authorities
 
