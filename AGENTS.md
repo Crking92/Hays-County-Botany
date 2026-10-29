@@ -1,3 +1,5 @@
+> **OCTOBER 28 (LATER USER DIRECTION) — FUTURE PLANT WRITES ROUTE TO FAMILY REPOS.** All NEW/UPDATED species data, photographs, anatomy arrows, genus/family lessons and local taxon index changes now belong in their assigned `Crking92/Hays-Botany-*` destination branch, **NOT** `Hays-County-Botany/content/taxa/**` or its legacy `data/manifest.json`. The old hub remains the unchanged read-only plant baseline and public website fallback, not the botanical editor for future work. This overrides earlier "original hub single canonical botanical editor" wording for prospective edits **only**; it is NOT a family Pages release, reverse-sync or website cutover. Use [active write route](workflow/ACTIVE_NEW_PLANT_WRITE_ROUTING_20261028.json) and [cross-chat instructions](workflow/NEW_PLANT_WRITES_FAMILY_REPOS_ONLY_20261028.md). All paused legacy installer/photo automations remain paused until their write destinations are repaired.
+
 # Repository instructions — Hays-County-Botany (2026-10-28)
 
 **Scope:** CURRENT canonical scientific source and working public learner; also holds shared botany coordination, claims, family assignments and publishing safeguards.
