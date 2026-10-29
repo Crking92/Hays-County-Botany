@@ -178,6 +178,7 @@ def main():
         # Complete preflight: refuse non-identical existing cards, including the
         # derived collection indexes, rather than overwriting another chat's work.
         writes = []
+        dirty_indexes = set()
         for repo, branch, fam, gen, sid, sp, files in plan:
             if args.apply:
                 wd = destinations[repo]
@@ -238,8 +239,9 @@ def main():
                         "path": f"content/taxa/{fam}/{gen}/{sid}/species.json",
                         "photo_publication_status": "PRIVATE_ONLY_HOLD"
                     })
-                    # All rows for this repository share the same cached catalog;
-                    # multiple new species cannot replace one another's additions.
+                    dirty_indexes.add(repo)
+                    # All rows for this repository share one cached catalog.
+                    # Never reserialize existing indexes unless new IDs were added.
         if args.apply:
             for repo, branch, source, rel in lessons:
                 target = destinations[repo] / "content" / "taxa" / rel
@@ -262,9 +264,10 @@ def main():
             for source, target in writes:
                 target.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copy2(source, target)
-            for index, catalog in destinations.get("indexes", {}).values():
-                index.parent.mkdir(parents=True, exist_ok=True)
-                index.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            for repo, (index, catalog) in destinations.get("indexes", {}).items():
+                if repo in dirty_indexes:
+                    index.parent.mkdir(parents=True, exist_ok=True)
+                    index.write_text(json.dumps(catalog, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
             report["files_added"] = len(writes)
             report["note"] = "Changes are local and uncommitted; review and validate each family branch before manually committing."
         print(json.dumps(report, indent=2, ensure_ascii=False))
