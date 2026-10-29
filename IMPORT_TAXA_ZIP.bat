@@ -2,41 +2,37 @@
 setlocal
 cd /d "%~dp0"
 
+rem Family-first importer: old Hays-County-Botany plant files are read-only.
+rem The new importer plans safe writes to your local cloned Hays-Botany-* repos.
+rem It does NOT import new photos, publish, commit or push.
 set "ZIP=%~1"
 if "%ZIP%"=="" set "ZIP=%CD%\taxa.zip"
-
 if not exist "%ZIP%" (
   echo.
-  echo Could not find taxa.zip.
-  echo.
-  echo EITHER:
-  echo   1. Copy taxa.zip into this Hays-County-Botany folder and run this file again
-  echo OR
-  echo   2. Drag taxa.zip directly onto IMPORT_TAXA_ZIP.bat
+  echo No ZIP found. Drag a curated taxa ZIP onto this file or put taxa.zip here.
   echo.
   pause
   exit /b 1
 )
 
 echo.
-echo Hays Botany historical taxa/photo backfill
-echo ZIP: %ZIP%
+echo NEW HAYS BOTANY FAMILY WRITE SYSTEM
+echo -----------------------------------
+echo Input: %ZIP%
+echo This is a READ-ONLY ROUTING PLAN. It will not change the old site.
+echo Assigned family repositories must be cloned as siblings of this folder,
+echo and each must be checked out on its assigned active write branch.
+echo No automatic photo downloads or commits.
 echo.
-echo This preserves newer canonical non-Asteraceae botany data,
-echo imports the Asteraceae backlog, backfills photos, skips obsolete
-echo Conoclinium greggii, rebuilds the manifest, commits, and pushes to GitHub.
-echo.
-pause
-
-py scripts\import_taxa_zip.py "%ZIP%" --apply --commit-push
+py scripts\family_repo_installer.py "%ZIP%" --destination-root "%~dp0.."
 if errorlevel 1 (
   echo.
-  echo Import failed. Nothing else will be run.
+  echo PLAN BLOCKED: Check the exact error and the family branch before continuing.
   pause
   exit /b 1
 )
-
 echo.
-echo DONE. Run git pull later only if another machine/chat has added newer GitHub work.
-echo Refresh http://localhost:8000 to see the imported taxa.
+echo PLAN COMPLETE; NO FILES CHANGED. After reviewing results, manually run:
+echo py scripts\family_repo_installer.py "YOUR-ZIP-PATH" --destination-root ".." --apply
+echo Then run the destination family validation script and review commits manually.
 pause
